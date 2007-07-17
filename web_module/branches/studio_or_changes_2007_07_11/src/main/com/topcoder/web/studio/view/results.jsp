@@ -61,11 +61,8 @@
             <td class="header">
                 Handle
             </td>
-            <td class="headerR">
-                Score
-            </td>
-            <td class="headerR">
-                Prize
+            <td class="headerC">
+                Submission ID
             </td>
             <td class="headerC">
                 Registered
@@ -73,8 +70,11 @@
             <td class="headerC">
                 Submitted
             </td>
-            <td class="headerC">
-                Submission ID
+            <td class="headerR">
+                Prize
+            </td>
+            <td class="headerR">
+                Score
             </td>
             <td class="headerC">
                 Submission
@@ -100,11 +100,8 @@
                 <td class="value">
                     <studio:handle coderId="<%=resultRow.getLongItem("submitter_id")%>"/>
                 </td>
-                <td class="valueR">
-                    <a href="">99.99</a>
-                </td>
-                <td class="valueR">
-                    <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
+                <td class="valueC">
+                    <rsc:item name="submission_id" row="<%=resultRow%>"/>
                 </td>
                 <td class="valueC">
                     <rsc:item name="reg_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
@@ -112,8 +109,11 @@
                 <td class="valueC">
                     <rsc:item name="submit_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                 </td>
-                <td class="valueC">
-                    <rsc:item name="submission_id" row="<%=resultRow%>"/>
+                <td class="valueR">
+                    <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
+                </td>
+                <td class="valueR">
+                    <a href="">99.99</a>
                 </td>
                 <td class="valueC">
                     <c:choose>
@@ -154,22 +154,22 @@
                 <td class="value">
                     <studio:handle coderId="22076237"/>
                 </td>
-                <td class="valueR">
-                    <a href="">99.99</a>
+                <td class="valueC">
+                    1234
+                </td>
+                <td class="valueC">
+                    <strong>04.03.2007</strong>
+                    <br />13:41 EDT
+                </td>
+                <td class="valueC">
+                    <strong>04.03.2007</strong>
+                    <br />13:41 EDT
                 </td>
                 <td class="valueR">
                     $100.00
                 </td>
-                <td class="valueC">
-                    <strong>04.03.2007</strong>
-                    <br />13:41 EDT
-                </td>
-                <td class="valueC">
-                    <strong>04.03.2007</strong>
-                    <br />13:41 EDT
-                </td>
-                <td class="valueC">
-                    1234
+                <td class="valueR">
+                    <a href="">99.99</a>
                 </td>
                 <td class="valueC">
                     same as other submissions
