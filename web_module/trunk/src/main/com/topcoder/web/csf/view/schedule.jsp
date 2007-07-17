@@ -125,6 +125,15 @@
                                 <br />- <strong>Winner Announced:</strong> May 16, 2007
                             <br /><br /><a href="/?module=Static&d1=assembly&d2=btBusinessDetails">details</a>
                         </div>
+                        <div style="margin:10px;">
+                            <h3>Microsoft Session Manifest Tool</h3>
+                                - <strong>Submission Start Date:</strong> May 22, 2007
+                                <br />- <strong>Submission End Date:</strong> June 8, 2007
+                                <br />- <strong>Review Start Date:</strong> June 8, 2007
+                                <br />- <strong>Review End Date:</strong> June 18, 2007
+                                <br />- <strong>Winner Announced:</strong> July 16, 2007
+                            <br /><br /><a href="/?module=Static&d1=assembly&d2=msSessionManifestDetails ">details</a>
+                        </div>
                     </td>
                 </tr>
             </tbody>
