@@ -32,7 +32,7 @@
                 <tbody> 
                     <tr> 
                         <td class="header">Registration</td> 
-                        <td class="header">OPENS: Monday, July 23, 2007 at 9:00 AM EDT<br />CLOSES: Thursday, August, 30, 2007 at 9:00 AM EDT</td> 
+                        <td class="header">OPENS: Monday, July 23, 2007 at 9:00 AM EDT<br />CLOSES: Thursday, August, 23, 2007 at 9:00 AM EDT</td> 
                     </tr>
                 </tbody>
             </table>
