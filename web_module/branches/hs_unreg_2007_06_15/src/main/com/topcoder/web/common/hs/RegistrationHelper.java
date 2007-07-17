@@ -1,15 +1,12 @@
 package com.topcoder.web.common.hs;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.ejb.CreateException;
 import javax.naming.Context;
 
-import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
@@ -20,11 +17,10 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.LongHibernateProcessor;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.Response;
@@ -127,7 +123,7 @@ public class RegistrationHelper {
 
         String ageStr = responsesMap.get(AGE).getText();
         String ageEndSeasonStr = responsesMap.get(AGE_END_SEASON).getText();
-        String attendingStr = responsesMap.get(IN_HIGH_SCHOOL) == null? null : responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getText();
+        String attendingStr = responsesMap.get(IN_HIGH_SCHOOL).getAnswer() == null? null : responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getText();
         
         // check that the user has filled the fields
         ValidationResult result = new AgeValidator().validate(new StringInput(ageStr));
