@@ -135,11 +135,11 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         getRequest().setAttribute(Constants.EVENT_TYPE, getRequest().getParameter(Constants.EVENT_TYPE));
         if (hasErrors()) {
             setNextPage("/tournaments/tccc07/terms.jsp");
+            setIsNextPageInContext(true);
         } else {
             setNextPage("/tc?module=TCCC07ViewRegistration&et=" + getRequest().getParameter(Constants.EVENT_TYPE));
             setIsNextPageInContext(false);
 //            setNextPage("/tournaments/tccc07/termsSuccess.jsp");
         }
-        setIsNextPageInContext(true);
     }
 }
