@@ -10,6 +10,7 @@ import com.topcoder.web.common.model.Base;
 public class PrizeType extends Base {
 
     public static final Integer CONTEST = 1;
+    public static final Integer BONUS = 2;
 
     private Integer id;
     private String description;
