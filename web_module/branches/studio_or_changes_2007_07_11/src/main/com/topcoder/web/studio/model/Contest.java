@@ -72,7 +72,15 @@ public class Contest extends Base {
         this.config = config;
     }
 
-    public SortedSet<Prize> getPrizes() {
+    /**
+     * We'll be returning the answers in the correct order.  Really
+     * this should be returning a <code>SortedSet</code> but I couldn't
+     * get hibernate to work right.
+     *
+     * @return the prizes
+     */
+
+    public Set<Prize> getPrizes() {
         return prizes;
     }
 
