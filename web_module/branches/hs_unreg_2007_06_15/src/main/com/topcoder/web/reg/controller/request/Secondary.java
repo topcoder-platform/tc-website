@@ -61,13 +61,14 @@ public class Secondary extends Base {
                         if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && 
                                 !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID)) {
                                                        
+                            getRequest().getSession().setAttribute(Constants.HS_RESPONSES, rh.getResponsesMap());
+
                             if (!rh.isEligibleHS()) {
                                 log.info("user " + u.getId()+  " is not eligible. ");
                                 
                                 if (u.isNew()) {
                                     // setup in session so that the user is inactivated for hs when submitting.
                                     getRequest().getSession().setAttribute(Constants.INACTIVATE_HS, Boolean.TRUE);
-                                    getRequest().getSession().setAttribute(Constants.HS_RESPONSES, rh.getResponsesMap());
                                 } else {
                                     rh.inactivateUser(u);
                                     markForCommit();
