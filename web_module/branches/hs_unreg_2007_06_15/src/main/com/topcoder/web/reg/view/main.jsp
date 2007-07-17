@@ -412,69 +412,8 @@
 </c:if>
 
 
-
-<c:set value="<%=Constants.AGE%>" var="age"/>
-<c:if test="${cf:contains(fields, age)}">
-    <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.AGE%>"><%=err%><br>
-        </tc-webtag:errorIterator></span>
-        </td>
-    </tr>
-    <tr>
-        <td class="name">
-            <c:if test="${cf:contains(reqFields, age)}">*</c:if> How old are you?
-        </td>
-        <td class="value">
-            <tc-webtag:textInput name="<%=Constants.AGE%>" size="3" maxlength="3" editable="true"/>
-        </td>
-    </tr>
-</c:if>
-
-
-<c:set value="<%=Constants.AGE_END_SEASON%>" var="ageEndSeason"/>
-<c:if test="${cf:contains(fields, ageEndSeason)}">
-    <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.AGE_END_SEASON%>"><%=err%><br>
-        </tc-webtag:errorIterator></span>
-        </td>
-    </tr>
-    <tr>
-        <td class="name">
-            <c:if test="${cf:contains(reqFields, ageEndSeason)}">*</c:if> How old will you be on <fmt:formatDate value="${season.endDate}" pattern="MMMMM d, yyyy"/>?
-        </td>
-        <td class="value">
-            <tc-webtag:textInput name="<%=Constants.AGE_END_SEASON%>" size="3" maxlength="3" editable="true"/>
-        </td>
-    </tr>
-</c:if>
-
-
-<c:set value="<%=Constants.ATTENDING_HS%>" var="attendingHs"/>
-<c:if test="${cf:contains(fields, attendingHs)}">
-    <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.ATTENDING_HS%>"><%=err%><br>
-        </tc-webtag:errorIterator></span>
-        </td>
-    </tr>
-    <tr>
-        <td class="name">
-            <c:if test="${cf:contains(reqFields, attendingHs)}">*</c:if>
-            Are you currently pursuing or will you be pursuing your secondary school (non-University) education between 
-                 <fmt:formatDate value="${season.startDate}" pattern="MMMMM d, yyyy"/>
-             and <fmt:formatDate value="${season.endDate}" pattern="MMMMM d, yyyy"/>?
-        </td>
-        <td class="value">
-            <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="yes"/> Yes
-            <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="no"/> No
-            
-        </td>
-    </tr>
-</c:if>
-
-<c:if test="${cf:contains(fields, attendingHs)}">
+<c:set value="<%=Constants.HS_REG_QUESTIONS%>" var="hsRegQuestions"/>
+<c:if test="${cf:contains(fields, hsRegQuestions)}">
 	  <c:set var="ansPrefix" value="<%=AnswerInput.PREFIX%>" />
 	  <c:set var="kwdAge" value="<%=com.topcoder.web.tc.controller.request.hs.RegistrationBase.AGE%>" />
 	  <c:set var="kwdAgeEndSeason" value="<%=com.topcoder.web.tc.controller.request.hs.RegistrationBase.AGE_END_SEASON%>" />

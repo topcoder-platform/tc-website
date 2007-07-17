@@ -40,6 +40,7 @@ public class Constants implements WebConstants {
     public static final String AGE = "age";
     public static final String AGE_END_SEASON = "agees";
     public static final String ATTENDING_HS = "aths";
+    public static final String HS_REG_QUESTIONS = "hsrq";
 
     public static final String SCHOOL_CITY = "schc";
     public static final String SCHOOL_STATE = "schs";
