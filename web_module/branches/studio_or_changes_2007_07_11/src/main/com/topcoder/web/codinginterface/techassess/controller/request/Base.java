@@ -19,7 +19,11 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
 import com.topcoder.web.codinginterface.techassess.Constants;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.ImageInfo;
 
 import javax.servlet.http.HttpSession;
@@ -27,7 +31,13 @@ import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author dok
@@ -162,7 +172,7 @@ public abstract class Base extends BaseProcessor {
      * @param sessionId
      */
     public final void setSessionId(long sessionId) {
-        log.debug("session id set to " + sessionId);
+        //log.debug("session id set to " + sessionId);
         if (getRequest().getSession().getAttribute("logouter") == null) {
             getRequest().getSession().setAttribute("logouter", new Logouter(sessionId, sender));
         }
