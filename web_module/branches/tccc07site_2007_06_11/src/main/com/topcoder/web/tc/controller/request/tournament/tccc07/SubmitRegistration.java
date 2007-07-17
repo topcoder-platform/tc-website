@@ -136,7 +136,9 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         if (hasErrors()) {
             setNextPage("/tournaments/tccc07/terms.jsp");
         } else {
-            setNextPage("/tournaments/tccc07/termsSuccess.jsp");
+            setNextPage("/tc?module=TCCC07ViewRegistration&et=" + getRequest().getParameter(Constants.EVENT_TYPE));
+            setIsNextPageInContext(false);
+//            setNextPage("/tournaments/tccc07/termsSuccess.jsp");
         }
         setIsNextPageInContext(true);
     }
