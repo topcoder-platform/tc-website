@@ -168,9 +168,11 @@ public abstract class SelectTag extends BaseTag {
             if (selectedValue == null) {
                 selectedValue = defaultValue == null ? null : defaultValue.toString();
             }
+/*
             if (log.isDebugEnabled()) {
                 log.debug("selected value: " + selectedValue);
             }
+*/
             Iterator it = options.iterator();
             for (; it.hasNext();) {
                 Object option = it.next();
