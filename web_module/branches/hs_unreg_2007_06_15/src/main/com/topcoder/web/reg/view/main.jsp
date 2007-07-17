@@ -432,7 +432,7 @@
 		        <td class="value">
 		        	<c:choose>
 		        		<c:when test="${question.keyword == kwdAge || question.keyword == kwdAgeEndSeason }">
-			        		<input type="text" size="3" maxlength="3" name="${fieldName}" id ="answerInput" value='${defaults[fieldName]}' />
+			        		<tc-webtag:textInput size="3" maxlength="3" name="${fieldName}" id="answerInput"  editable="true"/>
 		        		</c:when>
 		        		<c:otherwise>		        
 		                  <tc:answerInput id="answerInput" question="${question}">

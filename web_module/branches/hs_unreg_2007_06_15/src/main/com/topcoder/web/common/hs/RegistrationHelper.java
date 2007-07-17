@@ -21,10 +21,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.UserDAO;
-import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.model.EventRegistration;
+import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.User;
@@ -91,6 +88,12 @@ public class RegistrationHelper {
         for(Response r : responses) {
             responsesMap.put(r.getQuestion().getKeyword(), r);
         }
+        for(Question q : new ArrayList<Question>(season.getEvent().getSurvey().getQuestions())) {
+            if (!responsesMap.containsKey(q.getKeyword())) {
+                responsesMap.put(q.getKeyword(), null);
+            }
+            
+        }
 
         String ageStr = responsesMap.get(AGE).getText();
         String ageEndSeasonStr = responsesMap.get(AGE_END_SEASON).getText();
@@ -132,7 +135,7 @@ public class RegistrationHelper {
         
         result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(AGE).getQuestion().getId(), responsesMap.get(AGE).getText()});
         result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(AGE_END_SEASON).getQuestion().getId(), responsesMap.get(AGE_END_SEASON).getText()});
-        result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(IN_HIGH_SCHOOL).getQuestion().getId(), responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getText()});
+        result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(IN_HIGH_SCHOOL).getQuestion().getId(), responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getId() + ""});
 
         return result;        
     }
