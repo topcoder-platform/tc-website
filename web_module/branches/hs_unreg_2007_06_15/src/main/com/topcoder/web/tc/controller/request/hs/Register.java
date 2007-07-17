@@ -92,7 +92,6 @@ public class Register extends RegistrationBase {
 */
         
         if (hasErrors()) {
-            getRequest().setAttribute("confirmRegistration", false);        
             getRequest().setAttribute("eligible", true);
             getRequest().setAttribute("alreadyRegistered", false);
             getRequest().setAttribute("registeredHs", true);
@@ -162,7 +161,7 @@ public class Register extends RegistrationBase {
 
         setNextPage(nextPage);
 
-        setIsNextPageInContext(true);
+        setIsNextPageInContext(false);
     } 
 
 /*
