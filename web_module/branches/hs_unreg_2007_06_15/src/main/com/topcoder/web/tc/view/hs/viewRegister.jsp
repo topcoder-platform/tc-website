@@ -3,7 +3,7 @@
 				 com.topcoder.web.common.model.Season,
                  com.topcoder.web.common.model.Question,
                  com.topcoder.web.common.tag.AnswerInput,
-                  com.topcoder.web.tc.controller.request.hs.RegistrationBase,
+				 com.topcoder.web.common.HSRegistrationHelper,
                  com.topcoder.web.common.BaseProcessor" %>
 <%@ page import="java.util.Collections,
                  java.util.Set,
@@ -74,12 +74,6 @@
                 </p>
             </c:when>
 
-            <c:when test="${confirmRegistration}">
-                <p align="center">
-                    You have been successfully registered for TopCoder High School ${season.name}.
-                </p>
-            </c:when>
-
             <c:when test="${not existSeason}">
                 <p align="center">
                     There are no current or upcoming TopCoder High School Seasons.
@@ -106,7 +100,7 @@
 
             <c:otherwise>
             <tc:questionIterator list="${questions}" id="question">
-                        	<% if (question.getKeyword().equals(RegistrationBase.AGE) || question.getKeyword().equals(RegistrationBase.AGE_END_SEASON)) { %>
+                        	<% if (question.getKeyword().equals(HSRegistrationHelper.AGE) || question.getKeyword().equals(HSRegistrationHelper.AGE_END_SEASON)) { %>
                                     <p align="center">
 	        	                        <span class="bigRed">
     		    	                        <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>        	                            
