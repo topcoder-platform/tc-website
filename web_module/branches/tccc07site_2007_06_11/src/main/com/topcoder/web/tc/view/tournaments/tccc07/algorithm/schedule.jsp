@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
+<%@ page import="com.topcoder.web.common.model.EventType" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -15,7 +16,7 @@
     <div id="content">
 
         <jsp:include page="../nav.jsp" >
-        <jsp:param name="tabLev1" value="algorithm"/>
+        <jsp:param name="tabLev1" value="<%=EventType.ALGORITHM_TOURNAMENT_ID.toString()%>"/>
         <jsp:param name="tabLev2" value="schedule"/>
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
