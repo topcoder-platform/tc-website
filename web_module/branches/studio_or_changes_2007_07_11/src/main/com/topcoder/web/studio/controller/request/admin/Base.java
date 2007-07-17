@@ -50,6 +50,7 @@ public abstract class Base extends ShortHibernateProcessor {
         viewSubmittersAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
         getRequest().setAttribute("viewSubmitterAnswers", viewSubmittersAnswers);
 
+        getRequest().setAttribute("prizeTypes", StudioDAOUtil.getFactory().getPrizeTypeDAO().getPrizeTypes());
     }
 
     protected ResultSetContainer getForumList() throws Exception {
