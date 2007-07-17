@@ -51,7 +51,12 @@
         <h2 align="center">Registration for TopCoder High School ${season.name}</h2>
 
         <c:choose>
-            <c:when test="${not eligible}">
+            <c:when test="${not registeredHs}">
+                 <p align="center">
+                     You must <a href="/reg">register</a> for TopCoder High School competitions first.
+                 </p>
+             </c:when>
+             <c:when test="${not eligible}">
                 <p align="left">
                     We're sorry. Based on the answers to the questions, you are not eligible for TopCoder High School.  If you made a mistake when filling out the questions, TopCoder will require proof that you are eligible.  Please send a letter from your school on official stationary that states you are currently a full time student. The letter must be written in English and signed by an official school staff member. The letter must be sent directly to:
                     <br /><br />
@@ -81,12 +86,7 @@
                 </p>
             </c:when>
 
-            <c:when test="${not registeredHs}">
-                <p align="center">
-                    You must <a href="/reg">register</a> for TopCoder High School competitions first.
-                </p>
-            </c:when>
-            
+
             
             <c:when test="${alreadyRegistered}">
                 <p align="center">
