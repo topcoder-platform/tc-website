@@ -160,14 +160,14 @@ public class RegistrationHelper {
         return results;
     }
 
-    public List<String[]> getDefaults() {
-        List<String[]> result = new ArrayList<String[]>();
+    public List<Object[]> getDefaults() {
+        List<Object[]> result = new ArrayList<Object[]>();
         
         result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(AGE).getQuestion().getId(), responsesMap.get(AGE).getText()});
         result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(AGE_END_SEASON).getQuestion().getId(), responsesMap.get(AGE_END_SEASON).getText()});
         
         if (responsesMap.get(IN_HIGH_SCHOOL).getAnswer() != null) {
-            result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(IN_HIGH_SCHOOL).getQuestion().getId(), responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getId() + ""});
+            result.add(new Object[] {AnswerInput.PREFIX + responsesMap.get(IN_HIGH_SCHOOL).getQuestion().getId(), responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getId() });
         }
 
         return result;        
@@ -205,11 +205,20 @@ public class RegistrationHelper {
             BaseProcessor.close(ctx);
         }
 
+        assignResponses(responses, u);
+        
         // Mark in event_registration table that the user tried to register but was not eligible.
         u.addEventRegistration(season.getEvent(), responses, false);
     }
 
     
+    private void assignResponses(List<Response> resp, User u) {
+        for(Response r : resp) {
+            r.setUser(u);
+        }
+        
+    }
+
     public void registerForSeason(User u) {
         if (getCurrentSeason() != null) {
             registerForSeason(u, getCurrentSeason());
@@ -220,6 +229,8 @@ public class RegistrationHelper {
     public void registerForSeason(User u, Season season) {
         Event event = season.getEvent();
         log.debug("register for season, responses: " + responses + (responses == null? "" : " size " +responses.size()));
+        
+        assignResponses(responses, u);
         
         u.addEventRegistration(event, responses, true);
 

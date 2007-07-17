@@ -134,9 +134,9 @@ public class Secondary extends Base {
     }
 
     private void setDefaults(RegistrationHelper rh) {
-        List<String[]> defaults = rh.getDefaults();
-        for (String[] d : defaults) {
-            setDefault(d[0], d[1]);
+        List<Object[]> defaults = rh.getDefaults();
+        for (Object[] d : defaults) {
+            setDefault((String) d[0], d[1]);
         }        
     }
 
