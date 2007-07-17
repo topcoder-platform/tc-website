@@ -78,7 +78,9 @@ public class Prize extends Base implements Comparable {
         if (this == o) return true;
         if (!(o instanceof Prize)) return false;
         final Prize that = (Prize) o;
-
+        if (log.isDebugEnabled()) {
+            log.debug(this.toString() + "    " + that.toString());
+        }
         if (this.getType().equals(that.getType())) {
             if (this.getPlace() != null && that.getPlace() != null) {
                 return this.getPlace().equals(that.getPlace()) && this.getAmount().equals(that.getAmount());
