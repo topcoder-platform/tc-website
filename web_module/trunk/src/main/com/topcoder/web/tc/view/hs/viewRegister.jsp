@@ -52,8 +52,15 @@
 
         <c:choose>
             <c:when test="${not eligible}">
-                <p align="center">
-                    You are not eligible for TopCoder High School competitions.
+                <p align="left">
+                    We're sorry. Based on the answers to the questions, you are not eligible for TopCoder High School.  If you made a mistake when filling out the questions, TopCoder will require proof that you are eligible.  Please send a letter from your school on official stationary that states you are currently a full time student. The letter must be written in English and signed by an official school staff member. The letter must be sent directly to:
+                    <br /><br />
+                    TopCoder, Inc.
+                    <br />Attn: TCHS08
+                    <br />703 Hebron Avenue
+                    <br />Glastonbury, CT, 06033, USA
+                    <br /><br />
+                    If you have any questions please contact <a href="jford@topcoder.com?subject=TCHS Eligibility">Jessie D'Amato Ford</a>.
                 </p>
             </c:when>
 
@@ -76,7 +83,7 @@
 
             <c:when test="${not registeredHs}">
                 <p align="center">
-                    You must <a href="http://www.topcoder.com/reg">register</a> for TopCoder High School competitions first.
+                    You must <a href="/reg">register</a> for TopCoder High School competitions first.
                 </p>
             </c:when>
             
