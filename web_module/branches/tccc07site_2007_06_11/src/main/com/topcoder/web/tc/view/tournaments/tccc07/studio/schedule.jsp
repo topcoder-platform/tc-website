@@ -16,7 +16,7 @@
     <div id="content">
 
         <jsp:include page="../nav.jsp" >
-        <jsp:param name="tabLev1" value="<%=EventType.STUDIO_TOURNAMENT_ID.toString()%>"/>
+        <jsp:param name="tabLev1" value="studio"/>
         <jsp:param name="tabLev2" value="schedule"/>
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
