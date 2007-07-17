@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>07.17.07<br>12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://csf.topcoder.com/">Microsoft CSF Competitions – Winners Announced!</A></span><br><br>
+        Microsoft and TopCoder are pleased to announce that two competitions for the Connected Services Framework Mashup Competitions have just been completed and winners have been <a href="http://csf.topcoder.com/forums" alt="Microsoft CSF Competitions Forums">announced</a>.  Prizes will be awarded to the top three mashup ideas, with a total prize purse of $4,500 per competition - plus, the top 7 submissions receive <a href="http://csf.topcoder.com/?module=Static&d1=leaderboardOverview">placement points</a> toward the CSF <a href="http://csf.topcoder.com/?module=Static&d1=leaderboardOverview">series prizes</a> of more than $40,000.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://csf.topcoder.com/">details</A> | 
+        <a href="http://csf.topcoder.com/forums"> discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>07.16.07<br>5:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -184,20 +197,3 @@ and <tc-webtag:handle coderId="272408" context="algorithm"/> rounded out the top
          <tc-webtag:forumLink forumID="516430" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.09.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_tco07">TCO07 Marathon Match Final - Analysis</A></span><br><br>
-      In this editorial, TCO07 Marathon Match champion <tc-webtag:handle coderId="10600282" /> looks at the competition's final on-site problem and discusses his winning approach.</td>
-         <td class="newsPhoto"><img src="/i/m/Mojito1_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10600282" context="marathon" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_tco07">full story</A> | 
-         <tc-webtag:forumLink forumID="516304" message="discuss this" /> | 
-         <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
