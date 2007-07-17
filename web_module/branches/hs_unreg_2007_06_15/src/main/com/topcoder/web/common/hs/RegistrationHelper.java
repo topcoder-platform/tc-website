@@ -26,11 +26,11 @@ import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
+import com.topcoder.web.common.validation.AgeValidator;
+import com.topcoder.web.common.validation.NonEmptyValidator;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.validation.AgeValidator;
-import com.topcoder.web.reg.validation.AttendingHSValidator;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.survey.Helper;
 
 /**
@@ -135,13 +135,8 @@ public class RegistrationHelper {
             results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(AGE_END_SEASON).getQuestion().getId(), result.getMessage()}); 
         }
 
-        result = new AttendingHSValidator().validate(new StringInput(attendingStr));
+        result = new NonEmptyValidator("Please choose yes or no.").validate(new StringInput(attendingStr));
         if (!result.isValid()) {
-            log.debug("in_high_school: " + IN_HIGH_SCHOOL);
-            log.debug("d1" + responsesMap.get(IN_HIGH_SCHOOL));
-            log.debug("d2" + responsesMap.get(IN_HIGH_SCHOOL).getQuestion());
-            log.debug("d3" + responsesMap.get(IN_HIGH_SCHOOL).getQuestion().getId());
-            
             results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(IN_HIGH_SCHOOL).getQuestion().getId(), result.getMessage()}); 
         }
 

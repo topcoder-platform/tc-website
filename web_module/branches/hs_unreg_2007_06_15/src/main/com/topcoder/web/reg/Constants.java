@@ -108,9 +108,6 @@ public class Constants implements WebConstants {
 
     public static int MAX_REFERRAL_OTHER_LENGTH;
 
-    public static int MIN_AGE_FOR_HS;
-    public static int MAX_AGE_FOR_HS;
-
     public static int REG_TERMS_ID;
 
 

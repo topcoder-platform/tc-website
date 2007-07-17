@@ -86,6 +86,9 @@ public class Constants implements WebConstants {
     public static String MAX_NUM_HS_RATINGS;
     public static String MAX_DAYS_SINCE_LAST_HS_COMP;
 
+    public static int MIN_AGE_FOR_HS;
+    public static int MAX_AGE_FOR_HS;
+
 
     public static String PROJECT_ID;
     public static String PROJECT_TYPE_ID;

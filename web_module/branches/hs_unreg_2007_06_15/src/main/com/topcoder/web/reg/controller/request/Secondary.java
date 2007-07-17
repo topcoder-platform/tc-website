@@ -34,6 +34,9 @@ import com.topcoder.web.reg.RegFieldHelper;
  */
 public class Secondary extends Base {
 
+    public void setDefault(String s, Object o ) {
+        super.setDefault(s, o);
+    }
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
         if (u == null) {
@@ -137,7 +140,7 @@ public class Secondary extends Base {
         List<Object[]> defaults = rh.getDefaults();
         for (Object[] d : defaults) {
             setDefault((String) d[0], d[1]);
-        }        
+        }                
     }
 
     private void checkHSRegistrationQuestions(RegistrationHelper rh) {            
@@ -147,25 +150,6 @@ public class Secondary extends Base {
         }
     }
     
-    /**
-     * Return whether a user is eligible for participating in High School competitions.
-     * 
-     * @param ageHs the age right now.
-     * @param ageEndSeason the age at the end of the HS season
-     * @param attendingHS whether the user will be attending HS during the season
-     * 
-     * @return true if the user is eligible.
-     */
-    @Deprecated
-    public static boolean isEligibleHS(int ageHs, int ageEndSeason, boolean attendingHS) {
-        if (!attendingHS) return false;
-        if (ageHs < Constants.MIN_AGE_FOR_HS || ageHs > Constants.MAX_AGE_FOR_HS) return false;
-        if (ageEndSeason < Constants.MIN_AGE_FOR_HS || ageEndSeason > Constants.MAX_AGE_FOR_HS) return false;
-        
-        return true;
-    }
-
-
 
 
     private void loadFieldsIntoUserObject(Set fields, Map params) throws TCWebException {

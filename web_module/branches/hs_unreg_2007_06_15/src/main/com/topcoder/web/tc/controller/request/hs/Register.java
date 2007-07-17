@@ -12,6 +12,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.hs.RegistrationHelper;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.QuestionStyle;
@@ -20,11 +21,10 @@ import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
+import com.topcoder.web.common.validation.AgeValidator;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.reg.controller.request.Secondary;
-import com.topcoder.web.reg.validation.AgeValidator;
-import com.topcoder.web.reg.validation.AttendingHSValidator;
 import com.topcoder.web.tc.controller.request.survey.Helper;
 
 /**
@@ -49,8 +49,17 @@ public class Register extends RegistrationBase {
             throw new NavigationException("Invalid season_id");
         }
         
+        RegistrationHelper rh = new RegistrationHelper(getRequest());
+
+        List<String[]> valResults = rh.validateQuestions(season);
+        for (String[] result : valResults) {
+            addError(result[0], result[1]);
+        }
+
         Event event = season.getEvent();
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+
+        /*        
 
         
         List<Response> responses = processSurvey(event, u);
@@ -91,7 +100,7 @@ public class Register extends RegistrationBase {
             }
             
         }
-
+*/
         
         if (hasErrors()) {
             getRequest().setAttribute("confirmRegistration", false);        
@@ -102,8 +111,13 @@ public class Register extends RegistrationBase {
             getRequest().setAttribute("regOpen", true);
             getRequest().setAttribute("season", season);
             
-            setDefaults(responsesMap.values());
-            getRequest().setAttribute("questions", new ArrayList(event.getSurvey().getQuestions()));
+            //setDefaults(responsesMap.values());
+            List<Object[]> defaults = rh.getDefaults();
+            for (Object[] d : defaults) {
+                setDefault((String) d[0], d[1]);
+            }                
+
+            getRequest().setAttribute("questions", new ArrayList(season.getEvent().getSurvey().getQuestions()));
             
             setNextPage(com.topcoder.web.tc.Constants.HS_VIEW_REGISTER);
             setIsNextPageInContext(true);
@@ -131,19 +145,24 @@ public class Register extends RegistrationBase {
             throw new NavigationException("You're not eligible for High School or already registered");            
         }
 
+        boolean eligible = rh.isEligibleHS();
+        /*
         int ageHs = Integer.parseInt(ageStr);
         int ageEndSeason = Integer.parseInt(ageEndSeasonStr);
         boolean attendingHS = "yes".equalsIgnoreCase(attendingStr);
         
         boolean eligible = Secondary.isEligibleHS(ageHs, ageEndSeason, attendingHS);
-               
-        u.addEventRegistration(event, responses, eligible);
+        */       
+        //u.addEventRegistration(event, responses, eligible);
 
-        DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);            
+//        DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);            
 
         // If the user is not eligible, mark him as inactive in security groups.
-        if (!eligible) {
-            inactivateHsUser(u);
+        if (eligible) {
+            rh.registerForSeason(u, season);            
+        } else {
+            //inactivateHsUser(u);
+            rh.inactivateUser(u, season);
         }
         
         markForCommit();
@@ -156,7 +175,7 @@ public class Register extends RegistrationBase {
         setIsNextPageInContext(true);
     } 
 
-
+/*
 
     private void addErrorQuestion(Map<String, Response> responses, String field, String message) {
         addError(AnswerInput.PREFIX + responses.get(field).getQuestion().getId(), message);        
@@ -199,5 +218,6 @@ public class Register extends RegistrationBase {
             }
         }
     }
+    */
 
 }
