@@ -20,8 +20,11 @@
         <jsp:param name="tabLev3" value="hotels"/>
         </jsp:include>
 
+            <div id="pageBodyOutside">
             <div id="pageBody">
+                <div id="h1Border">&nbsp;</div>
                 <h1><span>Hotels near the TCCC</span></h1>
+                <div id="h1Border">&nbsp;</div>
                 <p>Disney's Contemporary Resort<br/ >
                 Telephone: (407) 824-1000<br />
                 Fax: (407) 824-3539<br />
@@ -45,6 +48,7 @@
                     
                     Find more here:  <a href="http://disneyworld.disney.go.com/wdw/resorts/resortOverview?id=ResortOverviewPage">http://disneyworld.disney.go.com/wdw/resorts/resortOverview?id=ResortOverviewPage</a>
                 </p>
+            </div>
             </div>
         <jsp:include page="footer.jsp" />
     </div>

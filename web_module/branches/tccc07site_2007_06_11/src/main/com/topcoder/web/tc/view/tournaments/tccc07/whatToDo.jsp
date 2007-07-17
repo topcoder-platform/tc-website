@@ -20,8 +20,11 @@
         <jsp:param name="tabLev3" value="whattodo"/>
         </jsp:include>
         
+        <div id="pageBodyOutside">
         <div id="pageBody">
+            <div id="h1Border">&nbsp;</div>
             <h1><span>Fun Facts about Orlando and Disney World!</span></h1>
+            <div id="h1Border">&nbsp;</div>
             <p>
                 <ul>
                     <li>According to Carlson Wagonlit Travel's 2006 Travel Trends Survey, Orlando is the second most popular domestic travel destination in the country. Las Vegas, Nevada took first place.</li>
@@ -47,6 +50,7 @@
                         <li>At <a href="http://disneyworld.disney.go.com/wdw/parks/parkLanding?id=EPLandingPage" alt="Epcot">Epcot</a>:  World Showcase, <a href="http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=MissionSPACEAttractionPage" alt="Mission:Space">Mission: Space</a>, <a href="http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=SpaceshipEarthPavilionAttractionPage" alt="Spaceship Earth">Spaceship Earth</a>, <a href="http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=TestTrackAttractionPage" alt="Test Track">Test Track</a></li>
                         <li>At <a href="http://disneyworld.disney.go.com/wdw/parks/parkLanding?id=AKLandingPage" alt="Animal Kingdom">Animal Kingdom</a>: <a href="http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=ItsToughtobeaBugAttractionPage" alt="It's Tough to be a Bug">It's Tough to be a Bug</a>, <a href="http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=DINOSAURAttractionPage" alt="Dinosaur">Dinosaur</a>, <a href="http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=KaliRiverRapidsAttractionPage" alt="Kali River Rapids">Kali River Rapids</a>, <a href="http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=KilimanjaroSafarisAttractionPage" alt="Kilimanjaro Safari">Kilimanjaro Safari</a>, <a href="http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=ExpeditionEverestPage" alt="Expedition Everest">Expedition Everest</a></li>
                     </ul>
+        </div>
         </div>
         
         <jsp:include page="footer.jsp" />

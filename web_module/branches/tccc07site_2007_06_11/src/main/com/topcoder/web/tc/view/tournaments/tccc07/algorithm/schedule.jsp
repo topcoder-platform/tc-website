@@ -20,8 +20,11 @@
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
         
+        <div id="pageBodyOutside">
         <div id="pageBody">
+            <div id="h1Border">&nbsp;</div>
             <h1><span>Algorithm Competition Schedule*</span></h1>
+            <div id="h1Border">&nbsp;</div>
             
             <h2>Registration</h2>
 
@@ -179,6 +182,7 @@
                 <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=21&min=0&sec=0&p1=179">9:00 PM</a>
 
             </p>
+        </div>
         </div>
         
         <jsp:include page="../footer.jsp" />

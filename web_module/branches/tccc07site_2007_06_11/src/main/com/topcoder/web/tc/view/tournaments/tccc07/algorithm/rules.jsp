@@ -20,8 +20,11 @@
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
 
+            <div id="pageBodyOutside">
             <div id="pageBody">
+                <div id="h1Border">&nbsp;</div>
                 <h1><span>Algorithm Competition Official Rules and Regulations</span></h1>
+                <div id="h1Border">&nbsp;</div>
                 <p>
 
                     <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -404,7 +407,7 @@
                 <p>A list of winning competitors by handle will be available on the web site at <a href="/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the end of the Algorithm Competition.</p>
 
 
-                
+            </div>
             </div>
         <jsp:include page="../footer.jsp" />
     </div>

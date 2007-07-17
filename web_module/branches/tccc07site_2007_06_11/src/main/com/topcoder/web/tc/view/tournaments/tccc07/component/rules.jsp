@@ -20,8 +20,11 @@
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
 
+            <div id="pageBodyOutside">
             <div id="pageBody">
+                <div id="h1Border">&nbsp;</div>
                 <h1><span>Component Competition Official Rules and Regulations</span></h1>
+                <div id="h1Border">&nbsp;</div>
                 <p>
                     <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                     <a href="#placement">Placement Scoring </a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -354,11 +357,11 @@
                 <p>TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in the CDDC and the Tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the competition process, or otherwise being in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the CDDC and/or the Tournament if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort, or for any other reason.</p>
                 
                 <h2>Other</h2>
-                <p>The CDDC and the Tournament are void in whole or in part where prohibited by law. A list of CDDC and Tournament winners by handles will be available on the web site at <a href="http://www.topcoder.com/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the completion of the CDDC and the Tournament.</p>
-                <p>The CDDC and the Tournament are brought to you by TopCoder, Inc. (<a href="http://www.topcoder.com/">http://www.topcoder.com/</a>) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+                <p>The CDDC and the Tournament are void in whole or in part where prohibited by law. A list of CDDC and Tournament winners by handles will be available on the web site at <a href="/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the completion of the CDDC and the Tournament.</p>
+                <p>The CDDC and the Tournament are brought to you by TopCoder, Inc. (<a href="/">http://www.topcoder.com/</a>) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
 
 
-                
+            </div>
             </div>
         <jsp:include page="../footer.jsp" />
     </div>

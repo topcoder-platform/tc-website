@@ -20,8 +20,11 @@
         <jsp:param name="tabLev3" value="transportation"/>
         </jsp:include>
 
+            <div id="pageBodyOutside">
             <div id="pageBody">
+                <div id="h1Border">&nbsp;</div>
                 <h1><span>How to get to the TCCC</span></h1>
+                <div id="h1Border">&nbsp;</div>
                 <p>Disney's Contemporary Resort<br/ >
                 Telephone: (407) 824-1000<br />
                 Fax: (407) 824-3539<br />
@@ -36,6 +39,7 @@
                 
                 <h2>If you'd like to take a bus to Orlando:</h2>
                 <p>Go to the <a href="http://www.greyhound.com/" alt="Greyhound Bus website">Greyhound</a> web site to get to Orlando, FL.</p>
+            </div>
             </div>
         <jsp:include page="footer.jsp" />
     </div>

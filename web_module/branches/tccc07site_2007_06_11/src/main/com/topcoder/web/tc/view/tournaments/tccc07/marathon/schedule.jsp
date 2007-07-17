@@ -20,8 +20,11 @@
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
         
+        <div id="pageBodyOutside">
         <div id="pageBody">
+            <div id="h1Border">&nbsp;</div>
             <h1><span>Marathon Match Competition Schedule*</span></h1>
+            <div id="h1Border">&nbsp;</div>
             
             <br /><br />
             <table cellpadding="0" cellspacing="0" class="stat"> 
@@ -100,6 +103,7 @@
                     </tr> 
                 </tbody> 
             </table>
+        </div>
         </div>
         
         <jsp:include page="../footer.jsp" />
