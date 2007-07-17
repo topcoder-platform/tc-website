@@ -50,7 +50,6 @@ public class Submit extends Base {
             if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && 
                     !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID)) {
                 rh.registerForSeason(u);
-                markForCommit();
             }
                 
             securityStuff(newUser, u);

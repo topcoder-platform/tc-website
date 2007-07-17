@@ -20,7 +20,6 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.Response;
@@ -166,7 +165,10 @@ public class RegistrationHelper {
         
         result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(AGE).getQuestion().getId(), responsesMap.get(AGE).getText()});
         result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(AGE_END_SEASON).getQuestion().getId(), responsesMap.get(AGE_END_SEASON).getText()});
-        result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(IN_HIGH_SCHOOL).getQuestion().getId(), responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getId() + ""});
+        
+        if (responsesMap.get(IN_HIGH_SCHOOL).getAnswer() != null) {
+            result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(IN_HIGH_SCHOOL).getQuestion().getId(), responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getId() + ""});
+        }
 
         return result;        
     }
