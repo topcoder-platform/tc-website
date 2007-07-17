@@ -488,11 +488,19 @@
 		            * ${question.text }
 		        </td>
 		        <td class="value">
-                  <tc:answerInput id="answerInput" question="${question}">
-                         ${answerInput}
-                         <%=answerText%>
-                         &nbsp;&nbsp;&nbsp;
-                  </tc:answerInput>		            
+		        	<c:choose>
+		        		<c:when test="${question.keyword == kwdAge || question.keyword == kwdAgeEndSeason }">
+			        		<input type="text" size="3" maxlength="3" name="${ansPrefix}${question.id}" id ="answerInput" 
+			        			value='${cf:contains(defaults,ansPrefix + question.id) ?  defaults[ansPrefix + question.id] : "" ' />
+		        		</c:when>
+		        		<c:otherwise>		        
+		                  <tc:answerInput id="answerInput" question="${question}">
+		                         ${answerInput}
+		                         <%=answerText%>
+		                         &nbsp;&nbsp;&nbsp;
+		                  </tc:answerInput>		            
+		        		</c:otherwise>
+		        	</c:choose>       
 		        </td>
 		    </tr>
 
