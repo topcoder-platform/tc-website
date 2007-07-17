@@ -53,7 +53,8 @@
 <tbody>
 <tr>
     <td colspan="2">
-      <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_NAME%>"><span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_NAME%>">
+            <span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -66,8 +67,8 @@
 </tr>
 <tr>
     <td colspan="2">
-               <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_STATUS_ID%>"> <span class="bigRed">${err}
-                    <br /></span></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_STATUS_ID%>"> <span class="bigRed">${err}
+            <br/></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -82,13 +83,13 @@
 <tr>
 <tr>
     <td colspan="2">
-                <tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME%>"><span class="bigRed">${err}
-                    <br /></span></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME%>"><span class="bigRed">${err}
+            <br/></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
     <td class="name" nowrap="nowrap">
-        Contest Start<br />(Eastern Time):
+        Contest Start<br/>(Eastern Time):
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
@@ -97,13 +98,13 @@
 </tr>
 <tr>
     <td colspan="2">
-                <tc-webtag:errorIterator id="err" name="<%=Constants.END_TIME%>"><span class="bigRed">${err}
-                    <br /></span></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.END_TIME%>"><span class="bigRed">${err}
+            <br/></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
     <td class="name" nowrap="nowrap">
-        Contest End<br />(Eastern Time):
+        Contest End<br/>(Eastern Time):
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
@@ -112,8 +113,8 @@
 </tr>
 <tr>
     <td colspan="2">
-                <tc-webtag:errorIterator id="err" name="<%=Constants.FORUM_ID%>"><span class="bigRed">${err}
-                    <br /></span></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.FORUM_ID%>"><span class="bigRed">${err}
+            <br/></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -130,7 +131,7 @@
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.EVENT_ID%>"><span class="bigRed">${err}</span>
-            <br /></tc-webtag:errorIterator>
+            <br/></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -147,8 +148,8 @@
 
 <tr>
     <td colspan="2">
-                <tc-webtag:errorIterator id="err" name="${fileType}"><span class="bigRed">${err}
-                    <br /></span></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="${fileType}"><span class="bigRed">${err}
+            <br/></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -177,13 +178,13 @@
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${minHeight}">${err}
-                    <br /></tc-webtag:errorIterator></span>
+                    <br/></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxHeight}">${err}
-                    <br /></tc-webtag:errorIterator></span>
+                    <br/></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -203,13 +204,13 @@
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${minWidth}">${err}
-                    <br /></tc-webtag:errorIterator></span>
+                    <br/></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxWidth}">${err}
-                    <br /></tc-webtag:errorIterator></span>
+                    <br/></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -229,7 +230,7 @@
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${viewSubmissions}">${err}
-                    <br /></tc-webtag:errorIterator></span>
+                    <br/></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -247,7 +248,7 @@
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${viewSubmitters}">${err}
-                    <br /></tc-webtag:errorIterator></span>
+                    <br/></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -260,13 +261,12 @@
 </tr>
 
 
-
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MAX_SUBMISSIONS%>" var="maxSubmissions"/>
 
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxSubmissions}">${err}
-                    <br /></tc-webtag:errorIterator></span>
+                    <br/></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -311,10 +311,10 @@
 
 <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${overviewText}">${err}
-                    <br /></tc-webtag:errorIterator></span>
+                    <br/></tc-webtag:errorIterator></span>
     <strong>Contest Overview:</strong> You may include HTML, the content entered here is exactly what will be inserted
     into the contest
-    details page.<br /><br />
+    details page.<br/><br/>
     <tc-webtag:textArea name="${overviewText}" rows="8" cols="80"/>
 </p>
 
@@ -337,11 +337,11 @@ var overviewText = getValue("document.editForm", "${overviewText}");
 
 <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeDesc}">${err}
-                    <br /></tc-webtag:errorIterator></span>
+                    <br/></tc-webtag:errorIterator></span>
     <strong>Prize Description:</strong> You may include HTML, the content entered here is exactly what will be inserted
     into the contest
     details page.
-    <br /><br />
+    <br/><br/>
     <tc-webtag:textArea name="${prizeDesc}" rows="8" cols="80"/>
 </p>
 
@@ -366,58 +366,58 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
 
 <c:if test="${contest!=null && !contest.new}">
-<p>
-    Click
-    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}"
-       target="_blank">here</a>
-    to see what the contest details page will look like.
-</p>
-
-
-<br /><br />
-
-<div class="header">Documentation</div>
-
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removeDocForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveDocument"/>
-    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-    <tc-webtag:hiddenInput name="<%=Constants.DOCUMENT_ID%>"/>
-
     <p>
-        <c:forEach items="${contest.documents}" var="document">
-            ${document.type.description}
-            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
-                    ${document.originalFileName}</a>
-            <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
-                Remove
-            </button>
-            <br />
-        </c:forEach>
+        Click
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}"
+           target="_blank">here</a>
+        to see what the contest details page will look like.
     </p>
-</form>
 
 
-<c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
-<c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addDocumentForm"
-      enctype="multipart/form-data">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
-    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+    <br/><br/>
 
-    <p>
+    <div class="header">Documentation</div>
+
+    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removeDocForm">
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveDocument"/>
+        <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+        <tc-webtag:hiddenInput name="<%=Constants.DOCUMENT_ID%>"/>
+
+        <p>
+            <c:forEach items="${contest.documents}" var="document">
+                ${document.type.description}
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
+                        ${document.originalFileName}</a>
+                <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
+                    Remove
+                </button>
+                <br/>
+            </c:forEach>
+        </p>
+    </form>
+
+
+    <c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
+    <c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
+    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addDocumentForm"
+          enctype="multipart/form-data">
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
+        <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+
+        <p>
     <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
-        <br /></tc-webtag:errorIterator></span>
+        <br/></tc-webtag:errorIterator></span>
         <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
-            <br /></tc-webtag:errorIterator></span>
-        <tc-webtag:objectSelect name="${docType}" list="${docTypes}" valueField="id" textField="description"/>
-        <input type="file" name="${doc}">
-        <button name="submit" value="submit" type="submit">Add</button>
-        <br /><br />
-        Only certain file formats are accepted, if there is something you need to upload that doesn't work, ask
-        around
-        to get it added.
-    </p>
-</form>
+            <br/></tc-webtag:errorIterator></span>
+            <tc-webtag:objectSelect name="${docType}" list="${docTypes}" valueField="id" textField="description"/>
+            <input type="file" name="${doc}">
+            <button name="submit" value="submit" type="submit">Add</button>
+            <br/><br/>
+            Only certain file formats are accepted, if there is something you need to upload that doesn't work, ask
+            around
+            to get it added.
+        </p>
+    </form>
 
 </c:if>
 
@@ -431,12 +431,12 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
     <p>
         <c:forEach items="${contest.prizes}" var="prize">
-            Place: ${prize.place} Prize:
+            Type: ${prize.type.description} Place: ${prize.place} Prize:
             <fmt:formatNumber value="${prize.amount}" type="currency"/>
             <button onClick="document.removePrizeForm.<%=Constants.PRIZE_PLACE%>.value ='${prize.place}'">
                 Remove
             </button>
-            <br />
+            <br/>
         </c:forEach>
     </p>
 </form>
@@ -451,9 +451,9 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
         <tr>
             <td colspan="2">
       <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizePlace}">${err}
-          <br /></tc-webtag:errorIterator></span>
+          <br/></tc-webtag:errorIterator></span>
       <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeValue}">${err}
-          <br /></tc-webtag:errorIterator></span>
+          <br/></tc-webtag:errorIterator></span>
             </td>
         </tr>
         <tr>
@@ -470,16 +470,26 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
             </td>
             <td class="value">
                 <tc-webtag:textInput name="${prizeValue}"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="name">
+                Prize Type:
+            </td>
+            <td class="value">
+                <tc-webtag:objectSelect name='${prizeType}' list="${prizeType}" valueField="id" textField="description"/>
                 <button name="submit" value="submit" type="submit">
                     Add
                 </button>
             </td>
         </tr>
+
+
     </table>
 
 </form>
-<br /><br />
-
+<br/><br/>
 
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="setToReviewForm">

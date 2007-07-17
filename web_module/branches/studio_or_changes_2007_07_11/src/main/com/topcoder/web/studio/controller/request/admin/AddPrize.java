@@ -26,13 +26,19 @@ public class AddPrize extends Base {
             throw new NavigationException("No contest specified");
         } else {
             Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
-            String place = getRequest().getParameter(Constants.PRIZE_PLACE);
+            String prizeTypeId = getRequest().getParameter(Constants.PRIZE_TYPE_ID);
+            PrizeType pt = StudioDAOUtil.getFactory().getPrizeTypeDAO().find(new Integer(prizeTypeId));
+
+            String place = null;
+            if (pt.getId().equals(PrizeType.CONTEST)) {
+                place = getRequest().getParameter(Constants.PRIZE_PLACE);
+                ValidationResult placeResult = new PlaceValidator(contest).validate(new StringInput(place));
+                if (!placeResult.isValid()) {
+                    addError(Constants.PRIZE_PLACE, placeResult.getMessage());
+                }
+            }
             String prize = getRequest().getParameter(Constants.PRIZE_VALUE);
 
-            ValidationResult placeResult = new PlaceValidator(contest).validate(new StringInput(place));
-            if (!placeResult.isValid()) {
-                addError(Constants.PRIZE_PLACE, placeResult.getMessage());
-            }
             ValidationResult prizeResult = new PrizeValidator().validate(new StringInput(prize));
             if (!prizeResult.isValid()) {
                 addError(Constants.PRIZE_VALUE, prizeResult.getMessage());
@@ -45,8 +51,10 @@ public class AddPrize extends Base {
             } else {
                 Prize cp = new Prize();
                 cp.setAmount(new Float(prize));
-                cp.setPlace(new Integer(place));
-                cp.setType(StudioDAOUtil.getFactory().getPrizeTypeDAO().find(PrizeType.CONTEST));
+                if (pt.getId().equals(PrizeType.CONTEST)) {
+                    cp.setPlace(new Integer(place));
+                }
+                cp.setType(pt);
                 contest.addPrize(cp);
                 StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
                 setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
