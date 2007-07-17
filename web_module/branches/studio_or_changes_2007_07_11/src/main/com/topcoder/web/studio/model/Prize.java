@@ -79,7 +79,7 @@ public class Prize extends Base implements Comparable {
         if (!(o instanceof Prize)) return false;
         final Prize that = (Prize) o;
         if (log.isDebugEnabled()) {
-            log.debug(this.toString() + "    " + that.toString());
+            log.debug("XXX equals called : " + this.toString() + "    " + that.toString());
         }
         if (this.getType().equals(that.getType())) {
             if (this.getPlace() != null && that.getPlace() != null) {
@@ -102,6 +102,9 @@ public class Prize extends Base implements Comparable {
         buf.append(getType().hashCode()).append(" ");
         buf.append(getPlace()).append(" ");
         buf.append(getAmount());
+        if (log.isDebugEnabled()) {
+            log.debug("XXX hashcode called " + buf);
+        }
         return buf.hashCode();
     }
 
