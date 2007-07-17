@@ -96,7 +96,7 @@ public class Prize extends Base implements Comparable {
      */
     public int hashCode() {
         StringBuilder buf = new StringBuilder(30);
-        buf.append(getType().getDescription()).append(" ");
+        buf.append(getType().hashCode()).append(" ");
         buf.append(getPlace()).append(" ");
         buf.append(getAmount());
         return buf.hashCode();
