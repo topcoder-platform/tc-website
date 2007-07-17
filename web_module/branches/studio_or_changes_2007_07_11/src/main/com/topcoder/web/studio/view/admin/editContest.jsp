@@ -429,7 +429,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removePrizeForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemovePrize"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-    <tc-webtag:hiddenInput name="<%=Constants.PRIZE_PLACE%>"/>
+    <tc-webtag:hiddenInput name="<%=Constants.PRIZE_ID%>"/>
 
     <p>
         <c:forEach items="${contest.prizes}" var="prize">
@@ -439,7 +439,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
             </c:if>
             Prize Amount:
             <fmt:formatNumber value="${prize.amount}" type="currency"/>
-            <button onClick="document.removePrizeForm.<%=Constants.PRIZE_PLACE%>.value ='${prize.place}'">
+            <button onClick="document.removePrizeForm.<%=Constants.PRIZE_ID%>.value ='${prize.id}'">
                 Remove
             </button>
             <br/>
