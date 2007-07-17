@@ -10,7 +10,6 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.hs.RegistrationHelper;
 import com.topcoder.web.common.model.Address;
 import com.topcoder.web.common.model.AlgoRating;
@@ -21,7 +20,6 @@ import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.Phone;
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.RegistrationType;
-import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.SecretQuestion;
 import com.topcoder.web.common.model.TimeZone;
 import com.topcoder.web.common.model.User;
@@ -48,18 +46,20 @@ public class Secondary extends Base {
                     Map params = getMainUserInput();
                     checkMainFields(params);
                     
-                    Season season = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON);
                     RegistrationHelper rh = new RegistrationHelper(getRequest());
   
-                    checkHSRegistrationQuestions(rh);
+                    boolean registeringHS = hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID);
+                    
+                    if (registeringHS) {
+                        checkHSRegistrationQuestions(rh);
+                    }
 
                     if (hasErrors()) {
                         setDefaults(rh);
                         reloadMain(params, u, fields);
                     } else {
                         // If the user is registering for hs, check that he has the right age and he'll be attending high school
-                        if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && 
-                                !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID)) {
+                        if (registeringHS) {
                                                        
                             getRequest().getSession().setAttribute(Constants.HS_RESPONSES, rh.getResponsesMap());
 
