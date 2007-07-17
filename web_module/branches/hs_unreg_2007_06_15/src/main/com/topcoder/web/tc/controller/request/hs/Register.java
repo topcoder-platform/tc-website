@@ -1,31 +1,19 @@
 package com.topcoder.web.tc.controller.request.hs;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.HSRegistrationHelper;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.hs.RegistrationHelper;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
-import com.topcoder.web.common.model.QuestionStyle;
-import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.tag.AnswerInput;
-import com.topcoder.web.common.validation.AgeValidator;
-import com.topcoder.web.common.validation.StringInput;
-import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.reg.controller.request.Secondary;
-import com.topcoder.web.tc.controller.request.survey.Helper;
 
 /**
  * Register an user for the current HS season.
@@ -49,7 +37,7 @@ public class Register extends RegistrationBase {
             throw new NavigationException("Invalid season_id");
         }
         
-        RegistrationHelper rh = new RegistrationHelper(getRequest());
+        HSRegistrationHelper rh = new HSRegistrationHelper(getRequest());
 
         List<String[]> valResults = rh.validateQuestions(season);
         for (String[] result : valResults) {

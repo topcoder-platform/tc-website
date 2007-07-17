@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.controller.request.survey;
+package com.topcoder.web.common;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -18,16 +18,16 @@ import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Survey;
 import com.topcoder.web.common.tag.AnswerInput;
 
-public class Helper {
-    protected static final Logger log = Logger.getLogger(Helper.class);
+public class SurveyHelper {
+    protected static final Logger log = Logger.getLogger(SurveyHelper.class);
     private TCRequest request = null;
     private Map errors = new HashMap();
 
-    public Helper() {
+    public SurveyHelper() {
         super();
     }
 
-    public Helper(TCRequest request) {
+    public SurveyHelper(TCRequest request) {
         super();
         this.request = request;
     }

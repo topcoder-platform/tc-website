@@ -1,4 +1,4 @@
-package com.topcoder.web.common.hs;
+package com.topcoder.web.common;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +31,6 @@ import com.topcoder.web.common.validation.NonEmptyValidator;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.survey.Helper;
 
 /**
  * Helper class for registering to a HS season.
@@ -39,9 +38,9 @@ import com.topcoder.web.tc.controller.request.survey.Helper;
  * @author Cucu
  *
  */
-public class RegistrationHelper {
+public class HSRegistrationHelper {
     
-    protected static final Logger log = Logger.getLogger(RegistrationHelper.class);
+    protected static final Logger log = Logger.getLogger(HSRegistrationHelper.class);
     
     private TCRequest request;
     
@@ -77,11 +76,11 @@ public class RegistrationHelper {
     public static final String IN_HIGH_SCHOOL = "inhs";
 
     
-    public RegistrationHelper(TCRequest request) {
+    public HSRegistrationHelper(TCRequest request) {
         this.request = request;
     }
 
-    public RegistrationHelper(TCRequest request,  Map<String,Response> responsesMap) {
+    public HSRegistrationHelper(TCRequest request,  Map<String,Response> responsesMap) {
         this.request = request;
         this.responsesMap = responsesMap;       
         this.responses = new ArrayList<Response>(responsesMap.values());      
@@ -100,7 +99,7 @@ public class RegistrationHelper {
     }
 
     public List<String[]> validateQuestions(Season season) {
-        Helper helper = new Helper(request);
+        SurveyHelper helper = new SurveyHelper(request);
 
         List<String[]> results = new ArrayList<String[]>();
         responses = helper.processResponses(season.getEvent().getSurvey());

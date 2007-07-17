@@ -10,7 +10,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.hs.RegistrationHelper;
+import com.topcoder.web.common.HSRegistrationHelper;
 import com.topcoder.web.common.model.Address;
 import com.topcoder.web.common.model.AlgoRating;
 import com.topcoder.web.common.model.AlgoRatingType;
@@ -49,7 +49,7 @@ public class Secondary extends Base {
                     Map params = getMainUserInput();
                     checkMainFields(params);
                     
-                    RegistrationHelper rh = new RegistrationHelper(getRequest());
+                    HSRegistrationHelper rh = new HSRegistrationHelper(getRequest());
   
                     boolean registeringHS = hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID);
                     
@@ -136,14 +136,14 @@ public class Secondary extends Base {
         }
     }
 
-    private void setDefaults(RegistrationHelper rh) {
+    private void setDefaults(HSRegistrationHelper rh) {
         List<Object[]> defaults = rh.getDefaults();
         for (Object[] d : defaults) {
             setDefault((String) d[0], d[1]);
         }                
     }
 
-    private void checkHSRegistrationQuestions(RegistrationHelper rh) {            
+    private void checkHSRegistrationQuestions(HSRegistrationHelper rh) {            
         List<String[]> valResults = rh.validateQuestions();
         for (String[] result : valResults) {
             addError(result[0], result[1]);
