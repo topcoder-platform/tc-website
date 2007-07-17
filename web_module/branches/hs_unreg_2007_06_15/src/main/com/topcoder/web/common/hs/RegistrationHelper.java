@@ -119,7 +119,9 @@ public class RegistrationHelper {
         log.debug("question: " + q.getId() + ", " + q.getKeyword());
             if (!responsesMap.containsKey(q.getKeyword())) {
                 log.debug("not in list!");
-                responsesMap.put(q.getKeyword(), null);
+                Response r = new Response();
+                r.setQuestion(q);
+                responsesMap.put(q.getKeyword(), r);
             }            
         }
 
@@ -219,6 +221,7 @@ public class RegistrationHelper {
 
     public void registerForSeason(User u, Season season) {
         Event event = season.getEvent();
+        log.debug("register for season, responses: " + responses + (responses == null? "" : " size " +responses.size()));
         
         u.addEventRegistration(event, responses, true);
 
