@@ -57,6 +57,12 @@ public class AddPrize extends Base {
                 cp.setType(pt);
                 contest.addPrize(cp);
                 StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
+                if (log.isDebugEnabled()) {
+                    log.debug("prizes: ");
+                    for (Prize p : contest.getPrizes()) {
+                        log.debug("id: " + p.getId() + " place " + p.getPlace() + " amount " + p.getAmount() + " type " + p.getType().getDescription());
+                    }
+                }
                 setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
                         "=AdminViewContest&" + Constants.CONTEST_ID + "=" + contestId);
                 setIsNextPageInContext(false);

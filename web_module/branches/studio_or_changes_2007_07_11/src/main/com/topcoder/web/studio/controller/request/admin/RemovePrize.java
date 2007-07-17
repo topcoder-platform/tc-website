@@ -20,6 +20,9 @@ public class RemovePrize extends Base {
     protected void dbProcessing() throws Exception {
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
         String prizeId = getRequest().getParameter(Constants.PRIZE_ID);
+        if (log.isDebugEnabled()) {
+            log.debug("prize id " + prizeId);
+        }
 
         if ("".equals(StringUtils.checkNull(contestId))) {
             throw new NavigationException("No contest specified");
