@@ -476,10 +476,13 @@
 
 <c:if test="${cf:contains(fields, attendingHs)}">
 	  <c:set var="ansPrefix" value="<%=AnswerInput.PREFIX%>" />
+	  <c:set var="kwdAge" value="<%=com.topcoder.web.tc.controller.request.hs.RegistrationBase.AGE%>" />
+	  <c:set var="kwdAgeEndSeason" value="<%=com.topcoder.web.tc.controller.request.hs.RegistrationBase.AGE_END_SEASON%>" />
       <tc:questionIterator list="${questions}" id="question">
+		  <c:set var="fieldName" value="${ansPrefix}${question.id}" />
 		   <tr>
 		       <td colspan="2"><span class="bigRed">
-		       <tc-webtag:errorIterator id="err" name="${ansPrefix}${question.id}"><%=err%><br>
+		       <tc-webtag:errorIterator id="err" name="${fieldName}"><%=err%><br>
 		       </tc-webtag:errorIterator></span>
 		       </td>
 		   </tr>
@@ -490,8 +493,7 @@
 		        <td class="value">
 		        	<c:choose>
 		        		<c:when test="${question.keyword == kwdAge || question.keyword == kwdAgeEndSeason }">
-			        		<input type="text" size="3" maxlength="3" name="${ansPrefix}${question.id}" id ="answerInput" 
-			        			value='${cf:contains(defaults,ansPrefix + question.id) ?  defaults[ansPrefix + question.id] : "" ' />
+			        		<input type="text" size="3" maxlength="3" name="${fieldName}" id ="answerInput" value='${defaults[fieldName]}' />
 		        		</c:when>
 		        		<c:otherwise>		        
 		                  <tc:answerInput id="answerInput" question="${question}">

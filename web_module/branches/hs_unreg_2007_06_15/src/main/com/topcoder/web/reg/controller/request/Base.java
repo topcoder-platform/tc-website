@@ -799,6 +799,12 @@ abstract class Base extends LongHibernateProcessor {
         if (nots != null) {
             getRequest().setAttribute("notifications", nots);
         }
+        
+        Season season = getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON);
+        if (season != null && season.getEvent() != null && season.getEvent().getSurvey() != null) {
+            getRequest().setAttribute("questions", new ArrayList(season.getEvent().getSurvey().getQuestions()));
+        }
+        
         getRequest().setAttribute(Constants.FIELDS, fields);
         getRequest().setAttribute(Constants.REQUIRED_FIELDS,
                 RegFieldHelper.getMainRequiredFieldSet(getRequestedTypes(), u));
@@ -806,7 +812,7 @@ abstract class Base extends LongHibernateProcessor {
         getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
         getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
         getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
-        getRequest().setAttribute("season", getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON));
+        getRequest().setAttribute("season", season);
 
         setNextPage("/main.jsp");
         setIsNextPageInContext(true);
