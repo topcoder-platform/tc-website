@@ -123,7 +123,7 @@
         </td>
         <td class="valueR">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissionResults&amp;<%=Constants.SUBMISSION_ID%>=${resultRow.map['submission_id']}">
-                <rsc:item name="final_score" row="<%=resultRow%>" format="0.00" ifNull="n/a"/>
+                <rsc:item name="final_score" row="<%=resultRow%>" format="0.00"/>
             </a>
         </td>
         <td class="valueC">
