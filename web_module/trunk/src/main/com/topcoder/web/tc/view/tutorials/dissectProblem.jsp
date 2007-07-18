@@ -73,11 +73,11 @@ Finally, a set of examples is provided.  These give sample inputs against which 
    <ul>
    <li>
    <span class=bodySubtitle>Introduction</span><br/>
-   The problem statement usually begins by motivating the problem.  It gives a situation or context for the problem, before diving into the gory details.  This is usually irrelevant to solving the problem, so ignore it if necessary.  In some cases, the motivation can cause serious ambiguities if it is treated as binding - see <A href="/tc?module=ProblemDetail&rd=4775&pm=2911">MatchMaking</A> (SRM 203 Div I Easy / Div II Medium).  Also note that for some simple problems, the initial context may be left out.
+   The problem statement usually begins by motivating the problem.  It gives a situation or context for the problem, before diving into the gory details.  This is usually irrelevant to solving the problem, so ignore it if necessary.  In some cases, the motivation can cause serious ambiguities if it is treated as binding - see <A href="/tc?module=ProblemDetail&rd=5849&pm=2911">MatchMaking</A> (SRM 203 Div I Easy / Div II Medium).  Also note that for some simple problems, the initial context may be left out.
    <br/><br/>
    The ordering of the rest of this section varies greatly from problem to problem, based on the writing style of the problem author.
    <br/><br/>
-   There will be a description of what you need to do, in high-level terms.  Take, for example, <A href="/tc?module=ProblemDetail&rd=4775&pm=2913">UserName</A> (SRM 203, Div 2 easy).  What the problem is asking for you to do is to find the first variant of a given username that is not already taken.  Note that the problem has not yet said anything about variable names or types, or input formats.
+   There will be a description of what you need to do, in high-level terms.  Take, for example, <A href="/tc?module=ProblemDetail&rd=5849&pm=2913">UserName</A> (SRM 203, Div 2 easy).  What the problem is asking for you to do is to find the first variant of a given username that is not already taken.  Note that the problem has not yet said anything about variable names or types, or input formats.
    <br/><br/>
    There will also be a low-level description of the input.  At the bare minimum, the types and variable names of the inputs will be given to you, as well as what they correspond to and what they mean.  Sometimes much more information about input formats will be given; this typically occurs in more complicated problems.
    <br/><br/>
