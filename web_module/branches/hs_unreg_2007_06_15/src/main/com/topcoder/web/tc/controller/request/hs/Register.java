@@ -9,6 +9,7 @@ import com.topcoder.web.common.HSRegistrationHelper;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.CoderType;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Season;
@@ -48,48 +49,6 @@ public class Register extends RegistrationBase {
         Event event = season.getEvent();
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
-        /*        
-
-        
-        List<Response> responses = processSurvey(event, u);
-        Map<String,Response> responsesMap = new HashMap<String,Response>();
-        for(Response r : responses) {
-            responsesMap.put(r.getQuestion().getKeyword(), r);
-        }
-
-        String ageStr = responsesMap.get(AGE).getText();
-        String ageEndSeasonStr = responsesMap.get(AGE_END_SEASON).getText();
-        String attendingStr = responsesMap.get(IN_HIGH_SCHOOL) == null? null : responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getText();
-        
-        // check that the user has filled the fields
-        ValidationResult result = new AgeValidator().validate(new StringInput(ageStr));
-        if (!result.isValid()) {
-            addErrorQuestion(responsesMap, AGE, result.getMessage());
-        }
-        
-        result = new AgeValidator().validate(new StringInput(ageEndSeasonStr));
-        if (!result.isValid()) {
-            addErrorQuestion(responsesMap, AGE_END_SEASON, result.getMessage());
-        }
-
-        result = new AttendingHSValidator().validate(new StringInput(attendingStr));
-        if (!result.isValid()) {
-            addErrorQuestion(responsesMap, IN_HIGH_SCHOOL, result.getMessage());
-        }
-
-        // check that the ages are consistent
-        if (!hasErrors()) {
-            int age = Integer.parseInt(ageStr);
-            int ageEndSeason = Integer.parseInt(ageEndSeasonStr);
-            int dif = ageEndSeason - age;
-           
-            if (dif != 0 && dif != 1) {
-                addErrorQuestion(responsesMap, AGE, "Please check the age.");
-                addErrorQuestion(responsesMap, AGE_END_SEASON, "Please check the age.");
-            }
-            
-        }
-*/
         
         if (hasErrors()) {
             getRequest().setAttribute("eligible", true);
@@ -117,7 +76,7 @@ public class Register extends RegistrationBase {
         Integer hsStatus = getHSGroupStatus(u);
         
        
-        if (!SecurityGroup.ACTIVE.equals(hsStatus)) {
+        if (!SecurityGroup.ACTIVE.equals(hsStatus) || CoderType.PROFESSIONAL.equals(u.getCoder().getCoderType().getId())) {
             throw new NavigationException("You're not eligible for High School");
         }
         
@@ -134,22 +93,11 @@ public class Register extends RegistrationBase {
         }
 
         boolean eligible = rh.isEligibleHS();
-        /*
-        int ageHs = Integer.parseInt(ageStr);
-        int ageEndSeason = Integer.parseInt(ageEndSeasonStr);
-        boolean attendingHS = "yes".equalsIgnoreCase(attendingStr);
-        
-        boolean eligible = Secondary.isEligibleHS(ageHs, ageEndSeason, attendingHS);
-        */       
-        //u.addEventRegistration(event, responses, eligible);
-
-//        DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);            
 
         // If the user is not eligible, mark him as inactive in security groups.
         if (eligible) {
             rh.registerForSeason(u, season);            
         } else {
-            //inactivateHsUser(u);
             rh.inactivateUser(u, season);
         }
         
@@ -164,50 +112,5 @@ public class Register extends RegistrationBase {
 
         setIsNextPageInContext(false);
     } 
-
-/*
-
-    private void addErrorQuestion(Map<String, Response> responses, String field, String message) {
-        addError(AnswerInput.PREFIX + responses.get(field).getQuestion().getId(), message);        
-    }
-
-
-
-    protected List<Response> processSurvey(Event event, User user) {
-        Helper helper = new Helper(getRequest());
-
-        List<Response> responses = helper.processResponses(event.getSurvey());
-        
-        for (Iterator it = responses.iterator(); it.hasNext();) {
-            ((Response) it.next()).setUser(user);
-        }
-    
-        helper.checkRequiredQuestions(event.getSurvey(), responses);
-        
-        if (helper.hasErrors()) {
-            for (Iterator it = helper.getErrors().entrySet().iterator(); it.hasNext();) {
-                Map.Entry entry = (Map.Entry) it.next();
-                addError((String) entry.getKey(), entry.getValue());
-            }
-        }
-
-        
-        return responses;
-    }
-
-    protected void setDefaults(Collection responses) {
-        Response r = null;
-        for (Iterator it = responses.iterator(); it.hasNext();) {
-            r = (Response) it.next();
-            if (r.getQuestion().getStyle().getId().intValue() == QuestionStyle.MULTIPLE_CHOICE) {
-                setDefault(AnswerInput.PREFIX + r.getQuestion().getId() + "," + r.getAnswer().getId(), "true");
-            } else if (r.getAnswer() == null) {
-                setDefault(AnswerInput.PREFIX + r.getQuestion().getId(), r.getText());
-            } else {
-                setDefault(AnswerInput.PREFIX + r.getQuestion().getId(), r.getAnswer().getId());
-            }
-        }
-    }
-    */
 
 }

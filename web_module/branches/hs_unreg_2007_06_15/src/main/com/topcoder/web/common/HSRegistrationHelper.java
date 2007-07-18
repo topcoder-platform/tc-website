@@ -72,11 +72,26 @@ public class HSRegistrationHelper {
      */    
     public static final String IN_HIGH_SCHOOL = "inhs";
 
+    /**
+     * Group for HS registration
+     */    
+    public static final int HS_GROUP_ID = 12;
     
+    /**
+     * Create a new helper.
+     * 
+     * @param request
+     */
     public HSRegistrationHelper(TCRequest request) {
         this.request = request;
     }
 
+    /**
+     * Create a new helper using the provided responses. 
+     *
+     * @param request
+     * @param responsesMap
+     */
     public HSRegistrationHelper(TCRequest request,  Map<String,Response> responsesMap) {
         this.request = request;
         this.responsesMap = responsesMap;       
@@ -88,6 +103,13 @@ public class HSRegistrationHelper {
     }
     
     
+    /**
+     * Checks that the questions are correctly replied, and if not, returns a list with
+     * errors, being the first string the error key and the second the message.
+     * The registration is for the current HS season.
+     * 
+     * @return a list of errors.
+     */
     public List<String[]> validateQuestions() {
         if (getCurrentSeason() != null) {
             return validateQuestions(getCurrentSeason());
@@ -95,6 +117,15 @@ public class HSRegistrationHelper {
         return new ArrayList<String[]>();
     }
 
+    /**
+     * Checks that the questions are correctly replied, and if not, returns a list with
+     * errors, being the first string the error key and the second the message.
+     * The registration is for the specified season
+     * 
+     * @param season season to validate questions
+     * @return a list of errors.
+     */
+    @SuppressWarnings("unchecked")
     public List<String[]> validateQuestions(Season season) {
         SurveyHelper helper = new SurveyHelper(request);
 
@@ -149,6 +180,12 @@ public class HSRegistrationHelper {
         return results;
     }
 
+    /**
+     * Get a list with default values (first object is the field name, second the value) for the questions.
+     * This is used when the page needs to be reloaded.
+     * 
+     * @return
+     */
     public List<Object[]> getDefaults() {
         List<Object[]> result = new ArrayList<Object[]>();
         
@@ -163,12 +200,25 @@ public class HSRegistrationHelper {
     }
     
     
+    /**
+     * Set an user as inactive for HS and for the current season.
+     * 
+     * @param u user to inactivate.
+     * @throws Exception
+     */
     public void inactivateUser(User u) throws Exception {
         if (getCurrentSeason() != null) {
             inactivateUser(u, getCurrentSeason());
         }       
     }
     
+    /**
+     * Set an user as inactive for HS and for the specified season.
+     * 
+     * @param u user to inactivate.
+     * @param season the season where the user will 
+     * @throws Exception
+     */
     public void inactivateUser(User u, Season season) throws Exception {
         Context ctx = null;
         try {
@@ -178,7 +228,7 @@ public class HSRegistrationHelper {
             PrincipalMgrRemote pmr = pmrh.create();
             
             UserPrincipal user = new UserPrincipal("", u.getId().longValue());
-            GroupPrincipal group = new GroupPrincipal("", 12); // HS group
+            GroupPrincipal group = new GroupPrincipal("", HS_GROUP_ID); 
             
             // Add the user to the HS group; if the user already belongs it will throw an exception
             try {
@@ -194,38 +244,51 @@ public class HSRegistrationHelper {
             BaseProcessor.close(ctx);
         }
 
-        assignResponses(responses, u);
+        for(Response r : responses) {
+            r.setUser(u);
+        }
         
         // Mark in event_registration table that the user tried to register but was not eligible.
         u.addEventRegistration(season.getEvent(), responses, false);
     }
 
     
-    private void assignResponses(List<Response> resp, User u) {
-        for(Response r : resp) {
-            r.setUser(u);
-        }
-        
-    }
 
+    /**
+     * Register the user for the current season.
+     * 
+     * @param u user to register
+     */
     public void registerForSeason(User u) {
         if (getCurrentSeason() != null) {
             registerForSeason(u, getCurrentSeason());
         }
     }
     
-
+    /**
+     * Register a user for the specified season.
+     * 
+     * @param u user to register
+     * @param season season where the user will be registered
+     */
     public void registerForSeason(User u, Season season) {
         Event event = season.getEvent();
         log.debug("register for season, responses: " + responses + (responses == null? "" : " size " +responses.size()));
         
-        assignResponses(responses, u);
+        for(Response r : responses) {
+            r.setUser(u);
+        }
         
         u.addEventRegistration(event, responses, true);
 
         DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
     }
     
+    /**
+     * Get the current HS season.
+     * 
+     * @return the current HS season.
+     */
     private Season getCurrentSeason() {
         if (currentSeason == null) {
             currentSeason = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON); 

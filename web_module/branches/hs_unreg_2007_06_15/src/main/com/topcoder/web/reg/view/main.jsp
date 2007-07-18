@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.reg.Constants,
+				com.topcoder.web.common.HSRegistrationHelper,
                  com.topcoder.web.common.tag.AnswerInput" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -415,8 +416,8 @@
 <c:set value="<%=Constants.HS_REG_QUESTIONS%>" var="hsRegQuestions"/>
 <c:if test="${cf:contains(fields, hsRegQuestions)}">
 	  <c:set var="ansPrefix" value="<%=AnswerInput.PREFIX%>" />
-	  <c:set var="kwdAge" value="<%=com.topcoder.web.tc.controller.request.hs.RegistrationBase.AGE%>" />
-	  <c:set var="kwdAgeEndSeason" value="<%=com.topcoder.web.tc.controller.request.hs.RegistrationBase.AGE_END_SEASON%>" />
+	  <c:set var="kwdAge" value="<%HSRegistrationHelper.AGE%>" />
+	  <c:set var="kwdAgeEndSeason" value="<%=HSRegistrationHelper.AGE_END_SEASON%>" />
       <tc:questionIterator list="${questions}" id="question">
 		  <c:set var="fieldName" value="${ansPrefix}${question.id}" />
 		   <tr>

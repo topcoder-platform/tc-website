@@ -61,9 +61,8 @@ public class Secondary extends Base {
                         setDefaults(rh);
                         reloadMain(params, u, fields);
                     } else {
-                        // If the user is registering for hs, check that he has the right age and he'll be attending high school
                         if (registeringHS) {
-                                                       
+                            // put the responses in session so that they're saved in the db when submitting 
                             getRequest().getSession().setAttribute(Constants.HS_RESPONSES, rh.getResponsesMap());
 
                             if (!rh.isEligibleHS()) {
