@@ -260,9 +260,9 @@ Prizes will be distributed as follows:
 
 <p>
 <strong>
-1st Place: $3,000.00
-<br>2nd Place: $1,000.00
-<br>3rd Place: $500.00
+1st Place: $6,000.00
+<br>2nd Place: $2,000.00
+<br>3rd Place: $1,000.00
 </strong>
 </p>
 
