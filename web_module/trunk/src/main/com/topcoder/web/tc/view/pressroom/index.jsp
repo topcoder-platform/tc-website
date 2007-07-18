@@ -49,7 +49,22 @@
             </table>
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+            
+<%-- TopCoder Announces New Collaboration Initiatives --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
 
+                    <td width="274"><A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_071807"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_071807">TopCoder Announces New Collaboration Initiatives for Working with Clients and Community</A></strong></font><br />
+                        TopCoder today announced a series of collaboration initiatives to further enhance its ability to work with its clients and community.  These plans will move forward under the direction of Ira Heffan, who was recently named General Counsel. <span class="prHead"> [July 18]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
 <%-- Computerworld --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
