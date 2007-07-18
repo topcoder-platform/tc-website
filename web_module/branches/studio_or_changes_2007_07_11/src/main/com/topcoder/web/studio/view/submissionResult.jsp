@@ -58,8 +58,9 @@
                 <studio_tags:submissionDisplay submissionId="${submission.id}" width="${submission.width}" height="${submission.height}"/>
             </c:when>
             <c:otherwise>
+                <div id="popIt" class="popUp"><div>View submission</div></div>
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
-                    <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
+                    <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'popIt')" onmouseout="popHide()"/>
                 </a>
             </c:otherwise>
         </c:choose>
