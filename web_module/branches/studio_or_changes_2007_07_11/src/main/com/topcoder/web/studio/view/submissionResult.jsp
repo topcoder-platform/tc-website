@@ -1,12 +1,14 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="java.util.Map" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 <% ResultSetContainer reviewers = (ResultSetContainer) ((Map) request.getAttribute("submission_results")).get("reviewers");%>
 
@@ -80,29 +82,23 @@
         </td>
     </tr>
     <tr>
-        <td width="25%" align="center" style="font-size: 18px; font-weight: bold;">
-            <span class="coderText">handle</span>
-        </td>
-        <td width="25%" align="center" style="font-size: 18px; font-weight: bold;">
-            <span class="coderText">handle</span>
-        </td>
-        <td width="25%" align="center" style="font-size: 18px; font-weight: bold;">
-            <span class="coderText">handle</span>
-        </td>
+        <rsc:iterator list="<%=reviews%>" id="resultRow">
+            <td width="25%" align="center" style="font-size: 18px; font-weight: bold;">
+                <studio:handle coderId="${resultRow.map['reviewer_id']}"/>
+            </td>
+        </rsc:iterator>
         <td width="25%" align="center" style="font-size: 18px; font-weight: bold;">
             Final score
         </td>
     </tr>
     <tr>
-        <td align="center" style="font-size: 36px; font-weight: bold;">
-            <a href="">99.99</a>
-        </td>
-        <td align="center" style="font-size: 36px; font-weight: bold;">
-            <a href="">99.99</a>
-        </td>
-        <td align="center" style="font-size: 36px; font-weight: bold;">
-            <a href="">99.99</a>
-        </td>
+        <rsc:iterator list="<%=reviews%>" id="resultRow">
+            <td align="center" style="font-size: 36px; font-weight: bold;">
+                <a href="http://<%=ApplicationServer.TCS_APP_SERVER_URL%>/review/actions/ViewReview.do?method=viewReview&amp;rid=${resultRow.map['review_id']}">
+                <fmt:formatNumber value="${resultRow.map['score']}" pattern="0.00"/>
+                </a>
+            </td>
+        </rsc:iterator>
         <td align="center" style="font-size: 36px; font-weight: bold;">
             <fmt:formatNumber value="${submission.result.finalScore}" pattern="0.00"/>
         </td>
