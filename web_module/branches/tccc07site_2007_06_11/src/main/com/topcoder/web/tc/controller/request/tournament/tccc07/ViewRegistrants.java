@@ -6,7 +6,6 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.tournament.RegistrationBase;
 import com.topcoder.web.tc.controller.request.tournament.ViewRegistrantsBase;
 /**
  * @author dok, pulky
