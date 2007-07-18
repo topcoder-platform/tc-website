@@ -103,7 +103,7 @@
                     <div style="margin: 6px 10px;">
                         <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">contest
                             details</a>
-                        <c:if test="${rsc.map['forum_id']!=null}">| <studio:forumLink forumID="${rsc.map['forum_id']}"/></c:if>
+                        <c:if test="${resultRow.map['forum_id']!=null}">| <studio:forumLink forumID="${resultRow.map['forum_id']}"/></c:if>
                         <% if (resultRow.getBooleanItem("results_available")) { %>
                         |
                         <a href="/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">winners</a>
