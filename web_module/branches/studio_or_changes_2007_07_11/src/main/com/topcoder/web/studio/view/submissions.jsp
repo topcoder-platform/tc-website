@@ -163,9 +163,7 @@
                     <c:choose>
                         <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
                             <div align="center" style="overflow: hidden; width: 300px;">
-                                <a href=""><%-- LINK IMAGE TO FULL SIZE version --%>
                                 <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
-                                </a>
                             </div>
                         </c:when>
                         <c:otherwise>
