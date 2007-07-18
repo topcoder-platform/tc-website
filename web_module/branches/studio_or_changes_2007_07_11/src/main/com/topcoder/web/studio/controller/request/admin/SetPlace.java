@@ -69,9 +69,13 @@ public class SetPlace extends Base {
             } else if (p == null) {
                 throw new NavigationException("Invalid Prize Specified");
             } else {
-                ContestResult cr = new ContestResult(submission);
+                ContestResult cr = null;
+                if (submission.getResult() == null) {
+                    cr = new ContestResult(submission);
+                } else {
+                    cr = submission.getResult();
+                }
                 cr.setPrize(p);
-                submission.setResult(cr);
                 factory.getSubmissionDAO().saveOrUpdate(submission);
             }
             try {
