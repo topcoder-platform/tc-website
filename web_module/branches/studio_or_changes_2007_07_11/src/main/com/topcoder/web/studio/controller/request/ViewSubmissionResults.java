@@ -12,7 +12,7 @@ import java.util.Date;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 18, 2007
  */
-public class ViewSubmissionResult extends BaseSubmissionDataProcessor {
+public class ViewSubmissionResults extends BaseSubmissionDataProcessor {
 
     protected void dbProcessing() throws Exception {
         Long submissionId;
