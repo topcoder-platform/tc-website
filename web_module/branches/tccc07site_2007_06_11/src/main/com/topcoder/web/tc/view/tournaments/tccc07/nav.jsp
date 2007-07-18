@@ -179,9 +179,11 @@
     </div>
     
     <div style="position:absolute; top:400px; right:7%;">
-        <tc-webtag:format object="<%=new Date()%>" format="EEEE, MMMM d, yyyy" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
-        <div id="sponsors">
-            <jsp:include page="sponsors.jsp" />
+        <div align="center">
+            <span style="color:#4b4fa1;">Today is  </span><tc-webtag:format object="<%=new Date()%>" format="EEEE, MMMM d, yyyy" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+            <div id="sponsors">
+                <jsp:include page="sponsors.jsp" />
+            </div>
         </div>
     </div>
 
