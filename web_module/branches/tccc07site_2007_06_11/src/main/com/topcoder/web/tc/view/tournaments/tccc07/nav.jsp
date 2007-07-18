@@ -184,6 +184,7 @@
             <div id="sponsors">
                 <jsp:include page="sponsors.jsp" />
             </div>
+            <div>&nbsp;</div>
         </div>
     </div>
 
