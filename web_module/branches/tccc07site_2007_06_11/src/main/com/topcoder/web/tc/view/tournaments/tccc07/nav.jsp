@@ -171,7 +171,7 @@
             </div>
             <div id="navTextB">&nbsp;</div>
             
-            <div style="position:absolute; top:375px; right:30px;">
+            <div style="position:absolute; top:385px; right:30px;">
                 <img src="/i/tournament/tccc07/stylebar.png" alt="stylebar" />
             </div>
         </div>

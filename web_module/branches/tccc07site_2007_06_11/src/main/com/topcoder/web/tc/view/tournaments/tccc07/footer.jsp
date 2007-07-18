@@ -13,5 +13,4 @@
             <div class="copyright">Copyright &#169; 2000-2007, TopCoder, Inc. All rights reserved.</div>
         </div>
     </div>
-    <div style="background-color:#000000; width:980px;">&nbsp;</div>
 </div>
