@@ -77,7 +77,7 @@
                             <A href="/?module=Static&d1=assembly&d2=msSessionManifestDetails">Microsoft Session Manifest Tool</A>
                         </td>
                         <td class="value">
-                            &nbsp;
+                            <strong>dsdirect</strong>
                         </td>
                         <td class="valueC">
                             32
