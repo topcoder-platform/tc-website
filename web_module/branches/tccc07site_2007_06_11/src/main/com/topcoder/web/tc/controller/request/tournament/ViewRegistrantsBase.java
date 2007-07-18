@@ -69,6 +69,10 @@ public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
             startRank = "1";
         }
 
+        setDefault(DataAccessConstants.START_RANK, startRank);
+        setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
+
+
         int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
 
         ArrayList<ResultFilter> filters = new ArrayList<ResultFilter>(1);

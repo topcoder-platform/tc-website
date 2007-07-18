@@ -18,7 +18,7 @@
 <body>
 
 <% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("list"));
-String compType = (String) request.getAttribute("ct"); %>
+String eventType = (String) request.getAttribute("et"); %>
 
 <div align="center" style="background: transparent;">
     <div id="content">
@@ -38,21 +38,18 @@ String compType = (String) request.getAttribute("ct"); %>
 <div align="center">
 <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
 <thead>
-    <tr><td class="title" colspan="3">Registrants: <%=rsc.size()%></td></tr>
+    <tr><td class="title" colspan="2">Registrants: <%=rsc.size()%></td></tr>
     <tr>
-        <td class="headerC" nowrap="nowrap">
-            <a href="/tc?module=TCCC07ViewRegistrants&amp;ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
-        </td>
 <%-- show after seeds are assigned
-        <td class="headerC">
-            <a href="">Seed</a>
+        <td class="headerC" nowrap="nowrap">
+            <a href="/tc?module=TCCC07ViewRegistrants&amp;ct=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
         </td>
 --%>
         <td class="header" width="100%">
-            <a href="/tc?module=TCCC07ViewRegistrants&amp;ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
+            <a href="/tc?module=TCCC07ViewRegistrants&amp;ct=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
         </td>
         <td class="headerR">
-            <a href="/tc?module=TCCC07ViewRegistrants&amp;ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
+            <a href="/tc?module=TCCC07ViewRegistrants&amp;ct=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
         </td>
     </tr>
 </thead>
@@ -60,9 +57,11 @@ String compType = (String) request.getAttribute("ct"); %>
 <%boolean even = false;%>
 <rsc:iterator list='<%=rsc%>' id="resultRow">
 <tr class="<%=(even ? "dark" : "light")%>">
+<!-- show after seeds are assigned
 <td class="valueC">
-<rsc:item name="seed" row='<%=resultRow%>'/>
+<rsc:item name="seed" row='<%--=resultRow%-->'/>
 </td>
+--!>
 <td class="value">
 <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="marathon_match"/>
 </td>
