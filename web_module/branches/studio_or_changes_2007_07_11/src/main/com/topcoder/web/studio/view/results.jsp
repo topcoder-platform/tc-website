@@ -158,7 +158,7 @@
 <tr>
     <td class="SW">&nbsp;</td>
     <td class="title" colspan="8">
-        <a href="/?module=ViewSubmissions&ct=${contest.id}" class="small">...view all submissions</a>
+        <a href="/?<%=Constants.MODULE_KEY%>=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="small">...view all submissions</a>
     </td>
     <td class="SE">&nbsp;</td>
 </tr>
