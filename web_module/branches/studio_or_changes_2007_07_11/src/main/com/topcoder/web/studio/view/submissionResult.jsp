@@ -1,4 +1,6 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="studio.tld" prefix="studio" %>
@@ -6,6 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<% ResultSetContainer reviewers = (ResultSetContainer) ((Map) request.getAttribute("submission_results")).get("reviewers");%>
 
 <html>
 <head>
