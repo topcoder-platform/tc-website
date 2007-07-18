@@ -1,7 +1,6 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccess;

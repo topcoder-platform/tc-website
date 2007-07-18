@@ -4,6 +4,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 
@@ -22,14 +23,14 @@
     <script type="text/javascript">
   function next() {
     var myForm = document.registrantsForm;
-    myForm.<%=DataAccessConstants.START_RANK%>.value=<c:out value="${requestScope[defaults][startRank]}"/>+parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+    myForm.<%=DataAccessConstants.START_RANK%>.value= parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) + parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
     myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
     myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
     myForm.submit();
   }
   function previous() {
     var myForm = document.registrantsForm;
-    myForm.<%=DataAccessConstants.START_RANK%>.value=<c:out value="${requestScope[defaults][startRank]}"/>-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+    myForm.<%=DataAccessConstants.START_RANK%>.value-=parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
     myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
     myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
 
@@ -64,18 +65,19 @@ String eventType = (String) request.getAttribute("et"); %>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
+<div align="center">
 <div class="pagingBox">
 <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
 | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
 </div>
+   <br>
 
-<div align="center">
 <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
 <thead>
     <tr><td class="title" colspan="3">Registrants: <%=rsc.size()%></td></tr>
     <tr>
         <td class="headerC" nowrap="nowrap">
-            <a href="/tc?module=TCCC07ViewRegistrants&amp;ct=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">TCCC Rank</a>
+            <a href="/tc?module=TCCC07ViewRegistrants&amp;et=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">TCCC Rank</a>
         </td>
 <%-- show after seeds are assigned
         <td class="headerC">
@@ -83,11 +85,11 @@ String eventType = (String) request.getAttribute("et"); %>
         </td>
 --%>
         <td class="header" width="100%">
-            <a href="/tc?module=TCCC07ViewRegistrants&amp;ct=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
+            <a href="/tc?module=TCCC07ViewRegistrants&amp;et=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
             <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
         </td>
         <td class="headerR">
-            <a href="/tc?module=TCCC07ViewRegistrants&amp;ct=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
+            <a href="/tc?module=TCCC07ViewRegistrants&amp;et=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
         </td>
     </tr>
 </thead>
