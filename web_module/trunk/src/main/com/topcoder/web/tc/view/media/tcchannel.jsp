@@ -35,7 +35,7 @@
         <td width="100%" align="center" class="bodyColumn">
             <div class="fixedWidthBody">
 
-                <div align="right" style="padding: 10px; background: transparent url(/i/tcchannel/videoBackdrop.png) right center no-repeat;">
+                <div align="right" style="padding: 10px; background: transparent url(/i/interface/videoBackdrop320x240.png) right center no-repeat;">
 
                     <div style="float: left; margin-top: 50px;">
                         <img src="/i/tcchannel/tcchannelLogo.png" alt="TC Channel" />
