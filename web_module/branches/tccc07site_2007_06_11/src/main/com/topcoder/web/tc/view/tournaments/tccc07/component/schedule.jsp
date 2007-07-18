@@ -118,7 +118,7 @@
                     </tr> 
                     <tr class="light"> 
                         <td class="value">Last Day to Request a Visa Letter</td> 
-                        <td class="value">Monday, September 10, 2007 at 5:00 PM</td> 
+                        <td class="value">Friday, September 14, 2007 at 5:00 PM</td> 
                     </tr> 
                     <tr class="dark"> 
                         <td class="value">Finalist Documents Due</td> 
