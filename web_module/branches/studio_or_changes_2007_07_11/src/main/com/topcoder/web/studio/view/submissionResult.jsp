@@ -10,7 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
-<% ResultSetContainer reviewers = (ResultSetContainer) ((Map) request.getAttribute("submission_results")).get("reviewers");%>
+<% ResultSetContainer reviews = (ResultSetContainer) ((Map) request.getAttribute("submission_results")).get("reviewers");%>
 
 <html>
 <head>
