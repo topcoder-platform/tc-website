@@ -57,8 +57,6 @@ import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.validation.Address1Validator;
 import com.topcoder.web.reg.validation.Address2Validator;
 import com.topcoder.web.reg.validation.Address3Validator;
-import com.topcoder.web.reg.validation.AgeValidator;
-import com.topcoder.web.reg.validation.AttendingHSValidator;
 import com.topcoder.web.reg.validation.CityValidator;
 import com.topcoder.web.reg.validation.CoderTypeValidator;
 import com.topcoder.web.reg.validation.CompanyNameValidator;
@@ -233,6 +231,7 @@ abstract class Base extends LongHibernateProcessor {
      *
      * @return all the user input
      */
+    @SuppressWarnings("unchecked")
     protected Map getMainUserInput() {
         HashMap ret = new HashMap();
 
@@ -263,10 +262,9 @@ abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.TIMEZONE, getTrimmedParameter(Constants.TIMEZONE));
         ret.put(Constants.MEMBER_CONTACT, getTrimmedParameter(Constants.MEMBER_CONTACT));
         ret.put(Constants.TERMS_OF_USE_ID, getTrimmedParameter(Constants.TERMS_OF_USE_ID));
-        ret.put(Constants.AGE, getTrimmedParameter(Constants.AGE));
-        ret.put(Constants.AGE_END_SEASON, getTrimmedParameter(Constants.AGE_END_SEASON));
-        ret.put(Constants.ATTENDING_HS, getTrimmedParameter(Constants.ATTENDING_HS));
-        
+        ret.put(Constants.HS_REG_QUESTIONS, getTrimmedParameter(Constants.HS_REG_QUESTIONS));
+
+
         //iterate through the notifications, we're essentially validating here
         //since we're only looking for valid notifications.
         List notifications = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
@@ -318,21 +316,7 @@ abstract class Base extends LongHibernateProcessor {
         simpleValidation(CountryValidator.class, fields, params, Constants.COMP_COUNTRY_CODE);
         simpleValidation(CoderTypeValidator.class, fields, params, Constants.CODER_TYPE);
         simpleValidation(TimeZoneValidator.class, fields, params, Constants.TIMEZONE);
-        simpleValidation(AgeValidator.class, fields, params, Constants.AGE);
-        simpleValidation(AgeValidator.class, fields, params, Constants.AGE_END_SEASON);
-        simpleValidation(AttendingHSValidator.class, fields, params, Constants.ATTENDING_HS);
         
-        if (fields.contains(Constants.AGE) && !hasError(Constants.AGE) && !hasError(Constants.AGE_END_SEASON)) {
-            int age = Integer.parseInt((String) params.get(Constants.AGE));
-            int ageEndSeason = Integer.parseInt((String) params.get(Constants.AGE_END_SEASON));
-            int dif = ageEndSeason - age;
-           
-            if (dif != 0 && dif != 1) {
-                addError(Constants.AGE, "Please check the age.");
-                addError(Constants.AGE_END_SEASON, "Please check the age.");
-            }
-            
-        }
         
         ValidationResult termsResults = new TermsOfUseValidator(getRegUser()).validate(
                 new StringInput((String) params.get(Constants.TERMS_OF_USE_ID)));
@@ -788,9 +772,6 @@ abstract class Base extends LongHibernateProcessor {
         }
 
         setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
-        setDefault(Constants.AGE, params.get(Constants.AGE));
-        setDefault(Constants.AGE_END_SEASON, params.get(Constants.AGE_END_SEASON));
-        setDefault(Constants.ATTENDING_HS, params.get(Constants.ATTENDING_HS));
         
         if (!u.isNew()) {
             setDefault(Constants.HANDLE, u.getHandle());
@@ -799,6 +780,12 @@ abstract class Base extends LongHibernateProcessor {
         if (nots != null) {
             getRequest().setAttribute("notifications", nots);
         }
+        
+        Season season = getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON);
+        if (season != null && season.getEvent() != null && season.getEvent().getSurvey() != null) {
+            getRequest().setAttribute("questions", new ArrayList(season.getEvent().getSurvey().getQuestions()));
+        }
+        
         getRequest().setAttribute(Constants.FIELDS, fields);
         getRequest().setAttribute(Constants.REQUIRED_FIELDS,
                 RegFieldHelper.getMainRequiredFieldSet(getRequestedTypes(), u));
@@ -806,7 +793,7 @@ abstract class Base extends LongHibernateProcessor {
         getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
         getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
         getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
-        getRequest().setAttribute("season", getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON));
+        getRequest().setAttribute("season", season);
 
         setNextPage("/main.jsp");
         setIsNextPageInContext(true);

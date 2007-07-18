@@ -1,4 +1,4 @@
-package com.topcoder.web.reg.validation;
+package com.topcoder.web.common.validation;
 
 import com.topcoder.web.common.validation.BasicResult;
 import com.topcoder.web.common.validation.IntegerValidator;
