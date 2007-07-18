@@ -43,7 +43,7 @@ public class ViewSubmissionDetail extends Base {
                 prizes.add(new ListSelectTag.Option(p.getId().toString(),
                         p.getType().getDescription() + " " + dfmt.format(p.getAmount())));
             } else {
-                prizes.add(new ListSelectTag.Option(p.getId().toString(), p.getPlace() + " " + dfmt.format(p.getAmount()));
+                prizes.add(new ListSelectTag.Option(p.getId().toString(), p.getPlace() + " " + dfmt.format(p.getAmount())));
             }
         }
         getRequest().setAttribute("prizes", prizes);

@@ -118,14 +118,12 @@
 
                         <p>
                             Place:
-                            <tc-webtag:objectSelect name="<%=Constants.PRIZE_ID%>" list="${submission.contest.prizes}" valueField="id" textField="place"/>
+                            <tc-webtag:listSelect name="<%=Constants.PRIZE_ID%>" list="${prizes}"/>
                             <button name="submit" value="submit" type="submit">Save</button>
                         </p>
                     </form>
-                    
+
                 </c:if>
-
-
 
 
             </div>
