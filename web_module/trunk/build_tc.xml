@@ -852,6 +852,7 @@
                 <include name="com/topcoder/web/oracle/model/**/*.class"/>
             </classes>
             <webinf dir="${resources}/taglib">
+                <include name="tc.tld"/>
                 <include name="tc-webtags.tld"/>
                 <include name="reg-tags.tld"/>
                 <include name="common-functions.tld"/>
