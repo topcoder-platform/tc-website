@@ -43,19 +43,19 @@ public class SetPlace extends Base {
         }
 
         StudioDAOFactory factory = StudioDAOUtil.getFactory();
-        Submission s = factory.getSubmissionDAO().find(submissionId);
+        Submission submission = factory.getSubmissionDAO().find(submissionId);
 
-        if (s == null) {
+        if (submission == null) {
             throw new NavigationException("Invalid Submission Specified");
-        } else if (s.getReview() == null) {
+        } else if (submission.getReview() == null) {
             throw new NavigationException("Submission not reviewed, it can not place.");
-        } else if (!s.getReview().getStatus().equals(factory.getReviewStatusDAO().find(ReviewStatus.PASSED))) {
+        } else if (!submission.getReview().getStatus().equals(factory.getReviewStatusDAO().find(ReviewStatus.PASSED))) {
             throw new NavigationException("Submission did not pass, it can not place.");
         } else {
 
             Prize p = null;
             if (prizeId != null) {
-                Set<Prize> prizes = s.getContest().getPrizes();
+                Set<Prize> prizes = submission.getContest().getPrizes();
                 boolean found = false;
                 for (Iterator<Prize> it = prizes.iterator(); it.hasNext() && !found;) {
                     p = it.next();
@@ -64,21 +64,19 @@ public class SetPlace extends Base {
             }
             if (prizeId == null) {
                 //clear prize
-                s.getResult().setPrize(null);
-                factory.getSubmissionDAO().saveOrUpdate(s);
+                submission.getResult().setPrize(null);
+                factory.getSubmissionDAO().saveOrUpdate(submission);
             } else if (p == null) {
                 throw new NavigationException("Invalid Prize Specified");
             } else {
-                ContestResult cr = new ContestResult();
-                cr.setContest(s.getContest());
+                ContestResult cr = new ContestResult(submission);
                 cr.setPrize(p);
-                cr.setSubmission(s);
-                s.setResult(cr);
-                factory.getSubmissionDAO().saveOrUpdate(s);
+                submission.setResult(cr);
+                factory.getSubmissionDAO().saveOrUpdate(submission);
             }
             try {
                 HashSet<String> cachedStuff = new HashSet<String>();
-                cachedStuff.add(Constants.CONTEST_ID + "=" + s.getContest().getId().toString());
+                cachedStuff.add(Constants.CONTEST_ID + "=" + submission.getContest().getId().toString());
                 cachedStuff.add("studio_home_data");
                 CacheClearer.removelike(cachedStuff);
             } catch (Exception ignore) {
@@ -88,7 +86,7 @@ public class SetPlace extends Base {
         }
 
         setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
-                "=AdminViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + s.getId());
+                "=AdminViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + submission.getId());
         setIsNextPageInContext(false);
 
     }
