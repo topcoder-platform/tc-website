@@ -42,6 +42,12 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+<p>
+    5.10.11 - 2007.07.xx
+    <ul>
+        <li>Fixed hs registration to use survey questions. - cucu</li>
+    </ul>
+</p>
 
 <p>
     5.10.10 - 2007.07.12
