@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>07.18.07<br>4:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_071807">TopCoder Announces New Collaboration Initiatives for Working with Clients and Community</A></span><br><br>
+       TopCoder today announced a series of collaboration initiatives to further enhance its ability to work with its clients and community.  These plans will move forward under the direction of Ira Heffan, who was recently named General Counsel.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_071807">full story</a> | 
+       <tc-webtag:forumLink forumID="516609" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>07.17.07<br>12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://csf.topcoder.com/">Microsoft CSF Competitions – Winners Announced!</A></span><br><br>
@@ -180,20 +193,4 @@ and <tc-webtag:handle coderId="272408" context="algorithm"/> rounded out the top
         <A href="/tc?module=Static&d1=calendar&d2=thisMonth">details</A> | 
         <tc-webtag:forumLink forumID="516431" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0" /><br>07.09.07<br>4:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=maxFlowRevisited">Maximum Flow: Augmenting Path Algorithms Comparison</A></span><br><br>
-       In this article, we'll revisit the so-called "max-flow" problem, with the goal of making some practical analysis of the most famous augmenting path algorithms. We will discuss several algorithms, and reveal which one is actually most efficient one in practice.</td>
-      <td class="newsPhoto"><img src="/i/m/Zealint_big.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="22671469" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=maxFlowRevisited">full story</A> | 
-         <tc-webtag:forumLink forumID="516430" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>

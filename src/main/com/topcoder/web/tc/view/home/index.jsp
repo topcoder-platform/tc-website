@@ -364,6 +364,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br>
 
+            TopCoder Announces New Collaboration Initiatives
+            <A href="/tc?module=Static&d1=pressroom&d2=pr_071807">...more</a><br>[July 18]<br><br>
+            
             <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/guardian_logo.png" width="67" height="30" alt="Guardian Unlimited" border="0" />
             </div>
@@ -385,8 +388,6 @@
             AOL to Webcast TopCoder Open 2007 Finals Live on June 29
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_060507">...more</A><br>[June 7]<br><br>
 
-            TopCoder Announces Enhanced Focus on Financial Services Industry
-            <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_060607">...more</A><br>[June 6]<br><br>
 
           </td>
     </tr>
