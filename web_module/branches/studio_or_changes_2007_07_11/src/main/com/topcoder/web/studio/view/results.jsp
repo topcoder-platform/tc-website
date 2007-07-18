@@ -45,148 +45,149 @@
 <h1>Winners</h1>
 
 <table class="stat" cellpadding="0" cellspacing="0" style="width:740px">
-    <tbody>
-        <tr>
-            <td class="NW">&nbsp;</td>
-            <td class="title" colspan="8">Winners</td>
-            <td class="NE">&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="headerW">
-                <div>&nbsp;</div>
-            </td>
-            <td class="headerC" width="1%">
-                Place
-            </td>
-            <td class="header">
-                Handle
-            </td>
-            <td class="headerC">
-                Submission ID
-            </td>
-            <td class="headerC">
-                Registered
-            </td>
-            <td class="headerC">
-                Submitted
-            </td>
-            <td class="headerR">
-                Prize
-            </td>
-            <td class="headerR">
-                Score
-            </td>
-            <td class="headerC">
-                Submission
-            </td>
-            <td class="headerE">
-                <div>&nbsp;</div>
-            </td>
-        </tr>
+<tbody>
+<tr>
+    <td class="NW">&nbsp;</td>
+    <td class="title" colspan="8">Winners</td>
+    <td class="NE">&nbsp;</td>
+</tr>
+<tr>
+    <td class="headerW">
+        <div>&nbsp;</div>
+    </td>
+    <td class="headerC" width="1%">
+        Place
+    </td>
+    <td class="header">
+        Handle
+    </td>
+    <td class="headerC">
+        Submission ID
+    </td>
+    <td class="headerC">
+        Registered
+    </td>
+    <td class="headerC">
+        Submitted
+    </td>
+    <td class="headerR">
+        Prize
+    </td>
+    <td class="headerR">
+        Score
+    </td>
+    <td class="headerC">
+        Submission
+    </td>
+    <td class="headerE">
+        <div>&nbsp;</div>
+    </td>
+</tr>
 
 
-        <% boolean even = true;
-            int i = 0; %>
+<% boolean even = true;
+    int i = 0; %>
 
 
-        <rsc:iterator list="<%=results%>" id="resultRow">
-            <tr class="<%=even?"light":"dark"%>">
-                <td class="valueW">
-                    <div>&nbsp;</div>
-                </td>
-                <td class="valueC">
-                    <rsc:item name="place" row="<%=resultRow%>"/>
-                </td>
-                <td class="value">
-                    <studio:handle coderId="<%=resultRow.getLongItem("submitter_id")%>"/>
-                </td>
-                <td class="valueC">
-                    <rsc:item name="submission_id" row="<%=resultRow%>"/>
-                </td>
-                <td class="valueC">
-                    <rsc:item name="reg_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
-                </td>
-                <td class="valueC">
-                    <rsc:item name="submit_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
-                </td>
-                <td class="valueR">
-                    <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
-                </td>
-                <td class="valueR">
-                    <a href="">99.99</a>
-                </td>
-                <td class="valueC">
-                    <c:choose>
-                        <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
-                            <div align="center">
-                                <div style="overflow: hidden; width: 300px;">
-                                    <a href=""><%-- LINK IMAGE TO FULL SIZE version --%>
-                                    <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
-                                    </a>
-                                </div>
-                            </div>
-                        </c:when>
-                        <c:otherwise>
-                            <div align="center">
-                                <div id="pop<%=i%>" class="popUp">
-                                    <div>View submission</div>
-                                </div>
-                                <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                    <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
-                                </a>
-                            </div>
-                        </c:otherwise>
-                    </c:choose>
-                </td>
-                <td class="valueE">
-                    <div>&nbsp;</div>
-                </td>
-            </tr>
-        <% even = !even; i++; %>
-        </rsc:iterator>
-            <tr class="<%=even?"light":"dark"%>">
-                <td class="valueW">
-                    <div>&nbsp;</div>
-                </td>
-                <td class="valueC">
-                    BONUS
-                </td>
-                <td class="value">
-                    <studio:handle coderId="22076237"/>
-                </td>
-                <td class="valueC">
-                    1234
-                </td>
-                <td class="valueC">
-                    <strong>04.03.2007</strong>
-                    <br />13:41 EDT
-                </td>
-                <td class="valueC">
-                    <strong>04.03.2007</strong>
-                    <br />13:41 EDT
-                </td>
-                <td class="valueR">
-                    $100.00
-                </td>
-                <td class="valueR">
-                    <a href="">99.99</a>
-                </td>
-                <td class="valueC">
-                    same as other submissions
-                </td>
-                <td class="valueE">
-                    <div>&nbsp;</div>
-                </td>
-            </tr>
+<rsc:iterator list="<%=results%>" id="resultRow">
+    <tr class="<%=even?"light":"dark"%>">
+        <td class="valueW">
+            <div>&nbsp;</div>
+        </td>
+        <td class="valueC">
+            <rsc:item name="place" row="<%=resultRow%>"/>
+        </td>
+        <td class="value">
+            <studio:handle coderId="<%=resultRow.getLongItem("submitter_id")%>"/>
+        </td>
+        <td class="valueC">
+            <rsc:item name="submission_id" row="<%=resultRow%>"/>
+        </td>
+        <td class="valueC">
+            <rsc:item name="reg_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+        </td>
+        <td class="valueC">
+            <rsc:item name="submit_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+        </td>
+        <td class="valueR">
+            <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
+        </td>
+        <td class="valueR">
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissionResults&amp;<%=Constants.SUBMISSION_ID%>=${resultRow.map['submission_id']}">
+                <rsc:item name="final_Score" row="<%=resultRow%>" format="0.00" ifNull="n/a"/>
+            </a>
+        </td>
+        <td class="valueC">
+            <c:choose>
+                <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
+                    <div align="center">
+                        <div style="overflow: hidden; width: 300px;">
+                            <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
+                        </div>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <div align="center">
+                        <div id="pop<%=i%>" class="popUp">
+                            <div>View submission</div>
+                        </div>
+                        <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                            <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
+                        </a>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+        </td>
+        <td class="valueE">
+            <div>&nbsp;</div>
+        </td>
+    </tr>
+    <% even = !even;
+        i++; %>
+</rsc:iterator>
+<tr class="<%=even?"light":"dark"%>">
+    <td class="valueW">
+        <div>&nbsp;</div>
+    </td>
+    <td class="valueC">
+        BONUS
+    </td>
+    <td class="value">
+        <studio:handle coderId="22076237"/>
+    </td>
+    <td class="valueC">
+        1234
+    </td>
+    <td class="valueC">
+        <strong>04.03.2007</strong>
+        <br/>13:41 EDT
+    </td>
+    <td class="valueC">
+        <strong>04.03.2007</strong>
+        <br/>13:41 EDT
+    </td>
+    <td class="valueR">
+        $100.00
+    </td>
+    <td class="valueR">
+        <a href="">99.99</a>
+    </td>
+    <td class="valueC">
+        same as other submissions
+    </td>
+    <td class="valueE">
+        <div>&nbsp;</div>
+    </td>
+</tr>
 
-        <tr>
-            <td class="SW">&nbsp;</td>
-            <td class="title" colspan="8">
-                <a href="/?module=ViewSubmissions&ct=${contest.id}" class="small">...view all submissions</a>
-            </td>
-            <td class="SE">&nbsp;</td>
-        </tr>
-    </tbody>
+<tr>
+    <td class="SW">&nbsp;</td>
+    <td class="title" colspan="8">
+        <a href="/?module=ViewSubmissions&ct=${contest.id}" class="small">...view all submissions</a>
+    </td>
+    <td class="SE">&nbsp;</td>
+</tr>
+</tbody>
 </table>
 
 
