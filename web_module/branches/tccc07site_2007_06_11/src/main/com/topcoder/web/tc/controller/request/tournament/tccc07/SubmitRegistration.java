@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.CacheClient;
@@ -99,13 +100,15 @@ public class SubmitRegistration extends SubmitRegistrationBase {
 
     protected void refreshCache(Event e) {
         try {
-            CacheClient cc = CacheClientFactory.create();
-            Request r = new Request();
+//            CacheClient cc = CacheClientFactory.create();
+//            Request r = new Request();
             log.debug("removing " + e.getShortDescription() + "_registrants" + " from cache.");
-            r.setContentHandle(e.getShortDescription() + "_registrants");
-            log.debug(Constants.EVENT_ID + " : " + String.valueOf(e.getId().intValue()));
-            r.setProperty(Constants.EVENT_ID, String.valueOf(e.getId().intValue()));
-            cc.remove(r.getCacheKey());
+            CacheClearer.removelike(e.getShortDescription() + "_registrants");
+            
+//            r.setContentHandle(e.getShortDescription() + "_registrants");
+//            log.debug(Constants.EVENT_ID + " : " + String.valueOf(e.getId().intValue()));
+//            r.setProperty(Constants.EVENT_ID, String.valueOf(e.getId().intValue()));
+//            cc.remove(r.getCacheKey());
         } catch (Exception ignore) {
             ignore.printStackTrace();
         }
