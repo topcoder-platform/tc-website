@@ -20,9 +20,17 @@ public class ContestResult extends Base implements Comparable {
 
     }
 
+    /**
+     * Create a new contest result for the given submission.  This
+     * constructor takes care of all the associations between the result
+     * and the submission/contest
+     *
+     * @param s - the submission
+     */
     public ContestResult(Submission s) {
         setSubmission(s);
         setContest(s.getContest());
+        s.setResult(this);
     }
 
     //i don't think we need to expose this.  i think it's just necessary to make hibernate happy
