@@ -34,9 +34,6 @@ import com.topcoder.web.reg.RegFieldHelper;
  */
 public class Secondary extends Base {
 
-    public void setDefault(String s, Object o ) {
-        super.setDefault(s, o);
-    }
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
         if (u == null) {
@@ -58,7 +55,9 @@ public class Secondary extends Base {
                     }
 
                     if (hasErrors()) {
-                        setDefaults(rh);
+                        if (registeringHS) {
+                            setDefaults(rh);
+                        }
                         reloadMain(params, u, fields);
                     } else {
                         if (registeringHS) {
