@@ -10,7 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
-<% ResultSetContainer reviews = (ResultSetContainer) ((Map) request.getAttribute("submission_results")).get("reviewers");%>
+<% ResultSetContainer reviews = (ResultSetContainer) ((Map) request.getAttribute("submission_results")).get("reviews");%>
 
 <html>
 <head>
@@ -109,7 +109,7 @@
 
 <div align="center">
     Click scores to view the corresponding scorecards via
-    <a href=""><img src="/i/tcorLogo.png" alt="TopCoder Online Review" style="display: block; margin: 3px;" /></a>
+    <a href="http://<%=ApplicationServer.TCS_APP_SERVER_URL%>/review"><img src="/i/tcorLogo.png" alt="TopCoder Online Review" style="display: block; margin: 3px;" /></a>
 </div>
 
             </div>
