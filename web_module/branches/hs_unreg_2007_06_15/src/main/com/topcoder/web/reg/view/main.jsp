@@ -416,7 +416,7 @@
 <c:set value="<%=Constants.HS_REG_QUESTIONS%>" var="hsRegQuestions"/>
 <c:if test="${cf:contains(fields, hsRegQuestions)}">
 	  <c:set var="ansPrefix" value="<%=AnswerInput.PREFIX%>" />
-	  <c:set var="kwdAge" value="<%HSRegistrationHelper.AGE%>" />
+	  <c:set var="kwdAge" value="<%=HSRegistrationHelper.AGE%>" />
 	  <c:set var="kwdAgeEndSeason" value="<%=HSRegistrationHelper.AGE_END_SEASON%>" />
       <tc:questionIterator list="${questions}" id="question">
 		  <c:set var="fieldName" value="${ansPrefix}${question.id}" />
