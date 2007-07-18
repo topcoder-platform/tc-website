@@ -102,7 +102,7 @@
                     BONUS
                 </c:when>
                 <c:otherwise>
-                    <rsc:item name="place" row="<%=resultRow%>"/>
+                    <rsc:item name="placed" row="<%=resultRow%>"/>
                 </c:otherwise>
             </c:choose>
         </td>
@@ -154,40 +154,6 @@
     <% even = !even;
         i++; %>
 </rsc:iterator>
-<tr class="<%=even?"light":"dark"%>">
-    <td class="valueW">
-        <div>&nbsp;</div>
-    </td>
-    <td class="valueC">
-        BONUS
-    </td>
-    <td class="value">
-        <studio:handle coderId="22076237"/>
-    </td>
-    <td class="valueC">
-        1234
-    </td>
-    <td class="valueC">
-        <strong>04.03.2007</strong>
-        <br/>13:41 EDT
-    </td>
-    <td class="valueC">
-        <strong>04.03.2007</strong>
-        <br/>13:41 EDT
-    </td>
-    <td class="valueR">
-        $100.00
-    </td>
-    <td class="valueR">
-        <a href="">99.99</a>
-    </td>
-    <td class="valueC">
-        same as other submissions
-    </td>
-    <td class="valueE">
-        <div>&nbsp;</div>
-    </td>
-</tr>
 
 <tr>
     <td class="SW">&nbsp;</td>
