@@ -103,6 +103,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
             Request r = new Request();
             log.debug("removing " + e.getShortDescription() + "_registrants" + " from cache.");
             r.setContentHandle(e.getShortDescription() + "_registrants");
+            log.debug(Constants.EVENT_ID + " : " + String.valueOf(e.getId().intValue()));
             r.setProperty(Constants.EVENT_ID, String.valueOf(e.getId().intValue()));
             cc.remove(r.getCacheKey());
         } catch (Exception ignore) {
