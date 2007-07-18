@@ -12,13 +12,23 @@ public class ContestResult extends Base implements Comparable {
     private Contest contest;
     private Submission submission;
     private Prize prize;
+    private Float finalScore;
+    private Integer placed;
 
+    protected ContestResult() {
+        
+    }
 
-    public Long getId() {
+    public ContestResult(Submission s) {
+        setSubmission(s);
+        setContest(s.getContest());
+    }
+
+    protected Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    protected void setId(Long id) {
         this.id = id;
     }
 
@@ -44,6 +54,24 @@ public class ContestResult extends Base implements Comparable {
 
     public void setPrize(Prize prize) {
         this.prize = prize;
+    }
+
+
+    public Float getFinalScore() {
+        return finalScore;
+    }
+
+    public void setFinalScore(Float finalScore) {
+        this.finalScore = finalScore;
+    }
+
+
+    public Integer getPlaced() {
+        return placed;
+    }
+
+    public void setPlaced(Integer placed) {
+        this.placed = placed;
     }
 
     public boolean equals(Object o) {
