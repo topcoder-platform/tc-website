@@ -28,7 +28,7 @@
             <div id="h1Border">&nbsp;</div>
             
             <br /><br />
-            <table cellpadding="0" cellspacing="0" class="stat"> 
+            <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                 <tbody> 
                     <tr> 
                         <td class="header">Registration</td> 
@@ -38,7 +38,7 @@
             </table>
             <br /><br />
 
-            <table cellpadding="0" cellspacing="0" class="stat"> 
+            <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                 <tbody>
                     <tr>
                         <td class="title" colspan="5">Online and Onsite Schedule</td>
@@ -85,7 +85,7 @@
             </table> 
             <br /><br />
                 
-            <table cellpadding="0" cellspacing="0" class="stat"> 
+            <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                 <tbody> 
                     <tr>
                         <td class="title" colspan="2">Important Dates</td>

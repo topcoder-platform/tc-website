@@ -66,7 +66,7 @@
                 <p>Competitors must register for each round separately on the TopCoder web site. All start times will be communicated as Eastern Daylight Time (UTC/GMT -4). If a competitor does not participate, for any reason, in an online round to which he/she has advanced, it will be treated as an automatic loss in that round of competition.</p>
                 <p>Competitors will be assigned a seed for the Competition based on their current rating prior to the first online round.</p>
                 <p>The dates and times of the online rounds of the Competition are as follows:</p>
-                <table cellpadding="0" cellspacing="0" class="stat"> 
+                <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                     <tbody> 
                         <tr> 
                             <td class="header">Round of Competition</td> 
@@ -158,7 +158,7 @@
                 <a name="prizes"></a>
                 <h2>About the Prizes</h2>
                 <p>Prizes will be awarded to a maximum of 400 competitors in the Competition who advance to online round #2. At the onsite Championship round, cash prizes of a maximum of $30,000 will be awarded. Any and all applicable taxes on prizes are the sole responsibility of the competitors. Prizes will be distributed as follows:</p>
-                <table cellpadding="0" cellspacing="0" class="stat"> 
+                <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                     <tbody> 
                         <tr> 
                             <td class="title" colspan="3">Prizes</td> 
@@ -168,32 +168,32 @@
                             <td class="header">Prize</td> 
                         </tr> 
                         <tr class="light"> 
-                            <td class="value" style="font-weight:bold;">1st place finisher* - Marathon Match Competition Champion</td> 
+                            <td class="value" style="font-weight:bold;">1st place finisher* - <br />Marathon Match Competition Champion</td> 
                             <td class="value" style="font-weight:bold;">$15,000</td> 
                         </tr> 
                         <tr class="dark"> 
-                            <td class="value">2nd place finisher* in the Championship Round</td> 
+                            <td class="value">2nd place finisher* in the <br />Championship Round</td> 
                             <td class="value">$7,200</td>
 
                         </tr> 
                         <tr class="light"> 
-                            <td class="value">3rd place finisher* in the Championship Round</td> 
+                            <td class="value">3rd place finisher* in the <br />Championship Round</td> 
                             <td class="value">$3,600</td>
                         </tr> 
                         <tr class="dark"> 
-                            <td class="value">4th place finisher* in the Championship Round</td> 
+                            <td class="value">4th place finisher* in the <br />Championship Round</td> 
                             <td class="value">$1,800</td>
                         </tr> 
                         <tr class="light"> 
-                            <td class="value">5th - 8th place finishers* in the Championship Round</td> 
+                            <td class="value">5th - 8th place finishers* in the <br />Championship Round</td> 
                             <td class="value">$600 each</td>
 
                         </tr>
                         <tr class="dark"> 
-                            <td class="value">Up to 400 competitors who compete in Online Round #2</td> 
+                            <td class="value">Up to 400 competitors who compete in <br />Online Round #2</td> 
                             <td class="value">Limited edition 2007 TopCoder Collegiate Challenge t-shirt</td>
                         </tr>
-                        <tr class="dark"> 
+                        <tr class="light"> 
                             <td class="value" colspan="2">* Prize will be awarded at the conclusion of the Championship Round. Winner must be present to receive prize.<br />
                             In addition to the prizes mentioned above, all onsite finalists will receive a one-day Disney Park Hopper pass to use at the event on Saturday, November 3, 2007.</td> 
                         </tr>

@@ -31,7 +31,7 @@
 
             <p>Registration for the 2007 TopCoder Open Algorithm Competition will open at 9:00 AM EDT on Monday, July 23, and will close at 5:00 AM EDT on Thursday, August 16,2007. In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition. There is no limit to the number of registrants for the competition, however each individual may only register once.</p>
             
-            <table cellpadding="0" cellspacing="0" class="stat"> 
+            <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                 <tbody> 
                     <tr> 
                         <td class="header">Registration</td> 
@@ -44,7 +44,7 @@
 
             <h2>Qualification Round</h2>
             <p>There will be three Qualification Rounds available for those registered for the TCO. A maximum of 450 competitors will advance to Online Round #1 from each Qualification Round, plus the 150 top rated members who automatically advance without competing in the Qualification Round.</p>
-            <table cellpadding="0" cellspacing="0" class="stat"> 
+            <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                 <tbody> 
                     <tr> 
                         <td class="header">Round</td> 
@@ -79,7 +79,7 @@
             </table> 
             <br /><br />
                 
-            <table cellpadding="0" cellspacing="0" class="stat"> 
+            <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                 <tbody> 
                     <tr>
 
@@ -139,7 +139,7 @@
             </table>
             <br /><br />
         
-            <table cellpadding="0" cellspacing="0" class="stat"> 
+            <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                 <tbody> 
                     <tr>
 
@@ -172,6 +172,27 @@
                 </tbody> 
             </table>
 
+            <br /><br />
+            
+            <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
+                <tbody> 
+                    <tr>
+                        <td class="title" colspan="2">Important Dates</td>
+                    </tr>
+                    <tr> 
+                        <td class="header">Important Items To Note</td> 
+                        <td class="header">Date and Time (Eastern Daylight Time)</td>
+                    </tr> 
+                    <tr class="light"> 
+                        <td class="value">Last Day to Request a Visa Letter</td> 
+                        <td class="value">Friday, September 14, 2007 at 5:00 PM</td> 
+                    </tr> 
+                    <tr class="dark"> 
+                        <td class="value">Finalist Documents Due</td> 
+                        <td class="value">Friday, September 28, 2007 at 5:00 PM</td> 
+                    </tr> 
+                </tbody> 
+            </table>
             <br /><br />
             
             <h2>* Find start times in your time zone</h2>

@@ -75,7 +75,7 @@
                 <p><span style="font-weight:bold;">Qualification Spots</span> - All competitors who do not receive an automatic berth and who meet all of the Algorithm Competition and Tournament eligibility criteria can compete for one of the remaining 1,650 qualification spots in the Algorithm Competition. Three (3) Qualification Rounds will be held and the top 550 scorers from each Qualification Round will win a spot in Online Round #1. Please note that the top 150 rated competitors who receive an automatic berth into Online Round #1 will not be allowed to compete in any of the Qualification Rounds.  Those competitors who have already qualified for the tournament may not compete in future Qualification Rounds.</p>
                 <p>The schedule and details of the Qualification Rounds are as follows:</p>
 
-                <table cellpadding="0" cellspacing="0" class="stat"> 
+                <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                     <tbody> 
                         <tr> 
                             <td class="title" colspan="4">Qualification Rounds</td> 
@@ -83,8 +83,8 @@
                         <tr> 
                             <td class="header">Round</td> 
                             <td class="header">Date and Time*</td> 
-                            <td class="header">Maximum # of Participants</td> 
-                            <td class="header">Maximum # of Advancers</td> 
+                            <td class="header">Maximum<br /># of Participants</td> 
+                            <td class="header">Maximum<br /># of Advancers</td> 
                         </tr> 
                         <tr class="light"> 
                             <td class="value">Qualification Round #1</td> 
@@ -101,7 +101,7 @@
                         </tr> 
                         <tr class="light"> 
                             <td class="value">Qualification Round #3</td> 
-                            <td class="value">Thursday, August 23<br />Register: 6:00 - 8:55 PM<br />START: 9:00 PM</td> 
+                            <td class="value">Thursday, August 23<br />Register: 6:00 PM - 8:55 PM<br />START: 9:00 PM</td> 
                             <td class="value">All members who have not previously qualified - limited to the first 1,350 participants to register</td> 
                             <td class="value">550</td>
                         </tr> 
@@ -128,7 +128,7 @@
                 <p>All competitors in a specific section will be assigned to rooms based on 'dartboard seeding' (completely random). Each room will have a maximum of 25 competitors. The number of rooms in each round is (maximum # competitors in the round)/25.</p>
 
                 <p>The dates and times of the online rounds of competition are as follows:</p>
-                <table cellpadding="0" cellspacing="0" class="stat"> 
+                <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                     <tbody> 
                         <tr> 
                             <td class="title" colspan="4">Online Rounds</td> 
@@ -136,8 +136,8 @@
                         <tr> 
                             <td class="header">Round</td> 
                             <td class="header">Date and Time*</td> 
-                            <td class="header">Maximum # of Participants**</td> 
-                            <td class="header">Maximum # of Advancers**</td> 
+                            <td class="header">Maximum<br /># of Participants**</td> 
+                            <td class="header">Maximum<br /># of Advancers**</td> 
                         </tr> 
                         <tr class="light"> 
                             <td class="value">Online Round #1 - Section A</td> 
@@ -228,7 +228,7 @@
                 <p style="font-weight:bold;">Room Assignment</p>
                 <p>TopCoder will determine the room assignments for the Semifinal rooms prior to the start of each Semifinal round, in the following manner:<br />
                 All competitors will be arranged by their tournament seed. Starting with the highest seeded competitor and proceeding in order, a competitor will be assigned to room 1, then room 2, then room 3, then room 3 again, then room 2, then room 1. This pattern will continue (1,2,3,3,2,1) until all competitors are assigned to a room.</p>
-                <table cellpadding="0" cellspacing="0" class="stat"> 
+                <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                     <tbody> 
                         <tr> 
                             <td class="title" colspan="2">Onsite Rounds</td> 
@@ -278,7 +278,7 @@
                 <p>The Algorithm Competition will award prizes to up to 1,800 competitors and $100,000 in cash prizes. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner. Prizes will be distributed as follows:
 
 .</p>
-                <table cellpadding="0" cellspacing="0" class="stat"> 
+                <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                     <tbody> 
                         <tr> 
                             <td class="title" colspan="2">Prizes</td> 
@@ -318,20 +318,20 @@
                             <td class="value">A TopCoder-branded 1GB USB Drive</td>
                         </tr> 
                         <tr class="dark"> 
-                            <td class="value">Up to 150 advancers from Online Round #3 to Online Round #4</td> 
+                            <td class="value">Up to 150 advancers from Online Round #3 <br />to Online Round #4</td> 
                             <td class="value">$100 each &amp; a TopCoder-branded Hat</td>
 
                         </tr> 
                         <tr class="light"> 
-                            <td class="value">Up to 300 advancers from Online Round #2 to Online Round #3</td> 
+                            <td class="value">Up to 300 advancers from Online Round #2 <br />to Online Round #3</td> 
                             <td class="value">$75 each & a TopCoder-branded Water Bottle</td>
                         </tr>
                         <tr class="dark"> 
-                            <td class="value">Up to 900 advancers from Online Round #1 to Online Round #2</td> 
+                            <td class="value">Up to 900 advancers from Online Round #1 <br />to Online Round #2</td> 
                             <td class="value">A TopCoder-branded stress ball</td>
                         </tr> 
                         <tr class="light"> 
-                            <td class="value">Up to 1,800 competitors who compete in Online Round #1</td> 
+                            <td class="value">Up to 1,800 competitors who compete <br />in Online Round #1</td> 
                             <td class="value">Limited edition 2007 TopCoder Collegiate Challenge t-shirt</td>
 
                         </tr> 

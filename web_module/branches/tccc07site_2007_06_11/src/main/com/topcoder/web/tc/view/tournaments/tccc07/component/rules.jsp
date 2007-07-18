@@ -72,7 +72,7 @@
                 <a name="schedule"></a>
                 <h2>Schedule</h2>
                 <p>Both the Design Competition and the Development Competition will have five (5) weeks of online competition, three (3) weeks of online Championship rounds, and one (1) onsite Championship round. Each competitor participating in an online round must submit his/her design and/or development submission for components by the submission deadline. All start times, registration deadlines and submission deadlines are stated in Eastern Standard Time.</p>
-                <table cellpadding="0" cellspacing="0" class="stat"> 
+                <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                     <tbody> 
                         <tr> 
                             <td class="title" colspan="4">Qualification Rounds</td> 
@@ -80,8 +80,8 @@
                         <tr> 
                             <td class="header">Round</td> 
                             <td class="header">All Projects Posted*</td> 
-                            <td class="header">Registration Period</td> 
-                            <td class="header">Submission Deadline*</td> 
+                            <td class="header">Registration<br />Period</td> 
+                            <td class="header">Submission<br />Deadline*</td> 
                         </tr> 
                         <tr class="light"> 
                             <td class="value">Week 1 of Online Qualification Round</td> 
@@ -119,7 +119,7 @@
                     </tbody> 
                 </table>
                 <br /><br />
-                <table cellpadding="0" cellspacing="0" class="stat"> 
+                <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                     <tbody> 
                         <tr> 
                             <td class="title" colspan="4">Championship Rounds</td> 
@@ -127,8 +127,8 @@
                         <tr> 
                             <td class="header">Round</td> 
                             <td class="header">All Projects Posted*</td> 
-                            <td class="header">Registration Period</td> 
-                            <td class="header">Submission Deadline*</td> 
+                            <td class="header">Registration<br />Period</td> 
+                            <td class="header">Submission<br />Deadline*</td> 
                         </tr> 
                         <tr class="light"> 
                             <td class="value">Championship Round (online portion component 1)</td> 
@@ -202,7 +202,7 @@
                 <p>During the online Championship round, each competitor will compete on the same set of components online. Three (3) component competitions will be open to only the finalists and any alternates. Finalists that do not provide a submission for a competition will receive the minimum possible score. The component competition will be run according to the standard TopCoder component competition rules, and will have a component prize independent from the CDDC. However, the appeals phase for each component will be done onsite.  Therefore, the competitors will not know the score of any component prior to the onsite round. Component winners will be required to complete their final fixes after the conclusion of the CDDC. TCCC. If an alternate was in first or second place prior to the appeals phase and did not make it on site for the appeals phase they will be awarded the components prize money for the place they finished in.</p>
                 <p style="font-weight:bold;">Onsite portion of Championship Round</p>
                 <p>Each competitor will be given one hundred (100) points to spread across the three finals component competitions. The competition for each round will begin with each competitor choosing the points to allocate to the component. Each competitor may risk a maximum of sixty (60) points and minimum of ten (10) points on an individual component. The number of points awarded is calculated by dividing the wager by the placement standing and rounding down. For instance see the table below:</p>
-                <table cellpadding="0" cellspacing="0" class="stat"> 
+                <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                     <tbody> 
                         <tr> 
                             <td class="header">Placement</td> 
@@ -265,7 +265,7 @@
                 <a name="prizes"></a>
                 <h2>About the Prizes</h2>
                 <p>All contestants who submit components that pass screening during at least one week of online competition will receive a prize. A maximum of $100,000 in cash prizes will be awarded during the CDDC, ($60,000 will be awarded during Design Competition and $40,000 will be awarded during the Development Competition). Any and all applicable taxes on prizes are the sole responsibility of the competitor. Additionally each component winner will be paid component prize money.</p>
-                <table cellpadding="0" cellspacing="0" class="stat"> 
+                <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                     <tbody> 
                         <tr> 
                             <td class="title" colspan="3">Prizes</td> 
@@ -276,42 +276,42 @@
                             <td class="header">Development Prize</td> 
                         </tr> 
                         <tr class="light"> 
-                            <td class="value" style="font-weight:bold;">1st place finisher* in the Championship Round</td> 
+                            <td class="value" style="font-weight:bold;">1st place finisher* in the <br />Championship Round</td> 
                             <td class="value" style="font-weight:bold;">$25,000</td> 
                             <td class="value" style="font-weight:bold;">$15,000</td> 
                         </tr> 
                         <tr class="dark"> 
-                            <td class="value">2nd place finisher* in the Championship Round</td> 
+                            <td class="value">2nd place finisher* in the <br />Championship Round</td> 
                             <td class="value">$15,000</td>
                             <td class="value">$9,000</td>
                         </tr> 
                         <tr class="light"> 
-                            <td class="value">3rd place finisher* in the Championship Round</td> 
+                            <td class="value">3rd place finisher* in the <br />Championship Round</td> 
                             <td class="value">$8,000</td>
                             <td class="value">$7,000</td>
                         </tr> 
                         <tr class="dark"> 
-                            <td class="value">4th place finisher* in the Championship Round</td> 
+                            <td class="value">4th place finisher* in the <br />Championship Round</td> 
                             <td class="value">$4,000</td>
                             <td class="value">$3,000</td>
                         </tr> 
                         <tr class="light"> 
-                            <td class="value">5th place finisher* in the Championship Round</td> 
+                            <td class="value">5th place finisher* in the <br />Championship Round</td> 
                             <td class="value">$2,000 each</td>
                             <td class="value">$1,500</td>
                         </tr>
                         <tr class="dark"> 
-                            <td class="value">6th place finisher* in the Championship Round</td> 
+                            <td class="value">6th place finisher* in the <br />Championship Round</td> 
                             <td class="value">$2,000</td>
                             <td class="value">$1,500</td>
                         </tr> 
                         <tr class="light"> 
-                            <td class="value">7th place finisher* in the Championship Round</td> 
+                            <td class="value">7th place finisher* in the <br />Championship Round</td> 
                             <td class="value">$2,000</td>
                             <td class="value">$1,500</td>
                         </tr> 
                         <tr class="dark"> 
-                            <td class="value">8th place finisher* in the Championship Round</td> 
+                            <td class="value">8th place finisher* in the <br />Championship Round</td> 
                             <td class="value">$2,000</td>
                             <td class="value">$1,500</td>
                         </tr> 

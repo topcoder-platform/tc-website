@@ -75,7 +75,7 @@
                 
                 <h2>Open Competition Explanation</h2>
                 <p>Both Studio members who have not registered for the SDC and SDC-registered competitors will be allowed to enter any Studio design contest. Because of the mixed competitor pool, it is possible that SDC-registered members may not place in the top four (4) of any given Studio contest, in which case no placement points will be awarded to the SDC-registered competitors who did not place in the top four (4).<br />Example:</p>
-                <table cellpadding="0" cellspacing="0" class="stat"> 
+                <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                     <tbody> 
                         <tr> 
                             <td class="header" colspan="3">Contest #1 Placement Determined by the Client:</td> 
@@ -112,7 +112,7 @@
                 <a name="schedule"></a>
                 <h2>Schedule</h2>
                 <p>The Studio competitions will have eight (8) weeks of online competition and one (1) onsite Championship round. Each competitor participating in an online round must submit his/her design submission for any contest by the submission deadline.</p>
-                <table cellpadding="0" cellspacing="0" class="stat"> 
+                <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                     <tbody> 
                         <tr> 
                             <td class="title" colspan="5">Schedule</td> 
@@ -208,7 +208,7 @@
                 <a name="prizes"></a>
                 <h2>About the Prizes</h2>
                 <p>All competitors who submit designs that pass screening for at least two (2) SDC design contests during the online competition will receive a prize. The SDC will award a maximum of $30,000 in cash prizes. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.</p>
-                <table cellpadding="0" cellspacing="0" class="stat"> 
+                <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                     <tbody> 
                         <tr> 
                             <td class="title" colspan="2">Prizes</td> 

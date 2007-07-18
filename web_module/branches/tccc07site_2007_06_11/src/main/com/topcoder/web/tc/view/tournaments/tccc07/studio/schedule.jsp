@@ -30,7 +30,7 @@
             The Studio competitions will have eight (8) weeks of online competition and one (1) onsite Championship round. Each contestant participating in an online round must submit his/her design submission for any contest by the submission deadline as scheduled.
             </p>
             
-            <table cellpadding="0" cellspacing="0" class="stat"> 
+            <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                 <tbody> 
                     <tr> 
                         <td class="title" colspan="5">Schedule</td> 
@@ -67,7 +67,7 @@
             </table>
             <br /><br />
             
-            <table cellpadding="0" cellspacing="0" class="stat"> 
+            <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                 <tbody> 
                     <tr> 
                         <td class="title" colspan="2">Important Dates</td> 
