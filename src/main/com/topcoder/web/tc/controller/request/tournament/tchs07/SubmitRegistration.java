@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.SurveyHelper;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.Event;
@@ -13,7 +14,6 @@ import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Survey;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
-import com.topcoder.web.tc.controller.request.survey.Helper;
 import com.topcoder.web.tc.controller.request.tournament.SubmitRegistrationBase;
 
 /**
@@ -34,7 +34,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         String ageKey = "";
         for (Iterator it = survey.getQuestions().iterator(); it.hasNext(); ) {
             Question q = (Question) it.next();
-            Response response = (new Helper()).findResponse(responses, q.getId());
+            Response response = (new SurveyHelper()).findResponse(responses, q.getId());
             if (response != null) {
                 if (q.getKeyword().equals(AGE)) {
                     ageInput = StringUtils.checkNull(response.getText());

@@ -1,16 +1,21 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.web.common.cache.CacheClient;
-import com.topcoder.web.common.cache.CacheClientFactory;
-import com.topcoder.web.common.model.*;
-import com.topcoder.web.common.tag.AnswerInput;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.survey.Helper;
-
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.web.common.SurveyHelper;
+import com.topcoder.web.common.cache.CacheClient;
+import com.topcoder.web.common.cache.CacheClientFactory;
+import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventRegistration;
+import com.topcoder.web.common.model.Question;
+import com.topcoder.web.common.model.Response;
+import com.topcoder.web.common.model.Survey;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.tag.AnswerInput;
+import com.topcoder.web.tc.Constants;
 
 /**
  * @author dok, pulky
@@ -78,7 +83,7 @@ public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
     }
 
     protected List processSurvey(Event event, User user) {
-        Helper helper = new Helper(getRequest());
+        SurveyHelper helper = new SurveyHelper(getRequest());
 
         List responses = helper.processResponses(event.getSurvey());
         
