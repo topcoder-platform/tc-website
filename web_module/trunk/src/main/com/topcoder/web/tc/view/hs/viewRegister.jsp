@@ -1,13 +1,30 @@
-<%@ page import="com.topcoder.web.reg.Constants" %>
+<%@ page import="com.topcoder.web.reg.Constants,
+				 com.topcoder.web.common.model.Event,
+				 com.topcoder.web.common.model.Season,
+                 com.topcoder.web.common.model.Question,
+                 com.topcoder.web.common.tag.AnswerInput,
+				 com.topcoder.web.common.HSRegistrationHelper,
+                 com.topcoder.web.common.BaseProcessor" %>
+<%@ page import="java.util.Collections,
+                 java.util.Set,
+                 java.util.ArrayList,
+                 java.util.List,
+                 java.util.HashMap" %>
+
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%
+   HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
+%>
+    
 <html>
 <head>
     <title>TopCoder High School Competitions</title>
@@ -51,27 +68,9 @@
         <h2 align="center">Registration for TopCoder High School ${season.name}</h2>
 
         <c:choose>
-            <c:when test="${not registeredHs}">
-                 <p align="center">
-                     You must <a href="/reg">register</a> for TopCoder High School competitions first.
-                 </p>
-             </c:when>
-             <c:when test="${not eligible}">
-                <p align="left">
-                    We're sorry. Based on the answers to the questions, you are not eligible for TopCoder High School.  If you made a mistake when filling out the questions, TopCoder will require proof that you are eligible.  Please send a letter from your school on official stationary that states you are currently a full time student. The letter must be written in English and signed by an official school staff member. The letter must be sent directly to:
-                    <br /><br />
-                    TopCoder, Inc.
-                    <br />Attn: TCHS08
-                    <br />703 Hebron Avenue
-                    <br />Glastonbury, CT, 06033, USA
-                    <br /><br />
-                    If you have any questions please contact <a href="jford@topcoder.com?subject=TCHS Eligibility">Jessie D'Amato Ford</a>.
-                </p>
-            </c:when>
-
-            <c:when test="${confirmRegistration}">
+            <c:when test="${not eligible}">
                 <p align="center">
-                    You have been successfully registered for TopCoder High School ${season.name}.
+                    You are not eligible for TopCoder High School competitions.
                 </p>
             </c:when>
 
@@ -86,7 +85,12 @@
                 </p>
             </c:when>
 
-
+            <c:when test="${not registeredHs}">
+                <p align="center">
+                    You must <a href="http://www.topcoder.com/reg">register</a> for TopCoder High School competitions first.
+                </p>
+            </c:when>
+            
             
             <c:when test="${alreadyRegistered}">
                 <p align="center">
@@ -95,46 +99,37 @@
             </c:when>
 
             <c:otherwise>
+            <tc:questionIterator list="${questions}" id="question">
+                        	<% if (question.getKeyword().equals(HSRegistrationHelper.AGE) || question.getKeyword().equals(HSRegistrationHelper.AGE_END_SEASON)) { %>
+                                    <p align="center">
+	        	                        <span class="bigRed">
+    		    	                        <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>        	                            
+	        		                        </tc-webtag:errorIterator>
+    	    	                        </span>
+    	    	                    </p>
+    	    	                    <p align="center">
+	                                    <jsp:getProperty name="question" property="text"/> <br>
+    	    	                        <input type="text" size="3" maxlength="3" name="<%=AnswerInput.PREFIX + question.getId()%>" id ="answerInput" value="<%= defaults.containsKey(AnswerInput.PREFIX + question.getId()) ? defaults.get(AnswerInput.PREFIX + question.getId()) : "" %>"/>
+        	                        </p>
+                        	<% } else { %>
+                                    <p align="center">
+        		                        <span class="bigRed">
+        			                        <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/>
+	        		                        </tc-webtag:errorIterator>
+    	    	                        </span>
+    	    	                     </p>
+                                    <p align="center">
+                                    <jsp:getProperty name="question" property="text"/> 
+                                    <br/>
+        			                  <tc:answerInput id="answerInput" question="<%=question%>">
+        			                         <%=answerInput%>
+        			                         <%=answerText%>&nbsp;&nbsp;&nbsp;
+        			                  </tc:answerInput>
+        	                        </p>
+                        	<% }%>
 
-			    <p align="center">            
-					<span class="bigRed">
-	    	    		<tc-webtag:errorIterator id="err" name="<%=Constants.AGE%>"><%=err%><br>
-		    	    	</tc-webtag:errorIterator>
-		        	</span>           
-		        </p>
-                <p align="center">
-                    How old are you?
-                    <br />
-                    <tc-webtag:textInput name="<%=Constants.AGE%>" size="3" maxlength="3" editable="true"/>
-                </p>
-                
-			    <p align="center">            
-					<span class="bigRed">
-	    	    		<tc-webtag:errorIterator id="err" name="<%=Constants.AGE_END_SEASON%>"><%=err%><br>
-		    	    	</tc-webtag:errorIterator>
-		        	</span>           
-		        </p>
-                <p align="center">
-                    How old will you be on <fmt:formatDate value="${season.endDate}" pattern="MMMMM d, yyyy"/>?
-                    <br />
-                    <tc-webtag:textInput name="<%=Constants.AGE_END_SEASON%>" size="3" maxlength="3" editable="true"/>
-                </p>
+            </tc:questionIterator>
 
-                
-			    <p align="center">            
-					<span class="bigRed">
-	    	    		<tc-webtag:errorIterator id="err" name="<%=Constants.ATTENDING_HS%>"><%=err%><br>
-		    	    	</tc-webtag:errorIterator>
-		        	</span>           
-		        </p>
-                <p align="center">
-            		Are you currently pursuing or will you be pursuing your secondary school (non-University) education between 
-                 		<fmt:formatDate value="${season.startDate}" pattern="MMMMM d, yyyy"/>
-			             and <fmt:formatDate value="${season.endDate}" pattern="MMMMM d, yyyy"/>?
-                                 <br />
-                    <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="yes"/> Yes
-                    <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="no"/> No
-                </p>
 
             <div align="center">
                 <a href="#" onclick="document.f.submit();return false;" class="button" style="width: 60px;">Submit</a>

@@ -62,6 +62,7 @@ public class ViewRegister extends RegistrationBase {
                 Event e = season.getEvent();
                 Date now = new Date();
 
+                getRequest().setAttribute("questions", new java.util.ArrayList(e.getSurvey().getQuestions()));
               
                 if (e.getRegistrationStart().after(now) || e.getRegistrationEnd().before(now)) {
                     regOpen = false;
@@ -81,7 +82,6 @@ public class ViewRegister extends RegistrationBase {
             registeredHs = false;
         }
 
-        getRequest().setAttribute("confirmRegistration", false);        
         getRequest().setAttribute("eligible", eligible);
         getRequest().setAttribute("alreadyRegistered", alreadyRegistered);
         getRequest().setAttribute("registeredHs", registeredHs);

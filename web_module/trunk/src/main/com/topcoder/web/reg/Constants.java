@@ -40,6 +40,7 @@ public class Constants implements WebConstants {
     public static final String AGE = "age";
     public static final String AGE_END_SEASON = "agees";
     public static final String ATTENDING_HS = "aths";
+    public static final String HS_REG_QUESTIONS = "hsrq";
 
     public static final String SCHOOL_CITY = "schc";
     public static final String SCHOOL_STATE = "schs";
@@ -68,7 +69,7 @@ public class Constants implements WebConstants {
     public static final String MEMBER_CONTACT = "mc";
     
     public static final String INACTIVATE_HS = "inhs";
-    public static final String NOTES = "notes";
+    public static final String HS_RESPONSES = "hsr";
 
     public final static String PUNCTUATION = "-_.{}[]()";
     public final static String HANDLE_ALPHABET = StringUtils.ALPHABET_ALPHA_EN +
@@ -106,9 +107,6 @@ public class Constants implements WebConstants {
     public static int MAX_FILE_NAME_LENGTH;
 
     public static int MAX_REFERRAL_OTHER_LENGTH;
-
-    public static int MIN_AGE_FOR_HS;
-    public static int MAX_AGE_FOR_HS;
 
     public static int REG_TERMS_ID;
 

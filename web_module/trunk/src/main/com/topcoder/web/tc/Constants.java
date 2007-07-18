@@ -339,6 +339,8 @@ public class Constants implements WebConstants {
     public static String HS_VIEW_REGISTER;
     public static String HS_VIEW_UNREGISTER;
     public static String HS_UNREGISTER;
+    public static String HS_REGISTER_SUCCESS;
+    public static String HS_REGISTER_NOT_ELIGIBLE;
 
     
     public static final int CONTEST_TYPE_DR_TOP_PERFORMERS = 18;

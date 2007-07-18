@@ -10,6 +10,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.HSRegistrationHelper;
 import com.topcoder.web.common.model.Address;
 import com.topcoder.web.common.model.AlgoRating;
 import com.topcoder.web.common.model.AlgoRatingType;
@@ -44,28 +45,34 @@ public class Secondary extends Base {
                 if (u.isNew() || userLoggedIn()) {
                     Map params = getMainUserInput();
                     checkMainFields(params);
+                    
+                    HSRegistrationHelper rh = new HSRegistrationHelper(getRequest());
+  
+                    boolean registeringHS = hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID);
+                    
+                    if (registeringHS) {
+                        checkHSRegistrationQuestions(rh);
+                    }
 
                     if (hasErrors()) {
+                        if (registeringHS) {
+                            setDefaults(rh);
+                        }
                         reloadMain(params, u, fields);
                     } else {
-                        // If the user is registering for hs, check that he has the right age and he'll be attending high school
-                        if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && 
-                                !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID)) {
-                            
-                            int ageHs = Integer.parseInt((String) params.get(Constants.AGE));
-                            int ageEndSeason = Integer.parseInt((String) params.get(Constants.AGE_END_SEASON));
-                            boolean attendingHS = "yes".equals(params.get(Constants.ATTENDING_HS));
-                            
-                            if (!isEligibleHS(ageHs, ageEndSeason, attendingHS)) {
-                                String notes = "From /reg: Age: " + ageHs + ", age at the end of season: " + ageEndSeason +  ", attending HS: " + attendingHS;
-                                log.info("user " + u.getId()+  " is not eligible. " + notes);
+                        if (registeringHS) {
+                            // put the responses in session so that they're saved in the db when submitting 
+                            getRequest().getSession().setAttribute(Constants.HS_RESPONSES, rh.getResponsesMap());
+
+                            if (!rh.isEligibleHS()) {
+                                log.info("user " + u.getId()+  " is not eligible. ");
                                 
                                 if (u.isNew()) {
                                     // setup in session so that the user is inactivated for hs when submitting.
                                     getRequest().getSession().setAttribute(Constants.INACTIVATE_HS, Boolean.TRUE);
-                                    getRequest().getSession().setAttribute(Constants.NOTES, notes);
                                 } else {
-                                    inactivateHsUser(u, notes);                                    
+                                    rh.inactivateUser(u);
+                                    markForCommit();
                                 }
                                 
                                 getRequest().getSession().setAttribute("params", params);
@@ -126,25 +133,21 @@ public class Secondary extends Base {
             }
         }
     }
-    
-    /**
-     * Return whether a user is eligible for participating in High School competitions.
-     * 
-     * @param ageHs the age right now.
-     * @param ageEndSeason the age at the end of the HS season
-     * @param attendingHS whether the user will be attending HS during the season
-     * 
-     * @return true if the user is eligible.
-     */
-    public static boolean isEligibleHS(int ageHs, int ageEndSeason, boolean attendingHS) {
-        if (!attendingHS) return false;
-        if (ageHs < Constants.MIN_AGE_FOR_HS || ageHs > Constants.MAX_AGE_FOR_HS) return false;
-        if (ageEndSeason < Constants.MIN_AGE_FOR_HS || ageEndSeason > Constants.MAX_AGE_FOR_HS) return false;
-        
-        return true;
+
+    private void setDefaults(HSRegistrationHelper rh) {
+        List<Object[]> defaults = rh.getDefaults();
+        for (Object[] d : defaults) {
+            setDefault((String) d[0], d[1]);
+        }                
     }
 
-
+    private void checkHSRegistrationQuestions(HSRegistrationHelper rh) {            
+        List<String[]> valResults = rh.validateQuestions();
+        for (String[] result : valResults) {
+            addError(result[0], result[1]);
+        }
+    }
+    
 
 
     private void loadFieldsIntoUserObject(Set fields, Map params) throws TCWebException {
