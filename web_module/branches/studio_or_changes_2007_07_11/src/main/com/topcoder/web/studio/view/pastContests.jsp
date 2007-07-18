@@ -92,22 +92,30 @@
             int i = 0; %>
         <rsc:iterator list="<%=contests%>" id="resultRow">
             <tr class="<%=even?"light":"dark"%>">
-                <td class="valueW"><div>&nbsp;</div></td>
+                <td class="valueW">
+                    <div>&nbsp;</div>
+                </td>
                 <td class="value">
                     <strong><a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-                        <rsc:item name="name" row="<%=resultRow%>"/></a></strong>
+                        <rsc:item name="name" row="<%=resultRow%>"/>
+                    </a></strong>
+
                     <div style="margin: 6px 10px;">
-                        <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">contest details</a>
-                        | <a href="">discuss</a>
+                        <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">contest
+                            details</a>
+                        <c:if test="${rsc.map['forum_id']!=null}">| <studio:forumLink forumID="${rsc.map['forum_id']}"/></c:if>
                         <% if (resultRow.getBooleanItem("results_available")) { %>
-                            | <a href="/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">winners</a>
+                        |
+                        <a href="/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">winners</a>
                         <% } %>
                     </div>
                 </td>
                 <td class="valueC">
-                    <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
+                    <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                </td>
                 <td class="valueC">
-                    <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
+                    <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                </td>
                 <td class="valueR">
                     <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
                 </td>
@@ -118,7 +126,8 @@
                     <c:choose>
                         <c:when test="<%=resultRow.getBooleanItem("show_submissions")%>">
                             <a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-                                <rsc:item name="submission_count" row="<%=resultRow%>"/></a>
+                                <rsc:item name="submission_count" row="<%=resultRow%>"/>
+                            </a>
                         </c:when>
                         <c:otherwise>
                             <rsc:item name="submission_count" row="<%=resultRow%>"/>
@@ -126,19 +135,21 @@
                     </c:choose>
 
                 </td>
-<%--
-                <td class="valueC">
-                    <% if (resultRow.getBooleanItem("results_available")) { %>
-                    <a href="/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">winners</a>
-                    <% } else {%>
-                    &#160;
-                    <% } %>
+                    <%--
+                                    <td class="valueC">
+                                        <% if (resultRow.getBooleanItem("results_available")) { %>
+                                        <a href="/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">winners</a>
+                                        <% } else {%>
+                                        &#160;
+                                        <% } %>
+                                    </td>
+                                    <td class="valueC" nowrap="nowrap">
+                                        <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">contest details</a>
+                                    </td>
+                    --%>
+                <td class="valueE">
+                    <div>&nbsp;</div>
                 </td>
-                <td class="valueC" nowrap="nowrap">
-                    <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">contest details</a>
-                </td>
---%>
-                <td class="valueE"><div>&nbsp;</div></td>
             </tr>
             <% even = !even; i++; %>
         </rsc:iterator>
