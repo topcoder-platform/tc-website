@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -89,13 +90,21 @@
     int i = 0; %>
 
 
+<c:set var="bonusPrize" value="<%=PrizeType.BONUS%>"/>
 <rsc:iterator list="<%=results%>" id="resultRow">
     <tr class="<%=even?"light":"dark"%>">
         <td class="valueW">
             <div>&nbsp;</div>
         </td>
         <td class="valueC">
-            <rsc:item name="place" row="<%=resultRow%>"/>
+            <c:choose>
+                <c:when test="${bonusPrize==resultRow.map['prize_type_id']}">
+                    BONUS
+                </c:when>
+                <c:otherwise>
+                    <rsc:item name="place" row="<%=resultRow%>"/>
+                </c:otherwise>
+            </c:choose>
         </td>
         <td class="value">
             <studio:handle coderId="<%=resultRow.getLongItem("submitter_id")%>"/>
