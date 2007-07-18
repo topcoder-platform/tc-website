@@ -15,7 +15,6 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <SCRIPT LANGUAGE="JavaScript" SRC="/js/arena.js"></SCRIPT>
 </head>
 
 <body>
