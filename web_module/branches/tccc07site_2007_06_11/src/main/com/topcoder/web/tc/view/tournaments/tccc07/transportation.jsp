@@ -25,20 +25,20 @@
                 <div id="h1Border">&nbsp;</div>
                 <h1><span>How to get to the TCCC</span></h1>
                 <div id="h1Border">&nbsp;</div>
-                <p>Disney's Contemporary Resort<br/ >
+                <p><a href="http://disneyworld.disney.go.com/wdw/resorts/resortLanding?id=contemporaryResortLandingPage" alt="Disney's Contemporary Resort" target="_blank">Disney's Contemporary Resort</a><br/ >
                 Telephone: (407) 824-1000<br />
                 Fax: (407) 824-3539<br />
                 Reservations: (407) WDW-MAGIC (939-6244)</p>
                 
                 <h2>Transportation FAQs:</h2>
-                <p><a href="http://disneyworld.disney.go.com/wdw/common/helpFAQ?id=HelpFAQTransportationPage#q3" alt="Transportation FAQs">http://disneyworld.disney.go.com/wdw/common/helpFAQ?id=HelpFAQTransportationPage#q3</a>.</p>
-                <p>For driving directions from other areas:  <a href="http://www.mapquest.com/" alt="MapQuest website">www.mapquest.com</a></p>
+                <p><a href="http://disneyworld.disney.go.com/wdw/common/helpFAQ?id=HelpFAQTransportationPage#q3" alt="Transportation FAQs" target="_blank">http://disneyworld.disney.go.com/wdw/common/helpFAQ?id=HelpFAQTransportationPage#q3</a>.</p>
+                <p>For driving directions from other areas:  <a href="http://www.mapquest.com/" alt="MapQuest website" target="_blank">www.mapquest.com</a></p>
                 
                 <h2>To fly into Orlando:</h2>
-                <p>The Orlando International Airport is the best place to fly into.   See here for more details:  <a href="http://www.orlandoairports.net/main.htm" alt="Orlando International Airport">http://www.orlandoairports.net/main.htm</a></p>
+                <p>The Orlando International Airport is the best place to fly into.   See here for more details:  <a href="http://www.orlandoairports.net/main.htm" alt="Orlando International Airport" target="_blank">http://www.orlandoairports.net/main.htm</a></p>
                 
                 <h2>If you'd like to take a bus to Orlando:</h2>
-                <p>Go to the <a href="http://www.greyhound.com/" alt="Greyhound Bus website">Greyhound</a> web site to get to Orlando, FL.</p>
+                <p>Go to the <a href="http://www.greyhound.com/" alt="Greyhound Bus website" target="_blank">Greyhound</a> web site to get to Orlando, FL.</p>
             </div>
             </div>
         <jsp:include page="footer.jsp" />

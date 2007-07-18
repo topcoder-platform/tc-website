@@ -25,28 +25,28 @@
                 <div id="h1Border">&nbsp;</div>
                 <h1><span>Hotels near the TCCC</span></h1>
                 <div id="h1Border">&nbsp;</div>
-                <p>Disney's Contemporary Resort<br/ >
+                <p><a href="http://disneyworld.disney.go.com/wdw/resorts/resortLanding?id=contemporaryResortLandingPage" alt="Disney's Contemporary Resort" target="_blank">Disney's Contemporary Resort</a><br/ >
                 Telephone: (407) 824-1000<br />
                 Fax: (407) 824-3539<br />
                 Reservations: (407) WDW-MAGIC (939-6244)</p>
                 
                 <p>Several other hotels are located in Walt Disney World.  Most are connected by the Walt Disney World buses, boats, or monorails.  We have included a representative sample for your convenience:<br /><br />
-                    Disney's All- Star Music Resort<br />
+                    <a href="http://disneyworld.disney.go.com/wdw/resorts/resortLanding?id=AllStarMusicResortLandingPage" alt="Disney's All-Star Music Resort" target="_blank">Disney's All- Star Music Resort</a><br />
                     Telephone: (407) 939-6000<br />
                     Fax: (407) 939-7222<br />
                     Reservations: (407) WDW-MAGIC (939-6244)<br /><br />
                     
-                    Disney's All-Star Sports Resort<br />
+                    <a href="http://disneyworld.disney.go.com/wdw/resorts/resortLanding?id=AllStarSportsResortLandingPage" alt="Disney's All-Star Sports Resort" target="_blank">Disney's All-Star Sports Resort</a><br />
                     Telephone: (407) 939-5000<br />
                     Fax: (407) 939-7333<br />
                     Reservations: (407) WDW-MAGIC (939-6244)<br /><br />
                     
-                    Disney's Wilderness Lodge<br />
+                    <a href="http://disneyworld.disney.go.com/wdw/resorts/resortLanding?id=WildernessLodgeResortLandingPage" alt="Disney's Wilderness Lodge" target="_blank">Disney's Wilderness Lodge</a><br />
                     Telephone: (407) 824-3200<br />
                     Fax: (407) 824-3232<br />
                     Reservations: (407) WDW-MAGIC (939-6244)<br /><br />
                     
-                    Find more here:  <a href="http://disneyworld.disney.go.com/wdw/resorts/resortOverview?id=ResortOverviewPage">http://disneyworld.disney.go.com/wdw/resorts/resortOverview?id=ResortOverviewPage</a>
+                    Find more here:  <a href="http://disneyworld.disney.go.com/wdw/resorts/resortOverview?id=ResortOverviewPage" alt="Disney's Resort Overview Page" target="_blank">http://disneyworld.disney.go.com/wdw/resorts/resortOverview?id=ResortOverviewPage</a>
                 </p>
             </div>
             </div>
