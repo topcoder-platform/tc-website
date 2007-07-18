@@ -106,7 +106,7 @@ String eventType = (String) request.getAttribute("et"); %>
                 </td>
 --%>
                 <td class="value">
-                    <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm"/>
+                    <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm" darkBG="true" />
                 </td>
                 <td class="valueR">
                     <rsc:item format="###0" ifNull="Unrated" name="rating" row='<%=resultRow%>'/>

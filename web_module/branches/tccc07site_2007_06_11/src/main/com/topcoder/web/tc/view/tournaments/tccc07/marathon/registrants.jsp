@@ -94,13 +94,13 @@ String eventType = (String) request.getAttribute("et"); %>
 <%boolean even = false;%>
 <rsc:iterator list='<%=rsc%>' id="resultRow">
 <tr class="<%=(even ? "dark" : "light")%>">
-<!-- show after seeds are assigned
+<%-- show after seeds are assigned
 <td class="valueC">
-<rsc:item name="seed" row='<%--=resultRow%-->'/>
+<rsc:item name="seed" row='=resultRow%'/>
 </td>
---!>
+--%>
 <td class="value">
-<tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="marathon_match"/>
+<tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="marathon_match" darkBG="true"/>
 </td>
 <td class="valueR">
 <rsc:item format="###0" ifNull="Unrated" name="rating" row='<%=resultRow%>'/>
@@ -111,7 +111,7 @@ String eventType = (String) request.getAttribute("et"); %>
 </tbody>
 </table>
 
-<div class="pagingBox">
+<div>
    <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
    | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
 
