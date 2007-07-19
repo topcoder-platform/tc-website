@@ -313,6 +313,9 @@ public class Constants implements WebConstants {
     public static final int PAGES_BASE_PROP_ID = 11;
 
     public static final String EVENT_ID = "eid";
+    public static final String EVENT_TYPE = "et";
+
+    public static final String HANDLE = "ha";
 
     public static final int ACHIEVEMENT_TYPE_COM = 1;
     public static final int ACHIEVEMENT_TYPE_NAUGHTY = 2;

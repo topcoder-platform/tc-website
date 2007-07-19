@@ -15,6 +15,7 @@ import com.topcoder.web.common.model.comp.Contest;
 @SuppressWarnings("serial")
 public class Event extends Base {
     public static final Long TCO07_COMPONENT_ID = new Long(7);
+    public static final Long TCCC07_COMPONENT_ID = new Long(3002);
     
     private Long id;
     private EventType type;
