@@ -51,7 +51,13 @@
                 <tr>
                     <td class="value" style="vertical-align: top;">
                         <div style="margin:10px;">
-                            <h3>No active competitions at this time.<br />Please check again soon.</h3>
+                            <h3>British Telecom Workspace</h3>
+                                - <strong>Submission Start Date:</strong> July 19, 2007
+                                <br />- <strong>Submission End Date:</strong> August 2, 2007
+                                <br />- <strong>Review Start Date:</strong> August 2, 2007
+                                <br />- <strong>Review End Date:</strong> August 17, 2007
+                                <br />- <strong>Winner:</strong> August 19, 2007
+                            <br /><br /><a href="/?module=ViewContestDetails&ct=1007">details</a>
                         </div>
                     </td>
                     <td class="value" style="vertical-align: top;">
@@ -68,8 +74,7 @@
                 <tr>
                     <td class="value" style="vertical-align: top;">
                         <div style="margin:10px;">
-                            <h3>British Telecom Workspace</h3>
-                            Details coming soon!
+                            &nbsp;
                         </div>
                     </td>
                     <td class="value" style="vertical-align: top;">
@@ -97,7 +102,7 @@
                                 <br />- <strong>Review Start Date:</strong> March 22, 2007
                                 <br />- <strong>Review End Date:</strong> March 30, 2007
                                 <br />- <strong>Winner:</strong> <a href="/?module=ViewPastContests">View the results!</a>
-                            <br /><br /><a href="/?module=ViewContestDetails&ct=1004 ">details</a>
+                            <br /><br /><a href="/?module=ViewContestDetails&ct=1004">details</a>
                         </div>
                         <div style="margin:10px;">
                             <h3>British Telecom Wireless Cities</h3>
@@ -106,7 +111,7 @@
                                 <br />- <strong>Review Start Date:</strong> June 22, 2007
                                 <br />- <strong>Review End Date:</strong> July 6, 2007
                                 <br />- <strong>Winner:</strong> <a href="/?module=ViewPastContests">View the results!</a>
-                            <br /><br /><a href="/?module=ViewContestDetails&ct=1006 ">details</a>
+                            <br /><br /><a href="/?module=ViewContestDetails&ct=1006">details</a>
                         </div>
                     </td>
                     <td class="value" style="vertical-align: top;">
