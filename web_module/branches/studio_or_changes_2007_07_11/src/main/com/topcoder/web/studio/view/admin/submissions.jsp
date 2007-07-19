@@ -82,18 +82,18 @@
 
 
 Showing <strong>${count}</strong> Submissions for <strong>${contest.name}</strong>
-<br><br>
+<br /><br />
 Show submissions by (Enter Handle):
 <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
-<br><br>
+<br /><br />
 <c:forEach items="${reviewStatuses}" var="reviewStatus">
     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=${reviewStatus.id}&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Only
-        show submissions that ${reviewStatus.description}</a><br>
+        show submissions that ${reviewStatus.description}</a><br />
 </c:forEach>
 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=null&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Only
-    show submissions that are unmarked</a><br>
+    show submissions that are unmarked</a><br />
 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Show
-    all active submissions</a><br>
+    all active submissions</a><br />
 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}&amp;<%=Constants.SUBMISSION_STATUS_ID%>=<%=SubmissionStatus.DELETED%>">Show
     deleted submissions only</a>
 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}&amp;<%=Constants.SUBMISSION_TYPE_ID%>=<%=SubmissionType.FINAL_SUBMISSION_TYPE%>">Show
@@ -194,7 +194,7 @@ Show submissions by (Enter Handle):
             <% } %>
         </td>
         <td class="valueC">
-            <rsc:item name="submit_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+            <rsc:item name="submit_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
         </td>
         <td class="valueC">
             <c:choose>
@@ -202,7 +202,7 @@ Show submissions by (Enter Handle):
                     &#160;
                 </c:when>
                 <c:otherwise>
-                    <rsc:item name="review_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}" ifNull="&#160;"/>
+                    <rsc:item name="review_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}" ifNull="&#160;"/>
                 </c:otherwise>
             </c:choose>
         </td>
