@@ -126,13 +126,13 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN --%>
+                <%-- DIGITAL RUN 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-                
-                
-                <%-- DIGITAL RUN ASSEMBLY CUP 
-                <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></A>
                 --%>
+                
+                <%-- DIGITAL RUN ASSEMBLY CUP --%>
+                <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></A>
+                
                 
                 <%-- DIGITAL RUN DESIGN CUP 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunDesCup.png" alt="The Digital Run Design Cup" border="0" style="display:block;"/></A>
@@ -309,14 +309,14 @@
             <img src="/i/home/tco07Rd1-B_nsa.png" alt="TCO07 Round 1-B brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
             --%>
 
-            <%-- SRM SPONSOR --%>
+            <%-- SRM SPONSOR 
                 <map name="mm">
                 <area shape="rect" alt="" coords="1,1,80,95" href="/tc?module=MatchDetails&rd=10766" />
                 <area shape="rect" alt="" coords="110,1,250,95" href="/tc?module=Static&d1=sponsors&d2=yodlee" />
                 <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=sponsors&d2=yodlee" />
                 </map>
                 <img src="/i/home/srm357_yodlee.png" alt="SRM 357 brought to you by Yodlee" border="0" style="display:block;" usemap="#mm"/>
-                
+                --%>
                 
             <%-- 2 Registration Prototype contests open @ Studio 
             <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests" target="_blank"><img src="/i/home/regproto_studiopromo.png" alt="2 Registration Prototype contests open @ Studio" border="0" style="display:block;" /></A>
@@ -338,15 +338,15 @@
             <A href="<tc-webtag:linkTracking link='http://studio.topcoder.com/?module=ViewContestDetails&ct=2093' refer='homepage' />"><img src="/i/home/licenseIDProject.jpg" alt="License ID Project" border="0" style="display:block;"/></A>
             --%>
             
-            <%-- TOPCODER EMPLOYEE REFERRAL PROGRAM 
+            <%-- TOPCODER EMPLOYEE REFERRAL PROGRAM --%>
             <A href="/tc?module=Static&d1=my_home&d2=empReferrals"><img src="/i/home/empRefSm_20070517.png" alt="TopCoder Employee Referral Program" border="0" style="display:block;"/></A>
-             --%>
+             
              
              <%-- TC CHANNEL 
             <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep2' refer='homepage' />"><img src="/i/home/tcchannel_promo_ep2.png" alt="TC Channel: Episode 2" /></A>
             --%>
             
-            <%-- TOPCODER EMPLOYEE REFERRAL PROGRAM 
+            <%-- TCCC07 LOGO DESIGN 
             <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2104"><img src="/i/home/tccc07_logo_design_promo.png" alt="TCCC07 Logo Design Contest" border="0" style="display:block;"/></A>
             --%> 
              
