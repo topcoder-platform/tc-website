@@ -50,6 +50,8 @@ public abstract class Base extends ShortHibernateProcessor {
         viewSubmittersAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
         getRequest().setAttribute("viewSubmitterAnswers", viewSubmittersAnswers);
 
+        getRequest().setAttribute("projects", getProjectList());
+
         getRequest().setAttribute("prizeTypes", StudioDAOUtil.getFactory().getPrizeTypeDAO().getPrizeTypes());
     }
 
@@ -97,4 +99,14 @@ public abstract class Base extends ShortHibernateProcessor {
 
 
     }
+
+    protected ResultSetContainer getProjectList() throws Exception {
+        Request r = new Request();
+        r.setContentHandle("project_list");
+        DataAccessInt da = new DataAccess(DBMS.CSF_DATASOURCE_NAME);
+        return (ResultSetContainer) da.getData(r).get("project_list");
+
+    }
+
+
 }
