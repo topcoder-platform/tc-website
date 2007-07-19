@@ -1,24 +1,31 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import com.topcoder.server.ejb.TestServices.LongContestServicesException;
+import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.i18n.MessageProvider;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.tag.AnswerInput;
-import com.topcoder.web.ejb.longcompresult.LongCompResult;
-import com.topcoder.web.ejb.longcompresult.LongCompResultLocal;
-import com.topcoder.web.ejb.roundregistration.RoundRegistration;
-import com.topcoder.web.ejb.survey.Response;
-
-import javax.transaction.Status;
-import javax.transaction.TransactionManager;
-import java.util.*;
 
 /**
  * Registers a coder for a round.
@@ -93,31 +100,10 @@ public class SubmitReg extends ViewReg {
             }
 
             if (!hasErrors()) { // If the user responded to all the questions, let's go...
-
-                TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 try {
-                    tm.begin();
-                    SurveyResponse resp = null;
-                    Response response = (Response) createEJB(getInitialContext(), Response.class);
-                    // Go through each of the user survey responses and put them into the DB
-                    for (Iterator it = responses.iterator(); it.hasNext();) {
-                        resp = (SurveyResponse) it.next();
-                        if (resp.isFreeForm()) {
-                            response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getText());
-                        } else {
-                            response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
-                        }
-                    }
-
-                    // register user for round
-                    registerUser(userID, Long.parseLong(roundID));
-
-                    tm.commit();
-                } catch (Exception e) {
-                    if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
-                        tm.rollback();
-                    }
-                    throw e;
+                    LongContestServicesLocator.getService().register((int) round, (int) getUser().getId(), responses);
+                } catch (LongContestServicesException e) {
+                    throw new NavigationException(MessageProvider.getText(e.getLocalizableMessage()));
                 }
             }
 
@@ -139,26 +125,6 @@ public class SubmitReg extends ViewReg {
         }
     }
 
-
-    /**
-     * Registers user for round
-     *
-     * @param userID  The coder's ID
-     * @param roundID The round's ID
-     * @throws Exception
-     */
-    protected void registerUser(long userID, long roundID) throws Exception {
-        try {
-            RoundRegistration reg = (RoundRegistration) createEJB(getInitialContext(), RoundRegistration.class);
-            LongCompResultLocal longCompResult = (LongCompResultLocal) createLocalEJB(getInitialContext(), LongCompResult.class);
-            reg.createRoundRegistration(userID, roundID);
-            longCompResult.createLongCompResult(roundID, userID, DBMS.JTS_OLTP_DATASOURCE_NAME);
-            longCompResult.setAttended(roundID, userID, false, DBMS.JTS_OLTP_DATASOURCE_NAME);
-        } catch (Exception e) {
-            log.error("Error registerating user: " + userID + " for round: " + roundID, e);
-            throw e;
-        }
-    }
 
     /**
      * Go through the request and pull out the users answers
