@@ -80,8 +80,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_documentIndexerIndex">Document Indexer Testing Competition: Indexing Module</A>
       </td>
       <td class="valueC">
-      <%--registration closed--%>
-      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Document Indexer Testing Competition: Indexing Module">register</A>
+      registration closed
+      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Document Indexer Testing Competition: Indexing Module">register</A>--%>
       </td>
       <td class="valueC">
       &#160;
@@ -112,8 +112,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_documentIndexerSearch">Document Indexer Testing Competition: Search Module</A>
       </td>
       <td class="valueC">
-      <%--registration closed--%>
-      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Document Indexer Testing Competition: Search Module">register</A>
+      registration closed
+      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Document Indexer Testing Competition: Search Module">register</A>--%>
       </td>
       <td class="valueC">
       &#160;
