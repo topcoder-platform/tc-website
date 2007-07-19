@@ -73,8 +73,8 @@
                     </tr>
                     <tr class="dark"> 
                         <td class="value">Onsite Finals</td> 
-                        <td class="value">Wednesday, June 27 9:00am</td> 
-                        <td class="value">Wednesday, June 27 6:00pm</td> 
+                        <td class="value">Wednesday, October 31 9:00am</td> 
+                        <td class="value">Wednesday, October 31 6:00pm</td> 
                         <td class="value">8</td>
                         <td class="value">Champion</td>
                     </tr> 
@@ -96,7 +96,7 @@
                     </tr> 
                     <tr class="light"> 
                         <td class="value">Last Day to Request a Visa Letter</td> 
-                        <td class="value">Monday, September 10, 2007 at 5:00 PM</td> 
+                        <td class="value">Friday, September 14, 2007 at 5:00 PM</td> 
                     </tr> 
                     <tr class="dark"> 
                         <td class="value">Finalist Documents Due</td> 

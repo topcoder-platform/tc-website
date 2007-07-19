@@ -75,91 +75,71 @@
                 <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                     <tbody> 
                         <tr> 
-                            <td class="title" colspan="4">Qualification Rounds</td> 
-                        </tr> 
-                        <tr> 
                             <td class="header">Round</td> 
                             <td class="header">All Projects Posted*</td> 
-                            <td class="header">Registration<br />Period</td> 
-                            <td class="header">Submission<br />Deadline*</td> 
+                            <td class="header">Registration Period</td> 
+                            <td class="header">Submission Deadline</td> 
                         </tr> 
                         <tr class="light"> 
                             <td class="value">Week 1 of Online Qualification Round</td> 
-                            <td class="value">August 2, 2007 9:00AM</td> 
+                            <td class="value">July 26, 2007 9:00AM</td> 
                             <td class="value">72 Hours</td> 
-                            <td class="value">August 9, 2007 9:00AM</td> 
+                            <td class="value">August 2, 2007 9:00AM</td>
                         </tr> 
                         <tr class="dark"> 
                             <td class="value">Week 2 of Online Qualification Round</td> 
-                            <td class="value">August 9, 2007 9:00AM</td> 
+                            <td class="value">August 2, 2007 9:00AM</td> 
                             <td class="value">72 Hours</td> 
-                            <td class="value">August 16, 2007 9:00AM</td>
+                            <td class="value">August 9, 2007 9:00AM</td>
                         </tr> 
                         <tr class="light"> 
                             <td class="value">Week 3 of Online Qualification Round</td> 
+                            <td class="value">August 9, 2007 9:00AM</td> 
+                            <td class="value">72 Hours</td> 
+                            <td class="value">August 16, 2007 9:00AM</td>
+                        </tr>
+                        <tr class="dark"> 
+                            <td class="value">Week 4 of Online Qualification Round</td> 
                             <td class="value">August 16, 2007 9:00AM</td> 
                             <td class="value">72 Hours</td> 
                             <td class="value">August 23, 2007 9:00AM</td>
                         </tr> 
-                        <tr class="dark"> 
-                            <td class="value">Week 4 of Online Qualification Round</td> 
+                        <tr class="light"> 
+                            <td class="value">Week 5 of Online Qualification Round</td> 
                             <td class="value">August 23, 2007 9:00AM</td> 
                             <td class="value">72 Hours</td> 
                             <td class="value">August 30, 2007 9:00AM</td>
-                        </tr> 
-                        <tr class="light"> 
-                            <td class="value">Week 5 of Online Qualification Round</td> 
-                            <td class="value">August 30, 2007 9:00AM</td> 
-                            <td class="value">72 Hours</td> 
-                            <td class="value">September 6, 2007 9:00AM</td>
-                        </tr> 
+                        </tr>
                         <tr class="dark"> 
-                            <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=15&year=2007&hour=9&min=0&sec=0&p1=179" alt="Time Zone">here</a> for your time zone.</td> 
-                        </tr> 
-                    </tbody> 
-                </table>
-                <br /><br />
-                <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
-                    <tbody> 
-                        <tr> 
-                            <td class="title" colspan="4">Championship Rounds</td> 
-                        </tr> 
-                        <tr> 
-                            <td class="header">Round</td> 
-                            <td class="header">All Projects Posted*</td> 
-                            <td class="header">Registration<br />Period</td> 
-                            <td class="header">Submission<br />Deadline*</td> 
-                        </tr> 
-                        <tr class="light"> 
                             <td class="value">Championship Round (online portion component 1)</td> 
                             <td class="value">September 20, 2007 9:00AM</td> 
                             <td class="value">72 Hours</td> 
-                            <td class="value">September 27, 2007 9:00AM</td> 
+                            <td class="value">September 27, 2007 9:00AM</td>
                         </tr> 
-                        <tr class="dark"> 
+                        <tr class="light"> 
                             <td class="value">Championship Round (online portion component 2)</td> 
                             <td class="value">October 4, 2007 9:00AM</td> 
                             <td class="value">72 Hours</td> 
                             <td class="value">October 11, 2007 9:00AM</td>
-                        </tr> 
-                        <tr class="light"> 
+                        </tr>
+                        <tr class="dark"> 
                             <td class="value">Championship Round (online portion component 3)</td> 
                             <td class="value">October 18, 2007 9:00AM</td> 
                             <td class="value">72 Hours</td> 
                             <td class="value">October 25, 2007 9:00AM</td>
                         </tr> 
-                        <tr class="dark"> 
+                        <tr class="light"> 
                             <td class="value">Championship Round (onsite portion)</td> 
                             <td class="value">N/A</td> 
                             <td class="value">N/A</td> 
                             <td class="value">N/A</td>
                         </tr>
-                        <tr class="light"> 
-                            <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=15&year=2007&hour=9&min=0&sec=0&p1=179" alt="Time Zone">here</a> for your time zone.</td> 
+                        <tr class="dark">
+                            <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=8&day=17&year=2006&hour=9&min=0&sec=0&p1=179" alt="Time Zone">here</a> for your time zone.</td>
                         </tr> 
-                    </tbody> 
-                </table>
-                <br />
+                    </tbody>
+                </table> 
+                <br /><br />
                 
                 <a name="scoring"></a>
                 <h2>Scoring and Advancing</h2>
@@ -194,7 +174,7 @@
                 <p>A maximum of eight (8) competitors in each competition from the five (5) weeks of online competition will advance and travel to the Contemporary Resort on Tuesday, October 30 to compete in the final competitive stage of the CDDC held between Wednesday, October 30 - Friday, November 2, 2007. Up to four (4) alternates will be selected to compete at their discretion in the online rounds.  If a finalist cannot attend the TCCC the highest placing alternate from the online round will be named a replacement and will become an advancer.  All competitors must arrive at the Contemporary Resort no later than 2:00 PM EDT on Tuesday, October 30, 2007.</p>
                 <p>All competitors must confirm their attendance at the onsite Championship no later than 5:00 PM EDT (UTC/GMT -4) on Friday, September 28, 2007, and must have acquired any necessary travel visas and know for certain that they can travel to the United States.  If a competitor is required to travel from outside the United States, it is necessary for the competitor to show proof of a visa and/or passport by 5:00 PM EDT (UTC/GMT -4) on Friday, September 28, 2007. Competitors may email a copy of their documents to Jessie D'Amato Ford at jford@topcoder.com. Competitors who fail to meet this requirement will be replaced as an onsite finalist.</p>
                 <p style="font-weight:bold;">Visa Assistance</p>
-                <p>Upon request, TopCoder will issue visa invitation letters for international competitors who require one to obtain a travel visa to enter the United States. All competitors who pass screening on at least one component will receive a visa letter request form. As soon as a competitor returns a completed form, their letter will be mailed. Competitors have until 5:00 PM EDT (GMT/UTC -4) on Monday, September 10, 2007  to request a letter. Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. Other than providing the invitation letter, TopCoder will not assist you in the process of obtaining a travel visa. See more information about <a href="" alt="Get travel visas">travel visas</a>.</p>
+                <p>Upon request, TopCoder will issue visa invitation letters for international competitors who require one to obtain a travel visa to enter the United States. All competitors who pass screening on at least one component will receive a visa letter request form. As soon as a competitor returns a completed form, their letter will be mailed. Competitors have until 5:00 PM EDT (GMT/UTC -4) on Friday, September 14, 2007 to request a letter. Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. Other than providing the invitation letter, TopCoder will not assist you in the process of obtaining a travel visa. See more information about <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa" alt="Get travel visas">travel visas</a>.</p>
                 <p style="font-weight:bold;">Travel Details</p>
                 <p>TopCoder will provide air travel arrangements for each competitor. The flight will be reserved by and paid for by TopCoder and will be for arrival on October 30, 2007 and departure on November 4, 2007.TopCoder will pay for each competitor's airfare up to $1,500, though we reserve the right to make exceptions to the maximum amount based on individual circumstances. Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor.</p>
                 <p>Ground transportation to and from the Orlando International Airport will be provided for you by TopCoder by Disney Magical Express, as well as hotel accommodations and certain meals for each competitor. All other expenses are the responsibility of the competitor. TopCoder will not provide travel or lodging accommodations for guests of the competitor.</p>
@@ -297,7 +277,7 @@
                         </tr> 
                         <tr class="light"> 
                             <td class="value">5th place finisher* in the <br />Championship Round</td> 
-                            <td class="value">$2,000 each</td>
+                            <td class="value">$2,000</td>
                             <td class="value">$1,500</td>
                         </tr>
                         <tr class="dark"> 
@@ -322,7 +302,7 @@
 
                         </tr>
                         <tr class="dark"> 
-                            <td class="value" colspan="3">Prize will be awarded after the conclusion of the Championship Round. Winner must be present to receive prize.<br />
+                            <td class="value" colspan="3">*Prize will be awarded after the conclusion of the Championship Round. Winner must be present to receive prize.<br /><br />
                             In addition to the prizes mentioned above, all onsite finalists will receive a one-day Disney Park Hopper pass to use at the event on Saturday, November 3, 2007.</td> 
                         </tr>
                     </tbody> 
@@ -336,9 +316,9 @@
                 <p><span class="bigRed">Competitors must not cheat. All ideas for code and/or challenge submitted must be the competitor's alone. TopCoder uses the word "cheat" to mean collaboration of any sort - including, but not limited to, working with another competitor, submitting code that was not fully authored by you, and using resources, software, etc. that are not allowed in TopCoder competitions. TopCoder reserves the right, in its sole discretion, to remove any competitor from the CDDC and/or the Tournament whom it suspects has cheated.</span></p>
                 <p>All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the CDDC and the Tournament are within the sole discretion of TopCoder and are final and binding in all respects.</p>
                 <p>As a condition of participation in the CDDC and the Tournament, all information provided by you in your TopCoder member profile must be accurate and up-to-date. TopCoder may require you to complete an additional registration form to register for the CDDC and/or the Tournament. In order to be eligible to participate in the CDDC, you must have completed any and all registration forms required by TopCoder.</p>
-                <p>Competitors who advance to the onsite Championship Round must complete the following items and submit them to TopCoder by 5:00 PM EDT on Friday, September 28, 2007:<br />
-                Confirmation of attendance/proof of travel documents - Please email <a href="mailto:jdamato@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a> to confirm your attendance onsite. If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents.</p>
+                <p>Competitors who advance to the onsite Championship Round must complete the following items and submit them to TopCoder by 5:00 PM EDT on Friday, September 28, 2007:</p>
                     <ul>
+                        <li>Confirmation of attendance/proof of travel documents - Please email <a href="mailto:jdamato@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a> to confirm your attendance onsite. If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents.</li>
                         <li>Please submit a head shot by emailing <a href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</a>, if we do not have one on file for you.</li>
                         <li>Please ensure your most up-to-date information is listed in your TopCoder profile in the event we need to mail your plane tickets or contact you via telephone.</li>
                         <li>Competitor Questionnaire - the questions and responses may be published in the 2007 TopCoder Collegiate Challenge program</li>
