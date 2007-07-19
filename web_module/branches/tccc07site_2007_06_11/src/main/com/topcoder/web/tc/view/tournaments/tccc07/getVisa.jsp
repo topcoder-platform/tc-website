@@ -30,7 +30,7 @@
                 <h2>Do I need a visa?</h2>
                 <p>All travelers entering the United States must present either a passport or a visa. If you do NOT have a passport, or you are from a country that does NOT participate in the Visa Waiver Program, you must apply for a visa.</p>
                 <p>The following countries DO NOT require a visa to enter the United States:<br />
-                <a target="_blank" alt="Countries that DO NOT require a visa" href="<tc-webtag:linkTracking link='http://travel.state.gov/visa/temp/without/without_1990.html#countries' refer='TCCC07 getVisa' />">http://travel.state.gov/visa/temp/without/without_1990.html#countries</a></p>
+                <a target="_blank" alt="Countries that DO NOT require a visa" href="<tc-webtag:linkTracking link='http://travel.state.gov/visa/temp/without/without_1990.html#countries' refer='TCCC07_getVisa' />">http://travel.state.gov/visa/temp/without/without_1990.html#countries</a></p>
                 
                 <h2>Why should I get it early?</h2>
                 <p>Getting your travel documents well in advance of your travel dates is important. If you require a visa, the application process could be lengthy. In some countries, it can take over a month. We strongly suggest you begin the process as soon as possible.</p>
@@ -52,7 +52,7 @@
                 <p><span style="font-weight:bold;">Studio Design Competitors: </span>All competitors who pass screening on at least 2 designs will receive a request form to fill out if they require a letter. As soon as a competitor fills out the form in its entirety, the letter will be shipped out by FedEx International Priority mail.</p>
                 
                 <h2>How do I apply for a visa?</h2>
-                <p>Begin by visiting: <a target="_blank" alt="Obtaining Visas" href="<tc-webtag:linkTracking link='http://www.unitedstatesvisas.gov/obtainingvisa/index.html' refer='TCCC07 getVisa' />">www.unitedstatesvisas.gov/obtainingvisa/index.html</a> or find your nearest U.S. Embassy or Consulate: <a target="_blank" alt="US Embassy or Consulate" href="<tc-webtag:linkTracking link='http://usembassy.state.gov' refer='TCCC07 getVisa' />">http://usembassy.state.gov</a></p>
+                <p>Begin by visiting: <a target="_blank" alt="Obtaining Visas" href="<tc-webtag:linkTracking link='http://www.unitedstatesvisas.gov/obtainingvisa/index.html' refer='TCCC07_getVisa' />">www.unitedstatesvisas.gov/obtainingvisa/index.html</a> or find your nearest U.S. Embassy or Consulate: <a target="_blank" alt="US Embassy or Consulate" href="<tc-webtag:linkTracking link='http://usembassy.state.gov' refer='TCCC07_getVisa' />">http://usembassy.state.gov</a></p>
                 <p>Remember, if you become a finalist in any competition, you MUST show proof of your visa and/or passport by the finalist deadline before TopCoder will book a flight for you. If you do not have your visa and/or passport by the appropriate date, you will be disqualified as a finalist. Please revisit the tournament rules for more information or email <a href="mailto:jford@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a>.</p>
 
                 
