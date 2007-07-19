@@ -1,16 +1,15 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
+import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.server.ejb.TestServices.LongTestQueueStatusItem;
-import com.topcoder.server.ejb.TestServices.TestServices;
-import com.topcoder.server.ejb.TestServices.TestServicesLocator;
 import com.topcoder.shared.common.ServicesConstants;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.TCWebException;
-
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * @author dok
@@ -22,9 +21,7 @@ public class ViewQueue extends Base {
 
         protected void longContestProcessing() throws TCWebException {
             try {
-                
-                TestServices service = TestServicesLocator.getService();
-                List longTestQueueStatus = service.getLongTestQueueStatus();
+                List longTestQueueStatus = LongContestServicesLocator.getService().getLongTestQueueStatus();
                 List longSummaryList = new LinkedList();
                 int systemTestCount = 0;
                 for (Iterator it = longTestQueueStatus.iterator(); it.hasNext(); ) {
