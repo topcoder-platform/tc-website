@@ -22,7 +22,7 @@ import com.topcoder.web.common.model.Survey;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.survey.Helper;
+import com.topcoder.web.common.SurveyHelper;
 import com.topcoder.web.tc.controller.request.tournament.SubmitRegistrationBase;
 
 /**
@@ -46,7 +46,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         String inCollegeInput = "";
         for (Iterator it = survey.getQuestions().iterator(); it.hasNext();) {
             Question q = (Question) it.next();
-            Response response = (new Helper()).findResponse(responses, q.getId());
+            Response response = (new SurveyHelper()).findResponse(responses, q.getId());
             if (response != null) {
                 if (q.getKeyword().equals(AGE)) {
                     ageInput = StringUtils.checkNull(response.getText());
