@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.19.07<br>1:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm358">SRM 358 - Problem Set &amp; Analysis</A></span><br><br>
+      <tc-webtag:handle coderId="14970299" context="algorithm"/>, with fast time on all three problems, won the match thanks to a last minute challenge that left <tc-webtag:handle coderId="307060" context="algorithm"/>, with 7 successful challenges and a resubmit on the 500, behind.</td>
+         <td class="newsPhoto"><img src="/i/m/icanadi_big2.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10256411" context="algorithm" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm358">full story</A> | 
+         <tc-webtag:forumLink forumID="516055" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>07.18.07<br>4:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_071807">TopCoder Announces New Collaboration Initiatives for Working with Clients and Community</A></span><br><br>
        TopCoder today announced a series of collaboration initiatives to further enhance its ability to work with its clients and community.  These plans will move forward under the direction of Ira Heffan, who was recently named General Counsel.
@@ -182,15 +198,3 @@ and <tc-webtag:handle coderId="272408" context="algorithm"/> rounded out the top
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>07.09.07<br>6:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=calendar&d2=thisMonth">Marathon Matches added to Event Calendar</A></span><br><br>
-        Check out the calendar to see the next four Marathon Matches.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=calendar&d2=thisMonth">details</A> | 
-        <tc-webtag:forumLink forumID="516431" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
