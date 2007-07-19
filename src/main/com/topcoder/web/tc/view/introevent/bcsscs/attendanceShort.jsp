@@ -37,6 +37,9 @@
             </jsp:include>
 
             <div style="float:right; margin-top: 6px;"><A href="/tc?module=Static&d1=help&d2=index"><img src="/i/introevent/tryMoreAlgo.png" alt="Try some more Algorithm Competitions?" /></A></div>
+            <div align="left" style="margin-bottom: 20px;">
+                <img src="/i/introevent/bcsLogo.png" alt="" />
+            </div>
             <h2>Problem Statement for AttendanceShort</h2>
 
             <!--
