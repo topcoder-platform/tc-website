@@ -254,7 +254,7 @@
                             <td class="value">Limited edition 2007 TopCoder Open t-shirt</td>
                         </tr>
                         <tr class="dark"> 
-                            <td class="value" colspan="2">*Prize will be awarded after the conclusion of the Championship Round. Winner must be present to receive prize.<br /><br />In addition to the prizes mentioned above, all onsite finalists will receive a one-day Disney Park Hopper pass to use at the event on Saturday, November 3, 2007.</td> 
+                            <td class="value" colspan="2">*Prize will be awarded after the conclusion of the Championship Round. Winner must be present to receive prize. <br /><br />In addition to the prizes mentioned above, all onsite finalists will receive a one-day Disney Park Hopper pass to use at the event on Saturday, November 3, 2007.</td> 
                         </tr> 
                     </tbody> 
                 </table>
