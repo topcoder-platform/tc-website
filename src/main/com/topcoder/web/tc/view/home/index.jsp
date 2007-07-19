@@ -330,17 +330,17 @@
                <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule"><img src="/i/home/tchs07_promo_051007.png" alt="TCHS07" border="0" style="display:block;"/></A>
             --%>
                
-            <%-- CSF 
-            <A href="<tc-webtag:linkTracking link="http://csf.topcoder.com/?module=ViewContestDetails&ct=1006" refer="tc_Index"/>"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF Powered by TopCoder" style="display:block;" /></A>
-            --%>
+            <%-- CSF --%>
+            <A href="<tc-webtag:linkTracking link="http://csf.topcoder.com/" refer="tc_Index"/>"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF Powered by TopCoder" style="display:block;" /></A>
+            
             
             <%-- LICENSE ID 
             <A href="<tc-webtag:linkTracking link='http://studio.topcoder.com/?module=ViewContestDetails&ct=2093' refer='homepage' />"><img src="/i/home/licenseIDProject.jpg" alt="License ID Project" border="0" style="display:block;"/></A>
             --%>
             
-            <%-- TOPCODER EMPLOYEE REFERRAL PROGRAM --%>
+            <%-- TOPCODER EMPLOYEE REFERRAL PROGRAM 
             <A href="/tc?module=Static&d1=my_home&d2=empReferrals"><img src="/i/home/empRefSm_20070517.png" alt="TopCoder Employee Referral Program" border="0" style="display:block;"/></A>
-             
+             --%>
              
              <%-- TC CHANNEL 
             <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep2' refer='homepage' />"><img src="/i/home/tcchannel_promo_ep2.png" alt="TC Channel: Episode 2" /></A>

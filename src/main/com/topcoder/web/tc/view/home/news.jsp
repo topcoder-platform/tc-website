@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>07.19.07<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://csf.topcoder.com/">Mashup Design Competition open for registration</A></span><br><br>
+        Microsoft &amp; British Telecom, in association with TopCoder, have launched another Mashup Design Competition. Prizes will be awarded to the top three mashup assembly submissions, with a total prizes of $4,500 plus the potential to win part of the Series Prize $40,000 purse. Check out the contest details at <a href="http://csf.topcoder.com/">http://csf.topcoder.com</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://csf.topcoder.com/">details</A> | 
+        <a href="http://csf.topcoder.com/forums"> discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>07.19.07<br>2:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=sponsors&d2=bt">British Telecommunications to sponsor SRMs with cash prizes</A></span><br><br>
@@ -178,24 +191,5 @@ and <tc-webtag:handle coderId="272408" context="algorithm"/> rounded out the top
         <A href="/tc?module=ViewSurvey&sid=19130">details</A> | 
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=73&mc=29">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-      
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>07.12.07<br>11:15 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=MatchDetails&rd=10766">Yodlee chat session scheduled for SRM 357</A>
-        </span><br><br>
-        Join Yodlee representatives in the chat room at 8:00 PM EDT tonight to learn more about their company and their exciting career opportunities.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=MatchDetails&rd=10766">details</A> |
-        <tc-webtag:forumLink forumID="515944" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
       
