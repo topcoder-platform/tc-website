@@ -6,6 +6,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
+import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.model.User;
 
 /**
@@ -26,6 +27,19 @@ public abstract class ViewRegistrationBase extends RegistrationBase {
             setNextPage("/tournaments/" + e.getShortDescription() + "/terms.jsp");
             setIsNextPageInContext(true);
         }
+    }
+
+    protected final String getContestTypeUsingEventType(Integer eventTypeId) {
+        if (EventType.COMPONENT_TOURNAMENT_ID.equals(eventTypeId)) {
+            return "component";
+        } else if (EventType.ALGORITHM_TOURNAMENT_ID.equals(eventTypeId)) {
+            return "algorithm";        
+        } else if (EventType.MARATHON_TOURNAMENT_ID.equals(eventTypeId)) {
+            return "marathon";
+        } else if (EventType.STUDIO_TOURNAMENT_ID.equals(eventTypeId)) {
+            return "studio";
+        }
+        return "";
     }
 
     public boolean isEligible(Event e, User u) throws Exception{

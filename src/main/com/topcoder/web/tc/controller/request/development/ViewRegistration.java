@@ -201,7 +201,7 @@ public class ViewRegistration extends Base {
 
     protected boolean isRegisteredForTournament() throws Exception {
         return DAOUtil.getFactory().getEventRegistrationDAO().find(new Long(getUser().getId()),
-                Event.TCO07_COMPONENT_ID) != null;
+                Event.TCCC07_COMPONENT_ID) != null;
     }
 
     protected ComponentRegistrationServicesLocal getRegEJB() throws Exception {
