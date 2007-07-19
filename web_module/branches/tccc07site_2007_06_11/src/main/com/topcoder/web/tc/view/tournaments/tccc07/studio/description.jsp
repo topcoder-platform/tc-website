@@ -36,7 +36,7 @@
                 <h2>The Competition Process</h2>
                 <p>The competition process ignites creativity in both the client and the Studio members. TopCoder determines the needs of the client, presents those needs to the Studio member-base, and administers all aspects of the competition.</p>
                 <p>Contest specifications are posted on Studio and members submit their designs according to those specs. Submissions are then screened against the contest specifications by the Contest Administrator and either passed or failed. Passing submissions are presented to the client. The client can then chose to determine a winner on their own, ask the community to chose a winner through a vote, or enter into a review and revision phase with finalists they select, selecting a winner after the revisions are completed.</p>
-                <p>Learn more about <a href="http://studio.topcoder.com/" alt="TopCoder Studio">TopCoder Studio</a></p>
+                <p>Learn more about <a href="http://studio.topcoder.com/" alt="TopCoder Studio" target="_blank">TopCoder Studio</a></p>
 
                 <p>When is the competition? See the <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=schedule" alt="TCCC07 Studio Schedule">schedule</a>.</p>
                 <p>Read the official <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=rules" alt="TCCC07 Studio Design Rules &amp; Regulations">rules and regulations</a> for important details.</p>

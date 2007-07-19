@@ -39,7 +39,7 @@
                 </p>
                 
                 <h2>Overview of the Tournament</h2>
-                <p>The 2007 TopCoder Collegiate Challenge ("Tournament") Marathon Match Competition ("Competition") will take place between July 23 and November 2, 2007. It will consist of four (4) online elimination rounds and one (1) onsite final round. The total of the cash prizes for the Competition is $30,000. A maximum of 8 competitors will win a cash prize, and a maximum of 500 competitors will win a participatory prize for competing in the second online round. The top 8 competitors, as determined by the online rounds, will advance to the onsite Championship round at the Contemporary Resort at Walt Disney World in Orlando, Florida, USA on October 31, 2007.</p>
+                <p>The 2007 TopCoder Collegiate Challenge ("Tournament") Marathon Match Competition ("Competition") will take place between July 23 and November 2, 2007. It will consist of three (3) online elimination rounds and one (1) onsite final round. The total of the cash prizes for the Competition is $30,000. A maximum of 8 competitors will win a cash prize, and a maximum of 500 competitors will win a participatory prize for competing in the second online round. The top 8 competitors, as determined by the online rounds, will advance to the onsite Championship round at the Contemporary Resort at Walt Disney World in Orlando, Florida, USA on October 31, 2007.</p>
                 
                 <a name="eligibility"></a>
                 <h2>Eligibility</h2>
@@ -72,7 +72,7 @@
                             <td class="header">Round of Competition</td> 
                             <td class="header">Start Date and Time*</td> 
                             <td class="header">End Date and Time*</td> 
-                            <td class="header">Maximum # of Competitors</td> 
+                            <td class="header">Maximum #<br />of Competitors</td> 
                             <td class="header">Advancers</td>
 
                         </tr> 
@@ -134,10 +134,10 @@
 
                 <h3>Important Information</h3>
                 <p style="font-weight:bold;">Travel Confirmation</p>
-                <p>The eight (8) competitors who advance from online round #3 will travel to Orlando Florida to compete in the Championship round of the Competition on Wednesday, October 31, 2007. All onsite competitors must arrive at the Contemporary Resort no later than 2:00 PM EDT on Tuesday, October 30, 2007.</p>
+                <p>The eight (8) competitors who advance from online round #3 will travel to Orlando, Florida to compete in the Championship round of the Competition on Wednesday, October 31, 2007. All onsite competitors must arrive at the Contemporary Resort no later than 2:00 PM EDT on Tuesday, October 30, 2007.</p>
                 <p>All competitors must confirm their attendance at the onsite Championship no later than 5:00 PM EDT (UTC/GMT -4) on Friday, September 28, 2007, and must have acquired any necessary travel visas and know for certain that they can travel to the United States.  If a competitor is required to travel from outside the United States, it is necessary for the competitor to show proof of a visa and/or passport by 5:00 PM EDT (UTC/GMT -4) on Friday, September 28, 2007. Competitors may email a copy of their documents to Jessie D'Amato Ford at jford@topcoder.com. Competitors who fail to meet this requirement will be replaced as an onsite finalist.</p>
                 <p style="font-weight:bold;">Visa Assistance</p>
-                <p>At the end of online round #1, TopCoder will issue visa invitation letters upon the request of international competitors who may require such a letter. All competitors who advance to online round #1 will receive a visa invitation letter request form. Competitors have until 5:00 PM EDT (GMT/UTC -4) on Monday, September 10, 2007 to request a letter. Visas can take a significant amount of time to obtain in certain countries.  It is in their best interest of those competitors who need such a letter to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. Outside of issuing an invitation letter upon request, TopCoder will not assist you in the process of obtaining a travel visa. See more information about <a href="" alt="Get travel visas">travel visas</a>.</p>
+                <p>At the end of online round #1, TopCoder will issue visa invitation letters upon the request of international competitors who may require such a letter. All competitors who advance to online round #1 will receive a visa invitation letter request form. Competitors have until 5:00 PM EDT (GMT/UTC -4) on Friday, September 14, 2007 to request a letter. Visas can take a significant amount of time to obtain in certain countries.  It is in their best interest of those competitors who need such a letter to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. Outside of issuing an invitation letter upon request, TopCoder will not assist you in the process of obtaining a travel visa. See more information about <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa" alt="Get travel visas">travel visas</a>.</p>
 
                 <p style="font-weight:bold;">Travel Details</p>
                 <p>TopCoder will provide air travel arrangements for each competitor. The flight will be reserved by and paid for by TopCoder and will be for arrival on October 30, 2007 and departure on November 4, 2007.TopCoder will pay for each competitor's airfare up to $1,500, though we reserve the right to make exceptions to the maximum amount based on individual circumstances. Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor.</p>
@@ -194,7 +194,7 @@
                             <td class="value">Limited edition 2007 TopCoder Collegiate Challenge t-shirt</td>
                         </tr>
                         <tr class="light"> 
-                            <td class="value" colspan="2">* Prize will be awarded at the conclusion of the Championship Round. Winner must be present to receive prize.<br />
+                            <td class="value" colspan="2">* Prize will be awarded at the conclusion of the Championship Round. Winner must be present to receive prize.<br /><br />
                             In addition to the prizes mentioned above, all onsite finalists will receive a one-day Disney Park Hopper pass to use at the event on Saturday, November 3, 2007.</td> 
                         </tr>
 
