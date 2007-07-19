@@ -60,12 +60,10 @@
                     <a href="/tc?module=HSViewRegister">Register for Season 2</a>
                     <br /><a href="/reg/">Register for TopCoder High School competitions <strong>and</strong> Season 2</a>
                     <br /><br />
-<%--
                     <span class="subtitle">TCHS Tournament Rules</span><br />
                     We have posted the <A href="/tc?module=Static&d1=hs&d2=rules">rules</A> for the upcoming 2008 TCHS Tournament. Please take the opportunity to read through them. 
                     Any questions that arise should be posted in the Algorithm and High School Competitions Discussions <A href="http://forums.topcoder.com/?module=ThreadList&forumID=7167">forum</A>.
                     <br /><br />
---%>
             </div>
         </td>
 <%-- Center Column Ends --%>
