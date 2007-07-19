@@ -42,14 +42,13 @@
             </div>
             <h2>Problem Statement for AttendanceShort</h2>
 
-            <!--
             <div>
             <strong>
             Problem Statement 
             | <A href="/tc?module=Static&d1=introevent&d2=bcsscs&d3=attendanceShortSol" class="bcLink">Solution</A>
             </strong>
             </div>
-            -->
+
             
             <table>
                 <tbody>
