@@ -56,7 +56,7 @@ public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
 
         setSortInfo(rsc);
 
-        if (e.getRegistrationStart().after(new GregorianCalendar(2007,7,1).getTime())) {
+        if (e.getRegistrationStart().after(new GregorianCalendar(2007,6,1).getTime())) {
             log.debug("Registrants page pageable.");
             String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
             String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
