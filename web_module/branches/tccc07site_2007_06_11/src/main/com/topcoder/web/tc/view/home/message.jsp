@@ -8,7 +8,7 @@
 
 <style type="text/css">
     .tccc07Message {
-        color: #666666;
+        color: #4b4fa1;
         font-size: 11px;
         font-weight: normal;
         padding: 5px;
@@ -16,12 +16,12 @@
     }
 
     A.tccc07MessageLink:link {
-        color: #493b92;
+        color: #4b4fa1;
         text-decoration: underline;
     }
 
     A.tccc07MessageLink:visited {
-        color: #493b92;
+        color: #4b4fa1;
         text-decoration: underline;
     }
 
@@ -43,8 +43,8 @@
 <table cellspacing="0" cellpadding="0" class="messageBoxFrame" style="margin-bottom: 10px;">
     <tr>
         <td class="tccc07Message" align="center">
-            <div align="center">
-            <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about"><img src="/i/tournament/tccc07/message.png" alt="TCCC07" border="0"/></A>
+            <div align="center" style="margin: 6px 0px;">
+                <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about"><img src="/i/tournament/tccc07/message.png" alt="TCCC07" border="0"/></A>
             </div>
             <rsc:iterator list='<%=rscTccc07%>' id="resultRow">
                 <% if (resultRow.getIntItem("registered")== 0) { %>
@@ -52,8 +52,8 @@
                 <% } else if (resultRow.getIntItem("registered")== 1) { %>
                     You are registered for the <strong><%=resultRow.getStringItem("event_desc")%></strong>.
                 <% } else { %>
-                    You are not registered for the <strong><%=resultRow.getStringItem("event_desc")%></strong>, click
-                <a href="/tc?module=TCCC07ViewRegistration&et=<rsc:item name="event_type_id" row='<%=resultRow%>'/>" class="tccc07MessageLink">here</a> to register.
+                    You are not registered for the <strong><%=resultRow.getStringItem("event_desc")%></strong>.
+                 <br />Would you like to <a href="/tc?module=TCCC07ViewRegistration&et=<rsc:item name="event_type_id" row='<%=resultRow%>'/>" class="tccc07MessageLink">register</a>?
                 <% } %>
                 <br/><br/>
             </rsc:iterator>
