@@ -29,6 +29,6 @@
                      cascade="none"/>
         <one-to-one name="review" class="SubmissionReview"/>
         <one-to-one name="result" class="ContestResult" cascade="save-update"/>
-        <property name="onlineReviewSubmissionId" column="or_submission_id"/>
+        <many-to-one name="onlineReviewSubmission" column="or_submission_id" class="ORSubmission" cascade="none"/>
     </class>
 </hibernate-mapping>

@@ -30,6 +30,7 @@ public class Contest extends Base {
     private Set<StudioFileType> fileTypes = new HashSet<StudioFileType>();
     private Set<ContestResult> results = new TreeSet<ContestResult>();
     private Event event;
+    private Project project;
 
     public Long getId() {
         return id;
@@ -202,5 +203,14 @@ public class Contest extends Base {
 
     public void setEvent(Event event) {
         this.event = event;
+    }
+
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 }

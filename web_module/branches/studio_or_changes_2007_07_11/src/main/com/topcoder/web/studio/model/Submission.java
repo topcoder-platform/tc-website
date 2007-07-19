@@ -26,7 +26,7 @@ public class Submission extends Base {
     private Integer height;
     private Integer width;
     private SubmissionStatus status;
-    private Integer onlineReviewSubmissionId;
+    private ORSubmission ORSubmission;
 
 
     public Long getId() {
@@ -154,11 +154,11 @@ public class Submission extends Base {
     }
 
 
-    public Integer getOnlineReviewSubmissionId() {
-        return onlineReviewSubmissionId;
+    public ORSubmission getORSubmission() {
+        return ORSubmission;
     }
 
-    public void setOnlineReviewSubmissionId(Integer onlineReviewSubmissionId) {
-        this.onlineReviewSubmissionId = onlineReviewSubmissionId;
+    public void setORSubmission(ORSubmission ORSubmission) {
+        this.ORSubmission = ORSubmission;
     }
 }
