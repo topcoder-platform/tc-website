@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccess;
@@ -53,42 +54,48 @@ public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
             setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
         }
 
-        String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
-        String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
-
         setSortInfo(rsc);
 
-        if ("".equals(numRecords)) {
-            numRecords = "50";
-        } else if (Integer.parseInt(numRecords) > 200) {
-            numRecords = "200";
-        }
-
-        if (startRank.equals("") || Integer.parseInt(startRank) <= 0) {
-            startRank = "1";
-        }
-
-        setDefault(DataAccessConstants.START_RANK, startRank);
-        setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
-
-
-        int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
-
-        ArrayList<ResultFilter> filters = new ArrayList<ResultFilter>(1);
-        String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE));
-        if (!handle.equals("")) {
-            if (log.isDebugEnabled()) {
-                log.debug("add handle filter: " + handle);
+        if (e.getRegistrationStart().after(new GregorianCalendar(2007,7,1).getTime())) {
+            log.debug("Registrants page pageable.");
+            String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+            String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
+    
+            if ("".equals(numRecords)) {
+                numRecords = "50";
+            } else if (Integer.parseInt(numRecords) > 200) {
+                numRecords = "200";
             }
-            filters.add(new Contains(handle.toLowerCase(), "handle_lower"));
-            setDefault(Constants.HANDLE, handle);
-        }
+    
+            if (startRank.equals("") || Integer.parseInt(startRank) <= 0) {
+                startRank = "1";
+            }
+    
+            setDefault(DataAccessConstants.START_RANK, startRank);
+            setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
+    
+    
+            int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
+    
+            ArrayList<ResultFilter> filters = new ArrayList<ResultFilter>(1);
+            String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE));
+            if (!handle.equals("")) {
+                if (log.isDebugEnabled()) {
+                    log.debug("add handle filter: " + handle);
+                }
+                filters.add(new Contains(handle.toLowerCase(), "handle_lower"));
+                setDefault(Constants.HANDLE, handle);
+            }
+    
+            if (filters.size() > 0) {
+                rsc = new ResultSetContainer(rsc, filters.toArray(new ResultFilter[0]));
+            }
+            rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank), endRank);
 
-        if (filters.size() > 0) {
-            rsc = new ResultSetContainer(rsc, filters.toArray(new ResultFilter[0]));
+        } else {
+            log.debug("Registrants page NOT pageable.");
         }
-        rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank), endRank);
-
+    
         getRequest().setAttribute("list", rsc);
 
         setNextPage(e);
