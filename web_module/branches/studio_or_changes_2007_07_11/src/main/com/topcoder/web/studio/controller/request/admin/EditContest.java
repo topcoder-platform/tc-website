@@ -104,14 +104,11 @@ public class EditContest extends Base {
 
             if (!"".equals(StringUtils.checkNull(projectId))) {
                 Project p;
-                if (contest.getProject() == null) {
+                if (contest.getProject() == null || !projectId.equals(contest.getProject().getId().toString())) {
                     p = new Project();
+                    p.setId(new Integer(projectId));
                     contest.setProject(p);
-                } else {
-                    p = contest.getProject();
                 }
-                p.setId(new Integer(projectId));
-
             }
 
             ContestConfig currConfig;
