@@ -96,6 +96,8 @@ Show submissions by (Enter Handle):
     all active submissions</a><br>
 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}&amp;<%=Constants.SUBMISSION_STATUS_ID%>=<%=SubmissionStatus.DELETED%>">Show
     deleted submissions only</a>
+<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}&amp;<%=Constants.SUBMISSION_TYPE_ID%>=<%=SubmissionType.FINAL_SUBMISSION_TYPE%>">Show
+    final submissions only</a>
 
 <div class="pagingBox">
     <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
@@ -175,7 +177,7 @@ Show submissions by (Enter Handle):
             <span class="coderText"><rsc:item name="submitter_handle" row="<%=resultRow%>"/></span>
         </td>
         <td class="valueC">
-            <%if (resultRow.getIntItem("submission_type_id")==SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
+            <%if (resultRow.getIntItem("submission_type_id") == SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
             Final
             <% } else { %>
             <rsc:item name="submitter_rank" row="<%=resultRow%>"/>
@@ -183,10 +185,11 @@ Show submissions by (Enter Handle):
         </td>
         <td class="value">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                <rsc:item name="original_file_name" row="<%=resultRow%>"/></a>
+                <rsc:item name="original_file_name" row="<%=resultRow%>"/>
+            </a>
         </td>
         <td class="valueC">
-            <%if (resultRow.getIntItem("submission_type_id")!=SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
+            <%if (resultRow.getIntItem("submission_type_id") != SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissionDetail&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
             <% } %>
         </td>
