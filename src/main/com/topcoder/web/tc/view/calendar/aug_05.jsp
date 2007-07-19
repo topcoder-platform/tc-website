@@ -78,7 +78,7 @@
             <A href="/tc?module=MatchDetails&rd=7992">Details</A><br/><br/></td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">3</span><br/>
-            <strong>2005 TopCoder Open Component Competition</strong><br/>
+            <strong>2005 TopCoder Open CDDC</strong><br/>
             Week 5 Submission Deadline: 9:00 AM ET<br/>
             &#160;<br />
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
@@ -168,7 +168,7 @@
             Registration: 6:30PM - 9:25PM ET<br/>
             Compete: 9:30PM<br/>
             <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_schedule">Details</A><br /><br />
-            <strong>Component Competition</strong><br/>
+            <strong>CDDC</strong><br/>
             Online Championship Round Projects Posted: 9:00 AM ET<br/>
             <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_schedule">Details</A>
             </td>
@@ -201,7 +201,7 @@
             Registration: 6:30PM - 9:25PM ET<br/>
             Compete: 9:30PM<br/>
             <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_schedule">Details</A><br /><br />
-            <strong>Component Competition</strong><br/>
+            <strong>CDDC</strong><br/>
             Online Championship Round Deadline: 9:00 AM ET<br/>
             <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_schedule">Details</A>
             </td>
