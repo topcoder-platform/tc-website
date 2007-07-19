@@ -55,6 +55,8 @@
 
         <pathelement location="${jars.dir}/PactsServices.jar"/>
 
+        <pathelement location="${jars.dir}/axis.jar"/>
+
         <pathelement location="${jive.dir}/jivebase.jar"/>
         <pathelement location="${jive.dir}/jiveforums.jar"/>
         <pathelement location="${jive.dir}/xwork.jar"/>
