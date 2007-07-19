@@ -74,7 +74,7 @@
                 <tr>
                     <td class="value" style="vertical-align: top;">
                         <div style="margin:10px;">
-                            &nbsp;
+                            More competitions are coming soon.<br />Check back soon for details.
                         </div>
                     </td>
                     <td class="value" style="vertical-align: top;">
