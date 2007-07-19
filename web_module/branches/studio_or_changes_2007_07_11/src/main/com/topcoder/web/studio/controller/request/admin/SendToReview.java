@@ -1,5 +1,6 @@
 package com.topcoder.web.studio.controller.request.admin;
 
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
@@ -9,7 +10,18 @@ import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ReviewStatus;
 import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionStatus;
+import org.apache.axis.client.Call;
+import org.apache.axis.client.Service;
+import org.apache.axis.encoding.XMLType;
 
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
+import javax.xml.namespace.QName;
+import javax.xml.rpc.ParameterMode;
+import javax.xml.rpc.ServiceException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.Date;
 
 /**
@@ -37,23 +49,28 @@ public class SendToReview extends Base {
             Contest c = factory.getContestDAO().find(cid);
             //check if all the submissions in the contest have been reviewed.
 
-            if (now.after(c.getEndTime())) {
-                if (allSubmissionsReviewed(c)) {
-                    for (Submission s : c.getSubmissions()) {
-                        if (hasQualifyingRank(s) &&
-                                SubmissionStatus.ACTIVE.equals(s.getStatus().getId()) &&
-                                s.getReview() != null && ReviewStatus.PASSED.equals(s.getReview().getStatus().getId())) {
-                            log.debug("XXXXXX  passed all checks, sending to OR XXXXX");
-                            //todo save returned OR submission for this studio submission so we have the mapping.
-                        }
+            if (c.getProject() != null) {
+                if (now.after(c.getEndTime())) {
+                    if (allSubmissionsReviewed(c)) {
+                        for (Submission s : c.getSubmissions()) {
+                            if (hasQualifyingRank(s) &&
+                                    SubmissionStatus.ACTIVE.equals(s.getStatus().getId()) &&
+                                    s.getReview() != null && ReviewStatus.PASSED.equals(s.getReview().getStatus().getId())) {
+                                log.debug("XXXXXX  passed all checks, sending to OR XXXXX");
+                                uploadSubmission(c.getProject().getId(), s.getSubmitter().getId(), s.getPath().getPath() + s.getSystemFileName());
+                            }
 
+                        }
+                    } else {
+                        throw new NavigationException("Be sure to review all the submissions before attempting to send them to online review");
                     }
+
                 } else {
-                    throw new NavigationException("Be sure to review all the submissions before attempting to send them to online review");
+                    throw new NavigationException("Sorry, you can't send submissions to online review until the submission phase is over.");
                 }
 
             } else {
-                throw new NavigationException("Sorry, you can't send submissions to online review until the submission phase is over.");
+                throw new NavigationException("Sorry, this contest is not associated with a project in Online Review.");
             }
         }
     }
@@ -76,5 +93,44 @@ public class SendToReview extends Base {
         log.debug("end testing if all submissinos reviewed (they were)");
         return true;
     }
+
+
+    private final static String END_POINT = "http://" + ApplicationServer.TCS_APP_SERVER_URL + "/review/services/UploadService";
+
+    /**
+     * Uploads the submission using the SOAP call.
+     *
+     * @param projectId the project id
+     * @param ownerId   the owner/user id
+     * @param filename  the file name of the submission
+     * @return the submission id
+     * @throws javax.xml.rpc.ServiceException if any while creating the SOAP call.
+     * @throws java.net.MalformedURLException if any while creating the SOAP call.
+     * @throws java.rmi.RemoteException       if any while executing.
+     */
+    public long uploadSubmission(long projectId, long ownerId, String filename) throws ServiceException,
+            MalformedURLException, RemoteException {
+
+        // Create the data for the attached file.
+        DataHandler dhSource = new DataHandler(new FileDataSource(filename));
+
+        Service service = new Service();
+        Call call = (Call) service.createCall();
+
+        call.setTargetEndpointAddress(new URL(END_POINT));
+        QName qnameAttachment = new QName("urn:EchoAttachmentsService", "DataHandler");
+
+
+        call.setOperationName(new QName("urn:UploadService", "uploadSubmission"));
+        call.addParameter("projectId", XMLType.XSD_LONG, ParameterMode.IN);
+        call.addParameter("ownerId", XMLType.XSD_LONG, ParameterMode.IN);
+        call.addParameter("filename", XMLType.XSD_STRING, ParameterMode.IN);
+        call.addParameter(qnameAttachment, XMLType.MIME_DATA_HANDLER, ParameterMode.IN); // Add the file.
+        call.setReturnType(XMLType.XSD_LONG);
+
+        // call.
+        return ((Number) call.invoke(new Object[]{projectId, ownerId, filename, dhSource})).longValue();
+    }
+
 
 }
