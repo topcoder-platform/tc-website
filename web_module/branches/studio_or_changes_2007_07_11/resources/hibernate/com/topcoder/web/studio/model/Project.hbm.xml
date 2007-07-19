@@ -5,7 +5,9 @@
 
 <hibernate-mapping package="com.topcoder.web.studio.model">
 
-    <class name="Project" table="tcs_catalog:project" mutable="false">
-        <id name="id" column="project_id" />
+    <class name="Project" table="tcs_catalog:project">
+        <id name="id" column="project_id" >
+            <generator class="assigned"/>
+        </id>
     </class>
 </hibernate-mapping>
