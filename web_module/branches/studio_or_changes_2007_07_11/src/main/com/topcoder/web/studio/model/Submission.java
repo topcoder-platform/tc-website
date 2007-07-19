@@ -26,7 +26,7 @@ public class Submission extends Base {
     private Integer height;
     private Integer width;
     private SubmissionStatus status;
-    private ORSubmission ORSubmission;
+    private com.topcoder.web.common.model.comp.Submission ORSubmission;
 
 
     public Long getId() {
@@ -154,11 +154,11 @@ public class Submission extends Base {
     }
 
 
-    public ORSubmission getORSubmission() {
+    public com.topcoder.web.common.model.comp.Submission getORSubmission() {
         return ORSubmission;
     }
 
-    public void setORSubmission(ORSubmission ORSubmission) {
+    public void setORSubmission(com.topcoder.web.common.model.comp.Submission ORSubmission) {
         this.ORSubmission = ORSubmission;
     }
 }
