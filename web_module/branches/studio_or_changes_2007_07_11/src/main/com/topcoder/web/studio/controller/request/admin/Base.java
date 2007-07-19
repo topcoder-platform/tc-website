@@ -103,7 +103,7 @@ public abstract class Base extends ShortHibernateProcessor {
     protected ResultSetContainer getProjectList() throws Exception {
         Request r = new Request();
         r.setContentHandle("project_list");
-        DataAccessInt da = new DataAccess(DBMS.CSF_DATASOURCE_NAME);
+        DataAccessInt da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         return (ResultSetContainer) da.getData(r).get("project_list");
 
     }
