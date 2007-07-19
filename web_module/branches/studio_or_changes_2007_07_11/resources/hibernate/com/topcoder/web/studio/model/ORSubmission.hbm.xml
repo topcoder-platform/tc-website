@@ -5,7 +5,9 @@
 
 <hibernate-mapping package="com.topcoder.web.studio.model">
 
-    <class name="ORSubmission" table="tcs_catalog:submission" mutable="false">
-        <id name="id" column="submission_id" />
+    <class name="ORSubmission" table="tcs_catalog:submission">
+        <id name="id" column="submission_id">
+            <generator class="assigned"/>
+        </id>
     </class>
 </hibernate-mapping>
