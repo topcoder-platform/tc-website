@@ -12,6 +12,7 @@
 <body>
 
 <div align="center" style="background: transparent;">
+    <div id="containAll">
     <div id="content">
 
         <jsp:include page="nav.jsp" >
@@ -39,6 +40,7 @@
                 
                 <h2>If you'd like to take a bus to Orlando:</h2>
                 <p>Go to the <a href="http://www.greyhound.com/" alt="Greyhound Bus website" target="_blank">Greyhound</a> web site to get to Orlando, FL.</p>
+            </div>
             </div>
             </div>
         <jsp:include page="footer.jsp" />

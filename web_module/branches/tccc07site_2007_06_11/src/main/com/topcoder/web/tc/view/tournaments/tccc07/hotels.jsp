@@ -12,6 +12,7 @@
 <body>
 
 <div align="center" style="background: transparent;">
+    <div id="containAll">
     <div id="content">
 
         <jsp:include page="nav.jsp" >
@@ -48,6 +49,7 @@
                     
                     Find more here:  <a href="http://disneyworld.disney.go.com/wdw/resorts/resortOverview?id=ResortOverviewPage" alt="Disney's Resort Overview Page" target="_blank">http://disneyworld.disney.go.com/wdw/resorts/resortOverview?id=ResortOverviewPage</a>
                 </p>
+            </div>
             </div>
             </div>
         <jsp:include page="footer.jsp" />
