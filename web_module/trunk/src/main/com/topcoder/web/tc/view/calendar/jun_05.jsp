@@ -96,7 +96,7 @@
         <td id="calendar">12</td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">13</span><br/>
-            <strong>2005 TopCoder Open Component Competition</strong><br/>
+            <strong>2005 TopCoder Open CDDC</strong><br/>
             Registration Opens: 9:00 AM ET<br/>
             &#160;<br />
             &#160;<br />
@@ -150,7 +150,7 @@
     </tr>
     <tr> 
         <td id="calendarTCO05">
-            <strong>2005 TopCoder Open Component Competition</strong><br/>
+            <strong>2005 TopCoder Open CDDC</strong><br/>
             Registration Closes & Week 1 Projects Posted: 9:00 AM ET<br/>
             <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_schedule">Details</A>
             </td>

@@ -98,7 +98,7 @@
         <td id="calendar">11</td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">12</span><br/>
-            <strong>2005 TopCoder Open Component Competition</strong><br/>
+            <strong>2005 TopCoder Open CDDC</strong><br/>
             Championship Round Submission Deadline: 4:00 PM ET<br/>
             &#160;<br />
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>

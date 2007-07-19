@@ -74,7 +74,7 @@
         <td id="calendar">5</td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">6</span><br/>
-            <strong>2005 TopCoder Open Component Competition</strong><br/>
+            <strong>2005 TopCoder Open CDDC</strong><br/>
             Week 1 Submission Deadline & Week 2 Projects Posted: 9:00 AM ET<br/>
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
             <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_schedule">Details</A>
@@ -104,7 +104,7 @@
             <A href="/tc?module=MatchDetails&rd=7226">Details</A><br/><br/></td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">13</span><br/>
-            <strong>2005 TopCoder Open Component Competition</strong><br/>
+            <strong>2005 TopCoder Open CDDC</strong><br/>
             Week 2 Submission Deadline & Week 3 Projects Posted: 9:00 AM ET<br/>
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
             <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_schedule">Details</A>
@@ -127,7 +127,7 @@
             <A href="/tc?module=MatchDetails&rd=8004">Details</A><br/><br/></td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">20</span><br/>
-            <strong>2005 TopCoder Open Component Competition</strong><br/>
+            <strong>2005 TopCoder Open CDDC</strong><br/>
             Week 3 Submission Deadline & Week 4 Projects Posted: 9:00 AM ET<br/>
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
             <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_schedule">Details</A>
@@ -155,7 +155,7 @@
             <A href="/tc?module=MatchDetails&rd=8006">Details</A><br/><br/></td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">27</span><br/>
-            <strong>2005 TopCoder Open Component Competition</strong><br/>
+            <strong>2005 TopCoder Open CDDC</strong><br/>
             Week 4 Submission Deadline & Week 5 Projects Posted: 9:00 AM ET<br/>
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
             <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_schedule">Details</A>
