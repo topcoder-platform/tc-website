@@ -22,11 +22,11 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>07.19.07<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://csf.topcoder.com/">Mashup Design Competition open for registration</A></span><br><br>
+        <A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1007">Mashup Design Competition open for registration</A></span><br><br>
         Microsoft &amp; British Telecom, in association with TopCoder, have launched another Mashup Design Competition. Prizes will be awarded to the top three mashup assembly submissions, with a total prizes of $4,500 plus the potential to win part of the Series Prize $40,000 purse. Check out the contest details at <a href="http://csf.topcoder.com/">http://csf.topcoder.com</a>.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="http://csf.topcoder.com/">details</A> | 
+        <A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1007">details</A> | 
         <a href="http://csf.topcoder.com/forums"> discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
