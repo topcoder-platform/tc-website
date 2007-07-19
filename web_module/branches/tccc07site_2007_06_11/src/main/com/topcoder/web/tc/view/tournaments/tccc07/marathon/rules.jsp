@@ -13,6 +13,7 @@
 <body>
 
 <div align="center" style="background: transparent;">
+    <div id="containAll">
     <div id="content">
 
         <jsp:include page="../nav.jsp" >
@@ -242,6 +243,7 @@
                 <p>The Tournament and Competition are brought to you by TopCoder, Inc. (<a href="/">http://www.topcoder.com/</a>) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
 
 
+            </div>
             </div>
             </div>
         <jsp:include page="../footer.jsp" />

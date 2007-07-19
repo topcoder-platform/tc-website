@@ -13,6 +13,7 @@
 <body>
 
 <div align="center" style="background: transparent;">
+    <div id="containAll">
     <div id="content">
 
         <jsp:include page="../nav.jsp" >
@@ -42,6 +43,7 @@
                 <p>Once time is up for submitting, each submission will be run against a larger set of test cases and be issued a final score.  This final score will determine the rankings of the match and the advancers of the round.</p>
                 <p>When is the competition?  See the schedule <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=schedule" alt="TCCC07 Marathon Match Schedule">here.</a></p>
                 <p>The competition is free and you must be an 18 years or older collegiate member, as well as meet all eligibility criteria, in order to participate.</p>
+            </div>
             </div>
             </div>
         <jsp:include page="../footer.jsp" />

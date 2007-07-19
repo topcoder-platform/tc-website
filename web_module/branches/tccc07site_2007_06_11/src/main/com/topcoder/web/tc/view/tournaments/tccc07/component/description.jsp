@@ -13,6 +13,7 @@
 <body>
 
 <div align="center" style="background: transparent;">
+    <div id="containAll">
     <div id="content">
 
         <jsp:include page="../nav.jsp" >
@@ -39,6 +40,7 @@
                 <p>When is the competition?  See the schedule <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule" alt="TCCC07 Component Schedule">here</a>.</p>
                 <p>It is important for you to read the official <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=rules" alt="TCCC07 Component Rules &amp; Regulations">rules and regulations</a> for more details.</p>
                 <p>The competition is free and you must be an 18 years or older collegiate member, as well as meet all eligibility criteria, in order to participate.</p>
+            </div>
             </div>
             </div>
         <jsp:include page="../footer.jsp" />

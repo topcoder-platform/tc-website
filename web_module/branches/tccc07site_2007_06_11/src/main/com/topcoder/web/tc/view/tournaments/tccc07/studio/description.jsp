@@ -13,6 +13,7 @@
 <body>
 
 <div align="center" style="background: transparent;">
+    <div id="containAll">
     <div id="content">
 
         <jsp:include page="../nav.jsp" >
@@ -51,6 +52,7 @@
                 <p>Click <a href="/reg/" alt="TopCoder Member Registration">here</a> to register as a TopCoder member.</p>
 
                 <p>Click <a href="" alt="TCCC07 Studio Design Competition">here</a> to register for the TCCC07 Studio Design Competition.</p>
+            </div>
             </div>
             </div>
         <jsp:include page="../footer.jsp" />

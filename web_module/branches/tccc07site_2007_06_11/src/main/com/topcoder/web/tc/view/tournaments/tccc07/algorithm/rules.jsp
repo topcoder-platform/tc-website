@@ -13,6 +13,7 @@
 <body>
 
 <div align="center" style="background: transparent;">
+    <div id="containAll">
     <div id="content">
 
         <jsp:include page="../nav.jsp" >
@@ -406,6 +407,7 @@
                 <p>A list of winning competitors by handle will be available on the web site at <a href="/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the end of the Algorithm Competition.</p>
 
 
+            </div>
             </div>
             </div>
         <jsp:include page="../footer.jsp" />
