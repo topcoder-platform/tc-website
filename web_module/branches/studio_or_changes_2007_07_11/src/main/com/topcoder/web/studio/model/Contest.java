@@ -2,6 +2,7 @@ package com.topcoder.web.studio.model;
 
 import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 
 import java.sql.Timestamp;

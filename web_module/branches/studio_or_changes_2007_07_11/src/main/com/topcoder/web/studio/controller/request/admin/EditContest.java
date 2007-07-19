@@ -14,7 +14,6 @@ import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestConfig;
 import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.ContestStatus;
-import com.topcoder.web.studio.model.Project;
 import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.validation.*;
 
@@ -103,12 +102,7 @@ public class EditContest extends Base {
             }
 
             if (!"".equals(StringUtils.checkNull(projectId))) {
-                Project p;
-                if (contest.getProject() == null || !projectId.equals(contest.getProject().getId().toString())) {
-                    p = new Project();
-                    p.setId(new Integer(projectId));
-                    contest.setProject(p);
-                }
+                contest.setProject(DAOUtil.getFactory().getProjectDAO().find(new Integer(projectId)));
             }
 
             ContestConfig currConfig;
