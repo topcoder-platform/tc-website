@@ -94,7 +94,7 @@
     <tr>
         <rsc:iterator list="<%=reviews%>" id="resultRow">
             <td align="center" style="font-size: 36px; font-weight: bold;">
-                <a href="http://<%=ApplicationServer.TCS_APP_SERVER_URL%>/review/actions/ViewReview.do?method=viewReview&amp;rid=${resultRow.map['review_id']}">
+                <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewReview.do?method=viewReview&amp;rid=${resultRow.map['review_id']}">
                 <fmt:formatNumber value="${resultRow.map['score']}" pattern="0.00"/>
                 </a>
             </td>
@@ -109,7 +109,7 @@
 
 <div align="center">
     Click scores to view the corresponding scorecards via
-    <a href="http://<%=ApplicationServer.TCS_APP_SERVER_URL%>/review"><img src="/i/tcorLogo.png" alt="TopCoder Online Review" style="display: block; margin: 3px;" /></a>
+    <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review"><img src="/i/tcorLogo.png" alt="TopCoder Online Review" style="display: block; margin: 3px;" /></a>
 </div>
 
             </div>
