@@ -4,12 +4,28 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.19.07<br>2:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm34">TCHS SRM 34 - Problem Set &amp; Analysis</A></span><br><br>
+      The second SRM of a new High School season attracted 78 competitiors, 21 of them newcomers. The first two problems were pretty straightforward and were solved by most contestants. The third problem required lots of careful coding, so there were much fewer submissions on it, and only 3 of them survived system testing.</td>
+         <td class="newsPhoto"><img src="/i/m/Nickolas_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="15635590" context="algorithm" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm34">full story</A> | 
+         <tc-webtag:forumLink forumID="516560" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.19.07<br>1:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm358">SRM 358 - Problem Set &amp; Analysis</A></span><br><br>
       <tc-webtag:handle coderId="14970299" context="algorithm"/>, with fast time on all three problems, won the match thanks to a last minute challenge that left <tc-webtag:handle coderId="307060" context="algorithm"/>, with 7 successful challenges and a resubmit on the 500, behind.</td>
-         <td class="newsPhoto"><img src="/i/m/icanadi_big2.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10256411" context="algorithm" /></td></tr></table>
+         <td class="newsPhoto"><img src="/i/m/icanadi_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10256411" context="algorithm" /></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -181,20 +197,6 @@ and <tc-webtag:handle coderId="272408" context="algorithm"/> rounded out the top
    <tr><td class="newsLinksCell">
        <a target="_blank" href="<tc-webtag:linkTracking link='/pdfs/press_room/computerworld_20070709.pdf' refer='/tc' />">full story</a> | 
        <tc-webtag:forumLink forumID="516492" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>07.10.07<br>1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />">Bill Taylor on big ideas</a></span><br><br>
-        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/guardian_logo.png" width="67" height="30" alt="Guardian Unlimited" border="0" /></div>
-      In his latest column for <i>The Guardian</i>, Mavericks at Work author Bill Taylor asked "a big question facing all of us who are serious about our work and career: <i>Just how good am I, really?</i>," citing TopCoder as the type of competition today's professionals can use to prove themselves.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />">full story</a> | 
-       <tc-webtag:forumLink forumID="516438" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
