@@ -7,6 +7,8 @@ import com.atlassian.seraph.util.CookieUtils;
 import com.atlassian.user.impl.DefaultUser;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.NoSuchUserException;
+import com.topcoder.security.RolePrincipal;
+import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.login.LoginRemote;
@@ -23,10 +25,11 @@ import java.security.Principal;
  *          Create Date: Jun 8, 2007
  */
 public class TCAuthenticator extends ConfluenceAuthenticator {
-//public class TCAuthenticator extends DefaultAuthenticator {
+    //public class TCAuthenticator extends DefaultAuthenticator {
     private final static Logger log = Logger.getLogger(TCAuthenticator.class);
 
     private static int AUTOLOGIN_COOKIE_AGE = 365 * 24 * 60 * 60;
+    private static String GROUP_TOPCODER_STAFF = "topcoder-staff";
 
     public boolean login(HttpServletRequest request, HttpServletResponse response,
                          String userName, String password) throws AuthenticatorException {
@@ -45,9 +48,15 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                 //todo check for user status and email status potentially
                 try {
                     if (authenticate(userName, password)) {
-                        if (getUserAccessor().getUser(userName)==null) {
+                        if (getUserAccessor().getUser(userName) == null) {
                             log.debug("XXX create the user");
-                            getUserAccessor().addUser(userName, "", "", userName, new String[] {UserAccessor.GROUP_CONFLUENCE_USERS});
+                            String[] groups = null;
+                            if (isAdmin(userName)) {
+                                groups = new String[]{UserAccessor.GROUP_CONFLUENCE_USERS, GROUP_TOPCODER_STAFF};
+                            } else {
+                                groups = new String[]{UserAccessor.GROUP_CONFLUENCE_USERS};
+                            }
+                            getUserAccessor().addUser(userName, "", "", userName, groups);
                         }
                         request.getSession().setAttribute(LOGGED_IN_KEY, user);
                         request.getSession().setAttribute(LOGGED_OUT_KEY, null);
@@ -165,6 +174,24 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             return null;
         }
 
+    }
+
+    private boolean isAdmin(String userName) throws Exception {
+        //todo make a local call
+        PrincipalMgrRemote pmr = null;
+        try {
+            pmr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+            TCSubject sub = pmr.getUserSubject(pmr.getUser(userName).getId());
+            for (Object rp : sub.getPrincipals()) {
+                if (((RolePrincipal) rp).getName().equals("group_Admin")) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (NoSuchUserException e) {
+            log.debug("no such user");
+            return false;
+        }
     }
 
     public Principal getUser(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
