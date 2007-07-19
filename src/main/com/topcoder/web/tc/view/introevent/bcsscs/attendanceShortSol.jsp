@@ -45,7 +45,7 @@
             | Solution
             </strong>
             </div>
-
+<!--
 <pre>
 #include <vector>
 #include <string>
@@ -75,7 +75,7 @@ return ret;
 }
 };
 </pre>
-
+-->
         </td>
 <%-- Center Column Ends --%>
         
