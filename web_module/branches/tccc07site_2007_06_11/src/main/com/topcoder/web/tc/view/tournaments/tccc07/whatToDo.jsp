@@ -12,6 +12,7 @@
 <body>
 
 <div align="center" style="background: transparent;">
+    <div id="containAll">
     <div id="content">
 
         <jsp:include page="nav.jsp" >
@@ -52,7 +53,7 @@
                     </ul>
         </div>
         </div>
-        
+        </div>
         <jsp:include page="footer.jsp" />
     </div>
 </div>
