@@ -94,7 +94,7 @@ public class HSRegistrationHelper {
      */
     public HSRegistrationHelper(TCRequest request,  Map<String,Response> responsesMap) {
         this.request = request;
-        this.responsesMap = responsesMap;       
+        this.responsesMap = responsesMap == null? new HashMap<String,Response>() : responsesMap;       
         this.responses = new ArrayList<Response>(responsesMap.values());      
     }
 
