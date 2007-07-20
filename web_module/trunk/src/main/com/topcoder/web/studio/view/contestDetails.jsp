@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -77,13 +78,25 @@
                                     </c:forEach>
                                 </c:when>
                                 <c:otherwise>
+                                    <c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
                                     <% int i = 1;%>
                                     <c:forEach items="${contest.prizes}" var="prize">
-                                        <div style="float: right; clear: right; text-align: right;">
-                                            <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
-                                            <br>
-                                        </div>
-                                        <strong>Prize <%=i++%>:</strong><br>
+                                        <c:choose>
+                                            <c:when test="${clientPrize==prize.type.id}">
+                                                <div style="float: right; clear: right; text-align: right;">
+                                                    <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
+                                                    <br>
+                                                </div>
+                                                <strong>${prize.type.description}:</strong><br>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <div style="float: right; clear: right; text-align: right;">
+                                                    <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
+                                                    <br>
+                                                </div>
+                                                <strong>Prize ${prize.place}:</strong><br>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </c:forEach>
                                     <div style="float: right; clear: right; text-align: right;">
                                         <tc-webtag:format object="${contest.endTime}" format="MM.dd.yyyy" timeZone="${sessionInfo.timezone}"/>
