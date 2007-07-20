@@ -114,6 +114,7 @@ public class SendToReview extends Base {
 
         if (log.isDebugEnabled()) {
             log.debug("sending request to " + END_POINT);
+            log.debug(s.getPath() + s.getSystemFileName());
         }
         // Create the data for the attached file.
         DataHandler dhSource = new DataHandler(new FileDataSource(s.getPath() + s.getSystemFileName()));
