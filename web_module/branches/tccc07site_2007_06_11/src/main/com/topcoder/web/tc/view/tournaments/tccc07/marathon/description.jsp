@@ -23,9 +23,7 @@
         </jsp:include>
 
             <div id="pageBody">
-                <div id="h1Border">&nbsp;</div>
                 <h1><span>Marathon Match Competition</span></h1>
-                <div id="h1Border">&nbsp;</div>
                 
                 <p>As part of the 2007 TopCoder Collegiate Challenge, the Marathon Match Competition provides a more flexible format with an extended timeline that offers different types of problems than what can be offered in a traditional TopCoder algorithm round.  Competitors may submit code in the following languages:  Java, C++, C#, VB.NET and Python.</p>
 

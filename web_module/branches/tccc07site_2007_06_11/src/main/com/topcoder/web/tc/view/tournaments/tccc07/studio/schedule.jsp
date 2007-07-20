@@ -23,9 +23,7 @@
         </jsp:include>
         
         <div id="pageBody">
-            <div id="h1Border">&nbsp;</div>
             <h1><span>Studio Design Competition Schedule</span></h1>
-            <div id="h1Border">&nbsp;</div>
             <p>
             The Studio competitions will have eight (8) weeks of online competition and one (1) onsite Championship round. Each contestant participating in an online round must submit his/her design submission for any contest by the submission deadline as scheduled.
             </p>

@@ -22,9 +22,7 @@
         </jsp:include>
 
             <div id="pageBody">
-                <div id="h1Border">&nbsp;</div>
                 <h1><span>How to get to the TCCC</span></h1>
-                <div id="h1Border">&nbsp;</div>
                 <p><a target="_blank" alt="Disney's Contemporary Resort" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/resorts/resortLanding?id=contemporaryResortLandingPage' refer='TCCC07_transportation' />">Disney's Contemporary Resort</a><br/ >
                 Telephone: (407) 824-1000<br />
                 Fax: (407) 824-3539<br />

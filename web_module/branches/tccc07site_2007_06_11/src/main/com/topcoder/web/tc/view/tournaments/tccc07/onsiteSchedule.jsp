@@ -22,9 +22,7 @@
         </jsp:include>
 
             <div id="pageBody">
-                <div id="h1Border">&nbsp;</div>
                 <h1><span>Onsite Schedule</span></h1>
-                <div id="h1Border">&nbsp;</div>
                 <div align="center">
                     <br />
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 

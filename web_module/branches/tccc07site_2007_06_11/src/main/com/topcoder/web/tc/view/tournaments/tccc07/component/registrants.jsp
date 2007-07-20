@@ -55,9 +55,7 @@ String eventType = (String) request.getAttribute("et"); %>
         </jsp:include>
 
             <div id="pageBody">
-                <div id="h1Border">&nbsp;</div>
                 <h1><span>Registrants</span></h1>
-                <div id="h1Border">&nbsp;</div>
 
 <form name="registrantsForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07ViewRegistrants"/>

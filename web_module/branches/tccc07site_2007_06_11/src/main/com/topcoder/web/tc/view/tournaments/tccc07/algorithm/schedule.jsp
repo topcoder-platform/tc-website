@@ -23,9 +23,7 @@
         </jsp:include>
         
         <div id="pageBody">
-            <div id="h1Border">&nbsp;</div>
             <h1><span>Algorithm Competition Schedule*</span></h1>
-            <div id="h1Border">&nbsp;</div>
             
             <h2>Registration</h2>
 

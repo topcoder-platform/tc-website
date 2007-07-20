@@ -23,9 +23,7 @@
         </jsp:include>
 
             <div id="pageBody">
-                <div id="h1Border">&nbsp;</div>
                 <h1><span>Component Design and Development Competition</span></h1>
-                <div id="h1Border">&nbsp;</div>
                 
                 <h2>Component Design</h2>
                 <p>TopCoder Design Competitions require participants to design a software component.  Starting from a requirements specification, they produce a full set of design documentation: UML class, sequence, and use case diagrams, and a component specification document, which contains algorithm descriptions, exception handling, and documentation.</p>

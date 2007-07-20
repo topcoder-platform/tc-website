@@ -22,9 +22,7 @@
         </jsp:include>
         
         <div id="pageBody">
-            <div id="h1Border">&nbsp;</div>
             <h1><span>Walt Disney World</span></h1>
-            <div id="h1Border">&nbsp;</div>
             <p>
                 <ul>
                     <li>According to Carlson Wagonlit Travel's 2006 Travel Trends Survey, Orlando is the second most popular domestic travel destination in the country. Las Vegas, Nevada took first place.</li>

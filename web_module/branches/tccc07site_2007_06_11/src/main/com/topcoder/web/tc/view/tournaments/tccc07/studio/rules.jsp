@@ -23,9 +23,7 @@
         </jsp:include>
 
             <div id="pageBody">
-                <div id="h1Border">&nbsp;</div>
                 <h1><span>Studio Design Competition Official Rules and Regulations</span></h1>
-                <div id="h1Border">&nbsp;</div>
                 <p>
                     <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                     <a href="#registration">Registration</a>&nbsp;&nbsp;|&nbsp;&nbsp;

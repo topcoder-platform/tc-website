@@ -23,9 +23,7 @@
         </jsp:include>
 
             <div id="pageBody">
-                <div id="h1Border">&nbsp;</div>
                 <h1><span>Algorithm Competition</span></h1>
-                <div id="h1Border">&nbsp;</div>
                 
                 <p>The Algorithm competition, as part of the 2007 TopCoder Collegiate Challenge, is a timed contest where all contestants compete online and are given the same problems to solve under the same time constraints.  The competition is available in four programming languages:  Java, C#, C++, and VB.NET.</p>
                 <p>Each online and onsite round of competition (including the Qualification Rounds) consists of three phases: Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of TopCoder Single Round Matches.)</p>

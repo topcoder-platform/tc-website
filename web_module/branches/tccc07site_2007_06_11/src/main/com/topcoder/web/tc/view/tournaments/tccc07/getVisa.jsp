@@ -22,9 +22,7 @@
         </jsp:include>
 
             <div id="pageBody">
-                <div id="h1Border">&nbsp;</div>
                 <h1><span>Getting your Visa and Getting it Early</span></h1>
-                <div id="h1Border">&nbsp;</div>
                 
                 <h2>Do I need a visa?</h2>
                 <p>All travelers entering the United States must present either a passport or a visa. If you do NOT have a passport, or you are from a country that does NOT participate in the Visa Waiver Program, you must apply for a visa.</p>
