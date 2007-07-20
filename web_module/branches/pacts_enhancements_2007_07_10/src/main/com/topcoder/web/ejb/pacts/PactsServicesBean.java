@@ -4084,6 +4084,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Map<Long, String>  errors = new HashMap<Long, String>();
         List<BasePayment> updatePayments = new ArrayList<BasePayment>();
 
+        
         Map criteria = new HashMap();
         for (String paymentId : values) {
             criteria.clear();
@@ -4093,24 +4094,33 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             payment = findCoderPayments(criteria).get(0);
 
-            PaymentStatusManager psm = new PaymentStatusManager();
-
+            // before applying the event, check users for inactivation
             try {
-                switch (event) {
-                case 1:
-                    psm.newUserEvent(payment, UserEvents.ENTER_INTO_PAYMENT_SYSTEM_EVENT);
-                    break;
-                case 2:
-                    psm.newUserEvent(payment, UserEvents.PAY_EVENT);
-                    break;
-                case 3:
-                    psm.newUserEvent(payment, UserEvents.DELETE_EVENT);
-                    break;
+                if (checkInactiveCoders(payment.getCoderId()) == 0) {
+                    PaymentStatusManager psm = new PaymentStatusManager();
+                    
+                    try {
+                        switch (event) {
+                        case 1:
+                            psm.newUserEvent(payment, UserEvents.ENTER_INTO_PAYMENT_SYSTEM_EVENT);
+                            break;
+                        case 2:
+                            psm.newUserEvent(payment, UserEvents.PAY_EVENT);
+                            break;
+                        case 3:
+                            psm.newUserEvent(payment, UserEvents.DELETE_EVENT);
+                            break;
+                        }
+                    } catch (EventFailureException efe) {
+                        errors.put(payment.getId(), efe.getCause().getMessage());
+                    }
+                    updatePayments.add(payment);
+                } else {
+                    errors.put(0l, "Inactive users detected, payments were canceled.");                
                 }
-            } catch (EventFailureException efe) {
-                errors.put(payment.getId(), efe.getCause().getMessage());
+            } catch (SQLException sqle) {
+                errors.put(0l, "System error, action failed.");                
             }
-            updatePayments.add(payment);
         }
 
         if (errors.size() > 0) {

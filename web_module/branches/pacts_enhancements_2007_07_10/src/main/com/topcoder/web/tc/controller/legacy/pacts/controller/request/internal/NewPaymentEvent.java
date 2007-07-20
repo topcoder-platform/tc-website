@@ -26,7 +26,7 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-             
+        
         for (Map.Entry<Long, String> error : errors.entrySet()) {
             wrongPayments++;
             addError("err_" + error.getKey(), error.getValue());
@@ -39,7 +39,12 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
                 checkedIds.add(value);
             }
             getRequest().setAttribute("checked_payments", checkedIds);
-            getRequest().setAttribute("message_result", "Your request could not be processed because " + wrongPayments + " errors have been found found, please try again");            
+            
+            if (errors.containsKey(0l)) {
+                getRequest().setAttribute("message_result", errors.get(0l));                
+            } else {
+                getRequest().setAttribute("message_result", "Your request could not be processed because " + wrongPayments + " errors have been found found, please try again");
+            }
         }
 
         super.businessProcessing();
