@@ -405,8 +405,8 @@ public class PaymentStatusManager {
                     payment.getCurrentStatus().delete(payment);
                     break;
                 }
-            } else {
-                throw new EventFailureException("Account status changed, user was deactivated");
+//            } else {
+//                throw new EventFailureException("Account status changed, user was deactivated");
             }
         } catch (Exception e) {
             throw new EventFailureException(e);
