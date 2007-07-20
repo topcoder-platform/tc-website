@@ -185,13 +185,10 @@
 
     </div>
     
-    <div style="position:absolute; top:400px; right:7%;">
-        <div align="center">
-            <span style="color:#696fe9;">Today is  </span><tc-webtag:format object="<%=new Date()%>" format="EEEE, MMMM d, yyyy" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
-            <div id="sponsors">
-                <jsp:include page="sponsors.jsp" />
-            </div>
-            <div>&nbsp;</div>
+    <div align="center" style="position:absolute; top: 380px; right: 40px;">
+        <span style="color:#696fe9;">Today is  </span><tc-webtag:format object="<%=new Date()%>" format="EEEE, MMMM d, yyyy" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+        <div style="margin-top: 10px;">
+            <jsp:include page="sponsors.jsp" />
         </div>
     </div>
 
