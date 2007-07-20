@@ -79,7 +79,6 @@
                                 </c:when>
                                 <c:otherwise>
                                     <c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
-                                    <% int i = 1;%>
                                     <c:forEach items="${contest.prizes}" var="prize">
                                         <c:choose>
                                             <c:when test="${clientPrize==prize.type.id}">
@@ -177,12 +176,20 @@ ${contest.prizeDescription.value}
         <br><br>
     </c:when>
     <c:otherwise>
-        <% int i = 1;%>
         <c:forEach items="${contest.prizes}" var="prize">
-            <strong>Prize <%=i++%>:
-                <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
-            </strong>
-            <br>
+            <c:choose>
+                <c:when test="${clientPrize==prize.type.id}">
+                    <strong>${prize.type.description}:
+                        <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
+                    </strong>
+                    <br>
+                </c:when>
+                <c:otherwise>
+                    <strong>Prize ${prize.place}:
+                        <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
+                    </strong><br>
+                </c:otherwise>
+            </c:choose>
         </c:forEach>
         <br><br>
     </c:otherwise>
