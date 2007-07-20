@@ -48,13 +48,11 @@
                         <li>At <a target="_blank" alt="Epcot" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/parks/parkLanding?id=EPLandingPage' />">Epcot</a>: World Showcase, <a target="_blank" alt="Mission:Space" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=MissionSPACEAttractionPage' />">Mission: Space</a>, <a target="_blank" alt="Spaceship Earth" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=SpaceshipEarthPavilionAttractionPage' />">Spaceship Earth</a>, and <a target="_blank" alt="Test Track" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=TestTrackAttractionPage' />">Test Track</a></li>
                         <li>At <a target="_blank" alt="Animal Kingdom" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/parks/parkLanding?id=AKLandingPage' />">Animal Kingdom</a>: <a target="_blank" alt="It's Tough to be a Bug" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=ItsToughtobeaBugAttractionPage' />">It's Tough to be a Bug</a>, <a target="_blank" alt="Dinosaur" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=DINOSAURAttractionPage' />">Dinosaur</a>, <a target="_blank" alt="Kali River Rapids" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=KaliRiverRapidsAttractionPage' />">Kali River Rapids</a>, <a target="_blank" alt="Kilimanjaro Safari" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=KilimanjaroSafarisAttractionPage' />">Kilimanjaro Safari</a>, and <a target="_blank" alt="Expedition Everest" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/parks/attractionDetail?id=ExpeditionEverestPage' />">Expedition Everest</a></li>
                     </ul>
-        </div>
-        </div>
-        </div>
-        <jsp:include page="footer.jsp" />
+
+            </div>
+    </div>
+    <jsp:include page="footer.jsp" />
     </div>
 </div>
-
 </body>
-
 </html>
