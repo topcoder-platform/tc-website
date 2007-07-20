@@ -135,8 +135,8 @@ public class SendToReview extends Base {
         //make the file name be the studio submission id + the file extension
         String fileName = s.getId().toString() + s.getOriginalFileName().substring(s.getOriginalFileName().lastIndexOf('.'));
         // call.
-        //todo these should really be ints
-        return ((Number) call.invoke(new Object[]{s.getContest().getProject().getId().longValue(), s.getSubmitter().getId().longValue(),
+        //todo these should really be int for project id
+        return ((Number) call.invoke(new Object[]{s.getContest().getProject().getId().longValue(), s.getSubmitter().getId(),
                 fileName, dhSource})).longValue();
     }
 
