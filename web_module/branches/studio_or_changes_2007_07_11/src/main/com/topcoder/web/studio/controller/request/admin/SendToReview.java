@@ -109,6 +109,9 @@ public class SendToReview extends Base {
     public long uploadSubmission(Submission s) throws ServiceException,
             MalformedURLException, RemoteException {
 
+        if (log.isDebugEnabled()) {
+            log.debug("sending request to " + END_POINT);
+        }
         // Create the data for the attached file.
         DataHandler dhSource = new DataHandler(new FileDataSource(s.getPath() + s.getSystemFileName()));
 
