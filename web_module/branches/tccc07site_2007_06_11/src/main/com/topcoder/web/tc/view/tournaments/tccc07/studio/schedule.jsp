@@ -25,7 +25,7 @@
         <div id="pageBody">
             <h1><span>Studio Design Competition Schedule</span></h1>
             <p>
-            The Studio competitions will have eight (8) weeks of online competition and one (1) onsite Championship round. Each contestant participating in an online round must submit his/her design submission for any contest by the submission deadline as scheduled.
+            The Studio competitions will have seven (7) weeks of online competition and one (1) onsite Championship Round. Each contestant participating in an online round must submit his/her design submission for any contest by the submission deadline as scheduled.
             </p>
             
             <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
@@ -43,26 +43,30 @@
                     <tr class="light"> 
                         <td class="value">SDC Registration</td> 
                         <td class="value">July 23, 2007</td> 
-                        <td class="value">9:00 AM EDT<br />(GMT/UTC -4)</td> 
+                        <td class="value">9:00 AM</td> 
                         <td class="value">August 24, 2007</td>
-                        <td class="value">5:00 PM EDT<br />(GMT/UTC -4)</td>
+
+                        <td class="value">5:00 PM</td>
                     </tr> 
                     <tr class="dark"> 
                         <td class="value">Online Competition</td> 
-                        <td class="value">July 23, 2007</td> 
-                        <td class="value">9:00 AM EDT<br />(GMT/UTC -4)</td> 
-                        <td class="value">September 7, 2007</td>
-                        <td class="value">2:00 PM EDT<br />(GMT/UTC -4)</td>
+                        <td class="value">Week of July 23, 2007</td> 
+                        <td class="value">TBD</td> 
+                        <td class="value">September 11, 2007</td>
+                        <td class="value">6:00 PM</td>
+
                     </tr> 
                     <tr class="light"> 
                         <td class="value">Onsite Competition</td> 
                         <td class="value">November 1, 2007</td> 
-                        <td class="value">9:00 AM PDT<br />(GMT/UTC -4)</td> 
+                        <td class="value">9:00 AM</td> 
                         <td class="value">November 1, 2007</td>
-                        <td class="value">5:00 PM EDT<br />(GMT/UTC -4)</td>
+                        <td class="value">5:00 PM</td>
                     </tr> 
+                    <tr class="dark"><td class="value" colspan="5">*Times listed in Eastern Daylight Time (UTC/GMT -4).</td></tr>
                 </tbody> 
             </table>
+
             <br /><br />
             
             <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
@@ -76,14 +80,18 @@
                     </tr> 
                     <tr class="light"> 
                         <td class="value">Last Day to Request a Visa Letter</td> 
-                        <td class="value">Friday, September 14, 2007 at 5:00 PM</td> 
+                        <td class="value">Friday, September 14, 2007 5:00 PM</td> 
                     </tr> 
                     <tr class="dark"> 
                         <td class="value">Finalist Documents Due</td> 
-                        <td class="value">Friday, September 28, 2007 at 5:00 PM</td> 
+                        <td class="value">Friday, September 28, 2007 5:00 PM</td> 
                     </tr> 
                 </tbody> 
             </table>
+            <br /><br/>
+            
+            <h2>* Find start times in your time zone</h2>
+            <p>See when the 9:00 AM EDT competitions begin in your time zone <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2007&hour=9&min=0&sec=0&p1=179">here</a>.</p>
 
             </div>
     </div>

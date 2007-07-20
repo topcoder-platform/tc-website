@@ -24,22 +24,26 @@
             <div id="pageBody">
                 <h1><span>How to get to the TCCC</span></h1>
                 <p><a target="_blank" alt="Disney's Contemporary Resort" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/resorts/resortLanding?id=contemporaryResortLandingPage' refer='TCCC07_transportation' />">Disney's Contemporary Resort</a><br/ >
+
                 Telephone: (407) 824-1000<br />
                 Fax: (407) 824-3539<br />
                 Reservations: (407) WDW-MAGIC (939-6244)</p>
                 
                 <h2>Transportation FAQs:</h2>
-                <p><a target="_blank" alt="Transportation FAQs" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/common/helpFAQ?id=HelpFAQTransportationPage#q3' refer='TCCC07_transportation' />">http://disneyworld.disney.go.com/wdw/common/helpFAQ?id=HelpFAQTransportationPage#q3</a>.</p>
+                <p>Planning a road trip? Disney offers <a target="_blank" alt="Transportation FAQs" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/common/helpFAQ?id=HelpFAQTransportationPage#q3' refer='TCCC07_transportation' />">detailed driving directions</a> to the Walt Disney World Resort.</p>
                 <p>For driving directions from other areas:  <a target="_blank" alt="MapQuest website" href="<tc-webtag:linkTracking link='http://www.mapquest.com/' refer='TCCC07_transportation' />">www.mapquest.com</a></p>
+
                 
                 <h2>To fly into Orlando:</h2>
-                <p>The Orlando International Airport is the best place to fly into.   See here for more details:  <a target="_blank" alt="Orlando International Airport" href="<tc-webtag:linkTracking link='http://www.orlandoairports.net/main.htm' refer='TCCC07_transportation' />">http://www.orlandoairports.net/main.htm</a></p>
+                <p>If you're traveling by air, the <a target="_blank" alt="Orlando International Airport" href="<tc-webtag:linkTracking link='http://www.orlandoairports.net/main.htm' refer='TCCC07_transportation' />">Orlando International Airport</a> is your best bet.</p>
                 
                 <h2>If you'd like to take a bus to Orlando:</h2>
-                <p>Go to the <a target="_blank" alt="Greyhound Bus website" href="<tc-webtag:linkTracking link='http://www.greyhound.com/' refer='TCCC07_transportation' />">Greyhound</a> web site to get to Orlando, FL.</p>
+                <p>Go to the <a target="_blank" alt="Greyhound Bus website" href="<tc-webtag:linkTracking link='http://www.greyhound.com/' refer='TCCC07_transportation' />">Greyhound</a> web site to get schedules and fares for travel to Orlando, FL.</p>
+        
+                <p>&nbsp;</p>
             </div>
             </div>
-            </div>
+
         <jsp:include page="footer.jsp" />
     </div>
 </div>
