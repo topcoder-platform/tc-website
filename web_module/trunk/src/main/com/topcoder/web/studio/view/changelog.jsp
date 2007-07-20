@@ -30,6 +30,7 @@
 <p>
     1.3.3 - 2007.05.xxx
     <ul>
+        <li>TCCC07 registration. - pulky</li>
         <li>figure out image sizes server size and let client resize rather than resizing via javascript -dok</li>
     </ul>
 </p>
