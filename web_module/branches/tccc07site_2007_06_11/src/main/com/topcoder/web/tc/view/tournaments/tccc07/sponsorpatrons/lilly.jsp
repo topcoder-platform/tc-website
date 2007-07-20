@@ -18,7 +18,7 @@
         <jsp:include page="../nav.jsp" >
         <jsp:param name="tabLev1" value="overview"/>
         <jsp:param name="tabLev2" value="sponsors"/>
-        <jsp:param name="tabLev3" value="elililly"/>
+        <jsp:param name="tabLev3" value="lilly"/>
         </jsp:include>
         
             <div id="pageBody">
