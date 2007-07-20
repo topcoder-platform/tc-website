@@ -76,8 +76,8 @@
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule"<% if (tabLev2.equals("joinus")) {%> class="on"<% } %>>Join us onsite</a>
                 <%--
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movies"<% if (tabLev2.equals("onsiteevents")) {%> class="on"<% } %>>Onsite events</a>
-                    | <a href=""<% if (tabLev2.equals("sponsors")) {%> class="on"<% } %>>Sponsors</a>
                 --%>
+                    | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly"<% if (tabLev2.equals("sponsors")) {%> class="on"<% } %>>Sponsors</a>
                 </p>
             <% } else if (tabLev1.equals(EventType.ALGORITHM_TOURNAMENT_ID.toString())) { %>
                 <p id="secondaryNav">
@@ -134,7 +134,9 @@
                 <% if (tabLev2.equals("joinus")) {%>
                     <p id="tertiaryNav">
                         <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule"<% if (tabLev3.equals("onsiteschedule")) {%> class="on"<% } %>>Onsite schedule</a>
+                        <%--
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=devForums"<% if (tabLev3.equals("devforums")) {%> class="on"<% } %>>Developer forums</a>
+                        --%>
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa"<% if (tabLev3.equals("getvisa")) {%> class="on"<% } %>>Getting a visa</a>
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=transportation"<% if (tabLev3.equals("transportation")) {%> class="on"<% } %>>Transportation</a>
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=hotels"<% if (tabLev3.equals("hotels")) {%> class="on"<% } %>>Hotels</a>
@@ -142,9 +144,13 @@
                     </p>
                 <% } else if (tabLev2.equals("onsiteevents")) { %>
                     <p id="tertiaryNav">
-                        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movies"<% if (tabLev3.equals("moview")) {%> class="on"<% } %>>Movies</a>
+                        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movies"<% if (tabLev3.equals("movies")) {%> class="on"<% } %>>Movies</a>
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=photos"<% if (tabLev3.equals("photos")) {%> class="on"<% } %>>Photos</a>
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=blogs&d4=overview"<% if (tabLev3.equals("blogs")) {%> class="on"<% } %>>Blogs</a>
+                    </p>
+                <% } else if (tabLev2.equals("sponsors")) { %>
+                    <p id="tertiaryNav">
+                        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly"<% if (tabLev3.equals("lilly")) {%> class="on"<% } %>>Lilly</a>
                     </p>
                 <% } %>
             <% } else if (tabLev1.equals(EventType.ALGORITHM_TOURNAMENT_ID.toString())) { %>
@@ -180,7 +186,7 @@
     
     <div style="position:absolute; top:400px; right:7%;">
         <div align="center">
-            <span style="color:#4b4fa1;">Today is  </span><tc-webtag:format object="<%=new Date()%>" format="EEEE, MMMM d, yyyy" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+            <span style="color:#696fe9;">Today is  </span><tc-webtag:format object="<%=new Date()%>" format="EEEE, MMMM d, yyyy" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
             <div id="sponsors">
                 <jsp:include page="sponsors.jsp" />
             </div>
