@@ -27,12 +27,17 @@
 <div class="contentSpacer">
 
 <p>
-    2.0.0 - 2007.xx.xxx
+    2.0.0 - 2007.07.20
     <ul>
+<%--
         <li>Send submissions to Online Review for scoring -dok</li>
+--%>
         <li>Fix bug where date in review email indicated it was in the user's timezone but was really eastern time -dok</li>
         <li>Fix bug where the cache wasn't refreshed after an admin changed results -dok</li>
         <li>Allow and admin to remove the place of a submission -dok</li>
+        <li>Add score to submissions page -dok</li>
+    <li>Add score to winners page -dok</li>
+    <li>Add submission results page -dok</li>
         <%-- TEST SECURITY MANAGER WITH REG TO MAKE SURE GROUPS AREN"T DELETED/INSERTED--%>
     </ul>
 </p>
