@@ -9,10 +9,10 @@
     String tabLev3 = request.getParameter("tabLev3") == null ? "" : request.getParameter("tabLev3");
 %>
 
-<div style="margin-bottom:-60px; position:relative;">
-    <div id="sponsorNtclogo">
-        <div align="left" style="padding-left:30px; padding-top:10px; width:313px; height:162px;">
-            <a href="/"><img src="/i/tournament/tccc07/sponsorlogo.png" alt="Sponsor Logo" /></a>
+<div>
+    <div>
+        <div style="margin: 0px 15px 0px 50px; padding: 30px 0px 0px 0px;">
+            <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about"><img src="/i/tournament/tccc07/tourneyLogo.png" alt="2007 TopCoder Collegiate Challenge" /></a>
         </div>
         <div id="tclogo">
             <a href="/"><img src="/i/tournament/tccc07/topcoderlogo.png" alt="TopCoder&#174;" /></a>
@@ -171,7 +171,7 @@
             </div>
             <div id="navTextB">&nbsp;</div>
             
-            <div style="position:absolute; top:385px; right:30px;">
+            <div>
                 <img src="/i/tournament/tccc07/stylebar.png" alt="stylebar" />
             </div>
         </div>
