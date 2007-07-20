@@ -19,6 +19,9 @@ import javax.activation.FileDataSource;
 import javax.xml.namespace.QName;
 import javax.xml.rpc.ParameterMode;
 import javax.xml.rpc.ServiceException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.RemoteException;
@@ -114,6 +117,18 @@ public class SendToReview extends Base {
         }
         // Create the data for the attached file.
         DataHandler dhSource = new DataHandler(new FileDataSource(s.getPath() + s.getSystemFileName()));
+
+        try {
+            FileInputStream fis = new FileInputStream(s.getPath() + s.getSystemFileName());
+            char ch;
+            while ((ch = (char) fis.read()) >= 0) {
+                System.out.print(ch);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Service service = new Service();
         Call call = (Call) service.createCall();
