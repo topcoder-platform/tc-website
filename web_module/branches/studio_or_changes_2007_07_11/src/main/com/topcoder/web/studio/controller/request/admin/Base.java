@@ -97,7 +97,9 @@ public abstract class Base extends ShortHibernateProcessor {
         setDefault(Constants.START_TIME, sdf.format(contest.getStartTime()));
         setDefault(Constants.END_TIME, sdf.format(contest.getEndTime()));
 
-        setDefault(Constants.PROJECT_ID_KEY, contest.getProject().getId());
+        if (contest.getProject() != null) {
+            setDefault(Constants.PROJECT_ID_KEY, contest.getProject().getId());
+        }
 
 
     }
