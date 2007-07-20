@@ -57,7 +57,7 @@ public class SendToReview extends Base {
                                     SubmissionStatus.ACTIVE.equals(s.getStatus().getId()) &&
                                     s.getReview() != null && ReviewStatus.PASSED.equals(s.getReview().getStatus().getId())) {
                                 log.debug("XXXXXX  passed all checks, sending to OR XXXXX");
-                                uploadSubmission(c.getProject().getId(), s.getSubmitter().getId(), s.getPath().getPath() + s.getSystemFileName());
+                                uploadSubmission(s);
                             }
 
                         }
@@ -100,22 +100,17 @@ public class SendToReview extends Base {
     /**
      * Uploads the submission using the SOAP call.
      *
-     * @param projectId the project id
-     * @param ownerId   the owner/user id
-     * @param filename  the file name of the submission
+     * @param s - the submission to upload
      * @return the submission id
      * @throws javax.xml.rpc.ServiceException if any while creating the SOAP call.
      * @throws java.net.MalformedURLException if any while creating the SOAP call.
      * @throws java.rmi.RemoteException       if any while executing.
      */
-    public long uploadSubmission(long projectId, long ownerId, String filename) throws ServiceException,
+    public long uploadSubmission(Submission s) throws ServiceException,
             MalformedURLException, RemoteException {
 
         // Create the data for the attached file.
-        if (log.isDebugEnabled()) {
-            log.debug("data handler for " + filename);
-        }
-        DataHandler dhSource = new DataHandler(new FileDataSource(filename));
+        DataHandler dhSource = new DataHandler(new FileDataSource(s.getPath() + s.getSystemFileName()));
 
         Service service = new Service();
         Call call = (Call) service.createCall();
@@ -131,8 +126,11 @@ public class SendToReview extends Base {
         call.addParameter(qnameAttachment, XMLType.MIME_DATA_HANDLER, ParameterMode.IN); // Add the file.
         call.setReturnType(XMLType.XSD_LONG);
 
+        //make the file name be the studio submission id + the file extension
+        String fileName = s.getId().toString() + s.getOriginalFileName().substring(s.getOriginalFileName().lastIndexOf('.'));
         // call.
-        return ((Number) call.invoke(new Object[]{projectId, ownerId, filename, dhSource})).longValue();
+        return ((Number) call.invoke(new Object[]{s.getContest().getProject().getId(), s.getSubmitter().getId(),
+                fileName, dhSource})).longValue();
     }
 
 
