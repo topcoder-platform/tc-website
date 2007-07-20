@@ -23,7 +23,6 @@
         </jsp:include>
 
             <div id="pageBody">
-                <div id="h1Border">&nbsp;</div
                 <h1><span>Marathon Match Competition Official Rules and Regulations</span></h1>
                 <p>
 

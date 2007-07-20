@@ -24,6 +24,7 @@
             <div id="pageBody">
                 <h1><span>Hotels near the TCCC</span></h1>
                 <p><a target="_blank" alt="Disney's Contemporary Resort" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/resorts/resortLanding?id=contemporaryResortLandingPage' refer='TCCC07_hotels' />">Disney's Contemporary Resort</a><br/ >
+
                 Telephone: (407) 824-1000<br />
                 Fax: (407) 824-3539<br />
                 Reservations: (407) WDW-MAGIC (939-6244)</p>
@@ -31,6 +32,7 @@
                 <p>Several other hotels are located in Walt Disney World.  Most are connected by the Walt Disney World buses, boats, or monorails.  We have included a representative sample for your convenience:<br /><br />
                     <a target="_blank" alt="Disney's All- Star Music Resort" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/resorts/resortLanding?id=AllStarMusicResortLandingPage' refer='TCCC07_hotels' />">Disney's All- Star Music Resort</a><br />
                     Telephone: (407) 939-6000<br />
+
                     Fax: (407) 939-7222<br />
                     Reservations: (407) WDW-MAGIC (939-6244)<br /><br />
                     
@@ -38,13 +40,6 @@
                     Telephone: (407) 939-5000<br />
                     Fax: (407) 939-7333<br />
                     Reservations: (407) WDW-MAGIC (939-6244)<br /><br />
-                    
-                    <a target="_blank" alt="Disney's Wilderness Lodge" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/resorts/resortLanding?id=WildernessLodgeResortLandingPage' refer='TCCC07_hotels' />">Disney's Wilderness Lodge</a><br />
-                    Telephone: (407) 824-3200<br />
-                    Fax: (407) 824-3232<br />
-                    Reservations: (407) WDW-MAGIC (939-6244)<br /><br />
-                    
-                    Find more here:  <a target="_blank" alt="Disney's Resort Overview Page" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/resorts/resortOverview?id=ResortOverviewPage' refer='TCCC07_hotels' />">http://disneyworld.disney.go.com/wdw/resorts/resortOverview?id=ResortOverviewPage</a>
                 </p>
             </div>
             </div>
