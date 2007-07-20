@@ -4084,6 +4084,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Map<Long, String>  errors = new HashMap<Long, String>();
         List<BasePayment> updatePayments = new ArrayList<BasePayment>();
 
+        boolean rollback = true;
         
         Map criteria = new HashMap();
         for (String paymentId : values) {
@@ -4116,7 +4117,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     }
                     updatePayments.add(payment);
                 } else {
-                    errors.put(0l, "Inactive users detected, payments were canceled.");                
+                    errors.put(0l, "Inactive users detected, payments were canceled.");
+                    rollback = false;
                 }
             } catch (SQLException sqle) {
                 errors.put(0l, "System error, action failed.");                
@@ -4124,7 +4126,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         if (errors.size() > 0) {
-            ejbContext.setRollbackOnly();
+            if (rollback) {
+                ejbContext.setRollbackOnly();
+            }
         } else {
             try {
                 for (BasePayment payment : updatePayments) {
