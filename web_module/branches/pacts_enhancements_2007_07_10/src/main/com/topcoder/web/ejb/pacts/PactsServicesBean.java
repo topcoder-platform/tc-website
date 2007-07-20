@@ -4961,14 +4961,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             long notifyUserId = 0;
             int count = 0;
             for (int i = 0; i < users.getRowCount(); i++) {
-                try {
+//                try {
                     notifyUserId = users.getLongItem(i, 0);
                     count += psm.inactiveCoder(notifyUserId);
                     log.debug("checkInactiveCoders: payments cancelled: " + count);
-                } catch (EventFailureException e) {
-                    log.warn("Payment ID " + notifyUserId + " cancellation (account status) could not be completed due to\n" +
-                            e.getMessage());
-                }
+//                } catch (EventFailureException e) {
+//                    log.warn("Payment ID " + notifyUserId + " cancellation (account status) could not be completed due to\n" +
+//                            e.getMessage());
+//                }
             }
 
             return count;
