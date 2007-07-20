@@ -2,11 +2,17 @@ package com.topcoder.web.studio.controller.request.admin;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.model.Prize;
+import com.topcoder.web.studio.model.PrizeType;
 import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionReview;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 /**
  * @author dok
@@ -28,8 +34,21 @@ public class ViewSubmissionDetail extends Base {
         getRequest().setAttribute("submission", s);
         SubmissionReview submissionReview = f.getSubmissionReviewDAO().find(submissionId);
         getRequest().setAttribute("reviewStatuses", f.getReviewStatusDAO().getReviewStatuses());
-        getRequest().setAttribute("currentUser", DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId())));
-        if (s.getResult() != null) {
+        getRequest().setAttribute("currentUser", DAOUtil.getFactory().getUserDAO().find(getUser().getId()));
+
+        ArrayList<ListSelectTag.Option> prizes = new ArrayList<ListSelectTag.Option>(s.getContest().getPrizes().size());
+        DecimalFormat dfmt = new DecimalFormat("$#,##0.00");
+        for (Prize p : s.getContest().getPrizes()) {
+            if (p.getType().getId().equals(PrizeType.BONUS)) {
+                prizes.add(new ListSelectTag.Option(p.getId().toString(),
+                        p.getType().getDescription() + " " + dfmt.format(p.getAmount())));
+            } else {
+                prizes.add(new ListSelectTag.Option(p.getId().toString(), p.getPlace() + " " + dfmt.format(p.getAmount())));
+            }
+        }
+        getRequest().setAttribute("prizes", prizes);
+
+        if (s.getResult() != null && s.getResult().getPrize() != null) {
             setDefault(Constants.PRIZE_ID, s.getResult().getPrize().getId());
         }
 

@@ -25,6 +25,7 @@ public class ViewSubmissions extends Base {
         String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE)).trim().toLowerCase();
         Integer reviewStatus = null;
         Integer status = null;
+        Integer type = null;
         boolean unMarkedOnly;
 
         try {
@@ -42,6 +43,15 @@ public class ViewSubmissions extends Base {
                 throw new NavigationException("Invalid status Specified");
             }
         }
+
+        if (!"".equals(StringUtils.checkNull(getRequest().getParameter(Constants.SUBMISSION_TYPE_ID)))) {
+            try {
+                type = new Integer(getRequest().getParameter(Constants.SUBMISSION_TYPE_ID));
+            } catch (NumberFormatException e) {
+                throw new NavigationException("Invalid type Specified");
+            }
+        }
+
 
         try {
             unMarkedOnly = "null".equals(getRequest().getParameter(Constants.REVIEW_STATUS_ID));
@@ -108,6 +118,9 @@ public class ViewSubmissions extends Base {
             from.append(" where u.user_id = s.submitter_id");
             from.append("  and sr.submission_id = s.submission_id");
             from.append("  and sr.reviewer_id = u1.user_id");
+            if (type != null) {
+                from.append("  and s.submission_type_id = ").append(type);
+            }
             from.append("  and s.submission_status_id = ").append(status);
             from.append("  and sr.review_status_id = rs.review_status_id");
             from.append("  and s.contest_id = ").append(contestId);

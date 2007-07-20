@@ -42,7 +42,7 @@ public class SecurityHelper {
         TCSubject ret = null;
 
         CacheAddress address = AddressFactory.create(new TCSubject(l), dataSource, MaxAge.HOUR);
-        log.debug("address " + address.toString());
+        //log.debug("address " + address.toString());
 
         Context ctx = null;
         try {
@@ -77,7 +77,7 @@ public class SecurityHelper {
                     }
                 }
             } else {
-                log.debug("ret was not null");
+                //log.debug("ret was not null");
             }
             return ret;
         } catch (Exception e) {

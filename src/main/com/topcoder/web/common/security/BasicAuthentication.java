@@ -363,9 +363,11 @@ public class BasicAuthentication implements WebAuthentication {
     }
 
     private User getUserFromPersistor() {
+/*
         if (log.isDebugEnabled()) {
             log.debug("session id: " + request.getSession().getId());
         }
+*/
         //given the way tomcat/apache handles sessions in a cluster, we can't do this
         //because the session id is different on the two nodes.  potentially we could
         //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.

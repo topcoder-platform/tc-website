@@ -3,7 +3,7 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <% ResultSetContainer recentWinners = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("recent_winners");%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>

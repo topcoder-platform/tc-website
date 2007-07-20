@@ -531,6 +531,8 @@ public class PrincipalMgrBean extends BaseEJB {
         InitialContext ctx = null;
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
+        PreparedStatement ps3 = null;
+        ResultSet rs = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
@@ -538,22 +540,31 @@ public class PrincipalMgrBean extends BaseEJB {
             long user_group_xrefid = gen.getNextID();
             long userId = user.getId();
             long groupId = group.getId();
-            String deleteQuery = "DELETE FROM user_group_xref where login_id = ? and group_id = ?";
+            String select = "select security_status_id, user_group_id from user_group_xref where login_id = ? and group_id = ?";
+            String updateQuery = "update user_group_xref set security_status_id = ? where user_group_id = ?";
             String query = "INSERT INTO user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES ( ?, ?, ?, ? )";
             conn = Util.getConnection(ctx, dataSource);
 
-            ps2 = conn.prepareStatement(deleteQuery);
-            ps2.setLong(1, userId);
-            ps2.setLong(2, groupId);
-            ps2.executeUpdate();
+            ps3 = conn.prepareStatement(select);
+            ps3.setLong(1, userId);
+            ps3.setLong(2, groupId);
+            rs = ps3.executeQuery();
+            if (rs.next()) {
+                if (rs.getInt("security_status_id") == SecurityDB.STATUS_INACTIVE) {
+                    ps2 = conn.prepareStatement(updateQuery);
+                    ps2.setInt(1, SecurityDB.STATUS_ACTIVE);
+                    ps2.setLong(2, rs.getLong("user_group_id"));
+                    ps2.executeUpdate();
+                }
+            } else {
+                ps = conn.prepareStatement(query);
+                ps.setLong(1, user_group_xrefid);
+                ps.setLong(2, userId);
+                ps.setLong(3, groupId);
+                ps.setInt(4, SecurityDB.STATUS_ACTIVE);
+                ps.executeUpdate();
+            }
 
-            ps = conn.prepareStatement(query);
-            ps.setLong(1, user_group_xrefid);
-            ps.setLong(2, userId);
-            ps.setLong(3, groupId);
-            ps.setInt(4, SecurityDB.STATUS_ACTIVE);
-
-            ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
             throw new GeneralSecurityException(e);
@@ -566,14 +577,17 @@ public class PrincipalMgrBean extends BaseEJB {
         } finally {
             close(ps);
             close(ps2);
+            close(rs);
+            close(ps3);
             close(conn);
             close(ctx);
         }
     }
+
     public void removeUserFromGroup(GroupPrincipal group, UserPrincipal user, TCSubject requestor)
-        throws GeneralSecurityException {
+            throws GeneralSecurityException {
         removeUserFromGroup(group, user, requestor, DATA_SOURCE);
-        
+
     }
 
     public void removeUserFromGroup(GroupPrincipal group, UserPrincipal user, TCSubject requestor, String dataSource)

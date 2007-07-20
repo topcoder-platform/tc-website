@@ -42,6 +42,7 @@
         </set>
         <many-to-one name="status" column="contest_status_id" class="ContestStatus"/>
         <many-to-one name="event" column="event_id" class="com.topcoder.web.common.model.Event"/>
+        <many-to-one name="project" column="project_id" class="com.topcoder.web.common.model.comp.Project" cascade="none"/>
 
     </class>
 </hibernate-mapping>

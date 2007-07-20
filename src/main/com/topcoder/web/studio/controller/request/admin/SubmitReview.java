@@ -5,6 +5,7 @@ import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
+import com.topcoder.web.common.DateUtils;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -90,7 +91,7 @@ public class SubmitReview extends Base {
             User submitter = DAOUtil.getFactory().getUserDAO().find(submitterId);
 
             if (!"".equals(response) && submitter.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE)) {
-                sendEmail(submitter, response, s.getOriginalFileName(), rs, reviewer);
+                sendEmail(submitter, response, s.getOriginalFileName(), rs, reviewer, s.getCreateDate());
             }
 
             sr = StudioDAOUtil.getFactory().getSubmissionReviewDAO().find(submissionId);
@@ -110,7 +111,7 @@ public class SubmitReview extends Base {
 
     }
 
-    private void sendEmail(User submitter, String text, String fileName, ReviewStatus status, User reviewer) throws Exception {
+    private void sendEmail(User submitter, String text, String fileName, ReviewStatus status, User reviewer, Date submitDate) throws Exception {
 
         TCSEmailMessage mail = new TCSEmailMessage();
         if (ReviewStatus.PASSED.equals(status.getId())) {
@@ -136,7 +137,7 @@ public class SubmitReview extends Base {
                 new CalendarDateFormatMethod("EEEE, MMMM d, yyyy 'at' HH:mm z"), true);
 
         Calendar cal = Calendar.getInstance();
-        cal.setTime(new Date(System.currentTimeMillis()));
+        cal.setTime(DateUtils.getConvertedDate(submitDate, submitter.getTimeZone().getDescription()));
         cal.setTimeZone(TimeZone.getTimeZone(submitter.getTimeZone().getDescription()));
 
         msgText.append(formatter.format(cal));

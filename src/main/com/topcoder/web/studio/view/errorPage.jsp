@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.web.common.BaseServlet" %>
 <%@ page import="java.util.Date" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ page isErrorPage="true" %>
 <% if (exception == null) exception = (Throwable) request.getAttribute("exception");
     if (exception != null) exception.printStackTrace();

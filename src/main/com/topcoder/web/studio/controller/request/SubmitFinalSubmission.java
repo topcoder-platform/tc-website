@@ -1,17 +1,5 @@
 package com.topcoder.web.studio.controller.request;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.MultipartRequest;
@@ -74,7 +62,7 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
 
             if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
                 throw new NavigationException("User not registered for the contest");
-            } else if (!isWinner(u, c, cFactory.getSubmissionDAO(), SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE)) {
+            } else if (!userPlaced(u, c, cFactory.getSubmissionDAO())) {
                 throw new NavigationException("User cannot upload final submissions");
             } else {
                 //registered and winner

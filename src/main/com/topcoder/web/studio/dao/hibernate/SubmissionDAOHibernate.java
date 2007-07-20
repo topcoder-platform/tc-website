@@ -37,7 +37,9 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
 
         StringBuffer buf = new StringBuffer(100);
         buf.append("update Submission s set rank = ");
-        if (newRank == null) {
+        if (newRank == null && s.getRank() == null) {
+            //do nothing, we're good
+        } else if (newRank == null) {
             buf.append("rank-1 ");
             buf.append("where s.submitter.id = ? and s.contest.id = ? and rank > ?");
 
