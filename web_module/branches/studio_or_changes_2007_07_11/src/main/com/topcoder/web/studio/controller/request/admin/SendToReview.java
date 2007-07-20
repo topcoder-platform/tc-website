@@ -112,6 +112,9 @@ public class SendToReview extends Base {
             MalformedURLException, RemoteException {
 
         // Create the data for the attached file.
+        if (log.isDebugEnabled()) {
+            log.debug("data handler for " + filename);
+        }
         DataHandler dhSource = new DataHandler(new FileDataSource(filename));
 
         Service service = new Service();
