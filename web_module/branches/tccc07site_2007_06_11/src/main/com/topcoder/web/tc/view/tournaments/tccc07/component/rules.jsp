@@ -5,9 +5,9 @@
 <head>
     <title>2007 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" href="/css/tournaments/tccc07.css"/>
-    <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+    <link type="image/x-icon" rel="shortcut icon" target="_blank" href="/i/favicon.ico"/>
+    <link type="text/css" rel="stylesheet" target="_blank" href="/css/tournaments/tccc07.css"/>
+    <link type="text/css" rel="stylesheet" target="_blank" href="/css/coders.css"/>
     <jsp:include page="../../script.jsp" />
 </head>
 <body>
@@ -158,7 +158,7 @@
                     </tr> 
  
                         <tr class="dark">
-                            <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=8&day=17&year=2006&hour=9&min=0&sec=0&p1=179" alt="Time Zone">here</a> for your time zone.</td>
+                            <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a target="_blank" href="http://www.timeanddate.com/worldclock/fixedtime.html?month=8&day=17&year=2006&hour=9&min=0&sec=0&p1=179" alt="Time Zone">here</a> for your time zone.</td>
                         </tr> 
                     </tbody>
                 </table> 
@@ -200,10 +200,10 @@
                 <h3>Important Information</h3>
                 <p style="font-weight:bold;">Travel Confirmation</p>
                 <p>A maximum of eight (8) competitors in each competition from the five (5) weeks of online competition will advance and travel to the Contemporary Resort on Tuesday, October 30 to compete in the final competitive stage of the CDDC held between Wednesday, October 30 and Friday, November 2, 2007. Up to four (4) alternates will be selected to compete at their discretion in the online rounds.  If a finalist cannot attend the TCCC the highest placing alternate from the online round will be named a replacement and will become an advancer.  All competitors must arrive at the Contemporary Resort no later than 2:00 PM EDT on Tuesday, October 30, 2007.</p>
-                <p>All competitors must confirm their attendance at the onsite Championship no later than 5:00 PM EDT (UTC/GMT -4) on Friday, September 28, 2007, and must have acquired any necessary travel visas and know for certain that they can travel to the United States.  If a competitor is required to travel from outside the United States, it is necessary for the competitor to show proof of a visa and/or passport by 5:00 PM EDT (UTC/GMT -4) on Friday, September 28, 2007. Competitors may email a copy of their documents to <a href="mailto:jford@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a>. Competitors who fail to meet this requirement will be replaced as an onsite finalist.</p>
+                <p>All competitors must confirm their attendance at the onsite Championship no later than 5:00 PM EDT (UTC/GMT -4) on Friday, September 28, 2007, and must have acquired any necessary travel visas and know for certain that they can travel to the United States.  If a competitor is required to travel from outside the United States, it is necessary for the competitor to show proof of a visa and/or passport by 5:00 PM EDT (UTC/GMT -4) on Friday, September 28, 2007. Competitors may email a copy of their documents to <a target="_blank" href="mailto:jford@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a>. Competitors who fail to meet this requirement will be replaced as an onsite finalist.</p>
 
                 <p style="font-weight:bold;">Visa Assistance</p>
-                <p>Upon request, TopCoder will issue visa invitation letters for international competitors who require one to obtain a travel visa to enter the United States. All competitors who pass screening on at least one component will receive a visa letter request form. As soon as a competitor returns a completed form, their letter will be mailed. Competitors have until 5:00 PM EDT (GMT/UTC -4) on Friday, September 14, 2007 to request a letter. Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. Other than providing the invitation letter, TopCoder will not assist competitors in the process of obtaining a travel visa. See more information about <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa" alt="Get travel visas">travel visas</a>.</p>
+                <p>Upon request, TopCoder will issue visa invitation letters for international competitors who require one to obtain a travel visa to enter the United States. All competitors who pass screening on at least one component will receive a visa letter request form. As soon as a competitor returns a completed form, their letter will be mailed. Competitors have until 5:00 PM EDT (GMT/UTC -4) on Friday, September 14, 2007 to request a letter. Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. Other than providing the invitation letter, TopCoder will not assist competitors in the process of obtaining a travel visa. See more information about <a target="_blank" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa" alt="Get travel visas">travel visas</a>.</p>
                 <p style="font-weight:bold;">Travel Details</p>
                 <p>TopCoder will provide air travel arrangements for each competitor. The flight will be reserved by and paid for by TopCoder and will be for arrival on October 30, 2007 and departure on November 4, 2007.TopCoder will pay for each competitor's airfare up to $1,500, though we reserve the right to make exceptions to the maximum amount based on individual circumstances. Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor.</p>
                 <p>Ground transportation to and from the Orlando International Airport will be provided for each competitor by TopCoder via Disney Magical Express, as well as hotel accommodations and certain meals for each competitor. All other expenses are the responsibility of the competitor. TopCoder will not provide travel or lodging accommodations for guests of the competitor.</p>
@@ -342,7 +342,7 @@
                             <td class="value" colspan="3">*Prize will be awarded after the conclusion of the Championship Round. Winner must be present at the onsite Championship announcement to receive prize.<br />
                               <br />
 
-                            In addition to the prizes mentioned above, all onsite finalists will receive a one-day <a target="_blank" alt="Park Hopper option" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/tickets/ticketStore?categoryPass=RECOMMENDER&productPass=RECOMMENDER&country=USA' refer='TCCC07_whatToDo' />">Disney Park Hopper pass</a> to use at the event on Saturday, November 3, 2007.</td> 
+                            In addition to the prizes mentioned above, all onsite finalists will receive a one-day <a target="_blank" alt="Park Hopper option" target="_blank" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/tickets/ticketStore?categoryPass=RECOMMENDER&productPass=RECOMMENDER&country=USA' refer='TCCC07_whatToDo' />">Disney Park Hopper pass</a> to use at the event on Saturday, November 3, 2007.</td> 
                         </tr>
                     </tbody> 
                 </table>
@@ -359,8 +359,8 @@
                 <p>Competitors who advance to the onsite Championship Round must complete the following items and submit them to TopCoder by 5:00 PM EDT on Friday, September 28, 2007:</p>
                     <ul>
 
-                        <li>Confirmation of attendance/proof of travel documents - Please email <a href="mailto:jdamato@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a> to confirm your attendance onsite. If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents.</li>
-                        <li>Please submit a head shot by emailing <a href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</a>, if we do not have one on file for you.</li>
+                        <li>Confirmation of attendance/proof of travel documents - Please email <a target="_blank" href="mailto:jdamato@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a> to confirm your attendance onsite. If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents.</li>
+                        <li>Please submit a head shot by emailing <a target="_blank" href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</a>, if we do not have one on file for you.</li>
                         <li>Please ensure your most up-to-date information is listed in your TopCoder profile in the event we need to mail your plane tickets or contact you via telephone.</li>
                         <li>Competitor Questionnaire - the questions and responses may be published in the 2007 TopCoder Collegiate Challenge program</li>
 
@@ -382,8 +382,8 @@
                 <p>TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in the CDDC and the Tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the competition process, or otherwise being in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the CDDC and/or the Tournament if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort, or for any other reason.</p>
                 
                 <h2>Other</h2>
-                <p>The CDDC and the Tournament are void in whole or in part where prohibited by law. A list of CDDC and Tournament winners by handles will be available on the web site at <a href="/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the completion of the CDDC and the Tournament.</p>
-                <p>The CDDC and the Tournament are brought to you by TopCoder, Inc. (<a href="/">http://www.topcoder.com/</a>) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+                <p>The CDDC and the Tournament are void in whole or in part where prohibited by law. A list of CDDC and Tournament winners by handles will be available on the web site at <a target="_blank" href="/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the completion of the CDDC and the Tournament.</p>
+                <p>The CDDC and the Tournament are brought to you by TopCoder, Inc. (<a target="_blank" href="/">http://www.topcoder.com/</a>) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
 
 
             </div>

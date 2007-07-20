@@ -5,9 +5,9 @@
 <head>
     <title>2007 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" href="/css/tournaments/tccc07.css"/>
-    <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+    <link type="image/x-icon" rel="shortcut icon" target="_blank" href="/i/favicon.ico"/>
+    <link type="text/css" rel="stylesheet" target="_blank" href="/css/tournaments/tccc07.css"/>
+    <link type="text/css" rel="stylesheet" target="_blank" href="/css/coders.css"/>
     <jsp:include page="../../script.jsp" />
 </head>
 <body>
@@ -31,7 +31,6 @@
                     <a href="#qualification">Qualification Round</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                     <a href="#structure">Round Structure</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                     <a href="#prizes">Prizes</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-
                     <a href="#conditions">Conditions of Participation</a>
                 </p>
                 <p><span class="bigRed">No purchase necessary to enter or win. Void where prohibited.</span></p>
@@ -231,9 +230,9 @@
                 <p style="font-weight:bold;">Travel Confirmation</p>
                 <p>The forty-eight (48) competitors who advance from Online Round 4 will travel to Orlando on Tuesday, October 30, 2007 to compete in the Semifinal rounds of the Tournament, held on Wednesday, October 31 and Thursday, November 1, 2007.  All onsite competitors must arrive at the Contemporary Resort no later than 2:00 PM EDT on Tuesday, October 30, 2007.</p>
 
-                <p>All competitors must confirm their attendance at the onsite event no later than 5:00 PM EDT (UTC/GMT -4) on Friday, September 28, 2007, and must have acquired any necessary travel visas and know for certain that they can travel to the United States.  If a competitor is required to travel from outside the United States, it is necessary for the competitor to show proof of a visa and/or passport by 5:00 PM EDT (UTC/GMT -4) on Friday, September 28, 2007. Competitors may email a copy of their documents to <a href="mailto:jford@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a>. Competitors who fail to meet this requirement will be replaced as an onsite finalist.</p>
+                <p>All competitors must confirm their attendance at the onsite event no later than 5:00 PM EDT (UTC/GMT -4) on Friday, September 28, 2007, and must have acquired any necessary travel visas and know for certain that they can travel to the United States.  If a competitor is required to travel from outside the United States, it is necessary for the competitor to show proof of a visa and/or passport by 5:00 PM EDT (UTC/GMT -4) on Friday, September 28, 2007. Competitors may email a copy of their documents to <a target="_blank" href="mailto:jford@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a>. Competitors who fail to meet this requirement will be replaced as an onsite finalist.</p>
                 <p style="font-weight:bold;">Visa Assistance</p>
-                <p>At the end of Online Round 1, TopCoder will issue visa invitation letters upon the request of international competitors who may require such a letter. All competitors who advance to Online Round 1 will receive a visa invitation letter request form. Competitors have until 5:00 PM EDT (GMT/UTC -4) on Friday, September 14, 2007 to request a letter. Visas can take a significant amount of time to obtain in certain countries.  It is in the best interest of competitors who need such a letter to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. Outside of issuing an invitation letter upon request, TopCoder will not assist competitors in the process of obtaining a travel visa. See more information about <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa" alt="Get travel visas">travel visas</a>.</p>
+                <p>At the end of Online Round 1, TopCoder will issue visa invitation letters upon the request of international competitors who may require such a letter. All competitors who advance to Online Round 1 will receive a visa invitation letter request form. Competitors have until 5:00 PM EDT (GMT/UTC -4) on Friday, September 14, 2007 to request a letter. Visas can take a significant amount of time to obtain in certain countries.  It is in the best interest of competitors who need such a letter to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. Outside of issuing an invitation letter upon request, TopCoder will not assist competitors in the process of obtaining a travel visa. See more information about <a target="_blank" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa" alt="Get travel visas">travel visas</a>.</p>
 
                 <p style="font-weight:bold;">Travel Details</p>
                 <p>TopCoder will provide air travel arrangements for each competitor. The flight will be reserved and paid for by TopCoder and will be for arrival on October 30, 2007 and departure on November 4, 2007.TopCoder will pay for each competitor's airfare up to $1,500, though we reserve the right to make exceptions to the maximum amount based on individual circumstances. Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor.</p>
@@ -353,7 +352,7 @@
                         <tr class="dark"> 
                             <td class="value" colspan="2">* Prize will be awarded at the conclusion of the Championship Round. Winner must be present at the onsite Championship announcement to receive prize.<br />
                               <br />
-                            In addition to the prizes mentioned above, all onsite finalists will receive a one-day <a target="_blank" alt="Park Hopper option" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/tickets/ticketStore?categoryPass=RECOMMENDER&productPass=RECOMMENDER&country=USA' refer='TCCC07_whatToDo' />">Disney Park Hopper pass</a> to use at the event on Saturday, November 3, 2007.</td> 
+                            In addition to the prizes mentioned above, all onsite finalists will receive a one-day <a target="_blank" alt="Park Hopper option" target="_blank" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/tickets/ticketStore?categoryPass=RECOMMENDER&productPass=RECOMMENDER&country=USA' refer='TCCC07_whatToDo' />">Disney Park Hopper pass</a> to use at the event on Saturday, November 3, 2007.</td> 
                         </tr>
 
                     </tbody> 
@@ -378,9 +377,9 @@
                 <p style="font-weight:bold;">Finalist (Online Round 4 Advancer) Information</p>
                 <p>All competitors who advance to the onsite tournament rounds must complete the following items and submit them to TopCoder by 5:00 PM EDT on Friday, September 28, 2007:</p>
                     <ul>
-                        <li>Confirmation of attendance/proof of travel documents - Please email <a href="mailto:jford@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a> to confirm your attendance onsite. If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents.</li>
+                        <li>Confirmation of attendance/proof of travel documents - Please email <a target="_blank" href="mailto:jford@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a> to confirm your attendance onsite. If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents.</li>
 
-                        <li>Please submit a head shot by emailing <a href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</a>, if you have not already done so.</li>
+                        <li>Please submit a head shot by emailing <a target="_blank" href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</a>, if you have not already done so.</li>
                         <li>Please ensure your most up-to-date information is listed in your TopCoder profile in the event we need to mail your plane tickets or contact you via telephone.</li>
                         <li>Competitor Questionnaire - the questions and responses may be published in the 2007 TopCoder Collegiate Challenge program</li>
                         <li>Travel form - provides TopCoder with the appropriate travel information for your trip to the onsite tournament rounds</li>
@@ -423,7 +422,7 @@
                 
                 <h2>Other</h2>
                 <p>The Algorithm Competition and the Tournament are void in whole or in part where prohibited by law.</p>
-                <p>A list of winning competitors by handle will be available on the web site at <a href="/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the end of the Algorithm Competition.</p>
+                <p>A list of winning competitors by handle will be available on the web site at <a target="_blank" href="/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the end of the Algorithm Competition.</p>
 
 
             </div>
