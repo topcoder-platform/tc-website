@@ -17,6 +17,7 @@
         <div id="tclogo">
             <a href="/"><img src="/i/tournament/tccc07/topcoderlogo.png" alt="TopCoder&#174;" /></a>
         </div>
+        <a style="position: absolute; top: 60px; left: 460px;" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=registerNow"><img src="/i/tournament/tccc07/registerNow.png" alt="REGISTER NOW!" /></a>
     </div>
     
     <div style="margin-top:0px;">
@@ -27,41 +28,41 @@
 
                 <div style="float:left;">
                 <% if (tabLev1.equals("overview")) {%>
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about"><img src="/i/tournament/tccc07/tournie_on.png" alt="Tournament Overview" /></a>
+                    <a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about"><img src="/i/tournament/tccc07/tournie_on.png" alt="Tournament Overview" /></a>
                 <% } else { %>
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about"><img src="/i/tournament/tccc07/tournie.png" alt="Tournament Overview" /></a>
+                    <a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about"><img src="/i/tournament/tccc07/tournie.png" alt="Tournament Overview" /></a>
                 <% } %>
                 </div>
 
                 <div style="float:left;">
                 <% if (tabLev1.equals(EventType.ALGORITHM_TOURNAMENT_ID.toString())) {%>
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=description"><img src="/i/tournament/tccc07/alg_on.png" alt="Algorithm Competition" /></a>
+                    <a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=description"><img src="/i/tournament/tccc07/alg_on.png" alt="Algorithm Competition" /></a>
                 <% } else { %>
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=description"><img src="/i/tournament/tccc07/alg.png" alt="Algorithm Competition" /></a>
+                    <a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=description"><img src="/i/tournament/tccc07/alg.png" alt="Algorithm Competition" /></a>
                 <% } %>
                 </div>
             
                 <div style="float:left;">
                 <% if (tabLev1.equals(EventType.COMPONENT_TOURNAMENT_ID.toString())) {%>
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=description"><img src="/i/tournament/tccc07/comp_on.png" alt="Component Competition" /></a>
+                    <a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=description"><img src="/i/tournament/tccc07/comp_on.png" alt="Component Competition" /></a>
                 <% } else { %>
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=description"><img src="/i/tournament/tccc07/comp.png" alt="Component Competition" /></a>
+                    <a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=description"><img src="/i/tournament/tccc07/comp.png" alt="Component Competition" /></a>
                 <% } %>
                 </div>
                 
                 <div style="float:left;">
                 <% if (tabLev1.equals(EventType.MARATHON_TOURNAMENT_ID.toString())) {%>
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=description"><img src="/i/tournament/tccc07/mara_on.png" alt="Marathon Competition" /></a>
+                    <a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=description"><img src="/i/tournament/tccc07/mara_on.png" alt="Marathon Competition" /></a>
                 <% } else { %>
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=description"><img src="/i/tournament/tccc07/mara.png" alt="Marathon Competition" /></a>
+                    <a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=description"><img src="/i/tournament/tccc07/mara.png" alt="Marathon Competition" /></a>
                 <% } %>
                 </div>
                 
                 <div style="float:left;">
                 <% if (tabLev1.equals(EventType.STUDIO_TOURNAMENT_ID.toString())) {%>
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=description"><img src="/i/tournament/tccc07/studio_on.png" alt="Studio Overview" /></a>
+                    <a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=description"><img src="/i/tournament/tccc07/studio_on.png" alt="Studio Overview" /></a>
                 <% } else { %>
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=description"><img src="/i/tournament/tccc07/studio.png" alt="Studio Overview" /></a>
+                    <a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=description"><img src="/i/tournament/tccc07/studio.png" alt="Studio Overview" /></a>
                 <% } %>
                 </div>
         
