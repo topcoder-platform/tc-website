@@ -25,7 +25,7 @@
             <div id="pageBody">
                 <h1><span>Marathon Match Competition</span></h1>
                 
-                <p>As part of the 2007 TopCoder Collegiate Challenge, the Marathon Match Competition provides a more flexible format with an extended timeline that offers different types of problems than what can be offered in a traditional TopCoder algorithm round.  Competitors may submit code in the following languages:  Java, C++, C#, VB.NET and Python.</p>
+                <p>As part of the 2007 TopCoder Collegiate Challenge, the Marathon Match Competition provides a more flexible format with an extended timeline that offers different types of problems than what can be offered in the Algorithm Competition.  Competitors may submit code in the following languages:  Java, C++, C#, VB.NET and Python.</p>
 
                 <p>After three rounds of elimination, we will narrow the field down to the top eight finalists from all around the world to attend the Championship Round in Orlando, Florida, October 30 - November 2, 2007.</p>
                 

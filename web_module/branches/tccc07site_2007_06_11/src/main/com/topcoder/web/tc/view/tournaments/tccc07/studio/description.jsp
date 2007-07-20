@@ -25,15 +25,15 @@
             <div id="pageBody">
                 <h1><span>Studio Design Description</span></h1>
                 
-                <p>TopCoder Studio is thrilled to announce its first collegiate tournament for graphic and web designers! Competitors will put their design talent to the test during the 8-week Studio Design Competition (SDC) Online Round leading up to the Finals, held at the Contemporary Resort in Walt Disney World in Orlando, Florida, USA. Eight of the most creative collegiate competitors will win a trip to Orlando where they will compete in the championship round for the chance to win cash prizes totaling $30,000.</p>
+                <p>TopCoder Studio is thrilled to announce its first collegiate tournament for graphic and web designers! Competitors will put their design talent to the test during the 7-week Studio Design Competition (SDC) Online Round leading up to the Finals, being held at the Contemporary Resort in Walt Disney World in Orlando, Florida, USA. Eight of the most creative collegiate competitors will win a trip to Orlando where they will compete in the Championship Round for the chance to win cash prizes totaling $30,000.</p>
 
                 
                 <h2>What is TopCoder Studio?</h2>
                 <p>TopCoder Studio challenges top creative minds from around the world to present their best graphic and web design concepts to clients searching for a unique user-based perspective. By tapping into the talent of creative people with multiple specialties, new approaches and innovative concepts rise to the top. During engaging competitions, Studio members have just the right mix of client guidance, TopCoder Studio support, and creative freedom to break down barriers common in traditional client-designer relationships.</p>
                 
                 <h2>The Competition Process</h2>
-                <p>The competition process ignites creativity in both the client and the Studio members. TopCoder determines the needs of the client, presents those needs to the Studio member-base, and administers all aspects of the competition.</p>
-                <p>Contest specifications are posted on Studio and members submit their designs according to those specs. Submissions are then screened against the contest specifications by the Contest Administrator and either passed or failed. Passing submissions are presented to the client. The client can then chose to determine a winner on their own, ask the community to chose a winner through a vote, or enter into a review and revision phase with finalists they select, selecting a winner after the revisions are completed.</p>
+                <p>The competition process ignites creativity in both the client and the Studio members. TopCoder determines the needs of the client, presents those needs to Studio members, and administers all aspects of the competition.</p>
+                <p>Contest specifications are posted on Studio and members submit their designs according to those specs. Submissions are then screened against the contest specifications by the Contest Administrator and either passed or failed. Passing submissions move into Online Review, where their submission is scored. Winners are selected based on the highest scores. Passing submissions and their scores are then presented to the client and additional prizes are given for client selection.</p>
                 <p>Learn more about <a href="http://studio.topcoder.com/" alt="TopCoder Studio" target="_blank">TopCoder Studio</a></p>
 
                 <p>When is the competition? See the <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=schedule" alt="TCCC07 Studio Schedule">schedule</a>.</p>

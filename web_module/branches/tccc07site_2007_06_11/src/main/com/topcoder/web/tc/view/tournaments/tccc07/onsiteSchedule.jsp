@@ -25,6 +25,7 @@
                 <h1><span>Onsite Schedule</span></h1>
                 <div align="center">
                     <br />
+                    <br />
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                         <tbody>
                             <tr>
@@ -33,89 +34,101 @@
                             <tr> 
                                 <td class="header" colspan="2">Tuesday, October 30, 2007</td> 
                             </tr>
+
                             <tr class="light"> 
-                                <td class="value">7:00pm - 9:00pm</td> 
+                                <td class="value">7:00 PM - 9:00 PM</td> 
                                 <td class="value">Welcome Reception</td>
                             </tr> 
                             <tr>
                                 <td class="header" colspan="2">Wednesday, October 31, 2007</td>
                             </tr>
                             <tr class="dark"> 
-                                <td class="value">8:30am - 10:30am</td> 
+                                <td class="value">8:30 AM - 10:30 AM </td> 
                                 <td class="value">Algorithm Semifinal Room 1</td>
+
                             </tr> 
                             <tr class="light"> 
-                                <td class="value">9:00am - 5:00pm</td> 
+                                <td class="value">9:00 AM - 5:00 PM </td> 
                                 <td class="value">Marathon Match Finals</td>
                             </tr>
                             <tr class="dark"> 
-                                <td class="value">Noon - 1:00pm</td> 
+                                <td class="value">Noon - 1:00 PM </td> 
                                 <td class="value">Lunch</td>
                             </tr> 
                             <tr class="light">
-                                <td class="value">11:30pm - 1:00pm</td>
+
+                                <td class="value">11:30 AM - 1:00 PM </td>
                                 <td class="value">Component Design &amp; Development 1</td>
                             </tr> 
                             <tr class="dark">
-                                <td class="value">2:00pm - 4:00pm</td>
+                                <td class="value">2:00 PM - 4:00 PM </td>
                                 <td class="value">Algorithm Semifinal Room 2</td>
+
                             </tr>
                             <tr class="light">
-                                <td class="value">6:00pm - 10:00pm</td>
+                                <td class="value">6:00 PM - 10:00 PM </td>
                                 <td class="value">Evening Event</td>
                             </tr>
                             <tr>
                                 <td class="header" colspan="2">Thursday, November 1, 2007</td>
+
                             </tr>
                             <tr class="dark">
-                                <td class="value">8:30am - 10:30am</td>
+                                <td class="value">8:30 AM - 10:30 AM </td>
                                 <td class="value">Algorithm Semifinal Room 3</td>
                             </tr>
                             <tr class="light">
-                                <td class="value">9:00am - 5:00pm</td>
+                                <td class="value">9:00 AM - 5:00 PM </td>
+
                                 <td class="value">Studio Graphic Design Finals</td>
                             </tr>
                             <tr class="dark">
-                                <td class="value">Noon - 1:00pm</td>
+                                <td class="value">Noon - 1:00 PM </td>
                                 <td class="value">Lunch</td>
                             </tr>
                             <tr class="light">
-                                <td class="value">11:30pm - 1:00pm</td>
+
+                                <td class="value">11:30 AM - 1:00 PM </td>
                                 <td class="value">Component Design & Development 2</td>
                             </tr>
                             <tr class="dark">
-                                <td class="value">2:00pm -4:00pm</td>
+                                <td class="value">2:00 PM - 4:00 PM</td>
                                 <td class="value">Algorithm Wildcard Round</td>
+
                             </tr>
                             <tr class="light">
-                                <td class="value">5:30pm - 10:00pm</td>
+                                <td class="value">5:30 PM - 10:00 PM </td>
                                 <td class="value">Evening Event</td>
                             </tr>
                             <tr>
                                 <td class="header" colspan="2">Friday, November 2, 2007</td>
+
                             </tr>
                             <tr class="dark">
-                                <td class="value">9:00am - 10:30am</td>
+                                <td class="value">9:00 AM - 10:30 AM </td>
                                 <td class="value">Component Design &amp; Development Appeals Final</td>
                             </tr>
                             <tr class="light">
-                                <td class="value">11:00am - Noon</td>
+                                <td class="value">11:00 AM - Noon</td>
+
                                 <td class="value">AOL Presentation</td>
                             </tr>
                             <tr class="dark">
-                                <td class="value">Noon - 1:00pm</td>
+                                <td class="value">Noon - 1:00 PM </td>
                                 <td class="value">Lunch</td>
                             </tr>
                             <tr class="light">
-                                <td class="value">1:30pm - 3:30pm</td>
+
+                                <td class="value">1:30 PM - 3:30 PM </td>
                                 <td class="value">Algorithm Championship Round</td>
                             </tr>
                             <tr class="dark">
-                                <td class="value">3:30pm - 4:30pm</td>
+                                <td class="value">3:30 PM - 4:30 PM </td>
                                 <td class="value">All Champion Announcements and Awards</td>
                             </tr>
+
                             <tr class="light">
-                                <td class="value">7:00pm - 10:00pm</td>
+                                <td class="value">7:00 PM - 10:00 PM </td>
                                 <td class="value">Reception</td>
                             </tr>
                         </tbody>

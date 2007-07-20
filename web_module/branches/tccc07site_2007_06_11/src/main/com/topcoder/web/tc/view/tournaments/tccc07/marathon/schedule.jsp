@@ -47,36 +47,40 @@
                         <td class="header">End Date and Time*</td> 
                         <td class="header">Participants</td> 
                         <td class="header">Advancers</td>
+
                     </tr> 
                     <tr class="light"> 
-                        <td class="value">Online Round #1</td> 
+                        <td class="value">Online Round 1</td> 
                         <td class="value">Wednesday, August 8 Noon</td> 
                         <td class="value">Wednesday,  August 15 Noon</td> 
                         <td class="value">Unlimited</td>
                         <td class="value">300</td>
                     </tr> 
                     <tr class="dark"> 
-                        <td class="value">Online Round #2</td> 
+                        <td class="value">Online Round 2</td> 
                         <td class="value">Wednesday, August 22 Noon</td> 
                         <td class="value">Wednesday, August 29 Noon</td> 
                         <td class="value">up to 300</td>
+
                         <td class="value">100</td>
                     </tr> 
                     <tr class="light"> 
-                        <td class="value">Online Round #3</td> 
+                        <td class="value">Online Round 3</td> 
                         <td class="value">Wednesday, September 5 Noon</td> 
-                        <td class="value">Wednesday, September 15 Noon</td> 
+                        <td class="value">Wednesday, September 19 Noon</td> 
                         <td class="value">up to 100</td>
                         <td class="value">8</td>
+
                     </tr>
                     <tr class="dark"> 
                         <td class="value">Onsite Finals</td> 
-                        <td class="value">Wednesday, October 31 9:00am</td> 
-                        <td class="value">Wednesday, October 31 6:00pm</td> 
+                        <td class="value">Wednesday, October 31 9:00 AM </td> 
+                        <td class="value">Wednesday, October 31 6:00 PM</td> 
                         <td class="value">8</td>
                         <td class="value">Champion</td>
                     </tr> 
                     <tr class="light">
+
                         <td class="value" colspan="5">*Times listed in Eastern Daylight Time (UTC/GMT -4). In the event that a round must be cancelled for any reason, the round will start the following day at the same time.</td>
                     </tr> 
                 </tbody>
@@ -88,6 +92,7 @@
                     <tr>
                         <td class="title" colspan="2">Important Dates</td>
                     </tr>
+
                     <tr> 
                         <td class="header">Important Items To Note</td> 
                         <td class="header">Date and Time (Eastern Daylight Time)</td>
@@ -102,6 +107,12 @@
                     </tr> 
                 </tbody> 
             </table>
+            <br /><br />
+            
+            <h2>* Find start times in your time zone</h2>
+            <p>Below is a list of start times for the various rounds. Click the time that corresponds to the round you are interested in to see what time coding begins in your time zone.</p>
+            <p><a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2007&hour=9&min=0&sec=0&p1=179">9:00 AM</a> | 
+                <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2007&hour=12&min=0&sec=0&p1=179">Noon</a></p>
 
             </div>
     </div>
