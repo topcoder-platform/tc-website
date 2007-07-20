@@ -95,7 +95,7 @@ public class SendToReview extends Base {
     }
 
 
-    private final static String END_POINT = "http://" + ApplicationServer.TCS_APP_SERVER_URL + "/review/services/UploadService";
+    private final static String END_POINT = "http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review/services/UploadService";
 
     /**
      * Uploads the submission using the SOAP call.
