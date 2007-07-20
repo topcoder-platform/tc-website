@@ -4,11 +4,13 @@ import com.topcoder.server.ejb.DBServices.DBServices;
 import com.topcoder.server.ejb.DBServices.DBServicesLocator;
 import com.topcoder.server.ejb.TestServices.CompilationTimeoutException;
 import com.topcoder.server.ejb.TestServices.TestServices;
+import com.topcoder.server.ejb.TestServices.TestServicesException;
 import com.topcoder.server.ejb.TestServices.TestServicesLocator;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.language.*;
+import com.topcoder.shared.language.BaseLanguage;
+import com.topcoder.shared.language.JavaLanguage;
 import com.topcoder.shared.messaging.messages.LongCompileRequest;
 import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.problem.DataType;
@@ -18,16 +20,25 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.render.DataTypeRenderer;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.longcompresult.LongCompResult;
 import com.topcoder.web.ejb.longcompresult.LongCompResultLocal;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 
+import javax.ejb.CreateException;
+import javax.naming.NamingException;
 import java.io.StringReader;
+import java.rmi.RemoteException;
 import java.rmi.ServerException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -126,7 +137,6 @@ public class Submit extends Base {
             int language = 0;
             if (getParameter(request, Constants.LANGUAGE_ID) != null) {
                 language = Integer.parseInt(getParameter(request, Constants.LANGUAGE_ID));
-                setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
             } else if (!lastCompilation.isEmpty()) {
                 if (!isNull(lastCompilation, 0, "language_id")) {
                     language = lastCompilation.getIntItem(0, "language_id");
@@ -170,9 +180,8 @@ public class Submit extends Base {
             request.setAttribute(Constants.METHOD_NAME, methodNames);
             request.setAttribute(Constants.RETURN_TYPE, returnTypes);
             request.setAttribute(Constants.ARG_TYPES, paramTypes);
-
             request.setAttribute(Constants.CODE, code);
-
+            List allowedLanguages = getLanguages(rid);
             if (action == null) { // no action specified
                 // any code in session?
                 if (code == null) { // try and load the most recent code
@@ -186,7 +195,7 @@ public class Submit extends Base {
                     request.setAttribute(Constants.CODE, code);
                 }
                 log.debug("set message in request to " + message);
-                request.setAttribute(Constants.LANGUAGES, getLanguages(roundTypeID));
+                request.setAttribute(Constants.LANGUAGES, allowedLanguages);
                 setNextPage(Constants.SUBMISSION_JSP);
                 if (isNearEnd(rid)) {
                     request.setAttribute(Constants.MESSAGE, message != null ? message + "\n\n" : "" + NEAR_END);
@@ -197,21 +206,20 @@ public class Submit extends Base {
             } else if (action.equals("submit")) { // user is submiting code
 
                 // Language specified?
-                if (language <= 0) {
-                    log.debug("set message in request to please select a language");
-                    request.setAttribute(Constants.MESSAGE, "Please select a language.");
-                    request.setAttribute(Constants.LANGUAGES, getLanguages(roundTypeID));
+                if (!allowedLanguages.contains(BaseLanguage.getLanguage(language))) {
+                    log.debug("set message in request to please select a valid language");
+                    request.setAttribute(Constants.MESSAGE, "Please select a valid language.");
+                    request.setAttribute(Constants.LANGUAGES, allowedLanguages);
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
                     return;
                 } else if ("".equals(StringUtils.checkNull(code).trim())) {
                     request.setAttribute(Constants.MESSAGE, "Please include some code.");
-                    request.setAttribute(Constants.LANGUAGES, getLanguages(roundTypeID));
+                    request.setAttribute(Constants.LANGUAGES, allowedLanguages);
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
                     return;
                 }
-
 
                 ResultSetContainer lastExampleCompilation =
                         (ResultSetContainer) m.get("long_contest_recent_example_compilation");
@@ -227,7 +235,7 @@ public class Submit extends Base {
                     if (language > 0) {
                         setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
                     }
-                    request.setAttribute(Constants.LANGUAGES, getLanguages(roundTypeID));
+                    request.setAttribute(Constants.LANGUAGES, allowedLanguages);
                     request.setAttribute(Constants.MESSAGE, tRes.getMessage());
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
@@ -318,7 +326,7 @@ public class Submit extends Base {
                     } else {
                         request.setAttribute(Constants.MESSAGE, "Your code has been saved.");
                     }
-                    request.setAttribute(Constants.LANGUAGES, getLanguages(roundTypeID));
+                    request.setAttribute(Constants.LANGUAGES, allowedLanguages);
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
                 } else {
@@ -414,17 +422,8 @@ public class Submit extends Base {
 
 
     //todo this may need to be modified if in the future we limit which languages are available
-    protected static List getLanguages(int roundType) {
-        List ret = new ArrayList(4);
-        ret.add(JavaLanguage.JAVA_LANGUAGE);
-        ret.add(CPPLanguage.CPP_LANGUAGE);
-        ret.add(VBLanguage.VB_LANGUAGE);
-        ret.add(CSharpLanguage.CSHARP_LANGUAGE);
-        if (roundType == Constants.LONG_PRACTICE_ROUND_TYPE_ID || roundType == Constants.LONG_ROUND_TYPE_ID
-                || roundType == Constants.LONG_ROUND_TOURNAMENT_TYPE_ID) {
-            ret.add(PythonLanguage.PYTHON_LANGUAGE);
-        }
-        return ret;
+    protected static List getLanguages(long roundId) throws TestServicesException, RemoteException, NamingException, CreateException {
+        return Arrays.asList(TestServicesLocator.getService().getAllowedLanguagesForRound((int) roundId));
     }
 
     private boolean acceptingSubmissions(long componentId) throws Exception {
