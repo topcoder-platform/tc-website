@@ -21,22 +21,18 @@
         <jsp:param name="tabLev3" value="elililly"/>
         </jsp:include>
         
-        <div id="pageBodyOutside">
-        <div id="pageBody">
-            <div style="padding-bottom:10px;">
-                <a target="_blank" alt="TCCC07 Sponsored by Eli Lilly" href="<tc-webtag:linkTracking link='http://www.elililly.com/' refer='TCCC07_lillySuccess' />"<img style="border:thin #2f2f2f solid" alt="TCCC07 Sponosored by Eli Lilly" src="/i/tournament/tccc07/lilly_logo.png" /></a>
-            </div>
-            <p>Your application has been received.</p>
-            <p>You will be contacted by a TopCoder Recruiter if you meet Eli Lilly's requirements. Thank you.</p>
-            <p>&nbsp;</p>
+            <div id="pageBody">
+                <div style="padding-bottom:10px;">
+                    <a target="_blank" alt="TCCC07 Sponsored by Eli Lilly" href="<tc-webtag:linkTracking link='http://www.elililly.com/' refer='TCCC07_lillySuccess' />"<img style="border:thin #2f2f2f solid" alt="TCCC07 Sponosored by Eli Lilly" src="/i/tournament/tccc07/lilly_logo.png" /></a>
+                </div>
+                <p>Your application has been received.</p>
+                <p>You will be contacted by a TopCoder Recruiter if you meet Eli Lilly's requirements. Thank you.</p>
+                <p>&nbsp;</p>
             
-        </div>
-        </div>
-        </div>
-        <jsp:include page="../footer.jsp" />
+            </div>
+    </div>
+    <jsp:include page="../footer.jsp" />
     </div>
 </div>
-
 </body>
-
 </html>

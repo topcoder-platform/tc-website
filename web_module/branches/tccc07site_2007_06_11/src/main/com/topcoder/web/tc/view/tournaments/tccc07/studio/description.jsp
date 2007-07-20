@@ -22,7 +22,6 @@
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
 
-            <div id="pageBodyOutside">
             <div id="pageBody">
                 <div id="h1Border">&nbsp;</div>
                 <h1><span>Studio Design Description</span></h1>
@@ -52,13 +51,11 @@
                 <p>Click <a href="/reg/" alt="TopCoder Member Registration">here</a> to register as a TopCoder member.</p>
 
                 <p>Click <a href="" alt="TCCC07 Studio Design Competition">here</a> to register for the TCCC07 Studio Design Competition.</p>
+
             </div>
-            </div>
-            </div>
-        <jsp:include page="../footer.jsp" />
+    </div>
+    <jsp:include page="../footer.jsp" />
     </div>
 </div>
-
 </body>
-
 </html>

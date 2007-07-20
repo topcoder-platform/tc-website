@@ -21,7 +21,6 @@
         <jsp:param name="tabLev3" value="getvisa"/>
         </jsp:include>
 
-            <div id="pageBodyOutside">
             <div id="pageBody">
                 <div id="h1Border">&nbsp;</div>
                 <h1><span>Getting your Visa and Getting it Early</span></h1>
@@ -56,7 +55,6 @@
                 <p>Remember, if you become a finalist in any competition, you MUST show proof of your visa and/or passport by the finalist deadline before TopCoder will book a flight for you. If you do not have your visa and/or passport by the appropriate date, you will be disqualified as a finalist. Please revisit the tournament rules for more information or email <a href="mailto:jford@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a>.</p>
 
                 
-            </div>
             </div>
         
     </div>

@@ -21,7 +21,6 @@
         <jsp:param name="tabLev3" value="onsiteschedule"/>
         </jsp:include>
 
-            <div id="pageBodyOutside">
             <div id="pageBody">
                 <div id="h1Border">&nbsp;</div>
                 <h1><span>Onsite Schedule</span></h1>
@@ -125,7 +124,6 @@
                     </table> 
                     <p>* Schedule subject to change with or without notice.</p>
                 </div>
-            </div>
             </div>
         
     </div>

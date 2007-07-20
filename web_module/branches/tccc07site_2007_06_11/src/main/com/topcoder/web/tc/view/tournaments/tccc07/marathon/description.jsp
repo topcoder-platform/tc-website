@@ -22,7 +22,6 @@
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
 
-            <div id="pageBodyOutside">
             <div id="pageBody">
                 <div id="h1Border">&nbsp;</div>
                 <h1><span>Marathon Match Competition</span></h1>
@@ -43,13 +42,11 @@
                 <p>Once time is up for submitting, each submission will be run against a larger set of test cases and be issued a final score.  This final score will determine the rankings of the match and the advancers of the round.</p>
                 <p>When is the competition?  See the schedule <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=schedule" alt="TCCC07 Marathon Match Schedule">here.</a></p>
                 <p>The competition is free and you must be an 18 years or older collegiate member, as well as meet all eligibility criteria, in order to participate.</p>
+
             </div>
-            </div>
-            </div>
-        <jsp:include page="../footer.jsp" />
+    </div>
+    <jsp:include page="../footer.jsp" />
     </div>
 </div>
-
 </body>
-
 </html>

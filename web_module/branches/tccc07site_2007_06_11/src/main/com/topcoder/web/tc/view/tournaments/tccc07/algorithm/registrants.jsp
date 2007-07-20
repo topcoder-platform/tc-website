@@ -45,6 +45,7 @@
 String eventType = (String) request.getAttribute("et"); %>
 
 <div align="center" style="background: transparent;">
+    <div id="containAll">
     <div id="content">
 
         <jsp:include page="../nav.jsp" >
@@ -53,7 +54,6 @@ String eventType = (String) request.getAttribute("et"); %>
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
 
-            <div id="pageBodyOutside">
             <div id="pageBody">
                 <div id="h1Border">&nbsp;</div>
                 <h1><span>Registrants</span></h1>
@@ -135,11 +135,9 @@ String eventType = (String) request.getAttribute("et"); %>
 
 
             </div>
-            </div>
-        <jsp:include page="../footer.jsp" />
+    </div>
+    <jsp:include page="../footer.jsp" />
     </div>
 </div>
-
 </body>
-
 </html>

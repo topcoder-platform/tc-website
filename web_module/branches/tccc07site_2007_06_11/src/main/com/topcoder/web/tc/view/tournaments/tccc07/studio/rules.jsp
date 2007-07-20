@@ -22,7 +22,6 @@
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
 
-            <div id="pageBodyOutside">
             <div id="pageBody">
                 <div id="h1Border">&nbsp;</div>
                 <h1><span>Studio Design Competition Official Rules and Regulations</span></h1>
@@ -295,12 +294,9 @@
 
 
             </div>
-            </div>
-            </div>
-        <jsp:include page="../footer.jsp" />
+    </div>
+    <jsp:include page="../footer.jsp" />
     </div>
 </div>
-
 </body>
-
 </html>

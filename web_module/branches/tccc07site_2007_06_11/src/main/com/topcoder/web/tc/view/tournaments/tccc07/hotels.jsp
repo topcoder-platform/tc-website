@@ -21,7 +21,6 @@
         <jsp:param name="tabLev3" value="hotels"/>
         </jsp:include>
 
-            <div id="pageBodyOutside">
             <div id="pageBody">
                 <div id="h1Border">&nbsp;</div>
                 <h1><span>Hotels near the TCCC</span></h1>

@@ -22,7 +22,6 @@
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
         
-        <div id="pageBodyOutside">
         <div id="pageBody">
             <div id="h1Border">&nbsp;</div>
             <h1><span>Component Competition Schedule*</span></h1>
@@ -127,13 +126,11 @@
                     </tr> 
                 </tbody> 
             </table>
-        </div>
-        </div>
-        </div>
-        <jsp:include page="../footer.jsp" />
+
+            </div>
+    </div>
+    <jsp:include page="../footer.jsp" />
     </div>
 </div>
-
 </body>
-
 </html>

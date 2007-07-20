@@ -22,7 +22,6 @@
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
 
-            <div id="pageBodyOutside">
             <div id="pageBody">
                 <div id="h1Border">&nbsp;</div>
                 <h1><span>Algorithm Competition</span></h1>
@@ -40,13 +39,12 @@
                 <p>It is important for you to read the official <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=rules" alt="TCCC07 Algorithm Rules &amp; Regulations">rules and regulations</a> for more details.</p>
                 <p>We encourage you to utilize the TopCoder practice rooms in the competition arena prior to competing.</p>
                 <p>The competition is free and you must be an 18 years or older collegiate member, as well as meet all eligibility criteria, in order to participate.</p>
+
+
             </div>
-            </div>
-            </div>
-        <jsp:include page="../footer.jsp" />
+    </div>
+    <jsp:include page="../footer.jsp" />
     </div>
 </div>
-
 </body>
-
 </html>

@@ -21,26 +21,22 @@
         <jsp:param name="tabLev3" value="elililly"/>
         </jsp:include>
         
-        <div id="pageBodyOutside">
-        <div id="pageBody">
-            <div style="padding-bottom:10px;">
-                <a target="_blank" alt="TCCC07 Sponosored by Eli Lilly" href="<tc-webtag:linkTracking link='http://www.elililly.com/' refer='TCCC07_lilly' />"><img style="border:thin #2f2f2f solid" alt="TCCC07 Sponosored by Eli Lilly" src="/i/tournament/tccc07/lilly_logo.png" /></a>
-            </div>
-            <p>Eli Lilly is proud to sponsor the world's top programming talent at the 2007 TopCoder Collegiate Challenge. This presents a tremendous platform for you to pit your development skills against the strongest field the world has to offer. Very best of Luck to you all - and Enjoy!</p>
-            <p>When you want to take up the challenge of a full-time position of employment, the competition does not have to stop. In our case the challenge is to design and build the applications and systems to develop a growing portfolio of best-in-class and first-in-class pharmaceutical products that help people live longer, healthier and more active lives.</p>
-            <p>We are committed to providing answers that matter - through medicines and information - for some of the world's most urgent medical needs including, Cancer, Diabetes, Sepsis, Neuroscience, Growth Disorders, Osteoporosis and Erectile Dysfunction.</p>
-            <p>If you have the technical ability, passion and drive to make a difference to people's lives, we'd love to hear from you.</p>
-            <p>Eli Lilly is based in Indianapolis, IN, with offices in most countries worldwide, our research and development IT centres are located in Indianapolis (US), UK, Singapore, Spain and the Czech Republic.</p>
-            <p>Lilly, Answers that Matter</p>
-            <p><a href="/tc?module=JobHit&jid=402&jt=1" class="button" style="width: 70px;">Apply Now</a></p>
+            <div id="pageBody">
+                <div style="padding-bottom:10px;">
+                    <a target="_blank" alt="TCCC07 Sponosored by Eli Lilly" href="<tc-webtag:linkTracking link='http://www.elililly.com/' refer='TCCC07_lilly' />"><img style="border:thin #2f2f2f solid" alt="TCCC07 Sponosored by Eli Lilly" src="/i/tournament/tccc07/lilly_logo.png" /></a>
+                </div>
+                <p>Eli Lilly is proud to sponsor the world's top programming talent at the 2007 TopCoder Collegiate Challenge. This presents a tremendous platform for you to pit your development skills against the strongest field the world has to offer. Very best of Luck to you all - and Enjoy!</p>
+                <p>When you want to take up the challenge of a full-time position of employment, the competition does not have to stop. In our case the challenge is to design and build the applications and systems to develop a growing portfolio of best-in-class and first-in-class pharmaceutical products that help people live longer, healthier and more active lives.</p>
+                <p>We are committed to providing answers that matter - through medicines and information - for some of the world's most urgent medical needs including, Cancer, Diabetes, Sepsis, Neuroscience, Growth Disorders, Osteoporosis and Erectile Dysfunction.</p>
+                <p>If you have the technical ability, passion and drive to make a difference to people's lives, we'd love to hear from you.</p>
+                <p>Eli Lilly is based in Indianapolis, IN, with offices in most countries worldwide, our research and development IT centres are located in Indianapolis (US), UK, Singapore, Spain and the Czech Republic.</p>
+                <p>Lilly, Answers that Matter</p>
+                <p><a href="/tc?module=JobHit&jid=402&jt=1" class="button" style="width: 70px;">Apply Now</a></p>
             
-        </div>
-        </div>
-        </div>
-        <jsp:include page="../footer.jsp" />
+            </div>
+    </div>
+    <jsp:include page="../footer.jsp" />
     </div>
 </div>
-
 </body>
-
 </html>

@@ -30,6 +30,7 @@
 <body>
 
 <div align="center" style="background: transparent;">
+    <div id="containAll">
     <div id="content">
 
         <jsp:include page="nav.jsp" >
@@ -94,10 +95,9 @@
                         </form>
 
             </div>
-        <jsp:include page="footer.jsp" />
+    </div>
+    <jsp:include page="footer.jsp" />
     </div>
 </div>
-
 </body>
-
 </html>

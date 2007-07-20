@@ -16,6 +16,7 @@
 <body>
 
 <div align="center" style="background: transparent;">
+    <div id="containAll">
     <div id="content">
 
         <jsp:include page="nav.jsp" >
@@ -35,20 +36,18 @@
                     </span></h1>
 
 
-                    <div align="center" style="margin:40px;">
+                    <div align="center" style="margin: 60px 40px 200px 40px;">
                         <%if (eligible.booleanValue()) {%>
                             You have successfully registered for the<br><strong><%=e.getDescription()%></strong>.
                         <%} else {%>
                             Sorry, you are ineligible for the <strong><%=e.getDescription()%></strong>.  If this is a mistake, contact <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
                         <%}%>
-                    
                     </div>
 
             </div>
-        <jsp:include page="footer.jsp" />
+    </div>
+    <jsp:include page="footer.jsp" />
     </div>
 </div>
-
 </body>
-
 </html>
