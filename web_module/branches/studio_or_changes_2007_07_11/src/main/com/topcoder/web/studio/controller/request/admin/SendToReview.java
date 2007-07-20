@@ -59,7 +59,9 @@ public class SendToReview extends Base {
                             if (hasQualifyingRank(s) &&
                                     SubmissionStatus.ACTIVE.equals(s.getStatus().getId()) &&
                                     s.getReview() != null && ReviewStatus.PASSED.equals(s.getReview().getStatus().getId())) {
-                                log.debug("XXXXXX  passed all checks, sending to OR XXXXX");
+                                if (log.isDebugEnabled()) {
+                                    log.debug("passed all checks, sending " + s.getId() + " to OR");
+                                }
                                 uploadSubmission(s);
                             }
 
@@ -114,21 +116,23 @@ public class SendToReview extends Base {
 
         if (log.isDebugEnabled()) {
             log.debug("sending request to " + END_POINT);
-            log.debug(s.getPath() + s.getSystemFileName());
+            log.debug(s.getPath() + s.getSystemFileName() + " " + s.getOriginalFileName());
         }
         // Create the data for the attached file.
         DataHandler dhSource = new DataHandler(new FileDataSource(s.getPath() + s.getSystemFileName()));
 
-        try {
-            FileInputStream fis = new FileInputStream(s.getPath() + s.getSystemFileName());
-            char ch;
-            while ((ch = (char) fis.read()) >= 0) {
-                System.out.print(ch);
+        if (log.isDebugEnabled()) {
+            try {
+                FileInputStream fis = new FileInputStream(s.getPath() + s.getSystemFileName());
+                char ch;
+                while ((ch = (char) fis.read()) >= 0) {
+                    System.out.print(ch);
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
 
         Service service = new Service();
