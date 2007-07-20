@@ -33,13 +33,19 @@ public class IdGeneratorClient {
         if (log.isDebugEnabled()) {
             log.debug("getSeqId(" + seqName + ") called");
         }
-        return getSeqId(seqName, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        long ret = getSeqId(seqName, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        if (log.isDebugEnabled()) {
+            log.debug("returning " + ret);
+        }
+        return ret;
     }
 
     private static long getSeqId(String seqName, String dataSourceName) throws IDGenerationException {
+/*
         if (log.isDebugEnabled()) {
             log.debug("getSeqId(" + seqName + ", " + dataSourceName + ") called");
         }
+*/
         long retVal;
         IDGenerator gen = IDGeneratorFactory.getIDGenerator(seqName);
         retVal = gen.getNextID();

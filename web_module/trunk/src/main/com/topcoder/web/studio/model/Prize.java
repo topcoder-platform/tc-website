@@ -3,8 +3,8 @@ package com.topcoder.web.studio.model;
 import com.topcoder.web.common.model.Base;
 
 import java.util.Collections;
-import java.util.Set;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author dok
@@ -60,8 +60,56 @@ public class Prize extends Base implements Comparable {
 
     public int compareTo(Object o) {
         Prize other = (Prize) o;
-        return getPlace().compareTo(other.getPlace());
+        return getAmount().compareTo(other.getAmount());
     }
+
+
+    /**
+     * Override with more comprehensive implementation. We're using
+     * the amount, prize type and if it's not null, the place as the
+     * business key.
+     *
+     * @param o the other object
+     * @return whether they are the same or not
+     */
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Prize)) return false;
+        final Prize that = (Prize) o;
+        if (this.getType().equals(that.getType())) {
+            if (this.getPlace() != null && that.getPlace() != null) {
+                return this.getPlace().equals(that.getPlace()) && this.getAmount().equals(that.getAmount());
+            } else
+                return this.getPlace() == null && that.getPlace() == null && this.getAmount().equals(that.getAmount());
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Override hashcode with a more comprehensive implementation that includes
+     * the business key of this object.
+     *
+     * @return the hash code
+     */
+    public int hashCode() {
+        StringBuilder buf = new StringBuilder(30);
+        buf.append(getType().hashCode()).append(" ");
+        buf.append(getPlace()).append(" ");
+        buf.append(getAmount());
+        //have to use the string's hashcode here because the string builder's will change
+        return buf.toString().hashCode();
+    }
+
+    public String toString() {
+        StringBuilder buf = new StringBuilder(100);
+        buf.append("place: ").append(place);
+        buf.append("amount: ").append(amount);
+        buf.append("type: ").append(type);
+        buf.append("id: ").append(id);
+        return buf.toString();
+    }
+
 }
 
 

@@ -2,6 +2,7 @@ package com.topcoder.web.studio.model;
 
 import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 
 import java.sql.Timestamp;
@@ -30,6 +31,7 @@ public class Contest extends Base {
     private Set<StudioFileType> fileTypes = new HashSet<StudioFileType>();
     private Set<ContestResult> results = new TreeSet<ContestResult>();
     private Event event;
+    private Project project;
 
     public Long getId() {
         return id;
@@ -63,7 +65,7 @@ public class Contest extends Base {
         this.endTime = endTime;
     }
 
-    public Set getConfig() {
+    public Set<ContestConfig> getConfig() {
         return config;
     }
 
@@ -71,7 +73,15 @@ public class Contest extends Base {
         this.config = config;
     }
 
-    public Set getPrizes() {
+    /**
+     * We'll be returning the answers in the correct order.  Really
+     * this should be returning a <code>SortedSet</code> but I couldn't
+     * get hibernate to work right.
+     *
+     * @return the prizes
+     */
+
+    public Set<Prize> getPrizes() {
         return prizes;
     }
 
@@ -122,7 +132,7 @@ public class Contest extends Base {
         return getConfig(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.MAX_SUBMISSIONS));
     }
 
-    public Set getDocuments() {
+    public Set<Document> getDocuments() {
         return documents;
     }
 
@@ -150,7 +160,7 @@ public class Contest extends Base {
         this.forumId = forumId;
     }
 
-    public Set getSubmissions() {
+    public Set<Submission> getSubmissions() {
         return submissions;
     }
 
@@ -194,5 +204,14 @@ public class Contest extends Base {
 
     public void setEvent(Event event) {
         this.event = event;
+    }
+
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 }

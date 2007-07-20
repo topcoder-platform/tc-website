@@ -2,7 +2,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -140,7 +140,7 @@
 
                     <td class="valueC" nowrap="nowrap">
                         <% if (resultRow.getIntItem("is_user_registered") == 1) { %>
-                        <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/layout/btnSubmitOrganize.png" alt="Submit & Organize" onmouseover="this.src = '/i/layout/btnSubmitOrganizeOn.png';" onmouseout="this.src = '/i/layout/btnSubmitOrganize.png';" style="margin: 6px 0px 6px 0px;"/></A>
+                        <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/layout/btnSubmitOrganize.png" alt="Submit &amp; Organize" onmouseover="this.src = '/i/layout/btnSubmitOrganizeOn.png';" onmouseout="this.src = '/i/layout/btnSubmitOrganize.png';" style="margin: 6px 0px 6px 0px;"/></A>
                         <% } else { %>
                         <A href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/layout/btnRegister.png" alt="Register" onmouseover="this.src = '/i/layout/btnRegisterOn.png';" onmouseout="this.src = '/i/layout/btnRegister.png';" style="margin: 6px 0px 6px 0px;"/></A>
                         <% } %>

@@ -12,13 +12,33 @@ public class ContestResult extends Base implements Comparable {
     private Contest contest;
     private Submission submission;
     private Prize prize;
+    private Float finalScore;
+    private Integer placed;
 
+    //can't have a result without a submission, so don't provide a constructor.  
+    protected ContestResult() {
 
-    public Long getId() {
+    }
+
+    /**
+     * Create a new contest result for the given submission.  This
+     * constructor takes care of all the associations between the result
+     * and the submission/contest
+     *
+     * @param s - the submission
+     */
+    public ContestResult(Submission s) {
+        setSubmission(s);
+        setContest(s.getContest());
+        s.setResult(this);
+    }
+
+    //i don't think we need to expose this.  i think it's just necessary to make hibernate happy
+    protected Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    protected void setId(Long id) {
         this.id = id;
     }
 
@@ -46,46 +66,46 @@ public class ContestResult extends Base implements Comparable {
         this.prize = prize;
     }
 
+
+    public Float getFinalScore() {
+        return finalScore;
+    }
+
+    public void setFinalScore(Float finalScore) {
+        this.finalScore = finalScore;
+    }
+
+
+    public Integer getPlaced() {
+        return placed;
+    }
+
+    public void setPlaced(Integer placed) {
+        this.placed = placed;
+    }
+
     public boolean equals(Object o) {
-        if (o == null) {
-            return false;
-        } else {
-            try {
-                ContestResult oa = (ContestResult) o;
-                boolean sameSubmission = (oa.getSubmission().getId() == null && getSubmission().getId() == null) ||
-                        (oa.getSubmission().getId() != null && getSubmission().getId() != null && oa.getSubmission().getId().equals(getSubmission().getId()));
-                boolean samePrize = (oa.getPrize().getId() == null && getPrize().getId() == null) ||
-                        (oa.getPrize().getId() != null && getPrize().getId() != null && oa.getPrize().getId().equals(getPrize().getId()));
-                return sameSubmission && samePrize;
-            } catch (ClassCastException e) {
-                return false;
-            }
-        }
+        if (this == o) return true;
+        if (!(o instanceof ContestResult)) return false;
+        final ContestResult that = (ContestResult) o;
+        return this.getSubmission().equals(that.getSubmission());
     }
 
     public int hashCode() {
-        StringBuffer buf = new StringBuffer(30);
-
-        if (getPrize() == null) {
-            buf.append("");
-        } else if (getPrize().getId() == null) {
-            buf.append(getPrize().hashCode());
-        } else {
-            buf.append(getPrize().getId());
-        }
-        buf.append(" ");
-        if (getSubmission() == null) {
-            buf.append("");
-        } else if (getSubmission().getId() == null) {
-            buf.append(getSubmission().hashCode());
-        } else {
-            buf.append(getSubmission().getId());
-        }
-        return buf.toString().hashCode();
+        return getSubmission().hashCode();
     }
 
     public int compareTo(Object o) {
-        return getPrize().compareTo(((ContestResult) o).getPrize());
+        ContestResult other = (ContestResult) o;
+        if (getPrize() == null && other.getFinalScore() != null) {
+            return 1;
+        } else if (getFinalScore() != null && other.getFinalScore() == null) {
+            return -1;
+        } else if (getFinalScore() == null && other.getFinalScore() == null) {
+            return getSubmission().getId().compareTo(other.getSubmission().getId());
+        } else {
+            return getFinalScore().compareTo(other.getFinalScore());
+        }
     }
 
 

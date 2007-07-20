@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
@@ -30,23 +30,23 @@
 <div id="contentIn" class="contentIn">
 <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
-<div class="contentSpacer" style="padding-bottom:100px;">
+<div class="contentSpacer">
 
 <h1>Past Contests</h1>
 
 <h2 align="right">Need help? Learn how to
-    <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get
-        started</A>.<br>
-    Got <A href="/?module=Static&amp;d1=support&amp;d2=generalFaq">questions</A>?
+    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get
+        started</a>.<br>
+    Got <a href="/?module=Static&amp;d1=support&amp;d2=generalFaq">questions</a>?
 </h2>
 
 <table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
     <tr>
         <td width="50%">
-            <A href="/?module=ViewActiveContests" class="statTabLinkOff"><span>Active Contests</span></A>
+            <a href="/?module=ViewActiveContests" class="statTabLinkOff"><span>Active Contests</span></a>
         </td>
         <td width="50%">
-            <A href="/?module=ViewPastContests" class="statTabLinkOn"><span>Past Contests</span></A>
+            <a href="/?module=ViewPastContests" class="statTabLinkOn"><span>Past Contests</span></a>
         </td>
     </tr>
 </table>
@@ -55,7 +55,7 @@
     <tbody>
         <tr>
             <td class="NW">&nbsp;</td>
-            <td class="title" colspan="7">Past Contests</td>
+            <td class="title" colspan="6">Past Contests</td>
             <td class="NE">&nbsp;</td>
         </tr>
         <tr>
@@ -78,23 +78,44 @@
             <td class="headerC">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submissions</a>
             </td>
+<%--
             <td class="headerC">
                 &nbsp;
             </td>
+            <td class="headerC">
+                &nbsp;
+            </td>
+--%>
             <td class="headerE"><div>&nbsp;</div></td>
         </tr>
         <% boolean even = true;
             int i = 0; %>
         <rsc:iterator list="<%=contests%>" id="resultRow">
             <tr class="<%=even?"light":"dark"%>">
-                <td class="valueW"><div>&nbsp;</div></td>
+                <td class="valueW">
+                    <div>&nbsp;</div>
+                </td>
                 <td class="value">
-                    <A href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-                        <rsc:item name="name" row="<%=resultRow%>"/></A></td>
+                    <strong><a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
+                        <rsc:item name="name" row="<%=resultRow%>"/>
+                    </a></strong>
+
+                    <div style="margin: 6px 10px;">
+                        <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">contest
+                            details</a>
+                        <c:if test="${resultRow.map['forum_id']!=null}">| <studio:forumLink forumID="${resultRow.map['forum_id']}" message="discuss"/></c:if>
+                        <% if (resultRow.getBooleanItem("results_available")) { %>
+                        |
+                        <a href="/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">winners</a>
+                        <% } %>
+                    </div>
+                </td>
                 <td class="valueC">
-                    <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
+                    <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                </td>
                 <td class="valueC">
-                    <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
+                    <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                </td>
                 <td class="valueR">
                     <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
                 </td>
@@ -104,8 +125,9 @@
                 <td class="valueC">
                     <c:choose>
                         <c:when test="<%=resultRow.getBooleanItem("show_submissions")%>">
-                            <A href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-                                <rsc:item name="submission_count" row="<%=resultRow%>"/></A>
+                            <a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
+                                <rsc:item name="submission_count" row="<%=resultRow%>"/>
+                            </a>
                         </c:when>
                         <c:otherwise>
                             <rsc:item name="submission_count" row="<%=resultRow%>"/>
@@ -113,25 +135,32 @@
                     </c:choose>
 
                 </td>
-                <td class="valueC">
-                    <% if (resultRow.getBooleanItem("results_available")) { %>
-                    <a href="/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">winners</a>
-                    <% } else {%>
-                    &#160;
-                    <% } %>
+                    <%--
+                                    <td class="valueC">
+                                        <% if (resultRow.getBooleanItem("results_available")) { %>
+                                        <a href="/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">winners</a>
+                                        <% } else {%>
+                                        &#160;
+                                        <% } %>
+                                    </td>
+                                    <td class="valueC" nowrap="nowrap">
+                                        <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">contest details</a>
+                                    </td>
+                    --%>
+                <td class="valueE">
+                    <div>&nbsp;</div>
                 </td>
-                <td class="valueE"><div>&nbsp;</div></td>
             </tr>
             <% even = !even; i++; %>
         </rsc:iterator>
         <tr>
-            <td class="SW" colspan="8">&nbsp;</td>
+            <td class="SW" colspan="7">&nbsp;</td>
             <td class="SE">&nbsp;</td>
         </tr>
     </tbody>
 </table>
 
-<div align="right" style="padding-top: 10px;"><strong>Would you like to see some of our <A href="/?module=Static&d1=oldcontests&d2=archive">older logo design contests</A>?</strong></div>
+<div align="right" style="padding-top: 10px;"><strong>Would you like to see some of our <a href="/?module=Static&amp;3d1=oldcontests&amp;d2=archive">older logo design contests</a>?</strong></div>
 
 </div>
 <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>

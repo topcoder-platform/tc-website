@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 
 <html>
 <head>
@@ -25,6 +25,17 @@
 
 
 <div class="contentSpacer">
+
+<p>
+    2.0.0 - 2007.xx.xxx
+    <ul>
+        <li>Send submissions to Online Review for scoring -dok</li>
+        <li>Fix bug where date in review email indicated it was in the user's timezone but was really eastern time -dok</li>
+        <li>Fix bug where the cache wasn't refreshed after an admin changed results -dok</li>
+        <li>Allow and admin to remove the place of a submission -dok</li>
+        <%-- TEST SECURITY MANAGER WITH REG TO MAKE SURE GROUPS AREN"T DELETED/INSERTED--%>
+    </ul>
+</p>
 
 
 <p>

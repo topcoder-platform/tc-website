@@ -1,9 +1,8 @@
 package com.topcoder.web.studio.controller.request.admin;
 
-import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.cache.CacheClient;
-import com.topcoder.web.common.cache.CacheClientFactory;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
@@ -12,6 +11,7 @@ import com.topcoder.web.studio.model.Prize;
 import com.topcoder.web.studio.model.ReviewStatus;
 import com.topcoder.web.studio.model.Submission;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -30,59 +30,67 @@ public class SetPlace extends Base {
             throw new NavigationException("Invalid Submission Specified");
         }
 
-        Long prizeId;
-        try {
-            prizeId = new Long(getRequest().getParameter(Constants.PRIZE_ID));
-        } catch (NumberFormatException e) {
-            throw new NavigationException("Invalid prize Specified");
+        Long prizeId = null;
+        if (!"".equals(StringUtils.checkNull(getRequest().getParameter(Constants.PRIZE_ID)))) {
+            try {
+                prizeId = new Long(getRequest().getParameter(Constants.PRIZE_ID));
+            } catch (NumberFormatException e) {
+                throw new NavigationException("Invalid prize Specified");
+            }
         }
         if (log.isDebugEnabled()) {
             log.debug("got prize: " + prizeId);
         }
 
         StudioDAOFactory factory = StudioDAOUtil.getFactory();
-        Submission s = factory.getSubmissionDAO().find(submissionId);
+        Submission submission = factory.getSubmissionDAO().find(submissionId);
 
-        if (s == null) {
+        if (submission == null) {
             throw new NavigationException("Invalid Submission Specified");
-        } else if (s.getReview() == null) {
+        } else if (submission.getReview() == null) {
             throw new NavigationException("Submission not reviewed, it can not place.");
-        } else if (!s.getReview().getStatus().equals(factory.getReviewStatusDAO().find(ReviewStatus.PASSED))) {
+        } else if (!submission.getReview().getStatus().equals(factory.getReviewStatusDAO().find(ReviewStatus.PASSED))) {
             throw new NavigationException("Submission did not pass, it can not place.");
         } else {
 
-            Set prizes = s.getContest().getPrizes();
-            boolean found = false;
             Prize p = null;
-            for (Iterator it = prizes.iterator(); it.hasNext() && !found;) {
-                p = (Prize) it.next();
-                found = prizeId.equals(p.getId());
+            if (prizeId != null) {
+                Set<Prize> prizes = submission.getContest().getPrizes();
+                boolean found = false;
+                for (Iterator<Prize> it = prizes.iterator(); it.hasNext() && !found;) {
+                    p = it.next();
+                    found = prizeId.equals(p.getId());
+                }
             }
-            if (p == null) {
+            if (prizeId == null) {
+                //clear prize
+                submission.getResult().setPrize(null);
+                factory.getSubmissionDAO().saveOrUpdate(submission);
+            } else if (p == null) {
                 throw new NavigationException("Invalid Prize Specified");
             } else {
-                ContestResult cr = new ContestResult();
-                cr.setContest(s.getContest());
-                cr.setPrize(p);
-                cr.setSubmission(s);
-                s.setResult(cr);
-                factory.getSubmissionDAO().saveOrUpdate(s);
-
-                try {
-                    CacheClient cc = CacheClientFactory.create();
-                    Request r = new Request();
-                    r.setContentHandle("studio_home_data");
-                    cc.remove(r.getCacheKey());
-                } catch (Exception ignore) {
-                    ignore.printStackTrace();
+                ContestResult cr = null;
+                if (submission.getResult() == null) {
+                    cr = new ContestResult(submission);
+                } else {
+                    cr = submission.getResult();
                 }
-
-
+                cr.setPrize(p);
+                factory.getSubmissionDAO().saveOrUpdate(submission);
             }
+            try {
+                HashSet<String> cachedStuff = new HashSet<String>();
+                cachedStuff.add(Constants.CONTEST_ID + "=" + submission.getContest().getId().toString());
+                cachedStuff.add("studio_home_data");
+                CacheClearer.removelike(cachedStuff);
+            } catch (Exception ignore) {
+                ignore.printStackTrace();
+            }
+
         }
 
         setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
-                "=AdminViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + s.getId());
+                "=AdminViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + submission.getId());
         setIsNextPageInContext(false);
 
     }

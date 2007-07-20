@@ -41,6 +41,7 @@ public class EditContest extends Base {
         String contestStatusId = getRequest().getParameter(Constants.CONTEST_STATUS_ID);
         String forumId = getRequest().getParameter(Constants.FORUM_ID);
         String eventId = getRequest().getParameter(Constants.EVENT_ID);
+        String projectId = getRequest().getParameter(Constants.PROJECT_ID_KEY);
         List fileTypes = getRequest().getParameterValues(Constants.FILE_TYPE) == null ?
                 Collections.EMPTY_LIST : Arrays.asList(getRequest().getParameterValues(Constants.FILE_TYPE));
 
@@ -96,8 +97,12 @@ public class EditContest extends Base {
             contest.setStartTime(new Timestamp(sdf.parse(startTime).getTime()));
             contest.setEndTime(new Timestamp(sdf.parse(endTime).getTime()));
             contest.setStatus(status);
-            if (forumId != null && !"".equals(StringUtils.checkNull(forumId))) {
+            if (!"".equals(StringUtils.checkNull(forumId))) {
                 contest.setForumId(new Integer(forumId));
+            }
+
+            if (!"".equals(StringUtils.checkNull(projectId))) {
+                contest.setProject(DAOUtil.getFactory().getProjectDAO().find(new Integer(projectId)));
             }
 
             ContestConfig currConfig;
@@ -159,6 +164,7 @@ public class EditContest extends Base {
         String maxSubmissions = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_SUBMISSIONS);
         String forumId = getRequest().getParameter(Constants.FORUM_ID);
         String eventId = getRequest().getParameter(Constants.EVENT_ID);
+        String projectId = getRequest().getParameter(Constants.PROJECT_ID_KEY);
 
 
         if (log.isDebugEnabled()) {
@@ -264,5 +270,25 @@ public class EditContest extends Base {
                 addError(Constants.EVENT_ID, "Please choose a valid event");
             }
         }
+
+        long pid = 0;
+        if (!"".equals(StringUtils.checkNull(projectId))) {
+            try {
+                pid = Long.parseLong(projectId);
+                ResultSetContainer rsc = getProjectList();
+                boolean found = false;
+                ResultSetContainer.ResultSetRow row;
+                for (Iterator it = rsc.iterator(); it.hasNext() && !found;) {
+                    row = (ResultSetContainer.ResultSetRow) it.next();
+                    found = row.getLongItem("project_id") == pid;
+                }
+                if (!found) {
+                    addError(Constants.PROJECT_ID_KEY, "Please choose a valid project");
+                }
+            } catch (NumberFormatException e) {
+                addError(Constants.PROJECT_ID_KEY, "Please choose a valid project");
+            }
+        }
+
     }
 }

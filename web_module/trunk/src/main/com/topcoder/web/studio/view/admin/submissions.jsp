@@ -4,7 +4,7 @@
 <%@ page import="com.topcoder.web.studio.model.SubmissionStatus" %>
 <%@ page import="com.topcoder.web.studio.model.SubmissionType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -82,20 +82,22 @@
 
 
 Showing <strong>${count}</strong> Submissions for <strong>${contest.name}</strong>
-<br><br>
+<br /><br />
 Show submissions by (Enter Handle):
 <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
-<br><br>
+<br /><br />
 <c:forEach items="${reviewStatuses}" var="reviewStatus">
     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=${reviewStatus.id}&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Only
-        show submissions that ${reviewStatus.description}</a><br>
+        show submissions that ${reviewStatus.description}</a><br />
 </c:forEach>
 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=null&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Only
-    show submissions that are unmarked</a><br>
+    show submissions that are unmarked</a><br />
 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Show
-    all active submissions</a><br>
+    all active submissions</a><br />
 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}&amp;<%=Constants.SUBMISSION_STATUS_ID%>=<%=SubmissionStatus.DELETED%>">Show
-    deleted submissions only</a>
+    deleted submissions only</a><br />
+<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}&amp;<%=Constants.SUBMISSION_TYPE_ID%>=<%=SubmissionType.FINAL_SUBMISSION_TYPE%>">Show
+    final submissions only</a>
 
 <div class="pagingBox">
     <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
@@ -175,7 +177,7 @@ Show submissions by (Enter Handle):
             <span class="coderText"><rsc:item name="submitter_handle" row="<%=resultRow%>"/></span>
         </td>
         <td class="valueC">
-            <%if (resultRow.getIntItem("submission_type_id")==SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
+            <%if (resultRow.getIntItem("submission_type_id") == SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
             Final
             <% } else { %>
             <rsc:item name="submitter_rank" row="<%=resultRow%>"/>
@@ -183,15 +185,16 @@ Show submissions by (Enter Handle):
         </td>
         <td class="value">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                <rsc:item name="original_file_name" row="<%=resultRow%>"/></a>
+                <rsc:item name="original_file_name" row="<%=resultRow%>"/>
+            </a>
         </td>
         <td class="valueC">
-            <%if (resultRow.getIntItem("submission_type_id")!=SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
+            <%if (resultRow.getIntItem("submission_type_id") != SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissionDetail&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
             <% } %>
         </td>
         <td class="valueC">
-            <rsc:item name="submit_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+            <rsc:item name="submit_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
         </td>
         <td class="valueC">
             <c:choose>
@@ -199,7 +202,7 @@ Show submissions by (Enter Handle):
                     &#160;
                 </c:when>
                 <c:otherwise>
-                    <rsc:item name="review_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}" ifNull="&#160;"/>
+                    <rsc:item name="review_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}" ifNull="&#160;"/>
                 </c:otherwise>
             </c:choose>
         </td>

@@ -3,7 +3,7 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -104,10 +104,10 @@
             <td class="NW">&nbsp;</td>
             <c:choose>
                 <c:when test="${contest.configMap[viewSubmitters]}">
-                    <td class="title" colspan="4">Submissions</td>
+                    <td class="title" colspan="5">Submissions</td>
                 </c:when>
                 <c:otherwise>
-                    <td class="title" colspan="3">Submissions</td>
+                    <td class="title" colspan="4">Submissions</td>
                 </c:otherwise>
             </c:choose>
             <td class="NE">&nbsp;</td>
@@ -121,15 +121,18 @@
                     Handle</a>
                 </td>
             </c:if>
-            <td class="headerC" nowrap="nowrap">
+            <td class="headerC" nowrap="nowrap" width="50%">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submission_id")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
                     Submission ID</a>
             </td>
-            <td class="headerC" nowrap="nowrap">
+            <td class="headerC" nowrap="nowrap" width="50%">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("create_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
                     Submitted</a>
             </td>
-            <td class="headerC" width="100%">
+            <td class="headerR">
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("final_score")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Score</a>
+            </td>
+            <td class="headerC">
                 Submission
             </td>
             <td class="headerE"><div>&nbsp;</div></td>
@@ -150,12 +153,16 @@
                 <td class="valueC" nowrap="nowrap">
                     <rsc:item name="create_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                 </td>
+                <td class="valueR">
+                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissionResults&amp;<%=Constants.SUBMISSION_ID%>=${resultRow.map['submission_id']}">
+                        <rsc:item name="final_score" row="<%=resultRow%>" format="0.00"/>
+                    </a>
+                </td>
                 <td class="valueC">
 
                     <c:choose>
                         <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
-                            <%--THIS IS A CRAPPY WAY TO MAKE THE PAGE MANAGEABLE BEFORE RESIZING THE IMAGE--%>
-                            <div align="center">
+                            <div align="center" style="overflow: hidden; width: 300px;">
                                 <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
                             </div>
                         </c:when>
@@ -177,10 +184,10 @@
         <tr>
             <c:choose>
                 <c:when test="${contest.configMap[viewSubmitters]}">
-                    <td class="SW" colspan="5">&nbsp;</td>
+                    <td class="SW" colspan="6">&nbsp;</td>
                 </c:when>
                 <c:otherwise>
-                    <td class="SW" colspan="4">&nbsp;</td>
+                    <td class="SW" colspan="5">&nbsp;</td>
                 </c:otherwise>
             </c:choose>
 

@@ -4,7 +4,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 
 <html>
 <head>
@@ -107,18 +107,24 @@
 
                 <br/> <br/>
 
-                <div class="header">Contest Results</div>
+                <c:set value="<%=ReviewStatus.PASSED%>" var="passedStatus"/>
 
-                <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="placedForm">
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSetPlace"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
+                <c:if test="${submissionReview.status.id==passedStatus}">
+                    <div class="header">Contest Results</div>
 
-                    <p>
-                        Place:
-                        <tc-webtag:objectSelect name="<%=Constants.PRIZE_ID%>" list="${submission.contest.prizes}" valueField="id" textField="place"/>
-                        <button name="submit" value="submit" type="submit">Save</button>
-                    </p>
-                </form>
+                    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="placedForm">
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSetPlace"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
+
+                        <p>
+                            Place:
+                            <tc-webtag:listSelect name="<%=Constants.PRIZE_ID%>" list="${prizes}"/>
+                            <button name="submit" value="submit" type="submit">Save</button>
+                        </p>
+                    </form>
+
+                </c:if>
+
 
             </div>
             <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>

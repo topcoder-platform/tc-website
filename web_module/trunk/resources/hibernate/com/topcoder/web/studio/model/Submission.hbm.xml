@@ -29,5 +29,6 @@
                      cascade="none"/>
         <one-to-one name="review" class="SubmissionReview"/>
         <one-to-one name="result" class="ContestResult" cascade="save-update"/>
+        <many-to-one name="ORSubmission" column="or_submission_id" class="com.topcoder.web.common.model.comp.Submission" cascade="none"/>
     </class>
 </hibernate-mapping>

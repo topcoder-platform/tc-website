@@ -2,23 +2,20 @@ package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.controller.request.admin.Base;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.studio.model.Submission;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.util.Date;
-import java.util.Iterator;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 29, 2006
  */
-public class DownloadSubmission extends Base {
+public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
     protected void dbProcessing() throws Exception {
         Long submissionId;
@@ -33,12 +30,8 @@ public class DownloadSubmission extends Base {
 
         boolean isOwner = s.getSubmitter().getId().equals(getUser().getId());
 
-        boolean isWinner = false;
-        ContestResult curr;
-        for (Iterator it = s.getContest().getResults().iterator(); it.hasNext() && !isWinner;) {
-            curr = (ContestResult) it.next();
-            isWinner = s.equals(curr.getSubmission()) && curr.getPrize().getPlace() == 1;
-        }
+        boolean isWinner = s.getResult() != null && s.getResult().getPrize() != null &&
+                s.getResult().getPrize().getPlace() !=null && s.getResult().getPrize().getPlace() == 1;
 
         boolean isOver = new Date().after(s.getContest().getEndTime());
 

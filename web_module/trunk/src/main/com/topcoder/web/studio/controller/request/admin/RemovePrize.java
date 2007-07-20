@@ -19,12 +19,17 @@ public class RemovePrize extends Base {
 
     protected void dbProcessing() throws Exception {
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
+        String prizeId = getRequest().getParameter(Constants.PRIZE_ID);
+        if (log.isDebugEnabled()) {
+            log.debug("prize id " + prizeId);
+        }
 
         if ("".equals(StringUtils.checkNull(contestId))) {
             throw new NavigationException("No contest specified");
+        } else if ("".equals(StringUtils.checkNull(prizeId))) {
+            throw new NavigationException("No prize specified");
         } else {
             Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
-            String place = StringUtils.checkNull(getRequest().getParameter(Constants.PRIZE_PLACE));
 
             boolean found = false;
             Set prizes = contest.getPrizes();
@@ -34,7 +39,7 @@ public class RemovePrize extends Base {
             Prize curr;
             for (Iterator it = prizes.iterator(); it.hasNext() && !found;) {
                 curr = (Prize) it.next();
-                if (place.equals((curr).getPlace().toString())) {
+                if (curr.getId().toString().equals(prizeId)) {
                     prizes.remove(curr);
                     found = true;
                 }
@@ -43,7 +48,7 @@ public class RemovePrize extends Base {
                 log.debug("size after: " + prizes.size());
             }
             if (!found) {
-                throw new NavigationException("Could not find the prize specified " + contestId + " " + place);
+                throw new NavigationException("Could not find the prize specified " + contestId + " " + prizeId);
             }
 
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
