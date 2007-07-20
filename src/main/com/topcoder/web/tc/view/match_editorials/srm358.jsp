@@ -59,7 +59,7 @@
 <br>
 <br>
 
-Division <tc-webtag:handle coderId="22687480" context="algorithm"/> 2 was won by  with 300 points on challenges followed by <tc-webtag:handle coderId="22628075" context="algorithm"/> and  <tc-webtag:handle coderId="22688056" context="algorithm"/>.
+Division 2 was won by <tc-webtag:handle coderId="22687480" context="algorithm"/> with 300 points on challenges followed by <tc-webtag:handle coderId="22628075" context="algorithm"/> and  <tc-webtag:handle coderId="22688056" context="algorithm"/>.
 </p> 
  
 <H1>
@@ -317,7 +317,7 @@ public class SameDigits {
         if( k == K ) return memo[n][last_same][did_reach] = ( 9*f( n-1, 1, 1 ) )%MOD;
 
         return memo[n][last_same][did_reach] = 
-            ( f( n-1, k+1, did_reach ) + 9*f( n-1, 1, did_reach ) )%MOD;
+            ( f( n-1, last_same+1, did_reach ) + 9*f( n-1, 1, did_reach ) )%MOD;
     }
 
     public int howMany( int n, int k ) {
