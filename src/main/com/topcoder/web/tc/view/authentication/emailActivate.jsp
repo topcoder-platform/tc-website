@@ -78,7 +78,7 @@
                             Password:
                         </td>
                         <td class="value">
-                            <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="15" onkeypress="submitEnter(event)">
+                            <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" size="15" onkeypress="submitEnter(event)">
                         </td>
                     </tr>
                     <tr>
