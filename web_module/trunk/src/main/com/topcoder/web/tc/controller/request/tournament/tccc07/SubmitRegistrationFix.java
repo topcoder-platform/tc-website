@@ -81,22 +81,22 @@ public class SubmitRegistrationFix extends SubmitRegistrationBase {
             }
            
             
-            if ("".equals(pref1) && pref1.equals(pref2) && pref2.equals(pref3)) {
+            if (!"".equals(pref1) && pref1.equals(pref2) && pref2.equals(pref3)) {
                 addError(pref1Key, "You can't select the same section more than once.");
                 addError(pref2Key, "You can't select the same section more than once.");
                 addError(pref3Key, "You can't select the same section more than once.");
             } else {
-                if ("".equals(pref1) && pref1.equals(pref2)) {
+                if (!"".equals(pref1) && pref1.equals(pref2)) {
                     addError(pref1Key, "You can't select the same section more than once.");
                     addError(pref2Key, "You can't select the same section more than once.");
                 }
 
-                if ("".equals(pref1) && pref1.equals(pref3)) {
+                if (!"".equals(pref1) && pref1.equals(pref3)) {
                     addError(pref1Key, "You can't select the same section more than once.");
                     addError(pref3Key, "You can't select the same section more than once.");
                 }
 
-                if ("".equals(pref2) && pref2.equals(pref3)) {
+                if (!"".equals(pref2) && pref2.equals(pref3)) {
                     addError(pref2Key, "You can't select the same section more than once.");
                     addError(pref3Key, "You can't select the same section more than once.");
                 }
