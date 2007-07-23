@@ -40,10 +40,29 @@
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/tournament/tco07current.png" alt="2007 TopCoder Open" border="0" /></A><br></td>
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about"><img src="/i/tournament/tccc07current.png" alt="2007 TopCoder Collegiate Challenge" border="0" /></A><br></td>
+         <td width="100%">
+         <span class="bodySubtitle">2007 TopCoder&#174; Collegiate Challenge</span>
+         <br><br>
+         Oct 30 - Nov 2<br>
+         Disney World Contemporary Resort<br>
+         Orlando, FL, USA<br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about">Details</A>
+         <br>
+         <A href="http://studio.topcoder.com/?module=ViewSubmissions&ct=2104">Logo Contest</A>
+         </td>
+      </tr>
+   </table>
+
+
+   <div class="sectionHeader" width="100%">Past Tournaments</div>
+   <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
+      <tr valign="top">
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/tournament/photo_tco07.jpg" alt="2007 TopCoder Open" border="0" /></A><br></td>
          <td width="100%">
          <span class="bodySubtitle">2007 TopCoder&#174; Open Sponsored by AOL</span>
          <br><br>
+         <div style="float: right;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/pressroom/tco07_logo.png" alt="" border="0" /></A></div>
          June 26-29<br>
          The Mirage <br>
          Las Vegas, NV, USA<br>
@@ -53,26 +72,26 @@
          </td>
       </tr>
    </table>
-
-
-   <div class="sectionHeader" width="100%">Past Tournaments</div>
+   
+   <hr width="100%" size="1" noshade="noshade" />
+   
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"><img src="/i/tournament/photo_tchs07.jpg" alt="2007 TopCoder High School Tournament" border="0" /></A><br></td>
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/photo_tccc06.jpg" alt="2006 TopCoder Collegiate Challenge" border="0" /></A><br></td>
          <td width="100%">
-         <span class="bodySubtitle">2007 TopCoder&#174; High School Tournament</span>
+         <span class="bodySubtitle">2006 TopCoder&#174; Collegiate Challenge Sponsored by AOL</span>
          <br><br>
-         <div style="float: right;"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"><img src="/i/pressroom/tchs07.png" alt="" border="0" /></A></div>
-         May 18-20<br>
-         Purdue University<br>
-         West Lafayette, IN, USA<br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">Details</A>
+         <div style="float: right;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=about"><img src="/i/pressroom/tccc06_logo.gif" alt="" border="0" /></A></div>
+         November 14-18<br>
+         San Diego Marriott Mission Valley<br>
+         San Diego, CA, USA<br>
+         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=about">Details</A>
          <br>
-         <A href="http://studio.topcoder.com/?module=ViewSubmissions&ct=2030">Logo Contest</A>
+         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=logo_overview">Logo Contest</A>
          </td>
       </tr>
    </table>
-   
+
    <hr width="100%" size="1" noshade="noshade" />
    
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
