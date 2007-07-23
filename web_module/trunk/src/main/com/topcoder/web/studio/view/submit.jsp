@@ -1,4 +1,7 @@
 <%@ page import="com.topcoder.web.studio.Constants, com.topcoder.web.studio.model.SubmissionType" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.util.Calendar" %>
+<%@ page import="java.util.GregorianCalendar" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -128,21 +131,53 @@
 </div>
 
 
+<%
+    GregorianCalendar gc = new GregorianCalendar(2007, Calendar.JULY, 23);
+%>
+<c:set value="<%=gc.getTime()%>" var="bigStart"/>
+
+
 <div style="margin: 40px 0px 20px 0px;">
     <form name="submissionForm" action="#">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${contest.id}"/>
         <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_TYPE_ID%>" value="<%=SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE.toString()%>"/>
 
-        <div align="center">
-            <strong>In the table below</strong> you can rank your submissions.
-            <br><span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for
-            this contest.
-            <br>Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
-            to the bottom of the page.
-            <br>If one of your preferred submissions fails after the submission phase, the next passing submission will
-            take its place.
-        </div>
+
+        <c:choose>
+            <c:when test="${contest.startTime > bigStart}">
+                <div align="center">
+                    <strong>In the table below</strong> you can rank your submissions. <br>
+
+                    <c:choose>
+                        <c:when test="${not empty contest.maxSubmissions.value}">
+                            Up to ${contest.maxSubmissions.value} will count in this contest.  They will be indicated
+                            by <span style="background: #a2d0a2;">Green rows</span> those that are not green will <b>NOT</b>
+                            be screened or reviewed.
+                            If you make more than ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}}">s</c:if>
+                            for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.
+                        </c:when>
+                    </c:choose>
+                    <c:otherwise>
+                        <span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for
+                    this contest.
+                    </c:otherwise>
+                    </div>
+            </c:when>
+            <c:otherwise>
+                <div align="center">
+                    <strong>In the table below</strong> you can rank your submissions.
+                    <br><span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for
+                    this contest.
+                    <br>Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
+                    to the bottom of the page.
+                    <br>If one of your preferred submissions fails after the submission phase, the next passing submission will
+                    take its place.
+                </div>
+            </c:otherwise>
+        </c:choose>
+
+
 
         <br><br>
         <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
