@@ -26,6 +26,15 @@
 
 <div class="contentSpacer">
 
+
+<p>
+    2.0.0 - 2007.07.20
+    <ul>
+        <li>If a contest is not scored, show "n/a" on submissions and results pages in the score column -dok</li>
+
+    </ul>
+
+
 <p>
     2.0.0 - 2007.07.20
     <ul>
@@ -38,7 +47,6 @@
         <li>Add score to submissions page -dok</li>
     <li>Add score to winners page -dok</li>
     <li>Add submission results page -dok</li>
-        <%-- TEST SECURITY MANAGER WITH REG TO MAKE SURE GROUPS AREN"T DELETED/INSERTED--%>
     </ul>
 </p>
 
