@@ -72,7 +72,7 @@ String eventType = (String) request.getAttribute("et"); %>
 
 <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
 <thead>
-    <tr><td class="title" colspan="4">Registrants: <%=rsc.size()%></td></tr>
+    <tr><td class="title" colspan="4">Registrants: ${numRegistrants}</td></tr>
     <tr>
         <td class="header" width="100%">
             <a href="/tc?module=TCCC07ViewRegistrants&amp;et=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>

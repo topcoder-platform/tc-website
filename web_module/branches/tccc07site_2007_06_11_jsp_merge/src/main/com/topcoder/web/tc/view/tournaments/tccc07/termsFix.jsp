@@ -43,9 +43,11 @@
                 <h1><span>Registration</span></h1>
 
                         <form name="terms" method="post" action="/tc">
-                            <input name="module" value="TCCC07SubmitRegistration" type="hidden">
+                            <input name="module" value="TCCC07SubmitRegistrationSections" type="hidden">
                             <input name="et" value="<%=eventType%>" type="hidden">
+                            <input name="<%=Constants.TERMS_AGREE%>" value="on" type="hidden">
 
+<!--
                             <p align="center">To complete your registration for the <%=event.getDescription()%> you must
                                 <br /><strong>read and agree to</strong> the terms listed below.</p>
 
@@ -61,20 +63,11 @@
                                 <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
                                 I agree
                             </div>
-
+-->
 
                             <tc:questionIterator list="<%=questionInfo%>" id="question">
-                                <% if (question.getKeyword().equals(RegistrationBase.AGE)) { %>
-                                <p align="center">
-                                    <span class="bigRed">
-                                    <tc-webtag:errorIterator id="err"
-                                                             name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>
-                                        <br />
-                                    </tc-webtag:errorIterator>
-                                    </span>&nbsp;<br>
-                                    <jsp:getProperty name="question" property="text"/>
-                                    <input type="text" size="3" maxlength="3" name="<%=AnswerInput.PREFIX + question.getId()%>" id="answerInput" value="<%= defaults.containsKey(AnswerInput.PREFIX + question.getId()) ? defaults.get(AnswerInput.PREFIX + question.getId()) : "" %>"/>
-                                </p>
+                                <% if (question.getKeyword().equals(RegistrationBase.AGE) ||
+                                       question.getKeyword().equals(RegistrationBase.IN_COLLEGE)) { %>
                                 <% } else { %>
                                 <p align="center">
                                     <span class="bigRed">
@@ -98,7 +91,6 @@
                                 <button name="submit" value="submit" type="submit">Submit</button>
                             </div>
                         </form>
-
 
             </div>
         </div>

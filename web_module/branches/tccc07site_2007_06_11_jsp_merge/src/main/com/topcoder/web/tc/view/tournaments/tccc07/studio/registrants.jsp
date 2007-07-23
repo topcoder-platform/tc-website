@@ -72,7 +72,7 @@ String eventType = (String) request.getAttribute("et"); %>
                                 <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
                                     <thead>
                                         <tr>
-                                            <td class="title">Registrants: <%=rsc.size()%>
+                                            <td class="title">Registrants: ${numRegistrants}
                                             </td>
                                         </tr>
                                         <tr>
