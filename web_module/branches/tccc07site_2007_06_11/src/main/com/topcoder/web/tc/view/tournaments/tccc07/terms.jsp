@@ -44,11 +44,13 @@
 
                 <c:choose>
                     <c:when test="${param['et']==6}">
-                        Due to a technical error, we have had to close the registration for the algorithm portion
+                    <div align="left" style="margin: 60px 0px 200px 0px;">
+                        Due to a technical error, we have had to temporarily close the registration for the algorithm portion
                         of the TopCoder Collegiate Challenge. We will reopen registration around 6 PM EDT on July 23,
                         2007.
-                        <br/><br/>
+                        <br /><br />
                         We are sorry for any inconvenience this may cause.
+                    </div>
                     </c:when>
                     <c:otherwise>
 
@@ -57,7 +59,7 @@
                             <input name="et" value="<%=eventType%>" type="hidden">
 
                             <p align="center">To complete your registration for the <%=event.getDescription()%> you must
-                                <br/><strong>read and agree to</strong> the terms listed below.</p>
+                                <br /><strong>read and agree to</strong> the terms listed below.</p>
 
                             <div align="center">
                                 <iframe width="640" height="300" marginWidth="5" src="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=event.getTerms().getId()%>"></iframe>
@@ -66,7 +68,7 @@
                             <div align="center">
                                 <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">
                                     <span class="bigRed">${err}</span>
-                                    &nbsp;<br/>
+                                    &nbsp;<br />
                                 </tc-webtag:errorIterator>
                                 <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
                                 I agree
@@ -79,7 +81,7 @@
                                     <span class="bigRed">
                                     <tc-webtag:errorIterator id="err"
                                                              name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>
-                                        <br/>
+                                        <br />
                                     </tc-webtag:errorIterator>
                                     </span>&nbsp;<br>
                                     <jsp:getProperty name="question" property="text"/>
@@ -90,11 +92,11 @@
                                     <span class="bigRed">
                                     <tc-webtag:errorIterator id="err"
                                                              name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>
-                                        <br/>
+                                        <br />
                                     </tc-webtag:errorIterator>
                                     </span>&nbsp;<br>
                                     <jsp:getProperty name="question" property="text"/>
-                                    <br/>
+                                    <br />
                                     <tc:answerInput id="answerInput" question="<%=question%>">
                                         <%=answerInput%>
                                         <%=answerText%>&nbsp;&nbsp;&nbsp;
