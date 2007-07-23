@@ -12,7 +12,7 @@
 </map>
 <img src="/i/home/tchs07registration.png" alt="TCHS07" border="0" style="display:block;" usemap="#tchs07"/>
 --%>
-        <%-- TCO07  fri --%>
+        <%-- TCO07  fri 
         <map name="tco07">
         <area shape="rect" alt="" coords="313,36,343,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoFinals" />
         <area shape="rect" alt="" coords="346,36,376,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary" />
@@ -26,7 +26,7 @@
         <area shape="rect" alt="" coords="442,109,489,130" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=overview" />
         </map>
         <img src="/i/home/tco07champions.png" alt="2007 TopCoder Open" usemap="#tco07" style="display: block;" />
-        
+        --%>
 <%-- homepage design prediction 
 <A href="/to"><img src="/i/home/predictRd2.png" alt="Predict the winners"/></A>
 --%>
@@ -34,3 +34,6 @@
 <%-- TC Channel 
 <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep2' refer='/tc' />"><img src="/i/home/tcchannelEp2.jpg" alt="TC Channel: Episode 2" /></A>
 --%>
+
+<%-- TCCC07 --%>
+<A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=about' refer='/tc' />"><img src="/i/home/tccc07.png" alt="TCCC07" /></A>

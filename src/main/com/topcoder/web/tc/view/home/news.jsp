@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>07.23.07<br>9:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about">The 2007 TopCoder Collegiate Challenge is here!</A>
+        </span><br><br>
+        Registration is now open for the 2007 TopCoder Collegiate Challenge. This year's TCCC features more competitions and bigger prizes, and will take place at Walt Disney World in Orlando, Florida. Register now!
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about">details</A> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.19.07<br>4:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -174,18 +193,3 @@ and <tc-webtag:handle coderId="272408" context="algorithm"/> rounded out the top
         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
       
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.12.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=071207">An Interview with ahyangyi</A></span><br><br>
-      "I'm in awe."  Those were the words used by TopCoder member <tc-webtag:handle coderId="22651496" /> in describing <tc-webtag:handle coderId="20812309" />, one of the newest "targets" in algorithm competitions, and the first ever high school student to achieve such status.</td>
-         <td class="newsPhoto"><img src="/i/m/dcp_big2.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21684580" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=071207">full story</A> | 
-         <tc-webtag:forumLink forumID="516505" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
