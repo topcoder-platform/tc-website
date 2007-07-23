@@ -28,7 +28,7 @@ public class LinkProjectContest extends ShortHibernateProcessor {
         List<Project> updatedProjects = new ArrayList<Project>();
         
         for (String pj : projects) {
-            Project project = pdao.find(new Long(pj));
+            Project project = pdao.find(new Integer(pj));
             
             project.addContest(contest);
             contest.addProject(project);

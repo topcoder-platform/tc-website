@@ -28,7 +28,7 @@ public class UnlinkProjectContest extends ShortHibernateProcessor {
         
         for (String rmv : removed) {
             String []values = rmv.split(":"); 
-            Long pj = new Long(values[0]);
+            Integer pj = new Integer(values[0]);
             Long ct = new Long(values[1]);
             
             Project project = pdao.find(pj);
