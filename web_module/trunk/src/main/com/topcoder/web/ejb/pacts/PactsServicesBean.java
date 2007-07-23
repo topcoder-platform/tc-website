@@ -5617,7 +5617,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Special treating for algorithm payments, because they have affidavits.
             if (payment instanceof AlgorithmContestPayment ||
                     payment instanceof AlgorithmTournamentPrizePayment ||
-                    payment instanceof MarathonMatchPayment) {
+                    payment instanceof MarathonMatchPayment ||
+                    payment instanceof MarathonMatchTournamentPrizePayment) {
                 paymentId = makeNewAlgorithmPayment(c, p, (AlgorithmRoundReferencePayment) payment);
             } else if (payment.getContractId() > 0) {
                 paymentId = makeNewContractPayment(c, payment.getContractId(), p);
