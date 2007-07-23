@@ -201,7 +201,7 @@
 
                         </tr>
                         <tr class="dark"> 
-                            <td class="value">Up to 400 competitors who compete in <br />
+                            <td class="value">Up to 300 competitors who compete in <br />
                             Online Round 2</td> 
                             <td class="value">Limited edition 2007 TopCoder Collegiate Challenge t-shirt</td>
 
