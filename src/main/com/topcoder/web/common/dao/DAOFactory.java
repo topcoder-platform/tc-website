@@ -15,9 +15,9 @@ public interface DAOFactory {
     CompanyDAO getCompanyDAO();
 
     CompContestDAO getCompContestDAO();
-    
+
     ContestPrizeDAO getContestPrizeDAO();
-    
+
     ContactDAO getContactDAO();
 
     CountryDAO getCountryDAO();
@@ -33,9 +33,9 @@ public interface DAOFactory {
     ImageDAO getImageDAO();
 
     IntroEventDAO getIntroEventDAO();
-    
+
     IntroEventPropertyTypeDAO getIntroEventPropertyTypeDAO();
-    
+
     EventRegistrationDAO getEventRegistrationDAO();
 
     EventTypeDAO getEventTypeDAO();
@@ -69,10 +69,12 @@ public interface DAOFactory {
     SchoolTypeDAO getSchoolTypeDAO();
 
     SeasonDAO getSeasonDAO();
-    
+
     SecurityGroupDAO getSecurityGroupDAO();
 
     StateDAO getStateDAO();
+
+    SubmissionDAO getSubmissionDAO();
 
     TeamDAO getTeamDAO();
 
@@ -89,7 +91,7 @@ public interface DAOFactory {
     UserDAO getUserDAO();
 
     UserPreferenceDAO getUserPreferenceDAO();
-    
+
     VisaLetterEventDAO getVisaLetterEventDAO();
 
     VisaLetterRequestDAO getVisaLetterRequestDAO();
