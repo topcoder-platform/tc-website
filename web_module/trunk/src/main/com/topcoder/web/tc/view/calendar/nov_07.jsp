@@ -60,12 +60,42 @@
       <td class="empty">&#160;</td>
       <td class="empty">&#160;</td>
       <td class="value">1
+         <div class="tccc07">
+         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule">Algo Room 3</A></strong><br>
+         8:30 AM 
+         </div>
+         <div class="tccc07">
+         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule">Studio Finals</A></strong><br>
+         9:00 AM 
+         </div>
+         <div class="tccc07">
+         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule">CDDC 2</A></strong><br>
+         1:00 PM 
+         </div>
+         <div class="tccc07">
+         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule">Algo Wildcard</A></strong><br>
+         4:00 PM 
+         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
       </td>
       <td class="value">2
+         <div class="tccc07">
+         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule">CDDC Finals</A></strong><br>
+         9:00 AM PDT 
+         </div>
+         <div class="tccc07">
+         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule">Algo Finals</A></strong><br>
+         1:30 PM
+         </div>
       </td>
       <td class="value">3
       </td>

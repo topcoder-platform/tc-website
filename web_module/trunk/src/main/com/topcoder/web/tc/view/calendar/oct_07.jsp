@@ -67,13 +67,11 @@
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
-      <%--
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">Component Online 2</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">CDDC Online Championship Round 2 Projects Posted</A></strong><br>
          9:00 AM 
          </div>
-      --%>
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10785">SRM 368</A></strong><br>
          <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=XXX">XXX</A><br>--%>
@@ -81,13 +79,11 @@
          </div>
       </td>
       <td class="value">5
-      <%--
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=schedule">Marathon Match #3</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=schedule">Marathon Match Round 3</A></strong><br>
          12:00 Noon 
          </div>
-      --%>
       </td>
       <td class="value">6
       </td>
@@ -153,13 +149,11 @@
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
-      <%--
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">Component Online 3</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">CDDC Online Championship Round 3 Projects Posted</A></strong><br>
          9:00 AM 
          </div>
-      --%>
       </td>
       <td class="value">19
       </td>
@@ -206,6 +200,26 @@
       <td class="value">30
       </td>
       <td class="value">31
+         <div class="tccc07">
+         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule">Algo Room 1</A></strong><br>
+         8:30 AM
+         </div>
+         <div class="tccc07">
+         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule">Marathon Match Finals</A></strong><br>
+         9:00 AM
+         </div>
+         <div class="tccc07">
+         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule">CDDC 1</A></strong><br>
+         1:00 PM 
+         </div>
+         <div class="tccc07">
+         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule">Algo Room 2</A></strong><br>
+         4:00 PM 
+         </div>
       </td>
       <td class="empty">&#160;<br><br><br><br><br></td>
       <td class="empty">&#160;</td>

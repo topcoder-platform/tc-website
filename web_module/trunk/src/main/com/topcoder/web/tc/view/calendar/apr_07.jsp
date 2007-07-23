@@ -70,7 +70,7 @@
       <td class="value">4
          <div class="tco07">
          <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule">Marathon Match #3</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule">Marathon Match Round 3</A></strong><br>
          <%--<A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign">VeriSign</A><br>--%>
          12:00 NOON
          </div>
@@ -167,7 +167,7 @@
          </div>
          <div class="tco07">
          <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule">Marathon Match #4</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule">Marathon Match Round 4</A></strong><br>
          <%--<A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign">VeriSign</A><br>--%>
          12:00 NOON
          </div>
