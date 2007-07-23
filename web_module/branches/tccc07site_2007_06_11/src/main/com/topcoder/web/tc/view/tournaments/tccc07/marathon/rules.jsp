@@ -166,7 +166,7 @@
                 
                 <a name="prizes"></a>
                 <h2>About the Prizes</h2>
-                <p>Prizes will be awarded to a maximum of 400 competitors in the Competition who advance to online round #2. At the onsite Championship round, cash prizes of a maximum of $30,000 will be awarded. Any and all applicable taxes on prizes are the sole responsibility of the competitors. Prizes will be distributed as follows:</p>
+                <p>Prizes will be awarded to a maximum of 300 competitors in the Competition who advance to online round #2. At the onsite Championship round, cash prizes of a maximum of $30,000 will be awarded. Any and all applicable taxes on prizes are the sole responsibility of the competitors. Prizes will be distributed as follows:</p>
 
                 <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                     <tbody> 
