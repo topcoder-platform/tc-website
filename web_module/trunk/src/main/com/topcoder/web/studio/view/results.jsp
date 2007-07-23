@@ -99,7 +99,7 @@
         <td class="valueC">
             <c:choose>
                 <c:when test="${bonusPrize==resultRow.map['prize_type_id']}">
-                    BONUS
+                    Client <br /> Selection
                 </c:when>
                 <c:otherwise>
                     <rsc:item name="placed" row="<%=resultRow%>"/>
