@@ -36,6 +36,8 @@ public interface Constants {
     public static final int ARCHITECTURE_PAYMENT = 29;
     public static final int PREDICTIVE_CONTEST_PAYMENT = 30;
     public static final int INTRO_EVENT_COMP_PAYMENT = 31;
+    public static final int MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT = 32;
+    public static final int TC_STUDIO_TOURNAMENT_PRIZE_PAYMENT = 33;
 
     public static final int NO_REFERENCE = 0;
     public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;

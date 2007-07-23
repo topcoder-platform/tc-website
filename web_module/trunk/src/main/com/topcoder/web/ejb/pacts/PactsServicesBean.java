@@ -3397,7 +3397,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         if (p.getHeader().getTypeId() == ALGORITHM_CONTEST_PAYMENT ||
                 p.getHeader().getTypeId() == MARATHON_MATCH_PAYMENT ||
-                p.getHeader().getTypeId() == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
+                p.getHeader().getTypeId() == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT ||
+                p.getHeader().getTypeId() == MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT) {
             StringBuffer getUserWithholding = new StringBuffer(300);
             getUserWithholding.append("SELECT withholding_amount, withholding_percentage, use_percentage,date_filed ");
             getUserWithholding.append("FROM user_tax_form_xref ");
