@@ -2,14 +2,14 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%-------------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.23.07<br>3:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.23.07<br>5:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm359">SRM 359 - Problem Set &amp; Analysis</A></span><br><br>
-      The easy problem proved to be fairly straightforward for most coders.  The medium posed a little more difficulty, although noticing a few tricks made the problem simpler.  Though there were a handful of submissions, it turned out the hard was just a bit complicated, and none of the five submissions survived.</td>
-         <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" context="algorithm" /></td></tr></table>
+      In Division 1, <tc-webtag:handle coderId="19849563" context="algorithm"/> made a strong start with the first submission on the 500, but fell behind as he was overtaken by competitors submitting fast 1000s. At the start of the challenge phase, <tc-webtag:handle coderId="8355516" context="algorithm"/> was in first with a very fast submissions on the 250 and 1000. Unfortunately, his 500 failed system testing.</td>
+         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="251074" context="algorithm" /></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -17,7 +17,7 @@
          <tc-webtag:forumLink forumID="516056" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
-   -------------------------%>
+   
    
 <%--------------------------------------------------------%>
    <tr>
@@ -190,37 +190,3 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.16.07<br>4:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=071607">An Introduction to Version Control</A></span><br><br>
-      In this article, I'll look at the concepts involved in version control, and illustrate them with two open-source systems: <a href="http://subversion.tigris.org/">Subversion</a> and <a href="http://git.or.cz/">git</a>.</td>
-         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=071607">full story</A> | 
-         <tc-webtag:forumLink forumID="516594" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.16.07<br>3:20 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm357">SRM 357 - Problem Set &amp; Analysis</A></span><br><br>
-      <tc-webtag:handle coderId="19849563" context="algorithm"/> easily cruised through the field to victory. TopCoder and web-casting veteran <tc-webtag:handle coderId="270505" context="algorithm"/> came second with a 100+ gap,
-and <tc-webtag:handle coderId="272408" context="algorithm"/> rounded out the top three, finishing almost 300 points behind John.</td>
-         <td class="newsPhoto"><img src="/i/m/Cosmin.ro_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303185" context="algorithm" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm357">full story</A> | 
-         <tc-webtag:forumLink forumID="516054" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
