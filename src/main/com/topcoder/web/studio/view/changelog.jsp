@@ -28,19 +28,16 @@
 
 
 <p>
-    2.0.0 - 2007.07.20
+    2.0.1 - 2007.07.23
     <ul>
         <li>If a contest is not scored, show "n/a" on submissions and results pages in the score column -dok</li>
-
+        <li>Send submissions to Online Review for scoring -dok</li>
     </ul>
 
-
+</p>
 <p>
     2.0.0 - 2007.07.20
     <ul>
-<%--
-        <li>Send submissions to Online Review for scoring -dok</li>
---%>
         <li>Fix bug where date in review email indicated it was in the user's timezone but was really eastern time -dok</li>
         <li>Fix bug where the cache wasn't refreshed after an admin changed results -dok</li>
         <li>Allow and admin to remove the place of a submission -dok</li>

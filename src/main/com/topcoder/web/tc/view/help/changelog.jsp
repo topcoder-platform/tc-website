@@ -43,10 +43,11 @@
 </jsp:include>
 
 <p>
-    5.10.12 - 2007.07.xx
+    5.10.12 - 2007.07.23
     <ul>
         <li>Marathon Matches available language by round -mural</li>
         <li>Add payment types for Studio and Marathon tournamnets -cucu</li>
+        <li>Fix bug where group rows were deleted/inserted rather than updated -dok</li>
     </ul>
 </p>
 
