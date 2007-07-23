@@ -27,11 +27,11 @@ public class DAOFactoryHibernate implements DAOFactory {
     public CompContestDAO getCompContestDAO() {
         return new CompContestDAOHibernate();
     }
-    
+
     public ContactDAO getContactDAO() {
         return new ContactDAOHibernate();
     }
-    
+
     public ContestPrizeDAO getContestPrizeDAO() {
         return new ContestPrizeDAOHibernate();
     }
@@ -59,7 +59,8 @@ public class DAOFactoryHibernate implements DAOFactory {
     public IntroEventDAO getIntroEventDAO() {
         return new IntroEventDAOHibernate();
     }
-    public IntroEventPropertyTypeDAO getIntroEventPropertyTypeDAO(){
+
+    public IntroEventPropertyTypeDAO getIntroEventPropertyTypeDAO() {
         return new IntroEventPropertyTypeDAOHibernate();
     }
 
@@ -141,6 +142,10 @@ public class DAOFactoryHibernate implements DAOFactory {
 
     public StateDAO getStateDAO() {
         return new StateDAOHibernate();
+    }
+
+    public SubmissionDAO getSubmissionDAO() {
+        return new SubmissionDAOHibernate();
     }
 
     public TeamDAO getTeamDAO() {
