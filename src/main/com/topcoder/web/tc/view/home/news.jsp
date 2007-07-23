@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.23.07<br>2:10 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm35">TCHS SRM 35 - Problem Set &amp; Analysis</A></span><br><br>
+      The easy problem proved to be fairly straightforward for most coders.  The medium posed a little more difficulty, although noticing a few tricks made the problem simpler.  Though there were a handful of submissions, it turned out the hard was just a bit complicated, and none of the five submissions survived.</td>
+         <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" context="algorithm" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm35">full story</A> | 
+         <tc-webtag:forumLink forumID="516561" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>07.23.07<br>9:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -174,22 +190,3 @@ and <tc-webtag:handle coderId="272408" context="algorithm"/> rounded out the top
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>07.13.07<br>4:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=hs&d2=home">Register for the new season of TopCoder High School</A>
-        </span><br><br>
-        With the new TopCoder High School season underway, please update your registration. If you're planning to compete, you'll need to register for <a href="/tc?module=HSViewRegister">Season 2</a>, and check out more <a href="http://forums.topcoder.com/?module=Thread&threadID=581544">news</a> about this season. If you're no longer in high school, please <a href="/tc?module=HSViewUnregister">unregister</a> from TCHS competitions.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=home">details</A> |
-        <a href="http://forums.topcoder.com/?module=Thread&threadID=581544">discuss this</a> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-      
