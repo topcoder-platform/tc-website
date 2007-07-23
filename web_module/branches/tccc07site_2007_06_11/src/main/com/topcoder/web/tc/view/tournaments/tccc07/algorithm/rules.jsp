@@ -181,7 +181,7 @@
                         </tr> 
                         <tr class="dark"> 
                             <td class="value">Online Round 4</td> 
-                            <td class="value">Saturday, September 22<br />Register: 10:00 AM - 12:55 PM<br />START: 7:00 AM</td> 
+                            <td class="value">Saturday, September 22<br />Register: 10:00 AM - 12:55 PM<br />START: 1:00 PM</td> 
                             <td class="value">150</td> 
                             <td class="value">48</td>
 
