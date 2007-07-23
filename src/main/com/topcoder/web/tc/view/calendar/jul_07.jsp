@@ -159,13 +159,15 @@
       <td class="value">22
       </td>
       <td class="value">23
-      <%--
          <div class="tccc07">
-         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about">TCCC07 Registration Opens</A></strong><br>
-         9:00 AM 
+             <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+             <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about">TCCC07 Registration Opens</A></strong><br>
+             <strong><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=schedule">Algo</a>, </strong>
+             <strong><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=component&amp;d4=schedule">CDDC</a>, </strong>
+             <strong><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=marathon&amp;d4=schedule">MM</a>, </strong>
+             <strong><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=studio&amp;d4=schedule">SDC</a></strong><br>
+             9:00 AM 
          </div>
-      --%>
       </td>
       <td class="value">24
          <div class="srm">
@@ -177,6 +179,11 @@
       <td class="value">25
       </td>
       <td class="value">26
+         <div class="tccc07">
+             <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+             <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">CDDC Week 1 Projects Posted</A></strong><br>
+             9:00 AM 
+         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM

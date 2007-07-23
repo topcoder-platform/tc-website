@@ -62,13 +62,11 @@
       <td class="empty">&#160;</td>
       <td class="empty">&#160;</td>
       <td class="value">1
-      <%--
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC Round 2</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">Algo Round 1C</A></strong><br>
          1:00 PM 
          </div>
-      --%>
       </td>
    </tr>
 
@@ -95,13 +93,11 @@
          12:00 NOON<br>
          2 weeks
          </div>
-      <%--
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=schedule">Marathon Match #3</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=schedule">Marathon Match Round 3</A></strong><br>
          12:00 Noon 
          </div>
-      --%>
       </td>
       <td class="value">6
          <div class="des_dev">
@@ -112,13 +108,11 @@
       <td class="value">7
       </td>
       <td class="value">8
-      <%--
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC Round 3</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">Algo Round 2</A></strong><br>
          1:00 PM 
          </div>
-      --%>
       </td>
    </tr>
 
@@ -143,15 +137,18 @@
          </div>
       </td>
       <td class="value">14
-      </td>
-      <td class="value">15
-      <%--
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC Round 4</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">Visa request deadline</A></strong><br>
+         5:00 PM 
+         </div>
+      </td>
+      <td class="value">15
+         <div class="tccc07">
+         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">Algo Round 3</A></strong><br>
          1:00 PM 
          </div>
-      --%>
       </td>
    </tr>
 
@@ -173,30 +170,31 @@
          </div>
       </td>
       <td class="value">19
-      <%--
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=schedule">Marathon Match #4</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=schedule">Marathon Match Round 4</A></strong><br>
          12:00 Noon 
          </div>
-      --%>
       </td>
       <td class="value">20
+         <div class="tccc07">
+         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">CDDC Online Championship Round 1 Projects Posted</A></strong><br>
+         9:00 AM 
+         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
-      <%--
-         <div class="tccc07">
-         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">Component Online 1</A></strong><br>
-         9:00 AM 
-         </div>
-      --%>
       </td>
       <td class="value">21
       </td>
       <td class="value">22
+         <div class="tccc07">
+         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">Algo Round 4</A></strong><br>
+         1:00 PM 
+         </div>
       </td>
    </tr>
 
