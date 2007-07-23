@@ -151,17 +151,18 @@
 
                     <c:choose>
                         <c:when test="${not empty contest.maxSubmissions.value}">
-                            Up to ${contest.maxSubmissions.value} will count in this contest.  They will be indicated
-                            by <span style="background: #a2d0a2;">Green rows</span> those that are not green will <b>NOT</b>
-                            be screened or reviewed.
+                            Up to ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}}">s</c:if>
+                            will count for this contest.  They will be indicated
+                            by <span style="background: #a2d0a2;">Green rows</span>.  Those that are not green will <b>NOT</b> count,
+                            they will neither be screened nor reviewed.
                             If you make more than ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}}">s</c:if>
                             for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.
                         </c:when>
-                    </c:choose>
                     <c:otherwise>
                         <span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for
                     this contest.
                     </c:otherwise>
+                    </c:choose>
                     </div>
             </c:when>
             <c:otherwise>
