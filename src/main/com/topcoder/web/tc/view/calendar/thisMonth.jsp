@@ -179,6 +179,11 @@
       <td class="value">25
       </td>
       <td class="value">26
+         <div class="tccc07">
+             <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+             <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">CDDC Week 1 Projects Posted</A></strong><br>
+             9:00 AM 
+         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
