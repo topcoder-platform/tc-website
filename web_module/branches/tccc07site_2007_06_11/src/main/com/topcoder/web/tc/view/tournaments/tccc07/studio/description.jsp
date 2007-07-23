@@ -43,7 +43,7 @@
                 
                 <h2>How to Register for the Studio Design Competition</h2>
 
-                <p>Click <a href="" alt="TCCC07 Studio Design Competition">here</a> to register for the TCCC07 Studio Design Competition.</p>
+                <p>Click <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=registerNow" alt="TCCC07 Studio Design Competition">here</a> to register for the TCCC07 Studio Design Competition.</p>
 
             </div>
     </div>
