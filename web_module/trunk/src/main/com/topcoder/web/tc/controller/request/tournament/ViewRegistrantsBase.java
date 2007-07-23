@@ -55,6 +55,7 @@ public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
         }
 
         setSortInfo(rsc);
+        getRequest().setAttribute("numRegistrants", rsc.size());
 
         if (e.getRegistrationStart().after(new GregorianCalendar(2007,6,1).getTime())) {
             log.debug("Registrants page pageable.");
