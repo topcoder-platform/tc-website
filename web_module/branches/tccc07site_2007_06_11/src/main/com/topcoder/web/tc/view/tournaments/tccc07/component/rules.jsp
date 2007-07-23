@@ -46,7 +46,7 @@
                     <ul>
                         <li>Must be at least 18 years of age as of July 26, 2007; AND</li>
                         <li>Must currently be eligible for participation in TopCoder competitions (i.e., not suspended from TopCoder); AND</li>
-                        <li>Must be matriculated full-time at an accredited college or university.</li>
+                        <li>Must be matriculated full-time at an accredited college or university at some point between July 23, 2007 and November 3, 2007.</li>
 
                     </ul>
                 <p>Competitors are eligible to win cash prizes, unless otherwise prohibited. The Tournament and the CDDC are void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Residents of Cuba, Iran, North Korea, Sudan, or Syria are ineligible to receive cash prizes and are ineligible to attend the onsite Championship Round of competition as competitors.</p>

@@ -49,7 +49,7 @@
                         <li>Must be at least 18 years of age (as of August 18, 2007); AND</li>
 
                         <li>Must currently be eligible for participation in TopCoder competition (i.e., not suspended from TopCoder).</li>
-                        <li>Must be matriculated full-time at an accredited college or university.</li>
+                        <li>Must be matriculated full-time at an accredited college or university at some point between July 23, 2007 and November 3, 2007.</li>
 
                     </ul>
                 <p>The TopCoder Collegiate Challenge is void in the Quebec province of Canada and where prohibited by applicable law. Residents of Cuba, Iran, North Korea, Sudan, or Syria are ineligible to receive cash prizes and are ineligible to attend the onsite semi-final round of competition as competitors.</p>

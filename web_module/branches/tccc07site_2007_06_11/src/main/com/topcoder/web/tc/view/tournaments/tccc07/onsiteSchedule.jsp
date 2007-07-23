@@ -53,7 +53,7 @@
                                 <td class="value">Marathon Match Finals</td>
                             </tr>
                             <tr class="dark"> 
-                                <td class="value">Noon - 1:00 PM </td> 
+                                <td class="value">12:30 - 1:30 PM</td> 
                                 <td class="value">Lunch</td>
                             </tr> 
                             <tr class="light">
@@ -84,7 +84,7 @@
                                 <td class="value">Studio Graphic Design Finals</td>
                             </tr>
                             <tr class="dark">
-                                <td class="value">Noon - 1:00 PM </td>
+                                <td class="value">12:30 - 1:30 PM</td>
                                 <td class="value">Lunch</td>
                             </tr>
                             <tr class="light">
@@ -115,7 +115,7 @@
                                 <td class="value">AOL Presentation</td>
                             </tr>
                             <tr class="dark">
-                                <td class="value">Noon - 1:00 PM </td>
+                                <td class="value">12:30 - 1:30 PM</td>
                                 <td class="value">Lunch</td>
                             </tr>
                             <tr class="light">

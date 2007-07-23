@@ -28,7 +28,7 @@
             
             <h2>Registration</h2>
 
-            <p>Registration for the 2007 TopCoder Collegiate Challenge Algorithm Competition will open at 9:00 AM EDT on Monday, July 23, and will close at 5:00 AM EDT on Thursday, August 16, 2007. In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition. There is no limit to the number of registrants for the competition, however each individual may only register once.</p>
+            <p>Registration for the 2007 TopCoder Collegiate Challenge Algorithm Competition will open at 9:00 AM EDT on Monday, July 23, and will close at 5:00 PM EDT on Thursday, August 16, 2007. In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition. There is no limit to the number of registrants for the competition, however each individual may only register once.</p>
             
             <table cellpadding="0" cellspacing="0" class="stat" width="100%"> 
                 <tbody> 
