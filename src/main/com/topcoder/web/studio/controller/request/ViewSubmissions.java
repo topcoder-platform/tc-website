@@ -58,6 +58,8 @@ public class ViewSubmissions extends ShortHibernateProcessor {
             r.setProperty(Constants.SUBMISSION_RANK, c.getMaxSubmissions().getValue());
         }
 
+        getRequest().setAttribute("hasScores", c.getProject()!=null);
+
         String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String dir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
 
