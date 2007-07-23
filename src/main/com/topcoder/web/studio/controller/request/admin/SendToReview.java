@@ -50,6 +50,7 @@ public class SendToReview extends Base {
             Contest c = factory.getContestDAO().find(cid);
             //check if all the submissions in the contest have been reviewed.
 
+            int count = 0;
             if (c.getProject() != null) {
                 if (now.after(c.getEndTime())) {
                     if (allSubmissionsReviewed(c)) {
@@ -61,8 +62,13 @@ public class SendToReview extends Base {
                                     log.debug("passed all checks, sending " + s.getId() + " to OR");
                                 }
                                 s.setORSubmission(DAOUtil.getFactory().getSubmissionDAO().find(uploadSubmission(s)));
+                                count++;
                             }
                         }
+                        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
+                                "=AdminSendToReviewResult&" + Constants.CONTEST_ID + "=" + contestId);
+                        setIsNextPageInContext(false);
+
                     } else {
                         throw new NavigationException("Be sure to review all the submissions before attempting to send them to online review");
                     }
@@ -86,8 +92,9 @@ public class SendToReview extends Base {
 
     private boolean allSubmissionsReviewed(Contest c) {
         log.debug("start testing if all submissions reviewed");
+        int max = Integer.parseInt(c.getMaxSubmissions().getValue());
         for (Submission s : c.getSubmissions()) {
-            if (SubmissionStatus.ACTIVE.equals(s.getStatus().getId()) && s.getReview() == null) {
+            if (SubmissionStatus.ACTIVE.equals(s.getStatus().getId()) && s.getRank() <= max && s.getReview() == null) {
                 log.debug("end testing if all submissinos reviewed (they were not)");
                 return false;
             }
