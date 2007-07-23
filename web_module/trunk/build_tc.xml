@@ -152,6 +152,10 @@
             <include name="com/topcoder/web/**"/>
             <exclude name="com/topcoder/web/csf/**"/>
             <exclude name="com/topcoder/web/wiki/**"/>
+            <exclude name="com/topcoder/web/studio/**"/>
+            <exclude name="com/topcoder/web/forums/**"/>
+            <exclude name="com/topcoder/web/onsite/**"/>
+            <exclude name="com/topcoder/web/oracle/**"/>
         </javac>
         <property name="compile_set" value="true"/>
         <antcall target="jar_common"/>
