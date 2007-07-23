@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=072307"><strong>What happened in Vegas: TCO07 winners tell all</strong></a><br>
+We asked the five winners of the 2007 TopCoder Open five simple questions each to find out just what the winning experience was like. Here's what they told us.</li>
 <li><a href="/tc?module=Static&d1=features&d2=071907"><strong>Know your hero: bmerry</strong></a>, by <tc-webtag:handle coderId="21201116" /><br>
 Welcome to the first edition of "Know Your Hero," a series of interviews with the coders, designers and developers who are at the top of the ratings. This edition features <tc-webtag:handle coderId="251074" context="algorithm"/>, who is currently positioned at no. 4 in the world in algorithm competitions.</li>
 <li><a href="/tc?module=Static&d1=features&d2=071607"><strong>An Introduction to Version Control</strong></a>, by <tc-webtag:handle coderId="251074" /><br>
 In this article, I'll look at the concepts involved in version control, and illustrate them with two open-source systems: <a href="http://subversion.tigris.org/">Subversion</a> and <a href="http://git.or.cz/">git</a>.</li>
-<li><a href="/tc?module=Static&d1=features&d2=071207"><strong>An Interview with ahyangyi</strong></a>, by <tc-webtag:handle coderId="21684580" /><br>
-"I'm in awe."  Those were the words used by TopCoder member <tc-webtag:handle coderId="22651496" /> in describing <tc-webtag:handle coderId="20812309" />, one of the newest "targets" in algorithm competitions, and the first ever high school student to achieve such status.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
