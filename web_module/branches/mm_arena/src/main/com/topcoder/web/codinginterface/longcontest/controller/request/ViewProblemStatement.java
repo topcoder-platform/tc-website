@@ -91,7 +91,7 @@ public class ViewProblemStatement extends Base {
             }
             
             ProblemComponent pc [] = new ProblemComponent[] {
-                LongContestServicesLocator.getService().getProblemComponent((int) rd, (int) cid, (int) user.getId())};
+                LongContestServicesLocator.getService().getProblemComponent((int) rd, (int) cid, (int) getUser().getId())};
             
             Problem problem = new Problem();
             problem.setProblemTypeID(Problem.TYPE_LONG);
