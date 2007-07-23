@@ -3,6 +3,7 @@ package com.topcoder.web.studio.controller.request.admin;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
@@ -59,9 +60,8 @@ public class SendToReview extends Base {
                                 if (log.isDebugEnabled()) {
                                     log.debug("passed all checks, sending " + s.getId() + " to OR");
                                 }
-                                uploadSubmission(s);
+                                s.setORSubmission(DAOUtil.getFactory().getSubmissionDAO().find(uploadSubmission(s)));
                             }
-
                         }
                     } else {
                         throw new NavigationException("Be sure to review all the submissions before attempting to send them to online review");
@@ -108,7 +108,7 @@ public class SendToReview extends Base {
      * @throws java.net.MalformedURLException if any while creating the SOAP call.
      * @throws java.rmi.RemoteException       if any while executing.
      */
-    public long uploadSubmission(Submission s) throws ServiceException,
+    public int uploadSubmission(Submission s) throws ServiceException,
             MalformedURLException, RemoteException {
 
         if (log.isDebugEnabled()) {
@@ -137,7 +137,7 @@ public class SendToReview extends Base {
         // call.
         //todo these should really be int for project id
         return ((Number) call.invoke(new Object[]{s.getContest().getProject().getId().longValue(), s.getSubmitter().getId(),
-                fileName, dhSource})).longValue();
+                fileName, dhSource})).intValue();
     }
 
 
