@@ -1,5 +1,8 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
+import java.util.Map;
+
+import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -7,18 +10,18 @@ import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.language.JavaLanguage;
 import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.ProblemComponent;
-import com.topcoder.shared.problemParser.ProblemComponentFactory;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
-import com.topcoder.web.ejb.coder.Coder;
-
-import java.io.StringReader;
-import java.util.Map;
 
 
 public class ViewProblemStatement extends Base {
@@ -86,15 +89,10 @@ public class ViewProblemStatement extends Base {
             if (!started&&!getSessionInfo().isAdmin()) {
                 throw new NavigationException("The contest has not started yet.");
             }
-            ResultSetContainer rsc = null;
-            rsc = (ResultSetContainer) m.get("long_problem_xml");
-            ResultSetContainer.ResultSetRow rr = null;
-            rr = rsc.getRow(0);
-            String problemText = rr.getStringItem("component_text");
-            //log.debug("test: " + problemText);
-            StringReader reader = new StringReader(problemText);
-            ProblemComponent pc [] = new ProblemComponent[1];
-            pc[0] = new ProblemComponentFactory().buildFromXML(reader, true);
+            
+            ProblemComponent pc [] = new ProblemComponent[] {
+                LongContestServicesLocator.getService().getProblemComponent((int) rd, (int) cid, (int) user.getId())};
+            
             Problem problem = new Problem();
             problem.setProblemTypeID(Problem.TYPE_LONG);
             problem.setProblemComponents(pc);
