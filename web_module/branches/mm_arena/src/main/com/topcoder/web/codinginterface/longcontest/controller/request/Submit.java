@@ -198,22 +198,9 @@ public class Submit extends Base {
                 setIsNextPageInContext(true);
             } else if (action.equals("submit")) { // user is submiting code
 
-                // Language specified?
-                if (!allowedLanguages.contains(BaseLanguage.getLanguage(language))) {
-                    log.debug("set message in request to please select a valid language");
-                    request.setAttribute(Constants.MESSAGE, "Please select a valid language.");
-                    request.setAttribute(Constants.LANGUAGES, allowedLanguages);
-                    setNextPage(Constants.SUBMISSION_JSP);
-                    setIsNextPageInContext(true);
-                    return;
-                } else if ("".equals(StringUtils.checkNull(code).trim())) {
-                    request.setAttribute(Constants.MESSAGE, "Please include some code.");
-                    request.setAttribute(Constants.LANGUAGES, allowedLanguages);
-                    setNextPage(Constants.SUBMISSION_JSP);
-                    setIsNextPageInContext(true);
+                if (!checkLanguages(request, code, language, allowedLanguages)) {
                     return;
                 }
-
 
                 ResultSetContainer lastExampleCompilation =
                         (ResultSetContainer) m.get("long_contest_recent_example_compilation");
@@ -269,6 +256,10 @@ public class Submit extends Base {
                 }
             } else if (action.equals("save")) { // user is saving code
                 try {
+                    if (!checkLanguages(request, code, language, allowedLanguages)) {
+                        return;
+                    }
+
                     saveCode(code, language, uid, cd, rid, cid);
                     // save complete
                     // go back to coding!
@@ -293,6 +284,25 @@ public class Submit extends Base {
             log.error("Unexpected error in code submit module.", e);
             throw new TCWebException("An error occurred while compiling your code", e);
         }
+    }
+
+    private boolean checkLanguages(TCRequest request, String code, int language, List allowedLanguages) {
+        // Language specified?
+        if (!allowedLanguages.contains(BaseLanguage.getLanguage(language))) {
+            log.debug("set message in request to please select a valid language");
+            request.setAttribute(Constants.MESSAGE, "Please select a valid language.");
+            request.setAttribute(Constants.LANGUAGES, allowedLanguages);
+            setNextPage(Constants.SUBMISSION_JSP);
+            setIsNextPageInContext(true);
+            return false;
+        } else if ("".equals(StringUtils.checkNull(code).trim())) {
+            request.setAttribute(Constants.MESSAGE, "Please include some code.");
+            request.setAttribute(Constants.LANGUAGES, allowedLanguages);
+            setNextPage(Constants.SUBMISSION_JSP);
+            setIsNextPageInContext(true);
+            return false;
+        }
+        return true;
     }
 
     private void reportError(TCRequest request, long cd, long rid, long cid, String message, String code, int language) throws Exception {
