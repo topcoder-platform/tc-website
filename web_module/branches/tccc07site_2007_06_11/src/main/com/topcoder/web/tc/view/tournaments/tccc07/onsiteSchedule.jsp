@@ -110,25 +110,20 @@
                                 <td class="value">Component Design &amp; Development Appeals Final</td>
                             </tr>
                             <tr class="light">
-                                <td class="value">11:00 AM - Noon</td>
-
-                                <td class="value">AOL Presentation</td>
-                            </tr>
-                            <tr class="dark">
                                 <td class="value">12:30 - 1:30 PM</td>
                                 <td class="value">Lunch</td>
                             </tr>
-                            <tr class="light">
+                            <tr class="dark">
 
                                 <td class="value">1:30 PM - 3:30 PM </td>
                                 <td class="value">Algorithm Championship Round</td>
                             </tr>
-                            <tr class="dark">
+                            <tr class="light">
                                 <td class="value">3:30 PM - 4:30 PM </td>
                                 <td class="value">All Champion Announcements and Awards</td>
                             </tr>
 
-                            <tr class="light">
+                            <tr class="dark">
                                 <td class="value">7:00 PM - 10:00 PM </td>
                                 <td class="value">Reception</td>
                             </tr>
