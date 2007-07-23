@@ -1,4 +1,6 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="java.util.GregorianCalendar" %>
+<%@ page import="java.util.Calendar" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
@@ -78,14 +80,27 @@
         </div>
 
         <h1>Submission Successfully Uploaded</h1>
+<%
+    GregorianCalendar gc = new GregorianCalendar(2007, Calendar.JULY, 23);
+%>
+<c:set value="<%=gc.getTime()%>" var="bigStart"/>
 
         <div align="center">
             <div align="left" style="width:500px; margin-top: 20px;">
                 Your Submission Has Been Uploaded
                 <br><br>
-                Please allow at least 24 hours for processing. If your submission does not pass screening, you
-                will receive an
-                email with a list of any requirements that it failed to meet.
+                        <c:choose>
+            <c:when test="${contest.startTime > bigStart}">
+                Your submission will be screened after the Submission Phase has ended. If your submission does not pass
+                screening, you will receive an email with a list of any requirements that it failed to meet. 
+                </c:when>
+                <c:otherwise>
+                    Please allow at least 24 hours for processing. If your submission does not pass screening, you
+                    will receive an
+                    email with a list of any requirements that it failed to meet.
+
+                </c:otherwise>
+                </c:choose>
                 <br><br>
                 Thank you.
                 <br><br>
@@ -99,15 +114,39 @@
         <div style="margin: 40px 0px 20px 0px;">
             <form name="submissionForm" action="#">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
-                <div align="center">
-                    <strong>In the table below</strong> you can rank your submissions.
-                    <br><span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will
-                    count for this contest.
-                    <br>Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are
-                    automatically moved to the bottom of the page.
-                    <br>If one of your preferred submissions fails after the submission phase, the next passing
-                    submission will take its place.
-                </div>
+                <c:choose>
+                     <c:when test="${contest.startTime > bigStart}">
+                         <div align="center">
+                             <strong>In the table below</strong> you can rank your submissions. <br>
+
+                             <c:choose>
+                                 <c:when test="${not empty contest.maxSubmissions.value}">
+                                     Up to ${contest.maxSubmissions.value} will count in this contest.  They will be indicated
+                                     by <span style="background: #a2d0a2;">Green rows</span> those that are not green will <b>NOT</b>
+                                     be screened or reviewed.
+                                     If you make more than ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}}">s</c:if>
+                                     for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.
+                                 </c:when>
+                             </c:choose>
+                             <c:otherwise>
+                                 <span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for
+                             this contest.
+                             </c:otherwise>
+                             </div>
+                     </c:when>
+                     <c:otherwise>
+                         <div align="center">
+                             <strong>In the table below</strong> you can rank your submissions.
+                             <br><span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for
+                             this contest.
+                             <br>Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
+                             to the bottom of the page.
+                             <br>If one of your preferred submissions fails after the submission phase, the next passing submission will
+                             take its place.
+                         </div>
+                     </c:otherwise>
+                 </c:choose>
+
                 <br><br>
                 <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
                     <thead>
