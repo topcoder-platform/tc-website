@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">07.23.07 9:30 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about">The 2007 TopCoder Collegiate Challenge is here!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.16.07 5:15 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=19130">TCCC07 Logo Design vote results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.12.07 2:45 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=19130">Vote for the TCCC07 logo design</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.03.07 2:45 PM - </td><td width="100%"><A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2104">Design the TCCC07 logo</A></td></tr>
