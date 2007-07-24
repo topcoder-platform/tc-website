@@ -17,7 +17,7 @@
         	You are registered for the <strong><%=rscTccc07.getStringItem(0, "event_desc")%></strong>.
         <% } else { %>
         	You are not registered for the <strong><%=rscTccc07.getStringItem(0, "event_desc")%></strong>.
-            <br>Would you like to <strong><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=TCCC07ViewRegistration&et=7" class="tccc07MessageLink">register</a></strong>?
+            <br>Would you like to <strong><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=TCCC07ViewRegistration&amp;et=7" class="tccc07MessageLink">register</a></strong>?
         <% } %>
         <br/><br/>
 </div>
