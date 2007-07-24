@@ -1275,10 +1275,10 @@ public class TCLoadTCS extends TCLoad {
                         "    ,case when exists(select '1' from submission s,upload u,resource r, resource_info ri  " +
                         "           where r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and u.resource_id = r.resource_id " +
                         "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and ri.value = pr.user_id and s.submission_status_id in (1,2,3,4))  " +
-                        "    then 1  else 0 end as submit_ind " +
+                        "    then 1 else 0 end as submit_ind " +
                         "    ,case when exists(select '1' from submission s,upload u,resource r, resource_info ri " +
                         "           where r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and u.resource_id = r.resource_id " +
-                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and ri.value = pr.user_id and submission_status_id in (1,2,3,4) then pr.valid_submission_ind  " +
+                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and ri.value = pr.user_id and submission_status_id in (1,2,3,4)) then pr.valid_submission_ind  " +
                         "    else 0 end as valid_submission_ind " +
                         "    ,pr.raw_score " +
                         "    ,pr.final_score " +
