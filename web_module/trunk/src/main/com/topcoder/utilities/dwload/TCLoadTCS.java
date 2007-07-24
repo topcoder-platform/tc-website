@@ -1844,7 +1844,6 @@ public class TCLoadTCS extends TCLoad {
                         "  ,project_info piel " +
                         "  ,resource_info ri1" +
                         "  ,resource_info ri2" +
-                        "  ,outer resource_info ri3" +
                         "   ,resource res " +
                         "where r.submission_id = s.submission_id " +
                         "   and u.upload_id = s.upload_id " +
