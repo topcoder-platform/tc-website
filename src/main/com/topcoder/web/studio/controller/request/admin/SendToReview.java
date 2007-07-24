@@ -92,7 +92,10 @@ public class SendToReview extends Base {
 
     private boolean allSubmissionsReviewed(Contest c) {
         log.debug("start testing if all submissions reviewed");
-        int max = Integer.parseInt(c.getMaxSubmissions().getValue());
+        int max = -1;
+        if (c.getMaxSubmissions() != null && c.getMaxSubmissions().getValue() != null) {
+            max = Integer.parseInt(c.getMaxSubmissions().getValue());
+        }
         for (Submission s : c.getSubmissions()) {
             if (SubmissionStatus.ACTIVE.equals(s.getStatus().getId()) && s.getRank() <= max && s.getReview() == null) {
                 log.debug("end testing if all submissinos reviewed (they were not)");
