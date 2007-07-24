@@ -74,7 +74,8 @@ public class Register extends ViewRegistration {
             
             // only bother if the user is not a professional (tccc)
             // comment this line if not needed
-            bother = !DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId())).getCoderType().equals(CoderType.PROFESSIONAL); 
+            bother = !CoderType.PROFESSIONAL.equals(DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId())).getCoderType().getId()); 
+            log.debug("Bother: " + bother);
 
             
 //            Coder c = (Coder) createEJB(getInitialContext(), Coder.class);
