@@ -14,6 +14,8 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.SubmissionStatus;
 
+import java.util.Map;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -167,8 +169,10 @@ public class ViewSubmissions extends Base {
             r.setProperty("submissions" + DataAccessConstants.END_RANK, end);
         }
 
-        getRequest().setAttribute("submissions", dai.getData(r).get("submissions"));
-        getRequest().setAttribute("count", ((ResultSetContainer) dai.getData(r).get("count")).getItem(0, 0));
+        Map<String, ResultSetContainer> results = dai.getData(r);
+
+        getRequest().setAttribute("submissions", results.get("submissions"));
+        getRequest().setAttribute("count", results.get("count").getItem(0, 0));
 
 
         SortInfo info = new SortInfo();
