@@ -6,6 +6,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.CoderType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
@@ -34,6 +35,12 @@ public class Register extends ShortHibernateProcessor {
 
                 Contest c = cFactory.getContestDAO().find(contestId);
                 User u = factory.getUserDAO().find(getUser().getId());
+                
+                boolean bother = true; 
+                
+                // only bother if the user is not a professional (tccc)
+                // comment this line if not needed
+                bother = !u.getCoder().getCoderType().equals(CoderType.PROFESSIONAL); 
 
                 if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
                     if ("on".equals(getRequest().getParameter(Constants.TERMS_AGREE))) {
@@ -43,7 +50,7 @@ public class Register extends ShortHibernateProcessor {
 
                         boolean isApproved = false;
 
-                        if (c.getEvent() != null) {
+                        if (bother && c.getEvent() != null) {
                             log.debug("event not null");
                             if (factory.getEventRegistrationDAO().find(getUser().getId(), c.getEvent().getId()) == null) {
                                 log.debug("user not registered");
