@@ -41,6 +41,8 @@ public class Register extends ShortHibernateProcessor {
                 // only bother if the user is not a professional (tccc)
                 // comment this line if not needed
                 bother = !u.getCoder().getCoderType().equals(CoderType.PROFESSIONAL); 
+                log.debug("Coder type: " + u.getCoder().getCoderType().getDescription());
+                log.debug("Bother: " + bother);
 
                 if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
                     if ("on".equals(getRequest().getParameter(Constants.TERMS_AGREE))) {
