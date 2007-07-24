@@ -273,6 +273,8 @@ public class Submit extends Base {
                     request.setAttribute(Constants.LANGUAGES, allowedLanguages);
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
+                } catch (LongContestServicesException e) {
+                    reportError(request, cd, rid, cid, "Save failed: "+MessageProvider.getText(e.getLocalizableMessage()), code, language);
                 } catch (Exception e) {
                     log.error("Could not save the code:", e);
                     throw new NavigationException("Your code cannot be saved at this time.");
@@ -386,7 +388,6 @@ public class Submit extends Base {
             log.error("Error isUserRegistered user: " + userID + " for round: "
                     + roundID, e);
             throw e;
-
         }
         return ret;
 
