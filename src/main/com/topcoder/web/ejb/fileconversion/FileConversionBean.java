@@ -71,6 +71,12 @@ public class FileConversionBean implements SessionBean {
         }
         // get an instance of the converter
         ConversionClient client = Conversion.getNewClient();
+        if (log.isDebugEnabled()) {
+            for (ConversionFormatDescriptor d : client.getInputFormats()) {
+                log.debug(d.getDescription() + " " + d.getExtension());
+            }
+        }
+
         ConversionFormatDescriptor inFormat = client.getInputFormat(extension);
         if (inFormat == null) {
             log.debug("informat is null");
