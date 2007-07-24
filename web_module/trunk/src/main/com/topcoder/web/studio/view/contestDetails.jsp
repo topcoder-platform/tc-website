@@ -7,6 +7,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
+<c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
 
 <html>
 <head>
@@ -78,7 +79,6 @@
                                     </c:forEach>
                                 </c:when>
                                 <c:otherwise>
-                                    <c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
                                     <c:forEach items="${contest.prizes}" var="prize">
                                         <c:choose>
                                             <c:when test="${clientPrize==prize.type.id}">
