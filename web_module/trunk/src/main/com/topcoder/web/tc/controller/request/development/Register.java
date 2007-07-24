@@ -19,7 +19,9 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Answer;
+import com.topcoder.web.common.model.CoderType;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.tag.AnswerInput;
@@ -67,8 +69,16 @@ public class Register extends ViewRegistration {
 
             boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
             List responses = validateSurvey();
-            Coder c = (Coder) createEJB(getInitialContext(), Coder.class);
-            //boolean isStudent = c.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME) == 1;
+            
+            boolean bother = true; 
+            
+            // only bother if the user is not a professional (tccc)
+            // comment this line if not needed
+            bother = !DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId())).getCoderType().equals(CoderType.PROFESSIONAL); 
+
+            
+//            Coder c = (Coder) createEJB(getInitialContext(), Coder.class);
+//            //boolean isStudent = c.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME) == 1;
             if (agreed && !hasErrors()) {
                 if (log.isDebugEnabled()) {
                     log.debug("they agree to terms and there are no errors");
@@ -82,7 +92,7 @@ public class Register extends ViewRegistration {
 /*
                     if (isTournamentTime() && isStudent) {
 */
-                    if (isTournamentTime()) {
+                    if (isTournamentTime() && bother) {
                         if (log.isDebugEnabled()) {
                             log.debug("it's tournament time and they are as student");
                         }

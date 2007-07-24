@@ -18,7 +18,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Answer;
-import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.common.model.CoderType;
 import com.topcoder.web.common.model.Event;
@@ -160,7 +159,15 @@ public class ViewRegistration extends Base {
                     log.debug("yes, they're a student");
                 }
 */
-        if (isTournamentProject(projectId) && !isRegisteredForTournament()) {
+        
+        boolean bother = true; 
+        
+        // only bother if the user is not a professional (tccc)
+        // comment this line if not needed
+        bother = !DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId())).getCoderType().equals(CoderType.PROFESSIONAL); 
+
+        
+        if (bother && isTournamentProject(projectId) && !isRegisteredForTournament()) {
             getRequest().setAttribute("notRegistered", "true");
         }
 /*
@@ -202,10 +209,7 @@ public class ViewRegistration extends Base {
     }
 
     protected boolean isRegisteredForTournament() throws Exception {
-        // only bother if the user is not a professional
-        Coder c = DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId()));
-        
-        return c.getCoderType().equals(CoderType.PROFESSIONAL) || DAOUtil.getFactory().getEventRegistrationDAO().find(new Long(getUser().getId()),
+        return DAOUtil.getFactory().getEventRegistrationDAO().find(new Long(getUser().getId()),
                 Event.TCCC07_COMPONENT_ID) != null;
     }
 
