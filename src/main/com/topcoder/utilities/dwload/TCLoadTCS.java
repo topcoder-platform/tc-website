@@ -855,8 +855,11 @@ public class TCLoadTCS extends TCLoad {
                             "   ,cc.component_name " +
                             "   ,(select count(*) from resource where project_id = p.project_id and resource_role_id = 1) as num_registrations " +
                             "   ,(select count(*) from submission sub, upload where sub.upload_id = upload.upload_id and project_id = p.project_id and submission_status_id <> 5) as num_submissions " +
+                            //todo this should probably use the flag on project result in the dw, not got back to the submission table in transactoinal
                             "   ,(select count(*) from submission s, upload where upload.upload_id = s.upload_id and project_id = p.project_id and submission_status_id in (1, 3, 4)) as num_valid_submissions " +
+                            //todo this should use the flag on project result, not go back to transactional
                             "   ,(select count(*) from submission s, upload u where u.upload_id = s.upload_id and project_id = p.project_id and submission_status_id in (1, 4)) as num_submissions_passed_review " +
+                            //todo again...none of this aggregate data should come from transactional
                             "   ,(select avg(case when raw_score is null then 0 else raw_score end) from project_result where project_id = p.project_id and raw_score is not null) as avg_raw_score " +
                             "   ,(select avg(case when final_score is null then 0 else final_score end) from project_result where project_id = p.project_id and final_score is not null) as avg_final_score " +
                             "   ,case when p.project_category_id = 1 then 112 when p.project_category_id = 2 then 113 else null end  as phase_id " +
@@ -1271,17 +1274,12 @@ public class TCLoadTCS extends TCLoad {
                         "    ,pr.user_id " +
                         "    ,case when exists(select '1' from submission s,upload u,resource r, resource_info ri  " +
                         "           where r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and u.resource_id = r.resource_id " +
-                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and ri.value = pr.user_id and s.submission_status_id <> 5)  " +
-                        "    then 1  " +
-                        "    when exists(select '1' from submission s,upload u,resource r, resource_info ri  " +
-                        "           where r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and u.resource_id = r.resource_id " +
-                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and ri.value = pr.user_id and submission_status_id = 5)  " +
-                        "    then 0  " +
-                        "    else pr.valid_submission_ind end as submit_ind " +
+                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and ri.value = pr.user_id and s.submission_status_id in (1,2,3,4))  " +
+                        "    then 1  else 0 end as submit_ind " +
                         "    ,case when exists(select '1' from submission s,upload u,resource r, resource_info ri " +
                         "           where r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and u.resource_id = r.resource_id " +
-                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and ri.value = pr.user_id and submission_status_id = 5) then 0  " +
-                        "    else pr.valid_submission_ind end as valid_submission_ind " +
+                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and ri.value = pr.user_id and submission_status_id in (1,2,3,4) then pr.valid_submission_ind  " +
+                        "    else 0 end as valid_submission_ind " +
                         "    ,pr.raw_score " +
                         "    ,pr.final_score " +
                         "    ,(select max(create_time) from component_inquiry where project_id = p.project_id and user_id = pr.user_id)  as inquire_timestamp " +
@@ -1803,6 +1801,9 @@ public class TCLoadTCS extends TCLoad {
     }
 
     public void doLoadSubmissionReview() throws Exception {
+        //todo fix this load...it's total crap right now.  we're not getting the right data at all.
+        //todo we're loading at the granularity of submission, when we need to be loading at the granularity of submission/reviewer
+        //todo raw score and final score are the primary problems.
         log.info("load submission review");
         ResultSet submissionInfo = null;
         ResultSet projects = null;
@@ -1818,7 +1819,7 @@ public class TCLoadTCS extends TCLoad {
                 "select u.project_id " +
                         "  ,ri1.value as user_id " +
                         "  ,ri2.value as reviewer_id " +
-                        "   ,ri3.value as raw_score " +
+                        "   ,s.initial_score as raw_score " +
                         "   ,r.score as final_score " +
                         "   ,(select count(*) from review_item_comment ric,review_item ri " +
                         "       where ric.review_item_id = ri.review_item_id and ri.review_id = r.review_id and ric.comment_type_id = 4) as num_appeals " +
@@ -1854,8 +1855,6 @@ public class TCLoadTCS extends TCLoad {
                         "   and resource_role_id in (4, 5, 6, 7) " +
                         "   and ri1.resource_id = u.resource_id " +
                         "   and ri1.resource_info_type_id = 1 " +
-                        "   and ri3.resource_id = u.resource_id " +
-                        "   and ri3.resource_info_type_id = 10 " +
                         "   and ri2.resource_id = r.resource_id " +
                         "   and ri2.resource_info_type_id = 1 " +
                         "   and piel.project_info_type_id = 14 " +
@@ -3298,7 +3297,7 @@ public class TCLoadTCS extends TCLoad {
                     int p = questionHeader.lastIndexOf("\n", 250);
 
                     if (p >= 0) {
-                        questionHeader = questionHeader.substring(0, p+1) + "...";
+                        questionHeader = questionHeader.substring(0, p + 1) + "...";
                     } else {
                         p = questionHeader.lastIndexOf(" ", 250);
                         if (p >= 0) {
