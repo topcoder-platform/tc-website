@@ -91,7 +91,7 @@ public class ViewSubmissions extends Base {
             }
             from.append("  and s.contest_id = ").append(contestId);
             from.append("  and s.submission_status_id = ").append(status);
-            if (contest.getMaxSubmissions() != null) {
+            if (contest.getMaxSubmissions() != null && contest.getMaxSubmissions().getValue() != null) {
                 from.append("  and s.rank <= ").append(contest.getMaxSubmissions().getValue());
             }
             from.append(" and not exists (select '1'  ");
