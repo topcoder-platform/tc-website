@@ -18,6 +18,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.i18n.MessageProvider;
 import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.language.JavaLanguage;
+import com.topcoder.shared.language.Language;
 import com.topcoder.shared.messaging.messages.LongCompileRequest;
 import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.problem.DataType;
@@ -287,8 +288,13 @@ public class Submit extends Base {
     }
 
     private boolean checkLanguages(TCRequest request, String code, int language, List allowedLanguages) {
+        Language lang = null;
+        try {
+            lang = BaseLanguage.getLanguage(language);
+        } catch (Exception e) {
+        }
         // Language specified?
-        if (!allowedLanguages.contains(BaseLanguage.getLanguage(language))) {
+        if (lang == null || !allowedLanguages.contains(lang)) {
             log.debug("set message in request to please select a valid language");
             request.setAttribute(Constants.MESSAGE, "Please select a valid language.");
             request.setAttribute(Constants.LANGUAGES, allowedLanguages);
