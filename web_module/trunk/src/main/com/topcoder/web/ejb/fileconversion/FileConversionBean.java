@@ -71,40 +71,47 @@ public class FileConversionBean implements SessionBean {
         }
         // get an instance of the converter
         ConversionClient client = Conversion.getNewClient();
+
         if (log.isDebugEnabled()) {
             for (ConversionFormatDescriptor d : client.getInputFormats()) {
                 log.debug(d.getDescription() + " " + d.getExtension());
             }
         }
 
-        ConversionFormatDescriptor inFormat = client.getInputFormat(extension);
-        if (inFormat == null) {
-            log.debug("informat is null");
+
+        if (client.isSupported(extension)) {
+            ConversionFormatDescriptor inFormat = client.getInputFormat(extension);
+            ConversionFormatDescriptor outFormat = client.getOutputFormat(inFormat.getType(), "pdf");
+            ConversionInputSource input = new ConversionInputSource(new ByteArrayInputStream(file), inFormat.getType());
+
+            // start the conversion
+            try {
+                log.debug("STARTING");
+                InputStream finishedFile = client.convertSync(input, outFormat.getType());
+
+                byte[] b = new byte[finishedFile.available()];
+                finishedFile.read(b);
+                finishedFile.close();
+
+
+                return b;
+            } catch (ConversionException ce) {
+                // something went wrong
+                ce.printStackTrace();
+            } catch (IOException io) {
+                //io exception
+                io.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return new byte[0];
+
+        } else {
+            throw new IllegalArgumentException("Unsupported extension " + extension);
+
         }
-        ConversionFormatDescriptor outFormat = client.getOutputFormat(inFormat.getType(), "pdf");
-        ConversionInputSource input = new ConversionInputSource(new ByteArrayInputStream(file), inFormat.getType());
-
-        // start the conversion
-        try {
-            log.debug("STARTING");
-            InputStream finishedFile = client.convertSync(input, outFormat.getType());
-
-            byte[] b = new byte[finishedFile.available()];
-            finishedFile.read(b);
-            finishedFile.close();
 
 
-            return b;
-        } catch (ConversionException ce) {
-            // something went wrong
-            ce.printStackTrace();
-        } catch (IOException io) {
-            //io exception
-            io.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return new byte[0];
     }
 }
