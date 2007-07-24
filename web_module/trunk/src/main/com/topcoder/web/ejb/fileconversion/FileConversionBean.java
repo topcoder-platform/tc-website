@@ -1,6 +1,10 @@
 package com.topcoder.web.ejb.fileconversion;
 
-import com.topcoder.file.convert.*;
+import com.topcoder.file.convert.Conversion;
+import com.topcoder.file.convert.ConversionClient;
+import com.topcoder.file.convert.ConversionException;
+import com.topcoder.file.convert.ConversionFormatDescriptor;
+import com.topcoder.file.convert.ConversionInputSource;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.ejb.CreateException;
@@ -15,8 +19,8 @@ import java.rmi.RemoteException;
  * The EJB class which handles database access routines for screening
  * admin services.
  *
- * @author   1mahesh
- * @version  1.01, 12/31/2002
+ * @author 1mahesh
+ * @version 1.01, 12/31/2002
  */
 
 public class FileConversionBean implements SessionBean {
@@ -25,7 +29,6 @@ public class FileConversionBean implements SessionBean {
 
     /**
      * This method is required by the EJB Specification
-     *
      */
     public void ejbActivate() {
 
@@ -34,7 +37,6 @@ public class FileConversionBean implements SessionBean {
 
     /**
      * This method is required by the EJB Specification
-     *
      */
     public void ejbPassivate() {
 
@@ -44,14 +46,12 @@ public class FileConversionBean implements SessionBean {
     /**
      * This method is required by the EJB Specification.
      * Used to get the context ... for dynamic connection pools.
-     *
      */
     public void ejbCreate() throws CreateException {
     }
 
     /**
      * This method is required by the EJB Specification
-     *
      */
     public void ejbRemove() {
     }
@@ -60,16 +60,17 @@ public class FileConversionBean implements SessionBean {
     /**
      * Sets the transient SessionContext.
      * Sets the transient Properties.
-     *
      */
     public void setSessionContext(SessionContext ctx) {
     }
 
 
-    public byte[] convertDoc(byte[] file, String extension) throws RemoteException
-    {
+    public byte[] convertDoc(byte[] file, String extension) throws RemoteException {
+        if (file == null) {
+            throw new IllegalArgumentException("The file was null");
+        }
         // get an instance of the converter
-        ConversionClient client = Conversion.getInstance().getNewClient();
+        ConversionClient client = Conversion.getNewClient();
         ConversionFormatDescriptor inFormat = client.getInputFormat(extension);
         ConversionFormatDescriptor outFormat = client.getOutputFormat(inFormat.getType(), "pdf");
         ConversionInputSource input = new ConversionInputSource(new ByteArrayInputStream(file), inFormat.getType());
@@ -85,15 +86,15 @@ public class FileConversionBean implements SessionBean {
 
 
             return b;
-          } catch (ConversionException ce) {
+        } catch (ConversionException ce) {
             // something went wrong
-              ce.printStackTrace();
-          } catch (IOException io) {
-              //io exception
-              io.printStackTrace();
-          } catch (Exception e) {
-              e.printStackTrace();
-          }
+            ce.printStackTrace();
+        } catch (IOException io) {
+            //io exception
+            io.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return new byte[0];
     }
