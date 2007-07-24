@@ -1,5 +1,10 @@
 package com.topcoder.web.tc.controller.request.development;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -13,7 +18,9 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Answer;
+import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.CoderSessionInfo;
+import com.topcoder.web.common.model.CoderType;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.model.Question;
@@ -25,11 +32,6 @@ import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * @author dok
@@ -200,7 +202,10 @@ public class ViewRegistration extends Base {
     }
 
     protected boolean isRegisteredForTournament() throws Exception {
-        return DAOUtil.getFactory().getEventRegistrationDAO().find(new Long(getUser().getId()),
+        // only bother if the user is not a professional
+        Coder c = DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId()));
+        
+        return c.getCoderType().equals(CoderType.PROFESSIONAL) || DAOUtil.getFactory().getEventRegistrationDAO().find(new Long(getUser().getId()),
                 Event.TCCC07_COMPONENT_ID) != null;
     }
 
