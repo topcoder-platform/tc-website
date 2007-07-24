@@ -43,11 +43,19 @@
 </jsp:include>
 
 <p>
+    5.10.13 - 2007.07.xx
+    <ul>
+        <li>Professionals registering for TCCC07 components won't get the not-registered warning -pulky</li>
+    </ul>
+</p>
+
+<p>
     5.10.12 - 2007.07.23
     <ul>
         <li>Marathon Matches available language by round -mural</li>
         <li>Add payment types for Studio and Marathon tournamnets -cucu</li>
         <li>Fix bug where group rows were deleted/inserted rather than updated -dok</li>
+        <li>Fixed TCCC07 algorithm registration to ask for sections -pulky</li>
     </ul>
 </p>
 
