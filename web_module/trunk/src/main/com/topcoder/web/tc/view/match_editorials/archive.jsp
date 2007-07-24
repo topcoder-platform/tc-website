@@ -53,6 +53,11 @@
    <tr><td valign="middle" class="bodyText" colspan="2">
    <strong>June</strong>
    </td></tr>
+   <tr><td class="bodyText">06.29.07</td><td class="bodyText" nowrap="0" width="100%">TCO07 Finals - <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoFinals">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">06.28.07</td><td class="bodyText" nowrap="0" width="100%">TCO07 Wildcard - <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoWildcard">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">06.28.07</td><td class="bodyText" nowrap="0" width="100%">TCO07 Room 3 - <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi03">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">06.27.07</td><td class="bodyText" nowrap="0" width="100%">TCO07 Room 2 - <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi02">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">06.27.07</td><td class="bodyText" nowrap="0" width="100%">TCO07 Room 1 - <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi01">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">06.20.07</td><td class="bodyText" nowrap="0" width="100%">SRM 355 - <a href="/tc?module=Static&d1=match_editorials&d2=srm355">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">06.14.07</td><td class="bodyText" nowrap="0" width="100%">SRM 354 - <a href="/tc?module=Static&d1=match_editorials&d2=srm354">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">06.07.07</td><td class="bodyText" nowrap="0" width="100%">SRM 353 - <a href="/tc?module=Static&d1=match_editorials&d2=srm353">Problem Set & Analysis</a></td></tr>
