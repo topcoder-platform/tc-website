@@ -117,7 +117,7 @@
                     </td>
                     <td class="value">
                         <% if ("3004".equals(resultRow.getStringItem("event_id"))) { %>
-                        <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=description"><img src="/i/tournament/tccc07/emblem.png" alt="" onmouseover="popUp(this,'popTCCC07')" onmouseout="popHide()" style="display: block; margin: 4px;"></A>
+                        <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=studio&amp;d4=description"><img src="/i/tournament/tccc07/emblem.png" alt="" onmouseover="popUp(this,'popTCCC07')" onmouseout="popHide()" style="display: block; margin: 4px;"></A>
                         <% } else { %>
                         &nbsp;
                         <% } %>
@@ -160,11 +160,11 @@
         <td class="SE">&nbsp;</td>
     </tr>
 </tbody>
+</table>
+
 <div id="popTCCC07" class="popUp">
     <div>Eligible for the TCCC07 SDC</div>
 </div>
-</table>
-
 
 </div>
 <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
