@@ -11,6 +11,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.SubmissionStatus;
 
 /**
@@ -66,6 +67,7 @@ public class ViewSubmissions extends Base {
         QueryRequest r = new QueryRequest();
         DataAccessInt dai = new QueryDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
 
+        Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(contestId);
 
         StringBuffer query = new StringBuffer(300);
         StringBuffer countQuery = new StringBuffer(300);
@@ -89,6 +91,9 @@ public class ViewSubmissions extends Base {
             }
             from.append("  and s.contest_id = ").append(contestId);
             from.append("  and s.submission_status_id = ").append(status);
+            if (contest.getMaxSubmissions() != null) {
+                from.append("  and s.rank <= ").append(contest.getMaxSubmissions().getValue());
+            }
             from.append(" and not exists (select '1'  ");
             from.append(" from submission_review ");
             from.append(" where submission_id = s.submission_id)");
@@ -169,7 +174,7 @@ public class ViewSubmissions extends Base {
         SortInfo info = new SortInfo();
         getRequest().setAttribute(SortInfo.REQUEST_KEY, info);
 
-        getRequest().setAttribute("contest", StudioDAOUtil.getFactory().getContestDAO().find(contestId));
+        getRequest().setAttribute("contest", contest);
         getRequest().setAttribute("reviewStatuses", StudioDAOUtil.getFactory().getReviewStatusDAO().getReviewStatuses());
         setDefault(Constants.CONTEST_ID, contestId.toString());
         if (!"".equals(handle)) {
