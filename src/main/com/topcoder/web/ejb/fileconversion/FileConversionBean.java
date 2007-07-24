@@ -73,6 +73,9 @@ public class FileConversionBean implements SessionBean {
         ConversionClient client = Conversion.getNewClient();
         ConversionFormatDescriptor inFormat = client.getInputFormat(extension);
         ConversionFormatDescriptor outFormat = client.getOutputFormat(inFormat.getType(), "pdf");
+        if (inFormat == null) {
+            log.debug("informat is null");
+        }
         ConversionInputSource input = new ConversionInputSource(new ByteArrayInputStream(file), inFormat.getType());
 
         // start the conversion
