@@ -49,7 +49,7 @@
 <tbody>
 <tr>
     <td class="NW">&nbsp;</td>
-    <td class="title" colspan="8">Winners</td>
+    <td class="title" colspan="7">Winners</td>
     <td class="NE">&nbsp;</td>
 </tr>
 <tr>
@@ -61,9 +61,6 @@
     </td>
     <td class="header">
         Handle
-    </td>
-    <td class="headerC">
-        Submission ID
     </td>
     <td class="headerC">
         Registered
@@ -110,9 +107,6 @@
             <studio:handle coderId="<%=resultRow.getLongItem("submitter_id")%>"/>
         </td>
         <td class="valueC">
-            <rsc:item name="submission_id" row="<%=resultRow%>"/>
-        </td>
-        <td class="valueC">
             <rsc:item name="reg_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
         </td>
         <td class="valueC">
@@ -138,6 +132,7 @@
             <c:choose>
                 <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
                     <div align="center">
+                        <strong>ID:</strong> <rsc:item name="submission_id" row="<%=resultRow%>"/>
                         <div style="overflow: hidden; width: 300px;">
                             <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
                         </div>
@@ -145,9 +140,11 @@
                 </c:when>
                 <c:otherwise>
                     <div align="center">
+                        <strong>ID:</strong> <rsc:item name="submission_id" row="<%=resultRow%>"/>
                         <div id="pop<%=i%>" class="popUp">
                             <div>View submission</div>
                         </div>
+                        <br />
                         <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
                             <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
                         </a>
@@ -165,7 +162,7 @@
 
 <tr>
     <td class="SW">&nbsp;</td>
-    <td class="title" colspan="8">
+    <td class="title" colspan="7">
         <a href="/?<%=Constants.MODULE_KEY%>=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="small">...view all submissions</a>
     </td>
     <td class="SE">&nbsp;</td>

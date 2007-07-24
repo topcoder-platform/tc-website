@@ -21,6 +21,29 @@
     <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
     <script type="text/javascript"> _uacct = "UA-321688-2"; urchinTracker(); </script>
     <script type="text/javascript" src="/js/popup.js"></script>
+
+    <style type="text/css">
+    #message {
+        float: right;
+        width: 180px;
+        margin: 0px 0px 20px 20px;
+        color: #4b4fa1;
+        font-size: 11px;
+    }
+    
+    #message a:link, #message a:visited {
+        color: #4b4fa1;
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    
+    #message a:hover, #message a:active {
+        color: #FF0000;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    </style>
+
 </head>
 
 <body>
