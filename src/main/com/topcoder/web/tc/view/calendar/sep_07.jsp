@@ -170,11 +170,6 @@
          </div>
       </td>
       <td class="value">19
-         <div class="tccc07">
-         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=schedule">Marathon Match Round 4</A></strong><br>
-         12:00 Noon 
-         </div>
       </td>
       <td class="value">20
          <div class="tccc07">
