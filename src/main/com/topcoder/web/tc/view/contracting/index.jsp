@@ -70,6 +70,8 @@ return false;
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=sponsors&d2=yodlee"><img src="/i/contracting/yodleeLogo.png" alt="Yodlee" border=0/></A>
                <hr noshade="noshade" size="1" />
+               <A href="/tc?module=Static&d1=sponsors&d2=bt"><img src="/i/contracting/btLogo.png" alt="British Telecom" border=0/></A>
+               <hr noshade="noshade" size="1" />
                <i>Click one of the<br>companies above for more info<br>on their job openings,<br>and be sure to check out <br>the careers available at<br>
                <A href="/tc?module=Static&d1=about&d2=jobs"><img src="/i/contracting/topcoder_logo.gif" alt="TopCoder" border=0/></A>
                <hr noshade="noshade" size="1" />
