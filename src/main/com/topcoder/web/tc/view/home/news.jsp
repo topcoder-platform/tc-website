@@ -4,6 +4,32 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>07.25.07<br>4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep03_sm' refer='/tc' />">TC Channel: Episode 3</A></span><br><br>
+        In Episode 3 of the TC Channel,  TopCoder's online video news magazine, Dean and Markus look back at highlights from the 2007 TopCoder Open webcast, including the exciting final round of the TCO07 Algorithm Competition.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep03_sm' refer='/tc' />">details</A> | 
+        <tc-webtag:forumLink forumID="516708" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>07.25.07<br>4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=sponsors&d2=btChat20070721">BT SRM 359 chat session transcript</A></span><br><br>
+        TopCoder members joined representatives from British Telecommunications prior to SRM 359 to discuss career opportunities at the company.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=sponsors&d2=btChat20070721">details</A> | 
+        <tc-webtag:forumLink forumID="516666" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.23.07<br>5:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -157,36 +183,3 @@
        <tc-webtag:forumLink forumID="516609" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>07.17.07<br>12:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://csf.topcoder.com/">Microsoft CSF Competitions – Winners Announced!</A></span><br><br>
-        Microsoft and TopCoder are pleased to announce that two competitions for the Connected Services Framework Mashup Competitions have just been completed and winners have been <a href="http://csf.topcoder.com/forums" alt="Microsoft CSF Competitions Forums">announced</a>.  Prizes will be awarded to the top three mashup ideas, with a total prize purse of $4,500 per competition - plus, the top 7 submissions receive <a href="http://csf.topcoder.com/?module=Static&d1=leaderboardOverview">placement points</a> toward the CSF <a href="http://csf.topcoder.com/?module=Static&d1=leaderboardOverview">series prizes</a> of more than $40,000.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://csf.topcoder.com/">details</A> | 
-        <a href="http://csf.topcoder.com/forums"> discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>07.16.07<br>5:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=SurveyResults&sid=19130">TCCC07 Logo Design vote results</A>
-        </span><br><br>
-        Congratulations to <tc-webtag:handle coderId="22673857" />, whose submission came out on top in the TopCoder Collegiate Challenge Logo Design contest.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=SurveyResults&sid=19130">details</A> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=73&mc=29">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-

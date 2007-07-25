@@ -36,7 +36,7 @@
       <div align="center"><img src="/i/sponsor/Yodlee_logo.gif" border=0 alt="Yodlee Logo" /></div>
       <br /><br />
       <div style="float: right;">
-        <h3 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h2>
+        <h3 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h3>
         <strong>
         <A style="text-decoration:none;" href="/tc?module=Static&d1=sponsors&d2=yodleeChat20070614">SRM 354</A>
         </strong>

@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%"> 
+<tr class="bodyText"><td nowrap="nowrap">07.25.07 4:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=sponsors&d2=btChat20070721">BT SRM 359 chat session transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.19.07 3:00 PM - </td><td width="100%"><A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1007">British Telecom Mashup Design Competition open for registration</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.17.07 12:30 PM - </td><td width="100%"><A href="http://csf.topcoder.com/">Microsoft CSF Competitions – Winners Announced!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.09.07 6:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=calendar&d2=thisMonth">Marathon Matches added to Event Calendar</A></td></tr>

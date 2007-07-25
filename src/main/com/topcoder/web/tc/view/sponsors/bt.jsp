@@ -35,7 +35,14 @@
 
         <div align="center"><img src="/i/sponsor/BT_logo.png" border="0px" alt="British Telecom Logo" /></div>
         <br /><br />
-        
+        <div style="float: right;">
+        <h3 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h3>
+            <strong>
+                <A style="text-decoration:none;" href="/tc?module=Static&d1=sponsors&d2=btChat20070721">SRM 359</A>
+            </strong>
+        </div>
+        <br /><br />
+
         <br />
         <h1>British Telecommunications (BT) is hiring!</h1>
         <p>We are aiming to create high-performance teams of talented, passionate software engineers who can see the potential in tomorrow's voice and data networks, who are ready to make their mark in helping to drive the global transformation to a digital economy and who are excited to develop the next generation of Web 2.0 services and applications leveraging the power of BT's IP enabled 21Century next-generation network!</p>
