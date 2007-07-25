@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.10.13 - 2007.07.xx
+    5.10.13 - 2007.07.25
     <ul>
         <li>Professionals registering for TCCC07 components won't get the not-registered warning -pulky</li>
     </ul>
