@@ -12,6 +12,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.ejb.user.Contact;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,6 +30,7 @@ public class CoderDemographicsTask extends BaseTask {
     private long cid;
     private long jid;
     private long mid;
+    private long companyId;
 
     /**
      * Holds value of property questionList.
@@ -155,10 +157,28 @@ public class CoderDemographicsTask extends BaseTask {
         setJobName(((ResultSetContainer) resultMap.get("TCES_Position_Name")).
                 getItem(0, "job_desc").toString());
 
+        try {
+            Contact contact = (Contact) BaseProcessor.createEJB(getInitialContext(), Contact.class);
+            setCompanyId(contact.getCompanyId(getUser().getId(), getOltp()));
+        } catch (Exception e) {
+            log.error("could not determine if user has a resume or not");
+            e.printStackTrace();
+        }
+
+
         setNextPage(TCESConstants.CODER_DEMOGRAPHICS_PAGE);
         setIsNextPageInContext(true);
 
     }
+
+    public long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(long companyId) {
+        this.companyId = companyId;
+    }
+
 
     /**
      * Getter for property campaignID.
