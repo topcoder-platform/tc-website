@@ -45,7 +45,8 @@
    <tr><td valign="middle" class="bodyText" colspan="2">
     <strong>July</strong></td></tr>
     <tr><td class="bodyText">07.21.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 35 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm35">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">07.17.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 34 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm34">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">07.17.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 34 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm34">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">07.12.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 33 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm33">Problem Set & Analysis</a></td></tr>
 
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2">
