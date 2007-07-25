@@ -40,9 +40,9 @@
 <tr class="bodyText"><td nowrap="nowrap">07.25.07 4:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep03_sm">TC Channel: Episode 3</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.03.07 1:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=montage&title=Handheld%20camera%20montage">TCO07 highlights video now available</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.26.07 3:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=aolCTO&title=Interview%20with%20AOL%20CTO,%20Balan%20Nair">TCO Preview: An Interview with AOL's Balan Nair</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">06.20.07 12:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep2">Episode 2 of the TC Channel now online</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">06.20.07 12:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep02">Episode 2 of the TC Channel now online</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.23.07 3:45 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=movieStream">TCHS07 Photos &amp; Video now available</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">05.16.07 1:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep1">Introducing the new TC Channel!</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.16.07 1:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep01">Introducing the new TC Channel!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.31.07 12:00 PM - </td><td width="100%"><A href="/movies/promotional/TopCoder_software_01.31.07.mov">Building Software through Competition</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.08.07 2:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies">Watch the full TCCC06 Webcast</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.08.06 5:00 PM - </td><td width="100%"><A href="/movies/tournament/tccc06/final_webcast_preview.mov">TCCC06 Webcast Highlights</A></td></tr>

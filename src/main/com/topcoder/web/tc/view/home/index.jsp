@@ -81,9 +81,6 @@
         </map>
         <img src="/i/home/tco07champions.png" alt="2007 TopCoder Open" usemap="#tco07" style="display: block;" />
         --%>
-        <%-- TC CHANNEL 
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep2' refer='homepage' />"><img src="/i/home/tcchannelEp2.jpg" alt="TC Channel: Episode 2" /></A>
-        --%>
         <%-- TCCC07 --%>
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=about' refer='homepage' />"><img src="/i/home/tccc07.png" alt="TCCC07" /></A>
         
