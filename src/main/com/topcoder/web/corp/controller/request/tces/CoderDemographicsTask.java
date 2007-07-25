@@ -19,8 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
- * @author  George Dean
+ * @author George Dean
  */
 public class CoderDemographicsTask extends BaseTask {
 
@@ -31,10 +30,14 @@ public class CoderDemographicsTask extends BaseTask {
     private long jid;
     private long mid;
 
-    /** Holds value of property questionList. */
+    /**
+     * Holds value of property questionList.
+     */
     private List questionList;
 
-    /** Holds value of property handle. */
+    /**
+     * Holds value of property handle.
+     */
     private String handle;
 
     /* Indicates whether the coder is ranked in competition */
@@ -43,6 +46,7 @@ public class CoderDemographicsTask extends BaseTask {
     private ResultSetContainer memberInfo;
     private String jobName;
     private boolean hasResume;
+    private boolean restricted;
 
 
     protected void businessProcessing() throws Exception {
@@ -80,13 +84,14 @@ public class CoderDemographicsTask extends BaseTask {
                 TCESConstants.JOB_ID_PARAM + "=" + getJobID() + "&" + TCESConstants.MEMBER_ID_PARAM +
                 "=" + getMemberID(), TCESConstants.MEMBER_PROFILE_NAME));
         setTrail(a);
-        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf('.')+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf('.') + 1), this);
 
 
     }
 
     public void viewCoderDemographics() throws Exception {
 
+        restricted = isRestrictedCampaign(getCampaignID());
 
         /* we're just running this one so we can figure out if this member
          * is ranked or not.  could be done more efficiently...obviously TODO
@@ -152,87 +157,111 @@ public class CoderDemographicsTask extends BaseTask {
 
         setNextPage(TCESConstants.CODER_DEMOGRAPHICS_PAGE);
         setIsNextPageInContext(true);
-        
+
     }
 
-    /** Getter for property campaignID.
+    /**
+     * Getter for property campaignID.
+     *
      * @return Value of property campaignID.
      */
     public long getCampaignID() {
         return cid;
     }
 
-    /** Setter for property campaignID.
+    /**
+     * Setter for property campaignID.
+     *
      * @param campaignID New value of property campaignID.
      */
     public void setCampaignID(long campaignID) {
         cid = campaignID;
     }
 
-    /** Getter for property jobID.
+    /**
+     * Getter for property jobID.
+     *
      * @return Value of property jobID.
      */
     public long getJobID() {
         return jid;
     }
 
-    /** Setter for property jobID.
+    /**
+     * Setter for property jobID.
+     *
      * @param jobID New value of property jobID.
      */
     public void setJobID(long jobID) {
         jid = jobID;
     }
 
-    /** Getter for property memberID.
+    /**
+     * Getter for property memberID.
+     *
      * @return Value of property memberID.
      */
     public long getMemberID() {
         return mid;
     }
 
-    /** Setter for property memberID.
+    /**
+     * Setter for property memberID.
+     *
      * @param memberID New value of property memberID.
      */
     public void setMemberID(long memberID) {
         mid = memberID;
     }
 
-    /** Getter for property questionList.
+    /**
+     * Getter for property questionList.
+     *
      * @return Value of property questionList.
      */
     public List getQuestionList() {
         return this.questionList;
     }
 
-    /** Setter for property questionList.
+    /**
+     * Setter for property questionList.
+     *
      * @param questionList New value of property questionList.
      */
     public void setQuestionList(List questionList) {
         this.questionList = questionList;
     }
 
-    /** Getter for property handle.
+    /**
+     * Getter for property handle.
+     *
      * @return Value of property handle.
      */
     public String getHandle() {
         return this.handle;
     }
 
-    /** Setter for property handle.
+    /**
+     * Setter for property handle.
+     *
      * @param handle New value of property handle.
      */
     public void setHandle(String handle) {
         this.handle = handle;
     }
 
-    /** Getter for property isRanked.
+    /**
+     * Getter for property isRanked.
+     *
      * @return Value of property isRanked
      */
     public boolean getIsRanked() {
         return isRanked;
     }
 
-    /** Setter for property isRanked.
+    /**
+     * Setter for property isRanked.
+     *
      * @param isRanked New value of property isRanked.
      */
     public void setIsRanked(boolean isRanked) {
@@ -261,6 +290,10 @@ public class CoderDemographicsTask extends BaseTask {
 
     public void setHasResume(boolean hasResume) {
         this.hasResume = hasResume;
+    }
+
+    public boolean isRestrictedCampaign() {
+        return restricted;
     }
 }
 
