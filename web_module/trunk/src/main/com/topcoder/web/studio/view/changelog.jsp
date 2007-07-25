@@ -27,7 +27,7 @@
 <div class="contentSpacer">
 
 <p>
-    2.0.2 - 2007.07.xx
+    2.0.2 - 2007.07.25
     <ul>
         <li>Professionals registering for TCCC07 studio contests won't get the not-registered warning -pulky</li>
     </ul>
