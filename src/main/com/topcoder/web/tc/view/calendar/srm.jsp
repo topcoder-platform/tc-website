@@ -430,7 +430,7 @@ A given competitor will only be eligible to win, at most, one random drawing.
                         Don't have JWS?
                         <A class="bodyText" href="http://java.sun.com/products/javawebstart/index.html" target="_blank">Download</A>
                         it on java.sun.com<br/>
-                        Check out the <A class="bodyText" href="/tc?module=Static&d1=applet&d2=plugins">plugins</A>
+                        Check out the <A class="bodyText" href="/tc?module=Static&amp;d1=applet&amp;d2=plugins">plugins</A>
                         available for the Competition Arena</p>
                 </td>
             </tr>
@@ -565,7 +565,7 @@ A given competitor will only be eligible to win, at most, one random drawing.
                 Quebec
                 province of Canada, or anywhere else where this contest is prohibited by applicable law.
             </li>
-            <li><a href="/tc?module=Static&d1=help&d2=ratings">Rating changes</a> go into effect in next participated
+            <li><a href="/tc?module=Static&amp;d1=help&amp;d2=ratings">Rating changes</a> go into effect in next participated
                 rated
                 event
             </li>
@@ -593,7 +593,7 @@ A given competitor will only be eligible to win, at most, one random drawing.
         </UL>
         <BR/><BR/>
 
-        <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for
+        <A CLASS="bodyText" HREF="/tc?module=MatchRules&amp;rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for
             complete rules &amp; regulations</B></A>
     </TD>
 </TR>
@@ -623,7 +623,7 @@ A given competitor will only be eligible to win, at most, one random drawing.
         </UL>
         <B>Eligibility:</B><BR/><BR/>
         Anyone who is at least 13 years of age may compete in any Single Round Match.<BR/><BR/>
-        <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for
+        <A CLASS="bodyText" HREF="/tc?module=MatchRules&amp;rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for
             complete rules &amp; regulations</B></A>
     </TD>
 </TR>
