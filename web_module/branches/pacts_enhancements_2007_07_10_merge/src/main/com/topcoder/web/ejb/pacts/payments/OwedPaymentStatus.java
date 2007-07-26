@@ -64,6 +64,15 @@ public class OwedPaymentStatus extends BasePaymentStatus {
     }
 
     /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#parentCancelled(com.topcoder.web.ejb.pacts.BasePayment)
+     */
+    @Override
+    public void parentCancelled(BasePayment payment) throws InvalidPaymentEventException {
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS));
+        payment.getCurrentStatus().parentCancelled(payment);
+    }
+
+    /**
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#inactiveCoder(com.topcoder.web.ejb.pacts.BasePayment)
      */
     @Override
