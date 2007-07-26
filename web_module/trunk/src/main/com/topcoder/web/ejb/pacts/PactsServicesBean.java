@@ -4118,7 +4118,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     }
                     updatePayments.add(payment);
                 } else {
-                    errors.put(0l, "Inactive users detected, payments were canceled.");
+                    errors.put(0l, "Inactive users detected, payments were canceled. Please check your selection and try again.");
                     rollback = false;
                 }
             } catch (SQLException sqle) {
