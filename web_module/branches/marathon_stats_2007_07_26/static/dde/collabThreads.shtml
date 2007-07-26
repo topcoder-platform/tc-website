@@ -1,0 +1,134 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+  
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+<body class="body" marginheight="0" marginwidth="0">
+<form action="#" method="#">
+
+<!--Header begins -->
+
+<!--#include virtual="includes/headerLogged.shtml" -->
+<!--#include virtual="includes/navCatalog.shtml" -->
+
+<!--Header ends -->
+
+<!-- breadcrumb 1 begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr valign="middle">
+		<td width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td width="1%" class="breadcrumb" nowrap><a href="catalogEventEngine.shtml" class="breadcrumbLinks">Event Engine</a> > <a href="collabIndex.shtml" class="breadcrumbLinks">Topics</a> > <a href="collabThreads.shtml" class="breadcrumbLinks">Business Logic Requirements</a> > <strong>Bullet list of required business logic</strong></td>
+		<td width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+<table>
+<!-- breadcrumb 1 ends -->
+
+<!--Middle Column begins -->
+
+<!-- Forum Head begins -->
+<!--#include virtual="includes/collabHead.shtml" -->
+<!-- Forum Head ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
+	<tr valign="top">
+		<td width="1%" class="forumTitleCenter">New</td>
+		<td width="62%" class="forumTitle">Threads</td>
+		<td width="2%" class="forumTitleCenter">Messages</td>
+		<td width="35%" class="forumTitle">Last Message</td>
+	</tr>
+
+<!-- Subtopic -->
+	<tr valign="top">
+		<td class="forumSubjectCenter"><img src="images/iconStatusCollabSm.gif" alt="*" width="17" height="12" border="0" /></td>
+		<td class="forumSubject"><strong>Bullet list of required business logic</strong></td>
+		<td class="forumSubjectCenter">18</td>
+		<td class="forumSubject">06-21-2002 04:37 PM by <strong>kyled227</strong></td>
+	</tr>
+
+<!-- Threads -->
+	<tr valign="top">
+		<td class="forumTextCenter"><img src="images/iconStatusCollabSm.gif" alt="*" width="17" height="12" border="0" /></td>
+		<td class="forumSubtopic"><a href="collabMessages.shtml">Why have to download the applet every time?</a></td>
+		<td class="forumTextCenter">6</td>
+		<td class="forumText">06-20-2002 02:40 PM by <strong>StephCor</strong></td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter"><img src="images/iconStatusCollabSm.gif" alt="*" width="17" height="12" border="0" /></td>
+		<td class="forumSubtopic"><a href="collabMessages.shtml">Practice room 20 challenge</a></td>
+		<td class="forumTextCenter">1</td>
+		<td class="forumText">06-21-2002 04:37 PM by <strong>kyled227</strong></td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter">&nbsp;</td>
+		<td class="forumSubtopic"><a href="collabMessages.shtml">Losing connection in practice rooms</a></td>
+		<td class="forumTextCenter">2</td>
+		<td class="forumText">07-15-2002 03:24 PM by <strong>Pops</strong></td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter"><img src="images/iconStatusCollabSm.gif" alt="*" width="17" height="12" border="0" /></td>
+		<td class="forumSubtopic"><a href="collabMessages.shtml">Bugs in SRM111 Div 2 problem 3</a></td>
+		<td class="forumTextCenter">9</td>
+		<td class="forumText">07-15-2002 03:20 PM by <strong>Pops</strong></td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter">&nbsp;</td>
+		<td class="forumSubtopic"><a href="collabMessages.shtml">admins: can't log in to contest applet</a></td>
+		<td class="forumTextCenter">0</td>
+		<td class="forumText">07-15-2002 03:17 PM by <strong>Pops</strong></td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top"><td class="forumTitle"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+	<tr valign="top"><td colspan="5" class="forumSearch" align="left"><img src="images/iconStatusCollabSm.gif" alt="*" width="17" height="12" border="0" /> New messages since your last visit</td></tr>
+</table>
+
+<!-- Create a New Thread -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="middle">
+	<tr>
+		<td align="center">
+			<table width="400" cellpadding="0" cellspacing="0" border="0">
+				<tr><td width="400"><img src="images/forumControlsHead.gif" alt="Collaboration Controls" width="400" height="29" border="0" /></td></tr>
+			</table>
+			
+			<table width="400" cellpadding="0" cellspacing="10" border="0" class="compSearch">
+				<tr><td class="loginCenter">You must be a registered user.&nbsp;&nbsp;&nbsp;<a class="loginLinks" href="loginIndex.shtml">:: Login</a>&nbsp;&nbsp;&nbsp;<a class="loginLinks" href="registerIndex.shtml">:: Register</a></td></tr>
+				<tr><td class="adminControl"><input class="adminControlButton" type="submit" name="newThread" value="&nbsp;Create a New Thread&nbsp;"></input></td></tr>
+			</table>
+			
+			<table width="400" cellpadding="0" cellspacing="0" border="0">
+				<tr><td width="400"><img src="images/forumControlsFoot.gif" alt="" width="400" height="11" border="0" /></td></tr>
+			</table></td>
+	</tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="middle">
+	<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+</table>
+
+<!--Middle Column ends -->
+	
+<!-- breadcrumb 2 begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr valign="middle">
+		<td width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td width="1%" class="breadcrumb" nowrap><a href="catalogEventEngine.shtml" class="breadcrumbLinks">Event Engine</a> > <a href="collabIndex.shtml" class="breadcrumbLinks">Topics</a> > <a href="collabThreads.shtml" class="breadcrumbLinks">Business Logic Requirements</a> > <strong>Bullet list of required business logic</strong></td>
+		<td width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+<table>
+<!-- breadcrumb 2 ends -->
+
+<!--Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!--Footer ends --></form>
+
+</body>
+</html>
