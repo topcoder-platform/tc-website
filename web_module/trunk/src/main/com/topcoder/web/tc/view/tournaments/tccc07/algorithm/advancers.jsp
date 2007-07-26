@@ -32,13 +32,19 @@
             <div id="pageBody">
                 <h1><span>Advancers</span></h1>
 
+                <div align="center">
                 <a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">Reset sorting</a>
-                <br><br>
+                <%-- show this as default, in page view --%>
+                | Page view
+                | <a href="">Full view</a>
+                <%-- show this in Full view
+                | <a href="">Pages</a>
+                | Full view
+                --%>
+                </div>
+                <br /><br />
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
-                    <tr>
-                        <td class="title" colspan="10">Algorithm Advancers</td>
-                    </tr>
                     <tr>
                         <td class="headerC">
                             <a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=seed&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">Seed</a>
