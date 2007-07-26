@@ -1,11 +1,14 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import java.util.Hashtable;
 import java.util.Map;
 
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitHeaderList;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
@@ -39,13 +42,31 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
                     addError("error", "Please select a type");
                 }
 
+                long roundId = getOptionalLongParameter(ROUND_ID);
+                if (roundId > 0) {
+                    // duplicate user, round is not allowed.
+                    Map query = new Hashtable();
+                    String param = String.valueOf(roundId);
+                    if (param != null && !param.equals("")) query.put(ROUND_ID, param);
+                    param = String.valueOf(userId);
+                    if (param != null && !param.equals("")) query.put(USER_ID, param);
+
+                    query.put(STATUS_CODE, AFFIDAVIT_PENDING_STATUS + ", " + AFFIDAVIT_AFFIRMED_STATUS
+                            + ", " + AFFIDAVIT_EXPIRED_STATUS);
+
+                    Map results = dib.findAffidavits(query);
+    
+                    AffidavitHeaderList ahl = new AffidavitHeaderList(results);
+                    if (ahl.getHeaderList().length > 0) {
+                        addError("error", "There is already an affidavit for this user, round");                        
+                    }
+                }
+                
                 if (hasErrors()) {
                     setDefault("affidavit_desc", desc);
                     setDefault("affidavit_type_id", typeId + "");
                     setDefault("text", getRequest().getParameter("text"));
-                } else {
-                    long roundId = getOptionalLongParameter(ROUND_ID);
-
+                } else {                    
                     // Save the Affidavit
                     Affidavit a = new Affidavit(
                             roundId < 0 ? null : new Long(roundId),

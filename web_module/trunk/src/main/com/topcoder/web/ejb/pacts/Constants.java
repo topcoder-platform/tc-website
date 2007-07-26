@@ -67,7 +67,10 @@ public interface Constants {
     public static final int AFFIDAVIT_PENDING_STATUS = 57;
     public static final int AFFIDAVIT_AFFIRMED_STATUS = 58;
     public static final int AFFIDAVIT_EXPIRED_STATUS = 59;
-    
+
+    public static final int AFFIDAVIT_CANCELED_STATUS = 75;
+    public static final int AFFIDAVIT_DELETED_STATUS = 76;
+
     public static final int DEFAULT_PAYMENT_METHOD_ID = 1;
     
 

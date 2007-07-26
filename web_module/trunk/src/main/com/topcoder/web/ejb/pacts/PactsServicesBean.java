@@ -45,6 +45,7 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager.UserEvents;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -469,12 +470,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         Connection c = null;
         try {
-            c = DBMS.getConnection();
+            c = DBMS.getConnection(trxDataSource);
             // Get affidavit header
             ResultSetContainer rsc = runSelectQuery(c, selectAffidavitHeader.toString(), true);
             if (rsc.getRowCount() == 0) {
-                c.close();
-                c = null;
                 throw new NoObjectFoundException("No affidavit found with ID " + affidavitId);
             }
             HashMap hm = new HashMap();
@@ -483,7 +482,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Get affidavit details
             rsc = runSelectQuery(c, selectAffidavitDetails.toString(), false);
             if (rsc.getRowCount() == 0) {
-                c.close();
                 throw new NoObjectFoundException("No affidavit details found with ID " + affidavitId);
             }
             boolean hasPayment = rsc.getStringItem(0, "payment_id") != null;
@@ -511,24 +509,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
                 rsc = runSelectQuery(c, selectPaymentHeader.toString(), false);
                 if (rsc.getRowCount() == 0) {
-                    c.close();
                     throw new NoObjectFoundException("No payment header details found for payment ID " + paymentId);
                 }
                 hm.put(PAYMENT_HEADER_LIST, rsc);
             }
-
-            c.close();
-            c = null;
             return hm;
         } catch (Exception e) {
             printException(e);
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
             throw new SQLException(e.getMessage());
+        } finally {
+            close(c);
         }
     }
 
@@ -2578,7 +2568,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     selectHeaders.append(" AND UPPER(u.handle) LIKE ?");  //todo user handle_lower
                     objects.add(value);
                 } else if (key.equals(STATUS_CODE)) {
-                    selectHeaders.append(" AND a.status_id = " + value);
+                    selectHeaders.append(" AND a.status_id in (" + value + ")");
                 } else if (key.equals(ROUND_ID)) {
                     selectHeaders.append(" AND a.round_id = " + value);
                 } else if (key.equals(TYPE_CODE)) {
@@ -4043,7 +4033,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         int rowsModified = 0;
 
         try {
-            c = DBMS.getConnection();
+            c = DBMS.getConnection(trxDataSource);
+
             setLockTimeout(c);
 
             String longStr = "";
@@ -4076,30 +4067,79 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setLong(7, a.getHeader().getId());
 
             rowsModified = ps.executeUpdate();
-            ps.close();
-            ps = null;
-
-            c.close();
-            c = null;
         } catch (Exception e) {
             printException(e);
-            try {
-                if (ps != null) ps.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            ps = null;
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
             throw new SQLException(e.getMessage());
+        } finally {
+            close(ps);
+            close(c);            
         }
 
         if (rowsModified == 0)
             throw new NoObjectFoundException("Affidavit " + a.getHeader().getId() + " not found in database");
+    }
+
+    
+    
+    public Map<Long, String> newPaymentEvent(String[] values, int event) {
+        Map<Long, String>  errors = new HashMap<Long, String>();
+        List<BasePayment> updatePayments = new ArrayList<BasePayment>();
+
+        boolean rollback = true;
+        
+        Map criteria = new HashMap();
+        for (String paymentId : values) {
+            criteria.clear();
+            criteria.put(PAYMENT_ID, paymentId);
+            log.debug("looking for paymentId : " + paymentId);
+            BasePayment payment = null;
+
+            payment = findCoderPayments(criteria).get(0);
+
+            // before applying the event, check users for inactivation
+            try {
+                if (checkInactiveCoders(payment.getCoderId()) == 0) {
+                    PaymentStatusManager psm = new PaymentStatusManager();
+                    
+                    try {
+                        switch (event) {
+                        case 1:
+                            psm.newUserEvent(payment, UserEvents.ENTER_INTO_PAYMENT_SYSTEM_EVENT);
+                            break;
+                        case 2:
+                            psm.newUserEvent(payment, UserEvents.PAY_EVENT);
+                            break;
+                        case 3:
+                            psm.newUserEvent(payment, UserEvents.DELETE_EVENT);
+                            break;
+                        }
+                    } catch (EventFailureException efe) {
+                        errors.put(payment.getId(), efe.getCause().getMessage());
+                    }
+                    updatePayments.add(payment);
+                } else {
+                    errors.put(0l, "Inactive users detected, payments were canceled.");
+                    rollback = false;
+                }
+            } catch (SQLException sqle) {
+                errors.put(0l, "System error, action failed.");                
+            }
+        }
+
+        if (errors.size() > 0) {
+            if (rollback) {
+                ejbContext.setRollbackOnly();
+            }
+        } else {
+            try {
+                for (BasePayment payment : updatePayments) {
+                    updatePayment(payment);    
+                }
+            } catch (Exception e) {
+                ejbContext.setRollbackOnly();
+            }
+        }
+        return errors;        
     }
 
     /**
@@ -4939,14 +4979,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             long notifyUserId = 0;
             int count = 0;
             for (int i = 0; i < users.getRowCount(); i++) {
-                try {
+//                try {
                     notifyUserId = users.getLongItem(i, 0);
                     count += psm.inactiveCoder(notifyUserId);
                     log.debug("checkInactiveCoders: payments cancelled: " + count);
-                } catch (EventFailureException e) {
-                    log.warn("Payment ID " + notifyUserId + " cancellation (account status) could not be completed due to\n" +
-                            e.getMessage());
-                }
+//                } catch (EventFailureException e) {
+//                    log.warn("Payment ID " + notifyUserId + " cancellation (account status) could not be completed due to\n" +
+//                            e.getMessage());
+//                }
             }
 
             return count;

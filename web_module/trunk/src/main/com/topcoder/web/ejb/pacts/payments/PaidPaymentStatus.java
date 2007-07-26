@@ -33,8 +33,7 @@ public class PaidPaymentStatus extends BasePaymentStatus {
      */
     @Override
     public int inactiveCoder(BasePayment payment) throws InvalidPaymentEventException {
-        // do nothing
-        return 0;
+        throw new InvalidPaymentEventException("Cannot cancel a paid payment");
     }
 
     /**
