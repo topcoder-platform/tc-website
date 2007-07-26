@@ -5,8 +5,6 @@
 */
 package com.topcoder.web.ejb.pacts.payments;
 
-import java.rmi.RemoteException;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -347,6 +345,12 @@ public class PaymentStatusManager {
             int cancelled = 0;
             Map criteria = new HashMap();
             criteria.put(PactsConstants.USER_ID, coderId.toString());
+            
+            // to tune this process we are only getting "cancelable" payments.
+            criteria.put(PactsConstants.PAYMENT_STATUS_ID, 
+                    String.valueOf(PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId()) + ", " +
+                    String.valueOf(PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()) + ", " +
+                    String.valueOf(PaymentStatus.OWED_PAYMENT_STATUS.getId()));
 
             List<BasePayment> payments = dib.findCoderPayments(criteria);
 
@@ -369,18 +373,6 @@ public class PaymentStatusManager {
         } catch (Exception e) {
             throw new EventFailureException(e);
         }
-    }
-
-    private Map<Long, Integer> inactiveUsersCache = new HashMap<Long, Integer>();
-    
-    private int checkInactiveCoders(long userId) throws RemoteException, SQLException {
-        if (inactiveUsersCache.containsKey(userId)) {
-            return inactiveUsersCache.get(userId).intValue();
-        }
-        int retValue = dib.checkInactiveCoders(userId);
-        inactiveUsersCache.put(userId, retValue);
-        
-        return retValue;
     }
     
     /**
