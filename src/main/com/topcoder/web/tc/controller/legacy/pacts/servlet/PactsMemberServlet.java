@@ -412,6 +412,14 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
                 log.error("the user id in the affidavit does not match the nav id");
                 return;
             }
+
+            // cannot affirm a canceled or deleted affidavit
+            // affiavid and member that is logged in
+            if (a.getAffidavit().getHeader().getStatusId() == AFFIDAVIT_CANCELED_STATUS ||
+                    a.getAffidavit().getHeader().getStatusId() == AFFIDAVIT_DELETED_STATUS) {
+                log.error("canceled or deleted affidavit");
+                return;
+            }
         }
 
         //if we got here, everything must by ok, pass the request to the jsp

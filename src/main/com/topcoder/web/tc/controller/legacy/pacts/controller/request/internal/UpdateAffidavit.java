@@ -2,11 +2,13 @@ package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Hashtable;
 import java.util.Map;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitHeaderList;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
@@ -55,6 +57,11 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                 boolean affirmating = (statusId == AFFIDAVIT_AFFIRMED_STATUS) && !isAffirmed;
 
                 if (affirmating) {
+                    if (affidavit.getHeader().getStatusId() == AFFIDAVIT_CANCELED_STATUS ||
+                            affidavit.getHeader().getStatusId() == AFFIDAVIT_DELETED_STATUS) {
+                        addError("error", "Cannot affirm a canceled or deleted affidavit");
+                    }
+                    
                     birthday = checkDate("date_of_birth", "Please enter a valid birthday date");
                     if (!birthday.before(new Date()) && birthday.after(new GregorianCalendar(1900,0,1).getTime())) {
                         addError("error", "Please enter a valid birthday date");
@@ -68,6 +75,31 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                     }
                 }
 
+                if (isAffirmed && (statusId == AFFIDAVIT_CANCELED_STATUS ||
+                        statusId == AFFIDAVIT_DELETED_STATUS)) {
+                    addError("error", "Cannot cancel or delete an affirmed affidavit");
+                }                    
+                long roundId = getOptionalLongParameter(ROUND_ID);
+                if (roundId > 0 && !(new Long(roundId)).equals(affidavit.getRoundId())) {
+                    // updating round Id
+                    // duplicate user, round is not allowed.
+                    Map query = new Hashtable();
+                    String param = String.valueOf(roundId);
+                    if (param != null && !param.equals("")) query.put(ROUND_ID, param);
+                    param = String.valueOf(userId);
+                    if (param != null && !param.equals("")) query.put(USER_ID, param);
+    
+                    query.put(STATUS_CODE, AFFIDAVIT_PENDING_STATUS + ", " + AFFIDAVIT_AFFIRMED_STATUS
+                            + ", " + AFFIDAVIT_EXPIRED_STATUS);
+
+                    Map results = dib.findAffidavits(query);
+    
+                    AffidavitHeaderList ahl = new AffidavitHeaderList(results);
+                    if (ahl.getHeaderList().length > 0) {
+                        addError("error", "There is already an affidavit for this user, round");                        
+                    }
+                }
+
                 if (hasErrors()) {
                     setDefault("affidavit_desc", desc);
                     setDefault("affidavit_status_id", statusId + "");
@@ -77,7 +109,6 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                     setDefault("family_name", getRequest().getParameter("family_name"));
                     setDefault("aged", getRequest().getParameter("aged"));
                 } else {
-                    long roundId = getLongParameter(ROUND_ID);
 
                     affidavit.setRoundId(roundId < 0 ? null : new Long(roundId));
                     affidavit.getHeader().setStatusId(statusId);

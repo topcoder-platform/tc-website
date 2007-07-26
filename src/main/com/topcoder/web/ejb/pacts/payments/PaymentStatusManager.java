@@ -392,21 +392,16 @@ public class PaymentStatusManager {
      */
     public void newUserEvent(BasePayment payment, UserEvents event) throws EventFailureException {
         try {
-            // before applying the event, check users for inactivation
-            if (checkInactiveCoders(payment.getCoderId()) == 0) {                
-                switch (event) {
-                case ENTER_INTO_PAYMENT_SYSTEM_EVENT:
-                    payment.getCurrentStatus().enterIntoPaymentSystem(payment);
-                    break;
-                case PAY_EVENT:
-                    payment.getCurrentStatus().pay(payment);
-                    break;
-                case DELETE_EVENT:
-                    payment.getCurrentStatus().delete(payment);
-                    break;
-                }
-            } else {
-                throw new EventFailureException("Account status changed, user was deactivated");
+            switch (event) {
+            case ENTER_INTO_PAYMENT_SYSTEM_EVENT:
+                payment.getCurrentStatus().enterIntoPaymentSystem(payment);
+                break;
+            case PAY_EVENT:
+                payment.getCurrentStatus().pay(payment);
+                break;
+            case DELETE_EVENT:
+                payment.getCurrentStatus().delete(payment);
+                break;
             }
         } catch (Exception e) {
             throw new EventFailureException(e);
