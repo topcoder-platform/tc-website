@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="22630158" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=072607"><strong>Test Drive: TenFold SOA</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Jul 26, 2007</td> 
+            </tr>
+            <tr valign="top">
                <td class="bodyText">&nbsp;</td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=072307"><strong>What happened in Vegas: TCO07 winners tell all</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Jul 23, 2007</td> 
