@@ -10,12 +10,12 @@
 
 <html>
 <head>
-    <title>2007 TopCoder Open - Computer Programming Tournament</title>
+    <title>2007 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" href="/css/tournaments/tco07.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/tournaments/tccc07.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-    <jsp:include page="../../script.jsp"/>
+    <jsp:include page="../../script.jsp" />
 </head>
 <body>
 
