@@ -43,6 +43,20 @@
 </jsp:include>
 
 <p>
+    5.10.14 - 2007.07.xx
+    <ul>
+        <li>PACTS fixes -pulky
+            <ul>
+                <li>Add canceled and deleted status for affidavits.</li>
+                <li>Check for existance of an affidavit for a specific round before adding a new one. (no dup affidavits for the same round)</li>
+                <li>Add automatic affidavit/AD cancellation when the corresponding payment is deleted/cancelled/expired.</li>
+                <li>fix payment cancelation due to cheaters</li>
+            </ul>
+        </li>
+    </ul>
+</p>
+
+<p>
     5.10.13 - 2007.07.25
     <ul>
         <li>Professionals registering for TCCC07 components won't get the not-registered warning -pulky</li>
