@@ -11,6 +11,7 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.studio.model.Submission;
 
 /**
@@ -43,8 +44,14 @@ public class LoadFromReview extends Base {
                         throw new NavigationException("Results not complete " + row.getLongItem("submission_id"));
                     }
                     s = dao.find(row.getLongItem("submission_id"));
-                    s.getResult().setFinalScore(row.getFloatItem("final_score"));
-                    s.getResult().setPlaced(row.getIntItem("placement"));
+                    ContestResult cr;
+                    if (s.getResult() == null) {
+                        cr = new ContestResult(s);
+                    } else {
+                        cr = s.getResult();
+                    }
+                    cr.setFinalScore(row.getFloatItem("final_score"));
+                    cr.setPlaced(row.getIntItem("placement"));
                 }
 
                 //todo refresh cache?
