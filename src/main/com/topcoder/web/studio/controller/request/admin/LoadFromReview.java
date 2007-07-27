@@ -34,7 +34,7 @@ public class LoadFromReview extends Base {
                 r.setContentHandle("or_results");
                 r.setProperty(Constants.CONTEST_ID, contestId);
                 DataAccessInt da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
-                ResultSetContainer rsc = da.getData(r).get("project_list");
+                ResultSetContainer rsc = da.getData(r).get("or_results");
 
                 Submission s;
 
@@ -46,6 +46,10 @@ public class LoadFromReview extends Base {
                     s.getResult().setFinalScore(row.getFloatItem("final_score"));
                     s.getResult().setPlaced(row.getIntItem("placement"));
                 }
+
+                //todo refresh cache?
+
+                //todo set next page
 
             } else {
                 throw new NavigationException("Invalid contest specified");
