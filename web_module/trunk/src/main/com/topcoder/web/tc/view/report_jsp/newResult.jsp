@@ -8,7 +8,6 @@
 %>
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <%@ page import="com.topcoder.shared.dataAccess.QueryRequest"%>
-<%@ page import="com.topcoder.shared.dataAccess.DataAccess"%>
 <%@ page import="com.topcoder.shared.util.DBMS"%>
 <%@ page import="com.topcoder.shared.dataAccess.QueryDataAccess"%>
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -17,9 +16,10 @@
   <head>
     <title>TopCoder Reporting II</title>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link type="text/css" rel="stylesheet" href="/css/tcStyles.css">
   </head>
   <body>
-    <a href=<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY%>><< back to main menu<a><br/><br/>
+    <a href="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY%>">&lt;&lt; back to main menu<a><br/><br/>
     <center>
     <br/>
     <br/>
@@ -28,53 +28,57 @@
     QueryRequest qr = new QueryRequest();
     HashMap h = new HashMap();
     h.put("queries", "select q.name, cqx.sort_order, q.query_id\n" +
-"  from command c\n" +
-"     , query q\n" +
-"     , command_query_xref cqx\n" +
-" where c.command_id = cqx.command_id\n" +
-"   and q.query_id = cqx.query_id\n" +
-"   and c.command_desc = '" + command + "'\n" +
-" order by cqx.sort_order, q.query_id");
+            "  from command c\n" +
+            "     , query q\n" +
+            "     , command_query_xref cqx\n" +
+            " where c.command_id = cqx.command_id\n" +
+            "   and q.query_id = cqx.query_id\n" +
+            "   and c.command_desc = '" + command + "'\n" +
+            " order by cqx.sort_order, q.query_id");
     qr.setQueries(h);
-    QueryDataAccess da = new QueryDataAccess(request.getParameter("db")==null?DBMS.OLTP_DATASOURCE_NAME:request.getParameter("db"));
-    ResultSetContainer queries = (ResultSetContainer)da.getData(qr).get("queries");
+    QueryDataAccess da = new QueryDataAccess(request.getParameter("db") == null ? DBMS.OLTP_DATASOURCE_NAME : request.getParameter("db"));
+    ResultSetContainer queries = (ResultSetContainer) da.getData(qr).get("queries");
 
-    Map results = (Map)request.getAttribute(Constants.REPORT_RESULT_KEY);
+    Map results = (Map) request.getAttribute(Constants.REPORT_RESULT_KEY);
     ResultSetContainer rs = null;
     ResultSetContainer.ResultSetRow rsr = null;
-    for (Iterator it = queries.iterator(); it.hasNext();) {
-        rsr = (ResultSetContainer.ResultSetRow)it.next();;
-            rs = (ResultSetContainer)results.get(rsr.getStringItem("name"));
-            ResultColumn[] columns = rs.getColumns();
+    for (Object query : queries) {
+        rsr = (ResultSetContainer.ResultSetRow) query;
+        rs = (ResultSetContainer) results.get(rsr.getStringItem("name"));
+        ResultColumn[] columns = rs.getColumns();
 %>
-    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="3" CELLSPACING="0">
-      <TR><TD colspan="<%=columns.length%>" ALIGN="left"><FONT size="4"><b><%=rsr.getStringItem("name")%> Results</b></FONT></TD></TR>
-      <TR>
-<%      for (int i=0; i<columns.length; i++) { %>
-          <TD><b><%=columns[i].getName()%></b></TD>
-<%      } %>
-      </TR>
-<%
-      int k=0;
-      for (Iterator rows = rs.iterator(); rows.hasNext(); k++) {
-        if (k%2==1) {  %>
-          <TR bgcolor="#ccffcc">
-<%      } else { %>
-          <TR>
-<%      }
-        rsr = (ResultSetContainer.ResultSetRow)rows.next();
-        for (int j=0; j<columns.length; j++) {
-%>
-          <TD NOWRAP="true"><%=rsr.getItem(j).toString()%></TD>
-<%      }  %>
-        </TR>
-<%
-      }
-%>
-    </TABLE><BR/><BR/>
-<%
-    }
-%>
+        <table id="datatable" border="1" cellpadding="0" cellspacing="0" class="stat" width="100%">
+            <TR>
+                <TD colspan="<%=columns.length%>" ALIGN="left"><FONT size="4"><b><%=rsr.getStringItem("name")%>
+                    Results</b></FONT></TD>
+            </TR>
+            <TR>
+                <% for (ResultColumn column : columns) { %>
+                <TD><b><%=column.getName()%>
+                </b></TD>
+                <% } %>
+            </TR>
+            <%
+                boolean even = true;
+                for (Object r : rs) { %>
+            <tr class="<%=even?"light":"dark"%>">
+                <%
+                    rsr = (ResultSetContainer.ResultSetRow) r;
+                    for (int j = 0; j < columns.length; j++) {
+                %>
+                <td class="value" nowrap="nowrap"><%=rsr.getItem(j).toString()%>
+                </td>
+                <% } %>
+            </tr>
+            <%
+                    even = !even;
+                }
+            %>
+        </table>
+        <BR/><BR/>
+        <%
+            }
+        %>
     </center>
   </body>
 </html>
