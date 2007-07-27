@@ -1,15 +1,12 @@
-<%@  page
-  language="java"
-  import="java.util.*,
-          com.topcoder.common.web.data.report.*,
-          com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-          com.topcoder.shared.dataAccess.resultSet.ResultColumn"
-
-%>
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <%@ page import="com.topcoder.shared.dataAccess.QueryRequest"%>
 <%@ page import="com.topcoder.shared.util.DBMS"%>
 <%@ page import="com.topcoder.shared.dataAccess.QueryDataAccess"%>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultColumn" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="com.topcoder.common.web.data.report.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <html>
@@ -37,19 +34,17 @@
             " order by cqx.sort_order, q.query_id");
     qr.setQueries(h);
     QueryDataAccess da = new QueryDataAccess(request.getParameter("db") == null ? DBMS.OLTP_DATASOURCE_NAME : request.getParameter("db"));
-    ResultSetContainer queries = (ResultSetContainer) da.getData(qr).get("queries");
+    ResultSetContainer queries = da.getData(qr).get("queries");
 
     Map results = (Map) request.getAttribute(Constants.REPORT_RESULT_KEY);
     ResultSetContainer rs = null;
-    ResultSetContainer.ResultSetRow rsr = null;
-    for (Object query : queries) {
-        rsr = (ResultSetContainer.ResultSetRow) query;
-        rs = (ResultSetContainer) results.get(rsr.getStringItem("name"));
+    for (ResultSetContainer.ResultSetRow query : queries) {
+        rs = (ResultSetContainer) results.get(query.getStringItem("name"));
         ResultColumn[] columns = rs.getColumns();
 %>
         <table id="datatable" border="1" cellpadding="0" cellspacing="0" class="stat" width="100%">
             <TR>
-                <TD colspan="<%=columns.length%>" ALIGN="left"><FONT size="4"><b><%=rsr.getStringItem("name")%>
+                <TD colspan="<%=columns.length%>" ALIGN="left"><FONT size="4"><b><%=query.getStringItem("name")%>
                     Results</b></FONT></TD>
             </TR>
             <TR>
@@ -60,13 +55,12 @@
             </TR>
             <%
                 boolean even = true;
-                for (Object r : rs) { %>
+                for (ResultSetContainer.ResultSetRow r : rs) { %>
             <tr class="<%=even?"light":"dark"%>">
                 <%
-                    rsr = (ResultSetContainer.ResultSetRow) r;
                     for (int j = 0; j < columns.length; j++) {
                 %>
-                <td class="value" nowrap="nowrap"><%=rsr.getItem(j).toString()%>
+                <td class="value" nowrap="nowrap"><%=r.getItem(j).toString()%>
                 </td>
                 <% } %>
             </tr>
