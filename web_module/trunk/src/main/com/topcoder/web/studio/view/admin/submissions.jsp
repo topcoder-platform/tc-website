@@ -252,7 +252,7 @@ Show submissions by (Enter Handle):
                     &#160;
                 </c:when>
                 <c:otherwise>
-                    <rsc:item name="reviewer_handle" row="<%=resultRow%>" ifNull="&#160;"/>
+                    <rsc:item name="final_score" row="<%=resultRow%>" format="0.00" ifNull="&#160;"/>
                 </c:otherwise>
             </c:choose>
         <td class="valueC">
@@ -271,7 +271,7 @@ Show submissions by (Enter Handle):
     </tr>
 </rsc:iterator>
 <tr>
-    <td class="SW" colspan="9">&nbsp;</td>
+    <td class="SW" colspan="11">&nbsp;</td>
     <td class="SE">&nbsp;</td>
 </tr>
 </tbody>
