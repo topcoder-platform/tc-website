@@ -61,7 +61,8 @@
       <td class="value">1
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10773">SRM 361</A></strong><br>
-         <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=XXX">XXX</A><br>--%>
+         <A href="/tc?module=Static&d1=sponsors&d2=tcs">TopCoder</A><br>
+         $5,000<br>
          9:00 PM
          </div>
          <div class="hs">
