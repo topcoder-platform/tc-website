@@ -44,52 +44,51 @@
 The Document Indexer API consists of a series of components that work together in a common interface (API) to allow for the indexing and searching a variety of unstructured data. In particular, the following file types created by the following programs are supported:</p>
 
 <ul>
-	<li>Adobe Acrobat Text-based (not image-based) </li>
-	<li>Microsoft Word 6.0 ('97) or later</li>
-	<li>Rich Text Editors</li>
-	<li>Text Editors</li>
-	<li>Web Editors</li>
+    <li>Adobe Acrobat Text-based (not image-based) </li>
+    <li>Microsoft Word 6.0 ('97) or later</li>
+    <li>Rich Text Editors</li>
+    <li>Text Editors</li>
+    <li>Web Editors</li>
 </ul>
 
 <p>The API is intended for use in conjunction with existing TopCoder administrative web functionality to allow company recruiters to easily index and search through member resumes that are stored in an Informix 10 database.  The API supports indexing and searching by the following criteria:</p>
 <ul>
-	<li>Keyword</li>
-	<li>Phrase</li>
-	<li>Word Proximity</li>
-	<li>WordStrings (AND/OR/NOR & Double Quotes)</li>
+    <li>Keyword</li>
+    <li>Phrase</li>
+    <li>Word Proximity</li>
+    <li>WordStrings (AND/OR/NOR & Double Quotes)</li>
 </ul>
 
 <p>Competitors will be required to set-up a local environment similar to the one showing under the "Environment" section later in this document, to adequately assemble and check their code.</p>
 
 <p><span class="bodySubtitle">Competition Overview</span><br>
-The Document Indexer API is currently being created in an Assembly contest being held in tandem with this Testing competition and consists of three major modules: </p>
+The Document Indexer API is currently being created in an Assembly contest being held in tandem with this Testing competition and consists of three major modules:</p>
 <ul>
-	<li>File Mangement Module</li>
-	<li>Indexing Module</li>
-	<li>Scheduling Module</li>
-	<li>Searching Module</li>
+    <li>File Mangement Module</li>
+    <li>Indexing Module</li>
+    <li>Scheduling Module</li>
+    <li>Searching Module</li>
 </ul>
 
 <p>This Testing competition will create a series of automated tests that will verify that the Indexing Module is working according to the requirements documentation.  Test scenarios will be provided and competitors will be required to convert those scenarios into automated tests.  However competitors are also expected to create additional automated tests based on their understanding of the requirements.</p>
 
 <p><strong>Indexing Function module:</strong><br>
-This application assumes the database tables will be populated by an external application. This application will have to provide a web page that displays all the documents and a web page that displays the new un-indexed documents. These pages will give the option to the user to index a new un-indexed document or to index all new un-indexed documents or to index all documents. The documents will be displayed in a table, with all the information present in the database, except the id. The coder and file type information will be displayed using the text names, not the ids.</p>
+This application assumes the database tables (see schema below) will be populated by an external application. This application will have to provide a web page that displays all the documents and a web page that displays the new un-indexed documents. These pages will give the option to the user to index a new un-indexed document or to index all new un-indexed documents or to index all documents. The documents will be displayed in a table, with all the information present in the database, except the id. The coder and file type information will be displayed using the text names, not the ids.</p>
 
-<p>This module will reuse the documents in the "resume" table and will just register them with the Document Repository, before indexing takes place. This will be achieved using the DocumentRepository.createMetadata(&#8230;) method. The extra information present in the "resume" table will have to be reused, by being set in the argument Metadata before it is created in the repository.</p>
+<p>This module will reuse the documents in the "resume" table and will just register them with the Document Repository, before indexing takes place. This will be achieved using the DocumentRepository.createMetadata(…) method. The extra information present in the "resume" table will have to be reused, by being set in the argument Metadata before it is created in the repository.</p>
 
 <p>After this step, the documents will be indexed using Document Indexer component. Note that whenever All or AllModified documents are indexed, the documents that no longer have the contents in the "resume" tables will be unregistered from the Document Repository and the indexes will be deleted (or a flag for deletion strategy can be employed). This functionality should be covered by the Document Indexer component.</p>
 
 <p><b>Note:</b> This Testing competition is being run in parallel with an Assembly Competitions.  Part of the requirements of the Assembly competition will be to run the automated tests that are generated as a result of this testing competition and verify that the assembled API/application returns the expected results correctly.  The files that are indexed and made available for searching in the Assembly competition will also be part of the sample files used in the creation of automated tests.</p>
 
 <div align="right"><A href="/tc?module=Static&d1=features&d2=071006"><img src="/i/development/testing/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
-
 <div class="sectionHeader">Technologies</div>
 <p>Application Technologies
 <ul>
-	<li>Linux</li>
-	<li>Java 1.4</li>
-	<li>Informix 10</li>
-	<li>Windows/Microsoft</li>
+    <li>Linux</li>
+    <li>Java 1.4</li>
+    <li>Informix 10</li>
+    <li>Windows/Microsoft</li>
 </ul>
 </p>
 
@@ -99,28 +98,27 @@ Click image to see larger view.</div>
 
 <p>Testing Technologies 
 <ul>
-	<li>JUNIT</li>
-	<li>httpUnit</li>
+    <li>JUNIT</li>
 </ul>
 </p>
 
 <div class="sectionHeader">Documentation</div>
 <p>Documentation and Application resources that will be provided to Registered Competitors:
 <ul>
-	<li>Requirements Specifications</li>
-	<li>Use Case Diagrams</li>
-	<li>Activity Diagrams</li>
-	<li>Base Test Scenarios</li>
-	<li>Sample Test Data</li>
+    <li>Requirements Specifications</li>
+    <li>Use Case Diagrams</li>
+    <li>Activity Diagrams</li>
+    <li>Base Test Scenarios</li>
+    <li>Sample Test Data</li>
 </ul>
 </p>
 
 <div class="sectionHeader">Submission Deliverables</div>
 <p>The list below defines the deliverables for the competition: 
 <ul>
-	<li>Test cases source code</li>
-	<li>Definition of any additional tests created</li>
-	<li>Any instructions required to configure or run the tests</li>
+    <li>Test cases source code</li>
+    <li>Definition of any additional tests created</li>
+    <li>Any instructions required to configure or run the tests</li>
 </ul>
 </p>
 <p>All submissions should be submitted in a zip file format called:<br>
@@ -142,27 +140,27 @@ Click image to see larger view.</div>
 <p>TopCoder will compensate teams with first and second place submissions.  Initial payment for the winning team will be distributed in two installments.  First Milestone: When the winning solution is submitted and the review board suggestions are integrated, 75% of the prize money will be paid.  Second Milestone: The remaining 25% of the prize money will be paid at the completion of the Deployment phase of the project.</p>
 <p>
 <strong>Winning Test Solution</strong><br>
-Total Payment - $800</p>
+Total Payment - $1000</p>
 <p>
 <strong>Second Place Test Solution</strong><br>
-Total Payment - $400</p>
+Total Payment - $500</p>
 
 <div class="sectionHeader">Eligibility</div>
-<p>You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition, you must fit into one of the following categories.<br>
+<p>You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements.  In addition, you must fit into one of the following categories.<br>
 If you reside in the United States, you must be either:<br>
 <ul>
 <li>A US Citizen</li>
 <li>A Lawful Permanent Resident of the US</li>
-<li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S.</li>
+<li>A temporary resident, refuse of the U.S. or have a lawfully issued work authorization card permitting unrestricted employment in the U.S.</li>
 </ul>
 If you do not reside in the United States:<br>
 <ul>
-<li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will not need to do anything to become authorized)</li>
+<li>You must be authorized to perform services as an independent contractor (Note: in most cases you will not need to do anything to become authorized)</li>
 </ul>
 </p>
 
 <div class="sectionHeader">Timeline</div>
-<p>All submissions are required to be submitted by the end of Competition Phase. The end of each phase is at 9:00 AM EDT.</p>
+<p>All submissions are required to be submitted by the end of the Competition phase.  The end of each phase is 9:00 AM EDT.</p>
 
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" width="350">
@@ -170,23 +168,24 @@ If you do not reside in the United States:<br>
       <td><strong>Phase</strong></td><td align="center"><strong>Start</strong></td><td align="center"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Registration Phase:</td><td align="center">07.13.2007</td><td align="center">07.16.2007</td>
+      <td>Registration Phase:</td><td align="center">07.27.2007</td><td align="center">07.31.2007</td>
    </tr>
    <tr>
-      <td>Test Submission:</td><td align="center">07.16.2007</td><td align="center">07.23.2007</td>
+      <td>Test Submission:</td><td align="center">07.28.2007</td><td align="center">08.10.2007</td>
    </tr>
    <tr>
-      <td>Test Case Screening:</td><td align="center">07.23.2007</td><td align="center">07.24.2007</td>
+      <td>Test Case Screening:</td><td align="center">08.10.2007</td><td align="center">08.11.2007</td>
    </tr>
    <tr>
-      <td>Winner Selection:</td><td align="center">&#160;</td><td align="center">07.27.2007</td>
+      <td>Winner Selection:</td><td align="center">08.11.2007</td><td align="center">08.14.2007</td>
    </tr>
 </table>
 </div>
 <br><br>
+<%--  
 <div class="sectionHeader">Registration</div>
 <p>Registration is closed.</p>
-<%--  
+
 <p>To sign up as a participant, send an email to <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Document Indexer Testing Competition: Indexing Module">TestingCompetitions@topcoder.com</A>.  In the email, include the following information:
 <ul>
 <li>Handle</li>
