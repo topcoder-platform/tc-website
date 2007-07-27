@@ -108,7 +108,7 @@ Show submissions by (Enter Handle):
 <tbody>
 <tr>
     <td class="NW">&nbsp;</td>
-    <td class="title" colspan="8">Submissions</td>
+    <td class="title" colspan="10">Submissions</td>
     <td class="NE">&nbsp;</td>
 </tr>
 <tr>
@@ -162,6 +162,12 @@ Show submissions by (Enter Handle):
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("review_status_desc")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Status</a>
             </c:otherwise>
         </c:choose>
+    </td>
+    <td class="headerC">
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("final_score")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Score</a>
+    </td>
+    <td class="headerC">
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("placed")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Placed</a>
     </td>
     <td class="headerE">
         <div>&nbsp;</div>
@@ -225,6 +231,12 @@ Show submissions by (Enter Handle):
                     <rsc:item name="review_status_desc" row="<%=resultRow%>" ifNull="&#160;"/>
                 </c:otherwise>
             </c:choose>
+        </td>
+        <td class="valueC">
+            <rsc:item name="final_score" row="<%=resultRow%>" format="0.00" ifNull="&#160;"/>
+        </td>
+        <td class="valueC">
+            <rsc:item name="placed" row="<%=resultRow%>" ifNull="&#160;"/>
         </td>
         <td class="valueE">
             <div>&nbsp;</div>
