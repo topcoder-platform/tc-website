@@ -131,15 +131,17 @@ public abstract class Base extends ShortHibernateProcessor {
         DataAccessInt da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         ResultSetContainer rsc = da.getData(r).get("or_results");
         if (rsc.isEmpty()) {
+            log.debug("no results");
             return false;
         } else {
             for (ResultSetContainer.ResultSetRow row : rsc) {
                 if (row.getItem("final_score").getResultData() == null) {
+                    log.debug("final score null " + row.getLongItem("submission_id"));
                     return false;
                 }
             }
+            return true;
         }
-        return true;
 
     }
 
