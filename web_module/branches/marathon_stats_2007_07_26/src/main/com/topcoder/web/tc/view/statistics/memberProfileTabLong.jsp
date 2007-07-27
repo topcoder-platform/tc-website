@@ -27,6 +27,12 @@
                      <A HREF="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<rsc:item set="<%=rsc%>" name="coder_id"/>">[competition history]</A><br><br></td>
                     <td class="cat">&nbsp;</td>
                 </tr>
+                <tr><td class="catNW">Percentile:</td><td class="statRNW"><c:out value="${row.map['percentile']}" default="N/A"/></td></tr>
+            	<tr><td class="catNW">Rank:</td><td class="statRNW">
+            		<c:choose>
+            			<c:when test="${empty row.map['rank']}" >not ranked</c:when>
+            			<c:otherwise>${row.map['rank']} of ${row.map['num_ranked']} </c:otherwise>
+            		</c:choose>
                 <tr><td class="catNW">Competitions:</td><td class="statRNW"><A HREF="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<rsc:item set="<%=rsc%>" name="coder_id"/>"><rsc:item set="<%=rsc%>" name="num_competitions"/></A></td></tr>
                 <tr><td class="catNW">Best Rank:</td><td class="statRNW">${row.map['best_rank']}</td></tr>
                 <tr><td class="catNW">Wins:</td><td class="statRNW">${row.map['num_wins']}</td></tr>
