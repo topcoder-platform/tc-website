@@ -129,7 +129,7 @@ public abstract class Base extends ShortHibernateProcessor {
         r.setContentHandle("or_results");
         r.setProperty(Constants.CONTEST_ID, contestId.toString());
         DataAccessInt da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
-        ResultSetContainer rsc = da.getData(r).get("project_list");
+        ResultSetContainer rsc = da.getData(r).get("or_results");
         if (rsc.isEmpty()) {
             return false;
         } else {
