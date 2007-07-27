@@ -164,10 +164,24 @@ Show submissions by (Enter Handle):
         </c:choose>
     </td>
     <td class="headerC">
-        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("final_score")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Score</a>
+        <c:choose>
+            <c:when test="${unMarkedOnly}">
+                Score
+            </c:when>
+            <c:otherwise>
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("final_score")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Score</a>
+            </c:otherwise>
+        </c:choose>
     </td>
     <td class="headerC">
-        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("placed")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Placed</a>
+        <c:choose>
+            <c:when test="${unMarkedOnly}">
+                Placed
+            </c:when>
+            <c:otherwise>
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("placed")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Placed</a>
+            </c:otherwise>
+        </c:choose>
     </td>
     <td class="headerE">
         <div>&nbsp;</div>
@@ -233,10 +247,23 @@ Show submissions by (Enter Handle):
             </c:choose>
         </td>
         <td class="valueC">
-            <rsc:item name="final_score" row="<%=resultRow%>" format="0.00" ifNull="&#160;"/>
-        </td>
+            <c:choose>
+                <c:when test="${unMarkedOnly}">
+                    &#160;
+                </c:when>
+                <c:otherwise>
+                    <rsc:item name="reviewer_handle" row="<%=resultRow%>" ifNull="&#160;"/>
+                </c:otherwise>
+            </c:choose>
         <td class="valueC">
-            <rsc:item name="placed" row="<%=resultRow%>" ifNull="&#160;"/>
+        <c:choose>
+            <c:when test="${unMarkedOnly}">
+                &#160;
+            </c:when>
+            <c:otherwise>
+                <rsc:item name="placed" row="<%=resultRow%>" ifNull="&#160;"/>
+            </c:otherwise>
+        </c:choose>
         </td>
         <td class="valueE">
             <div>&nbsp;</div>
