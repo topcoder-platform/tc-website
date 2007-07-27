@@ -33,13 +33,28 @@
             			<c:when test="${empty row.map['rank']}" >not ranked</c:when>
             			<c:otherwise>${row.map['rank']} of ${row.map['num_ranked']} </c:otherwise>
             		</c:choose>
-                <tr><td class="catNW">Competitions:</td><td class="statRNW"><A HREF="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<rsc:item set="<%=rsc%>" name="coder_id"/>"><rsc:item set="<%=rsc%>" name="num_competitions"/></A></td></tr>
+            		</td>
+            	</tr>
+            	<tr><td class="catNW">Country Rank:</td><td class="statRNW">
+            		<c:choose>
+            			<c:when test="${empty row.map['country_rank']}" >not ranked</c:when>
+            			<c:otherwise>${row.map['country_rank']} of ${row.map['num_country_ranked']} </c:otherwise>
+            		</c:choose>
+            		</td>
+            	</tr>
+	            <tr><td class="catNW">Volatility:</td><td class="statRNW">${row.map['vol']}</td></tr>            	
+	            <tr><td class="catNW">Maximum Rating:</td><td class="statRNW">${row.map['highest_rating']}</td></tr>
+    	        <tr><td class="catNW">Minimum Rating:</td><td class="statRNW">${row.map['lowest_rating']}</td></tr>            	                
                 <tr><td class="catNW">Best Rank:</td><td class="statRNW">${row.map['best_rank']}</td></tr>
                 <tr><td class="catNW">Wins:</td><td class="statRNW">${row.map['num_wins']}</td></tr>
                 <tr><td class="catNW">Top Five Finishes:</td><td class="statRNW">${row.map['num_top_five']}</td></tr>
                 <tr><td class="catNW">Top Ten Finishes:</td><td class="statRNW">${row.map['num_top_ten']}</td></tr>
                 <tr><td class="catNW">Avg. Rank:</td><td class="statRNW"><rsc:item set="<%=rsc%>" name="avg_rank" ifNull="N/A" format="0.00"/></td></tr>
                 <tr><td class="catNW">Avg. Num. Submissions:</td><td class="statRNW"><rsc:item set="<%=rsc%>" name="avg_submissions" ifNull="N/A" format="0.00"/></td></tr>
+                <tr><td class="catNW">Competitions:</td><td class="statRNW"><A HREF="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<rsc:item set="<%=rsc%>" name="coder_id"/>"><rsc:item set="<%=rsc%>" name="num_competitions"/></A></td></tr>
+	            <tr><td class="catNW">Most Recent Event:</td><td class="statRNW">${row.map['last_round']}<br>
+												<rsc:item name="last_round_date" set="<%=rsc%>" format="MM.dd.yy"/></td></tr>
+	            
             </table>
         </td>
     </tr>
