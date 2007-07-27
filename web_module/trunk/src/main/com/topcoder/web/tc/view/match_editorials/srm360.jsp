@@ -522,7 +522,7 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
 
     <td class="bodyText" style="background: #eee;"> 
 
-      <b>starlite</b> for 998.91 points (0 mins 56 secs) 
+      <b>omeometo</b> for 749.92 points (17 mins 41 secs)
 
     </td> 
 
