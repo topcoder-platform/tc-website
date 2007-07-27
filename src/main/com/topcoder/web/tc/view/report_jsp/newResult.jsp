@@ -36,21 +36,19 @@
     QueryDataAccess da = new QueryDataAccess(request.getParameter("db") == null ? DBMS.OLTP_DATASOURCE_NAME : request.getParameter("db"));
     ResultSetContainer queries = da.getData(qr).get("queries");
 
-    Map results = (Map) request.getAttribute(Constants.REPORT_RESULT_KEY);
+    Map<String, ResultSetContainer> results = (Map<String, ResultSetContainer>) request.getAttribute(Constants.REPORT_RESULT_KEY);
     ResultSetContainer rs = null;
     for (ResultSetContainer.ResultSetRow query : queries) {
-        rs = (ResultSetContainer) results.get(query.getStringItem("name"));
-        ResultColumn[] columns = rs.getColumns();
+        rs = results.get(query.getStringItem("name"));
 %>
         <table id="datatable" border="1" cellpadding="0" cellspacing="0" class="stat" width="100%">
             <TR>
-                <TD colspan="<%=columns.length%>" ALIGN="left"><FONT size="4"><b><%=query.getStringItem("name")%>
+                <TD colspan="<%=rs.getColumns().length%>" ALIGN="left"><FONT size="4"><b><%=query.getStringItem("name")%>
                     Results</b></FONT></TD>
             </TR>
             <TR>
-                <% for (ResultColumn column : columns) { %>
-                <TD><b><%=column.getName()%>
-                </b></TD>
+                <% for (ResultColumn column : rs.getColumns()) { %>
+                <TD><b><%=column.getName()%></b></TD>
                 <% } %>
             </TR>
             <%
@@ -58,7 +56,7 @@
                 for (ResultSetContainer.ResultSetRow r : rs) { %>
             <tr class="<%=even?"light":"dark"%>">
                 <%
-                    for (int j = 0; j < columns.length; j++) {
+                    for (int j = 0; j < rs.getColumns().length; j++) {
                 %>
                 <td class="value" nowrap="nowrap"><%=r.getItem(j).toString()%>
                 </td>
