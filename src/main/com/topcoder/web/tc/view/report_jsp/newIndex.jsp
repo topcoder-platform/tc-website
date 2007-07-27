@@ -276,12 +276,14 @@ Placement
 </UL>
 
 
+<%--
 Technical Assessment
 <UL>
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=technical_assessment_session_status&"+Constants.DB_KEY+"="+DBMS.SCREENING_OLTP_DATASOURCE_NAME%>">Technical
             Assessment Session Status</A></LI>
 </UL>
+--%>
 
 
 Quarterly Reports
