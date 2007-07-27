@@ -112,6 +112,8 @@ public class ViewSubmissions extends Base {
             query.append(" , s.rank as submitter_rank");
             query.append(" , s.submission_id");
             query.append(" , s.submission_type_id");
+            query.append(" , cr.final_score");
+            query.append(" , cr.placed");
 
             from.append(" from submission s");
             from.append(" , user u");
@@ -122,8 +124,10 @@ public class ViewSubmissions extends Base {
                 from.append(" , user u1");
                 from.append(" , review_status_lu rs");
             }
+            from.append(" , outer contest_result cr ");
             from.append(" where u.user_id = s.submitter_id");
             from.append("  and sr.submission_id = s.submission_id");
+            from.append(" and cr.submission_id = s.submission_id");
             from.append("  and sr.reviewer_id = u1.user_id");
             if (type != null) {
                 from.append("  and s.submission_type_id = ").append(type);
