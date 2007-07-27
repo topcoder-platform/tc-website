@@ -53,6 +53,8 @@ public abstract class Base extends ShortHibernateProcessor {
         getRequest().setAttribute("projects", getProjectList());
 
         getRequest().setAttribute("prizeTypes", StudioDAOUtil.getFactory().getPrizeTypeDAO().getPrizeTypes());
+
+
     }
 
     protected ResultSetContainer getForumList() throws Exception {
@@ -101,6 +103,7 @@ public abstract class Base extends ShortHibernateProcessor {
             setDefault(Constants.PROJECT_ID_KEY, contest.getProject().getId());
         }
 
+        getRequest().setAttribute("resultsReady", onlineReviewResultsReady(contest.getId()));
 
     }
 
@@ -109,6 +112,34 @@ public abstract class Base extends ShortHibernateProcessor {
         r.setContentHandle("project_list");
         DataAccessInt da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         return (ResultSetContainer) da.getData(r).get("project_list");
+
+    }
+
+
+    /**
+     * not very efficient, consider changing the query so that it just figures out if
+     * everything is scored yet or not.
+     *
+     * @param contestId
+     * @return
+     * @throws Exception
+     */
+    private static boolean onlineReviewResultsReady(Long contestId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("or_results");
+        r.setProperty(Constants.CONTEST_ID, contestId.toString());
+        DataAccessInt da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        ResultSetContainer rsc = da.getData(r).get("project_list");
+        if (rsc.isEmpty()) {
+            return false;
+        } else {
+            for (ResultSetContainer.ResultSetRow row : rsc) {
+                if (row.getItem("final_score").getResultData() == null) {
+                    return false;
+                }
+            }
+        }
+        return true;
 
     }
 
