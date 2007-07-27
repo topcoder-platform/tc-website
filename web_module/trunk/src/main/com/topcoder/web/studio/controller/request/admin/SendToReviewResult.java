@@ -42,6 +42,7 @@ public class SendToReviewResult extends Base {
                         count += s.getORSubmission() == null ? 0 : 1;
                     }
                     getRequest().setAttribute("count", count);
+                    getRequest().setAttribute("contest", c);
                     setNextPage("/admin/sendToReviewResult.jsp");
                     setIsNextPageInContext(true);
                 } else {
