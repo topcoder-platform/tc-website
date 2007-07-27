@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.27.07<br>1:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm360">SRM 360 - Problem Set &amp; Analysis</A></span><br><br>
+      If each SRM makes the TopCoder community one degree better, we're on the spot where we started more than 6 years ago. Because 360 degrees make a full cycle.</td>
+         <td class="newsPhoto"><img src="/i/m/darnley_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="21971539" context="algorithm" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm360">full story</A> | 
+         <tc-webtag:forumLink forumID="516057" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.26.07<br>5:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -169,21 +185,5 @@
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm34">full story</A> | 
          <tc-webtag:forumLink forumID="516560" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.19.07<br>1:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm358">SRM 358 - Problem Set &amp; Analysis</A></span><br><br>
-      <tc-webtag:handle coderId="14970299" context="algorithm"/>, with fast time on all three problems, won the match thanks to a last minute challenge that left <tc-webtag:handle coderId="307060" context="algorithm"/>, with 7 successful challenges and a resubmit on the 500, behind.</td>
-         <td class="newsPhoto"><img src="/i/m/icanadi_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10256411" context="algorithm" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm358">full story</A> | 
-         <tc-webtag:forumLink forumID="516055" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
