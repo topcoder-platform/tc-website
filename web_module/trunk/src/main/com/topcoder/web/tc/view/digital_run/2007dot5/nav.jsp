@@ -28,7 +28,7 @@
          | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=desRules">Rules</A>
     <% } %>
 
-    | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=description">Go back</A><br>
+    | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=description">Go back</A><br>
 <%--
     <A class="bcLink" href="">Current Leaderboard</A>
 --%>
