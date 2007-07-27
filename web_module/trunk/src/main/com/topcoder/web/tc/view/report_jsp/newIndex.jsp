@@ -49,6 +49,11 @@ New Software Reports
     <LI><A HREF="<%=baseTCSUrl+"recently_completed_projects"%>">Recently Completed Projects</a></LI>
     <LI><A HREF="<%=baseTCSUrl+"open_reviewer_positions"%>">Open Review Positions</a></LI>
     <LI><A HREF="<%=baseTCSUrl+"project_statistics_report"%>">Project Statistics</a></LI>
+
+    <LI><A HREF="<%=baseTCSUrl+"component_timelines"%>">Component Timelines</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"fulfillment"%>">Component Fulfillment</a></LI>
+
+
 </UL>
 <br/>
 
