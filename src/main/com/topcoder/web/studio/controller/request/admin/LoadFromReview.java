@@ -54,10 +54,10 @@ public class LoadFromReview extends Base {
                     cr.setPlaced(row.getIntItem("placement"));
                 }
 
-                //todo refresh cache?
 
-                //todo set next page
-
+                setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
+                        "=AdminViewSubmissions&" + Constants.CONTEST_ID + "=" + contestId);
+                setIsNextPageInContext(false);
             } else {
                 throw new NavigationException("Invalid contest specified");
             }
