@@ -519,7 +519,10 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 <br/><br/>
 
 
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="setToReviewForm">
+<div class="header">After Contest</div>
+
+
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="sendToReviewForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSendToReview"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
     <button name="submit" value="submit" type="submit">
@@ -527,6 +530,19 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
     </button>
 
 </form>
+
+<c:if test="${resultsReady}">
+    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="loadromReviewForm">
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminLoadFromReview"/>
+        <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+        <button name="submit" value="submit" type="submit">
+            Load Results From Online Review
+        </button>
+
+    </form>
+
+</c:if>
+
 
 </div>
 <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
