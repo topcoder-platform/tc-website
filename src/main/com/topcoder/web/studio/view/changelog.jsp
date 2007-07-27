@@ -26,6 +26,15 @@
 
 <div class="contentSpacer">
 
+
+<p>
+    2.0.3 - 2007.07.xx
+    <ul>
+        <li>Allow admins to load results from online review -dok</li>
+    </ul>
+
+</p>
+
 <p>
     2.0.2 - 2007.07.25
     <ul>
@@ -45,12 +54,14 @@
 <p>
     2.0.0 - 2007.07.20
     <ul>
-        <li>Fix bug where date in review email indicated it was in the user's timezone but was really eastern time -dok</li>
+        <li>Fix bug where date in review email indicated it was in the user's timezone but was really eastern time
+            -dok
+        </li>
         <li>Fix bug where the cache wasn't refreshed after an admin changed results -dok</li>
         <li>Allow and admin to remove the place of a submission -dok</li>
         <li>Add score to submissions page -dok</li>
-    <li>Add score to winners page -dok</li>
-    <li>Add submission results page -dok</li>
+        <li>Add score to winners page -dok</li>
+        <li>Add submission results page -dok</li>
     </ul>
 </p>
 
