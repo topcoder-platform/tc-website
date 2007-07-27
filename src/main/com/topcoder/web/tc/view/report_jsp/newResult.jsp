@@ -8,6 +8,7 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="com.topcoder.common.web.data.report.Constants" %>
 <%@ page import="java.util.Iterator" %>
+<%@ page import="com.topcoder.web.common.StringUtils" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <html>
@@ -51,7 +52,7 @@
             </TR>
             <TR>
                 <% for (int i=0; i<rs.getColumns().length; i++) {%>
-                <TD><b><%=rs.getColumns()[i].getName()%></b></TD>
+                <TD><b><%= StringUtils.replace(rs.getColumns()[i].getName(), "_", " ")%></b></TD>
                 <% } %>
             </TR>
             <%
