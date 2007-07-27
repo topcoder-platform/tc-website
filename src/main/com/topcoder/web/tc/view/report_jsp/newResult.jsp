@@ -7,6 +7,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="com.topcoder.common.web.data.report.Constants" %>
+<%@ page import="java.util.Iterator" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <html>
@@ -47,8 +48,8 @@
                     Results</b></FONT></TD>
             </TR>
             <TR>
-                <% for (ResultColumn column : rs.getColumns()) { %>
-                <TD><b><%=column.getName()%></b></TD>
+                <% for (int i=0; i<rs.getColumns().length; i++) {%>
+                <TD><b><%=rs.getColumns()[i].getName()%></b></TD>
                 <% } %>
             </TR>
             <%
