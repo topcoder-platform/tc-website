@@ -51,6 +51,38 @@
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_documentIndexerIndex">Document Indexer Testing Competition: Indexing Module</A>
+      </td>
+      <td class="valueC">
+      <%--registration closed--%>
+      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Document Indexer Testing Competition: Indexing Module">register</A>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_documentIndexerIndex">results</A>
+      --%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_documentIndexerIndex">standings</A>
+      --%>
+      </td>
+      <td class="valueC">$1000</td>
+      <td class="valueC">
+      07.27.2007 9:00 AM EDT
+      </td>
+      <td class="valueC">
+      08.10.2007 9:00 AM EDT
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <tc-webtag:forumLink forumID="516527" message="discuss" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_registrationTool">Registration Tool</A>
       </td>
       <td class="valueC">
