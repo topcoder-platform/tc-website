@@ -1,9 +1,9 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <%@ page import="com.topcoder.shared.dataAccess.QueryRequest"%>
 <%@ page import="com.topcoder.shared.util.DBMS"%>
 <%@ page import="com.topcoder.shared.dataAccess.QueryDataAccess"%>
 <%@ page import="java.util.HashMap" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultColumn" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="com.topcoder.common.web.data.report.Constants" %>
@@ -35,12 +35,14 @@
             " order by cqx.sort_order, q.query_id");
     qr.setQueries(h);
     QueryDataAccess da = new QueryDataAccess(request.getParameter("db") == null ? DBMS.OLTP_DATASOURCE_NAME : request.getParameter("db"));
-    ResultSetContainer queries = da.getData(qr).get("queries");
+    ResultSetContainer queries = (ResultSetContainer)da.getData(qr).get("queries");
 
-    Map<String, ResultSetContainer> results = (Map<String, ResultSetContainer>) request.getAttribute(Constants.REPORT_RESULT_KEY);
-    ResultSetContainer rs = null;
-    for (ResultSetContainer.ResultSetRow query : queries) {
-        rs = results.get(query.getStringItem("name"));
+    Map results = (Map) request.getAttribute(Constants.REPORT_RESULT_KEY);
+    ResultSetContainer rs;
+    ResultSetContainer.ResultSetRow query;
+    for (Iterator it = queries.iterator(); it.hasNext();) {
+        query = (ResultSetContainer.ResultSetRow)it.next();
+        rs = (ResultSetContainer)results.get(query.getStringItem("name"));
 %>
         <table id="datatable" border="1" cellpadding="0" cellspacing="0" class="stat" width="100%">
             <TR>
@@ -54,7 +56,9 @@
             </TR>
             <%
                 boolean even = true;
-                for (ResultSetContainer.ResultSetRow r : rs) { %>
+                ResultSetContainer.ResultSetRow r;
+                for (Iterator it1 = rs.iterator(); it.hasNext();) {
+            r = (ResultSetContainer.ResultSetRow)it.next();%>
             <tr class="<%=even?"light":"dark"%>">
                 <%
                     for (int j = 0; j < rs.getColumns().length; j++) {
