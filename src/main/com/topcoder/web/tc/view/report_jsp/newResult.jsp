@@ -57,8 +57,8 @@
             <%
                 boolean even = true;
                 ResultSetContainer.ResultSetRow r;
-                for (Iterator it1 = rs.iterator(); it.hasNext();) {
-            r = (ResultSetContainer.ResultSetRow)it.next();%>
+                for (Iterator it1 = rs.iterator(); it1.hasNext();) {
+            r = (ResultSetContainer.ResultSetRow)it1.next();%>
             <tr class="<%=even?"light":"dark"%>">
                 <%
                     for (int j = 0; j < rs.getColumns().length; j++) {
