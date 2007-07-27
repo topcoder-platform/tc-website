@@ -70,15 +70,17 @@ public class SubmitReview extends Base {
                 sr = new SubmissionReview();
                 sr.setSubmission(s);
             }
-            User reviewer = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+            User reviewer = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
             sr.setReviewer(reviewer);
             sr.setStatus(rs);
             sr.setText(getRequest().getParameter(Constants.SUBMISSION_REVIEW_TEXT));
             StudioDAOUtil.getFactory().getSubmissionReviewDAO().saveOrUpdate(sr);
 
+/*  don't change the rank. we're not going to let submissions ranked below the treshhold bump up anymore.  they just don't get scored.
             if (sr.getStatus().getId().equals(ReviewStatus.FAILED)) {
                 StudioDAOUtil.getFactory().getSubmissionDAO().changeRank(null, s);
             }
+*/
 
             Long submitterId = s.getSubmitter().getId();
 
