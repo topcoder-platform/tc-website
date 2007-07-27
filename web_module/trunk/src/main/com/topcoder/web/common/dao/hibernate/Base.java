@@ -77,7 +77,7 @@ public abstract class Base {
     }
 
     protected List findAll(Class c, String property, Integer value) {
-        List ret = null;
+        List ret;
         StringBuffer query = new StringBuffer(100);
         query.append("from ");
         query.append(c.getName());
@@ -89,11 +89,29 @@ public abstract class Base {
         }
         Query q = session.createQuery(query.toString());
         if (property != null && value != null) {
-            q.setInteger(0, value.intValue());
+            q.setInteger(0, value);
         }
         ret = q.list();
         return ret;
     }
 
+    protected List findAll(Class c, String property, Long value) {
+        List ret;
+        StringBuffer query = new StringBuffer(100);
+        query.append("from ");
+        query.append(c.getName());
+        query.append(" where ");
+        if (property != null && value != null) {
+            query.append(property);
+            query.append(" = ");
+            query.append("?");
+        }
+        Query q = session.createQuery(query.toString());
+        if (property != null && value != null) {
+            q.setLong(0, value);
+        }
+        ret = q.list();
+        return ret;
+    }
 
 }
