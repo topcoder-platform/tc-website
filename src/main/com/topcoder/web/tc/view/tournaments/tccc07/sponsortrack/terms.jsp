@@ -51,7 +51,7 @@
                             <h1><span>Registration</span></h1>
 
                             <form name="terms" method="post" action="/tc">
-                                <input name="module" value="TCCC07SubmitRegistration" type="hidden">
+                                <input name="module" value="TCCC07SubmitSponsorRegistration" type="hidden">
                                 <input name="et" value="<%=eventType%>" type="hidden">
 
                                 <p align="center">To complete your registration for the <%=event.getDescription()%> you
