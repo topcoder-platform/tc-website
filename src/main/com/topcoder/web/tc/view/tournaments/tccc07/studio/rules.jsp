@@ -354,7 +354,7 @@ The six (6) highest individual placement scores that each contestant receives fo
                         </tr> 
                         <tr class="light"> 
                             <td class="value">Online participants who pass screening for at least two design contests</td> 
-                            <td class="value">Limited edition 2007 TopCoder Open t-shirt</td>
+                            <td class="value">Limited edition 2007 TopCoder Collegiate Challenge t-shirt</td>
                         </tr>
                         <tr class="dark"> 
                             <td class="value" colspan="2">*Prize will be awarded after the conclusion of the Championship Round. Winner must be present to receive prize. <br /><br />In addition to the prizes mentioned above, all onsite finalists will receive a one-day <a target="_blank" alt="Park Hopper option" target="_blank" href="<tc-webtag:linkTracking link='http://disneyworld.disney.go.com/wdw/tickets/ticketStore?categoryPass=RECOMMENDER&productPass=RECOMMENDER&country=USA' refer='TCCC07_whatToDo' />">Disney Park Hopper pass</a> to use at the event on Saturday, November 3, 2007.</td> 
