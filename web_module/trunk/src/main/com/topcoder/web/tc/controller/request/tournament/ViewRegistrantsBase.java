@@ -1,9 +1,5 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
-import java.util.Map;
-
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -19,6 +15,10 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.tc.Constants;
+
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.Map;
 
 /**
  * @author dok, pulky
@@ -39,7 +39,7 @@ public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
         Request r = new Request();
         r.setContentHandle(getEventShortDesc() + "_registrants");
         r.setProperty(Constants.EVENT_ID, String.valueOf(e.getId().intValue()));
-        
+
         //this gets refreshed when people sign up.
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
 
@@ -57,27 +57,27 @@ public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
         setSortInfo(rsc);
         getRequest().setAttribute("numRegistrants", rsc.size());
 
-        if (e.getRegistrationStart().after(new GregorianCalendar(2007,6,1).getTime())) {
+        if (e.getRegistrationStart().after(new GregorianCalendar(2007, 6, 1).getTime())) {
             log.debug("Registrants page pageable.");
             String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
             String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
-    
+
             if ("".equals(numRecords)) {
                 numRecords = "50";
             } else if (Integer.parseInt(numRecords) > 200) {
                 numRecords = "200";
             }
-    
+
             if (startRank.equals("") || Integer.parseInt(startRank) <= 0) {
                 startRank = "1";
             }
-    
+
             setDefault(DataAccessConstants.START_RANK, startRank);
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
-    
-    
+
+
             int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
-    
+
             ArrayList<ResultFilter> filters = new ArrayList<ResultFilter>(1);
             String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE));
             if (!handle.equals("")) {
@@ -87,7 +87,7 @@ public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
                 filters.add(new Contains(handle.toLowerCase(), "handle_lower"));
                 setDefault(Constants.HANDLE, handle);
             }
-    
+
             if (filters.size() > 0) {
                 rsc = new ResultSetContainer(rsc, filters.toArray(new ResultFilter[0]));
             }
@@ -96,7 +96,7 @@ public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
         } else {
             log.debug("Registrants page NOT pageable.");
         }
-    
+
         getRequest().setAttribute("list", rsc);
 
         setNextPage(e);
@@ -116,11 +116,13 @@ public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
         if (EventType.COMPONENT_TOURNAMENT_ID.equals(eventTypeId)) {
             return "component";
         } else if (EventType.ALGORITHM_TOURNAMENT_ID.equals(eventTypeId)) {
-            return "algorithm";        
+            return "algorithm";
         } else if (EventType.MARATHON_TOURNAMENT_ID.equals(eventTypeId)) {
             return "marathon";
         } else if (EventType.STUDIO_TOURNAMENT_ID.equals(eventTypeId)) {
             return "studio";
+        } else if (EventType.SPONSOR_TRACK_ID.equals(eventTypeId)) {
+            return "sponsortrack";
         }
         return "";
     }
