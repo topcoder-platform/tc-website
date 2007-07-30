@@ -82,7 +82,7 @@ public class SubmitProfessorNomination extends ViewProfessorNomination {
             n.setName(name);
             n.setNominator(DAOUtil.getFactory().getUserDAO().find(getUser().getId()));
             n.setSchoolName(school);
-            if ("".equals(StringUtils.checkNull(url).trim())) {
+            if (!"".equals(StringUtils.checkNull(url).trim())) {
                 n.setSchoolURL(url);
             }
             n.setText(text);
