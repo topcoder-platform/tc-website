@@ -45,7 +45,7 @@ public class SubmitProfessorNomination extends ViewProfessorNomination {
         if ("Other".equals(field)) {
             ValidationResult otherFieldResult = new NonEmptyValidator("Please enter your professor's field of instruction.").validate(new StringInput(otherField));
             if (!otherFieldResult.isValid()) {
-                addError(Constants.FIELD_OF_INSTRUCTION, otherFieldResult.getMessage());
+                addError(Constants.OTHER_FIELD_OF_INSTRUCTION, otherFieldResult.getMessage());
             }
         }
 
