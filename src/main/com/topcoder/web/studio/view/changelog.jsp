@@ -28,9 +28,10 @@
 
 
 <p>
-    2.0.3 - 2007.07.xx
+    2.0.3 - 2007.07.30
     <ul>
         <li>Allow admins to load results from online review -dok</li>
+        <li>Don't re-rank submissions if one fails. -dok</li>
     </ul>
 
 </p>
