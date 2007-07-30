@@ -66,7 +66,7 @@
 
 <div class="authorText">
   By&#160;<tc-webtag:handle coderId="14999860" context="algorithm"/><br />
-      <em>TopCoder Events Coordinator</em>
+      <em>TopCoder Event Manager</em>
 </div>
 <br clear="all">
 
