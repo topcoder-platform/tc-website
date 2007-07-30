@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.10.14 - 2007.07.xx
+    5.10.14 - 2007.07.30
     <ul>
         <li>PACTS fixes -pulky
             <ul>
@@ -53,6 +53,8 @@
                 <li>fix payment cancelation due to cheaters</li>
             </ul>
         </li>
+        <li>Add professor nomination program -dok</li>
+        <li>Add TCCC07 sponsor track -dok</li>
     </ul>
 </p>
 
