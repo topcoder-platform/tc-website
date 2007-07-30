@@ -1,5 +1,6 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+<%@ page import="com.topcoder.web.common.model.EventType,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.util.ApplicationServer,
                  java.util.Map" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">

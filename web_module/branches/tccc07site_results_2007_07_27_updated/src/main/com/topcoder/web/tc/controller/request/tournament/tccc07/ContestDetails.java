@@ -28,7 +28,7 @@ import java.util.Map;
  */
 public class ContestDetails extends StatBase {
 
-    final String CONTEST_PREFIX = "tco07";
+    final String CONTEST_PREFIX = "tccc07";
     
     protected String getCommandName() {
         return CONTEST_PREFIX + "_contest_projects";

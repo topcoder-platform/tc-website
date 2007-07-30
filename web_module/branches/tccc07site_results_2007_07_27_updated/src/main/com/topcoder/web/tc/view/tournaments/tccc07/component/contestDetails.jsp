@@ -1,5 +1,6 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+<%@ page import="com.topcoder.web.common.model.EventType,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.tc.model.UserContestDetail,
                  java.util.List,
                  java.util.Map" %>

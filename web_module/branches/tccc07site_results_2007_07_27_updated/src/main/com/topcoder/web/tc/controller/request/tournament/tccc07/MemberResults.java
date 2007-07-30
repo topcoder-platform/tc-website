@@ -23,7 +23,7 @@ import java.util.*;
 */
 public class MemberResults extends StatBase {
 
-    final String CONTEST_PREFIX = "tco07";
+    final String CONTEST_PREFIX = "tccc07";
     
     protected String getCommandName() {
         return CONTEST_PREFIX + "_member_projects";
