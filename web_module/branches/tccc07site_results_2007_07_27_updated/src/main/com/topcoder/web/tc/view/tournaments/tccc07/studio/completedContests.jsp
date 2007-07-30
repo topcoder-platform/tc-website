@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.web.common.model.EventType,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
