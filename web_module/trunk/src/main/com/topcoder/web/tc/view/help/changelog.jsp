@@ -55,6 +55,7 @@
         </li>
         <li>Add professor nomination program -dok</li>
         <li>Add TCCC07 sponsor track -dok</li>
+        <%--<li>Set compile and target jvm to 1.5 for jsp's -dok</li>--%>
     </ul>
 </p>
 
