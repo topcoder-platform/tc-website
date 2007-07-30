@@ -57,6 +57,7 @@ public class ContestDetails extends StatBase {
 
         int[] placementPoints = new int[]{10, 7, 5, 4, 0};
 
+        log.debug("rscDetails.size(): (1) " + rsc.size());
         for (int i = 0; i < rsc.size(); i++) {
             //for each contest, get details and build array
             Request dataRequest = new Request();
