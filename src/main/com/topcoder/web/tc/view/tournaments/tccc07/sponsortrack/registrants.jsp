@@ -61,7 +61,7 @@
 
                     <h1><span>Registrants</span></h1>
 
-                    <form name="registrantsForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
+                    <form name="registrantsForm" action='${sessionInfo.servletPath}' method="get">
                         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07ViewRegistrants"/>
                         <tc-webtag:hiddenInput name="et" value="${et}"/>
                         <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
