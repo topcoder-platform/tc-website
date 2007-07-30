@@ -72,7 +72,7 @@
                         <span class="bigRed">${err}</span>&nbsp;<br />
                     </tc-webtag:errorIterator>
                     Field of Instruction
-                    <tc-webtag:listSelect name="<%=Constants.FIELD_OF_INSTRUCTION%>" useTopValue="false" list="<%=fields%>}"/>
+                    <tc-webtag:listSelect name="<%=Constants.FIELD_OF_INSTRUCTION%>" useTopValue="false" list="<%=fields%>"/>
 
                     <tc-webtag:errorIterator id="err" name="<%=Constants.OTHER_FIELD_OF_INSTRUCTION%>">
                         <span class="bigRed">${err}</span>&nbsp;<br />
