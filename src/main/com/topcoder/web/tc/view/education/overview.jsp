@@ -39,7 +39,7 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<li><a href="/tc?module=Static&d1=features&d2=073007"><strong>Think positive, and be prepared</strong></a>, by <tc-webtag:handle coderId="14999860" /><br>
+<li><a href="/tc?module=Static&d1=features&d2=073007"><strong>Visas: Think Positive and Be Prepared</strong></a>, by <tc-webtag:handle coderId="14999860" /><br>
 At every TopCoder tournament, there is at least one person who misses out. One person (and sometimes many more) who does a great job of competing, advances all the way to the finals, and only then realizes that it's too late.  You guessed it -- I'm talking about the dreaded visa issue.</li>
 <li><a href="/tc?module=Static&d1=features&d2=072607"><strong>Test Drive: TenFold SOA</strong></a>, by <tc-webtag:handle coderId="22630158" /><br>
 Service Oriented Architecture (SOA) is a hot topic. But with so much "buzz" around the subject, it's hard to separate the products that really deliver and the ones that just market an idea and wrap it in shiny paper.</li>

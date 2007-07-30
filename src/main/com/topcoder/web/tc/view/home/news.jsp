@@ -7,7 +7,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.30.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=073007">Think positive, and be prepared</A></span><br><br>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=073007">Visas: Think Positive and Be Prepared</A></span><br><br>
       At every TopCoder tournament, there is at least one person who misses out. One person (and sometimes many more) who does a great job of competing, advances all the way to the finals, and only then realizes that it's too late.  You guessed it -- I'm talking about the dreaded visa issue.</td>
          <td class="newsPhoto"><img src="/i/m/jmpld40_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="14999860" context="algorithm"/></td></tr></table>
       </td>
