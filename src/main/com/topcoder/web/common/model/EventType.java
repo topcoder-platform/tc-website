@@ -22,6 +22,7 @@ public class EventType extends Base {
     public static final Integer INTRO_EVENT_ALGO_ID = 12;
     public static final Integer INTRO_EVENT_COMP_ID = 13;
     public static final Integer SPONSOR_TRACK_ID = 15;
+    public static final Integer PROFESSOR_NOMINATION_ID = 16;
 
     public EventType() {
 
