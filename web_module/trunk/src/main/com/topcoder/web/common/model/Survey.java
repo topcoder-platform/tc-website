@@ -20,11 +20,11 @@ public class Survey extends Base {
     private Integer statusId;
     private String text;
     private boolean resultsViewable;
-    private Set questions;
+    private Set<Question> questions;
 
 
     public Survey() {
-        questions = new TreeSet();
+        questions = new TreeSet<Question>();
     }
 
 
@@ -84,11 +84,11 @@ public class Survey extends Base {
         this.resultsViewable = resultsViewable;
     }
 
-    public Set getQuestions() {
+    public Set<Question> getQuestions() {
         return Collections.unmodifiableSet(questions);
     }
 
-    public void setQuestions(Set questions) {
+    public void setQuestions(Set<Question> questions) {
         this.questions = questions;
     }
 }
