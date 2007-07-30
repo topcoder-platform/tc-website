@@ -60,7 +60,7 @@
 
             <div id="pageBody">
 
-                    <h1><span><A href="/tc?module=TCO07ContestDetails&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
+                    <h1><span><A href="/tc?module=TCCC07ContestDetails&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
                    <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
                </A> -
                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>">
