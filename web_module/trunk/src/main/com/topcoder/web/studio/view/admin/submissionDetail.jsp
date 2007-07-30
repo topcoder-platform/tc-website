@@ -19,10 +19,11 @@
     <c:set value="<%=Constants.SUBMISSION_REVIEW_TEXT%>" var="reviewText"/>
     <script language="javascript" type="text/javascript">
         <!--
-        var passed = "I am happy to inform you that your TopCoder Studio submission has passed the initial review.  " +
-                     "It will be presented to the client and may be chosen as the winner.\n\n" +
-                     "You will be notified of the contest results via email.\n\n" +
-                     "Best of luck to you at the Studio!";
+        var passed = "I am happy to inform you that your TopCoder Studio submission has passed screening and will enter " +
+                     "into Online Review to be scored. Your submission will then be presented to the client.\n\n"
+                    "If your submission wins a placement designated by Online Review and/or is chosen by the client as " +
+                    "a winning submission, you will be notified via email.\n\n" +
+                    "Best of luck to you at the Studio!";
         var failed = "Unfortunately, your TopCoder Studio submission has failed review for the following reason(s):\n\n" +
                      "You may fix and resubmit your work before the submission deadline: " +
                      "<tc-webtag:format object="${submission.contest.endTime}" format="EEEE, MMMM d, yyyy 'at' HH:mm z" timeZone="${submission.submitter.timeZone.description}"/>.\n\n"+
