@@ -3,7 +3,7 @@ package com.topcoder.web.common;
 /**
  * @author dok
  * @version $Revision$ $Date$
- * Create Date: May 2, 2005
+ *          Create Date: May 2, 2005
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -21,6 +21,8 @@ public interface WebConstants {
     public static final String PROJECT_ID_KEY = "pj";
     public static final String USER_NAME = "username";
     public static final String PASSWORD = "password";
+
+    public static final String FULL_NAME = "flnm";
 
     public static final String PASSWORD_CONFIRM = "pac";
     public static final String EMAIL = "em";
@@ -43,7 +45,7 @@ public interface WebConstants {
     public static final String START_TIME = "sttm";
     public static final String END_TIME = "etm";
     public static final String ROUND_NAME = "roundName";
-    
+
 
     public static String EVENT_ID = "eid";
 
@@ -101,30 +103,46 @@ public interface WebConstants {
     public static final char[] UNACTIVE_STATI = {'2', 'U'};
     public static final char[] ACTIVE_STATI = {'1', 'A'};
     public static final int EMAIL_ACTIVE_STATUS = 1;
-    
-    /** The constant used to indicate a version is in the collaboration phase */
+
+    /**
+     * The constant used to indicate a version is in the collaboration phase
+     */
     public static final long PHASE_COLLABORATION = 111;
-    /** The constant used to indicate a version is in the specification phase */
+    /**
+     * The constant used to indicate a version is in the specification phase
+     */
     public static final long PHASE_DESIGN = 112;
-    /** The constant used to indicate a version is in the development phase */
+    /**
+     * The constant used to indicate a version is in the development phase
+     */
     public static final long PHASE_DEVELOPMENT = 113;
-    /** The constant used to indicate a version is complete */
+    /**
+     * The constant used to indicate a version is complete
+     */
     public static final long PHASE_COMPLETED = 114;
-    
-    /** The status constant used to indicate a component has been deleted */
+
+    /**
+     * The status constant used to indicate a component has been deleted
+     */
     public static final long STATUS_DELETED = 0;
-    /** The status constant used to indicate a component has been requested */
+    /**
+     * The status constant used to indicate a component has been requested
+     */
     public static final long STATUS_REQUESTED = 101;
-    /** The status constant used to indicate a component has been approved */
+    /**
+     * The status constant used to indicate a component has been approved
+     */
     public static final long STATUS_APPROVED = 102;
     /**
      * The status constant used to indicate a component has been declined
      * because it is a duplicate of another existing component
      */
     public static final long STATUS_DUPLICATE = 103;
-    /** The status constant used to indicate a component has been declined */
+    /**
+     * The status constant used to indicate a component has been declined
+     */
     public static final long STATUS_DECLINED = 104;
-    
+
     public static final long NET_CATALOG = 5801777;
     public static final long JAVA_CATALOG = 5801776;
     public static final long FLASH_CATALOG = 8459260;
@@ -135,7 +153,7 @@ public interface WebConstants {
     public static final long TCS_FORUMS_ROOT_CATEGORY_ID = 22;
 
     public static final String CANDIDATE_IDS = "cids";
-    
+
     public static final int HS_MIN_REG_AGE = 13;
     public static final int HS_MAX_REG_AGE = 20;
 }
