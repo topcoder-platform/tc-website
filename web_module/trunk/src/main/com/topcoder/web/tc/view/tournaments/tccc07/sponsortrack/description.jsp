@@ -18,11 +18,11 @@
 
         <jsp:include page="nav.jsp" >
         <jsp:param name="tabLev1" value="overview"/>
-        <jsp:param name="tabLev2" value="details"/>
+        <jsp:param name="tabLev2" value="description"/>
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
 
-            <div id="pageBody">
+            <div id="pageBodyST">
 
                 <h1><span>2007 TopCoder Collegiate Challenge Sponsor Track</span></h1>
 
