@@ -1,15 +1,9 @@
 package com.topcoder.web.tc.controller.request.tournament.tccc07;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.SurveyHelper;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.cache.CacheClient;
-import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.Event;
@@ -22,8 +16,11 @@ import com.topcoder.web.common.model.Survey;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.SurveyHelper;
 import com.topcoder.web.tc.controller.request.tournament.SubmitRegistrationBase;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author dok, pulky
@@ -104,8 +101,8 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         } catch (NumberFormatException e) {
             addError(ageKey, "Please enter a valid number for your age.");
         }
-        
-        return (new Boolean (age >= 18 && age <= 130 && "Yes".equals(inCollegeInput)));
+
+        return (new Boolean(age >= 18 && age <= 130 && "Yes".equals(inCollegeInput)));
     }
 
     protected void dbProcessing() throws Exception {
@@ -114,10 +111,10 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         try {
             eventTypeId = Integer.parseInt(eventType);
         } catch (NumberFormatException nfe) {
-            throw new TCWebException("invalid event type parameter.");                
+            throw new TCWebException("invalid event type parameter.");
         }
         if ("".equals(eventType) || "".equals(getContestTypeUsingEventType(eventTypeId))) {
-            throw new TCWebException("invalid event type parameter.");                
+            throw new TCWebException("invalid event type parameter.");
         }
         super.dbProcessing();
     }
@@ -142,7 +139,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
 //            Request r = new Request();
             log.debug("removing " + e.getShortDescription() + "_registrants" + " from cache.");
             CacheClearer.removelike(e.getShortDescription() + "_registrants");
-            
+
 //            r.setContentHandle(e.getShortDescription() + "_registrants");
 //            log.debug(Constants.EVENT_ID + " : " + String.valueOf(e.getId().intValue()));
 //            r.setProperty(Constants.EVENT_ID, String.valueOf(e.getId().intValue()));
@@ -159,6 +156,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
             RegistrationType rt = (RegistrationType) it.next();
             if (e.getType().getId().equals(EventType.ALGORITHM_TOURNAMENT_ID) ||
                     e.getType().getId().equals(EventType.COMPONENT_TOURNAMENT_ID) ||
+                    e.getType().getId().equals(EventType.SPONSOR_TRACK_ID) ||
                     e.getType().getId().equals(EventType.MARATHON_TOURNAMENT_ID)) {
                 if (rt.getId().equals(RegistrationType.COMPETITION_ID)) {
                     eligible = true;

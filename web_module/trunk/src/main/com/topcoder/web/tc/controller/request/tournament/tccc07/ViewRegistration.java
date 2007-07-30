@@ -1,6 +1,4 @@
 package com.topcoder.web.tc.controller.request.tournament.tccc07;
-import java.util.Iterator;
-import java.util.Set;
 
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -11,6 +9,9 @@ import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.tournament.ViewRegistrationBase;
+
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * @author dok, pulky
@@ -38,6 +39,7 @@ public class ViewRegistration extends ViewRegistrationBase {
             RegistrationType rt = (RegistrationType) it.next();
             if (e.getType().getId().equals(EventType.ALGORITHM_TOURNAMENT_ID) ||
                     e.getType().getId().equals(EventType.COMPONENT_TOURNAMENT_ID) ||
+                    e.getType().getId().equals(EventType.SPONSOR_TRACK_ID) ||
                     e.getType().getId().equals(EventType.MARATHON_TOURNAMENT_ID)) {
                 if (rt.getId().equals(RegistrationType.COMPETITION_ID)) {
                     eligible = true;
@@ -58,10 +60,10 @@ public class ViewRegistration extends ViewRegistrationBase {
         try {
             eventTypeId = Integer.parseInt(eventType);
         } catch (NumberFormatException nfe) {
-            throw new TCWebException("invalid event type parameter.");                
+            throw new TCWebException("invalid event type parameter.");
         }
         if ("".equals(eventType) || "".equals(getContestTypeUsingEventType(eventTypeId))) {
-            throw new TCWebException("invalid event type parameter.");                
+            throw new TCWebException("invalid event type parameter.");
         }
         super.dbProcessing();
     }

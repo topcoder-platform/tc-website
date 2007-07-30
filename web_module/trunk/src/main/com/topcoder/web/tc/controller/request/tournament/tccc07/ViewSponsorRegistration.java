@@ -1,10 +1,8 @@
 package com.topcoder.web.tc.controller.request.tournament.tccc07;
 
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.tc.controller.request.tournament.ViewRegistrationBase;
 
 import java.util.ArrayList;
 
@@ -13,15 +11,7 @@ import java.util.ArrayList;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 30, 2007
  */
-public class ViewSponsorRegistration extends ViewRegistrationBase {
-
-    protected void alreadyRegisteredProcessing(EventRegistration er) {
-        getRequest().setAttribute("eligible", er.isEligible());
-    }
-
-    public boolean isEligible(Event e, User u) throws Exception {
-        return u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getCompetitionType());
-    }
+public class ViewSponsorRegistration extends ViewRegistration {
 
     protected void setNextPage(Event e, User u) {
         EventRegistration er = u.getEventRegistration(e);
