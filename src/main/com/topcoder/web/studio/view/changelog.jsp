@@ -32,6 +32,7 @@
     <ul>
         <li>Allow admins to load results from online review -dok</li>
         <li>Don't re-rank submissions if one fails. -dok</li>
+        <%--<li>Set compile and target jvm to 1.5 for jsp's -dok</li>--%>
     </ul>
 
 </p>
