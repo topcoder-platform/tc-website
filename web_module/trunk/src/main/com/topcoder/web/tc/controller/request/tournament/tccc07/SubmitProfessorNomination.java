@@ -67,6 +67,9 @@ public class SubmitProfessorNomination extends ViewProfessorNomination {
             setDefault(Constants.OTHER_FIELD_OF_INSTRUCTION, otherField);
             setDefault(Constants.EMAIL, email);
             setDefault(Constants.NOMINATION_TEXT, text);
+            getRequest().setAttribute("event", e);
+            setNextPage("/tournaments/tccc07/professor/nominationForm.jsp");
+            setIsNextPageInContext(true);
         } else {
             Nomination n = new Nomination();
             n.setEvent(e);
