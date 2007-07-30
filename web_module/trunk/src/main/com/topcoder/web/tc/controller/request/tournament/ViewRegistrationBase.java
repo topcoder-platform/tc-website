@@ -33,16 +33,19 @@ public abstract class ViewRegistrationBase extends RegistrationBase {
         if (EventType.COMPONENT_TOURNAMENT_ID.equals(eventTypeId)) {
             return "component";
         } else if (EventType.ALGORITHM_TOURNAMENT_ID.equals(eventTypeId)) {
-            return "algorithm";        
+            return "algorithm";
         } else if (EventType.MARATHON_TOURNAMENT_ID.equals(eventTypeId)) {
             return "marathon";
         } else if (EventType.STUDIO_TOURNAMENT_ID.equals(eventTypeId)) {
             return "studio";
+        } else if (EventType.SPONSOR_TRACK_ID.equals(eventTypeId)) {
+            return "sponsortrack";
         }
         return "";
     }
 
-    public boolean isEligible(Event e, User u) throws Exception{
+
+    public boolean isEligible(Event e, User u) throws Exception {
         Request r = new Request();
         r.setContentHandle(e.getShortDescription() + "_eligibility");
         r.setProperty("cr", String.valueOf(u.getId()));
