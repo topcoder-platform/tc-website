@@ -80,6 +80,7 @@ public class ContestDetails extends StatBase {
                 isComplete = true;
             }
 
+            log.debug("rscDetails.size(): " + rscDetails.size());
             for (int j = 0; j < rscDetails.size(); j++) {
                 int pts = 0;
 
@@ -142,6 +143,7 @@ public class ContestDetails extends StatBase {
     }
 
     public void addPoints(String handle, int userId, int pts, boolean completed, boolean isSubmitted) {
+        log.debug("addPoints called : " + handle + " - " + userId + " - " + pts + " - " + completed + " - " + isSubmitted);
         UserContestDetail user = null;
         for (int i = 0; i < arr.size(); i++) {
             UserContestDetail item = (UserContestDetail) arr.get(i);
