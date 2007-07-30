@@ -123,6 +123,8 @@ public class ContestDetails extends StatBase {
     }
 
     public void addPrize(int userId, String prz) {
+        log.debug("addPrize called : " + userId + " - " + prz);
+
         UserContestDetail user = null;
         for (int i = 0; i < arr.size(); i++) {
             UserContestDetail item = (UserContestDetail) arr.get(i);
@@ -131,8 +133,12 @@ public class ContestDetails extends StatBase {
                 break;
             }
         }
-
-        user.setPayment(prz);
+        
+        if (user != null) {
+            user.setPayment(prz);
+        } else {
+            log.debug("Null user!!");
+        }
     }
 
     public void addPoints(String handle, int userId, int pts, boolean completed, boolean isSubmitted) {
@@ -146,6 +152,7 @@ public class ContestDetails extends StatBase {
         }
         if (user == null) {
             user = new UserContestDetail(handle, userId);
+            log.debug("adding user: " + handle + " - " + userId);
             arr.add(user);
         }
 
