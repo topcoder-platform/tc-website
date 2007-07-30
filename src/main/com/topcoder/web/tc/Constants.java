@@ -163,13 +163,13 @@ public class Constants implements WebConstants {
     public static String MEMBER_PROFILE;
 
     public static String MEMBER_CONTACT;
-    
+
     public static String VISA_LETTER_REQUEST;
     public static String VISA_LETTER_REQUEST_STATUS;
     public static String VISA_SELECTION;
     public static String VISA_ERROR;
 
-    
+
     public static String MEMBER_CONTACT_ENABLE_SUCCEEDED;
     public static String MEMBER_CONTACT_ENABLE;
 
@@ -292,6 +292,11 @@ public class Constants implements WebConstants {
 
     public static String TCCC05_STUDENT_REPS;
 
+    public static final String URL = "url";
+    public static final String FIELD_OF_INSTRUCTION = "fofins";
+    public static final String OTHER_FIELD_OF_INSTRUCTION = "o" + FIELD_OF_INSTRUCTION;
+    public static final String NOMINATION_TEXT = "nomtxt";
+
     public static final String COLLEGE_TOUR_EVENT_ID = "cteid";
     public static final String COLLEGE_TOUR_CONFIG_INFO = "configInfo";
     public static final String ROUND_NAME = "rdname";
@@ -303,13 +308,13 @@ public class Constants implements WebConstants {
     public static final int EVENT_START_PROP_ID = 6;
     public static final int EVENT_END_PROP_ID = 7;
     public static final int RESULTS_PROP_ID = 8;
-  
+
     @Deprecated
     public static final int ROUND_START_PROP_ID = 9;
-    
+
     @Deprecated
     public static final int ROUND_END_PROP_ID = 10;
-    
+
     public static final int PAGES_BASE_PROP_ID = 11;
 
     public static final String EVENT_ID = "eid";
@@ -345,12 +350,12 @@ public class Constants implements WebConstants {
     public static String HS_REGISTER_SUCCESS;
     public static String HS_REGISTER_NOT_ELIGIBLE;
 
-    
+
     public static final int CONTEST_TYPE_DR_TOP_PERFORMERS = 18;
     public static final int CONTEST_TYPE_DR_STAGE = 19;
     public static final int CONTEST_TYPE_DR_ROOKIE = 20;
-    
-    
+
+
     public static String DEFAULT_SURVEY_SCROLL_SIZE;
     public static final String COLOR = "color";
 
