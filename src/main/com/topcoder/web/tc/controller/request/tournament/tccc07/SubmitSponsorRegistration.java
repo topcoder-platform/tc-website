@@ -61,7 +61,7 @@ public class SubmitSponsorRegistration extends SubmitRegistration {
             setNextPage("/tournaments/tccc07/sponsortrack/terms.jsp");
             setIsNextPageInContext(true);
         } else {
-            setNextPage("/tc?module=TCCC07ViewRegistration&et=" + getRequest().getParameter(Constants.EVENT_TYPE));
+            setNextPage("/tc?module=TCCC07ViewSponsorRegistration&et=" + getRequest().getParameter(Constants.EVENT_TYPE));
             setIsNextPageInContext(false);
         }
     }
