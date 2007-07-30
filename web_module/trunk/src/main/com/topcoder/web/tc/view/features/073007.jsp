@@ -57,7 +57,7 @@
     <tc-webtag:forumLink forumID="516782" message="Discuss this article" />
 </div>
 
-<span class="bigTitle">Think positive, and be prepared</span>
+<span class="bigTitle">Visas: Think Positive and Be Prepared</span>
 <br /><br />
 
 <div class="authorPhoto">
@@ -66,12 +66,12 @@
 
 <div class="authorText">
   By&#160;<tc-webtag:handle coderId="14999860" context="algorithm"/><br />
-      <em>TopCoder Member</em>
+      <em>TopCoder Events Coordinator</em>
 </div>
 <br clear="all">
 
 <p>At every TopCoder tournament, there is at least one person who misses out. One person (and sometimes many more) who does a great job of competing, advances all the way to the finals, and only then realizes that it's too late.  You guessed it -- I'm talking about the dreaded visa issue.</p>
-<p>With a large event like a tournament, there is plenty of work to go around. From finding the venue and booking hotel rooms to identifying vegetarian options on the menu, it's a very detail-oriented process. The single most important part of a TopCoder tournament, though - and, really, the only they're worth having - is the competitors. If the most deserving competitors can't attend, what's the point?</p>
+<p>With a large event like a tournament, there is plenty of work to go around. From finding the venue and booking hotel rooms to identifying vegetarian options on the menu, it's a very detail-oriented process. The single most important part of a TopCoder tournament, though - and, really, the only reason they're worth having - is the competitors. If the most deserving competitors can't attend, what's the point?</p>
 <p>With this article, I'd like to cover some of the basics on the travel and visa issues that have plagued recent events. With the 2007 TopCoder Collegiate Challenge just now underway, this is the perfect time to turn this situation around - starting in Orlando, we want every single competitor who has earned a spot in the finals to be there. We need your help, though.</p>
 
 <h3>The basics</h3>
