@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.30.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=073007">Think positive, and be prepared</A></span><br><br>
+      At every TopCoder tournament, there is at least one person who misses out. One person (and sometimes many more) who does a great job of competing, advances all the way to the finals, and only then realizes that it's too late.  You guessed it -- I'm talking about the dreaded visa issue.</td>
+         <td class="newsPhoto"><img src="/i/m/jmpld40_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="14999860" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=073007">full story</A> | 
+         <tc-webtag:forumLink forumID="516782" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>07.27.07<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=MatchDetails&rd=10773">$5,000 in prizes for SRM 361</A></span><br><br>
@@ -171,16 +187,3 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>07.19.07<br>2:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=sponsors&d2=bt">British Telecommunications to sponsor SRMs with cash prizes</A></span><br><br>
-        British Telecommunications (BT) has paired up with TopCoder to bring you SRMs well worth competing in.  Not only will you get a chance to improve your rating, but you'll have a chance to chat with a BT representative about their employment opportunities, and $5,000 in cash prizes will go to the winners! BT's first SRM is Saturday, July 21 at 12:00 PM EDT, with a chat session beginning at 11:00 AM EDT.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=sponsors&d2=bt">details</A> | 
-        <tc-webtag:forumLink forumID="516666" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
