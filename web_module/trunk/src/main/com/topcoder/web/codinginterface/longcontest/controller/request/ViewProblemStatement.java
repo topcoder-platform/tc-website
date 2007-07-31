@@ -14,6 +14,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
@@ -22,7 +23,7 @@ import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
 
 import java.io.StringReader;
-import java.rmi.ServerException;
+import java.rmi.RemoteException;
 import java.util.Map;
 
 
@@ -69,16 +70,16 @@ public class ViewProblemStatement extends Base {
                     lid = rsc.getIntItem(0, "language_id");
                 } else {
                     Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
+                    //shouldn't really have to do this. but i can't figure out whey
+                    //jboss is wrapping the rownotfoundexception in a serverexception.  the way
+                    //i read the spec, it should not.
                     try {
-                        lid = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
-                    } catch (ServerException e) {
-                        log.debug("server exception " + e.getCause().getClass());
-                        log.debug("class of exception is : " + e.getClass());
-
-                        lid = JavaLanguage.ID;
-                    } catch (Throwable e) {
-                        log.debug("class of exception is : " + e.getClass());
-
+                        try {
+                            lid = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+                        } catch (RemoteException e) {
+                            throw e.getCause();
+                        }
+                    } catch (RowNotFoundException e) {
                         lid = JavaLanguage.ID;
                     }
                 }
@@ -123,7 +124,7 @@ public class ViewProblemStatement extends Base {
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
             throw e;
-        } catch (Exception e) {
+        } catch (Throwable e) {
             throw new TCWebException(e);
         }
     }
