@@ -75,6 +75,26 @@
    
    <hr width="100%" size="1" noshade="noshade" />
    
+    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
+      <tr valign="top">
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"><img src="/i/tournament/photo_tchs07.jpg" alt="2007 TopCoder High School" border="0" /></A><br></td>
+         <td width="100%">
+         <span class="bodySubtitle">2007 TopCoder&#174; High School</span>
+         <br><br>
+         <div style="float: right;"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"><img src="/i/pressroom/tchs07.png" alt="" border="0" /></A></div>
+         May 19<br>
+         The Lawson Building<br>
+         Purdue University<br>
+         West Lafayette, IN, USA<br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">Details</A>
+         <br>
+         <A href="http://studio.topcoder.com/?module=ViewContestResults&ct=2030">Logo Contest</A>
+         </td>
+      </tr>
+   </table>
+   
+   <hr width="100%" size="1" noshade="noshade" />
+   
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
          <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/photo_tccc06.jpg" alt="2006 TopCoder Collegiate Challenge" border="0" /></A><br></td>
