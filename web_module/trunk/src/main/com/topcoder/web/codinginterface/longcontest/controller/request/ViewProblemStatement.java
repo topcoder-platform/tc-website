@@ -14,7 +14,6 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
@@ -71,7 +70,8 @@ public class ViewProblemStatement extends Base {
                     Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
                     try {
                         lid = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
-                    } catch (RowNotFoundException e) {
+                    } catch (Throwable e) {
+                        log.debug("class of exception is : " + e.getClass());
                         lid = JavaLanguage.ID;
                     }
                 }
