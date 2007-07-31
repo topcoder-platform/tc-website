@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.request.tournament;
 
 import java.util.Map;
 
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.model.SortInfo;
@@ -32,6 +33,17 @@ public abstract class StudioUserContestsBase extends StatBase {
         Map result = (Map) getRequest().getAttribute("resultMap");
 
         ResultSetContainer rsc = (ResultSetContainer) result.get(getContestPrefix() + "_user_event_contests");
+
+        String sortCol = getRequest().getParameter(DataAccessConstants.SORT_COLUMN);
+        String sortDir = getRequest().getParameter(DataAccessConstants.SORT_DIRECTION);
+        if (sortCol != null && sortDir != null && rsc != null) {
+            rsc.sortByColumn(Integer.parseInt(sortCol), sortDir.trim().toLowerCase().equals("asc"));
+        }
+
+        result.clear();
+        result.put(getContestPrefix() + "_user_event_contests", rsc);
+
+        getRequest().setAttribute("resultMap", result);
 
         SortInfo s = new SortInfo();
         s.addDefault(rsc.getColumnIndex("contest_name"), "asc");
