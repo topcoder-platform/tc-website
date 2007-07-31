@@ -440,8 +440,6 @@ public class CoderBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getLanguageId coderId: " + coderId);
-        } catch (Exception e) {
-            throw new EJBException("Exception in getLanguageId coderId: " + coderId);
         } finally {
             close(rs);
             close(stmt);
