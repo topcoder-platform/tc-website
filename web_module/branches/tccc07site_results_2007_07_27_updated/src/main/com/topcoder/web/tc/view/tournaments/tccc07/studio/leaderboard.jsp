@@ -95,7 +95,7 @@ ResultSetContainer rsc = (ResultSetContainer) result.get("tccc07_event_results")
                             </strong>
                         </td>
                         <td class="valueC">
-                            <a href="tc?${module}=StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;d1=tournaments&amp;d2=tccc07&amp;d3=studio&amp;d4=completedContests">
+                            <a href="tc?${module}=TCCC07StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>">
                                 <rsc:item name="completed_contests" row="<%=resultRow%>" ifNull="&nbsp;"/>
                             </A>
                         </td>
@@ -103,7 +103,7 @@ ResultSetContainer rsc = (ResultSetContainer) result.get("tccc07_event_results")
                             <span class="<%=(resultRow.getIntItem("rank")<=8 ? "bigGreen" : "bigRed")%>"><rsc:item name="points" row="<%=resultRow%>" ifNull="&nbsp;"/></span>
                         </td>
                         <td class="valueC">
-                            <a href="tc?${module}=StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;d1=tournaments&amp;d2=tccc07&amp;d3=studio&amp;d4=currentContests">
+                            <a href="tc?${module}=TCCC07StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>">
                                 <rsc:item name="current_contests" row="<%=resultRow%>" ifNull="&nbsp;"/>
                             </A>
                         </td>
