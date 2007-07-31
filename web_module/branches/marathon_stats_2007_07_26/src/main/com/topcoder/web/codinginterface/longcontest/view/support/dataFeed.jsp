@@ -35,9 +35,15 @@
 <!-- Center Column Begins -->
 <td width="100%" align="left" class="bodyText">
 <jsp:include page="../page_title.jsp">
-    <jsp:param name="image" value="alg_support_faqs"/>
+    <jsp:param name="image" value="mm_support_faqs"/>
     <jsp:param name="title" value="Data Feeds"/>
 </jsp:include>
+
+         <jsp:include page="../page_title.jsp" >
+         <jsp:param name="image" value="mm_support_faqs"/>
+         <jsp:param name="title" value="Rating System"/>
+         </jsp:include>
+
 
 <h2>Data Feeds</h2>
 
