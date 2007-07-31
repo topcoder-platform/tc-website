@@ -41,7 +41,7 @@
 
 <a name="eligibility"></a>
 <h2>Eligibility</h2>
-<p>The Sponsor Track Algorithm Competition is open to all employees and interns of the sponsors of the TCCC, who are at least 18 years of age as of August 23, 2007 and who are TopCoder members.  TCCC sponsor employees and interns may register to become a TopCoder member by navigating to <a href="http://www.topcoder.com/" alt="TopCoder site">www.topcoder.com</a> and clicking on "Register" in the upper right corner of the screen.</p>
+<p>The Sponsor Track Algorithm Competition is open to all employees and interns of the sponsors of the TCCC, who are at least 18 years of age as of August 23, 2007 and who are TopCoder members.  TCCC sponsor employees and interns may register to become a TopCoder member by navigating to <a target="_blank" href="http://www.topcoder.com/" alt="TopCoder site">www.topcoder.com</a> and clicking on "Register" in the upper right corner of the screen.</p>
 
 <a name="registration"></a>
 <h2>Registration</h2>
