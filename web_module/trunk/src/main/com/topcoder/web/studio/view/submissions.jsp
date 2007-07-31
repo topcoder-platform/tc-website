@@ -2,6 +2,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
+<%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -64,7 +65,9 @@
 <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
 <div class="contentSpacer">
-<div class="linkBox"><studio:forumLink forumID="${contest.forumId}"/></div>
+<div class="linkBox">
+    <studio:forumLink forumID="${contest.forumId}"/>
+</div>
 
 <div class="breadcrumb">
     <c:choose>
@@ -99,60 +102,72 @@
     | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
 </div>
 <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
-    <tbody>
-        <tr>
-            <td class="NW">&nbsp;</td>
-            <c:choose>
-                <c:when test="${contest.configMap[viewSubmitters]}">
-                    <td class="title" colspan="5">Submissions</td>
-                </c:when>
-                <c:otherwise>
-                    <td class="title" colspan="4">Submissions</td>
-                </c:otherwise>
-            </c:choose>
-            <td class="NE">&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="headerW"><div>&nbsp;</div></td>
-            <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
-            <c:if test="${contest.configMap[viewSubmitters]}">
-                <td class="header">
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
-                    Handle</a>
-                </td>
-            </c:if>
-            <td class="headerC" nowrap="nowrap" width="50%">
-                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submission_id")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
-                    Submission ID</a>
+<tbody>
+<tr>
+    <td class="NW">&nbsp;</td>
+    <c:choose>
+        <c:when test="${contest.configMap[viewSubmitters]}">
+            <td class="title" colspan="5">Submissions</td>
+        </c:when>
+        <c:otherwise>
+            <td class="title" colspan="4">Submissions</td>
+        </c:otherwise>
+    </c:choose>
+    <td class="NE">&nbsp;</td>
+</tr>
+<tr>
+    <td class="headerW">
+        <div>&nbsp;</div>
+    </td>
+    <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
+    <c:if test="${contest.configMap[viewSubmitters]}">
+        <td class="header">
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
+                Handle</a>
+        </td>
+    </c:if>
+    <td class="headerC" nowrap="nowrap" width="50%">
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submission_id")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
+            Submission ID</a>
+    </td>
+    <td class="headerC" nowrap="nowrap" width="50%">
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("create_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
+            Submitted</a>
+    </td>
+    <td class="headerR">
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("final_score")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Score</a>
+    </td>
+    <td class="headerC">
+        Submission
+    </td>
+    <td class="headerE">
+        <div>&nbsp;</div>
+    </td>
+</tr>
+<c:set value="<%=ReviewStatus.PASSED%>" var="passed"/>
+
+<% boolean even = true;
+    int i = 0; %>
+<rsc:iterator list="<%=submissions%>" id="resultRow">
+    <tr class="<%=even?"light":"dark"%>">
+        <td class="valueW">
+            <div>&nbsp;</div>
+        </td>
+        <c:if test="${contest.configMap[viewSubmitters]}">
+            <td class="value">
+                <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
             </td>
-            <td class="headerC" nowrap="nowrap" width="50%">
-                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("create_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
-                    Submitted</a>
-            </td>
-            <td class="headerR">
-                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("final_score")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Score</a>
-            </td>
-            <td class="headerC">
-                Submission
-            </td>
-            <td class="headerE"><div>&nbsp;</div></td>
-        </tr>
-        <% boolean even = true;
-            int i = 0; %>
-        <rsc:iterator list="<%=submissions%>" id="resultRow">
-            <tr class="<%=even?"light":"dark"%>">
-                <td class="valueW"><div>&nbsp;</div></td>
-                <c:if test="${contest.configMap[viewSubmitters]}">
-                    <td class="value">
-                        <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
-                    </td>
-                </c:if>
-                <td class="valueC">
-                    <rsc:item name="submission_id" row="<%=resultRow%>"/>
-                </td>
-                <td class="valueC" nowrap="nowrap">
-                    <rsc:item name="create_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
-                </td>
+        </c:if>
+        <td class="valueC">
+            <rsc:item name="submission_id" row="<%=resultRow%>"/>
+        </td>
+        <td class="valueC" nowrap="nowrap">
+            <rsc:item name="create_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+        </td>
+
+
+        <c:choose>
+            <c:when test="${resultROw.map['review_status_id']==passed}">
                 <td class="valueR">
                     <c:choose>
                         <c:when test="${hasScores}">
@@ -175,34 +190,51 @@
                         </c:when>
                         <c:otherwise>
                             <div align="center">
-                            <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-                            <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                            <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()" />
-                            </A>
+                                <div id="pop<%=i%>" class="popUp">
+                                    <div>View submission</div>
+                                </div>
+                                <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                                    <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
+                                </A>
                             </div>
                         </c:otherwise>
                     </c:choose>
                 </td>
-                <td class="valueE"><div>&nbsp;</div></td>
-            </tr>
-            <% even = !even;
-                i++; %>
-        </rsc:iterator>
-        <tr>
-            <c:choose>
-                <c:when test="${contest.configMap[viewSubmitters]}">
-                    <td class="SW" colspan="6">&nbsp;</td>
-                </c:when>
-                <c:otherwise>
-                    <td class="SW" colspan="5">&nbsp;</td>
-                </c:otherwise>
-            </c:choose>
+            </c:when>
+            <c:otherwise>
+                <td class="valueR">
+                    &nbsp;
+                </td>
+                <td class="valueC">
+                    <img src="/i/layout/fail.png" alt="failed"/>
+                </td>
+
+            </c:otherwise>
+        </c:choose>
 
 
-            <td class="SE">&nbsp;</td>
-        </tr>
+        <td class="valueE">
+            <div>&nbsp;</div>
+        </td>
+    </tr>
+    <% even = !even;
+        i++; %>
+</rsc:iterator>
+<tr>
+    <c:choose>
+        <c:when test="${contest.configMap[viewSubmitters]}">
+            <td class="SW" colspan="6">&nbsp;</td>
+        </c:when>
+        <c:otherwise>
+            <td class="SW" colspan="5">&nbsp;</td>
+        </c:otherwise>
+    </c:choose>
 
-    </tbody>
+
+    <td class="SE">&nbsp;</td>
+</tr>
+
+</tbody>
 </table>
 <br>
             <span class="small">
