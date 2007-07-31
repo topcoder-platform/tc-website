@@ -1,8 +1,6 @@
 package com.topcoder.web.common;
 
-import javax.ejb.EJBException;
-
-public class RowNotFoundException extends EJBException {
+public class RowNotFoundException extends Exception {
     public RowNotFoundException() {
         super();
     }
