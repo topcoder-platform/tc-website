@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="8365955" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=073107"><strong>Meet the July Coders of the Month</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Jul 31, 2007</td> 
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="14999860" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=073007"><strong>Visas: Think Positive and Be Prepared</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Jul 30, 2007</td> 

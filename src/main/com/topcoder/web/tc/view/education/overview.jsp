@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=073107"><strong>Meet the July Coders of the Month</strong></a>, by <tc-webtag:handle coderId="8365955" /><br>
+July's "Coders of the Month" are a diverse mix, hailing from Estonia, Ukraine and India, but there are some similarities among them. In this article, we'll look at how these three coders approach TopCoder competition, and what they do when they need a break.</li>
 <li><a href="/tc?module=Static&d1=features&d2=073007"><strong>Visas: Think Positive and Be Prepared</strong></a>, by <tc-webtag:handle coderId="14999860" /><br>
 At every TopCoder tournament, there is at least one person who misses out. One person (and sometimes many more) who does a great job of competing, advances all the way to the finals, and only then realizes that it's too late.  You guessed it -- I'm talking about the dreaded visa issue.</li>
 <li><a href="/tc?module=Static&d1=features&d2=072607"><strong>Test Drive: TenFold SOA</strong></a>, by <tc-webtag:handle coderId="22630158" /><br>
 Service Oriented Architecture (SOA) is a hot topic. But with so much "buzz" around the subject, it's hard to separate the products that really deliver and the ones that just market an idea and wrap it in shiny paper.</li>
-<li><a href="/tc?module=Static&d1=features&d2=072307"><strong>What happened in Vegas: TCO07 winners tell all</strong></a><br>
-We asked the five winners of the 2007 TopCoder Open five simple questions each to find out just what the winning experience was like. Here's what they told us.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
