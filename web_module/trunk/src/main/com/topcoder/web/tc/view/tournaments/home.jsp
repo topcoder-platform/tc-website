@@ -82,7 +82,7 @@
          <span class="bodySubtitle">2007 TopCoder&#174; High School</span>
          <br><br>
          <div style="float: right;"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"><img src="/i/pressroom/tchs07.png" alt="" border="0" /></A></div>
-         May 18 - 20<br>
+         May 18-20<br>
          The Lawson Building<br>
          Purdue University<br>
          West Lafayette, IN, USA<br>
