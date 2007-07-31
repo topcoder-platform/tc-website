@@ -69,19 +69,8 @@ public class ViewProblemStatement extends Base {
                     lid = rsc.getIntItem(0, "language_id");
                 } else {
                     Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
-                    //shouldn't really have to do this. but i can't figure out whey
-                    //jboss is wrapping the rownotfoundexception in a serverexception.  the way
-                    //i read the spec, it should not.
                     try {
-/*
-                        try {
-*/
                         lid = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
-/*
-                        } catch (RemoteException e) {
-                            throw e.getCause();
-                        }
-*/
                     } catch (RowNotFoundException e) {
                         lid = JavaLanguage.ID;
                     }
