@@ -22,6 +22,7 @@ import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
 
 import java.io.StringReader;
+import java.rmi.ServerException;
 import java.util.Map;
 
 
@@ -70,8 +71,14 @@ public class ViewProblemStatement extends Base {
                     Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
                     try {
                         lid = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+                    } catch (ServerException e) {
+                        log.debug("server exception " + e.getCause().getClass());
+                        log.debug("class of exception is : " + e.getClass());
+
+                        lid = JavaLanguage.ID;
                     } catch (Throwable e) {
                         log.debug("class of exception is : " + e.getClass());
+
                         lid = JavaLanguage.ID;
                     }
                 }
