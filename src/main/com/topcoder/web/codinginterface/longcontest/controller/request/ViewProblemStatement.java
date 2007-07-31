@@ -23,7 +23,6 @@ import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
 
 import java.io.StringReader;
-import java.rmi.RemoteException;
 import java.util.Map;
 
 
@@ -74,11 +73,15 @@ public class ViewProblemStatement extends Base {
                     //jboss is wrapping the rownotfoundexception in a serverexception.  the way
                     //i read the spec, it should not.
                     try {
+/*
                         try {
-                            lid = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+*/
+                        lid = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+/*
                         } catch (RemoteException e) {
                             throw e.getCause();
                         }
+*/
                     } catch (RowNotFoundException e) {
                         lid = JavaLanguage.ID;
                     }
