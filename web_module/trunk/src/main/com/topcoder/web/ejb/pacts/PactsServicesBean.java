@@ -1272,9 +1272,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             selectClause = "SELECT text FROM tax_form WHERE tax_form_id = " + objectId;
         }
 
-        ResultSetContainer rsc = runSelectQuery(selectClause, true);
         HashMap hm = new HashMap();
-        hm.put(TEXT, rsc);
+        Connection c = null;
+        try {
+            c = DBMS.getConnection(trxDataSource);
+            // Get affidavit header
+            ResultSetContainer rsc = runSelectQuery(c, selectClause, true);
+            hm.put(TEXT, rsc);
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw (new EJBException(e.getMessage(), e));
+        } catch (Exception e) {
+            throw (new EJBException(e.getMessage(), e));
+        } finally {
+            close(c);
+        }
         return hm;
     }
 
