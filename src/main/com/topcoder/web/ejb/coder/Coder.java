@@ -94,7 +94,7 @@ public interface Coder extends EJBObject {
      * @return
      * @throws RowNotFoundException
      */
-    int getLanguageId(long coderId, String dataSource) throws RowNotFoundException;
+    int getLanguageId(long coderId, String dataSource) throws RowNotFoundException, RemoteException;
 
     /**
      * @param coderId
