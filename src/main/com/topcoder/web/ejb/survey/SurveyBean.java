@@ -2,8 +2,9 @@ package com.topcoder.web.ejb.survey;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.common.IdGeneratorClient;
+import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;
@@ -41,7 +42,7 @@ public class SurveyBean extends BaseEJB {
             ps.setTimestamp(3, startDate);
             ps.setTimestamp(4, endDate);
             ps.setInt(5, statusId);
-            ps.setInt(6, resultsViewable?1:0);
+            ps.setInt(6, resultsViewable ? 1 : 0);
             int rows = ps.executeUpdate();
 
             if (rows != 1)
@@ -88,38 +89,38 @@ public class SurveyBean extends BaseEJB {
     }
 
     public void setResultsViewable(long surveyId, boolean resultsViewable, String dataSource) {
-        update("survey", new String[]{"results_viewable"}, new String[]{resultsViewable?"1":"0"},
+        update("survey", new String[]{"results_viewable"}, new String[]{resultsViewable ? "1" : "0"},
                 new String[]{"survey_id"}, new String[]{String.valueOf(surveyId)}, dataSource);
     }
 
-    public String getName(long surveyId, String dataSource) {
+    public String getName(long surveyId, String dataSource) throws RowNotFoundException {
         return selectString("survey", "name", new String[]{"survey_id"},
                 new String[]{String.valueOf(surveyId)}, dataSource);
     }
 
-    public Timestamp getStartDate(long surveyId, String dataSource) {
+    public Timestamp getStartDate(long surveyId, String dataSource) throws RowNotFoundException {
         return selectTimestamp("survey", "start_date", new String[]{"survey_id"},
                 new String[]{String.valueOf(surveyId)}, dataSource);
     }
 
-    public Timestamp getEndDate(long surveyId, String dataSource) {
+    public Timestamp getEndDate(long surveyId, String dataSource) throws RowNotFoundException {
         return selectTimestamp("survey", "end_date", new String[]{"survey_id"},
                 new String[]{String.valueOf(surveyId)}, dataSource);
     }
 
-    public int getStatusId(long surveyId, String dataSource) {
+    public int getStatusId(long surveyId, String dataSource) throws RowNotFoundException {
         return selectInt("survey", "status_id", new String[]{"survey_id"},
-                new String[]{String.valueOf(surveyId)}, dataSource).intValue();
+                new String[]{String.valueOf(surveyId)}, dataSource);
     }
 
-    public String getText(long surveyId, String dataSource) {
+    public String getText(long surveyId, String dataSource) throws RowNotFoundException {
         return selectString("survey", "text", new String[]{"survey_id"},
                 new String[]{String.valueOf(surveyId)}, dataSource);
     }
 
-    public boolean areResultsViewable(long surveyId, String dataSource) {
-        return selectInt("survey", "results_viewable", new String[]{"survey_id"},
-                new String[]{String.valueOf(surveyId)}, dataSource).intValue()==1;
+    public boolean areResultsViewable(long surveyId, String dataSource) throws RowNotFoundException {
+        return !(selectInt("survey", "results_viewable", new String[]{"survey_id"},
+                new String[]{String.valueOf(surveyId)}, dataSource) != 1);
     }
 
 

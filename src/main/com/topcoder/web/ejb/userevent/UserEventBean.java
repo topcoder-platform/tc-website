@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.userevent;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
@@ -13,7 +14,7 @@ import java.sql.SQLException;
 
 /**
  * @author dok
- * Date: Apr 2, 2004
+ *         Date: Apr 2, 2004
  */
 public class UserEventBean extends BaseEJB {
 
@@ -36,13 +37,13 @@ public class UserEventBean extends BaseEJB {
 
             int ret = ps.executeUpdate();
             if (ret != 1) {
-                throw(new EJBException("Wrong number of rows inserted into " +
+                throw (new EJBException("Wrong number of rows inserted into " +
                         "'rboard_user'. Inserted " + ret + ", " +
                         "should have inserted 1."));
             }
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
-            throw(new EJBException(e.getMessage()));
+            throw (new EJBException(e.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -88,33 +89,33 @@ public class UserEventBean extends BaseEJB {
 
     }
 
-    public int getUserEventStatus(long userEventId, String dataSource) throws RemoteException {
+    public int getUserEventStatus(long userEventId, String dataSource) throws RemoteException, RowNotFoundException {
         return selectInt("user_event",
                 "status_id",
                 new String[]{"user_event_id"},
                 new String[]{String.valueOf(userEventId)},
-                dataSource).intValue();
+                dataSource);
     }
 
-    public long getUserId(long userEventId, String dataSource) throws RemoteException {
+    public long getUserId(long userEventId, String dataSource) throws RemoteException, RowNotFoundException {
         return selectLong("user_event",
                 "user_id",
                 new String[]{"user_event_id"},
                 new String[]{String.valueOf(userEventId)},
-                dataSource).longValue();
+                dataSource);
 
     }
 
-    public int getEventId(long userEventId, String dataSource) throws RemoteException {
+    public int getEventId(long userEventId, String dataSource) throws RemoteException, RowNotFoundException {
         return selectInt("user_event",
                 "event_id",
                 new String[]{"user_event_id"},
                 new String[]{String.valueOf(userEventId)},
-                dataSource).intValue();
+                dataSource);
 
     }
 
-    public Date getEventDate(long userEventId, String dataSource) throws RemoteException {
+    public Date getEventDate(long userEventId, String dataSource) throws RemoteException, RowNotFoundException {
         return selectDate("user_event", "event_date",
                 new String[]{"user_event_id"},
                 new String[]{String.valueOf(userEventId)}, dataSource);

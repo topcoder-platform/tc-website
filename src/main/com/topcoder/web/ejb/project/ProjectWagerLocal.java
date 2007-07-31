@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.project;
 
+import com.topcoder.web.common.RowNotFoundException;
+
 import javax.ejb.EJBLocalObject;
 
 /**
@@ -9,7 +11,10 @@ import javax.ejb.EJBLocalObject;
  */
 public interface ProjectWagerLocal extends EJBLocalObject {
     void createProjectWager(long projectId, long userId, int wagerAmount, String dataSource);
+
     void updateProjectWager(long projectId, long userId, int wagerAmount, String dataSource);
+
     boolean exists(long projectId, long userId, String dataSource);
-    int getWager(long projectId, long userId, String dataSource);
+
+    int getWager(long projectId, long userId, String dataSource) throws RowNotFoundException;
 }

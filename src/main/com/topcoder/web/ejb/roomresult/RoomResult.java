@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.roomresult;
 
+import com.topcoder.web.common.RowNotFoundException;
+
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 
@@ -12,10 +14,13 @@ public interface RoomResult extends EJBObject {
     void createRoomResult(long roundId, long roomId, long coderId, String dataSource) throws RemoteException;
 
     void setPointTotal(long roundId, long roomId, long coderId, double pointTotal, String dataSource) throws RemoteException;
+
     void setAttended(long roundId, long roomId, long coderId, boolean attended, String dataSource) throws RemoteException;
 
-    double getPointTotal(long roundId, long roomId, long coderId, String dataSource) throws RemoteException;
-    boolean getAttended(long roundId, long roomId, long coderId, String dataSource) throws RemoteException;
+    double getPointTotal(long roundId, long roomId, long coderId, String dataSource) throws RemoteException, RowNotFoundException;
+
+    boolean getAttended(long roundId, long roomId, long coderId, String dataSource) throws RemoteException, RowNotFoundException;
+
     boolean exists(long roundId, long roomId, long coderId, String dataSource) throws RemoteException;
 
 /*

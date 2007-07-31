@@ -3,8 +3,9 @@ package com.topcoder.web.ejb.survey;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.common.IdGeneratorClient;
+import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;
@@ -69,14 +70,14 @@ public class AnswerBean extends BaseEJB {
 
     }
 
-    public String getText(long answerId, String dataSource) {
+    public String getText(long answerId, String dataSource) throws RowNotFoundException {
         return selectString("answer", "answer_text", new String[]{"answer_id"},
                 new String[]{String.valueOf(answerId)}, dataSource);
     }
 
-    public int getSort(long answerId, String dataSource) {
+    public int getSort(long answerId, String dataSource) throws RowNotFoundException {
         return selectInt("answer", "sort_order", new String[]{"answer_id"},
-                new String[]{String.valueOf(answerId)}, dataSource).intValue();
+                new String[]{String.valueOf(answerId)}, dataSource);
     }
 
     public ResultSetContainer getAnswers(long questionId, String dataSource) {

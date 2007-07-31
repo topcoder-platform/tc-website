@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.project;
 
+import com.topcoder.web.common.RowNotFoundException;
+
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 
@@ -10,6 +12,8 @@ import java.rmi.RemoteException;
  */
 public interface Project extends EJBObject {
     void updateForLock(long projectId, String dataSource) throws RemoteException;
-    int getProjectTypeId(long projectId, String dataSource) throws RemoteException;
+
+    int getProjectTypeId(long projectId, String dataSource) throws RowNotFoundException, RemoteException;
+
     long getComponentId(long projectId, String dataSource) throws RemoteException;
 }

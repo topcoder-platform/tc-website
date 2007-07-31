@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.user;
 
+import com.topcoder.web.common.RowNotFoundException;
+
 import javax.ejb.EJBException;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
@@ -46,12 +48,13 @@ public interface User extends EJBObject {
 
     String getActivationCode(long userId, String dataSource) throws EJBException, RemoteException;
 
-    String getPassword(long userId, String dataSource) throws EJBException, RemoteException;
+    String getPassword(long userId, String dataSource) throws RowNotFoundException, RemoteException;
 
     char getStatus(long userId, String dataSource)
             throws EJBException, RemoteException;
 
     boolean userExists(long userId, String dataSource) throws RemoteException, EJBException;
+
     public boolean userExists(String handle, String dataSource) throws RemoteException, EJBException;
 }
 

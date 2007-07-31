@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.survey;
 
+import com.topcoder.web.common.RowNotFoundException;
+
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 
@@ -25,16 +27,16 @@ public interface Question extends EJBObject {
 
     void setRequired(long questionId, boolean required, String dataSource) throws RemoteException;
 
-    String getText(long questionId, String dataSource) throws RemoteException;
+    String getText(long questionId, String dataSource) throws RowNotFoundException, RemoteException;
 
-    int getStatusId(long questionId, String dataSource) throws RemoteException;
+    int getStatusId(long questionId, String dataSource) throws RowNotFoundException, RemoteException;
 
-    String getKeyword(long questionId, String dataSource) throws RemoteException;
+    String getKeyword(long questionId, String dataSource) throws RowNotFoundException, RemoteException;
 
-    int getQuestionTypeId(long questionId, String dataSource) throws RemoteException;
+    int getQuestionTypeId(long questionId, String dataSource) throws RowNotFoundException, RemoteException;
 
-    int getQuestionStyleId(long questionId, String dataSource) throws RemoteException;
+    int getQuestionStyleId(long questionId, String dataSource) throws RowNotFoundException, RemoteException;
 
-    boolean isRequired(long questionId, String dataSource) throws RemoteException;
+    boolean isRequired(long questionId, String dataSource) throws RowNotFoundException, RemoteException;
 
 }

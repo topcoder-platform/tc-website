@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.project;
 
+import com.topcoder.web.common.RowNotFoundException;
+
 import javax.ejb.EJBLocalObject;
 
 /**
@@ -9,6 +11,8 @@ import javax.ejb.EJBLocalObject;
  */
 public interface ProjectLocal extends EJBLocalObject {
     void updateForLock(long projectId, String dataSource);
-    int getProjectTypeId(long projectId, String dataSource);
+
+    int getProjectTypeId(long projectId, String dataSource) throws RowNotFoundException;
+
     long getComponentId(long projectId, String dataSource);
 }

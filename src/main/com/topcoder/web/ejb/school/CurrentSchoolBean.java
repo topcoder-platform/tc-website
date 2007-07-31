@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.school;
 
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
@@ -29,13 +30,13 @@ public class CurrentSchoolBean extends BaseEJB {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows inserted into " +
+                throw (new EJBException("Wrong number of rows inserted into " +
                         "'current_school'. Inserted " + rc + ", should have " +
                         "inserted 1."));
             }
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw(new EJBException(sqle.getMessage()));
+            throw (new EJBException(sqle.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -62,13 +63,13 @@ public class CurrentSchoolBean extends BaseEJB {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows udpated in " +
+                throw (new EJBException("Wrong number of rows udpated in " +
                         "'current_school'. Updated " + rc + ", should have " +
                         "updated 1."));
             }
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw(new EJBException(sqle.getMessage()));
+            throw (new EJBException(sqle.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -95,13 +96,13 @@ public class CurrentSchoolBean extends BaseEJB {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows udpated in " +
+                throw (new EJBException("Wrong number of rows udpated in " +
                         "'current_school'. Updated " + rc + ", should have " +
                         "updated 1."));
             }
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw(new EJBException(sqle.getMessage()));
+            throw (new EJBException(sqle.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -133,7 +134,7 @@ public class CurrentSchoolBean extends BaseEJB {
             ret = rs.next();
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw(new EJBException(sqle.getMessage()));
+            throw (new EJBException(sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -144,9 +145,9 @@ public class CurrentSchoolBean extends BaseEJB {
 
     }
 
-    public long getSchoolId(long coderId, String dataSource) throws EJBException {
-        return selectLong("current_school", "school_id", new String[] {"coder_id"},
-                new String[]{String.valueOf(coderId)}, dataSource).longValue();
+    public long getSchoolId(long coderId, String dataSource) throws EJBException, RowNotFoundException {
+        return selectLong("current_school", "school_id", new String[]{"coder_id"},
+                new String[]{String.valueOf(coderId)}, dataSource);
     }
 
 

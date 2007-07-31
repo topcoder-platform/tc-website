@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.survey;
 
+import com.topcoder.web.common.RowNotFoundException;
+
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
@@ -26,16 +28,16 @@ public interface Survey extends EJBObject {
 
     void setResultsViewable(long surveyId, boolean resultsViewAble, String dataSource) throws RemoteException;
 
-    String getName(long surveyId, String dataSource) throws RemoteException;
+    String getName(long surveyId, String dataSource) throws RowNotFoundException, RemoteException;
 
-    Timestamp getStartDate(long surveyId, String dataSource) throws RemoteException;
+    Timestamp getStartDate(long surveyId, String dataSource) throws RowNotFoundException, RemoteException;
 
-    Timestamp getEndDate(long surveyId, String dataSource) throws RemoteException;
+    Timestamp getEndDate(long surveyId, String dataSource) throws RowNotFoundException, RemoteException;
 
-    int getStatusId(long surveyId, String dataSource) throws RemoteException;
+    int getStatusId(long surveyId, String dataSource) throws RowNotFoundException, RemoteException;
 
-    String getText(long surveyId, String dataSource) throws RemoteException;
+    String getText(long surveyId, String dataSource) throws RowNotFoundException, RemoteException;
 
-    boolean areResultsViewable(long surveyId, String dataSource) throws RemoteException;
+    boolean areResultsViewable(long surveyId, String dataSource) throws RowNotFoundException, RemoteException;
 
 }

@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.userevent;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.RowNotFoundException;
 
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
@@ -8,7 +9,7 @@ import java.sql.Date;
 
 /**
  * @author dok
- * Date: Apr 2, 2004
+ *         Date: Apr 2, 2004
  */
 public interface UserEvent extends EJBObject {
 
@@ -24,12 +25,12 @@ public interface UserEvent extends EJBObject {
 
     void setEventDate(long userEventId, Date eventDate, String dataSource) throws RemoteException;
 
-    int getUserEventStatus(long userEventId, String dataSource) throws RemoteException;
+    int getUserEventStatus(long userEventId, String dataSource) throws RowNotFoundException, RemoteException;
 
-    long getUserId(long userEventId, String dataSource) throws RemoteException;
+    long getUserId(long userEventId, String dataSource) throws RowNotFoundException, RemoteException;
 
-    int getEventId(long userEventId, String dataSource) throws RemoteException;
+    int getEventId(long userEventId, String dataSource) throws RowNotFoundException, RemoteException;
 
-    Date getEventDate(long userEventId, String dataSource) throws RemoteException;
+    Date getEventDate(long userEventId, String dataSource) throws RowNotFoundException, RemoteException;
 
 }
