@@ -29,6 +29,6 @@ public class ProjectWagerBean extends BaseEJB {
 
     public int getWager(long projectId, long userId, String dataSource) throws RowNotFoundException {
         return selectInt("project_wager", "wager_amount", new String[]{"project_id", "user_id"},
-                new String[]{String.valueOf(projectId), String.valueOf(userId)}, dataSource).intValue();
+                new String[]{String.valueOf(projectId), String.valueOf(userId)}, dataSource);
     }
 }
