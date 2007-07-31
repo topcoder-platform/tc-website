@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.31.07<br>4:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=073107">Meet the July Coders of the Month</A></span><br><br>
+      July's "Coders of the Month" are a diverse mix, hailing from Estonia, Ukraine and India, but there are some similarities among them. In this article, we'll look at how these three coders approach TopCoder competition, and what they do when they need a break.</td>
+         <td class="newsPhoto">by <tc-webtag:handle coderId="8365955" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=073107">full story</A> | 
+         <tc-webtag:forumLink forumID="516783" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.30.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -174,16 +190,3 @@
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>07.19.07<br>3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1007">Mashup Design Competition open for registration</A></span><br><br>
-        Microsoft &amp; British Telecom, in association with TopCoder, have launched another Mashup Design Competition. Prizes will be awarded to the top three mashup assembly submissions, with a total prizes of $4,500 plus the potential to win part of the Series Prize $40,000 purse. Check out the contest details at <a href="http://csf.topcoder.com/">http://csf.topcoder.com</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1007">details</A> | 
-        <a href="http://csf.topcoder.com/forums"> discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
