@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.10.14 - 2007.07.30
+    5.10.15 - 2007.07.30
     <ul>
         <li>PACTS fixes -pulky
             <ul>
@@ -56,6 +56,13 @@
         <li>Add professor nomination program -dok</li>
         <li>Add TCCC07 sponsor track -dok</li>
         <%--<li>Set compile and target jvm to 1.5 for jsp's -dok</li>--%>
+    </ul>
+</p>
+
+<p>
+    5.10.14 - 2007.07.xx
+    <ul>
+        <li>Fix bug where affidavit update and affirmation at the same time wasn't transactional -pulky</li>
     </ul>
 </p>
 
