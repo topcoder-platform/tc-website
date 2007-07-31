@@ -5,6 +5,10 @@ import java.util.GregorianCalendar;
 import java.util.Hashtable;
 import java.util.Map;
 
+import javax.transaction.Status;
+import javax.transaction.TransactionManager;
+
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
@@ -116,17 +120,29 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                     affidavit.getHeader().setTypeId(typeId);
                     affidavit.getHeader().setNotarized("yes".equalsIgnoreCase(notarized));
 
-                    dib.updateAffidavit(affidavit);
+                    // add transaction
+                    TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
 
-                    if (affirmating) {
-                        if (isFromIndia) {
-                            if (aged <= 0) {
-                                aged = calculateAge(birthday);
+                    try {
+                        tm.begin();
+                        dib.updateAffidavit(affidavit);
+
+                        if (affirmating) {
+                            if (isFromIndia) {
+                                if (aged <= 0) {
+                                    aged = calculateAge(birthday);
+                                }
+                                dib.affirmAffidavit(affidavitId, birthday, familyName, aged);
+                            } else {
+                                dib.affirmAffidavit(affidavitId, birthday);
                             }
-                            dib.affirmAffidavit(affidavitId, birthday, familyName, aged);
-                        } else {
-                            dib.affirmAffidavit(affidavitId, birthday);
                         }
+                        tm.commit();
+                    } catch (Exception e) {
+                        if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
+                            tm.rollback();
+                        }
+                        throw e;
                     }
 
                     setNextPage(Links.viewAffidavit(affidavitId));
