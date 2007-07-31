@@ -7,7 +7,11 @@ import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * @author Fred Wang (fred@fredwang.com)
@@ -277,264 +281,48 @@ public class CoderBean extends BaseEJB {
      * @param coderId
      * @return Member Since Date
      */
-    public Date getMemberSince(long coderId, String dataSource) {
+    public Date getMemberSince(long coderId, String dataSource) throws RowNotFoundException {
         log.debug("getMemberSince called. coderId: " + coderId);
 
-        PreparedStatement stmt = null;
-        Connection conn = null;
-        InitialContext ctx = null;
-        ResultSet rs = null;
-        Date memberSince = null;
 
-        try {
-            StringBuffer query = new StringBuffer();
+        return selectDate("coder", "member_since",
+                new String[]{"coder_id"}, new String[]{String.valueOf(coderId)}, dataSource);
 
-            query.append(" SELECT member_since ");
-            query.append(" FROM coder ");
-            query.append(" WHERE coder_id = ?");
-
-            conn = DBMS.getConnection(dataSource);
-            stmt = conn.prepareStatement(query.toString());
-
-            stmt.setLong(1, coderId);
-
-            rs = stmt.executeQuery();
-            if (rs.next()) {
-                memberSince = rs.getDate(1);
-            } else {
-                throw new RowNotFoundException("EJBException in getMemberSince"
-                        + " empty result set for query: " + query.toString());
-            }
-
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException in getMemberSince coderId: " + coderId);
-        } catch (Exception e) {
-            throw new EJBException("Exception in getMemberSince coderId: " + coderId);
-        } finally {
-            close(rs);
-            close(stmt);
-            close(conn);
-            close(ctx);
-        }
-        return memberSince;
     }
 
 
-    public String getQuote(long coderId, String dataSource) {
+    public String getQuote(long coderId, String dataSource) throws RowNotFoundException {
         log.debug("getQuote called. coderId: " + coderId);
 
-        PreparedStatement stmt = null;
-        Connection conn = null;
-        ResultSet rs = null;
-        InitialContext ctx = null;
-        String quote = null;
 
-        try {
-            StringBuffer query = new StringBuffer();
+        return selectString("coder", "quote",
+                new String[]{"coder_id"}, new String[]{String.valueOf(coderId)}, dataSource);
 
-            query.append(" SELECT quote");
-            query.append(" FROM coder ");
-            query.append(" WHERE coder_id = ?");
-
-            conn = DBMS.getConnection(dataSource);
-            stmt = conn.prepareStatement(query.toString());
-
-            stmt.setLong(1, coderId);
-
-            rs = stmt.executeQuery();
-            if (rs.next()) {
-                quote = rs.getString(1);
-            } else {
-                throw new RowNotFoundException("EJBException in getQuote"
-                        + " empty result set for query: " + query.toString());
-            }
-
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException in getQuote coderId: " + coderId);
-        } catch (Exception e) {
-            throw new EJBException("Exception in getQuote coderId: " + coderId);
-        } finally {
-            close(rs);
-            close(stmt);
-            close(conn);
-            close(ctx);
-        }
-        return quote;
     }
 
-    public int getEditorId(long coderId, String dataSource) {
+    public int getEditorId(long coderId, String dataSource) throws RowNotFoundException {
         log.debug("getEditorId called. coderId: " + coderId);
 
-        PreparedStatement stmt = null;
-        Connection conn = null;
-        InitialContext ctx = null;
-        ResultSet rs = null;
-        int editorId;
 
-        try {
-            StringBuffer query = new StringBuffer();
-
-            query.append(" SELECT editor_id ");
-            query.append(" FROM coder ");
-            query.append(" WHERE coder_id = ?");
-
-            conn = DBMS.getConnection(dataSource);
-            stmt = conn.prepareStatement(query.toString());
-
-            stmt.setLong(1, coderId);
-
-            rs = stmt.executeQuery();
-            if (rs.next()) {
-                editorId = rs.getInt(1);
-            } else {
-                throw new RowNotFoundException("EJBException in getEditorId"
-                        + " empty result set for query: " + query.toString());
-            }
-
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException in getEditorId coderId: " + coderId);
-        } catch (Exception e) {
-            throw new EJBException("Exception in getEditorId coderId: " + coderId);
-        } finally {
-            close(rs);
-            close(stmt);
-            close(conn);
-            close(ctx);
-        }
-        return editorId;
+        return selectInt("coder", "editor_id",
+                new String[]{"coder_id"}, new String[]{String.valueOf(coderId)}, dataSource);
     }
 
 
-    public int getLanguageId(long coderId, String dataSource) {
+    public int getLanguageId(long coderId, String dataSource) throws RowNotFoundException {
         log.debug("getLanguageId called. coderId: " + coderId);
 
-        PreparedStatement stmt = null;
-        Connection conn = null;
-        InitialContext ctx = null;
-        ResultSet rs = null;
-        int languageId;
+        return selectInt("coder", "language_id",
+                new String[]{"coder_id"}, new String[]{String.valueOf(coderId)}, dataSource);
 
-        try {
-            StringBuffer query = new StringBuffer();
-
-            query.append(" SELECT language_id ");
-            query.append(" FROM coder ");
-            query.append(" WHERE coder_id = ?");
-
-            conn = DBMS.getConnection(dataSource);
-            stmt = conn.prepareStatement(query.toString());
-
-            stmt.setLong(1, coderId);
-
-            rs = stmt.executeQuery();
-            if (rs.next()) {
-                languageId = rs.getInt(1);
-            } else {
-                throw new RowNotFoundException("EJBException in getLanguageId"
-                        + " empty result set for query: " + query.toString());
-            }
-
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException in getLanguageId coderId: " + coderId);
-        } finally {
-            close(rs);
-            close(stmt);
-            close(conn);
-            close(ctx);
-        }
-        return languageId;
     }
 
-    public int getCoderTypeId(long coderId, String dataSource) {
+    public int getCoderTypeId(long coderId, String dataSource) throws RowNotFoundException {
         log.debug("getCoderTypeId called. coderId: " + coderId);
 
-        PreparedStatement stmt = null;
-        Connection conn = null;
-        InitialContext ctx = null;
-        ResultSet rs = null;
-        int languageId;
 
-        try {
-            StringBuffer query = new StringBuffer();
-
-            query.append(" SELECT coder_type_id ");
-            query.append(" FROM coder ");
-            query.append(" WHERE coder_id = ?");
-
-            conn = DBMS.getConnection(dataSource);
-            stmt = conn.prepareStatement(query.toString());
-
-            stmt.setLong(1, coderId);
-
-            rs = stmt.executeQuery();
-            if (rs.next()) {
-                languageId = rs.getInt(1);
-            } else {
-                throw new RowNotFoundException("EJBException in getCoderTypeId"
-                        + " empty result set for query: " + query.toString());
-            }
-
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException in getCoderTypeId coderId: " + coderId);
-        } catch (Exception e) {
-            throw new EJBException("Exception in getCoderTypeId coderId: " + coderId + " " + e.getMessage());
-        } finally {
-            close(rs);
-            close(stmt);
-            close(conn);
-            close(ctx);
-        }
-        return languageId;
-    }
-
-    public String getActivationCode(long coderId, String dataSource) {
-        log.debug("getActivationCode called. coderId: " + coderId);
-
-        PreparedStatement stmt = null;
-        Connection conn = null;
-        InitialContext ctx = null;
-        ResultSet rs = null;
-        String activationCode;
-
-        try {
-            StringBuffer query = new StringBuffer();
-
-            query.append(" SELECT activation_code ");
-            query.append(" FROM coder ");
-            query.append(" WHERE coder_id = ?");
-
-            conn = DBMS.getConnection(dataSource);
-            stmt = conn.prepareStatement(query.toString());
-
-            stmt.setLong(1, coderId);
-
-            rs = stmt.executeQuery();
-            if (rs.next()) {
-                activationCode = rs.getString("activation_code");
-            } else {
-                throw new RowNotFoundException("EJBException in getActivationCode"
-                        + " empty result set for query: " + query.toString());
-            }
-
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException in getActivationCode coderId: " + coderId);
-        } catch (EJBException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new EJBException("Exception in getActivationCode coderId: " + coderId);
-        } finally {
-            close(rs);
-            close(stmt);
-            close(conn);
-            close(ctx);
-        }
-        return activationCode;
+        return selectInt("coder", "coder_type_id",
+                new String[]{"coder_id"}, new String[]{String.valueOf(coderId)}, dataSource);
     }
 
     public boolean exists(long coderId, String dataSource) {
@@ -592,7 +380,7 @@ public class CoderBean extends BaseEJB {
         }
     }
 
-    public String getCompCountryCode(long coderId, String dataSource) {
+    public String getCompCountryCode(long coderId, String dataSource) throws RowNotFoundException {
         return selectString("coder",
                 "comp_country_code",
                 new String[]{"coder_id"},
