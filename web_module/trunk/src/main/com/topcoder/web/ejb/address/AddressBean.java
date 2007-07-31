@@ -2,8 +2,9 @@ package com.topcoder.web.ejb.address;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.common.IdGeneratorClient;
+import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;
@@ -26,8 +27,6 @@ public class AddressBean extends BaseEJB {
     private static Logger log = Logger.getLogger(AddressBean.class);
 
     /**
-     *
-     *
      * @return a long with the unique address ID created
      */
     public long createAddress(String dataSource, String idDataSource) {
@@ -71,424 +70,126 @@ public class AddressBean extends BaseEJB {
     }
 
     /**
-     *
-     *
      * @param addressId the address ID of the entry
-     *
      * @return a long with the entry's address type ID
-     *
      * @throws EJBException
      */
-    public long getAddressTypeId(long addressId, String dataSource) {
+    public long getAddressTypeId(long addressId, String dataSource) throws RowNotFoundException {
         log.debug("getAddressTypeId called...address_id: " + addressId);
 
-        Context ctx = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Connection conn = null;
-        DataSource ds = null;
-        long ret = 0;
+        return selectLong("address", "address_type_id",
+                new String[]{"address_id"}, new String[]{String.valueOf(addressId)}, dataSource);
 
-        try {
-            conn = DBMS.getConnection(dataSource);
-
-            ps = conn.prepareStatement("SELECT address_type_id FROM address " +
-                    "WHERE address_id = ?");
-            ps.setLong(1, addressId);
-
-            rs = ps.executeQuery();
-
-            if (rs.next())
-                ret = rs.getLong("address_type_id");
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting address_type_id");
-        } catch (Exception e) {
-            throw new EJBException("Exception getting address_type_id\n" +
-                    e.getMessage());
-        } finally {
-            close(rs);
-            close(ps);
-            close(conn);
-            close(ctx);
-        }
-
-        return (ret);
     }
 
     /**
-     *
-     *
      * @param addressId the address ID of the entry
-     *
      * @return a String with the entry's address line 1
-     *
      * @throws EJBException
      */
-    public String getAddress1(long addressId, String dataSource) {
+    public String getAddress1(long addressId, String dataSource) throws RowNotFoundException {
         log.debug("getAddress1 called...address_id: " + addressId);
 
-        Context ctx = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Connection conn = null;
-        DataSource ds = null;
-        String ret = null;
+        return selectString("address", "address1",
+                new String[]{"address_id"}, new String[]{String.valueOf(addressId)}, dataSource);
 
-        try {
-            conn = DBMS.getConnection(dataSource);
-
-            ps = conn.prepareStatement("SELECT address1 FROM address WHERE " +
-                    "address_id = ?");
-            ps.setLong(1, addressId);
-
-            rs = ps.executeQuery();
-
-            if (rs.next())
-                ret = rs.getString("address1");
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting address1");
-        } catch (Exception e) {
-            throw new EJBException("Exception getting address1\n" +
-                    e.getMessage());
-        } finally {
-            close(rs);
-            close(ps);
-            close(conn);
-            close(ctx);
-        }
-
-        return (ret);
     }
 
     /**
-     *
-     *
      * @param addressId the address ID of the entry
-     *
      * @return a String with the entry's address line 2
-     *
      * @throws EJBException
      */
-    public String getAddress2(long addressId, String dataSource) {
+    public String getAddress2(long addressId, String dataSource) throws RowNotFoundException {
         log.debug("getAddress2 called...address_id: " + addressId);
 
-        Context ctx = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Connection conn = null;
-        DataSource ds = null;
-        String ret = null;
+        return selectString("address", "address2",
+                new String[]{"address_id"}, new String[]{String.valueOf(addressId)}, dataSource);
 
-        try {
-            conn = DBMS.getConnection(dataSource);
-
-            ps = conn.prepareStatement("SELECT address2 FROM address " +
-                    "WHERE address_id = ?");
-            ps.setLong(1, addressId);
-
-            rs = ps.executeQuery();
-
-            if (rs.next())
-                ret = rs.getString("address2");
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting address2");
-        } catch (Exception e) {
-            throw new EJBException("Exception getting address2\n" +
-                    e.getMessage());
-        } finally {
-            close(rs);
-            close(ps);
-            close(conn);
-            close(ctx);
-        }
-
-        return (ret);
     }
 
 
     /**
-     *
-     *
      * @param addressId the address ID of the entry
-     *
      * @return a String with the entry's address line 2
-     *
      * @throws EJBException
      */
-    public String getAddress3(long addressId, String dataSource) {
+    public String getAddress3(long addressId, String dataSource) throws RowNotFoundException {
         log.debug("getAddress3 called...address_id: " + addressId);
+        return selectString("address", "address3",
+                new String[]{"address_id"}, new String[]{String.valueOf(addressId)}, dataSource);
 
-        Context ctx = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Connection conn = null;
-        DataSource ds = null;
-        String ret = null;
-
-        try {
-            conn = DBMS.getConnection(dataSource);
-
-            ps = conn.prepareStatement("SELECT address3 FROM address " +
-                    "WHERE address_id = ?");
-            ps.setLong(1, addressId);
-
-            rs = ps.executeQuery();
-
-            if (rs.next())
-                ret = rs.getString("address3");
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting address3");
-        } catch (Exception e) {
-            throw new EJBException("Exception getting address2\n" +
-                    e.getMessage());
-        } finally {
-            close(rs);
-            close(ps);
-            close(conn);
-            close(ctx);
-        }
-
-        return (ret);
     }
 
 
     /**
-     *
-     *
      * @param addressId the address ID of the entry
-     *
      * @return a String with the entry's city
-     *
      * @throws EJBException
      */
-    public String getCity(long addressId, String dataSource) {
+    public String getCity(long addressId, String dataSource) throws RowNotFoundException {
         log.debug("getCity called...address_id: " + addressId);
 
-        Context ctx = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Connection conn = null;
-        DataSource ds = null;
-        String ret = null;
+        return selectString("address", "city",
+                new String[]{"address_id"}, new String[]{String.valueOf(addressId)}, dataSource);
 
-        try {
-            conn = DBMS.getConnection(dataSource);
-
-            ps = conn.prepareStatement("SELECT city FROM address " +
-                    "WHERE address_id = ?");
-            ps.setLong(1, addressId);
-
-            rs = ps.executeQuery();
-
-            if (rs.next())
-                ret = rs.getString("city");
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting city");
-        } catch (Exception e) {
-            throw new EJBException("Exception getting city\n" +
-                    e.getMessage());
-        } finally {
-            close(rs);
-            close(ps);
-            close(conn);
-            close(ctx);
-        }
-
-        return (ret);
     }
 
     /**
-     *
-     *
      * @param addressId the address ID of the entry
-     *
      * @return a String with the entry's state code
-     *
      * @throws EJBException
      */
-    public String getStateCode(long addressId, String dataSource) {
+    public String getStateCode(long addressId, String dataSource) throws RowNotFoundException {
         log.debug("getStateCode called...address_id: " + addressId);
 
-        Context ctx = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Connection conn = null;
-        DataSource ds = null;
-        String ret = null;
+        return selectString("address", "state_code",
+                new String[]{"address_id"}, new String[]{String.valueOf(addressId)}, dataSource);
 
-        try {
-            conn = DBMS.getConnection(dataSource);
-
-            ps = conn.prepareStatement("SELECT state_code FROM address " +
-                    "WHERE address_id = ?");
-            ps.setLong(1, addressId);
-
-            rs = ps.executeQuery();
-
-            if (rs.next())
-                ret = rs.getString("state_code");
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting state_code");
-        } catch (Exception e) {
-            throw new EJBException("Exception getting state_code\n" +
-                    e.getMessage());
-        } finally {
-            close(rs);
-            close(ps);
-            close(conn);
-            close(ctx);
-        }
-
-        return (ret);
     }
 
 
     /**
-     *
-     *
      * @param addressId the address ID of the entry
-     *
      * @return a String with the entry's province
-     *
      * @throws EJBException
      */
-    public String getProvince(long addressId, String dataSource) {
+    public String getProvince(long addressId, String dataSource) throws RowNotFoundException {
         log.debug("getProvince called...address_id: " + addressId);
 
-        Context ctx = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Connection conn = null;
-        DataSource ds = null;
-        String ret = null;
+        return selectString("address", "province",
+                new String[]{"address_id"}, new String[]{String.valueOf(addressId)}, dataSource);
 
-        try {
-            conn = DBMS.getConnection(dataSource);
-
-            ps = conn.prepareStatement("SELECT province FROM address " +
-                    "WHERE address_id = ?");
-            ps.setLong(1, addressId);
-
-            rs = ps.executeQuery();
-
-            if (rs.next())
-                ret = rs.getString("province");
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting province");
-        } catch (Exception e) {
-            throw new EJBException("Exception getting province\n" +
-                    e.getMessage());
-        } finally {
-            close(rs);
-            close(ps);
-            close(conn);
-            close(ctx);
-        }
-
-        return (ret);
     }
 
 
     /**
-     *
-     *
      * @param addressId the address ID of the entry
-     *
      * @return a String with the entry's zip code
-     *
      * @throws EJBException
      */
-    public String getZip(long addressId, String dataSource) {
+    public String getZip(long addressId, String dataSource) throws RowNotFoundException {
         log.debug("getZip called...address_id: " + addressId);
 
-        Context ctx = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Connection conn = null;
-        DataSource ds = null;
-        String ret = null;
+        return selectString("address", "zip",
+                new String[]{"address_id"}, new String[]{String.valueOf(addressId)}, dataSource);
 
-        try {
-            conn = DBMS.getConnection(dataSource);
-
-            ps = conn.prepareStatement("SELECT zip FROM address " +
-                    "WHERE address_id = ?");
-            ps.setLong(1, addressId);
-
-            rs = ps.executeQuery();
-
-            if (rs.next())
-                ret = rs.getString("zip");
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting zip");
-        } catch (Exception e) {
-            throw new EJBException("Exception getting zip\n" + e.getMessage());
-        } finally {
-            close(rs);
-            close(ps);
-            close(conn);
-            close(ctx);
-        }
-
-        return (ret);
     }
 
     /**
-     *
-     *
      * @param addressId the address ID of the entry
-     *
      * @return a String with the entry's country code
-     *
      * @throws EJBException
      */
-    public String getCountryCode(long addressId, String dataSource) {
+    public String getCountryCode(long addressId, String dataSource) throws RowNotFoundException {
         log.debug("getCountryCode called...address_id: " + addressId);
 
-        Context ctx = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Connection conn = null;
-        DataSource ds = null;
-        String ret = null;
-
-        try {
-            conn = DBMS.getConnection(dataSource);
-
-            ps = conn.prepareStatement("SELECT country_code FROM address " +
-                    "WHERE address_id = ?");
-            ps.setLong(1, addressId);
-
-            rs = ps.executeQuery();
-
-            if (rs.next())
-                ret = rs.getString("country_code");
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting country code");
-        } catch (Exception e) {
-            throw new EJBException("Exception getting country_code\n" +
-                    e.getMessage());
-        } finally {
-            close(rs);
-            close(ps);
-            close(conn);
-            close(ctx);
-        }
-
-        return (ret);
+        return selectString("address", "country_code",
+                new String[]{"address_id"}, new String[]{String.valueOf(addressId)}, dataSource);
     }
 
 
-    public String getCountryName(String countryCode, String dataSource) {
+    public String getCountryName(String countryCode, String dataSource) throws RowNotFoundException {
         return selectString("country",
                 "country_name",
                 new String[]{"country_code"},
@@ -498,11 +199,8 @@ public class AddressBean extends BaseEJB {
 
 
     /**
-     *
-     *
-     * @param addressId address ID of entry to set
+     * @param addressId     address ID of entry to set
      * @param addressTypeId the address type to set to
-     *
      * @throws EJBException
      */
     public void setAddressTypeId(long addressId, long addressTypeId, String dataSource) {
@@ -545,11 +243,8 @@ public class AddressBean extends BaseEJB {
     }
 
     /**
-     *
-     *
      * @param addressId address ID of entry to set
-     * @param address1 the address line 1 to set to
-     *
+     * @param address1  the address line 1 to set to
      * @throws EJBException
      */
     public void setAddress1(long addressId, String address1, String dataSource) {
@@ -591,11 +286,8 @@ public class AddressBean extends BaseEJB {
     }
 
     /**
-     *
-     *
      * @param addressId address ID of entry to set
-     * @param address2 the address line 2 to set to
-     *
+     * @param address2  the address line 2 to set to
      * @throws EJBException
      */
     public void setAddress2(long addressId, String address2, String dataSource) {
@@ -637,11 +329,8 @@ public class AddressBean extends BaseEJB {
     }
 
     /**
-     *
-     *
      * @param addressId address ID of entry to set
-     * @param address3 the address line 3 to set to
-     *
+     * @param address3  the address line 3 to set to
      * @throws EJBException
      */
     public void setAddress3(long addressId, String address3, String dataSource) {
@@ -684,11 +373,8 @@ public class AddressBean extends BaseEJB {
 
 
     /**
-     *
-     *
      * @param addressId address ID of entry to set
-     * @param city the city to set to
-     *
+     * @param city      the city to set to
      * @throws EJBException
      */
     public void setCity(long addressId, String city, String dataSource) {
@@ -730,11 +416,8 @@ public class AddressBean extends BaseEJB {
     }
 
     /**
-     *
-     *
      * @param addressId address ID of entry to set
      * @param stateCode the state code to set to
-     *
      * @throws EJBException
      */
     public void setStateCode(long addressId, String stateCode, String dataSource) {
@@ -777,11 +460,8 @@ public class AddressBean extends BaseEJB {
 
 
     /**
-     *
-     *
      * @param addressId address ID of entry to set
-     * @param province the province to set to
-     *
+     * @param province  the province to set to
      * @throws EJBException
      */
     public void setProvince(long addressId, String province, String dataSource) {
@@ -824,11 +504,8 @@ public class AddressBean extends BaseEJB {
 
 
     /**
-     *
-     *
      * @param addressId address ID of entry to set
-     * @param zip the zip code to set to
-     *
+     * @param zip       the zip code to set to
      * @throws EJBException
      */
     public void setZip(long addressId, String zip, String dataSource) {
@@ -869,11 +546,8 @@ public class AddressBean extends BaseEJB {
     }
 
     /**
-     *
-     *
-     * @param addressId address ID of entry to set
+     * @param addressId   address ID of entry to set
      * @param countryCode the country code to set to
-     *
      * @throws EJBException
      */
     public void setCountryCode(long addressId, String countryCode, String dataSource) {
@@ -916,12 +590,8 @@ public class AddressBean extends BaseEJB {
     }
 
     /**
-     *
-     *
      * @param addressId the address ID of the entry
-     *
      * @return a String with the entry's address type ID
-     *
      * @throws EJBException
      */
     public String getAddressTypeDesc(long addressId, String dataSource) {
