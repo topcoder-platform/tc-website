@@ -34,7 +34,7 @@
                 <h1><span>Leaderboard</span></h1>
 
         <p><strong>NOTE:</strong> this ranking does not consider the
-            <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=rules#scoring">tiebreaker
+            <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=studio&amp;d4=rules#scoring">tiebreaker
                 rules</A>.</p>
 
         <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
@@ -93,7 +93,7 @@
                             </strong>
                         </td>
                         <td class="valueC">
-                            <a href="tc?${module}=StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=completedContests">
+                            <a href="tc?${module}=StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;d1=tournaments&amp;d2=tccc07&amp;d3=studio&amp;d4=completedContests">
                                 <rsc:item name="completed_contests" row="<%=resultRow%>" ifNull="&nbsp;"/>
                             </A>
                         </td>
@@ -101,7 +101,7 @@
                             <span class="<%=(resultRow.getIntItem("rank")<=8 ? "bigGreen" : "bigRed")%>"><rsc:item name="points" row="<%=resultRow%>" ifNull="&nbsp;"/></span>
                         </td>
                         <td class="valueC">
-                            <a href="tc?${module}=StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=currentContests">
+                            <a href="tc?${module}=StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;d1=tournaments&amp;d2=tccc07&amp;d3=studio&amp;d4=currentContests">
                                 <rsc:item name="current_contests" row="<%=resultRow%>" ifNull="&nbsp;"/>
                             </A>
                         </td>
