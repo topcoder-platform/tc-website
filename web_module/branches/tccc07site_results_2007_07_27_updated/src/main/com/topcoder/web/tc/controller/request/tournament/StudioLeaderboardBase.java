@@ -17,7 +17,7 @@ public abstract class StudioLeaderboardBase extends StatBase {
     protected abstract String getContestPrefix();
     
     protected String getCommandName() {
-        return getContestPrefix() + "event_results";
+        return getContestPrefix() + "_event_results";
     }
 
     protected String getDataSourceName() {
@@ -31,7 +31,7 @@ public abstract class StudioLeaderboardBase extends StatBase {
     protected void statProcessing() throws com.topcoder.web.common.TCWebException {
         Map result = (Map) getRequest().getAttribute("resultMap");
 
-        ResultSetContainer rsc = (ResultSetContainer) result.get(getContestPrefix() + "event_results");
+        ResultSetContainer rsc = (ResultSetContainer) result.get(getContestPrefix() + "_event_results");
 
         SortInfo s = new SortInfo();
         s.addDefault(rsc.getColumnIndex("handle"), "asc");
