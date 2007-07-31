@@ -4485,12 +4485,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Connection c = null;
         boolean ret = false;
         try {
-            c = DBMS.getConnection();
+            c = DBMS.getConnection(trxDataSource);
             ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
             ret = Integer.parseInt(rsc.getItem(0, 0).toString()) > 0;
-
-        } catch (SQLException e) {
-            close(c);
         } finally {
             close(c);
         }
