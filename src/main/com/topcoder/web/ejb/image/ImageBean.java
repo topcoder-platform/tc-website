@@ -1,19 +1,20 @@
 package com.topcoder.web.ejb.image;
 
-import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.common.IdGeneratorClient;
+import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 
 /**
- * @author  dok
- * @version  $Revision$ $Date$
- * Create Date: Apr 6, 2005
+ * @author dok
+ * @version $Revision$ $Date$
+ *          Create Date: Apr 6, 2005
  */
 public class ImageBean extends BaseEJB {
 
 
-    public long createImage(String fileName, int imageTypeId, long pathId, String dataSource)  {
+    public long createImage(String fileName, int imageTypeId, long pathId, String dataSource) {
         try {
             long id = IdGeneratorClient.getSeqId("IMAGE_SEQ");
             insert("image",
@@ -76,33 +77,36 @@ public class ImageBean extends BaseEJB {
                 dataSource);
     }
 
-    public String getFileName(long imageId, String dataSource) {
+    public String getFileName(long imageId, String dataSource) throws RowNotFoundException {
         return selectString("image", "file_name", new String[]{"image_id"},
                 new String[]{String.valueOf(imageId)}, dataSource);
 
     }
-    public int getImageTypeId(long imageId, String dataSource) {
+
+    public int getImageTypeId(long imageId, String dataSource) throws RowNotFoundException {
         return selectInt("image", "file_name", new String[]{"image_id"},
-                new String[]{String.valueOf(imageId)}, dataSource).intValue();
+                new String[]{String.valueOf(imageId)}, dataSource);
     }
 
-    public long getPathId(long imageId, String dataSource) {
+    public long getPathId(long imageId, String dataSource) throws RowNotFoundException {
         return selectLong("image", "path_id", new String[]{"image_id"},
-                new String[]{String.valueOf(imageId)}, dataSource).longValue();
+                new String[]{String.valueOf(imageId)}, dataSource);
     }
-    public String getLink(long imageId, String dataSource) {
+
+    public String getLink(long imageId, String dataSource) throws RowNotFoundException {
         return selectString("image", "link", new String[]{"image_id"},
                 new String[]{String.valueOf(imageId)}, dataSource);
     }
-    public int getHeight(long imageId, String dataSource) {
+
+    public int getHeight(long imageId, String dataSource) throws RowNotFoundException {
         return selectInt("image", "height", new String[]{"image_id"},
-                new String[]{String.valueOf(imageId)}, dataSource).intValue();
-    }
-    public int getWidth(long imageId, String dataSource) {
-        return selectInt("image", "width", new String[]{"image_id"},
-                new String[]{String.valueOf(imageId)}, dataSource).intValue();
+                new String[]{String.valueOf(imageId)}, dataSource);
     }
 
+    public int getWidth(long imageId, String dataSource) throws RowNotFoundException {
+        return selectInt("image", "width", new String[]{"image_id"},
+                new String[]{String.valueOf(imageId)}, dataSource);
+    }
 
 
 }

@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.longcompresult;
 
+import com.topcoder.web.common.RowNotFoundException;
+
 import javax.ejb.EJBLocalObject;
 
 /**
@@ -11,10 +13,12 @@ public interface LongCompResultLocal extends EJBLocalObject {
     void createLongCompResult(long roundId, long coderId, String dataSource);
 
     void setPointTotal(long roundId, long coderId, double pointTotal, String dataSource);
+
     void setAttended(long roundId, long coderId, boolean attended, String dataSource);
 
-    double getPointTotal(long roundId, long coderId, String dataSource);
-    boolean getAttended(long roundId, long coderId, String dataSource);
+    double getPointTotal(long roundId, long coderId, String dataSource) throws RowNotFoundException;
+
+    boolean getAttended(long roundId, long coderId, String dataSource) throws RowNotFoundException;
 
     boolean exists(long roundId, long coderId, String dataSource);
 
