@@ -9,13 +9,18 @@ import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.problemParser.ProblemComponentFactory;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
-import com.topcoder.web.ejb.coder.Coder;
 
 import java.io.StringReader;
 import java.util.Map;
@@ -59,13 +64,14 @@ public class ViewProblemStatement extends Base {
                 r.setProperty(Constants.COMPONENT_ID, String.valueOf(cid));
                 r.setProperty(Constants.ROUND_ID, String.valueOf(rd));
                 r.setProperty(Constants.CODER_ID, String.valueOf(getUser().getId()));
-                ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("long_contest_recent_compilation");
-                if (!rsc.isEmpty()&&rsc.getItem(0, "language_id").getResultData()!=null) {
+                ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("long_contest_recent_compilation");
+                if (!rsc.isEmpty() && rsc.getItem(0, "language_id").getResultData() != null) {
                     lid = rsc.getIntItem(0, "language_id");
                 } else {
-                    Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
-                    lid = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
-                    if (lid==0) {
+                    Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
+                    try {
+                        lid = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+                    } catch (RowNotFoundException e) {
                         lid = JavaLanguage.ID;
                     }
                 }
@@ -83,7 +89,7 @@ public class ViewProblemStatement extends Base {
             Map m = dataAccess.getData(r);
             boolean started = ((ResultSetContainer) m.get("long_contest_started")).getBooleanItem(0, 0);
             //let admins see the problem even if the contest isn't open
-            if (!started&&!getSessionInfo().isAdmin()) {
+            if (!started && !getSessionInfo().isAdmin()) {
                 throw new NavigationException("The contest has not started yet.");
             }
             ResultSetContainer rsc = null;
@@ -93,7 +99,7 @@ public class ViewProblemStatement extends Base {
             String problemText = rr.getStringItem("component_text");
             //log.debug("test: " + problemText);
             StringReader reader = new StringReader(problemText);
-            ProblemComponent pc [] = new ProblemComponent[1];
+            ProblemComponent pc[] = new ProblemComponent[1];
             pc[0] = new ProblemComponentFactory().buildFromXML(reader, true);
             Problem problem = new Problem();
             problem.setProblemTypeID(Problem.TYPE_LONG);
