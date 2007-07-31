@@ -5,7 +5,13 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.coder.Coder;
@@ -20,7 +26,6 @@ import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.JobHitData;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Map;
@@ -91,21 +96,15 @@ public class JobHit extends Base {
                         isContractor = Constants.PREFERENCE_CONTRACTING_TRUE ==
                                 prefBean.getPreferenceValueID(hit.getUserId(),
                                         Constants.PREFERENCE_CONTRACTING, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    } catch (RemoteException e) {
-                        if (e.detail instanceof RowNotFoundException) {
-                            flag++;
-                        } else
-                            throw e;
+                    } catch (RowNotFoundException e) {
+                        flag++;
                     }
                     try {
                         isPermanent = Constants.PREFERENCE_PERMANENT_TRUE ==
                                 prefBean.getPreferenceValueID(hit.getUserId(),
                                         Constants.PREFERENCE_PERMANENT, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    } catch (RemoteException e) {
-                        if (e.detail instanceof RowNotFoundException) {
-                            flag++;
-                        } else
-                            throw e;
+                    } catch (RowNotFoundException e) {
+                        flag++;
                     }
 
                     if (flag == 2) {

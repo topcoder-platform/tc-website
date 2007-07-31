@@ -4,12 +4,14 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
-
-import java.rmi.RemoteException;
 
 
 /**
@@ -49,8 +51,7 @@ public class Preview extends Base {
         boolean rated = false;
         if (!coderInfo.isEmpty() && ((coderInfo.getItem(0, "rating").getResultData() != null && coderInfo.getIntItem(0, "rating") > 0) ||
                 (coderInfo.getItem(0, "design_rating").getResultData() != null && coderInfo.getIntItem(0, "design_rating") > 0) ||
-                (coderInfo.getItem(0, "development_rating").getResultData() != null && coderInfo.getIntItem(0, "development_rating") > 0)))
-        {
+                (coderInfo.getItem(0, "development_rating").getResultData() != null && coderInfo.getIntItem(0, "development_rating") > 0))) {
             rated = true;
         }
         return rated;
@@ -63,9 +64,8 @@ public class Preview extends Base {
         try {
             up.getValue(getUser().getId(), Constants.UNLOCK_CARD_PREFERENCE_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
             cardUnlocked = true;
-        } catch (RemoteException e) {
-            if (!(e.detail instanceof RowNotFoundException))
-                throw e;
+        } catch (RowNotFoundException e) {
+            cardUnlocked = false;
         }
         return cardUnlocked;
 

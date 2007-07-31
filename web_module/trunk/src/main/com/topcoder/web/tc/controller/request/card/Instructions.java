@@ -10,8 +10,6 @@ import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
-import java.rmi.RemoteException;
-
 /**
  * @author dok
  *         Date: Mar 10, 2004
@@ -27,9 +25,8 @@ public class Instructions extends Base {
                 try {
                     up.getValue(getUser().getId(), Constants.UNLOCK_CARD_PREFERENCE_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     cardUnlocked = true;
-                } catch (RemoteException e) {
-                    if (!(e.detail instanceof RowNotFoundException))
-                        throw e;
+                } catch (RowNotFoundException e) {
+                    throw e;
                 }
                 getRequest().setAttribute("cardUnlocked", new Boolean(cardUnlocked));
             } catch (TCWebException e) {
