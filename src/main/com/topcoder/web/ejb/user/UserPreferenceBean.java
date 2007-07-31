@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.user;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
@@ -14,7 +15,7 @@ import java.sql.SQLException;
 
 /**
  * @author dok
- * Date: Jan 20, 2004
+ *         Date: Jan 20, 2004
  */
 public class UserPreferenceBean extends BaseEJB {
 
@@ -26,7 +27,7 @@ public class UserPreferenceBean extends BaseEJB {
                 new String[]{String.valueOf(userId), String.valueOf(preferenceId)},
                 dataSource);
         if (ret != 1) {
-            throw(new EJBException("Wrong number of rows inserted into " +
+            throw (new EJBException("Wrong number of rows inserted into " +
                     "'user_preference'. Inserted " + ret + ", " +
                     "should have inserted 1."));
         }
@@ -74,7 +75,7 @@ public class UserPreferenceBean extends BaseEJB {
                 new String[]{String.valueOf(userId), String.valueOf(preferenceId)},
                 dataSource);
         if (ret != 1) {
-            throw(new EJBException("Wrong number of rows deleted from " +
+            throw (new EJBException("Wrong number of rows deleted from " +
                     "'user_preference'. Deleted " + ret + ", " +
                     "should have deleted 1."));
         }
@@ -88,13 +89,13 @@ public class UserPreferenceBean extends BaseEJB {
                 new String[]{String.valueOf(userId), String.valueOf(preferenceId)},
                 dataSource);
         if (ret != 1) {
-            throw(new EJBException("Wrong number of rows updated in " +
+            throw (new EJBException("Wrong number of rows updated in " +
                     "'user_preference'. Updated " + ret + ", " +
                     "should have updated 1."));
         }
     }
 
-    public String getValue(long userId, int preferenceId, String dataSource) {
+    public String getValue(long userId, int preferenceId, String dataSource) throws RowNotFoundException {
         return selectString("user_preference",
                 "value",
                 new String[]{"user_id", "preference_id"},
@@ -110,34 +111,34 @@ public class UserPreferenceBean extends BaseEJB {
                 new String[]{String.valueOf(userId), String.valueOf(preferenceId)},
                 dataSource);
         if (ret != 1) {
-            throw(new EJBException("Wrong number of rows updated in " +
+            throw (new EJBException("Wrong number of rows updated in " +
                     "'user_preference'. Updated " + ret + ", " +
                     "should have updated 1."));
         }
     }
 
-    public int getPreferenceValueID(long userId, int preferenceId, String dataSource) {
+    public int getPreferenceValueID(long userId, int preferenceId, String dataSource) throws RowNotFoundException {
         return selectInt("user_preference",
                 "preference_value_id",
                 new String[]{"user_id", "preference_id"},
                 new String[]{String.valueOf(userId), String.valueOf(preferenceId)},
-                dataSource).intValue();
+                dataSource);
     }
 
     private static final String GET_PREFERENCES_BY_GROUP_SQL =
             "SELECT up.user_id" +
-                " , up.preference_id" +
-                " , up.value" +
-                " , up.preference_value_id" +
-                " , p.preference_name" +
-                " , p.preference_desc" +
-                " , p.preference_type_id " +
-            " FROM  " +
-            "user_preference up, preference_lu p, preference_group_lu pg " +
-            "where p.preference_id = up.preference_id and " +
-            "pg.preference_group_id = p.preference_group_id and " +
-            "pg.preference_group_id = ? and " +
-            "up.user_id = ? ";
+                    " , up.preference_id" +
+                    " , up.value" +
+                    " , up.preference_value_id" +
+                    " , p.preference_name" +
+                    " , p.preference_desc" +
+                    " , p.preference_type_id " +
+                    " FROM  " +
+                    "user_preference up, preference_lu p, preference_group_lu pg " +
+                    "where p.preference_id = up.preference_id and " +
+                    "pg.preference_group_id = p.preference_group_id and " +
+                    "pg.preference_group_id = ? and " +
+                    "up.user_id = ? ";
 
     public ResultSetContainer getPreferencesByGroup(long userId, int groupId, String dataSource) {
         Connection conn = null;

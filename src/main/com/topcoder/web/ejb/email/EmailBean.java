@@ -30,7 +30,7 @@ public class EmailBean extends BaseEJB {
                     new String[]{String.valueOf(email_id), String.valueOf(userId)},
                     dataSource);
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows inserted into 'email'. " +
+                throw (new EJBException("Wrong number of rows inserted into 'email'. " +
                         "Inserted " + rc + ", should have inserted 1."));
             }
         } catch (Exception e) {
@@ -60,7 +60,7 @@ public class EmailBean extends BaseEJB {
 
             int rc = ps.executeUpdate();
             if (rc < 1) {
-                throw(new EJBException("Wrong number of rows updated in 'email'. " +
+                throw (new EJBException("Wrong number of rows updated in 'email'. " +
                         "Updated " + rc + ", should have updated at least " +
                         "1."));
             }
@@ -77,12 +77,12 @@ public class EmailBean extends BaseEJB {
 
             rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows updated in 'email'. " +
+                throw (new EJBException("Wrong number of rows updated in 'email'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -91,19 +91,19 @@ public class EmailBean extends BaseEJB {
     }
 
     public long getPrimaryEmailId(long userId, String dataSource)
-            throws EJBException {
+            throws RowNotFoundException {
         log.debug("getPrimaryEmailId called with user_id : " + userId + " datasource " + dataSource);
         long ret = 0;
 
         ret = selectLong("email", "email_id",
                 new String[]{"user_id", "primary_ind"},
                 new String[]{String.valueOf(userId), "1"},
-                dataSource).longValue();
+                dataSource);
         log.debug("got " + ret);
         return ret;
     }
 
-    public boolean exists(long userId, String dataSource)  throws EJBException {
+    public boolean exists(long userId, String dataSource) {
         boolean ret = true;
         try {
             getPrimaryEmailId(userId, dataSource);
@@ -135,12 +135,12 @@ public class EmailBean extends BaseEJB {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows updated in 'email'. " +
+                throw (new EJBException("Wrong number of rows updated in 'email'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -149,7 +149,7 @@ public class EmailBean extends BaseEJB {
     }
 
     public long getEmailTypeId(long emailId, String dataSource)
-            throws EJBException {
+            throws EJBException, RowNotFoundException {
 
         long email_type_id = 0;
 
@@ -173,12 +173,12 @@ public class EmailBean extends BaseEJB {
             if (rs.next()) {
                 email_type_id = rs.getLong(1);
             } else {
-                throw(new EJBException("No rows found when selecting from 'email' " +
+                throw (new RowNotFoundException("No rows found when selecting from 'email' " +
                         "with email_id=" + emailId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -210,12 +210,12 @@ public class EmailBean extends BaseEJB {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows updated in 'email'. " +
+                throw (new EJBException("Wrong number of rows updated in 'email'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -224,7 +224,7 @@ public class EmailBean extends BaseEJB {
     }
 
     public String getAddress(long emailId, String dataSource)
-            throws EJBException {
+            throws EJBException, RowNotFoundException {
 
         String address = "";
 
@@ -248,12 +248,12 @@ public class EmailBean extends BaseEJB {
             if (rs.next()) {
                 address = rs.getString(1);
             } else {
-                throw(new EJBException("No rows found when selecting from 'email' " +
+                throw (new RowNotFoundException("No rows found when selecting from 'email' " +
                         "with email_id=" + emailId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -263,12 +263,12 @@ public class EmailBean extends BaseEJB {
         return (address);
     }
 
-    public int getStatusId(long emailId, String dataSource) {
+    public int getStatusId(long emailId, String dataSource) throws RowNotFoundException {
         return selectInt("email",
                 "status_id",
                 new String[]{"email_id"},
                 new String[]{String.valueOf(emailId)},
-                dataSource).intValue();
+                dataSource);
     }
 
     public void setStatusId(long emailId, int statusId, String dataSource) {
@@ -279,7 +279,7 @@ public class EmailBean extends BaseEJB {
                 new String[]{String.valueOf(emailId)},
                 dataSource);
         if (ret != 1) {
-            throw(new EJBException("Wrong number of rows updated in " +
+            throw (new EJBException("Wrong number of rows updated in " +
                     "'email'. Updated " + ret + ", " +
                     "should have updated 1."));
         }
