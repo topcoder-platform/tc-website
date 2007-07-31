@@ -17,5 +17,5 @@ public interface ProjectWager extends EJBObject {
 
     boolean exists(long projectId, long userId, String dataSource) throws RemoteException;
 
-    int getWager(long projectId, long userId, String dataSource) throws RemoteException;
+    int getWager(long projectId, long userId, String dataSource) throws RowNotFoundException, RemoteException;
 }
