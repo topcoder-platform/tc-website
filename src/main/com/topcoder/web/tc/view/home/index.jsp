@@ -134,9 +134,9 @@
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></A>
                 --%>
                 
-                <%-- DIGITAL RUN DESIGN CUP --%>
+                <%-- DIGITAL RUN DESIGN CUP 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunDesCup.png" alt="The Digital Run Design Cup" border="0" style="display:block;"/></A>
-                
+                --%>
                 
                 <%-- DIGITAL RUN DEVELOPMENT CUP 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunDevCup.png" alt="The Digital Run Development Cup" border="0" style="display:block;"/></A>
@@ -158,13 +158,13 @@
                 <img src="/i/home/mmtco4_verisign.png" alt="TCO07 Marathon Match 4 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
                 --%>
 
-                <%-- SRM SPONSOR 
+                <%-- SRM SPONSOR --%>
                 <map name="mm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10770" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=sponsors&d2=bt" />
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10773" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=sponsors&d2=tcs" />
                 </map>
-                <img src="/i/home/srm359_bt.png" alt="SRM 359 brought to you by British Telecom" border="0" style="display:block;" usemap="#mm"/>
-                 --%>
+                <img src="/i/home/srm361_topcoder.png" alt="SRM 361 brought to you by TopCoder" border="0" style="display:block;" usemap="#mm"/>
+                 
 
                 <%-- LICENSE ID 
                 <A href="<tc-webtag:linkTracking link='http://studio.topcoder.com/?module=ViewContestDetails&ct=2093' refer='homepage' />"><img src="/i/home/licenseIDProject.jpg" alt="License ID Project" border="0" style="display:block;"/></A>
@@ -311,11 +311,11 @@
 
             <%-- SRM SPONSOR 
                 <map name="mm">
-                <area shape="rect" alt="" coords="1,1,80,95" href="/tc?module=MatchDetails&rd=10766" />
-                <area shape="rect" alt="" coords="110,1,250,95" href="/tc?module=Static&d1=sponsors&d2=yodlee" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=sponsors&d2=yodlee" />
+                <area shape="rect" alt="" coords="1,1,80,95" href="/tc?module=MatchDetails&rd=10773" />
+                <area shape="rect" alt="" coords="110,1,250,95" href="/tc?module=Static&d1=sponsors&d2=tcs" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=sponsors&d2=tcs" />
                 </map>
-                <img src="/i/home/srm357_yodlee.png" alt="SRM 357 brought to you by Yodlee" border="0" style="display:block;" usemap="#mm"/>
+                <img src="/i/home/srm361_topcoder.png" alt="SRM 361 brought to you by TopCoder" border="0" style="display:block;" usemap="#mm"/>
                 --%>
                 
             <%-- 2 Registration Prototype contests open @ Studio 
@@ -342,7 +342,7 @@
             <A href="/tc?module=Static&d1=my_home&d2=empReferrals"><img src="/i/home/empRefSm_20070517.png" alt="TopCoder Employee Referral Program" border="0" style="display:block;"/></A>
              --%>
              
-             <%-- TC CHANNEL --%>
+            <%-- TC CHANNEL --%>
             <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep03_sm' refer='homepage' />"><img src="/i/home/tcchannel_promo_ep3.png" alt="TC Channel: Episode 3" /></A>
             
             
