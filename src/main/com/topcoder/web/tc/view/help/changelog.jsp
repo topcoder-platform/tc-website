@@ -50,6 +50,9 @@
         <li>Fix bug where someone that is not registered for competitions couldn't see a marathon match problem
             statement (default their langauge to java) -dok
         </li>
+        <li>Adjust EJB exception handling to be more in line with the ejb spec with regards to application exceptions
+            -dok
+        </li>
     </ul>
 </p>
 
