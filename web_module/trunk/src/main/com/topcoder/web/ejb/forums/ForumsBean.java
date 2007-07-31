@@ -1,7 +1,21 @@
 package com.topcoder.web.ejb.forums;
 
-import com.jivesoftware.base.*;
-import com.jivesoftware.forum.*;
+import com.jivesoftware.base.AuthFactory;
+import com.jivesoftware.base.Group;
+import com.jivesoftware.base.GroupManager;
+import com.jivesoftware.base.PermissionType;
+import com.jivesoftware.base.PermissionsManager;
+import com.jivesoftware.base.UnauthorizedException;
+import com.jivesoftware.base.User;
+import com.jivesoftware.base.UserNotFoundException;
+import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.ForumCategory;
+import com.jivesoftware.forum.ForumCategoryNotFoundException;
+import com.jivesoftware.forum.ForumFactory;
+import com.jivesoftware.forum.ForumPermissions;
+import com.jivesoftware.forum.ResultFilter;
+import com.jivesoftware.forum.Watch;
+import com.jivesoftware.forum.WatchManager;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RowNotFoundException;
@@ -17,7 +31,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
 
 /**
  * This class handles interaction with the Jive database.
@@ -36,7 +55,7 @@ public class ForumsBean extends BaseEJB {
 
     // Creates a new forum in the "Algorithm Matches" category of the forums for the given round.
     // Also sets the forum_id field of the corresponding row in DW.round.
-    public void createMatchForum(int roundID) {
+    public void createMatchForum(int roundID) throws RowNotFoundException {
         //String username = "Administrator";
         //String pwd = selectString("user",
         //        "password",
@@ -78,11 +97,15 @@ public class ForumsBean extends BaseEJB {
     }
 
     public int getThreadMessageCount(int threadID) {
-        return this.selectInt("jivemessage",
-                "count(*)",
-                new String[]{"threadid"},
-                new String[]{String.valueOf(threadID)},
-                DBMS.FORUMS_DATASOURCE_NAME).intValue();
+        try {
+            return this.selectInt("jivemessage",
+                    "count(*)",
+                    new String[]{"threadid"},
+                    new String[]{String.valueOf(threadID)},
+                    DBMS.FORUMS_DATASOURCE_NAME);
+        } catch (RowNotFoundException e) {
+            return 0;
+        }
     }
 
     public void assignRole(long userID, long groupID) {
@@ -108,18 +131,18 @@ public class ForumsBean extends BaseEJB {
             log.info("*** error in assigning role: " + e);
         }
     }
-    
+
     public void addCategoryPerms(long userID, long forumCategoryID, long[] perms) {
         try {
             User user = forumFactory.getUserManager().getUser(userID);
             ForumCategory forumCategory = forumFactory.getForumCategory(forumCategoryID);
             PermissionsManager fcPermManager = forumCategory.getPermissionsManager();
-            for (int i=0; i<perms.length; i++) {
+            for (int i = 0; i < perms.length; i++) {
                 fcPermManager.addUserPermission(user, PermissionType.ADDITIVE, perms[i]);
             }
         } catch (Exception e) {
             log.info("*** error in assigning role: " + e);
-        }        
+        }
     }
 
     public void removeRole(long userID, long groupID) {
@@ -227,7 +250,9 @@ public class ForumsBean extends BaseEJB {
 
     /*********************************************/
     /* Software Forums                           */
-    /*********************************************/
+    /**
+     * *****************************************
+     */
     public ArrayList getSoftwareForumCategoryData(long categoryID) throws ForumCategoryNotFoundException {
         ForumCategory category = forumFactory.getForumCategory(categoryID);
         ArrayList data = new ArrayList();
@@ -476,7 +501,7 @@ public class ForumsBean extends BaseEJB {
             close(conn);
         }
     }
-    
+
     public Hashtable getComponentVersionPhases(long[] compVersIDs) {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -578,7 +603,7 @@ public class ForumsBean extends BaseEJB {
             close(conn);
         }
     }
-    
+
     public Hashtable getComponentRootCategories(long[] compIDs) {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -704,7 +729,9 @@ public class ForumsBean extends BaseEJB {
     */
     /*********************************************/
     /* Software Forums - End                     */
-    /*********************************************/
+    /**
+     * *****************************************
+     */
 
     public void deleteOrphanedAttachments() {
         Connection conn = null;
@@ -726,13 +753,13 @@ public class ForumsBean extends BaseEJB {
             close(conn);
         }
     }
-    
-    public void convertTCSPerms() {        
+
+    public void convertTCSPerms() {
         //int groupCNT = forumFactory.getGroupManager().getGroupCount();
         Iterator itGroups = forumFactory.getGroupManager().getGroups();
         //int n=0;
         while (itGroups.hasNext()) {
-            Group group = (Group)itGroups.next();
+            Group group = (Group) itGroups.next();
             //log.debug("Analyzing group " + ++n + "/" + groupCNT + ": " + group.getName());
             if (!(group.getName().startsWith(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX) ||
                     group.getName().startsWith(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX))) {
@@ -741,7 +768,7 @@ public class ForumsBean extends BaseEJB {
             }
             Iterator itUsers = group.getMembers();
             while (itUsers.hasNext()) {
-                User user = (User)itUsers.next();
+                User user = (User) itUsers.next();
                 try {
                     if (group.getName().startsWith(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX)) {
                         long forumCategoryID = Long.parseLong(group.getName().substring(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX.length()));
@@ -760,11 +787,11 @@ public class ForumsBean extends BaseEJB {
             //log.debug("Converted permissions.");
         }
     }
-    
+
     private long createForum(long categoryID, String name) throws Exception {
         return createForum(categoryID, name, "");
     }
-    
+
     private long createForum(long categoryID, String name, String description) throws Exception {
         try {
             ForumCategory category = forumFactory.getForumCategory(categoryID);
@@ -775,17 +802,17 @@ public class ForumsBean extends BaseEJB {
             throw e;
         }
     }
-    
+
     // Creates a forum in the "Marathon Matches" category and adds the "round.forum_id" value for the round.
     public long createMarathonForum(long roundID, String name) {
         try {
             long forumID = createForum(17, name);
             this.update("round",
-                new String[]{"forum_id"},
-                new String[]{String.valueOf(forumID)},
-                new String[]{"round_id"},
-                new String[]{String.valueOf(roundID)},
-                DBMS.OLTP_DATASOURCE_NAME);
+                    new String[]{"forum_id"},
+                    new String[]{String.valueOf(forumID)},
+                    new String[]{"round_id"},
+                    new String[]{String.valueOf(roundID)},
+                    DBMS.OLTP_DATASOURCE_NAME);
             return forumID;
         } catch (Exception e) {
             e.printStackTrace();
