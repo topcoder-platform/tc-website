@@ -47,7 +47,7 @@
 </p>
 
 <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Coder List</span><br/>
-    This feed provides a list of coders who have competed in Algorithm, Development or Design competitions.
+    This feed provides a list of coders who have competed in Algorithm, Marathon, Development or Design competitions.
     It includes the following fields:
     <ul>
         <li>user id</li>
@@ -62,6 +62,9 @@
         <li>development rating</li>
         <li>development volatility</li>
         <li>number of rated development events</li>
+        <li>marathon rating</li>
+        <li>marathon volatility</li>
+        <li>number of rated marathon events</li>
     </ul>
     <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_coder_list</strong>
 </p>
@@ -178,25 +181,6 @@
     You will need to replace "USER_ID" in the query string to get data about a particular competitor.
 </p>
 
-<%--
-<p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Marathon Round Results</span><br/>
-    This feed provides data about the results of a Marathon Match.
-    It includes the following fields:
-<ul>
-    <li>round id</li>
-    <li>user id</li>
-    <li>handle</li>
-    <li>point total</li>
-    <li>system point total</li>
-    <li>number of submissions</li>
-    <li>attended (Y or N)</li>
-    </ul>
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_development_rating_history&amp;cr=user_ID</strong>
-    <br />
-    NOTE: You will need to replace "USER_ID" in the query string to get data about a particular competitor.
-
-</p>
---%>
 
 <p><br/></p>
 </td>

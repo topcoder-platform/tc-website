@@ -47,7 +47,7 @@
     </p>
 
     <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Coder List</span><br/>
-        This feed provides a list of coders who have competed in Algorithm, Development or Design competitions.
+    This feed provides a list of coders who have competed in Algorithm, Marathon, Development or Design competitions.
         It includes the following fields:
         <ul>
             <li>user id</li>
@@ -62,6 +62,9 @@
             <li>development rating</li>
             <li>development volatility</li>
             <li>number of rated development events</li>
+	        <li>marathon rating</li>
+	        <li>marathon volatility</li>
+	        <li>number of rated marathon events</li>            
         </ul>
 
         <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_coder_list</strong>
