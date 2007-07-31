@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.survey;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.RowNotFoundException;
 
 import javax.ejb.EJBLocalObject;
 
@@ -17,9 +18,9 @@ public interface AnswerLocal extends EJBLocalObject {
 
     void setSort(long answerId, int sort, String dataSource);
 
-    String getText(long answerId, String dataSource);
+    String getText(long answerId, String dataSource) throws RowNotFoundException;
 
-    int getSort(long answerId, String dataSource);
+    int getSort(long answerId, String dataSource) throws RowNotFoundException;
 
     ResultSetContainer getAnswers(long questionId, String dataSource);
 

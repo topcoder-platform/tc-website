@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.survey;
 
+import com.topcoder.web.common.RowNotFoundException;
+
 import javax.ejb.EJBLocalObject;
 import java.sql.Timestamp;
 
@@ -23,15 +25,15 @@ public interface SurveyLocal extends EJBLocalObject {
 
     void setText(long surveyId, String text, String dataSource);
 
-    String getName(long surveyId, String dataSource);
+    String getName(long surveyId, String dataSource) throws RowNotFoundException;
 
-    Timestamp getStartDate(long surveyId, String dataSource);
+    Timestamp getStartDate(long surveyId, String dataSource) throws RowNotFoundException;
 
-    Timestamp getEndDate(long surveyId, String dataSource);
+    Timestamp getEndDate(long surveyId, String dataSource) throws RowNotFoundException;
 
-    int getStatusId(long surveyId, String dataSource);
+    int getStatusId(long surveyId, String dataSource) throws RowNotFoundException;
 
-    String getText(long surveyId, String dataSource);
+    String getText(long surveyId, String dataSource) throws RowNotFoundException;
 
 
 }

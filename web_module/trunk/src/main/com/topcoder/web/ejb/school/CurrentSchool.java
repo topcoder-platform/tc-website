@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.school;
 
+import com.topcoder.web.common.RowNotFoundException;
+
 import javax.ejb.EJBException;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
@@ -15,6 +17,6 @@ public interface CurrentSchool extends EJBObject {
 
     boolean exists(long coderId, String dataSource) throws EJBException, RemoteException;
 
-    long getSchoolId(long coderId, String dataSource) throws EJBException, RemoteException;
+    long getSchoolId(long coderId, String dataSource) throws RowNotFoundException, RemoteException;
 
 }

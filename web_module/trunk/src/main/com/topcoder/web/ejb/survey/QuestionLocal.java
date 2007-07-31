@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.survey;
 
+import com.topcoder.web.common.RowNotFoundException;
+
 import javax.ejb.EJBLocalObject;
 
 /**
@@ -24,17 +26,17 @@ public interface QuestionLocal extends EJBLocalObject {
 
     void setRequired(long questionId, boolean required, String dataSource);
 
-    String getText(long questionId, String dataSource);
+    String getText(long questionId, String dataSource) throws RowNotFoundException;
 
-    int getStatusId(long questionId, String dataSource);
+    int getStatusId(long questionId, String dataSource) throws RowNotFoundException;
 
-    String getKeyword(long questionId, String dataSource);
+    String getKeyword(long questionId, String dataSource) throws RowNotFoundException;
 
-    int getQuestionTypeId(long questionId, String dataSource);
+    int getQuestionTypeId(long questionId, String dataSource) throws RowNotFoundException;
 
-    int getQuestionStyleId(long questionId, String dataSource);
+    int getQuestionStyleId(long questionId, String dataSource) throws RowNotFoundException;
 
-    boolean isRequired(long questionId, String dataSource);
+    boolean isRequired(long questionId, String dataSource) throws RowNotFoundException;
 
 
 }

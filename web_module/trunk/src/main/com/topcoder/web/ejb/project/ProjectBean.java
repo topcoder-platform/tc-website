@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.project;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
@@ -33,7 +34,7 @@ public class ProjectBean extends BaseEJB {
             ps.executeUpdate();
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
-            throw(new EJBException(e.getMessage()));
+            throw (new EJBException(e.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -42,18 +43,18 @@ public class ProjectBean extends BaseEJB {
 
     }
 
-    public int getProjectTypeId(long projectId, String dataSource) {
+    public int getProjectTypeId(long projectId, String dataSource) throws RowNotFoundException {
         log.debug("get project type id called for project " + projectId);
         return selectInt("project", "project_category_id", new String[]{"project_id"},
-                new String[]{String.valueOf(projectId)}, dataSource).intValue();
+                new String[]{String.valueOf(projectId)}, dataSource);
     }
 
     private static final String componentInfo =
             "select value as component_id from project_info " +
-            "  where project_id = ? " +
-            "  and project_info_type_id = 2 ";
+                    "  where project_id = ? " +
+                    "  and project_info_type_id = 2 ";
 
-    public long getComponentId(long projectId, String dataSource)  {
+    public long getComponentId(long projectId, String dataSource) {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;

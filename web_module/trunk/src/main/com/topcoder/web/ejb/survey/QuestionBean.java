@@ -2,8 +2,9 @@ package com.topcoder.web.ejb.survey;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.common.IdGeneratorClient;
+import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;
@@ -93,32 +94,32 @@ public class QuestionBean extends BaseEJB {
                 new String[]{"question_id"}, new String[]{String.valueOf(questionId)}, dataSource);
     }
 
-    public String getText(long questionId, String dataSource) {
+    public String getText(long questionId, String dataSource) throws RowNotFoundException {
         return selectString("question", "question_text", new String[]{"question_id"},
                 new String[]{String.valueOf(questionId)}, dataSource);
     }
 
-    public int getStatusId(long questionId, String dataSource) {
+    public int getStatusId(long questionId, String dataSource) throws RowNotFoundException {
         return selectInt("question", "status_id", new String[]{"question_id"},
-                new String[]{String.valueOf(questionId)}, dataSource).intValue();
+                new String[]{String.valueOf(questionId)}, dataSource);
     }
 
-    public String getKeyword(long questionId, String dataSource) {
+    public String getKeyword(long questionId, String dataSource) throws RowNotFoundException {
         return selectString("question", "keyword", new String[]{"question_id"},
                 new String[]{String.valueOf(questionId)}, dataSource);
     }
 
-    public int getQuestionTypeId(long questionId, String dataSource) {
+    public int getQuestionTypeId(long questionId, String dataSource) throws RowNotFoundException {
         return selectInt("question", "question_type_id", new String[]{"question_id"},
-                new String[]{String.valueOf(questionId)}, dataSource).intValue();
+                new String[]{String.valueOf(questionId)}, dataSource);
     }
 
-    public int getQuestionStyleId(long questionId, String dataSource) {
+    public int getQuestionStyleId(long questionId, String dataSource) throws RowNotFoundException {
         return selectInt("question", "question_style_id", new String[]{"question_id"},
-                new String[]{String.valueOf(questionId)}, dataSource).intValue();
+                new String[]{String.valueOf(questionId)}, dataSource);
     }
 
-    public boolean isRequired(long questionId, String dataSource) {
+    public boolean isRequired(long questionId, String dataSource) throws RowNotFoundException {
         return selectInt("question", "is_required", new String[]{"question_id"},
                 new String[]{String.valueOf(questionId)}, dataSource).equals(new Integer(1));
     }

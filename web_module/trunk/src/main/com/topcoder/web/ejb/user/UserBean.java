@@ -4,6 +4,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.web.common.IdGeneratorClient;
+import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
@@ -58,12 +59,12 @@ public class UserBean extends BaseEJB {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows inserted into 'user'. " +
+                throw (new EJBException("Wrong number of rows inserted into 'user'. " +
                         "Inserted " + rc + ", should have inserted 1."));
             }
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw(new EJBException(sqle.getMessage()));
+            throw (new EJBException(sqle.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -97,12 +98,12 @@ public class UserBean extends BaseEJB {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows updated in 'user'. " +
+                throw (new EJBException("Wrong number of rows updated in 'user'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -136,12 +137,12 @@ public class UserBean extends BaseEJB {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows updated in 'user'. " +
+                throw (new EJBException("Wrong number of rows updated in 'user'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -176,12 +177,12 @@ public class UserBean extends BaseEJB {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows updated in 'user'. " +
+                throw (new EJBException("Wrong number of rows updated in 'user'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -216,12 +217,12 @@ public class UserBean extends BaseEJB {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows updated in 'user'. " +
+                throw (new EJBException("Wrong number of rows updated in 'user'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -256,12 +257,12 @@ public class UserBean extends BaseEJB {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows updated in 'user'. " +
+                throw (new EJBException("Wrong number of rows updated in 'user'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -298,12 +299,12 @@ public class UserBean extends BaseEJB {
             if (rs.next()) {
                 first_name = rs.getString(1);
             } else {
-                throw(new EJBException("No rows found when selecting from 'user' with " +
+                throw (new EJBException("No rows found when selecting from 'user' with " +
                         "user_id=" + userId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -342,12 +343,12 @@ public class UserBean extends BaseEJB {
             if (rs.next()) {
                 middleName = rs.getString(1);
             } else {
-                throw(new EJBException("No rows found when selecting from 'user' with " +
+                throw (new EJBException("No rows found when selecting from 'user' with " +
                         "user_id=" + userId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -387,12 +388,12 @@ public class UserBean extends BaseEJB {
             if (rs.next()) {
                 last_name = rs.getString(1);
             } else {
-                throw(new EJBException("No rows found when selecting from 'user' with " +
+                throw (new EJBException("No rows found when selecting from 'user' with " +
                         "user_id=" + userId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -432,12 +433,12 @@ public class UserBean extends BaseEJB {
             if (rs.next()) {
                 code = rs.getString(1);
             } else {
-                throw(new EJBException("No rows found when selecting from 'user' with " +
+                throw (new EJBException("No rows found when selecting from 'user' with " +
                         "user_id=" + userId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -470,12 +471,12 @@ public class UserBean extends BaseEJB {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows updated in 'user'. " +
+                throw (new EJBException("Wrong number of rows updated in 'user'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -510,12 +511,12 @@ public class UserBean extends BaseEJB {
             if (rs.next()) {
                 handle = rs.getString(1);
             } else {
-                throw(new EJBException("No rows found when selecting from 'user' with " +
+                throw (new EJBException("No rows found when selecting from 'user' with " +
                         "user_id=" + userId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -554,12 +555,12 @@ public class UserBean extends BaseEJB {
             if (rs.next()) {
                 status = rs.getString(1).charAt(0);
             } else {
-                throw(new EJBException("No rows found when selecting from 'user' with " +
+                throw (new EJBException("No rows found when selecting from 'user' with " +
                         "user_id=" + userId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -594,7 +595,7 @@ public class UserBean extends BaseEJB {
             userExists = rs.next();
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -630,7 +631,7 @@ public class UserBean extends BaseEJB {
             userExists = rs.next();
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -649,7 +650,7 @@ public class UserBean extends BaseEJB {
                 new String[]{String.valueOf(userId)},
                 dataSource);
         if (ret != 1) {
-            throw(new EJBException("Wrong number of rows updated in " +
+            throw (new EJBException("Wrong number of rows updated in " +
                     "'user'. Updated " + ret + ", " +
                     "should have updated 1."));
         }
@@ -657,7 +658,7 @@ public class UserBean extends BaseEJB {
 
     }
 
-    public String getPassword(long userId, String dataSource) throws EJBException {
+    public String getPassword(long userId, String dataSource) throws EJBException, RowNotFoundException {
         return selectString("user",
                 "password",
                 new String[]{"user_id"},
