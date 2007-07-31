@@ -46,7 +46,10 @@
 <p>
     5.10.15 - 2007.07.xx
     <ul>
-        <li>Fix bug where affidavit update and affirmation at the same time wasn't transactional -pulky</li>
+        <li>Fix bug where affidavit update and affirmation at the same time wasn't atomic -pulky</li>
+        <li>Fix bug where someone that is not registered for competitions couldn't see a marathon match problem
+            statement (default their langauge to java) -dok
+        </li>
     </ul>
 </p>
 
@@ -56,8 +59,12 @@
         <li>PACTS fixes -pulky
             <ul>
                 <li>Add canceled and deleted status for affidavits.</li>
-                <li>Check for existance of an affidavit for a specific round before adding a new one. (no dup affidavits for the same round)</li>
-                <li>Add automatic affidavit/AD cancellation when the corresponding payment is deleted/cancelled/expired.</li>
+                <li>Check for existance of an affidavit for a specific round before adding a new one. (no dup affidavits
+                    for the same round)
+                </li>
+                <li>Add automatic affidavit/AD cancellation when the corresponding payment is
+                    deleted/cancelled/expired.
+                </li>
                 <li>fix payment cancelation due to cheaters</li>
             </ul>
         </li>
