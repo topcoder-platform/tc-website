@@ -97,8 +97,9 @@ public class IndividualResultsFeed extends Base {
 
 /*
  * Your idea about including the details is fine with me. 
- *  What you call “row” I think should be submission.  If “time” is submission time, be sure to document that on the description page for the feed.   You can probably shorten “submission_number” to “number” if the parent element is “submission”.
- */
+ *  What you call “row” I think should be submission.  
+ *  If “time” is submission time, be sure to document that on the description page for the feed.   You can probably shorten “submission_number” to “number” if the parent element is “submission”.
+ 
 <dd_marathon_individual_results>
 <round_id>10086</round_id>
 <coder_id>14883513</coder_id>
