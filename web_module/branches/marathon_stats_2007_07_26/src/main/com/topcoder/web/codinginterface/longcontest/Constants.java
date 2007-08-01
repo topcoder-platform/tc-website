@@ -95,6 +95,7 @@ public class Constants implements CodingInterfaceConstants {
     public static int SUBMISSION_RATE;
     public static int EXAMPLE_SUBMISSION_RATE;
     public static final String RESULTS_AVAILABLE = "resav";
+    public static String PAGE_MATCH_LIST;
 
     static {
         initialize();
