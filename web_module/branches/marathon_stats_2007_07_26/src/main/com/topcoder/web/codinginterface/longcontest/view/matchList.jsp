@@ -6,8 +6,9 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+s
 
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
@@ -61,7 +62,7 @@ myForm.submit();
 
 
         <%
-        ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("match_list");
+        ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("marathon_match_list");
         %>
 
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -69,7 +70,7 @@ myForm.submit();
                 <!-- Left Column Begins-->
                 <td width="180">
                     <jsp:include page="/includes/global_left.jsp">
-                        <jsp:param name="node" value="algo_match_archive"/>
+                        <jsp:param name="node" value="long_match_archive"/>
                     </jsp:include>
                 </td>
                 <!-- Left Column Ends -->
@@ -103,20 +104,18 @@ myForm.submit();
       <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("avg_submissions")%>" includeParams="true" excludeParams="sr" />">Avg. Submissions</a></td>
       <td class="headerC" width="33%">&#160;</td>
    </tr>
-   <% boolean even = false; %>
-   <rsc:iterator list="<%=list%>" id="resultRow">
-   <tr class="<%=even?"dark":"light"%>">
-	<td class="value" nowrap="nowrap"><a href="TO DO"/>
-          <rsc:item name="name" row="<%=resultRow%>"/></a>
-	</td>
-	<td class="valueC"><rsc:item name="start_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
-	<td class="valueR"><rsc:item name="num_competitors" row="<%=resultRow%>"/></td>
-	<td class="valueR"><rsc:item name="num_submissions" row="<%=resultRow%>"/></td>
-	<td class="valueR"><rsc:item name="avg_submissions" row="<%=resultRow%>"/></td>
-	<td class="valueC"><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<rsc:item name="forum_id" row="<%=resultRow%>"/>" CLASS="statLink">discuss</a></td>
-</TR>
-<% even = !even;%>
-</rsc:iterator>
+   <c:forEach items="${list}" var="row" varStatus="status">
+       <tr class='${status.index % 2 == 1? "dark" : "light" }'>
+			<td class="value" nowrap="nowrap">
+				<a href="TO DO"/>${row[name]}</a>
+			</td>
+			<td class="valueC"><tc-webtag:format object="${row[date]}" format="MM.dd.yyyy" />
+			<td class="valueR">${row[num_competitors]}</td>
+			<td class="valueR">${row[num_submissions]}</td>
+			<td class="valueR"><fmt:formatNumber value="${row[avg_submissions]}"  minFractionDigits="2" maxFractionDigits="2"/></td>		
+			<td class="valueC"><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=${row[forum_id]} CLASS="statLink">discuss</a></td>
+		</tr>   
+   </c:forEach>   
 </table>
 
                     <div class="pagingBox">
