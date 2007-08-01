@@ -105,13 +105,13 @@ myForm.submit();
    <c:forEach items="<%= list %>" var="row" varStatus="status">
        <tr class='${status.index % 2 == 1? "dark" : "light" }'>
 			<td class="value" nowrap="nowrap">
-				<a href="TO DO"/>${row[name]}</a>
+				<a href="TO DO"/>${row['name']}</a>
 			</td>
-			<td class="valueC"><tc-webtag:format object="${row[date]}" format="MM.dd.yyyy" /></td>
-			<td class="valueR">${row[num_competitors]}</td>
-			<td class="valueR">${row[num_submissions]}</td>
-			<td class="valueR"><fmt:formatNumber value="${row[avg_submissions]}"  minFractionDigits="2" maxFractionDigits="2"/></td>		
-			<td class="valueC"><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=${row[forum_id]} CLASS="statLink">discuss</a></td>
+			<td class="valueC"><tc-webtag:format object="${row['date']}" format="MM.dd.yyyy" /></td>
+			<td class="valueR">${row['num_competitors']}</td>
+			<td class="valueR">${row['num_submissions']}</td>
+			<td class="valueR"><fmt:formatNumber value="${row['avg_submissions']}"  minFractionDigits="2" maxFractionDigits="2"/></td>		
+			<td class="valueC"><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=${row['forum_id']} CLASS="statLink">discuss</a></td>
 		</tr>   
    </c:forEach>   
 </table>
