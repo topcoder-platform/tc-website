@@ -167,7 +167,7 @@
 
 
         <c:choose>
-            <c:when test="${resultROw.map['review_status_id']==passed}">
+            <c:when test="${resultRow.map['review_status_id']==passed}">
                 <td class="valueR">
                     <c:choose>
                         <c:when test="${hasScores}">
