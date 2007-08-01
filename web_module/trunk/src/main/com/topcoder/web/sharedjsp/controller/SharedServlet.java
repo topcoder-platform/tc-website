@@ -1,13 +1,16 @@
 package com.topcoder.web.sharedjsp.controller;
 
+import com.topcoder.security.TCSubject;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.RequestProcessor;
+import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +30,9 @@ public class SharedServlet extends BaseServlet {
     protected void process(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         RequestProcessor rp;
+        WebAuthentication authentication;
+        SessionInfo info;
+
 
         long start = System.currentTimeMillis();
         try {
@@ -36,6 +42,32 @@ public class SharedServlet extends BaseServlet {
 
                 TCRequest tcRequest = HttpObjectFactory.createRequest(request);
                 TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+
+                authentication = createAuthentication(tcRequest, tcResponse);
+                TCSubject user = getUser(authentication.getActiveUser().getId());
+                info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
+
+                if (!authentication.getActiveUser().isAnonymous() &&
+                        !request.getRequestURL().toString().toLowerCase().startsWith("https")) {
+                    if (log.isDebugEnabled()) {
+                        log.debug("using an uncached response");
+                    }
+                    tcResponse = HttpObjectFactory.createUnCachedResponse(response);
+                }
+                tcRequest.setAttribute(SESSION_INFO_KEY, info);
+
+                StringBuffer loginfo = new StringBuffer(100);
+                loginfo.append("[* ");
+                loginfo.append(info.getHandle());
+                loginfo.append(" * ");
+                loginfo.append(request.getRemoteAddr());
+                loginfo.append(" * ");
+                loginfo.append(request.getMethod());
+                loginfo.append(" ");
+                loginfo.append(info.getRequestString());
+                loginfo.append(" *]");
+                log.info(loginfo);
+
 
                 String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
                 //log.debug("got module attribute " + cmd);
