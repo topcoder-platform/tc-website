@@ -907,6 +907,12 @@
                deprecation="${deprecation}"
                debug="${debug}">
             <exclude name="com/topcoder/web/csf/**"/>
+            <exclude name="com/topcoder/web/csf/**"/>
+            <exclude name="com/topcoder/web/wiki/**"/>
+            <exclude name="com/topcoder/web/studio/**"/>
+            <exclude name="com/topcoder/web/forums/**"/>
+            <exclude name="com/topcoder/web/onsite/**"/>
+            <exclude name="com/topcoder/web/oracle/**"/>
         </javac>
     </target>
 
@@ -983,6 +989,26 @@
             <report format="frames" todir="${testclasses}/html"/>
         </junitreport>
     </target>
+
+
+    <target name="run_tc_hibernate_tests" depends="compile_tests" description="run junit tests">
+        <junit printsummary="${junitsummary}" fork="yes">
+            <classpath>
+                <pathelement path="${class.path}"/>
+                <pathelement location="resources/reg/"/>
+            </classpath>
+            <formatter type="xml"/>
+            <test name="com.topcoder.web.tc.TCTests" todir="${testclasses}"/>
+        </junit>
+
+        <junitreport todir="${testclasses}">
+            <fileset dir="${testclasses}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${testclasses}/html"/>
+        </junitreport>
+    </target>
+
 
     <target name="deploy-admin" depends="compile">
         <jar jarfile="${ejb_jars}/ContestAdminServices.jar">
