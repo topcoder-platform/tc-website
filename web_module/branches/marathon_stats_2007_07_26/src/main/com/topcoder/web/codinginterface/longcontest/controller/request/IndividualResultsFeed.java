@@ -6,6 +6,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.datafeed.AllColumns;
+import com.topcoder.web.common.datafeed.Column;
 import com.topcoder.web.common.datafeed.CommandRunner;
 import com.topcoder.web.common.datafeed.DataFeeder;
 import com.topcoder.web.common.datafeed.RSCDataFeed;
@@ -33,11 +34,18 @@ public class IndividualResultsFeed extends Base {
             DataAccessInt da = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
             CommandRunner cmd = new CommandRunner(da, r);
 
-            DataFeeder df = new DataFeeder("individual_results");
+            
+            DataFeeder df = new DataFeeder("marathon_individual_results");
 
+            RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_marathon_submission_history"); 
+            AllColumns acSubm = new AllColumns("");
+            submissions.add(acSubm);
+
+            df.add(submissions);
+
+            
             RSCDataFeed testcases = new RSCDataFeed("testcases", "testcase", cmd, "dd_marathon_individual_results"); 
             AllColumns ac = new AllColumns("");
-//            ac.replace(new Column("component", "component_name", "id", "component_id"));
             testcases.add(ac);
 
             df.add(testcases);
@@ -85,3 +93,35 @@ public class IndividualResultsFeed extends Base {
         }
     }
 }
+
+
+/*
+ * Your idea about including the details is fine with me. 
+ *  What you call “row” I think should be submission.  If “time” is submission time, be sure to document that on the description page for the feed.   You can probably shorten “submission_number” to “number” if the parent element is “submission”.
+ */
+<dd_marathon_individual_results>
+<round_id>10086</round_id>
+<coder_id>14883513</coder_id>
+<handle>ZLATKO</handle>
+<history>
+    <submission>
+        <number>1</number>
+        <time>02.23.2007 21:16:29</time>
+        <score>99.28</score>
+        <language>C++</language>
+    </submission>
+     ...
+</history>
+<testcases>
+    <row>
+        <test_case_id>22685350</test_case_id>
+        <score>1.0649955403405122</score>
+        <processing_time>0</processing_time>
+        <arguments>n = 10</arguments>
+        <fatal_errors/>
+    </row>
+    ....
+</testcases>
+</dd_marathon_individual_results>
+
+*/
