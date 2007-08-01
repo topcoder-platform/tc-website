@@ -43,7 +43,7 @@ public class IndividualResultsFeed extends Base {
             CommandRunner cmd = new CommandRunner(da, r);
             
             String handle = "N/A";
-            ResultSetContainer rsc = cmd.getData().get("marathon_individual_results");
+            ResultSetContainer rsc = cmd.getData().get("dd_marathon_individual_results");
             if (rsc.size() > 0) {
                 handle = rsc.getStringItem(0, "handle");
             }

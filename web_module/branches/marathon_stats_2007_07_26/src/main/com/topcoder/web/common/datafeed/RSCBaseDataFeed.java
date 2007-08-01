@@ -1,6 +1,5 @@
 package com.topcoder.web.common.datafeed;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.xml.transform.sax.TransformerHandler;
@@ -30,12 +29,12 @@ public abstract class RSCBaseDataFeed implements DataFeed {
     /**
      * List of RSCBaseDataFeed that will be executed for each row. 
      */
-    private List children;
+    private List<RSCBaseDataFeed> children;
     
     /**
      * List of elements to be rendered in each row.
      */
-    private List elements;
+    private List<RSCElement> elements;
     
     /**
      * Create a Data feed.
@@ -46,8 +45,8 @@ public abstract class RSCBaseDataFeed implements DataFeed {
     public RSCBaseDataFeed(String rootTag, String rowTag) {
         this.rootTag = rootTag;
         this.rowTag = rowTag;
-        this.children = new ArrayList();
-        this.elements = new ArrayList();
+        this.children = new ArrayList<RSCBaseDataFeed>();
+        this.elements = new ArrayList<RSCElement>();
     }
     
     /**
@@ -116,9 +115,7 @@ public abstract class RSCBaseDataFeed implements DataFeed {
             hd.startElement("", "", rootTag, emptyAtts);
         }
 
-        ResultSetContainer.ResultSetRow row = null;
-        for (Iterator it= rsc.iterator(); it.hasNext();) {
-            row = (ResultSetContainer.ResultSetRow)it.next();
+        for (ResultSetContainer.ResultSetRow row : rsc) {
 
             if (rowTag != null) {
                 hd.startElement("", "", rowTag, emptyAtts);
@@ -129,8 +126,7 @@ public abstract class RSCBaseDataFeed implements DataFeed {
                 e.writeXML(hd, rsc, row);
             }
 
-            for (Iterator chIt = children.iterator(); chIt.hasNext(); ) {
-                RSCBaseDataFeed child = (RSCBaseDataFeed) chIt.next();
+            for (RSCBaseDataFeed child : children) {
                 child.writeXML(hd, row);
             }
             

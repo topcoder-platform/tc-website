@@ -3,6 +3,7 @@ import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 
 /**
@@ -13,7 +14,7 @@ import com.topcoder.shared.dataAccess.Request;
 public class CommandRunner {
     
     private Request request;
-    private Map dataMap = null;
+    private Map<String, ResultSetContainer> dataMap = null;
     private DataAccessInt dataAccess = null;
     
     /**
@@ -34,7 +35,7 @@ public class CommandRunner {
      * @return a Map of the execution of the command.
      * @throws Exception
      */
-    public Map getData() throws Exception {
+    public Map<String, ResultSetContainer> getData() throws Exception {
         if (dataMap == null) {
             dataMap = dataAccess.getData(request);
         }
