@@ -30,7 +30,7 @@ public class IndividualResultsFeed extends Base {
         DataResource resource = new DataResource(r.getContentHandle());
         
         if (new TCSAuthorization(getUser()).hasPermission(resource)) {
-            DataAccessInt da = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, false);
+            DataAccessInt da = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
             CommandRunner cmd = new CommandRunner(da, r);
 
             DataFeeder df = new DataFeeder("individual_results");
