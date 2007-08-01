@@ -62,6 +62,9 @@ myForm.submit();
         <%
         ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("marathon_match_list");
         %>
+        
+        <c:set value="<%=list%>" var="matches"/>
+        
 
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
@@ -95,14 +98,14 @@ myForm.submit();
 <table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
    <tr><td class="title" colspan="6">Marathon Match Archive</td></tr>
    <tr>
-      <td class="header" width="33%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("name")%>" includeParams="true" excludeParams="sr" />">Match</a></td>
+      <td class="header" width="33%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="${matches.columnMap['name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
       <td class="headerC" width="33%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("date")%>" includeParams="true" excludeParams="sr" />">Date</a></td>
       <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("num_competitors")%>" includeParams="true" excludeParams="sr" />">Competitors</a></td>
       <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("num_submissions")%>" includeParams="true" excludeParams="sr" />">Total Submissions</a></td>
       <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("avg_submissions")%>" includeParams="true" excludeParams="sr" />">Avg. Submissions</a></td>
       <td class="headerC" width="33%">&#160;</td>
    </tr>
-   <c:forEach items="<%= list %>" var="row" varStatus="status">
+   <c:forEach items="${matches}" var="row" varStatus="status">
        <tr class='${status.index % 2 == 1? "dark" : "light" }'>
 			<td class="value" nowrap="nowrap">
 				<a href="TO DO"/>${row.map['name']}</a>
@@ -111,7 +114,7 @@ myForm.submit();
 			<td class="valueR">${row.map['num_competitors']}</td>
 			<td class="valueR">${row.map['num_submissions']}</td>
 			<td class="valueR"><fmt:formatNumber value="${row.map['avg_submissions']}"  minFractionDigits="2" maxFractionDigits="2"/></td>		
-			<td class="valueC"><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=${row.map['forum_id']} CLASS="statLink">discuss</a></td>
+			<td class="valueC"><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=${row.map['forum_id']} class="statLink">discuss</a></td>
 		</tr>   
    </c:forEach>   
 </table>
