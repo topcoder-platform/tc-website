@@ -190,11 +190,8 @@
                         </c:when>
                         <c:otherwise>
                             <div align="center">
-                                <div id="pop<%=i%>" class="popUp">
-                                    <div>View submission</div>
-                                </div>
                                 <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                    <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
+                                    <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()" />
                                 </A>
                             </div>
                         </c:otherwise>
@@ -206,7 +203,7 @@
                     &nbsp;
                 </td>
                 <td class="valueC">
-                    <img src="/i/layout/fail.png" alt="failed"/>
+                    <img src="/i/layout/fail.png" alt="failed" onmouseover="popUp(this,'popFail')" onmouseout="popHide()" />
                 </td>
 
             </c:otherwise>
@@ -236,10 +233,13 @@
 
 </tbody>
 </table>
-<br>
-            <span class="small">
-            <strong>NOTE:</strong> only passing submissions are included
-            </span><br>
+
+<div id="popView" class="popUp">
+    <div>View submission</div>
+</div>
+<div id="popFail" class="popUp">
+    <div>Failed screening</div>
+</div>
 
 <div class="pagingBox">
     <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
