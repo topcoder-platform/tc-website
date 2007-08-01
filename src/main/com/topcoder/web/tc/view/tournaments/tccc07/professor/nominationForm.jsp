@@ -36,54 +36,122 @@
         <div id="content">
 
             <jsp:include page="../nav.jsp">
-                <jsp:param name="tabLev1" value="algorithm"/>
-                <jsp:param name="tabLev2" value="register"/>
+                <jsp:param name="tabLev1" value=""/>
+                <jsp:param name="tabLev2" value=""/>
                 <jsp:param name="tabLev3" value=""/>
             </jsp:include>
 
             <div id="pageBody">
 
-                <h1><span>Registration</span></h1>
+                <h1><span>Nominate a Professor</span></h1>
 
                 <form name="terms" method="post" action="/tc">
                     <input name="module" value="TCCC07SubmitProfessorNomination" type="hidden">
                     <input name="<%=Constants.EVENT_ID%>" value="${event.id}" type="hidden">
 
 
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.FULL_NAME%>"><span class="bigRed">${err}</span>&nbsp;<br/></tc-webtag:errorIterator>
-                    Professor's Full Name* <tc-webtag:textInput name="<%=Constants.FULL_NAME%>" size="25" maxlength="100"/>
-
-                    <br /><br />
-
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.SCHOOL_NAME%>"><span class="bigRed">${err}</span>&nbsp;<br /></tc-webtag:errorIterator>
-                    Professor's School* <tc-webtag:textInput name="<%=Constants.SCHOOL_NAME%>" size="25" maxlength="100"/>
-
-                    <br /><br />
-
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.URL%>"><span class="bigRed">${err}</span>&nbsp;<br/></tc-webtag:errorIterator>
-                    School Website <tc-webtag:textInput name="<%=Constants.URL%>" size="25" maxlength="100"/>
-
-                    <br /><br />
-
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.FIELD_OF_INSTRUCTION%>"><span class="bigRed">${err}</span>&nbsp;<br /></tc-webtag:errorIterator>
-                    Field of Instruction* <tc-webtag:listSelect name="<%=Constants.FIELD_OF_INSTRUCTION%>" list="<%=fields%>"/>
-
-                    <br /><br />
-
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.OTHER_FIELD_OF_INSTRUCTION%>"><span class="bigRed">${err}</span>&nbsp;<br /></tc-webtag:errorIterator>
-                    Other Field of Instruction <tc-webtag:textInput name="<%=Constants.OTHER_FIELD_OF_INSTRUCTION%>" size="25" maxlength="100"/>
-
-                    <br /><br />
-
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><span class="bigRed">${err}</span>&nbsp;<br /></tc-webtag:errorIterator>
-                    Professor Email Address* <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="25" maxlength="100"/>
-
-                    <br /><br />
-
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.NOMINATION_TEXT%>"><span class="bigRed">${err}</span>&nbsp;<br /></tc-webtag:errorIterator>
-                    Reason you're are making this nomination* <tc-webtag:textArea name="<%=Constants.NOMINATION_TEXT%>" rows="8" cols="80"/>
-
-                    <br /><br />
+<table cellpadding="0" cellspacing="0">
+<tbody>
+    <tr>
+        <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%=Constants.FULL_NAME%>"><span class="bigRed">${err}</span>&nbsp;<br/></tc-webtag:errorIterator>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 4px 4px 4px 0px;" nowrap="nowrap">
+            Professor's Full Name*
+        </td>
+        <td style="padding: 4px 4px 4px 0px;" width="100%">
+            <tc-webtag:textInput name="<%=Constants.FULL_NAME%>" size="25" maxlength="100"/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%=Constants.SCHOOL_NAME%>"><span class="bigRed">${err}</span>&nbsp;<br /></tc-webtag:errorIterator>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 4px 4px 4px 0px;" nowrap="nowrap">
+            Professor's School*
+        </td>
+        <td style="padding: 4px 4px 4px 0px;">
+            <tc-webtag:textInput name="<%=Constants.SCHOOL_NAME%>" size="25" maxlength="100"/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%=Constants.URL%>"><span class="bigRed">${err}</span>&nbsp;<br/></tc-webtag:errorIterator>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 4px 4px 4px 0px;" nowrap="nowrap">
+            School Website
+        </td>
+        <td style="padding: 4px 4px 4px 0px;">
+            <tc-webtag:textInput name="<%=Constants.URL%>" size="25" maxlength="100"/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%=Constants.FIELD_OF_INSTRUCTION%>"><span class="bigRed">${err}</span>&nbsp;<br /></tc-webtag:errorIterator>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 4px 4px 4px 0px;" nowrap="nowrap">
+            Field of Instruction*
+        </td>
+        <td style="padding: 4px 4px 4px 0px;">
+            <tc-webtag:listSelect name="<%=Constants.FIELD_OF_INSTRUCTION%>" list="<%=fields%>"/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%=Constants.OTHER_FIELD_OF_INSTRUCTION%>"><span class="bigRed">${err}</span>&nbsp;<br /></tc-webtag:errorIterator>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 4px 4px 4px 0px;" nowrap="nowrap">
+            Other Field of Instruction
+        </td>
+        <td style="padding: 4px 4px 4px 0px;">
+            <tc-webtag:textInput name="<%=Constants.OTHER_FIELD_OF_INSTRUCTION%>" size="25" maxlength="100"/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><span class="bigRed">${err}</span>&nbsp;<br /></tc-webtag:errorIterator>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 4px 4px 4px 0px;" nowrap="nowrap">
+            Professor's Email Address*
+        </td>
+        <td style="padding: 4px 4px 4px 0px;">
+            <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="25" maxlength="100"/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%=Constants.NOMINATION_TEXT%>"><span class="bigRed">${err}</span>&nbsp;<br /></tc-webtag:errorIterator>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="padding: 4px 4px 4px 0px;">
+            Reason you're are making this nomination*
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="padding: 4px 4px 4px 0px;">
+            <tc-webtag:textArea name="<%=Constants.NOMINATION_TEXT%>" rows="8" cols="80"/>
+        </td>
+    </tr>
+</tbody>
+</table>
+<br />* required
+            
+            
+            
+            
 
                     <div align="center">
                         <button name="submit" value="submit" type="submit">Submit</button>
