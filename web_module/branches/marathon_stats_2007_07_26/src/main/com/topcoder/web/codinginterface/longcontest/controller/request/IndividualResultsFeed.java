@@ -3,15 +3,18 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.datafeed.AllColumns;
 import com.topcoder.web.common.datafeed.Column;
 import com.topcoder.web.common.datafeed.CommandRunner;
 import com.topcoder.web.common.datafeed.DataFeeder;
 import com.topcoder.web.common.datafeed.DateFormatter;
+import com.topcoder.web.common.datafeed.ItemFormatter;
 import com.topcoder.web.common.datafeed.RSCDataFeed;
 import com.topcoder.web.common.datafeed.Value;
 import com.topcoder.web.common.security.TCSAuthorization;
@@ -43,7 +46,7 @@ public class IndividualResultsFeed extends Base {
         DataResource resource = new DataResource(r.getContentHandle());
         
         if (new TCSAuthorization(getUser()).hasPermission(resource)) {
-            DataAccessInt da = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
+            DataAccessInt da = getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
             CommandRunner cmd = new CommandRunner(da, r);
             
             String handle = "N/A";
@@ -90,37 +93,18 @@ public class IndividualResultsFeed extends Base {
             throw new PermissionException(getUser(), resource);
         }
     }
+    
+    static class ArgumentFormatter implements ItemFormatter {
+
+        public String format(ResultSetRow row, String field) {
+            String s = row.getStringItem(field);
+            
+            if (s.charAt(0)== '"' && s.charAt(s.length() - 1) == '"') {
+                s = s.substring(0, s.length() - 1);
+            }
+            
+            return StringUtils.htmlEncode(s);
+        }
+        
+    }
 }
-
-
-/*
- * Your idea about including the details is fine with me. 
- *  What you call “row” I think should be submission.  
- *  If “time” is submission time, be sure to document that on the description page for the feed.   You can probably shorten “submission_number” to “number” if the parent element is “submission”.
- 
-<dd_marathon_individual_results>
-<round_id>10086</round_id>
-<coder_id>14883513</coder_id>
-<handle>ZLATKO</handle>
-<history>
-    <submission>
-        <number>1</number>
-        <time>02.23.2007 21:16:29</time>
-        <score>99.28</score>
-        <language>C++</language>
-    </submission>
-     ...
-</history>
-<testcases>
-    <row>
-        <test_case_id>22685350</test_case_id>
-        <score>1.0649955403405122</score>
-        <processing_time>0</processing_time>
-        <arguments>n = 10</arguments>
-        <fatal_errors/>
-    </row>
-    ....
-</testcases>
-</dd_marathon_individual_results>
-
-*/
