@@ -41,6 +41,10 @@ public class Column implements RSCElement {
      */
     private String idField;
     
+    /**
+     * Formatter for the field value
+     */
+    private ItemFormatter formatter = null;
     
     public String getField() {
         return field;
@@ -57,12 +61,26 @@ public class Column implements RSCElement {
      * @param field ResultSetContainer field to write inside the tag.
      * @param attrName attribute name for the tag
      * @param idField ResultSetContainer field to write in the tag attribute.
+     * @param formatter object used to format the value
      */
-    public Column(String tagName, String field, String attrName, String idField) {
+    public Column(String tagName, String field, String attrName, String idField, ItemFormatter formatter) {
         this.field = field;
         this.tagName = tagName;
         this.attrName = attrName;
         this.idField = idField;
+        this.formatter = formatter;
+    }
+    
+    /**
+     * Create a column with an id attribute.
+     * 
+     * @param tagName tag to write in the XML.
+     * @param field ResultSetContainer field to write inside the tag.
+     * @param attrName attribute name for the tag
+     * @param idField ResultSetContainer field to write in the tag attribute.
+     */
+    public Column(String tagName, String field, String attrName, String idField) {
+        this(tagName, field, attrName, idField, null);
     }
     
     /**
@@ -79,7 +97,7 @@ public class Column implements RSCElement {
      * Write the XML for this column(s).
      */
     public void writeXML(TransformerHandler hd, ResultSetContainer rsc, ResultSetContainer.ResultSetRow row) throws Exception {
-        String value = row.getStringItem(field);
+        String value = formatter == null? row.getStringItem(field) : formatter.format(row, field);
         
         AttributesImpl attr = new AttributesImpl();
         

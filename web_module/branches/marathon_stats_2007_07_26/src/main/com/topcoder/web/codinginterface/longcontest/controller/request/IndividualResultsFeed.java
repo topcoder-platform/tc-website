@@ -26,7 +26,7 @@ public class IndividualResultsFeed extends Base {
     protected void longContestProcessing() throws Exception {
         String roundId = getRequest().getParameter(Constants.ROUND_ID);
         String coderId = getRequest().getParameter(Constants.CODER_ID);
-        boolean full = !"1".equals(getRequest().getParameter("full"));
+        boolean full = "1".equals(getRequest().getParameter("full"));
         
         try {
             Integer.parseInt(coderId);
@@ -59,6 +59,8 @@ public class IndividualResultsFeed extends Base {
             
             RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_marathon_submission_history"); 
             AllColumns acSubm = new AllColumns("");
+            acSubm.replace(new Column("time", "time", null, null, new DateFormatter()));
+
             submissions.add(acSubm);
 
             df.add(submissions);
@@ -67,7 +69,7 @@ public class IndividualResultsFeed extends Base {
             RSCDataFeed testcases = new RSCDataFeed("testcases", "testcase", cmd, "dd_marathon_individual_results"); 
             AllColumns ac = new AllColumns("");
             ac.skip("handle");
-            ac.replace(new Column("time", "time", null, null, new DateFormatter()));
+
             if (!full) {
                 ac.skip("arguments");
                 ac.skip("fatal_errors");

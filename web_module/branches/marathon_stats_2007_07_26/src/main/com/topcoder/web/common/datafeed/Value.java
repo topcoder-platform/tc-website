@@ -5,6 +5,7 @@ import javax.xml.transform.sax.TransformerHandler;
 import org.xml.sax.helpers.AttributesImpl;
 
 /**
+ * Represents a constant value inside a tag
  * 
  * @author Cucu
  *
