@@ -5,6 +5,7 @@ import java.util.Map;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -41,7 +42,7 @@ public class MatchList extends Base {
 
             r.setContentHandle("marathon_match_list");
 
-            Map<String, ResultSetContainer> result = getDataAccess(true).getData(r);
+            Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME,true).getData(r);
 
             ResultSetContainer rsc = result.get("marathon_match_list");
 
