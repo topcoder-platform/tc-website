@@ -8,8 +8,10 @@ import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.datafeed.AllColumns;
+import com.topcoder.web.common.datafeed.Column;
 import com.topcoder.web.common.datafeed.CommandRunner;
 import com.topcoder.web.common.datafeed.DataFeeder;
+import com.topcoder.web.common.datafeed.DateFormatter;
 import com.topcoder.web.common.datafeed.RSCDataFeed;
 import com.topcoder.web.common.datafeed.Value;
 import com.topcoder.web.common.security.TCSAuthorization;
@@ -24,6 +26,8 @@ public class IndividualResultsFeed extends Base {
     protected void longContestProcessing() throws Exception {
         String roundId = getRequest().getParameter(Constants.ROUND_ID);
         String coderId = getRequest().getParameter(Constants.CODER_ID);
+        boolean full = !"1".equals(getRequest().getParameter("full"));
+        
         try {
             Integer.parseInt(coderId);
             Integer.parseInt(roundId);
@@ -51,7 +55,7 @@ public class IndividualResultsFeed extends Base {
 
             df.add(new Value("round_id", roundId));
             df.add(new Value("coder_id", coderId));
-            df.add(new Value("handle", handle));
+            df.add(new Value("handle", handle));           
             
             RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_marathon_submission_history"); 
             AllColumns acSubm = new AllColumns("");
@@ -62,9 +66,13 @@ public class IndividualResultsFeed extends Base {
             
             RSCDataFeed testcases = new RSCDataFeed("testcases", "testcase", cmd, "dd_marathon_individual_results"); 
             AllColumns ac = new AllColumns("");
-            ac.skip("round_id");
-            ac.skip("coder_id");
             ac.skip("handle");
+            ac.replace(new Column("time", "time", null, null, new DateFormatter()));
+            if (!full) {
+                ac.skip("arguments");
+                ac.skip("fatal_errors");
+            }
+            
             testcases.add(ac);
 
             df.add(testcases);
