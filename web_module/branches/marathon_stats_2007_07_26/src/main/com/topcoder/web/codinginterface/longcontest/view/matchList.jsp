@@ -2,13 +2,11 @@
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
           java.util.Map"%>
           
-<%@ page import="com.topcoder.web.common.tag.HandleTag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-s
 
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
@@ -104,12 +102,12 @@ myForm.submit();
       <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("avg_submissions")%>" includeParams="true" excludeParams="sr" />">Avg. Submissions</a></td>
       <td class="headerC" width="33%">&#160;</td>
    </tr>
-   <c:forEach items="${list}" var="row" varStatus="status">
+   <c:forEach items="<%= list %>" var="row" varStatus="status">
        <tr class='${status.index % 2 == 1? "dark" : "light" }'>
 			<td class="value" nowrap="nowrap">
 				<a href="TO DO"/>${row[name]}</a>
 			</td>
-			<td class="valueC"><tc-webtag:format object="${row[date]}" format="MM.dd.yyyy" />
+			<td class="valueC"><tc-webtag:format object="${row[date]}" format="MM.dd.yyyy" /></td>
 			<td class="valueR">${row[num_competitors]}</td>
 			<td class="valueR">${row[num_submissions]}</td>
 			<td class="valueR"><fmt:formatNumber value="${row[avg_submissions]}"  minFractionDigits="2" maxFractionDigits="2"/></td>		
