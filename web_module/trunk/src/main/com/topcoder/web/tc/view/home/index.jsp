@@ -393,19 +393,33 @@
     </tr>
     <tr>
         <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">July Events:</A></td>
+        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">August Events:</A></td>
     </tr>
     <tr>
         <td class="homeArrow">&#160; </td>
         <td class="homeText"><br>
-            <b>07.02</b> - SRM 356 - 9 PM<br><br>
-            <b>07.12</b> - SRM 357 - Yodlee - 9 PM<br><br>
-            <b>07.12</b> - TCHS SRM 33 - 9 PM<br><br>
-            <b>07.17</b> - SRM 358 - 7 AM<br><br>
-            <b>07.17</b> - TCHS SRM 34 - 7 AM<br><br>
-            <b>07.21</b> - SRM 359 - 12 NOON<br><br>
-            <b>07.21</b> - TCHS SRM 35 - 12 NOON<br><br>
-            <b>07.24</b> - SRM 360 - 11 AM<br><br>
+            <b>08.01</b> - SRM 361 - TopCoder - 9 PM<br><br>
+            <b>08.01</b> - TCHS SRM 36 - 9 PM<br><br>
+            <b>08.02</b> - TCCC CDDC Week 2 Projects Posted - 9 AM<br><br>
+            <b>08.07</b> - SRM 362 - 7 AM<br><br>
+            <b>08.07</b> - TCHS SRM 37 - 7 AM<br><br>
+            <b>08.07</b> - TCCC MM Reg Closes - 5 PM<br><br>
+            <b>08.08</b> - TCCC MM Round 1 - 12 NOON<br><br>
+            <b>08.08</b> - Marathon Match 20 - 12 NOON<br><br>
+            <b>08.09</b> - TCCC CDDC Week 3 Projects Posted - 9 AM<br><br>
+            <b>08.11</b> - SRM 363 - 12 NOON<br><br>
+            <b>08.16</b> - TCCC CDDC Week 4 Projects Posted - 9 AM<br><br>
+            <b>08.16</b> - TCCC Algorithm Reg Closes - 5 PM<br><br>
+            <b>08.18</b> - TCCC Algorithm Qual Round 1 - 1 PM<br><br>
+            <b>08.21</b> - TCCC Algorithm Qual Round 2 - 7 AM<br><br>
+            <b>08.22</b> - Marathon Match 21 - 12 NOON<br><br>
+            <b>08.22</b> - TCCC MM Round 2 - 12 NOON<br><br>
+            <b>08.23</b> - TCCC CDDC Week 5 Projects Posted - 9 AM<br><br>
+            <b>08.23</b> - TCCC CDDC Week Reg Closes - 9 AM<br><br>
+            <b>08.23</b> - TCCC Algo Qual Round 3 - 9 PM<br><br>
+            <b>08.24</b> - TCCC Studio Reg Closes - 5 PM<br><br>
+            <b>08.28</b> - TCCC Algo Round 1A - 9 PM<br><br>
+            <b>08.30</b> - TCCC Algo Round 1B - 7 AM<br><br>
             <%--<b>01.13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br><br>--%>
         </td>
     </tr>
