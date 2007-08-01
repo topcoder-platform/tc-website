@@ -63,6 +63,7 @@ public class IndividualResultsFeed extends Base {
             RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_marathon_submission_history"); 
             AllColumns acSubm = new AllColumns("");
             acSubm.replace(new Column("time", "time", null, null, new DateFormatter()));
+            acSubm.replace(new Column("arguments", "arguments", null, null, new ArgumentFormatter()));
 
             submissions.add(acSubm);
 
