@@ -32,8 +32,12 @@
                 <p>If you have the technical ability, passion and drive to make a difference to people's lives, we'd love to hear from you.</p>
                 <p>Eli Lilly is based in Indianapolis, IN, with offices in most countries worldwide, our research and development IT centres are located in Indianapolis (US), UK, Singapore, Spain and the Czech Republic.</p>
                 <p>Lilly, Answers that Matter</p>
-                <p><a href="/tc?module=JobHit&jid=402&jt=1" class="button" style="width: 70px;">Apply Now</a></p>
-            
+                <div align="center">
+                    <p style="float:left; width:90px; padding:10px;"><a href="/tc?module=JobHit&jid=406&jt=1" class="button" style="width:90px;">Apply Now<br />for US Jobs</a></p>
+                    <p style="float:left; width:90px; padding:10px;"><a href="/tc?module=JobHit&jid=407&jt=1" class="button" style="width:90px;">Apply Now<br />for EU Jobs</a></p>
+                    <p style="float:left; width:90px; padding:10px;"><a href="/tc?module=JobHit&jid=408&jt=1" class="button" style="width:90px;">Apply Now<br />for Pacifc Jobs</a></p>
+                </div>
+                <br /><br />
             </div>
     </div>
     <jsp:include page="../footer.jsp" />
