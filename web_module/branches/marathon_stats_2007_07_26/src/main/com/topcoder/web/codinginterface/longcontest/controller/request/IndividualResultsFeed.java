@@ -2,14 +2,16 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.datafeed.AllColumns;
-import com.topcoder.web.common.datafeed.Column;
 import com.topcoder.web.common.datafeed.CommandRunner;
 import com.topcoder.web.common.datafeed.DataFeeder;
 import com.topcoder.web.common.datafeed.RSCDataFeed;
+import com.topcoder.web.common.datafeed.Value;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.model.DataResource;
 
@@ -20,23 +22,37 @@ public class IndividualResultsFeed extends Base {
 
 
     protected void longContestProcessing() throws Exception {
-        int coderId = Integer.parseInt(getRequest().getParameter(Constants.CODER_ID));
-        int roundId = Integer.parseInt(getRequest().getParameter(Constants.ROUND_ID));
+        String roundId = getRequest().getParameter(Constants.ROUND_ID);
+        String coderId = getRequest().getParameter(Constants.CODER_ID);
+        try {
+            Integer.parseInt(coderId);
+            Integer.parseInt(roundId);
+        } catch (Exception e) {
+            throw new NavigationException("Parameter " + Constants.CODER_ID + " or " + Constants.ROUND_ID + " not specified o not a valid number");
+        }
 
         Request r = new Request();
         r.setContentHandle("dd_marathon_individual_results");
-        r.setProperty(Constants.CODER_ID, coderId + "");
-        r.setProperty(Constants.ROUND_ID, roundId + "");
+        r.setProperty(Constants.CODER_ID, coderId);
+        r.setProperty(Constants.ROUND_ID, roundId);
 
         DataResource resource = new DataResource(r.getContentHandle());
         
         if (new TCSAuthorization(getUser()).hasPermission(resource)) {
             DataAccessInt da = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
             CommandRunner cmd = new CommandRunner(da, r);
-
             
+            String handle = "N/A";
+            ResultSetContainer rsc = cmd.getData().get("marathon_individual_results");
+            if (rsc.size() > 0) {
+                handle = rsc.getStringItem(0, "handle");
+            }
             DataFeeder df = new DataFeeder("marathon_individual_results");
 
+            df.add(new Value("round_id", roundId));
+            df.add(new Value("coder_id", coderId));
+            df.add(new Value("handle", handle));
+            
             RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_marathon_submission_history"); 
             AllColumns acSubm = new AllColumns("");
             submissions.add(acSubm);
@@ -46,41 +62,13 @@ public class IndividualResultsFeed extends Base {
             
             RSCDataFeed testcases = new RSCDataFeed("testcases", "testcase", cmd, "dd_marathon_individual_results"); 
             AllColumns ac = new AllColumns("");
+            ac.skip("round_id");
+            ac.skip("coder_id");
+            ac.skip("handle");
             testcases.add(ac);
 
             df.add(testcases);
-            /*
-            // Add reviewer information
-            RSCDataFeed reviewers = new RSCDataFeed("reviewers", "reviewer", cmd, "dd_reviewers_for_project"); 
-            ac = new AllColumns("N/A");
-            ac.replace(new Column("reviewer", "reviewer", "id", "reviewer_id"));
-            ac.replace(new Column("reviewer_role", "review_resp_desc", "id", "review_resp_id"));
-            reviewers.add(ac);
-            
-            df.add(reviewers);
 
-            // Add submission information
-            RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_submissions"); 
-            ac = new AllColumns("N/A");
-            ac.replace(new Column("coder", "coder", "id", "user_id"));
-           
-            submissions.add(ac);
-            
-            Request reqReview = new Request();
-            reqReview.setContentHandle("dd_project_review");
-            reqReview.setProperty(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-
-            RSCParamDataFeed reviews = new RSCParamDataFeed("reviews", "review", da, reqReview, "dd_project_review");
-            reviews.addParam("cr", "user_id");
-
-            ac = new AllColumns("N/A");           
-            ac.replace(new Column("reviewer", "reviewer_handle", "id", "reviewer_id"));
-            ac.replace(new Column("reviewer_role", "review_resp_desc", "id", "review_resp_id"));
-            reviews.add(ac);
-            submissions.addChild(reviews);
-
-            df.add(submissions);
-            */
             getResponse().setContentType("text/xml");
 
             df.writeXML(getResponse().getOutputStream());
