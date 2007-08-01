@@ -409,9 +409,9 @@
             <b>08.09</b> - TCCC CDDC Week 3 Projects Posted - 9 AM<br><br>
             <b>08.11</b> - SRM 363 - 12 NOON<br><br>
             <b>08.16</b> - TCCC CDDC Week 4 Projects Posted - 9 AM<br><br>
-            <b>08.16</b> - TCCC Algorithm Reg Closes - 5 PM<br><br>
-            <b>08.18</b> - TCCC Algorithm Qual Round 1 - 1 PM<br><br>
-            <b>08.21</b> - TCCC Algorithm Qual Round 2 - 7 AM<br><br>
+            <b>08.16</b> - TCCC Algo Reg Closes - 5 PM<br><br>
+            <b>08.18</b> - TCCC Algo Qual Round 1 - 1 PM<br><br>
+            <b>08.21</b> - TCCC Algo Qual Round 2 - 7 AM<br><br>
             <b>08.22</b> - Marathon Match 21 - 12 NOON<br><br>
             <b>08.22</b> - TCCC MM Round 2 - 12 NOON<br><br>
             <b>08.23</b> - TCCC CDDC Week 5 Projects Posted - 9 AM<br><br>
