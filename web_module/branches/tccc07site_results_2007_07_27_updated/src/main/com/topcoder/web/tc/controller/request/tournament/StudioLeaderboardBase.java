@@ -18,6 +18,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
+import com.topcoder.web.tc.model.dr.IBoardRow;
 
 /**
  * @author pulky
@@ -132,23 +133,74 @@ public abstract class StudioLeaderboardBase extends Base {
             }
             row.setRank(rank);
             prevPoints = row.getBestPoints();
+            first = false;
         }
         
         // sort
+        String sortCol = getRequest().getParameter(DataAccessConstants.SORT_COLUMN);
+        String sortDir = getRequest().getParameter(DataAccessConstants.SORT_DIRECTION);
 
-        
+        sortResult(results, sortCol, "desc".equals(sortDir));
         
         getRequest().setAttribute("result", results);
+    }
+    
+    
+    protected void sortResult(List<StudioLeaderBoardRow> result, String sortCol, boolean invert) {
+        if (result.size() == 0) {
+            return;
+        }
 
+        if (sortCol.equals("2")) {
+            Collections.sort(result, new Comparator<StudioLeaderBoardRow>() {
+                public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
+                    return arg0.getHandleLower().compareTo(arg1.getHandleLower());
+                }
+            });
+        } else  if (sortCol.equals("3")) {
+        } else  if (sortCol.equals("4")) {
+            Collections.sort(result, new Comparator<StudioLeaderBoardRow>() {
+                public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
+                    return arg0.getCompletedContests().compareTo(arg1.getCompletedContests());
+                }
+            });
+        } else  if (sortCol.equals("5")) {
+            Collections.sort(result, new Comparator<StudioLeaderBoardRow>() {
+                public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
+                    return arg0.getBestPoints().compareTo(arg1.getBestPoints());
+                }
+            });
+        } else  if (sortCol.equals("6")) {
+            Collections.sort(result, new Comparator<StudioLeaderBoardRow>() {
+                public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
+                    return arg0.getCurrentContests().compareTo(arg1.getCurrentContests());
+                }
+            });
+        } else  if (sortCol.equals("7")) {
+        } else {
+            // Default, sort by rank.
+
+            Collections.sort(result, new Comparator<StudioLeaderBoardRow>() {
+                public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
+                    return arg0.getRank().compareTo(arg1.getRank());
+                }
+            });
+        }
+
+        if (invert) {
+            Collections.reverse(result);
+        }
+        
         SortInfo s = new SortInfo();
-        s.addDefault(1, "asc"); // rank
-        s.addDefault(2, "desc"); // handle lower
+        s.addDefault(1, "desc"); // rank
+        s.addDefault(2, "asc"); // handle lower
         s.addDefault(3, "desc"); // total potential points
         s.addDefault(4, "desc"); // completed contests
         s.addDefault(5, "desc"); // completed points
-        s.addDefault(6, "asc"); // current contests
+        s.addDefault(6, "desc"); // current contests
         s.addDefault(7, "desc"); // current points
         
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
+
 }
