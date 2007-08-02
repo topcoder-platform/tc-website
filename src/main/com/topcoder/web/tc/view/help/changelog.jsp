@@ -44,7 +44,7 @@
 
 
 <p>
-    5.10.15 - 2007.07.xx
+    5.10.15 - 2007.08.02
     <ul>
         <li>Fix bug where affidavit update and affirmation at the same time wasn't atomic -pulky</li>
         <li>Added page to be able to change TCCC07 sections -pulky</li>
