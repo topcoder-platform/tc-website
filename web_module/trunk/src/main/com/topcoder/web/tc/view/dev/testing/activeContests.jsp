@@ -54,8 +54,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_registrationToolProjects">Registration Tool - Projects</A>
       </td>
       <td class="valueC">
-      <%--registration closed--%>
-      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Registration Tool: Projects">register</A>
+      registration closed
+      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Registration Tool: Projects">register</A>--%>
       </td>
       <td class="valueC">
       &#160;
@@ -86,8 +86,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_registrationToolTeams">Registration Tool - Teams</A>
       </td>
       <td class="valueC">
-      <%--registration closed--%>
-      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Registration Tool: Teams">register</A>
+      registration closed
+      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Registration Tool: Teams">register</A>--%>
       </td>
       <td class="valueC">
       &#160;
