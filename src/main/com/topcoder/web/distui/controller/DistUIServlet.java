@@ -1,4 +1,4 @@
-package com.topcoder.web.sharedjsp.controller;
+package com.topcoder.web.distui.controller;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
@@ -20,9 +20,9 @@ import java.io.PrintWriter;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 1, 2007
  */
-public class SharedServlet extends BaseServlet {
+public class DistUIServlet extends BaseServlet {
 
-    private static final Logger log = Logger.getLogger(SharedServlet.class);
+    private static final Logger log = Logger.getLogger(DistUIServlet.class);
 
     protected void process(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
