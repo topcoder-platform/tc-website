@@ -1,9 +1,8 @@
 <%@ page import="com.topcoder.web.common.model.EventType" %>
-<%@ page import="com.topcoder.web.tc.Constants, java.util.List,
-                 com.topcoder.web.tc.controller.request.tournament.StudioLeaderBoardRow" %>
+<%@ page import="com.topcoder.web.tc.Constants, java.util.List" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<% List<StudioLeaderBoardRow> result = (List<StudioLeaderBoardRow>) request.getAttribute("result");%>
+<% List result = (List) request.getAttribute("result");%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -58,7 +57,7 @@
                         In Progress
                     </td>
                     <td class="headerC" rowspan="2" nowrap="nowrap">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="3>"/>">Potential
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="3"/>">Potential
                             Total<br>Points</A>
                     </td>
                 </tr>

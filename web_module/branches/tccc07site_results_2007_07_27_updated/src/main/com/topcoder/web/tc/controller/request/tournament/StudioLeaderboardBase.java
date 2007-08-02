@@ -137,7 +137,7 @@ public abstract class StudioLeaderboardBase extends Base {
 
         
         
-        getRequest().setAttribute("result", result);
+        getRequest().setAttribute("result", results);
 
         SortInfo s = new SortInfo();
         s.addDefault(1, "asc"); // rank
