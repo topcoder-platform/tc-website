@@ -40,7 +40,7 @@
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
 <li><a href="/tc?module=Static&d1=tutorials&d2=mmProblems"><strong>Stepping up to a Marathon Match problem</strong></a>, by <tc-webtag:handle coderId="10407399" /><br>
-In a <a href="/tc?module=Static&d1=tutorials&d2=mmIntro">previous tutorial</a> by <tc-webtag:handle coderId="21464956" context="algorithm"/>, we learned about how Marathon Matches work, and were provided with some excellent advice on getting ourselves set up and going on a problem, including some very helpful tips on version control and time management. Now, we need to think a bit about solving the problem.</li>
+In a <a href="/tc?module=Static&d1=tutorials&d2=mmIntro">previous tutorial</a> by <tc-webtag:handle coderId="21464956" context="marathon"/>, we learned about how Marathon Matches work, and were provided with some excellent advice on getting ourselves set up and going on a problem, including some very helpful tips on version control and time management. Now, we need to think a bit about solving the problem.</li>
 <li><a href="/tc?module=Static&d1=features&d2=073107"><strong>Meet the July Coders of the Month</strong></a>, by <tc-webtag:handle coderId="8365955" /><br>
 July's "Coders of the Month" are a diverse mix, hailing from Estonia, Ukraine and India, but there are some similarities among them. In this article, we'll look at how these three coders approach TopCoder competition, and what they do when they need a break.</li>
 <li><a href="/tc?module=Static&d1=features&d2=073007"><strong>Visas: Think Positive and Be Prepared</strong></a>, by <tc-webtag:handle coderId="14999860" /><br>

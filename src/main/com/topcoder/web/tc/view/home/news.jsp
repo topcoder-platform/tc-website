@@ -8,7 +8,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=mmProblems">Stepping up to a Marathon Match problem</A></span><br><br>
-      In a <a href="/tc?module=Static&d1=tutorials&d2=mmIntro">previous tutorial</a> by <tc-webtag:handle coderId="21464956" context="algorithm"/>, we learned about how Marathon Matches work, and were provided with some excellent advice on getting ourselves set up and going on a problem, including some very helpful tips on version control and time management. Now, we need to think a bit about solving the problem.</td>
+      In a <a href="/tc?module=Static&d1=tutorials&d2=mmIntro">previous tutorial</a> by <tc-webtag:handle coderId="21464956" context="marathon"/>, we learned about how Marathon Matches work, and were provided with some excellent advice on getting ourselves set up and going on a problem, including some very helpful tips on version control and time management. Now, we need to think a bit about solving the problem.</td>
          <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" context="marathon"/></td></tr></table>
       </td>
    </tr>
