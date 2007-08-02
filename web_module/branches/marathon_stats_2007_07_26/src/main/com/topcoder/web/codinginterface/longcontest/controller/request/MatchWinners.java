@@ -72,7 +72,7 @@ public class MatchWinners extends Base {
             getRequest().setAttribute("croppedDataBefore", rsc.croppedDataBefore());
             getRequest().setAttribute("croppedDataAfter", rsc.croppedDataAfter());
 
-            setNextPage(Constants.PAGE_MATCH_LIST);
+            setNextPage(Constants.PAGE_MATCH_WINNERS);
             setIsNextPageInContext(true);
 
         } catch (TCWebException we) {
