@@ -180,7 +180,7 @@
                 <include name="taconite.jar"/>
             </lib>
             <lib dir="${bin}">
-                <include name="distui.jar"/>
+                <include name="shared.jar"/>
                 <include name="tcwebcommon.jar"/>
             </lib>
         </war>
