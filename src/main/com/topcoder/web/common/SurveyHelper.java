@@ -1,6 +1,7 @@
 package com.topcoder.web.common;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,8 +11,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.Response;
@@ -32,7 +31,7 @@ public class SurveyHelper {
         this.request = request;
     }
 
-    public Response findResponse(List responses, long questionId) {
+    public Response findResponse(Collection responses, long questionId) {
         Response r = null;
         boolean found = false;
         for (Iterator it = responses.iterator(); it.hasNext() && !found;) {
@@ -41,7 +40,7 @@ public class SurveyHelper {
         }
         return found ? r : null;
     }
-    
+
     public List processResponses(Survey s) {
         String paramName = null;
         List responses = new ArrayList(10);

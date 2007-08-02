@@ -47,24 +47,6 @@
                             <input name="et" value="<%=eventType%>" type="hidden">
                             <input name="<%=Constants.TERMS_AGREE%>" value="on" type="hidden">
 
-<!--
-                            <p align="center">To complete your registration for the <%=event.getDescription()%> you must
-                                <br /><strong>read and agree to</strong> the terms listed below.</p>
-
-                            <div align="center">
-                                <iframe width="640" height="300" marginWidth="5" src="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=event.getTerms().getId()%>"></iframe>
-                            </div>
-
-                            <div align="center">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">
-                                    <span class="bigRed">${err}</span>
-                                    &nbsp;<br />
-                                </tc-webtag:errorIterator>
-                                <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
-                                I agree
-                            </div>
--->
-
                             <tc:questionIterator list="<%=questionInfo%>" id="question">
                                 <% if (question.getKeyword().equals(RegistrationBase.AGE) ||
                                        question.getKeyword().equals(RegistrationBase.IN_COLLEGE)) { %>

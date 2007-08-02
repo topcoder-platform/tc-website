@@ -80,26 +80,27 @@ public class ViewRegistrationFix extends ViewRegistrationBase {
 
     protected void setNextPage(Event e, User u) {
         getRequest().setAttribute(Constants.EVENT_TYPE, getRequest().getParameter(Constants.EVENT_TYPE));
-        EventRegistration er = u.getEventRegistration(e);
+//        EventRegistration er = u.getEventRegistration(e);
         
-        DataAccess tccc07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
-        Request tccc07Request = new Request();
-        tccc07Request.setProperty("cr", String.valueOf(getUser().getId()));
-        tccc07Request.setContentHandle("tccc07_fix");
+        // This was only for users that didn't respond. IF commented, will allow everyone to change their selection.
+//        DataAccess tccc07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+//        Request tccc07Request = new Request();
+//        tccc07Request.setProperty("cr", String.valueOf(getUser().getId()));
+//        tccc07Request.setContentHandle("tccc07_fix");
+//
+//        ResultSetContainer rsc = null;
+//        try {
+//            rsc = tccc07Dai.getData(tccc07Request).get("tccc07_fix");
+//        } catch (Exception ex) {
+//            throw new RuntimeException("Cannot complete registration.");                
+//        }
 
-        ResultSetContainer rsc = null;
-        try {
-            rsc = tccc07Dai.getData(tccc07Request).get("tccc07_fix");
-        } catch (Exception ex) {
-            throw new RuntimeException("Cannot complete registration.");                
-        }
-
-        if (rsc != null && rsc.size() > 0) {
-            getRequest().setAttribute("eligible", er.isEligible());
-            setNextPage("/tournaments/tccc07/termsSuccess.jsp");
-        } else {
+//        if (rsc != null && rsc.size() > 0) {
+//            getRequest().setAttribute("eligible", er.isEligible());
+//            setNextPage("/tournaments/tccc07/termsSuccess.jsp");
+//        } else {
             setNextPage("/tournaments/tccc07/termsFix.jsp");
-        }
+//        }
         setIsNextPageInContext(true);
     }
 }

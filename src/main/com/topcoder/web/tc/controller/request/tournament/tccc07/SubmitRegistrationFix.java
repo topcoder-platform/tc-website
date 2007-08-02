@@ -38,9 +38,6 @@ public class SubmitRegistrationFix extends SubmitRegistrationBase {
     }
 
     protected Boolean validateSurvey(Survey survey, List responses) {
-        String ageInput = "";
-        String ageKey = "";
-        String inCollegeInput = "";
         String pref1 = "";
         String pref2 = "";
         String pref3 = "";
@@ -50,23 +47,16 @@ public class SubmitRegistrationFix extends SubmitRegistrationBase {
         for (Iterator it = survey.getQuestions().iterator(); it.hasNext();) {
             Question q = (Question) it.next();
             Response response = (new SurveyHelper()).findResponse(responses, q.getId());
-//            if (response != null) {
-                if (q.getKeyword().equals(AGE)) {
-                    ageInput = (response == null ? "" : StringUtils.checkNull(response.getText()));
-                    ageKey = AnswerInput.PREFIX + q.getId();
-                } else if (q.getKeyword().equals(IN_COLLEGE)) {
-                    inCollegeInput = (response == null ? "" : StringUtils.checkNull(response.getAnswer().getText()));
-                } else if (q.getKeyword().equals("pref1")) {
-                    pref1 = (response == null ? "" : StringUtils.checkNull(response.getAnswer().getText()));
-                    pref1Key = AnswerInput.PREFIX + q.getId();
-                } else if (q.getKeyword().equals("pref2")) {
-                    pref2 = (response == null ? "" : StringUtils.checkNull(response.getAnswer().getText()));
-                    pref2Key = AnswerInput.PREFIX + q.getId();
-                } else if (q.getKeyword().equals("pref3")) {
-                    pref3 = (response == null ? "" : StringUtils.checkNull(response.getAnswer().getText()));
-                    pref3Key = AnswerInput.PREFIX + q.getId();
-                }
-//            }
+            if (q.getKeyword().equals("pref1")) {
+                pref1 = (response == null ? "" : StringUtils.checkNull(response.getAnswer().getText()));
+                pref1Key = AnswerInput.PREFIX + q.getId();
+            } else if (q.getKeyword().equals("pref2")) {
+                pref2 = (response == null ? "" : StringUtils.checkNull(response.getAnswer().getText()));
+                pref2Key = AnswerInput.PREFIX + q.getId();
+            } else if (q.getKeyword().equals("pref3")) {
+                pref3 = (response == null ? "" : StringUtils.checkNull(response.getAnswer().getText()));
+                pref3Key = AnswerInput.PREFIX + q.getId();
+            }
         }
 
         if (getEventShortDesc().equals("tccc07algorithm")) {
@@ -125,12 +115,19 @@ public class SubmitRegistrationFix extends SubmitRegistrationBase {
 
     protected void completeRegistration(Event event, User user, Boolean eligible, List responses) {
         UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
-        
+                
+        // if responses don't exist, add them, otherwise update.
         List addResponses = new ArrayList(3);
         for (Response r : (List<Response>)responses) {
             if (r.getQuestion().getKeyword().equals("pref1") ||
                     r.getQuestion().getKeyword().equals("pref2") ||
                     r.getQuestion().getKeyword().equals("pref3")) {
+                
+                Response existingResponse = (new SurveyHelper()).findResponse(user.getResponses(), r.getQuestion().getId()); 
+                if (existingResponse != null) {
+                    user.getResponses().remove(existingResponse);
+                }
+
                 addResponses.add(r);
             }
         }
