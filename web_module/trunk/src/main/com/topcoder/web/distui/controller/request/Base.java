@@ -1,4 +1,4 @@
-package com.topcoder.web.sharedjsp.controller.request;
+package com.topcoder.web.distui.controller.request;
 
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.TCRequest;
