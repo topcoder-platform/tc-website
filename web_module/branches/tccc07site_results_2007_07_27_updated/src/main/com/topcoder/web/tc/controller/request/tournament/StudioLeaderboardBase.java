@@ -104,7 +104,8 @@ public abstract class StudioLeaderboardBase extends Base {
                 row.setCurrentContests(row.getCurrentContests() + 1);
             }
             leaderBoard.put(rsr.getLongItem("user_id"), row);
-            
+
+            prevContestId = rsr.getLongItem("contest_id");
             contestPlace++;
         }
 
