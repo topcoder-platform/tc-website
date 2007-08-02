@@ -38,7 +38,7 @@
         <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
             <thead>
                 <tr>
-                    <td class="title" colspan="7">
+                    <td class="title" colspan="5">
                         Studio Leaderboard
                     </td>
                 </tr>
@@ -52,12 +52,8 @@
                     <td class="headerC" colspan="2" nowrap="nowrap" style="border-right: 1px solid #999999;">
                         Completed
                     </td>
-                    <td class="headerC" colspan="2" nowrap="nowrap">
+                    <td class="headerC" colspan="1" nowrap="nowrap">
                         In Progress
-                    </td>
-                    <td class="headerC" rowspan="2" nowrap="nowrap">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="3"/>">Potential
-                            Total<br>Points</A>
                     </td>
                 </tr>
                 <tr>
@@ -69,9 +65,6 @@
                     </td>
                     <td class="headerC">
                         <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="6"/>">Contests</A>
-                    </td>
-                    <td class="headerC">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="7"/>">Points</A>
                     </td>
                 </tr>
             </thead>
@@ -148,12 +141,6 @@
                                     </c:otherwise>
                                 </c:choose>
                             </A>
-                        </td>
-                        <td class="valueC">
-                            &nbsp;
-                        </td>
-                        <td class="valueC">
-                            &nbsp;
                         </td>
                     </tr>
 
