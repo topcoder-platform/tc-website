@@ -5,8 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.collections.list.UnmodifiableList;
-
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.SurveyHelper;
 import com.topcoder.web.common.TCWebException;
