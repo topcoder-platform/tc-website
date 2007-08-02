@@ -95,7 +95,7 @@ public abstract class StudioLeaderboardBase extends Base {
                 leaderBoard.remove(row);
             }
             
-            if ("1".equals(rsr.getIntItem("completed"))) {
+            if (rsr.getIntItem("completed") == 1) {
                 row.setCompletedContests(row.getCompletedContests() + 1);
                 List<Integer> tmp = row.getCompletedPoints();
                 tmp.add(getPlacementPoints(contestPlace));

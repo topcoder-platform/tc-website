@@ -1,12 +1,11 @@
 <%@ page import="com.topcoder.web.common.model.EventType" %>
-<%@ page import="com.topcoder.web.tc.Constants, java.util.List" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<% List result = (List) request.getAttribute("result");%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -85,24 +84,24 @@
                     <tr class="<%=(i%2==0 ? "dark" : "light")%>">
                         <td class="valueC">
                             <c:choose>
-                                <c:when test="${boardRow.rank <= 8}">
-                                    <span class="bigGreen">${boardRow.rank}</span>
+                                <c:when test="${resultRow.rank <= 8}">
+                                    <span class="bigGreen">${resultRow.rank}</span>
                                 </c:when>
                                 <c:otherwise>
-                                    <span class="bigRed">${boardRow.rank}</span>
+                                    <span class="bigRed">${resultRow.rank}</span>
                                 </c:otherwise>
                             </c:choose>
                         </td>
                         <td class="value">
                             <strong>
-                                ${boardRow.handle}
+                                ${resultRow.handle}
                             </strong>
                         </td>
                         <td class="valueC">
-                            <a href="tc?${module}=TCCC07StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=${boardRow.userId}"/>">
+                            <a href="tc?${module}=TCCC07StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=${resultRow.userId}"/>
                                 <c:choose>
-                                    <c:when test="${boardRow.completedContests >= 0}">
-                                        ${boardRow.completedContests}
+                                    <c:when test="${resultRow.completedContests >= 0}">
+                                        ${resultRow.completedContests}
                                     </c:when>
                                     <c:otherwise>
                                         &nbsp;                                        
@@ -112,11 +111,11 @@
                         </td>
                         <td class="valueC" style="border-right: 1px solid #999999;">
                             <c:choose>
-                                <c:when test="${boardRow.rank <= 8}">
+                                <c:when test="${resultRow.rank <= 8}">
                                     <span class="bigGreen">
                                         <c:choose>
-                                            <c:when test="${boardRow.bestPoints >= 0}">
-                                                ${boardRow.bestPoints}
+                                            <c:when test="${resultRow.bestPoints >= 0}">
+                                                ${resultRow.bestPoints}
                                             </c:when>
                                             <c:otherwise>
                                                 &nbsp;                                        
@@ -125,10 +124,10 @@
                                     </span>
                                 </c:when>
                                 <c:otherwise>
-                                    <span class="bigRed">${boardRow.rank}
+                                    <span class="bigRed">${resultRow.rank}
                                         <c:choose>
-                                            <c:when test="${boardRow.bestPoints >= 0}">
-                                                ${boardRow.bestPoints}
+                                            <c:when test="${resultRow.bestPoints >= 0}">
+                                                ${resultRow.bestPoints}
                                             </c:when>
                                             <c:otherwise>
                                                 &nbsp;                                        
@@ -139,10 +138,10 @@
                             </c:choose>
                         </td>
                         <td class="valueC">
-                            <a href="tc?${module}=TCCC07StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=${boardRow.userId}">
+                            <a href="tc?${module}=TCCC07StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=${resultRow.userId}">
                                 <c:choose>
-                                    <c:when test="${boardRow.currentContests >= 0}">
-                                        ${boardRow.currentContests}
+                                    <c:when test="${resultRow.currentContests >= 0}">
+                                        ${resultRow.currentContests}
                                     </c:when>
                                     <c:otherwise>
                                         &nbsp;                                        
