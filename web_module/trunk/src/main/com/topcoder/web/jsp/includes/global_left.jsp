@@ -6,6 +6,6 @@
 
 <c:import url="http://${serverName}/distui/">
     <c:param name="<%=WebConstants.MODULE_KEY%>" value="LeftNav"/>
-    <c:param name="node" value="${params['node']}"/>
+    <c:param name="node" value="${param['node']}"/>
 </c:import>
 
