@@ -27,11 +27,11 @@ import com.topcoder.web.tc.controller.request.development.Base;
  */
 public abstract class StudioLeaderboardBase extends Base {
     
-    public static final String RANK_COL = "1";
-    public static final String HANDLE_COL = "2";
-    public static final String COMPLETED_CONTESTS_COL = "3";
-    public static final String COMPLETED_POINTS_COL = "4";
-    public static final String CURRENT_CONTESTS_COL = "5";
+    public static final int RANK_COL = 1;
+    public static final int HANDLE_COL = 2;
+    public static final int COMPLETED_CONTESTS_COL = 3;
+    public static final int COMPLETED_POINTS_COL = 4;
+    public static final int CURRENT_CONTESTS_COL = 5;
 
 
     protected abstract String getContestPrefix();
@@ -167,25 +167,25 @@ public abstract class StudioLeaderboardBase extends Base {
             return;
         }
 
-        if (sortCol.equals(HANDLE_COL)) {
+        if (sortCol.equals(String.valueOf(HANDLE_COL))) {
             Collections.sort(result, new Comparator<StudioLeaderBoardRow>() {
                 public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
                     return arg0.getHandleLower().compareTo(arg1.getHandleLower());
                 }
             });
-        } else  if (sortCol.equals(COMPLETED_CONTESTS_COL)) {
+        } else  if (sortCol.equals(String.valueOf(COMPLETED_CONTESTS_COL))) {
             Collections.sort(result, new Comparator<StudioLeaderBoardRow>() {
                 public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
                     return arg0.getCompletedContests().compareTo(arg1.getCompletedContests());
                 }
             });
-        } else  if (sortCol.equals(COMPLETED_POINTS_COL)) {
+        } else  if (sortCol.equals(String.valueOf(COMPLETED_POINTS_COL))) {
             Collections.sort(result, new Comparator<StudioLeaderBoardRow>() {
                 public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
                     return arg0.getBestPoints().compareTo(arg1.getBestPoints());
                 }
             });
-        } else  if (sortCol.equals(CURRENT_CONTESTS_COL)) {
+        } else  if (sortCol.equals(String.valueOf(CURRENT_CONTESTS_COL))) {
             Collections.sort(result, new Comparator<StudioLeaderBoardRow>() {
                 public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
                     return arg0.getCurrentContests().compareTo(arg1.getCurrentContests());
@@ -206,11 +206,11 @@ public abstract class StudioLeaderboardBase extends Base {
         }
         
         SortInfo s = new SortInfo();
-        s.addDefault(Integer.parseInt(RANK_COL), "desc"); // rank
-        s.addDefault(Integer.parseInt(HANDLE_COL), "asc"); // handle lower
-        s.addDefault(Integer.parseInt(COMPLETED_CONTESTS_COL), "desc"); // completed contests
-        s.addDefault(Integer.parseInt(COMPLETED_POINTS_COL), "desc"); // completed points
-        s.addDefault(Integer.parseInt(CURRENT_CONTESTS_COL), "desc"); // current contests
+        s.addDefault(RANK_COL, "desc"); // rank
+        s.addDefault(HANDLE_COL, "asc"); // handle lower
+        s.addDefault(COMPLETED_CONTESTS_COL, "desc"); // completed contests
+        s.addDefault(COMPLETED_POINTS_COL, "desc"); // completed points
+        s.addDefault(CURRENT_CONTESTS_COL, "desc"); // current contests
         
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
