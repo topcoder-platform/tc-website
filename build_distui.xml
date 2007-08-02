@@ -56,7 +56,7 @@
         <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
         <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
 
-        <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+        <pathelement location="${jars.dir}/idgenerator.jar"/>
 
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
