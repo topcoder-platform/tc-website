@@ -165,6 +165,9 @@
                 <include name="calendar.jsp"/>
                 <include name="public_right.jsp"/>
             </fileset>
+            <fileset dir="${java}/com/topcoder/web/distui/view">
+                <include name="**/*.jsp"/>
+            </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/web/distui/**/*.class"/>
             </classes>
