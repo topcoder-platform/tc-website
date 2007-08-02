@@ -2,10 +2,6 @@ package com.topcoder.web.tc.controller.request.tournament.tccc07;
 import java.util.Iterator;
 import java.util.Set;
 
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Event;
