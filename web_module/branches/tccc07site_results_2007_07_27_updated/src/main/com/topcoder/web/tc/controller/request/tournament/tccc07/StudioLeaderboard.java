@@ -13,6 +13,8 @@ import com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase;
  */
 public class StudioLeaderboard extends StudioLeaderboardBase {
 
+    int[] placementPoints = new int[]{17, 15, 12, 10, 7, 5, 4};
+
     /* (non-Javadoc)
      * @see com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase#getContestPrefix()
      */
@@ -34,21 +36,8 @@ public class StudioLeaderboard extends StudioLeaderboardBase {
      */
     @Override
     protected int getPlacementPoints(int contestPlace) {
-        switch (contestPlace) {
-        case 1:
-            return 17;
-        case 2:
-            return 15;
-        case 3:
-            return 12;
-        case 4:
-            return 10;
-        case 5:
-            return 7;
-        case 6:
-            return 5;
-        case 7:
-            return 4;
+        if (contestPlace <= placementPoints.length) {
+            return placementPoints[contestPlace - 1];
         }
         return 0;
     }

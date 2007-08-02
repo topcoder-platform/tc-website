@@ -126,7 +126,7 @@ public abstract class StudioLeaderboardBase extends Base {
         int rank = 1;
         for (StudioLeaderBoardRow row : results) {
             if (!first) {
-                if (!row.getCompletedPoints().equals(prevPoints)) {
+                if (!row.getBestPoints().equals(prevPoints)) {
                     rank++;
                 }
             }
