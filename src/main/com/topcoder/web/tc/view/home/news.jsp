@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.02.07<br>12:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm36">TCHS SRM 36 - Problem Set &amp; Analysis</A></span><br><br>
+      Although TCHS SRM 36 attracted only 44 coders, it featured a very interesting competition. The easy problem was a bit tougher than usual this time, with half of the participants ending up with 0 or a negative score, while the medium and the hard was pretty straightforward.</td>
+         <td class="newsPhoto"><img src="/i/m/mateuszek_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="11801002" context="algorithm" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm36">full story</A> | 
+         <tc-webtag:forumLink forumID="516562" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.31.07<br>4:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -172,21 +188,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about">details</A> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.19.07<br>4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=071907">Know your hero: bmerry</A></span><br><br>
-      Welcome to the first edition of "Know Your Hero," a series of interviews with the coders, designers and developers who are at the top of the ratings. This edition features <tc-webtag:handle coderId="251074" context="algorithm"/>, who is currently positioned at no. 4 in the world in algorithm competitions.</td>
-         <td class="newsPhoto"><img src="/i/m/mohit_ranka_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21201116" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=071907">full story</A> | 
-         <tc-webtag:forumLink forumID="516667" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
