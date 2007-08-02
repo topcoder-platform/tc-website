@@ -364,6 +364,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br>
 
+            Fox TV: "Top Computer Programmers Compete"
+            <A href="/tc?module=Static&d1=pressroom&d2=art_080207">...more</a><br>[August 2]<br><br>
+            
             TopCoder Announces New Collaboration Initiatives
             <A href="/tc?module=Static&d1=pressroom&d2=pr_071807">...more</a><br>[July 18]<br><br>
             
@@ -384,9 +387,6 @@
 
             TopCoder Community Helps Research Led by Harvard Business School Professor
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_061307">...more</A><br>[June 13]<br><br>
-
-            AOL to Webcast TopCoder Open 2007 Finals Live on June 29
-            <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_060507">...more</A><br>[June 7]<br><br>
 
 
           </td>
