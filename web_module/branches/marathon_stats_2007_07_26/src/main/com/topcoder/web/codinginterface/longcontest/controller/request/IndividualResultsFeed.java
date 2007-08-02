@@ -21,6 +21,8 @@ import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.model.DataResource;
 
 /**
+ * Data feed to show history and results for a coder in a round.
+ * 
  * @author cucu
  */
 public class IndividualResultsFeed extends Base {
@@ -63,7 +65,8 @@ public class IndividualResultsFeed extends Base {
             RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_marathon_submission_history"); 
             AllColumns acSubm = new AllColumns("");
             acSubm.replace(new Column("time", "time", null, null, new DateFormatter()));
-            acSubm.replace(new Column("arguments", "arguments", null, null, new ArgumentFormatter()));
+            acSubm.replace(new Column("arguments", "arguments", null, null, new QuotedTextFormatter()));
+            acSubm.replace(new Column("fatal_errors", "fatal_errors", null, null, new QuotedTextFormatter()));
 
             submissions.add(acSubm);
 
@@ -95,13 +98,20 @@ public class IndividualResultsFeed extends Base {
         }
     }
     
-    static class ArgumentFormatter implements ItemFormatter {
+    /**
+     * Formats a quoted text by removing the quotes and escaping the html.
+     *  
+     * @author Cucu
+     *
+     */
+    static class QuotedTextFormatter implements ItemFormatter {
 
         public String format(ResultSetRow row, String field) {
             String s = row.getStringItem(field);
             
+            
             if (s.charAt(0)== '"' && s.charAt(s.length() - 1) == '"') {
-                s = s.substring(0, s.length() - 1);
+                s = s.substring(1, s.length() - 2);
             }
             
             return StringUtils.htmlEncode(s);

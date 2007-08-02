@@ -146,6 +146,36 @@
 
 </p>
 
+<p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Marathon Individual Round Results</span><br/>
+    This feed provides details about the submission history and the system tests for an user in a round.z
+    <ul>
+        <li>round id</li>
+        <li>user id</li>
+        <li>handle</li>
+        <li>submission history
+        	<ul>
+        		<li>number</li>
+        		<li>score</li>
+        		<li>language</li>
+        		<li>submission time</li>        		
+        	</ul>
+        </li>
+        <li>testcases
+        	<ul>
+        		<li>test case id</li>
+        		<li>score</li>
+        		<li>processing time</li>
+        		<li>arguments (only if FULL flag is set to 1)</li>
+        		<li>fatal errors(only if FULL flag is set to 1)</li>
+        	</ul>
+        </li>        		
+    </ul>
+    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=IndividualResultsFeed&rd=ROUND_ID&cr=CODER_ID&full=FULL</strong>
+    <br/>
+    You will need to replace "ROUND_ID" and "USER_ID" in the query string to get data about a particular round and coder, 
+    and set "FULL" to 1 for including additional fields, or to 0 for excluding them.
+
+</p>
 
 <p><br/></p>
 </td>
