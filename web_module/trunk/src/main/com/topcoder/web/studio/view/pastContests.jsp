@@ -55,7 +55,7 @@
     <tbody>
         <tr>
             <td class="NW">&nbsp;</td>
-            <td class="title" colspan="6">Past Contests</td>
+            <td class="title" colspan="7">Past Contests</td>
             <td class="NE">&nbsp;</td>
         </tr>
         <tr>
@@ -77,6 +77,9 @@
             </td>
             <td class="headerC">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submissions</a>
+            </td>
+            <td class="headerC">
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("passing_submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Passed Screening</a>
             </td>
 <%--
             <td class="headerC">
@@ -135,6 +138,9 @@
                     </c:choose>
 
                 </td>
+                <td class="valueC">
+                    <rsc:item name="passing_submission_count" row="<%=resultRow%>"/>
+                </td>
                     <%--
                                     <td class="valueC">
                                         <% if (resultRow.getBooleanItem("results_available")) { %>
@@ -154,7 +160,7 @@
             <% even = !even; i++; %>
         </rsc:iterator>
         <tr>
-            <td class="SW" colspan="7">&nbsp;</td>
+            <td class="SW" colspan="8">&nbsp;</td>
             <td class="SE">&nbsp;</td>
         </tr>
     </tbody>
