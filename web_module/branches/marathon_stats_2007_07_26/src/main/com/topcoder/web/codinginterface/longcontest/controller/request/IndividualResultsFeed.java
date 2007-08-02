@@ -108,10 +108,12 @@ public class IndividualResultsFeed extends Base {
 
         public String format(ResultSetRow row, String field) {
             String s = row.getStringItem(field);
-            
-            
+
+            log.debug("format: " + s);
+            log.debug("chars:" +s.charAt(0) + "," + s.charAt(s.length() - 1));
             if (s.charAt(0)== '"' && s.charAt(s.length() - 1) == '"') {
                 s = s.substring(1, s.length() - 2);
+                log.debug("removed chars: " + s);
             }
             
             return StringUtils.htmlEncode(s);
