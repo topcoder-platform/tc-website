@@ -166,7 +166,7 @@
     </tbody>
 </table>
 
-<div align="right" style="padding-top: 10px;"><strong>Would you like to see some of our <a href="/?module=Static&amp;3d1=oldcontests&amp;d2=archive">older logo design contests</a>?</strong></div>
+<div align="right" style="padding-top: 10px;"><strong>Would you like to see some of our <a href="/?module=Static&amp;d1=oldcontests&amp;d2=archive">older logo design contests</a>?</strong></div>
 
 </div>
 <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
