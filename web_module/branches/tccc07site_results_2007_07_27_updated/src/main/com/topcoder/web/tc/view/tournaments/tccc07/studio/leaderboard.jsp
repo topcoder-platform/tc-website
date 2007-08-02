@@ -100,7 +100,7 @@
                         <td class="valueC">
                             <a href="tc?${module}=TCCC07StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=${resultRow.userId}"/>
                                 <c:choose>
-                                    <c:when test="${resultRow.completedContests >= 0}">
+                                    <c:when test="${resultRow.completedContests > 0}">
                                         ${resultRow.completedContests}
                                     </c:when>
                                     <c:otherwise>
@@ -114,7 +114,7 @@
                                 <c:when test="${resultRow.rank <= 8}">
                                     <span class="bigGreen">
                                         <c:choose>
-                                            <c:when test="${resultRow.bestPoints >= 0}">
+                                            <c:when test="${resultRow.bestPoints > 0}">
                                                 ${resultRow.bestPoints}
                                             </c:when>
                                             <c:otherwise>
@@ -126,7 +126,7 @@
                                 <c:otherwise>
                                     <span class="bigRed">${resultRow.rank}
                                         <c:choose>
-                                            <c:when test="${resultRow.bestPoints >= 0}">
+                                            <c:when test="${resultRow.bestPoints > 0}">
                                                 ${resultRow.bestPoints}
                                             </c:when>
                                             <c:otherwise>
@@ -140,7 +140,7 @@
                         <td class="valueC">
                             <a href="tc?${module}=TCCC07StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=${resultRow.userId}">
                                 <c:choose>
-                                    <c:when test="${resultRow.currentContests >= 0}">
+                                    <c:when test="${resultRow.currentContests > 0}">
                                         ${resultRow.currentContests}
                                     </c:when>
                                     <c:otherwise>

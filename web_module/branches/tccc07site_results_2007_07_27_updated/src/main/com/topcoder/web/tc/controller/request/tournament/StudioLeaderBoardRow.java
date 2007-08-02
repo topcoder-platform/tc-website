@@ -41,7 +41,7 @@ public class StudioLeaderBoardRow {
     public void calculateBestPoints(int max) {
         int total = 0;
         Collections.sort(completedPoints);
-        for (int i = completedPoints.size() - 1; i >= 0 && completedPoints.size() - i < max ; i--) {
+        for (int i = completedPoints.size() - 1; i >= 0 && completedPoints.size() - i <= max ; i--) {
             total += completedPoints.get(i); 
         }
         bestPoints = total;
