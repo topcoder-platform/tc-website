@@ -168,6 +168,8 @@
     </target>
 
     <target name="war" depends="compile">
+        <ant antfile="build_tc.xml" target="build-security"/>
+
         <war warfile="${war.dir}/distui.war" webxml="${resources}/distui/web.xml">
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="errorPage.jsp"/>
@@ -204,6 +206,9 @@
             <lib dir="${bin}">
                 <include name="shared.jar"/>
                 <include name="tcwebcommon.jar"/>
+            </lib>
+            <lib dir="${ejb_jars}">
+                <include name="security.jar"/>
             </lib>
         </war>
         <unwar src="${war.dir}/distui.war" dest="${jboss_deploy}/distui.war/" overwrite="yes"/>
