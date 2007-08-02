@@ -2,7 +2,9 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page import="com.topcoder.web.common.WebConstants" %>
 
-<c:import url="http://<%=ApplicationServer.SERVER_NAME%>/distui/">
+<c:set value="<%=ApplicationServer.SERVER_NAME%>" var="serverName"/>
+
+<c:import url="http://${serverName}/distui/">
     <c:param name="<%=WebConstants.MODULE_KEY%>" value="LeftNav"/>
     <c:param name="node" value="${params['node']}"/>
 </c:import>
