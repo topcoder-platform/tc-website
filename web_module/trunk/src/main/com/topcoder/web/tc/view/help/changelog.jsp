@@ -47,6 +47,7 @@
     5.10.15 - 2007.07.xx
     <ul>
         <li>Fix bug where affidavit update and affirmation at the same time wasn't atomic -pulky</li>
+        <li>Added page to be able to change TCCC07 sections -pulky</li>
         <li>Fix bug where someone that is not registered for competitions couldn't see a marathon match problem
             statement (default their langauge to java) -dok
         </li>
