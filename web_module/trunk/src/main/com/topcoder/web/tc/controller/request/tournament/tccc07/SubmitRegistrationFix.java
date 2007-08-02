@@ -125,7 +125,7 @@ public class SubmitRegistrationFix extends SubmitRegistrationBase {
                 
                 Response existingResponse = (new SurveyHelper()).findResponse(user.getResponses(), r.getQuestion().getId()); 
                 if (existingResponse != null) {
-                    user.getResponses().remove(existingResponse);
+                    user.removeResponse(existingResponse);
                 }
 
                 addResponses.add(r);
