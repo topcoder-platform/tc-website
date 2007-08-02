@@ -67,7 +67,8 @@ public class MatchWinners extends Base {
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
             setDefault(DataAccessConstants.START_RANK, startRank);
             getRequest().setAttribute("resultMap", result);
-            getRequest().setAttribute("matches", rsc);
+            getRequest().setAttribute("list", rsc);
+            getRequest().setAttribute("columnMap", rsc.getColumnNameMap());            
             getRequest().setAttribute("croppedDataBefore", rsc.croppedDataBefore());
             getRequest().setAttribute("croppedDataAfter", rsc.croppedDataAfter());
 
