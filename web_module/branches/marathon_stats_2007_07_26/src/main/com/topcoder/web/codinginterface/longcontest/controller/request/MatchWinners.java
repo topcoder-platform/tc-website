@@ -12,10 +12,11 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
 
 /**
- *
+ * List the winner(s) for each match.
+ * 
  * @author cucu
  */
-public class MatchList extends Base {
+public class MatchWinners extends Base {
 
     protected void longContestProcessing() throws TCWebException {
         try {
@@ -40,11 +41,11 @@ public class MatchList extends Base {
 
             int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
 
-            r.setContentHandle("marathon_match_list");
+            r.setContentHandle("marathon_match_winners");
 
             Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME,true).getData(r);
 
-            ResultSetContainer rsc = result.get("marathon_match_list");
+            ResultSetContainer rsc = result.get("marathon_match_winners");
 
             if (!sortCol.equals("")) {
                 rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
@@ -52,21 +53,21 @@ public class MatchList extends Base {
                 setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
             }
             
-            result.put("marathon_match_list", (ResultSetContainer)rsc.subList(Integer.parseInt(startRank)-1, endRank));
+            result.put("marathon_match_winners", (ResultSetContainer)rsc.subList(Integer.parseInt(startRank)-1, endRank));
 
             SortInfo s = new SortInfo();
-            s.addDefault(rsc.getColumnIndex("num_competitors"), "desc");            
+/*            s.addDefault(rsc.getColumnIndex("num_competitors"), "desc");            
             s.addDefault(rsc.getColumnIndex("num_submissions"), "desc");
             s.addDefault(rsc.getColumnIndex("avg_submissions"), "desc");
             s.addDefault(rsc.getColumnIndex("date"), "desc");
-
+*/
+            
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
             setDefault(DataAccessConstants.START_RANK, startRank);
             getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("matches", rsc);
-            getRequest().setAttribute("columnMap", rsc.getColumnNameMap());
             getRequest().setAttribute("croppedDataBefore", rsc.croppedDataBefore());
             getRequest().setAttribute("croppedDataAfter", rsc.croppedDataAfter());
 
