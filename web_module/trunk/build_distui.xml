@@ -72,7 +72,7 @@
         <pathelement location="${jars.dir}/hibernate-3.1/ant-antlr-1.6.5.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.1/antlr-2.7.6rc1.jar"/>
         
-
+        <pathelement location="${jars.dir}/httpunit.jar"/>
 
 
 
