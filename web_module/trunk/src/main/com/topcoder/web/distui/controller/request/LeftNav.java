@@ -8,7 +8,7 @@ package com.topcoder.web.distui.controller.request;
  */
 public class LeftNav extends Base {
     public void process() throws Exception {
-        setNextPage("/includes/global_left.jsp");
+        setNextPage("/leftNav.jsp");
         setIsNextPageInContext(true);
     }
 }
