@@ -41,49 +41,54 @@
 <div class="sectionHeader">Match Editorial Archive - 2007</div>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="3">
-<tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
-   <tr><td valign="middle" class="bodyText" colspan="2">
+    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+    <tr><td valign="middle" class="bodyText" colspan="2">
+    <strong>August</strong></td></tr>
+    <tr><td class="bodyText">08.01.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 36 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm36">Problem Set & Analysis</a></td></tr>
+    
+    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+    <tr><td valign="middle" class="bodyText" colspan="2">
     <strong>July</strong></td></tr>
     <tr><td class="bodyText">07.21.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 35 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm35">Problem Set & Analysis</a></td></tr>
     <tr><td class="bodyText">07.17.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 34 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm34">Problem Set & Analysis</a></td></tr>
     <tr><td class="bodyText">07.12.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 33 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm33">Problem Set & Analysis</a></td></tr>
-
-   <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
-   <tr><td valign="middle" class="bodyText" colspan="2">
+    
+    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+    <tr><td valign="middle" class="bodyText" colspan="2">
     <strong>May</strong></td></tr>
-   <tr><td class="bodyText">05.19.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Championship Round - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Champ">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">05.19.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Semifinal Round - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Semi">Problem Set & Analysis</a></td></tr>
-   
-   <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
-   <tr><td valign="middle" class="bodyText" colspan="2">
+    <tr><td class="bodyText">05.19.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Championship Round - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Champ">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">05.19.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Semifinal Round - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Semi">Problem Set & Analysis</a></td></tr>
+    
+    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+    <tr><td valign="middle" class="bodyText" colspan="2">
     <strong>March</strong></td></tr>
-   <tr><td class="bodyText">03.26.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 3 Beta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Beta">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">03.26.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 3 Delta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Delta">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">03.19.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 3 Gamma - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Gamma">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">03.19.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 3 Alpha - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Alpha">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">03.12.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 2 Delta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Delta">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">03.12.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 2 Beta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Beta">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">03.08.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 2 Alpha - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Alpha">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">03.08.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 2 Gamma - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Gamma">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">03.06.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 1 Delta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Delta">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">03.06.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 1 Beta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Beta">Problem Set & Analysis</a></td></tr>
-
-   <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
-   <tr><td valign="middle" class="bodyText" colspan="2">
+    <tr><td class="bodyText">03.26.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 3 Beta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Beta">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">03.26.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 3 Delta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Delta">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">03.19.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 3 Gamma - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Gamma">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">03.19.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 3 Alpha - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Alpha">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">03.12.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 2 Delta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Delta">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">03.12.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 2 Beta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Beta">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">03.08.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 2 Alpha - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Alpha">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">03.08.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 2 Gamma - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Gamma">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">03.06.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 1 Delta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Delta">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">03.06.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 1 Beta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Beta">Problem Set & Analysis</a></td></tr>
+    
+    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+    <tr><td valign="middle" class="bodyText" colspan="2">
     <strong>February</strong></td></tr>
-   <tr><td class="bodyText">02.26.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 1 Alpha - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Alpha">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">02.26.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 1 Gamma - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Gamma">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">02.12.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 32 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm32">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">02.05.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 31 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm31">Problem Set & Analysis</a></td></tr>
-
-   <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
-   <tr><td valign="middle" class="bodyText" colspan="2">
+    <tr><td class="bodyText">02.26.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 1 Alpha - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Alpha">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">02.26.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 1 Gamma - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Gamma">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">02.12.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 32 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm32">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">02.05.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 31 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm31">Problem Set & Analysis</a></td></tr>
+    
+    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+    <tr><td valign="middle" class="bodyText" colspan="2">
     <strong>January</strong></td></tr>
-   <tr><td class="bodyText">01.29.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 30 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm30">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">01.22.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 29 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm29">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">01.15.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 28 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm28">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">01.08.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 27 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm27">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">01.03.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 26 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm26">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">01.29.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 30 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm30">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">01.22.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 29 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm29">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">01.15.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 28 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm28">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">01.08.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 27 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm27">Problem Set & Analysis</a></td></tr>
+    <tr><td class="bodyText">01.03.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 26 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm26">Problem Set & Analysis</a></td></tr>
 </table>
 
 <br><br>
