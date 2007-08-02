@@ -5,6 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.collections.list.UnmodifiableList;
+
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.SurveyHelper;
 import com.topcoder.web.common.TCWebException;
@@ -125,16 +127,20 @@ public class SubmitRegistrationFix extends SubmitRegistrationBase {
                 
                 Response existingResponse = (new SurveyHelper()).findResponse(user.getResponses(), r.getQuestion().getId()); 
                 if (existingResponse != null) {
+                    // change answer
+                    
                     user.removeResponse(existingResponse);
+                    existingResponse.setAnswer(r.getAnswer());
+                    addResponses.add(existingResponse);
+                } else {
+                    addResponses.add(r);
                 }
-
-                addResponses.add(r);
             }
         }
-        
+
         user.addResponse(addResponses);
         userDAO.saveOrUpdate(user);
-
+            
         getRequest().setAttribute("eligible", eligible);
     }
 
