@@ -65,8 +65,6 @@ public class IndividualResultsFeed extends Base {
             RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_marathon_submission_history"); 
             AllColumns acSubm = new AllColumns("");
             acSubm.replace(new Column("time", "time", null, null, new DateFormatter()));
-            acSubm.replace(new Column("arguments", "arguments", null, null, new QuotedTextFormatter()));
-            acSubm.replace(new Column("fatal_errors", "fatal_errors", null, null, new QuotedTextFormatter()));
 
             submissions.add(acSubm);
 
@@ -80,6 +78,9 @@ public class IndividualResultsFeed extends Base {
             if (!full) {
                 ac.skip("arguments");
                 ac.skip("fatal_errors");
+            } else {
+                ac.replace(new Column("arguments", "arguments", null, null, new QuotedTextFormatter()));
+                ac.replace(new Column("fatal_errors", "fatal_errors", null, null, new QuotedTextFormatter()));
             }
             
             testcases.add(ac);
