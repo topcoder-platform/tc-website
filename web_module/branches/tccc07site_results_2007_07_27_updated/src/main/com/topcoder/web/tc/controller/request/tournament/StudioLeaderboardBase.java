@@ -27,6 +27,13 @@ import com.topcoder.web.tc.controller.request.development.Base;
  */
 public abstract class StudioLeaderboardBase extends Base {
     
+    public static final String RANK_COL = "1";
+    public static final String HANDLE_COL = "2";
+    public static final String COMPLETED_CONTESTS_COL = "3";
+    public static final String COMPLETED_POINTS_COL = "4";
+    public static final String CURRENT_CONTESTS_COL = "5";
+
+
     protected abstract String getContestPrefix();
     
     protected abstract int getPlacementPoints(int contestPlace);
@@ -83,6 +90,20 @@ public abstract class StudioLeaderboardBase extends Base {
         ResultSetContainer rsc = (ResultSetContainer) result.get(getCommandName());
 
         // first thing we need to do is calculate placement points for each contest
+        List<StudioLeaderBoardRow> results = calculatePlacementPoints(rsc);        
+        
+        // generate rank
+        generateRank(results);
+        
+        // sort
+        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        sortResult(results, sortCol, "desc".equals(sortDir));
+        
+        getRequest().setAttribute("result", results);
+    }
+
+    private List<StudioLeaderBoardRow> calculatePlacementPoints(ResultSetContainer rsc) {
         long prevContestId = 0;
         int contestPlace = 1;
         Map<Long, StudioLeaderBoardRow> leaderBoard = new HashMap<Long, StudioLeaderBoardRow>();
@@ -114,9 +135,12 @@ public abstract class StudioLeaderboardBase extends Base {
         ArrayList<StudioLeaderBoardRow> results = new ArrayList<StudioLeaderBoardRow>(leaderBoard.values());
         for (StudioLeaderBoardRow row : results) {
             row.calculateBestPoints(getMaxContests());
-        }        
+        }
         
-        // generate rank
+        return results;
+    }
+
+    private void generateRank(List<StudioLeaderBoardRow> results) {
         Collections.sort(results, new Comparator<StudioLeaderBoardRow>() {
             public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
                 return arg1.getBestPoints().compareTo(arg0.getBestPoints());
@@ -135,14 +159,6 @@ public abstract class StudioLeaderboardBase extends Base {
             prevPoints = row.getBestPoints();
             first = false;
         }
-        
-        // sort
-        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-
-        sortResult(results, sortCol, "desc".equals(sortDir));
-        
-        getRequest().setAttribute("result", results);
     }
     
     
@@ -151,32 +167,30 @@ public abstract class StudioLeaderboardBase extends Base {
             return;
         }
 
-        if (sortCol.equals("2")) {
+        if (sortCol.equals(HANDLE_COL)) {
             Collections.sort(result, new Comparator<StudioLeaderBoardRow>() {
                 public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
                     return arg0.getHandleLower().compareTo(arg1.getHandleLower());
                 }
             });
-        } else  if (sortCol.equals("3")) {
-        } else  if (sortCol.equals("4")) {
+        } else  if (sortCol.equals(COMPLETED_CONTESTS_COL)) {
             Collections.sort(result, new Comparator<StudioLeaderBoardRow>() {
                 public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
                     return arg0.getCompletedContests().compareTo(arg1.getCompletedContests());
                 }
             });
-        } else  if (sortCol.equals("5")) {
+        } else  if (sortCol.equals(COMPLETED_POINTS_COL)) {
             Collections.sort(result, new Comparator<StudioLeaderBoardRow>() {
                 public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
                     return arg0.getBestPoints().compareTo(arg1.getBestPoints());
                 }
             });
-        } else  if (sortCol.equals("6")) {
+        } else  if (sortCol.equals(CURRENT_CONTESTS_COL)) {
             Collections.sort(result, new Comparator<StudioLeaderBoardRow>() {
                 public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
                     return arg0.getCurrentContests().compareTo(arg1.getCurrentContests());
                 }
             });
-        } else  if (sortCol.equals("7")) {
         } else {
             // Default, sort by rank.
 
@@ -192,13 +206,11 @@ public abstract class StudioLeaderboardBase extends Base {
         }
         
         SortInfo s = new SortInfo();
-        s.addDefault(1, "desc"); // rank
-        s.addDefault(2, "asc"); // handle lower
-        s.addDefault(3, "desc"); // total potential points
-        s.addDefault(4, "desc"); // completed contests
-        s.addDefault(5, "desc"); // completed points
-        s.addDefault(6, "desc"); // current contests
-        s.addDefault(7, "desc"); // current points
+        s.addDefault(Integer.parseInt(RANK_COL), "desc"); // rank
+        s.addDefault(Integer.parseInt(HANDLE_COL), "asc"); // handle lower
+        s.addDefault(Integer.parseInt(COMPLETED_CONTESTS_COL), "desc"); // completed contests
+        s.addDefault(Integer.parseInt(COMPLETED_POINTS_COL), "desc"); // completed points
+        s.addDefault(Integer.parseInt(CURRENT_CONTESTS_COL), "desc"); // current contests
         
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
