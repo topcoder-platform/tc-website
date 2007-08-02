@@ -8,7 +8,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.datafeed.AllColumns;
 import com.topcoder.web.common.datafeed.Column;
 import com.topcoder.web.common.datafeed.CommandRunner;
@@ -100,7 +99,7 @@ public class IndividualResultsFeed extends Base {
     }
     
     /**
-     * Formats a quoted text by removing the quotes and escaping the html.
+     * Formats a quoted text by removing the quotes.
      *  
      * @author Cucu
      *
@@ -112,14 +111,11 @@ public class IndividualResultsFeed extends Base {
 
             if (s == null || s.length() < 2) return s;
             
-            log.debug("format: " + s);
-            log.debug("chars:" +s.charAt(0) + "," + s.charAt(s.length() - 1));
             if (s.charAt(0)== '"' && s.charAt(s.length() - 1) == '"') {
-                s = s.substring(1, s.length() - 2);
-                log.debug("removed chars: " + s);
+                s = s.substring(1, s.length() - 1);
             }
             
-            return StringUtils.htmlEncode(s);
+            return s;
         }
         
     }
