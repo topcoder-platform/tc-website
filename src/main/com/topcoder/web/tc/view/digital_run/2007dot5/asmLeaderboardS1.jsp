@@ -81,28 +81,28 @@
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">12000.00</td>
 <td class="valueR">$20,000.00</td>
-<td class="valueR">$11,772.32</td>
-<td class="valueR">$31,772.32</td>
+<td class="valueR">$11,670.55</td>
+<td class="valueR">$31,670.55</td>
     </tr>
     <tr class="light">
 <td class="valueC">2</td>
 <td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="11790647" /></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
-<td class="valueR">9176.67</td>
+<td class="valueR">9390.00</td>
 <td class="valueR">$8,500.00</td>
-<td class="valueR">$9,002.56</td>
-<td class="valueR">$17,502.56</td>
+<td class="valueR">$9,132.21</td>
+<td class="valueR">$17,632.21</td>
     </tr>
     <tr class="light">
 <td class="valueC">2</td>
 <td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="22672905" /></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
-<td class="valueR">9176.67</td>
+<td class="valueR">9390.00</td>
 <td class="valueR">$8,500.00</td>
-<td class="valueR">$9,002.56</td>
-<td class="valueR">$17,502.56</td>
+<td class="valueR">$9,132.21</td>
+<td class="valueR">$17,632.21</td>
     </tr>
     <tr class="light">
 <td class="valueC">4</td>
@@ -111,8 +111,8 @@
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">7000.00</td>
 <td class="valueR">$3,000.00</td>
-<td class="valueR">$6,867.19</td>
-<td class="valueR">$9,867.19</td>
+<td class="valueR">$6,807.82</td>
+<td class="valueR">$9,807.82</td>
     </tr>
     <tr class="light">
 <td class="valueC">5</td>
@@ -121,8 +121,8 @@
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">6950.00</td>
 <td class="valueR">$2,000.00</td>
-<td class="valueR">$6,818.13</td>
-<td class="valueR">$8,818.13</td>
+<td class="valueR">$6,759.19</td>
+<td class="valueR">$8,759.19</td>
     </tr>
     <tr class="light">
 <td class="valueC">6</td>
@@ -131,8 +131,8 @@
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">4625.00</td>
 <td class="valueR">&nbsp;</td>
-<td class="valueR">$4,537.25</td>
-<td class="valueR">$4,537.25</td>
+<td class="valueR">$4,498.02</td>
+<td class="valueR">$4,498.02</td>
     </tr>
     <tr class="light">
 <td class="valueC">7</td>
@@ -261,7 +261,9 @@
     * Prizes are based on current earned points and the dollar per point value for completed projects. Current and
     future projects may affect the final results.
 </p>
-<p class="small" align="left">Updated Aug 8, 2007</p>
+<p class="small" align="left">
+    Updated Aug 2, 2007
+</p>
 
 <div class="popUp" id="myPopUp">
     <div id="popUpText">&nbsp;</div>
