@@ -8,8 +8,8 @@
 
     <distributable/>
     <servlet>
-        <servlet-name>shared</servlet-name>
-        <servlet-class>com.topcoder.web.sharedjsp.controller.SharedServlet</servlet-class>
+        <servlet-name>distui</servlet-name>
+        <servlet-class>com.topcoder.web.distui.controller.DistUIServlet</servlet-class>
 
         <!-- begin parameters required by BaseServlet -->
         <init-param>
@@ -35,7 +35,7 @@
         -->
         <init-param>
             <param-name>processor_path</param-name>
-            <param-value>com.topcoder.web.sharedjsp.controller.request.</param-value>
+            <param-value>com.topcoder.web.distui.controller.request.</param-value>
         </init-param>
         <init-param>
             <param-name>error_page</param-name>
@@ -67,7 +67,7 @@
 
 
     <servlet-mapping>
-        <servlet-name>shared</servlet-name>
+        <servlet-name>distui</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
