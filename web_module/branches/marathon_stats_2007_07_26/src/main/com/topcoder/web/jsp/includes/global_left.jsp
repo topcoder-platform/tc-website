@@ -119,7 +119,7 @@
          
          
          nav.search("m_long_contests").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_long_stats')", "Statistics", "m_long_stats"));
-         nav.search("m_long_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"TO DO", "Match Archive", "long_match_archive"));
+         nav.search("m_long_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=MatchList", "Match Archive", "long_match_archive"));
          nav.search("m_long_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"TO DO", "Match Overviews", "long_match_overviews"));
          nav.search("m_long_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"TO DO", "Match Winners", "long_match_winners"));        
          nav.search("m_long_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=Static&amp;d1=match_editorials&amp;d2=archive", "Match Editorials", "long_editorials"));

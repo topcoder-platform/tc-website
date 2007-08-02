@@ -47,7 +47,7 @@ public class IndividualResultsFeed extends Base {
         DataResource resource = new DataResource(r.getContentHandle());
         
         if (new TCSAuthorization(getUser()).hasPermission(resource)) {
-            DataAccessInt da = getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
+            DataAccessInt da = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
             CommandRunner cmd = new CommandRunner(da, r);
             
             String handle = "N/A";

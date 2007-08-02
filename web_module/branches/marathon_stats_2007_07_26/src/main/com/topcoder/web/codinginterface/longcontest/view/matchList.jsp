@@ -63,7 +63,6 @@ myForm.submit();
         ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("marathon_match_list");
         %>
         
-        <c:set value="<%=list%>" var="matches"/>
         
 
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -90,40 +89,69 @@ myForm.submit();
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
-                <div class="pagingBox">
-                    <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                    | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
-                </div>
+				<div class="pagingBox" style="width:300px;">
+				    <c:choose>
+				        <c:when test="${croppedDataBefore}">
+				            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+				        </c:when>
+				        <c:otherwise>
+				            &lt;&lt; prev
+				        </c:otherwise>
+				    </c:choose>
+				    |
+				    <c:choose>
+				        <c:when test="${croppedDataAfter}">
+				            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+				        </c:when>
+				        <c:otherwise>
+				            next &gt;&gt;
+				        </c:otherwise>
+				    </c:choose>
+				</div>
 
-<table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
-   <tr><td class="title" colspan="6">Marathon Match Archive</td></tr>
-   <tr>
-      <td class="header" width="33%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="${matches.columnMap['name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
-      <td class="headerC" width="33%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("date")%>" includeParams="true" excludeParams="sr" />">Date</a></td>
-      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("num_competitors")%>" includeParams="true" excludeParams="sr" />">Competitors</a></td>
-      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("num_submissions")%>" includeParams="true" excludeParams="sr" />">Total Submissions</a></td>
-      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("avg_submissions")%>" includeParams="true" excludeParams="sr" />">Avg. Submissions</a></td>
-      <td class="headerC" width="33%">&#160;</td>
-   </tr>
-   <c:forEach items="${matches}" var="row" varStatus="status">
-       <tr class='${status.index % 2 == 1? "dark" : "light" }'>
-			<td class="value" nowrap="nowrap">
-				<a href="TO DO"/>${row.map['name']}</a>
-			</td>
-			<td class="valueC"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
-			<td class="valueR">${row.map['num_competitors']}</td>
-			<td class="valueR">${row.map['num_submissions']}</td>
-			<td class="valueR"><fmt:formatNumber value="${row.map['avg_submissions']}"  minFractionDigits="2" maxFractionDigits="2"/></td>		
-			<td class="valueC"><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=${row.map['forum_id']} class="statLink">discuss</a></td>
-		</tr>   
-   </c:forEach>   
-</table>
+			<table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
+			   <tr><td class="title" colspan="6">Marathon Match Archive</td></tr>
+			   <tr>
+			      <td class="header" width="33%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="${matches.columnMap['name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
+			      <td class="headerC" width="33%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("date")%>" includeParams="true" excludeParams="sr" />">Date</a></td>
+			      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("num_competitors")%>" includeParams="true" excludeParams="sr" />">Competitors</a></td>
+			      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("num_submissions")%>" includeParams="true" excludeParams="sr" />">Total Submissions</a></td>
+			      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("avg_submissions")%>" includeParams="true" excludeParams="sr" />">Avg. Submissions</a></td>
+			      <td class="headerC" width="33%">&#160;</td>
+			   </tr>
+			   <c:forEach items="${matches}" var="row" varStatus="status">
+			       <tr class='${status.index % 2 == 1? "dark" : "light" }'>
+						<td class="value" nowrap="nowrap">
+							<a href="TO DO"/>${row.map['name']}</a>
+						</td>
+						<td class="valueC"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
+						<td class="valueR">${row.map['num_competitors']}</td>
+						<td class="valueR">${row.map['num_submissions']}</td>
+						<td class="valueR"><fmt:formatNumber value="${row.map['avg_submissions']}"  minFractionDigits="2" maxFractionDigits="2"/></td>		
+						<td class="valueC"><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=${row.map['forum_id']}" class="statLink">discuss</a></td>
+					</tr>   
+			   </c:forEach>   
+			</table>
 
-                    <div class="pagingBox">
-                        <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                        | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
-
-                        <br>
+		<div class="pagingBox" style="width:300px;">
+		    <c:choose>
+		        <c:when test="${croppedDataBefore}">
+		            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+		        </c:when>
+		        <c:otherwise>
+		            &lt;&lt; prev
+		        </c:otherwise>
+		    </c:choose>
+		    |
+		    <c:choose>
+		        <c:when test="${croppedDataAfter}">
+		            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+		        </c:when>
+		        <c:otherwise>
+		            next &gt;&gt;
+		        </c:otherwise>
+		    </c:choose>
+		</div>
 
                         View &#160;
                         <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>

@@ -55,24 +55,19 @@ public class MatchList extends Base {
             result.put("marathon_match_list", (ResultSetContainer)rsc.subList(Integer.parseInt(startRank)-1, endRank));
 
             SortInfo s = new SortInfo();
-/*            s.addDefault(rsc.getColumnIndex("numcompetitors"), "desc");
-            s.addDefault(rsc.getColumnIndex("numcompetitors1"), "desc");
-            s.addDefault(rsc.getColumnIndex("numcompetitors2"), "desc");
-            s.addDefault(rsc.getColumnIndex("start_date"), "desc");
-            s.addDefault(rsc.getColumnIndex("submitted1"), "desc");
-            s.addDefault(rsc.getColumnIndex("submitted2"), "desc");
-            s.addDefault(rsc.getColumnIndex("avgsubmitted1"), "desc");
-            s.addDefault(rsc.getColumnIndex("avgsubmitted2"), "desc");
-            s.addDefault(rsc.getColumnIndex("challengessuccessful1"), "desc");
-            s.addDefault(rsc.getColumnIndex("challengessuccessful2"), "desc");
-            s.addDefault(rsc.getColumnIndex("avgchallengessuccessful1"), "desc");
-            s.addDefault(rsc.getColumnIndex("avgchallengessuccessful2"), "desc");
-*/
+            s.addDefault(rsc.getColumnIndex("num_competitors"), "desc");            
+            s.addDefault(rsc.getColumnIndex("num_submissions"), "desc");
+            s.addDefault(rsc.getColumnIndex("avg_submissions"), "desc");
+            s.addDefault(rsc.getColumnIndex("date"), "desc");
+
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
             setDefault(DataAccessConstants.START_RANK, startRank);
             getRequest().setAttribute("resultMap", result);
+            getRequest().setAttribute("matches", rsc);
+            getRequest().setAttribute("croppedDataBefore", rsc.croppedDataBefore());
+            getRequest().setAttribute("croppedDataAfter", rsc.croppedDataAfter());
 
             setNextPage(Constants.PAGE_MATCH_LIST);
             setIsNextPageInContext(true);
