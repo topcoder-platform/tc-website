@@ -1,16 +1,13 @@
 package com.topcoder.web.distui.controller;
 
-import com.topcoder.security.TCSubject;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.RequestProcessor;
-import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -40,6 +37,7 @@ public class DistUIServlet extends BaseServlet {
                 TCRequest tcRequest = HttpObjectFactory.createRequest(request);
                 TCResponse tcResponse = HttpObjectFactory.createResponse(response);
 
+/*
                 if (log.isDebugEnabled()) {
                     WebAuthentication authentication;
                     SessionInfo info;
@@ -60,6 +58,7 @@ public class DistUIServlet extends BaseServlet {
                     loginfo.append(" *]");
                     log.info(loginfo);
                 }
+*/
 
 
                 String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
