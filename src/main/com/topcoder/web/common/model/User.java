@@ -436,6 +436,10 @@ public class User extends Base {
         responses.addAll(r);
     }
 
+    public void removeResponse(Response r) {
+        responses.remove(r);
+    }
+
     public void addEventRegistration(Event event, List responses, Boolean eligible) {
         EventRegistration er = new EventRegistration();
         er.getId().setUser(this);
