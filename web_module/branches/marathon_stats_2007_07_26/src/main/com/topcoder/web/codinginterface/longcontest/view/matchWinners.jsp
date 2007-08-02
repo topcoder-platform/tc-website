@@ -118,7 +118,7 @@ myForm.submit();
 						<td class="value" nowrap="nowrap">
 							<a href="TO DO"/>${row.map['name']}</a>
 						</td>
-						<td class="value"><tc-webtag:handle coderId="${row.map['coder_id']" context="marathon_match"/>}</td>
+						<td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon_match"/></td>
 						<td class="valueR">${row.map['num_wins']}</td>
 					</tr>   
 					<c:set var="even" value="${1-even }" />
