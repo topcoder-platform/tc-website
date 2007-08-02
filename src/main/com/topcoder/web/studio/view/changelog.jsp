@@ -25,7 +25,13 @@
 
 
 <div class="contentSpacer">
+<p>
+    2.0.4 - 2007.08.02
+    <ul>
+        <li>Just show an X for submissions that failed screening on the submissions page -dok</li>
+    </ul>
 
+</p>
 
 <p>
     2.0.3 - 2007.07.30
