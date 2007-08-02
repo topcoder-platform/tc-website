@@ -14,11 +14,11 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
-import com.topcoder.web.tc.model.dr.IBoardRow;
 
 /**
  * @author pulky
@@ -119,7 +119,7 @@ public abstract class StudioLeaderboardBase extends Base {
         // generate rank
         Collections.sort(results, new Comparator<StudioLeaderBoardRow>() {
             public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
-                return arg0.getBestPoints().compareTo(arg1.getBestPoints());
+                return arg1.getBestPoints().compareTo(arg0.getBestPoints());
             }
         });
         boolean first = true;
@@ -137,8 +137,8 @@ public abstract class StudioLeaderboardBase extends Base {
         }
         
         // sort
-        String sortCol = getRequest().getParameter(DataAccessConstants.SORT_COLUMN);
-        String sortDir = getRequest().getParameter(DataAccessConstants.SORT_DIRECTION);
+        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
 
         sortResult(results, sortCol, "desc".equals(sortDir));
         

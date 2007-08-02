@@ -124,7 +124,7 @@
                                     </span>
                                 </c:when>
                                 <c:otherwise>
-                                    <span class="bigRed">${resultRow.rank}
+                                    <span class="bigRed">
                                         <c:choose>
                                             <c:when test="${resultRow.bestPoints > 0}">
                                                 ${resultRow.bestPoints}
