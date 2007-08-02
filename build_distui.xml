@@ -193,15 +193,15 @@
         <antcall target="war"/>
         <antcall target="expand"/>
 
+
+    </target>
+
+    <target name="expand">
         <copy todir="${jboss_conf}">
             <fileset dir="${resources}">
                 <include name="ApplicationServer.properties"/>
             </fileset>
         </copy>
-
-    </target>
-
-    <target name="expand">
         <unwar src="${war.dir}/distui.war" dest="${jboss_deploy}/distui.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/distui.war/META-INF"/>
     </target>
