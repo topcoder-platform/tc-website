@@ -7,7 +7,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>08.03.07<br>4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco07&d3=movies' refer='/tc' />">2007 TopCoder Open webcast</A></span><br><br>
-        Maybe you missed the live broadcast.  Maybe you want to relive the excitement and watch it a second time.  Or maybe you just love pretending every day is the TCO.  Flip that calendar back to June, kick back, and enjoy the TCO07 webcast.</td>
+        Maybe you missed the live broadcast.  Maybe you want to relive the excitement and watch it a second time.  Or maybe you just love pretending every day is the TCO.  Rewind that calendar to June, kick back, and enjoy the TCO07 webcast.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco07&d3=movies' refer='/tc' />">details</A> | 
