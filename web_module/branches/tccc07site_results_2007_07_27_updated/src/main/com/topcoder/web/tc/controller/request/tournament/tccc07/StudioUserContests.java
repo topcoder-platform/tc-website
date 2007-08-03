@@ -14,11 +14,32 @@ import com.topcoder.web.tc.controller.request.tournament.StudioUserContestsBase;
  */
 public class StudioUserContests extends StudioUserContestsBase {
 
+    int[] placementPoints = new int[]{17, 15, 12, 10, 7, 5, 4};
+
     /* (non-Javadoc)
      * @see com.topcoder.web.tc.controller.request.tournament.StudioUserContestsBase#getContestPrefix()
      */
     @Override
     protected String getContestPrefix() {
         return "tccc07";
+    }
+    
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.tournament.StudioUserContestsBase#getMaxContests()
+     */
+    @Override
+    protected int getMaxContests() {
+        return 6;
+    }
+    
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.tournament.StudioUserContestsBase#getPlacementPoints()
+     */
+    @Override
+    protected int getPlacementPoints(int contestPlace) {
+        if (contestPlace <= placementPoints.length) {
+            return placementPoints[contestPlace - 1];
+        }
+        return 0;
     }
 }
