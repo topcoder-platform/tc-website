@@ -5,6 +5,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
@@ -54,6 +55,7 @@ public class LoadFromReview extends Base {
                     cr.setPlaced(row.getIntItem("placement"));
                 }
 
+                refreshCache(contest);
 
                 setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
                         "=AdminViewSubmissions&" + Constants.CONTEST_ID + "=" + contestId);
@@ -66,6 +68,20 @@ public class LoadFromReview extends Base {
 
 
     }
+
+
+    private void refreshCache(Contest c) {
+        try {
+            //todo fix this to work with both caches
+            log.debug("refreshing cache");
+            String key = Constants.CONTEST_ID + "=" + c.getId();
+            CacheClearer.removelike(key);
+        } catch (Exception ignore) {
+            ignore.printStackTrace();
+        }
+    }
+
+
 
 
 }
