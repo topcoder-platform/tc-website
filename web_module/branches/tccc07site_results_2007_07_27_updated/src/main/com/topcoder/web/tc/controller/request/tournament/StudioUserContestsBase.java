@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -18,6 +20,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 import com.topcoder.web.tc.controller.request.development.Base;
 
 /**
@@ -32,8 +35,8 @@ public abstract class StudioUserContestsBase extends Base {
     public static final int END_DATE_COL = 3;
     public static final int REGISTRANTS_COL = 4;
     public static final int SUBMISSIONS_COL = 5;
-    public static final int PLACED_COL = 5;
-    public static final int POINTS_COL = 5;
+    public static final int PLACED_COL = 6;
+    public static final int POINTS_COL = 7;
 
     protected abstract String getContestPrefix();
     
@@ -148,7 +151,30 @@ public abstract class StudioUserContestsBase extends Base {
         }
 
         if (sortCol.equals(String.valueOf(START_DATE_COL))) {
+            Collections.sort(result, new Comparator<StudioUserContestsRow>() {
+                public int compare(StudioUserContestsRow arg0, StudioUserContestsRow arg1) {
+                    return arg0.getStartDate().compareTo(arg1.getStartDate());
+                }
+            });
+            
+//            Collections.sort(result, new Comparator<StudioUserContestsRow>() {
+//                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+//                    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
+//                    try {
+//                        return (sdf.parse(arg0.getCreateDate())).compareTo(sdf.parse(arg1.getCreateDate()));
+//                    } catch (ParseException e) {
+//                        return 0;
+//                    }
+//                }
+//            });
+
+            
         } else  if (sortCol.equals(String.valueOf(END_DATE_COL))) {
+            Collections.sort(result, new Comparator<StudioUserContestsRow>() {
+                public int compare(StudioUserContestsRow arg0, StudioUserContestsRow arg1) {
+                    return arg0.getEndDate().compareTo(arg1.getEndDate());
+                }
+            });
         } else  if (sortCol.equals(String.valueOf(REGISTRANTS_COL))) {
             Collections.sort(result, new Comparator<StudioUserContestsRow>() {
                 public int compare(StudioUserContestsRow arg0, StudioUserContestsRow arg1) {
