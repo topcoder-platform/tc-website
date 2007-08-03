@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>08.03.07<br>4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco07&d3=movies' refer='/tc' />">2007 TopCoder Open webcast</A></span><br><br>
+        Maybe you missed the live broadcast.  Maybe you want to relive the excitement and watch it a second time.  Or maybe you just love pretending every day is the TCO.  Flip that calendar back to June, kick back, and enjoy the TCO07 webcast.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco07&d3=movies' refer='/tc' />">details</A> | 
+        <tc-webtag:forumLink forumID="516866" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.03.07<br>1:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -164,21 +177,5 @@
         <A href="/tc?module=Static&d1=sponsors&d2=btChat20070721">details</A> | 
         <tc-webtag:forumLink forumID="516666" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.23.07<br>5:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm359">SRM 359 - Problem Set &amp; Analysis</A></span><br><br>
-      In Division 1, <tc-webtag:handle coderId="19849563" context="algorithm"/> made a strong start with the first submission on the 500, but fell behind as he was overtaken by competitors submitting fast 1000s. At the start of the challenge phase, <tc-webtag:handle coderId="8355516" context="algorithm"/> was in first with a very fast submissions on the 250 and 1000. Unfortunately, his 500 failed system testing.</td>
-         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="251074" context="algorithm" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm359">full story</A> | 
-         <tc-webtag:forumLink forumID="516056" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    

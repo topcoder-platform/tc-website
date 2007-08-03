@@ -322,9 +322,9 @@
             <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests" target="_blank"><img src="/i/home/regproto_studiopromo.png" alt="2 Registration Prototype contests open @ Studio" border="0" style="display:block;" /></A>
             --%>
             
-            <%-- TCO07 
-               <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07sm.png" alt="TCO07" border="0" style="display:block;"/></A>
-             --%>
+            <%-- TCO07 --%>
+               <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco07&d3=movies' refer='homepage' />"><img src="/i/home/tco07_webcast.png" alt="2007 TopCoder Open webcast replay" /></A>
+             
              
             <%-- TCHS07 
                <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule"><img src="/i/home/tchs07_promo_051007.png" alt="TCHS07" border="0" style="display:block;"/></A>
@@ -342,9 +342,9 @@
             <A href="/tc?module=Static&d1=my_home&d2=empReferrals"><img src="/i/home/empRefSm_20070517.png" alt="TopCoder Employee Referral Program" border="0" style="display:block;"/></A>
              --%>
              
-            <%-- TC CHANNEL --%>
+            <%-- TC CHANNEL 
             <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep03_sm' refer='homepage' />"><img src="/i/home/tcchannel_promo_ep3.png" alt="TC Channel: Episode 3" /></A>
-            
+            --%>
             
             <%-- TCCC07 LOGO DESIGN 
             <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2104"><img src="/i/home/tccc07_logo_design_promo.png" alt="TCCC07 Logo Design Contest" border="0" style="display:block;"/></A>
