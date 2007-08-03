@@ -26,6 +26,15 @@
 
 <div class="contentSpacer">
 <p>
+    2.0.5 - 2007.08.xx
+    <ul>
+        <li>Refresh the cache when scores are loaded from online review -dok</li>
+        <li>Securely access online review web service -dok</li>
+    </ul>
+
+</p>
+
+<p>
     2.0.4 - 2007.08.02
     <ul>
         <li>Just show an X for submissions that failed screening on the submissions page -dok</li>
