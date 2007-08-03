@@ -89,7 +89,7 @@
                         <td class="value" align="right"><%=result.getPayment()%>
                         </td>
                         <td class="valueC">
-                            <a href="/tc?module=TCCC07MemberResults&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a>
+                            <a href="/tc?module=TCCC07MemberResults&amp;eid=7&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a>
                         </td>
                     </tr>
                     <% }%>
