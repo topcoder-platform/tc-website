@@ -5,6 +5,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Submission;
@@ -16,7 +17,7 @@ import java.util.Date;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 18, 2007
  */
-public class ViewSubmissionResults extends BaseSubmissionDataProcessor {
+public class ViewSubmissionResults extends ShortHibernateProcessor {
 
     protected void dbProcessing() throws Exception {
         Long submissionId;
@@ -33,6 +34,8 @@ public class ViewSubmissionResults extends BaseSubmissionDataProcessor {
 
         if (!isOver && s.getResult() != null) {
             throw new NavigationException("Submissions are not available until the contest is over.");
+        } else if (s.getResult()==null) {
+            throw new NavigationException("Results are not available for this submission.");
         } else {
             DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
             Request r = new Request();
