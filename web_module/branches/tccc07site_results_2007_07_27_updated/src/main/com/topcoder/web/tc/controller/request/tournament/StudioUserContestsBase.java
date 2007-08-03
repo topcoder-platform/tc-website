@@ -106,7 +106,6 @@ public abstract class StudioUserContestsBase extends Base {
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         sortResult(results, sortCol, "desc".equals(sortDir));
         
-        
         getRequest().setAttribute("handle", results.get(0).getHandle());
         getRequest().setAttribute("result", results);
     }

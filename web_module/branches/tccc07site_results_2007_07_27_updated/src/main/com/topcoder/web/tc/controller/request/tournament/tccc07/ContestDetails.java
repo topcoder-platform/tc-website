@@ -18,20 +18,13 @@ import java.util.Map;
  * @author dok, pulky
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 1, 2007
- *          
- * To set up a new tournament just copy this class, change the contest prefix constant and
- * create the corresponding commands in query tool named:
- * - CONTEST_PREFIX + "_contest_projects"
- * - CONTEST_PREFIX + "_project_results_all"
- * - CONTEST_PREFIX + "_contest_prizes"
- *           
  */
 public class ContestDetails extends StatBase {
 
     final String CONTEST_PREFIX = "tccc07";
     
     protected String getCommandName() {
-        return CONTEST_PREFIX + "_contest_projects";
+        return "contest_projects";
     }
 
     protected String getDataSourceName() {
@@ -63,9 +56,11 @@ public class ContestDetails extends StatBase {
             Request dataRequest = new Request();
             Map result;
             try {
-                dataRequest.setContentHandle(CONTEST_PREFIX + "_project_results_all");
+                dataRequest.setContentHandle("project_results_all");
+//                dataRequest.setContentHandle(CONTEST_PREFIX + "_project_results_all");
                 dataRequest.setProperty("ct", getRequest().getParameter("ct"));
                 dataRequest.setProperty("pj", String.valueOf(rsc.getIntItem(i, "project_id")));
+                dataRequest.setProperty("eid", getRequest().getParameter("eid"));
 
                 DataAccessInt dai = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true);
                 result = dai.getData(dataRequest);
@@ -74,7 +69,8 @@ public class ContestDetails extends StatBase {
                 throw new TCWebException(e);
             }
 
-            ResultSetContainer rscDetails = (ResultSetContainer) result.get(CONTEST_PREFIX + "_project_results_all");
+//            ResultSetContainer rscDetails = (ResultSetContainer) result.get(CONTEST_PREFIX + "_project_results_all");
+            ResultSetContainer rscDetails = (ResultSetContainer) result.get("project_results_all");
             ResultSetContainer rscComplete = (ResultSetContainer) result.get("project_details");
             boolean isComplete = false;
             if (!rscComplete.isEmpty() && rscComplete.getIntItem(0, "complete_status") == 1) {
@@ -102,7 +98,8 @@ public class ContestDetails extends StatBase {
         Request dataRequest = new Request();
         Map result;
         try {
-            dataRequest.setContentHandle(CONTEST_PREFIX + "_contest_prizes");
+//            dataRequest.setContentHandle(CONTEST_PREFIX + "_contest_prizes");
+            dataRequest.setContentHandle("contest_prizes");
             dataRequest.setProperty("ct", getRequest().getParameter("ct"));
 
             DataAccessInt dai = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true);
@@ -112,7 +109,8 @@ public class ContestDetails extends StatBase {
             throw new TCWebException(e);
         }
 
-        ResultSetContainer rscPrizes = (ResultSetContainer) result.get(CONTEST_PREFIX + "_contest_prizes");
+//        ResultSetContainer rscPrizes = (ResultSetContainer) result.get(CONTEST_PREFIX + "_contest_prizes");
+        ResultSetContainer rscPrizes = (ResultSetContainer) result.get("contest_prizes");
 
         for (int i = 0; i < rscPrizes.size(); i++) {
             addPrize(rscPrizes.getIntItem(i, "user_id"), dfmt.format(rscPrizes.getDoubleItem(i, "prize_payment")));

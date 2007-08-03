@@ -16,18 +16,14 @@ import java.util.Map;
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 1, 2007
- *          
- * To set up a new tournament just copy this class, change the contest prefix constant and
- * create the corresponding commands in query tool named:
- * - CONTEST_PREFIX + "_project_details"
- * - CONTEST_PREFIX + "_project_results"
  */
 public class ProjectDetails extends StatBase {
 
     final String CONTEST_PREFIX = "tccc07";
     
     protected String getCommandName() {
-        return CONTEST_PREFIX + "_project_details";
+//        return CONTEST_PREFIX + "_project_details";
+        return "project_details";
     }
 
     protected String getDataSourceName() {
@@ -41,7 +37,8 @@ public class ProjectDetails extends StatBase {
     protected void statProcessing() throws TCWebException {
         Map result2 = (Map) getRequest().getAttribute("resultMap");
 
-        ResultSetContainer rsc = (ResultSetContainer) result2.get(CONTEST_PREFIX + "_project_results");
+//        ResultSetContainer rsc = (ResultSetContainer) result2.get(CONTEST_PREFIX + "_project_results");
+        ResultSetContainer rsc = (ResultSetContainer) result2.get("project_results");
 
         ArrayList arr = new ArrayList();
 
