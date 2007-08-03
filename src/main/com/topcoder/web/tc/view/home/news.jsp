@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.03.07<br>1:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm361">SRM 361 - Problem Set &amp; Analysis</A></span><br><br>
+      This match, with the money prizes sponsored by TopCoder itself, attracted 1109 coders, including 5 targets. They faced a tricky set of problems in both divisions. Unfortunately, due to an error in one of the problems, the results from Division 2 had to be removed from the statistics.</td>
+         <td class="newsPhoto"><img src="/i/m/slex_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="8382018" context="algorithm" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm361">full story</A> | 
+         <tc-webtag:forumLink forumID="516058" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br>08.02.07<br>6:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=pressroom&d2=art_080207">Fox TV: "Top Computer Programmers Compete"</A></span><br><br>
@@ -166,20 +182,3 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.23.07<br>4:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=072307">What happened in Vegas: TCO07 winners tell all</A></span><br><br>
-      We asked the five winners of the 2007 TopCoder Open five simple questions each to find out just what the winning experience was like. Here's what they told us.</td>
-         <td class="newsPhoto">&nbsp;</td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=072307">full story</A> | 
-         <tc-webtag:forumLink forumID="516686" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
