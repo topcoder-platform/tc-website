@@ -34,46 +34,47 @@
                 Plug-in software installed.</p>
 
             <div align="center">
-                <OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
-                        width="239"
-                        height="26"
-                        name="LaunchApplet"
-                        align="middle"
-                        vspace="0"
-                        hspace="0"
-                        codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
-                    <PARAM value="LaunchApplet" name="name">
-                    <PARAM value="com.topcoder.client.contestApplet.LaunchApplet.class" name="code">
-                    <PARAM name="codebase" value="http://www.topcoder.com/contest/classes">
-                    <PARAM value="ContestApplet.jar" name="archive">
-                    <PARAM value="application/x-java-applet;version=1.3" name="type">
-                    <PARAM value="false" name="scriptable">
-                    <PARAM name="host" value="www.topcoder.com">
-                    <PARAM name="port" value="5001">
-                    <PARAM name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=5051">
-                    <PARAM name="companyName" value="TopCoder">
-                    <PARAM name="sponsorName" value="TCCC07Sponsor">
-                    <EMBED type="application/x-java-applet;version=1.3"
-                           code="com.topcoder.client.contestApplet.LaunchApplet.class"
-                           codebase="http://www.topcoder.com/contest/classes"
-                           name="LaunchApplet"
-                           archive="ContestApplet.jar"
-                           host="www.topcoder.com"
-                           port="5001"
-                           tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=newlistener+port=5051"
-                           companyName="TopCoder"
-                           sponsorName="TCCC07Sponsor"
-                           width="239"
-                           height="26"
-                           align="middle"
-                           vspace="0"
-                           hspace="0"
-                           scriptable="false"
-                           pluginspage="http://java.sun.com/j2se/1.3/jre/index.html">
-                        <NOEMBED>
-                        </NOEMBED>
-                    </EMBED>
-                </OBJECT>
+		<object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+			width="239"
+			height="26"
+			name="LaunchApplet"
+			align="middle"
+			vspace="0"
+			hspace="0"
+			codebase="http://java.sun.com/update/1.4.2/jinstall-1_4_2-windows-i586.cab">
+		
+			<param name="name" value="LaunchApplet"/>
+			<param name="code" value="com.topcoder.client.contestApplet.LaunchApplet.class"/>
+			<param name="codebase" value="/contest/classes"/>
+		
+			<param name="archive" value="ContestApplet.jar"/>
+			<param name="type" value="application/x-java-applet;version=1.4"/>
+			<param name="scriptable" value="false"/>
+			<param name="host" value="www.topcoder.com"/>
+			<param name="port" value="5001"/>
+			<param name="tunnel" value="http://tunnel1.topcoder.com/servlets-examples/tunnel?host=newlistener+port=5001"/>
+			<param name="companyName" value="TopCoder"/>
+			<PARAM name="sponsorName" value="TCCC07Sponsor">
+			<embed type="application/x-java-applet;version=1.4"
+			code="com.topcoder.client.contestApplet.LaunchApplet.class"
+			codebase="/contest/classes"
+			name="LaunchApplet"
+			archive="ContestApplet.jar"
+			host="www.topcoder.com"
+			port="5001"
+			tunnel="http://tunnel1.topcoder.com/servlets-examples/tunnel?host=newlistener+port=5001"
+			companyName="TopCoder"
+			sponsorName="TCCC07Sponsor"
+			width="239"
+			height="26"
+			align="middle"
+			vspace="0"
+			hspace="0"
+			scriptable="false"
+			pluginspage="http://java.sun.com/j2se/1.4/jre/index.html">
+			<noembed></noembed>
+			</embed>
+		</object>
             </div>
             <p><strong>You may minimize this browser window, but do not close it.</strong> Doing so will close the
                 applet.</p>
