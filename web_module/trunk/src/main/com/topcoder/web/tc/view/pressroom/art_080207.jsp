@@ -50,7 +50,7 @@
 <div align="center"><a target="_blank" href="<tc-webtag:linkTracking link='http://www.myfoxchicago.com/myfox/pages/News/Detail?contentId=3949291&version=2&locale=EN-US&layoutCode=VSTY&pageId=3.1.1' refer='/art_080207' />"><img src="/i/pressroom/art_080207-tomek.png" alt="tomek" /></a></div><br />
 <p>"Some of America's smartest computer programmers are facing off in a new competition. Big money and big jobs are on the line. Michelle Gielan reports on the games, the college grad who won more than 100-thousand dollars and how it's all changing the American workforce."</p>
 <p>Congratulations to <tc-webtag:handle coderId="144400" context="algorithm"/> on his appearance – and stay tuned for a full discussion of this report in the upcoming TC Channel Episode 4!</p>
-<p>One minor correction: TopCoder now has more than 118,000 members, rather than the 18,000 the report cites. And as for that unidentified TopCoder employee Fox interviewed -- any guesses? Eternal glory, and possibly some leftovers from the TopCoder prize closet, will go to the first member to identify him in the <tc-webtag:forumLink forumID="516841" message="forum" />.</p>
+<p>As for that unidentified TopCoder employee Fox interviewed -- any guesses? Eternal glory, and possibly some leftovers from the TopCoder prize closet, will go to the first member to identify him in the <tc-webtag:forumLink forumID="516841" message="forum" />.</p>
                         <p><br /><br /></p>
                     </td>
                 </tr>
