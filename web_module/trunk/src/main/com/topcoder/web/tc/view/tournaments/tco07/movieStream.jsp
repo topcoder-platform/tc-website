@@ -67,6 +67,26 @@
         </div>
     </c:otherwise>
 </c:choose>
+<c:choose>
+    <c:when test="${param['clip']=='webcast1'}">
+        <p align="center">
+            &lt;&lt; prev
+            | <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast2&title=Webcast%20Part%202">next &gt;&gt;</a>
+        </p>
+    </c:when>
+    <c:when test="${param['clip']=='webcast2'}">
+        <p align="center">
+            <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast1&title=Webcast%20Part%201">&lt;&lt; prev</a>
+            | <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast3&title=Webcast%20Part%203">next &gt;&gt;</a>
+        </p>
+    </c:when>
+    <c:when test="${param['clip']=='webcast3'}">
+        <p align="center">
+            <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast2&title=Webcast%20Part%202">&lt;&lt; prev</a>
+            | next &gt;&gt;
+        </p>
+    </c:when>
+</c:choose>
 
                     </div>
                 </td>
