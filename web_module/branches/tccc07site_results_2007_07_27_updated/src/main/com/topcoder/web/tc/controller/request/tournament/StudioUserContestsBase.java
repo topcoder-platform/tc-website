@@ -1,7 +1,5 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -20,7 +18,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 import com.topcoder.web.tc.controller.request.development.Base;
 
 /**
@@ -109,6 +106,8 @@ public abstract class StudioUserContestsBase extends Base {
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         sortResult(results, sortCol, "desc".equals(sortDir));
         
+        
+        getRequest().setAttribute("handle", results.get(0).getHandle());
         getRequest().setAttribute("result", results);
     }
 

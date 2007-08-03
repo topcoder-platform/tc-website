@@ -37,7 +37,7 @@
                             <thead>
                                 <tr>
                                     <td class="title" colspan="7">
-                                        <span class="coderText"> ${resultRow.handle}</span> &gt;
+                                        <span class="coderText"> ${handle}</span> &gt;
                                         Completed
                                     </td>
                                 </tr>
