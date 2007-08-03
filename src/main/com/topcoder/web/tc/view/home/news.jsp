@@ -157,11 +157,11 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>07.25.07<br>4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep03_sm' refer='/tc' />">TC Channel: Episode 3</A></span><br><br>
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep03' refer='/tc' />">TC Channel: Episode 3</A></span><br><br>
         In Episode 3 of the TC Channel,  TopCoder's online video news magazine, Dean and Markus look back at highlights from the 2007 TopCoder Open webcast, including the exciting final round of the TCO07 Algorithm Competition.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep03_sm' refer='/tc' />">details</A> | 
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep03' refer='/tc' />">details</A> | 
         <tc-webtag:forumLink forumID="516708" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
