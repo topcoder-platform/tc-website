@@ -34,12 +34,32 @@
                         <h1><span>Movies</span></h1>
 
                         <h2>Webcast</h2>
-                        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=trailer&title=Trailer">Trailer</A>
+
+
+                        <div align="center">
+                            <div style="width: 600px;">
+                                <div style="float: left;">
+                                    <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast1&title=Webcast%20Part%201"><img src="/i/tournament/tco07/webcastThumb1.png" alt="Webcast Part 1" /></a>
+                                    <br /><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast1&title=Webcast%20Part%201">Part 1</A>
+                                    <br />(01:16:59)
+                                </div>
+                                <div style="float: right;">
+                                    <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast3&title=Webcast%20Part%203"><img src="/i/tournament/tco07/webcastThumb3.png" alt="Webcast Part 3" /></a>
+                                    <br /><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast3&title=Webcast%20Part%203">Part 3</A>
+                                    <br />(00:28:46)
+                                </div>
+                                <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast2&title=Webcast Part 2"><img src="/i/tournament/tco07/webcastThumb2.png" alt="Webcast Part 2" /></a>
+                                <br /><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast2&title=Webcast%20Part%202">Part 2</A>
+                                <br />(01:07:50)
+                            </div>
+                        </div>
+
 
                         <br /><br />
 
                         <h2>Miscellaneous</h2>
-                        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=aolCTO&title=Interview%20with%20AOL%20CTO,%20Balan%20Nair">Interview with AOL CTO, Balan Nair</A>
+                        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=trailer&title=Trailer">Tournament trailer</A>
+                        <br /><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=aolCTO&title=Interview%20with%20AOL%20CTO,%20Balan%20Nair">Interview with AOL CTO, Balan Nair</A>
                         <br /><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=montage&title=Handheld%20camera%20montage">Handheld camera montage</A>
                     </div>
                 </td>
