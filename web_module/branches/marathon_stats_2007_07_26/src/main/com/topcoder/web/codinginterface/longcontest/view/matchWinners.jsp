@@ -79,7 +79,7 @@ myForm.submit();
                 <!-- Left Column Begins-->
                 <td width="180">
                     <jsp:include page="/includes/global_left.jsp">
-                        <jsp:param name="node" value="long_match_archive"/>
+                        <jsp:param name="node" value="long_match_winners"/>
                     </jsp:include>
                 </td>
                 <!-- Left Column Ends -->
@@ -89,7 +89,7 @@ myForm.submit();
 
                 <jsp:include page="page_title.jsp" >
                     <jsp:param name="image" value="statistics_w"/>
-                    <jsp:param name="title" value="Match Archive"/>
+                    <jsp:param name="title" value="Match Winners"/>
                 </jsp:include>
 
                 <form name="matchWinnersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
@@ -98,6 +98,8 @@ myForm.submit();
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
+				<center>
+				
 				<div class="pagingBox" style="width:300px;">
 				    <c:choose>
 				        <c:when test="${croppedDataBefore}">
@@ -117,22 +119,22 @@ myForm.submit();
 				        </c:otherwise>
 				    </c:choose>
 				</div>
+				</center>
 
 			<table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
-			   <tr><td class="title" colspan="6">Marathon Match Archive</td></tr>
+			   <tr><td class="title" colspan="6">Marathon Match Winners</td></tr>
 			   <tr>
 			      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="${columnMap['date']}" includeParams="true" excludeParams="sr" />">Date</a></td>
 			      <td class="header" ><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="${columnMap['name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
 			      <td class="header" >Winners</td>
 			      <td class="header" >Wins*</td>
 			   </tr>
-			   <c:set var="even" value="0" />
-			   <c:forEach items="${list}" var="row" >
+			   <c:forEach items="${list}" var="row" varStatus="status">
 			   		<c:set var="roundId" value="r${row.map['round_id']}" />
-			       <tr class='${even == 1? "dark" : "light" }'>
+			       <tr class='${status.index % 2 == 1? "dark" : "light" }'>
 						<td class="valueC"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
 						<td class="value" nowrap="nowrap">
-							<a href="TO DO"/>${row.map['name']}</a>
+							<a href="/longcontest/?module=ViewOverview&rd=${row.map['round_id']}"/>${row.map['name']}</a>
 						</td>
 						
 						<c:choose>
@@ -173,10 +175,10 @@ myForm.submit();
 							</c:otherwise>
 						</c:choose>
 					</tr>   
-					<c:set var="even" value="${1-even }" />
 			   </c:forEach>   
 			</table>
 
+		<center>
 		<div class="pagingBox" style="width:300px;">
 		    <c:choose>
 		        <c:when test="${croppedDataBefore}">
@@ -196,6 +198,7 @@ myForm.submit();
 		        </c:otherwise>
 		    </c:choose>
 		</div>
+		</center>
 
                         View &#160;
                         <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>

@@ -89,6 +89,7 @@ myForm.submit();
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
+				<center>
 				<div class="pagingBox" style="width:300px;">
 				    <c:choose>
 				        <c:when test="${croppedDataBefore}">
@@ -108,6 +109,7 @@ myForm.submit();
 				        </c:otherwise>
 				    </c:choose>
 				</div>
+				</center>
 
 			<table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
 			   <tr><td class="title" colspan="6">Marathon Match Archive</td></tr>
@@ -133,6 +135,7 @@ myForm.submit();
 			   </c:forEach>   
 			</table>
 
+		<center>
 		<div class="pagingBox" style="width:300px;">
 		    <c:choose>
 		        <c:when test="${croppedDataBefore}">
@@ -152,6 +155,7 @@ myForm.submit();
 		        </c:otherwise>
 		    </c:choose>
 		</div>
+		</center>
 
                         View &#160;
                         <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
