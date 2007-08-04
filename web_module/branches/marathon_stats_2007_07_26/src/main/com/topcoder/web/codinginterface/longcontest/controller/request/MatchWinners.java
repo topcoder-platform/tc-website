@@ -1,5 +1,8 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
@@ -45,7 +48,7 @@ public class MatchWinners extends Base {
 
             Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME,true).getData(r);
 
-            ResultSetContainer rsc = result.get("marathon_match_winners");
+            ResultSetContainer rsc = result.get("marathon_match_winners_rounds");
 
             if (!sortCol.equals("")) {
                 rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
@@ -53,8 +56,20 @@ public class MatchWinners extends Base {
                 setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
             }
             
-            result.put("marathon_match_winners", (ResultSetContainer)rsc.subList(Integer.parseInt(startRank)-1, endRank));
 
+            ResultSetContainer winners = result.get("marathon_match_winners");
+            Map<Integer, List<Winner>> winnersMap = new HashMap<Integer, List<Winner>>();
+            
+            for (ResultSetContainer.ResultSetRow row : winners) {
+                int roundId = row.getIntItem("round_id");
+                List<Winner> l = winnersMap.get(roundId);
+                if (l == null) {
+                    l = new ArrayList<Winner>();
+                    winnersMap.put(roundId, l);
+                }
+                l.add(new Winner(row.getIntItem("coder_id"), row.getIntItem("num_wins")));                
+            }
+            
             SortInfo s = new SortInfo();
 /*            s.addDefault(rsc.getColumnIndex("num_competitors"), "desc");            
             s.addDefault(rsc.getColumnIndex("num_submissions"), "desc");
@@ -66,8 +81,8 @@ public class MatchWinners extends Base {
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
             setDefault(DataAccessConstants.START_RANK, startRank);
-            getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("list", rsc);
+            getRequest().setAttribute("winnersMap", winnersMap);
             getRequest().setAttribute("columnMap", rsc.getColumnNameMap());            
             getRequest().setAttribute("croppedDataBefore", rsc.croppedDataBefore());
             getRequest().setAttribute("croppedDataAfter", rsc.croppedDataAfter());
@@ -80,6 +95,26 @@ public class MatchWinners extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+    
+    static class Winner {
+        int coderId;
+        int numWins;
+        
+        public Winner(int coderId, int numWins) {
+            this.coderId = coderId;
+            this.numWins = numWins;
+        }
+
+        public int getCoderId() {
+            return coderId;
+        }
+
+        public int getNumWins() {
+            return numWins;
+        }
+        
+        
     }
 
 }
