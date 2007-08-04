@@ -97,7 +97,7 @@ public class MatchWinners extends Base {
         }
     }
     
-    static class Winner {
+    public static class Winner {
         int coderId;
         int numWins;
         
