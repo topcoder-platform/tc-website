@@ -61,7 +61,7 @@ public class MatchWinners extends Base {
                 setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
             }
             
-            List<ResultSetContainer.ResultSetRow> matches = rsc.subList(Integer.parseInt(startRank)-1, endRank);
+            rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank)-1, endRank);
 
             ResultSetContainer winners = result.get("marathon_match_winners");
             Map<String, List<Winner>> winnersMap = new HashMap<String, List<Winner>>();
@@ -82,7 +82,7 @@ public class MatchWinners extends Base {
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
             setDefault(DataAccessConstants.START_RANK, startRank);
-            getRequest().setAttribute("list", matches);
+            getRequest().setAttribute("list", rsc);
             getRequest().setAttribute("winnersMap", winnersMap);
             getRequest().setAttribute("columnMap", rsc.getColumnNameMap());            
             getRequest().setAttribute("croppedDataBefore", rsc.croppedDataBefore());
