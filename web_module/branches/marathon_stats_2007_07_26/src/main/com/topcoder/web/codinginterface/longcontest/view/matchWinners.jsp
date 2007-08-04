@@ -2,12 +2,12 @@
     import="com.topcoder.shared.dataAccess.DataAccessConstants,
            com.topcoder.web.tc.Constants"%>
           
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+  
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
 
@@ -48,6 +48,21 @@ myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(Da
 myForm.submit();
 }
 </script>
+
+    <script language="JavaScript" type="text/javascript" src="/js/main.js"></script>
+
+
+    <style type="text/css">
+    div.shortList {
+        display: block;
+        white-space: nowrap;
+    }
+
+    div.fullList {
+        display: none;
+        white-space: nowrap;
+    }
+    </style>
 
 
 </head>
@@ -119,13 +134,40 @@ myForm.submit();
 						<td class="value" nowrap="nowrap">
 							<a href="TO DO"/>${row.map['name']}</a>
 						</td>
-						<td class="value">
-						n:${fn:length(winnersMap[roundId]) }
-							<c:forEach items="${winnersMap[roundId]}" var="winner"> <br/>
-								<tc-webtag:handle coderId="${winner.coderId}" context="marathon_match"/>
-							</c:forEach>
-						</td>
-						<td class="valueR">to do</td>
+						
+						<c:choose>
+							<c:when test="${fn:length(winnersMap[roundId]) > 3}">
+						        <td class="value">
+						            <div id="winnersShort${roundId}" class="shortList">
+						                <a href="javascript: hide('winnersShort${roundId}'); showBlock('winnersFull${roundId}'); showBlock('winsFull${roundId}');" onfocus="this.blur();">
+						                	[${fn:length(winnersMap[roundId])} winners]</a>
+						            </div>
+						            <div id="winnersFull${roundId}" class="fullList">
+											<c:forEach items="${winnersMap[roundId]}" var="winner">
+												<tc-webtag:handle coderId="${winner.coderId}" context="marathon_match"/> <br/> 
+											</c:forEach>
+						                <a href="javascript: hide('winnersFull${roundId}'); hide('winsFull${roundId}'); showBlock('winnersShort${roundId}');" onfocus="this.blur();">close</a>
+						            </div>
+						        </td>
+						        <td class="valueR">
+						            <div id="winsFull${roundId}" class="fullList">
+									<c:forEach items="${winnersMap[roundId]}" var="winner">
+										${winner.numWins} <br/> 
+									</c:forEach>
+						            </div>
+						            &nbsp;
+						        </td>
+
+							</c:when>
+							<c:otherwise>
+								<td class="value">
+									<c:forEach items="${winnersMap[roundId]}" var="winner">
+										<tc-webtag:handle coderId="${winner.coderId}" context="marathon_match"/> <br/> 
+									</c:forEach>
+								</td>
+								<td class="valueR">${winner.numWins}	</td>							
+							</c:otherwise>
+						</c:choose>
 					</tr>   
 					<c:set var="even" value="${1-even }" />
 			   </c:forEach>   
