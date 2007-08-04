@@ -113,14 +113,14 @@ myForm.submit();
 			   </tr>
 			   <c:set var="even" value="0" />
 			   <c:forEach items="${list}" var="row">
-			   		<c:set var="roundId" value="${row.map['round_id']}">
+			   		<c:set var="roundId" value="${row.map['round_id']}" />
 			       <tr class='${even == 1? "dark" : "light" }'>
 						<td class="valueC"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
 						<td class="value" nowrap="nowrap">
 							<a href="TO DO"/>${row.map['name']}</a>
 						</td>
 						<td class="value">
-							<c:forEach items="${winnersMap[roundI]}" var="winner">
+							<c:forEach items="${winnersMap[roundId]}" var="winner">
 								<tc-webtag:handle coderId="${winner.coderId}" context="marathon_match"/>
 							</c:forEach>
 						</td>

@@ -58,10 +58,10 @@ public class MatchWinners extends Base {
             
 
             ResultSetContainer winners = result.get("marathon_match_winners");
-            Map<Integer, List<Winner>> winnersMap = new HashMap<Integer, List<Winner>>();
+            Map<String, List<Winner>> winnersMap = new HashMap<String, List<Winner>>();
             
             for (ResultSetContainer.ResultSetRow row : winners) {
-                int roundId = row.getIntItem("round_id");
+                String roundId = row.getStringItem("round_id");
                 List<Winner> l = winnersMap.get(roundId);
                 if (l == null) {
                     l = new ArrayList<Winner>();
