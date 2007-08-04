@@ -116,17 +116,12 @@
          nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=Static&amp;d1=intel_overview", "Intel Multi-Threading Competition Series", "long_intelmtcs"));
          nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=ViewQueue", "Queue Status", "long_queue"));
          nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=Static&amp;d1=match_editorials&amp;d2=archive", "Match Editorials", "long_editorials"));
-         
-         
          nav.search("m_long_contests").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_long_stats')", "Statistics", "m_long_stats"));
-         nav.search("m_long_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=MatchList", "Match Archive", "long_match_archive"));
-         nav.search("m_long_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"TO DO", "Match Overviews", "long_match_overviews"));
-         nav.search("m_long_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=MatchWinners", "Match Winners", "long_match_winners"));        
-         nav.search("m_long_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=Static&amp;d1=match_editorials&amp;d2=archive", "Match Editorials", "long_editorials"));
-         nav.search("m_long_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=Static&amp;d1=support&amp;d2=dataFeed", "Data Feeds", "long_data_feeds"));
-
-         
-         
+         	nav.search("m_long_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=MatchList", "Match Archive", "long_match_archive"));
+         	nav.search("m_long_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=ViewOverview", "Match Overview", "long_match_overview"));
+         	nav.search("m_long_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=MatchWinners", "Match Winners", "long_match_winners"));        
+         	nav.search("m_long_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=Static&amp;d1=match_editorials&amp;d2=archive", "Match Editorials", "long_editorials"));
+         	nav.search("m_long_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=Static&amp;d1=support&amp;d2=dataFeed", "Data Feeds", "long_data_feeds"));                
          nav.search("m_long_contests").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_long_support')", "Support / FAQs", "m_long_support"));
             nav.search("m_long_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=Static&amp;d1=instructions", "How to Compete", "long_how_to_compete"));
             nav.search("m_long_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=Static&amp;d1=support&amp;d2=ratings", "Rating System", "long_rating_system"));

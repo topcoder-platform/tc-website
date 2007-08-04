@@ -124,8 +124,8 @@ myForm.submit();
 			<table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
 			   <tr><td class="title" colspan="6">Marathon Match Winners</td></tr>
 			   <tr>
-			      <td class="headerC"><a href="${sessionInfo.servletPath()}?<tc-webtag:sort column="${columnMap['date']}" includeParams="true" excludeParams="sr" />">Date</a></td>
-			      <td class="header" ><a href="${sessionInfo.servletPath()}?<tc-webtag:sort column="${columnMap['name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
+			      <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['date']}" includeParams="true" excludeParams="sr" />">Date</a></td>
+			      <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
 			      <td class="header" >Winners</td>
 			      <td class="header" >Wins*</td>
 			   </tr>
