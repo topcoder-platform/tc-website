@@ -165,7 +165,11 @@ myForm.submit();
 										<tc-webtag:handle coderId="${winner.coderId}" context="marathon_match"/> <br/> 
 									</c:forEach>
 								</td>
-								<td class="valueR">${winner.numWins}	</td>							
+								<td class="valueR">
+									<c:forEach items="${winnersMap[roundId]}" var="winner">
+										${winner.numWins} <br/> 
+									</c:forEach>
+								</td>							
 							</c:otherwise>
 						</c:choose>
 					</tr>   
