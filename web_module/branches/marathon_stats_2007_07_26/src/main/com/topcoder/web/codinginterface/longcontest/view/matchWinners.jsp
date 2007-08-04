@@ -1,6 +1,6 @@
 <%@  page language="java"
-    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
-          java.util.Map"%>
+    import="com.topcoder.shared.dataAccess.DataAccessConstants,
+           com.topcoder.web.tc.Constants"%>
           
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -108,18 +108,23 @@ myForm.submit();
 			   <tr>
 			      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="${columnMap['date']}" includeParams="true" excludeParams="sr" />">Date</a></td>
 			      <td class="header" ><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="${columnMap['name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
-			      <td class="header" ><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="${columnMap['handle']}" includeParams="true" excludeParams="sr" />">Winner</a></td>
-			      <td class="header" ><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="${columnMap['num_wins']}" includeParams="true" excludeParams="sr" />">Wins</a>*</td>
+			      <td class="header" >Winners</td>
+			      <td class="header" >Wins*</td>
 			   </tr>
 			   <c:set var="even" value="0" />
 			   <c:forEach items="${list}" var="row">
+			   		<c:set var="roundId" value="${row.map['round_id']}">
 			       <tr class='${even == 1? "dark" : "light" }'>
 						<td class="valueC"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
 						<td class="value" nowrap="nowrap">
 							<a href="TO DO"/>${row.map['name']}</a>
 						</td>
-						<td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon_match"/></td>
-						<td class="valueR">${row.map['num_wins']}</td>
+						<td class="value">
+							<c:forEach items="${winnersMap[roundI]}" var="winner">
+								<tc-webtag:handle coderId="${winner.coderId}" context="marathon_match"/>
+							</c:forEach>
+						</td>
+						<td class="valueR">to do</td>
 					</tr>   
 					<c:set var="even" value="${1-even }" />
 			   </c:forEach>   
