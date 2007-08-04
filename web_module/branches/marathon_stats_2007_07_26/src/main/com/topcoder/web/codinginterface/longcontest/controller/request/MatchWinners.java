@@ -61,7 +61,7 @@ public class MatchWinners extends Base {
             Map<String, List<Winner>> winnersMap = new HashMap<String, List<Winner>>();
             
             for (ResultSetContainer.ResultSetRow row : winners) {
-                String roundId = row.getStringItem("round_id");
+                String roundId = "r" + row.getStringItem("round_id");
                 List<Winner> l = winnersMap.get(roundId);
                 if (l == null) {
                     l = new ArrayList<Winner>();
