@@ -124,8 +124,8 @@ myForm.submit();
 			<table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
 			   <tr><td class="title" colspan="6">Marathon Match Winners</td></tr>
 			   <tr>
-			      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="${columnMap['date']}" includeParams="true" excludeParams="sr" />">Date</a></td>
-			      <td class="header" ><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="${columnMap['name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
+			      <td class="headerC"><a href="${sessionInfo.servletPath()}?<tc-webtag:sort column="${columnMap['date']}" includeParams="true" excludeParams="sr" />">Date</a></td>
+			      <td class="header" ><a href="${sessionInfo.servletPath()}?<tc-webtag:sort column="${columnMap['name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
 			      <td class="header" >Winners</td>
 			      <td class="header" >Wins*</td>
 			   </tr>
@@ -198,14 +198,14 @@ myForm.submit();
 		        </c:otherwise>
 		    </c:choose>
 		</div>
-		</center>
 
                         View &#160;
                         <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
                         &#160;at a time starting with &#160;
                         <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-                        <a href="javascript:document.matchListForm.submit();" class="bcLink">&#160;[ submit ]</a>
+                        <a href="javascript:document.matchWinnersForm.submit();" class="bcLink">&#160;[ submit ]</a>
                     </div>
+		</center>
 
                     </form>
                 </td>
