@@ -57,13 +57,7 @@ myForm.submit();
         <jsp:include page="top.jsp" >
             <jsp:param name="level1" value=""/>
         </jsp:include>
-
-
-        <%
-        ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("marathon_match_list");
-        %>
-        
-        
+     
 
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
@@ -114,17 +108,17 @@ myForm.submit();
 			<table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
 			   <tr><td class="title" colspan="6">Marathon Match Archive</td></tr>
 			   <tr>
-			      <td class="header" width="33%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="${columnMap['name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
-			      <td class="headerC" width="33%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="${columnMap['date']}" includeParams="true" excludeParams="sr" />">Date</a></td>
-			      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("num_competitors")%>" includeParams="true" excludeParams="sr" />">Competitors</a></td>
-			      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("num_submissions")%>" includeParams="true" excludeParams="sr" />">Total Submissions</a></td>
-			      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("avg_submissions")%>" includeParams="true" excludeParams="sr" />">Avg. Submissions</a></td>
+			      <td class="header" width="33%"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
+			      <td class="headerC" width="33%"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['date']}" includeParams="true" excludeParams="sr" />">Date</a></td>
+			      <td class="headerC" nowrap="nowrap"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['num_competitors']}" includeParams="true" excludeParams="sr" />">Competitors</a></td>
+			      <td class="headerC" nowrap="nowrap"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['num_submissions']}" includeParams="true" excludeParams="sr" />">Total Submissions</a></td>
+			      <td class="headerC" nowrap="nowrap"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['avg_submissions']}" includeParams="true" excludeParams="sr" />">Avg. Submissions</a></td>
 			      <td class="headerC" width="33%">&#160;</td>
 			   </tr>
 			   <c:forEach items="${matches}" var="row" varStatus="status">
 			       <tr class='${status.index % 2 == 1? "dark" : "light" }'>
 						<td class="value" nowrap="nowrap">
-							<a href="TO DO"/>${row.map['name']}</a>
+							<a href="/longcontest/?module=ViewOverview&rd=${row.map['round_id']}"/>${row.map['name']}</a>							
 						</td>
 						<td class="valueC"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
 						<td class="valueR">${row.map['num_competitors']}</td>
@@ -155,7 +149,6 @@ myForm.submit();
 		        </c:otherwise>
 		    </c:choose>
 		</div>
-		</center>
 
                         View &#160;
                         <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
@@ -163,6 +156,7 @@ myForm.submit();
                         <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
                         <a href="javascript:document.matchListForm.submit();" class="bcLink">&#160;[ submit ]</a>
                     </div>
+		</center>
 
                     </form>
                 </td>

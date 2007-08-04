@@ -46,14 +46,19 @@ public class MatchList extends Base {
 
             ResultSetContainer rsc = result.get("marathon_match_list");
 
+            if ("".equals(sortCol)) {
+                sortCol = rsc.getColumnIndex("date") + "";
+                sortDir = "desc";
+            }
+            
             if (!sortCol.equals("")) {
                 rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
                 setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
                 setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
             }
             
-            result.put("marathon_match_list", (ResultSetContainer)rsc.subList(Integer.parseInt(startRank)-1, endRank));
-
+            rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank)-1, endRank);
+            
             SortInfo s = new SortInfo();
             s.addDefault(rsc.getColumnIndex("num_competitors"), "desc");            
             s.addDefault(rsc.getColumnIndex("num_submissions"), "desc");
@@ -64,7 +69,6 @@ public class MatchList extends Base {
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
             setDefault(DataAccessConstants.START_RANK, startRank);
-            getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("matches", rsc);
             getRequest().setAttribute("columnMap", rsc.getColumnNameMap());
             getRequest().setAttribute("croppedDataBefore", rsc.croppedDataBefore());
