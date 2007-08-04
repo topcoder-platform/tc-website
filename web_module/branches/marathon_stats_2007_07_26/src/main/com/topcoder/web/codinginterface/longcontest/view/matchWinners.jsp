@@ -120,7 +120,8 @@ myForm.submit();
 							<a href="TO DO"/>${row.map['name']}</a>
 						</td>
 						<td class="value">
-							<c:forEach items="${winnersMap[roundId]}" var="winner">
+						n:${fn:length(winnersMap[roundId]) }
+							<c:forEach items="${winnersMap[roundId]}" var="winner"> <br/>
 								<tc-webtag:handle coderId="${winner.coderId}" context="marathon_match"/>
 							</c:forEach>
 						</td>
