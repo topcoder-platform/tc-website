@@ -50,12 +50,18 @@ public class MatchWinners extends Base {
 
             ResultSetContainer rsc = result.get("marathon_match_winners_rounds");
 
+            if ("".equals(sortCol)) {
+                sortCol = rsc.getColumnIndex("date") + "";
+                sortDir = "desc";
+            }
+
             if (!sortCol.equals("")) {
                 rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
                 setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
                 setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
             }
             
+            List<ResultSetContainer.ResultSetRow> matches = rsc.subList(Integer.parseInt(startRank)-1, endRank);
 
             ResultSetContainer winners = result.get("marathon_match_winners");
             Map<String, List<Winner>> winnersMap = new HashMap<String, List<Winner>>();
@@ -71,17 +77,12 @@ public class MatchWinners extends Base {
             }
             
             SortInfo s = new SortInfo();
-/*            s.addDefault(rsc.getColumnIndex("num_competitors"), "desc");            
-            s.addDefault(rsc.getColumnIndex("num_submissions"), "desc");
-            s.addDefault(rsc.getColumnIndex("avg_submissions"), "desc");
             s.addDefault(rsc.getColumnIndex("date"), "desc");
-*/
-            
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
             setDefault(DataAccessConstants.START_RANK, startRank);
-            getRequest().setAttribute("list", rsc);
+            getRequest().setAttribute("list", matches);
             getRequest().setAttribute("winnersMap", winnersMap);
             getRequest().setAttribute("columnMap", rsc.getColumnNameMap());            
             getRequest().setAttribute("croppedDataBefore", rsc.croppedDataBefore());
