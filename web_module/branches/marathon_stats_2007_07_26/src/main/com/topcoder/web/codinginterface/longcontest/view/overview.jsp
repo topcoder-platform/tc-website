@@ -10,6 +10,7 @@
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <jsp:useBean id="resultMap" type="java.util.Map" scope="request"/>
@@ -141,32 +142,23 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                 </tr>
                 <%-- ITERATOR --%>
                 <%boolean even = true;%>
-				<c:forEach items="${competitors}" var="resultRow" varStatus="status">
+				<c:forEach items="${competitors}" var="row" varStatus="status">
 				    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
                     <tr>
-                        <td class="<%=even?"statLt":"statDk"%>" align="right">
-                            <rsc:item name="placed" row="<%=resultRow%>"/></td>
-                        <td class="<%=even?"statLt":"statDk"%>">
-                            <tc-webtag:handle context='marathon_match' coderId='<%=resultRow.getLongItem("coder_id")%>'/></td>
-                        
-                        
-                        <td class="valueR">${resultRow.map['provisional_placed'] }</td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="right">
-                            <rsc:item name="point_total" row="<%=resultRow%>" format="0.00"/></td>
-                            
-                            
-                        <td class="<%=even?"statLt":"statDk"%>" align="right">
-                            <rsc:item name="system_point_total" row="<%=resultRow%>" format="0.00"/></td>
+                        <td class="<%=even?"statLt":"statDk"%>" align="right">${row.map['placed']}</td>
+                        <td class="<%=even?"statLt":"statDk"%>"><tc-webtag:handle context='marathon_match' coderId="${row.map['coder_id']}"/></td>                                                
+                        <td class="valueR">${row.map['provisional_placed']}</td>
+                        <td class="<%=even?"statLt":"statDk"%>" align="right"><fmt:formatNumber value="${row.map['point_total']}"  minFractionDigits="2" maxFractionDigits="2"/></td>                           
+                        <td class="<%=even?"statLt":"statDk"%>" align="right"><fmt:formatNumber value="${row.map['system_point_total']}"  minFractionDigits="2" maxFractionDigits="2"/></td>
+                        <td class="<%=even?"statLt":"statDk"%>" align="center">${row.map['language_name']}</td>
                         <td class="<%=even?"statLt":"statDk"%>" align="center">
-                            <rsc:item name="language_name" row="<%=resultRow%>"/></td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="center">
-                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSystemTestResults&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">results</A>
+                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSystemTestResults&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}">results</A>
                         </td>
                         <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
-                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">submission
+                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}">submission
                                 history</A></td>
                         <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
-                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">example
+                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}">example
                                 history</A></td>
                     </tr>
                     <%even = !even;%>
