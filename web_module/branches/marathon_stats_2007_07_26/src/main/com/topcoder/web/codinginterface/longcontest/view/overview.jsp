@@ -144,7 +144,6 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                 <%boolean even = true;%>
 				<c:forEach items="${competitors}" var="row" varStatus="status">
 				    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
-                    <tr>
                         <td class="<%=even?"statLt":"statDk"%>" align="right">${row.map['placed']}</td>
                         <td class="<%=even?"statLt":"statDk"%>"><tc-webtag:handle context='marathon_match' coderId="${row.map['coder_id']}"/></td>                                                
                         <td class="valueR">${row.map['provisional_placed']}</td>
