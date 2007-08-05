@@ -17,17 +17,11 @@
 
 <% 
    int roundType = request.getAttribute(Constants.ROUND_TYPE_ID) == null ? Constants.LONG_ROUND_TYPE_ID : ((Integer) request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();
-   String myNode = "long_compete";
     String image = "long_comps_topcoder";
-    if (roundType == Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
-        myNode = "long_practice";
-    } else if (roundType == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
-        myNode = "long_intelmtcs_practice";
+	
+    if (roundType == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID || roundType == Constants.INTEL_LONG_ROUND_TYPE_ID ) {
         image = "long_comps_intel";
-    } else if (roundType == Constants.INTEL_LONG_ROUND_TYPE_ID) {
-        myNode = "long_intelmtcs_compete";
-        image = "long_comps_intel";
-    }
+    } 
 %>
 
 <html>
@@ -65,7 +59,7 @@ return false;
 <%-- Left Column Begins--%>
 <td width="180">
     <jsp:include page="/includes/global_left.jsp">
-        <jsp:param name="node" value="<%=myNode%>"/>
+        <jsp:param name="node" value="long_match_overview"/>
     </jsp:include>
 </td>
 <%-- Left Column Ends --%>
