@@ -68,7 +68,7 @@ public class ViewOverview extends Base {
             }
             r.setProperty(Constants.ROUND_ID, roundID);
             r.setProperty(Constants.ROUND_TYPE_ID, getRequest().getAttribute(Constants.ROUND_TYPE_ID).toString());
-            Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
+            Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_overview_coders");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
 
@@ -83,9 +83,9 @@ public class ViewOverview extends Base {
             setDefault(DataAccessConstants.START_RANK, "" + startRank);
 
             request.setAttribute("resultMap", result);
-
+/*
             SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-
+            
             StringBuffer buf = new StringBuffer(100);
             buf.append(info.getServletPath());
             buf.append("?").append(Constants.MODULE).append("=ViewOverview");
@@ -114,7 +114,14 @@ public class ViewOverview extends Base {
                                 .append("=").append("" + (rsc.getStartRow() + numRecords))
                                 .toString());
             }
-
+*/
+            request.setAttribute("competitors", result.get("long_contest_overview_coders"););
+            request.setAttribute("rounds", result.get("long_contest_round_list"));
+            request.setAttribute("columnMap", rsc.getColumnNameMap());  
+            request.setAttribute("croppedDataBefore", rsc.croppedDataBefore());
+            request.setAttribute("croppedDataAfter", rsc.croppedDataAfter());
+            
+            setDefault(Constants.ROUND_ID, roundID);
             setNextPage(Constants.PAGE_VIEW_OVERVIEW);
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
