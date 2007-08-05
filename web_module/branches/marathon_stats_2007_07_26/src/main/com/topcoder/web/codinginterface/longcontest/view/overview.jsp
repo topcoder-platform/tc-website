@@ -46,7 +46,7 @@ if (window.event) keycode = window.event.keyCode;
 else if (e) keycode = e.which;
 else return true;
 if (keycode == 13) {
-document.matchWinnersForm.submit();
+document.f.submit();
 return false;
 } else return true;
 }
@@ -95,7 +95,7 @@ myForm.submit();
 
 <form name="f" action='${sessionInfo.servletPath}' method="get">
 
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="MatchWinners"/>
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewOverview"/>
 
 <div style="float:right; padding: 0px 0px 0px 5px;">
     <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
