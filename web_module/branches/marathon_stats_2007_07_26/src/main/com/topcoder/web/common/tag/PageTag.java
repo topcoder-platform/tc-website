@@ -31,10 +31,10 @@ abstract class PageTag extends TagSupport {
     public void setServletPath(String servletPath) {
         this.servletPath = servletPath;
     }
-    public ResultSetContainer getRsc() {
+    public ResultSetContainer getContainer() {
         return rsc;
     }
-    public void setRsc(ResultSetContainer rsc) {
+    public void setContainer(ResultSetContainer rsc) {
         this.rsc = rsc;
     }
     public String getStyleClass() {
