@@ -131,7 +131,7 @@ Please select a contest:<br>
 
 <br>
 Competitors: ${infoRow.map['num_competitors']}<br>
-Avg. Submissions: <rsc:item name="avg_submissions" row="${infoRow}" format="#.##" ifNull="N/A"/></span><br>
+Avg. Submissions: <fmt:formatNumber value="${infoRow.map['avg_submissions']}"  minFractionDigits="2" maxFractionDigits="2"/></span><br>
 <A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}&<%=Constants.PROBLEM_ID%>=${infoRow.map['problem_id']}" class="bcLink">Problem
     Statement</A><br>
 
