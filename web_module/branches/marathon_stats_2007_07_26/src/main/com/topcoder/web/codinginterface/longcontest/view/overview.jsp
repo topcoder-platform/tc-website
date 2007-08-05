@@ -117,7 +117,7 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
     <tr>
         <td>
-            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat">
 
                 <tr>
                     <td class="tableTitle" colspan="9">Contest Overview</td>
