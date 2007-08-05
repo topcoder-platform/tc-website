@@ -176,22 +176,22 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                     <td class="tableTitle" colspan="9">Contest Overview</td>
                 </tr>
                 <tr>
-                    <td class="tableHeader" width="5%" align="right">
+                    <td class="header" width="5%" align="right">
                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['placed']}" includeParams="true" excludeParams="sr" />">Rank</a></td>
-                    <td class="tableHeader" width="15%">
+                    <td class="header" width="15%">
                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['handle']}" includeParams="true" excludeParams="sr" />">Handle</a></td>
                     </td>
-                    <td class="tableHeader" width="15%" align="right">
+                    <td class="header" width="15%" align="right">
                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['provisional_placed']}" includeParams="true" excludeParams="sr" />">Provisional Rank</a></td>
-                    <td class="tableHeader" width="15%" align="right">
+                    <td class="header" width="15%" align="right">
                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['point_total']}" includeParams="true" excludeParams="sr" />">Provisional Score</a></td>
-                    <td class="tableHeader" width="15%" align="right">
+                    <td class="header" width="15%" align="right">
                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['system_point_total']}" includeParams="true" excludeParams="sr" />">Final Score</a></td>
-                    <td class="tableHeader" width="10%" align="center">
+                    <td class="header" width="10%" align="center">
                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['language_name']}" includeParams="true" excludeParams="sr" />">Language</a></td>
-                    <td class="tableHeader" width="10%">&#160;</td>
-                    <td class="tableHeader" width="15%">&#160;</td>
-                    <td class="tableHeader" width="15%">&#160;</td>
+                    <td class="headerC" width="10%">&#160;</td>
+                    <td class="headerC" width="15%">&#160;</td>
+                    <td class="headerC" width="15%">&#160;</td>
                 </tr>
 				<c:forEach items="${competitors}" var="row" varStatus="status">
 					<c:set var="params" value="<%=Constants.ROUND_ID%>=${roundId}&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}" />
@@ -202,9 +202,12 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                         <td class="valueR"><fmt:formatNumber value="${row.map['point_total']}"  minFractionDigits="2" maxFractionDigits="2"/></td>                           
                         <td class="valueR"><fmt:formatNumber value="${row.map['system_point_total']}"  minFractionDigits="2" maxFractionDigits="2"/></td>
                         <td class="valueC">${row.map['language_name']}</td>
-                        <td class="valueC" nowrap="nowrap"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewSystemTestResults&${params}">results</A></td>
-                        <td class="valueC" nowrap="nowrap"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewSubmissionHistory&${params}">submission history</A></td>
-                        <td class="valueC" nowrap="nowrap"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewExampleHistory&${params}">example history</A></td>
+                        <td class="valueC" nowrap="nowrap"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewSystemTestResults&<%=Constants.ROUND_ID%>=${roundId}&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}">
+                        	results</A></td>
+                        <td class="valueC" nowrap="nowrap"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=${roundId}&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}">
+                        	submission history</A></td>
+                        <td class="valueC" nowrap="nowrap"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewExampleHistory&<%=Constants.ROUND_ID%>=${roundId}&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}">
+                        	example history</A></td>
                     </tr>
                  </c:forEach>
             </TABLE>
