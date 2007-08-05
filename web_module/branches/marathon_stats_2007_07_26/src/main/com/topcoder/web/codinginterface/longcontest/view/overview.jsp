@@ -2,11 +2,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page
         language="java"
-        import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                com.topcoder.web.codinginterface.longcontest.Constants,
+        import="com.topcoder.web.codinginterface.longcontest.Constants,
 				com.topcoder.shared.dataAccess.DataAccessConstants"
-                
-        %>
+                %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
@@ -15,17 +13,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-<jsp:useBean id="resultMap" type="java.util.Map" scope="request"/>
-<jsp:useBean id="sortLinkBase" class="java.lang.String" scope="request"/>
-<jsp:useBean id="prevPageLink" class="java.lang.String" scope="request"/>
-<jsp:useBean id="nextPageLink" class="java.lang.String" scope="request"/>
-<%    
-    ResultSetContainer categories = (ResultSetContainer) resultMap.get("long_contest_round_categories");
-    ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_contest_overview_info");
-    ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) rsc.get(0);
-%>
-<% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID) == null ? Constants.LONG_ROUND_TYPE_ID : ((Integer) request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
-<% String myNode = "long_compete";
+
+
+<% 
+   int roundType = request.getAttribute(Constants.ROUND_TYPE_ID) == null ? Constants.LONG_ROUND_TYPE_ID : ((Integer) request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();
+   String myNode = "long_compete";
     String image = "long_comps_topcoder";
     if (roundType == Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
         myNode = "long_practice";
@@ -66,7 +58,7 @@ myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(Da
 myForm.submit();
 }
 function previous() {
-var myForm = document.matchWinnersForm;
+var myForm = document.f;
 myForm.<%=DataAccessConstants.START_RANK%>.value=<c:out value="${requestScope[defaults][startRank]}"/>-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
 myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
 myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
@@ -120,33 +112,35 @@ myForm.submit();
     // -->
 </script>
 Please select a contest:<br>
-<tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="${rounds}" fieldText="name" fieldValue="round_id"  onChange="goTo(this)"/>
+<tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="${rounds}" fieldText="name" fieldValue="round_id"  onChange="goTo(this)" useTopValue="false"/>
 <br><br>
 
 
-<span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/> &gt; <rsc:item name="round_name" row="<%=infoRow%>"/></span>
+<span class="bigHandle">Contest: ${infoRow.map['contest_name']} &gt; ${infoRow.map['ROUND_name']}</span>
 <br>
 <span class="bodySubtitle">Categories:
-<% if (categories.isEmpty()) { %> None <% } %>
-<%boolean first = true;%>
-<rsc:iterator list="<%=categories%>" id="resultRow">
-    <% if (!first) { %>, <% } %><rsc:item name="problem_category_desc" row="<%=resultRow%>"/>
-    <% first = false; %>
-</rsc:iterator>
+<c:choose>
+	<c:when test="${empty categories}">None</c:when>
+	<c:otherwise>
+		<c:forEach var="category" items="${categories}" varStatus="status">
+			<c:if test="${not status.first}">, </c:if>
+			${category.map['problem_category_desc'] }
+		</c:forEach>
+	</c:otherwise>
+</c:choose>
+
 <br>
-Competitors: <rsc:item name="num_competitors" row="<%=infoRow%>"/><br>
-Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.##" ifNull="N/A"/></span><br>
-<A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>" class="bcLink">Problem
+Competitors: ${infoRow.map['num_competitors']}<br>
+Avg. Submissions: <rsc:item name="avg_submissions" row="${infoRow}" format="#.##" ifNull="N/A"/></span><br>
+<A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}&<%=Constants.PROBLEM_ID%>=${infoRow.map['problem_id']}" class="bcLink">Problem
     Statement</A><br>
 
-<% if (request.getAttribute(Constants.FORUM_ID) != null) { %>
-<tc-webtag:forumLink forumID="<%=((Long)request.getAttribute(Constants.FORUM_ID)).longValue()%>" message="Discuss this contest"/>
-<% } %>
 <c:set var="forumId" value="<%= request.getAttribute(Constants.FORUM_ID) %>" />
 <c:if test="${not empty forumId}">
 	<tc-webtag:forumLink forumID="${forumId}" message="Discuss this contest"/>
 </c:if>
 
+<center>
 				<div class="pagingBox" style="width:300px;">
 				    <c:choose>
 				        <c:when test="${croppedDataBefore}">
@@ -166,7 +160,7 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
 				        </c:otherwise>
 				    </c:choose>
 				</div>
-
+</center>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
     <tr>
         <td>
@@ -194,7 +188,6 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                     <td class="headerC" width="15%">&#160;</td>
                 </tr>
 				<c:forEach items="${competitors}" var="row" varStatus="status">
-					<c:set var="params" value="<%=Constants.ROUND_ID%>=${roundId}&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}" />
 				    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
                         <td class="valueR">${row.map['placed']}</td>
                         <td class="value"><tc-webtag:handle context='marathon_match' coderId="${row.map['coder_id']}"/></td>                                                
@@ -215,6 +208,7 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
     </tr>
 </TABLE>
 
+<center>
 	<div class="pagingBox" style="width:300px;">
 	    <c:choose>
 	        <c:when test="${croppedDataBefore}">
@@ -239,8 +233,9 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
           <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
           &#160;at a time starting with &#160;
           <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-          <a href="javascript:document.matchWinnersForm.submit();" class="bcLink">&#160;[ submit ]</a>
+          <a href="javascript:document.f.submit();" class="bcLink">&#160;[ submit ]</a>
       </div>
+      	</center>
 </form>
 </td>
 

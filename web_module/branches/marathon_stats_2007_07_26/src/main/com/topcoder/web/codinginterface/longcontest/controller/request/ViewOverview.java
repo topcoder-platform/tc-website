@@ -47,7 +47,7 @@ public class ViewOverview extends Base {
                 // Find most recent round
                 Request req = new Request();
                 req.setContentHandle("marathon_match_list");
-                ResultSetContainer rsc = getDataAccess(true).getData(req).get("marathon_match_list");
+                ResultSetContainer rsc = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(req).get("marathon_match_list");
                 roundID = rsc.getStringItem(0, "round_id");
                 getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(rsc.getIntItem(0, "round_type_id")));
             }
