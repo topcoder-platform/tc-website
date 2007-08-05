@@ -120,6 +120,7 @@ public class ViewOverview extends Base {
             request.setAttribute("columnMap", rsc.getColumnNameMap());  
             request.setAttribute("croppedDataBefore", rsc.croppedDataBefore());
             request.setAttribute("croppedDataAfter", rsc.croppedDataAfter());
+            request.setAttribute("roundId", roundID);
             
             setDefault(Constants.ROUND_ID, roundID);
             setNextPage(Constants.PAGE_VIEW_OVERVIEW);

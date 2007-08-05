@@ -3,7 +3,9 @@
 <%@ page
         language="java"
         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                com.topcoder.web.codinginterface.longcontest.Constants"
+                com.topcoder.web.codinginterface.longcontest.Constants,
+				com.topcoder.shared.dataAccess.DataAccessConstants"
+                
         %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -44,6 +46,35 @@
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+<script type="text/javascript">
+function submitEnter(e) {
+var keycode;
+if (window.event) keycode = window.event.keyCode;
+else if (e) keycode = e.which;
+else return true;
+if (keycode == 13) {
+document.matchWinnersForm.submit();
+return false;
+} else return true;
+}
+function next() {
+var myForm = document.f;
+myForm.<%=DataAccessConstants.START_RANK%>.value=<c:out value="${requestScope[defaults][startRank]}"/>+parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+myForm.submit();
+}
+function previous() {
+var myForm = document.matchWinnersForm;
+myForm.<%=DataAccessConstants.START_RANK%>.value=<c:out value="${requestScope[defaults][startRank]}"/>-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+
+myForm.submit();
+}
+</script>
+    
 </head>
 
 <body>
@@ -70,6 +101,10 @@
     <jsp:param name="title" value="Contest Overview"/>
 </jsp:include>
 
+<form name="f" action='${sessionInfo.servletPath}' method="get">
+
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="MatchWinners"/>
+
 <div style="float:right; padding: 0px 0px 0px 5px;">
     <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
 </div>
@@ -79,13 +114,13 @@
     function goTo(selection) {
         sel = selection.options[selection.selectedIndex].value;
         if (sel && sel != '#') {
-            window.location = '<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewOverview&<%=Constants.ROUND_ID%>=' + sel;
+            window.location = '${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewOverview&<%=Constants.ROUND_ID%>=' + sel;
         }
     }
     // -->
 </script>
 Please select a contest:<br>
-<tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="${rounds}" fieldText="name" fieldValue="round_id" selectedValue="<%=request.getParameter(Constants.ROUND_ID)%>" onChange="goTo(this)"/>
+<tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="${rounds}" fieldText="name" fieldValue="round_id"  onChange="goTo(this)"/>
 <br><br>
 
 
@@ -101,18 +136,36 @@ Please select a contest:<br>
 <br>
 Competitors: <rsc:item name="num_competitors" row="<%=infoRow%>"/><br>
 Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.##" ifNull="N/A"/></span><br>
-<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>" class="bcLink">Problem
+<A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>" class="bcLink">Problem
     Statement</A><br>
+
 <% if (request.getAttribute(Constants.FORUM_ID) != null) { %>
 <tc-webtag:forumLink forumID="<%=((Long)request.getAttribute(Constants.FORUM_ID)).longValue()%>" message="Discuss this contest"/>
 <% } %>
-<div class="pagingBox">
-    <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink">
-    </logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
-    &nbsp;|&nbsp;
-    <logic:notEmpty name="nextPageLink"><a href="<%=nextPageLink%>" class="bcLink">
-    </logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty>
-</div>
+<c:set var="forumId" value="<%= request.getAttribute(Constants.FORUM_ID) %>" />
+<c:if test="${not empty forumId}">
+	<tc-webtag:forumLink forumID="${forumId}" message="Discuss this contest"/>
+</c:if>
+
+				<div class="pagingBox" style="width:300px;">
+				    <c:choose>
+				        <c:when test="${croppedDataBefore}">
+				            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+				        </c:when>
+				        <c:otherwise>
+				            &lt;&lt; prev
+				        </c:otherwise>
+				    </c:choose>
+				    |
+				    <c:choose>
+				        <c:when test="${croppedDataAfter}">
+				            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+				        </c:when>
+				        <c:otherwise>
+				            next &gt;&gt;
+				        </c:otherwise>
+				    </c:choose>
+				</div>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
     <tr>
@@ -140,41 +193,52 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                     <td class="tableHeader" width="15%">&#160;</td>
                     <td class="tableHeader" width="15%">&#160;</td>
                 </tr>
-                <%-- ITERATOR --%>
-                <%boolean even = true;%>
 				<c:forEach items="${competitors}" var="row" varStatus="status">
+					<c:set var="params" value="<%=Constants.ROUND_ID%>=${roundId}&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}" />
 				    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
-                        <td class="<%=even?"statLt":"statDk"%>" align="right">${row.map['placed']}</td>
-                        <td class="<%=even?"statLt":"statDk"%>"><tc-webtag:handle context='marathon_match' coderId="${row.map['coder_id']}"/></td>                                                
+                        <td class="valueR">${row.map['placed']}</td>
+                        <td class="value"><tc-webtag:handle context='marathon_match' coderId="${row.map['coder_id']}"/></td>                                                
                         <td class="valueR">${row.map['provisional_placed']}</td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="right"><fmt:formatNumber value="${row.map['point_total']}"  minFractionDigits="2" maxFractionDigits="2"/></td>                           
-                        <td class="<%=even?"statLt":"statDk"%>" align="right"><fmt:formatNumber value="${row.map['system_point_total']}"  minFractionDigits="2" maxFractionDigits="2"/></td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="center">${row.map['language_name']}</td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="center">
-                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSystemTestResults&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}">results</A>
-                        </td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
-                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}">submission
-                                history</A></td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
-                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}">example
-                                history</A></td>
+                        <td class="valueR"><fmt:formatNumber value="${row.map['point_total']}"  minFractionDigits="2" maxFractionDigits="2"/></td>                           
+                        <td class="valueR"><fmt:formatNumber value="${row.map['system_point_total']}"  minFractionDigits="2" maxFractionDigits="2"/></td>
+                        <td class="valueC">${row.map['language_name']}</td>
+                        <td class="valueC" nowrap="nowrap"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewSystemTestResults&${params}">results</A></td>
+                        <td class="valueC" nowrap="nowrap"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewSubmissionHistory&${params}">submission history</A></td>
+                        <td class="valueC" nowrap="nowrap"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewExampleHistory&${params}">example history</A></td>
                     </tr>
-                    <%even = !even;%>
                  </c:forEach>
             </TABLE>
         </TD>
     </tr>
 </TABLE>
 
-<div class="pagingBox">
-    <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink">
-    </logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
-    &nbsp;|&nbsp;
-    <logic:notEmpty name="nextPageLink"><a href="<%=nextPageLink%>" class="bcLink">
-    </logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty>
-</div>
+	<div class="pagingBox" style="width:300px;">
+	    <c:choose>
+	        <c:when test="${croppedDataBefore}">
+	            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+	        </c:when>
+	        <c:otherwise>
+	            &lt;&lt; prev
+	        </c:otherwise>
+	    </c:choose>
+	    |
+	    <c:choose>
+	        <c:when test="${croppedDataAfter}">
+	            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+	        </c:when>
+	        <c:otherwise>
+	            next &gt;&gt;
+	        </c:otherwise>
+	    </c:choose>
+	</div>
 
+          View &#160;
+          <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
+          &#160;at a time starting with &#160;
+          <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
+          <a href="javascript:document.matchWinnersForm.submit();" class="bcLink">&#160;[ submit ]</a>
+      </div>
+</form>
 </td>
 
 <%-- Right Column Begins --%>
