@@ -78,9 +78,8 @@ public class ViewOverview extends Base {
             s.addDefault(rsc.getColumnIndex("system_point_total"), "desc");
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
             
-
-            setDefault(DataAccessConstants.NUMBER_RECORDS, "" + numRecords);
-            setDefault(DataAccessConstants.START_RANK, "" + startRank);
+            setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
+            setDefault(DataAccessConstants.START_RANK, startRank);
 
             request.setAttribute("infoRow", result.get("long_contest_overview_info").get(0));
             request.setAttribute("categories", result.get("long_contest_round_categories"));
