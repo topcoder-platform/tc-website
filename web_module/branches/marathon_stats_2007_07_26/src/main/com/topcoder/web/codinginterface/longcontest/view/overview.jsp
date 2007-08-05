@@ -144,6 +144,7 @@ Avg. Submissions: <fmt:formatNumber value="${infoRow.map['avg_submissions']}"  m
 
 <center>
 				<div class="pagingBox" style="width:300px;">
+					<tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" container="${competitors}" styleClass="bcLink" />
 				    <c:choose>
 				        <c:when test="${croppedDataBefore}">
 				            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
