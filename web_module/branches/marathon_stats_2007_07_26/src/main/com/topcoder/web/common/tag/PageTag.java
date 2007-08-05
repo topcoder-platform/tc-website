@@ -59,7 +59,7 @@ abstract class PageTag extends TagSupport {
     public int doStartTag() throws JspException {
         String tag;
         if (displayLink()) {
-            tag = "<a href=\"" + getPageLink() + (styleClass != null? "class=\""+ styleClass + "\"": "") + "\">" + getText() + "</a>"; 
+            tag = "<a href=\"" + getPageLink() + (styleClass != null? "\" class=\""+ styleClass + "\"": "") + ">" + getText() + "</a>"; 
         } else {
             tag = getText();
         }
@@ -103,7 +103,7 @@ abstract class PageTag extends TagSupport {
         
         log.debug("sr: "+ sr + " nr:" + nr);
         StringBuffer buf = new StringBuffer(100);
-        buf.append("/" + servletPath + "?");
+        buf.append(servletPath + "?");
         
         add(buf, DataAccessConstants.START_RANK, sr + "");
         add(buf, DataAccessConstants.NUMBER_RECORDS, nr + "");
