@@ -36,9 +36,8 @@ public class ViewOverview extends Base {
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             String sortColStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
-            int numRecords = numRecordsStr.length() > 0 ? Integer.parseInt(numRecordsStr) : 50;
+            int numRecords = 50;
             int startRank = 1;
-            int endRank = startRank + numRecords - 1;
 
             r.setContentHandle("long_contest_overview");
 
@@ -68,6 +67,7 @@ public class ViewOverview extends Base {
             if (!sortColStr.equals("")) {
                 sortCol = Integer.parseInt(sortColStr);
             }
+            int endRank = startRank + numRecords - 1;
 
             
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
