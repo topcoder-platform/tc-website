@@ -115,7 +115,7 @@ public class ViewOverview extends Base {
                                 .toString());
             }
 */
-            request.setAttribute("competitors", result.get("long_contest_overview_coders"););
+            request.setAttribute("competitors", result.get("long_contest_overview_coders"));
             request.setAttribute("rounds", result.get("long_contest_round_list"));
             request.setAttribute("columnMap", rsc.getColumnNameMap());  
             request.setAttribute("croppedDataBefore", rsc.croppedDataBefore());

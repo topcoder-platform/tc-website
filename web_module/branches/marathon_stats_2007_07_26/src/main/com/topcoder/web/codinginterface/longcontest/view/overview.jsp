@@ -9,14 +9,14 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <jsp:useBean id="resultMap" type="java.util.Map" scope="request"/>
 <jsp:useBean id="sortLinkBase" class="java.lang.String" scope="request"/>
 <jsp:useBean id="prevPageLink" class="java.lang.String" scope="request"/>
 <jsp:useBean id="nextPageLink" class="java.lang.String" scope="request"/>
-<%
-    ResultSetContainer competitors = (ResultSetContainer) resultMap.get("long_contest_overview_coders");
-    ResultSetContainer rounds = (ResultSetContainer) resultMap.get("long_contest_round_list");
+<%    
     ResultSetContainer categories = (ResultSetContainer) resultMap.get("long_contest_round_categories");
     ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_contest_overview_info");
     ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) rsc.get(0);
@@ -84,7 +84,7 @@
     // -->
 </script>
 Please select a contest:<br>
-<tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=request.getParameter(Constants.ROUND_ID)%>" onChange="goTo(this)"/>
+<tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="${rounds}" fieldText="name" fieldValue="round_id" selectedValue="<%=request.getParameter(Constants.ROUND_ID)%>" onChange="goTo(this)"/>
 <br><br>
 
 
@@ -119,34 +119,42 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                 <tr>
-                    <td class="tableTitle" colspan="8">Contest Overview</td>
+                    <td class="tableTitle" colspan="9">Contest Overview</td>
                 </tr>
                 <tr>
                     <td class="tableHeader" width="5%" align="right">
-                        <A href="<%=sortLinkBase%><tc-webtag:sort column="4"/>">Rank</A></td>
+                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['placed']}" includeParams="true" excludeParams="sr" />">Rank</a></td>
                     <td class="tableHeader" width="15%">
-                        <A href="<%=sortLinkBase%><tc-webtag:sort column="2"/>">Handle</A>
+                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['handle']}" includeParams="true" excludeParams="sr" />">Handle</a></td>
                     </td>
                     <td class="tableHeader" width="15%" align="right">
-                        <A href="<%=sortLinkBase%><tc-webtag:sort column="3"/>">Provisional Score</A></td>
+                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['provisional_placed']}" includeParams="true" excludeParams="sr" />">Provisional Rank</a></td>
                     <td class="tableHeader" width="15%" align="right">
-                        <A href="<%=sortLinkBase%><tc-webtag:sort column="7"/>">Final Score</A></td>
+                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['point_total']}" includeParams="true" excludeParams="sr" />">Provisional Score</a></td>
+                    <td class="tableHeader" width="15%" align="right">
+                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['system_point_total']}" includeParams="true" excludeParams="sr" />">Final Score</a></td>
                     <td class="tableHeader" width="10%" align="center">
-                        <A href="<%=sortLinkBase%><tc-webtag:sort column="5"/>">Language</A></td>
+                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['language_name']}" includeParams="true" excludeParams="sr" />">Language</a></td>
                     <td class="tableHeader" width="10%">&#160;</td>
                     <td class="tableHeader" width="15%">&#160;</td>
                     <td class="tableHeader" width="15%">&#160;</td>
                 </tr>
                 <%-- ITERATOR --%>
                 <%boolean even = true;%>
-                <rsc:iterator list="<%=competitors%>" id="resultRow">
+				<c:forEach items="${competitors}" var="resultRow" varStatus="status">
+				    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
                     <tr>
                         <td class="<%=even?"statLt":"statDk"%>" align="right">
                             <rsc:item name="placed" row="<%=resultRow%>"/></td>
                         <td class="<%=even?"statLt":"statDk"%>">
                             <tc-webtag:handle context='marathon_match' coderId='<%=resultRow.getLongItem("coder_id")%>'/></td>
+                        
+                        
+                        <td class="valueR">${resultRow.map['provisional_placed'] }</td>
                         <td class="<%=even?"statLt":"statDk"%>" align="right">
                             <rsc:item name="point_total" row="<%=resultRow%>" format="0.00"/></td>
+                            
+                            
                         <td class="<%=even?"statLt":"statDk"%>" align="right">
                             <rsc:item name="system_point_total" row="<%=resultRow%>" format="0.00"/></td>
                         <td class="<%=even?"statLt":"statDk"%>" align="center">
@@ -162,8 +170,7 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                                 history</A></td>
                     </tr>
                     <%even = !even;%>
-                </rsc:iterator>
-                <%-- END ITERATOR --%>
+                 </c:forEach>
             </TABLE>
         </TD>
     </tr>
