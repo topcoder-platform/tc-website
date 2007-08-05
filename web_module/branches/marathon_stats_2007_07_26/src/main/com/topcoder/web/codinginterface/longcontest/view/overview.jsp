@@ -96,6 +96,8 @@ myForm.submit();
 <form name="f" action='${sessionInfo.servletPath}' method="get">
 
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewOverview"/>
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
 <div style="float:right; padding: 0px 0px 0px 5px;">
     <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
