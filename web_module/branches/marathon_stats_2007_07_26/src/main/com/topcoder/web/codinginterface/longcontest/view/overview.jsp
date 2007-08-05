@@ -50,21 +50,6 @@ document.f.submit();
 return false;
 } else return true;
 }
-function next() {
-var myForm = document.f;
-myForm.<%=DataAccessConstants.START_RANK%>.value=<c:out value="${requestScope[defaults][startRank]}"/>+parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
-myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
-myForm.submit();
-}
-function previous() {
-var myForm = document.f;
-myForm.<%=DataAccessConstants.START_RANK%>.value=<c:out value="${requestScope[defaults][startRank]}"/>-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
-myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
-
-myForm.submit();
-}
 </script>
     
 </head>
@@ -142,28 +127,12 @@ Avg. Submissions: <fmt:formatNumber value="${infoRow.map['avg_submissions']}"  m
 	<tc-webtag:forumLink forumID="${forumId}" message="Discuss this contest"/>
 </c:if>
 
-<center>
+			<center>
 				<div class="pagingBox" style="width:300px;">
-					<tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" container="${competitors}" styleClass="bcLink" />
-				    <c:choose>
-				        <c:when test="${croppedDataBefore}">
-				            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
-				        </c:when>
-				        <c:otherwise>
-				            &lt;&lt; prev
-				        </c:otherwise>
-				    </c:choose>
-				    |
-				    <c:choose>
-				        <c:when test="${croppedDataAfter}">
-				            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
-				        </c:when>
-				        <c:otherwise>
-				            next &gt;&gt;
-				        </c:otherwise>
-				    </c:choose>
+					<tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" container="${competitors}" styleClass="bcLink" /> |
+					<tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" container="${competitors}" styleClass="bcLink" />
 				</div>
-</center>
+			</center>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
     <tr>
         <td>
@@ -212,25 +181,10 @@ Avg. Submissions: <fmt:formatNumber value="${infoRow.map['avg_submissions']}"  m
 </TABLE>
 
 <center>
-	<div class="pagingBox" style="width:300px;">
-	    <c:choose>
-	        <c:when test="${croppedDataBefore}">
-	            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
-	        </c:when>
-	        <c:otherwise>
-	            &lt;&lt; prev
-	        </c:otherwise>
-	    </c:choose>
-	    |
-	    <c:choose>
-	        <c:when test="${croppedDataAfter}">
-	            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
-	        </c:when>
-	        <c:otherwise>
-	            next &gt;&gt;
-	        </c:otherwise>
-	    </c:choose>
-	</div>
+		<div class="pagingBox" style="width:300px;">
+			<tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" container="${competitors}" styleClass="bcLink" /> |
+			<tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" container="${competitors}" styleClass="bcLink" />
+		</div>
 
           View &#160;
           <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>

@@ -14,7 +14,7 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 
 abstract class PageTag extends TagSupport {
-    private static Logger log = Logger.getLogger(SortTag.class);
+    private static Logger log = Logger.getLogger(PageTag.class);
 
     public static final int DEFAULT_NROWS = 50;
     
@@ -79,16 +79,24 @@ abstract class PageTag extends TagSupport {
     private String getPageLink() {
         log.debug("getPageLink");
         HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
-     
+        
+        Integer srObj = (Integer) defaults.get(DataAccessConstants.START_RANK);
+        Integer nrObj = (Integer) defaults.get(DataAccessConstants.NUMBER_RECORDS);
+
+        log.debug("srObj: " + srObj);
+        log.debug("nrObj: " + nrObj);
+        
+        int sr = srObj == null? 1 : srObj;
+        int nr = nrObj == null? DEFAULT_NROWS : nrObj;
+
+        /*     
         String srStr = StringUtils.checkNull((String) defaults.get(DataAccessConstants.START_RANK));
         String nrStr = StringUtils.checkNull((String) defaults.get(DataAccessConstants.NUMBER_RECORDS));
         
-        int sr = 1;
-        int nr = DEFAULT_NROWS;
         
         if (srStr.length() > 0) sr = Integer.parseInt(srStr);
         if (nrStr.length() > 0) sr = Integer.parseInt(nrStr);
-        
+  */      
     
         sr += nr * getPageDelta(); 
         if (sr < 1) sr = 1;
@@ -98,7 +106,7 @@ abstract class PageTag extends TagSupport {
         buf.append("/" + servletPath + "?");
         
         add(buf, DataAccessConstants.START_RANK, sr + "");
-        add(buf, DataAccessConstants.NUMBER_RECORDS, nrStr);
+        add(buf, DataAccessConstants.NUMBER_RECORDS, nr + "");
         
         
         for (Enumeration<String> e = pageContext.getRequest().getParameterNames(); e.hasMoreElements();) {
