@@ -2,15 +2,19 @@ package com.topcoder.web.common.tag;
 
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.HashMap;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 
 abstract class PageTag extends TagSupport {
+    private static Logger log = Logger.getLogger(SortTag.class);
 
     public static final int DEFAULT_NROWS = 50;
     
@@ -59,6 +63,7 @@ abstract class PageTag extends TagSupport {
         } else {
             tag = getText();
         }
+        log.debug("tag: " + tag);
         
         
 
@@ -72,8 +77,11 @@ abstract class PageTag extends TagSupport {
     
     @SuppressWarnings("unchecked")
     private String getPageLink() {
-        String srStr = StringUtils.checkNull(pageContext.getRequest().getAttribute(DataAccessConstants.START_RANK).toString());
-        String nrStr = StringUtils.checkNull(pageContext.getRequest().getAttribute(DataAccessConstants.NUMBER_RECORDS).toString());
+        log.debug("getPageLink");
+        HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
+     
+        String srStr = StringUtils.checkNull((String) defaults.get(DataAccessConstants.START_RANK));
+        String nrStr = StringUtils.checkNull((String) defaults.get(DataAccessConstants.NUMBER_RECORDS));
         
         int sr = 1;
         int nr = DEFAULT_NROWS;
@@ -85,6 +93,7 @@ abstract class PageTag extends TagSupport {
         sr += nr * getPageDelta(); 
         if (sr < 1) sr = 1;
         
+        log.debug("sr: "+ sr + " nr:" + nr);
         StringBuffer buf = new StringBuffer(100);
         buf.append("/" + servletPath + "?");
         
