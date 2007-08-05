@@ -7,18 +7,21 @@
 
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.*;
-
-import java.util.Map;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SortInfo;
 
 /**
- * @author Porgery
+ * @author Porgery, Cucu
  */
 public class ViewOverview extends Base {
     protected static final Logger log = Logger.getLogger(ViewOverview.class);
@@ -34,7 +37,28 @@ public class ViewOverview extends Base {
             String sortColStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
             int numRecords = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
-            int startRank = 1, sortCol = 4;
+            int startRank = 1;
+            int endRank = startRank + numRecords - 1;
+
+            r.setContentHandle("long_contest_overview");
+
+            String roundID = request.getParameter(Constants.ROUND_ID);
+            if (roundID == null) {
+                // Find most recent round
+                Request req = new Request();
+                req.setContentHandle("marathon_match_list");
+                ResultSetContainer rsc = getDataAccess(true).getData(req).get("marathon_match_list");
+                roundID = rsc.getStringItem(0, "round_id");
+                getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(rsc.getIntItem(0, "round_type_id")));
+            }
+            
+            r.setProperty(Constants.ROUND_ID, roundID);
+            r.setProperty(Constants.ROUND_TYPE_ID, getRequest().getAttribute(Constants.ROUND_TYPE_ID).toString());
+            
+            Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
+            ResultSetContainer rsc = result.get("long_contest_overview_coders");
+
+            int sortCol = rsc.getColumnIndex("placed");
             if (!numRecordsStr.equals("")) {
                 numRecords = Integer.parseInt(numRecordsStr);
             }
@@ -45,77 +69,22 @@ public class ViewOverview extends Base {
                 sortCol = Integer.parseInt(sortColStr);
             }
 
-            int endRank = startRank + numRecords - 1;
-
-            r.setContentHandle("long_contest_overview");
-
-            String roundID = request.getParameter(Constants.ROUND_ID);
-            if (roundID == null) {
-                // Find most recent round
-                Request req = new Request();
-                req.setContentHandle("long_contest_active_contests");
-                ResultSetContainer rsc =
-                        (ResultSetContainer) getDataAccess(false).getData(req).get("long_contest_active_contests");
-                if (rsc.isEmpty()) { // No active contests
-                    getRequest().setAttribute(Constants.MESSAGE, "There are currently no active rounds.");
-                    setNextPage(Constants.PAGE_VIEW_REGISTRANTS);
-                    setIsNextPageInContext(true);
-                    return;
-                } else { // Show the most recent active round
-                    roundID = rsc.getStringItem(0, "round_id");
-                    getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(rsc.getIntItem(0, "round_type_id")));
-                }
-            }
-            r.setProperty(Constants.ROUND_ID, roundID);
-            r.setProperty(Constants.ROUND_TYPE_ID, getRequest().getAttribute(Constants.ROUND_TYPE_ID).toString());
-            Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
-            ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_overview_coders");
+            
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
-
             rsc = new ResultSetContainer(rsc, startRank, endRank);
 
-            result.put("long_contest_overview_coders", rsc);
-
-//            SortInfo s = new SortInfo();
-//            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+            SortInfo s = new SortInfo();
+            s.addDefault(rsc.getColumnIndex("point_total"), "desc");
+            s.addDefault(rsc.getColumnIndex("system_point_total"), "desc");
+            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+            
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, "" + numRecords);
             setDefault(DataAccessConstants.START_RANK, "" + startRank);
 
-            request.setAttribute("resultMap", result);
-/*
-            SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-            
-            StringBuffer buf = new StringBuffer(100);
-            buf.append(info.getServletPath());
-            buf.append("?").append(Constants.MODULE).append("=ViewOverview");
-            buf.append("&").append(Constants.ROUND_ID).append("=").append(request.getParameter(Constants.ROUND_ID));
-            if (request.getParameter(DataAccessConstants.NUMBER_RECORDS) != null)
-                buf.append("&").append(DataAccessConstants.NUMBER_RECORDS).append("=").append(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
-
-            request.setAttribute("sortLinkBase", buf.toString());
-
-            if (request.getParameter(DataAccessConstants.SORT_COLUMN) != null)
-                buf.append("&").append(DataAccessConstants.SORT_COLUMN).append("=").append(request.getParameter(DataAccessConstants.SORT_COLUMN));
-            if (request.getParameter(DataAccessConstants.SORT_DIRECTION) != null)
-                buf.append("&").append(DataAccessConstants.SORT_DIRECTION).append("=").append(request.getParameter(DataAccessConstants.SORT_DIRECTION));
-
-            if (rsc.croppedDataBefore()) {
-                request.setAttribute("prevPageLink",
-                        new StringBuffer().append(buf)
-                                .append("&").append(DataAccessConstants.START_RANK)
-                                .append("=").append("" + Math.max(1, rsc.getStartRow() - numRecords))
-                                .toString());
-            }
-            if (rsc.croppedDataAfter()) {
-                request.setAttribute("nextPageLink",
-                        new StringBuffer().append(buf)
-                                .append("&").append(DataAccessConstants.START_RANK)
-                                .append("=").append("" + (rsc.getStartRow() + numRecords))
-                                .toString());
-            }
-*/
-            request.setAttribute("competitors", result.get("long_contest_overview_coders"));
+            request.setAttribute("infoRow", result.get("long_contest_overview_info").get(0));
+            request.setAttribute("categories", result.get("long_contest_round_categories"));
+            request.setAttribute("competitors", rsc);
             request.setAttribute("rounds", result.get("long_contest_round_list"));
             request.setAttribute("columnMap", rsc.getColumnNameMap());  
             request.setAttribute("croppedDataBefore", rsc.croppedDataBefore());
