@@ -1,10 +1,5 @@
-<%@ page language="java"
-         import="com.topcoder.shared.dataAccess.resultSet.*" %>
+<%@ page language="java" %>
 
-<%@ page import="java.util.Iterator" %>
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="tc.tld" prefix="tc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>

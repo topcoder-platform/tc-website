@@ -27,6 +27,8 @@ public class Recordbook extends Static {
             
         } else throw new TCWebException("Invalid c parameter: " + handle);
         
+        log.debug("includeJsp=" + includeJsp);
+        includeJsp = "/stats/consecutiveRatingIncreases.jsp";
         getRequest().setAttribute("handle", handle);
 
         DataAccessInt dai = getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
