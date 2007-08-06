@@ -46,8 +46,8 @@
                 <td width="50%">
                     <strong>Consecutive Rating Increases</strong><br>
                     Most rating increases in a row.  If a competitors rating does not change, their streak is broken.
-                    <a href="/longcontest/?moduleRecordBook&c=marathon_consecutive_rating_increases&amp;wst=8">Non-Tournament</a> |
-                    <a href="/longcontest/?module=RecordBook&c=marathon_consecutive_rating_increases&amp;wst=8">all</a>
+                    <a href="/longcontest/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=8">Non-Tournament</a> |
+                    <a href="/longcontest/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=8">all</a>
                 </td>
                 <td width="50%">
                 </td>
