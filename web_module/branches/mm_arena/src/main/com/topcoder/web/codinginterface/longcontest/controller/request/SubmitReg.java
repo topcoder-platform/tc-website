@@ -262,12 +262,16 @@ public class SubmitReg extends ViewReg {
     // Returns the Answer with the given answerID
     private Answer findAnswer(long answerId, Question question) {
         Answer a = null;
-        boolean found = false;
-        for (Iterator it = question.getAnswerInfo().iterator(); it.hasNext() && !found;) {
+        log.debug("looking :" + answerId);
+        for (Iterator it = question.getAnswerInfo().iterator(); it.hasNext();) {
             a = (Answer) it.next();
-            found = a.getId().equals(new Long(answerId));
+            log.debug(a.getId()+"-"+a.getText());
+            if (a.getId().longValue() == answerId) {
+                log.debug("found");
+                return a;
+            }
         }
-        return found ? a : null;
+        return null;
     }
 
     // Set default response answers
