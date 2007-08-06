@@ -62,7 +62,7 @@ public class MatchWinners extends Base {
                 rsc = result.get("marathon_match_winners_rounds");
 
                 if (sc == 1) sc = rsc.getColumnIndex("date");
-                if (sc == 2) sc = rsc.getColumnIndex("name");
+                else if (sc == 2) sc = rsc.getColumnIndex("name");
                 
                 rsc.sortByColumn(sc, !"desc".equals(sortDir));                
                 rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank)-1, endRank);
@@ -90,7 +90,7 @@ public class MatchWinners extends Base {
                 rsc = result.get("marathon_match_winners");
     
                 if (sc == 3) sc = rsc.getColumnIndex("handle");
-                if (sc == 4) sc = rsc.getColumnIndex("num_wins");
+                else if (sc == 4) sc = rsc.getColumnIndex("num_wins");
 
                 rsc.sortByColumn(sc, !"desc".equals(sortDir));                
                 rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank)-1, endRank);
