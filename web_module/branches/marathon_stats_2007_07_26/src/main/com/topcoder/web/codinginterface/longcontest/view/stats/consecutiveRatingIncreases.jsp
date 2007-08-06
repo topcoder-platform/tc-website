@@ -67,12 +67,12 @@
         </td>
         <td class="valueR" nowrap="nowrap">
 	        <strong>${row.map['start_contest_name']}</strong><br>
-        	<fmt:formatDate value="${row.map['start_date']" pattern="MM.dd.yy"/> 
+        	<fmt:formatDate value="${row.map['start_date']}" pattern="MM.dd.yy"/> 
         </td>
         <td class="valueC">-</td>
         <td class="valueR" nowrap="nowrap">
 	        <strong>${row.map['end_contest_name']}</strong><br>
-        	<fmt:formatDate value="${row.map['end_date']" pattern="MM.dd.yy"/> 
+        	<fmt:formatDate value="${row.map['end_date']}" pattern="MM.dd.yy"/> 
         </td>
     </tr>
     </c:forEach>
