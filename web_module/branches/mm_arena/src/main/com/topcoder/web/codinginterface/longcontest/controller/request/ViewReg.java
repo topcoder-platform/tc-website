@@ -219,6 +219,7 @@ public class ViewReg extends Base {
                 a.setQuestionId(row.getLongItem("question_id"));
                 a.setSort(row.getIntItem("sort_order"));
                 a.setText(row.getStringItem("answer_text"));
+                a.setCorrect(new Boolean(row.getBooleanItem("correct")));
                 ret.add(a);
             }
         }
