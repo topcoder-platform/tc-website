@@ -39,9 +39,12 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                         } else if (type == MARATHON_MATCH_PAYMENT || type == MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT) {
                             map = dib.findRounds("%" + search + "%", MARATHON_MATCH_ROUND_TYPES);
 
-                        }  else if (type == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
-                              map = dib.findRounds("%" + search + "%", ALGORITHM_TOURNAMENT_ROUND_TYPES);
+                        }  else if (type == HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT) {
+                              map = dib.findRounds("%" + search + "%", HIGH_SCHOOL_TOURNAMENT_ROUND_TYPES);
                               
+                        }  else if (type == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
+                            map = dib.findRounds("%" + search + "%", ALGORITHM_TOURNAMENT_ROUND_TYPES);
+
                         } else if (type == PROBLEM_TESTING_PAYMENT) {
                         	map = dib.findRounds("%" + search + "%", PROBLEM_TESTING_ROUND_TYPES);                        	
                         }

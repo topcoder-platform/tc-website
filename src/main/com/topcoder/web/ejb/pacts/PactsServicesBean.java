@@ -61,6 +61,8 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 /**
  * The EJB class which handles database access for the PACTS system.
+ * 
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
  *
  * @author Dave Pecora
  * @version 1.00, 03/06/2002
@@ -68,6 +70,13 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
  */
 
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+    
+    
     private static final Logger log = Logger.getLogger(PactsServicesBean.class);
     private static final int DESIGN_PROJECT = 1;
     private static final int DEVELOPMENT_PROJECT = 2;
@@ -3400,6 +3409,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         if (p.getHeader().getTypeId() == ALGORITHM_CONTEST_PAYMENT ||
                 p.getHeader().getTypeId() == MARATHON_MATCH_PAYMENT ||
                 p.getHeader().getTypeId() == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT ||
+                p.getHeader().getTypeId() == HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT ||
                 p.getHeader().getTypeId() == MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT) {
             StringBuffer getUserWithholding = new StringBuffer(300);
             getUserWithholding.append("SELECT withholding_amount, withholding_percentage, use_percentage,date_filed ");
@@ -5666,6 +5676,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Special treating for algorithm payments, because they have affidavits.
             if (payment instanceof AlgorithmContestPayment ||
                     payment instanceof AlgorithmTournamentPrizePayment ||
+                    payment instanceof HighSchoolPrizePayment ||
                     payment instanceof MarathonMatchPayment ||
                     payment instanceof MarathonMatchTournamentPrizePayment) {
                 paymentId = makeNewAlgorithmPayment(c, p, (AlgorithmRoundReferencePayment) payment);

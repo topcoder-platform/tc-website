@@ -329,6 +329,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     private void checkAffirmedAffidavit(BasePayment payment) throws Exception {
         if (payment.getPaymentType() == BasePayment.ALGORITHM_CONTEST_PAYMENT ||
             payment.getPaymentType() == BasePayment.ALGORITHM_TOURNAMENT_PRIZE_PAYMENT ||
+            payment.getPaymentType() == BasePayment.HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT ||
             payment.getPaymentType() == BasePayment.MARATHON_MATCH_PAYMENT ||
             payment.getPaymentType() == BasePayment.MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT) {
             

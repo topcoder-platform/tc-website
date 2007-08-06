@@ -310,6 +310,7 @@ public abstract class BasePaymentStatus implements java.io.Serializable {
     protected void cancelAttachedDocuments(BasePayment payment) throws Exception {
         if (payment.getPaymentType() == BasePayment.ALGORITHM_CONTEST_PAYMENT ||
                 payment.getPaymentType() == BasePayment.ALGORITHM_TOURNAMENT_PRIZE_PAYMENT ||
+                payment.getPaymentType() == BasePayment.HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT ||
                 payment.getPaymentType() == BasePayment.MARATHON_MATCH_PAYMENT) {
                 
                 DataInterfaceBean dib = new DataInterfaceBean();
