@@ -1010,7 +1010,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>container</name>
+            <name>list</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
             <type>com.topcoder.shared.dataAccess.resultSet.ResultSetContainer</type>
@@ -1037,7 +1037,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>container</name>
+            <name>list</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
             <type>com.topcoder.shared.dataAccess.resultSet.ResultSetContainer</type>
