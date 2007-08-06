@@ -48,9 +48,11 @@ public class SubmissionValidator implements Validator {
         }
 
         int ret = 0;
+        MimeType mt = null;
         try {
             arr = new byte[(int) submission.getSize()];
             ret = submission.getInputStream().read(arr);
+            mt = getMimeType(submission);
         } catch (FileDoesNotExistException e) {
             log.warn("Communication error when receiving submission.", e);
             return new BasicResult(false, "Communication error when receiving submission.");
@@ -60,35 +62,11 @@ public class SubmissionValidator implements Validator {
         } catch (IOException e) {
             log.warn("Communication error when receiving submission.", e);
         }
-        MimeType mt = StudioDAOUtil.getFactory().getMimeTypeDAO().find(submission.getContentType());
 
         if (ret == 0) {
             return new BasicResult(false, "Submission was empty");
         } else if (mt == null) {
-            try {
-                /*
-                do a second level of acceptance.  some client machines don't identify the mime type correctly.  so
-                we'll be a bit lenient.  if they get the extension right, we'll accept it.
-                 */
-                String ext = submission.getRemoteFileName().substring(submission.getRemoteFileName().lastIndexOf('.') + 1);
-                boolean found = false;
-                for (StudioFileType ft : contest.getFileTypes()) {
-                    if (ft.getExtension().equals(ext)) {
-                        found = true;
-                        break;
-                    }
-                }
-                //if we didn't find it, then
-                if (!found) {
-                    return new BasicResult(false, "Unknown file type submitted: " + submission.getContentType());
-                }
-            } catch (PersistenceException e) {
-                log.warn("Communication error when receiving submission.", e);
-                return new BasicResult(false, "Communication error when receiving submission.");
-            } catch (FileDoesNotExistException e) {
-                log.warn("Communication error when receiving submission.", e);
-                return new BasicResult(false, "Communication error when receiving submission.");
-            }
+            return new BasicResult(false, "Unknown file type submitted: " + submission.getContentType());
         } else if (!contest.getFileTypes().contains(mt.getFileType())) {
             return new BasicResult(false, "Invalid file type submitted: " + submission.getContentType());
         } else {
@@ -151,5 +129,36 @@ public class SubmissionValidator implements Validator {
         }
 
         return ValidationResult.SUCCESS;
+    }
+
+    /**
+     * Figure out the mime type for the given submission.
+     * also do a second level of checking because some client machines don't identify the mime type correctly.  so
+     * we'll be a bit lenient.  if they get the extension right, return the first mime type associated with the file
+     * type identified by the extension.
+     *
+     * @param submission the submission file
+     * @return the mime type of the submission
+     * @throws FileDoesNotExistException when the uploaded file doesn't exist
+     * @throws PersistenceException      not sure when, see FileUpload component docs
+     */
+    public static MimeType getMimeType(UploadedFile submission) throws FileDoesNotExistException, PersistenceException {
+        MimeType mt = StudioDAOUtil.getFactory().getMimeTypeDAO().find(submission.getContentType());
+        if (mt == null) {
+            String ext = submission.getRemoteFileName().substring(submission.getRemoteFileName().lastIndexOf('.') + 1);
+            if (log.isDebugEnabled()) {
+                log.debug("looking for extension " + ext);
+            }
+            for (StudioFileType ft : StudioDAOUtil.getFactory().getFileTypeDAO().getFileTypes()) {
+                if (ft.getExtension().equals(ext)) {
+                    mt = ft.getMimeTypes().iterator().next();
+                    if (log.isDebugEnabled()) {
+                        log.debug("found it");
+                    }
+
+                }
+            }
+        }
+        return mt;
     }
 }
