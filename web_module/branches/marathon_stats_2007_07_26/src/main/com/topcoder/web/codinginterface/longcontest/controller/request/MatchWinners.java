@@ -109,9 +109,9 @@ public class MatchWinners extends Base {
             setDefault(DataAccessConstants.START_RANK, startRank);
 
             getRequest().setAttribute("list", rsc);
-            getRequest().setAttribute("columnMap", rsc.getColumnNameMap());            
-            getRequest().setAttribute("croppedDataBefore", rsc.croppedDataBefore());
-            getRequest().setAttribute("croppedDataAfter", rsc.croppedDataAfter());
+//            getRequest().setAttribute("columnMap", rsc.getColumnNameMap());            
+//            getRequest().setAttribute("croppedDataBefore", rsc.croppedDataBefore());
+  //          getRequest().setAttribute("croppedDataAfter", rsc.croppedDataAfter());
 
             setNextPage(Constants.PAGE_MATCH_WINNERS);
             setIsNextPageInContext(true);
