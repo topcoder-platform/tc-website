@@ -1,7 +1,11 @@
 package com.topcoder.web.common.render;
 
 import com.topcoder.shared.language.Language;
-import com.topcoder.shared.problem.*;
+import com.topcoder.shared.problem.DataType;
+import com.topcoder.shared.problem.Element;
+import com.topcoder.shared.problem.ElementRenderer;
+import com.topcoder.shared.problem.ProblemComponent;
+import com.topcoder.shared.problem.TestCase;
 
 /**
  * @author dok
@@ -135,7 +139,10 @@ public class LongContestComponentRenderer extends BaseRenderer implements Elemen
 
 
         int methodCount = problemComponent.getAllMethodNames().length;
-        for (int i = methodCount > 1 ? 1 : 0; i < methodCount; i++) {
+        for (int i = 0; i < methodCount; i++) {
+            if ("displayTestCase".equals(problemComponent.getAllMethodNames()[i])) {
+                continue;
+            }
             buf.append("<tr><td");
             if (getTdClass() != null) {
                 buf.append(" class=\"");
