@@ -70,7 +70,10 @@ public class ViewProblemStatement extends Base {
                 } else {
                     Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
                     try {
-                        lid = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+                        Integer lang = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+                        if (lang != null) {
+                            lid = lang;
+                        }
                     } catch (RowNotFoundException e) {
                         lid = JavaLanguage.ID;
                     }
