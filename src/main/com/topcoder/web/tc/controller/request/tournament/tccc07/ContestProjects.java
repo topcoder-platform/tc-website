@@ -9,8 +9,11 @@ import com.topcoder.web.tc.controller.request.tournament.ContestProjectsBase;
  */
 public class ContestProjects extends ContestProjectsBase {
 
-    final String CONTEST_PREFIX = "tccc07";
+    private final String CONTEST_PREFIX = "tccc07";
 
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.tournament.ContestProjectsBase#getContestPrefix()
+     */
     @Override
     protected String getContestPrefix() {
         return CONTEST_PREFIX;
