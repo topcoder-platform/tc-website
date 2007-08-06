@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import com.topcoder.netCommon.contest.SurveyAnswerData;
+import com.topcoder.netCommon.contest.SurveyChoiceData;
 import com.topcoder.server.ejb.TestServices.LongContestServicesException;
 import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -162,6 +163,7 @@ public class SubmitReg extends ViewReg {
                         return null;  //quit now
                     }
                 }
+                Answer answer = findAnswer(answerId, question);
                 if (st.hasMoreTokens()) {
                     //this must be a multiple choice question
                     try {
@@ -173,7 +175,7 @@ public class SubmitReg extends ViewReg {
                     if (question.getStyleId() != Question.MULTIPLE_CHOICE) {
                         log.debug("param has answerid but it's not multiple choice");
                         addError(errorKey, "Invalid answer.");
-                    } else if (findAnswer(answerId, question) == null) {
+                    } else if (answer == null) {
                         log.debug("can't find multiple choice answer");
                         addError(errorKey, "Invalid answer.");
                     }
@@ -190,13 +192,13 @@ public class SubmitReg extends ViewReg {
                             log.debug("numberformat trying to get answer for single choice");
                             addError(errorKey, "Invalid answer.");
                         }
-                        if (findAnswer(answerId, question) == null) {
+                        if (answer == null) {
                             log.debug("can't find single choice answer");
                             addError(errorKey, "Invalid answer.");
                         }
                     }
                 }
-
+                //This is ugly, we should unify survey management. Using Core services format.
                 SurveyAnswerData response = new SurveyAnswerData((int) questionId, question.getStyleId(), question.isRequired() && question.getType().getId() == QuestionType.ELIGIBLE);
                 ArrayList answers = new ArrayList();
                 ArrayList choices = new ArrayList();
@@ -206,12 +208,12 @@ public class SubmitReg extends ViewReg {
                     String text = StringUtils.checkNull(values[i]).trim();
                     if (text.length() != 0) {
                         answers.add(StringUtils.checkNull(values[i]));
-                        choices.add(new Integer(0));
+                        choices.add(new SurveyChoiceData(0, "", true));
                         ret.add(response);
                     }
                 } else {
                     answers.add("");
-                    choices.add(answerId);
+                    choices.add(new SurveyChoiceData((int) answerId, answer.getText(), answer.isCorrect()));
                     ret.add(response);
                 }
             }
