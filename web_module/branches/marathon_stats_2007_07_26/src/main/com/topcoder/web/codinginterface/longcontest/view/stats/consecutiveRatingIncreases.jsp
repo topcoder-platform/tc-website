@@ -1,5 +1,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <div class="fixedWidthBody">
@@ -12,16 +14,24 @@
 <div style="float:right;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">back to table of contents</A></div>
 <span class="bodyText">
 
-TODO:
-<A HREF="/stat?c=consecutive_rating_increases&wst=3">SRMs</A> | SRMs and Tournaments
-SRMs | <A HREF="/stat?c=consecutive_rating_increases&wst=4">SRMs and Tournaments</A>
+<c:set var="allTypes" value="${wst == 9 }" />
+
+<tc-webtag:ifLink useLink="${allTypes}" text="Non-tournament" link="/longcontest/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=8"/> |
+<tc-webtag:ifLink useLink="${not allTypes}" text="All" link="/longcontest/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=9"/> |   
 <br><br>
-<strong>Record:</strong> This chart represents the longest consecutive algorithm rating increase streaks.
+<strong>Record:</strong> Most rating increases in a row.  If a competitors rating does not change, their streak is broken.
+<c:choose>
+	<c:when test="${allTypes}">Both tournament and non-tournament are taken into account.
+	</c:when>
+	<c:otherwise>Just non tournament rounds are used.
+	</c:otherwise>
+</c:choose>
+
 </span>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 510px; margin-right: 15px; margin-bottom: 15px;">
 <thead>
-    <tr><td class="title" colspan="6">Most Consecutive Algorithm Rating Increases</td></tr>
+    <tr><td class="title" colspan="6">Most Consecutive Marathon Rating Increases</td></tr>
     <tr>
         <td class="headerC">Rank</td>
         <td class="header" width="100%">Coder</td>
@@ -30,41 +40,42 @@ SRMs | <A HREF="/stat?c=consecutive_rating_increases&wst=4">SRMs and Tournaments
     </tr>
 </thead>
 <tbody>
-    <% boolean even = false; %>
-    <rsc:iterator list="${results}" id="resultRow">
-    <tr class="<%=even?"dark":"light"%>">
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="rank"/></td>
-        <td class="value"><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
-        <td class="valueC" width="100px" nowrap>
-           <% if (resultRow.getIntItem("is_current") == 1) { %>                        
-            <div style="float: left; width: 30px;">
-                &nbsp;
-            </div>
-            <div style="float: right; width: 30px;">                                    
-                <img src="/i/interface/emblem/andclimbing.png" alt="" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
-            </div>
-            <% } else { %>
-            <div style="float: left; width: 30px;">
-                &nbsp;
-            </div>
-            <div style="float: right; width: 30px;">                                    
-                &nbsp;
-            </div>
-            <% } %>
-           <rsc:item row="<%=resultRow%>" name="length"/>
+	<c:forEach items="${results}" var="row" varStatus="status">
+       <tr class='${status.index % 2 == 1? "dark" : "light" }'>
+        	<td class="valueC">${row.map['rank']}</td>
+        	<td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon"/></td>
+        	<td class="valueC" width="100px" nowrap="nowrap">
+        		<c:choose>
+        			<c:when test="${row.map['is_current'] == 1 }">
+			            <div style="float: left; width: 30px;">
+			                &nbsp;
+			            </div>
+			            <div style="float: right; width: 30px;">                                    
+			                <img src="/i/interface/emblem/andclimbing.png" alt="" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
+			            </div>
+        			</c:when>
+        			<c:otherwise>
+			            <div style="float: left; width: 30px;">
+			                &nbsp;
+			            </div>
+			            <div style="float: right; width: 30px;">                                    
+			                &nbsp;
+			            </div>
+        			</c:otherwise>        			
+        		</c:choose>
+        		${row.map['length']}
         </td>
-        <td class="valueR" nowrap>
-        <strong><rsc:item row="<%=resultRow%>" name="start_contest_name"/></strong><br>
-        <rsc:item row="<%=resultRow%>" name="start_date" format="MM.dd.yy"/>
+        <td class="valueR" nowrap="nowrap">
+	        <strong>${row.map['start_contest_name']}</strong><br>
+        	<fmt:formatDate value="${row.map['start_date']" pattern="MM.dd.yy"/> 
         </td>
         <td class="valueC">-</td>
-        <td class="value" nowrap>
-        <strong><rsc:item row="<%=resultRow%>" name="end_contest_name"/></strong><br>
-        <rsc:item row="<%=resultRow%>" name="end_date" format="MM.dd.yy"/>
+        <td class="valueR" nowrap="nowrap">
+	        <strong>${row.map['end_contest_name']}</strong><br>
+        	<fmt:formatDate value="${row.map['end_date']" pattern="MM.dd.yy"/> 
         </td>
     </tr>
-    <% even = !even;%>
-    </rsc:iterator>
+    </c:forEach>
 </tbody>
 </table>
 
