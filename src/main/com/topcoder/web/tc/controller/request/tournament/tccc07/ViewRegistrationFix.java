@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.request.tournament.tccc07;
 import java.util.Iterator;
 import java.util.Set;
 
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Event;
@@ -29,7 +30,7 @@ public class ViewRegistrationFix extends ViewRegistrationBase {
 
     protected void regProcessing(Event event, User user) throws TCWebException {
         // this guy shouldn't be here
-        throw new TCWebException("Sorry, you are not registered for " + event.getDescription() + ".");                
+        throw new NavigationException("Sorry, you are not registered for " + event.getDescription() + ".");                
     }
 
     protected void alreadyRegisteredProcessing(EventRegistration er) {
