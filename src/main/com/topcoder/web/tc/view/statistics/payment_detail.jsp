@@ -250,7 +250,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                 	<A href="/stat?c=coder_room_stats&cr=<%=coderId%>&rd=<rsc:item name="reference_id" row="<%=resultRow%>"/>">Contest Details</A>
                 <% } else if (resultRow.getIntItem("payment_type_id") == 34 && 
                         resultRow.getItem("reference_id").getResultData() != null) {%>
-	                <A href="tc?module=HSRoomStats&rd<rsc:item name="reference_id" row="<%=resultRow%>&cr=<%=coderId%>">Contest Details</A>
+	                <A href="tc?module=HSRoomStats&rd<rsc:item name="reference_id" row="<%=resultRow%>"/>&cr=<%=coderId%>">Contest Details</A>
                 <% } else if ((resultRow.getIntItem("payment_type_id") == 6 ||
                     resultRow.getIntItem("payment_type_id") == 7) && 
                     resultRow.getItem("reference_id").getResultData() != null) {%>
