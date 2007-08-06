@@ -50,7 +50,9 @@ public class MatchWinners extends Base {
                 startRank = "1";
             }
 
-            int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
+            int sr = Integer.parseInt(startRank);
+            int nr = Integer.parseInt(numRecords);
+            int endRank = sr + nr - 1;
 
             r.setContentHandle("marathon_match_winners");
 
@@ -105,8 +107,8 @@ public class MatchWinners extends Base {
             setDefault(DataAccessConstants.SORT_COLUMN, sc + "");
             setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
 
-            setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
-            setDefault(DataAccessConstants.START_RANK, startRank);
+            setDefault(DataAccessConstants.NUMBER_RECORDS, nr);
+            setDefault(DataAccessConstants.START_RANK, sr);
 
             getRequest().setAttribute("list", rsc);
 //            getRequest().setAttribute("columnMap", rsc.getColumnNameMap());            

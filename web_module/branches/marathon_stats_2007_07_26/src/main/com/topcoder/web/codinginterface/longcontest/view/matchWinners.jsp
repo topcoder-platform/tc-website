@@ -86,8 +86,8 @@ return false;
 				<center>
 				
 				<div class="pagingBox" style="width:300px;">
-					<tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${competitors}" styleClass="bcLink" /> |
-					<tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${competitors}" styleClass="bcLink" />
+					<tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" /> |
+					<tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" />
 				</div>
 				</center>
 
@@ -156,8 +156,8 @@ return false;
 
 		<center>
 				<div class="pagingBox" style="width:300px;">
-					<tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${competitors}" styleClass="bcLink" /> |
-					<tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${competitors}" styleClass="bcLink" />
+					<tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" /> |
+					<tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" />
 				</div>
 
                         View &#160;
