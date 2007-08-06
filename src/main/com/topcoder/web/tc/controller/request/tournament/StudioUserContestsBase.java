@@ -35,26 +35,64 @@ public abstract class StudioUserContestsBase extends Base {
     public static final int PLACED_COL = 6;
     public static final int POINTS_COL = 7;
 
+    /**
+     * Gets the contest prefix. It will be used mainly for the jsp path but could be used for other purposes as well. 
+     * Example: tco07, tccc07, etc.
+     * 
+     * @return the contest prefix
+     */
     protected abstract String getContestPrefix();
     
+    /**
+     * Gets the placement points for the points calculation.
+     * Each i position of the element corresponds to amount of points for the i+1 placement.
+     * If the placement is greater than the placement points specified, this method will return 0 points. 
+     * 
+     * @param contestPlace the placement to calculate
+     * @return an array with the placement points
+     */
     protected abstract int getPlacementPoints(int contestPlace);
 
+    /**
+     * Gets the maximum amount of projects that will be taken into consideration for the total points amount.
+     * The points calculation will be based on the best getMax() projects placement points.
+     * 
+     * @return the maximum amount of projects taken into consideration
+     */
     protected abstract int getMaxContests();
 
+    /**
+     * Gets the command name for this stat
+     * 
+     * @return the command name
+     */
     protected String getCommandName() {
         return "event_user_results";
     }
 
+    /**
+     * Gets the datasource for this stat
+     * 
+     * @return the datasource name
+     */
     protected String getDataSourceName() {
         return DBMS.STUDIO_DATASOURCE_NAME;
     }
 
+    /**
+     * Gets the page for this stat
+     * 
+     * @return the page
+     */
     protected String getPageName() {
         return "/tournaments/" + getContestPrefix() + "/studio/completedContests.jsp";
     }
 
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
+     */
+    @Override
     protected void developmentProcessing() throws TCWebException {
-
         Request dataRequest = new Request();
         Map map = getRequest().getParameterMap();
         HashMap filteredMap = new HashMap();
@@ -87,6 +125,14 @@ public abstract class StudioUserContestsBase extends Base {
         }
     }
 
+    /**
+     * This method will process the DB results including:
+     * - Placement points calculation
+     * - Sorting
+     * 
+     * @param result the result of the command execution
+     * @throws com.topcoder.web.common.TCWebException
+     */
     protected void processResult(Map result) throws com.topcoder.web.common.TCWebException {
         ResultSetContainer rsc = (ResultSetContainer) result.get(getCommandName());
 
@@ -110,6 +156,17 @@ public abstract class StudioUserContestsBase extends Base {
         getRequest().setAttribute("result", results);
     }
 
+    /**
+     * This method calculates the placement points for the specified user in each of his competitions
+     * 
+     * The calculation will take into consideration:
+     * - Relative placement within event registrants of the competition
+     * - Placements points as specified in getPlacementPoints()
+     * 
+     * @param rsc The ResultSetContainer with the DB query results
+     * @param userId The userId being requested
+     * @return a List of StudioUserContestRow elements with all the information for the stat chart
+     */
     private List<StudioUserContestsRow> calculatePlacementPoints(ResultSetContainer rsc, Long userId) {
         long prevContestId = 0;
         int contestPlace = 1;
@@ -143,6 +200,13 @@ public abstract class StudioUserContestsBase extends Base {
         return results;
     }
 
+    /**
+     * Private helper method to sort the results 
+     * 
+     * @param result the list of StudioLeaderBoardRow elements 
+     * @param sortCol the sort column 
+     * @param invert true if an inverted list is requested
+     */
     protected void sortResult(List<StudioUserContestsRow> result, String sortCol, boolean invert) {
         if (result.size() == 0) {
             return;
@@ -154,19 +218,6 @@ public abstract class StudioUserContestsBase extends Base {
                     return arg0.getStartDate().compareTo(arg1.getStartDate());
                 }
             });
-            
-//            Collections.sort(result, new Comparator<StudioUserContestsRow>() {
-//                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
-//                    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
-//                    try {
-//                        return (sdf.parse(arg0.getCreateDate())).compareTo(sdf.parse(arg1.getCreateDate()));
-//                    } catch (ParseException e) {
-//                        return 0;
-//                    }
-//                }
-//            });
-
-            
         } else  if (sortCol.equals(String.valueOf(END_DATE_COL))) {
             Collections.sort(result, new Comparator<StudioUserContestsRow>() {
                 public int compare(StudioUserContestsRow arg0, StudioUserContestsRow arg1) {
