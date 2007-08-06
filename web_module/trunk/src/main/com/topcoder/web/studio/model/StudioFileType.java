@@ -17,6 +17,7 @@ public class StudioFileType extends Base {
     private Set<MimeType> mimeTypes = new HashSet<MimeType>();
     private Integer sort;
     private Boolean imageFile;
+    private String extension;
 
     public static final Integer ZIP_ARCHIVE_TYPE_ID = 14;
 
@@ -64,4 +65,12 @@ public class StudioFileType extends Base {
         return imageFile;
     }
 
+
+    public String getExtension() {
+        return extension;
+    }
+
+    public void setExtension(String extension) {
+        this.extension = extension;
+    }
 }
