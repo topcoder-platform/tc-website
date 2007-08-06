@@ -1,6 +1,9 @@
 package com.topcoder.web.codinginterface.longcontest.controller;
 
+import java.util.MissingResourceException;
+
 import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 import com.topcoder.web.common.BaseServlet;
@@ -48,5 +51,6 @@ public class MainServlet extends BaseServlet {
         return new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response,
                 BasicAuthentication.LONG_CONTEST_SITE);
     }
+    
 
 }

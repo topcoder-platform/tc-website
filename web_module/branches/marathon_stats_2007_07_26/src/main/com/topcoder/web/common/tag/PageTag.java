@@ -9,13 +9,9 @@ import javax.servlet.jsp.tagext.TagSupport;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.StringUtils;
 
 abstract class PageTag extends TagSupport {
-    private static Logger log = Logger.getLogger(PageTag.class);
-
     public static final int DEFAULT_NROWS = 50;
     
 
@@ -35,10 +31,10 @@ abstract class PageTag extends TagSupport {
     public void setServletPath(String servletPath) {
         this.servletPath = servletPath;
     }
-    public ResultSetContainer getContainer() {
+    public ResultSetContainer getList() {
         return rsc;
     }
-    public void setContainer(ResultSetContainer rsc) {
+    public void setList(ResultSetContainer rsc) {
         this.rsc = rsc;
     }
     public String getStyleClass() {
@@ -63,9 +59,6 @@ abstract class PageTag extends TagSupport {
         } else {
             tag = getText();
         }
-        log.debug("tag: " + tag);
-        
-        
 
         try {
             pageContext.getOut().print(tag);
@@ -77,31 +70,17 @@ abstract class PageTag extends TagSupport {
     
     @SuppressWarnings("unchecked")
     private String getPageLink() {
-        log.debug("getPageLink");
         HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
         
         Integer srObj = (Integer) defaults.get(DataAccessConstants.START_RANK);
         Integer nrObj = (Integer) defaults.get(DataAccessConstants.NUMBER_RECORDS);
 
-        log.debug("srObj: " + srObj);
-        log.debug("nrObj: " + nrObj);
-        
         int sr = srObj == null? 1 : srObj;
         int nr = nrObj == null? DEFAULT_NROWS : nrObj;
-
-        /*     
-        String srStr = StringUtils.checkNull((String) defaults.get(DataAccessConstants.START_RANK));
-        String nrStr = StringUtils.checkNull((String) defaults.get(DataAccessConstants.NUMBER_RECORDS));
-        
-        
-        if (srStr.length() > 0) sr = Integer.parseInt(srStr);
-        if (nrStr.length() > 0) sr = Integer.parseInt(nrStr);
-  */      
-    
+  
         sr += nr * getPageDelta(); 
         if (sr < 1) sr = 1;
         
-        log.debug("sr: "+ sr + " nr:" + nr);
         StringBuffer buf = new StringBuffer(100);
         buf.append(servletPath + "?");
         

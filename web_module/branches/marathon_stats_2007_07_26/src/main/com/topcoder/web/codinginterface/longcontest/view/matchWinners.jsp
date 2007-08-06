@@ -124,10 +124,10 @@ myForm.submit();
 			<table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
 			   <tr><td class="title" colspan="6">Marathon Match Winners</td></tr>
 			   <tr>
-			      <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['date']}" includeParams="true" excludeParams="sr" />">Date</a></td>
-			      <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
-			      <td class="header" >Winners</td>
-			      <td class="header" >Wins*</td>
+			      <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />">Date</a></td>
+			      <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true" excludeParams="sr" />">Match</a></td>
+			      <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Winners</a></td>
+			      <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="4" includeParams="true" excludeParams="sr" />">Wins</a>*</td>
 			   </tr>
 			   <c:forEach items="${list}" var="row" varStatus="status">
 			   		<c:set var="roundId" value="r${row.map['round_id']}" />
@@ -138,6 +138,12 @@ myForm.submit();
 						</td>
 						
 						<c:choose>
+							<c:when test="${ungrouped }">
+						        <td class="value"><tc-webtag:handle coderId="${row.map['handle']}" context="marathon_match"/>
+						        </td>
+						        <td class="valueR">${row.map['num_wins']}
+						        </td>
+							</c:when>
 							<c:when test="${fn:length(winnersMap[roundId]) > 3}">
 						        <td class="value">
 						            <div id="winnersShort${roundId}" class="shortList">

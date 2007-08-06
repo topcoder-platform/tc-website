@@ -10,6 +10,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
@@ -30,6 +31,13 @@ public class MatchWinners extends Base {
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
+            if ("".equals(sortCol)) {
+                sortCol =  "1";
+                sortDir = "desc";
+            }
+
+            int sc = Integer.parseInt(sortCol);
+
             if ("".equals(numRecords)) {
                 numRecords = "50";
             } else if (Integer.parseInt(numRecords)>200) {
@@ -48,42 +56,59 @@ public class MatchWinners extends Base {
 
             Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME,true).getData(r);
 
-            ResultSetContainer rsc = result.get("marathon_match_winners_rounds");
-
-            if ("".equals(sortCol)) {
-                sortCol = rsc.getColumnIndex("date") + "";
-                sortDir = "desc";
-            }
-
-            if (!sortCol.equals("")) {
-                rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
-                setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
-                setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
-            }
+            ResultSetContainer rsc = null;
             
-            rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank)-1, endRank);
+            if (sc == 1 || sc == 2) {
+                rsc = result.get("marathon_match_winners_rounds");
 
-            ResultSetContainer winners = result.get("marathon_match_winners");
-            Map<String, List<Winner>> winnersMap = new HashMap<String, List<Winner>>();
-            
-            for (ResultSetContainer.ResultSetRow row : winners) {
-                String roundId = "r" + row.getStringItem("round_id");
-                List<Winner> l = winnersMap.get(roundId);
-                if (l == null) {
-                    l = new ArrayList<Winner>();
-                    winnersMap.put(roundId, l);
+                if (sc == 1) sc = rsc.getColumnIndex("date");
+                if (sc == 2) sc = rsc.getColumnIndex("name");
+                
+                rsc.sortByColumn(sc, !"desc".equals(sortDir));                
+                rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank)-1, endRank);
+
+                ResultSetContainer winners = result.get("marathon_match_winners");
+                Map<String, List<Winner>> winnersMap = new HashMap<String, List<Winner>>();
+                
+                for (ResultSetContainer.ResultSetRow row : winners) {
+                    String roundId = "r" + row.getStringItem("round_id");
+                    List<Winner> l = winnersMap.get(roundId);
+                    if (l == null) {
+                        l = new ArrayList<Winner>();
+                        winnersMap.put(roundId, l);
+                    }
+                    l.add(new Winner(row.getIntItem("coder_id"), row.getIntItem("num_wins")));                
                 }
-                l.add(new Winner(row.getIntItem("coder_id"), row.getIntItem("num_wins")));                
-            }
-            
-            SortInfo s = new SortInfo();
-            s.addDefault(rsc.getColumnIndex("date"), "desc");
-            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+                
+                SortInfo s = new SortInfo();
+                s.addDefault(rsc.getColumnIndex("date"), "desc");
+                getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+
+                getRequest().setAttribute("winnersMap", winnersMap);
+
+            } else if (sc == 3 || sc == 4) {
+                rsc = result.get("marathon_match_winners");
+    
+                if (sc == 3) sc = rsc.getColumnIndex("handle");
+                if (sc == 4) sc = rsc.getColumnIndex("num_wins");
+
+                rsc.sortByColumn(sc, !"desc".equals(sortDir));                
+                rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank)-1, endRank);
+
+                SortInfo s = new SortInfo();
+                s.addDefault(rsc.getColumnIndex("num_wins"), "desc");
+                getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+                getRequest().setAttribute("ungrouped", true);
+                
+            } else throw new NavigationException("Bad sort column: " + sc);
+
+            setDefault(DataAccessConstants.SORT_COLUMN, sc + "");
+            setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
             setDefault(DataAccessConstants.START_RANK, startRank);
+
             getRequest().setAttribute("list", rsc);
-            getRequest().setAttribute("winnersMap", winnersMap);
             getRequest().setAttribute("columnMap", rsc.getColumnNameMap());            
             getRequest().setAttribute("croppedDataBefore", rsc.croppedDataBefore());
             getRequest().setAttribute("croppedDataAfter", rsc.croppedDataAfter());
