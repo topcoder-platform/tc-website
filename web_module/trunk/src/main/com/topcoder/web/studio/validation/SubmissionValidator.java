@@ -3,6 +3,7 @@ package com.topcoder.web.studio.validation;
 import com.topcoder.servlet.request.FileDoesNotExistException;
 import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.UploadedFile;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.validation.BasicResult;
 import com.topcoder.web.common.validation.ValidationInput;
 import com.topcoder.web.common.validation.ValidationResult;
@@ -12,6 +13,7 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.MimeType;
+import com.topcoder.web.studio.model.StudioFileType;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
@@ -26,6 +28,7 @@ import java.util.Iterator;
  *          Create Date: Aug 29, 2006
  */
 public class SubmissionValidator implements Validator {
+    protected static final Logger log = Logger.getLogger(SubmissionValidator.class);
 
     private Contest contest;
 
@@ -49,20 +52,45 @@ public class SubmissionValidator implements Validator {
             arr = new byte[(int) submission.getSize()];
             ret = submission.getInputStream().read(arr);
         } catch (FileDoesNotExistException e) {
-            e.printStackTrace();
+            log.warn("Communication error when receiving submission.", e);
             return new BasicResult(false, "Communication error when receiving submission.");
         } catch (PersistenceException e) {
-            e.printStackTrace();
+            log.warn("Communication error when receiving submission.", e);
             return new BasicResult(false, "Communication error when receiving submission.");
         } catch (IOException e) {
-            e.printStackTrace();
+            log.warn("Communication error when receiving submission.", e);
         }
         MimeType mt = StudioDAOUtil.getFactory().getMimeTypeDAO().find(submission.getContentType());
 
         if (ret == 0) {
             return new BasicResult(false, "Submission was empty");
-        } else if (mt == null || !contest.getFileTypes().contains(mt.getFileType())) {
-            return new BasicResult(false, "Unknown or invalid file type submitted: " + submission.getContentType());
+        } else if (mt == null) {
+            try {
+                /*
+                do a second level of acceptance.  some client machines don't identify the mime type correctly.  so
+                we'll be a bit lenient.  if they get the extension right, we'll accept it.
+                 */
+                String ext = submission.getRemoteFileName().substring(submission.getRemoteFileName().lastIndexOf('.') + 1);
+                boolean found = false;
+                for (StudioFileType ft : contest.getFileTypes()) {
+                    if (ft.getExtension().equals(ext)) {
+                        found = true;
+                        break;
+                    }
+                }
+                //if we didn't find it, then
+                if (!found) {
+                    return new BasicResult(false, "Unknown file type submitted: " + submission.getContentType());
+                }
+            } catch (PersistenceException e) {
+                log.warn("Communication error when receiving submission.", e);
+                return new BasicResult(false, "Communication error when receiving submission.");
+            } catch (FileDoesNotExistException e) {
+                log.warn("Communication error when receiving submission.", e);
+                return new BasicResult(false, "Communication error when receiving submission.");
+            }
+        } else if (!contest.getFileTypes().contains(mt.getFileType())) {
+            return new BasicResult(false, "Invalid file type submitted: " + submission.getContentType());
         } else {
             //at this point we have an actual submission file that's not empty and it's a file type we know
 
