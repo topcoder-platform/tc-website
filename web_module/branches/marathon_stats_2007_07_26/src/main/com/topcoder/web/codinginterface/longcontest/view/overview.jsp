@@ -176,8 +176,8 @@ Avg. Submissions: <fmt:formatNumber value="${infoRow.map['avg_submissions']}"  m
 
 <center>
 		<div class="pagingBox" style="width:300px;">
-			<tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" container="${competitors}" styleClass="bcLink" /> |
-			<tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" container="${competitors}" styleClass="bcLink" />
+			<tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${competitors}" styleClass="bcLink" /> |
+			<tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${competitors}" styleClass="bcLink" />
 		</div>
 
           View &#160;
