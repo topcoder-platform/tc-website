@@ -22,11 +22,20 @@ public class Recordbook extends Static {
         
         if (handle.equals("marathon_consecutive_rating_increases")) {
             // check valid values
-            String streakType =  getRequest().getParameter(Constants.WIN_STREAK_TYPE);
+            String streakType = getRequest().getParameter(Constants.WIN_STREAK_TYPE);
             dataRequest.setProperty(Constants.WIN_STREAK_TYPE, streakType);
             getRequest().setAttribute(Constants.WIN_STREAK_TYPE, streakType);
                       
             includeJsp = Constants.MARATHON_CONSECUTIVE_RATING_INCREASES;
+            
+        } else if(handle.equals("marathon_most_wins")) {
+            boolean all = "true".equals(getRequest().getParameter("all"));
+            if (all) {
+                dataRequest.setProperty(Constants.ROUND_TYPE_ID, "19"); // MARATHON TOURNAMENT. FIX Constant!                
+            }
+            getRequest().setAttribute("allTypes", all);
+            
+            includeJsp = "/stats/mostWins.jsp";
             
         } else throw new TCWebException("Invalid c parameter: " + handle);
         
