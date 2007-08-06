@@ -1,12 +1,12 @@
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.common.model.EventType" %>
+<%@ page import="com.topcoder.web.tc.Constants, 
+                 com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("results"));%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -33,46 +33,39 @@
                 <h1><span>Leaderboard</span></h1>
 
         <p><strong>NOTE:</strong> this ranking does not consider the
-            <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=rules#scoring">tiebreaker
+            <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=studio&amp;d4=rules#scoring">tiebreaker
                 rules</A>.</p>
 
         <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
             <thead>
                 <tr>
-                    <td class="title" colspan="7">
+                    <td class="title" colspan="5">
                         Studio Leaderboard
                     </td>
                 </tr>
                 <tr>
                     <td class="headerC" rowspan="2" width="1%">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("rank")%>"/>">Rank</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioLeaderboardBase.RANK_COL%>"/>">Rank</A>
                     </td>
                     <td class="header" rowspan="2">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioLeaderboardBase.HANDLE_COL%>"/>">Handle</A>
                     </td>
                     <td class="headerC" colspan="2" nowrap="nowrap" style="border-right: 1px solid #999999;">
                         Completed
                     </td>
-                    <td class="headerC" colspan="2" nowrap="nowrap">
+                    <td class="headerC" colspan="1" nowrap="nowrap">
                         In Progress
-                    </td>
-                    <td class="headerC" rowspan="2" nowrap="nowrap">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("total_potential_points")%>"/>">Potential
-                            Total<br>Points</A>
                     </td>
                 </tr>
                 <tr>
                     <td class="headerC">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("completed_contests")%>"/>">Contests</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioLeaderboardBase.COMPLETED_CONTESTS_COL%>"/>">Contests</A>
                     </td>
                     <td class="headerC" style="border-right: 1px solid #999999;">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("points")%>"/>">Points</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioLeaderboardBase.COMPLETED_POINTS_COL%>"/>">Points</A>
                     </td>
                     <td class="headerC">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("current_contests")%>"/>">Contests</A>
-                    </td>
-                    <td class="headerC">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("potential_points")%>"/>">Points</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioLeaderboardBase.CURRENT_CONTESTS_COL%>"/>">Contests</A>
                     </td>
                 </tr>
             </thead>
@@ -81,39 +74,79 @@
                 <c:set value="<%=Constants.USER_ID%>" var="userId"/>
                 <c:set value="<%=Constants.MODULE_KEY%>" var="module"/>
                 <%int i = 0;%>
-                <rsc:iterator list='<%=rsc%>' id="resultRow">
+                <c:forEach items="${result}" var="resultRow">
                     <tr class="<%=(i%2==0 ? "dark" : "light")%>">
                         <td class="valueC">
-                            <span class="<%= resultRow.getIntItem("rank")<=8? "bigGreen" : "bigRed"%>"><rsc:item name="rank" row="<%=resultRow%>"/></span>
+                            <c:choose>
+                                <c:when test="${resultRow.rank <= 8}">
+                                    <span class="bigGreen">${resultRow.rank}</span>
+                                </c:when>
+                                <c:otherwise>
+                                    <span class="bigRed">${resultRow.rank}</span>
+                                </c:otherwise>
+                            </c:choose>
                         </td>
                         <td class="value">
                             <strong>
-                                <rsc:item name="handle" row="<%=resultRow%>"/>
+                                ${resultRow.handle}
                             </strong>
                         </td>
                         <td class="valueC">
-                            <a href="tc?${module}=StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=completedContests">
-                                <rsc:item name="completed_contests" row="<%=resultRow%>" ifNull="&nbsp;"/>
+                            <a href="tc?${module}=TCCC07StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=${resultRow.userId}"/>
+                                <c:choose>
+                                    <c:when test="${resultRow.completedContests > 0}">
+                                        ${resultRow.completedContests}
+                                    </c:when>
+                                    <c:otherwise>
+                                        &nbsp;                                        
+                                    </c:otherwise>
+                                </c:choose>
                             </A>
                         </td>
                         <td class="valueC" style="border-right: 1px solid #999999;">
-                            <span class="<%=(resultRow.getIntItem("rank")<=8 ? "bigGreen" : "bigRed")%>"><rsc:item name="points" row="<%=resultRow%>" ifNull="&nbsp;"/></span>
+                            <c:choose>
+                                <c:when test="${resultRow.rank <= 8}">
+                                    <span class="bigGreen">
+                                        <c:choose>
+                                            <c:when test="${resultRow.bestPoints > 0}">
+                                                ${resultRow.bestPoints}
+                                            </c:when>
+                                            <c:otherwise>
+                                                &nbsp;                                        
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </span>
+                                </c:when>
+                                <c:otherwise>
+                                    <span class="bigRed">
+                                        <c:choose>
+                                            <c:when test="${resultRow.bestPoints > 0}">
+                                                ${resultRow.bestPoints}
+                                            </c:when>
+                                            <c:otherwise>
+                                                &nbsp;                                        
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </span>
+                                </c:otherwise>
+                            </c:choose>
                         </td>
                         <td class="valueC">
-                            <a href="tc?${module}=StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=currentContests">
-                                <rsc:item name="current_contests" row="<%=resultRow%>" ifNull="&nbsp;"/>
+                            <a href="tc?${module}=TCCC07StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=${resultRow.userId}">
+                                <c:choose>
+                                    <c:when test="${resultRow.currentContests > 0}">
+                                        ${resultRow.currentContests}
+                                    </c:when>
+                                    <c:otherwise>
+                                        &nbsp;                                        
+                                    </c:otherwise>
+                                </c:choose>
                             </A>
-                        </td>
-                        <td class="valueC">
-                            <rsc:item name="potential_points" row="<%=resultRow%>" format="#" ifNull="&nbsp;"/>
-                        </td>
-                        <td class="valueC">
-                            <rsc:item name="total_potential_points" row="<%=resultRow%>" format="#" ifNull="&nbsp;"/>
                         </td>
                     </tr>
 
                     <%i++;%>
-                </rsc:iterator>
+                </c:forEach>
 
 
             </tbody>

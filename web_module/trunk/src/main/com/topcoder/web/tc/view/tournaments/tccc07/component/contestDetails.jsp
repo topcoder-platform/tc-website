@@ -1,5 +1,6 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+<%@ page import="com.topcoder.web.common.model.EventType,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.tc.model.UserContestDetail,
                  java.util.List,
                  java.util.Map" %>
@@ -53,7 +54,7 @@
             <div id="pageBody">
 
                     <h1><span><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/> -
-                    <a href="/tc?module=TCO07ContestProjects&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">View
+                    <a href="/tc?module=TCCC07ContestProjects&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">View
                     Components</a></span></h1>
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
@@ -88,7 +89,7 @@
                         <td class="value" align="right"><%=result.getPayment()%>
                         </td>
                         <td class="valueC">
-                            <a href="/tc?module=TCO07MemberResults&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a>
+                            <a href="/tc?module=TCCC07MemberResults&amp;eid=7&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a>
                         </td>
                     </tr>
                     <% }%>
