@@ -91,6 +91,7 @@ return false;
 				</div>
 				</center>
 
+         * the number of wins the competitor had as a result of that match
 			<table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
 			   <tr><td class="title" colspan="6">Marathon Match Winners</td></tr>
 			   <tr>
