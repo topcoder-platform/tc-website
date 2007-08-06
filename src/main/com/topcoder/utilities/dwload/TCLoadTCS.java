@@ -290,7 +290,8 @@ public class TCLoadTCS extends TCLoad {
         String tempKey;
 */
 
-        String[] keys = new String[]{"tccc05_", "tccc06_", "tco07_", "usdc_", "component_history", "tcs_ratings_history",
+        String[] keys = new String[]{"member_projects", "project_results_all", "contest_prizes", "contest_projects", "project_details",
+                "tccc05_", "tccc06_", "tco07_", "usdc_", "component_history", "tcs_ratings_history",
                 "member_profile", "Coder_Dev_Data", "Coder_Des_Data", "Component_",
                 "public_home_data", "top_designers", "top_developers", "tco04",
                 "coder_all_ratings", "tco05", "coder_dev", "coder_des", "coder_algo",

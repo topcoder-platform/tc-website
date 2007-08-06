@@ -1,12 +1,13 @@
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.web.common.model.EventType" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.tc.Constants,
+                 com.topcoder.web.tc.controller.request.tournament.StudioUserContestsBase" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("results"));%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -36,69 +37,65 @@
                             <thead>
                                 <tr>
                                     <td class="title" colspan="7">
-                                        <span class="coderText"><rsc:item name="handle" set="<%=rsc%>"/></span> &gt;
+                                        <span class="coderText"> ${handle}</span> &gt;
                                         Completed
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="header">
-                                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("contest_name")%>"/>">Contest</A>
+                                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.CONTEST_NAME_COL%>"/>">Contest</A>
                                     </td>
                                     <td class="headerC">
-                                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("start_time")%>"/>">Start
+                                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.START_DATE_COL%>"/>">Start
                                             Date</A>
                                     </td>
                                     <td class="headerC">
-                                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("end_time")%>"/>">End
+                                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.END_DATE_COL%>"/>">End
                                             Date</A>
                                     </td>
                                     <td class="headerC">
-                                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("registrants")%>"/>">Registrants</A>
+                                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.REGISTRANTS_COL%>"/>">Registrants</A>
                                     </td>
                                     <td class="headerC">
-                                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("submissions")%>"/>">Submissions</A>
+                                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.SUBMISSIONS_COL%>"/>">Submissions</A>
                                     </td>
                                     <td class="headerC">
-                                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("place")%>"/>">Placed</A>
+                                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.PLACED_COL%>"/>">Placed</A>
                                     </td>
                                     <td class="headerC">
-                                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("points")%>"/>">Points</A>
+                                        <A href="/tc?<%=Constants.MODULE_KEY%>=TCCC07StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.POINTS_COL%>"/>">Points</A>
                                     </td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <%boolean even = false;%>
-                                <rsc:iterator list='<%=rsc%>' id="resultRow">
-                                    <% if (resultRow.getBooleanItem("completed")) { %>
+                                <c:forEach items="${result}" var="resultRow">
                                     <tr class="<%=(even ? "dark" : "light")%>">
                                         <td class="value">
-                                                <%-- if completed, link to results.  if in progress, link to contest details --%>
-                                            <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-                                                <rsc:item name="contest_name" row="<%=resultRow%>"/>
+                                            <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;ct=${resultRow.contestId}">
+                                                ${resultRow.contestName}
                                             </A>
                                         </td>
                                         <td class="valueC">
-                                            <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z"/>
+                                            <fmt:formatDate value="${resultRow.startDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z"/>
                                         </td>
                                         <td class="valueC">
-                                            <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z"/>
+                                            <fmt:formatDate value="${resultRow.endDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z"/>
                                         </td>
                                         <td class="valueC">
-                                            <rsc:item name="registrants" row="<%=resultRow%>"/>
+                                            ${resultRow.registrants}
                                         </td>
                                         <td class="valueC">
-                                            <rsc:item name="submissions" row="<%=resultRow%>"/>
+                                            ${resultRow.submissions}
                                         </td>
                                         <td class="valueC">
-                                            <rsc:item name="place" row="<%=resultRow%>" ifNull="&nbsp;"/>
+                                            ${resultRow.placed}
                                         </td>
                                         <td class="valueC">
-                                            <rsc:item name="points" row="<%=resultRow%>"/>
+                                            ${resultRow.points}
                                         </td>
                                     </tr>
-                                    <%even = !even;%>
-                                    <% } %>
-                                </rsc:iterator>
+                                </c:forEach>
                             </tbody>
                         </table>
 
