@@ -107,6 +107,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case MARATHON_MATCH_PAYMENT:
         case MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT:
         case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT:
+        case HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT:
         case PROBLEM_TESTING_PAYMENT:
             return REFERENCE_ALGORITHM_ROUND_ID;
 
@@ -158,6 +159,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case ALGORITHM_CONTEST_PAYMENT: return new AlgorithmContestPayment(coderId, grossAmount, referenceId, placed);
         case MARATHON_MATCH_PAYMENT: return new MarathonMatchPayment(coderId, grossAmount, referenceId, placed);
         case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: return new AlgorithmTournamentPrizePayment(coderId, grossAmount, referenceId, placed);
+        case HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT: return new HighSchoolTournamentPrizePayment(coderId, grossAmount, referenceId, placed);
         case COMPONENT_PAYMENT: return new ComponentWinningPayment(coderId, grossAmount, referenceId, placed);
         case REVIEW_BOARD_PAYMENT: return new ReviewBoardPayment(coderId, grossAmount, referenceId);
         case PROBLEM_WRITING_PAYMENT: return new ProblemWritingPayment(coderId, grossAmount, referenceId);
@@ -267,7 +269,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case ROYALTY_PAYMENT: return "Royalty Payment";
             case MARATHON_MATCH_PAYMENT: return "Marathon Match Payment";
             case MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT: return "Marathon Match Tournament Prize Payment";
-            case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT:; return "Algorithm Tournament Prize Payment";
+            case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: return "Algorithm Tournament Prize Payment";
+            case HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT: return "High School Tournament Prize Payment";
             case BUG_FIXES_PAYMENT: return "Bug Fixes Payment";
             case RELIABILITY_BONUS_PAYMENT: return "Reliability Bonus Payment";
             case DIGITAL_RUN_TOP_THIRD_PAYMENT: return "Digital Run Top Performers Payment";
