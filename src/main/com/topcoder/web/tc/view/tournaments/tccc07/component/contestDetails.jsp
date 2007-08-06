@@ -16,6 +16,7 @@
     <%@ taglib uri="tc.tld" prefix="tc" %>
     <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
     <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 
 <body>
@@ -89,7 +90,7 @@
                         <td class="value" align="right"><%=result.getPayment()%>
                         </td>
                         <td class="valueC">
-                            <a href="/tc?module=TCCC07MemberResults&amp;eid=7&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a>
+                            <a href="/tc?module=TCCC07MemberResults&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a>
                         </td>
                     </tr>
                     <% }%>
