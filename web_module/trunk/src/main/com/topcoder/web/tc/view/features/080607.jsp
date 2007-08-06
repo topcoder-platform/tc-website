@@ -57,7 +57,7 @@
     <tc-webtag:forumLink forumID="516867" message="Discuss this article" />
 </div>
 
-<span class="bigTitle">An Interview With kalinov</span>
+<span class="bigTitle">An Interview with kalinov</span>
 <br /><br />
 
 <div class="authorPhoto">

@@ -45,7 +45,7 @@
             </tr>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="21620711" /></td>
-               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=080607"><strong>An Interview With kalinov</strong></A></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=080607"><strong>An Interview with kalinov</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Aug 6, 2007</td> 
             </tr>
             <tr valign="top">
