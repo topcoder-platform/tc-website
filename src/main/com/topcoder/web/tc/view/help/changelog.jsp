@@ -47,6 +47,7 @@
     5.10.16 - 2007.08.06
     <ul>
         <li>Added TCCC07 component and studio results pages -pulky</li>
+        <li>Fixed TCCC07 sections preferences page to show an error to the user when he's not registered for the tournament-pulky</li>
         <li>Fixed but where someone with no default language could not see marathon match problems -dok</li>
     </ul>
 </p>
