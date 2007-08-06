@@ -22,20 +22,22 @@ public class Recordbook extends Static {
         
         if (handle.equals("marathon_consecutive_rating_increases")) {
             // check valid values
-            dataRequest.setProperty(Constants.WIN_STREAK_TYPE, getRequest().getParameter(Constants.WIN_STREAK_TYPE));
+            String streakType =  getRequest().getParameter(Constants.WIN_STREAK_TYPE);
+            dataRequest.setProperty(Constants.WIN_STREAK_TYPE, streakType);
+            getRequest().setAttribute(Constants.WIN_STREAK_TYPE, streakType);
+                      
             includeJsp = Constants.MARATHON_CONSECUTIVE_RATING_INCREASES;
             
         } else throw new TCWebException("Invalid c parameter: " + handle);
         
         log.debug("includeJsp=" + includeJsp);
-        includeJsp = "/stats/consecutiveRatingIncreases.jsp";
+//        includeJsp = "/stats/consecutiveRatingIncreases.jsp";
         getRequest().setAttribute("handle", handle);
 
         DataAccessInt dai = getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
 
         ResultSetContainer rsc = dai.getData(dataRequest).get(dataRequest.getContentHandle());
-        getRequest().setAttribute("result", rsc);
-
+        getRequest().setAttribute("results", rsc);
         
         getRequest().setAttribute("includeJsp", includeJsp);
         setNextPage("/stats/recordbook.jsp");

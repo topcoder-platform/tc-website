@@ -8,15 +8,6 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
-<% //common code that pulls out the request bean.
-    Request srb = (Request) request.getAttribute("REQUEST_BEAN");
-
-    String streakType = srb.getProperty("wst","4");
-    String streakDesc = null;
-    if (streakType.equals("3")) streakDesc = "Single Round Matches";
-    else if (streakType.equals("4")) streakDesc = "Single Round Matches and Tournaments";
-    ResultSetContainer rsc = (ResultSetContainer)((Map)request.getAttribute("QUERY_RESPONSE")).get("consecutive_rating_increases");
-%>
 <html>
 <head>
     <TITLE>TopCoder Statistics - Consecutive Rating Increases</TITLE>
@@ -53,11 +44,10 @@
 
 <div style="float:right;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">back to table of contents</A></div>
 <span class="bodyText">
-<% if (streakType.equals("4")){ %>
+
+TODO:
 <A HREF="/stat?c=consecutive_rating_increases&wst=3">SRMs</A> | SRMs and Tournaments
-<% } else { %>
 SRMs | <A HREF="/stat?c=consecutive_rating_increases&wst=4">SRMs and Tournaments</A>
-<% } %>
 <br><br>
 <strong>Record:</strong> This chart represents the longest consecutive algorithm rating increase streaks.
 </span>
@@ -74,7 +64,7 @@ SRMs | <A HREF="/stat?c=consecutive_rating_increases&wst=4">SRMs and Tournaments
 </thead>
 <tbody>
     <% boolean even = false; %>
-    <rsc:iterator list="<%=rsc%>" id="resultRow">
+    <rsc:iterator list="${results}" id="resultRow">
     <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="rank"/></td>
         <td class="value"><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
