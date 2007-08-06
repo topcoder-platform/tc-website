@@ -26,7 +26,7 @@
 
 <div class="contentSpacer">
 <p>
-    2.0.5 - 2007.08.xx
+    2.0.5 - 2007.08.06
     <ul>
         <li>Refresh the cache when scores are loaded from online review -dok</li>
         <li>Securely access online review web service -dok</li>
