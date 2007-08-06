@@ -30,6 +30,9 @@
     <ul>
         <li>Refresh the cache when scores are loaded from online review -dok</li>
         <li>Securely access online review web service -dok</li>
+        <li>Be more lenient with mime types, if the client doesn't identify the mime type correctly look it up by file
+            extension -dok
+        </li>
     </ul>
 
 </p>
