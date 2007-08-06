@@ -24,7 +24,7 @@
         
             <div id="pageBody">
                 <div style="padding-bottom:10px;">
-                    <a target="_blank" alt="TCCC07 Sponosored by Eli Lilly" href="<tc-webtag:linkTracking link='http://www.elililly.com/' refer='TCCC07_lilly' />"><img alt="TCCC07 Sponosored by Eli Lilly" src="/i/tournament/tccc07/lilly_logo.png" /></a>
+                    <a target="_blank" alt="TCCC07 Sponsored by Eli Lilly" href="<tc-webtag:linkTracking link='http://www.elililly.com/' refer='TCCC07_lilly' />"><img alt="TCCC07 Sponsored by Eli Lilly" src="/i/tournament/tccc07/lilly_logo.png" /></a>
                 </div>
                 <p>Eli Lilly is proud to sponsor the world's top programming talent at the 2007 TopCoder Collegiate Challenge. This presents a tremendous platform for you to pit your development skills against the strongest field the world has to offer. Very best of Luck to you all - and Enjoy!</p>
                 <p>When you want to take up the challenge of a full-time position of employment, the competition does not have to stop. In our case the challenge is to design and build the applications and systems to develop a growing portfolio of best-in-class and first-in-class pharmaceutical products that help people live longer, healthier and more active lives.</p>
