@@ -14,7 +14,7 @@ import com.topcoder.web.tc.controller.request.tournament.StudioUserContestsBase;
  */
 public class StudioUserContests extends StudioUserContestsBase {
 
-    int[] placementPoints = new int[]{17, 15, 12, 10, 7, 5, 4};
+    private int[] placementPoints = new int[]{17, 15, 12, 10, 7, 5, 4};
 
     /* (non-Javadoc)
      * @see com.topcoder.web.tc.controller.request.tournament.StudioUserContestsBase#getContestPrefix()

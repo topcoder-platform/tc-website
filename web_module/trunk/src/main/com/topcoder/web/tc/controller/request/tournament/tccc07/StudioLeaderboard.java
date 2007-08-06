@@ -13,7 +13,7 @@ import com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase;
  */
 public class StudioLeaderboard extends StudioLeaderboardBase {
 
-    int[] placementPoints = new int[]{17, 15, 12, 10, 7, 5, 4};
+    private int[] placementPoints = new int[]{17, 15, 12, 10, 7, 5, 4};
 
     /* (non-Javadoc)
      * @see com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase#getContestPrefix()

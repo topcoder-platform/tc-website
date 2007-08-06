@@ -9,15 +9,21 @@ import com.topcoder.web.tc.controller.request.tournament.ProjectDetailsBase;
  */
 public class ProjectDetails extends ProjectDetailsBase {
 
-    final String CONTEST_PREFIX = "tccc07";
+    private final String CONTEST_PREFIX = "tccc07";
 
-    final int[] placementPoints = new int[]{10, 7, 5, 4, 0};
+    private final int[] placementPoints = new int[]{10, 7, 5, 4, 0};
     
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.tournament.ProjectDetailsBase#getPlacementPoints()
+     */
     @Override
     public int[] getPlacementPoints() {
         return placementPoints;
     }
 
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.tournament.ProjectDetailsBase#getContestPrefix()
+     */
     @Override
     protected String getContestPrefix() {
         return CONTEST_PREFIX;
