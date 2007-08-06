@@ -1,18 +1,23 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.tc.Constants;
-
-import java.util.*;
 
 /**
  * @author dok, pulky
@@ -44,7 +49,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
         TCO_COMPETITION_TYPES.add("studio");
     }
 
-    protected abstract void regProcessing(Event event, User user);
+    protected abstract void regProcessing(Event event, User user) throws TCWebException;
 
     protected abstract void alreadyRegisteredProcessing(EventRegistration er);
 
