@@ -32,21 +32,6 @@ document.matchListForm.submit();
 return false;
 } else return true;
 }
-function next() {
-var myForm = document.matchListForm;
-myForm.<%=DataAccessConstants.START_RANK%>.value=<c:out value="${requestScope[defaults][startRank]}"/>+parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
-myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
-myForm.submit();
-}
-function previous() {
-var myForm = document.matchListForm;
-myForm.<%=DataAccessConstants.START_RANK%>.value=<c:out value="${requestScope[defaults][startRank]}"/>-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
-myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
-
-myForm.submit();
-}
 </script>
 
 
@@ -85,23 +70,8 @@ myForm.submit();
 
 				<center>
 				<div class="pagingBox" style="width:300px;">
-				    <c:choose>
-				        <c:when test="${croppedDataBefore}">
-				            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
-				        </c:when>
-				        <c:otherwise>
-				            &lt;&lt; prev
-				        </c:otherwise>
-				    </c:choose>
-				    |
-				    <c:choose>
-				        <c:when test="${croppedDataAfter}">
-				            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
-				        </c:when>
-				        <c:otherwise>
-				            next &gt;&gt;
-				        </c:otherwise>
-				    </c:choose>
+					<tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" /> |
+					<tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" />
 				</div>
 				</center>
 
@@ -131,23 +101,8 @@ myForm.submit();
 
 		<center>
 		<div class="pagingBox" style="width:300px;">
-		    <c:choose>
-		        <c:when test="${croppedDataBefore}">
-		            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
-		        </c:when>
-		        <c:otherwise>
-		            &lt;&lt; prev
-		        </c:otherwise>
-		    </c:choose>
-		    |
-		    <c:choose>
-		        <c:when test="${croppedDataAfter}">
-		            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
-		        </c:when>
-		        <c:otherwise>
-		            next &gt;&gt;
-		        </c:otherwise>
-		    </c:choose>
+					<tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" /> |
+					<tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" />
 		</div>
 
                         View &#160;
