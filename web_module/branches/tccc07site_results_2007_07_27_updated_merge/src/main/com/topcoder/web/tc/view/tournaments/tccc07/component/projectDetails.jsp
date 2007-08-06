@@ -1,5 +1,6 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+<%@ page import="com.topcoder.web.common.model.EventType,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.tc.model.ProjectDetail,
                  java.util.List,
@@ -59,7 +60,7 @@
 
             <div id="pageBody">
 
-                    <h1><span><A href="/tc?module=TCO07ContestDetails&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
+                    <h1><span><A href="/tc?module=TCCC07ContestDetails&amp;eid=7&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
                    <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
                </A> -
                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>">

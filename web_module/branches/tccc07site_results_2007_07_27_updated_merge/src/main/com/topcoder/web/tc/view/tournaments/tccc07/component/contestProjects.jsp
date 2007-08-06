@@ -1,5 +1,6 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+<%@ page import="com.topcoder.web.common.model.EventType,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.util.ApplicationServer,
                  java.util.Map" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -55,7 +56,7 @@
 
             <div id="pageBody">
 
-                    <h1><span><a href="/tc?module=TCO07ContestDetails&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />">
+                    <h1><span><a href="/tc?module=TCCC07ContestDetails&amp;eid=7&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />">
                       <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
                   </a> -
                   Components</span></h1>
@@ -88,7 +89,7 @@
                                 *
                                 <% } %>
                                 | 
-                                <A href="/tc?module=TCO07ProjectDetails&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</A>
+                                <A href="/tc?module=TCCC07ProjectDetails&amp;eid=7&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</A>
                                 <% if (isComplete) { %>
                                 |
                                 <A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">contest
