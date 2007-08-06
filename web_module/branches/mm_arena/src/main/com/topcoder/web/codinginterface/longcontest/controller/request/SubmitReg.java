@@ -163,11 +163,12 @@ public class SubmitReg extends ViewReg {
                         return null;  //quit now
                     }
                 }
-                Answer answer = findAnswer(answerId, question);
+                Answer answer = null;
                 if (st.hasMoreTokens()) {
                     //this must be a multiple choice question
                     try {
                         answerId = Long.parseLong(st.nextToken());
+                        answer = findAnswer(answerId, question);
                     } catch (NumberFormatException e) {
                         log.debug("numberformat trying to get answer for multiple choice");
                         addError(errorKey, "Invalid answer.");
@@ -188,6 +189,7 @@ public class SubmitReg extends ViewReg {
                     if (question.getStyleId() == Question.SINGLE_CHOICE) {
                         try {
                             answerId = Long.parseLong(values[i]);
+                            answer = findAnswer(answerId, question);
                         } catch (NumberFormatException e) {
                             log.debug("numberformat trying to get answer for single choice");
                             addError(errorKey, "Invalid answer.");
