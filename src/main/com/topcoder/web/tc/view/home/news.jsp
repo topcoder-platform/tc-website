@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>08.06.07<br>3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=080607">An Interview With kalinov</A></span><br><br>
+      Get to know more about <tc-webtag:handle coderId="310333" context="algorithm"/>, TopCoder's current #12-ranked Algorithm coder, from his start in coding and his TopCoder successes to his hobbies and personal favorites.</td>
+         <td class="newsPhoto"><img src="/i/m/rajeshrathod_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="21620711" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=080607">full story</A> | 
+         <tc-webtag:forumLink forumID="516867" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>08.03.07<br>4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco07&d3=movies' refer='/tc' />">2007 TopCoder Open webcast</A></span><br><br>
@@ -164,18 +180,5 @@
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep03' refer='/tc' />">details</A> | 
         <tc-webtag:forumLink forumID="516708" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>07.25.07<br>4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=sponsors&d2=btChat20070721">BT SRM 359 chat session transcript</A></span><br><br>
-        TopCoder members joined representatives from British Telecommunications prior to SRM 359 to discuss career opportunities at the company.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=sponsors&d2=btChat20070721">details</A> | 
-        <tc-webtag:forumLink forumID="516666" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
