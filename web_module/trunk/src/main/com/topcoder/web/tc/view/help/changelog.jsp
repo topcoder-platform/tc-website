@@ -44,9 +44,10 @@
 
 
 <p>
-    5.10.16 - 2007.08.xx
+    5.10.16 - 2007.08.06
     <ul>
         <li>Added TCCC07 component and studio results pages -pulky</li>
+        <li>Fixed but where someone with no default language could not see marathon match problems -dok</li>
     </ul>
 </p>
 
