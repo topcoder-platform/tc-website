@@ -55,7 +55,7 @@
             <div id="pageBody">
 
                     <h1><span><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/> -
-                    <a href="/tc?module=TCCC07ContestProjects&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">View
+                    <a href="/tc?module=TCCC07ContestProjects&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">View
                     Components</a></span></h1>
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
