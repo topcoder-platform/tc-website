@@ -76,7 +76,7 @@
                 </tbody>
                     <%boolean even = false;%>
                     <rsc:iterator list="<%=rsc%>" id="resultRow">
-                        <tr class="<%=even?"light":"dark"%>">
+                        <tr class="<%=even?"dark":"light"%>">
                             <td class="value" nowrap="nowrap">
                                 <% if (resultRow.getIntItem("viewable") == 1) { %>
                                 <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>">
