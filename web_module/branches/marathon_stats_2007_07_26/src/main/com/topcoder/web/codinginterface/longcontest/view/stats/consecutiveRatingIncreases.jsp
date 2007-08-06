@@ -1,40 +1,7 @@
-<%@ page
-  language="java"
-  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
-          java.util.Map"
-
-%>
-
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <html>
-<head>
-    <TITLE>TopCoder Statistics - Consecutive Rating Increases</TITLE>
-    <jsp:include page="/script.jsp" />
-    <jsp:include page="/style.jsp">
-      <jsp:param name="key" value="tc_stats"/>
-    </jsp:include>
-    <script language="JavaScript" type="text/javascript" src="/js/popup.js"></script>
-</head>
-<body>
-
-<jsp:include page="/top.jsp">
-    <jsp:param name="level1" value=""/>
-</jsp:include>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="top">
-<%-- Left Column Begins--%>
-        <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="algo_recordbook"/>
-            </jsp:include>
-        </td>
-
-<%-- Center Column Begins --%>
-<td width="100%" align="center" class="bodyColumn">
-
 <div class="fixedWidthBody">
 
 <jsp:include page="/page_title.jsp">
@@ -104,26 +71,5 @@ SRMs | <A HREF="/stat?c=consecutive_rating_increases&wst=4">SRMs and Tournaments
 <div class="popUp" id="emblemPopup"><div>And climbing</div></div>
         
 </div>
-
-</td>
-<%-- Center Column Ends --%>
-
-<%-- Right Column Begins --%>
-         <td width="170">
-            <jsp:include page="/public_right.jsp">
-               <jsp:param name="level1" value="default"/>
-            </jsp:include>
-         </td>
-<%-- Right Column Ends --%>
-
-<%-- Gutter --%>
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<%-- Gutter Ends --%>
-    </tr>
-</table>
-
-<jsp:include page="/foot.jsp" />
-
-</body>
 
 </html>
