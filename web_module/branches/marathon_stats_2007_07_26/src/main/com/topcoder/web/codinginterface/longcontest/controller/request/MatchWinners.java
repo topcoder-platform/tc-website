@@ -82,9 +82,6 @@ public class MatchWinners extends Base {
                     l.add(new Winner(row.getIntItem("coder_id"), row.getIntItem("num_wins")));                
                 }
                 
-                SortInfo s = new SortInfo();
-                s.addDefault(1, "desc");
-                getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
                 getRequest().setAttribute("winnersMap", winnersMap);
 
@@ -104,12 +101,14 @@ public class MatchWinners extends Base {
 
                 rsc = new ResultSetContainer(rsc, sr, endRank);
 
-                SortInfo s = new SortInfo();
-                s.addDefault(4, "desc");
-                getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
                 getRequest().setAttribute("ungrouped", true);
                 
             } else throw new NavigationException("Bad sort column: " + sc);
+
+            SortInfo s = new SortInfo();
+            s.addDefault(1, "desc");
+            s.addDefault(4, "desc");
+            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
             setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
             setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
