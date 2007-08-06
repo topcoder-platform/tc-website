@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import com.topcoder.netCommon.contest.SurveyAnswerData;
 import com.topcoder.server.ejb.TestServices.LongContestServicesException;
 import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -24,6 +25,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
+import com.topcoder.web.common.model.QuestionType;
 import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.tag.AnswerInput;
 
@@ -195,19 +197,22 @@ public class SubmitReg extends ViewReg {
                         }
                     }
                 }
-                SurveyResponse response = new SurveyResponse();
-                response.setQuestionId(question.getId());
-                response.setUserId(getUser().getId());
+
+                SurveyAnswerData response = new SurveyAnswerData((int) questionId, question.getStyleId(), question.isRequired() && question.getType().getId() == QuestionType.ELIGIBLE);
+                ArrayList answers = new ArrayList();
+                ArrayList choices = new ArrayList();
+                response.setAnswers(answers);
+                response.setChoices(choices);
                 if (question.isFreeForm()) {
                     String text = StringUtils.checkNull(values[i]).trim();
                     if (text.length() != 0) {
-                        response.setText(StringUtils.checkNull(values[i]));
-                        response.setFreeForm(true);
+                        answers.add(StringUtils.checkNull(values[i]));
+                        choices.add(new Integer(0));
                         ret.add(response);
                     }
                 } else {
-                    response.setAnswerId(answerId);
-                    response.setFreeForm(false);
+                    answers.add("");
+                    choices.add(answerId);
                     ret.add(response);
                 }
             }
