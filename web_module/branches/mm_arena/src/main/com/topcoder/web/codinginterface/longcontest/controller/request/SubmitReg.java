@@ -26,7 +26,6 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.QuestionType;
-import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.tag.AnswerInput;
 
 /**
@@ -235,11 +234,11 @@ public class SubmitReg extends ViewReg {
 
     // Checks the list of response to see if it contains the given question
     private boolean containsQuestion(List responses, Question question) {
-        SurveyResponse r = null;
+        SurveyAnswerData r = null;
         boolean found = false;
         for (Iterator it = responses.iterator(); it.hasNext() && !found;) {
-            r = (SurveyResponse) it.next();
-            found = (r.getQuestionId() == question.getId());
+            r = (SurveyAnswerData) it.next();
+            found = (r.getQuestionID() == question.getId());
         }
         return found;
     }
@@ -269,15 +268,16 @@ public class SubmitReg extends ViewReg {
 
     // Set default response answers
     private void setDefaults(List responses) {
-        SurveyResponse r = null;
+        SurveyAnswerData r = null;
         for (Iterator it = responses.iterator(); it.hasNext();) {
-            r = (SurveyResponse) it.next();
-            if (findQuestion(r.getQuestionId()).getStyleId() == Question.MULTIPLE_CHOICE) {
-                setDefault(AnswerInput.PREFIX + r.getQuestionId() + "," + r.getAnswerId(), "true");
-            } else if (r.isFreeForm()) {
-                setDefault(AnswerInput.PREFIX + r.getQuestionId(), r.getText());
+            r = (SurveyAnswerData) it.next();
+            Question question = findQuestion(r.getQuestionID());
+            if (question.getStyleId() == Question.MULTIPLE_CHOICE) {
+                setDefault(AnswerInput.PREFIX + r.getQuestionID() + "," + ((Number)(r.getChoices().get(0))).intValue(), "true");
+            } else if (question.isFreeForm()) {
+                setDefault(AnswerInput.PREFIX + r.getQuestionID(), r.getAnswers().get(0));
             } else {
-                setDefault(AnswerInput.PREFIX + r.getQuestionId(), new Long(r.getAnswerId()));
+                setDefault(AnswerInput.PREFIX + r.getQuestionID(), new Long(((Number)(r.getChoices().get(0))).intValue()));
             }
         }
     }
