@@ -39,7 +39,7 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<li><a href="/tc?module=Static&d1=features&d2=080607"><strong>An Interview With kalinov</strong></a>, by <tc-webtag:handle coderId="21620711" /><br>
+<li><a href="/tc?module=Static&d1=features&d2=080607"><strong>An Interview with kalinov</strong></a>, by <tc-webtag:handle coderId="21620711" /><br>
 Get to know more about <tc-webtag:handle coderId="310333" context="algorithm"/>, TopCoder's current #12-ranked Algorithm coder, from his start in coding and his TopCoder successes to his hobbies and personal favorites.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=mmProblems"><strong>Stepping up to a Marathon Match problem</strong></a>, by <tc-webtag:handle coderId="10407399" /><br>
 In a <a href="/tc?module=Static&d1=tutorials&d2=mmIntro">previous tutorial</a> by <tc-webtag:handle coderId="21464956" context="marathon"/>, we learned about how Marathon Matches work, and were provided with some excellent advice on getting ourselves set up and going on a problem, including some very helpful tips on version control and time management. Now, we need to think a bit about solving the problem.</li>

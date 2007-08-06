@@ -7,7 +7,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>08.06.07<br>3:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=080607">An Interview With kalinov</A></span><br><br>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=080607">An Interview with kalinov</A></span><br><br>
       Get to know more about <tc-webtag:handle coderId="310333" context="algorithm"/>, TopCoder's current #12-ranked Algorithm coder, from his start in coding and his TopCoder successes to his hobbies and personal favorites.</td>
          <td class="newsPhoto"><img src="/i/m/rajeshrathod_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="21620711" context="algorithm"/></td></tr></table>
       </td>
