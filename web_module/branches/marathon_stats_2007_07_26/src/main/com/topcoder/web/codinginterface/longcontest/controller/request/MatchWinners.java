@@ -67,7 +67,7 @@ public class MatchWinners extends Base {
                 else if (sc == 2) sc = rsc.getColumnIndex("name");
                 
                 rsc.sortByColumn(sc, !"desc".equals(sortDir));                
-                rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank)-1, endRank);
+                rsc = new ResultSetContainer(rsc, sr, endRank);
 
                 ResultSetContainer winners = result.get("marathon_match_winners");
                 Map<String, List<Winner>> winnersMap = new HashMap<String, List<Winner>>();
@@ -102,7 +102,7 @@ public class MatchWinners extends Base {
                     sc = winsCol;
                 }
 
-                rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank)-1, endRank);
+                rsc = new ResultSetContainer(rsc, sr, endRank);
 
                 SortInfo s = new SortInfo();
                 s.addDefault(rsc.getColumnIndex("num_wins"), "desc");
