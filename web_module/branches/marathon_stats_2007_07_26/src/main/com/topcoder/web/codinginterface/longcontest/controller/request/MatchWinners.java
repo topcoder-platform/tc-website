@@ -83,7 +83,7 @@ public class MatchWinners extends Base {
                 }
                 
                 SortInfo s = new SortInfo();
-                s.addDefault(rsc.getColumnIndex("date"), "desc");
+                s.addDefault(1, "desc");
                 getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
                 getRequest().setAttribute("winnersMap", winnersMap);
@@ -105,7 +105,7 @@ public class MatchWinners extends Base {
                 rsc = new ResultSetContainer(rsc, sr, endRank);
 
                 SortInfo s = new SortInfo();
-                s.addDefault(rsc.getColumnIndex("num_wins"), "desc");
+                s.addDefault(4, "desc");
                 getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
                 getRequest().setAttribute("ungrouped", true);
                 
