@@ -91,10 +91,17 @@ public class MatchWinners extends Base {
             } else if (sc == 3 || sc == 4) {
                 rsc = result.get("marathon_match_winners");
     
-                if (sc == 3) sc = rsc.getColumnIndex("handle");
-                else if (sc == 4) sc = rsc.getColumnIndex("num_wins");
+                int handleCol = rsc.getColumnIndex("handle");
+                int winsCol = rsc.getColumnIndex("num_wins");
+                
+                if (sc == 3){
+                    rsc.sortByColumn(handleCol, winsCol, !"desc".equals(sortDir), false);
+                    sc = handleCol;
+                } else {
+                    rsc.sortByColumn(winsCol, handleCol, !"desc".equals(sortDir), true);
+                    sc = winsCol;
+                }
 
-                rsc.sortByColumn(sc, !"desc".equals(sortDir));                
                 rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank)-1, endRank);
 
                 SortInfo s = new SortInfo();
@@ -111,9 +118,6 @@ public class MatchWinners extends Base {
             setDefault(DataAccessConstants.START_RANK, sr);
 
             getRequest().setAttribute("list", rsc);
-//            getRequest().setAttribute("columnMap", rsc.getColumnNameMap());            
-//            getRequest().setAttribute("croppedDataBefore", rsc.croppedDataBefore());
-  //          getRequest().setAttribute("croppedDataAfter", rsc.croppedDataAfter());
 
             setNextPage(Constants.PAGE_MATCH_WINNERS);
             setIsNextPageInContext(true);
