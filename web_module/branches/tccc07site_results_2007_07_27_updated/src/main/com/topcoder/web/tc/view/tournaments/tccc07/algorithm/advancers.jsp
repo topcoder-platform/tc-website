@@ -104,7 +104,7 @@
                     <%boolean even = false;%>
                     <rsc:iterator list="<%=rsc%>" id="resultRow"><tr class="<%=(even ? "dark" : "light")%>">
 <td class="valueC"><rsc:item name="seed" row="<%=resultRow%>"/></td>
-<td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context="algorithm"/></td>
+<td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="algorithm"/></td>
 <td class="valueC"><rsc:item name="section" row="<%=resultRow%>"/></td>
 <td class="valueC"><rsc:item name="rating" row="<%=resultRow%>"/></td>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
