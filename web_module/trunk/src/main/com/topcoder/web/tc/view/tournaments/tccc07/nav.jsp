@@ -79,6 +79,7 @@
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movies"<% if (tabLev2.equals("onsiteevents")) {%> class="on"<% } %>>Onsite events</a>
                 --%>
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly"<% if (tabLev2.equals("sponsors")) {%> class="on"<% } %>>Sponsors</a>
+                    | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa"<% if (tabLev2.equals("eventpatrons")) {%> class="on"<% } %>>Event Patrons</a>
                 </p>
             <% } else if (tabLev1.equals(EventType.ALGORITHM_TOURNAMENT_ID.toString())) { %>
                 <p id="secondaryNav">
@@ -152,6 +153,10 @@
                 <% } else if (tabLev2.equals("sponsors")) { %>
                     <p id="tertiaryNav">
                         <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly"<% if (tabLev3.equals("lilly")) {%> class="on"<% } %>>Lilly</a>
+                    </p>
+                <% } else if (tabLev2.equals("eventpatrons")) { %>
+                    <p id="tertiaryNav">
+                        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa"<% if (tabLev3.equals("nsa")) {%> class="on"<% } %>>NSA</a>
                     </p>
                 <% } %>
             <% } else if (tabLev1.equals(EventType.ALGORITHM_TOURNAMENT_ID.toString())) { %>
