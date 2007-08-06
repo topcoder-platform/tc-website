@@ -82,10 +82,11 @@ public abstract class StudioUserContestsBase extends Base {
     /**
      * Gets the page for this stat
      * 
+     * @param complete wether to show completed or incomplete projectgs
      * @return the page
      */
-    protected String getPageName() {
-        return "/tournaments/" + getContestPrefix() + "/studio/completedContests.jsp";
+    protected String getPageName(Integer complete) {
+        return "/tournaments/" + getContestPrefix() + (complete.equals(1) ?  "/studio/completedContests.jsp" : "/studio/currentContests.jsp");
     }
 
     /* (non-Javadoc)
@@ -106,15 +107,27 @@ public abstract class StudioUserContestsBase extends Base {
             }
         }
 
+        String completeParam = StringUtils.checkNull(getRequest().getParameter("complete"));
+        Integer complete;
+        try {
+            complete = Integer.parseInt(completeParam);
+        } catch (NumberFormatException nfe) {
+            throw new TCWebException("invalid complete parameter.");                
+        }
+
+        if (complete != 0 && complete != 1) {
+            throw new TCWebException("invalid complete_proyects parameter.");
+        }
+        
         try {
             dataRequest.setProperties(filteredMap);
             dataRequest.setContentHandle(getCommandName());
             DataAccessInt dai = getDataAccess(getDataSourceName(), false);
             Map result = dai.getData(dataRequest);
 
-            processResult(result);
+            processResult(result, complete);
 
-            String nextPage = getPageName();
+            String nextPage = getPageName(complete);
             setNextPage(nextPage);
             setIsNextPageInContext(true);
 
@@ -131,9 +144,10 @@ public abstract class StudioUserContestsBase extends Base {
      * - Sorting
      * 
      * @param result the result of the command execution
+     * @param complete wether to show completed or incomplete projects 
      * @throws com.topcoder.web.common.TCWebException
      */
-    protected void processResult(Map result) throws com.topcoder.web.common.TCWebException {
+    protected void processResult(Map result, Integer complete) throws com.topcoder.web.common.TCWebException {
         ResultSetContainer rsc = (ResultSetContainer) result.get(getCommandName());
 
         String user = StringUtils.checkNull(getRequest().getParameter(Constants.USER_ID));
@@ -145,7 +159,7 @@ public abstract class StudioUserContestsBase extends Base {
         }
 
         // first thing we need to do is calculate placement points for each contest
-        List<StudioUserContestsRow> results = calculatePlacementPoints(rsc, userId);        
+        List<StudioUserContestsRow> results = calculatePlacementPoints(rsc, userId, complete);        
                 
         // sort
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
@@ -165,9 +179,10 @@ public abstract class StudioUserContestsBase extends Base {
      * 
      * @param rsc The ResultSetContainer with the DB query results
      * @param userId The userId being requested
+     * @param complete whether to show complete or incomplete projects
      * @return a List of StudioUserContestRow elements with all the information for the stat chart
      */
-    private List<StudioUserContestsRow> calculatePlacementPoints(ResultSetContainer rsc, Long userId) {
+    private List<StudioUserContestsRow> calculatePlacementPoints(ResultSetContainer rsc, Long userId, Integer complete) {
         long prevContestId = 0;
         int contestPlace = 1;
 
@@ -178,7 +193,7 @@ public abstract class StudioUserContestsBase extends Base {
             }
             
             // keep only rows with the requested userId
-            if (userId.equals(rsr.getLongItem("user_id"))) {
+            if (userId.equals(rsr.getLongItem("user_id")) && complete.equals(rsr.getIntItem("completed"))) {
                 StudioUserContestsRow row = new StudioUserContestsRow(
                         rsr.getLongItem("contest_id"),
                         rsr.getStringItem("name"),
