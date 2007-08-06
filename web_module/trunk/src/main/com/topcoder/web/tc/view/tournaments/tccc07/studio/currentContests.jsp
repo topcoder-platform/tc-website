@@ -83,6 +83,7 @@
                                             ${resultRow.submissions}
                                         </td>
                                     </tr>
+                                <%even = !even;%>
                                 </c:forEach>
                                 </tbody>
                             </table>
