@@ -86,7 +86,7 @@ public interface Coder extends EJBObject {
      * @throws EJBException
      * @throws RemoteException
      */
-    int getEditorId(long coderId, String dataSource) throws RowNotFoundException, RemoteException;
+    Integer getEditorId(long coderId, String dataSource) throws RowNotFoundException, RemoteException;
 
     /**
      * @param coderId
@@ -94,7 +94,7 @@ public interface Coder extends EJBObject {
      * @return
      * @throws RowNotFoundException
      */
-    int getLanguageId(long coderId, String dataSource) throws RowNotFoundException, RemoteException;
+    Integer getLanguageId(long coderId, String dataSource) throws RowNotFoundException, RemoteException;
 
     /**
      * @param coderId
@@ -103,7 +103,7 @@ public interface Coder extends EJBObject {
      * @throws EJBException
      * @throws RemoteException
      */
-    int getCoderTypeId(long coderId, String dataSource) throws RowNotFoundException, RemoteException;
+    Integer getCoderTypeId(long coderId, String dataSource) throws RowNotFoundException, RemoteException;
 
 
     String getCompCountryCode(long coderId, String dataSource) throws RowNotFoundException, RemoteException;
