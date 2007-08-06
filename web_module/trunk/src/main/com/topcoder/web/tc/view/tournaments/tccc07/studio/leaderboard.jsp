@@ -92,7 +92,7 @@
                             </strong>
                         </td>
                         <td class="valueC">
-                            <a href="tc?${module}=TCCC07StudioUserContests&amp;completed=1&amp;${eventId}=${param[eventId]}&amp;${userId}=${resultRow.userId}"/>
+                            <a href="tc?${module}=TCCC07StudioUserContests&amp;complete=1&amp;${eventId}=${param[eventId]}&amp;${userId}=${resultRow.userId}"/>
                                 <c:choose>
                                     <c:when test="${resultRow.completedContests > 0}">
                                         ${resultRow.completedContests}
@@ -132,7 +132,7 @@
                             </c:choose>
                         </td>
                         <td class="valueC">
-                            <a href="tc?${module}=TCCC07StudioUserContests&amp;completed=0&amp;${eventId}=${param[eventId]}&amp;${userId}=${resultRow.userId}">
+                            <a href="tc?${module}=TCCC07StudioUserContests&amp;complete=0&amp;${eventId}=${param[eventId]}&amp;${userId}=${resultRow.userId}">
                                 <c:choose>
                                     <c:when test="${resultRow.currentContests > 0}">
                                         ${resultRow.currentContests}
