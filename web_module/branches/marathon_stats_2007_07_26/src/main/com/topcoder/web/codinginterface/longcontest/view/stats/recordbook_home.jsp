@@ -55,6 +55,11 @@
             </tr>
             <tr valign="top">
                 <td>
+                    <strong>Most Match Wins</strong><br>
+                    The number of times a competitors has won a match.  A tie for first place is considered a win.
+                    <br>
+                    <a href="/longcontest/?module=Recordbook&c=marathon_most_wins">Non-Tournament</a> |
+                    <a href="/longcontest/?module=Recordbook&c=marathon_most_wins&amp;all=true">all</a>
                 </td>
                 <td>
                 </td>
