@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.common.model.EventType" %>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.StringUtils,
