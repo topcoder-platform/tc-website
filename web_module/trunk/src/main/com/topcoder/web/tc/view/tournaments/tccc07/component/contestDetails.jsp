@@ -76,7 +76,7 @@
                     <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                         <% UserContestDetail result = (UserContestDetail) lst.get(i); %>
                         <td class="value" nowrap="nowrap">
-                            <tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>'/>
+                            <tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' darkBG='true' />
                             <% if (result.getIncomplete() > 0) {
                                 isComplete = false;%>*<% } %></td>
                         <td class="valueC"><%=result.getPoints()%>

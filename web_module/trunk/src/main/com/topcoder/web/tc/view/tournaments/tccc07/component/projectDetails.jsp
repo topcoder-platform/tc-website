@@ -89,7 +89,7 @@
                     <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                         <% ProjectDetail result = (ProjectDetail) lst.get(i); %>
                         <td class="value">
-                            <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=tab%>'/>
+                            <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=tab%>' darkBG='true' />
                         </td>
                         <td class="valueC" nowrap="nowrap"><tc-webtag:format object="<%=result.getSubmitTimestamp()%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z"/>
                         </td>

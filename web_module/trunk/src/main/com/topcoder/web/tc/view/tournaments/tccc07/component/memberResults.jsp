@@ -62,7 +62,7 @@
                     <h1><span><A href="/tc?module=TCCC07ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
                     <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
                 </A> -
-                <tc-webtag:handle context='<%=tab%>' coderId='<%=rscUser.getIntItem(0, "coder_id")%>' /></span></h1>
+                <tc-webtag:handle context='<%=tab%>' coderId='<%=rscUser.getIntItem(0, "coder_id")%>' darkBG='true' /></span></h1>
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
