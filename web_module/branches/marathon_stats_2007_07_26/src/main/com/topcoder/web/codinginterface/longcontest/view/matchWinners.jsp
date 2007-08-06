@@ -97,7 +97,7 @@ return false;
 			   <tr>
 			      <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />">Date</a></td>
 			      <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true" excludeParams="sr" />">Match</a></td>
-			      <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Winners</a></td>
+			      <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Winner(s)</a></td>
 			      <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="4" includeParams="true" excludeParams="sr" />">Wins</a>*</td>
 			   </tr>
 			   <c:forEach items="${list}" var="row" varStatus="status">
