@@ -111,7 +111,7 @@ public class MatchWinners extends Base {
                 
             } else throw new NavigationException("Bad sort column: " + sc);
 
-            setDefault(DataAccessConstants.SORT_COLUMN, sc + "");
+            setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
             setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, nr);
