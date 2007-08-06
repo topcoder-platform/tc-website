@@ -2,7 +2,9 @@ package com.topcoder.web.tc.controller.request.tournament;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.StatBase;
 import com.topcoder.web.tc.model.ProjectDetail;
 
@@ -36,6 +38,17 @@ public abstract class ProjectDetailsBase extends StatBase {
     }
 
     protected void statProcessing() throws TCWebException {
+        
+        String event = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_ID));
+        Long eventId;
+        try {
+            eventId = Long.parseLong(event);
+        } catch (NumberFormatException nfe) {
+            throw new TCWebException("invalid event id parameter.");                
+        }
+
+        getRequest().setAttribute("event_id", eventId);
+
         Map result2 = (Map) getRequest().getAttribute("resultMap");
 
         ResultSetContainer rsc = (ResultSetContainer) result2.get("project_results");
@@ -77,7 +90,6 @@ public abstract class ProjectDetailsBase extends StatBase {
         Collections.sort(arr, new myComparator());
 
         getRequest().setAttribute("results", arr);
-
     }
 
     public class myComparator implements Comparator {

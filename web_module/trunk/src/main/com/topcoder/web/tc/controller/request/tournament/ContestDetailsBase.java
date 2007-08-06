@@ -10,7 +10,9 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.StatBase;
 import com.topcoder.web.tc.model.UserContestDetail;
 
@@ -42,6 +44,16 @@ public abstract class ContestDetailsBase extends StatBase {
     private ArrayList arr = new ArrayList();
 
     protected void statProcessing() throws com.topcoder.web.common.TCWebException {
+        String event = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_ID));
+        Long eventId;
+        try {
+            eventId = Long.parseLong(event);
+        } catch (NumberFormatException nfe) {
+            throw new TCWebException("invalid event id parameter.");                
+        }
+
+        getRequest().setAttribute("event_id", eventId);
+
         Map result2 = (Map) getRequest().getAttribute("resultMap");
 
         ResultSetContainer rsc = (ResultSetContainer) result2.get("contest_projects");
