@@ -15,8 +15,6 @@ import java.util.List;
  */
 public abstract class Base {
 
-    //todo figure out a way to use generics to make this better so that implementing classes
-    //todo don't have to do so much casting
     protected static final Logger log = Logger.getLogger(Base.class);
 
     protected Session session;
