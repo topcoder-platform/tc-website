@@ -144,7 +144,10 @@ public class Submit extends Base {
             } else {
                 //load up their default language
                 Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
-                language = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+                Integer lang = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+                if (lang != null) {
+                    language = lang;
+                }
             }
 
             if (language > 0) {
