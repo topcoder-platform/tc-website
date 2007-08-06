@@ -79,7 +79,9 @@
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movies"<% if (tabLev2.equals("onsiteevents")) {%> class="on"<% } %>>Onsite events</a>
                 --%>
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly"<% if (tabLev2.equals("sponsors")) {%> class="on"<% } %>>Sponsors</a>
+                <%--
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa"<% if (tabLev2.equals("eventpatrons")) {%> class="on"<% } %>>Event Patrons</a>
+                --%>
                 </p>
             <% } else if (tabLev1.equals(EventType.ALGORITHM_TOURNAMENT_ID.toString())) { %>
                 <p id="secondaryNav">
@@ -101,8 +103,8 @@
                     | <a href="/tc?module=TCCC07ViewRegistration&et=<%=EventType.COMPONENT_TOURNAMENT_ID%>"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a>
                     | <a href="/tc?module=TCCC07ViewRegistrants&et=<%=EventType.COMPONENT_TOURNAMENT_ID%>"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a>
                 <%--
-                    | <a href=""<% if (tabLev2.equals("design")) {%> class="on"<% } %>>Design</a>
-                    | <a href=""<% if (tabLev2.equals("development")) {%> class="on"<% } %>>Development</a>
+                    | <a href="/tc?module=TCCC07ContestDetails&ct=420&eid=3002"<% if (tabLev2.equals("design")) {%> class="on"<% } %>>Design</a>
+                    | <a href="/tc?module=TCCC07ContestDetails&ct=421&eid=3002"<% if (tabLev2.equals("development")) {%> class="on"<% } %>>Development</a>
                 --%>
                 </p>
             <% } else if (tabLev1.equals(EventType.MARATHON_TOURNAMENT_ID.toString())) { %>
@@ -125,7 +127,7 @@
                     | <a href="/tc?module=TCCC07ViewRegistration&et=<%=EventType.STUDIO_TOURNAMENT_ID%>"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a>
                     | <a href="/tc?module=TCCC07ViewRegistrants&et=<%=EventType.STUDIO_TOURNAMENT_ID%>"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a>
                 <%--
-                    | <a href=""<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a>
+                    | <a href="/tc?module=TCCC07StudioLeaderboard&eid=3004"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a>
                     | <a href=""<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a>
                 --%>
                 </p>
@@ -155,9 +157,11 @@
                         <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly"<% if (tabLev3.equals("lilly")) {%> class="on"<% } %>>Lilly</a>
                     </p>
                 <% } else if (tabLev2.equals("eventpatrons")) { %>
+<%--
                     <p id="tertiaryNav">
                         <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa"<% if (tabLev3.equals("nsa")) {%> class="on"<% } %>>NSA</a>
                     </p>
+--%>
                 <% } %>
             <% } else if (tabLev1.equals(EventType.ALGORITHM_TOURNAMENT_ID.toString())) { %>
                 <% if (tabLev2.equals("advancers")) {%>
@@ -177,8 +181,22 @@
                     </p>
                 <% } %>
             <% } else if (tabLev1.equals(EventType.COMPONENT_TOURNAMENT_ID.toString())) { %>
+                <% if (tabLev2.equals("design")) {%>
+                    <p id="tertiaryNav">
+                        <a href="/tc?module=TCCC07ContestDetails&ct=420&eid=3002"<% if (tabLev3.equals("results")) {%> class="on"<% } %>>Results</a>
+                    </p>
+                <% } else if (tabLev2.equals("development")) { %>
+                    <p id="tertiaryNav">
+                        <a href="/tc?module=TCCC07ContestDetails&ct=421&eid=3002"<% if (tabLev3.equals("results")) {%> class="on"<% } %>>Results</a>
+                    </p>
+                <% } %>
             <% } else if (tabLev1.equals(EventType.MARATHON_TOURNAMENT_ID.toString())) { %>
             <% } else if (tabLev1.equals(EventType.STUDIO_TOURNAMENT_ID.toString())) { %>
+                <% if (tabLev2.equals("advancers")) {%>
+                    <p id="tertiaryNav">
+                        <a href="/tc?module=TCCC07StudioLeaderboard&eid=3004"<% if (tabLev3.equals("leaderboard")) {%> class="on"<% } %>>Leaderboard</a>
+                    </p>
+                <% } %>
             <% } %>
             </div>
             <div id="navTextB">&nbsp;</div>
