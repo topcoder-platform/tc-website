@@ -312,9 +312,13 @@ public class CoderBean extends BaseEJB {
     public int getLanguageId(long coderId, String dataSource) throws RowNotFoundException {
         log.debug("getLanguageId called. coderId: " + coderId);
 
-        return selectInt("coder", "language_id",
-                new String[]{"coder_id"}, new String[]{String.valueOf(coderId)}, dataSource);
-
+        try {
+            return selectInt("coder", "language_id",
+                    new String[]{"coder_id"}, new String[]{String.valueOf(coderId)}, dataSource);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            throw e;
+        }
     }
 
     public int getCoderTypeId(long coderId, String dataSource) throws RowNotFoundException {
