@@ -4,6 +4,7 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.EventType;
@@ -57,7 +58,7 @@ public abstract class ViewRegistrationBase extends RegistrationBase {
         return !rsc.isEmpty();
     }
 
-    protected void regProcessing(Event event, User user) {
+    protected void regProcessing(Event event, User user) throws TCWebException {
         // nothing to do
     }
 }

@@ -27,9 +27,9 @@ public class ViewRegistrationFix extends ViewRegistrationBase {
         return null;
     }
 
-    protected void regProcessing(Event event, User user) {
+    protected void regProcessing(Event event, User user) throws TCWebException {
         // this guy shouldn't be here
-        throw new RuntimeException("this guy shouldn't be here. (" + user.getHandle() + ")");                
+        throw new TCWebException("Sorry, you are not registered for " + event.getDescription() + ".");                
     }
 
     protected void alreadyRegisteredProcessing(EventRegistration er) {
