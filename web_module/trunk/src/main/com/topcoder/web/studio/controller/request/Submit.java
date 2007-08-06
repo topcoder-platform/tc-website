@@ -100,7 +100,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                     setNextPage("/submit.jsp");
                     setIsNextPageInContext(true);
                 } else {
-                    MimeType mt = cFactory.getMimeTypeDAO().find(submissionFile.getContentType());
+                    MimeType mt = SubmissionValidator.getMimeType(submissionFile);
                     Submission s = new Submission();
                     s.setContest(c);
                     s.setOriginalFileName(submissionFile.getRemoteFileName());
