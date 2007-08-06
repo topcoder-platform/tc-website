@@ -75,7 +75,7 @@
                 <c:set value="<%=Constants.MODULE_KEY%>" var="module"/>
                 <%int i = 0;%>
                 <c:forEach items="${result}" var="resultRow">
-                    <tr class="<%=(i%2==0 ? "dark" : "light")%>">
+                    <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                         <td class="valueC">
                             <c:choose>
                                 <c:when test="${resultRow.rank <= 8}">

@@ -95,6 +95,7 @@
                                             ${resultRow.points}
                                         </td>
                                     </tr>
+                                <%even = !even;%>
                                 </c:forEach>
                             </tbody>
                         </table>
