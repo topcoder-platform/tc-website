@@ -33,27 +33,64 @@ public abstract class StudioLeaderboardBase extends Base {
     public static final int COMPLETED_POINTS_COL = 4;
     public static final int CURRENT_CONTESTS_COL = 5;
 
-
+    /**
+     * Gets the contest prefix. It will be used mainly for the jsp path but could be used for other purposes as well. 
+     * Example: tco07, tccc07, etc.
+     * 
+     * @return the contest prefix
+     */
     protected abstract String getContestPrefix();
     
+    /**
+     * Gets the placement points for the points calculation.
+     * Each i position of the element corresponds to amount of points for the i+1 placement.
+     * If the placement is greater than the placement points specified, this method will return 0 points. 
+     * 
+     * @param contestPlace the placement to calculate
+     * @return an array with the placement points
+     */
     protected abstract int getPlacementPoints(int contestPlace);
 
+    /**
+     * Gets the maximum amount of projects that will be taken into consideration for the total points amount.
+     * The points calculation will be based on the best getMax() projects placement points.
+     * 
+     * @return the maximum amount of projects taken into consideration
+     */
     protected abstract int getMaxContests();
 
+    /**
+     * Gets the command name for this stat
+     * 
+     * @return the command name
+     */
     protected String getCommandName() {
         return "event_leaderboard";
     }
 
+    /**
+     * Gets the datasource for this stat
+     * 
+     * @return the datasource name
+     */
     protected String getDataSourceName() {
         return DBMS.STUDIO_DATASOURCE_NAME;
     }
 
+    /**
+     * Gets the page for this stat
+     * 
+     * @return the page
+     */
     protected String getPageName() {
         return "/tournaments/" + getContestPrefix() + "/studio/leaderboard.jsp";
     }
 
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
+     */
+    @Override
     protected void developmentProcessing() throws TCWebException {
-
         Request dataRequest = new Request();
         Map map = getRequest().getParameterMap();
         HashMap filteredMap = new HashMap();
@@ -86,6 +123,15 @@ public abstract class StudioLeaderboardBase extends Base {
         }
     }
 
+    /**
+     * This method will process the DB results including:
+     * - Placement points calculation
+     * - Rank generation
+     * - Sorting
+     * 
+     * @param result the result of the command execution
+     * @throws com.topcoder.web.common.TCWebException
+     */
     protected void processResult(Map result) throws com.topcoder.web.common.TCWebException {
         ResultSetContainer rsc = (ResultSetContainer) result.get(getCommandName());
 
@@ -103,6 +149,17 @@ public abstract class StudioLeaderboardBase extends Base {
         getRequest().setAttribute("result", results);
     }
 
+    /**
+     * This method calculates the placement points for all users in a particular event
+     * 
+     * The calculation will take into consideration:
+     * - Relative placement within event registrants of the competition
+     * - Placements points as specified in getPlacementPoints()
+     * - Maximum number of contests to be taken into consideration as specified in getMaxContests()
+     * 
+     * @param rsc The ResultSetContainer with the DB query results
+     * @return a List of StudioLeaderBoardRow elements with all the information for the stat chart
+     */
     private List<StudioLeaderBoardRow> calculatePlacementPoints(ResultSetContainer rsc) {
         long prevContestId = 0;
         int contestPlace = 1;
@@ -140,6 +197,11 @@ public abstract class StudioLeaderboardBase extends Base {
         return results;
     }
 
+    /**
+     * Private method to generate ranks based on the placement points each user got
+     * 
+     * @param results the list of StudioLeaderBoardRow elements
+     */
     private void generateRank(List<StudioLeaderBoardRow> results) {
         Collections.sort(results, new Comparator<StudioLeaderBoardRow>() {
             public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
@@ -162,6 +224,13 @@ public abstract class StudioLeaderboardBase extends Base {
     }
     
     
+    /**
+     * Private helper method to sort the results 
+     * 
+     * @param result the list of StudioLeaderBoardRow elements 
+     * @param sortCol the sort column 
+     * @param invert true if an inverted list is requested
+     */
     protected void sortResult(List<StudioLeaderBoardRow> result, String sortCol, boolean invert) {
         if (result.size() == 0) {
             return;

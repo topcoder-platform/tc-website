@@ -19,24 +19,58 @@ import java.util.Map;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 1, 2007
  */
+/**
+* @author Pablo Wolfus (pulky)
+* @version $Id$
+*/
 public abstract class ProjectDetailsBase extends StatBase {
 
+    /**
+     * Gets the contest prefix. It will be used mainly for the jsp path but could be used for other purposes as well. 
+     * Example: tco07, tccc07, etc.
+     * 
+     * @return the contest prefix
+     */
     protected abstract String getContestPrefix();
    
+    /**
+     * Gets an array with the placement points for the points calculation.
+     * Each i position of the element corresponds to amount of points for the i+1 placement.
+     * The array should only contain the first n placement points and should not include 0 points positions. 
+     * 
+     * @return an array with the placement points
+     */
     protected abstract int[] getPlacementPoints();
 
+    
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.development.StatBase#getCommandName()
+     */
+    @Override
     protected String getCommandName() {
         return "project_details";
-    }
+    }   
 
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.development.StatBase#getDataSourceName()
+     */
+    @Override
     protected String getDataSourceName() {
         return DBMS.TCS_DW_DATASOURCE_NAME;
     }
 
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.development.StatBase#getPageName()
+     */
+    @Override
     protected String getPageName() {
         return "/tournaments/" + getContestPrefix() + "/component/projectDetails.jsp";
     }
 
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.development.StatBase#statProcessing()
+     */
+    @Override
     protected void statProcessing() throws TCWebException {
         
         String event = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_ID));

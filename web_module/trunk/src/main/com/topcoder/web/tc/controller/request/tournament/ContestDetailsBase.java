@@ -23,26 +23,61 @@ import com.topcoder.web.tc.model.UserContestDetail;
  */
 public abstract class ContestDetailsBase extends StatBase {
 
+    /**
+     * Gets the contest prefix. It will be used mainly for the jsp path but could be used for other purposes as well. 
+     * Example: tco07, tccc07, etc.
+     * 
+     * @return the contest prefix
+     */
     protected abstract String getContestPrefix();
    
+    /**
+     * Gets an array with the placement points for the points calculation.
+     * Each i position of the element corresponds to amount of points for the i+1 placement.
+     * The array should only contain the first n placement points and should not include 0 points positions. 
+     * 
+     * @return an array with the placement points
+     */
     protected abstract int[] getPlacementPoints();
 
+    /**
+     * Gets the maximum amount of projects that will be taken into consideration for the total points amount.
+     * The points calculation will be based on the best getMax() projects placement points.
+     * 
+     * @return the maximum amount of projects taken into consideration
+     */
     protected abstract int getMax();
     
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.development.StatBase#getCommandName()
+     */
+    @Override
     protected String getCommandName() {
         return "contest_projects";
     }
 
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.development.StatBase#getDataSourceName()
+     */
+    @Override
     protected String getDataSourceName() {
         return DBMS.TCS_OLTP_DATASOURCE_NAME;
     }
 
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.development.StatBase#getPageName()
+     */
+    @Override
     protected String getPageName() {
         return "/tournaments/" + getContestPrefix() + "/component/contestDetails.jsp";
     }
 
     private ArrayList arr = new ArrayList();
 
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.development.StatBase#statProcessing()
+     */
+    @Override
     protected void statProcessing() throws com.topcoder.web.common.TCWebException {
         String event = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_ID));
         Long eventId;
