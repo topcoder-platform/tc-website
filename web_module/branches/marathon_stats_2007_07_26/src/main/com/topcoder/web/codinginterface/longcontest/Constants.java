@@ -59,6 +59,8 @@ public class Constants implements CodingInterfaceConstants {
     public static int INTEL_LONG_PRACTICE_ROUND_TYPE_ID;
     public static int INTEL_LONG_ROUND_TYPE_ID;
 
+    public static String WIN_STREAK_TYPE;
+    
     public static String LOGIN_JSP;
     public static String PAGE_VIEW_REG;
     public static String RP_SUBMIT;
@@ -98,6 +100,8 @@ public class Constants implements CodingInterfaceConstants {
     public static String PAGE_MATCH_LIST;
     public static String PAGE_MATCH_WINNERS;
 
+    public static String MARATHON_CONSECUTIVE_RATING_INCREASES;
+    
     static {
         initialize();
     }
