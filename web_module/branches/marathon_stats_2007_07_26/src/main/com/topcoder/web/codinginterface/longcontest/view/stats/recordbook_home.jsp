@@ -51,9 +51,11 @@
                     <a href="/longcontest/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=9">all</a>
                 </td>
                 <td width="50%">
-                    <strong></strong><br>
+                    <strong>Best Average Placement</strong><br>
+                    Best average placement per match.  A lower average is better.  
+                    Only matches where the competitor was rated are included.  Coders with less than 5 rated matches are not included  
                     <br>
-                    <a href="/longcontest/?module=Recordbook&c=">Overall</a> 
+                    <a href="/longcontest/?module=Recordbook&c=marathon_best_avg_placement">Overall</a> 
                 
                 </td>
             </tr>

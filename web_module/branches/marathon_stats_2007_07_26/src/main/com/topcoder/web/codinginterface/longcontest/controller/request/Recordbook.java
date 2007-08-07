@@ -49,6 +49,9 @@ public class Recordbook extends Static {
         } else if(handle.equals("marathon_best_win_percentage")) {        
             includeJsp = "/stats/bestWinPercentage.jsp";        
         
+        } else if(handle.equals("marathon_best_avg_placement")) {        
+            includeJsp = "/stats/bestAveragePlacement.jsp";        
+        
         } else throw new TCWebException("Invalid c parameter: " + handle);
         
         log.debug("includeJsp=" + includeJsp);
