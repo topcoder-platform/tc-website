@@ -49,15 +49,15 @@
 </p>
 --%>
 
+<%--
 <p align="center" style="margin-bottom: 40px;">
 <strong><A href="/tc?module=TCCC07ViewRegistration&et=9">Marathon Match Competition</A></strong>
 </p>
-<%--
+--%>
 <p class="grayedOut" align="center" style="margin-bottom: 40px;">
 <strong>Marathon Match Competition</strong>
 <br>Sorry, registration for this competition has closed.
 </p>
---%>
 
 <p align="center" style="margin-bottom: 40px;">
 <strong><A href="/tc?module=TCCC07ViewRegistration&et=7">Studio Competition</A></strong>

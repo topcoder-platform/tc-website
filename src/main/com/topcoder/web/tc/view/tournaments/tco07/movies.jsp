@@ -41,7 +41,7 @@
                                 <div style="float: left;">
                                     <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast1&title=Webcast%20Part%201"><img src="/i/tournament/tco07/webcastThumb1.png" alt="Webcast Part 1" /></a>
                                     <br /><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast1&title=Webcast%20Part%201">Part 1</A>
-                                    <br />(01:16:59)
+                                    <br />(01:03:55)
                                 </div>
                                 <div style="float: right;">
                                     <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast3&title=Webcast%20Part%203"><img src="/i/tournament/tco07/webcastThumb3.png" alt="Webcast Part 3" /></a>
