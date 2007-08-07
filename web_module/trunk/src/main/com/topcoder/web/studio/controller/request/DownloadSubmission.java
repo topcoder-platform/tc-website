@@ -3,6 +3,7 @@ package com.topcoder.web.studio.controller.request;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.model.Prize;
 import com.topcoder.web.studio.model.Submission;
 
 import javax.servlet.ServletOutputStream;
@@ -30,24 +31,25 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
         boolean isOwner = s.getSubmitter().getId().equals(getUser().getId());
 
-        boolean isWinner = s.getResult() != null && s.getResult().getPrize() != null &&
-                s.getResult().getPrize().getPlace() !=null && s.getResult().getPrize().getPlace() == 1;
-
+        boolean isWinner = false;
+        for (Prize p : s.getPrizes()) {
+            //we figure out the winner based on prizes because we'll consider that the "annoucing" of the winner, when the prize is set.
+            if (p.getPlace() == 1) {
+                isWinner = true;
+                break;
+            }
+        }
         boolean isOver = new Date().after(s.getContest().getEndTime());
 
         if (!isOver && !isOwner) {
             throw new NavigationException("Submissions are not available until the contest is over.");
         }
 
+        //we link to winners on the home page, so that's why people can download the winning submission.
         if (isWinner || "true".equals(s.getContest().getViewableSubmissions().getValue()) || isOwner) {
+
             //create the file input stream first so that if there is a problem, we'll get the error and be able to go
             //to an error page.  if we work with the output stream, we won't be able to do that.
-
-/*
-            String width = StringUtils.checkNull(getRequest().getParameter(Constants.WIDTH));
-            String height = StringUtils.checkNull(getRequest().getParameter(Constants.HEIGHT));
-*/
-
             FileInputStream fis = new FileInputStream(s.getPath().getPath() + s.getSystemFileName());
 
             log.debug("not done");

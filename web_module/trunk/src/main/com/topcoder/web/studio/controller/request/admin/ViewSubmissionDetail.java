@@ -48,10 +48,6 @@ public class ViewSubmissionDetail extends Base {
         }
         getRequest().setAttribute("prizes", prizes);
 
-        if (s.getResult() != null && s.getResult().getPrize() != null) {
-            setDefault(Constants.PRIZE_ID, s.getResult().getPrize().getId());
-        }
-
         if (submissionReview != null) {
             getRequest().setAttribute("submissionReview", submissionReview);
             setDefault(Constants.SUBMISSION_REVIEW_TEXT, submissionReview.getText());
