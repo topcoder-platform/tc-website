@@ -17,6 +17,7 @@ public class Prize extends Base implements Comparable {
     private Set<Contest> contests = new HashSet<Contest>();
     private Long id;
     private PrizeType type;
+    private Set<Submission> submissions = new HashSet<Submission>();
 
     public Long getId() {
         return id;
@@ -42,11 +43,18 @@ public class Prize extends Base implements Comparable {
         this.amount = amount;
     }
 
+    /**
+     *
+     * @return an unmodifiable <code>Set</code> of <code>Contest</code>s.  It's unmodifiable because
+     * the other end of this relationship is what gets persisted.
+
+     */
     public Set getContests() {
         return Collections.unmodifiableSet(contests);
     }
 
-    public void setContests(Set<Contest> contests) {
+    
+    protected void setContests(Set<Contest> contests) {
         this.contests = contests;
     }
 
@@ -58,6 +66,19 @@ public class Prize extends Base implements Comparable {
         this.type = type;
     }
 
+    /**
+     *
+     * @return an unmodifiable <code>Set</code> of <code>Submission</code>s.  It's unmodifiable because
+     * the other end of this relationship is what gets persisted.
+     */
+    public Set<Submission> getSubmissions() {
+        return Collections.unmodifiableSet(submissions);
+    }
+
+    protected void setSubmissions(Set<Submission> submissions) {
+        this.submissions = submissions;
+    }
+
     public int compareTo(Object o) {
         Prize other = (Prize) o;
         if (getPlace()==null && other.getPlace()==null) {
@@ -65,7 +86,7 @@ public class Prize extends Base implements Comparable {
         } else if (getPlace()==null) {
             return new Integer(Integer.MAX_VALUE).compareTo(other.getPlace());
         } else if (other.getPlace()==null) {
-            return getPlace().compareTo(new Integer(Integer.MAX_VALUE));
+            return getPlace().compareTo(Integer.MAX_VALUE);
         } else {
             return getPlace().compareTo(other.getPlace());
         }

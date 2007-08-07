@@ -1,8 +1,10 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
+<%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 
@@ -109,18 +111,54 @@
                 <br/> <br/>
 
                 <c:set value="<%=ReviewStatus.PASSED%>" var="passedStatus"/>
+                <c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
 
                 <c:if test="${submissionReview.status.id==passedStatus}">
                     <div class="header">Contest Results</div>
 
+                    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="prizeRemoveForm">
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddSubmissionPrize"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.PRIZE_ID%>"/>
+
+
+                        <c:forEach items="${submission.prizes}" var="prize">
+                            <c:choose>
+                                <c:when test="${clientPrize==prize.type.id}">
+                                    <div style="float: right; clear: right; text-align: right;">
+                                        <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
+                                        <button onClick="document.prizeRemoveForm.<%=Constants.PRIZE_ID%>.value ='${prize.id}'">
+                                        Remove
+                                        </button>
+                                        <br>
+                                    </div>
+                                    <strong>${prize.type.description}:</strong><br>
+                                </c:when>
+                                <c:otherwise>
+                                    <div style="float: right; clear: right; text-align: right;">
+                                        <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
+                                        <button onClick="document.prizeRemoveForm.<%=Constants.PRIZE_ID%>.value ='${prize.id}'">
+                                        Remove
+                                        </button>
+                                        <br>
+                                    </div>
+                                    <strong>Prize ${prize.place}:</strong><br>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+
+                    </form>
+
+
+
                     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="placedForm">
-                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSetPlace"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddSubmissionPrize"/>
                         <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
 
                         <p>
                             Place:
                             <tc-webtag:listSelect name="<%=Constants.PRIZE_ID%>" list="${prizes}"/>
-                            <button name="submit" value="submit" type="submit">Save</button>
+                            <button name="submit" value="submit" type="submit">Add</button>
                         </p>
                     </form>
 

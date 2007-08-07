@@ -4,6 +4,8 @@ import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.User;
 
 import java.sql.Timestamp;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * @author dok
@@ -27,6 +29,7 @@ public class Submission extends Base {
     private Integer width;
     private SubmissionStatus status;
     private com.topcoder.web.common.model.comp.Submission ORSubmission;
+    private Set<Prize> prizes = new TreeSet<Prize>();
 
 
     public Long getId() {
@@ -160,5 +163,28 @@ public class Submission extends Base {
 
     public void setORSubmission(com.topcoder.web.common.model.comp.Submission ORSubmission) {
         this.ORSubmission = ORSubmission;
+    }
+
+
+    public Set<Prize> getPrizes() {
+        return prizes;
+    }
+
+    public void setPrizes(Set<Prize> prizes) {
+        this.prizes = prizes;
+    }
+
+    public void addPrize(Prize p) {
+        this.prizes.add(p);
+    }
+
+    public void removePrize(Prize p) {
+        if (log.isDebugEnabled()) {
+            log.debug("before size " + prizes.size());
+        }
+        this.prizes.remove(p);
+        if (log.isDebugEnabled()) {
+            log.debug("after size " + prizes.size());
+        }
     }
 }
