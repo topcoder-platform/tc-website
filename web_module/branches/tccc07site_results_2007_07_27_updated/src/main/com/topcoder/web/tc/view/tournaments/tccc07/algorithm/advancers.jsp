@@ -2,7 +2,8 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.StringUtils,
-                 java.util.Map" %>
+                 java.util.Map,
+                 com.topcoder.web.tc.Constants" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -18,7 +19,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<% ResultSetContainer rsc = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("tccc07_alg_adv_overview"); %>
+<% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result"); %>
 
 <div align="center" style="background: transparent;">
     <div id="containAll">
@@ -52,6 +53,7 @@
                         </td>
                         <td class="header">
                             <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;sd=asc&amp;sc=handle_sort&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Handle</a>
+                            <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                         </td>
                         <td class="headerC">
                             <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;sd=asc&amp;sc=section&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Section</a>
