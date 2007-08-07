@@ -100,9 +100,9 @@
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=rules"<% if (tabLev2.equals("rules")) {%> class="on"<% } %>>Rules</a>
                     | <a href="/tc?module=TCCC07ViewRegistration&et=<%=EventType.COMPONENT_TOURNAMENT_ID%>"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a>
                     | <a href="/tc?module=TCCC07ViewRegistrants&et=<%=EventType.COMPONENT_TOURNAMENT_ID%>"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a>
-                <%--
                     | <a href="/tc?module=TCCC07ContestDetails&ct=420&eid=3002"<% if (tabLev2.equals("design")) {%> class="on"<% } %>>Design</a>
                     | <a href="/tc?module=TCCC07ContestDetails&ct=421&eid=3002"<% if (tabLev2.equals("development")) {%> class="on"<% } %>>Development</a>
+                <%--
                 --%>
                 </p>
             <% } else if (tabLev1.equals(EventType.MARATHON_TOURNAMENT_ID.toString())) { %>
