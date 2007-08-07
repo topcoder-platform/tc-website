@@ -117,7 +117,7 @@
                     <div class="header">Contest Results</div>
 
                     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="prizeRemoveForm">
-                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddSubmissionPrize"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveSubmissionPrize"/>
                         <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
                         <tc-webtag:hiddenInput name="<%=Constants.PRIZE_ID%>"/>
 
