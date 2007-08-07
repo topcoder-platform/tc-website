@@ -1,9 +1,9 @@
 <%@ page import="com.topcoder.web.common.model.Event" %>
-<%@ page contentType="text/html;charset=utf-8" %> 
+<%@ page import="com.topcoder.web.common.model.EventType" %>
+<%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%String eventType = (String) request.getAttribute("et");
-  Event e = (Event) request.getAttribute("event");
-  Boolean eligible = (Boolean) request.getAttribute("eligible"); %>
+<%String eventType = (String) request.getAttribute("et");%>
 <html>
 <head>
     <title>2007 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
@@ -28,20 +28,32 @@
             <div id="pageBody">
 
                     <h1><span>
-                    <%if (eligible.booleanValue()) {%>
-                        Registration Successful
-                    <%} else {%>
-                        Registration Failed
-                    <%}%>
+                        <c:choose>
+                            <c:when test="eligible">
+                                Registration Successful
+                            </c:when>
+                            <c:otherwise>
+                                Registration Failed
+                            </c:otherwise>
+                        </c:choose>
                     </span></h1>
 
 
+                <c:set value="<%=EventType.ALGORITHM_TOURNAMENT_ID%>" var="algoEvent"/>
                     <div align="center" style="margin: 60px 40px 200px 40px;">
-                        <%if (eligible.booleanValue()) {%>
-                            You have successfully registered for the<br><strong><%=e.getDescription()%></strong>.
-                        <%} else {%>
-                            Sorry, you are ineligible for the <strong><%=e.getDescription()%></strong>.  If this is a mistake, contact <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
-                        <%}%>
+                        <c:choose>
+                            <c:when test="eligible">
+                                You have successfully registered for the<br><strong>${event.description}</strong>.
+                                <c:if test="${event.type.id==algoEvent}">
+                                    If you have made a mistake when choosing your section preferences,
+                                    you made adjust them <a href="/tc?module=TCCC07ViewRegistrationSections&et=6">here</a>.
+                                </c:if>
+                            </c:when>
+                            <c:otherwise>
+                                Sorry, you are ineligible for the <strong>${event.description}</strong>.
+                                If you feel this is a mistake, please contact <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
+                            </c:otherwise>
+                        </c:choose>
                     </div>
 
             </div>
