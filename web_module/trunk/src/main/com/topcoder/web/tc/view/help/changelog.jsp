@@ -47,6 +47,8 @@
     5.10.17 - 2007.08.xx
     <ul>
         <li>Added payment type for High School Tournament Prizes -cucu</li>
+        <li>Limit address1,2,3 fields to 100 characters in registration -dok</li>
+
     </ul>
 </p>
 
