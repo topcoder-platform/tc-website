@@ -1,26 +1,25 @@
 package com.topcoder.web.studio.controller.request.admin;
 
-import com.topcoder.shared.util.dwload.CacheClearer;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.ReviewStatus;
+import com.topcoder.web.studio.model.Prize;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.ContestResult;
-import com.topcoder.web.studio.model.Prize;
-import com.topcoder.web.studio.model.ReviewStatus;
-import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.shared.util.dwload.CacheClearer;
 
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
+import java.util.Iterator;
+import java.util.HashSet;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Aug 29, 2006
+ *          Create Date: Aug 7, 2007
  */
-public class SetPlace extends Base {
+abstract class SubmissionPrizeBase extends Base {
     protected void dbProcessing() throws Exception {
 
         Long submissionId;
@@ -37,6 +36,8 @@ public class SetPlace extends Base {
             } catch (NumberFormatException e) {
                 throw new NavigationException("Invalid prize Specified");
             }
+        } else {
+            throw new NavigationException("Invalid prize Specified");
         }
         if (log.isDebugEnabled()) {
             log.debug("got prize: " + prizeId);
@@ -55,6 +56,7 @@ public class SetPlace extends Base {
 
             Prize p = null;
             if (prizeId != null) {
+                //look to see if the prize is one of the prizes for this contest.
                 Set<Prize> prizes = submission.getContest().getPrizes();
                 boolean found = false;
                 for (Iterator<Prize> it = prizes.iterator(); it.hasNext() && !found;) {
@@ -62,21 +64,11 @@ public class SetPlace extends Base {
                     found = prizeId.equals(p.getId());
                 }
             }
-            if (prizeId == null) {
-                //clear prize
-                submission.getResult().setPrize(null);
-                factory.getSubmissionDAO().saveOrUpdate(submission);
-            } else if (p == null) {
+            if (p == null) {
+                //it wasn't part of this contest, so error out
                 throw new NavigationException("Invalid Prize Specified");
             } else {
-                ContestResult cr = null;
-                if (submission.getResult() == null) {
-                    cr = new ContestResult(submission);
-                } else {
-                    cr = submission.getResult();
-                }
-                cr.setPrize(p);
-                factory.getSubmissionDAO().saveOrUpdate(submission);
+                submissionProcessing(submission, p);
             }
             try {
                 HashSet<String> cachedStuff = new HashSet<String>();
@@ -94,4 +86,7 @@ public class SetPlace extends Base {
         setIsNextPageInContext(false);
 
     }
+
+    protected abstract void submissionProcessing(Submission submission, Prize p) throws Exception;
 }
+
