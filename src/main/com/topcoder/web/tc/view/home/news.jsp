@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.07.07<br>12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://forums.topcoder.com/?module=Thread&threadID=583850">TCCC07 Algorithm Competition: Section preference policy updated</A></span><br><br>
+        As you may know, participants in previous TopCoder tournaments were not allowed to change their section preferences. With the TCCC07, TopCoder is changing this policy; for the reasons why, check out <a href="http://forums.topcoder.com/?module=Thread&threadID=583850">this forum discussion</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://forums.topcoder.com/?module=Thread&threadID=583850">discuss this</A> | 
+        <%--<tc-webtag:forumLink forumID="516841" message="discuss this" /> | --%>
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>08.06.07<br>3:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -167,18 +180,5 @@
          <A href="/tc?module=Static&d1=features&d2=072607">full story</A> | 
          <tc-webtag:forumLink forumID="516773" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>07.25.07<br>4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep03' refer='/tc' />">TC Channel: Episode 3</A></span><br><br>
-        In Episode 3 of the TC Channel,  TopCoder's online video news magazine, Dean and Markus look back at highlights from the 2007 TopCoder Open webcast, including the exciting final round of the TCO07 Algorithm Competition.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep03' refer='/tc' />">details</A> | 
-        <tc-webtag:forumLink forumID="516708" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
    
