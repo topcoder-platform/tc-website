@@ -66,7 +66,7 @@ Division 2 was dominated by newcomers who took the top 3 spots: <tc-webtag:handl
 <b><a href="/stat?c=problem_statement&amp;pm=6855&amp;rd=10008" name="6855">MarbleNecklace</a></b>
 </font>
 <A href="Javascript:openProblemRating(6855)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A>
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506004" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506003" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 <br>
 Used as: Division Two - Level One: <blockquote><table cellspacing="2">
   <tr>
@@ -123,7 +123,7 @@ To solve this problem we have to consider all descriptions equivalent to the giv
 
 <A href="Javascript:openProblemRating(7250)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A>
 
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506004" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506003" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 
 <br>
 
@@ -310,7 +310,7 @@ The fastest solution is based on the <a href="http://en.wikipedia.org/wiki/Bread
 
 <A href="Javascript:openProblemRating(6854)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A>
 
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506004" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506003" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 
 <br>
 
@@ -420,7 +420,7 @@ A board state must contain information about which squares are empty and which a
 
 <A href="Javascript:openProblemRating(6852)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A>
 
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506004" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506003" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 
 <br>
 
@@ -525,7 +525,7 @@ As a sidenote, the greedy algorithm does not work for general undirected graphs.
 
 <A href="Javascript:openProblemRating(6620)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A>
 
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506004" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506003" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 
 <br>
 
