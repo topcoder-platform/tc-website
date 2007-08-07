@@ -2,8 +2,10 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 import com.topcoder.netCommon.contest.SurveyAnswerData;
@@ -80,13 +82,23 @@ public class SubmitReg extends ViewReg {
             List responses = new ArrayList(10); // User's survey responses
 
             // Go through the params and look for survey questions
+            Map questions = new HashMap();
             for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
                 paramName = (String) params.nextElement(); // A possible survey question?
                 log.debug("param: " + paramName);
                 if (paramName.startsWith(AnswerInput.PREFIX)) { // It is if it starts with....
                     SurveyAnswerData r = validateAnswer(paramName); // Get the user's answers for the question
-                    if (r != null)
-                        responses.add(r);
+                    if (r != null) {
+                        Integer questionID = new Integer(r.getQuestionID());
+                        if (questions.containsKey(questionID)) {
+                            SurveyAnswerData response = (SurveyAnswerData) questions.get(questionID);
+                            response.getChoices().addAll(r.getChoices());
+                            response.getAnswers().addAll(r.getAnswers());
+                        } else {
+                            questions.put(questionID, r);
+                            responses.add(r);
+                        }
+                    }
                 }
             }
 
