@@ -47,8 +47,7 @@
                                 <c:if test="${event.type.id==algoEvent}">
                                     <br />
                                     <br />
-                                    If you have made a mistake when choosing your section preferences,
-                                    you may adjust them <a href="/tc?module=TCCC07ViewRegistrationSections&et=6">here</a>.
+                                    You can <a href="/tc?module=TCCC07ViewRegistrationSections&et=6">change your section preferences</a> at any time before registration closes.
                                 </c:if>
                             </c:when>
                             <c:otherwise>
