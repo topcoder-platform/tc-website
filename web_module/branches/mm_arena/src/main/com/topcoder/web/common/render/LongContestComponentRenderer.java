@@ -139,10 +139,7 @@ public class LongContestComponentRenderer extends BaseRenderer implements Elemen
 
 
         int methodCount = problemComponent.getAllMethodNames().length;
-        for (int i = 0; i < methodCount; i++) {
-            if ("displayTestCase".equals(problemComponent.getAllMethodNames()[i])) {
-                continue;
-            }
+        for (int i = methodCount > 1 ? 1 : 0; i < methodCount; i++) {
             buf.append("<tr><td");
             if (getTdClass() != null) {
                 buf.append(" class=\"");
