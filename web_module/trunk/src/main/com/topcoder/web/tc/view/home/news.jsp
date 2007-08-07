@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.07.07<br>1:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=description">TCCC07 Marathon Match registration ending soon</A></span><br><br>
+        Don't miss your chance to participate in the 2007 TopCoder Collegiate Challenge Marathon Match Competition. Registration ends today at 5:00 PM EDT -- don't miss out!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=description">details</A> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.07.07<br>12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://forums.topcoder.com/?module=Thread&threadID=583850">TCCC07 Algorithm Competition: Section preference policy updated</A></span><br><br>
@@ -164,21 +178,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm360">full story</A> | 
          <tc-webtag:forumLink forumID="516057" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.26.07<br>5:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=072607">Test Drive: TenFold SOA</A></span><br><br>
-      Service Oriented Architecture (SOA) is a hot topic. But with so much "buzz" around the subject, it's hard to separate the products that really deliver and the ones that just market an idea and wrap it in shiny paper.</td>
-         <td class="newsPhoto"><img src="/i/m/zmij_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="22630158" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=072607">full story</A> | 
-         <tc-webtag:forumLink forumID="516773" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
