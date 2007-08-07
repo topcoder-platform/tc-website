@@ -145,17 +145,11 @@ public class SubmissionValidator implements Validator {
     public static MimeType getMimeType(UploadedFile submission) throws FileDoesNotExistException, PersistenceException {
         MimeType mt = StudioDAOUtil.getFactory().getMimeTypeDAO().find(submission.getContentType());
         if (mt == null) {
+            log.info("didn't find mime type " + submission.getContentType());
             String ext = submission.getRemoteFileName().substring(submission.getRemoteFileName().lastIndexOf('.') + 1);
-            if (log.isDebugEnabled()) {
-                log.debug("looking for extension " + ext);
-            }
             for (StudioFileType ft : StudioDAOUtil.getFactory().getFileTypeDAO().getFileTypes()) {
                 if (ft.getExtension().equals(ext)) {
                     mt = ft.getMimeTypes().iterator().next();
-                    if (log.isDebugEnabled()) {
-                        log.debug("found it");
-                    }
-
                 }
             }
         }
