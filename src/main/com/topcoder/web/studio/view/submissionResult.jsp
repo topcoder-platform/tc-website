@@ -73,7 +73,7 @@
     </div>
 </div>
    
-<div align="center" style="margin-bottom: 20px;">
+<div align="center" style="margin-bottom: 100px;">
 <table style="width: 700px;" cellpadding="0" cellspacing="0">
 <tbody>
     <tr>
