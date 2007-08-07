@@ -25,7 +25,7 @@
     <tr>
         <td class="headerC">Rank</td>
         <td class="header">Coder</td>
-        <td class="headerC">Initial Rating<td>
+        <td class="headerC">Initial Rating</td>
         <td class="headerC">Round</td>
         <td class="headerC">Date</td>
     </tr>
