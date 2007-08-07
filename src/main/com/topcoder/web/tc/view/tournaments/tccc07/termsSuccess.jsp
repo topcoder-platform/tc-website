@@ -45,8 +45,10 @@
                             <c:when test="${eligible}">
                                 You have successfully registered for the<br><strong>${event.description}</strong>.
                                 <c:if test="${event.type.id==algoEvent}">
+                                    <br />
+                                    <br />
                                     If you have made a mistake when choosing your section preferences,
-                                    you made adjust them <a href="/tc?module=TCCC07ViewRegistrationSections&et=6">here</a>.
+                                    you may adjust them <a href="/tc?module=TCCC07ViewRegistrationSections&et=6">here</a>.
                                 </c:if>
                             </c:when>
                             <c:otherwise>
