@@ -68,9 +68,11 @@
                     <a href="/longcontest/?module=Recordbook&c=marathon_most_wins&amp;all=true">all</a>
                 </td>
                 <td>
-                    <strong></strong><br>
+                    <strong>Consecutive Top Finishes</strong><br>
+                    The longest streaks where a competitor finished in the top 5 or 10 for every match.  Only those matches where the competitor was rated are included.
                     <br>
-                    <a href="/longcontest/?module=Recordbook&c=">Overall</a>                 
+                    <a href="/longcontest/?module=Recordbook&c=marathon_consecutive_top_finishes&wst=10">Top 5</a> |                  
+                    <a href="/longcontest/?module=Recordbook&c=marathon_consecutive_top_finishes&wst=11">Top 10</a>                 
                 </td>
             </tr>
             <tr valign="top">

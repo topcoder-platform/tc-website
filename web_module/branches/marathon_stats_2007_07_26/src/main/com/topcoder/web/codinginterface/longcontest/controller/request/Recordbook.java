@@ -27,6 +27,14 @@ public class Recordbook extends Static {
             getRequest().setAttribute(Constants.WIN_STREAK_TYPE, streakType);
                       
             includeJsp = Constants.MARATHON_CONSECUTIVE_RATING_INCREASES;
+                        
+        } else if (handle.equals("marathon_consecutive_top_finishes")) {
+            // check valid values
+            String streakType = getRequest().getParameter(Constants.WIN_STREAK_TYPE);
+            dataRequest.setProperty(Constants.WIN_STREAK_TYPE, streakType);
+            getRequest().setAttribute(Constants.WIN_STREAK_TYPE, streakType);
+                      
+            includeJsp = "/stats/consecutiveTopFinishes.jsp";
             
         } else if(handle.equals("marathon_most_wins")) {
             boolean all = "true".equals(getRequest().getParameter("all"));
