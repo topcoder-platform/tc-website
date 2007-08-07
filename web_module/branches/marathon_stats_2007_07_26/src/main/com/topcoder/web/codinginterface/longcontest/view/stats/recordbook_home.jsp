@@ -98,9 +98,11 @@
                     <a href="/longcontest/?module=Recordbook&c=marathon_most_rated_events">Overall</a> 
                 </td>
                 <td>
-                    <strong></strong><br>
+                    <strong>Best Win Percentage</strong><br>
+                    Highest percentage of wins per match where the competitor has made a submission (either test or full).  
+					Only matches where the competitor was rated are included.
                     <br>
-                    <a href="/longcontest/?module=Recordbook&c=">Overall</a> 
+                    <a href="/longcontest/?module=Recordbook&c=marathon_best_win_percentage">Overall</a> 
                 </td>
             </tr>
             <tr valign="top">
@@ -111,23 +113,6 @@
                     <a href="/longcontest/?module=Recordbook&c=marathon_impressive_debuts">Overall</a> 
                 </td>
                 <td>
-                    <strong></strong><br>
-                    <br>
-                    <a href="/longcontest/?module=Recordbook&c=">Overall</a> 
-                </td>
-            </tr>
-            <tr valign="top">
-                <td>
-                    <strong>Best Win Percentage</strong><br>
-                    Highest percentage of wins per match where the competitor has made a submission (either test or full).  
-					Only matches where the competitor was rated are included.
-                    <br>
-                    <a href="/longcontest/?module=Recordbook&c=marathon_best_win_percentage">Overall</a> 
-                </td>
-                <td>
-                    <strong></strong><br>
-                    <br>
-                    <a href="/longcontest/?module=Recordbook&c=">Overall</a> 
                 </td>
             </tr>
         </table>
