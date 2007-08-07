@@ -36,6 +36,14 @@ public class Recordbook extends Static {
                       
             includeJsp = "/stats/consecutiveTopFinishes.jsp";
             
+        } else if (handle.equals("marathon_most_top_finishes")) {
+            // check valid values
+            String mp = getRequest().getParameter("mp");
+            dataRequest.setProperty("mp", mp);
+            getRequest().setAttribute("mp", mp);
+                      
+            includeJsp = "/stats/mostTopFinishes.jsp";
+            
         } else if(handle.equals("marathon_most_wins")) {
             boolean all = "true".equals(getRequest().getParameter("all"));
             if (all) {

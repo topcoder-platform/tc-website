@@ -83,9 +83,11 @@
                     <a href="/longcontest/?module=Recordbook&c=marathon_highest_rating_gain">Overall</a> 
                 </td>
                 <td>
-                    <strong></strong><br>
+                    <strong>Most Top Finishes</strong><br>
+                    Most career matches where a competitor finished in the top 5 or 10.  Only contests where the competitor was rated are included.
                     <br>
-                    <a href="/longcontest/?module=Recordbook&c=">Overall</a> 
+                    <a href="/longcontest/?module=Recordbook&c=marathon_most_top_finishes&mp=5">Top 5</a> |                  
+                    <a href="/longcontest/?module=Recordbook&c=marathon_most_top_finishes&mp=10">Top 10</a>                 
                 </td>
             </tr>
             <tr valign="top">

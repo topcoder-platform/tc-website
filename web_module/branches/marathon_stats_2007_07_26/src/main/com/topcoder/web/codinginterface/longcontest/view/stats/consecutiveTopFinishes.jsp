@@ -16,8 +16,8 @@
 
 <c:set var="n" value="${wst == 10? 5 : 10 }" />
 
-<tc-webtag:ifLink useLink="${n != 5}" text="Top 5" link="/longcontest/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=8"/> |
-<tc-webtag:ifLink useLink="${n != 10}" text="Top 10" link="/longcontest/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=9"/> 
+<tc-webtag:ifLink useLink="${n != 5}" text="Top 5" link="/longcontest/?module=Recordbook&c=marathon_consecutive_top_finishes&wst=10"/> |
+<tc-webtag:ifLink useLink="${n != 10}" text="Top 10" link="/longcontest/?module=Recordbook&c=marathon_consecutive_top_finishes&wst=11"/> 
 <br><br>
 <strong>Record:</strong>The longest streaks where a competitor finished in the top ${n} for every match.  
 Only those matches where the competitor was rated are included.
