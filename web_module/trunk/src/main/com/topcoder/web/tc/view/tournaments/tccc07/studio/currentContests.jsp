@@ -66,7 +66,7 @@
                                 <c:forEach items="${result}" var="resultRow">
                                     <tr class="<%=(even ? "dark" : "light")%>">
                                         <td class="value">
-                                            <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;ct=${resultRow.contestId}">
+                                            <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;ct=${resultRow.contestId}">
                                                 ${resultRow.contestName}
                                             </A>
                                         </td>
