@@ -43,10 +43,12 @@ public class Recordbook extends Static {
         } else if(handle.equals("marathon_most_rated_events")) {        
             includeJsp = "/stats/mostRatedEvents.jsp";        
                         
-        
         } else if(handle.equals("marathon_impressive_debuts")) {        
             includeJsp = "/stats/impressiveDebuts.jsp";        
 
+        } else if(handle.equals("marathon_best_win_percentage")) {        
+            includeJsp = "/stats/bestWinPercentage.jsp";        
+        
         } else throw new TCWebException("Invalid c parameter: " + handle);
         
         log.debug("includeJsp=" + includeJsp);
