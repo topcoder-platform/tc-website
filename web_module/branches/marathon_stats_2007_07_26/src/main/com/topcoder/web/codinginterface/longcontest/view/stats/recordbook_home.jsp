@@ -99,9 +99,10 @@
             </tr>
             <tr valign="top">
                 <td>
-                    <strong></strong><br>
+                    <strong>Impressive Debuts</strong><br>
+                    The competitors who have achieved the highest ratings based on the results of their first match.
                     <br>
-                    <a href="/longcontest/?module=Recordbook&c=">Overall</a> 
+                    <a href="/longcontest/?module=Recordbook&c=marathon_impressive_debuts">Overall</a> 
                 </td>
                 <td>
                     <strong></strong><br>
