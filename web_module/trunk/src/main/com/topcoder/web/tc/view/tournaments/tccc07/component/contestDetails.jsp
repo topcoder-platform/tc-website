@@ -63,7 +63,7 @@
                     <tr><td class="title" colspan="7"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></td></tr>
                     <tr>
                         <td class="header">Handle</td>
-                        <td class="headerC">Position Points</td>
+                        <td class="headerC">Placement Points</td>
                         <td class="headerC">Complete Projects</td>
                         <td class="headerC" nowrap="nowrap">Projects<br>In Progess</td>
                         <td class="headerC">Projects Submitted</td>
