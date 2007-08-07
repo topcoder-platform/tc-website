@@ -14,6 +14,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
 
@@ -63,10 +64,16 @@ public abstract class AdvancersBase extends Base {
             Map result = dai.getData(dataRequest);
 
             ResultSetContainer rsc = (ResultSetContainer) result.get(dataRequest.getContentHandle());
-            String sortCol = getRequest().getParameter(DataAccessConstants.SORT_COLUMN);
-            String sortDir = getRequest().getParameter(DataAccessConstants.SORT_DIRECTION);
-            if (sortCol != null && sortDir != null && rsc != null)
-                rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
+            String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+            String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
+            if (!(sortCol.equals("")) && rsc != null) {
+                rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
+                setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
+                setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
+            }
+
+            setSortInfo(rsc);
 
             String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
             String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
@@ -116,4 +123,15 @@ public abstract class AdvancersBase extends Base {
             throw new TCWebException(e);
         }
     }
+    
+    protected void setSortInfo(ResultSetContainer rsc) {
+        SortInfo s = new SortInfo();
+        s.addDefault(rsc.getColumnIndex("handle_lower"), "asc");
+        s.addDefault(rsc.getColumnIndex("rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("dev_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("des_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("rating"), "desc");
+        getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+    }
+
 }

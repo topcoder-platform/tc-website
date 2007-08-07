@@ -1,9 +1,12 @@
-<%@ page import="com.topcoder.web.common.model.EventType" %>
 <%@ page language="java" %>
+<%@ page import="com.topcoder.web.common.model.EventType, com.topcoder.shared.dataAccess.*, 
+                 com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.StringUtils,
-                 java.util.Map,
-                 com.topcoder.web.tc.Constants" %>
+                 java.util.Map" %>
+
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -13,6 +16,24 @@
     <link type="text/css" rel="stylesheet" href="/css/tournaments/tccc07.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
     <jsp:include page="../../script.jsp" />
+
+    <script type="text/javascript">
+  function next() {
+    var myForm = document.advancersForm;
+    myForm.<%=DataAccessConstants.START_RANK%>.value= parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) + parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+    myForm.submit();
+  }
+  function previous() {
+    var myForm = document.advancersForm;
+    myForm.<%=DataAccessConstants.START_RANK%>.value-=parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+
+    myForm.submit();
+  }
+</script>
 </head>
 <body>
 
@@ -34,6 +55,11 @@
             <div id="pageBody">
                 <h1><span>Advancers</span></h1>
 
+<form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07AlgorithmAdvancers"/>
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+
                 <div align="center">
                 <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Reset sorting</a>
                 <%-- show this as default, in page view --%>
@@ -43,13 +69,18 @@
                 | <a href="">Pages</a>
                 | Full view
                 --%>
+                <br />
+                <div class="pagingBox">
+                    <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                    | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+                </div>
                 </div>
                 <br /><br />
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
                     <tr>
                         <td class="headerC">
-                            <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;sd=asc&amp;sc=seed&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Seed</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
                         </td>
                         <td class="header">
                             <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;sd=asc&amp;sc=handle_sort&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Handle</a>
@@ -149,7 +180,19 @@
 </rsc:iterator>
                 </tbody>
                 </table>
+<div class="pagingBox">
+   <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+   | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
 
+   <br>
+
+   View &#160;
+   <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
+   &#160;at a time starting with &#160;
+   <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
+    <button name="nameSubmit" value="submit" type="submit">Go</button>
+</div>
+</form>
 
             </div>
     </div>
