@@ -36,7 +36,7 @@
         	<td class="valueC">${row.map['rank']}</td>
         	<td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon"/></td>
         	<td class="valueR" >${row.map['new_rating'] }</td>
-        	<td class="valueL" >${row.map['name'] }</td>
+        	<td class="value" nowrap="nowrap">${row.map['name'] }</td>
         	<td class="valueC" >${row.map['date'] }</td>
     </tr>
     </c:forEach>
