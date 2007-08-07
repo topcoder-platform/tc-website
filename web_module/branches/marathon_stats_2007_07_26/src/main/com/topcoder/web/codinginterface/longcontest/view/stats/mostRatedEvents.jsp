@@ -16,17 +16,16 @@
 
 
 <br><br>
-<strong>Record:</strong> Largest rating point gain in a single match.
+<strong>Record:</strong> The competitors that have participated in the greatest number of rated events.
 </span>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 510px; margin-right: 15px; margin-bottom: 15px;">
 <thead>
-    <tr><td class="title" colspan="4">Highest Rating Point Gain</td></tr>
+    <tr><td class="title" colspan="3">Most Rated Events</td></tr>
     <tr>
         <td class="headerC">Rank</td>
         <td class="header">Coder</td>
-        <td class="headerC">Rating Point Gain</td>
-        <td class="headerC">Round</td>
+        <td class="headerC">Events</td>
     </tr>
 </thead>
 <tbody>
@@ -34,8 +33,7 @@
        <tr class='${status.index % 2 == 1? "dark" : "light" }'>
         	<td class="valueC">${row.map['rank']}</td>
         	<td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon"/></td>
-        	<td class="valueR" >${row.map['rating_gain'] }</td>
-        	<td class="valueC" >${row.map['short_name'] }</td>
+        	<td class="valueR" >${row.map['events'] }</td>
     </tr>
     </c:forEach>
 </tbody>

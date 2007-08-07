@@ -51,6 +51,10 @@
                     <a href="/longcontest/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=9">all</a>
                 </td>
                 <td width="50%">
+                    <strong></strong><br>
+                    <br>
+                    <a href="/longcontest/?module=Recordbook&c=">Overall</a> 
+                
                 </td>
             </tr>
             <tr valign="top">
@@ -62,9 +66,63 @@
                     <a href="/longcontest/?module=Recordbook&c=marathon_most_wins&amp;all=true">all</a>
                 </td>
                 <td>
+                    <strong></strong><br>
+                    <br>
+                    <a href="/longcontest/?module=Recordbook&c=">Overall</a>                 
+                </td>
+            </tr>
+            <tr valign="top">
+                <td>
+                    <strong>Rating Point Gain</strong><br>
+                    Largest rating point gain in a single match.
+                    <br>
+                    <a href="/longcontest/?module=Recordbook&c=marathon_highest_rating_gain">Overall</a> 
+                </td>
+                <td>
+                    <strong></strong><br>
+                    <br>
+                    <a href="/longcontest/?module=Recordbook&c=">Overall</a> 
+                </td>
+            </tr>
+            <tr valign="top">
+                <td>
+                    <strong>Most Rated Events</strong><br>
+                    The competitors that have participated in the greatest number of rated events.
+                    <br>
+                    <a href="/longcontest/?module=Recordbook&c=marathon_most_rated_events">Overall</a> 
+                </td>
+                <td>
+                    <strong></strong><br>
+                    <br>
+                    <a href="/longcontest/?module=Recordbook&c=">Overall</a> 
+                </td>
+            </tr>
+            <tr valign="top">
+                <td>
+                    <strong></strong><br>
+                    <br>
+                    <a href="/longcontest/?module=Recordbook&c=">Overall</a> 
+                </td>
+                <td>
+                    <strong></strong><br>
+                    <br>
+                    <a href="/longcontest/?module=Recordbook&c=">Overall</a> 
+                </td>
+            </tr>
+            <tr valign="top">
+                <td>
+                    <strong></strong><br>
+                    <br>
+                    <a href="/longcontest/?module=Recordbook&c=">Overall</a> 
+                </td>
+                <td>
+                    <strong></strong><br>
+                    <br>
+                    <a href="/longcontest/?module=Recordbook&c=">Overall</a> 
                 </td>
             </tr>
         </table>
+</table>
 
 </div>
 
