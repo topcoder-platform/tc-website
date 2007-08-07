@@ -30,5 +30,10 @@
         <one-to-one name="review" class="SubmissionReview"/>
         <one-to-one name="result" class="ContestResult" cascade="save-update"/>
         <many-to-one name="ORSubmission" column="or_submission_id" class="com.topcoder.web.common.model.comp.Submission" cascade="none"/>
+        <set name="prizes" table="submission_prize_xref" cascade="all" sort="natural">
+            <key column="submission_id" not-null="true"/>
+            <many-to-many column="prize_id" class="Prize"/>
+        </set>
+
     </class>
 </hibernate-mapping>

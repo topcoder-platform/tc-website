@@ -15,6 +15,10 @@
             <key column="prize_id"/>
             <many-to-many column="contest_id" class="Contest"/>
         </set>
+        <set name="submissions" table="submission_prize_xref" inverse="true">
+            <key column="prize_id"/>
+            <many-to-many column="submission_id" class="Submission"/>
+        </set>
         <property name="place"/>
         <property name="amount"/>
         <many-to-one name="type" column="prize_type_id" class="PrizeType"/>
