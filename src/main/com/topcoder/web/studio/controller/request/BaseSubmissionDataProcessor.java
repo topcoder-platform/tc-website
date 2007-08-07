@@ -5,12 +5,10 @@ import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionStatus;
 import com.topcoder.web.studio.model.SubmissionType;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -21,15 +19,13 @@ import java.util.List;
 abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
 
     boolean userPlaced(User u, Contest c, SubmissionDAO dao) {
-        List submissions = dao.getSubmissions(u, c, SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE, SubmissionStatus.ACTIVE);
+        List<Submission> submissions = dao.getSubmissions(u, c, SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE, SubmissionStatus.ACTIVE);
 
         boolean isWinner = false;
-        for (Iterator it = submissions.iterator(); it.hasNext() && !isWinner;) {
-            Submission s = (Submission) it.next();
-            ContestResult curr;
-            for (Iterator it2 = s.getContest().getResults().iterator(); it2.hasNext() && !isWinner;) {
-                curr = (ContestResult) it2.next();
-                isWinner = curr.getPrize() != null && s.equals(curr.getSubmission()) && curr.getPrize().getPlace() != null;
+        for (Submission submission : submissions) {
+            if (submission.getPrizes().iterator().hasNext()) {
+                isWinner = true;
+                break;
             }
         }
         return isWinner;

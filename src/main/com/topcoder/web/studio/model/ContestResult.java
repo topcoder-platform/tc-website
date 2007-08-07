@@ -11,7 +11,6 @@ public class ContestResult extends Base implements Comparable {
     private Long id;
     private Contest contest;
     private Submission submission;
-    private Prize prize;
     private Float finalScore;
     private Integer placed;
 
@@ -58,15 +57,6 @@ public class ContestResult extends Base implements Comparable {
         this.submission = submission;
     }
 
-    public Prize getPrize() {
-        return prize;
-    }
-
-    public void setPrize(Prize prize) {
-        this.prize = prize;
-    }
-
-
     public Float getFinalScore() {
         return finalScore;
     }
@@ -97,9 +87,7 @@ public class ContestResult extends Base implements Comparable {
 
     public int compareTo(Object o) {
         ContestResult other = (ContestResult) o;
-        if (getPrize() == null && other.getFinalScore() != null) {
-            return 1;
-        } else if (getFinalScore() != null && other.getFinalScore() == null) {
+        if (getFinalScore() != null && other.getFinalScore() == null) {
             return -1;
         } else if (getFinalScore() == null && other.getFinalScore() == null) {
             return getSubmission().getId().compareTo(other.getSubmission().getId());

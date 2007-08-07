@@ -1,6 +1,6 @@
 package com.topcoder.web.studio.dao.hibernate;
 
-import com.topcoder.web.common.dao.hibernate.Base;
+import com.topcoder.web.common.dao.hibernate.GenericBase;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.Contest;
@@ -14,17 +14,9 @@ import java.util.List;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 17, 2006
  */
-public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
-    public void saveOrUpdate(Submission s) {
-        super.saveOrUpdate(s);
-    }
-
-    public Submission find(Long id) {
-        return (Submission) super.find(Submission.class, id);
-    }
-
+public class SubmissionDAOHibernate extends GenericBase<Submission, Long> implements SubmissionDAO {
     public Integer getMaxRank(Contest contest, User submitter) {
-        Query q = session.createQuery("select max(s.rank) from Submission s where s.contest.id = ? and s.submitter.id = ?");
+        Query q = getSession().createQuery("select max(s.rank) from Submission s where s.contest.id = ? and s.submitter.id = ?");
         q.setLong(0, contest.getId());
         q.setLong(1, submitter.getId());
         return (Integer) q.uniqueResult();
@@ -43,7 +35,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
             buf.append("rank-1 ");
             buf.append("where s.submitter.id = ? and s.contest.id = ? and rank > ?");
 
-            Query q = session.createQuery(buf.toString());
+            Query q = getSession().createQuery(buf.toString());
             q.setLong(0, s.getSubmitter().getId());
             q.setLong(1, s.getContest().getId());
             q.setInteger(2, s.getRank());
@@ -51,12 +43,12 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
 
             s.setRank(newRank);
             saveOrUpdate(s);
-            session.flush();
+            getSession().flush();
         } else if (s.getRank() == null) {
             buf.append("rank+1 ");
             buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ?");
 
-            Query q = session.createQuery(buf.toString());
+            Query q = getSession().createQuery(buf.toString());
             q.setLong(0, s.getSubmitter().getId());
             q.setLong(1, s.getContest().getId());
             q.setInteger(2, newRank);
@@ -65,13 +57,13 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
 
             s.setRank(newRank);
             saveOrUpdate(s);
-            session.flush();
+            getSession().flush();
         } else if (newRank.compareTo(s.getRank()) < 0) {
             //they's bumping it up, making it's rank better
             buf.append("rank+1 ");
             buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ?");
 
-            Query q = session.createQuery(buf.toString());
+            Query q = getSession().createQuery(buf.toString());
             q.setLong(0, s.getSubmitter().getId());
             q.setLong(1, s.getContest().getId());
             q.setInteger(2, newRank);
@@ -80,12 +72,12 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
 
             s.setRank(newRank);
             saveOrUpdate(s);
-            session.flush();
+            getSession().flush();
         } else if (newRank.compareTo(s.getRank()) > 0) {
             //they're dropping it down, making it's rank worse
             buf.append("rank-1 ");
             buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ?");
-            Query q = session.createQuery(buf.toString());
+            Query q = getSession().createQuery(buf.toString());
             q.setLong(0, s.getSubmitter().getId());
             q.setLong(1, s.getContest().getId());
             q.setInteger(2, s.getRank() + 1);
@@ -94,12 +86,13 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
 
             s.setRank(newRank);
             saveOrUpdate(s);
-            session.flush();
+            getSession().flush();
         }
     }
 
-    public List getSubmissions(User u, Contest c, Integer submissionTypeId) {
-        Query q = session.createQuery("from Submission s " +
+    @SuppressWarnings("unchecked")
+    public List<Submission> getSubmissions(User u, Contest c, Integer submissionTypeId) {
+        Query q = getSession().createQuery("from Submission s " +
                 "left join fetch s.review " +
                 "left join fetch s.result " +
                 "where s.submitter.id = ? " +
@@ -113,8 +106,9 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
 
     }
 
-    public List getSubmissions(User u, Contest c, Integer submissionTypeId, Integer submissionStatusId) {
-        Query q = session.createQuery("from Submission s " +
+    @SuppressWarnings("unchecked")
+    public List<Submission> getSubmissions(User u, Contest c, Integer submissionTypeId, Integer submissionStatusId) {
+        Query q = getSession().createQuery("from Submission s " +
                 "left join fetch s.review " +
                 "left join fetch s.result " +
                 "where s.submitter.id = ? " +
@@ -129,8 +123,9 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
         return q.list();
     }
 
-    public List getSubmissions(Long contestId, Long submitterId, Integer submissionTypeId) {
-        Query q = session.createQuery("from Submission s " +
+    @SuppressWarnings("unchecked")
+    public List<Submission> getSubmissions(Long contestId, Long submitterId, Integer submissionTypeId) {
+        Query q = getSession().createQuery("from Submission s " +
                 "left join fetch s.review " +
                 "left join fetch s.result " +
                 "where s.submitter.id = ? " +
