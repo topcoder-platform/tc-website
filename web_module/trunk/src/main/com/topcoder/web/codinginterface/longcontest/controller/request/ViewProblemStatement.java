@@ -19,8 +19,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.coder.Coder;
-import com.topcoder.web.ejb.roundregistration.RoundRegistration;
-import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
 
 import java.io.StringReader;
 import java.util.Map;
@@ -40,17 +38,12 @@ public class ViewProblemStatement extends Base {
         try {
             TCRequest request = getRequest();
             long rd = Long.parseLong(request.getParameter(Constants.ROUND_ID));
-            RoundRegistrationLocal roundReg = (RoundRegistrationLocal) createLocalEJB(getInitialContext(), RoundRegistration.class);
-            if (!isRoundOver(rd) && !roundReg.exists(getUser().getId(), rd) && !getSessionInfo().isAdmin()) {
-                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-            }
             long cid;
             if (request.getParameter(Constants.COMPONENT_ID) == null) {
                 Request r = new Request();
                 r.setContentHandle("long_contest_problem_component");
                 r.setProperty(Constants.PROBLEM_ID, request.getParameter(Constants.PROBLEM_ID));
-                cid = ((ResultSetContainer)
-                        getDataAccess(false).getData(r).get("long_contest_problem_component"))
+                cid = getDataAccess(false).getData(r).get("long_contest_problem_component")
                         .getIntItem(0, "component_id");
             } else {
                 cid = Long.parseLong(request.getParameter(Constants.COMPONENT_ID));
@@ -64,7 +57,7 @@ public class ViewProblemStatement extends Base {
                 r.setProperty(Constants.COMPONENT_ID, String.valueOf(cid));
                 r.setProperty(Constants.ROUND_ID, String.valueOf(rd));
                 r.setProperty(Constants.CODER_ID, String.valueOf(getUser().getId()));
-                ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("long_contest_recent_compilation");
+                ResultSetContainer rsc = getDataAccess().getData(r).get("long_contest_recent_compilation");
                 if (!rsc.isEmpty() && rsc.getItem(0, "language_id").getResultData() != null) {
                     lid = rsc.getIntItem(0, "language_id");
                 } else {
@@ -95,9 +88,9 @@ public class ViewProblemStatement extends Base {
             if (!started && !getSessionInfo().isAdmin()) {
                 throw new NavigationException("The contest has not started yet.");
             }
-            ResultSetContainer rsc = null;
+            ResultSetContainer rsc;
             rsc = (ResultSetContainer) m.get("long_problem_xml");
-            ResultSetContainer.ResultSetRow rr = null;
+            ResultSetContainer.ResultSetRow rr;
             rr = rsc.getRow(0);
             String problemText = rr.getStringItem("component_text");
             //log.debug("test: " + problemText);
