@@ -59,17 +59,21 @@ return false;
             <tr>
                <td align="center" class="bodyText">
                <A href="/tc?module=ContractingPreferences"><img src="/i/contracting/register.gif" alt="Register here" border=0/></A>
+               <%--
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol"><img src="/i/contracting/aol_logo.gif" alt="AOL" border=0/></A>
+               --%>
                <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa"><img src="/i/contracting/nsa_logo.gif" alt="NSA" border=0/></A>
+               <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa"><img src="/i/contracting/nsa_logo.gif" alt="NSA" border=0/></A>
                <hr noshade="noshade" size="1" />
+               <%--
                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs"><img src="/i/contracting/ubs_logo.gif" alt="UBS" border=0/></A>
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drw"><img src="/i/contracting/drwLogo.png" alt="DRW" border=0/></A>
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=sponsors&d2=yodlee"><img src="/i/contracting/yodleeLogo.png" alt="Yodlee" border=0/></A>
                <hr noshade="noshade" size="1" />
+               --%>
                <A href="/tc?module=Static&d1=sponsors&d2=bt"><img src="/i/contracting/btLogo.png" alt="British Telecom" border=0/></A>
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly"><img src="/i/contracting/lillyLogo.png" alt="Eli Lilly" border=0/></A>
