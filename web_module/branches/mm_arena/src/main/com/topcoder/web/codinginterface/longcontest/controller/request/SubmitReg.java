@@ -84,9 +84,9 @@ public class SubmitReg extends ViewReg {
                 paramName = (String) params.nextElement(); // A possible survey question?
                 log.debug("param: " + paramName);
                 if (paramName.startsWith(AnswerInput.PREFIX)) { // It is if it starts with....
-                    List l = validateAnswer(paramName); // Get the user's answers for the question
-                    if (l != null)
-                        responses.addAll(l);
+                    SurveyAnswerData r = validateAnswer(paramName); // Get the user's answers for the question
+                    if (r != null)
+                        responses.add(r);
                 }
             }
 
@@ -134,16 +134,13 @@ public class SubmitReg extends ViewReg {
      * @param paramName
      * @return a list of the user's responses
      */
-    private List validateAnswer(String paramName) {
+    private SurveyAnswerData validateAnswer(String paramName) {
 
         Question question = null;
         String[] values = getRequest().getParameterValues(paramName);
-        List ret = null;
+        SurveyAnswerData response = null;
         String errorKey = null;
-        if (values == null) {
-            ret = new ArrayList(0);
-        } else {
-            ret = new ArrayList(values.length);
+        if (values != null) {
             long questionId = -1;
             long answerId = -1;
             for (int i = 0; i < values.length; i++) {
@@ -201,27 +198,27 @@ public class SubmitReg extends ViewReg {
                     }
                 }
                 //This is ugly, we should unify survey management. Using Core services format.
-                SurveyAnswerData response = new SurveyAnswerData((int) questionId, question.getStyleId(), question.isRequired() && question.getType().getId() == QuestionType.ELIGIBLE);
-                ArrayList answers = new ArrayList();
-                ArrayList choices = new ArrayList();
-                response.setAnswers(answers);
-                response.setChoices(choices);
+                if (response == null) {
+                    response = new SurveyAnswerData((int) questionId, question.getStyleId(), question.isRequired() && question.getType().getId() == QuestionType.ELIGIBLE);
+                    ArrayList answers = new ArrayList();
+                    ArrayList choices = new ArrayList();
+                    response.setAnswers(answers);
+                    response.setChoices(choices);
+                }
                 if (question.isFreeForm()) {
                     String text = StringUtils.checkNull(values[i]).trim();
                     if (text.length() != 0) {
-                        answers.add(StringUtils.checkNull(values[i]));
-                        choices.add(new SurveyChoiceData(0, "", true));
-                        ret.add(response);
+                        response.getAnswers().add(StringUtils.checkNull(values[i]));
+                        response.getChoices().add(new SurveyChoiceData(0, "", true));
                     }
                 } else {
-                    answers.add("");
-                    choices.add(new SurveyChoiceData((int) answerId, answer.getText(), answer.isCorrect()));
-                    ret.add(response);
+                    response.getAnswers().add("");
+                    response.getChoices().add(new SurveyChoiceData((int) answerId, answer.getText(), answer.isCorrect()));
                 }
             }
         }
-        log.debug("q: " + question.getId() + "required: " + question.isRequired() + " ret: " + ret.size());
-        return ret;
+        log.debug("q: " + question.getId() + "required: " + question.isRequired() + " ret: " + response == null ? 0 : response.getAnswers().size());
+        return response;
     }
 
     // Checks to make sure the user responed to all required questions
