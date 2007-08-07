@@ -290,11 +290,11 @@ public class SubmitReg extends ViewReg {
             r = (SurveyAnswerData) it.next();
             Question question = findQuestion(r.getQuestionID());
             if (question.getStyleId() == Question.MULTIPLE_CHOICE) {
-                setDefault(AnswerInput.PREFIX + r.getQuestionID() + "," + ((Number)(r.getChoices().get(0))).intValue(), "true");
+                setDefault(AnswerInput.PREFIX + r.getQuestionID() + "," + ((SurveyChoiceData)(r.getChoices().get(0))).getID(), "true");
             } else if (question.isFreeForm()) {
                 setDefault(AnswerInput.PREFIX + r.getQuestionID(), r.getAnswers().get(0));
             } else {
-                setDefault(AnswerInput.PREFIX + r.getQuestionID(), new Long(((Number)(r.getChoices().get(0))).intValue()));
+                setDefault(AnswerInput.PREFIX + r.getQuestionID(), new Long(((SurveyChoiceData)(r.getChoices().get(0))).getID()));
             }
         }
     }
