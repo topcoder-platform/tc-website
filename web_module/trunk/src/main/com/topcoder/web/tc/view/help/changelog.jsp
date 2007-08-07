@@ -44,6 +44,13 @@
 
 
 <p>
+    5.10.17 - 2007.08.xx
+    <ul>
+        <li>Added payment type for High School Tournament Prizes -cucu</li>
+    </ul>
+</p>
+
+<p>
     5.10.16 - 2007.08.06
     <ul>
         <li>Added TCCC07 component and studio results pages -pulky</li>
