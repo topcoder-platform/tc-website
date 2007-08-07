@@ -29,7 +29,7 @@
 
                     <h1><span>
                         <c:choose>
-                            <c:when test="eligible">
+                            <c:when test="${eligible}">
                                 Registration Successful
                             </c:when>
                             <c:otherwise>
@@ -42,7 +42,7 @@
                 <c:set value="<%=EventType.ALGORITHM_TOURNAMENT_ID%>" var="algoEvent"/>
                     <div align="center" style="margin: 60px 40px 200px 40px;">
                         <c:choose>
-                            <c:when test="eligible">
+                            <c:when test="${eligible}">
                                 You have successfully registered for the<br><strong>${event.description}</strong>.
                                 <c:if test="${event.type.id==algoEvent}">
                                     If you have made a mistake when choosing your section preferences,
