@@ -14,7 +14,6 @@
 
         <one-to-one name="submission" class="Submission" constrained="true"/>
         <many-to-one name="contest" column="contest_id" class="Contest"/>
-        <many-to-one name="prize" column="prize_id" class="Prize"/>
         <property name="finalScore" column="final_score"/>
         <property name="placed"/>
     </class>
