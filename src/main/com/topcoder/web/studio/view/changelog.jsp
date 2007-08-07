@@ -25,6 +25,16 @@
 
 
 <div class="contentSpacer">
+
+<p>
+    2.0.6 - 2007.08.07
+    <ul>
+        <li>Allow for a single submission to win more than one prize -dok</li>
+    </ul>
+
+</p>
+
+
 <p>
     2.0.5 - 2007.08.06
     <ul>
