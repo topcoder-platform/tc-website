@@ -103,50 +103,50 @@
                 <thead>
                     <tr>
                         <td class="headerC">
-                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
                         </td>
                         <td class="header">
-                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
                             <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                         </td>
                         <td class="headerC">
-                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("section")%>"/>">Section</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("section")%>"/>">Section</a>
                         </td>
                         <td class="headerC">
-                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
                         </td>
                         <td class="headerC">
-                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("round1_sort")%>"/>">Round 1</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round1_sort")%>"/>">Round 1</a>
                             <br />details: 
                             <a href="">A</a>
                             <a href="">B</a>
                             <a href="">C</a>
                             </td>
                         <td class="headerC">
-                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("round2_sort")%>"/>">Round 2</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round2_sort")%>"/>">Round 2</a>
                             <br /><a href="">details</a>
                         </td>
                         <td class="headerC">
-                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("round3_sort")%>"/>">Round 3</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round3_sort")%>"/>">Round 3</a>
                             <br /><a href="">details</a>
                         </td>
                         <td class="headerC">
-                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("round4_sort")%>"/>">Round 4</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round4_sort")%>"/>">Round 4</a>
                             <br /><a href="">details</a>
                         </td>
                         <td class="headerC">
-                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("semi_sort")%>"/>">Semi</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("semi_sort")%>"/>">Semi</a>
                             <br />details: 
                             <a href="">1</a>
                             <a href="">2</a>
                             <a href="">3</a>
                         </td>
                         <td class="headerC">
-                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("wildcard_sort")%>"/>">Wildcard</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("wildcard_sort")%>"/>">Wildcard</a>
                             <br /><a href="">details</a>
                         </td>
                         <td class="headerC">
-                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("finals_sort")%>"/>">Final</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("finals_sort")%>"/>">Final</a>
                             <br /><a href="">details</a>
                         </td>
                     </tr>
