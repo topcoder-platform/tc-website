@@ -39,7 +39,7 @@
 
 <img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
 Friday, June 29, 2007<br>
-Introduction by <tc-webtag:handle coderId="159052" context="marathon"/>
+Introduction by <tc-webtag:handle coderId="159052" context="marathon_match"/>
 
 <br /><br />
 <img style="float:right; width:200px; 350px; padding-left:10px;" src="/i/tournament/tco07/marathon.jpg">
@@ -59,7 +59,7 @@ The problem turned out to be conceptually simple: you control a spaceship in a u
 However, it was anything but simple to create a solution.  Despite their best efforts, most people were still hitting almost as many planets as waypoints at the noon lunch break.  After lunch things the competition started to really swing into high gear.  mojito1 made a strong submission and moved to the top of the pack, often hitting all of the waypoints.  The other competitors made steady improvements through the rest of the afternoon, but mojito1 stayed on top all the way to the end as his ship just got better and better.  By the end of the day, the exhausted competitors were spending more time controlling the game manually (an activity that proved popular for the spectators also) than coding.<br/>
 <br/>
 
-At the end of the competition, <tc-webtag:handle coderId="10600282" context="marathon"/> was on top, followed by <tc-webtag:handle coderId="9987185" context="marathon"/> and <tc-webtag:handle coderId="261024" context="marathon"/>. However, the gap between competitors was very small, and everyone knew that the 50 provisional tests were far from decisive.  However, from watching the submissions in action, <tc-webtag:handle coderId="10600282" context="marathon"/> certainly looked best, and on the larger test set his lead held up, giving him the win -- and the $15,000 prize -- at the first ever TCO Marathon Match.
+At the end of the competition, <tc-webtag:handle coderId="10600282" context="marathon_match"/> was on top, followed by <tc-webtag:handle coderId="9987185" context="marathon_match"/> and <tc-webtag:handle coderId="261024" context="marathon_match"/>. However, the gap between competitors was very small, and everyone knew that the 50 provisional tests were far from decisive.  However, from watching the submissions in action, <tc-webtag:handle coderId="10600282" context="marathon_match"/> certainly looked best, and on the larger test set his lead held up, giving him the win -- and the $15,000 prize -- at the first ever TCO Marathon Match.
 </p>
 
 <br /><br />
