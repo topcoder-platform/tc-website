@@ -59,7 +59,7 @@ public class CSVResults extends Base {
                 for (ResultSetContainer.ResultSetRow row : rsc) {
                     for (int i = 0; i < colCount; i++) {
                         item = row.getItem(i).toString();
-                        if (item.contains(",")) {
+                        if (item.contains(",") || item.contains("\n")) {
                             writer.print("\"");
                             writer.print(item);
                             writer.print("\"");
