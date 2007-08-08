@@ -45,23 +45,11 @@ public abstract class AdvancersBase extends Base {
 
     protected void developmentProcessing() throws com.topcoder.web.common.TCWebException {
         Request dataRequest = new Request();
-        Map map = getRequest().getParameterMap();
-        HashMap filteredMap = new HashMap();
-        Map.Entry me = null;
-        for (Iterator it = map.entrySet().iterator(); it.hasNext();) {
-            me = (Map.Entry) it.next();
-            if (!me.getKey().equals(Constants.MODULE_KEY) &&
-                    !me.getKey().equals(DataAccessConstants.SORT_COLUMN) &&
-                    !me.getKey().equals(DataAccessConstants.SORT_DIRECTION)) {
-                filteredMap.put(me.getKey(), me.getValue());
-            }
-        }
-
+        
         try {
 
             log.debug("full param: " + StringUtils.checkNull(getRequest().getParameter("full")));
 
-            dataRequest.setProperties(filteredMap);
             dataRequest.setContentHandle(getCommandName());
             DataAccessInt dai = getDataAccess(getDataSourceName(), true);
             Map result = dai.getData(dataRequest);
