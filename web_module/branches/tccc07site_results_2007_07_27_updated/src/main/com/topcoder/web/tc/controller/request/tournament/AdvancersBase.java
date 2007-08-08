@@ -58,6 +58,9 @@ public abstract class AdvancersBase extends Base {
         }
 
         try {
+
+            log.debug("full param: " + StringUtils.checkNull(getRequest().getParameter("full")));
+
             dataRequest.setProperties(filteredMap);
             dataRequest.setContentHandle(getCommandName());
             DataAccessInt dai = getDataAccess(getDataSourceName(), true);
@@ -100,7 +103,7 @@ public abstract class AdvancersBase extends Base {
                 if (log.isDebugEnabled()) {
                     log.debug("add handle filter: " + handle);
                 }
-                filters.add(new Contains(handle.toLowerCase(), "handle_lower"));
+                filters.add(new Contains(handle.toLowerCase(), "handle_sort"));
                 setDefault(Constants.HANDLE, handle);
             }
     
@@ -112,6 +115,7 @@ public abstract class AdvancersBase extends Base {
             rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank), endRank);
 
             getRequest().setAttribute("result", rsc);
+            getRequest().setAttribute("full", Boolean.FALSE);
 
             String nextPage = getPageName();
             setNextPage(nextPage);

@@ -5,6 +5,11 @@
                  com.topcoder.web.common.StringUtils,
                  java.util.Map" %>
 
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -33,13 +38,23 @@
 
     myForm.submit();
   }
+  function resetSort() {
+    var myForm = document.advancersForm;
+    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='';
+    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='';
+    myForm.submit();
+  }
+  function changeView(full) {
+    var myForm = document.advancersForm;
+    myForm.<%="full_view"%>.value=full;
+    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='';
+    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='';
+    myForm.submit();
+  }
 </script>
 </head>
 <body>
 
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result"); %>
 
 <div align="center" style="background: transparent;">
@@ -59,16 +74,22 @@
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07AlgorithmAdvancers"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+<tc-webtag:hiddenInput name="<%="full_view"%>"/>
 
                 <div align="center">
-                <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Reset sorting</a>
-                <%-- show this as default, in page view --%>
-                | Page view
-                | <a href="">Full view</a>
-                <%-- show this in Full view
-                | <a href="">Pages</a>
-                | Full view
-                --%>
+                <a href="Javascript:resetSort()">Reset sorting</a>
+
+                <c:choose>
+                    <c:when test="${full}">
+                        | <a href="Javascript:changeView(${!full})">Pages</a>
+                        | Full view
+                    </c:when>
+                    <c:otherwise>
+                        | Page view
+                        | <a href="Javascript:changeView(${!full})">Full view</a>
+                    </c:otherwise>
+                </c:choose>
+
                 <br />
                 <div class="pagingBox">
                     <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
@@ -83,51 +104,47 @@
                             <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
                         </td>
                         <td class="header">
-                            <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;sd=asc&amp;sc=handle_sort&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Handle</a>
-                            <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
+                            <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                         </td>
                         <td class="headerC">
-                            <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;sd=asc&amp;sc=section&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Section</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("section")%>"/>">Section</a>
                         </td>
                         <td class="headerC">
-                            <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;sd=desc&amp;sc=rating&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Rating</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
                         </td>
                         <td class="headerC">
-                            <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;sd=asc&amp;sc=round1_sort&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Round
-                                1</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("round1_sort")%>"/>">Round 1</a>
                             <br />details: 
                             <a href="">A</a>
                             <a href="">B</a>
                             <a href="">C</a>
                             </td>
                         <td class="headerC">
-                            <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;sd=asc&amp;sc=round2_sort&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Round
-                                2</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("round2_sort")%>"/>">Round 2</a>
                             <br /><a href="">details</a>
                         </td>
                         <td class="headerC">
-                            <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;sd=asc&amp;sc=round3_sort&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Round
-                                3</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("round3_sort")%>"/>">Round 3</a>
                             <br /><a href="">details</a>
                         </td>
                         <td class="headerC">
-                            <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;sd=asc&amp;sc=round4_sort&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Round
-                                4</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("round4_sort")%>"/>">Round 4</a>
                             <br /><a href="">details</a>
                         </td>
                         <td class="headerC">
-                            <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;sd=asc&amp;sc=semi_sort&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Semi</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("semi_sort")%>"/>">Semi</a>
                             <br />details: 
                             <a href="">1</a>
                             <a href="">2</a>
                             <a href="">3</a>
                         </td>
                         <td class="headerC">
-                            <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;sd=asc&amp;sc=wildcard_sort&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Wildcard</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("wildcard_sort")%>"/>">Wildcard</a>
                             <br /><a href="">details</a>
                         </td>
                         <td class="headerC">
-                            <a href="?module=SimpleStats&amp;c=tccc07_alg_adv_overview&amp;trans=false&amp;sd=asc&amp;sc=finals_sort&amp;d1=tournaments&amp;d2=tccc07&amp;d3=algorithm&amp;d4=advancers">Final</a>
+                            <a href="/tc?module=TCCC07AlgorithmAdvancers<tc-webtag:sort column="<%=rsc.getColumnIndex("finals_sort")%>"/>">Final</a>
                             <br /><a href="">details</a>
                         </td>
                     </tr>
@@ -180,18 +197,20 @@
 </rsc:iterator>
                 </tbody>
                 </table>
-<div class="pagingBox">
-   <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-   | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
-
-   <br>
-
-   View &#160;
-   <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
-   &#160;at a time starting with &#160;
-   <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
-    <button name="nameSubmit" value="submit" type="submit">Go</button>
-</div>
+                <div align="center">
+                    <div class="pagingBox">
+                       <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                       | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+                    
+                       <br>
+                    
+                       View &#160;
+                       <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
+                       &#160;at a time starting with &#160;
+                       <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
+                        <button name="nameSubmit" value="submit" type="submit">Go</button>
+                    </div>
+                </div>
 </form>
 
             </div>
