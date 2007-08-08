@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.08.07<br>12:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/longcontest/?module=ViewActiveContests">TCCC07 Marathon Match Round 1 now underway</A></span><br><br>
+        The first online round of the 2007 TopCoder Collegiate Challenge Marathon Match Competition has begun. Good luck!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/longcontest/?module=ViewActiveContests">details</A> | 
+        <tc-webtag:forumLink forumID="516884" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.07.07<br>1:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=description">TCCC07 Marathon Match registration ending soon</A></span><br><br>
@@ -164,19 +178,3 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.27.07<br>1:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm360">SRM 360 - Problem Set &amp; Analysis</A></span><br><br>
-      If each SRM makes the TopCoder community one degree better, we're on the spot where we started more than 6 years ago. Because 360 degrees make a full cycle.</td>
-         <td class="newsPhoto"><img src="/i/m/darnley_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="21971539" context="algorithm" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm360">full story</A> | 
-         <tc-webtag:forumLink forumID="516057" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
