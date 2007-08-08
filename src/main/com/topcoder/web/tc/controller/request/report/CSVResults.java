@@ -41,7 +41,6 @@ public class CSVResults extends Base {
                 PrintWriter writer = new PrintWriter(getResponse().getOutputStream());
 
                 int colCount = rsc.getColumnCount();
-                log.debug("columns : " +colCount);
                 for (int i = 0; i < colCount; i++) {
                     if (rsc.getColumnInfo(i).getName().contains(",")) {
                         writer.print("\"");
@@ -57,9 +56,7 @@ public class CSVResults extends Base {
                 writer.print("\n");
 
                 String item;
-                log.debug("rows " + rsc.size());
                 for (ResultSetContainer.ResultSetRow row : rsc) {
-                    log.debug("writting a row");
                     for (int i = 0; i < colCount; i++) {
                         item = row.getItem(i).toString();
                         if (item.contains(",")) {
