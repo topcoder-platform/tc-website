@@ -24,35 +24,40 @@
     }
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html>
+
 <head>
     <title>TopCoder</title>
-    <jsp:include page="/script.jsp"/>
-    <jsp:include page="/style.jsp">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="script.jsp" />
+    <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 
 <body>
 
-<jsp:include page="top.jsp">
-    <jsp:param name="level1" value="long"/>
+<jsp:include page="top.jsp" >
+    <jsp:param name="level1" value=""/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-<tr valign="top">
+<tbody>
+    <tr valign="top">
 <%-- Left Column Begins--%>
-<td width="180">
-    <jsp:include page="/includes/global_left.jsp">
-        <jsp:param name="node" value="<%=myNode%>"/>
-    </jsp:include>
-</td>
+        <td width="180">
+            <jsp:include page="includes/global_left.jsp">
+                <jsp:param name="node" value="<%=myNode%>"/>
+            </jsp:include>
+        </td>
 <%-- Left Column Ends --%>
 
 <%-- Center Column Begins --%>
-<TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+        <td width="100%" align="left" class="bodyColumn">
 
 <%-- value of image is 'long_comps_topcoder' or 'long_comps_intel' --%>
 <jsp:include page="page_title.jsp">
@@ -60,120 +65,111 @@
     <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
-    <tr>
-        <td>
-            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat">
 
                 <tr>
-                    <td class="tableTitle" colspan="10">Active Marathon Match Contests</td>
+                    <td class="title" colspan="8">Active Marathon Match Contests</td>
                 </tr>
                 <tr>
-                    <td class="tableHeader">Contest</td>
-                    <td class="tableHeader" colspan="3" nowrap="nowrap">Problem</td>
-                    <td class="tableHeader" align="center" nowrap="nowrap">Registrants</td>
-                    <td class="tableHeader" align="center" nowrap="nowrap">Competitors</td>
-                    <td class="tableHeader" align="center" nowrap="nowrap">Submissions</td>
-                    <td class="tableHeader" align="center" nowrap="nowrap">Start Time</td>
-                    <td class="tableHeader" align="center" nowrap="nowrap">End Time</td>
-                    <td class="tableHeader" align="center" nowrap="nowrap">Forum</td>
+                    <td class="header">Contest</td>
+                    <td class="header" colspan="2">Problem</td>
+                    <td class="headerC">Registrants</td>
+                    <td class="headerC">Competitors</td>
+                    <td class="headerC">Submissions</td>
+                    <td class="headerC" nowrap="nowrap">Start Time</td>
+                    <td class="headerC" nowrap="nowrap">End Time</td>
                 </tr>
 
                 <%boolean even = true;%>
                 <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
-                    <tr>
-                        <td class="<%=even?"statLt":"statDk"%>"><b>
-                            <tc-webtag:beanWrite name="contest" property="contestName"/> &gt;
-                            <tc-webtag:beanWrite name="contest" property="roundName"/></b>
+                    <tr class="<%=even?"light":"dark"%>">
+                        <td class="value">
                             <% pageContext.setAttribute("sponsorImage", ((LongContest) contest).getSponsorImage());%>
-                            <div style="float: left;">
+                            <div style="float: right; margin-left: 4px;">
                                 <ci:sponsorImage image="sponsorImage" alt="Sponsor" border="0" ifNull=""/></div>
+                            <strong><tc-webtag:beanWrite name="contest" property="contestName"/> &gt;
+                            <tc-webtag:beanWrite name="contest" property="roundName"/></strong>
+                            <div style="margin: 6px 10px;">
+                                <logic:notEqual name="contest" property="forumId" value="0">
+                                    <tc-webtag:forumLink forumID="<%=((LongContest)contest).getForumId()%>" message="discuss"/> |
+                                </logic:notEqual>
+                                <logic:equal name="contest" property="passed" value="false">
+                                    <logic:equal name="contest" property="started" value="true">
+                                        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewStandings&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>">standings</a>
+                                    </logic:equal>
+                                </logic:equal>
+                                <logic:notEqual name="contest" property="passed" value="false">
+                                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewOverview&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>">results</a>
+                                </logic:notEqual>
+                            </div>
                         </td>
-                        <td class="<%=even?"statLt":"statDk"%>">
+                        <td class="value">
                             <logic:equal name="contest" property="passed" value="false">
                                 <logic:equal name="contest" property="coderRegistered" value="false">
                                     <tc-webtag:beanWrite name="contest" property="problemName"/>
                                 </logic:equal>
                                 <logic:notEqual name="contest" property="coderRegistered" value="false">
-                                    <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
+                                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" >
                                         <tc-webtag:beanWrite name="contest" property="problemName"/>
-                                    </A>
+                                    </a>
                                 </logic:notEqual>
                             </logic:equal>
                             <logic:notEqual name="contest" property="passed" value="false">
-                                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
+                                <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" >
                                     <tc-webtag:beanWrite name="contest" property="problemName"/>
-                                </A>
+                                </a>
                             </logic:notEqual>
 
                         </td>
-                        <td class="<%=even?"statLt":"statDk"%>">
+                        <td class="valueC">
                             <logic:equal name="contest" property="passed" value="false">
                                 <logic:equal name="contest" property="coderRegistered" value="false">
-                                    <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewReg&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>"
-                                       class="statLink">Register/Submit</a>
+                                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewReg&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>"
+                                       >Register/Submit</a>
                                 </logic:equal>
                                 <logic:notEqual name="contest" property="coderRegistered" value="false">
-                                    <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>"
-                                       class="statLink">Submit</a>
+                                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>"
+                                       >Submit</a>
                                 </logic:notEqual>
                             </logic:equal>
                         </td>
-                        <td class="<%=even?"statLt":"statDk"%>">
-                            <logic:equal name="contest" property="passed" value="false">
-                                <logic:equal name="contest" property="started" value="true">
-                                    <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewStandings&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>"
-                                       class="statLink">Standings</a>
-                                </logic:equal>
-                            </logic:equal>
-                            <logic:notEqual name="contest" property="passed" value="false">
-                                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewOverview&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>"
-                                   class="statLink">Results</a>
-                            </logic:notEqual>
-                        </td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="center">
-                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
-                                <tc-webtag:beanWrite name="contest" property="numRegistrants"/></A></td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="center">
+                        <td class="valueC" align="center">
+                            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" >
+                                <tc-webtag:beanWrite name="contest" property="numRegistrants"/></a></td>
+                        <td class="valueC" align="center">
                             <tc-webtag:beanWrite name="contest" property="numCompetitors"/></td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="center">
+                        <td class="valueC" align="center">
                             <tc-webtag:beanWrite name="contest" property="submissionCount"/></td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                        <td class="valueC" align="center" nowrap="nowrap">
                             <tc-webtag:beanWrite name="contest" property="startTime"
-                                                 format="MM.dd.yyyy HH:mm"/></td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                                                 format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
+                        <td class="valueC" align="center" nowrap="nowrap">
                             <tc-webtag:beanWrite name="contest" property="endTime"
-                                                 format="MM.dd.yyyy HH:mm"/></td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="center">
-                            <logic:notEqual name="contest" property="forumId" value="0">
-                                <tc-webtag:forumLink forumID="<%=((LongContest)contest).getForumId()%>" message="discuss"/>
-                            </logic:notEqual>
-                        </td>
+                                                 format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
 
                     </tr>
                     <%even = !even;%>
                 </logic:iterate>
 
-            </TABLE>
-        </TD>
-    </tr>
-</TABLE>
-<br>
-<br><br>
-</td>
+            </table>
 
+        </td>
+<%-- Center Column Ends --%>
+        
 <%-- Right Column Begins --%>
-<td width="170">
-    <jsp:include page="public_right.jsp">
-        <jsp:param name="level1" value="privatelabel"/>
-    </jsp:include>
-</td>
+        <td width="170">
+            <jsp:include page="public_right.jsp">
+                <jsp:param name="level1" value="default"/>
+            </jsp:include>
+        </td>
 <%-- Right Column Ends --%>
-
-<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-</tr>
+        
+    </tr>
+</tbody>
 </table>
 
-<jsp:include page="foot.jsp"/>
+<jsp:include page="foot.jsp" />
+
 </body>
+
 </html>
