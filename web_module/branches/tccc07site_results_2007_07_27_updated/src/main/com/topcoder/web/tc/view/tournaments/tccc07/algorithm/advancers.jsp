@@ -47,8 +47,6 @@
   function changeView(full) {
     var myForm = document.advancersForm;
     myForm.<%="full"%>.value=full;
-    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='';
-    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='';
     myForm.submit();
   }
 </script>

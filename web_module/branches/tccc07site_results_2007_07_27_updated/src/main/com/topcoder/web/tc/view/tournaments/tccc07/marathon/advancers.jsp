@@ -1,9 +1,17 @@
-<%@ page contentType="text/html;charset=utf-8" %> 
-<%@  page language="java"  %>
+<%@ page language="java" %>
+<%@ page import="com.topcoder.web.common.model.EventType, com.topcoder.shared.dataAccess.*, 
+                 com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.StringUtils,
-                 java.util.Map"%>
-<%@ page import="com.topcoder.web.common.tag.HandleTag" %>
+                 java.util.Map" %>
+
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -13,12 +21,39 @@
     <link type="text/css" rel="stylesheet" href="/css/tournaments/tccc07.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
     <jsp:include page="../../script.jsp" />
+
+    <script type="text/javascript">
+  function next() {
+    var myForm = document.advancersForm;
+    myForm.<%=DataAccessConstants.START_RANK%>.value= parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) + parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+    myForm.submit();
+  }
+  function previous() {
+    var myForm = document.advancersForm;
+    myForm.<%=DataAccessConstants.START_RANK%>.value-=parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+
+    myForm.submit();
+  }
+  function resetSort() {
+    var myForm = document.advancersForm;
+    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='';
+    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='';
+    myForm.submit();
+  }
+  function changeView(full) {
+    var myForm = document.advancersForm;
+    myForm.<%="full"%>.value=full;
+    myForm.submit();
+  }
+</script>
 </head>
 <body>
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco07_mm_adv_overview"); %>
+
+<% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result"); %>
 
 <div align="center" style="background: transparent;">
     <div id="containAll">
@@ -33,44 +68,67 @@
             <div id="pageBody">
                 <h1><span>Advancers</span></h1>
 
+<form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07MarathonAdvancers"/>
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+<tc-webtag:hiddenInput name="<%="full"%>"/>
+
                 <div align="center">
-                <a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Reset sorting</a>
-                <%-- show this as default, in page view --%>
-                | Page view
-                | <a href="">Full view</a>
-                <%-- show this in Full view
-                | <a href="">Pages</a>
-                | Full view
-                --%>
+                <a href="Javascript:resetSort()">Reset sorting</a>
+
+                <c:choose>
+                    <c:when test="${full}">
+                        | <a href="Javascript:changeView(${!full})">Pages</a>
+                        | Full view
+                    </c:when>
+                    <c:otherwise>
+                        | Page view
+                        | <a href="Javascript:changeView(${!full})">Full view</a>
+                    </c:otherwise>
+                </c:choose>
+
+                <br />
+                    <c:if test="${!full}">
+                        <div class="pagingBox">
+                            <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                            | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+                        </div>
+                    </c:if>
                 </div>
-
-            <br><br>
-
+                <br /><br />
             <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
             <thead>
                 <tr><td class="title" colspan="8">Marathon Match Advancers</td></tr>
                 <tr>
-                    <td class="headerC"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=seed&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Seed</a></td>
-                    <td class="header" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=handle_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Handle</a></td>
-                    <td class="headerR"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=desc&sc=rating&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Rating</a></td>
+                    <td class="headerC">
+                        <a href="/tc?module=TCCC07MarathonAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
+                    </td>
+                    <td class="header" nowrap="nowrap">
+                        <a href="/tc?module=TCCC07MarathonAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
+                        <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
+                    </td>
+                    <td class="headerR">
+                        <a href="/tc?module=TCCC07MarathonAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
+                    </td>
                     <td class="headerC" width="20%">
-                        <a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=round1_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Round 1</a>
+                        <a href="/tc?module=TCCC07MarathonAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round1_sort")%>"/>">Round 1</a>
                         <br /><a href="">details</a>
                     </td>
                     <td class="headerC" width="20%">
-                        <a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=round2_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Round 2</a>
+                        <a href="/tc?module=TCCC07MarathonAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round2_sort")%>"/>">Round 2</a>
                         <br /><a href="">details</a>
                     </td>
                     <td class="headerC" width="20%">
-                        <a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=round3_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Round 3</a>
+                        <a href="/tc?module=TCCC07MarathonAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round3_sort")%>"/>">Round 3</a>
                         <br /><a href="">details</a>
                     </td>
                     <td class="headerC" width="20%">
-                        <a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=round4_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Round 4</a>
+                        <a href="/tc?module=TCCC07MarathonAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round4_sort")%>"/>">Round 4</a>
                         <br /><a href="">details</a>
                     </td>
                     <td class="headerC" width="20%">
-                        <a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=finals_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Final</a>
+                        <a href="/tc?module=TCCC07MarathonAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("finals_sort")%>"/>">Final</a>
                         <br /><a href="">details</a>
                     </td>
                 </tr>
@@ -113,6 +171,24 @@
 </rsc:iterator>
             </tbody>
             </table>
+                <br />
+                    <c:if test="${!full}">
+                        <div align="center">
+                            <div class="pagingBox">
+                               <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                               | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+                            
+                               <br>
+                            
+                               View &#160;
+                               <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
+                               &#160;at a time starting with &#160;
+                               <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
+                                <button name="nameSubmit" value="submit" type="submit">Go</button>
+                            </div>
+                        </div>
+                    </c:if>
+</form>
 
             </div>
     </div>
