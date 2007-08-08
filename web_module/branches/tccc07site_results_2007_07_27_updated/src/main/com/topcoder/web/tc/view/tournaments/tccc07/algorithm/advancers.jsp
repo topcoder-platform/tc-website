@@ -199,6 +199,7 @@
 </rsc:iterator>
                 </tbody>
                 </table>
+                <br />
                     <c:if test="${!full}">
                         <div align="center">
                             <div class="pagingBox">

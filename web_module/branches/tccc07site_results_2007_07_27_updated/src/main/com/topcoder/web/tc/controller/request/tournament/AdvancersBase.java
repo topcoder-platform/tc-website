@@ -111,11 +111,17 @@ public abstract class AdvancersBase extends Base {
                 rsc = new ResultSetContainer(rsc, filters.toArray(new ResultFilter[0]));
             }
 
-            // crops data
-            rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank), endRank);
+            String fullParam = StringUtils.checkNull(getRequest().getParameter("full"));
 
+            Boolean full = "true".equals(fullParam);
+
+            if (!full) {
+                // crops data
+                rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank), endRank);
+            }
+                
             getRequest().setAttribute("result", rsc);
-            getRequest().setAttribute("full", Boolean.FALSE);
+            getRequest().setAttribute("full", full);
 
             String nextPage = getPageName();
             setNextPage(nextPage);
