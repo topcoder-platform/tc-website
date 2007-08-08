@@ -9,6 +9,7 @@
 <%@ page import="com.topcoder.common.web.data.report.Constants" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="com.topcoder.web.common.StringUtils" %>
+<%@ page import="com.topcoder.web.tc.controller.request.report.CSVResults" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <html>
@@ -36,30 +37,33 @@
             " order by cqx.sort_order, q.query_id");
     qr.setQueries(h);
     QueryDataAccess da = new QueryDataAccess(request.getParameter("db") == null ? DBMS.OLTP_DATASOURCE_NAME : request.getParameter("db"));
-    ResultSetContainer queries = (ResultSetContainer)da.getData(qr).get("queries");
+    ResultSetContainer queries = da.getData(qr).get("queries");
 
     Map results = (Map) request.getAttribute(Constants.REPORT_RESULT_KEY);
     ResultSetContainer rs;
     ResultSetContainer.ResultSetRow query;
-    for (Iterator it = queries.iterator(); it.hasNext();) {
-        query = (ResultSetContainer.ResultSetRow)it.next();
-        rs = (ResultSetContainer)results.get(query.getStringItem("name"));
+    for (Object query1 : queries) {
+        query = (ResultSetContainer.ResultSetRow) query1;
+        rs = (ResultSetContainer) results.get(query.getStringItem("name"));
 %>
         <table id="datatable" border="1" cellpadding="0" cellspacing="0" class="stat" width="100%">
             <TR>
-                <TD colspan="<%=rs.getColumns().length%>" ALIGN="left"><FONT size="4"><b><%=query.getStringItem("name")%>
-                    Results</b></FONT></TD>
+                <TD colspan="<%=rs.getColumns().length%>" ALIGN="left">
+                    <FONT size="4"><b><%=query.getStringItem("name")%> Results</b></FONT>
+                    <a href="${sessionInfo.servletPath}/?<%=Constants.MODULE_KEY%>=CSVResults&amp;<%=DataAccessConstants.COMMAND%>=<%=command%>&amp;db=${param['db]}&amp;<%=CSVResults.QUERY_NAME%>=<%=query.getStringItem("name")%>">Download as CSV (Excel)</a>
+                    </TD>
             </TR>
             <TR>
-                <% for (int i=0; i<rs.getColumns().length; i++) {%>
-                <TD><b><%= StringUtils.replace(rs.getColumns()[i].getName(), "_", " ")%></b></TD>
+                <% for (int i = 0; i < rs.getColumns().length; i++) {%>
+                <TD><b><%= StringUtils.replace(rs.getColumns()[i].getName(), "_", " ")%>
+                </b></TD>
                 <% } %>
             </TR>
             <%
                 boolean even = true;
                 ResultSetContainer.ResultSetRow r;
-                for (Iterator it1 = rs.iterator(); it1.hasNext();) {
-            r = (ResultSetContainer.ResultSetRow)it1.next();%>
+                for (Object r1 : rs) {
+                    r = (ResultSetContainer.ResultSetRow) r1;%>
             <tr class="<%=even?"light":"dark"%>">
                 <%
                     for (int j = 0; j < rs.getColumns().length; j++) {
