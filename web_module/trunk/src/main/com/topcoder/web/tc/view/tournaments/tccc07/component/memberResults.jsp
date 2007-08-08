@@ -66,12 +66,11 @@
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
-                    <tr><td class="title" colspan="6"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></td></tr>
+                    <tr><td class="title" colspan="5"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></td></tr>
                     <tr>
                         <td class="header" nowrap="nowrap">Component Name</td>
                         <td class="headerC">Submit Date</td>
                         <td class="headerC">Points</td>
-                        <td class="headerC">Component Prize</td>
                         <td class="headerC">Placed</td>
                         <td class="headerC">Placement Points</td>
                     </tr>
@@ -101,8 +100,6 @@
                             <tc-webtag:format object="<%=result.getSubmitTimestamp()%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z"/>
                         </td>
                         <td class="valueC"><%=result.getScore()%>
-                        </td>
-                        <td class="valueR"><%=result.getPayment()%>
                         </td>
                         <td class="valueC"><%=result.getPlaced()%>
                         </td>
