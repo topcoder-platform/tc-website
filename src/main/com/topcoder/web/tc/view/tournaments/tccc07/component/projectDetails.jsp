@@ -76,14 +76,13 @@
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
-                    <tr><td class="title" colspan="6"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></td></tr>
+                    <tr><td class="title" colspan="5"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></td></tr>
                     <tr>
                         <td class="header" nowrap="nowrap">Competitor</td>
                         <td class="headerC" nowrap="nowrap">Submission Date</td>
                         <td class="headerC">Place</td>
                         <td class="headerC">Placement Points</td>
                         <td class="headerC">Score</td>
-                        <td class="header" align=right>Prizes</td>
                     </tr>
                     <%for (int i = 0; i < lst.size(); i++) { %>
                     <tr class="<%=(i%2==0 ? "light" : "dark")%>">
@@ -98,8 +97,6 @@
                         <td class="valueC"><%=result.getPoints()%>
                         </td>
                         <td class="valueC"><%=result.getScore()%>
-                        </td>
-                        <td class="value" align=right><%=result.getPayment()%>
                         </td>
                     </tr>
                     <% }%>

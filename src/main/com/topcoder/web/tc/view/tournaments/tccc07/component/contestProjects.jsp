@@ -64,13 +64,11 @@
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
-                    <tr><td class="title" colspan="5"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></td></tr>
+                    <tr><td class="title" colspan="3"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></td></tr>
                     <tr>
                         <td class="header">Component</td>
                         <td class="headerC">Start Date</td>
                         <td class="headerC">End Date</td>
-                        <td class="headerC" nowrap="nowrap" width="1%">1st Place<br>Prize</td>
-                        <td class="headerC" nowrap="nowrap" width="1%">2nd Place<br>Prize</td>
                     </tr>
                 </thead>
                 </tbody>
@@ -102,12 +100,6 @@
                             </td>
                             <td class="valueC" nowrap="nowrap">
                                 <rsc:item name="end_date" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" row="<%=resultRow%>"/>
-                            </td>
-                            <td class="valueR">$
-                                <rsc:item name="first_prize" format="#,##0" row="<%=resultRow%>"/>
-                            </td>
-                            <td class="valueR">$
-                                <rsc:item name="second_prize" format="#,##0" row="<%=resultRow%>"/>
                             </td>
                         </tr>
                     <%even=!even;%>

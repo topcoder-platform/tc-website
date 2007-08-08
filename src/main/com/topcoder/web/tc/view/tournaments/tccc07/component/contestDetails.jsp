@@ -60,14 +60,13 @@
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
-                    <tr><td class="title" colspan="7"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></td></tr>
+                    <tr><td class="title" colspan="6"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></td></tr>
                     <tr>
                         <td class="header">Handle</td>
                         <td class="headerC">Placement Points</td>
                         <td class="headerC">Complete Projects</td>
                         <td class="headerC" nowrap="nowrap">Projects<br>In Progess</td>
                         <td class="headerC">Projects Submitted</td>
-                        <td class="headerC">Contest Prize</td>
                         <td class="headerC">Results</td>
                     </tr>
                 </thead>
@@ -86,8 +85,6 @@
                         <td class="valueC"><%=result.getIncomplete()%>
                         </td>
                         <td class="valueC"><%=result.getSubmissionCount()%>
-                        </td>
-                        <td class="value" align="right"><%=result.getPayment()%>
                         </td>
                         <td class="valueC">
                             <a href="/tc?module=TCCC07MemberResults&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a>
