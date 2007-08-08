@@ -46,7 +46,7 @@
   }
   function changeView(full) {
     var myForm = document.advancersForm;
-    myForm.<%="full_view"%>.value=full;
+    myForm.<%="full"%>.value=full;
     myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='';
     myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='';
     myForm.submit();
@@ -74,7 +74,7 @@
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07AlgorithmAdvancers"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
-<tc-webtag:hiddenInput name="<%="full_view"%>"/>
+<tc-webtag:hiddenInput name="<%="full"%>"/>
 
                 <div align="center">
                 <a href="Javascript:resetSort()">Reset sorting</a>
@@ -91,10 +91,12 @@
                 </c:choose>
 
                 <br />
-                <div class="pagingBox">
-                    <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                    | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
-                </div>
+                    <c:if test="${!full}">
+                        <div class="pagingBox">
+                            <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                            | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+                        </div>
+                    </c:if>
                 </div>
                 <br /><br />
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
@@ -197,20 +199,22 @@
 </rsc:iterator>
                 </tbody>
                 </table>
-                <div align="center">
-                    <div class="pagingBox">
-                       <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                       | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
-                    
-                       <br>
-                    
-                       View &#160;
-                       <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
-                       &#160;at a time starting with &#160;
-                       <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
-                        <button name="nameSubmit" value="submit" type="submit">Go</button>
-                    </div>
-                </div>
+                    <c:if test="${!full}">
+                        <div align="center">
+                            <div class="pagingBox">
+                               <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                               | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+                            
+                               <br>
+                            
+                               View &#160;
+                               <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
+                               &#160;at a time starting with &#160;
+                               <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
+                                <button name="nameSubmit" value="submit" type="submit">Go</button>
+                            </div>
+                        </div>
+                    </c:if>
 </form>
 
             </div>
