@@ -2,6 +2,7 @@ package com.topcoder.web.codinginterface.longcontest.controller;
 
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.RequestProcessor;
@@ -45,8 +46,14 @@ public class MainServlet extends BaseServlet {
 
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
-        return new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response,
-                BasicAuthentication.LONG_CONTEST_SITE);
+        if (ApplicationServer.ENVIRONMENT==ApplicationServer.PROD) {
+            return new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response,
+                    BasicAuthentication.LONG_CONTEST_SITE);
+
+        } else {
+            return new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response,
+                    BasicAuthentication.MAIN_SITE);
+        }
     }
 
 }

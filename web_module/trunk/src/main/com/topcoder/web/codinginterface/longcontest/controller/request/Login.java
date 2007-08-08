@@ -5,6 +5,7 @@ import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.email.Email;
@@ -70,7 +71,11 @@ public class Login extends Base {
                                     setIsNextPageInContext(false);
                                 }
                                 log.debug("on successful login, going to " + getNextPage());
-                                getAuthentication().login(new SimpleUser(0, username, password), false);
+                                if (ApplicationServer.ENVIRONMENT==ApplicationServer.PROD) {
+                                    getAuthentication().login(new SimpleUser(0, username, password), false);
+                                } else {
+                                    getAuthentication().login(new SimpleUser(0, username, password), true);
+                                }
                                 return;
                             }
                         } else {
