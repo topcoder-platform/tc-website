@@ -50,7 +50,7 @@
             <TR>
                 <TD colspan="<%=rs.getColumns().length%>" ALIGN="left">
                     <FONT size="4"><b><%=query.getStringItem("name")%> Results</b></FONT>
-                    <a href="${sessionInfo.servletPath}/?<%=Constants.MODULE_KEY%>=CSVResults&amp;<%=DataAccessConstants.COMMAND%>=<%=command%>&amp;db=${param['db']}&amp;<%=CSVResults.QUERY_NAME%>=<%=query.getStringItem("name")%>">Download as CSV (Excel)</a>
+                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=CSVResults&amp;<%=DataAccessConstants.COMMAND%>=<%=command%>&amp;db=${param['db']}&amp;<%=CSVResults.QUERY_NAME%>=<%=query.getStringItem("name")%>">Download as CSV (Excel)</a>
                     </TD>
             </TR>
             <TR>
