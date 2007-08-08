@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -41,15 +42,18 @@
                                 <div style="float: left;">
                                     <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast1&title=Webcast%20Part%201"><img src="/i/tournament/tco07/webcastThumb1.png" alt="Webcast Part 1" /></a>
                                     <br /><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast1&title=Webcast%20Part%201">Part 1</A>
+                                    <br /><a href="<tc-webtag:linkTracking link='/movies/tournament/tco07/webcast1_lo.wmv' refer='webcast page' />">Low-bandwidth version</A> (19.1 MB)
                                     <br />(01:03:55)
                                 </div>
                                 <div style="float: right;">
                                     <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast3&title=Webcast%20Part%203"><img src="/i/tournament/tco07/webcastThumb3.png" alt="Webcast Part 3" /></a>
                                     <br /><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast3&title=Webcast%20Part%203">Part 3</A>
+                                    <br /><a href="<tc-webtag:linkTracking link='/movies/tournament/tco07/webcast3_lo.wmv' refer='webcast page' />">Low-bandwidth version</A> (8.59 MB)
                                     <br />(00:28:46)
                                 </div>
                                 <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast2&title=Webcast Part 2"><img src="/i/tournament/tco07/webcastThumb2.png" alt="Webcast Part 2" /></a>
                                 <br /><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast2&title=Webcast%20Part%202">Part 2</A>
+                                <br /><a href="<tc-webtag:linkTracking link='/movies/tournament/tco07/webcast2_lo.wmv' refer='webcast page' />">Low-bandwidth version</A> (20.3 MB)
                                 <br />(01:07:50)
                             </div>
                         </div>
