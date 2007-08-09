@@ -44,6 +44,14 @@
 
 
 <p>
+    5.10.18 - 2007.08.xx
+    <ul>
+    <%--<li>Made some refactoring to avoid com.topcoder.web.common -> com.topcooder.web.tc dependencies -cucu, pulky</li>
+        <li>fixes in the PactsClientServices to avoid distributing PactsServices -pulky</li> --%>
+    </ul>
+</p>
+
+<p>
     5.10.17 - 2007.08.08
     <ul>
         <li>Added payment type for High School Tournament Prizes -cucu</li>
