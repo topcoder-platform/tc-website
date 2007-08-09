@@ -140,7 +140,7 @@
                 <rsc:iterator list="<%=rsc%>" id="resultRow">
 <tr class="<%=even?"dark":"light"%>">
 <td class="valueC"><rsc:item name="seed" row="<%=resultRow%>"/></td>
-<td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context="<%=HandleTag.MARATHON_MATCH%>"/></td>
+<td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="<%=HandleTag.MARATHON_MATCH%>"/></td>
 <td class="valueR"><rsc:item name="rating" row="<%=resultRow%>"/></td>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
 <td class="valueC"><span class="bigRed"><rsc:item name="round1" row="<%=resultRow%>"/></span></td>
