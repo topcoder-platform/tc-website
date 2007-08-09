@@ -2,9 +2,6 @@ package com.topcoder.web.common.model;
 
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
@@ -12,11 +9,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import com.topcoder.shared.docGen.xml.RecordTag;
-import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.UserProfileBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
 
 
 /**
@@ -62,35 +55,8 @@ public class AssignmentDocumentTemplate extends Base {
         this.id = id;
     }
 
-    public String transformTemplate(AssignmentDocument ad) {
-        try {
-            UserProfileBean upb = new UserProfileBean();
-            UserProfile profile = upb.getUserProfile(ad.getUser().getId().longValue());
-
-            //first we must form the xml from the info
-            XMLDocument tc = new XMLDocument("TC");
-
-            RecordTag a = new RecordTag("AssignmentDocument");
-
-            
-            a.addTag(new ValueTag("first_name", profile.getFirstName()));
-            a.addTag(new ValueTag("last_name", profile.getLastName()));
-            a.addTag(new ValueTag("address1", profile.getAddress1()));
-            a.addTag(new ValueTag("address2", profile.getAddress2()));
-            a.addTag(new ValueTag("address3", profile.getAddress3()));
-            a.addTag(new ValueTag("city", profile.getCity()));
-            a.addTag(new ValueTag("state_name", profile.getState()));
-            a.addTag(new ValueTag("zip", profile.getZip()));
-            a.addTag(new ValueTag("province", profile.getProvince()));
-            a.addTag(new ValueTag("country_name", profile.getCountry()));
-
-            Calendar date = Calendar.getInstance();
-            date.setTime(new Date());
-            a.addTag(new ValueTag("current_date", new SimpleDateFormat("MM/dd/yyyy").format(date.getTime())));
-            a.addTag(new ValueTag("submission_title", ad.getSubmissionTitle().toString()));
-    
-            tc.addTag(a);
-    
+    public String transformTemplate(AssignmentDocument ad, XMLDocument tc) {
+        try {    
             TransformerFactory tFactory = TransformerFactory.newInstance();
             StringReader xmlIn = new StringReader(tc.getXML(false));
             StringReader xslIn = new StringReader(text);
