@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>08.09.07<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />">Introducing the TopCoder UML Tool</A></span><br><br>
+        You asked for it. You built it. Now, you got it. Download and try out TopCoder's new UML Tool, now available for beta testing.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />">details</A> | 
+        <A href="http://forums.topcoder.com/?module=Category&categoryID=2479">discuss this</A> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.08.07<br>12:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/longcontest/?module=ViewActiveContests">TCCC07 Marathon Match Round 1 now underway</A></span><br><br>
@@ -165,16 +179,3 @@
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>07.27.07<br>3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=MatchDetails&rd=10773">$5,000 in prizes for SRM 361</A></span><br><br>
-        Interested in working at TopCoder? We're hosting a chat about employment opportunities at 8:00 PM EDT on August 1, before SRM 361, and we're adding $5,000 in prizes to the SRM to make it interesting.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=MatchDetails&rd=10773">details</A> | 
-        <tc-webtag:forumLink forumID="516058" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
