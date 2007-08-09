@@ -73,10 +73,10 @@ public abstract class AdvancersBase extends Base {
             sortResult(rsc);
     
             // filter handle
-            filterResult(rsc);
+            rsc = filterResult(rsc);
 
             // crop result
-            cropResult(rsc);
+            rsc = cropResult(rsc);
 
             // go to result page
             getRequest().setAttribute("result", rsc);
@@ -97,7 +97,7 @@ public abstract class AdvancersBase extends Base {
      * @param rsc the resultsetcontainter to crop
      * @throws Exception
      */
-    private void cropResult(ResultSetContainer rsc) throws Exception {
+    private ResultSetContainer cropResult(ResultSetContainer rsc) throws Exception {
         Boolean full = "true".equals(StringUtils.checkNull(getRequest().getParameter("full")));
 
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
@@ -124,6 +124,7 @@ public abstract class AdvancersBase extends Base {
         }
             
         getRequest().setAttribute("full", full);
+        return rsc;
     }
 
     /**
@@ -131,7 +132,7 @@ public abstract class AdvancersBase extends Base {
      * 
      * @param rsc the resultsetcontainter to filter
      */
-    private void filterResult(ResultSetContainer rsc) {
+    private ResultSetContainer filterResult(ResultSetContainer rsc) {
         ArrayList<ResultFilter> filters = new ArrayList<ResultFilter>(1);
         String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE));
         if (!handle.equals("")) {
@@ -145,6 +146,7 @@ public abstract class AdvancersBase extends Base {
         if (filters.size() > 0) {
             rsc = new ResultSetContainer(rsc, filters.toArray(new ResultFilter[0]));
         }
+        return rsc;
     }
 
     /**
