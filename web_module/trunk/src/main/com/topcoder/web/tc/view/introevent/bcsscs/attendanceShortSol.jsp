@@ -48,21 +48,21 @@
             | Solution
             </strong>
             </div>
-<%--
+
 <pre>
-#include <vector>
-#include <string>
+#include &lt;vector&gt;
+#include &lt;string&gt;
 using namespace std;
  
 struct AttendanceShort {
-vector<string> shortList(vector<string> names, vector<string> attendance)
+vector&lt;string&gt; shortList(vector&lt;string&gt; names, vector&lt;string&gt; attendance)
 {
  
-vector<string> ret;
-for (int i = 0; i < names.size(); i ++)
+vector&lt;string&gt; ret;
+for (int i = 0; i &lt; names.size(); i ++)
 {
     int present = 0, total = 0;
-    for (int j = 0; j < attendance[i].size(); j ++)
+    for (int j = 0; j &lt; attendance[i].size(); j ++)
     {
         switch(attendance[i][j])
         {
@@ -71,14 +71,14 @@ for (int i = 0; i < names.size(); i ++)
         default: break;
         }
     }
-    if (present * 4 < total * 3) ret.push_back(names[i]);
+    if (present * 4 &lt; total * 3) ret.push_back(names[i]);
 }
  
 return ret;
 }
 };
 </pre>
---%>
+
         </td>
 <%-- Center Column Ends --%>
         

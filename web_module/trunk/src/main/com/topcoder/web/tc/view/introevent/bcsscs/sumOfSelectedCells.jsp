@@ -40,15 +40,16 @@
             <div align="left" style="margin-bottom: 20px;">
                 <img src="/i/introevent/bcsLogo.png" alt="" />
             </div>
-            <h2>Problem Statement for AttendanceShort</h2>
+            <h2>Problem Statement for SumOfSelectedCells</h2>
 
+            <%--
             <div>
             <strong>
             Problem Statement 
-            | <A href="/tc?module=Static&d1=introevent&d2=bcsscs&d3=attendanceShortSol" class="bcLink">Solution</A>
+            | <A href="/tc?module=Static&d1=introevent&d2=bcsscs&d3=sumOfSelectedCellsSol" class="bcLink">Solution</A>
             </strong>
             </div>
-
+            --%>
             
             <table>
                 <tbody>
@@ -58,8 +59,10 @@
                     <tr>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td>
-                            <p>The students at your university have lately picked up the annoying habit of missing classes. To fix this problem your board has decided to only allow students with 75% or higher attendance to sit for the exams. Given a String[] <strong>names</strong> containing the students' names and a String[] <strong>attendance</strong> containing their attendance records, return the list of students who have less than 75% attendance.</p>
-                            <p>The i<sup>th</sup> student's name is given as the i<sup>th</sup> element of <strong>names</strong> and his attendance record as the i<sup>th</sup> element of <strong>attendance</strong>. The attendance record corresponding to each student is specified as a string of 'A's, 'P's and 'M's. An 'A' indicates the students was absent for a class, whereas a 'P' means he was present and a 'M' means he was absent but he submitted a doctor's note for that class. If a student was absent for a class but submitted a doctor's note then that class is not counted when calculating his attendance percentage. Return a String[] containing the names of all the students who do not meet the attendance requirements. The names in the returned String[] should be in the same relative order as <strong>names</strong>.</p>
+                            <p>There is a rectangular table with an integer written in each cell.</p>
+                            <p>Later, Jessie will come and select some cells in such a way that each row and each column contains no more than one selected cell. She will always select the maximum possible number of cells. However, there might be several possible selections of that size.</p>
+                            <p>Larry suggested a hypothesis: "No matter what maximum selection Jessie choses, the sum of the numbers in the selected cells will always be the same."</p>
+                            <p>Given a String[] table, check whether Larry's hypothesis is correct and return "CORRECT" or "INCORRECT" (quotes for clarity only).</p>
                         </td>
                     </tr>
                     <tr>
@@ -75,23 +78,23 @@
                                 <tbody>
                                     <tr>
                                         <td>Class:</td>
-                                        <td>AttendanceShort</td>
+                                        <td>SumOfSelectedCells</td>
                                     </tr>
                                     <tr>
                                         <td>Method:</td>
-                                        <td>shortList</td>
+                                        <td>hypothesis</td>
                                     </tr>
                                     <tr>
                                         <td>Parameters:</td>
-                                        <td>String[], String[]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Returns:</td>
                                         <td>String[]</td>
                                     </tr>
                                     <tr>
+                                        <td>Returns:</td>
+                                        <td>String</td>
+                                    </tr>
+                                    <tr>
                                         <td>Method signature:</td>
-                                        <td>String[] shortList(String[] names, String[] attendance)</td>
+                                        <td>String hypothesis(String[] table)</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">(be sure your method is public)</td>
@@ -114,31 +117,27 @@
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td><strong>names</strong> will contain between 0 and 50 elements, inclusive.</td>
+                        <td><strong>table</strong> will contain between 1 and 20 elements, inclusive.</td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td><strong>attendance</strong> will contain the same number of elements as <strong>names</strong>.</td>
+                        <td>Each element of <strong>table</strong> will be contain between 1 and 50 characters, inclusive.</td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td>Each element of <strong>names</strong> will contain between 1 and 50 characters, inclusive.</td>
+                        <td>Each element of <strong>table</strong> will be a space-separated list of integers.</td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td>Each element of <strong>attendance</strong> will contain between 1 and 50 characters, inclusive.</td>
+                        <td>Each element of <strong>table</strong> will contain the same number of entries.</td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td>Each element of <strong>names</strong> will contain only letters ('A' - 'Z' and 'a' - 'z').</td>
+                        <td>Each element of <strong>table</strong> will contain between 1 and 20 entries, inclusive.</td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td>Each element of <strong>attendance</strong> will contain only 'A', 'P' and 'M' characters.</td>
-                    </tr>
-                    <tr>
-                        <td align="center" valign="top">-</td>
-                        <td>Each element of <strong>attendance</strong> will contain at least one 'A' or 'P' character.</td>
+                        <td>All numbers in the table will be between 1 and 50, inclusive, with no leading zeroes.</td>
                     </tr>
                     <tr>
                         <td colspan="2">&nbsp;</td>
@@ -161,9 +160,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{"Justin"}
-{"PAAPP"}
-</pre>
+                                                            <pre>{"5 6 6"}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -172,7 +169,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: {"Justin" }</pre>
+                                            <pre>Returns: "INCORRECT"</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -180,7 +177,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">Justin has attended 3 of his 5 classes which gives him 3/5 * 100 = 60% attendance. Since this is lower than 75% his name should be returned.</td>
+                                                        <td colspan="2">Jessie will select exactly one cell. The sum will be either 5 or 6.</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -205,9 +202,10 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{"Justin","Chris"}
-{"PAAPP","PPPPA"}
-</pre>
+                                                            <pre>{"11 12 13 14",
+ "21 22 23 24",
+ "31 32 33 34",
+ "41 42 43 44"}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -216,7 +214,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: {"Justin" }</pre>
+                                            <pre>Returns: "CORRECT"</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -224,7 +222,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">Chris has attended 4 out of his 5 classes and thus has 80% attendance. Justin has 60% so only Justin's name should be returned.</td>
+                                                        <td colspan="2">There are 4! = 24 possible selections for Jessie, but it can be shown that each of them gives the sum of 1 + 2 + 3 + 4 + 10 + 20 + 30 + 40 = 110.</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -249,9 +247,9 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{"Sunny"}
-{"PPPAM"}
-</pre>
+                                                            <pre>{"3 7",
+ "3 7",
+ "3 7"}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -260,7 +258,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: { }</pre>
+                                            <pre>Returns: "CORRECT"</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -268,7 +266,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">Sunny's attendance is effectively calculated from "PPPA" as classes which have a doctor's note are ignored. This results in a 75% attendance and so his name is not included in the returned list.</td>
+                                                        <td colspan="2">Jessie will select exactly one 3 and exactly one 7 giving a total of 10.</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -293,9 +291,9 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{"Mansi", "Arjun", "Nikhil", "Taneja"}
-{"PPPPMPPAPP", "AAMAAPP", "PPPPAAP", "PPPAAAMPP"}
-</pre>
+                                                            <pre>{"1 2 3",
+ "4 5 6",
+ "9 8 7"}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -304,7 +302,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: {"Arjun", "Nikhil", "Taneja" }</pre>
+                                            <pre>Returns: "INCORRECT"</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -312,51 +310,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">&nbsp;</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center" nowrap="true">4)</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                        <td>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <pre>{}
-{}
-</pre>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <pre>Returns: { }</pre>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td colspan="2">Take care of the empty case.</td>
+                                                        <td colspan="2">Jessie can get 13 (2 + 4 + 7) or 15 (1 + 6 + 8) or 17 (3 + 5 + 9).</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
