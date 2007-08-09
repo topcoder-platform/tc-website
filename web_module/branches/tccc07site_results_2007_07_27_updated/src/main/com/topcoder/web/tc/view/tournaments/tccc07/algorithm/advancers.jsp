@@ -8,7 +8,6 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="util" tagdir="/WEB-INF/tags" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
@@ -152,48 +151,19 @@
                 <tbody>
 <%-- formatting this crappy to save space in the download to the client --%>
 <%boolean even = false;%>
-<rsc:iterator list="<%=rsc%>" id="resultRow"><tr class="<%=(even ? "dark" : "light")%>">
+<rsc:iterator list="<%=rsc%>" id="resultRow">
+<tr class="<%=(even ? "dark" : "light")%>">
 <td class="valueC">${resultRow.map["seed"]}</td>
 <td class="value"><tc-webtag:handle coderId="${resultRow.map['coder_id']}" context="algorithm"/></td>
 <td class="valueC">${resultRow.map["section"]}</td>
 <td class="valueC">${resultRow.map["rating"]}</td>
-<td class="<util:iif test='${resultRow.map["round1"] == "Eliminated"}' trueValue='valueCE' falseValue='valueCA' />">${resultRow.map["round1"]}</td>
-<c:choose><c:when test="${resultRow.map['round1'] == 'Eliminated'}">
-</c:when><c:otherwise>
-<td class="valueCA">${resultRow.map["round1"]}</td>
-</c:otherwise></c:choose>
-<c:choose><c:when test="${resultRow.map['round2'] == 'Eliminated'}">
-<td class="valueCE">${resultRow.map["round2"]}</td>
-</c:when><c:otherwise>
-<td class="valueCA">${resultRow.map["round2"]}</td>
-</c:otherwise></c:choose>
-<c:choose><c:when test="${resultRow.map['round3'] == 'Eliminated'}">
-<td class="valueCE">${resultRow.map["round3"]}</td>
-</c:when><c:otherwise>
-<td class="valueCA">${resultRow.map["round3"]}</td>
-</c:otherwise></c:choose>
-<c:choose><c:when test="${resultRow.map['round4'] == 'Eliminated'}">
-<td class="valueCE">${resultRow.map["round4"]}</td>
-</c:when><c:otherwise>
-<td class="valueCA">${resultRow.map["round4"]}</td>
-</c:otherwise></c:choose>
-
-
-<c:choose><c:when test="${resultRow.map['semi'] == 'Eliminated'}">
-<td class="valueCE">${resultRow.map["semi"]}</td>
-</c:when><c:otherwise>
-<td class="valueCA">${resultRow.map["semi"]}</td>
-</c:otherwise></c:choose>
-<c:choose><c:when test="${resultRow.map['wildcard'] == 'Eliminated'}">
-<td class="valueCE">${resultRow.map["wildcard"]}</td>
-</c:when><c:otherwise>
-<td class="valueCA">${resultRow.map["wildcard"]}</td>
-</c:otherwise></c:choose>
-<c:choose><c:when test="${resultRow.map['final'] == 'Eliminated'}">
-<td class="valueCE">${resultRow.map["final"]}</td>
-</c:when><c:otherwise>
-<td class="valueCA">${resultRow.map["final"]}</td>
-</c:otherwise></c:choose>
+<td class="${resultRow.map['round1'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["round1"]}</td>
+<td class="${resultRow.map['round2'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["round2"]}</td>
+<td class="${resultRow.map['round3'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["round3"]}</td>
+<td class="${resultRow.map['round4'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["round4"]}</td>
+<td class="${resultRow.map['semi'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["semi"]}</td>
+<td class="${resultRow.map['wildcard'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["wildcard"]}</td>
+<td class="${resultRow.map['final'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["final"]}</td>
 </tr>
 <%even = !even;%>
 </rsc:iterator>
@@ -217,7 +187,6 @@
                         </div>
                     </c:if>
                 </form>
-
             </div>
     </div>
     <jsp:include page="../footer.jsp" />

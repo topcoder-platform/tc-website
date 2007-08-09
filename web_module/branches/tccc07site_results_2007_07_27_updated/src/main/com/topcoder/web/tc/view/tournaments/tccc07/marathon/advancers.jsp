@@ -2,10 +2,8 @@
 <%@ page import="com.topcoder.web.common.model.EventType, com.topcoder.shared.dataAccess.*, 
                  com.topcoder.web.tc.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.common.StringUtils,
-                 java.util.Map,
                  com.topcoder.web.common.tag.HandleTag,
-                 com.topcoder.web.tc.controller.request.tournament.AdvancersBase" %>" %>
+                 com.topcoder.web.tc.controller.request.tournament.AdvancersBase" %>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -70,11 +68,11 @@
             <div id="pageBody">
                 <h1><span>Advancers</span></h1>
 
-<form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07MarathonAdvancers"/>
-<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
-<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
-<tc-webtag:hiddenInput name="<%=AdvancersBase.FULL_LIST%>"/>
+                <form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07MarathonAdvancers"/>
+                <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+                <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+                <tc-webtag:hiddenInput name="<%=AdvancersBase.FULL_LIST%>"/>
 
                 <div align="center">
                 <a href="Javascript:resetSort()">Reset sorting</a>
@@ -137,37 +135,17 @@
             </thead>
             <tbody>
 <%-- formatting this crappy to save space in the download to the client --%>
-                <%boolean even = false;%>
-                <rsc:iterator list="<%=rsc%>" id="resultRow">
+<%boolean even = false;%>
+<rsc:iterator list="<%=rsc%>" id="resultRow">
 <tr class="<%=even?"dark":"light"%>">
-<td class="valueC"><rsc:item name="seed" row="<%=resultRow%>"/></td>
-<td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="<%=HandleTag.MARATHON_MATCH%>"/></td>
-<td class="valueR"><rsc:item name="rating" row="<%=resultRow%>"/></td>
-<% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
-<td class="valueC"><span class="bigRed"><rsc:item name="round1" row="<%=resultRow%>"/></span></td>
-<% } else { %>
-<td class="valueC"><span class="bigGreen"><rsc:item name="round1" row="<%=resultRow%>"/></span></td>
-<% } %>
-<% if (StringUtils.checkNull(resultRow.getStringItem("round2")).equals("Eliminated")) { %>
-<td class="valueC"><span class="bigRed"><rsc:item name="round2" row="<%=resultRow%>"/></span></td>
-<% } else { %>
-<td class="valueC"><span class="bigGreen"><rsc:item name="round2" row="<%=resultRow%>"/></span></td>
-<% } %>
-<% if (StringUtils.checkNull(resultRow.getStringItem("round3")).equals("Eliminated")) { %>
-<td class="valueC"><span class="bigRed"><rsc:item name="round3" row="<%=resultRow%>"/></span></td>
-<% } else { %>
-<td class="valueC"><span class="bigGreen"><rsc:item name="round3" row="<%=resultRow%>"/></span></td>
-<% } %>
-<% if (StringUtils.checkNull(resultRow.getStringItem("round4")).equals("Eliminated")) { %>
-<td class="valueC"><span class="bigRed"><rsc:item name="round4" row="<%=resultRow%>"/></span></td>
-<% } else { %>
-<td class="valueC"><span class="bigGreen"><rsc:item name="round4" row="<%=resultRow%>"/></span></td>
-<% } %>
-<% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
-<td class="valueC"><span class="bigRed"><rsc:item name="final" row="<%=resultRow%>"/></span></td>
-<% } else { %>
-<td class="valueC"><span class="bigGreen"><rsc:item name="final" row="<%=resultRow%>"/></span></td>
-<% } %>
+<td class="valueC">${resultRow.map["seed"]}</td>
+<td class="value"><tc-webtag:handle coderId="${resultRow.map['coder_id']}" context="<%=HandleTag.MARATHON_MATCH%>"/></td>
+<td class="valueC">${resultRow.map["rating"]}</td>
+<td class="${resultRow.map['round1'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["round1"]}</td>
+<td class="${resultRow.map['round2'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["round2"]}</td>
+<td class="${resultRow.map['round3'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["round3"]}</td>
+<td class="${resultRow.map['round4'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["round4"]}</td>
+<td class="${resultRow.map['final'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["final"]}</td>
 </tr>
 <%even=!even;%>
 </rsc:iterator>
@@ -190,8 +168,7 @@
                             </div>
                         </div>
                     </c:if>
-</form>
-
+                </form>
             </div>
     </div>
     <jsp:include page="../footer.jsp" />
