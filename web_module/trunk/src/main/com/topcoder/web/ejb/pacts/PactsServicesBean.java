@@ -1868,7 +1868,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad) {
         AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(null, assignmentDocumentTypeId);
 
-        return adt.transformTemplate(ad);
+        return adt.transformTemplate(ad, prepareUserAssignmentDocumentInfo(ad.getUser().getId(), ad.getSubmissionTitle()));
     }
 
     /**
@@ -2045,7 +2045,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                                 !oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID)))) {
 
                     AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(c, ad.getType().getId().longValue());
-                    ad.setText(adt.transformTemplate(ad));
+                    ad.setText(adt.transformTemplate(ad, prepareUserAssignmentDocumentInfo(ad.getUser().getId(), ad.getSubmissionTitle())));
                     updateText = true;
                 }
             }
@@ -6111,6 +6111,37 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return payment;
     }
 
+    private XMLDocument prepareUserAssignmentDocumentInfo(long userId, String submissionTitle) {
+        UserProfileBean upb = new UserProfileBean();
+        UserProfile profile = upb.getUserProfile(userId);
+    
+        //first we must form the xml from the info
+        XMLDocument tc = new XMLDocument("TC");
+    
+        RecordTag a = new RecordTag("AssignmentDocument");
+    
+        
+        a.addTag(new ValueTag("first_name", profile.getFirstName()));
+        a.addTag(new ValueTag("last_name", profile.getLastName()));
+        a.addTag(new ValueTag("address1", profile.getAddress1()));
+        a.addTag(new ValueTag("address2", profile.getAddress2()));
+        a.addTag(new ValueTag("address3", profile.getAddress3()));
+        a.addTag(new ValueTag("city", profile.getCity()));
+        a.addTag(new ValueTag("state_name", profile.getState()));
+        a.addTag(new ValueTag("zip", profile.getZip()));
+        a.addTag(new ValueTag("province", profile.getProvince()));
+        a.addTag(new ValueTag("country_name", profile.getCountry()));
+    
+        Calendar date = Calendar.getInstance();
+        date.setTime(new Date());
+        a.addTag(new ValueTag("current_date", new SimpleDateFormat("MM/dd/yyyy").format(date.getTime())));
+        a.addTag(new ValueTag("submission_title", submissionTitle));
+    
+        tc.addTag(a);
+
+        return tc;
+    }
+    
     /**
      * Get a BasePayment from the database.
      *
