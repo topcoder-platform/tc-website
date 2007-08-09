@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.ejb.EJBObject;
 
+import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 
 /**
@@ -124,6 +125,45 @@ public interface PactsClientServices extends EJBObject {
      * @return the payment with the information filled.
      */
     BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException;
+
+    /**
+     * Marks an assignment document as deleted
+     *
+     * @param ad the Assignment Document to store
+     * @throws DeleteAffirmedAssignmentDocumentException
+     *          If there's an attempt to delete an affirmed assignment document
+     */
+    void deleteAssignmentDocument(AssignmentDocument ad) throws RemoteException, DeleteAffirmedAssignmentDocumentException;
+
+    /**
+     * Inserts or updates an assignment document to the DB
+     *
+     * @param conn the Connection to use
+     * @param ad   the Assignment Document to store
+     * @return The stored assignment document template
+     * @throws DeleteAffirmedAssignmentDocumentException
+     *          If there's an attempt to delete an affirmed assignment document
+     */
+    AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws RemoteException, DeleteAffirmedAssignmentDocumentException;
+    
+    /**
+     * Gets a list of Assignment Documents using its project id
+     *
+     * @param projectId the Assignment Document's project id to find
+     * @return a List of Assignment Documents
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    List getAssignmentDocumentByProjectId(long projectId) throws RemoteException;
+    
+    /**
+     * Gets a list of Assignment Documents using its user id
+     *
+     * @param userId                   the Assignment Document's user id to find
+     * @param assignmentDocumentTypeId the Assignment Document's type id to find
+     * @return a List of Assignment Documents
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending) throws RemoteException;
 
 }
 
