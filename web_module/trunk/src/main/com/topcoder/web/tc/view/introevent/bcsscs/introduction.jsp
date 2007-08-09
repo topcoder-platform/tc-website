@@ -5,7 +5,7 @@
 <html>
 
 <head>
-    <title>TopCoder Software Tour</title>
+    <title>TopCoder Introductory Events</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../../script.jsp" />
