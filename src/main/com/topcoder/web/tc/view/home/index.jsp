@@ -81,9 +81,11 @@
         </map>
         <img src="/i/home/tco07champions.png" alt="2007 TopCoder Open" usemap="#tco07" style="display: block;" />
         --%>
-        <%-- TCCC07 --%>
+        <%-- TCCC07 
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=about' refer='homepage' />"><img src="/i/home/tccc07.png" alt="TCCC07" /></A>
-        
+        --%>
+        <%-- UML Tool --%>
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='homepage' />"><img src="/i/home/umltoolRelease.jpg" alt="UML Tool Release" /></A>
     </td>
     <td align="right" valign="top">
 <%-- STUDIO DOGEAR --%>
@@ -322,8 +324,8 @@
             <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests" target="_blank"><img src="/i/home/regproto_studiopromo.png" alt="2 Registration Prototype contests open @ Studio" border="0" style="display:block;" /></A>
             --%>
             
-            <%-- TCO07 --%>
-               <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco07&d3=movies' refer='homepage' />"><img src="/i/home/tco07_webcast.png" alt="2007 TopCoder Open webcast replay" /></A>
+            <%-- TCCC07 --%>
+               <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=about' refer='homepage' />"><img src="/i/home/tccc07_promo.png" alt="2007 TopCoder Collegiate Challenge" /></A>
              
              
             <%-- TCHS07 
