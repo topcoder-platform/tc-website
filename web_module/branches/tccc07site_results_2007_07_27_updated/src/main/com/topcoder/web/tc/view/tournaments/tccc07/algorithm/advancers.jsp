@@ -157,16 +157,11 @@
 <td class="value"><tc-webtag:handle coderId="${resultRow.map['coder_id']}" context="algorithm"/></td>
 <td class="valueC">${resultRow.map["section"]}</td>
 <td class="valueC">${resultRow.map["rating"]}</td>
-
-
-<td class="<util:iif test="${resultRow.map['round1'] == 'Eliminated'} trueValue='valueCE' falseValue='valueCA' ">">${resultRow.map["round1"]}</td>
-
+<td class="<util:iif test='${resultRow.map["round1"] == "Eliminated"}' trueValue='valueCE' falseValue='valueCA' />">${resultRow.map["round1"]}</td>
 <c:choose><c:when test="${resultRow.map['round1'] == 'Eliminated'}">
 </c:when><c:otherwise>
 <td class="valueCA">${resultRow.map["round1"]}</td>
 </c:otherwise></c:choose>
-
-
 <c:choose><c:when test="${resultRow.map['round2'] == 'Eliminated'}">
 <td class="valueCE">${resultRow.map["round2"]}</td>
 </c:when><c:otherwise>
