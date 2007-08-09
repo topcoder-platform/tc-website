@@ -57,6 +57,11 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
+import com.topcoder.shared.docGen.xml.RecordTag;
+import com.topcoder.shared.docGen.xml.ValueTag;
+import com.topcoder.shared.docGen.xml.XMLDocument;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.UserProfileBean;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
 
 
 /**
