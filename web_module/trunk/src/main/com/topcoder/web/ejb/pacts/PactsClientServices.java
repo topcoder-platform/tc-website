@@ -174,5 +174,44 @@ public interface PactsClientServices extends EJBObject {
      */
     public void affirmAssignmentDocument(AssignmentDocument ad) throws RemoteException;
 
+    /**
+     * Gets a Assignment Document using its ID
+     *
+     * @param assignmentDocumentId the Assignment Document id to find
+     * @return The Assignment Document
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    AssignmentDocument getAssignmentDocument(long assignmentDocumentId) throws RemoteException;
+    
+    /**
+     * Gets a list of Assignment Documents using its user id and studio contest id
+     *
+     * @param userId                   the Assignment Document's user id to find
+     * @param assignmentDocumentTypeId the Assignment Document's studio contest id to find
+     * @return a List of Assignment Documents
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public List getAssignmentDocumentByUserIdStudioContestId(long userId, long studioContestId) throws RemoteException;
+    
+    /**
+     * Gets the transformed text of an assignment document
+     *
+     * @param ad                       the Assignment Document to transform
+     * @param assignmentDocumentTypeId the Assignment Document's type id
+     * @return a List of Assignment Documents
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad) throws RemoteException;
+    
+    /**
+     * Returns whether a user has a hard copy of an assignmet document
+     *
+     * @param userId                   the Assignment Document's user id to find
+     * @param assignmentDocumentTypeId the Assignment Document's type id to find
+     * @return true if the user has a hard copy assignment document
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    Boolean hasHardCopyAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId) throws RemoteException;
+
 }
 
