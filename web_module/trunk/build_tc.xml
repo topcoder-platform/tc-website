@@ -253,6 +253,7 @@
     <target name="package-EJB-PactsClientServicesBean" depends="compile">
         <jar jarfile="${ejb_jars}/PactsClientServices.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*Payment*.class"/>
+			<zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/DeleteAffirmedAssignmentDocumentException.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/Constants.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/PactsClient*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/payments/*.class"/>
