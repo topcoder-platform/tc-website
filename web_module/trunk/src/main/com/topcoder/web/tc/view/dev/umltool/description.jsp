@@ -2,6 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.common.WebConstants"%>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <html>
 
@@ -13,6 +15,14 @@
     <jsp:include page="../../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
+    <% String node = request.getParameter(WebConstants.LEFT_NAV_KEY);
+        if (node!=null&&!(node.equals("des_uml_tool")||node.equals("dev_uml_tool"))) {
+            node = null;
+        }
+        if(node==null){
+            node = "des_uml_tool";
+        }
+    %>
 </head>
 
 <body>
@@ -27,7 +37,7 @@
 <%-- Left Column Begins--%>
         <td width="180">
             <jsp:include page="../../includes/global_left.jsp">
-                <jsp:param name="node" value=""/>
+                <jsp:param name="node" value="<%=node==null?"":node%>"/>
             </jsp:include>
         </td>
 <%-- Left Column Ends --%>
@@ -36,25 +46,21 @@
         <td width="100%" align="center" class="bodyColumn">
             <div class="fixedWidthBody">
 
-                <div style="margin-bottom: 10px;">
+                <div style="margin-bottom: 10px; border-bottom: 1px solid #999999;">
                     <img src="/i/development/umltool/banner.jpg" alt="TopCoder UML Tool" />
                 </div>
 
                 <p align="center">
                     <strong>
                     Introduction
-                    | <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=download" class="bcLink">Download</a>
-                    | <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=5674" class="bcLink">Discuss the UML Tool</a>
-                    | <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=credits" class="bcLink">Credits</a>
+                    | <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=download&node=<%=node==null?"":node%>" class="bcLink">Download</a>
+                    | <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=2479" class="bcLink">Discuss the UML Tool</a>
+                    | <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=credits&node=<%=node==null?"":node%>" class="bcLink">Credits</a>
                     </strong>
                 </p>
 
-
                 <p>
-                On May 23, 2006, TopCoder founder Jack Hughes posted a message in the Component Competition forum, writing:
-                </p>
-                <p>
-                "We have decided to build our own UML tool. After considering various options, we think that this approach will allow us to develop a tool that is closely aligned with our members' needs when working within the TC process."
+                We're proud to introduce the new TopCoder UML Tool: An easy to use, consistent modeling tool for use in Design and Development competitions. The new tool was built to model sequence, class, use case, and activity diagrams. On top of that, all those elements can have documentation easily attached to them.
                 </p>
 
                 <div align="center">
@@ -62,10 +68,16 @@
                 </div>
 
                 <p>
+                Where did this tool come from? On May 23, 2006, TopCoder founder Jack Hughes <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=511139">posted a message</a> in the Component Competition forum, writing:
+                </p>
+                <p>
+                "We have decided to build our own UML tool. After considering various options, we think that this approach will allow us to develop a tool that is closely aligned with our members' needs when working within the TC process."
+                </p>
+                <p>
                 Though this project was to follow the standard TopCoder component methodology, it was unique in one important respect.  Rather than TopCoder staff leading the effort, everything -- including project management and architecture, from soup to nuts -- was to be done by TopCoder members. 
                 </p>
                 <p>
-                Reaction was largely positive and very vocal, and it wasn't long before people had offered up a wish list of features, enhancements and ideas. Ghostar was selected to lead the charge as project manager. 
+                Reaction was largely positive and very vocal, and it wasn't long before people had offered up a wish list of features, enhancements and ideas. <tc-webtag:handle coderId="151743" /> was selected to lead the charge as project manager. 
                 </p>
                 <p>
                 "Managing the UML Tool was an eye opening experience in just how effective the TopCoder software development model really is," he says. "I was surprised at how smoothly most of the development went and by the quality of the tool after it left assembly, with relatively few major issues to address for an application of this size."
@@ -80,7 +92,7 @@
                 Though it is now available for download, of course, the work isn't entirely over. "I anticipate the tool being heavily modified by designers and developers alike and tailored to individual needs," says Ghostar. "This customizability will greatly enhance the speed at which the entire TopCoder process will work; I know I have a few planned features I'd like to implement that will make my life as a designer a lot easier."
                 </p>
                 <p>
-                Interested in trying it out? Download beta version 0.1.2 of the TopCoder UML Tool now.
+                Interested in trying it out? <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=download">Download the TopCoder UML Tool</a> now.
                 </p>
 
             </div>

@@ -3,6 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.common.WebConstants"%>
 
 <html>
 
@@ -14,6 +15,14 @@
     <jsp:include page="../../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
+    <% String node = request.getParameter(WebConstants.LEFT_NAV_KEY);
+        if (node!=null&&!(node.equals("des_uml_tool")||node.equals("dev_uml_tool"))) {
+            node = null;
+        }
+        if(node==null){
+            node = "des_uml_tool";
+        }
+    %>
 
     <style type="text/css">
     div.creditTitle{
@@ -44,7 +53,7 @@
 <%-- Left Column Begins--%>
         <td width="180">
             <jsp:include page="../../includes/global_left.jsp">
-                <jsp:param name="node" value=""/>
+                <jsp:param name="node" value="<%=node==null?"":node%>"/>
             </jsp:include>
         </td>
 <%-- Left Column Ends --%>
@@ -53,15 +62,15 @@
         <td width="100%" align="center" class="bodyColumn">
             <div class="fixedWidthBody">
 
-                <div style="margin-bottom: 10px;">
+                <div style="margin-bottom: 10px; border-bottom: 1px solid #999999;">
                     <img src="/i/development/umltool/banner.jpg" alt="TopCoder UML Tool" />
                 </div>
 
                 <p align="center">
                     <strong>
-                    <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=description" class="bcLink">Introduction</a>
-                    | <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=download" class="bcLink">Download</a>
-                    | <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=5674" class="bcLink">Discuss the UML Tool</a>
+                    <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=description&node=<%=node==null?"":node%>" class="bcLink">Introduction</a>
+                    | <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=download&node=<%=node==null?"":node%>" class="bcLink">Download</a>
+                    | <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=2479" class="bcLink">Discuss the UML Tool</a>
                     | Credits
                     </strong>
                 </p>
