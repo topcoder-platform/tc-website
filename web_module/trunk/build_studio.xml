@@ -53,7 +53,7 @@
         <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
         <pathelement location="${jars.dir}/httpunit.jar"/>
 
-        <pathelement location="${jars.dir}/PactsClientServices.jar"/>
+        <pathelement location="${build}/ejb_jars/PactsClientServices.jar"/>
 
         <pathelement location="${jars.dir}/axis.jar"/>
 
@@ -203,6 +203,7 @@
 
 
     <target name="war-studio" depends="compile">
+    	<ant antfile="build_tc.xml" target="package-EJB-PactsClientServicesBean"/>
         <war warfile="${war.dir}/studio.war" webxml="${resources}/studio/web.xml">
             <classes dir="${classes}">
                 <include name="com/topcoder/web/studio/**/*.class"/>
@@ -240,6 +241,8 @@
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
+            </lib>
+            <lib dir="${build}/ejb_jars/">
                 <include name="PactsClientServices.jar"/>
             </lib>
         </war>
