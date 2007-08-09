@@ -2,13 +2,13 @@
 <%@ page import="com.topcoder.web.common.model.EventType, com.topcoder.shared.dataAccess.*, 
                  com.topcoder.web.tc.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.common.StringUtils,
-                 java.util.Map, com.topcoder.web.tc.controller.request.tournament.AdvancersBase" %>
+                 com.topcoder.web.tc.controller.request.tournament.AdvancersBase" %>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="util" tagdir="/WEB-INF/tags" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
@@ -158,41 +158,47 @@
 <td class="valueC">${resultRow.map["section"]}</td>
 <td class="valueC">${resultRow.map["rating"]}</td>
 
-<c:choose> <c:when test="${resultRow.map['round1'] == 'Eliminated'}">
-<td class="valueCE">${resultRow.map["round1"]}</td>
+
+<td class="<util:iif test="${resultRow.map['round1'] == 'Eliminated'} trueValue='valueCE' falseValue='valueCA' ">">${resultRow.map["round1"]}</td>
+
+<c:choose><c:when test="${resultRow.map['round1'] == 'Eliminated'}">
 </c:when><c:otherwise>
 <td class="valueCA">${resultRow.map["round1"]}</td>
 </c:otherwise></c:choose>
-<% if (StringUtils.checkNull(resultRow.getStringItem("round2")).equals("Eliminated")) { %>
-<td class="valueCE"><rsc:item name="round2" row="<%=resultRow%>"/></td>
-<% } else { %>
-<td class="valueCA"><rsc:item name="round2" row="<%=resultRow%>"/></td>
-<% } %>
-<% if (StringUtils.checkNull(resultRow.getStringItem("round3")).equals("Eliminated")) { %>
-<td class="valueCE"><rsc:item name="round3" row="<%=resultRow%>"/></td>
-<% } else { %>
-<td class="valueCA"><rsc:item name="round3" row="<%=resultRow%>"/></td>
-<% } %>
-<% if (StringUtils.checkNull(resultRow.getStringItem("round4")).equals("Eliminated")) { %>
-<td class="valueCE"><rsc:item name="round4" row="<%=resultRow%>"/></td>
-<% } else { %>
-<td class="valueCA"><rsc:item name="round4" row="<%=resultRow%>"/></td>
-<% } %>
-<% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
-<td class="valueCE"><rsc:item name="semi" row="<%=resultRow%>"/></td>
-<% } else { %>
-<td class="valueCA"><rsc:item name="semi" row="<%=resultRow%>"/></td>
-<% } %>
-<% if (StringUtils.checkNull(resultRow.getStringItem("wildcard")).equals("Eliminated")) { %>
-<td class="valueCE"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
-<% } else { %>
-<td class="valueCA"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
-<% } %>
-<% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
-<td class="valueCE"><rsc:item name="final" row="<%=resultRow%>"/></td>
-<% } else { %>
-<td class="valueCA"><rsc:item name="final" row="<%=resultRow%>"/></td>
-<% } %>
+
+
+<c:choose><c:when test="${resultRow.map['round2'] == 'Eliminated'}">
+<td class="valueCE">${resultRow.map["round2"]}</td>
+</c:when><c:otherwise>
+<td class="valueCA">${resultRow.map["round2"]}</td>
+</c:otherwise></c:choose>
+<c:choose><c:when test="${resultRow.map['round3'] == 'Eliminated'}">
+<td class="valueCE">${resultRow.map["round3"]}</td>
+</c:when><c:otherwise>
+<td class="valueCA">${resultRow.map["round3"]}</td>
+</c:otherwise></c:choose>
+<c:choose><c:when test="${resultRow.map['round4'] == 'Eliminated'}">
+<td class="valueCE">${resultRow.map["round4"]}</td>
+</c:when><c:otherwise>
+<td class="valueCA">${resultRow.map["round4"]}</td>
+</c:otherwise></c:choose>
+
+
+<c:choose><c:when test="${resultRow.map['semi'] == 'Eliminated'}">
+<td class="valueCE">${resultRow.map["semi"]}</td>
+</c:when><c:otherwise>
+<td class="valueCA">${resultRow.map["semi"]}</td>
+</c:otherwise></c:choose>
+<c:choose><c:when test="${resultRow.map['wildcard'] == 'Eliminated'}">
+<td class="valueCE">${resultRow.map["wildcard"]}</td>
+</c:when><c:otherwise>
+<td class="valueCA">${resultRow.map["wildcard"]}</td>
+</c:otherwise></c:choose>
+<c:choose><c:when test="${resultRow.map['final'] == 'Eliminated'}">
+<td class="valueCE">${resultRow.map["final"]}</td>
+</c:when><c:otherwise>
+<td class="valueCA">${resultRow.map["final"]}</td>
+</c:otherwise></c:choose>
 </tr>
 <%even = !even;%>
 </rsc:iterator>
