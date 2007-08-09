@@ -9,7 +9,6 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.Contains;
 import com.topcoder.shared.dataAccess.resultSet.ResultFilter;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
@@ -59,9 +58,7 @@ public abstract class AdvancersBase extends Base {
      * 
      * @return the datasource name
      */
-    protected String getDataSourceName() {
-        return DBMS.DW_DATASOURCE_NAME;
-    }
+    protected abstract String getDataSourceName();
 
     /* (non-Javadoc)
      * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()

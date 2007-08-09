@@ -6,6 +6,7 @@
 package com.topcoder.web.tc.controller.request.tournament.tccc07;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.controller.request.tournament.AdvancersBase;
 
@@ -28,7 +29,14 @@ public class MarathonAdvancers extends AdvancersBase {
      */
     @Override
     protected String getCommandName() {
-        return "tccc07_marathon_adv_overview";
+        return "tccc07_mm_adv_overview";
+    }
+
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#getDataSourceName()
+     */
+    protected String getDataSourceName() {
+        return DBMS.DW_DATASOURCE_NAME;
     }
 
     /* (non-Javadoc)
