@@ -1,9 +1,9 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.common.model.EventType, com.topcoder.shared.dataAccess.*, 
-                 com.topcoder.web.tc.Constants" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.web.tc.Constants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.StringUtils,
-                 java.util.Map" %>
+                 java.util.Map, com.topcoder.web.tc.controller.request.tournament.AdvancersBase" %>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -46,7 +46,7 @@
   }
   function changeView(full) {
     var myForm = document.advancersForm;
-    myForm.<%="full"%>.value=full;
+    myForm.<%=AdvancersBase.FULL_LIST%>.value=full;
     myForm.submit();
   }
 </script>
@@ -67,12 +67,12 @@
 
             <div id="pageBody">
                 <h1><span>Advancers</span></h1>
-
-<form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07AlgorithmAdvancers"/>
-<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
-<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
-<tc-webtag:hiddenInput name="<%="full"%>"/>
+                
+                <form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07AlgorithmAdvancers"/>
+                <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+                <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+                <tc-webtag:hiddenInput name="<%=AdvancersBase.FULL_LIST%>"/>
 
                 <div align="center">
                 <a href="Javascript:resetSort()">Reset sorting</a>
@@ -150,18 +150,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%-- formatting this crappy to save space in the download to the client --%>
-                    <%boolean even = false;%>
-                    <rsc:iterator list="<%=rsc%>" id="resultRow"><tr class="<%=(even ? "dark" : "light")%>">
-<td class="valueC"><rsc:item name="seed" row="<%=resultRow%>"/></td>
-<td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="algorithm"/></td>
-<td class="valueC"><rsc:item name="section" row="<%=resultRow%>"/></td>
-<td class="valueC"><rsc:item name="rating" row="<%=resultRow%>"/></td>
-<% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
-<td class="valueCE"><rsc:item name="round1" row="<%=resultRow%>"/></td>
-<% } else { %>
-<td class="valueCA"><rsc:item name="round1" row="<%=resultRow%>"/></td>
-<% } %>
+<%-- formatting this crappy to save space in the download to the client --%>
+<%boolean even = false;%>
+<rsc:iterator list="<%=rsc%>" id="resultRow"><tr class="<%=(even ? "dark" : "light")%>">
+<td class="valueC">${resultRow.map["seed"]}</td>
+<td class="value"><tc-webtag:handle coderId="${resultRow.map['coder_id']}" context="algorithm"/></td>
+<td class="valueC">${resultRow.map["section"]}</td>
+<td class="valueC">${resultRow.map["rating"]}</td>
+
+<c:choose> <c:when test="${resultRow.map['round1'] == 'Eliminated'}">
+<td class="valueCE">${resultRow.map["round1"]}</td>
+</c:when><c:otherwise>
+<td class="valueCA">${resultRow.map["round1"]}</td>
+</c:otherwise></c:choose>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round2")).equals("Eliminated")) { %>
 <td class="valueCE"><rsc:item name="round2" row="<%=resultRow%>"/></td>
 <% } else { %>
@@ -214,7 +215,7 @@
                             </div>
                         </div>
                     </c:if>
-</form>
+                </form>
 
             </div>
     </div>

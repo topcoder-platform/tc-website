@@ -1,10 +1,11 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.common.model.EventType, com.topcoder.shared.dataAccess.*, 
-                 com.topcoder.web.tc.Constants" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.web.tc.Constants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.StringUtils,
                  java.util.Map,
-                 com.topcoder.web.common.tag.HandleTag" %>
+                 com.topcoder.web.common.tag.HandleTag,
+                 com.topcoder.web.tc.controller.request.tournament.AdvancersBase" %>" %>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -47,7 +48,7 @@
   }
   function changeView(full) {
     var myForm = document.advancersForm;
-    myForm.<%="full"%>.value=full;
+    myForm.<%=AdvancersBase.FULL_LIST%>.value=full;
     myForm.submit();
   }
 </script>
@@ -73,7 +74,7 @@
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07MarathonAdvancers"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
-<tc-webtag:hiddenInput name="<%="full"%>"/>
+<tc-webtag:hiddenInput name="<%=AdvancersBase.FULL_LIST%>"/>
 
                 <div align="center">
                 <a href="Javascript:resetSort()">Reset sorting</a>

@@ -23,6 +23,8 @@ import com.topcoder.web.tc.controller.request.development.Base;
  */
 public abstract class AdvancersBase extends Base {
     
+    public static final String FULL_LIST = "full";
+    
     /**
      * Gets the contest prefix. It will be used mainly for the jsp path but could be used for other purposes as well. 
      * Example: tco07, tccc07, etc.
@@ -98,7 +100,7 @@ public abstract class AdvancersBase extends Base {
      * @throws Exception
      */
     private ResultSetContainer cropResult(ResultSetContainer rsc) throws Exception {
-        Boolean full = "true".equals(StringUtils.checkNull(getRequest().getParameter("full")));
+        Boolean full = "true".equals(StringUtils.checkNull(getRequest().getParameter(FULL_LIST)));
 
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
         String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
@@ -123,7 +125,7 @@ public abstract class AdvancersBase extends Base {
             rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank), endRank);
         }
             
-        getRequest().setAttribute("full", full);
+        getRequest().setAttribute(FULL_LIST, full);
         return rsc;
     }
 
