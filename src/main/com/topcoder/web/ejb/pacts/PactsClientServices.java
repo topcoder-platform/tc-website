@@ -165,5 +165,14 @@ public interface PactsClientServices extends EJBObject {
      */
     List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending) throws RemoteException;
 
+    /**
+     * Marks an assignment document as affirmed
+     *
+     * @param ad the Assignment Document to store
+     * @throws DeleteAffirmedAssignmentDocumentException
+     *          If there's an attempt to delete an affirmed assignment document
+     */
+    public void affirmAssignmentDocument(AssignmentDocument ad) throws RemoteException;
+
 }
 

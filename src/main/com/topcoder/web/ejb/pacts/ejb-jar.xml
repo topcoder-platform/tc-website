@@ -94,6 +94,13 @@
                 </method-params>
             </method>
             <method>
+                <ejb-name>PactsClientServices</ejb-name>
+                <method-name>affirmAssignmentDocument</method-name>
+                <method-params>
+                    <method-param>com.topcoder.web.common.model.AssignmentDocument</method-param>
+                </method-params>
+            </method>
+            <method>
                 <ejb-name>PactsServices</ejb-name>
                 <method-name>generateRoundPayments</method-name>
             </method>
