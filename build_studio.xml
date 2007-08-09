@@ -53,7 +53,7 @@
         <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
         <pathelement location="${jars.dir}/httpunit.jar"/>
 
-        <pathelement location="${jars.dir}/PactsServices.jar"/>
+        <pathelement location="${jars.dir}/PactsClientServices.jar"/>
 
         <pathelement location="${jars.dir}/axis.jar"/>
 
@@ -240,7 +240,7 @@
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
-                <include name="PactsServices.jar"/>
+                <include name="PactsClientServices.jar"/>
             </lib>
         </war>
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>

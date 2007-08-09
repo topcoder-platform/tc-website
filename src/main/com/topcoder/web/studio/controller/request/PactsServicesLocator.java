@@ -10,17 +10,17 @@ import javax.rmi.PortableRemoteObject;
 
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.ejb.pacts.PactsServices;
-import com.topcoder.web.ejb.pacts.PactsServicesHome;
+import com.topcoder.web.ejb.pacts.PactsClientServices;
+import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 
 /**
  * Locator for pacts services
  */
 public class PactsServicesLocator {
-    private static PactsServicesHome home;
+    private static PactsClientServicesHome home;
     
-    public static PactsServices getService() throws NamingException, RemoteException, CreateException {
-        PactsServicesHome h = home;
+    public static PactsClientServices getService() throws NamingException, RemoteException, CreateException {
+        PactsClientServicesHome h = home;
         if (h != null) {
             try {
                 return h.create();
@@ -29,20 +29,20 @@ public class PactsServicesLocator {
             }
         }
         h = getHome();
-        PactsServices services = h.create();
+        PactsClientServices services = h.create();
         home = h;
         return services;
     }
     
     
-    private static PactsServicesHome getHome() throws NamingException {
+    private static PactsClientServicesHome getHome() throws NamingException {
         Context ctx = TCContext.getInitial(ApplicationServer.PACTS_HOST_URL);
         try {
-            Object objRef =  ctx.lookup("com.topcoder.web.ejb.pacts.PactsServicesHome");
-            if (Remote.class.isAssignableFrom(PactsServicesHome.class))
-                return (PactsServicesHome) PortableRemoteObject.narrow(objRef, PactsServicesHome.class);
+            Object objRef =  ctx.lookup("com.topcoder.web.ejb.pacts.PactsClientServicesHome");
+            if (Remote.class.isAssignableFrom(PactsClientServicesHome.class))
+                return (PactsClientServicesHome) PortableRemoteObject.narrow(objRef, PactsClientServicesHome.class);
              else
-                return (PactsServicesHome) objRef;
+                return (PactsClientServicesHome) objRef;
         } finally {
             ctx.close();
         }
