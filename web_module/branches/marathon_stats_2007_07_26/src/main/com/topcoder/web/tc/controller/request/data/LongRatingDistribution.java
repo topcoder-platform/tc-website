@@ -11,7 +11,7 @@ public class LongRatingDistribution extends RatingDistribution {
 
     protected Request getDistributionRequest() {
         Request r = new Request();
-        r.setContentHandle("dd_long_rating_distribution");
+        r.setContentHandle("dd_marathon_rating_distribution");
         return r;
     }
 
