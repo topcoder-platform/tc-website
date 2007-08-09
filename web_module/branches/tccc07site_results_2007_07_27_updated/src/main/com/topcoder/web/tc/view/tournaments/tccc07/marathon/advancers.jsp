@@ -3,7 +3,8 @@
                  com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.StringUtils,
-                 java.util.Map" %>
+                 java.util.Map,
+                 com.topcoder.web.common.tag.HandleTag" %>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
