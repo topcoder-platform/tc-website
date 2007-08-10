@@ -34,7 +34,7 @@
         <div style="padding: 15px; text-align: left; width: 540px;">
 
         <div align="center"><a href="/tc?module=Static&d1=sponsors&d2=tcs" alt="TopCoder logo"><img src="/i/sponsor/TC_logo.png" border="0px" alt="TopCoder logo" /></a></div>
-        <%--<div align="right"><tc-webtag:forumLink forumID="516666" message="Discuss this" /></div>--%>
+        <div align="right"><tc-webtag:forumLink forumID="516058" message="Discuss this" /></div>
         <br /><br />
       
         <table class="stat" style="width: 100%;" cellpadding="0" cellspacing="0">
