@@ -647,7 +647,6 @@ if (action != null) {
         screeningCompleteDateComment = null;
         finalSubmissionDateComment = null;
 
-        String phaseDate =   "9/9/2000";
         String phase =   request.getParameter("selPhase");
         ver.setVersionLabel(versionLabel);
         ver.setComments(comments);
