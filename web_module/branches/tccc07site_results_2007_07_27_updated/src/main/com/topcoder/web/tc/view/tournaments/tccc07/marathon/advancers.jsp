@@ -12,6 +12,16 @@
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
+<!--  To set up a new contest, please complete the corresponding rounds ids for each part of the competition -->
+<!--  Leave empty if the round doesn't exist or it's not finished -->
+
+<c:set value="/longcontest/?module=ViewOverview&rd=" var="details_link"/>
+<c:set var="round1_id" value="11111"/>
+<c:set var="round2_id" value="22222"/>
+<c:set var="round3_id" value="33333"/>
+<c:set var="round4_id" value="44444"/>
+<c:set var="finals_id" value="55555"/>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -113,23 +123,23 @@
                     </td>
                     <td class="headerC" width="20%">
                         <a href="/tc?module=TCCC07MarathonAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round1_sort")%>"/>">Round 1</a>
-                        <br /><a href="">details</a>
+                        <br /><c:if test = "${not empty round1_id}"><a href="${details_link}${round1_id}">details</a></c:if>
                     </td>
                     <td class="headerC" width="20%">
                         <a href="/tc?module=TCCC07MarathonAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round2_sort")%>"/>">Round 2</a>
-                        <br /><a href="">details</a>
+                        <br /><c:if test = "${not empty round2_id}"><a href="${details_link}${round2_id}">details</a></c:if>
                     </td>
                     <td class="headerC" width="20%">
                         <a href="/tc?module=TCCC07MarathonAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round3_sort")%>"/>">Round 3</a>
-                        <br /><a href="">details</a>
+                        <br /><c:if test = "${not empty round3_id}"><a href="${details_link}${round3_id}">details</a></c:if>
                     </td>
                     <td class="headerC" width="20%">
                         <a href="/tc?module=TCCC07MarathonAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round4_sort")%>"/>">Round 4</a>
-                        <br /><a href="">details</a>
+                        <br /><c:if test = "${not empty round4_id}"><a href="${details_link}${round4_id}">details</a></c:if>
                     </td>
                     <td class="headerC" width="20%">
                         <a href="/tc?module=TCCC07MarathonAdvancers<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("finals_sort")%>"/>">Final</a>
-                        <br /><a href="">details</a>
+                        <br /><c:if test = "${not empty finals_id}"><a href="${details_link}${finals_id}">details</a></c:if>
                     </td>
                 </tr>
             </thead>
