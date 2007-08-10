@@ -606,7 +606,6 @@ if (action != null) {
 
         String versionLabel =       request.getParameter("txtVersionLabel");
         String comments =  request.getParameter("taComments");
-        String price =  "0"; //     request.getParameter("txtPrice");
         postingDate =   "5/5/1976"; //request.getParameter("txtPostingDate");
 
         //GT Added this to allow for public forums;
@@ -652,7 +651,7 @@ if (action != null) {
         String phase =   request.getParameter("selPhase");
         ver.setVersionLabel(versionLabel);
         ver.setComments(comments);
-        ver.setPrice(Double.parseDouble(price));
+        ver.setPrice(phasePrice);
 //        ver.setSuspended(request.getParameter("suspended") != null);
 	    ver.setSuspended(false);
 
