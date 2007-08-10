@@ -17,6 +17,7 @@ public class IntroEventCompPayment extends ComponentContestReferencePayment {
      * Please change that number if you affect the fields in a way that will affect the
      * serialization for this object. 
      */
+    private static final long serialVersionUID = 1L;
 
     /**
      * Create a payment for an introductory event component contest.
