@@ -6,10 +6,18 @@ import java.util.Date;
 /**
  * Payment for a Studio Tournament.
  *
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
  * @author cucu
  *
  */
 public class StudioTournamentPrizePayment extends StudioContestReferencePayment {
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * Create a new payment for a TC Studio Tournament.

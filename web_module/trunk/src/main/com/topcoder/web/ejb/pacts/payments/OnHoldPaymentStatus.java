@@ -28,10 +28,18 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 /**
  * This class represents a On Hold status for payments. 
  *
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
 public class OnHoldPaymentStatus extends BasePaymentStatus {
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * The loader for this class

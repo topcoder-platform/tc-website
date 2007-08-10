@@ -10,6 +10,12 @@ package com.topcoder.web.ejb.pacts;
 public class AlgorithmTournamentPrizePayment extends AlgorithmRoundReferencePayment {
 
     /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+
+    /**
      * Create a payment for an algorithm tournament prize, for example winning a TCO.
      *
      * @param coderId id of the coder being paid

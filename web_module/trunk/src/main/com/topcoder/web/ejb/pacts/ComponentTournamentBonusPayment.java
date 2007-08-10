@@ -6,10 +6,18 @@ import java.util.Date;
 /**
  * Payment for a Component Tournament Bonus (e.g. winning TCO 06 Design contest)
  *
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
  * @author cucu
  *
  */
 public class ComponentTournamentBonusPayment extends ComponentContestReferencePayment {
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * Create a payment for winning a tournament bonus in a component contest.

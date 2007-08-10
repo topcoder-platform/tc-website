@@ -7,9 +7,17 @@ import java.util.Date;
 /**
  * Payment for a problem testing.  It can optionally refer to a round id.
  *
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
  * @author cucu
  */
 public class ProblemTestingPayment extends AlgorithmRoundReferencePayment {
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
 	/**
 	 * This is used if there is no reference to a round.

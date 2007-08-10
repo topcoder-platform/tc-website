@@ -9,10 +9,18 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 /**
  * This class models a Payment Status reason.
  * 
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
 public class PaymentStatusReason implements java.io.Serializable {
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * Enum for all the possible predefined status reasons 
