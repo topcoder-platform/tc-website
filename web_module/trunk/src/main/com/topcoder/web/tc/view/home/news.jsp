@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>08.10.07<br>11:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=sponsors&d2=tcsChat20070801">SRM 361 chat trascript: "About being orange"</A></span><br><br>
+        Before SRM 361, TopCoder members joined staff representatives to discuss "everything you ever wanted to know, but were afraid to ask, about being orange."</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=sponsors&d2=tcsChat20070801">details</A> | 
+        <tc-webtag:forumLink forumID="516058" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+   
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>08.09.07<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />">Introducing the TopCoder UML Tool</A></span><br><br>
@@ -160,22 +174,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=features&d2=073107">full story</A> | 
          <tc-webtag:forumLink forumID="516783" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.30.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=073007">Visas: Think Positive and Be Prepared</A></span><br><br>
-      At every TopCoder tournament, there is at least one person who misses out. One person (and sometimes many more) who does a great job of competing, advances all the way to the finals, and only then realizes that it's too late.  You guessed it -- I'm talking about the dreaded visa issue.</td>
-         <td class="newsPhoto"><img src="/i/m/jmpld40_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="14999860" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=073007">full story</A> | 
-         <tc-webtag:forumLink forumID="516782" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
