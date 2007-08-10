@@ -4,8 +4,7 @@ import com.topcoder.web.common.model.Base;
 
 /**
  * @author cucu
-= */
-@SuppressWarnings("serial")
+ */
 public class Round extends Base {
 
     protected Long id = null;
@@ -13,7 +12,7 @@ public class Round extends Base {
     protected String name = null;
     protected String shortName = null;
     protected String status = null;
-    
+
     public Contest getContest() {
         return contest;
     }
@@ -44,6 +43,6 @@ public class Round extends Base {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    
+
+
 }

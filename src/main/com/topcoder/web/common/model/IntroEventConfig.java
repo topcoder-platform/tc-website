@@ -5,7 +5,6 @@ import java.io.Serializable;
 /**
  * @author cucu
  */
-@SuppressWarnings("serial")
 public class IntroEventConfig extends Base {
 
     protected Identifier id = new Identifier();
@@ -30,7 +29,6 @@ public class IntroEventConfig extends Base {
         this.value = value;
     }
 
-    @SuppressWarnings("serial")
     public static class Identifier implements Serializable {
 
         private IntroEvent introEvent = null;
@@ -69,7 +67,7 @@ public class IntroEventConfig extends Base {
 
 
         public boolean equals(Object o) {
-            
+
             if (o == null || !(o instanceof IntroEventConfig.Identifier)) {
                 return false;
             }

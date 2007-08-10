@@ -3,14 +3,13 @@ package com.topcoder.web.common.model;
 /**
  * @author cucu
  */
-@SuppressWarnings("serial")
 public class IntroEventPropertyType extends Base {
 
     public static final Integer GENERAL_TYPE = new Integer(1);
     public static final Integer ALGO_TYPE = new Integer(2);
     public static final Integer COMP_TYPE = new Integer(3);
-    
-    
+
+
     private Integer id;
     private String description;
     private Integer type;
@@ -18,9 +17,9 @@ public class IntroEventPropertyType extends Base {
     private String explanation;
     private String defaultValue;
     private Boolean viewable;
-    
-    
-    protected IntroEventPropertyType() {        
+
+
+    protected IntroEventPropertyType() {
 
     }
 
