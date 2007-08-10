@@ -6,8 +6,7 @@ import com.topcoder.web.common.model.Base;
 
 /**
  * @author cucu
-= */
-@SuppressWarnings("serial")
+ */
 public class RoundSegment extends Base {
 
     protected Identifier id = new Identifier();
@@ -25,7 +24,7 @@ public class RoundSegment extends Base {
     public void setId(Identifier id) {
         this.id = id;
     }
-    
+
     protected Timestamp getEndTime() {
         return endTime;
     }
@@ -94,8 +93,8 @@ public class RoundSegment extends Base {
                 return false;
             }
             RoundSegment.Identifier rs = (RoundSegment.Identifier) obj;
-            
-            return rs.getRoundId().equals(this.getRoundId()) && rs.getSegmentId().equals(this.getSegmentId()); 
+
+            return rs.getRoundId().equals(this.getRoundId()) && rs.getSegmentId().equals(this.getSegmentId());
         }
 
         @Override

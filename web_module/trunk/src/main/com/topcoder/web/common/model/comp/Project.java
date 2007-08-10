@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-@SuppressWarnings("serial")
 public class Project extends Base {
 
     public static final Integer STATUS_ACTIVE = 1;

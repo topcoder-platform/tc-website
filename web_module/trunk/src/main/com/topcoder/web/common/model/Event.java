@@ -12,7 +12,6 @@ import com.topcoder.web.common.model.comp.Contest;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 18, 2007
  */
-@SuppressWarnings("serial")
 public class Event extends Base {
     public static final Long TCO07_COMPONENT_ID = new Long(7);
     public static final Long TCCC07_COMPONENT_ID = new Long(3002);

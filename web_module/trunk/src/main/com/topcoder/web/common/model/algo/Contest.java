@@ -6,16 +6,15 @@ import com.topcoder.web.common.model.Base;
 
 /**
  * @author cucu
-= */
-@SuppressWarnings("serial")
+ */
 public class Contest extends Base {
 
-    protected Long id = null;    
+    protected Long id = null;
     protected String name = null;
-    protected Timestamp startDate = null;    
-    protected Timestamp endDate = null;    
+    protected Timestamp startDate = null;
+    protected Timestamp endDate = null;
     protected String status = null;
-    
+
     public Timestamp getEndDate() {
         return endDate;
     }

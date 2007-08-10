@@ -8,12 +8,9 @@ import java.util.Map;
 import com.topcoder.web.common.WebConstants;
 
 
-
-
 /**
  * @author cucu
  */
-@SuppressWarnings("serial")
 public class IntroEvent extends Event  {
     private School school = null;
     private Long roundId = null;

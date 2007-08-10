@@ -8,8 +8,7 @@ import com.topcoder.web.common.model.User;
 
 /**
  * @author cucu
-*/
-@SuppressWarnings("serial")
+ */
 public class UserContestPrize extends Base {
 
     protected Identifier id = new Identifier();
@@ -54,7 +53,7 @@ public class UserContestPrize extends Base {
 
 
         public boolean equals(Object o) {
-            
+
             if (o == null || !(o instanceof UserContestPrize.Identifier)) {
                 return false;
             }

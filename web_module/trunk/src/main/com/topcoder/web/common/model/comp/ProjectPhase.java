@@ -7,10 +7,9 @@ import com.topcoder.web.common.model.Base;
 
 /**
  * @author cucu
-*/
-@SuppressWarnings("serial")
+ */
 public class ProjectPhase extends Base {
-    
+
     public static final Integer REGISTRATION = 1;
     public static final Integer SUBMISSION = 2;
     public static final Integer SCREENING = 3;
@@ -22,7 +21,7 @@ public class ProjectPhase extends Base {
     public static final Integer FINAL_FIX = 9;
     public static final Integer FINAL_REVIEW = 10;
     public static final Integer APPROVAL = 11;
-    
+
     private Long id;
     private Project project;
     private Integer type;
@@ -32,8 +31,8 @@ public class ProjectPhase extends Base {
     private Timestamp actualStartTime;
     private Timestamp actualEndTime;
     private Long duration;
-    
-    
+
+
     public Timestamp getActualEndTime() {
         return actualEndTime;
     }
@@ -89,6 +88,6 @@ public class ProjectPhase extends Base {
         this.type = type;
     }
 
-    
+
 
 }

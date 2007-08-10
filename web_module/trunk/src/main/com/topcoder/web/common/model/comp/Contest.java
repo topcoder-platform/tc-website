@@ -10,23 +10,22 @@ import com.topcoder.web.common.model.Event;
 /**
  * @author cucu
 */
-@SuppressWarnings("serial")
 public class Contest extends Base {
 
     public final static Integer TYPE_INTRO_EVENT_OVERALL = new Integer(22);
     public final static Integer TYPE_INTRO_EVENT_WEEKLY = new Integer(23);
-    
-    
-    protected Long id = null;    
+
+
+    protected Long id = null;
     protected String name = null;
     protected Integer phaseId = null;
     protected Integer typeId = null;
-    protected Timestamp startDate = null;    
+    protected Timestamp startDate = null;
     protected Timestamp endDate = null;
     protected Event event;
     protected Set<ContestPrize> prizes = new HashSet<ContestPrize>();
     protected Set<Project> projects = new HashSet<Project>();
-    
+
     public Timestamp getEndDate() {
         return endDate;
     }
@@ -84,7 +83,7 @@ public class Contest extends Base {
     public void setProjects(Set<Project> projects) {
         this.projects = projects;
     }
-    
+
     public void addProject(Project project) {
         projects.add(project);
     }

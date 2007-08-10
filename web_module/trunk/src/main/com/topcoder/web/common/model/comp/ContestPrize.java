@@ -5,22 +5,21 @@ import com.topcoder.web.common.model.Base;
 /**
  * @author cucu
  */
-@SuppressWarnings("serial")
 public class ContestPrize extends Base {
 
     public static final Integer CONTEST_PRIZE_INTRO_EVENT_WEEKLY = 12;
     public static final Integer CONTEST_PRIZE_INTRO_EVENT_OVERALL = 13;
-    
+
     protected Long id = null;
     protected Contest contest = null;
-    protected Integer prizeTypeId = null; 
+    protected Integer prizeTypeId = null;
     protected Integer place = null;
     protected Double amount = null;
     protected String description = null;
-    
+
     public ContestPrize() {
     }
-    
+
     public ContestPrize(Integer place, Integer prizeTypeId, Double amount) {
         super();
         this.place = place;
@@ -65,5 +64,5 @@ public class ContestPrize extends Base {
         this.prizeTypeId = prizeTypeId;
     }
 
-    
+
 }
