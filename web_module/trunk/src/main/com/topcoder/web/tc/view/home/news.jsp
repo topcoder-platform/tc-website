@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.10.07<br>1:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm362">SRM 362 - Problem Set &amp; Analysis</A></span><br><br>
+      Attracting 1121 participants, SRM 362 provided both divisions with difficult problem sets, Division 1 especially.  In Division 1, <tc-webtag:handle coderId="10574855" context="algorithm"/> continued to show us why he's #1 by being the only competitor to successfully solve all three problems, while newcomer <tc-webtag:handle coderId="22689350" context="algorithm"/> won Division 2 by a comfortable margin.</td>
+         <td class="newsPhoto"><img src="/i/m/eleusive_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="8369955" context="algorithm" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm362">full story</A> | 
+         <tc-webtag:forumLink forumID="516059" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>08.10.07<br>11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=sponsors&d2=tcsChat20070801">SRM 361 chat trascript: "About being orange"</A></span><br><br>
@@ -159,21 +175,5 @@
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm36">full story</A> | 
          <tc-webtag:forumLink forumID="516562" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.31.07<br>4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=073107">Meet the July Coders of the Month</A></span><br><br>
-      July's "Coders of the Month" are a diverse mix, hailing from Estonia, Ukraine and India, but there are some similarities among them. In this article, we'll look at how these three coders approach TopCoder competition, and what they do when they need a break.</td>
-         <td class="newsPhoto">by <tc-webtag:handle coderId="8365955" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=073107">full story</A> | 
-         <tc-webtag:forumLink forumID="516783" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
