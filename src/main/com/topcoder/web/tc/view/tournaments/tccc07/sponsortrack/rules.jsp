@@ -29,7 +29,7 @@
 <p>
 <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="#registration">Registration</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="#qualification">Qualification Round</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="#elimination">Elimination Round</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="#structure">Round Structure</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="#conditions">Conditions of Participation</a>
 </p>
@@ -41,22 +41,13 @@
 
 <a name="eligibility"></a>
 <h2>Eligibility</h2>
-<p>The Sponsor Track Algorithm Competition is open to all employees and interns of the sponsors of the TCCC, who are at least 18 years of age as of August 23, 2007 and who are TopCoder members.  TCCC sponsor employees and interns may register to become a TopCoder member by navigating to <a target="_blank" href="http://www.topcoder.com/" alt="TopCoder site">www.topcoder.com</a> and clicking on "Register" in the upper right corner of the screen.</p>
+<p>The Sponsor Track Algorithm Competition is open to all employees and interns of the sponsors of the TCCC, who are at least 18 years of age as of August 23, 2007 and who are TopCoder members.  TCCC sponsor employees and interns may register to become a TopCoder member by navigating to <a target="_blank" href="/" alt="TopCoder site">www.topcoder.com</a> and clicking on "Register" in the upper right corner of the screen.</p>
 
 <a name="registration"></a>
 <h2>Registration</h2>
-<p>Eligible employees must register separately for the Sponsor Track Competition.  There is no limit to the number of registrants in the competition; however each individual may only register once.  Registration will open at 9:00AM EDT (GMT/UTC -4) on Monday, July 30, and will close at 5:00PM EDT (GMT/UTC -4) on Thursday, August 16, 2007.</p>
+<p>Eligible employees must register separately for the Sponsor Track Competition.  There is no limit to the number of registrants in the competition; however each individual may only register once.  Registration will open at 9:00AM EDT (GMT/UTC -4) on Monday, July 30, and will close at 5:00PM EDT (GMT/UTC -4) on Thursday, August 30, 2007.</p>
 
-<a name="qualification"></a>
-<h2>Qualification Round - 9:00 PM EDT (UTC/GMT -4) Thursday, August 23, 2007</h2>
-<p>The format for each Qualification Round will be the same as all other tournament rounds, which is outlined in the <em>Competition Round Structure</em> section.</p>
-
-<p><strong>NOTE:</strong> In the event of a tie for any advancing position during the Qualification Round, the tie will be resolved in the following manner:</p>
-<ul>
-    <li>By rating (higher is better) prior to the Qualification Round. </li>
-    <li>If a tie still remains, all tied coders will advance to the next round. </li>
-</ul>
-
+<a name="elimination"></a>
 <h2>Online Elimination Rounds</h2>
 <p>Everyone who competes in an online round must login to the TopCoder Competition Arena no later than five (5) minutes prior to the start of the online round. Sponsor employees and interns from around the world may be participating in the online rounds, but all start times will be communicated as Eastern Daylight Time (GMT/UTC -4), so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.</p>
 <p>All Sponsor Track competitors who have qualified for an online round will be assigned to one specific room for each round of the competition.</p>
@@ -75,7 +66,7 @@
     <tbody>
         <tr class="light">
            <td class="value">Online Round #1</td>
-           <td class="value">Tuesday, August 28, 2007<br />Register: 6:00 - 8:55 PM<br />START: 9:00 PM</td>
+           <td class="value">Saturday, September 1, 2007<br />Register: 6:00 - 8:55 PM<br />START: 1:00 PM</td>
            <td class="valueC">100</td>
            <td class="valueC">75</td>
         </tr>
@@ -106,9 +97,6 @@
 <p>&#160;</p>
 <h2>Scoring and Advancing during Online Rounds</h2>
 <p>After each round of competition, the highest scorers from across the room will be identified and will advance to the next online round.  Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of the online rounds is as follows:</p>
-
-<p><strong>Qualification Round</strong><br />
-Unlimited number of coders can compete in qualification round and up to 100 coders will advance to Online Round #1.</p>
 
 <p><strong>Online Round #1</strong><br />
 Up to 100 coders will compete in Round #1 and up to 75 will advance.  The highest 75 scorers from the room will advance to Online Round #2.</p>
@@ -150,8 +138,8 @@ The Championship Round is the final round of the Sponsor Track Competition.  Up 
 
 <h2>Other</h2>
 <p>The tournament is void in whole or in part where prohibited by law.</p>
-<p>A list of tournament winners by coder handles will be available on the web site at <a target="_blank" href="http://www.topcoder.com/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the end of the tournament.</p>
-<p>This tournament is brought to you by <a target="_blank" href="http://www.topcoder.com/">TopCoder, Inc.</a> 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+<p>A list of tournament winners by coder handles will be available on the web site at <a target="_blank" href="/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the end of the tournament.</p>
+<p>This tournament is brought to you by <a target="_blank" href="/">TopCoder, Inc.</a> 703 Hebron Avenue, Glastonbury, CT 06033.</p>
 
             </div>
     </div>
