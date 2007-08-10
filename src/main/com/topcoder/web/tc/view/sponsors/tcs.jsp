@@ -35,15 +35,15 @@
 
         <div align="center"><img src="/i/sponsor/TC_logo.png" border="0px" alt="TopCoder Logo" /></div>
         <br /><br />
-        <%--
+        
         <div style="float: right;">
         <h3 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h3>
             <strong>
-                <A style="text-decoration:none;" href="/tc?module=Static&d1=sponsors&d2=btChat20070721">SRM 359</A>
+                <A style="text-decoration:none;" href="/tc?module=Static&d1=sponsors&d2=tcsChat20070801">SRM 361</A>
             </strong>
         </div>
         <br /><br />
-        --%>
+        
 
         <br />
         <h1>TopCoder is hiring!</h1>
