@@ -205,6 +205,7 @@ public class ProjectUtil {
     static long createProject(Connection conn, String projectVersion, long compVersId, long projectTypeId, long modUserId, long forumCategoryId) throws SQLException, BaseException {
         PreparedStatement ps = null;
         ResultSet rs = null;
+        int phaseId =  (int)projectTypeId+111;
 
         ps = conn.prepareStatement(
                 "select root_category_id " +
@@ -276,7 +277,7 @@ public class ProjectUtil {
         ps.executeUpdate();
         close(ps);
 
-        prepareProjectInfo(conn, compVersId, projectId, modUserId, forumCategoryId);
+        prepareProjectInfo(conn, compVersId, projectId, modUserId, forumCategoryId, phaseId);
 
         // Prepare project_audit the modify reason is Created
         ps = conn.prepareStatement("INSERT INTO project_audit " +
@@ -499,7 +500,7 @@ public class ProjectUtil {
         }
     }
 
-    private static void prepareProjectInfo(Connection conn, long compVersId, long projectId, long modUserId, long forumCategoryId) throws SQLException {
+    private static void prepareProjectInfo(Connection conn, long compVersId, long projectId, long modUserId, long forumCategoryId, final int phaseId) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         long componentId = -1;
@@ -508,7 +509,6 @@ public class ProjectUtil {
         long rootCategoryId = -1;
         String componentName = "";
         float price = (float) 0.0;
-        int phaseId = -1;
 
         // Retrieve project_info
         // component id, version
@@ -518,7 +518,6 @@ public class ProjectUtil {
         if (rs.next()) {
             componentId = rs.getLong("component_id");
             version = rs.getInt("version");
-            phaseId = rs.getInt("phase_id");
             versionText = rs.getString("version_text");
         }
 
