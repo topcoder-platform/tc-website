@@ -24,7 +24,7 @@
 
             <div id="pageBody">
 
-                <h1><span>Prestigious Professor Award Description</span></h1>
+                <h1><span>Prestigious Professor Award</span></h1>
                 
                 <p><strong>Is there a special Professor out there who deserves some recognition?  Want to win a FREE trip to the TCCC finals at Walt Disney World in Orlando, Florida?</strong>  Here's your chance to tell us about your extraordinary professor and win!</p>
                 
