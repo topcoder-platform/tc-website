@@ -9,12 +9,20 @@ import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 
 /**
- * This class represents a Cancelled status for payments. 
+ * This class represents a Canceled status for payments. 
  *
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
 public class CancelledPaymentStatus extends BasePaymentStatus {
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * The payment status id

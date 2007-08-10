@@ -10,9 +10,17 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
  * The payment for an user in a round is unique, so if you try to add
  * a payment whose (coderId, roundId) are already in payments, an exception is thrown.
  *
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
  * @author cucu
  */
 public class AlgorithmContestPayment extends AlgorithmRoundReferencePayment {
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * Create a payment for an algorithm contest (like an SRM or tournament round)

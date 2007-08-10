@@ -5,10 +5,18 @@ import com.topcoder.web.ejb.pacts.BasePayment;
 /**
  * This class represents a Temp fix status for payments. 
  *
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
 * @author Pablo Wolfus (pulky)
 * @version $Id$
 */
 public class TempFixPaymentStatus extends BasePaymentStatus {
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * The payment status id

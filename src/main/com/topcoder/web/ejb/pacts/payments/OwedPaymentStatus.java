@@ -13,10 +13,18 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusRe
 /**
  * This class represents a Owed status for payments. 
  *
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
 public class OwedPaymentStatus extends BasePaymentStatus {
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * The loader for this class

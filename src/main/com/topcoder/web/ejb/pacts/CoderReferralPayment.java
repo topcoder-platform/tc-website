@@ -5,11 +5,20 @@ import java.sql.SQLException;
 /**
  * Payment for coder referral.
  *
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
  * @author cucu
  *
  */
 public class CoderReferralPayment extends ParentReferencePayment {
 
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+
+    
     /**
      * Create a coder referral payment.  The payment must be already saved to DB.
      *

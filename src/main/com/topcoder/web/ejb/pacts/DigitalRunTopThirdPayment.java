@@ -5,10 +5,18 @@ import java.sql.SQLException;
 /**
  * Payment for a Digital Run Top Third bonus.
  *
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
  * @author cucu
  *
  */
 public class DigitalRunTopThirdPayment extends DigitalRunStageReferencePayment {
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * Create a payment for a digital run top third bonus.
