@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Marathon Match Tutorial" border="0" /><br>08.10.07<br>4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=mmProblems2">Stepping up to a Marathon Match problem, Part 2</A></span><br><br>
+      In <a href="/tc?module=Static&d1=tutorials&d2=mmProblems">Part 1</a>, we talked a bit about the simplest type of problem, where we are asked to write a single method that takes a set of inputs and returns a specified output.  How do we approach more complicated types of problems?</td>
+         <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" context="marathon"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=mmProblems2">full story</A> | 
+         <tc-webtag:forumLink forumID="516840" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=tutorials&d2=mm_index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.10.07<br>1:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -159,21 +175,5 @@
          <A href="/tc?module=Static&d1=tutorials&d2=mmProblems">full story</A> | 
          <tc-webtag:forumLink forumID="516840" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=mm_index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.02.07<br>12:20 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm36">TCHS SRM 36 - Problem Set &amp; Analysis</A></span><br><br>
-      Although TCHS SRM 36 attracted only 44 coders, it featured a very interesting competition. The easy problem was a bit tougher than usual this time, with half of the participants ending up with 0 or a negative score, while the medium and the hard was pretty straightforward.</td>
-         <td class="newsPhoto"><img src="/i/m/mateuszek_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="11801002" context="algorithm" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm36">full story</A> | 
-         <tc-webtag:forumLink forumID="516562" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
    
