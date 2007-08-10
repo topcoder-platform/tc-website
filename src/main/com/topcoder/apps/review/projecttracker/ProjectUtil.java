@@ -230,7 +230,7 @@ public class ProjectUtil {
         close(ps);
 
         if (rootCategoryId == 9926572) {
-            projectTypeId = (projectTypeId == 1 ? 6 : 10); // 6 means Specification, 10 means Deployment
+            projectTypeId = (projectTypeId == 1 ? 6 : 14); // 6 means Specification, 14 means assembly
         }
 
         ps = conn.prepareStatement("SELECT p.project_id " +
