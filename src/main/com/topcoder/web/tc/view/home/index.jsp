@@ -144,9 +144,9 @@
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunDevCup.png" alt="The Digital Run Development Cup" border="0" style="display:block;"/></A>
                 --%>
                 
-                <%-- DIGITAL RUN TOTAL PRIZES --%>
+                <%-- DIGITAL RUN TOTAL PRIZES 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunTotalPrizes.png" alt="The Digital Run Total Prizes" border="0" style="display:block;"/></A>
-                
+                --%>
 
                 <%-- TCO07
                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07sm.png" alt="TCO07" border="0" style="display:block;"/></A>
@@ -175,6 +175,9 @@
                 <%-- CSF 
                 <A href="<tc-webtag:linkTracking link="http://csf.topcoder.com/?module=ViewContestDetails&ct=1006" refer="tc_Index"/>"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF Powered by TopCoder" style="display:block;" /></A>
                 --%>
+                
+               <%-- TCCC07 --%>
+               <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=about' refer='homepage' />"><img src="/i/home/tccc07_promo.png" alt="2007 TopCoder Collegiate Challenge" /></A>
             
 
             </td>
@@ -311,22 +314,22 @@
             <img src="/i/home/tco07Rd1-B_nsa.png" alt="TCO07 Round 1-B brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
             --%>
 
-            <%-- SRM SPONSOR 
+            <%-- SRM SPONSOR --%>
                 <map name="mm">
-                <area shape="rect" alt="" coords="1,1,80,95" href="/tc?module=MatchDetails&rd=10773" />
-                <area shape="rect" alt="" coords="110,1,250,95" href="/tc?module=Static&d1=sponsors&d2=tcs" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=sponsors&d2=tcs" />
+                <area shape="rect" alt="" coords="1,1,80,95" href="/tc?module=MatchDetails&rd=10777" />
+                <area shape="rect" alt="" coords="110,1,250,95" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa" />
                 </map>
-                <img src="/i/home/srm361_topcoder.png" alt="SRM 361 brought to you by TopCoder" border="0" style="display:block;" usemap="#mm"/>
-                --%>
+                <img src="/i/home/srm363_nsa.png" alt="SRM 363 brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
+                
                 
             <%-- 2 Registration Prototype contests open @ Studio 
             <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests" target="_blank"><img src="/i/home/regproto_studiopromo.png" alt="2 Registration Prototype contests open @ Studio" border="0" style="display:block;" /></A>
             --%>
             
-            <%-- TCCC07 --%>
+            <%-- TCCC07 
                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=about' refer='homepage' />"><img src="/i/home/tccc07_promo.png" alt="2007 TopCoder Collegiate Challenge" /></A>
-             
+             --%>
              
             <%-- TCHS07 
                <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule"><img src="/i/home/tchs07_promo_051007.png" alt="TCHS07" border="0" style="display:block;"/></A>
