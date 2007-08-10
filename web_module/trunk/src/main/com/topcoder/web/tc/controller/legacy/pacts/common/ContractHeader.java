@@ -36,6 +36,8 @@ import java.util.Map;
 
 /**
  * contract header wrapper
+ * 
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
  */
 public class ContractHeader implements PactsConstants, java.io.Serializable {
     private static Logger log = Logger.getLogger(ContractHeader.class);
@@ -48,6 +50,12 @@ public class ContractHeader implements PactsConstants, java.io.Serializable {
     private long id;
     private String typeDesc;
     private int typeId;
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
 
     /**

@@ -28,7 +28,17 @@ import com.topcoder.web.ejb.pacts.payments.InvalidStatusReasonException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 
+/**
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ */
 public class PaymentHeader implements PactsConstants, java.io.Serializable {
+    
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+    
     private static Logger log = Logger.getLogger(PaymentHeader.class);
 
 /*  Explanation of Members

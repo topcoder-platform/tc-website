@@ -22,7 +22,18 @@ import com.topcoder.shared.util.logging.Logger;
 
 import java.util.Map;
 
+/**
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ *
+ */
 public class TaxFormHeader implements PactsConstants, java.io.Serializable {
+    
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+    
     private static Logger log = Logger.getLogger(TaxFormHeader.class);
 
 /*  Explanation of Members

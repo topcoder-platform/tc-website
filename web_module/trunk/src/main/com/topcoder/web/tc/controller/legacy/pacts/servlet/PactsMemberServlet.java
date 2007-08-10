@@ -35,7 +35,18 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ *
+ */
 public class PactsMemberServlet extends BaseServlet implements PactsConstants {
+    
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+    
     private static Logger log = Logger.getLogger(PactsMemberServlet.class);
 
     /**

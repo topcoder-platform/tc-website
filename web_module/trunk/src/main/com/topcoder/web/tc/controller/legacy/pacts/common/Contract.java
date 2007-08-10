@@ -35,6 +35,10 @@ import com.topcoder.shared.util.logging.Logger;
 
 import java.util.Map;
 
+/**
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ *
+ */
 public class Contract implements PactsConstants, java.io.Serializable {
     private static Logger log = Logger.getLogger(Contract.class);
 
@@ -44,6 +48,11 @@ public class Contract implements PactsConstants, java.io.Serializable {
     private String startDate;
     private String endDate;
 
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * this constructor takes in a result set map, and

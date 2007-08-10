@@ -18,7 +18,18 @@ import com.topcoder.shared.util.logging.Logger;
 
 import java.util.*;
 
+/**
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ *
+ */
 public class UpdateResults implements Map, java.io.Serializable {
+
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
     private static Logger log = Logger.getLogger(UpdateResults.class);
 
@@ -26,6 +37,12 @@ public class UpdateResults implements Map, java.io.Serializable {
     private static final String ERROR = "Error";
 
     private class NoException extends Exception {
+        /**
+         * Please change that number if you affect the fields in a way that will affect the
+         * serialization for this object. 
+         */
+        private static final long serialVersionUID = 1L;
+        
     }
 
     private Map m_results;

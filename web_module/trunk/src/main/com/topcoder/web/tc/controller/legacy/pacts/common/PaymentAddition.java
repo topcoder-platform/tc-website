@@ -4,10 +4,19 @@ package com.topcoder.web.tc.controller.legacy.pacts.common;
  * This class holds the data fields of a payment which must be known
  * when adding a new payment to the database.
  *
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
  * @author   Dave Pecora
  * @version  1.00, 03/21/2002
  */
 public class PaymentAddition implements java.io.Serializable {
+    
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+    
     public long user_id;
     public String payment_desc;
     public int payment_type_id;

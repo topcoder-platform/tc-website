@@ -15,8 +15,17 @@ package com.topcoder.web.tc.controller.legacy.pacts.common;
 
 import java.io.Serializable;
 
-
+/**
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ *
+ */
 public class PactsMemberTableModel implements Serializable {
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
     private String tableData[][];  //used to store the model data
 

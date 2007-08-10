@@ -4,6 +4,8 @@ package com.topcoder.web.tc.controller.legacy.pacts.common;
  * This class holds the data fields of an affidavit which must be known
  * when adding a new affidavit to the database.
  *
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
  * @author   Dave Pecora
  * @version  1.00, 03/21/2002
  */
@@ -14,6 +16,12 @@ public class AffidavitAddition implements java.io.Serializable {
     public String affidavit_desc;
     public int affidavit_type_id;
     public String text;
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * This constructor builds an AffidavitAddition from the specified data.
