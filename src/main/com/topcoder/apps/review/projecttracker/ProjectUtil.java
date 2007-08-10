@@ -14,6 +14,11 @@ import com.topcoder.util.errorhandling.BaseException;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.util.idgenerator.IDGenerator;
 import com.topcoder.util.idgenerator.IDGeneratorFactory;
+import com.topcoder.util.log.Log;
+import com.topcoder.util.log.LogFactory;
+import com.topcoder.util.log.LogException;
+import com.topcoder.util.log.Level;
+import com.topcoder.apps.review.persistence.Common;
 
 import java.sql.*;
 import java.sql.Date;
@@ -565,6 +570,7 @@ public class ProjectUtil {
         if (rs.next()) {
             price = rs.getFloat("price");
         }
+        System.out.println("price : " + price + " phase " + phaseId);
 
         close(rs);
         close(ps);
