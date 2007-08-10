@@ -41,7 +41,7 @@
         <thead>
             <tr>
                 <td class="title" colspan="2">
-                <div>Chat transcript from SRM 359</div>
+                <div>Chat transcript from SRM 361</div>
                 </td>
             </tr>
             <tr>
