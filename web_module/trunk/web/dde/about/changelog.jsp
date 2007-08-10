@@ -51,7 +51,13 @@
                 <table width="530" border="0" cellspacing="0" cellpadding="0">
                     <tr><td align="left" colspan="2" class="bodyText">
                         <H3>TopCoder Software Web Site Change Log</H3>
-						
+                        <p>
+                            2.0.7 - 2007.08.xx
+                            <ul>
+                                <li>Adjust admin tool so that component prices are stored correctly -dok</li>
+                            </ul>
+                        </p>
+
 						<p>
                             2.0.6 - 2007.03.26
                             <ul>
