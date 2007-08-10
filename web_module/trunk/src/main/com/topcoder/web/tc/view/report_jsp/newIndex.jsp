@@ -52,7 +52,7 @@ New Software Reports
 
     <LI><A HREF="<%=baseTCSUrl+"component_timelines"%>">Component Timelines</a></LI>
     <LI><A HREF="<%=baseTCSUrl+"fulfillment"%>">Component Fulfillment</a></LI>
-    <LI><A HREF="<%=baseTCSUrl+"security_reviews"%>">Security Reviews</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"security_reviews"%>">Sec</a></LI>
 
 
 </UL>
@@ -199,6 +199,9 @@ Other
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=event_registration&"+Constants.DB_KEY+"="+DBMS.OLTP_DATASOURCE_NAME%>">General Event Registration</A></LI>
 
+    <LI>
+        <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=tccc07_reg&"+Constants.DB_KEY+"="+DBMS.OLTP_DATASOURCE_NAME%>">TCCC
+            07 Reg Info</A></LI>
 	<LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=tco07_reg&"+Constants.DB_KEY+"="+DBMS.OLTP_DATASOURCE_NAME%>">TCO
             07 Reg Info</A></LI>
