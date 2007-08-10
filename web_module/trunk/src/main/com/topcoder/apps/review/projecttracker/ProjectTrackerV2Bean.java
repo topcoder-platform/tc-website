@@ -4,26 +4,23 @@
 package com.topcoder.apps.review.projecttracker;
 
 import com.topcoder.apps.review.persistence.Common;
-
-import com.topcoder.web.forums.ForumConstants;
-
 import com.topcoder.security.TCSubject;
-
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-
 import com.topcoder.util.errorhandling.BaseException;
-
-import java.rmi.RemoteException;
-
-import java.sql.*;
+import com.topcoder.web.forums.ForumConstants;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
-
 import javax.sql.DataSource;
+import java.rmi.RemoteException;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 /**
@@ -293,7 +290,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
      * @throws RuntimeException if error occurs
      */
     public long createProject(String projectName, String projectVersion, long compVersId, long projectTypeId,
-        String overview, Date[] dates, TCSubject requestor, long levelId, long forumCategoryId)
+        String overview, Date[] dates, TCSubject requestor, long levelId, long forumCategoryId, double price)
         throws BaseException {
         log.debug("PT.createProject; projectName: " + projectName + " ,compVersId: " + compVersId 
         		+ " ,projectTypeId: " + projectTypeId + " ,projectVersion: " + projectVersion+ " ,requestor: " + requestor.getUserId());
@@ -302,7 +299,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
 
         try {
             conn = dataSource.getConnection();
-            return ProjectUtil.createProject(conn, projectVersion, compVersId, projectTypeId, requestor.getUserId(), forumCategoryId);
+            return ProjectUtil.createProject(conn, projectVersion, compVersId, projectTypeId, requestor.getUserId(), forumCategoryId, price);
         } catch (Exception e) {
             ejbContext.setRollbackOnly();
             throw new RuntimeException("Create project: " + e.getMessage(), e);

@@ -202,10 +202,9 @@ public class ProjectUtil {
         close(ps);
     }
 
-    static long createProject(Connection conn, String projectVersion, long compVersId, long projectTypeId, long modUserId, long forumCategoryId) throws SQLException, BaseException {
+    static long createProject(Connection conn, String projectVersion, long compVersId, long projectTypeId, long modUserId, long forumCategoryId, double price) throws SQLException, BaseException {
         PreparedStatement ps = null;
         ResultSet rs = null;
-        int phaseId =  (int)projectTypeId+111;
 
         ps = conn.prepareStatement(
                 "select root_category_id " +
@@ -277,7 +276,7 @@ public class ProjectUtil {
         ps.executeUpdate();
         close(ps);
 
-        prepareProjectInfo(conn, compVersId, projectId, modUserId, forumCategoryId, phaseId);
+        prepareProjectInfo(conn, compVersId, projectId, modUserId, forumCategoryId, price);
 
         // Prepare project_audit the modify reason is Created
         ps = conn.prepareStatement("INSERT INTO project_audit " +
@@ -500,7 +499,7 @@ public class ProjectUtil {
         }
     }
 
-    private static void prepareProjectInfo(Connection conn, long compVersId, long projectId, long modUserId, long forumCategoryId, final int phaseId) throws SQLException {
+    private static void prepareProjectInfo(Connection conn, long compVersId, long projectId, long modUserId, long forumCategoryId, final double price) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         long componentId = -1;
@@ -508,7 +507,6 @@ public class ProjectUtil {
         String versionText = "";
         long rootCategoryId = -1;
         String componentName = "";
-        float price = (float) 0.0;
 
         // Retrieve project_info
         // component id, version
@@ -559,20 +557,6 @@ public class ProjectUtil {
             close(rs);
             close(ps);
         }
-
-        // price
-        ps = conn.prepareStatement("SELECT * FROM comp_version_dates WHERE comp_vers_id = ? and phase_id = ?");
-        ps.setLong(1, compVersId);
-        ps.setInt(2, phaseId);
-        rs = ps.executeQuery();
-
-        if (rs.next()) {
-            price = rs.getFloat("price");
-        }
-        System.out.println("price : " + price + " phase " + phaseId);
-
-        close(rs);
-        close(ps);
 
         // Prepare version_id
         ps = conn.prepareStatement("INSERT INTO project_info " +
