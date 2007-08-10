@@ -898,7 +898,6 @@ public class ComponentManagerBean
                     }
                 }
 
-                info.getP
                 long projectId = pt.createProject(
                         versionBean.getCompCatalog().getComponentName(),
                         info.getVersionLabel(),
@@ -908,7 +907,8 @@ public class ComponentManagerBean
                         null,
                         requestor,
                         levelId,
-                        categoryID);
+                        categoryID,
+                        info.getPrice());
 
 
                 if (categoryID >= 0) {
