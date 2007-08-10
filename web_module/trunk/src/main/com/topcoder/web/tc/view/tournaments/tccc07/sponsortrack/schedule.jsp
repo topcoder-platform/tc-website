@@ -27,7 +27,7 @@
                 <h1><span>Schedule of Online Competitions</span></h1>
 
 <p><strong>Registration</strong><br />
-Eligible employees must register separately for the Sponsor Track Competition.  There is no limit to the number of registrants in the competition; however each individual may only register once.  Registration will open at 9:00AM EDT (GMT/UTC -4) on Monday, July 30 and will close at 5:00PM EDT (GMT/UTC -4) on Thursday, August 16, 2007.</p>
+Eligible employees must register separately for the Sponsor Track Competition.  There is no limit to the number of registrants in the competition; however each individual may only register once.  Registration will open at 9:00AM EDT (GMT/UTC -4) on Monday, July 30 and will close at 5:00PM EDT (GMT/UTC -4) on Thursday, August 30, 2007.</p>
 <div align="center">
 <table cellpadding="0" cellspacing="0" class="stat" style="width:450px"> 
     <tbody> 
@@ -36,26 +36,22 @@ Eligible employees must register separately for the Sponsor Track Competition.  
             <td class="header">Date and Time * (all Eastern Daylight Time)</td> 
         </tr> 
         <tr class="light"> 
-            <td class="value">Qualification Round</td> 
-            <td class="value">Thursday, August 23, 2007<br />Arena Sign-in: 6:00 - 8:55 PM<br />START: 9:00 PM</td>
+            <td class="value">Online Round #1</td> 
+            <td class="value">Saturday, September 1, 2007<br />Arena Sign-in: 6:00 - 8:55 PM<br />START: 9:00 PM</td>
         </tr> 
         <tr class="dark"> 
-            <td class="value">Online Round #1</td> 
-            <td class="value">Tuesday, August 28, 2007<br />Arena Sign-in: 6:00 - 8:55 PM<br />START: 9:00 PM</td>
-        </tr> 
-        <tr class="light"> 
             <td class="value">Online Round #2</td> 
             <td class="value">Saturday, September 8, 2007<br />Arena Sign-in: 10:00 AM - 12:55 PM<br />START: 1:00 PM</td> 
         </tr> 
-        <tr class="dark"> 
+        <tr class="light"> 
             <td class="value">Online Round #3</td> 
             <td class="value">Saturday, September 15, 2007<br />Arena Sign-in: 10:00 AM - 12:55 PM<br />START: 1:00 PM</td>
         </tr> 
-        <tr class="light"> 
+        <tr class="dark"> 
             <td class="value">Championship Round</td> 
             <td class="value">Saturday, September 22, 2007<br />Arena Sign-in: 10:00 AM - 12:55 PM<br />START: 1:00 PM</td> 
         </tr> 
-        <tr class="dark"><td class="value" colspan="2">*NOTE:  In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td></tr>
+        <tr class="light"><td class="value" colspan="2">*NOTE:  In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td></tr>
     </tbody> 
 </table>
 <br /><br />

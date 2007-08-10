@@ -31,9 +31,9 @@
 
 <h2>Logging in to the Competition Arena</h2>
 <p>Once the Competition Arena launches, you will be presented with a login screen.</p>
-<div align="center"><img src="/i/tournament/tccc06/arena1.gif" alt="Arena 1" /></div><br />
+<div align="center"><img src="/i/tournament/tccc07/arena1.gif" alt="Arena 1" /></div><br />
 <p>From here, you need simply type in your handle and the password that you chose during the registration process. Once you log in, you will initially be placed in the main chat lobby.</p>
-<div align="center"><img src="/i/tournament/tccc06/arena2.gif" alt="Arena 2" /></div><br />
+<div align="center"><img src="/i/tournament/tccc07/arena2.gif" alt="Arena 2" /></div><br />
 <p>Move to your assigned competition room as follows:</p>
 <ul>
     <li>Click on the "Active Contests" menu item</li>
@@ -43,7 +43,7 @@
 
 <h2>The Competition Room</h2>
 <p>From within the competition room, you will access the problem statements that you will attempt to solve during the Coding Phase.</p>
-<div align="center"><img src="/i/tournament/tccc06/arena3.gif" alt="Arena 3" /></div><br />
+<div align="center"><img src="/i/tournament/tccc07/arena3.gif" alt="Arena 3" /></div><br />
 
 <h2>Coding Phase</h2>
 <p>The Coding Phase is the period during which each contestant attempts to create solutions to three problem statements. In all rounds of the Sponsor Track Competition, the coding phase will last 75 minutes and the contestants will be given three problems to solve.</p>
@@ -58,7 +58,7 @@
 
 <h2>The Coding Window</h2>
 <p>The coding window is the most important part of the Competition Arena. It is in the coding window that the problem statement is shown, and the solutions are coded, compiled, tested, and submitted.</p>
-<div align="center"><img src="/i/tournament/tccc06/arena4.gif" alt="Arena 4" /></div><br />
+<div align="center"><img src="/i/tournament/tccc07/arena4.gif" alt="Arena 4" /></div><br />
 <p><strong>The Problem Statement</strong><br />
 The top pane of the coding window contains the problem statement in its entirety. The problem statement explains exactly what it is that you are attempting to accomplish. It includes an explanation of the task, the class and method definitions that your solution must adhere to, all of the constraints for any input parameters, and examples to help clarify the statement.</p>
 <p><strong>Choosing a Language</strong><br />
@@ -123,7 +123,7 @@ End Class
 </pre>
 <p><strong>Compiling</strong><br />
 Code compilations from within the coding window will take place on TopCoder servers. The language that is chosen in the coding window at the time of the compilation will dictate to which language compiler the compilation request is sent. A compilation request will send the code that is currently in the coding window to the TopCoder compiler. If a compilation is successful, you will be notified of such. If the compilation is not successful, the errors that are returned by the compiler will be displayed to you in the compilation results window. Once a successful compilation is accomplished, the resultant compiled object will be stored on TopCoder's server. Any user test or code submission will always utilize the most recent successfully compiled code. The following is an example of an unsuccessful Java compilation attempt:</p>
-<div align="center"><img src="/i/tournament/tccc06/arena5.gif" alt="Arena 5" /></div><br />
+<div align="center"><img src="/i/tournament/tccc07/arena5.gif" alt="Arena 5" /></div><br />
 <p><strong>User Testing</strong><br />
 Once your code has been successfully compiled, you have the option of executing one or more user tests against the compiled code. The user test will simply show you what your submission will produce for a given set of input parameters that you provide. A user test will not provide information as to whether or not your submission is producing the correct result. You will need to make your own determination as to the correctness of the return result. Performing a user test based on the examples in the problem statement will provide a fairly good measure of the correctness of your solution since the examples will specify what the return value for a given set of input parameters should be. However, the examples do not represent an exhaustive test suite for a given problem - just because your code produces the proper results for all examples does not necessarily mean that it will produce the proper result for other input parameters. Think about potential border cases that may cause variations in the behavior of your solution and test these cases thoroughly.</p>
 <p>If your compiled code executes successfully (without errors) for the input parameters that you've provided, you will be presented with the return value(s) that your code produced. In the event that an error occurs during the execution of your code, you will be presented with the error message(s) that the execution of your code produced.</p>
@@ -131,7 +131,7 @@ Once your code has been successfully compiled, you have the option of executing 
 <p><strong>NOTE:</strong> any standard output (i.e., System.out.println) from the execution of your class/method will be returned to you along with the results of your test. This may be useful for debugging your code. You may want to remove these system outputs prior to submitting to increase the efficiency of your submission.</p>
 <p><strong>The Problem Arguments Window</strong><br />
 When you click on the "Test" button from within the coding window, the "Problem Arguments Window" will appear.</p>
-<div align="center"><img src="/i/tournament/tccc06/arena6.gif" alt="Arena 6" /></div><br />
+<div align="center"><img src="/i/tournament/tccc07/arena6.gif" alt="Arena 6" /></div><br />
 <p>The problem arguments window is where you will create the test case with which you wish to use to test your code. You may either select one of the problem examples, which will populate the test data for you, or you may construct your own test case. When constructing your own test case, each argument to the problem statement will be represented by either an input area (simple data type), or by a "Create" button if the argument is an array (complex data type).</p>
 <p><strong>Simple Data Types</strong><br />
 For all non-array data types - such as int, long, char and String - the test box input dialog will present you with a field to input the data. The data should be input without any quotes or other extra characters. So, if you want to test with the String "abc" you should just type abc into the input field, not "abc".</p>
@@ -156,7 +156,7 @@ At any point after a successful compilation, you have the option to submit your 
 <p>The Challenge Phase will begin five minutes after the end of the Coding Phase (the period in between is an intermission), and will last for 15 minutes.</p>
 <p>During the Challenge Phase, you have the opportunity to view the source code submissions of the other competitors in your room. If you believe that any of the submissions are flawed, you may challenge the submission with a specific test case that you feel will result in that submission returning the wrong result. If your challenge is successful, and the submission returns the wrong result, you will be awarded 50 points and the competitor will lose the points for the challenged submission. However, if your challenge is unsuccessful, and the submission returns the correct result for the test case, you will lose 25 points from your score.</p>
 <p>To challenge a competitor's submission, open the summary window in the competition room by using the "Summary" button.</p>
-<div align="center"><img src="/i/tournament/tccc06/arena7.gif" alt="Arena 7" /></div><br />
+<div align="center"><img src="/i/tournament/tccc07/arena7.gif" alt="Arena 7" /></div><br />
 <p>Double click on any of the point values (shown in green) to view the source code for that submission. When viewing the source code, you will notice a "Challenge" button at the bottom of the window. The Challenge button will bring up the arguments window, allowing you to enter the test case with which to challenge the submission.</p>
 <p>You may only submit a challenge if you have at least zero points at the time of the challenge. A given submission may only be successfully challenged once. If any competitor has already successfully challenged a submission, it may not be further challenged.</p>
 
