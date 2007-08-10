@@ -119,7 +119,7 @@ The simplest marathon problems require your solution to include only a single me
 <p>This is just one example -- genetic algorithms won't apply to every problem -- but this is exactly the type of thought process one goes through during a week-long Marathon Match. Especially in cases where scores are clustered at one or more intervals (often as the result of multiple competitors coming up with the same general approach to the problem), these small enhancements can affect one's rank by several places.</p>
 
 <p><span class="bodySubtitle">What we have learned</span><br>
-Hopefully, what we have discussed thus far helps to offer some insight on how one might approach a problem. In particular, simply thinking for just a few moments about the nature of the problem helps to dictate quite a bit about how a solution might be constructed. In Part 2, coming soon, we will look into some other common patterns and approaches to the problems.</p>
+Hopefully, what we have discussed thus far helps to offer some insight on how one might approach a problem. In particular, simply thinking for just a few moments about the nature of the problem helps to dictate quite a bit about how a solution might be constructed. In <a href="/tc?module=Static&d1=tutorials&d2=mmProblems2">Part 2</a> we will look into some other common patterns and approaches to the problems.</p>
 <p>&nbsp;</p>
 
 <br /><br />

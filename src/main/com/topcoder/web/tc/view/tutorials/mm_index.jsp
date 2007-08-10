@@ -40,26 +40,27 @@
         </jsp:include>
         
 The following articles apply specifically to Marathon Matches. You may also want to review our <a href="/tc?module=Static&d1=tutorials&d2=alg_index">Algorithm Tutorials</a> as well, though, since much of the information in that section can be applied to Marathon Matches.
-<br><br>        
+<br /><br />        
         <table width="100%" border="0" cellspacing="0" cellpadding="3">
             <tr valign=top><td class="bodyText"><b>Author</b></td><td class="bodyText" nowrap=nowrap width="100%"><b>Title</b></td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="21464956" context="marathon"/>
-               </td><td class="bodyText" nowrap=nowrap><strong>An Introduction to Marathon Matches </strong><br>
-               &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=mmIntro"><strong>Part 1</strong></a><br>
-               &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=mmIntro2"><strong>Part 2</strong></a><br>
+               </td><td class="bodyText" nowrap=nowrap><strong>An Introduction to Marathon Matches </strong><br />
+               &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=mmIntro"><strong>Part 1</strong></a><br />
+               &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=mmIntro2"><strong>Part 2</strong></a><br />
             </td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="10407399" context="marathon"/>
-               </td><td class="bodyText" nowrap=nowrap><strong>Stepping up to a Marathon Match problem</strong><br>
-               &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=mmProblems"><strong>Part 1</strong></a><br>
+               </td><td class="bodyText" nowrap=nowrap><strong>Stepping up to a Marathon Match problem</strong><br />
+               &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=mmProblems"><strong>Part 1</strong></a><br />
+               &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=mmProblems2"><strong>Part 2</strong></a><br />
             </td></tr>
             <tr valign="top">
-               <td class="bodyText" colspan="2"><br><a href="/tc?module=Static&d1=help&d2=writeForTC">Write Marathon Match tutorials for TopCoder.com</a></td>
+               <td class="bodyText" colspan="2"><br /><a href="/tc?module=Static&d1=help&d2=writeForTC">Write Marathon Match tutorials for TopCoder.com</a></td>
             </tr>
          </table>
         </div>
-        <p><br></p>
+        <p><br /></p>
         </td>
 <!-- Center Column Ends -->
 
