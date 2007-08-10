@@ -500,6 +500,7 @@ public class ProjectUtil {
     }
 
     private static void prepareProjectInfo(Connection conn, long compVersId, long projectId, long modUserId, long forumCategoryId, final double price) throws SQLException {
+        System.out.println("price " + price);
         PreparedStatement ps = null;
         ResultSet rs = null;
         long componentId = -1;
