@@ -81,7 +81,18 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
+/**
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ *
+ */
 public class PactsInternalServlet extends BaseServlet implements PactsConstants {
+    
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+    
 
     private static final int INT_TYPE = 1;
     private static final int BOOL_TYPE = 2;

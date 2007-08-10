@@ -4,6 +4,8 @@ package com.topcoder.web.tc.controller.legacy.pacts.common;
  * This class holds the data fields of an contract which must be known
  * when adding a new contract to the database.
  *
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
  * @author   Dave Pecora
  * @version  1.00, 03/21/2002
  */
@@ -16,6 +18,12 @@ public class ContractAddition implements java.io.Serializable {
     String contract_desc;
     int status_id;
     long contract_type_id;
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * This constructor builds an ContractAddition from the specified data.

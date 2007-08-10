@@ -7,11 +7,20 @@ import com.topcoder.web.common.NavigationException;
  * to indicate that an input criterion to a search routine was
  * invalid.
  *
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
  * @author  Dave Pecora
  * @version 1.00, 03/14/2002
  */
 
 public class InvalidSearchInputException extends NavigationException {
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+
     /**
      * Constructs a <code>InvalidSearchInputException</code> object
      * with no message.

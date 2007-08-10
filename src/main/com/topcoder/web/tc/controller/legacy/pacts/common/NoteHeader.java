@@ -28,8 +28,19 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import java.util.Map;
 
+/**
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ *
+ */
 public class NoteHeader implements PactsConstants, java.io.Serializable {
 
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+
+    
 /*  Explanation of Members
 *
 *  _id          - DB id of the note
