@@ -5,7 +5,7 @@
     <property name="testclasses" value="${build}/testcases"/>
     <property name="lib.dir" value="lib"/>
     <property name="jars.dir" value="${lib.dir}/jars"/>
-    <property name="confluence.jars" value="${jars.dir}/confluence-2.5.3"/>
+    <property name="confluence.jars" value="${jars.dir}/confluence-2.5.6"/>
     <property name="bin" value="lib/bin"/>
     <property name="src.dir" value="src"/>
     <property name="java" value="${src.dir}/main"/>
@@ -29,7 +29,6 @@
     <target name="main" depends="compile">
     </target>
 
-
     <path id="class.path">
         <pathelement location="${classes}"/>
         <pathelement location="${testclasses}"/>
@@ -39,14 +38,9 @@
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
 
-        <pathelement location="${confluence.jars}/hibernate-2.1.8-atlassian.jar"/>
-        <pathelement location="${confluence.jars}/atlassian-user-2007-05-22.jar"/>
-        <pathelement location="${confluence.jars}/confluence-2.5.3.jar"/>
-        <pathelement location="${confluence.jars}/seraph-0.7.23.jar"/>
-        <pathelement location="${confluence.jars}/atlassian-event-0.2.jar"/>
-        <pathelement location="${confluence.jars}/atlassian-bucket-2007.01.23.jar"/>
-
-
+        <fileset dir="${confluence.jars}">
+            <include name="*.jar"/>
+        </fileset>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
 
     </path>
@@ -60,6 +54,7 @@
     </target>
 
     <target name="compile" depends="init" unless="compile_set">
+        <ant antfile="build_tc.xml" target="jar_shared"/>
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -80,8 +75,8 @@
     </target>
 
 
-    <target name="copy-to-confluence" depends="compile">
-        <copy todir="../confluence-2.5.3/confluence/WEB-INF/classes">
+        <target name="copy-to-confluence" depends="compile">
+        <copy todir="../confluence-2.5.6/confluence/WEB-INF/classes">
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/wiki/**/*.class"/>
             </fileset>
