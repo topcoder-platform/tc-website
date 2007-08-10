@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.10.07<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=MatchDetails&rd=10777">NSA chat before SRM 363</A></span><br><br>
+        Join representatives from NSA at 11:00 AM EDT on Saturday, August 11, before SRM 363, to discuss career opportunities at the agency.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=MatchDetails&rd=10777">details</A> | 
+        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Marathon Match Tutorial" border="0" /><br>08.10.07<br>4:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -160,20 +173,3 @@
         <tc-webtag:forumLink forumID="516841" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Marathon Match Tutorial" border="0" /><br>08.02.07<br>4:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=mmProblems">Stepping up to a Marathon Match problem</A></span><br><br>
-      In a <a href="/tc?module=Static&d1=tutorials&d2=mmIntro">previous tutorial</a> by <tc-webtag:handle coderId="21464956" context="marathon"/>, we learned about how Marathon Matches work, and were provided with some excellent advice on getting ourselves set up and going on a problem, including some very helpful tips on version control and time management. Now, we need to think a bit about solving the problem.</td>
-         <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" context="marathon"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=mmProblems">full story</A> | 
-         <tc-webtag:forumLink forumID="516840" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=mm_index">archive</A>
-   </td></tr>
-   
