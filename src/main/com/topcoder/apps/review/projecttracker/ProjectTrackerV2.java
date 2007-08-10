@@ -7,14 +7,11 @@
 package com.topcoder.apps.review.projecttracker;
 
 import com.topcoder.security.TCSubject;
-
 import com.topcoder.util.errorhandling.BaseException;
 
-import java.rmi.RemoteException;
-
-import java.sql.Date;
-
 import javax.ejb.EJBObject;
+import java.rmi.RemoteException;
+import java.sql.Date;
 
 
 /**
@@ -78,7 +75,7 @@ public interface ProjectTrackerV2 extends EJBObject {
      * @throws RemoteException if error occurs while retrieve data from db
      */
     public long createProject(String projectName, String projectVersion, long compVersId, long projectTypeId,
-        String overview, Date[] dates, TCSubject requestor, long levelId, long forumCategoryId)
+        String overview, Date[] dates, TCSubject requestor, long levelId, long forumCategoryId, double price)
         throws BaseException, RemoteException;
 
     /**

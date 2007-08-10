@@ -898,6 +898,7 @@ public class ComponentManagerBean
                     }
                 }
 
+                info.getP
                 long projectId = pt.createProject(
                         versionBean.getCompCatalog().getComponentName(),
                         info.getVersionLabel(),
