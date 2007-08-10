@@ -6,11 +6,17 @@ import java.util.Date;
 /**
  * Payment for an introductory event component contest.
  *
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
  * @author cucu
  *
  */
-@SuppressWarnings("serial")
 public class IntroEventCompPayment extends ComponentContestReferencePayment {
+
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
 
     /**
      * Create a payment for an introductory event component contest.
