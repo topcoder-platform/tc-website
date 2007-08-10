@@ -323,40 +323,40 @@ public class ProjectUtil {
             long reviewTemplateId = getScorecardId(conn, projectTypeId, 2);
 
             for (int i = 0; i < phases.length; i++) {
-                long phaseId = nextId(PROJECT_PHASE_ID_SEQ);
-                createPhase(conn, projectId, phaseId, phases[i], modUserId);
+                long projectPhaseId = nextId(PROJECT_PHASE_ID_SEQ);
+                createPhase(conn, projectId, projectPhaseId, phases[i], modUserId);
 
                 if (phases[i].getPhaseType().getId() == PHASE_TYPE_REGISTRATION) {
                     // Registration Number
-                    createPhaseCriteria(conn, phaseId, 2, "0", modUserId);
+                    createPhaseCriteria(conn, projectPhaseId, 2, "0", modUserId);
                 }
 
                 if (phases[i].getPhaseType().getId() == PHASE_TYPE_SUBMISSION) {
                     // Submission Number
-                    createPhaseCriteria(conn, phaseId, 3, "0", modUserId);
+                    createPhaseCriteria(conn, projectPhaseId, 3, "0", modUserId);
                 }
                 // 5, 'Manual Screening'
-                createPhaseCriteria(conn, phaseId, 5, "No", modUserId);
+                createPhaseCriteria(conn, projectPhaseId, 5, "No", modUserId);
 
                 if (phases[i].getPhaseType().getId() == PHASE_TYPE_SCREEN) {
                     // Create scorecard id
                     // 1, 'Scorecard ID'
-                    createPhaseCriteria(conn, phaseId, 1, String.valueOf(screenTemplateId), modUserId);
+                    createPhaseCriteria(conn, projectPhaseId, 1, String.valueOf(screenTemplateId), modUserId);
                 }
 
                 if (phases[i].getPhaseType().getId() == PHASE_TYPE_REVIEW) {
                     // Create scorecard id
                     // 1, 'Scorecard ID'
-                    createPhaseCriteria(conn, phaseId, 1, String.valueOf(reviewTemplateId), modUserId);
-                    createPhaseCriteria(conn, phaseId, 6, "3", modUserId);
+                    createPhaseCriteria(conn, projectPhaseId, 1, String.valueOf(reviewTemplateId), modUserId);
+                    createPhaseCriteria(conn, projectPhaseId, 6, "3", modUserId);
                 }
 
                 if (phases[i].getPhaseType().getId() == PHASE_TYPE_APPEAL) {
                     // View Response During Appeal
-                    createPhaseCriteria(conn, phaseId, 4, "No", modUserId);
+                    createPhaseCriteria(conn, projectPhaseId, 4, "No", modUserId);
                 }
 
-                phaseIds.put(phases[i], String.valueOf(phaseId));
+                phaseIds.put(phases[i], String.valueOf(projectPhaseId));
                 dependencies.addAll(Arrays.asList(phases[i].getAllDependencies()));
             }
 
