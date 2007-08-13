@@ -47,6 +47,7 @@
         document.subForm.<%=Constants.MODULE_KEY%>.value = "AdminSendToReview";
         document.subForm.<%=Constants.SUBMISSION_ID%>.value = id;
         document.subForm.<%=Constants.CONTEST_ID%>.value = "";
+        document.subForm.method="POST";
         document.subForm.submit();
     }
     //--></script>
