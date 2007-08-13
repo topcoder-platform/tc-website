@@ -48,17 +48,6 @@
 
     myForm.submit();
   }
-  function resetSort() {
-    var myForm = document.advancersForm;
-    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='';
-    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='';
-    myForm.submit();
-  }
-  function changeView(full) {
-    var myForm = document.advancersForm;
-    myForm.<%=AdvancersBase.FULL_LIST%>.value=full;
-    myForm.submit();
-  }
 </script>
 </head>
 <body>
@@ -85,16 +74,16 @@
                 <tc-webtag:hiddenInput name="<%=AdvancersBase.FULL_LIST%>"/>
 
                 <div align="center">
-                <a href="Javascript:resetSort()">Reset sorting</a>
+                <a href="/tc?module=TCCC07MarathonAdvancers">Reset sorting</a>
 
                 <c:choose>
                     <c:when test="${full}">
-                        | <a href="Javascript:changeView(${!full})">Pages</a>
+                        | <a href="/tc?module=TCCC07MarathonAdvancers&full=false">Pages</a>
                         | Full view
                     </c:when>
                     <c:otherwise>
                         | Page view
-                        | <a href="Javascript:changeView(${!full})">Full view</a>
+                        | <a href="/tc?module=TCCC07MarathonAdvancers&full=true">Full view</a>
                     </c:otherwise>
                 </c:choose>
 
