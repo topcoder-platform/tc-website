@@ -294,15 +294,15 @@ The reason for this is that there are <i>k</i> * (<i>k</i> – 1) / 2 numbers less
 
 <pre>
   public int nthNumber (String N) {
-	long n = Long.parseLong(N), lo = 1, hi = 2000000000;
-	while (lo < hi) {
-		long mid = (lo + hi) / 2;
-		if (mid * (mid + 1) / 2 >= n)
-			hi = mid;
-		else
-			lo = mid + 1;
-	}
-	return (int)lo;
+    long n = Long.parseLong(N), lo = 1, hi = 2000000000;
+    while (lo < hi) {
+        long mid = (lo + hi) / 2;
+        if (mid * (mid + 1) / 2 >= n)
+            hi = mid;
+        else
+            lo = mid + 1;
+    }
+    return (int)lo;
   }
 </pre>
 
