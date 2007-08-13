@@ -80,8 +80,10 @@ public class SendToReview extends Base {
             if (now.after(c.getEndTime())) {
                 if (allSubmissionsReviewed(c)) {
                     if (sub != null) {
+                        log.debug("processing an indvidual submission");
                         processSubmission(sub);
                     } else {
+                        log.debug("processing a whole contest full of submissions");
                         for (Submission s : c.getSubmissions()) {
                             processSubmission(s);
                         }
@@ -104,13 +106,24 @@ public class SendToReview extends Base {
     }
 
     private void processSubmission(Submission s) throws MalformedURLException, RemoteException, ServiceException {
-        if (hasQualifyingRank(s) &&
-                SubmissionStatus.ACTIVE.equals(s.getStatus().getId()) &&
-                s.getReview() != null && ReviewStatus.PASSED.equals(s.getReview().getStatus().getId())) {
-            if (log.isDebugEnabled()) {
-                log.debug("passed all checks, sending " + s.getId() + " to OR");
+        try {
+            if (hasQualifyingRank(s) &&
+                    SubmissionStatus.ACTIVE.equals(s.getStatus().getId()) &&
+                    s.getReview() != null && ReviewStatus.PASSED.equals(s.getReview().getStatus().getId())) {
+                if (log.isDebugEnabled()) {
+                    log.debug("passed all checks, sending " + s.getId() + " to OR");
+                }
+                s.setORSubmission(DAOUtil.getFactory().getSubmissionDAO().find(uploadSubmission(s)));
             }
-            s.setORSubmission(DAOUtil.getFactory().getSubmissionDAO().find(uploadSubmission(s)));
+        } catch (ServiceException e) {
+            log.error("ServiceException failed when attempting to send submission " + s.getId());
+            throw e;
+        } catch (MalformedURLException e) {
+            log.error("MalformedURLException failed when attempting to send submission " + s.getId());
+            throw e;
+        } catch (RemoteException e) {
+            log.error("RemoteException failed when attempting to send submission " + s.getId());
+            throw e;
         }
     }
 
