@@ -87,7 +87,7 @@ public class SendToReview extends Base {
                         }
                     }
                     setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
-                            "=AdminSendToReviewResult&" + Constants.CONTEST_ID + "=" + contestId);
+                            "=AdminSendToReviewResult&" + Constants.CONTEST_ID + "=" + c.getId());
                     setIsNextPageInContext(false);
 
                 } else {
