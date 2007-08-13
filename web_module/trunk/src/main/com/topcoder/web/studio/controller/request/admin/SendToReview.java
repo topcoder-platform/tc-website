@@ -8,9 +8,9 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ReviewStatus;
 import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionStatus;
+import com.topcoder.web.studio.model.ReviewStatus;
 import org.apache.axis.client.Call;
 import org.apache.axis.client.Service;
 import org.apache.axis.encoding.XMLType;
@@ -81,11 +81,27 @@ public class SendToReview extends Base {
                 if (allSubmissionsReviewed(c)) {
                     if (sub != null) {
                         log.debug("processing an indvidual submission");
-                        processSubmission(sub);
+                        if (hasQualifyingRank(sub)) {
+                            if (SubmissionStatus.ACTIVE.equals(sub.getStatus().getId())) {
+                                if (sub.getReview() != null && ReviewStatus.PASSED.equals(sub.getReview().getStatus().getId())) {
+                                    processSubmission(sub);
+                                } else {
+                                    throw new NavigationException("Submission has not passed screening.");
+                                }
+                            } else {
+                                throw new NavigationException("Submission is not active.");
+                            }
+                        } else {
+                            throw new NavigationException("Submission rank does not qualify it for inclusion");
+                        }
                     } else {
                         log.debug("processing a whole contest full of submissions");
                         for (Submission s : c.getSubmissions()) {
-                            processSubmission(s);
+                            if (hasQualifyingRank(s) &&
+                                    SubmissionStatus.ACTIVE.equals(s.getStatus().getId()) &&
+                                    s.getReview() != null && ReviewStatus.PASSED.equals(s.getReview().getStatus().getId())) {
+                                processSubmission(s);
+                            }
                         }
                     }
                     setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
@@ -107,14 +123,10 @@ public class SendToReview extends Base {
 
     private void processSubmission(Submission s) throws MalformedURLException, RemoteException, ServiceException {
         try {
-            if (hasQualifyingRank(s) &&
-                    SubmissionStatus.ACTIVE.equals(s.getStatus().getId()) &&
-                    s.getReview() != null && ReviewStatus.PASSED.equals(s.getReview().getStatus().getId())) {
                 if (log.isDebugEnabled()) {
                     log.debug("passed all checks, sending " + s.getId() + " to OR");
                 }
                 s.setORSubmission(DAOUtil.getFactory().getSubmissionDAO().find(uploadSubmission(s)));
-            }
         } catch (ServiceException e) {
             log.error("ServiceException failed when attempting to send submission " + s.getId());
             throw e;
