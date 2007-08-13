@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>08.13.07<br>3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=081307">Going pro: Turning TopCoder into my full-time job</A></span><br><br>
+      What does it take to leave your job and commit to TopCoder projects full-time? In this article, <tc-webtag:handle coderId="151743" context="design"/> talks about how he did it, and some of the things he's learned along the way.</td>
+         <td class="newsPhoto"><img src="/i/m/Ghostar_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="151743" context="design"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=081307">full story</A> | 
+         <tc-webtag:forumLink forumID="517014" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.13.07<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=professor&d4=description">Got a great teacher? Take them to Disney World!</A></span><br><br>
@@ -157,21 +173,5 @@
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco07&d3=movies' refer='/tc' />">details</A> | 
         <tc-webtag:forumLink forumID="516866" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.03.07<br>1:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm361">SRM 361 - Problem Set &amp; Analysis</A></span><br><br>
-      This match, with the money prizes sponsored by TopCoder itself, attracted 1109 coders, including 5 targets. They faced a tricky set of problems in both divisions. Unfortunately, due to an error in one of the problems, the results from Division 2 had to be removed from the statistics.</td>
-         <td class="newsPhoto"><img src="/i/m/slex_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="8382018" context="algorithm" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm361">full story</A> | 
-         <tc-webtag:forumLink forumID="516058" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
