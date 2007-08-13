@@ -84,6 +84,7 @@
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="GET" name="subForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminViewSubmissions"/>
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+<tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>"/>
 <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
 <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
 <input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
