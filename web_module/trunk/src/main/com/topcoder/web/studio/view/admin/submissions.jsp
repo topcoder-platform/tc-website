@@ -108,7 +108,7 @@ Show submissions by (Enter Handle):
 <tbody>
 <tr>
     <td class="NW">&nbsp;</td>
-    <td class="title" colspan="10">Submissions</td>
+    <td class="title" colspan="11">Submissions</td>
     <td class="NE">&nbsp;</td>
 </tr>
 <tr>
@@ -182,6 +182,9 @@ Show submissions by (Enter Handle):
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("placed")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Placed</a>
             </c:otherwise>
         </c:choose>
+    </td>
+    <td class="headerC">
+        OR
     </td>
     <td class="headerE">
         <div>&nbsp;</div>
@@ -265,13 +268,22 @@ Show submissions by (Enter Handle):
             </c:otherwise>
         </c:choose>
         </td>
+        <td class="valueC">
+            <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="sendToReviewForm${resultRow.map['submission_id']}">
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSendToReview"/>
+                <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${resultRow.map['submission_id']}"/>
+                <button name="submit" value="submit" type="submit">
+                    Send To OR
+                </button>
+            </form>
+        </td>
         <td class="valueE">
             <div>&nbsp;</div>
         </td>
     </tr>
 </rsc:iterator>
 <tr>
-    <td class="SW" colspan="11">&nbsp;</td>
+    <td class="SW" colspan="12">&nbsp;</td>
     <td class="SE">&nbsp;</td>
 </tr>
 </tbody>
