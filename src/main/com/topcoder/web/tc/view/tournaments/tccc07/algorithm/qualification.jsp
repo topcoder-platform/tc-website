@@ -110,10 +110,10 @@
 <tr class="<%=(even ? "dark" : "light")%>">
 
 <td class="value">${resultRow.map["seed"]}</td>
-<td class="value"><tc-webtag:handle coderId='${resultRow.map["coder_id"]' context="algorithm"/></td>
-<td class="valueC" nowrap="nowrap"><c:out value="${resultRow.map['round_name']" default="Bye"/></td>
+<td class="value"><tc-webtag:handle coderId='${resultRow.map["coder_id"]}' context="algorithm"/></td>
+<td class="valueC" nowrap="nowrap"><c:out value="${resultRow.map['round_name']}" default="Bye"/></td>
 <td class="valueR">${resultRow.map["rating"]}</td>
-<td class="valueR"><c:out value="${resultRow.map['points']" format="0.00" default="Bye"/></td>
+<td class="valueR"><c:out value="${resultRow.map['points']}" format="0.00" default="Bye"/></td>
 </tr><%even = !even;%></rsc:iterator>
 
                 </tbody>
