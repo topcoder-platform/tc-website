@@ -65,7 +65,6 @@ with an 81.82% success rate (though only 11 coders managed to submit it).</p>
 challenges (despite failing 2 others). Close behind was <tc-webtag:handle coderId="22664055" context="hs_algorithm"/>
 (who was on top after the coding phase), followed by <tc-webtag:handle coderId="22686287" context="hs_algorithm"/>,
 who was one of the 2 lucky guys that had their brute force medium solution passed.
-
 </p> 
 
  
@@ -76,7 +75,7 @@ The Problems
 
 </H1>
 
-</p> 
+
 
 <font size="+2"> 
 
