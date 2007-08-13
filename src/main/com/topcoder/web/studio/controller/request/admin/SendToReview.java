@@ -35,51 +35,79 @@ public class SendToReview extends Base {
     protected void dbProcessing() throws Exception {
 
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
+        String submissionId = getRequest().getParameter(Constants.SUBMISSION_ID);
+
+        Long sid = null;
 
         if ("".equals(StringUtils.checkNull(contestId))) {
-            throw new NavigationException("No contest specified");
-        } else {
-            StudioDAOFactory factory = StudioDAOUtil.getFactory();
-            Date now = new Date();
-            Long cid;
+            if ("".equals(StringUtils.checkNull(submissionId))) {
+                throw new NavigationException("No contest or submission specified");
+            } else {
+                try {
+                    sid = new Long(submissionId);
+                } catch (NumberFormatException e) {
+                    throw new NavigationException("Invalid submission id specified");
+                }
+
+            }
+        }
+
+
+        StudioDAOFactory factory = StudioDAOUtil.getFactory();
+        Date now = new Date();
+
+        Long cid;
+        Contest c;
+        Submission sub = null;
+        if (sid == null) {
             try {
                 cid = new Long(contestId);
             } catch (NumberFormatException e) {
                 throw new NavigationException("Invalid contest id specified");
             }
-            Contest c = factory.getContestDAO().find(cid);
-            //check if all the submissions in the contest have been reviewed.
+            c = factory.getContestDAO().find(cid);
+        } else {
+            sub = factory.getSubmissionDAO().find(sid);
+            c = sub.getContest();
+        }
 
-            int count = 0;
-            if (c.getProject() != null) {
-                if (now.after(c.getEndTime())) {
-                    if (allSubmissionsReviewed(c)) {
-                        for (Submission s : c.getSubmissions()) {
-                            if (hasQualifyingRank(s) &&
-                                    SubmissionStatus.ACTIVE.equals(s.getStatus().getId()) &&
-                                    s.getReview() != null && ReviewStatus.PASSED.equals(s.getReview().getStatus().getId())) {
-                                if (log.isDebugEnabled()) {
-                                    log.debug("passed all checks, sending " + s.getId() + " to OR");
-                                }
-                                s.setORSubmission(DAOUtil.getFactory().getSubmissionDAO().find(uploadSubmission(s)));
-                                count++;
-                            }
-                        }
-                        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
-                                "=AdminSendToReviewResult&" + Constants.CONTEST_ID + "=" + contestId);
-                        setIsNextPageInContext(false);
+        //check if all the submissions in the contest have been reviewed.
 
+        if (c.getProject() != null) {
+            if (now.after(c.getEndTime())) {
+                if (allSubmissionsReviewed(c)) {
+                    if (sub != null) {
+                        processSubmission(sub);
                     } else {
-                        throw new NavigationException("Be sure to review all the submissions before attempting to send them to online review");
+                        for (Submission s : c.getSubmissions()) {
+                            processSubmission(s);
+                        }
                     }
+                    setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
+                            "=AdminSendToReviewResult&" + Constants.CONTEST_ID + "=" + contestId);
+                    setIsNextPageInContext(false);
 
                 } else {
-                    throw new NavigationException("Sorry, you can't send submissions to online review until the submission phase is over.");
+                    throw new NavigationException("Be sure to review all the submissions before attempting to send them to online review");
                 }
 
             } else {
-                throw new NavigationException("Sorry, this contest is not associated with a project in Online Review.");
+                throw new NavigationException("Sorry, you can't send submissions to online review until the submission phase is over.");
             }
+
+        } else {
+            throw new NavigationException("Sorry, this contest is not associated with a project in Online Review.");
+        }
+    }
+
+    private void processSubmission(Submission s) throws MalformedURLException, RemoteException, ServiceException {
+        if (hasQualifyingRank(s) &&
+                SubmissionStatus.ACTIVE.equals(s.getStatus().getId()) &&
+                s.getReview() != null && ReviewStatus.PASSED.equals(s.getReview().getStatus().getId())) {
+            if (log.isDebugEnabled()) {
+                log.debug("passed all checks, sending " + s.getId() + " to OR");
+            }
+            s.setORSubmission(DAOUtil.getFactory().getSubmissionDAO().find(uploadSubmission(s)));
         }
     }
 
