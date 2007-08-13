@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=081307"><strong>Going pro: Turning TopCoder into my full-time job</strong></a>, by <tc-webtag:handle coderId="151743" context="design"/><br>
+What does it take to leave your job and commit to TopCoder projects full-time? In this article, <tc-webtag:handle coderId="151743" context="design"/> talks about how he did it, and some of the things he's learned along the way.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=mmProblems2"><strong>Stepping up to a Marathon Match problem, Part 2</strong></a>, by <tc-webtag:handle coderId="10407399" /><br>
 In <a href="/tc?module=Static&d1=tutorials&d2=mmProblems">Part 1</a>, we talked a bit about the simplest type of problem, where we are asked to write a single method that takes a set of inputs and returns a specified output.  How do we approach more complicated types of problems?</li>
 <li><a href="/tc?module=Static&d1=features&d2=080607"><strong>An Interview with kalinov</strong></a>, by <tc-webtag:handle coderId="21620711" /><br>
 Get to know more about <tc-webtag:handle coderId="310333" context="algorithm"/>, TopCoder's current #12-ranked Algorithm coder, from his start in coding and his TopCoder successes to his hobbies and personal favorites.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=mmProblems"><strong>Stepping up to a Marathon Match problem</strong></a>, by <tc-webtag:handle coderId="10407399" /><br>
-In a <a href="/tc?module=Static&d1=tutorials&d2=mmIntro">previous tutorial</a> by <tc-webtag:handle coderId="21464956" context="marathon"/>, we learned about how Marathon Matches work, and were provided with some excellent advice on getting ourselves set up and going on a problem, including some very helpful tips on version control and time management. Now, we need to think a bit about solving the problem.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
