@@ -43,6 +43,12 @@
     Contests</A></div>
 
 <h1>Edit Contest Details</h1>
+<c:if test="${not empty contest.submissions}">
+    <p>
+        <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submissions</a>
+    </p>    
+</c:if>
+
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditContest"/>
