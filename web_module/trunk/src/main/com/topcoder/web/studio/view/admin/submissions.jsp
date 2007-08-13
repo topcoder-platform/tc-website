@@ -4,12 +4,14 @@
 <%@ page import="com.topcoder.web.studio.model.SubmissionStatus" %>
 <%@ page import="com.topcoder.web.studio.model.SubmissionType" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="currentTime" value="<%=new Date()%>"/>
+<c:set var="passed" value="<%=ReviewStatus.PASSED%>"/>
 
 <% ResultSetContainer submissions = (ResultSetContainer) request.getAttribute("submissions");%>
 
@@ -273,7 +275,7 @@ Show submissions by (Enter Handle):
             </c:otherwise>
         </c:choose>
         </td>
-        <c:if test="${currentTime>contest.endTime}">
+        <c:if test="${currentTime>contest.endTime && resultRow['review_status_id']==passed}">
             <td class="valueC">
                 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="sendToReviewForm${resultRow.map['submission_id']}">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSendToReview"/>
