@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.13.07<br>1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=professor&d4=description">Got a great teacher? Take them to Disney World!</A></span><br><br>
+        Do you have a special professor that deserves recognition? With the 2007 TopCoder Collegiate Challenge Prestigious Professor Award program, tell us why they stand out, and you both could win a trip to the TCCC07 at Disney World! Learn more at <a href="http://www.topcoder.com/nominate">topcoder.com/nominate</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=professor&d4=description">details</A> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.10.07<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=MatchDetails&rd=10777">NSA chat before SRM 363</A></span><br><br>
@@ -161,15 +175,3 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br>08.02.07<br>6:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=pressroom&d2=art_080207">Fox TV: "Top Computer Programmers Compete"</A></span><br><br>
-        The Chicago Fox TV affiliate recently ran a story on TopCoder featuring an interview with <tc-webtag:handle coderId="144400" context="algorithm"/> and an (unidentified) TopCoder employee.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=pressroom&d2=art_080207">details</A> | 
-        <tc-webtag:forumLink forumID="516841" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
