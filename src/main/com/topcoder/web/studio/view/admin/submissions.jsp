@@ -288,7 +288,15 @@ Show submissions by (Enter Handle):
                 <c:choose>
                     <c:when test="${resultRow.map['review_status_id']==passed}">
                             <button name="submit${resultRow.map['submission_id']}" value="submit" type="submit" onclick="sendToReview(${resultRow.map['submission_id']})">
-                                Send To OR
+                                <c:choose>
+                                    <c:when test="${empty resultRow.map['or_submission_id']}">
+                                        Send To OR
+                                    </c:when>
+                                    <c:otherwise>
+                                        Resend To OR
+                                    </c:otherwise>
+                                </c:choose>
+
                             </button>
                     </c:when>
                     <c:otherwise>

@@ -115,6 +115,7 @@ public class ViewSubmissions extends Base {
             query.append(" , cr.final_score");
             query.append(" , cr.placed");
             query.append(" , rs.review_status_id");
+            query.append(" , s.or_submission_id");
 
             from.append(" from submission s");
             from.append(" , user u");
