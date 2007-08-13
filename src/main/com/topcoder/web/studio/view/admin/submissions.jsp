@@ -43,6 +43,12 @@
         document.subForm.<%=Constants.HANDLE%>.value = '<%=request.getParameter(Constants.HANDLE)==null?"":request.getParameter(Constants.HANDLE)%>';
         document.subForm.submit();
     }
+    function sendToReview(id) {
+        document.subForm.<%=Constants.MODULE_KEY%>.value = "AdminSendToReview";
+        document.subForm.<%=Constants.SUBMISSION_ID%>.value = id;
+        document.subForm.<%=Constants.CONTEST_ID%>.value = "";
+        document.subForm.submit();
+    }
     //--></script>
 
 </head>
@@ -279,13 +285,9 @@ Show submissions by (Enter Handle):
             <td class="valueC">
                 <c:choose>
                     <c:when test="${resultRow.map['review_status_id']==passed}">
-                        <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="sendToReviewForm${resultRow.map['submission_id']}">
-                            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSendToReview"/>
-                            <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${resultRow.map['submission_id']}"/>
-                            <button name="submit${resultRow.map['submission_id']}" value="submit" type="submit">
+                            <button name="submit${resultRow.map['submission_id']}" value="submit" type="submit" onclick="sendToReview(${resultRow['submission_id']})">
                                 Send To OR
                             </button>
-                        </form>
                     </c:when>
                     <c:otherwise>
                         &nbsp;
