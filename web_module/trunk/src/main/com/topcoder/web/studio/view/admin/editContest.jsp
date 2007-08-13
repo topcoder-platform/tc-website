@@ -42,12 +42,21 @@
 <div class="linkBox"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">back to
     Contests</A></div>
 
-<h1>Edit Contest Details</h1>
-<c:if test="${not empty contest.submissions}">
-    <p>
-        <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submissions</a>
-    </p>    
+
+<c:if test="${!contest.new}">
+    <div class="breadcrumb">
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">Contests</a>
+        &gt;
+        ${contest.name}
+        <c:if test="${not empty contest.submissions}">
+            &gt;
+            <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">submissions</a>
+        </c:if>
+    </div>
 </c:if>
+
+
+<h1>Edit Contest Details</h1>
 
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
