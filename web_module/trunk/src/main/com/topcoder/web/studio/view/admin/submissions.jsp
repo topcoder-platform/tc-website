@@ -275,15 +275,22 @@ Show submissions by (Enter Handle):
             </c:otherwise>
         </c:choose>
         </td>
-        <c:if test="${currentTime>contest.endTime && resultRow['review_status_id']==passed}">
+        <c:if test="${currentTime>contest.endTime}">
             <td class="valueC">
-                <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="sendToReviewForm${resultRow.map['submission_id']}">
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSendToReview"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${resultRow.map['submission_id']}"/>
-                    <button name="submit${resultRow.map['submission_id']}" value="submit" type="submit">
-                        Send To OR
-                    </button>
-                </form>
+                <c:choose>
+                    <c:when test="${resultRow.map['review_status_id']==passed}">
+                        <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="sendToReviewForm${resultRow.map['submission_id']}">
+                            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSendToReview"/>
+                            <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${resultRow.map['submission_id']}"/>
+                            <button name="submit${resultRow.map['submission_id']}" value="submit" type="submit">
+                                Send To OR
+                            </button>
+                        </form>
+                    </c:when>
+                    <c:otherwise>
+                        &nbsp;
+                    </c:otherwise>
+                </c:choose>
             </td>
         </c:if>
         <td class="valueE">
