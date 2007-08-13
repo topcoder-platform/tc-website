@@ -27,6 +27,14 @@
 <div class="contentSpacer">
 
 <p>
+    2.0.7 - 2007.08.13
+    <ul>
+        <li>Allow an admin to send a single submission to online review -dok</li>
+    </ul>
+
+</p>
+
+<p>
     2.0.6 - 2007.08.07
     <ul>
         <li>Allow for a single submission to win more than one prize -dok</li>
