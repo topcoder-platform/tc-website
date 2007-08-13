@@ -52,7 +52,7 @@ New Software Reports
 
     <LI><A HREF="<%=baseTCSUrl+"component_timelines"%>">Component Timelines</a></LI>
     <LI><A HREF="<%=baseTCSUrl+"fulfillment"%>">Component Fulfillment</a></LI>
-    <LI><A HREF="<%=baseTCSUrl+"security_reviews"%>">Sec</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"security_reviews"%>">Security Reviews</a></LI>
 
 
 </UL>
