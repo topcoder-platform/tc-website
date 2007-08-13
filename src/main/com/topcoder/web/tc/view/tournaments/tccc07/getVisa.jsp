@@ -31,7 +31,7 @@
                 <a target="_blank" alt="Countries that DO NOT require a visa" href="<tc-webtag:linkTracking link='http://travel.state.gov/visa/temp/without/without_1990.html#countries' refer='TCCC07_getVisa' />">http://travel.state.gov/visa/temp/without/without_1990.html#countries</a></p>
                 
                 <h2>Why should I get it early?</h2>
-                <p>Getting your travel documents well in advance of your travel dates is important. If you require a visa, the application process could be lengthy. In some countries, it can take over a month. We strongly suggest you begin the process as soon as possible.</p>
+                <p>Getting your travel documents well in advance of your travel dates is important. If you require a visa, the application process could be lengthy. In some countries, it can take over a month. <a href="/tc?module=Static&d1=features&d2=073007" target="_blank">We strongly suggest you begin the process as soon as possible.</a></p>
                 
                 <h2>What is involved in applying for a visa?</h2>
                 <p>The visa application process is an interview at the US Embassy explaining your trip to the United States. You should apply for a travel/tourist visa and be sure to let them know that you are only staying in the United States for a short time. It's a good idea to have the following information available at your interview:</p>
