@@ -8,6 +8,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
@@ -109,11 +110,10 @@
 <rsc:iterator list="<%=rsc%>" id="resultRow">
 <tr class="<%=(even ? "dark" : "light")%>">
 
-<td class="value">${resultRow.map["seed"]}</td>
 <td class="value"><tc-webtag:handle coderId='${resultRow.map["coder_id"]}' context="algorithm"/></td>
-<td class="valueC" nowrap="nowrap"><c:out value="resultRow.map['round_name']" default="Bye"/></td>
+<td class="valueC" nowrap="nowrap"><c:out value="${resultRow.map['round_name']}" default="Bye"/></td>
 <td class="valueR">${resultRow.map["rating"]}</td>
-<td class="valueR"><c:out value="resultRow.map['points']" format="0.00" default="Bye"/></td>
+<td class="valueR"><c:choose><c:when test="${resultRow.map['points']==null}">Bye</c:when><c:otherwise><fmt:formatNumber value="${resultRow.map['points']}"  pattern="#.00"/></c:otherwise></c:choose></td>
 </tr><%even = !even;%></rsc:iterator>
 
                 </tbody>
