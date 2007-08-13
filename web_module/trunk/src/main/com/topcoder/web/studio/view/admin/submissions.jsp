@@ -285,7 +285,7 @@ Show submissions by (Enter Handle):
             <td class="valueC">
                 <c:choose>
                     <c:when test="${resultRow.map['review_status_id']==passed}">
-                            <button name="submit${resultRow.map['submission_id']}" value="submit" type="submit" onclick="sendToReview(${resultRow['submission_id']})">
+                            <button name="submit${resultRow.map['submission_id']}" value="submit" type="submit" onclick="sendToReview(${resultRow.map['submission_id']})">
                                 Send To OR
                             </button>
                     </c:when>
