@@ -277,7 +277,7 @@ Show submissions by (Enter Handle):
             <td class="valueC">
                 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="sendToReviewForm${resultRow.map['submission_id']}">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSendToReview"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${resultRow.map['submission_id']}"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${resultRow.map['submission_id']}"/>
                     <button name="submit${resultRow.map['submission_id']}" value="submit" type="submit">
                         Send To OR
                     </button>

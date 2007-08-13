@@ -36,6 +36,9 @@ public class SendToReview extends Base {
 
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
         String submissionId = getRequest().getParameter(Constants.SUBMISSION_ID);
+        if (log.isDebugEnabled()) {
+            log.debug("contest " + contestId + " submission " + submissionId);
+        }
 
         Long sid = null;
 
