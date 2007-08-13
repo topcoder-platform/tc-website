@@ -101,7 +101,7 @@
 <p>Savings are another thing we are still tweaking. My wife and I both have ROTH IRA&rsquo;s that we contribute our maximum amount to each year. We will probably be looking into a 401(k) or similar account at some time in the near future.</p>
 <p><strong>Q: What are the pros and cons of doing TopCoder work full-time? </strong></p>
 <p>The plusses are a much larger salary than I could ever expect in my area, a flexible schedule, lots of free time, the ability to only do the work I want to do, and the chance to work on new technology. I honestly think I am extremely lucky to be able to do this, I can&rsquo;t think of a better job to have. With the Digital Run, I have absolutely no desire or incentive to even look for new opportunities, since there is no way they could be anywhere near as good as doing TopCoder work.</p>
-<p>The cons are minor compared to the pros. I don&rsquo;t like not having anyone to talk to in my office. The highlight of my last job was basically just talking to people and having fun with co-workers. The complexities of taxes and insurance aren&rsquo;t fun, but once you get the figured out, they really aren&rsquo;t a  big deal.</p>
+<p>The cons are minor compared to the pros. I don&rsquo;t like not having anyone to talk to in my office. The highlight of my last job was basically just talking to people and having fun with co-workers. The complexities of taxes and insurance aren&rsquo;t fun, but once you get that figured out, they really aren&rsquo;t a  big deal.</p>
 <p>&nbsp; </p>
 <p><em>What's your TopCoder story? We're looking for new educational tutorials and feature articles -- if you've got ideas, email them to <a href="mailto:editorial@topcoder.com">editorial@topcoder.com</a>.</em> </p>
 <p>&nbsp;</p>
