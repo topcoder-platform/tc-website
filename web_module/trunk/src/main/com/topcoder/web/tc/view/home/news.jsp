@@ -4,7 +4,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.14.07<br>3:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>08.14.07<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2118">TopCoder Arena Navigation Wireframe Design Contest</A></span><br><br>
         Taking too long getting from Point A to Point B the arena? Now's your chance to tell us how you think the navigation should work. TopCoder's looking for the most intuitive navigation structure for the arena in the latest Studio contest. Check it out!</td>
@@ -12,7 +12,7 @@
    <tr><td class="newsLinksCell">
         <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2118">full story</A> | 
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=86">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
 <%--------------------------------------------------------%>
