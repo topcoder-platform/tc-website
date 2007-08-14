@@ -43,6 +43,7 @@
 
     myForm.submit();
   }
+  </script>
 </head>
 <body>
 
@@ -152,8 +153,6 @@
                         </div>
                     </c:if>
                 </form>
-</div>
-
             </div>
     </div>
     <jsp:include page="../footer.jsp" />
