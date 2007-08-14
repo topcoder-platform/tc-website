@@ -113,31 +113,30 @@
                             | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                         </div>
                     </c:if>
-                </div>
-                <br /><br />
+                    <br />
                 
-                <table cellspacing="0" cellpadding="0" class="stat" style="width: 400px">
-                <thead>
-                    <tr>
-                        <td class="title" colspan="3">
-                        Sections
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="headerC">
-                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
-                        </td>
-                        <td class="header" width="100%">
-                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
-                            <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
-                        </td>
-                        <td class="headerR">
-                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
-                        </td>
-                    </tr>
-                </thead>
-                <tbody>
-                <%boolean even = false;%>
+                    <table cellspacing="0" cellpadding="0" class="stat" style="width: 400px">
+                    <thead>
+                        <tr>
+                            <td class="title" colspan="3">
+                            Sections
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="headerC">
+                                <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
+                            </td>
+                            <td class="header" width="100%">
+                                <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
+                                <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
+                            </td>
+                            <td class="headerR">
+                                <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <%boolean even = false;%>
 <%-- formatting this crappy to save space in the download to the client --%>
 <rsc:iterator list="<%=rsc%>" id="resultRow">
 <tr class="<%=(even ? "dark" : "light")%>">
@@ -145,8 +144,9 @@
 <td class="value"><tc-webtag:handle coderId='${resultRow.map["coder_id"]}' context="algorithm"/></td>
 <td class="valueR">${resultRow.map["rating"]}</td>
 </tr><%even = !even;%></rsc:iterator>
-</tbody>
-</table>
+                    </tbody>
+                    </table>
+                </div>
                 <br />
                 <c:if test="${!full}">
                     <div align="center">

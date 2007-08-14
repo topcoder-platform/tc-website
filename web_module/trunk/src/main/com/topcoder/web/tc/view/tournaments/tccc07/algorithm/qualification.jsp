@@ -84,8 +84,7 @@
                             | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                         </div>
                     </c:if>
-                </div>
-                <br /><br />
+                <br />
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 400px;">
                 <thead>
@@ -119,6 +118,7 @@
 
                 </tbody>
                 </table>
+                </div>
                 <br />
                     <c:if test="${!full}">
                         <div align="center">
