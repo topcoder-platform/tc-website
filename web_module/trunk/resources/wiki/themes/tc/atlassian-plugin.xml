@@ -66,20 +66,20 @@
         <package name="leftnavigation" extends="default" namespace="/themes/leftnavigation">
             <default-interceptor-ref name="defaultStack" />
 
-            <action name="configuretheme" class="com.atlassian.confluence.extra.leftnavigation.ConfigureThemeAction" method="doDefault">
+            <action name="configuretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction" method="doDefault">
                 <result name="input" type="velocity">/templates/leftnavigation/configuretheme.vm</result>
             </action>
 
-            <action name="doconfiguretheme" class="com.atlassian.confluence.extra.leftnavigation.ConfigureThemeAction">
+            <action name="doconfiguretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction">
                 <result name="success" type="redirect">/spaces/choosetheme.action?key=${key}</result>
             </action>
         </package>
         <package name="leftnavigation-admin" extends="default" namespace="/admin/themes/leftnavigation">
         <default-interceptor-ref name="defaultStack" />
-            <action name="configuretheme" class="com.atlassian.confluence.extra.leftnavigation.ConfigureThemeAction" method="doDefault">
+            <action name="configuretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction" method="doDefault">
                 <result name="input" type="velocity">/templates/leftnavigation/configurethemeadmin.vm</result>
             </action>
-            <action name="doconfiguretheme" class="com.atlassian.confluence.extra.leftnavigation.ConfigureThemeAction">
+            <action name="doconfiguretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction">
                 <result name="success" type="redirect">/admin/choosetheme.action</result>
             </action>
         </package>
