@@ -59,8 +59,8 @@
                   location="templates/leftnavigation/panels/spaceadminpanel.vmd"/>
     </layout>
 
-    <velocity-context-item key="velocityHelper" name="Velocity Helper" class="com.atlassian.confluence.extra.leftnavigation.LeftNavVelocityHelper"
-            context-key="leftNav"/>
+    <velocity-context-item key="velocityHelper" name="Velocity Helper" class="com.topcoder.web.wiki.themes.tc.LeftNavVelocityHelper"
+            context-key="tc"/>
 
     <xwork name="themeaction" key="themeaction">
         <package name="leftnavigation" extends="default" namespace="/themes/leftnavigation">
