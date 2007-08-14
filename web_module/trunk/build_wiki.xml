@@ -15,6 +15,7 @@
     <property name="conf" value="conf"/>
     <property name="shared.jar" value="${bin}/shared.jar"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="tc_theme.jar" value="${bin}/tc_theme.jar"/>
     <property name="web" value="src/main/com/topcoder/web"/>
     <property name="jboss_home" value="../jboss-4.2.0.GA"/>
     <property name="jboss_deploy" value="${jboss_home}/server/wiki/deploy"/>
@@ -75,13 +76,29 @@
     </target>
 
 
-        <target name="copy-to-confluence" depends="compile">
+    <target name="copy-to-confluence" depends="compile">
         <copy todir="../confluence-2.5.6/confluence/WEB-INF/classes">
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/wiki/**/*.class"/>
             </fileset>
         </copy>
-         
+        <copy todir="../confluence-2.5.6/confluence/WEB-INF/lib" file="${tc_theme.jar}"/>
+
+    </target>
+
+    <target name="jar-tc-theme" depends="compile">
+
+        <jar destfile="${tc_theme.jar}" update="true">
+            <fileset dir="${resources}/wiki/themes/tc/">
+                <include name="**/*"/>
+            </fileset>
+            <fileset dir="${classes}">
+                <include name="com/topcoder/web/wiki/themes/tc/**/*.class"/>
+            </fileset>
+            
+        </jar>
+
+
     </target>
 
 
