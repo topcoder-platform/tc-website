@@ -64,7 +64,7 @@
 
             <form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07AlgorithmSections"/>
-                <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>" value=${rd}/>
+                <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>" value="${rd}"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
                 <tc-webtag:hiddenInput name="<%=AdvancersBase.FULL_LIST%>"/>
