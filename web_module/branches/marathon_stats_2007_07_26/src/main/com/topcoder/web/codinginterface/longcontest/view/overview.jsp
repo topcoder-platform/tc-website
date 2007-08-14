@@ -11,6 +11,7 @@
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
@@ -98,6 +99,8 @@ Please select a contest:<br>
 
 
 <span class="bigHandle">Contest: ${infoRow.map['contest_name']} &gt; ${infoRow.map['ROUND_name']}</span>
+<mm:contestLink roundId="${infoRow.map['round_id']}" roundTypeId="${infoRow.map['round_type_id']}" contestName="${infoRow.map['contest_name']}" roundName="${infoRow.map['round_name']}" />
+
 <br>
 <span class="bodySubtitle">Categories:
 <c:choose>
