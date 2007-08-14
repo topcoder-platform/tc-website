@@ -48,6 +48,8 @@
     <ul>
     <%--<li>Made some refactoring to avoid com.topcoder.web.common -> com.topcooder.web.tc dependencies -cucu, pulky</li>
         <li>fixes in the PactsClientServices to avoid distributing PactsServices -pulky</li> --%>
+        <li>Added tccc07 algo and marathon results pages -pulky</li>
+        <li>Added tccc07 algo qualification and section pages -pulky</li>
     </ul>
 </p>
 
