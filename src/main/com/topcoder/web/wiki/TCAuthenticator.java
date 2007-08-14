@@ -46,6 +46,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             if (user != null) {
 
                 //todo check for user status and email status potentially
+                //todo remove from topcoder-staff group if they are not an admin
                 try {
                     if (authenticate(userName, password)) {
                         if (getUserAccessor().getUser(userName) == null) {

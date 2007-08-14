@@ -76,7 +76,7 @@
     </target>
 
 
-    <target name="copy-to-confluence" depends="compile">
+    <target name="copy-to-confluence" depends="jar-tc-theme">
         <copy todir="../confluence-2.5.6/confluence/WEB-INF/classes">
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/wiki/**/*.class"/>
@@ -95,7 +95,7 @@
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/wiki/themes/tc/**/*.class"/>
             </fileset>
-            
+
         </jar>
 
 
