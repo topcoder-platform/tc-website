@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
@@ -177,9 +178,25 @@ public abstract class AdvancersBase extends Base {
         Request dataRequest = new Request();
         dataRequest.setContentHandle(getCommandName());
         DataAccessInt dai = getDataAccess(getDataSourceName(), true);
+        
+        // check if there are params to add
+        Map filteredMap = getFilter();
+        if (filteredMap.size() > 0) {
+            dataRequest.setProperties(filteredMap);
+        }
+        
         Map result = dai.getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) result.get(dataRequest.getContentHandle());
         return rsc;
+    }
+
+    /**
+     * Base implementation returns an emtpy Map
+     * 
+     * @return a Map with the filter for the data retrieval
+     */
+    protected Map getFilter() throws TCWebException {
+        return new HashMap();
     }    
 }
