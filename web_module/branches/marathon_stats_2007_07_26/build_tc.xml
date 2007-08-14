@@ -133,7 +133,7 @@
         </javac>
         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
-	<property name="compile_shared_set" value="true"/>
+    <property name="compile_shared_set" value="true"/>
     </target>
 
     <target name="compile" depends="init,jar_shared" unless="compile_set">
@@ -187,7 +187,7 @@
                 <include name="com/topcoder/shared/**/*.class"/>
             </fileset>
         </jar>
-	<property name="jar_shared_set" value="true"/>
+    <property name="jar_shared_set" value="true"/>
     </target>
 
     <target name="jar_common" depends="">
@@ -503,9 +503,9 @@
     <target name="build-sars" depends="compile">
         <jar jarfile="${sar.dir}/expireOldAffidavitsAndPayments.sar" basedir="${classes}"
              includes="com/topcoder/utilities/pacts/ExpireOldAffidavitsAndPayments*,
-             		com/topcoder/web/tc/controller/legacy/pacts/bean/*.class,
-             		com/topcoder/web/tc/controller/legacy/pacts/common/*.class,
-             		com/topcoder/web/ejb/pacts/*.class">
+                    com/topcoder/web/tc/controller/legacy/pacts/bean/*.class,
+                    com/topcoder/web/tc/controller/legacy/pacts/common/*.class,
+                    com/topcoder/web/ejb/pacts/*.class">
 
             <metainf dir="${java}/com/topcoder/utilities/pacts" includes="*.xml"/>
         </jar>
@@ -1331,6 +1331,9 @@
             <webinf dir="${struts.dir}">
                 <include name="struts-logic.tld"/>
             </webinf>
+            <webinf dir="${java}/com/topcoder/web/codinginterface/longcontest/view/">
+                <include name="tags/*.tag"/>
+            </webinf>            
             <lib dir="${struts.dir}">
                 <include name="*.jar"/>
             </lib>

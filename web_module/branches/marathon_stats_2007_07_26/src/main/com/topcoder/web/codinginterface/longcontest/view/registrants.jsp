@@ -10,6 +10,8 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
+<%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
+
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
 <% String myNode = "long_compete";
     String image = "long_comps_topcoder";
@@ -76,8 +78,13 @@
                     ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_contest_round_registrants_info");
                     ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) rsc.get(0);
                 %>
-
-                <span class="bigHandle">Contest: <A href="?module=ViewStandings&rd=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink"><rsc:item name="contest_name" row="<%=infoRow%>"/> &gt; <rsc:item name="round_name" row="<%=infoRow%>"/></A></span><br>
+TAG:<mm:contestLink/>
+                <span class="bigHandle">Contest: <A href="?module=ViewStandings&rd=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink">
+                <rsc:item name="contest_name" row="<%=infoRow%>"/> &gt; <rsc:item name="round_name" row="<%=infoRow%>"/>
+                
+                </A></span><br>
+                
+                
                 <span class="bodySubtitle">Registrants: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
 
                <div style="clear: both;" align="center">

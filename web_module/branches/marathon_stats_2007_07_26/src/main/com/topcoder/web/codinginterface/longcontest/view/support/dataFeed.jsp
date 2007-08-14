@@ -70,8 +70,8 @@
     <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_coder_list</strong>
 </p>
 
-<p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Active Marathon Coder List</span><br/>
-    This feed provides a list of coders who have been rated in a marathon competition within the last 180 days.
+<p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Active Marathon Match Coder List</span><br/>
+    This feed provides a list of coders who have been rated in a marathon match competition within the last 180 days.
     It includes the following fields:
     <ul>
         <li>user id</li>
@@ -86,14 +86,16 @@
 </p>
 
 <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Marathon Match Rating History</span><br/>
-    This feed provides data about the marathon rating history for a particular competitor.
+    This feed provides data about the marathon match rating history for a particular competitor.
     It includes the following fields:
     <ul>
         <li>handle</li>
         <li>user id</li>
         <li>round id</li>
-        <li>round short name</li>
-        <li>round name</li>
+        <li>problem id</li>
+        <li>full name</li>
+        <li>short name</li>
+        <li>number of rated events of the coder after the match</li>
         <li>date</li>
         <li>old rating</li>
         <li>new rating</li>
