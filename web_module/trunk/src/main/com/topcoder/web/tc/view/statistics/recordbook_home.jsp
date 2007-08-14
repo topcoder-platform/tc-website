@@ -119,7 +119,9 @@
                 </td>
                 <td>
                     <strong>Consecutive SRM Appearances</strong><br>
-                    This chart represents the longest consecutive appearances in Single Round Matches.<br>
+                    This chart represents the longest consecutive appearances in Single Round Matches.
+                    It includes only rated events.<br>
+                    <%-- we should probably change this so that all matches that didn't "fail" count --%>
                     <a href="/stat?&amp;c=consecutive_srm_appearances">Overall</a>
                 </td>
             </tr>
