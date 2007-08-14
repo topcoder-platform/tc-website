@@ -33,6 +33,7 @@
     myForm.<%=DataAccessConstants.START_RANK%>.value= parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) + parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
     myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
     myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+    myForm.<%=Constants.ROUND_ID%>.value='${rd}';
     myForm.submit();
   }
   function previous() {
@@ -40,7 +41,7 @@
     myForm.<%=DataAccessConstants.START_RANK%>.value-=parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
     myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
     myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
-
+    myForm.<%=Constants.ROUND_ID%>.value='${rd}';
     myForm.submit();
   }
   </script>
@@ -94,6 +95,19 @@
                     </p>
                 </c:if>
                 
+                <a href="/tc?module=TCCC07AlgorithmQualification">Reset sorting</a>
+
+                <c:choose>
+                    <c:when test="${full}">
+                        | <a href="/tc?module=TCCC07AlgorithmSections&rd=${rd}&full=false">Pages</a>
+                        | Full view
+                    </c:when>
+                    <c:otherwise>
+                        | Page view
+                        | <a href="/tc?module=TCCC07AlgorithmSections&rd=${rd}&full=true">Full view</a>
+                    </c:otherwise>
+                </c:choose>
+
                 <br />
                     <c:if test="${!full}">
                         <div class="pagingBox">
