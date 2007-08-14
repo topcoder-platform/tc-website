@@ -89,7 +89,7 @@
                 The net result of all this work: An easy to use, consistent UML modeling tool for use in Design and Development competitions. The new tool was built to model sequence, class, use case, and activity diagrams, and all items in the diagrams can have documentation easily attached to them. Going forward, the UML Tool will be used as a replacement to the Gentleware Poseidon tool currently in use.
                 </p>
                 <p>
-                Though it is now available for download, of course, the work isn't entirely over. "I anticipate the tool being heavily modified by designers and developers alike and tailored to individual needs," says Ghostar. "This customizability will greatly enhance the speed at which the entire TopCoder process will work; I know I have a few planned features I'd like to implement that will make <a href="/tc?module=Static&d1=features&d2=081307">my life as a designer</a> a lot easier."
+                Though it is now available for download, of course, the work isn't entirely over. "I anticipate the tool being heavily modified by designers and developers alike and tailored to individual needs," says Ghostar. "This flexibility will greatly enhance the speed at which the entire TopCoder process will work; I know I have a few planned features I'd like to implement that will make <a href="/tc?module=Static&d1=features&d2=081307">my life as a designer</a> a lot easier."
                 </p>
                 <p>
                 Interested in trying it out? <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=download">Download the TopCoder UML Tool</a> now.
