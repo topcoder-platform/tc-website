@@ -98,8 +98,10 @@ Please select a contest:<br>
 <br><br>
 
 
-<span class="bigHandle">Contest: <mm:contest roundTypeId="${infoRow.map['round_type_id']}" contestName="${infoRow.map['contest_name']}" roundName="${infoRow.map['round_name']}" />
+<span class="bigHandle">Contest: <mm:contest roundTypeId="${infoRow.map['round_type_id']}" contestName="${infoRow.map['contest_name']}" roundName="${infoRow.map['round_name']}" /></span>
 
+<br>
+<span class="bodySubtitle">Problem: </span>
 <br>
 <span class="bodySubtitle">Categories:
 <c:choose>
