@@ -5,7 +5,7 @@
 <%@ attribute name="styleClass" required="false" %>
 
 
-<a href="?module=ViewStandings&rd=${roundId}" class="bcLink">
+<a href="?module=ViewStandings&rd="${roundId}" class="bcLink">
 
 ${contestName }- ${roundName} , ${roundTypeId }
 </a>
