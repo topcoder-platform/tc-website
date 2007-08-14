@@ -1,4 +1,5 @@
-<%@ attribute name="row" required="true" type="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" %>
+<%@ tag import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" %>
+<%@ attribute name="row" required="true" type="ResultSetRow" %>
 <%@ attribute name="styleClass" required="false" %>
 
 
