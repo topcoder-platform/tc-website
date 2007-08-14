@@ -80,8 +80,11 @@
                     ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) rsc.get(0);
                 %>
                 
+                <c:set var="info" value="${infoRow}" />
                 <span class="bigHandle">Contest: <mm:contestLink roundId="${info.map['round_id']}" roundTypeId="${info.map['round_type_id']}" contestName="${info.map['contest_name']}" roundName="${info.map['round_name']}" styleClass="bcLink" /></span><br>
                 
+			<span class="bodySubtitle">Problem: <a href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=${info.map['round_id']}&<%=Constants.PROBLEM_ID%>=${info.map['problem_id']}" class="bcLink">
+			          ${infoRow.map['problem_name']}</a></span>
                 
                 <span class="bodySubtitle">Registrants: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
 
