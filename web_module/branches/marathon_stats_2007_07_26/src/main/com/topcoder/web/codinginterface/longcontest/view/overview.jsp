@@ -101,8 +101,8 @@ Please select a contest:<br>
 <span class="bigHandle">Contest: <mm:contest roundTypeId="${infoRow.map['round_type_id']}" contestName="${infoRow.map['contest_name']}" roundName="${infoRow.map['round_name']}" /></span>
 
 <br>
-      <span class="bodySubtitle">Problem: <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}"/>&<%=Constants.PROBLEM_ID%>=${infoRow.map['problem_id']}" class="bcLink">
-          ${infoRow.map['problem_name']}</a></span><br>
+      <span class="bodySubtitle">Problem: <a href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}&<%=Constants.PROBLEM_ID%>=${infoRow.map['problem_id']}" class="bcLink">
+          ${infoRow.map['problem_name']}</a></span>
 
 <br>
 <span class="bodySubtitle">Categories:
@@ -119,9 +119,6 @@ Please select a contest:<br>
 <br>
 Competitors: ${infoRow.map['num_competitors']}<br>
 Avg. Submissions: <fmt:formatNumber value="${infoRow.map['avg_submissions']}"  minFractionDigits="2" maxFractionDigits="2"/></span><br>
-<A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}&<%=Constants.PROBLEM_ID%>=${infoRow.map['problem_id']}" class="bcLink">Problem
-    Statement</A><br>
-
 <c:set var="forumId" value="<%= request.getAttribute(Constants.FORUM_ID) %>" />
 <c:if test="${not empty forumId}">
 	<tc-webtag:forumLink forumID="${forumId}" message="Discuss this contest"/>
