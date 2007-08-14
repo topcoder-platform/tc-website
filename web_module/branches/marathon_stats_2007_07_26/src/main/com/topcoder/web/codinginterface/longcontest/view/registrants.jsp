@@ -80,12 +80,10 @@
                     ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) rsc.get(0);
                 %>
                 
-                <c:set var="info" value="${infoRow}" />
-                infoRow=${infoRow }---<%=infoRow %>
-                <span class="bigHandle">Contest: <mm:contestLink roundId="${info.map['round_id']}" roundTypeId="${info.map['round_type_id']}" contestName="${info.map['contest_name']}" roundName="${info.map['round_name']}" styleClass="bcLink" /></span><br>
+                <span class="bigHandle">Contest: <mm:contestLink roundId="<%=infoRow.getStringItem("round_id") %>" roundTypeId="<%=infoRow.getStringItem("round_type_id") %>" contestName="<%=infoRow.getStringItem("contest_name") %>" roundName="<%=infoRow.getStringItem("round_name") %>" styleClass="bcLink" /></span><br>
                 
-			<span class="bodySubtitle">Problem: <a href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=${info.map['round_id']}&<%=Constants.PROBLEM_ID%>=${info.map['problem_id']}" class="bcLink">
-			          ${infoRow.map['problem_name']}</a></span><br>
+			<span class="bodySubtitle">Problem: <a href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=infoRow.getStringItem("round_id") %>&<%=Constants.PROBLEM_ID%>=<%=infoRow.getStringItem("problem_id") %>" class="bcLink">
+			          <rsc:item name="problem_name" row="<%=infoRow%>"/></a></span><br>
                 
                 <span class="bodySubtitle">Registrants: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
 
