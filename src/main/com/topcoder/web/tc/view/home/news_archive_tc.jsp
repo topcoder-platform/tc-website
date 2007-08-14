@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%"> 
+<tr class="bodyText"><td nowrap="nowrap">08.14.07 3:00 PM - </td><td width="100%"><A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2118">TopCoder Arena Navigation Wireframe Design Contest</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.09.07 2:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=umltool&d3=description">Introducing the TopCoder UML Tool</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.25.07 4:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=sponsors&d2=btChat20070721">BT SRM 359 chat session transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.19.07 3:00 PM - </td><td width="100%"><A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1007">British Telecom Mashup Design Competition open for registration</A></td></tr>
