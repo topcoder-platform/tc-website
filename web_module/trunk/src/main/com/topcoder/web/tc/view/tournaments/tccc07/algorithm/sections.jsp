@@ -60,55 +60,55 @@
         <jsp:param name="tabLev3" value="sections"/>
         </jsp:include>
 
-            <div id="pageBody">
+        <div id="pageBody">
 
-                        <h1><span>Sections</span></h1>
+            <h1><span>Sections</span></h1>
 
-                <form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
+            <form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07AlgorithmSections"/>
                 <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
                 <tc-webtag:hiddenInput name="<%=AdvancersBase.FULL_LIST%>"/>
 
-<div align="center">
-
-                <c:if test="${rd == round1A_id}">
-                    <p align="center">
-                    Section A
-                    | <A href="/tc?module=TCCC07AlgorithmSections&rd=${round1B_id}">Section B</A>
-                    | <A href="/tc?module=TCCC07AlgorithmSections&rd=${round1C_id}">Section C</A>
-                    </p>
-                </c:if>
-                <c:if test="${rd == round1B_id}">
-                    <p align="center">
-                    <A href="/tc?module=TCCC07AlgorithmSections&rd=${round1A_id}">Section A</A>
-                    | Section B
-                    | <A href="/tc?module=TCCC07AlgorithmSections&rd=${round1C_id}">Section C</A>
-                    </p>
-                </c:if>
-                <c:if test="${rd == round1C_id}">
-                    <p align="center">
-                    <A href="/tc?module=TCCC07AlgorithmSections&rd=${round1A_id}">Section A</A>
-                    | <A href="/tc?module=TCCC07AlgorithmSections&rd=${round1B_id}">Section B</A>
-                    | Section C
-                    </p>
-                </c:if>
-                
-                <a href="/tc?module=TCCC07AlgorithmQualification">Reset sorting</a>
-
-                <c:choose>
-                    <c:when test="${full}">
-                        | <a href="/tc?module=TCCC07AlgorithmSections&rd=${rd}&full=false">Pages</a>
-                        | Full view
-                    </c:when>
-                    <c:otherwise>
-                        | Page view
-                        | <a href="/tc?module=TCCC07AlgorithmSections&rd=${rd}&full=true">Full view</a>
-                    </c:otherwise>
-                </c:choose>
-
-                <br />
+                <div align="center">
+    
+                    <c:if test="${rd == round1A_id}">
+                        <p align="center">
+                        Section A
+                        | <A href="/tc?module=TCCC07AlgorithmSections&rd=${round1B_id}">Section B</A>
+                        | <A href="/tc?module=TCCC07AlgorithmSections&rd=${round1C_id}">Section C</A>
+                        </p>
+                    </c:if>
+                    <c:if test="${rd == round1B_id}">
+                        <p align="center">
+                        <A href="/tc?module=TCCC07AlgorithmSections&rd=${round1A_id}">Section A</A>
+                        | Section B
+                        | <A href="/tc?module=TCCC07AlgorithmSections&rd=${round1C_id}">Section C</A>
+                        </p>
+                    </c:if>
+                    <c:if test="${rd == round1C_id}">
+                        <p align="center">
+                        <A href="/tc?module=TCCC07AlgorithmSections&rd=${round1A_id}">Section A</A>
+                        | <A href="/tc?module=TCCC07AlgorithmSections&rd=${round1B_id}">Section B</A>
+                        | Section C
+                        </p>
+                    </c:if>
+                    
+                    <a href="/tc?module=TCCC07AlgorithmSections&rd=${rd}">Reset sorting</a>
+    
+                    <c:choose>
+                        <c:when test="${full}">
+                            | <a href="/tc?module=TCCC07AlgorithmSections&rd=${rd}&full=false">Pages</a>
+                            | Full view
+                        </c:when>
+                        <c:otherwise>
+                            | Page view
+                            | <a href="/tc?module=TCCC07AlgorithmSections&rd=${rd}&full=true">Full view</a>
+                        </c:otherwise>
+                    </c:choose>
+    
+                    <br />
                     <c:if test="${!full}">
                         <div class="pagingBox">
                             <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
@@ -117,29 +117,29 @@
                     </c:if>
                 </div>
                 <br /><br />
-
-<table cellspacing="0" cellpadding="0" class="stat" style="width: 400px">
-<thead>
-    <tr>
-        <td class="title" colspan="3">
-        Sections
-        </td>
-    </tr>
-    <tr>
-        <td class="headerC">
-            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
-        </td>
-        <td class="header" width="100%">
-            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
-            <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
-        </td>
-        <td class="headerR">
-            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
-        </td>
-    </tr>
-</thead>
-<tbody>
-<%boolean even = false;%>
+                
+                <table cellspacing="0" cellpadding="0" class="stat" style="width: 400px">
+                <thead>
+                    <tr>
+                        <td class="title" colspan="3">
+                        Sections
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="headerC">
+                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
+                        </td>
+                        <td class="header" width="100%">
+                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
+                            <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
+                        </td>
+                        <td class="headerR">
+                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                <%boolean even = false;%>
 <%-- formatting this crappy to save space in the download to the client --%>
 <rsc:iterator list="<%=rsc%>" id="resultRow">
 <tr class="<%=(even ? "dark" : "light")%>">
@@ -150,24 +150,24 @@
 </tbody>
 </table>
                 <br />
-                    <c:if test="${!full}">
-                        <div align="center">
-                            <div class="pagingBox">
-                               <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                               | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
-                            
-                               <br>
-                            
-                               View &#160;
-                               <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
-                               &#160;at a time starting with &#160;
-                               <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
-                                <button name="nameSubmit" value="submit" type="submit">Go</button>
-                            </div>
+                <c:if test="${!full}">
+                    <div align="center">
+                        <div class="pagingBox">
+                           <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                           | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+                        
+                           <br>
+                        
+                           View &#160;
+                           <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
+                           &#160;at a time starting with &#160;
+                           <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
+                            <button name="nameSubmit" value="submit" type="submit">Go</button>
                         </div>
-                    </c:if>
-                </form>
-            </div>
+                    </div>
+                </c:if>
+            </form>
+        </div>
     </div>
     <jsp:include page="../footer.jsp" />
     </div>
