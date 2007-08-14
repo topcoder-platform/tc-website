@@ -4,12 +4,10 @@
 <%@ attribute name="contestName" required="true"  %>
 <%@ attribute name="styleClass" required="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
 
 
 <a href="?module=ViewStandings&rd=${roundId}" class="bcLink">
-<c:choose>
-	<c:when test="${roundTypeId == 19}">${contestName} ${roundName}</c:when>
-	<c:otherwise>${roundName}</c:otherwise>
-</c:choose>
+<mm:contest roundName="${roundName}" contestName="${contestName}" roundTypeId="${roundTypeId }" />
 </a>
 
