@@ -78,7 +78,8 @@
                     ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_contest_round_registrants_info");
                     ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) rsc.get(0);
                 %>
-TAG:<mm:contestLink row="${infoRow }" />
+TAG:<mm:contestLink roundId="${infoRow.map['round_id']}" roundTypeId="${infoRow.map['round_type_id']}" contestName="${infoRow.map['contest_name']}" roundName="${infoRow.map['round_name']}" />
+
                 <span class="bigHandle">Contest: <A href="?module=ViewStandings&rd=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink">
                 <rsc:item name="contest_name" row="<%=infoRow%>"/> &gt; <rsc:item name="round_name" row="<%=infoRow%>"/>
                 
