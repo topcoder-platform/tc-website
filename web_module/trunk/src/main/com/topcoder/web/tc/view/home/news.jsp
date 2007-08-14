@@ -2,7 +2,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%---------------------------------
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.14.07<br>9:00 AM</td>
       <td class="newsTextCell">
@@ -17,7 +17,7 @@
          <tc-webtag:forumLink forumID="516563" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
-   -----------------------%>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>08.13.07<br>3:30 PM</td>
