@@ -1,12 +1,12 @@
-<atlassian-plugin name="Left Navigation Theme" key="com.topcoder.web.wiki.themes.tc" enabled="false">
+<atlassian-plugin name="TopCoder Site Theme" key="com.topcoder.web.wiki.themes.tc" enabled="false">
    <plugin-info>
        <description>This theme matches the TopCoder site http://www.topcoder.com/tc</description>
        <vendor name="TopCoder" url="http://www.topcoder.com/"/>
        <version>1.0</version>
    </plugin-info>
 
-    <theme key="tc" i18n-name-key="com.atlassian.confluence.themes.leftnavigation.name" name="Left Navigation Theme" class="com.atlassian.confluence.themes.BasicTheme">
-        <description key="com.atlassian.confluence.themes.leftnavigation.desc">This theme matches the TopCoder site http://www.topcoder.com/tc</description>
+    <theme key="tctheme" i18n-name-key="com.topcoder.web.wiki.themes.tc.name" name="TopCoder Site Theme" class="com.atlassian.confluence.themes.BasicTheme">
+        <description key="com.topcoder.web.wiki.themes.tc.desc">This theme matches the TopCoder site http://www.topcoder.com/tc</description>
         <layout key="com.atlassian.confluence.themes.leftnavigation:main"/>
         <layout key="com.atlassian.confluence.themes.leftnavigation:page"/>
         <layout key="com.atlassian.confluence.themes.leftnavigation:mail"/>
