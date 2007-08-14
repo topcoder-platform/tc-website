@@ -53,6 +53,7 @@
 <span class="bodyText">
 <br><br>
 <strong>Record:</strong> This chart represents the longest consecutive SRM appearances.  It includes only rated events.
+    <%-- we should probably change this so that all matches that didn't "fail" count --%>
 </span>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 510px; margin-right: 15px; margin-bottom: 15px;">
