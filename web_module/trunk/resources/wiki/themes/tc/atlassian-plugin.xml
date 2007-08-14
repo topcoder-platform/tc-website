@@ -1,4 +1,4 @@
-<atlassian-plugin name="Left Navigation Theme" key="com.atlassian.confluence.themes.leftnavigation" enabled="false">
+<atlassian-plugin name="Left Navigation Theme" key="com.topcoder.web.wiki.themes.tc" enabled="false">
    <plugin-info>
        <description>This theme matches the TopCoder site http://www.topcoder.com/tc</description>
        <vendor name="TopCoder" url="http://www.topcoder.com/"/>
