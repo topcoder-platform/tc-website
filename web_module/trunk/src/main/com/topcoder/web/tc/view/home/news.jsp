@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.14.07<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2118">TopCoder Arena Navigation Wireframe Design Contest</A></span><br><br>
+        Taking too long getting from Point A to Point B the arena? Now's your chance to tell us how you think the navigation should work. TopCoder's looking for the most intuitive navigation structure for the arena in the latest Studio contest. Check it out!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2118">full story</A> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=86">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.14.07<br>9:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -160,21 +173,5 @@
         <A href="http://forums.topcoder.com/?module=Thread&threadID=583850">discuss this</A> | 
         <%--<tc-webtag:forumLink forumID="516841" message="discuss this" /> | --%>
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>08.06.07<br>3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=080607">An Interview with kalinov</A></span><br><br>
-      Get to know more about <tc-webtag:handle coderId="310333" context="algorithm"/>, TopCoder's current #12-ranked Algorithm coder, from his start in coding and his TopCoder successes to his hobbies and personal favorites.</td>
-         <td class="newsPhoto"><img src="/i/m/rajeshrathod_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="21620711" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=080607">full story</A> | 
-         <tc-webtag:forumLink forumID="516867" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
