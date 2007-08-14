@@ -98,8 +98,7 @@ Please select a contest:<br>
 <br><br>
 
 
-<span class="bigHandle">Contest: ${infoRow.map['contest_name']} &gt; ${infoRow.map['ROUND_name']}</span>
-<mm:contestLink roundId="${infoRow.map['round_id']}" roundTypeId="${infoRow.map['round_type_id']}" contestName="${infoRow.map['contest_name']}" roundName="${infoRow.map['round_name']}" />
+<span class="bigHandle">Contest: <mm:contest roundTypeId="${infoRow.map['round_type_id']}" contestName="${infoRow.map['contest_name']}" roundName="${infoRow.map['round_name']}" />
 
 <br>
 <span class="bodySubtitle">Categories:
