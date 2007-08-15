@@ -88,7 +88,8 @@ return false;
 			   <c:forEach items="${matches}" var="row" varStatus="status">
 			       <tr class='${status.index % 2 == 1? "dark" : "light" }'>
 						<td class="value" nowrap="nowrap">
-							<a href="/longcontest/?module=ViewOverview&rd=${row.map['round_id']}"/>${row.map['name']}</a>							
+							<a href="/longcontest/?module=ViewOverview&rd=${row.map['round_id']}"/>${row.map['name']}</a>		
+							displayName: ${row.map['display_name']}					
 						</td>
 						<td class="valueC"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
 						<td class="valueR">${row.map['num_competitors']}</td>

@@ -90,7 +90,8 @@
                             <% pageContext.setAttribute("sponsorImage", ((LongContest) contest).getSponsorImage());%>
                             <div style="float: right; margin-left: 4px;">
                                 <ci:sponsorImage image="sponsorImage" alt="Sponsor" border="0" ifNull=""/></div>
-                            <strong><mm:contest roundTypeId="${contest.roundTypeId}" contestName="${contest.contestName}" roundName="${contest.roundName}" />                            
+                            <strong>                       
+                            <mm:contest roundTypeId="${contest.roundTypeId}" contestName="${contest.contestName}" roundName="${contest.roundName}" />                            
                             </strong>
                             <div style="margin: 6px 10px;">
                                 <logic:notEqual name="contest" property="forumId" value="0">
