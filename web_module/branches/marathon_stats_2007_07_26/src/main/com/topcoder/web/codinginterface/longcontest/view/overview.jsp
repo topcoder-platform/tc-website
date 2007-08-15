@@ -97,20 +97,19 @@ Please select a contest:<br>
 <tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="${rounds}" fieldText="name" fieldValue="round_id"  onChange="goTo(this)" useTopValue="false"/>
 <br><br>
 
-
 <span class="bigHandle">Contest: <mm:contest roundTypeId="${infoRow.map['round_type_id']}" contestName="${infoRow.map['contest_name']}" roundName="${infoRow.map['round_name']}" /></span>
 
 <br>
       <span class="bodySubtitle">Problem: <a href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}&<%=Constants.PROBLEM_ID%>=${infoRow.map['problem_id']}" class="bcLink">
           ${infoRow.map['problem_name']}</a></span>
 
-<br>
+<br>                
 <span class="bodySubtitle">Categories:
 <c:choose>
 	<c:when test="${empty categories}">None</c:when>
 	<c:otherwise>
 		<c:forEach var="category" items="${categories}" varStatus="status">
-			<c:if test="${not status.first}">, </c:if>
+            <c:if test="${not status.first}">, </c:if>
 			${category.map['problem_category_desc'] }
 		</c:forEach>
 	</c:otherwise>

@@ -1,6 +1,7 @@
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.DataAccessConstants,
-           com.topcoder.web.tc.Constants"%>
+           com.topcoder.web.tc.Constants,
+            com.topcoder.web.codinginterface.longcontest.controller.request.MatchWinners"%>
           
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -95,12 +96,12 @@ return false;
 			<table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
 			   <tr><td class="title" colspan="6">Marathon Match Winners</td></tr>
 			   <tr>
-			      <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />">Date</a></td>
-			      <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true" excludeParams="sr" />">Match</a></td>
-			      <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">
+			      <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%= MatchWinners.DATE_COLUMN %>" includeParams="true" excludeParams="sr" />">Date</a></td>
+			      <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%= MatchWinners.NAME_COLUMN %>" includeParams="true" excludeParams="sr" />">Match</a></td>
+			      <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%= MatchWinners.HANDLE_COLUMN %>" includeParams="true" excludeParams="sr" />">
 			      				Winner<c:if test="${not ungrouped }">(s)</c:if>
 			              </a></td>
-			      <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="4" includeParams="true" excludeParams="sr" />">Wins</a>*</td>
+			      <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%= MatchWinners.NUM_WINS_COLUMN %>" includeParams="true" excludeParams="sr" />">Wins</a>*</td>
 			   </tr>
 			   <c:forEach items="${list}" var="row" varStatus="status">
 			   		<c:set var="roundId" value="r${row.map['round_id']}" />

@@ -112,8 +112,8 @@ return false;
                         <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
                         <a href="javascript:document.matchListForm.submit();" class="bcLink">&#160;[ submit ]</a>
                     </div>
-		</center>
-
+		</center>        
+ 
                     </form>
                 </td>
 
