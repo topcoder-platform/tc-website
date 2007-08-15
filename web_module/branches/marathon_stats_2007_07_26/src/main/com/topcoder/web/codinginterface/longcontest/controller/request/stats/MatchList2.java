@@ -5,8 +5,10 @@ import java.util.Map;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
@@ -19,6 +21,10 @@ import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 public class MatchList2 extends Base {
 
     protected void longContestProcessing() throws TCWebException {
+        if (getUser().isAnonymous()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
+        
         try {
             Request r = new Request();
 
