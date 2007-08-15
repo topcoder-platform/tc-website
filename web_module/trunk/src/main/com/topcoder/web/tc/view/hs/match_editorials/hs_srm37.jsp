@@ -434,9 +434,9 @@ It is now obvious that
 <tt>A[i][j][w]</tt> =
 <tt>A[i-1][j][w]</tt> <tt>OR</tt>
 <tt>A[i-1][j-1][w-weight<sub>i-1</sub>]</tt>. 
-Moreover, if the second theorem is satisfied, the <i>i</i>-th wrestler can be used, and will be the weightest.
+Moreover, if the second theorem is satisfied, the <i>i</i>-th wrestler can be used, and will be the weightiest.
 
-This idea will brings us a solution with a time complextiy O(maxWeight * <i>n</i><sup>3</sup>), 
+This idea will bring us a solution with a time complexity O(maxWeight * <i>n</i><sup>3</sup>), 
 which is close to the time limit.
 </p>
 
@@ -447,10 +447,10 @@ For instance, from weights {80,90,100,110} and averageWeight=95 we obtain values
 So, the last task is to balance a zero weight from such modified values by using as big a weight as possible. 
 According to this, we can erase the third index in the previous solution.
 Let <tt>B[i][w]</tt> be true if, out of first <i>i</i> values, we can  balance the weight <i>w</i>. It is now obvious that
-<tt>B[w][i]</tt> =
-<tt>B[w][i-1]</tt> <tt>OR</tt>
-<tt>B[w-weight<sub>i-1</sub>][i-1]</tt>. 
-Moreover, the <i>i</i>-th wrestler can be used in balancing as the weightiest if the value <tt>B[0][i]</tt> is also satisfied by the second term from the previous formula.
+<tt>B[i][w]</tt> =
+<tt>B[i-1][w]</tt> <tt>OR</tt>
+<tt>B[i-1][w-weight<sub>i-1</sub>]</tt>. 
+Moreover, the <i>i</i>-th wrestler can be used in balancing as the weightiest if the value <tt>B[i][0]</tt> is also satisfied by the second term from the previous formula.
 
 This idea brings us a solution with a time complexity O(maxWeight * <i>n</i><sup>2</sup>). 
 The following code is an implementation of that.
