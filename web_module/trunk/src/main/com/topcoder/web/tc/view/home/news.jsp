@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.15.07<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=description">TCCC07 Algorithm registration ends August 16</A></span><br><br>
+        Registration for the 2007 TopCoder Collegiate Challenge Algorithm Competition closes at 5:00 PM EDT on Thursday, August 16. Don't miss out -- register now!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=description">details</A> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>08.14.07<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2118">TopCoder Arena Navigation Wireframe Design Contest</A></span><br><br>
@@ -158,20 +171,6 @@
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=description">details</A> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.07.07<br>12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://forums.topcoder.com/?module=Thread&threadID=583850">TCCC07 Algorithm Competition: Section preference policy updated</A></span><br><br>
-        As you may know, participants in previous TopCoder tournaments were not allowed to change their section preferences. With the TCCC07, TopCoder is changing this policy; for the reasons why, check out <a href="http://forums.topcoder.com/?module=Thread&threadID=583850">this forum discussion</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://forums.topcoder.com/?module=Thread&threadID=583850">discuss this</A> | 
-        <%--<tc-webtag:forumLink forumID="516841" message="discuss this" /> | --%>
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
