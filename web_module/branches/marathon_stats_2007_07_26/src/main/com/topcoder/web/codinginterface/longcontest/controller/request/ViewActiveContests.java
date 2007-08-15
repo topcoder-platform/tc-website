@@ -76,6 +76,7 @@ public class ViewActiveContests extends Base {
                 longContest.setNumCompetitors(rsc.getIntItem(i, "num_competitors"));
                 longContest.setNumRegistrants(rsc.getIntItem(i, "num_registrants"));
                 longContest.setSubmissionCount(rsc.getIntItem(i, "submission_count"));
+                longContest.setRoundTypeId(rsc.getIntItem(i, "round_type_id"));
                 if (rsc.getStringItem(i, "forum_id") != null) {
                     longContest.setForumId(rsc.getLongItem(i, "forum_id"));
                 }
@@ -98,7 +99,7 @@ public class ViewActiveContests extends Base {
                 contests.add(longContest);
 
             }
-
+/*
             //todo change this so that it looks to the dw to get the list of contests
             //todo and then populates a couple fields from transactional to fill out the list
             Request reqPassContests = new Request();
@@ -143,7 +144,7 @@ public class ViewActiveContests extends Base {
                     contests.add(longContest);
                 }
             }
-
+*/
 
         } catch (TCWebException e) {
             throw e;
