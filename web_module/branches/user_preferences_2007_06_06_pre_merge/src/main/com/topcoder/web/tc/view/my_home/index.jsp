@@ -67,7 +67,7 @@
                             Name:
                         </td>
                         <td class="value">
-                            <div style="width: 140px;">
+                            <div style="width: 180px;">
                             Nick Trefz
                             </div>
                         </td>

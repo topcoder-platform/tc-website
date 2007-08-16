@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder $HOME</title>
+<title>TopCoder Referrals</title>
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
@@ -22,7 +22,7 @@
 <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="referrals"/>
+            <jsp:param name="node" value="my_topcoder"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
