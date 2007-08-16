@@ -97,7 +97,7 @@ Please select a contest:<br>
 <tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="${rounds}" fieldText="display_name" fieldValue="round_id"  onChange="goTo(this)" useTopValue="false"/>
 <br><br>
 
-<span class="bigHandle">Contest: ${infoRow.map['displayName'] }</span>
+<span class="bigHandle">Contest: ${infoRow.map['display_name'] }</span>
 TEST: ${infoRow.map['test']}
 <br>
       <span class="bodySubtitle">Problem: <a href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}&<%=Constants.PROBLEM_ID%>=${infoRow.map['problem_id']}" class="bcLink">
