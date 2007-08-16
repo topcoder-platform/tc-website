@@ -15,6 +15,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 
 /**
  * List the winner(s) for each match.
@@ -27,6 +28,7 @@ public class MatchWinners extends Base {
     public static final int NAME_COLUMN = 2;
     public static final int HANDLE_COLUMN = 3;
     public static final int NUM_WINS_COLUMN = 4;
+    public static final int PROBLEM_COLUMN = 5;
     
     protected void longContestProcessing() throws TCWebException {
         try {
@@ -66,11 +68,13 @@ public class MatchWinners extends Base {
 
             ResultSetContainer rsc = null;
             
-            if (sc == DATE_COLUMN || sc == NAME_COLUMN) {
+            if (sc == DATE_COLUMN || sc == NAME_COLUMN || sc == PROBLEM_COLUMN) {
                 rsc = result.get("marathon_match_winners_rounds");
+                rsc = new ResultSetContainer(rsc, new RoundDisplayNameCalculator("display_name"));
 
                 if (sc == DATE_COLUMN) sc = rsc.getColumnIndex("date");
-                else if (sc == NAME_COLUMN) sc = rsc.getColumnIndex("name");
+                else if (sc == NAME_COLUMN) sc = rsc.getColumnIndex("display_name");
+                else sc = rsc.getColumnIndex("problem_name");
                 
                 rsc.sortByColumn(sc, !"desc".equals(sortDir));                
                 rsc = new ResultSetContainer(rsc, sr, endRank);
@@ -106,6 +110,7 @@ public class MatchWinners extends Base {
                 }
 
                 rsc = new ResultSetContainer(rsc, sr, endRank);
+                rsc = new ResultSetContainer(rsc, new RoundDisplayNameCalculator("display_name"));
 
                 getRequest().setAttribute("ungrouped", true);
                 

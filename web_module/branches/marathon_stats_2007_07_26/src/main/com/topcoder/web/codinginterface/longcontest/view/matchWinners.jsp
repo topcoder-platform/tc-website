@@ -8,6 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
   
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
@@ -94,10 +95,11 @@ return false;
 
          * the number of wins the competitor had as a result of that match
             <table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
-               <tr><td class="title" colspan="6">Marathon Match Winners</td></tr>
+               <tr><td class="title" colspan="7">Marathon Match Winners</td></tr>
                <tr>
-                  <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%= MatchWinners.DATE_COLUMN %>" includeParams="true" excludeParams="sr" />">Date</a></td>
+                  <td class="header"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%= MatchWinners.DATE_COLUMN %>" includeParams="true" excludeParams="sr" />">Date</a></td>
                   <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%= MatchWinners.NAME_COLUMN %>" includeParams="true" excludeParams="sr" />">Match</a></td>
+                  <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%= MatchWinners.PROBLEM_COLUMN %>" includeParams="true" excludeParams="sr" />">Problem</a></td>
                   <td class="header" ><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%= MatchWinners.HANDLE_COLUMN %>" includeParams="true" excludeParams="sr" />">
                                 Winner<c:if test="${not ungrouped }">(s)</c:if>
                           </a></td>
@@ -108,7 +110,10 @@ return false;
                    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
                         <td class="valueC"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
                         <td class="value" nowrap="nowrap">
-                            <a href="/longcontest/stats/?module=ViewOverview&rd=${row.map['round_id']}"/>${row.map['name']}</a>
+                            <a href="/longcontest/stats/?module=ViewOverview&rd=${row.map['round_id']}"/>${row.map['display_name']}</a>
+                        </td>
+                        <td class="value">
+                           <mm:problemLink roundId="${row.map['round_id']}" problemId="${row.map['problem_id']}" problemName="${row.map['problem_name']}" />
                         </td>
                         
                         <c:choose>
