@@ -62,40 +62,45 @@
 
                 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                 <tbody>
+                    <tr>
+                        <td class="title" colspan="2">
+                            Privacy Preferences
+                        </td>
+                    </tr>
                     <c:if test="${isHighSchool}">
-                        <tc-webtag:errorIterator id="err" name="err_show_school">
-                            <tr><td></td><td><span class="bigRed"><%=err%><br/></span></td></tr>
-                        </tc-webtag:errorIterator>
                         <tr class="light">
                             <td class="value" nowrap="nowrap">
                                 <span style="display: block; padding-top: 4px;">Show / hide my school:</span>
                             </td>
                             <td class="value" width="100%">
+                                <tc-webtag:errorIterator id="err" name="err_show_school">
+                                    <span class="bigRed"><%=err%></span>
+                                </tc-webtag:errorIterator>
                                 <tc-webtag:radioButton name="show_school" value="show"/> Show
-                                <br/><tc-webtag:radioButton name="show_school" value="hide"/> Hide
+                                <br /><tc-webtag:radioButton name="show_school" value="hide"/> Hide
                             </td>
                         </tr>
                     </c:if>
                     <c:forEach var="preference" items="${preferenceList}">
-                        <tc-webtag:errorIterator id="err" name="err_${preference.id}">
-                            <tr><td></td><td><span class="bigRed"><%=err%><br/></span></td></tr>
-                        </tc-webtag:errorIterator>
                         <tr class="light">
-                            <td class="value" nowrap="nowrap">
+                            <td class="value" width="100%">
+                                <tc-webtag:errorIterator id="err" name="err_${preference.id}">
+                                    <span class="bigRed"><%=err%></span><br />
+                                </tc-webtag:errorIterator>
                                 <span style="display: block; padding-top: 4px;">${preference.name}:</span>
                             </td>
-                            <td class="value" width="100%">
+                            <td class="value" nowrap="nowrap">
                                 <c:choose>
                                     <c:when test="${preference.type.id == 1}">
                                         <tc-webtag:chkBox name="pref_${preference.id}"/>
                                     </c:when>
                                     <c:when test="${preference.type.id == 4}">
                                         <tc-webtag:radioButton name="pref_${preference.id}" value="show"/> Show
-                                        <br/><tc-webtag:radioButton name="pref_${preference.id}" value="hide"/> Hide
+                                        <br /><tc-webtag:radioButton name="pref_${preference.id}" value="hide"/> Hide
                                     </c:when>
                                     <c:when test="${preference.type.id == 5}">
                                         <tc-webtag:radioButton name="pref_${preference.id}" value="yes"/> Yes
-                                        <br/><tc-webtag:radioButton name="pref_${preference.id}" value="no"/> No
+                                        <br /><tc-webtag:radioButton name="pref_${preference.id}" value="no"/> No
                                     </c:when>
                                     <c:otherwise>
                                         <tc-webtag:textInput name="pref_${preference.id}"/>
@@ -120,8 +125,8 @@
                         </tr>
                     </tbody>
                     </table>
-                </form>            
                 </div>
+                </form>            
 
             </div>
         </td>

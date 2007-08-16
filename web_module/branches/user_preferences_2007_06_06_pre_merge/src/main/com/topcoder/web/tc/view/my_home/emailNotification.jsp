@@ -57,6 +57,11 @@
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditNotifications"/>
                 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                 <tbody>                
+                    <tr>
+                        <td class="title">
+                            Email Notification Preferences
+                        </td>
+                    </tr>
                     <c:set var="oldNotificationType" value="null"/>
                     <c:forEach var="notification" items="${notifications}">
                         <c:if test="${notification.type != oldNotificationType}">

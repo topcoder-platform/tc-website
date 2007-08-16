@@ -10,7 +10,7 @@
 <html>
 
 <head>
-    <title>TopCoder</title>
+    <title>TopCoder - My TopCoder</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../script.jsp" />
@@ -45,13 +45,96 @@
                     <jsp:param name="title" value="&nbsp;"/>
                 </jsp:include>
 
-                <a href="<%=coderInfo.getIntItem(0, "has_image")==0?"/tc?module=Static&amp;d1=my_home&amp;d2=submitPhoto":"/tc?module=MemberProfile&cr="+coderInfo.getIntItem(0, "coder_id")%>">
-                    <img src="<rsc:item set="<%=coderInfo%>" name="image_path" ifNull="/i/m/nophoto_submit.gif"/>" alt="" class="memberPhoto" style="float: left; margin: 0px 10px 10px 0px;" /></a>
-                <tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>' />
-                <div>
-                    <div style="float: right;"><rsc:item name="member_since" set="<%=coderInfo%>" format="MM.dd.yyyy"/></div>
-                    <strong>Member Since:</strong>
-                </div>
+                <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%; margin-bottom: 15px;">
+                <tbody>
+                    <tr>
+                        <td class="header">
+                            Personal Information
+                        </td>
+                        <td class="headerR" colspan="2">
+                            <a href="/reg/?nrg=false">Update</a>
+                        </td>
+                    </tr>
+                    <tr class="light">
+                        <td class="valueC" rowspan="10" nowrap="nowrap" style="vertical-align: middle; border-right: 1px solid #999999;">
+                            <a href="<%=coderInfo.getIntItem(0, "has_image")==0?"/tc?module=Static&amp;d1=my_home&amp;d2=submitPhoto":"/tc?module=MemberProfile&amp;cr="+coderInfo.getIntItem(0, "coder_id")%>">
+                            <img src="<rsc:item set="<%=coderInfo%>" name="image_path" ifNull="/i/m/nophoto_submit.gif"/>" alt="" class="memberPhoto" /></a>
+                            <br /><tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>' />
+                            <br /><strong>Member Since:</strong>
+                            <rsc:item name="member_since" set="<%=coderInfo%>" format="MM.dd.yyyy"/>
+                        </td>
+                        <td class="field" width="100%">
+                            Name:
+                        </td>
+                        <td class="value">
+                            <div style="width: 140px;">
+                            Nick Trefz
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="dark">
+                        <td class="field">
+                            Company:
+                        </td>
+                        <td class="value">
+                            TopCoder
+                        </td>
+                    </tr>
+                    <tr class="light">
+                        <td class="field">
+                            Address:
+                        </td>
+                        <td class="value">
+                            235 Wooster St
+                            <br />A2
+                            <br />New Haven, CT 06511
+                        </td>
+                    </tr>
+                    <tr class="dark">
+                        <td class="field">
+                            Country:
+                        </td>
+                        <td class="value">
+                            United States
+                        </td>
+                    </tr>
+                    <tr class="light">
+                        <td class="field">
+                            Country to represent:
+                        </td>
+                        <td class="value">
+                            United States
+                        </td>
+                    </tr>
+                    <tr class="dark">
+                        <td class="field">
+                            Timezone:
+                        </td>
+                        <td class="value">
+                            US/Eastern
+                        </td>
+                    </tr>
+                    <tr class="light">
+                        <td class="field">
+                            Phone number:
+                        </td>
+                        <td class="value">
+                            860.748.5618
+                        </td>
+                    </tr>
+                    <tr class="dark">
+                        <td class="field">
+                            Email:
+                        </td>
+                        <td class="value">
+                            ntrefz@topcoder.com
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+
+
+<%--
                  <% if (coderInfo.getItem(0, "country_name").getResultData()!=null) { %>
                     <div>
                         <div style="float: right;"><rsc:item name="country_name" set="<%=coderInfo%>"/></div>
@@ -74,6 +157,7 @@
                     </div>
                     <strong>Total Earnings:</strong>
                 </div>
+--%>
 
                 <div style="clear: both;">
                 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
@@ -99,7 +183,7 @@
                             <p><a href="/tc?module=Static&amp;d1=my_home&amp;d2=submitPhoto">Submit a photo</a></p>
                         </td>
                         <td class="value">
-                            <p><a href="/tc?module=EditPreferences&group=10">Privacy</a></p>
+                            <p><a href="/tc?module=EditPreferences&amp;group=10">Privacy</a></p>
                             <p><a href="/tc?module=EditNotifications">Email notification</a></p>
                             <p><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Settings">Forums preferences</a></p>
                         </td>
