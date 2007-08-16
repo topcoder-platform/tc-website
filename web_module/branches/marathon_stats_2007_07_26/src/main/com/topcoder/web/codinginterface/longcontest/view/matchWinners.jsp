@@ -1,7 +1,7 @@
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.DataAccessConstants,
            com.topcoder.web.tc.Constants,
-            com.topcoder.web.codinginterface.longcontest.controller.request.MatchWinners"%>
+            com.topcoder.web.codinginterface.longcontest.controller.request.stats.MatchWinners"%>
           
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -10,7 +10,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
   
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
-sessionInfoue="<%=Dacom.topcoder.web.common.SessionInfo="startRank"/>
+<c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
