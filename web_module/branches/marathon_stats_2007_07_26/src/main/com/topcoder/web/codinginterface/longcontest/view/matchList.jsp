@@ -93,7 +93,7 @@ return false;
                             <a href="/longcontest/stats/?module=ViewOverview&rd=${row.map['round_id']}"/>${row.map['display_name']}</a>                                                    
                         </td>
                         <td class="value">
-                           <mm:problemLink roundId="${row.map['round_id']}" problemId="${row.map['problem_id']}" problemName="${row.map['problem_name']" />
+                           <mm:problemLink roundId="${row.map['round_id']}" problemId="${row.map['problem_id']}" problemName="${row.map['problem_name']}" />
                         </td>
                         <td class="valueR">${row.map['num_competitors']}</td>
                         <td class="valueR">${row.map['num_submissions']}</td>
