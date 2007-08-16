@@ -19,7 +19,7 @@
                             <rsc:item name="rating" set="<%=rsc%>" format="####"/>
                         </tc-webtags:ratingColor></div>
                 <%}%>
-                     <br /><A HREF="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<rsc:item set="<%=rsc%>" name="coder_id"/>">[competition history]</A><br /><br /></td>
+                     <br /><strong><A HREF="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<rsc:item set="<%=rsc%>" name="coder_id"/>">[competition history]</A></strong><br /><br /></td>
                     </td>
                     <td class="valueC" valign="top" rowspan="15" width="100%" style="border-left: 1px solid #999999; border-top: none;">
 <script language="JavaScript">
@@ -59,7 +59,7 @@ doWrite(s);
                 </tr>
                 <tr class="dark">
                     <td class="field">Rank:</td>
-                    <td class="valueR">
+                    <td class="valueR" nowrap="nowrap">
                     <c:choose>
                         <c:when test="${empty row.map['rank']}" >not ranked</c:when>
                         <c:otherwise>${row.map['rank']} of ${row.map['num_ranked']} </c:otherwise>
@@ -67,7 +67,8 @@ doWrite(s);
                     </td>
                 </tr>
                 <tr class="light">
-                    <td class="field">Country Rank:</td><td class="valueR">
+                    <td class="field">Country Rank:</td>
+                    <td class="valueR" nowrap="nowrap">
                     <c:choose>
                         <c:when test="${empty row.map['country_rank']}" >not ranked</c:when>
                         <c:otherwise>${row.map['country_rank']} of ${row.map['num_country_ranked']} </c:otherwise>
