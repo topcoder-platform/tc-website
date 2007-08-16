@@ -15,6 +15,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.longcontest.model.ContestNameFormula;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
@@ -73,6 +74,10 @@ public class ViewOverview extends Base {
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
             rsc = new ResultSetContainer(rsc, startRank, endRank);
 
+            ResultSetContainer rounds = new ResultSetContainer(result.get("long_contest_round_list"), new ContestNameFormula("display_name"));
+            
+            ResultSetContainer info = new ResultSetContainer(result.get("long_contest_overview_info"), new ContestNameFormula("display_name"));
+            
             SortInfo s = new SortInfo();
             s.addDefault(rsc.getColumnIndex("point_total"), "desc");
             s.addDefault(rsc.getColumnIndex("system_point_total"), "desc");
@@ -81,10 +86,10 @@ public class ViewOverview extends Base {
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
             setDefault(DataAccessConstants.START_RANK, startRank);
 
-            request.setAttribute("infoRow", result.get("long_contest_overview_info").get(0));
+            request.setAttribute("infoRow", info.get(0));
             request.setAttribute("categories", result.get("long_contest_round_categories"));
             request.setAttribute("competitors", rsc);
-            request.setAttribute("rounds", result.get("long_contest_round_list"));
+            request.setAttribute("rounds", rounds);
             request.setAttribute("columnMap", rsc.getColumnNameMap());  
             request.setAttribute("roundId", roundID);
             

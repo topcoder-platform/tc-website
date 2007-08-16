@@ -22,6 +22,11 @@ import com.topcoder.web.common.model.SortInfo;
  */
 public class MatchWinners extends Base {
 
+    public static final int DATE_COLUMN = 1;
+    public static final int NAME_COLUMN = 2;
+    public static final int HANDLE_COLUMN = 3;
+    public static final int NUM_WINS_COLUMN = 4;
+    
     protected void longContestProcessing() throws TCWebException {
         try {
             Request r = new Request();
@@ -60,11 +65,11 @@ public class MatchWinners extends Base {
 
             ResultSetContainer rsc = null;
             
-            if (sc == 1 || sc == 2) {
+            if (sc == DATE_COLUMN || sc == NAME_COLUMN) {
                 rsc = result.get("marathon_match_winners_rounds");
 
-                if (sc == 1) sc = rsc.getColumnIndex("date");
-                else if (sc == 2) sc = rsc.getColumnIndex("name");
+                if (sc == DATE_COLUMN) sc = rsc.getColumnIndex("date");
+                else if (sc == NAME_COLUMN) sc = rsc.getColumnIndex("name");
                 
                 rsc.sortByColumn(sc, !"desc".equals(sortDir));                
                 rsc = new ResultSetContainer(rsc, sr, endRank);
@@ -85,13 +90,13 @@ public class MatchWinners extends Base {
 
                 getRequest().setAttribute("winnersMap", winnersMap);
 
-            } else if (sc == 3 || sc == 4) {
+            } else if (sc == HANDLE_COLUMN || sc == NUM_WINS_COLUMN) {
                 rsc = result.get("marathon_match_winners");
     
                 int handleCol = rsc.getColumnIndex("handle");
                 int winsCol = rsc.getColumnIndex("num_wins");
                 
-                if (sc == 3){
+                if (sc == HANDLE_COLUMN){
                     rsc.sortByColumn(handleCol, winsCol, !"desc".equals(sortDir), false);
                     sc = handleCol;
                 } else {
@@ -106,8 +111,8 @@ public class MatchWinners extends Base {
             } else throw new NavigationException("Bad sort column: " + sc);
 
             SortInfo s = new SortInfo();
-            s.addDefault(1, "desc");
-            s.addDefault(4, "desc");
+            s.addDefault(DATE_COLUMN, "desc");
+            s.addDefault(NUM_WINS_COLUMN, "desc");
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
             setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
