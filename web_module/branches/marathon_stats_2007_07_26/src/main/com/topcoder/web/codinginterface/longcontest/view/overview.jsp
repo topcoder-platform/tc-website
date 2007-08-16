@@ -162,11 +162,11 @@ Avg. Submissions: <fmt:formatNumber value="${infoRow.map['avg_submissions']}"  m
                         <td class="valueR"><fmt:formatNumber value="${row.map['point_total']}"  minFractionDigits="2" maxFractionDigits="2"/></td>                           
                         <td class="valueR"><fmt:formatNumber value="${row.map['system_point_total']}"  minFractionDigits="2" maxFractionDigits="2"/></td>
                         <td class="valueC">${row.map['language_name']}</td>
-                        <td class="valueC" nowrap="nowrap"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewSystemTestResults&<%=Constants.ROUND_ID%>=${roundId}&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}">
+                        <td class="valueC" nowrap="nowrap"><A href="/longcontest/stats/?<%=Constants.MODULE%>=ViewSystemTestResults&<%=Constants.ROUND_ID%>=${roundId}&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}">
                             results</A></td>
-                        <td class="valueC" nowrap="nowrap"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=${roundId}&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}">
+                        <td class="valueC" nowrap="nowrap"><A href="/longcontest/?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=${roundId}&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}">
                             submission history</A></td>
-                        <td class="valueC" nowrap="nowrap"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewExampleHistory&<%=Constants.ROUND_ID%>=${roundId}&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}">
+                        <td class="valueC" nowrap="nowrap"><A href="/longcontest/?<%=Constants.MODULE%>=ViewExampleHistory&<%=Constants.ROUND_ID%>=${roundId}&<%=Constants.PROBLEM_ID%>=${row.map['problem_id']}&<%=Constants.CODER_ID%>=${row.map['coder_id']}">
                             example history</A></td>
                     </tr>
                  </c:forEach>

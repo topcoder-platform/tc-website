@@ -6,7 +6,7 @@
  *
  */
 
-package com.topcoder.web.codinginterface.longcontest.controller.request;
+package com.topcoder.web.codinginterface.longcontest.controller.request.stats;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
@@ -26,6 +26,7 @@ import com.topcoder.web.common.cache.MaxAge;
 import java.util.HashMap;
 import java.util.ListIterator;
 import java.util.Map;
+import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 
 /**
  * @author Porgery

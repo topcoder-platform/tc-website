@@ -16,8 +16,8 @@
 
 <c:set var="allTypes" value="${wst == 9 }" />
 
-<tc-webtag:ifLink useLink="${allTypes}" text="Non-tournament" link="/longcontest/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=8"/> |
-<tc-webtag:ifLink useLink="${not allTypes}" text="All" link="/longcontest/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=9"/> 
+<tc-webtag:ifLink useLink="${allTypes}" text="Non-tournament" link="/longcontest/stats/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=8"/> |
+<tc-webtag:ifLink useLink="${not allTypes}" text="All" link="/longcontest/stats/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=9"/> 
 <br><br>
 <strong>Record:</strong> Most rating increases in a row.  If a competitors rating does not change, their streak is broken.
 <c:choose>

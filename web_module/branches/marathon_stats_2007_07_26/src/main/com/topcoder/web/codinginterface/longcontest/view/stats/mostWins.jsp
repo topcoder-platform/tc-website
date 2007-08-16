@@ -15,8 +15,8 @@
 <span class="bodyText">
 
 
-<tc-webtag:ifLink useLink="${allTypes}" text="Non-tournament" link="/longcontest/?module=Recordbook&c=marathon_most_wins"/> |
-<tc-webtag:ifLink useLink="${not allTypes}" text="All" link="/longcontest/?module=Recordbook&c=marathon_most_wins&amp;all=true"/> 
+<tc-webtag:ifLink useLink="${allTypes}" text="Non-tournament" link="/longcontest/stats/?module=Recordbook&c=marathon_most_wins"/> |
+<tc-webtag:ifLink useLink="${not allTypes}" text="All" link="/longcontest/stats/?module=Recordbook&c=marathon_most_wins&amp;all=true"/> 
 <br><br>
 <strong>Record:</strong> The number of times a competitors has won a match.  A tie for first place is considered a win.
 <c:choose>

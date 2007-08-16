@@ -1,4 +1,4 @@
-package com.topcoder.web.codinginterface.longcontest.controller.request;
+package com.topcoder.web.codinginterface.longcontest.controller.request.stats;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -11,7 +11,7 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 
 import java.util.Map;
-
+import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 
 public class ViewSystemTest extends Base {
     protected static final Logger log = Logger.getLogger(ViewSystemTest.class);

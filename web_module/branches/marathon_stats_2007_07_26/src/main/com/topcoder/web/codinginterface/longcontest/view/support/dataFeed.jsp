@@ -172,7 +172,7 @@
             </ul>
         </li>               
     </ul>
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=IndividualResultsFeed&rd=ROUND_ID&cr=CODER_ID&full=FULL</strong>
+    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=IndividualResultsFeed&rd=ROUND_ID&cr=CODER_ID&full=FULL</strong>
     <br/>
     You will need to replace "ROUND_ID" and "USER_ID" in the query string to get data about a particular round and coder, 
     and set "FULL" to 1 for including additional fields, or to 0 for excluding them.

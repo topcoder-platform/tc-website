@@ -100,7 +100,7 @@ text-align: left;
                <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
             </div>
 
-            <span class="bigHandle">Contest: <A href="?module=ViewOverview&rd=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink"><rsc:item name="contest_name" row="<%=infoRow%>"/> &gt; <rsc:item name="round_name" row="<%=infoRow%>"/></A></span><br>
+            <span class="bigHandle">Contest: <A href="/longcontest/stats/?module=ViewOverview&rd=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink"><rsc:item name="contest_name" row="<%=infoRow%>"/> &gt; <rsc:item name="round_name" row="<%=infoRow%>"/></A></span><br>
 <%--  we don't have all the registrants in the dw
             <span class="bodySubtitle">Registrants: <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink">
                 <rsc:item name="num_registrants" row="<%=infoRow%>"/></A></span><br>
@@ -145,7 +145,7 @@ text-align: left;
                                     <td class="tableHeader" align="right" nowrap="nowrap">
                                         <A href="<%=sortLinkBase%>&<%=DataAccessConstants.SORT_COLUMN%>=3&<%=DataAccessConstants.SORT_DIRECTION%>=<%=sortDir%>&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>"/>">Test
                                             <br>Case <rsc:item name="rank" row="<%=resultRow%>"/></A><br>
-                                        <span style="font-weight: normal;">(<A href="<jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=ViewSystemTest&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>">details</A>)</span>
+                                        <span style="font-weight: normal;">(<A href="/longcontest/stats/?module=ViewSystemTest&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>">details</A>)</span>
                                     </td>
                                 </rsc:iterator>
                             </tr>
