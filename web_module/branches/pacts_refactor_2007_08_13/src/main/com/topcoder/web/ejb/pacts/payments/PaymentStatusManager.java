@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.ReliabilityBonusPayment;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;

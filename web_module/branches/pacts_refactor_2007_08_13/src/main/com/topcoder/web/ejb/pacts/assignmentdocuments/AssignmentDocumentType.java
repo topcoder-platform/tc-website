@@ -1,10 +1,19 @@
-package com.topcoder.web.common.model;
+package com.topcoder.web.ejb.pacts.assignmentdocuments;
+
 
 
 /**
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ *
  * @author pulky
  */
-public class AssignmentDocumentType extends Base {
+public class AssignmentDocumentType {
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+    
     public static final Long COMPONENT_COMPETITION_TYPE_ID = new Long(1);
     public static final Long STUDIO_CONTEST_TYPE_ID = new Long(2);
 

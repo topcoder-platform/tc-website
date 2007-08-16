@@ -1,12 +1,19 @@
-package com.topcoder.web.common.model;
-
+package com.topcoder.web.ejb.pacts.assignmentdocuments;
 
 /**
  * Simplified bean to represent a component project
  * 
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ *
  * @author pulky
  */
-public class ComponentProject extends Base {
+public class ComponentProject {
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+    
     private Long id;
     private String description;
     

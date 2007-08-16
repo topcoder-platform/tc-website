@@ -1,0 +1,37 @@
+package com.topcoder.web.ejb.pacts.assignmentdocuments;
+
+
+/**
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ *
+ * @author pulky
+ */
+public class User {
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+    
+    private Long id;
+    private String handle;
+
+    public User() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getHandle() {
+        return handle;
+    }
+
+    public void setHandle(String handle) {
+        this.handle = handle;
+    }
+}

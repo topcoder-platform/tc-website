@@ -2,8 +2,8 @@ package com.topcoder.web.studio.controller.request.mystudio;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.AssignmentDocument;
-import com.topcoder.web.common.model.AssignmentDocumentStatus;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocument;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentStatus;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.controller.request.PactsServicesLocator;
 

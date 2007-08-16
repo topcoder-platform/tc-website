@@ -23,20 +23,20 @@ import javax.ejb.SessionContext;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.docGen.xml.RecordTag;
+import com.topcoder.shared.docGen.xml.ValueTag;
+import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IDGenerationException;
-import com.topcoder.web.common.IdGeneratorClient;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.model.AssignmentDocument;
-import com.topcoder.web.common.model.AssignmentDocumentStatus;
-import com.topcoder.web.common.model.AssignmentDocumentTemplate;
-import com.topcoder.web.common.model.AssignmentDocumentType;
-import com.topcoder.web.common.model.ComponentProject;
-import com.topcoder.web.common.model.DemographicQuestion;
-import com.topcoder.web.common.model.StudioContest;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocument;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentStatus;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentTemplate;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentType;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.ComponentProject;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.StudioContest;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.User;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.EventFailureException;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
@@ -46,6 +46,7 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager.UserEvents;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.UserProfileBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -56,12 +57,8 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
-import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
-import com.topcoder.shared.docGen.xml.RecordTag;
-import com.topcoder.shared.docGen.xml.ValueTag;
-import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.UserProfileBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 
 /**
@@ -86,6 +83,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static final int DESIGN_PROJECT = 1;
     private static final int DEVELOPMENT_PROJECT = 2;
     private static final double DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
+
+    public static final Long COLLEGE_MAJOR_DESC = new Long(14);
+    public static final Long DEGREE_PROGRAM = new Long(16);
+    public static final Long COLLEGE_MAJOR = new Long(17);
 
     private static final String trxDataSource = DBMS.JTS_OLTP_DATASOURCE_NAME;
 
@@ -3530,7 +3531,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setInt(9, p.getHeader().getMethodId());
             ps.setTimestamp(10, new Timestamp(System.currentTimeMillis())); // date_modified
             ps.setTimestamp(11, makeTimestamp(p.getDueDate(), true, false));
-            if (!StringUtils.checkNull(p.getHeader().getClient()).equals("")) {
+            if (!checkNull(p.getHeader().getClient()).equals("")) {
                 ps.setString(12, p.getHeader().getClient());
             } else {
                 ps.setNull(12, Types.VARCHAR);
@@ -4571,9 +4572,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // the coder is in hs, can have some questions unanswered
             for (int i = 0; i < rsc.size(); i++) {
                 Long l = rsc.getLongItem(i, "demographic_question_id");
-                if (!(l.equals(DemographicQuestion.COLLEGE_MAJOR) ||
-                        l.equals(DemographicQuestion.COLLEGE_MAJOR_DESC) ||
-                        l.equals(DemographicQuestion.DEGREE_PROGRAM))) {
+
+                if (!(l.equals(COLLEGE_MAJOR) ||
+                        l.equals(COLLEGE_MAJOR_DESC) ||
+                        l.equals(DEGREE_PROGRAM))) {
 
                     log.debug("User " + userId + " is missing at least demographic answer for question " + l);
 
@@ -6156,6 +6158,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return findCoderPayments(searchCriteria).get(0);
     }
 
+    /**
+     * Replaces null strings with "", others are returned untouched.
+     */
+    private static String checkNull(String s) {
+        return s == null ? "" : s;
+    }
 
     /**
      * Get the affidavits for an user.

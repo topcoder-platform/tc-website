@@ -1,10 +1,17 @@
-package com.topcoder.web.common.model;
-
+package com.topcoder.web.ejb.pacts.assignmentdocuments;
 
 /**
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ *
  * @author pulky
  */
-public class AssignmentDocumentStatus extends Base {
+public class AssignmentDocumentStatus {
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+    
     public static final Long PENDING_STATUS_ID = new Long(1);
     public static final Long DELETED_STATUS_ID = new Long(2);
     public static final Long AFFIRMED_STATUS_ID = new Long(3);

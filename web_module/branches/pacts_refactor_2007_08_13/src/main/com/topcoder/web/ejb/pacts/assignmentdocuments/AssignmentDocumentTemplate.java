@@ -1,4 +1,4 @@
-package com.topcoder.web.common.model;
+package com.topcoder.web.ejb.pacts.assignmentdocuments;
 
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -13,10 +13,17 @@ import com.topcoder.shared.docGen.xml.XMLDocument;
 
 
 /**
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ *
  * @author pulky
  */
-public class AssignmentDocumentTemplate extends Base {
-
+public class AssignmentDocumentTemplate {
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+    
     private Long id;
     private String text;
 
@@ -70,7 +77,6 @@ public class AssignmentDocumentTemplate extends Base {
     
             return res.toString();
         } catch (Exception e) {
-            log.error("we got excepted trying to get transform xml assignment document to text");
             e.printStackTrace();
         }
     
