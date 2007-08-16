@@ -86,10 +86,12 @@
                     <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a>
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a>
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=rules"<% if (tabLev2.equals("rules")) {%> class="on"<% } %>>Rules</a>
-                    | <a href="/tc?module=TCCC07ViewRegistration&et=<%=EventType.ALGORITHM_TOURNAMENT_ID%>"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a>
-                    | <a href="/tc?module=TCCC07ViewRegistrants&et=<%=EventType.ALGORITHM_TOURNAMENT_ID%>"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a>
                 <%--
+                    | <a href="/tc?module=TCCC07ViewRegistration&et=<%=EventType.ALGORITHM_TOURNAMENT_ID%>"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a>
+                --%>
+                    | <a href="/tc?module=TCCC07ViewRegistrants&et=<%=EventType.ALGORITHM_TOURNAMENT_ID%>"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a>
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=byes"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a>
+                <%--
                     | <a href=""<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a>
                 --%>
                 </p>
