@@ -10,7 +10,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
   
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
-<c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
+sessionInfoue="<%=Dacom.topcoder.web.common.SessionInfo="startRank"/>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 

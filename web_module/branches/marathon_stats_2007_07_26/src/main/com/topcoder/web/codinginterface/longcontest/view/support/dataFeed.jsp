@@ -155,22 +155,22 @@
         <li>user id</li>
         <li>handle</li>
         <li>submission history
-        	<ul>
-        		<li>number</li>
-        		<li>score</li>
-        		<li>language</li>
-        		<li>submission time</li>        		
-        	</ul>
+            <ul>
+                <li>number</li>
+                <li>score</li>
+                <li>language</li>
+                <li>submission time</li>                
+            </ul>
         </li>
         <li>testcases
-        	<ul>
-        		<li>test case id</li>
-        		<li>score</li>
-        		<li>processing time</li>
-        		<li>arguments (only if FULL flag is set to 1)</li>
-        		<li>fatal errors(only if FULL flag is set to 1)</li>
-        	</ul>
-        </li>        		
+            <ul>
+                <li>test case id</li>
+                <li>score</li>
+                <li>processing time</li>
+                <li>arguments (only if FULL flag is set to 1)</li>
+                <li>fatal errors(only if FULL flag is set to 1)</li>
+            </ul>
+        </li>               
     </ul>
     <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=IndividualResultsFeed&rd=ROUND_ID&cr=CODER_ID&full=FULL</strong>
     <br/>

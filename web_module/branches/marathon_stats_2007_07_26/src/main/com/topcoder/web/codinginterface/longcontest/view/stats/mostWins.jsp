@@ -20,10 +20,10 @@
 <br><br>
 <strong>Record:</strong> The number of times a competitors has won a match.  A tie for first place is considered a win.
 <c:choose>
-	<c:when test="${allTypes}">Both tournament and non-tournament are taken into account.
-	</c:when>
-	<c:otherwise>Just non tournament rounds are used.
-	</c:otherwise>
+    <c:when test="${allTypes}">Both tournament and non-tournament are taken into account.
+    </c:when>
+    <c:otherwise>Just non tournament rounds are used.
+    </c:otherwise>
 </c:choose>
 
 </span>
@@ -38,11 +38,11 @@
     </tr>
 </thead>
 <tbody>
-	<c:forEach items="${results}" var="row" varStatus="status">
+    <c:forEach items="${results}" var="row" varStatus="status">
        <tr class='${status.index % 2 == 1? "dark" : "light" }'>
-        	<td class="valueC">${row.map['rank']}</td>
-        	<td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon"/></td>
-        	<td class="valueR" >${row.map['num_wins'] }</td>
+            <td class="valueC">${row.map['rank']}</td>
+            <td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon"/></td>
+            <td class="valueR" >${row.map['num_wins'] }</td>
     </tr>
     </c:forEach>
 </tbody>

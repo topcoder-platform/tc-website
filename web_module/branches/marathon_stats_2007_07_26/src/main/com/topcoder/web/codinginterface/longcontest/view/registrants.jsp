@@ -82,8 +82,8 @@
                 
                 <span class="bigHandle">Contest: <mm:contestLink roundId="<%=infoRow.getStringItem("round_id") %>" roundTypeId="<%=new Integer(infoRow.getIntItem("round_type_id")) %>" contestName="<%=infoRow.getStringItem("contest_name") %>" roundName="<%=infoRow.getStringItem("round_name") %>" styleClass="bcLink" /></span><br>
                 
-			<span class="bodySubtitle">Problem: <a href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=infoRow.getStringItem("round_id") %>&<%=Constants.PROBLEM_ID%>=<%=infoRow.getStringItem("problem_id") %>" class="bcLink">
-			          <rsc:item name="problem_name" row="<%=infoRow%>"/></a></span><br>
+            <span class="bodySubtitle">Problem: <a href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=infoRow.getStringItem("round_id") %>&<%=Constants.PROBLEM_ID%>=<%=infoRow.getStringItem("problem_id") %>" class="bcLink">
+                      <rsc:item name="problem_name" row="<%=infoRow%>"/></a></span><br>
                 
                 <span class="bodySubtitle">Registrants: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
 

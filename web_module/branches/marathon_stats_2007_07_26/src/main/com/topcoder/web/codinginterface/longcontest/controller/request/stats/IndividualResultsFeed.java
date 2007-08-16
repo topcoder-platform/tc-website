@@ -1,4 +1,4 @@
-package com.topcoder.web.codinginterface.longcontest.controller.request;
+package com.topcoder.web.codinginterface.longcontest.controller.request.stats;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -18,7 +18,7 @@ import com.topcoder.web.common.datafeed.RSCDataFeed;
 import com.topcoder.web.common.datafeed.Value;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.model.DataResource;
-
+import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 /**
  * Data feed to show history and results for a coder in a round.
  * 

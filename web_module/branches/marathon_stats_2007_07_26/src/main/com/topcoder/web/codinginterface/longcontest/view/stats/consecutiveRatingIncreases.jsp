@@ -21,10 +21,10 @@
 <br><br>
 <strong>Record:</strong> Most rating increases in a row.  If a competitors rating does not change, their streak is broken.
 <c:choose>
-	<c:when test="${allTypes}">Both tournament and non-tournament are taken into account.
-	</c:when>
-	<c:otherwise>Just non tournament rounds are used.
-	</c:otherwise>
+    <c:when test="${allTypes}">Both tournament and non-tournament are taken into account.
+    </c:when>
+    <c:otherwise>Just non tournament rounds are used.
+    </c:otherwise>
 </c:choose>
 
 </span>
@@ -40,39 +40,39 @@
     </tr>
 </thead>
 <tbody>
-	<c:forEach items="${results}" var="row" varStatus="status">
+    <c:forEach items="${results}" var="row" varStatus="status">
        <tr class='${status.index % 2 == 1? "dark" : "light" }'>
-        	<td class="valueC">${row.map['rank']}</td>
-        	<td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon"/></td>
-        	<td class="valueC" width="100px" nowrap="nowrap">
-        		<c:choose>
-        			<c:when test="${row.map['is_current'] == 1 }">
-			            <div style="float: left; width: 30px;">
-			                &nbsp;
-			            </div>
-			            <div style="float: right; width: 30px;">                                    
-			                <img src="/i/interface/emblem/andclimbing.png" alt="" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
-			            </div>
-        			</c:when>
-        			<c:otherwise>
-			            <div style="float: left; width: 30px;">
-			                &nbsp;
-			            </div>
-			            <div style="float: right; width: 30px;">                                    
-			                &nbsp;
-			            </div>
-        			</c:otherwise>        			
-        		</c:choose>
-        		${row.map['length']}
+            <td class="valueC">${row.map['rank']}</td>
+            <td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon"/></td>
+            <td class="valueC" width="100px" nowrap="nowrap">
+                <c:choose>
+                    <c:when test="${row.map['is_current'] == 1 }">
+                        <div style="float: left; width: 30px;">
+                            &nbsp;
+                        </div>
+                        <div style="float: right; width: 30px;">                                    
+                            <img src="/i/interface/emblem/andclimbing.png" alt="" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div style="float: left; width: 30px;">
+                            &nbsp;
+                        </div>
+                        <div style="float: right; width: 30px;">                                    
+                            &nbsp;
+                        </div>
+                    </c:otherwise>                  
+                </c:choose>
+                ${row.map['length']}
         </td>
         <td class="valueR" nowrap="nowrap">
-	        <strong>${row.map['start_contest_name']}</strong><br>
-        	<fmt:formatDate value="${row.map['start_date']}" pattern="MM.dd.yy"/> 
+            <strong>${row.map['start_contest_name']}</strong><br>
+            <fmt:formatDate value="${row.map['start_date']}" pattern="MM.dd.yy"/> 
         </td>
         <td class="valueC">-</td>
         <td class="valueR" nowrap="nowrap">
-	        <strong>${row.map['end_contest_name']}</strong><br>
-        	<fmt:formatDate value="${row.map['end_date']}" pattern="MM.dd.yy"/> 
+            <strong>${row.map['end_contest_name']}</strong><br>
+            <fmt:formatDate value="${row.map['end_date']}" pattern="MM.dd.yy"/> 
         </td>
     </tr>
     </c:forEach>

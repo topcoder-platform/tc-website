@@ -100,7 +100,7 @@
                 <td>
                     <strong>Best Win Percentage</strong><br>
                     Highest percentage of wins per match where the competitor has made a submission (either test or full).  
-					Only matches where the competitor was rated are included.
+                    Only matches where the competitor was rated are included.
                     <br>
                     <a href="/longcontest/?module=Recordbook&c=marathon_best_win_percentage">Overall</a> 
                 </td>

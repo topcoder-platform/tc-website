@@ -1,4 +1,4 @@
-package com.topcoder.web.codinginterface.longcontest.controller.request;
+package com.topcoder.web.codinginterface.longcontest.controller.request.stats;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +14,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
+import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 
 /**
  * List the winner(s) for each match.

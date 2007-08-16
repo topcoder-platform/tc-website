@@ -53,8 +53,8 @@
             </jsp:include>
             
             <logic:notEqual name="systemTestCount" value="0">
-	            <span class="bodySubtitle">System Tests Remaining: <%=systemTestCount%></span><br/><br/>
-	        </logic:notEqual>    
+                <span class="bodySubtitle">System Tests Remaining: <%=systemTestCount%></span><br/><br/>
+            </logic:notEqual>    
 
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                 <tr>
@@ -96,7 +96,7 @@
                                         <A href="?module=ViewStandings&rd=<%=resultRow.getRoundId()%>"><%=resultRow.getContestName()%> &gt; <%=resultRow.getRoundName()%></A>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
-                                    	<%=resultRow.getLanguageName()%>
+                                        <%=resultRow.getLanguageName()%>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center">
                                         <tc-webtag:format object="<%=resultRow.getQueueDate()%>" format="MM.dd.yyyy HH:mm:ss"/>

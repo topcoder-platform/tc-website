@@ -36,7 +36,7 @@
         <SCRIPT type="text/javascript">
         function submit(module, example) {
             document.adminForm.<%=Constants.MODULE%>.value=module;
-			document.adminForm.<%=Constants.EXAMPLE_FLAG%>.value=example;
+            document.adminForm.<%=Constants.EXAMPLE_FLAG%>.value=example;
             document.adminForm.submit();
         }
     </SCRIPT>

@@ -88,7 +88,8 @@ public class ViewStandings extends Base {
                 if (!started) {
                     throw new NavigationException("Invalid round specified.");
                 } else if (over&&areResultsAvailable(Long.parseLong(roundID))) { // go to overview page
-                    String url = buildProcessorRequestString("ViewOverview", new String[]{Constants.ROUND_ID}, new String[]{roundID});
+//                    String url = buildProcessorRequestString("ViewOverview", new String[]{Constants.ROUND_ID}, new String[]{roundID});
+                    String url = "/longcontest/stats/?module=ViewOverview&rd=" + roundID;
                     log.debug("Going to overview page: " + url);
                     setNextPage(url);
                     setIsNextPageInContext(false);

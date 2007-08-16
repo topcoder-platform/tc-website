@@ -31,13 +31,13 @@
     </tr>
 </thead>
 <tbody>
-	<c:forEach items="${results}" var="row" varStatus="status">
+    <c:forEach items="${results}" var="row" varStatus="status">
        <tr class='${status.index % 2 == 1? "dark" : "light" }'>
-        	<td class="valueC">${row.map['rank']}</td>
-        	<td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon"/></td>
-        	<td class="valueR" >${row.map['new_rating'] }</td>
-        	<td class="value" nowrap="nowrap">${row.map['name'] }</td>
-        	<td class="valueC" >${row.map['date'] }</td>
+            <td class="valueC">${row.map['rank']}</td>
+            <td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon"/></td>
+            <td class="valueR" >${row.map['new_rating'] }</td>
+            <td class="value" nowrap="nowrap">${row.map['name'] }</td>
+            <td class="valueC" >${row.map['date'] }</td>
     </tr>
     </c:forEach>
 </tbody>

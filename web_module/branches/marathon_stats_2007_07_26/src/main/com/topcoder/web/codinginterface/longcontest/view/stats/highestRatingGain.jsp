@@ -30,12 +30,12 @@
     </tr>
 </thead>
 <tbody>
-	<c:forEach items="${results}" var="row" varStatus="status">
+    <c:forEach items="${results}" var="row" varStatus="status">
        <tr class='${status.index % 2 == 1? "dark" : "light" }'>
-        	<td class="valueC">${row.map['rank']}</td>
-        	<td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon"/></td>
-        	<td class="valueR" >${row.map['rating_gain'] }</td>
-        	<td class="valueC" >${row.map['short_name'] }</td>
+            <td class="valueC">${row.map['rank']}</td>
+            <td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon"/></td>
+            <td class="valueR" >${row.map['rating_gain'] }</td>
+            <td class="valueC" >${row.map['short_name'] }</td>
     </tr>
     </c:forEach>
 </tbody>

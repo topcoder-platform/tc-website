@@ -5,26 +5,22 @@ import java.util.Map;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 
 /**
- *
+ * Display a list of completed matches.
+ * 
  * @author cucu
  */
-public class MatchList2 extends Base {
+public class MatchList extends Base {
 
     protected void longContestProcessing() throws TCWebException {
-        if (getUser().isAnonymous()) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        }
-        
         try {
             Request r = new Request();
 
@@ -54,6 +50,7 @@ public class MatchList2 extends Base {
             Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME,true).getData(r);
 
             ResultSetContainer rsc = result.get("marathon_match_list");
+            rsc = new ResultSetContainer(rsc, new RoundDisplayNameCalculator("display_name"));
 
             if ("".equals(sortCol)) {
                 sortCol = rsc.getColumnIndex("date") + "";

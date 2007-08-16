@@ -103,7 +103,7 @@
                                     </logic:equal>
                                 </logic:equal>
                                 <logic:notEqual name="contest" property="passed" value="false">
-                                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewOverview&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>">results</a>
+                                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>/stats/?module=ViewOverview&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>">results</a>
                                 </logic:notEqual>
                             </div>
                         </td>

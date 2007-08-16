@@ -1,4 +1,4 @@
-package com.topcoder.web.codinginterface.longcontest.controller.request;
+package com.topcoder.web.codinginterface.longcontest.controller.request.stats;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
