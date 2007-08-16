@@ -23,9 +23,14 @@ if (type == null) type = HandleTag.COMPONENT; %>
         <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item name="rank" row="<%=row%>"/></td>
         <td class="value">
-            <c:if test="${empty hideList || !cf:contains(hideList, row.map['coder_id'])}">
-               <tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/>
-            </c:if>
+            <c:choose>
+                <c:when test="${empty hideList || !cf:contains(hideList, row.map['coder_id'])}">
+                    <tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/>
+                </c:when>
+                <c:otherwise>
+                    HIDDEN
+                </c:otherwise>
+            </c:choose>
         </td>
         <td class="valueR"><rsc:item name="money" row="<%=row%>" format="$#,###,###.00"/></td>
         </tr>
