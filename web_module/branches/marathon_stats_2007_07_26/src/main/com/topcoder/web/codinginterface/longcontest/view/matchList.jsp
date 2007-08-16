@@ -33,8 +33,7 @@ return false;
 } else return true;
 }
 </script>
-
-
+   
 </head>
 
 <body>
@@ -68,43 +67,42 @@ return false;
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
-				<center>
-				<div class="pagingBox" style="width:300px;">
-					<tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" /> |
-					<tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" />
-				</div>
-				</center>
+                <center>
+                <div class="pagingBox" style="width:300px;">
+                    <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" /> |
+                    <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" />
+                </div>
+                </center>
 
-			<table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
-			   <tr><td class="title" colspan="6">Marathon Match Archive</td></tr>
-			   <tr>
-			      <td class="header" width="33%"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
-			      <td class="headerC" width="33%"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['date']}" includeParams="true" excludeParams="sr" />">Date</a></td>
-			      <td class="headerC" nowrap="nowrap"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['num_competitors']}" includeParams="true" excludeParams="sr" />">Competitors</a></td>
-			      <td class="headerC" nowrap="nowrap"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['num_submissions']}" includeParams="true" excludeParams="sr" />">Total Submissions</a></td>
-			      <td class="headerC" nowrap="nowrap"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['avg_submissions']}" includeParams="true" excludeParams="sr" />">Avg. Submissions</a></td>
-			      <td class="headerC" width="33%">&#160;</td>
-			   </tr>
-			   <c:forEach items="${matches}" var="row" varStatus="status">
-			       <tr class='${status.index % 2 == 1? "dark" : "light" }'>
-						<td class="value" nowrap="nowrap">
-							<a href="/longcontest/?module=ViewOverview&rd=${row.map['round_id']}"/>${row.map['name']}</a>		
-							displayName: ${row.map['display_name']}					
-						</td>
-						<td class="valueC"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
-						<td class="valueR">${row.map['num_competitors']}</td>
-						<td class="valueR">${row.map['num_submissions']}</td>
-						<td class="valueR"><fmt:formatNumber value="${row.map['avg_submissions']}"  minFractionDigits="2" maxFractionDigits="2"/></td>		
-						<td class="valueC"><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=${row.map['forum_id']}" class="statLink">discuss</a></td>
-					</tr>   
-			   </c:forEach>   
-			</table>
+            <table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
+               <tr><td class="title" colspan="6">Marathon Match Archive</td></tr>
+               <tr>
+                  <td class="header" width="33%"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['display_name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
+                  <td class="headerC" width="33%"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['date']}" includeParams="true" excludeParams="sr" />">Date</a></td>
+                  <td class="headerC" nowrap="nowrap"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['num_competitors']}" includeParams="true" excludeParams="sr" />">Competitors</a></td>
+                  <td class="headerC" nowrap="nowrap"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['num_submissions']}" includeParams="true" excludeParams="sr" />">Total Submissions</a></td>
+                  <td class="headerC" nowrap="nowrap"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['avg_submissions']}" includeParams="true" excludeParams="sr" />">Avg. Submissions</a></td>
+                  <td class="headerC" width="33%">&#160;</td>
+               </tr>
+               <c:forEach items="${matches}" var="row" varStatus="status">
+                   <tr class='${status.index % 2 == 1? "dark" : "light" }'>
+                        <td class="value" nowrap="nowrap">
+                            <a href="/longcontest/?module=ViewOverview&rd=${row.map['round_id']}"/>${row.map['display_name']}</a>                                                    
+                        </td>
+                        <td class="valueC"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
+                        <td class="valueR">${row.map['num_competitors']}</td>
+                        <td class="valueR">${row.map['num_submissions']}</td>
+                        <td class="valueR"><fmt:formatNumber value="${row.map['avg_submissions']}"  minFractionDigits="2" maxFractionDigits="2"/></td>      
+                        <td class="valueC"><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=${row.map['forum_id']}" class="statLink">discuss</a></td>
+                    </tr>   
+               </c:forEach>   
+            </table>
 
-		<center>
-		<div class="pagingBox" style="width:300px;">
-					<tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" /> |
-					<tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" />
-		</div>
+        <center>
+        <div class="pagingBox" style="width:300px;">
+                    <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" /> |
+                    <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" />
+        </div>
 
                         View &#160;
                         <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
@@ -112,7 +110,7 @@ return false;
                         <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
                         <a href="javascript:document.matchListForm.submit();" class="bcLink">&#160;[ submit ]</a>
                     </div>
-		</center>        
+        </center>        
  
                     </form>
                 </td>
