@@ -7,20 +7,15 @@
 
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import java.sql.Types;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.FormulaColumn;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
-import com.topcoder.shared.dataAccess.resultSet.TCStringResult;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.codinginterface.longcontest.model.ContestNameFormula;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
@@ -79,10 +74,9 @@ public class ViewOverview extends Base {
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
             rsc = new ResultSetContainer(rsc, startRank, endRank);
 
-            ResultSetContainer rounds = new ResultSetContainer(result.get("long_contest_round_list"), new ContestNameFormula("display_name"));
+            ResultSetContainer rounds = new ResultSetContainer(result.get("long_contest_round_list"), new RoundDisplayNameCalculator("display_name"));
             
-            ResultSetContainer info = new ResultSetContainer(result.get("long_contest_overview_info"),  new FormulaColumn[]{                
-            new ContestNameFormula("display_name"), new EraseMe("test")});
+            ResultSetContainer info = new ResultSetContainer(result.get("long_contest_overview_info"), new RoundDisplayNameCalculator("display_name"));
             
             SortInfo s = new SortInfo();
             s.addDefault(rsc.getColumnIndex("point_total"), "desc");
@@ -108,25 +102,5 @@ public class ViewOverview extends Base {
             throw new TCWebException(e);
         }
     }
-    
-    
-    
-    public class EraseMe extends FormulaColumn {
-
-        /**
-         * Change it if the serialization for this object will change
-         */
-        private static final long serialVersionUID = 1L;
-
-        public EraseMe(String columnName) {
-            super(Types.VARCHAR, columnName,0,0,"");
-        }
         
-        @Override
-        public TCResultItem calculate(ResultSetRow rsr) {
-            return new TCStringResult("Testing!");
-        }
-
-    }
-
 }

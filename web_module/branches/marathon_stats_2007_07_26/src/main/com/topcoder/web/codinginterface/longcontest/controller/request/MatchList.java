@@ -7,7 +7,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.codinginterface.longcontest.model.ContestNameFormula;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
@@ -48,7 +48,7 @@ public class MatchList extends Base {
             Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME,true).getData(r);
 
             ResultSetContainer rsc = result.get("marathon_match_list");
-            rsc = new ResultSetContainer(rsc, new ContestNameFormula("display_name"));
+            rsc = new ResultSetContainer(rsc, new RoundDisplayNameCalculator("display_name"));
 
             if ("".equals(sortCol)) {
                 sortCol = rsc.getColumnIndex("date") + "";
