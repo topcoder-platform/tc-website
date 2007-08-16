@@ -78,7 +78,7 @@ return false;
             <table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
                <tr><td class="title" colspan="7">Marathon Match Archive</td></tr>
                <tr>
-                  <td class="headerC" width="33%"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['date']}" includeParams="true" excludeParams="sr" />">Date</a></td>
+                  <td class="header" width="10%"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['date']}" includeParams="true" excludeParams="sr" />">Date</a></td>
                   <td class="header" width="33%"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['display_name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
                   <td class="header" width="33%"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['problem_name']}" includeParams="true" excludeParams="sr" />">Problem</a></td>
                   <td class="headerC" nowrap="nowrap"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['num_competitors']}" includeParams="true" excludeParams="sr" />">Competitors</a></td>
@@ -88,7 +88,7 @@ return false;
                </tr>
                <c:forEach items="${matches}" var="row" varStatus="status">
                    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
-                        <td class="valueC"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
+                        <td class="value"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
                         <td class="value" nowrap="nowrap">
                             <a href="/longcontest/stats/?module=ViewOverview&rd=${row.map['round_id']}"/>${row.map['display_name']}</a>                                                    
                         </td>
