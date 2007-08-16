@@ -92,10 +92,9 @@
         <li>handle</li>
         <li>user id</li>
         <li>round id</li>
-        <li>problem id</li>
-        <li>full name</li>
-        <li>short name</li>
         <li>number of rated events of the coder after the match</li>
+        <li>problem id</li>
+        <li>round name</li>
         <li>date</li>
         <li>old rating</li>
         <li>new rating</li>
@@ -149,7 +148,7 @@
 </p>
 
 <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Marathon Individual Round Results</span><br/>
-    This feed provides details about the submission history and the system tests for an user in a round.z
+    This feed provides details about the submission history and the system tests for an user in a round.
     <ul>
         <li>round id</li>
         <li>user id</li>
@@ -167,16 +166,13 @@
                 <li>test case id</li>
                 <li>score</li>
                 <li>processing time</li>
-                <li>arguments (only if FULL flag is set to 1)</li>
-                <li>fatal errors(only if FULL flag is set to 1)</li>
+                <li>fatal errors indicator</li>
             </ul>
         </li>               
     </ul>
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=IndividualResultsFeed&rd=ROUND_ID&cr=CODER_ID&full=FULL</strong>
+    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=IndividualResultsFeed&rd=ROUND_ID&cr=CODER_ID</strong>
     <br/>
-    You will need to replace "ROUND_ID" and "USER_ID" in the query string to get data about a particular round and coder, 
-    and set "FULL" to 1 for including additional fields, or to 0 for excluding them.
-
+    You will need to replace "ROUND_ID" and "USER_ID" in the query string to get data about a particular round and coder.
 </p>
 
 <p><br/></p>

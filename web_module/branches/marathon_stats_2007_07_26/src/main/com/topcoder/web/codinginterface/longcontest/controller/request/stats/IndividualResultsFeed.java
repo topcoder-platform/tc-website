@@ -3,9 +3,9 @@ package com.topcoder.web.codinginterface.longcontest.controller.request.stats;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.datafeed.AllColumns;
@@ -13,12 +13,10 @@ import com.topcoder.web.common.datafeed.Column;
 import com.topcoder.web.common.datafeed.CommandRunner;
 import com.topcoder.web.common.datafeed.DataFeeder;
 import com.topcoder.web.common.datafeed.DateFormatter;
-import com.topcoder.web.common.datafeed.ItemFormatter;
 import com.topcoder.web.common.datafeed.RSCDataFeed;
 import com.topcoder.web.common.datafeed.Value;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.model.DataResource;
-import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 /**
  * Data feed to show history and results for a coder in a round.
  * 
@@ -30,7 +28,6 @@ public class IndividualResultsFeed extends Base {
     protected void longContestProcessing() throws Exception {
         String roundId = getRequest().getParameter(Constants.ROUND_ID);
         String coderId = getRequest().getParameter(Constants.CODER_ID);
-        boolean full = "1".equals(getRequest().getParameter("full"));
         
         try {
             Integer.parseInt(coderId);
@@ -73,15 +70,7 @@ public class IndividualResultsFeed extends Base {
             RSCDataFeed testcases = new RSCDataFeed("testcases", "testcase", cmd, "dd_marathon_individual_results"); 
             AllColumns ac = new AllColumns("");
             ac.skip("handle");
-
-            if (!full) {
-                ac.skip("arguments");
-                ac.skip("fatal_errors");
-            } else {
-                ac.replace(new Column("arguments", "arguments", null, null, new QuotedTextFormatter()));
-                ac.replace(new Column("fatal_errors", "fatal_errors", null, null, new QuotedTextFormatter()));
-            }
-            
+          
             testcases.add(ac);
 
             df.add(testcases);
@@ -98,25 +87,4 @@ public class IndividualResultsFeed extends Base {
         }
     }
     
-    /**
-     * Formats a quoted text by removing the quotes.
-     *  
-     * @author Cucu
-     *
-     */
-    static class QuotedTextFormatter implements ItemFormatter {
-
-        public String format(ResultSetRow row, String field) {
-            String s = row.getStringItem(field);
-
-            if (s == null || s.length() < 2) return s;
-            
-            if (s.charAt(0)== '"' && s.charAt(s.length() - 1) == '"') {
-                s = s.substring(1, s.length() - 1);
-            }
-            
-            return s;
-        }
-        
-    }
 }
