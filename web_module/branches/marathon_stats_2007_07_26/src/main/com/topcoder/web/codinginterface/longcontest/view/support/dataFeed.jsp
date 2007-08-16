@@ -109,8 +109,8 @@
     You will need to replace "USER_ID" in the query string to get data about a particular competitor.
 </p>
 
-<p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Marathon Round List</span><br/>
-    This feed provides a list of marathon rounds.
+<p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Marathon Match Round List</span><br/>
+    This feed provides a list of marathon match rounds.
     <ul>
         <li>round id</li>
         <li>full name</li>
@@ -122,8 +122,8 @@
 </p>
 
 
-<p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Marathon Round Results</span><br/>
-    This feed provides details about all the competitors in a marathon round.
+<p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Marathon Match Round Results</span><br/>
+    This feed provides details about all the competitors in a marathon match round.
     It includes the following fields:
     <ul>
         <li>round id</li>
@@ -147,7 +147,7 @@
 
 </p>
 
-<p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Marathon Individual Round Results</span><br/>
+<p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Marathon Match Individual Round Results</span><br/>
     This feed provides details about the submission history and the system tests for an user in a round.
     <ul>
         <li>round id</li>
@@ -166,7 +166,7 @@
                 <li>test case id</li>
                 <li>score</li>
                 <li>processing time</li>
-                <li>fatal errors indicator</li>
+                <li>fatal error indicator</li>
             </ul>
         </li>               
     </ul>
