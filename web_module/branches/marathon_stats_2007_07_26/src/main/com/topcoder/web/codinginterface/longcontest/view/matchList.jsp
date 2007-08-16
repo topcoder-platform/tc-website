@@ -7,6 +7,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
 
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
@@ -75,10 +76,11 @@ return false;
                 </center>
 
             <table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
-               <tr><td class="title" colspan="6">Marathon Match Archive</td></tr>
+               <tr><td class="title" colspan="7">Marathon Match Archive</td></tr>
                <tr>
-                  <td class="header" width="33%"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['display_name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
                   <td class="headerC" width="33%"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['date']}" includeParams="true" excludeParams="sr" />">Date</a></td>
+                  <td class="header" width="33%"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['display_name']}" includeParams="true" excludeParams="sr" />">Match</a></td>
+                  <td class="header" width="33%"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['problem_name']}" includeParams="true" excludeParams="sr" />">Problem</a></td>
                   <td class="headerC" nowrap="nowrap"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['num_competitors']}" includeParams="true" excludeParams="sr" />">Competitors</a></td>
                   <td class="headerC" nowrap="nowrap"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['num_submissions']}" includeParams="true" excludeParams="sr" />">Total Submissions</a></td>
                   <td class="headerC" nowrap="nowrap"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="${columnMap['avg_submissions']}" includeParams="true" excludeParams="sr" />">Avg. Submissions</a></td>
@@ -86,10 +88,13 @@ return false;
                </tr>
                <c:forEach items="${matches}" var="row" varStatus="status">
                    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
+                        <td class="valueC"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
                         <td class="value" nowrap="nowrap">
                             <a href="/longcontest/stats/?module=ViewOverview&rd=${row.map['round_id']}"/>${row.map['display_name']}</a>                                                    
                         </td>
-                        <td class="valueC"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
+                        <td class="value">
+                           <mm:problemLink roundId="${row.map['round_id']}" problemId="${row.map['problem_id']}" problemName="${row.map['problem_name']" />
+                        </td>
                         <td class="valueR">${row.map['num_competitors']}</td>
                         <td class="valueR">${row.map['num_submissions']}</td>
                         <td class="valueR"><fmt:formatNumber value="${row.map['avg_submissions']}"  minFractionDigits="2" maxFractionDigits="2"/></td>      
