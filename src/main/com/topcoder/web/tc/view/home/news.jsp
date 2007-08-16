@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.16.07<br>5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=byes">Top Algorithm competitors bypass TCCC07 Qual Round</A></span><br><br>
+        The 150 top-rated registrants for the TCCC07 Algorithm Competition have gotten a "bye," meaning they can skip the Qualification Rounds and start getting ready for Online Round 1. Congratulations!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=byes">details</A> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Marathon Match Tutorial" border="0" /><br>08.16.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -160,19 +173,5 @@
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />">details</A> | 
         <A href="http://forums.topcoder.com/?module=Category&categoryID=2479">discuss this</A> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.08.07<br>12:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/longcontest/?module=ViewActiveContests">TCCC07 Marathon Match Round 1 now underway</A></span><br><br>
-        The first online round of the 2007 TopCoder Collegiate Challenge Marathon Match Competition has begun. Good luck!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/longcontest/?module=ViewActiveContests">details</A> | 
-        <tc-webtag:forumLink forumID="516884" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
