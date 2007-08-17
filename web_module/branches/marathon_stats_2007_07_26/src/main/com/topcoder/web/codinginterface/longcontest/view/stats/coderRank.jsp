@@ -68,7 +68,7 @@ return false;
 
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CoderRank"/>
 
-                <div class="pagingBox" style="width:300px;">
+                <div class="pagingBox">
                     <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" /> |
                     <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" />
                 </div>
@@ -88,12 +88,12 @@ return false;
                     </tr>   
                </c:forEach>   
             </table>
-
-        <div class="pagingBox" style="width:300px;">
+<center>
+                <div class="pagingBox" style="width:300px;">
                     <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" /> |
                     <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" />
-        </div>
-
+                </div>
+</center>
                         View &#160;
                         <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
                         &#160;at a time starting with &#160;
