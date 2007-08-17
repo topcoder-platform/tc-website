@@ -62,7 +62,16 @@
                     </td>
                     <td class="value" style="vertical-align: top;">
                         <div style="margin:10px;">
+                            <h3>British Telecom Wireless Cities</h3>
+                                - <strong>Submission Start Date:</strong> August 17, 2007
+                                <br />- <strong>Submission End Date:</strong> August 31, 2007
+                                <br />- <strong>Review Start Date:</strong> August 31, 2007
+                                <br />- <strong>Review End Date:</strong> September 17, 2007
+                                <br />- <strong>Winner:</strong> September 18
+                            <br /><br /><a href="/?module=Static&d1=assembly&d2=btWiCitiesDetails">details</a>
+<%--
                             <h3>No active competitions at this time.<br />Please check again soon.</h3>
+--%>
                         </div>
                     </td>
                 </tr>
@@ -78,10 +87,6 @@
                         </div>
                     </td>
                     <td class="value" style="vertical-align: top;">
-                        <div style="margin:10px;">
-                            <h3>British Telecom Wireless Cities</h3>
-                            Details coming soon!
-                        </div>
                         <div style="margin:10px;">
                             <h3>Microsoft Resource Description Framework Tool</h3>
                             Details coming soon!

@@ -69,23 +69,22 @@
                         </td>
                         <td class="header">&nbsp;</td>
                     </tr>
-<%--
                     <% boolean even = true;%>
                     <tr class="<%=even?"light":"dark"%>">
                         <td class="value">
-                            <A href="/?module=Static&d1=assembly&d2=msSessionManifestDetails">Microsoft Session Manifest Tool</A>
+                            <A href="/?module=Static&d1=assembly&d2=btWiCitiesDetails">British Telecom Wireless Cities</A>
                         </td>
                         <td class="valueC" nowrap="nowrap">
-                             <strong>05.22.2007</strong><br>16:00 EST
+                             <strong>08.17.2007</strong><br>15:00 EST
                         </td>
                         <td class="valueC" nowrap="nowrap">
-                             <strong>06.08.2007</strong><br>17:00 EST
+                             <strong>08.31.2007</strong><br>17:00 EST
                         </td>
                         <td class="valueR" nowrap="nowrap">
-                            <span class="bigRed">$6,000.00</span>
+                            $7,000.00
                         </td>
                         <td class="valueC">
-                            32
+                            0
                         </td>
                         <td class="valueC">
                             0
@@ -96,8 +95,8 @@
                         </td>
                     </tr>
                     <% even = !even;%>
---%>
 
+<%--
                 <tr class="light">
 
                     <td class="valueC" colspan="7">
@@ -107,6 +106,7 @@
                         </div>
                     </td>
                 </tr>
+--%>
 
                 </tbody>
             </table>
