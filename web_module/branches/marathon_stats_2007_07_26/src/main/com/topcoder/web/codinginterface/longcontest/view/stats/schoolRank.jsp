@@ -41,11 +41,11 @@
 
                 <jsp:include page="../page_title.jsp" >
                     <jsp:param name="image" value="statistics_w"/>
-                    <jsp:param name="title" value="Top Ranked Marathon Match Countries"/>
+                    <jsp:param name="title" value="Top Ranked Marathon Match Schools"/>
                 </jsp:include>
 
             <table class="stat" cellpadding="0" cellspacing="0" width="510" border="0">
-               <tr><td class="title" colspan="4">Top Ranked Marathon Match Countries</td>          </tr>
+               <tr><td class="title" colspan="4">Top Ranked Marathon Match Schools</td></tr>
                <tr>
                   <td class="headerC">Rank</td>
                   <td class="header">Name</td>
