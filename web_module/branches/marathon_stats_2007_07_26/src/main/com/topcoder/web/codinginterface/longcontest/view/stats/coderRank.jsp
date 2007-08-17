@@ -57,6 +57,8 @@ return false;
                 <!-- Center Column Begins -->
                 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
+        <div class="fixedWidthBody">
+
                 <jsp:include page="../page_title.jsp" >
                     <jsp:param name="image" value="statistics_w"/>
                     <jsp:param name="title" value="Top Ranked Marathon Match Competitors"/>
@@ -66,12 +68,10 @@ return false;
 
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CoderRank"/>
 
-                <center>
                 <div class="pagingBox" style="width:300px;">
                     <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" /> |
                     <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" />
                 </div>
-                </center>
 
             <table class="stat" cellpadding="0" cellspacing="0" width="510 border="0">
                <tr><td class="title" colspan="3">Top Ranked Marathon Match Competitors</td></tr>
@@ -89,7 +89,6 @@ return false;
                </c:forEach>   
             </table>
 
-        <center>
         <div class="pagingBox" style="width:300px;">
                     <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" /> |
                     <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" />
@@ -101,9 +100,9 @@ return false;
                         <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
                         <a href="javascript:document.f.submit();" class="bcLink">&#160;[ submit ]</a>
                     </div>
-        </center>        
- 
+
                     </form>
+            </div>                    
                 </td>
 
 
