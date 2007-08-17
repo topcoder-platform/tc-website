@@ -24,7 +24,7 @@
         
             <div id="pageBody">
                 <div style="padding-bottom:10px;">
-                    <a target="_blank" alt="TCCC07 Event Patron - NSA" href="<tc-webtag:linkTracking link='http://www.nsa.gov/' refer='TCCC07_nsaSuccess' />"<img alt="TCCC07 Event Patron - NSA" src="/i/tournament/tccc07/nsa_logo.png" /></a>
+                    <a target="_blank" alt="TCCC07 Event Patron - NSA" href="<tc-webtag:linkTracking link='http://www.nsa.gov/' refer='TCCC07_nsaSuccess' />"><img alt="TCCC07 Event Patron - NSA" src="/i/tournament/tccc07/nsa_logo.png" /></a>
                 </div>
                 <p>Your application has been received.</p>
                 <p>You will be contacted by a TopCoder Recruiter if you meet NSA's requirements. Thank you.</p>
