@@ -49,7 +49,7 @@ return false;
                 <!-- Left Column Begins-->
                 <td width="180">
                     <jsp:include page="/includes/global_left.jsp">
-                        <jsp:param name="node" value="long_match_archive"/>
+                        <jsp:param name="node" value="top_rated_long"/>
                     </jsp:include>
                 </td>
                 <!-- Left Column Ends -->
@@ -68,8 +68,8 @@ return false;
 
                 <center>
                 <div class="pagingBox" style="width:300px;">
-                    <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" /> |
-                    <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" />
+                    <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" /> |
+                    <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" />
                 </div>
                 </center>
 
@@ -91,8 +91,8 @@ return false;
 
         <center>
         <div class="pagingBox" style="width:300px;">
-                    <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" /> |
-                    <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" />
+                    <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" /> |
+                    <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" />
         </div>
 
                         View &#160;
