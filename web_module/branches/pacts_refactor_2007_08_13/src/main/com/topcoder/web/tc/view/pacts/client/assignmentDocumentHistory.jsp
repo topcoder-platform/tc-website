@@ -2,7 +2,7 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.member.AssignmentDocumentHistory" %>
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
-<%@ page import="com.topcoder.web.common.model.AssignmentDocumentStatus" %>
+<%@ page import="com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentStatus" %>
 <%@ page language="java"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
