@@ -56,7 +56,7 @@ return false;
 
 <body>
 
-        <jsp:include page="top.jsp" >
+        <jsp:include page="/top.jsp" >
             <jsp:param name="level1" value=""/>
         </jsp:include>
                
@@ -74,7 +74,7 @@ return false;
                 <!-- Center Column Begins -->
                 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
-                <jsp:include page="page_title.jsp" >
+                <jsp:include page="../page_title.jsp" >
                     <jsp:param name="image" value="statistics_w"/>
                     <jsp:param name="title" value="Match Winners"/>
                 </jsp:include>
@@ -108,7 +108,7 @@ return false;
                <c:forEach items="${list}" var="row" varStatus="status">
                     <c:set var="roundId" value="r${row.map['round_id']}" />
                    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
-                        <td class="valueC"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
+                        <td class="value"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
                         <td class="value" nowrap="nowrap">
                             <a href="/longcontest/stats/?module=ViewOverview&rd=${row.map['round_id']}"/>${row.map['display_name']}</a>
                         </td>
@@ -182,7 +182,7 @@ return false;
 
 
          <td width="170">
-            <jsp:include page="public_right.jsp">
+            <jsp:include page="/public_right.jsp">
                <jsp:param name="level1" value="default"/>
             </jsp:include>
          </td>
@@ -193,7 +193,7 @@ return false;
             </tr>
         </table>
 
-        <jsp:include page="foot.jsp" />
+        <jsp:include page="/foot.jsp" />
 
     </body>
 
