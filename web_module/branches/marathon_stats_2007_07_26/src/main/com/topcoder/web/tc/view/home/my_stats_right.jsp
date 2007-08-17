@@ -51,6 +51,20 @@
    </tr>
     <% } %>
 
+    <tr><td colspan="2" class="myStatsTitle">Marathon Match</td></tr>
+
+    <tr>
+        <td class="formHandleEven">Rating</td>
+        <td class="formHandleEven" align="right">
+        <% if (coderInfo.getItem(0, "mm_rating").getResultData()==null||coderInfo.getIntItem(0, "rating")<1) { %>
+        Not Rated
+        <% } else { %>
+            <A href="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<%=info.getUserId()%>" class="statTextBig">
+                <rsc:item set="<%=coderInfo%>" name="mm_rating" ifNull="Not Rated"/></A>
+        <% } %>
+        </td>
+    </tr>
+
     <tr><td colspan="2" class="myStatsTitle">Design</td></tr>
 
     <tr>
