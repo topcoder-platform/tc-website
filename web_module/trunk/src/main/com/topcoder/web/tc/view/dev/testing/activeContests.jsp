@@ -51,6 +51,38 @@
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_registrationToolTeams">Registration Tool - Teams</A>
+      </td>
+      <td class="valueC">
+      <%--registration closed--%>
+      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Registration Tool: Teams">register</A>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_registrationToolTeams">results</A>
+      --%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_registrationToolTeams">standings</A>
+      --%>
+      </td>
+      <td class="valueC">$1400</td>
+      <td class="valueC">
+      08.22.2007 9:00 AM EDT
+      </td>
+      <td class="valueC">
+      08.26.2007 9:00 AM EDT
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <tc-webtag:forumLink forumID="516607" message="discuss" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_registrationToolProjects">Registration Tool - Projects</A>
       </td>
       <td class="valueC">
@@ -67,38 +99,6 @@
       &#160;
       <%--
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_registrationToolProjects">standings</A>
-      --%>
-      </td>
-      <td class="valueC">$1000</td>
-      <td class="valueC">
-      08.02.2007 9:00 AM EDT
-      </td>
-      <td class="valueC">
-      08.08.2007 9:00 AM EDT
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      <tc-webtag:forumLink forumID="516607" message="discuss" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_registrationToolTeams">Registration Tool - Teams</A>
-      </td>
-      <td class="valueC">
-      registration closed
-      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Registration Tool: Teams">register</A>--%>
-      </td>
-      <td class="valueC">
-      &#160;
-      <%--
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_registrationToolTeams">results</A>
-      --%>
-      </td>
-      <td class="valueC">
-      &#160;
-      <%--
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_registrationToolTeams">standings</A>
       --%>
       </td>
       <td class="valueC">$1000</td>

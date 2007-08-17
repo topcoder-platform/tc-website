@@ -154,8 +154,8 @@ The file structure for the submissions should follow the guidelines described in
     
 <div class="sectionHeader">Payment</div>
 <p>TopCoder will compensate the first and second place submissions. The payments for the winning competitors will be distributed after the review phase is completed and the winners are selected.</p>
-<p><strong>Winning Test Solution</strong><br />Total Payment - $1000</p>
-<p><strong>Runner-up Test Solution</strong><br />Total Payment - $500</p>
+<p><strong>Winning Test Solution</strong><br />Total Payment - $1400</p>
+<p><strong>Runner-up Test Solution</strong><br />Total Payment - $700</p>
 
 <div class="sectionHeader">Eligibility</div>
 <p>You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition, you must fit into one of the following categories.</p>
@@ -184,26 +184,26 @@ The file structure for the submissions should follow the guidelines described in
         </tr> 
         <tr> 
             <td>Registration</td> 
-            <td align="center">07.30.2007</td> 
-            <td align="center">08.02.2007</td> 
-            <td align="center">3</td> 
+            <td align="center">08.17.2007</td> 
+            <td align="center">08.22.2007</td> 
+            <td align="center">5</td> 
         </tr> 
         <tr> 
             <td>Submission</td> 
-            <td align="center">07.31.2007</td> 
-            <td align="center">08.08.2007</td> 
+            <td align="center">08.18.2007</td> 
+            <td align="center">08.26.2007</td> 
             <td align="center">8</td> 
         </tr> 
         <tr> 
             <td>Test Case Screening</td> 
-            <td align="center">08.08.2007</td> 
-            <td align="center">08.09.2007</td> 
+            <td align="center">08.26.2007</td> 
+            <td align="center">08.27.2007</td> 
             <td align="center">1</td> 
         </tr> 
         <tr> 
             <td>Winner Selection</td> 
             <td align="center">&nbsp;</td> 
-            <td align="center">08.18.2007</td> 
+            <td align="center">09.02.2007</td> 
             <td align="center">&nbsp;</td> 
         </tr> 
     </tbody> 
