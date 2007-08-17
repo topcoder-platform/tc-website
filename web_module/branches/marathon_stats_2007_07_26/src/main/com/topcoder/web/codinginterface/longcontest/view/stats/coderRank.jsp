@@ -57,9 +57,9 @@ return false;
                 <!-- Center Column Begins -->
                 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
-                <jsp:include page="page_title.jsp" >
+                <jsp:include page="../page_title.jsp" >
                     <jsp:param name="image" value="statistics_w"/>
-                    <jsp:param name="title" value="Match Archive"/>
+                    <jsp:param name="title" value="Top Ranked Marathon Match Competitors"/>
                 </jsp:include>
 
                 <form name="f" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
@@ -73,7 +73,7 @@ return false;
                 </div>
                 </center>
 
-            <table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
+            <table class="stat" cellpadding="0" cellspacing="0" width="510 border="0">
                <tr><td class="title" colspan="3">Top Ranked Marathon Match Competitors</td></tr>
                <tr>
                   <td class="headerC">Rank</td>
