@@ -49,6 +49,7 @@
                      | Schools
                      | <A href="${sessionInfo.servletPath}?module=CountryRank" class="bcLink">Countries</A>
                 </div>
+                <br/>
 
             <table class="stat" cellpadding="0" cellspacing="0" width="510" border="0">
                <tr><td class="title" colspan="5">Top Ranked Marathon Match Schools</td></tr>
@@ -65,7 +66,7 @@
                         <td class="value">${row.map['name']}</td>     
                         <td class="value">
                             <a href="${sessionInfo.servletPath}?module=CoderRank&cc=${row.map['country_code']}">
-                                ${row.map['name']}
+                                ${row.map['country_name']}
                             </a>
                         </td>                        
                                           
