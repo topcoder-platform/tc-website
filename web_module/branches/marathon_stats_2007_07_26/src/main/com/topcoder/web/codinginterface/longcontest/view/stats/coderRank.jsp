@@ -1,8 +1,7 @@
 <%@  page language="java"
-    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
-          java.util.Map"%>
+    import="com.topcoder.shared.dataAccess.DataAccessConstants,
+            com.topcoder.web.codinginterface.longcontest.Constants"%>
           
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -67,13 +66,14 @@ return false;
                 <form name="f" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CoderRank"/>
+                <tc-webtag:hiddenInput name="<%=Constants.COUNTRY_CODE%>"/>
 
                 <div class="pagingBox">
                     <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" /> |
                     <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" />
                 </div>
 
-            <table class="stat" cellpadding="0" cellspacing="0" width="510 border="0">
+            <table class="stat" cellpadding="0" cellspacing="0" width="510" border="0">
                <tr><td class="title" colspan="3">Top Ranked Marathon Match Competitors</td></tr>
                <tr>
                   <td class="headerC">Rank</td>
@@ -100,7 +100,7 @@ return false;
                         <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
                         <a href="javascript:document.f.submit();" class="bcLink">&#160;[ submit ]</a>
                 </center>
-                
+               
             </form>
             </div>
                 </td>

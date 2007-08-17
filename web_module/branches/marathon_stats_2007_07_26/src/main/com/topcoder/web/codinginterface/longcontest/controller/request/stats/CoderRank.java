@@ -1,12 +1,15 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request.stats;
 
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.tc.Constants;
+import com.topcoder.web.codinginterface.longcontest.Constants;
 
 /**
  * 
@@ -43,27 +46,22 @@ public class CoderRank extends Base {
 
         ResultSetContainer rsc = null;
         
-        // Just use cache for standard pages of 50 rows starting in 1, 51, 101... 
-        boolean cached = (nr == 50) && ((sr % 50) == 1); 
             
         if (!"".equals(countryCode)) {
-            // TO DO
-            /*
-            r.setContentHandle("country_algo_coder_rank");
-            if (countryCode.length()!=3)  {
-                throw new NavigationException("Sorry, You entered an invalid request parameter");
+            r.setContentHandle("marathon_country_coder_rank");
+            Map<String, ResultSetContainer> results = getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r);
+            ResultSetContainer countryInfo = results.get("country_info");
+            if (countryInfo.size() != 1) {
+                throw new NavigationException("Country with code " + countryCode + " not found");
             }
-            r.setProperty(Constants.COUNTRY_CODE, countryCode);
-            r.setProperty(DataAccessConstants.SORT_QUERY, "country_algo_coder_rank");
-        
-            Map m = getDataAccess().getData(r);
             
-            ret = (ResultSetContainer)m.get("country_algo_coder_rank");
-            String countryName = ((ResultSetContainer)m.get("country_info")).getStringItem(0, "country_name");
+            getRequest().setAttribute("countryName", countryInfo.getStringItem(0, "country_name"));
+            rsc = results.get("marathon_country_coder_rank");
             setDefault(Constants.COUNTRY_CODE, countryCode);
-            getRequest().setAttribute("countryName", countryName);*/
-            
         } else {
+            // Just use cache for standard pages of 50 rows starting in 1, 51, 101... 
+            boolean cached = (nr == 50) && ((sr % 50) == 1); 
+
             r.setContentHandle("marathon_coder_rank");
             rsc = getDataAccess(DBMS.DW_DATASOURCE_NAME, cached).getData(r).get("marathon_coder_rank");
         }
