@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>08.17.07<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='http://csf.topcoder.com/?module=Static&d1=assembly&d2=btWiCitiesDetails' refer='/tc'/>">BT Wireless Cities Mashup Assembly Competition open</A></span><br><br>
+        Microsoft &amp; British Telecom, in association with TopCoder, have launched the Wireless Cities Mashup Assembly Competition. A total of $12,250 in prize money will be awarded to the top three mashup assembly submissions, with a potential to win part of the series prize purse of $40,000.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://csf.topcoder.com/?module=Static&d1=assembly&d2=btWiCitiesDetails">details</A> | 
+        <a href="http://csf.topcoder.com/forums?module=Category&categoryID=3">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.17.07<br>1:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Qualification Round 1 set for August 18</A></span><br><br>
@@ -159,18 +172,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm362">full story</A> | 
          <tc-webtag:forumLink forumID="516059" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>08.10.07<br>11:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=sponsors&d2=tcsChat20070801">SRM 361 chat trascript: "About being orange"</A></span><br><br>
-        Before SRM 361, TopCoder members joined staff representatives to discuss "everything you ever wanted to know, but were afraid to ask, about being orange."</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=sponsors&d2=tcsChat20070801">details</A> | 
-        <tc-webtag:forumLink forumID="516058" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
    
