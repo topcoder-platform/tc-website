@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
-
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -45,17 +45,24 @@
                 </jsp:include>
 
             <table class="stat" cellpadding="0" cellspacing="0" width="510" border="0">
-               <tr><td class="title" colspan="4">Top Ranked Marathon Match Schools</td></tr>
+               <tr><td class="title" colspan="5">Top Ranked Marathon Match Schools</td></tr>
                <tr>
                   <td class="headerC">Rank</td>
                   <td class="header">Name</td>
+                  <td class="header">School Country</td>
                   <td class="headerC">Member Count</td>
                   <td class="headerC">Rating</td>
                </tr>
                <c:forEach items="${list}" var="row" varStatus="status">
                    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
                         <td class="valueC">${row.map['rank']}</td>
-                        <td class="value">${row.map['name']}</td>                        
+                        <td class="value">${row.map['name']}</td>     
+                        <td class="value">
+                            <a href="${sessionInfo.servletPath}?module=CoderRank&cc=${row.map['country_code']}">
+                                ${row.map['name']}
+                            </a>
+                        </td>                        
+                                          
                         <td class="valueC">${row.map['rated_count']}</td>
                         <td class="valueC"><fmt:formatNumber value="${row.map['avg_rating']}" minFractionDigits="2" maxFractionDigits="2"/></td>
                     </tr>   
