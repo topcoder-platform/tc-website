@@ -43,6 +43,9 @@ public class CoderRank extends Base {
 
         ResultSetContainer rsc = null;
         
+        // Just use cache for standard pages of 50 rows starting in 1, 51, 101... 
+        boolean cached = (nr == 50) && ((sr % 50) == 1); 
+            
         if (!"".equals(countryCode)) {
             // TO DO
             /*
@@ -62,7 +65,7 @@ public class CoderRank extends Base {
             
         } else {
             r.setContentHandle("marathon_coder_rank");
-            rsc = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r).get("marathon_coder_rank");
+            rsc = getDataAccess(DBMS.DW_DATASOURCE_NAME, cached).getData(r).get("marathon_coder_rank");
         }
 
         setDefault(DataAccessConstants.NUMBER_RECORDS, nr);

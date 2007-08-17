@@ -88,21 +88,21 @@ return false;
                     </tr>   
                </c:forEach>   
             </table>
-<center>
-                <div class="pagingBox" style="width:300px;">
+                <div class="pagingBox">
                     <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" /> |
                     <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" />
                 </div>
-</center>
+
+                <center>
                         View &#160;
                         <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
                         &#160;at a time starting with &#160;
                         <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
                         <a href="javascript:document.f.submit();" class="bcLink">&#160;[ submit ]</a>
-                    </div>
-
-                    </form>
-            </div>                    
+                </center>
+                
+            </form>
+            </div>
                 </td>
 
 
