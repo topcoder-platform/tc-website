@@ -40,7 +40,7 @@
 <div class="breadcrumb">
     <a href="/?module=Static&d1=competitions">Competitions</a>
     > <a href="/?module=Static&d1=assembly&d2=activeContests">Active Assembly Competitions</a>
-    > Microsoft Session Manifest Tool
+    > British Telecom Wireless Cities Assembly Competition
 </div>
 
 <div align="center" style="margin: 100px 0px 140px 0px;">
