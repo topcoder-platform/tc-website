@@ -41,7 +41,7 @@
                 <h2>If you'd like to take a bus to Orlando:</h2>
                 <p>Go to the <a target="_blank" alt="Greyhound Bus website" href="<tc-webtag:linkTracking link='http://www.greyhound.com/' refer='TCCC07_transportation' />">Greyhound</a> web site to get schedules and fares for travel to Orlando, FL.</p>
         
-                <p>&nbsp;</p>
+                <p style="height:300px;">&nbsp;</p>
             </div>
             </div>
 

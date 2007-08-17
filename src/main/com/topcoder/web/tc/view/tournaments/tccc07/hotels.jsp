@@ -42,6 +42,7 @@
                     Fax: (407) 939-7333<br />
                     Reservations: (407) WDW-MAGIC (939-6244)<br /><br />
                 </p>
+                <p style="height:300px;">&nbsp;</p>
             </div>
             </div>
         <jsp:include page="footer.jsp" />
