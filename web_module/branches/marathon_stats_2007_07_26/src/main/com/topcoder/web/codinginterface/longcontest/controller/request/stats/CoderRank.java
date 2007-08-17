@@ -49,6 +49,7 @@ public class CoderRank extends Base {
             
         if (!"".equals(countryCode)) {
             r.setContentHandle("marathon_country_coder_rank");
+            r.setProperty(Constants.COUNTRY_CODE, countryCode);
             Map<String, ResultSetContainer> results = getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r);
             ResultSetContainer countryInfo = results.get("country_info");
             if (countryInfo.size() != 1) {

@@ -74,7 +74,12 @@ return false;
                 </div>
 
             <table class="stat" cellpadding="0" cellspacing="0" width="510" border="0">
-               <tr><td class="title" colspan="3">Top Ranked Marathon Match Competitors</td></tr>
+               <tr><td class="title" colspan="3">Top Ranked Marathon Match Competitors
+                <c:if test="${not empty countryName }">
+                 for ${countryName }
+                </c:if>
+                   </td>
+                </tr>
                <tr>
                   <td class="headerC">Rank</td>
                   <td class="header">Handle</td>
