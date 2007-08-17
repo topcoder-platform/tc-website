@@ -76,7 +76,7 @@ return false;
             <table class="stat" cellpadding="0" cellspacing="0" width="510" border="0">
                <tr><td class="title" colspan="3">Top Ranked Marathon Match Competitors
                 <c:if test="${not empty countryName }">
-                 for ${countryName }
+                 in ${countryName }
                 </c:if>
                    </td>
                 </tr>
