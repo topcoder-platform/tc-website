@@ -69,7 +69,7 @@
 </p>
 --%>
 
-                
+                <p style="height:300px;">&nbsp;</p>
             </div>
     </div>
     <jsp:include page="footer.jsp" />

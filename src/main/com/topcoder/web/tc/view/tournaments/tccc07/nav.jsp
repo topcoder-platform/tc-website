@@ -158,6 +158,7 @@
                 <% } else if (tabLev2.equals("sponsors")) { %>
                     <p id="tertiaryNav">
                         <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly"<% if (tabLev3.equals("lilly")) {%> class="on"<% } %>>Lilly</a>
+                        | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db"<% if (tabLev3.equals("db")) {%> class="on"<% } %>>Deutsche Bank</a>
                     </p>
                 <% } else if (tabLev2.equals("eventpatrons")) { %>
                     <p id="tertiaryNav">

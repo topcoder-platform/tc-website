@@ -28,7 +28,7 @@
                 </div>
                 <p>Your application has been received.</p>
                 <p>You will be contacted by a TopCoder Recruiter if you meet Eli Lilly's requirements. Thank you.</p>
-                <p>&nbsp;</p>
+                <p style="height:300px;">&nbsp;</p>
             
             </div>
     </div>
