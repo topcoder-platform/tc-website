@@ -63,6 +63,12 @@ return false;
                     <jsp:param name="title" value="Top Ranked Marathon Match Competitors"/>
                 </jsp:include>
 
+                <div align="center">
+                    Competitors
+                     | <A href="${sessionInfo.servletPath}?module=SchoolRank" class="bcLink">Schools</A>
+                     | <A href="${sessionInfo.servletPath}?module=CountryRank" class="bcLink">Countries</A>
+                </div>
+
                 <form name="f" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CoderRank"/>

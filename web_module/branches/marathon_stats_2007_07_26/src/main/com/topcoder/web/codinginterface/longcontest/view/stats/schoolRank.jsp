@@ -44,6 +44,12 @@
                     <jsp:param name="title" value="Top Ranked Marathon Match Schools"/>
                 </jsp:include>
 
+                <div align="center">
+                     <A href="${sessionInfo.servletPath}?module=CoderRank" class="bcLink">Competitors</A>
+                     | Schools
+                     | <A href="${sessionInfo.servletPath}?module=CountryRank" class="bcLink">Countries</A>
+                </div>
+
             <table class="stat" cellpadding="0" cellspacing="0" width="510" border="0">
                <tr><td class="title" colspan="5">Top Ranked Marathon Match Schools</td></tr>
                <tr>
