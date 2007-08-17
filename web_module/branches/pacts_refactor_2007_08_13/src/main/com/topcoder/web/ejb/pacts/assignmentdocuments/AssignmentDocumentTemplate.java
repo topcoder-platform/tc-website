@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.pacts.assignmentdocuments;
 
+import java.io.Serializable;
 import java.io.StringReader;
 import java.io.StringWriter;
 
@@ -17,7 +18,7 @@ import com.topcoder.shared.docGen.xml.XMLDocument;
  *
  * @author pulky
  */
-public class AssignmentDocumentTemplate {
+public class AssignmentDocumentTemplate implements Serializable, Cloneable {
     /**
      * Please change that number if you affect the fields in a way that will affect the
      * serialization for this object. 

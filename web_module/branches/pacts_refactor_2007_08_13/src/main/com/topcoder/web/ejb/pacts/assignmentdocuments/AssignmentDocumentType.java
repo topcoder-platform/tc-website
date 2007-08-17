@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.pacts.assignmentdocuments;
 
+import java.io.Serializable;
+
 
 
 /**
@@ -7,7 +9,7 @@ package com.topcoder.web.ejb.pacts.assignmentdocuments;
  *
  * @author pulky
  */
-public class AssignmentDocumentType {
+public class AssignmentDocumentType implements Serializable, Cloneable {
     /**
      * Please change that number if you affect the fields in a way that will affect the
      * serialization for this object. 

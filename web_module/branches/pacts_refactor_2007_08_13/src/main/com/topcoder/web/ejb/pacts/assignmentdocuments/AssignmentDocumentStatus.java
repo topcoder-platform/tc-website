@@ -1,11 +1,13 @@
 package com.topcoder.web.ejb.pacts.assignmentdocuments;
 
+import java.io.Serializable;
+
 /**
  * VERY IMPORTANT: remember to update serialVersionUID if needed
  *
  * @author pulky
  */
-public class AssignmentDocumentStatus {
+public class AssignmentDocumentStatus implements Serializable, Cloneable {
     /**
      * Please change that number if you affect the fields in a way that will affect the
      * serialization for this object. 
