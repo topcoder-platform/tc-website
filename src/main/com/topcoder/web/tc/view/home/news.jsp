@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.20.07<br>11:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Qualification Round 2 set for August 21</A></span><br><br>
+        Qualification Round 2 of the 2007 TopCoder Collegiate Challenge Algorithm Competition is set for 7:00 AM EDT on August 21. Registration is limited, so don't miss out!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</A> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>08.17.07<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='http://csf.topcoder.com/?module=Static&d1=assembly&d2=btWiCitiesDetails' refer='/tc'/>">BT Wireless Cities Mashup Assembly Competition open</A></span><br><br>
@@ -156,21 +169,5 @@
          <A href="/tc?module=Static&d1=tutorials&d2=mmProblems2">full story</A> | 
          <tc-webtag:forumLink forumID="516840" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=mm_index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.10.07<br>1:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm362">SRM 362 - Problem Set &amp; Analysis</A></span><br><br>
-      Attracting 1121 participants, SRM 362 provided both divisions with difficult problem sets, Division 1 especially.  In Division 1, <tc-webtag:handle coderId="10574855" context="algorithm"/> continued to show us why he's #1 by being the only competitor to successfully solve all three problems, while newcomer <tc-webtag:handle coderId="22689350" context="algorithm"/> won Division 2 by a comfortable margin.</td>
-         <td class="newsPhoto"><img src="/i/m/eleusive_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="8369955" context="algorithm" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm362">full story</A> | 
-         <tc-webtag:forumLink forumID="516059" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
