@@ -44,72 +44,70 @@
         <table cellpadding="6" cellspacing="0" border="0">
             <tr valign="top">
                 <td width="50%">
-                    <strong>Consecutive Rating Increases</strong><br>
-                    Most rating increases in a row.  If a competitors rating does not change, their streak is broken.
-                    <br>
+                    <strong>Consecutive Rating Increases</strong><br />
+                    Most rating increases in a row.
+                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=8">Non-Tournament</a> |
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=9">all</a>
                 </td>
                 <td width="50%">
-                    <strong>Best Average Placement</strong><br>
-                    Best average placement per match.  A lower average is better.  
-                    Only matches where the competitor was rated are included.  Coders with less than 5 rated matches are not included  
-                    <br>
+                    <strong>Best Average Placement</strong><br />
+                    Best average placement per match.
+                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_best_avg_placement">Overall</a> 
                 
                 </td>
             </tr>
             <tr valign="top">
                 <td>
-                    <strong>Most Match Wins</strong><br>
-                    The number of times a competitors has won a match.  A tie for first place is considered a win.
-                    <br>
+                    <strong>Most Match Wins</strong><br />
+                    The number of times a competitors has won a match.
+                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_most_wins">Non-Tournament</a> |
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_most_wins&amp;all=true">all</a>
                 </td>
                 <td>
-                    <strong>Consecutive Top Finishes</strong><br>
-                    The longest streaks where a competitor finished in the top 5 or 10 for every match.  Only those matches where the competitor was rated are included.
-                    <br>
+                    <strong>Consecutive Top Finishes</strong><br />
+                    The longest streaks where a competitor finished in the top 5 or 10 for every match.
+                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_consecutive_top_finishes&wst=10">Top 5</a> |                  
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_consecutive_top_finishes&wst=11">Top 10</a>                 
                 </td>
             </tr>
             <tr valign="top">
                 <td>
-                    <strong>Rating Point Gain</strong><br>
+                    <strong>Rating Point Gain</strong><br />
                     Largest rating point gain in a single match.
-                    <br>
+                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_highest_rating_gain">Overall</a> 
                 </td>
                 <td>
-                    <strong>Most Top Finishes</strong><br>
-                    Most career matches where a competitor finished in the top 5 or 10.  Only contests where the competitor was rated are included.
-                    <br>
+                    <strong>Most Top Finishes</strong><br />
+                    Most career matches where a competitor finished in the top 5 or 10.
+                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_most_top_finishes&mp=5">Top 5</a> |                  
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_most_top_finishes&mp=10">Top 10</a>                 
                 </td>
             </tr>
             <tr valign="top">
                 <td>
-                    <strong>Most Rated Events</strong><br>
-                    The competitors that have participated in the greatest number of rated events.
-                    <br>
+                    <strong>Most Rated Events</strong><br />
+                    The competitors that have competed the most times.
+                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_most_rated_events">Overall</a> 
                 </td>
                 <td>
-                    <strong>Best Win Percentage</strong><br>
-                    Highest percentage of wins per match where the competitor has made a submission (either test or full).  
-                    Only matches where the competitor was rated are included.
-                    <br>
+                    <strong>Best Win Percentage</strong><br />
+                    Highest percentage of wins per match where the competitor has made at least one submission (either test or full).  
+                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_best_win_percentage">Overall</a> 
                 </td>
             </tr>
             <tr valign="top">
                 <td>
-                    <strong>Impressive Debuts</strong><br>
+                    <strong>Impressive Debuts</strong><br />
                     The competitors who have achieved the highest ratings based on the results of their first match.
-                    <br>
+                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_impressive_debuts">Overall</a> 
                 </td>
                 <td>
