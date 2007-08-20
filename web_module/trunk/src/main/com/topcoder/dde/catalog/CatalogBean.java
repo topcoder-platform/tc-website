@@ -10,7 +10,8 @@ import com.topcoder.dde.DDEException;
 import com.topcoder.dde.persistencelayer.interfaces.*;
 import com.topcoder.dde.user.RegistrationInfo;
 import com.topcoder.dde.user.UserManagerLocalHome;
-import com.topcoder.file.render.*;
+import com.topcoder.file.render.ValueTag;
+import com.topcoder.file.render.XMLDocument;
 import com.topcoder.message.email.*;
 import com.topcoder.search.*;
 import com.topcoder.security.GeneralSecurityException;
@@ -22,10 +23,16 @@ import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.util.config.*;
-import com.topcoder.dde.catalog.Catalog;
+import com.topcoder.util.config.ConfigManager;
+import com.topcoder.util.config.ConfigManagerException;
+import com.topcoder.util.config.ConfigManagerInterface;
 
-import javax.ejb.*;
+import javax.ejb.CreateException;
+import javax.ejb.EJBException;
+import javax.ejb.FinderException;
+import javax.ejb.ObjectNotFoundException;
+import javax.ejb.SessionBean;
+import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -39,14 +46,17 @@ import java.io.File;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.rmi.RemoteException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.*;
-import java.util.Date;
 
 
 /**
  * The implementation of the methods of CatalogEJB.
- *
+ * <p/>
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
@@ -67,7 +77,7 @@ import java.util.Date;
  * Class was updated to deal with the elimination of tcsrating attribute.
  * </li>
  * </ol>
- *
+ * <p/>
  * Version 1.0.3 Change notes:
  * <ol>
  * <li>
@@ -77,8 +87,8 @@ import java.util.Date;
  *
  * @author Albert Mao, pulky
  * @version 1.0.3
- * @see     Catalog
- * @see     CatalogHome
+ * @see Catalog
+ * @see CatalogHome
  */
 public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
@@ -226,7 +236,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 ver.getPrice(), comp.getStatusId(), comp.getRootCategory(),
                 false);
 
-                //TODO get aolComponent info from DB.
+        //TODO get aolComponent info from DB.
     }
 
     public CatalogSearchView search(String searchtext, Map options)
@@ -261,7 +271,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 } catch (ObjectNotFoundException exception) {
                     throw new CatalogException(
                             "Component returned by search does not exist in catalog: "
-                            + exception.toString());
+                                    + exception.toString());
                 } catch (FinderException exception) {
                     throw new CatalogException(exception.toString());
                 }
@@ -284,20 +294,19 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
      * <p>Searches catalog with the given parameters.</p>
      *
      * @param searchtext String with the text to search.
-     * @param status status Ids to narrow the search.
-     * @param catalog catalog Ids to narrow the search.
+     * @param status     status Ids to narrow the search.
+     * @param catalog    catalog Ids to narrow the search.
      * @param technology technology Ids to narrow the search.
-     * @param category categories name to narrow the search.
+     * @param category   categories name to narrow the search.
      * @param onlyPublic true to retrieve only public components.
      * @return a <code>CatalogSearchView</code> with the retrieved components.
-     * @throws RemoteException if a system-level failure causes the remote method call to fail.
+     * @throws RemoteException  if a system-level failure causes the remote method call to fail.
      * @throws CatalogException for invalid parameters.
-     * @throws SQLException if a sql-level failure causes the method to fail.
-     *
+     * @throws SQLException     if a sql-level failure causes the method to fail.
      * @version 1.0.1
      */
     public CatalogSearchView searchComponents(String searchtext, long[] phase, long[] catalog, long[] technology,
-         String[] category, boolean onlyPublic)throws RemoteException, CatalogException, NamingException, SQLException {
+                                              String[] category, boolean onlyPublic) throws RemoteException, CatalogException, NamingException, SQLException {
 
         if (searchtext == null) {
             throw new CatalogException("Null specified for search text");
@@ -475,15 +484,14 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
      * <p>Gets all category names including or not base and visible categories.</p>
      *
      * @param includeBaseCategories true to include base categories.
-     * @param onlyPublic true to retrieve only public categories.
+     * @param onlyPublic            true to retrieve only public categories.
      * @return a <code>String[]</code> collection with the retrieved categories names.
      * @throws RemoteException if a system-level failure causes the remote method call to fail.
-     * @throws SQLException if a sql-level failure causes the method to fail.
-     *
+     * @throws SQLException    if a sql-level failure causes the method to fail.
      * @version 1.0.1
      */
     public String[] getUniqueCategoryNames(boolean includeBaseCategories, boolean onlyPublic)
-        throws RemoteException, NamingException, SQLException {
+            throws RemoteException, NamingException, SQLException {
 
         StringBuffer query = new StringBuffer(200);
         query.append("SELECT UNIQUE category_name FROM categories ");
@@ -542,8 +550,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
      * @param onlyPublic true to retrieve only public categories.
      * @return a <code>Category[]</code> collection with the retrieved categories.
      * @throws RemoteException if a system-level failure causes the remote method call to fail.
-     * @throws SQLException if a sql-level failure causes the method to fail.
-     *
+     * @throws SQLException    if a sql-level failure causes the method to fail.
      * @version 1.0.1
      */
     public Category[] getBaseCategories(boolean onlyPublic) throws RemoteException, NamingException, SQLException {
@@ -655,7 +662,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified category does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
@@ -670,7 +677,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             } catch (FinderException exception) {
                 throw new CatalogException(
                         "Failed to retrieve current version information for component "
-                        + comp.getPrimaryKey() + ": " + exception.toString());
+                                + comp.getPrimaryKey() + ": " + exception.toString());
             }
             summaries.add(generateSummary(comp, ver));
         }
@@ -685,10 +692,10 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
      *
      * @param categoryId the primary key of the category
      * @return a CategorySummary containing all the ComponentSummaries of the specified category recursively.
-     * @throws RemoteException if a system-level failure causes the remote
-     * method call to fail
+     * @throws RemoteException  if a system-level failure causes the remote
+     *                          method call to fail
      * @throws CatalogException if the specified category does not exist in the
-     * catalog, or if the summary information cannot be retrieved
+     *                          catalog, or if the summary information cannot be retrieved
      */
     public CategorySummary getCategorySummary(long categoryId)
             throws RemoteException, CatalogException,
@@ -715,13 +722,12 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
      * by component name.
      *
      * @param categoryId the primary key of the category
-     * @param c the connection to the DB
+     * @param c          the connection to the DB
      * @return a CategorySummary containing all the ComponentSummaries of the specified category recursively.
-     * @throws RemoteException if a system-level failure causes the remote
-     * method call to fail
+     * @throws RemoteException  if a system-level failure causes the remote
+     *                          method call to fail
      * @throws CatalogException if the specified category does not exist in the
-     * catalog, or if the summary information cannot be retrieved
-     *
+     *                          catalog, or if the summary information cannot be retrieved
      * @version 1.0.1
      */
     private CategorySummary getCategorySummary(long categoryId, Connection c)
@@ -867,8 +873,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
      * @param onlyPublic true to retrieve only public components.
      * @return a <code>CatalogSearchView</code> with the retrieved components.
      * @throws RemoteException if a system-level failure causes the remote method call to fail.
-     * @throws SQLException if a sql-level failure causes the method to fail.
-     *
+     * @throws SQLException    if a sql-level failure causes the method to fail.
      * @version 1.0.1
      */
     public ComponentSummary[] getAllComponents(boolean onlyPublic)
@@ -1074,8 +1079,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             if (version < 0)
                 query.append("   AND c.current_version = v.version ");
             else
-                query.append("   AND ? = v.version ");  
-            
+                query.append("   AND ? = v.version ");
+
             try {
 
                 ps = c.prepareStatement(query.toString());
@@ -1086,7 +1091,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 List list = new ArrayList();
                 while (rs.next())
                     list.add(new ForumCategory(rs.getLong(1), new Date(rs.getLong(2)),
-                             rs.getLong(3), rs.getLong(4), rs.getString(5)));
+                            rs.getLong(3), rs.getLong(4), rs.getString(5)));
 
                 forums = (ForumCategory[]) list.toArray(new ForumCategory[0]);
 
@@ -1211,30 +1216,42 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             }
 
             query = new StringBuffer(500);
-            query.append("select r.resource_id, s.login_id, s.user_id, r.resource_role_id, project_category_id ");
-            query.append("  from resource r, resource_info ri, security_user s, project_info pi, project p, comp_catalog c, comp_versions v");
-            query.append(" where r.resource_id = ri.resource_id");
-            query.append("   and ri.resource_info_type_id = 1  ");
-            query.append("   and ri.value = s.login_id ");
-            query.append("   and r.project_id = pi.project_id  ");
-            query.append("   and r.project_id = p.project_id ");
-            query.append("   and pi.project_info_type_id = 1 ");
-            query.append("   and ((r.resource_role_id = 1 and exists  ");
-            query.append("   (select 1 from resource_info where resource_id = r.resource_id   ");
-            query.append("   and resource_info_type_id = 12  ");
-            query.append("   and value = 1))  ");
-            query.append("   or r.resource_role_id in (4, 5, 6, 7)) ");
-            query.append("   and c.component_id = ? ");
-            query.append("   and p.project_status_id = 7 ");
-            query.append("   and c.component_id = v.component_id ");
-            query.append("   and pi.value = v.comp_vers_id ");
-            query.append("   and pi.value = v.comp_vers_id ");
+
+            query.append(" select r.resource_id ");
+            query.append(" , s.login_id ");
+            query.append(" , s.user_id ");
+            query.append(" , r.resource_role_id ");
+            query.append(" , project_category_id ");
+            query.append(" from resource r ");
+            query.append(" , resource_info ri ");
+            query.append(" , security_user s ");
+            query.append(" , project_info pi ");
+            query.append(" , project p ");
+            query.append(" , comp_catalog c ");
+            query.append(" , comp_versions v  ");
+            query.append(" where r.resource_id = ri.resource_id ");
+            query.append(" and ri.resource_info_type_id = 1  ");
+            query.append(" and ri.value = s.login_id  ");
+            query.append(" and r.project_id = pi.project_id ");
+            query.append(" and r.project_id = p.project_id  ");
+            query.append(" and pi.project_info_type_id = 1  ");
+            query.append(" and ((r.resource_role_id = 1 and exists (select 1 ");
+            query.append(" from project_info piW  ");
+            query.append(" where piW.project_info_type_id = 23 ");
+            query.append(" and piW.project_id = p.project_id  ");
+            query.append(" and piW.value = s.login_id ))  ");
+            query.append(" or r.resource_role_id in (4, 5, 6, 7)) ");
+            query.append(" and c.component_id = ?  ");
+            query.append(" and p.project_status_id = 7 ");
+            query.append(" and c.component_id = v.component_id ");
+            query.append(" and pi.value = v.comp_vers_id  ");
+            query.append(" and pi.value = v.comp_vers_id  ");
             if (version < 0) {
                 query.append("   and c.current_version = v.version ");
             } else {
-            	query.append("   and v.version = ? ");
+                query.append("   and v.version = ? ");
             }
-            query.append("   ORDER BY 3; ");
+            query.append(" ORDER BY 3 ");
 
             try {
                 ps = c.prepareStatement(query.toString());
@@ -1300,7 +1317,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                             rs.getLong(2), rs.getLong(3), rs.getString(4),
                             rs.getString(5), rs.getString(6), rs.getString(7),
                             rs.getString(8), rs.getLong(9), rs.getDate(10),
-                            rs.getDouble(11), rs.getLong(12), rs.getLong(13),(rs.getObject(14) != null)));
+                            rs.getDouble(11), rs.getLong(12), rs.getLong(13), (rs.getObject(14) != null)));
 
                 dependencies = (ComponentSummary[]) list.toArray(new ComponentSummary[0]);
 
@@ -1337,24 +1354,24 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
     private final static String COMPONENTS_BY_STATUS =
             " select cc.component_id " +
-            " , cv.comp_vers_id " +
-            " , cc.current_version as version " +
-            " , cc.component_name " +
-            " , cv.version_text " +
-            " , cv.comments " +
-            " , cc.short_desc " +
-            " , cc.description " +
-            " , cv.phase_time " +
-            " , cv.phase_id " +
-            " , cv.price " +
-            " , cc.status_id " +
-            " , cc.root_category_id " +
-            " , (select category_id from comp_categories where component_id = cc.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand " +
-            " from comp_catalog cc " +
-            " , comp_versions cv " +
-            " where cc.status_id = ? " +
-            " and cv.component_id = cc.component_id " +
-            " and cc.current_version = cv.version ";
+                    " , cv.comp_vers_id " +
+                    " , cc.current_version as version " +
+                    " , cc.component_name " +
+                    " , cv.version_text " +
+                    " , cv.comments " +
+                    " , cc.short_desc " +
+                    " , cc.description " +
+                    " , cv.phase_time " +
+                    " , cv.phase_id " +
+                    " , cv.price " +
+                    " , cc.status_id " +
+                    " , cc.root_category_id " +
+                    " , (select category_id from comp_categories where component_id = cc.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand " +
+                    " from comp_catalog cc " +
+                    " , comp_versions cv " +
+                    " where cc.status_id = ? " +
+                    " and cv.component_id = cc.component_id " +
+                    " and cc.current_version = cv.version ";
 
 
     public Collection getComponentsByStatus(long status)
@@ -1441,12 +1458,11 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
      * are defined in {@link ComponentInfo ComponentInfo}. The summaries are returned
      * in alphabetical order by component name.
      *
-     * @param status the status value to obtain components for
+     * @param status     the status value to obtain components for
      * @param catalogIds the list of catalogs values to obtain components for
      * @return a <code>Collection</code> of <code>ComponentSummary</code>
-     * objects
+     *         objects
      * @throws CatalogException if the summary information cannot be retrieved
-     *
      * @since 1.0.2
      */
     public Collection getComponentsByStatusAndCatalogs(long status, List catalogIds)
@@ -1469,24 +1485,24 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
     private final static String COMPONENT =
             " select cc.component_id " +
-            " , cv.comp_vers_id " +
-            " , cc.current_version as version " +
-            " , cc.component_name " +
-            " , cv.version_text " +
-            " , cv.comments " +
-            " , cc.short_desc " +
-            " , cc.description " +
-            " , cv.phase_time " +
-            " , cv.phase_id " +
-            " , cv.price " +
-            " , cc.status_id " +
-            " , cc.root_category_id " +
-            " , (select category_id from comp_categories where component_id = cc.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand " +
-            " from comp_catalog cc " +
-            " , comp_versions cv " +
-            " where cc.component_id = ? " +
-            " and cv.component_id = cc.component_id " +
-            " and cc.current_version = cv.version ";
+                    " , cv.comp_vers_id " +
+                    " , cc.current_version as version " +
+                    " , cc.component_name " +
+                    " , cv.version_text " +
+                    " , cv.comments " +
+                    " , cc.short_desc " +
+                    " , cc.description " +
+                    " , cv.phase_time " +
+                    " , cv.phase_id " +
+                    " , cv.price " +
+                    " , cc.status_id " +
+                    " , cc.root_category_id " +
+                    " , (select category_id from comp_categories where component_id = cc.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand " +
+                    " from comp_catalog cc " +
+                    " , comp_versions cv " +
+                    " where cc.component_id = ? " +
+                    " and cv.component_id = cc.component_id " +
+                    " and cc.current_version = cv.version ";
 
 
     /**
@@ -1495,11 +1511,10 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
      *
      * @param componentId the primary key of the component
      * @return a <code>ComponentSummary</code> object
-     * @throws RemoteException if a system-level failure causes the remote
-     * method call to fail
+     * @throws RemoteException  if a system-level failure causes the remote
+     *                          method call to fail
      * @throws CatalogException if the specified component cannot be found in
-     * the catalog, or if the summary information cannot be retrieved
-     *
+     *                          the catalog, or if the summary information cannot be retrieved
      * @version 1.0.1
      */
     public ComponentSummary getComponent(long componentId)
@@ -1596,17 +1611,17 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to create security role for component: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (GeneralSecurityException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to create security role for component: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         }
     }
-    
+
     public ComponentSummary requestComponent(ComponentRequest request)
             throws CatalogException, NamingException, SQLException {
         if (request == null) {
@@ -1637,7 +1652,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Specified category does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
@@ -1645,7 +1660,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to associate new component with category: "
-                    + exception.toString());
+                            + exception.toString());
         }
         StringTokenizer keywords = new StringTokenizer(request.getKeywords(),
                 ComponentInfo.KEYWORD_DELIMITER);
@@ -1657,7 +1672,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to associate new component with keyword: "
-                    + exception.toString());
+                            + exception.toString());
         }
 
         LocalDDECompVersions newVersion;
@@ -1670,7 +1685,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to create initial version of component: "
-                    + exception.toString());
+                            + exception.toString());
         }
         Iterator techIterator = request.getTechnologies().iterator();
         try {
@@ -1682,7 +1697,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Specified technology does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
@@ -1690,7 +1705,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to associate new version with technology: "
-                    + exception.toString());
+                            + exception.toString());
         }
 
         createComponentRole(((Long) newComponent.getPrimaryKey()).longValue());
@@ -1712,7 +1727,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to create Requestor development role: "
-                    + exception.toString());
+                            + exception.toString());
         }
 
         try {
@@ -1776,7 +1791,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified component does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
@@ -1799,7 +1814,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified component does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
@@ -1818,7 +1833,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified component does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
@@ -1919,7 +1934,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified category does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
@@ -1930,7 +1945,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         try {
             subIterator =
                     categoriesHome.findByParentCategoryId(new Long(categoryId)).
-                    iterator();
+                            iterator();
         } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
@@ -1961,7 +1976,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             } catch (ObjectNotFoundException exception) {
                 throw new CatalogException(
                         "Category does not exist in the catalog: "
-                        + exception.toString());
+                                + exception.toString());
             } catch (FinderException exception) {
                 throw new CatalogException(exception.toString());
             }
@@ -2003,7 +2018,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified role does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
@@ -2042,7 +2057,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified technology does not exist in catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
@@ -2090,7 +2105,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified license level does not exist in catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
@@ -2117,7 +2132,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified document does not exist in catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
@@ -2139,7 +2154,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified download location does not exist in catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
@@ -2337,7 +2352,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         try {
             subIterator =
                     categoriesHome.findByParentCategoryId(new Long(categoryId)).
-                    iterator();
+                            iterator();
         } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
@@ -2353,7 +2368,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Specified category does not exist in the catalog: " +
-                    exception.toString());
+                            exception.toString());
         } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
@@ -2371,7 +2386,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified role does not exist in the catalog: " +
-                    exception.toString());
+                            exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
@@ -2388,7 +2403,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified technology does not exist in the catalog: " +
-                    exception.toString());
+                            exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
@@ -2405,7 +2420,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified license level does not exist in the catalog: " +
-                    exception.toString());
+                            exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
@@ -2511,6 +2526,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
     /**
      * Gets the project id for the project of the given type associated with this component version
+     *
      * @param projectType design or development
      * @return the project id or -1 if no project was found
      * @throws CatalogException
@@ -2531,6 +2547,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     /**
      * Determines whether or not the project of the given type for this component version has yielded a
      * publicly readable aggregation worksheet
+     *
      * @param projectType design or development
      * @return true if there is an aggregation worksheet for the given type, false otherwise
      * @throws CatalogException
