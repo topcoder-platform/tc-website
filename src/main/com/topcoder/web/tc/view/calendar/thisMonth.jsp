@@ -187,6 +187,7 @@
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">Algo Qual Round 2</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA</A><br>
          7:00 AM 
          </div>
       </td>
@@ -220,6 +221,7 @@
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">Algo Qual Round 3</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank</A><br>
          9:00 PM 
          </div>
       </td>
@@ -243,6 +245,7 @@
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">Algo Round 1A</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly">Eli Lilly</A><br>
          9:00 PM 
          </div>
       </td>
@@ -252,6 +255,7 @@
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">Algo Round 1B</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA</A><br>
          7:00 AM 
          </div>
          <div class="des_dev">
