@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=082007"><strong>Meet the August Coders of the Month</strong></a>, by <tc-webtag:handle coderId="8365955" context="design"/><br>
+August's "Coders of the Month" include an Italian designer, a Chinese algorithm competitor, and a developer from Bosnia &amp;  Herzegovina.  In this article, we ask them for their advice to newbies, the accomplishments that they're most proud of, and the things that stress them out.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=randomNumbers"><strong>Generating random distributions</strong></a>, by <tc-webtag:handle coderId="251074" /><br>
 All the test cases in a Marathon Match need to be randomly generated. While there is sometimes a visualization tool that will generate these cases for you, there are times you'll have to do it yourself. In this tutorial, we'll look at some ways to do so.</li>
 <li><a href="/tc?module=Static&d1=features&d2=081307"><strong>Going pro: Turning TopCoder into my full-time job</strong></a>, by <tc-webtag:handle coderId="151743" context="design"/><br>
 What does it take to leave your job and commit to TopCoder projects full-time? In this article, <tc-webtag:handle coderId="151743" context="design"/> talks about how he did it, and some of the things he's learned along the way.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=mmProblems2"><strong>Stepping up to a Marathon Match problem, Part 2</strong></a>, by <tc-webtag:handle coderId="10407399" /><br>
-In <a href="/tc?module=Static&d1=tutorials&d2=mmProblems">Part 1</a>, we talked a bit about the simplest type of problem, where we are asked to write a single method that takes a set of inputs and returns a specified output.  How do we approach more complicated types of problems?</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>

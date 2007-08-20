@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>08.20.07<br>3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=082007">Meet the August Coders of the Month</A></span><br><br>
+      August's "Coders of the Month" include an Italian designer, a Chinese algorithm competitor, and a developer from Bosnia &amp;  Herzegovina.  In this article, we ask them for their advice to newbies, the accomplishments that they're most proud of, and the things that stress them out.</td>
+         <td class="newsPhoto"><%--<img src="/i/m/Ghostar_big.jpg" alt="Author" width="55" height="61"/><br>--%>by <tc-webtag:handle coderId="8365955" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=082007">full story</A> | 
+         <tc-webtag:forumLink forumID="517154" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.20.07<br>11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Qualification Round 2 set for August 21</A></span><br><br>
@@ -153,21 +169,5 @@
         <A href="/tc?module=MatchDetails&rd=10777">details</A> | 
         <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Marathon Match Tutorial" border="0" /><br>08.10.07<br>4:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=mmProblems2">Stepping up to a Marathon Match problem, Part 2</A></span><br><br>
-      In <a href="/tc?module=Static&d1=tutorials&d2=mmProblems">Part 1</a>, we talked a bit about the simplest type of problem, where we are asked to write a single method that takes a set of inputs and returns a specified output.  How do we approach more complicated types of problems?</td>
-         <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" context="marathon"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=mmProblems2">full story</A> | 
-         <tc-webtag:forumLink forumID="516840" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=mm_index">archive</A>
    </td></tr>
    
