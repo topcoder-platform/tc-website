@@ -65,7 +65,7 @@
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">Algo Round 1C</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=db">Deutsche Bank</A><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank</A><br>
          1:00 PM 
          </div>
       </td>
@@ -79,13 +79,13 @@
       <td class="value">4
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10778">SRM 364</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=nsa">NSA</A><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA</A><br>
          $5,000<br>
          9:00 PM
          </div>
          <div class="hs">
          <strong><A href="/tc?module=MatchDetails&rd=10779">TCHS SRM 38</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=nsa">NSA</A><br>--%>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA</A><br>--%>
          9:00 PM
          </div>
       </td>
@@ -113,7 +113,7 @@
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">Algo Round 2</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=lilly">Eli Lilly</A><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly">Eli Lilly</A><br>
          1:00 PM 
          </div>
       </td>
@@ -129,7 +129,7 @@
       <td class="value">12
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10780">SRM 365</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=lilly">Eli Lilly</A><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly">Eli Lilly</A><br>
          11:00 AM
          </div>
       </td>
@@ -150,7 +150,7 @@
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">Algo Round 3</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=nsa">NSA</A><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA</A><br>
          1:00 PM 
          </div>
       </td>
@@ -164,12 +164,12 @@
       <td class="value">18
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10781">SRM 366</A></strong><br>
-         <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=XXX">XXX</A><br>--%>
+         <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=XXX">XXX</A><br>--%>
          7:00 AM
          </div>
          <div class="hs">
          <strong><A href="/tc?module=MatchDetails&rd=10782">TCHS SRM 39</A></strong><br>
-         <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=XXX">XXX</A><br>--%>
+         <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=XXX">XXX</A><br>--%>
          7:00 AM
          </div>
       </td>
@@ -192,7 +192,7 @@
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">Algo Round 4</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=db">Deutsche Bank</A><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank</A><br>
          1:00 PM 
          </div>
       </td>
@@ -208,12 +208,12 @@
       <td class="value">26
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10783">SRM 367</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=db">Deutsche Bank</A><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank</A><br>
          11:00 AM
          </div>
          <div class="hs">
          <strong><A href="/tc?module=MatchDetails&rd=10784">TCHS SRM 40</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=db">Deutsche Bank</A><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank</A><br>
          11:00 AM
          </div>
       </td>

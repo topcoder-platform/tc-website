@@ -74,7 +74,7 @@
          </div>
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10785">SRM 368</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=nsa">NSA</A><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA</A><br>
          9:00 PM
          </div>
       </td>
@@ -92,7 +92,7 @@
       <td class="value">9
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10786">SRM 369</A></strong><br>
-         <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=XXX">XXX</A><br>--%>
+         <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=XXX">XXX</A><br>--%>
          7:00 AM
          </div>
       </td>
@@ -109,13 +109,13 @@
       <td class="value">13
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10787">SRM 370</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=lilly">Eli Lilly</A><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly">Eli Lilly</A><br>
          $5,000<br>
          12:00 Noon
          </div>
          <div class="hs">
          <strong><A href="/tc?module=MatchDetails&rd=10788">TCHS SRM 41</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=lilly">Eli Lilly</A><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly">Eli Lilly</A><br>
          12:00 Noon
          </div>
       </td>
@@ -131,12 +131,12 @@
       <td class="value">17
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10789">SRM 371</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=nsa">NSA</A><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA</A><br>
          11:00 AM
          </div>
          <div class="hs">
          <strong><A href="/tc?module=MatchDetails&rd=10790">TCHS SRM 42</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=nsa">NSA</A><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA</A><br>
          11:00 AM
          </div>
       </td>
@@ -165,12 +165,12 @@
       <td class="value">23
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10791">SRM 372</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=db">Deutsche Bank</A><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank</A><br>
          9:00 PM
          </div>
          <div class="hs">
          <strong><A href="/tc?module=MatchDetails&rd=10792">TCHS SRM 43</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=db">Deutsche Bank</A><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank</A><br>
          9:00 PM
          </div>
       </td>
