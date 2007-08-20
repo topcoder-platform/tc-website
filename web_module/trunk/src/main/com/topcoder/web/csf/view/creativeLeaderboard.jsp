@@ -74,7 +74,7 @@
         Eeyore
         </td>
         <td class="valueC">
-        265
+        395
         </td>
     </tr>
    <% even = !even;%>
@@ -83,15 +83,41 @@
         3
         </td>
         <td class="value">
-        rsarangdhar
+        sbTopCoder
         </td>
         <td class="valueC">
-        90
+        235
         </td>
     </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
-        <td class="valueC">4</td>
+        <td class="valueC">
+        4
+        </td>
+        <td class="value">
+        rsarangdhar
+        </td>
+        <td class="valueC">
+        165
+        </td>
+    </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+        <td class="valueC">5</td>
+        <td class="value">dhbello</td>
+        <td class="valueC">
+        100</td>
+    </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+        <td class="valueC">6</td>
+        <td class="value">foxyhu</td>
+        <td class="valueC">
+        80</td>
+    </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+        <td class="valueC">7</td>
         <td class="value">merlinlain</td>
         <td class="valueC">
         75
@@ -99,35 +125,28 @@
     </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
-        <td class="valueC">4</td>
-        <td class="value">foxyhu</td>
-        <td class="valueC">
-        75</td>
-    </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-        <td class="valueC">6</td>
-        <td class="value">dhbello</td>
-        <td class="valueC">
-        60</td>
-    </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-        <td class="valueC">7</td>
+        <td class="valueC">8</td>
         <td class="value">ericwangqing</td>
         <td class="valueC">
         20</td>
     </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
-        <td class="valueC">8</td>
+        <td class="valueC">9</td>
+        <td class="value">arpith</td>
+        <td class="valueC">
+        15</td>
+    </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+        <td class="valueC">10</td>
         <td class="value">ionacoder</td>
         <td class="valueC">
         10</td>
     </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
-        <td class="valueC">8</td>
+        <td class="valueC">10</td>
         <td class="value">ayushbharti</td>
         <td class="valueC">
         10</td>
