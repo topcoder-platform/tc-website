@@ -31,9 +31,10 @@
 <A href="/to"><img src="/i/home/predictRd2.png" alt="Predict the winners"/></A>
 --%>
 
-<%-- TCCC07 
+<%-- TCCC07 --%>
 <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=about' refer='/tc' />"><img src="/i/home/tccc07.png" alt="TCCC07" /></A>
---%>
 
-<%-- UML Tool --%>
+
+<%-- UML Tool 
 <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />"><img src="/i/home/umltoolRelease.jpg" alt="UML Tool Release" /></A>
+--%>
