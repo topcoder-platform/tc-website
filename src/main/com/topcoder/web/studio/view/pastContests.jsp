@@ -120,7 +120,7 @@
                     <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                 </td>
                 <td class="valueR">
-                    <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
+                    <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
                 </td>
                 <td class="valueC">
                     <rsc:item name="registrants" row="<%=resultRow%>"/>
