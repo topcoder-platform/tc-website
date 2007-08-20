@@ -44,7 +44,7 @@
 
 
 <p>
-    5.10.18 - 2007.08.xx
+    5.10.18 - 2007.08.20
     <ul>
     <%--<li>Made some refactoring to avoid com.topcoder.web.common -> com.topcooder.web.tc dependencies -cucu, pulky</li>
         <li>fixes in the PactsClientServices to avoid distributing PactsServices -pulky</li> --%>
