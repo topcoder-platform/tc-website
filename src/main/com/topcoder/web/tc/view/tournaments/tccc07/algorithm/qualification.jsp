@@ -58,6 +58,8 @@
             <div id="pageBody">
                 <h1><span>Qualification</span></h1>
 
+                <p align="center">Take a look at who got <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=byes">byes past the Qualification Round</a>.</p>
+
                 <form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07AlgorithmQualification"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
@@ -94,7 +96,7 @@
                             <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                         </td>
                         <td class="headerC" width="20%">
-                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round_name")%>"/>">Problem Set</a>
+                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round_name")%>"/>">Round</a>
                         </td>
                         <td class="headerR" width="20%">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
