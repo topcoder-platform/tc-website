@@ -8,11 +8,11 @@
 <%
     String eventType = (String) request.getAttribute("et");
     Event event = (Event) request.getAttribute("event");
+%>
 <%--
     List questionInfo = new ArrayList(event.getSurvey().getQuestions());
     HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
 --%>
-%>
 <html>
 <head>
     <title>2007 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
