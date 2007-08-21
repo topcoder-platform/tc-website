@@ -22,6 +22,7 @@
     <property name="jboss_lib" value="${jboss_home}/server/wiki/lib"/>
     <property name="jboss_conf" value="${jboss_home}/server/wiki/conf"/>
     <property name="confluence_home" value="../confluence-2.5.6"/>
+    <property name="confluence_war_name" value="atlassian-confluence-2.5.6.war"/>
     <property environment="env"/>
 
     <property name="deprecation" value="true"/>
@@ -126,14 +127,14 @@
     <target name="deploy">
         <antcall target="copy-to-confluence"/>
         <antcall target="move-conf"/>
-        <exec executable="build.sh" dir="${confluence_home}"/>
+        <exec executable="build.sh" dir="/home/wiki/confluence-2.5.6"/>
         <antcall target="expand-confluence"/>
     </target>
 
 
     <target name="expand-confluence">
-        <unwar src="${confluence_home}/dist/*.war" dest="${jboss_deploy}/confluence.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/confluence.war/META-INF"/>
+        <unwar src="${confluence_home}/dist/${confluence_war_name}" dest="${jboss_deploy}/${confluence_war_name}/" overwrite="yes"/>
+        <delete dir="${jboss_deploy}/${confluence_war_name}/META-INF"/>
 
     </target>
 
