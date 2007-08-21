@@ -1,9 +1,5 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.SurveyHelper;
 import com.topcoder.web.common.cache.CacheClient;
@@ -16,6 +12,11 @@ import com.topcoder.web.common.model.Survey;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.tc.Constants;
+
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author dok, pulky
@@ -83,24 +84,28 @@ public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
     }
 
     protected List processSurvey(Event event, User user) {
-        SurveyHelper helper = new SurveyHelper(getRequest());
+        if (event.getSurvey()!=null) {
+            SurveyHelper helper = new SurveyHelper(getRequest());
 
-        List responses = helper.processResponses(event.getSurvey());
-        
-        for (Iterator it = responses.iterator(); it.hasNext();) {
-            ((Response) it.next()).setUser(user);
-        }
-    
-        helper.checkRequiredQuestions(event.getSurvey(), responses);
-        
-        if (helper.hasErrors()) {
-            for (Iterator it = helper.getErrors().entrySet().iterator(); it.hasNext();) {
-                Map.Entry entry = (Map.Entry) it.next();
-                addError((String) entry.getKey(), entry.getValue());
+            List responses = helper.processResponses(event.getSurvey());
+
+            for (Object response1 : responses) {
+                ((Response) response1).setUser(user);
             }
+
+            helper.checkRequiredQuestions(event.getSurvey(), responses);
+
+            if (helper.hasErrors()) {
+                for (Object o : helper.getErrors().entrySet()) {
+                    Map.Entry entry = (Map.Entry) o;
+                    addError((String) entry.getKey(), entry.getValue());
+                }
+            }
+
+            return responses;
+        } else {
+            return Collections.EMPTY_LIST;
         }
-        
-        return responses;
     }
 
     protected void alreadyRegisteredProcessing(EventRegistration er) {
