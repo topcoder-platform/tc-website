@@ -1,13 +1,8 @@
 package com.topcoder.web.tc.controller.request.tournament.tccc07;
 
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.SurveyHelper;
 import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.model.Question;
-import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Survey;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.tc.Constants;
 
 import java.util.List;
@@ -20,6 +15,7 @@ import java.util.List;
 public class SubmitSponsorRegistration extends SubmitRegistration {
 
     protected Boolean validateSurvey(Survey survey, List responses) {
+/*
         String ageInput = "";
         String ageKey = "";
         String inCollegeInput = "";
@@ -52,6 +48,9 @@ public class SubmitSponsorRegistration extends SubmitRegistration {
         }
 
         return (age >= 18 && age <= 130 && "Yes".equals(inCollegeInput));
+*/
+        //we don't care, anyone can participate
+        return true;
     }
 
 
