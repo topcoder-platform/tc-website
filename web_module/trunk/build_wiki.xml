@@ -21,6 +21,7 @@
     <property name="jboss_deploy" value="${jboss_home}/server/wiki/deploy"/>
     <property name="jboss_lib" value="${jboss_home}/server/wiki/lib"/>
     <property name="jboss_conf" value="${jboss_home}/server/wiki/conf"/>
+    <property name="confluence_home" value="../confluence-2.5.6/"/>
     <property environment="env"/>
 
     <property name="deprecation" value="true"/>
@@ -77,12 +78,12 @@
 
 
     <target name="copy-to-confluence" depends="jar-tc-theme">
-        <copy todir="../confluence-2.5.6/confluence/WEB-INF/classes">
+        <copy todir="${confluence_home}/confluence/WEB-INF/classes">
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/wiki/**/*.class"/>
             </fileset>
         </copy>
-        <copy todir="../confluence-2.5.6/confluence/WEB-INF/lib" file="${tc_theme.jar}"/>
+        <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${tc_theme.jar}"/>
 
     </target>
 
@@ -121,6 +122,21 @@
             </fileset>
         </copy>
     </target>
+
+    <target name="deploy">
+        <antcall target="copy-to-confluence"/>
+        <antcall target="move-conf"/>
+        <exec executable="${confluence_home}/build.sh"/>
+        <antcall target="expand-confluence"/>
+    </target>
+
+
+    <target name="expand-confluence">
+        <unwar src="${confluence_home}/dist/*.war" dest="${jboss_deploy}/confluence.war/" overwrite="yes"/>
+        <delete dir="${jboss_deploy}/confluence.war/META-INF"/>
+
+    </target>
+
 
 
 </project>
