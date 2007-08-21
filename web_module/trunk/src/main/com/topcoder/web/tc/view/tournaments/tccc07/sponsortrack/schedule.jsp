@@ -37,7 +37,7 @@ Eligible employees must register separately for the Sponsor Track Competition.  
         </tr> 
         <tr class="light"> 
             <td class="value">Online Round #1</td> 
-            <td class="value">Saturday, September 1, 2007<br />Arena Sign-in: 6:00 - 8:55 PM<br />START: 9:00 PM</td>
+            <td class="value">Saturday, September 1, 2007<br />Arena Sign-in: 10:00 AM - 12:55 PM<br />START: 1:00 PM</td>
         </tr> 
         <tr class="dark"> 
             <td class="value">Online Round #2</td> 

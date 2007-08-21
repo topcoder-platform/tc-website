@@ -66,7 +66,7 @@
     <tbody>
         <tr class="light">
            <td class="value">Online Round #1</td>
-           <td class="value">Saturday, September 1, 2007<br />Register: 6:00 - 8:55 PM<br />START: 1:00 PM</td>
+           <td class="value">Saturday, September 1, 2007<br />Register: 10:00 AM - 12:55 PM<br />START: 1:00 PM</td>
            <td class="valueC">100</td>
            <td class="valueC">75</td>
         </tr>
