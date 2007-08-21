@@ -7,6 +7,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.common.SecurityHelper;
@@ -19,7 +20,6 @@ import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.jobposting.JobPostingServices;
 import com.topcoder.web.ejb.phone.Phone;
 import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.ejb.school.CurrentSchool;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.ejb.user.UserPreference;
@@ -67,14 +67,7 @@ public class JobHit extends Base {
                 }
             }
 
-/*
-            Navigation navigation = (Navigation) getRequest().getSession().getAttribute("navigation");
-            if (navigation == null)
-                navigation = new Navigation(getRequest(),
-                        (CoderSessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY));
-            Data.loadUser(navigation);
-            JobHitData hit = getData(navigation.getUser());
-*/
+
             JobHitData hit = getData();
             getRequest().setAttribute("JobHitData", hit);
 
@@ -212,7 +205,9 @@ public class JobHit extends Base {
         Address addressBean = (Address) createEJB(getInitialContext(), Address.class);
         Phone phoneBean = (Phone) createEJB(getInitialContext(), Phone.class);
         Coder coderBean = (Coder) createEJB(getInitialContext(), Coder.class);
+/*
         CurrentSchool csBean = (CurrentSchool) createEJB(getInitialContext(), CurrentSchool.class);
+*/
 
         ResultSetContainer addresses = userAddressBean.getUserAddresses(info.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
         long addressId = addresses.getLongItem(0, "address_id");
@@ -236,7 +231,7 @@ public class JobHit extends Base {
         if (!profileInfo.isEmpty()) {
             ret.setSchool(profileInfo.getItem(0, "school_name").toString());
             ret.setMemberSince(profileInfo.getItem(0, "member_since_date").toString());
-            ret.setNewbie(((Integer) profileInfo.getItem(0, "num_ratings").getResultData()).intValue() == 0);
+            ret.setRated(isRated(info.getUserId()));
         }
         if (!nextMatch.isEmpty()) {
             ret.setNextRoundId(((Long) nextMatch.getItem(0, "round_id").getResultData()).intValue());
@@ -274,4 +269,15 @@ public class JobHit extends Base {
         return ret;
     }
 
+
+    private boolean isRated(long coderId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("coder_all_ratings");
+        r.setProperty("cr", String.valueOf(coderId));
+        CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+        ResultSetContainer rsc = da.getData(r).get("coder_all_ratings");
+        return !rsc.isEmpty() && rsc.getItem(0, "coder_id").getResultData() != null && (rsc.getIntItem(0, "algorithm_rating") > 0 ||
+                rsc.getIntItem(0, "hs_algorithm_rating") > 0 || rsc.getIntItem(0, "marathon_match_rating") > 0 ||
+                rsc.getIntItem(0, "design_rating") > 0 || rsc.getIntItem(0, "development_rating") > 0);
+    }
 }
