@@ -1,11 +1,5 @@
-<%@ page import="com.topcoder.web.common.BaseProcessor" %>
-<%@ page import="com.topcoder.web.common.model.Event,
-                 com.topcoder.web.common.tag.AnswerInput,
-                 com.topcoder.web.tc.Constants" %>
-<%@ page import="com.topcoder.web.tc.controller.request.tournament.RegistrationBase" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.HashMap" %>
-<%@ page import="java.util.List" %>
+<%@ page import="com.topcoder.web.common.model.Event" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -14,8 +8,10 @@
 <%
     String eventType = (String) request.getAttribute("et");
     Event event = (Event) request.getAttribute("event");
+<%--
     List questionInfo = new ArrayList(event.getSurvey().getQuestions());
     HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
+--%>
 %>
 <html>
 <head>
