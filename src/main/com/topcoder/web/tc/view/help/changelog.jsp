@@ -44,7 +44,7 @@
 
 
 <p>
-    5.10.19 - 2007.08.xx
+    5.10.19 - 2007.08.21
     <ul>
         <li>Allow people rated in anything to apply for a job, not just algo -dok</li>
     </ul>
