@@ -126,7 +126,7 @@
     <target name="deploy">
         <antcall target="copy-to-confluence"/>
         <antcall target="move-conf"/>
-        <exec executable="${confluence_home}/build.sh"/>
+        <exec executable="build.sh" dir="${confluence_home}"/>
         <antcall target="expand-confluence"/>
     </target>
 
