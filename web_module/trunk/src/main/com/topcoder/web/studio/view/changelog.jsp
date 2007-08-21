@@ -25,6 +25,13 @@
 
 
 <div class="contentSpacer">
+<p>
+    2.0.8 - 2007.08.xx
+    <ul>
+        <li>Fix final submission processing so that it quietly deals with invalid mime types -dok</li>
+    </ul>
+
+</p>
 
 <p>
     2.0.7 - 2007.08.13
