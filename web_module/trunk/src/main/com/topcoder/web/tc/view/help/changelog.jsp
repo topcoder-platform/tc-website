@@ -44,6 +44,14 @@
 
 
 <p>
+    5.10.19 - 2007.08.xx
+    <ul>
+        <li>Allow people rated in anything to apply for a job, not just algo -dok</li>
+    </ul>
+</p>
+
+
+<p>
     5.10.18 - 2007.08.20
     <ul>
     <%--<li>Made some refactoring to avoid com.topcoder.web.common -> com.topcooder.web.tc dependencies -cucu, pulky</li>

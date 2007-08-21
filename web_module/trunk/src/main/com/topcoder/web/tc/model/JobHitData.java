@@ -6,7 +6,8 @@ import java.util.TreeMap;
 
 /**
  * A class to process job hits.
- * @author  Greg Paul
+ *
+ * @author Greg Paul
  */
 public class JobHitData implements Serializable {
 
@@ -34,14 +35,16 @@ public class JobHitData implements Serializable {
     private String gpaScale;
     private Map demographics;
     private boolean hasResume;
-    private boolean newbie;
+    private boolean rated;
     private long nextRoundId;
     private long nextContestId;
     private String nextRoundName;
     private String nextContestName;
 
 
-    /** Creates new JobHitTask */
+    /**
+     * Creates new JobHitTask
+     */
     public JobHitData() {
         super();
         setUserId(-1);
@@ -66,7 +69,6 @@ public class JobHitData implements Serializable {
         setGpaScale("");
         setDemographics(new TreeMap());
         setHasResume(false);
-        setNewbie(false);
         setNextRoundId(0);
         setNextContestId(0);
         setNextRoundName("");
@@ -81,12 +83,12 @@ public class JobHitData implements Serializable {
         this.hasResume = hasResume;
     }
 
-    public boolean isNewbie() {
-        return newbie;
+    public boolean isRated() {
+        return rated;
     }
 
-    public void setNewbie(boolean newbie) {
-        this.newbie = newbie;
+    public void setRated(boolean rated) {
+        this.rated = rated;
     }
 
     public long getUserId() {
