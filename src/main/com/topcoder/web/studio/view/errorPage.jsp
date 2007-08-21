@@ -52,7 +52,8 @@
                         viewing.
                         <br><br>
                         If you have a question or comment, please email
-                        <A href="service@topcoder.com?subject=TopCoder Studio Error">service@topcoder.com</A>.
+                        <A href="service@topcoder.com?subject=TopCoder Studio Error">service@topcoder.com</A>
+                                                 and be sure to include this timestamp: <%=new Date().toString()%>.
                     </div>
                     <%=new Date().toString()%>
                 </div>
