@@ -21,7 +21,7 @@
     <property name="jboss_deploy" value="${jboss_home}/server/wiki/deploy"/>
     <property name="jboss_lib" value="${jboss_home}/server/wiki/lib"/>
     <property name="jboss_conf" value="${jboss_home}/server/wiki/conf"/>
-    <property name="confluence_home" value="../confluence-2.5.6/"/>
+    <property name="confluence_home" value="../confluence-2.5.6"/>
     <property environment="env"/>
 
     <property name="deprecation" value="true"/>
