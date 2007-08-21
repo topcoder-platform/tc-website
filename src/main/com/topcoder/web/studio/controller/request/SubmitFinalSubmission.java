@@ -72,12 +72,14 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                 UploadedFile submissionFile = r.getUploadedFile(Constants.SUBMISSION);
 
                 // for final submissions only zip files are allowed.
+                Contest tempContest = new Contest();
                 StudioFileType sft = cFactory.getFileTypeDAO().find(StudioFileType.ZIP_ARCHIVE_TYPE_ID);
                 Set<StudioFileType> ft = new HashSet<StudioFileType>();
                 ft.add(sft);
-                c.setFileTypes(ft);
+                tempContest.setFileTypes(ft);
+                tempContest.setConfig(c.getConfig());
                 //do validation
-                ValidationResult submissionResult = new SubmissionValidator(c).validate(new ObjectInput(submissionFile));
+                ValidationResult submissionResult = new SubmissionValidator(tempContest).validate(new ObjectInput(submissionFile));
                 if (!submissionResult.isValid()) {
                     addError(Constants.SUBMISSION, submissionResult.getMessage());
                 }
@@ -113,7 +115,8 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     }
 
                     // accept the file
-                    MimeType mt = cFactory.getMimeTypeDAO().find(submissionFile.getContentType());
+
+                    MimeType mt = SubmissionValidator.getMimeType(submissionFile);
                     Submission s = new Submission();
                     s.setContest(c);
                     s.setOriginalFileName(submissionFile.getRemoteFileName());
