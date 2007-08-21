@@ -64,7 +64,7 @@
                                 </div>
 
 
-                                <tc:questionIterator list="<%=questionInfo%>" id="question">
+   <%--                             <tc:questionIterator list="<%=questionInfo%>" id="question">
                                     <% if (question.getKeyword().equals(RegistrationBase.AGE)) { %>
                                     <p align="center">
                                     <span class="bigRed">
@@ -93,7 +93,7 @@
                                     </p>
                                     <% }%>
 
-                                </tc:questionIterator>
+                                </tc:questionIterator>--%>
 
                                 <div align="center">
                                     <button name="submit" value="submit" type="submit">Submit</button>
