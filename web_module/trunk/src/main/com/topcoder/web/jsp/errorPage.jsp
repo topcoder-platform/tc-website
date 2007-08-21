@@ -67,9 +67,10 @@
       <br /><br />
       You may click <a href="<%=url==null?"javascript:history.back();":url%>">here</a> to return to the last page you were viewing.
       <br /><br />
-      If you have a question or comment, please email <a HREF="mailto:service@topcoder.com" CLASS="bodyText">service@topcoder.com</a>.
+      If you have a question or comment, please email <a HREF="mailto:service@topcoder.com" CLASS="bodyText">service@topcoder.com</a>
+       and be sure to include this timestamp: <%=new Date().toString()%>.
    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-       <%=new Date().toString()%>
+
    </span></b>
     </div>
 </div>
