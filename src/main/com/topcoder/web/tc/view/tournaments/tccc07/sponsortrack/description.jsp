@@ -40,12 +40,12 @@
 <h2>How to Register for the TCCC07 Sponsor Track Competition</h2>
 
 <p><b>Already a TopCoder Member?</b><br>
-Click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=sponsortrack&amp;d4=reg">here</a> to register for the TCCC Sponsor Track Competition </p>
+Click <a href="/tc?module=TCCC07ViewSponsorRegistration&amp;et=15">here</a> to register for the TCCC Sponsor Track Competition </p>
 
 <p><b>Not Yet a TopCoder Member?</b><br>
 Click <a href="/reg">here</A> to sign up as a TopCoder member<br>
 Check your email and activate your new TopCoder account<br>
-Click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=sponsortrack&amp;d4=reg">here</a> to register for the TCCC Sponsor Track Competition </p>
+Click <a href="/tc?module=TCCC07ViewSponsorRegistration&amp;et=15">here</a> to register for the TCCC Sponsor Track Competition </p>
 
 <p>The competition is free and you must be a registered TopCoder member who is at least 18 years old to be eligible. </p>
 
