@@ -4799,6 +4799,7 @@ public class TCLoadTCS extends TCLoad {
                         "           and cv.component_id = cc.component_id " +
                         "           and cv.comp_vers_id = cvd.comp_vers_id " +
                         "           and cvd.phase_id = ? " +
+                        "           and cvd.phase_id = cv.phase_id " +
                         "           and pi_ci.project_id = p.project_id) as amount " +
                         "       ,pi_dr.value as dr_ind " +
                         "       ,(select count(*) from submission s, upload u  " +
