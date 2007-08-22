@@ -29,10 +29,16 @@
 
                 <h1>My Studio</h1>
 
-                <h3>Documents:</h3>
+                <h3>Documentation:</h3>
 
-                <p style="margin-bottom: 80px;">
+                <p>
                     <A href="/?module=AssignmentDocumentHistory">Assignment Documents</A>
+                </p>
+
+                <h3>Tools</h3>
+
+                <p>
+                    <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Online Review</A>
                 </p>
 
 
