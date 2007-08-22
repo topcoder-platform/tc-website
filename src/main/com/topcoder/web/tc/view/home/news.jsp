@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.22.07<br>1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/longcontest/?module=ViewActiveContests">TCCC07 Marathon Match 2 now underway</A></span><br><br>
+        The second round of the 2007 TopCoder Collegiate Challenge Marathon Match competition has begun. Good luck!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/longcontest/?module=ViewActiveContests">details</A> | 
+        <tc-webtag:forumLink forumID="516884" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.22.07<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">TCCC07 Component registration ends tomorrow</A></span><br><br>
@@ -153,21 +166,5 @@
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm37">full story</A> | 
          <tc-webtag:forumLink forumID="516563" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>08.13.07<br>3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=081307">Going pro: Turning TopCoder into my full-time job</A></span><br><br>
-      What does it take to leave your job and commit to TopCoder projects full-time? In this article, <tc-webtag:handle coderId="151743" context="design"/> talks about how he did it, and some of the things he's learned along the way.</td>
-         <td class="newsPhoto"><img src="/i/m/Ghostar_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="151743" context="design"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=081307">full story</A> | 
-         <tc-webtag:forumLink forumID="517014" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
