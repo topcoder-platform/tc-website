@@ -121,7 +121,7 @@ public class JobHit extends Base {
                     throw new Exception("job: " + jobId + " either doesn't exist or isn't active");
                 }
             } else {
-                if (hit.getRating() > 0) {
+                if (hit.isRated()) {
                     if (hit.hasResume()) {
                         if (jobHits.size() > 0) {
                             for (int i = 0; i < jobHits.size(); i++) {
