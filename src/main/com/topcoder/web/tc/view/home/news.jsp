@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.22.07<br>3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_qual_rd1">TCCC07 - Qual Round 1 - Problem Set &amp; Analysis</A></span><br><br>
+      In Qualification Round 1, 1023 competitors were presented with a well-balanced problem set. By the end of the coding phase almost everybody submitted the easy, more than half of competitors managed to submit the medium, and there were as many as 204 submits on the hard.</td>
+         <td class="newsPhoto"><img src="/i/m/ivan_metelsky_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10481120" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_qual_rd1">full story</A> | 
+         <tc-webtag:forumLink forumID="517132" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.22.07<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/longcontest/?module=ViewActiveContests">TCCC07 Marathon Match 2 now underway</A></span><br><br>
@@ -150,21 +166,5 @@
         <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2118">full story</A> | 
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=86">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.14.07<br>9:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm37">TCHS SRM 37 - Problem Set &amp; Analysis</A></span><br><br>
-      The TCHS SRM 37 attracted 75 coders, 17 of them newcomers. Submission rates were pretty high and there were 24 coders who submited all three problems, and many of these were done in half the available time. <tc-webtag:handle coderId="21185521" context="hs_algorithm"/> won the match, followed by <tc-webtag:handle coderId="22663117" context="hs_algorithm"/> and <tc-webtag:handle coderId="22660173" context="hs_algorithm"/>.</td>
-         <td class="newsPhoto"><%--<img src="/i/m/eleusive_big2.jpg" alt="Author" width="55" height="61"/><br>--%>by <tc-webtag:handle coderId="10389461" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm37">full story</A> | 
-         <tc-webtag:forumLink forumID="516563" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
    
