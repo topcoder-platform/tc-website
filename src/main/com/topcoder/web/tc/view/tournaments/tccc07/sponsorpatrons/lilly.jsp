@@ -35,7 +35,7 @@
                 <div align="center">
                     <p style="float:left; width:90px; padding:10px;"><a href="/tc?module=JobHit&jid=406&jt=1" class="button" style="width:90px;">Apply Now<br />for US Jobs</a></p>
                     <p style="float:left; width:90px; padding:10px;"><a href="/tc?module=JobHit&jid=407&jt=1" class="button" style="width:90px;">Apply Now<br />for EU Jobs</a></p>
-                    <p style="float:left; width:90px; padding:10px;"><a href="/tc?module=JobHit&jid=408&jt=1" class="button" style="width:90px;">Apply Now<br />for Pacifc Jobs</a></p>
+                    <p style="float:left; width:90px; padding:10px;"><a href="/tc?module=JobHit&jid=408&jt=1" class="button" style="width:90px;">Apply Now<br />for Pacific Jobs</a></p>
                 </div>
                 <br /><br />
             </div>
