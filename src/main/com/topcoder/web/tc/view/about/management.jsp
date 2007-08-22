@@ -132,6 +132,16 @@ TopCoder's accomplished management team includes some of the most successful pro
 </div>
 
 <div class="bioEven">
+    <div class="photo"><img src="/i/about/management/iheffan.jpg" alt="" /></div>
+    <h2>Ira Heffan</h2>
+    <h3><i>General Council</i></h3>
+    
+    <p>
+    Ira Heffan has been working with TopCoder since 2001, previously as outside counsel to the company, and now as its General Counsel.  Heffan brings to TopCoder over ten years of experience in working with technology companies on their legal matters, particularly in the areas of intellectual property and community-based models.  Prior to joining TopCoder, he was in the Intellectual Property Transactions and Strategies Group of the law firm Goodwin Procter.  Heffan holds a JD from Stanford Law School, an MS in Computer Science from Boston University, and a BSEE from Union College.
+    </p>
+</div>
+
+<div class="bioOdd">
     <div class="photo"><img src="/i/about/management/mmorris.jpg" alt="" /></div>
     <h2>Michael Morris</h2>
     <h3><i>Senior Vice President</i></h3>
@@ -147,7 +157,7 @@ TopCoder's accomplished management team includes some of the most successful pro
     </p>
 </div>
 
-<div class="bioOdd">
+<div class="bioEven">
     <div class="photo"><img src="/i/about/management/dobrien.jpg" alt="" /></div>
     <h2>Dave O'Brien</h2>
     <h3><i>Vice President of Sales</i></h3>
@@ -157,7 +167,7 @@ TopCoder's accomplished management team includes some of the most successful pro
     </p>
 </div>
 
-<div class="bioEven">
+<div class="bioOdd">
     <div class="photo"><img src="/i/about/management/mlydon.jpg" alt="" /></div>
     <h2>Mike Lydon</h2>
     <h3><i>Chief Technology Officer</i></h3>
@@ -167,7 +177,7 @@ TopCoder's accomplished management team includes some of the most successful pro
     </p>
 </div>
 
-<div class="bioOdd">
+<div class="bioEven">
     <div class="photo"><img src="/i/about/management/gtsipolitis.jpg" alt="" /></div>
     <h2>George Tsipolitis</h2>
     <h3><i>Senior Vice President</i></h3>
@@ -187,7 +197,7 @@ TopCoder's accomplished management team includes some of the most successful pro
 
 </div>
 
-<div class="bioEven">
+<div class="bioOdd">
     <div class="photo"><img src="/i/about/management/jmckeown.jpg" alt="" /></div>
     <h2>Jim McKeown</h2>
     <h3><i>Director of Communications</i></h3>
@@ -200,7 +210,7 @@ TopCoder's accomplished management team includes some of the most successful pro
     </p>
 </div>
 
-<div class="bioOdd">
+<div class="bioEven">
     <div class="photo"><img src="/i/about/management/mluce.jpg" alt="" /></div>
     <h2>MaryBeth Luce</h2>
     <h3>Vice President, Operations</h3>
@@ -210,7 +220,7 @@ TopCoder's accomplished management team includes some of the most successful pro
     </p>
 </div>
 
-<div class="bioEven">
+<div class="bioOdd">
     <div class="photo"><img src="/i/about/management/thorgan.jpg" alt="" /></div>
     <h2>Tanya Horgan, CPA</h2>
     <h3><i>Vice President, Finance</i></h3>
@@ -220,7 +230,7 @@ TopCoder's accomplished management team includes some of the most successful pro
     </p>
 </div>
 
-<div class="bioOdd">
+<div class="bioEven">
     <div class="photo"><img src="/i/about/management/dmessinger.jpg" alt="" /></div>
     <h2>Dave Messinger</h2>
     <h3><i>Chief Architect</i></h3>
@@ -233,7 +243,7 @@ TopCoder's accomplished management team includes some of the most successful pro
     </p>
 </div>
 
-<div class="bioEven">
+<div class="bioOdd">
     <div class="photo"><img src="/i/about/management/tjefts.jpg" alt="" /></div>
     <h2>Tony Jefts</h2>
     <h3><i>Director of Software Operations</i></h3>
