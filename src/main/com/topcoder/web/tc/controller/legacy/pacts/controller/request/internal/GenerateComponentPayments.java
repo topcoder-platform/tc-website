@@ -36,12 +36,24 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             String projectID = StringUtils.checkNull(getRequest().getParameter(PROJECT_ID)).trim();
             String projectTermStatus = StringUtils.checkNull(getRequest().getParameter(PROJECT_TERMINATION_STATUS));
             String client = StringUtils.checkNull(getRequest().getParameter(PROJECT_CLIENT)).trim();
-            boolean devSupportDes = "designer".equals(getRequest().getParameter(IS_DEV_SUPPORT_BY_DESIGNER));
+            String devSupport = getRequest().getParameter(IS_DEV_SUPPORT_BY_DESIGNER);
+            boolean devSupportDes = "designer".equals(devSupport);
             long devSupportId = 0;
         	setDefault(IS_DEV_SUPPORT_BY_DESIGNER, Boolean.valueOf(devSupportDes));
             
+        	if (!devSupportDes && !"other".equals(devSupport)) {
+        	    addError(PROJECT_ID,"Please select who will receive the development support");
+        	    return;
+        	}
+        	
             if (!devSupportDes) {
+                
             	String handle = StringUtils.checkNull(getRequest().getParameter("coder"));
+            	
+            	if (handle.trim().length() == 0) {
+            	    addError(PROJECT_ID, "Please enter the coder that will receive the development support payment");
+            	    return;
+            	}
                 Map m = new HashMap();
                 m.put(HANDLE, handle);
                 UserProfileHeader[] users = new UserProfileHeaderList(dib.findUsers(m)).getHeaderList();
