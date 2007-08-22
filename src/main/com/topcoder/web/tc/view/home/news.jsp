@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.22.07<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">TCCC07 Component registration ends tomorrow</A></span><br><br>
+        Registration for the 2007 TopCoder Collegiate Challenge Component Competition closes at 9:00 AM EDT on Thursday, August 23. It's not too late -- register now!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">details</A> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.21.07<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank sponsors the TCCC07</A></span><br><br>
@@ -156,18 +169,5 @@
          <A href="/tc?module=Static&d1=features&d2=081307">full story</A> | 
          <tc-webtag:forumLink forumID="517014" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.13.07<br>1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=professor&d4=description">Got a great teacher? Take them to Disney World!</A></span><br><br>
-        Do you have a special professor that deserves recognition? With the 2007 TopCoder Collegiate Challenge Prestigious Professor Award program, tell us why they stand out, and you both could win a trip to the TCCC07 at Disney World! Learn more at <a href="http://www.topcoder.com/nominate">topcoder.com/nominate</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=professor&d4=description">details</A> | 
-        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
