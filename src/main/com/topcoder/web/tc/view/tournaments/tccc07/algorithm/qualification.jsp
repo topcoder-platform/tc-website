@@ -58,8 +58,6 @@
             <div id="pageBody">
                 <h1><span>Qualification</span></h1>
 
-                <p align="center">Take a look at who got <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=byes">byes past the Qualification Round</a>.</p>
-
                 <form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07AlgorithmQualification"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
