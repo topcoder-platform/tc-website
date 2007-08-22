@@ -134,7 +134,7 @@ TopCoder's accomplished management team includes some of the most successful pro
 <div class="bioEven">
     <div class="photo"><img src="/i/about/management/iheffan.jpg" alt="" /></div>
     <h2>Ira Heffan</h2>
-    <h3><i>General Councel</i></h3>
+    <h3><i>General Counsel</i></h3>
     
     <p>
     Ira Heffan has been working with TopCoder since 2001, previously as outside counsel to the company, and now as its General Counsel.  Heffan brings to TopCoder over ten years of experience in working with technology companies on their legal matters, particularly in the areas of intellectual property and community-based models.  Prior to joining TopCoder, he was in the Intellectual Property Transactions and Strategies Group of the law firm Goodwin Procter.  Heffan holds a JD from Stanford Law School, an MS in Computer Science from Boston University, and a BSEE from Union College.
