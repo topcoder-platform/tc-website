@@ -29,11 +29,20 @@
 
                 <div class="linkBox"><studio:forumLink forumID="3"/></div>
 
-                <h1>Frequently Asked Questions</h1>
+                <h1>Hints & Tips</h1>
+                
+                <div style="float: right; text-align: left; margin-left: 10px;">
+                    <a href="/?module=Static&d1=support&d2=getStarted">Getting Started</a>
+                    <br />Hints & Tips
+                    <br /><a href="/?module=Static&d1=support&d2=competitionFaq">Competition FAQs</a>
+                </div>
 
+                <h3>What software should I use?</h3>
+                Each contest will list file formats that will be accepted both for submissions and final deliverables from the winner(s). Some contests will limit the types of files that will be accepted based on the client's preferences. The most common file types accepted as final deliverables are EPS and AI files from Adobe Illustrator and PSD files from Adobe Photoshop. Open source programs such as Gimp and Inkscape are often acceptable substitutes and many contests accept files from these programs.<br><br>
+                
                 <h3>What are vector graphics?</h3>
                 Vector graphics are images created using points, lines, curves and polygons rather than pixels (raster
-                graphics). Vector graphics can be scaled infinitely without degradation. Most designers use Adobe
+                graphics). Vector graphics can be scaled infinitely without degradation. Most Adesigners use Adobe
                 Illustrator to create vector files and save them as .EPS (Encapsulated Post Script) or .AI (Adobe
                 Illustrator) files.
                 <br><br>
@@ -53,6 +62,7 @@
                 <br><br>
 
                 <h3>What is an .ICO file?</h3>
+
                 .ICO files are Windows based icon image files. These files can hold multiple sizes of icons at varying
                 color depths. Standard sizes for most Windows applications are 64x64, 32x32 and 16x16. Icon files should
                 be created at maximum color depth, optimized for Windows XP unless otherwise specified in the contest
@@ -67,150 +77,9 @@
                     icon editors</A> available.
                 <br><br>
 
-                <h3>Will Studio contests affect my TopCoder Rating?</h3>
-                No. Studio is independent of TopCoder ratings and statistics. Winning Studio contests will not improve
-                your TopCoder standings.
-                <br><br>
+                <h3>More questions?</h3>
+                If you have more questions, please send them to <A href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</A>.
 
-                <h3>Why can't I see the Contest Specifications?</h3>
-                You must be a registered Studio member to see a contest's specifications document. You can register with
-                Studio by clicking any of the <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register Now</A>
-                links on this site. If you already have a TopCoder handle, you may login to
-                <A href="http://<%=ApplicationServer.SERVER_NAME%>">www.topcoder.com</A> and update your profile by
-                simply opting in for Studio membership.
-                <br><br>
-
-                <h3>How do I get paid if I win?</h3>
-TopCoder begins the payment process for Studio contests one business day after each contest is concluded.  This will happen by 5:00 PM Eastern Time on the business day following the selection of a winner (for a successful project) or when all submissions have failed screening.
-<br><br>
-<strong>Timing</strong><br>
-Payments of $25.00 or more are distributed on or before the 15th day of the following month. For example: payments earned between November 1 and November 30 will be sent out on or before December 15.
-<br><br>
-Payments will be issued on the following dates for 2007:
-<br><br>
-
-<div align="center">
-<table class="stat" border="0" cellpadding="0" cellspacing="0" width="400">
-<tbody>
-    <tr>
-        <td class="NW">&nbsp;</td>
-        <td class="title" colspan="2">
-        2007 Payment Schedule
-        </td>
-        <td class="NE">&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="headerW"><div>&nbsp;</div></td>
-        <td class="header" width="50%"><strong>Earned</strong></td>
-        <td class="header" width="50%"><strong>Paid **</strong></td>
-        <td class="headerE"><div>&nbsp;</div></td>
-    </tr>
-    <tr class="light">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="value">January 1-30</td>
-        <td class="value">February 15, 2007</td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <tr class="light">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="value">February 1-28</td>
-        <td class="value">March 15, 2007</td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <tr class="light">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="value">March 1-31</td>
-        <td class="value">April 16, 2007</td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <tr class="light">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="value">April 1-30</td>
-        <td class="value">May 15, 2007</td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <tr class="light">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="value">May 1-31</td>
-        <td class="value">June 15, 2007</td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <tr class="light">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="value">June 1-30</td>
-        <td class="value">July 16, 2007</td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <tr class="light">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="value">July 1-31</td>
-        <td class="value">August 15, 2007</td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <tr class="light">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="value">August 1-31</td>
-        <td class="value">September 14, 2007</td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <tr class="light">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="value">September 1-30</td>
-        <td class="value">October 15, 2007</td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <tr class="light">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="value">October 1-31</td>
-        <td class="value">November 15, 2007</td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <tr class="light">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="value">November 1-30</td>
-        <td class="value">December 14, 2007</td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <tr class="light">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="value">December 1-31</td>
-        <td class="value">January 15, 2008</td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <tr class="light">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="value" colspan="2">** Note: The date when you actually receive your payment will depend on the payment method you select.</td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <tr>
-        <td class="SW" colspan="3">&nbsp;</td>
-        <td class="SE">&nbsp;</td>
-    </tr>
- </table>
-</div>
-<br><br>
-
-                There are two steps to getting paid:
-                <ol>
-                    <li>Submit the deliverables listed under the "Final Deliverables for Winner" heading on the contest
-                        details page.</li>
-                    <li>A completed and signed IRS tax form - either W-9 or W-8BEN, depending on where you live and what
-                        your U.S. resident status is. Members will only be required to submit this document once.</li>
-                    <ul>
-                        <li><A href="/pdfs/forms/fw9.pdf">W-9 Form</A></A></li>
-                    <li><A href="/pdfs/forms/iw9.pdf">W-9 Instructions</A></li>
-                    <li><A href="/pdfs/forms/fw8ben.pdf">W-8BEN Form</A></li>
-                    <li><A href="/pdfs/forms/iw8ben.pdf">W-8BEN Instructions</A></li>
-                </ul>
-            </ol>
-            Once these requirements are satisfied, payment will be sent. You have the option of choosing to receive
-            payment either via check using the U.S. Postal Service to the address in your profile, via PayPal or via
-            wire transfer. Any questions regarding prize payments and requests for payment type should be directed to
-            <A href="mailto:payments@topcoder.com">payments@topcoder.com</A>.
-            <br><br>
-
-            <h3>More questions?</h3>
-            If you have more questions, please send them to <A href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</A>.
         </div>
         <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
     </div>
