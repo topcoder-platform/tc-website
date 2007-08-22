@@ -81,7 +81,7 @@ public class ServerMonitorBot {
                 wack();
 
                 String[] callAndArgs2 = {"wget",
-                        "http://192.168.12.151:8080/index.jsp",
+                        "http://software.topcoder.com",
                         "--timeout=30",
                         "-t3",
                         ""};
@@ -98,14 +98,14 @@ public class ServerMonitorBot {
                     if (isSoftwareAlive) {
                         isSoftwareAlive = false;
                         log.warn("FAILED, SENDING MAIL");
-                        addError("connection to 12.151 failed");
+                        addError("connection to software failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
                     if (isSoftwareAlive) {
                         isSoftwareAlive = false;
                         log.warn("FAILED, SENDING MAIL");
-                        addError("response from 12.151 failed");
+                        addError("response from software failed");
                         addError(ret);
                         sendError();
                     }
@@ -116,7 +116,7 @@ public class ServerMonitorBot {
                 wack();
 
                 String[] callAndArgs3 = {"wget",
-                        "http://192.168.10.91",
+                        "http://forums.topcoder.com",
                         "--timeout=30",
                         "-t3",
                         ""};
@@ -151,7 +151,7 @@ public class ServerMonitorBot {
                 wack();
 
                 String[] callAndArgs4 = {"wget",
-                        "http://192.168.10.93",
+                        "http://studio.topcoder.com",
                         "--timeout=30",
                         "-t3",
                         ""};
