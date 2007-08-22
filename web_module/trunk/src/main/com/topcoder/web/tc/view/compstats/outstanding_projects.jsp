@@ -125,7 +125,7 @@
                     <% } %>
                 </TD>
                 <TD class="valueC"><rsc:item name="num_valid_submissions" row="<%=resultRow%>"/></TD>
-                <TD class="valueC"><rsc:item name="outstanding_points" row="<%=resultRow%>"/></TD>
+                <TD class="valueC"><rsc:item name="outstanding_points" row="<%=resultRow%>" format="####0.00" /></TD>
                 <TD class="valueR" nowrap="nowrap">
                     <% if (resultRow.getItem("project_id").getResultData() != null) { %>
                     <A HREF="/tc?module=ViewRegistrants&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
