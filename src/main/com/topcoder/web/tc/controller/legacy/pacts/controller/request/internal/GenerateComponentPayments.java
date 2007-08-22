@@ -27,22 +27,23 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
 	
     protected void businessProcessing() throws TCWebException {
         try {
+            String devSupport = getRequest().getParameter(IS_DEV_SUPPORT_BY_DESIGNER);
             DataInterfaceBean dib = new DataInterfaceBean();
             Map map = dib.getProjectTerminationStatusTypes();
             getRequest().setAttribute(PROJECT_TERMINATION_STATUS_LIST, map.get(PROJECT_TERMINATION_STATUS_LIST));
+            setDefault(IS_DEV_SUPPORT_BY_DESIGNER, devSupport);
             setNextPage(INTERNAL_GENERATE_COMPONENT_PAYMENTS);
             setIsNextPageInContext(true);
 
             String projectID = StringUtils.checkNull(getRequest().getParameter(PROJECT_ID)).trim();
             String projectTermStatus = StringUtils.checkNull(getRequest().getParameter(PROJECT_TERMINATION_STATUS));
             String client = StringUtils.checkNull(getRequest().getParameter(PROJECT_CLIENT)).trim();
-            String devSupport = getRequest().getParameter(IS_DEV_SUPPORT_BY_DESIGNER);
             boolean devSupportDes = "designer".equals(devSupport);
             long devSupportId = 0;
         	setDefault(IS_DEV_SUPPORT_BY_DESIGNER, Boolean.valueOf(devSupportDes));
             
         	if (!devSupportDes && !"other".equals(devSupport)) {
-        	    addError(PROJECT_ID,"Please select who will receive the development support");
+        	    addError(PROJECT_TERMINATION_STATUS, "Please select who will receive the development support");
         	    return;
         	}
         	
@@ -51,7 +52,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             	String handle = StringUtils.checkNull(getRequest().getParameter("coder"));
             	
             	if (handle.trim().length() == 0) {
-            	    addError(PROJECT_ID, "Please enter the coder that will receive the development support payment");
+            	    addError(PROJECT_TERMINATION_STATUS, "Please enter the coder that will receive the development support payment");
             	    return;
             	}
                 Map m = new HashMap();
