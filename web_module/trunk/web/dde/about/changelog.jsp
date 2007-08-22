@@ -52,9 +52,16 @@
                     <tr><td align="left" colspan="2" class="bodyText">
                         <H3>TopCoder Software Web Site Change Log</H3>
                         <p>
-                            2.0.7 - 2007.08.xx
+                            2.0.8 - 2007.08.xx
+                            <ul>
+                                <li>Fix catalog page so that contributers don't include security reviewers -dok</li>
+                            </ul>
+                        </p>
+                        <p>
+                            2.0.7 - 2007.08.20
                             <ul>
                                 <li>Adjust admin tool so that component prices are stored correctly -dok</li>
+                                <li>Fix catalog page so that contributors are shown correctly -dok</li>
                             </ul>
                         </p>
 
