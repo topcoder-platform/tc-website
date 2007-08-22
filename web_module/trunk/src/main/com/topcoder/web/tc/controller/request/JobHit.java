@@ -228,10 +228,10 @@ public class JobHit extends Base {
         int coderTypeId = coderBean.getCoderTypeId(info.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
         ret.setCoderType(coderTypeId == 1 ? "Student" : "Professional");
         ret.setCoderTypeId(String.valueOf(coderBean.getCoderTypeId(info.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME)));
+        ret.setRated(isRated(info.getUserId()));
         if (!profileInfo.isEmpty()) {
             ret.setSchool(profileInfo.getItem(0, "school_name").toString());
             ret.setMemberSince(profileInfo.getItem(0, "member_since_date").toString());
-            ret.setRated(isRated(info.getUserId()));
         }
         if (!nextMatch.isEmpty()) {
             ret.setNextRoundId(((Long) nextMatch.getItem(0, "round_id").getResultData()).intValue());
