@@ -47,7 +47,9 @@
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsortrack&d4=instructions"<% if (tabLev2.equals("instructions")) {%> class="on"<% } %>>Instructions</a>
                     | <a href="/tc?module=TCCC07ViewSponsorRegistration&et=15"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a>
                     | <a href="/tc?module=TCCC07ViewRegistrants&et=15"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a>
+                    <%--
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsortrack&d4=advancers"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a>
+                    --%>
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsortrack&d4=arena"<% if (tabLev2.equals("arena")) {%> class="on"<% } %>>Competition Arena</a>
                 </p>
             <% } %>
