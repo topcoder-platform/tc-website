@@ -40,7 +40,6 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             String client = StringUtils.checkNull(getRequest().getParameter(PROJECT_CLIENT)).trim();
             boolean devSupportDes = "designer".equals(devSupport);
             long devSupportId = 0;
-        	setDefault(IS_DEV_SUPPORT_BY_DESIGNER, Boolean.valueOf(devSupportDes));
             
         	if (!devSupportDes && !"other".equals(devSupport)) {
         	    addError(PROJECT_TERMINATION_STATUS, "Please select who will receive the development support");
