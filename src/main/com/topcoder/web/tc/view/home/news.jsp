@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Marathon Match Tutorial" border="0" /><br>08.23.07<br>12:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=randomNumbers2">Generating random distributions, Part 2</A></span><br><br>
+      In <a href="/tc?module=Static&d1=tutorials&d2=randomNumbers">Part 1</a>, I looked at how to generate a single random number or event. Many marathon matches require more complicated lists or sets of items, however, so <a href="/tc?module=Static&d1=tutorials&d2=randomNumbers2">Part 2</a> will focus on how to tackle those.</td>
+         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="251074" context="marathon"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=randomNumbers2">full story</A> | 
+         <tc-webtag:forumLink forumID="517127" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=tutorials&d2=mm_index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.23.07<br>10:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -156,18 +172,5 @@
          <A href="/tc?module=Static&d1=tutorials&d2=randomNumbers">full story</A> | 
          <tc-webtag:forumLink forumID="517127" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=mm_index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.15.07<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=description">TCCC07 Algorithm registration ends August 16</A></span><br><br>
-        Registration for the 2007 TopCoder Collegiate Challenge Algorithm Competition closes at 5:00 PM EDT on Thursday, August 16. Don't miss out -- register now!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=description">details</A> | 
-        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    

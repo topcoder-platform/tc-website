@@ -59,7 +59,7 @@ The following articles apply specifically to Marathon Matches. You may also want
                <tc-webtag:handle coderId="251074" context="marathon"/>
                </td><td class="bodyText" nowrap=nowrap><strong>Generating random distributions</strong><br />
                &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=randomNumbers"><strong>Part 1</strong></a><br />
-               <%-- &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=randomNumbers2"><strong>Part 2</strong></a><br /> --%>
+               &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=randomNumbers2"><strong>Part 2</strong></a><br />
             </td></tr>
             <tr valign="top">
                <td class="bodyText" colspan="2"><br /><a href="/tc?module=Static&d1=help&d2=writeForTC">Write Marathon Match tutorials for TopCoder.com</a></td>
