@@ -106,6 +106,9 @@
                                         <tc-webtag:textInput name="pref_${preference.id}"/>
                                     </c:otherwise>
                                 </c:choose>
+                                <c:if test="${preference.id == 24}">
+                                <br />(Edit my <a href="/tc?module=BlackList">black list</a>)
+                                </c:if>
                             </td>
                         </tr>
                     </c:forEach>
