@@ -11,7 +11,7 @@ import com.atlassian.confluence.setup.bandana.ConfluenceBandanaContext;
 public class SettingsManager {
     private BandanaManager bandanaManager;
     // use the theme key as identifier
-    public String THEMEKEY = "com.atlassian.confluence.themes.leftnavigation:leftnavigation";
+    public String THEMEKEY = "com.topcoder.web.wiki.themes.tc:tc";
 
     /**
      * Creates a Manager to save and load Theme settings via Bandana.
