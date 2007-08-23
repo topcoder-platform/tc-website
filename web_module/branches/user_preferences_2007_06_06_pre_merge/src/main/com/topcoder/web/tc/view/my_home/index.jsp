@@ -71,7 +71,7 @@
                         
                             <br /><tc-webtag:handle coderId='${regUser.id}' />
                             <br /><strong>Member Since:</strong>
-                            <fmt:formatDate value="${regUser.coder.memberSince}" pattern="MM.dd.yyyy"/>
+                            <br /><fmt:formatDate value="${regUser.coder.memberSince}" pattern="MM.dd.yyyy"/>
                         </td>
                         <td class="field" width="100%">
                             Name:
