@@ -87,7 +87,7 @@ public class EditPreferences extends ShortHibernateProcessor {
                 String pref = StringUtils.checkNull(getRequest().getParameter("pref_" + p.getId()));
                 log.debug("getting param: pref_" + p.getId() + ": " + pref);
                 if (pref == "") {
-                    addError("err_" + p.getId(), "Please select the following option");
+                    addError("err_" + p.getId(), "You must choose one of the options below");
                 }
                 if (u.getUserPreference(p.getId()) != null) {
                     u.getUserPreference(p.getId()).setValue(pref);
@@ -103,7 +103,7 @@ public class EditPreferences extends ShortHibernateProcessor {
                 String showSchool = StringUtils.checkNull(getRequest().getParameter("show_school"));
                 log.debug("getting param: show_school: " + showSchool);
                 if (showSchool == "") {
-                    addError("err_show_school", "Please select the following option");
+                    addError("err_show_school", "You must choose one of the options below");
                 }
                 u.getCoder().getCurrentSchool().setViewable("show".equals(showSchool));           
             }
