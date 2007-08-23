@@ -115,7 +115,10 @@ public class EditPreferences extends ShortHibernateProcessor {
                     s.add("user_preference_all");
                     CacheClearer.removelike(s);
                 }
-                setNextPage("/tc?" + Constants.MODULE_KEY + "=MyHome");
+                getRequest().setAttribute("regUser", u);
+
+                setNextPage("/my_home/index.jsp");
+//                setNextPage("/tc?" + Constants.MODULE_KEY + "=MyHome");
             } else {
                 setNextPage("/my_home/privacy.jsp");                
             }

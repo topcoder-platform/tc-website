@@ -48,7 +48,10 @@ public class EditNotifications extends ShortHibernateProcessor {
                 }
             }
             DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
-            setNextPage("/tc?" + Constants.MODULE_KEY + "=MyHome");
+            getRequest().setAttribute("regUser", u);
+
+            setNextPage("/my_home/index.jsp");
+//            setNextPage("/tc?" + Constants.MODULE_KEY + "=MyHome");
         } else {
             setNextPage("/my_home/emailNotification.jsp");
         }
