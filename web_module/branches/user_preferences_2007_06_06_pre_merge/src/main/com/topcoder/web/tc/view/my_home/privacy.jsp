@@ -87,10 +87,11 @@
                                 <tc-webtag:errorIterator id="err" name="err_${preference.id}">
                                     <span class="bigRed"><%=err%></span><br />
                                 </tc-webtag:errorIterator>
-                                <span style="display: block; padding-top: 4px;">${preference.name}:</span>
+                                <span style="display: block; padding-top: 4px;">${preference.name}:
                                 <c:if test="${preference.id == 24}">
                                 <br />(Edit my <a href="/tc?module=BlackList">black list</a>)
                                 </c:if>
+                                </span>
                             </td>
                             <td class="value" nowrap="nowrap">
                                 <c:choose>
