@@ -1,11 +1,10 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<% ResultSetContainer coderInfo= (ResultSetContainer)request.getAttribute("member_info");%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 
@@ -57,18 +56,29 @@
                     </tr>
                     <tr class="light">
                         <td class="valueC" rowspan="10" nowrap="nowrap" style="vertical-align: middle; border-right: 1px solid #999999;">
-                            <a href="<%=coderInfo.getIntItem(0, "has_image")==0?"/tc?module=Static&amp;d1=my_home&amp;d2=submitPhoto":"/tc?module=MemberProfile&amp;cr="+coderInfo.getIntItem(0, "coder_id")%>">
-                            <img src="<rsc:item set="<%=coderInfo%>" name="image_path" ifNull="/i/m/nophoto_submit.gif"/>" alt="" class="memberPhoto" /></a>
-                            <br /><tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>' />
+                        <c:choose>
+                            <c:when test="${regUser.coder.memberPhoto!=null}">
+                                <a href="/tc?module=MemberProfile&amp;cr=${regUser.id}">
+                                    <img src="${regUser.coder.memberPhoto.path.path}${regUser.coder.memberPhoto.fileName}" name="image_path" alt="" class="memberPhoto" />
+                                </a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="/tc?module=MemberProfile&amp;cr=${regUser.id}">
+                                    <img src="/i/m/nophoto_submit.gif" name="image_path" alt="" class="memberPhoto"/>
+                                </a>
+                            </c:otherwise>
+                        </c:choose>
+                        
+                            <br /><tc-webtag:handle coderId='${regUser.id}' />
                             <br /><strong>Member Since:</strong>
-                            <rsc:item name="member_since" set="<%=coderInfo%>" format="MM.dd.yyyy"/>
+                            <fmt:formatDate value="${regUser.coder.memberSince}" pattern="MM.dd.yyyy"/>
                         </td>
                         <td class="field" width="100%">
                             Name:
                         </td>
                         <td class="value">
                             <div style="width: 180px;">
-                            Nick Trefz
+                                ${regUser.firstName} ${regUser.lastName}
                             </div>
                         </td>
                     </tr>
@@ -77,7 +87,7 @@
                             Company:
                         </td>
                         <td class="value">
-                            TopCoder
+                                ${regUser.contact.company.name}
                         </td>
                     </tr>
                     <tr class="light">
@@ -85,9 +95,9 @@
                             Address:
                         </td>
                         <td class="value">
-                            235 Wooster St
-                            <br />A2
-                            <br />New Haven, CT 06511
+                            ${regUser.homeAddress.address1}
+                            <br />${regUser.homeAddress.address2}
+                            <br />${regUser.homeAddress.city}, ${regUser.homeAddress.state.name} ${regUser.homeAddress.postalCode}
                         </td>
                     </tr>
                     <tr class="dark">
@@ -95,7 +105,7 @@
                             Country:
                         </td>
                         <td class="value">
-                            United States
+                            ${regUser.homeAddress.country.name}
                         </td>
                     </tr>
                     <tr class="light">
@@ -103,7 +113,7 @@
                             Country to represent:
                         </td>
                         <td class="value">
-                            United States
+                            ${regUser.coder.compCountry.name}
                         </td>
                     </tr>
                     <tr class="dark">
@@ -111,7 +121,7 @@
                             Timezone:
                         </td>
                         <td class="value">
-                            US/Eastern
+                            ${regUser.timeZone.description}
                         </td>
                     </tr>
                     <tr class="light">
@@ -119,7 +129,7 @@
                             Phone number:
                         </td>
                         <td class="value">
-                            860.748.5618
+                            ${regUser.primaryPhoneNumber.number}
                         </td>
                     </tr>
                     <tr class="dark">
@@ -127,37 +137,11 @@
                             Email:
                         </td>
                         <td class="value">
-                            ntrefz@topcoder.com
+                            ${regUser.primaryEmailAddress.address}
                         </td>
                     </tr>
                 </tbody>
                 </table>
-
-
-<%--
-                 <% if (coderInfo.getItem(0, "country_name").getResultData()!=null) { %>
-                    <div>
-                        <div style="float: right;"><rsc:item name="country_name" set="<%=coderInfo%>"/></div>
-                        <strong>Country:</strong>
-                    </div>
-                <% }%>
-                <% if (coderInfo.getStringItem(0,"school_name")!=null) { %>
-                    <div>
-                        <div style="float: right;"><rsc:item name="school_name" set="<%=coderInfo%>"/></div>
-                        <strong>School:</strong>
-                    </div>
-                <% }%>
-                <div>
-                    <div style="float: right;">
-                        <% if (coderInfo.getItem(0, "overall_earnings").getResultData() == null || coderInfo.getDoubleItem(0, "overall_earnings") > 0) { %>
-                            <rsc:item set="<%=coderInfo%>" name="overall_earnings" format="$#,##0.00" ifNull="$0.00"/>
-                        <% } else { %>
-                            $0.00
-                        <% } %>
-                    </div>
-                    <strong>Total Earnings:</strong>
-                </div>
---%>
 
                 <div style="clear: both;">
                 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
@@ -180,7 +164,17 @@
                         <td class="value">
                             <p><a href="/reg/?nrg=false">Add registrations</a></p>
                             <p><a href="/reg/?nrg=false">Update my profile</a></p>
-                            <p><a href="/tc?module=Static&amp;d1=my_home&amp;d2=submitPhoto">Submit a photo</a></p>
+                            <p>
+                                <A HREF="mailto:memberphotos@topcoder.com?subject=${regUser.activationCode}%20|%20[%20${regUser.handle}%20]%20|%20${regUser.id}%20<c:if test="${regUser.coder.memberPhoto!=null}">RE</c:if>SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT">
+                                    <c:choose>
+                                        <c:when test="${regUser.coder.memberPhoto!=null}">
+                                            Submit your photo                                        
+                                        </c:when>
+                                        <c:otherwise>
+                                            Resubmit your photo
+                                        </c:otherwise>
+                                    </c:choose></A>
+                            </p>
                         </td>
                         <td class="value">
                             <p><a href="/tc?module=EditPreferences&amp;group=10">Privacy</a></p>
