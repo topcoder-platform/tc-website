@@ -181,7 +181,7 @@
                 <TD class="valueC"><rsc:item name="placed" row="<%=resultRow%>"/></TD>
                 <TD class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
                 <TD class="valueC">
-                    <% if (resultRow.getItem("final_points").getResultData() != null && resultRow.getIntItem("final_points") > 0) { %>
+                    <% if (resultRow.getItem("final_points").getResultData() != null) { %>
                     <rsc:item name="final_points" row="<%=resultRow%>" format="0.00"/>
                     <% } else { %>
                     &nbsp;
