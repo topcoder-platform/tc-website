@@ -124,9 +124,18 @@
         </copy>
     </target>
 
+    <target name="move-lib">
+        <copy todir="${jboss_lib}">
+            <fileset dir="${jars.dir}">
+                <include name="postgresql-8.2-506.jdbc3.jar"/>
+            </fileset>
+        </copy>
+    </target>
+
     <target name="deploy">
         <antcall target="copy-to-confluence"/>
         <antcall target="move-conf"/>
+        <antcall target="move-lib"/>
 <!--
         <exec executable="build.sh" dir="/home/wiki/confluence-2.5.6"/>
 -->
