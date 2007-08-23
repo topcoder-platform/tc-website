@@ -1,11 +1,12 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page import="com.topcoder.web.tc.Constants"%>
+<%@ page import="com.topcoder.web.tc.Constants,  com.topcoder.web.common.model.Preference"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:set var="group" value="<%= request.getAttribute("group") %>"/>
+<c:set value="<%=Preference.MEMBER_CONTACT_PREFERENCE_ID%>" var="memberContactPrefId"/>
 
 <html>
 
@@ -88,7 +89,7 @@
                                     <span class="bigRed"><%=err%></span><br />
                                 </tc-webtag:errorIterator>
                                 <span style="display: block; padding-top: 4px;">${preference.name}:
-                                <c:if test="${preference.id == 24}">
+                                <c:if test="${preference.id == memberContactPrefId}">
                                 <br />(Edit my <a href="/tc?module=BlackList">black list</a>)
                                 </c:if>
                                 </span>
