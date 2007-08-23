@@ -72,7 +72,7 @@
                 </p>
                 
                 <div align="center">
-                    <a href="/download/development/umltool/UML_Tool_Frontend_Installer-0.1.2.jar" class="bigButton" style="width: 140px; margin: 40px;">Download Now</a>
+                    <a href="/download/development/umltool/UML_Tool_Frontend_Installer-0.1.3.jar" class="bigButton" style="width: 140px; margin: 40px;">Download Now</a>
                 </div>
                 
                 <h2>Uninstalling the UML tool</h2>
