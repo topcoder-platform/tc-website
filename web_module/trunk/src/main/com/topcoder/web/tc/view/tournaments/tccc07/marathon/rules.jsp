@@ -38,7 +38,7 @@
                 </p>
                 
                 <h2>Overview of the Tournament</h2>
-                <p>The 2007 TopCoder Collegiate Challenge ("Tournament") Marathon Match Competition ("Competition") will take place between July 23 and November 2, 2007. It will consist of three (3) online elimination rounds and one (1) onsite final round. The total of the cash prizes for the Competition is $30,000. A maximum of 8 competitors will win a cash prize, and a maximum of 500 competitors will win a participatory prize for competing in the second online round. The top 8 competitors, as determined by the online rounds, will advance to the onsite Championship round at the Contemporary Resort at Walt Disney World in Orlando, Florida, USA on October 31, 2007.</p>
+                <p>The 2007 TopCoder Collegiate Challenge ("Tournament") Marathon Match Competition ("Competition") will take place between July 23 and November 2, 2007. It will consist of three (3) online elimination rounds and one (1) onsite final round. The total of the cash prizes for the Competition is $30,000. A maximum of 8 competitors will win a cash prize, and a maximum of 300 competitors will win a participatory prize for competing in the second online round. The top 8 competitors, as determined by the online rounds, will advance to the onsite Championship round at the Contemporary Resort at Walt Disney World in Orlando, Florida, USA on October 31, 2007.</p>
                 
                 <a name="eligibility"></a>
                 <h2>Eligibility</h2>
