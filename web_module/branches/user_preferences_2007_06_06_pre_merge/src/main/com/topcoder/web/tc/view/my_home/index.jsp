@@ -96,8 +96,12 @@
                         </td>
                         <td class="value">
                             ${regUser.homeAddress.address1}
-                            <br />${regUser.homeAddress.address2}
-                            <br />${regUser.homeAddress.city}, ${regUser.homeAddress.state.name} ${regUser.homeAddress.postalCode}
+                            <c:if test="${not empty regUser.homeAddress.address2}"><br />${regUser.homeAddress.address2}</c:if>
+                            <c:if test="${not empty regUser.homeAddress.address3}"><br />${regUser.homeAddress.address3}</c:if>
+                            <br />${regUser.homeAddress.city}, 
+                            <c:if test="${not empty regUser.homeAddress.state.name}">${regUser.homeAddress.state.name}</c:if>
+                            <c:if test="${not empty regUser.homeAddress.province}">${regUser.homeAddress.province}</c:if>
+                            ${regUser.homeAddress.postalCode}
                         </td>
                     </tr>
                     <tr class="dark">
