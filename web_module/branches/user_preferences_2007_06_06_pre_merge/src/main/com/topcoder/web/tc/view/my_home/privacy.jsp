@@ -88,6 +88,9 @@
                                     <span class="bigRed"><%=err%></span><br />
                                 </tc-webtag:errorIterator>
                                 <span style="display: block; padding-top: 4px;">${preference.name}:</span>
+                                <c:if test="${preference.id == 24}">
+                                <br />(Edit my <a href="/tc?module=BlackList">black list</a>)
+                                </c:if>
                             </td>
                             <td class="value" nowrap="nowrap">
                                 <c:choose>
@@ -106,9 +109,6 @@
                                         <tc-webtag:textInput name="pref_${preference.id}"/>
                                     </c:otherwise>
                                 </c:choose>
-                                <c:if test="${preference.id == 24}">
-                                <br />(Edit my <a href="/tc?module=BlackList">black list</a>)
-                                </c:if>
                             </td>
                         </tr>
                     </c:forEach>
