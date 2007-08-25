@@ -13,9 +13,9 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <!--  To set up a new contest, please complete the corresponding rounds ids for each part of the competition -->
-<c:set var="round1A_id" value="10738"/>
-<c:set var="round1B_id" value="10742"/>
-<c:set var="round1C_id" value="10743"/>
+<c:set var="round1A_id" value="10898"/>
+<c:set var="round1B_id" value="10897"/>
+<c:set var="round1C_id" value="10899"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
