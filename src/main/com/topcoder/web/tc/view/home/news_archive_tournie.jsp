@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">08.26.07 3:45 PM - </td><td width="100%"><A href="/tc?module=TCCC07AlgorithmSections&rd=10898">TCCC07 Algorithm Sections Posted</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.22.07 1:00 PM - </td><td width="100%"><A href="/longcontest/?module=ViewActiveContests">TCCC07 Marathon Match 2 now underway</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.22.07 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">TCCC07 Component registration ends tomorrow</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.21.07 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank sponsors the TCCC07</A></td></tr>

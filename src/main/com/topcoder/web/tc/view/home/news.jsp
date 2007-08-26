@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.26.07<br>3:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=TCCC07AlgorithmSections&rd=10898">TCCC07 Algorithm Sections Posted</A></span><br><br>
+        The section assignments for the 2007 TopCoder Collegiate Challenge Algorithm Competition are now online.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=TCCC07AlgorithmSections&rd=10898">details</A> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Marathon Match Tutorial" border="0" /><br>08.23.07<br>12:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -156,21 +169,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=byes">details</A> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Marathon Match Tutorial" border="0" /><br>08.16.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=randomNumbers">Generating random distributions</A></span><br><br>
-      All the test cases in a Marathon Match need to be randomly generated. While there is sometimes a visualization tool that will generate these cases for you, there are times you'll have to do it yourself. In this tutorial, we'll look at some ways to do so.</td>
-         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="251074" context="marathon"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=randomNumbers">full story</A> | 
-         <tc-webtag:forumLink forumID="517127" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=mm_index">archive</A>
    </td></tr>
    
