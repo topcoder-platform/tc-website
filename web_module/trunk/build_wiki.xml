@@ -79,12 +79,12 @@
 
 
     <target name="copy-to-confluence" depends="jar-tc-theme">
-        <copy todir="${confluence_home}/confluence/WEB-INF/classes">
+        <copy todir="${confluence_home}/confluence/WEB-INF/classes" overwrite="yes">
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/wiki/**/*.class"/>
             </fileset>
         </copy>
-        <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${tc_theme.jar}"/>
+        <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${tc_theme.jar}" overwrite="yes"/>
 
     </target>
 
