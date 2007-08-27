@@ -60,7 +60,7 @@
     </layout>
 
     <velocity-context-item key="velocityHelper" name="Velocity Helper" class="com.topcoder.web.wiki.themes.tc.LeftNavVelocityHelper"
-            context-key="tc"/>
+            context-key="leftNav"/>
 
     <xwork name="themeaction" key="themeaction">
         <package name="leftnavigation" extends="default" namespace="/themes/leftnavigation">
