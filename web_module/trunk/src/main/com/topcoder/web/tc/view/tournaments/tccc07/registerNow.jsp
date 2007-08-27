@@ -59,15 +59,15 @@
 <br>Sorry, registration for this competition has closed.
 </p>
 
+<%--
 <p align="center" style="margin-bottom: 40px;">
 <strong><A href="/tc?module=TCCC07ViewRegistration&et=7">Studio Competition</A></strong>
 </p>
-<%--
+--%>
 <p class="grayedOut" align="center" style="margin-bottom: 40px;">
 <strong>Studio Competition</strong>
 <br>Sorry, registration for this competition has closed.
 </p>
---%>
 
                 <p style="height:300px;">&nbsp;</p>
             </div>
