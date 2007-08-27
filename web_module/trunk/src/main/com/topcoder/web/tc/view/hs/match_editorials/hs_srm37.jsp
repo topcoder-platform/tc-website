@@ -66,9 +66,6 @@ won the match. Close behind was
 <tc-webtag:handle coderId="22663117" context="hs_algorithm"/>
 followed by
 <tc-webtag:handle coderId="22660173" context="hs_algorithm"/>.
-
-Newcomer 
-<tc-webtag:handle coderId="22691393" context="hs_algorithm"/> took fifth place and became yellow.
 </p> 
 
  
