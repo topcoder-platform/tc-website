@@ -7,6 +7,7 @@
             #foreach ($navKey in $navKeys)
                 $navKey.getSpace() <input type="text" name="navKey.navKey" value="$navKey.getNavKey()" size="40"/>
             #end
+            <br />
         </div>
 
         <div class="stepdesc" style="width: 90%;">
