@@ -47,7 +47,7 @@
 </div>
                         
 <p>The Chicago Fox TV affiliate recently ran a story on TopCoder featuring an interview with <tc-webtag:handle coderId="144400" context="algorithm"/> and an (unidentified) TopCoder employee. Here's the description from their site:</p>
-<div align="center"><a target="_blank" href="<tc-webtag:linkTracking link='http://www.myfoxchicago.com/myfox/pages/News/Detail?contentId=3949291&version=2&locale=EN-US&layoutCode=VSTY&pageId=3.1.1' refer='/art_080207' />"><img src="/i/pressroom/art_080207-tomek.png" alt="tomek" /></a></div><br />
+<div align="center"><a target="_blank" href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=misc3x2&clip=foxchicago_20070802&title=Fox%20TV:%20Top%20Computer%20Programmers%20Compete' refer='/art_080207' />"><img src="/i/pressroom/art_080207-tomek.png" alt="tomek" /></a></div><br />
 <p>"Some of America's smartest computer programmers are facing off in a new competition. Big money and big jobs are on the line. Michelle Gielan reports on the games, the college grad who won more than 100-thousand dollars and how it's all changing the American workforce."</p>
 <p>Congratulations to <tc-webtag:handle coderId="144400" context="algorithm"/> on his appearance – and stay tuned for a full discussion of this report in the upcoming TC Channel Episode 4!</p>
 <p>As for that unidentified TopCoder employee Fox interviewed -- any guesses? Eternal glory, and possibly some leftovers from the TopCoder prize closet, will go to the first member to identify him in the <tc-webtag:forumLink forumID="516841" message="forum" />.</p>
