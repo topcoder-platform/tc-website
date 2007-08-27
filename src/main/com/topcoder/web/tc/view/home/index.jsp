@@ -373,6 +373,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br>
 
+            TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America
+            <A href="/tc?module=Static&d1=pressroom&d2=pr_082707">...more</a><br>[August 27]<br><br>
+            
             Lilly &amp; Deutsche Bank Announced as New Sponsors &amp; NSA Returns as Patron of TCCC07
             <A href="/tc?module=Static&d1=pressroom&d2=pr_082407">...more</a><br>[August 24]<br><br>
             
@@ -390,10 +393,6 @@
             </div>
             Bill Taylor on big ideas
             <a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />">...more</a><br>[July 10]<br><br>
-
-            Live Coverage of 2007 TopCoder Open to Feature Broadcast Team
-            <a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_062507">...more</a><br>[June 25]<br><br>
-            
 
 
           </td>
