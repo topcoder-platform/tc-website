@@ -1,8 +1,11 @@
 package com.topcoder.web.wiki.themes.tc;
 
 import com.atlassian.bandana.BandanaManager;
+import com.atlassian.confluence.spaces.Space;
 import com.atlassian.confluence.spaces.actions.AbstractSpaceAction;
+import com.opensymphony.xwork.ActionContext;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,8 +15,7 @@ import java.util.List;
  */
 public class ConfigureThemeAction extends AbstractSpaceAction {
     private BandanaManager bandanaManager;
-    private String spacekey;
-    private String pagename = "Navigation";
+    private List navKeys;
 
     /**
      * is excecuteted when you first enter the configuration page
@@ -30,16 +32,19 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
 
             // First get a settings manager to read already existing values...
             SettingsManager settingsManager = new SettingsManager(bandanaManager);
-            LeftNavSettings settings;
-            if (getSpace() != null)
-                settings = settingsManager.getSpaceThemeSettings(getSpace().getKey());
-            else
-                settings = settingsManager.getGlobalThemeSettings();
-            if (settings != null) {
-                // ... and set the values in the view accordingly if values exist.
-                setPagename(settings.getPage());
-                setSpacekey(settings.getSpace());
+            Space s;
+            List spaces = getSpaces();
+            navKeys=new ArrayList(spaces.size());
+            for (Object o : spaces) {
+                s = (Space)o;
+                LeftNavSettings setting = new LeftNavSettings();
+                setting.setSpace(s.getKey());
+                if (settingsManager.getSpaceThemeSettings(s.getKey())!=null) {
+                    setting.setNavKey(settingsManager.getSpaceThemeSettings(s.getKey()).getNavKey());
+                }
+                navKeys.add(setting);
             }
+
             return INPUT;
         }
         finally {
@@ -57,14 +62,22 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
         // after submission of the form we will have to create a new settings manager
         SettingsManager settingsManager = new SettingsManager(bandanaManager);
         //preset the object we want to serialize with the values of the form fields.
-        LeftNavSettings settings = new LeftNavSettings();
-        settings.setPage(pagename);
-        settings.setSpace(spacekey);
-        // and save the settings.
-        if (getSpace() != null)
-            settingsManager.setSpaceThemeSettings(settings, getSpace().getKey());
-        else
-            settingsManager.setGlobalThemeSettings(settings);
+
+        Space s;
+        String navKey;
+        for (Object o : getSpaces()) {
+            s = (Space)o;
+            //accessing the parameters directly because i can't figure out how to do it
+            //correctly within the framework with the autowiring
+            navKey = (String)ActionContext.getContext().getParameters().get(s.getKey());
+            if (navKey!=null) {
+                LeftNavSettings settings = new LeftNavSettings();
+                settings.setSpace(s.getKey());
+                settings.setNavKey(navKey);
+                settingsManager.setSpaceThemeSettings(settings, s.getKey());
+            }
+        }
+
         return SUCCESS;
     }
 
@@ -72,23 +85,16 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
         return spaceManager.getSpaces();
     }
 
-    public String getSpacekey() {
-        return spacekey;
-    }
-
-    public void setSpacekey(String spacekey) {
-        this.spacekey = spacekey;
-    }
-
-    public String getPagename() {
-        return pagename;
-    }
-
-    public void setPagename(String pagename) {
-        this.pagename = pagename;
-    }
-
     public void setBandanaManager(BandanaManager bandanaManager) {
         this.bandanaManager = bandanaManager;
+    }
+
+
+    public List getNavKeys() {
+        return navKeys;
+    }
+
+    public void setNavKeys(List navKeys) {
+        this.navKeys = navKeys;
     }
 }
