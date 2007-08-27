@@ -4,6 +4,7 @@ import com.atlassian.bandana.BandanaManager;
 import com.atlassian.confluence.pages.PageManager;
 import com.atlassian.confluence.themes.ThemeManager;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,6 +19,7 @@ import java.net.URL;
  *          Create Date: Aug 14, 2007
  */
 public class LeftNavVelocityHelper {
+    private static final Logger log = Logger.getLogger(LeftNavVelocityHelper.class);
     public static final String DEFAULT_NAVIGATION_PAGE_NAME = "Navigation";
 
     private PageManager pageManager;
@@ -26,8 +28,12 @@ public class LeftNavVelocityHelper {
 
     public String renderNavigation(String spaceKey) {
 
+        log.debug("called render navigation");
         try {
 
+            if (log.isDebugEnabled()) {
+                log.debug("url gonna be " + "http://" + ApplicationServer.DISTRIBUTED_UI_SERVER_NAME + "/distui/");
+            }
             URL url = new URL("http://" + ApplicationServer.DISTRIBUTED_UI_SERVER_NAME + "/distui/");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
