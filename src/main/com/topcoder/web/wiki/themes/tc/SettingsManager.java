@@ -35,15 +35,6 @@ public class SettingsManager {
 
 
     /**
-     * returns the global theme settings
-     *
-     * @return
-     */
-    public LeftNavSettings getGlobalThemeSettings() {
-        return (LeftNavSettings) bandanaManager.getValue(new ConfluenceBandanaContext(), THEMEKEY, false);
-    }
-
-    /**
      * saves the Theme Settings via Bandana in context to the given space.
      * If the space is null, the settings will be saved as global settings.
      *
@@ -52,10 +43,6 @@ public class SettingsManager {
      */
     public void setSpaceThemeSettings(LeftNavSettings settings, String spaceKey) {
         bandanaManager.setValue(new ConfluenceBandanaContext(spaceKey), THEMEKEY, settings);
-    }
-
-    public void setGlobalThemeSettings(LeftNavSettings settings) {
-        bandanaManager.setValue(new ConfluenceBandanaContext(), THEMEKEY, settings);
     }
 
     public void setBandanaManager(BandanaManager bandanaManager) {

@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class LeftNavSettings implements Serializable {
     private String space;
-    private String page;
+    private String navKey;
 
 
     public String getSpace() {
@@ -20,11 +20,11 @@ public class LeftNavSettings implements Serializable {
         this.space = space;
     }
 
-    public String getPage() {
-        return page;
+    public String getNavKey() {
+        return navKey;
     }
 
-    public void setPage(String page) {
-        this.page = page;
+    public void setNavKey(String navKey) {
+        this.navKey = navKey;
     }
 }
