@@ -129,9 +129,9 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN --%>
+                <%-- DIGITAL RUN 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-                
+                --%>
                 
                 <%-- DIGITAL RUN ASSEMBLY CUP 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></A>
@@ -180,6 +180,10 @@
                <%-- TCCC07 
                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=about' refer='homepage' />"><img src="/i/home/tccc07_promo.png" alt="2007 TopCoder Collegiate Challenge" /></A>
                 --%>
+                
+               <%-- TC CHANNEL --%>
+               <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep04' refer='homepage' />"><img src="/i/home/tcchannel_promo_ep4.png" alt="TC Channel: Episode 4" /></A>
+               
 
             </td>
         </tr>
