@@ -5,7 +5,7 @@
         <div class="stepfield">
 
             #foreach ($navKey in $navKeys)
-                $webwork.htmlEncode(navKey.space) <input type="text" name="navKey.navKey" value="$generalUtil.htmlEncode($!navKey.navKey)" size="40">
+                $webwork.htmlEncode(navKey.space) <input type="text" name="navKey.navKey" value="$generalUtil.htmlEncode($!navKey.navKey)" size="40"/>
             #end
         </div>
 
