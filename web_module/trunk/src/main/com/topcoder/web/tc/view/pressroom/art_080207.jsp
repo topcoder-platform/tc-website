@@ -43,7 +43,7 @@
                         
 <div align="center">
 <p><span class="bodyTitle">Fox TV: "Top Computer Programmers Compete"</span><br>
-<span class="bodySubTitle"><a target="_blank" href="<tc-webtag:linkTracking link='http://www.myfoxchicago.com/myfox/pages/News/Detail?contentId=3949291&version=2&locale=EN-US&layoutCode=VSTY&pageId=3.1.1' refer='/art_080207' />">link</a></span></p>
+<span class="bodySubTitle"><a target="_blank" href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=misc3x2&clip=foxchicago_20070802&title=Fox%20TV:%20Top%20Computer%20Programmers%20Compete' refer='/art_080207' />">link</a></span></p>
 </div>
                         
 <p>The Chicago Fox TV affiliate recently ran a story on TopCoder featuring an interview with <tc-webtag:handle coderId="144400" context="algorithm"/> and an (unidentified) TopCoder employee. Here's the description from their site:</p>
