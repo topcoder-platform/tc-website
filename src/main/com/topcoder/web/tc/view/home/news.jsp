@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Marathon Match Tutorial" border="0" /><br>08.27.07<br>3:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=combinatorics">Basics of combinatorics</A></span><br><br>
+      The myriad ways of counting the number of elements in a set is one of the main tasks in combinatorics, and I&rsquo;ll try to describe some basic aspects of it in this tutorial.</td>
+         <td class="newsPhoto"><img src="/i/m/x-ray_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="22654859" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=combinatorics">full story</A> | 
+         <tc-webtag:forumLink forumID="517191" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br>08.27.07<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=pressroom&d2=pr_082707">TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America</A></span><br><br>
@@ -156,18 +172,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</A> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>08.17.07<br>3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='http://csf.topcoder.com/?module=Static&d1=assembly&d2=btWiCitiesDetails' refer='/tc'/>">BT Wireless Cities Mashup Assembly Competition open</A></span><br><br>
-        Microsoft &amp; British Telecom, in association with TopCoder, have launched the Wireless Cities Mashup Assembly Competition. A total of $12,250 in prize money will be awarded to the top three mashup assembly submissions, with a potential to win part of the series prize purse of $40,000.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://csf.topcoder.com/?module=Static&d1=assembly&d2=btWiCitiesDetails">details</A> | 
-        <a href="http://csf.topcoder.com/forums?module=Category&categoryID=3">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    

@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=tutorials&d2=combinatorics"><strong>Basics of combinatorics</strong></a>, by <tc-webtag:handle coderId="22654859" /><br>
+The myriad ways of counting the number of elements in a set is one of the main tasks in combinatorics, and I&rsquo;ll try to describe some basic aspects of it in this tutorial.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=randomNumbers2"><strong>Generating random distributions, Part 2</strong></a>, by <tc-webtag:handle coderId="251074" /><br>
 In <a href="/tc?module=Static&d1=tutorials&d2=randomNumbers">Part 1</a>, I looked at how to generate a single random number or event. Many marathon matches require more complicated lists or sets of items, however, so <a href="/tc?module=Static&d1=tutorials&d2=randomNumbers2">Part 2</a> will focus on how to tackle those.</li>
 <li><a href="/tc?module=Static&d1=features&d2=082007"><strong>Meet the August Coders of the Month</strong></a>, by <tc-webtag:handle coderId="8365955" context="design"/><br>
 August's "Coders of the Month" include an Italian designer, a Chinese algorithm competitor, and a developer from Bosnia &amp;  Herzegovina.  In this article, we ask them for their advice to newbies, the accomplishments that they're most proud of, and the things that stress them out.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=randomNumbers"><strong>Generating random distributions</strong></a>, by <tc-webtag:handle coderId="251074" /><br>
-All the test cases in a Marathon Match need to be randomly generated. While there is sometimes a visualization tool that will generate these cases for you, there are times you'll have to do it yourself. In this tutorial, we'll look at some ways to do so.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
