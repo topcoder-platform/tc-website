@@ -90,7 +90,7 @@
 
     <target name="jar-tc-theme" depends="compile">
 
-        <jar destfile="${tc_theme.jar}" update="true">
+        <jar destfile="${tc_theme.jar}" update="false">
             <fileset dir="${resources}/wiki/themes/tc/">
                 <include name="**/*"/>
             </fileset>
