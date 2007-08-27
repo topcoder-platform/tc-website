@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>08.27.07<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep04' refer='/tc' />">TC Channel: Episode 4</A></span><br><br>
+        The fourth installment of TC Channel, TopCoder's video news magazine, is now online. This episode features a profile of <tc-webtag:handle coderId="286907" />, <tc-webtag:handle coderId="144400" context="algorithm"/>'s latest TV appearance, a review of configuration components, and more.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep04' refer='/tc' />">details</A> | 
+        <tc-webtag:forumLink forumID="517192" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Marathon Match Tutorial" border="0" /><br>08.27.07<br>3:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -159,18 +172,5 @@
          <A href="/tc?module=Static&d1=features&d2=082007">full story</A> | 
          <tc-webtag:forumLink forumID="517154" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.20.07<br>11:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Qualification Round 2 set for August 21</A></span><br><br>
-        Qualification Round 2 of the 2007 TopCoder Collegiate Challenge Algorithm Competition is set for 7:00 AM EDT on August 21. Registration is limited, so don't miss out!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</A> | 
-        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
