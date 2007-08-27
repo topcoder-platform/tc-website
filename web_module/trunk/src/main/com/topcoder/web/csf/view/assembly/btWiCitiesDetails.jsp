@@ -40,7 +40,7 @@
 <div class="breadcrumb">
     <a href="/?module=Static&d1=competitions">Competitions</a>
     > <a href="/?module=Static&d1=assembly&d2=activeContests">Active Assembly Competitions</a>
-    British Telecom Wireless Cities Assembly Competition
+    > British Telecom Wireless Cities Assembly Competition
 </div>
 
         <div align="center">
