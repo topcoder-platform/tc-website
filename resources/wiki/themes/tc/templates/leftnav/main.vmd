@@ -78,7 +78,7 @@ $sitemeshPage.getProperty("page.navops"))
                         #end
                     </div>
                     <div id="menu">
-                        $leftNav.renderNavigation($spaceKey, $sitemeshPage.getProperty("page.pageid"))
+                        $leftNav.renderNavigation($spaceKey))
                         $!sitemeshPage.getProperty("page.pageops")
                         $!sitemeshPage.getProperty("page.spaceops")
                         $!sitemeshPage.getProperty("page.navops")
