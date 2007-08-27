@@ -38,7 +38,7 @@ window.attachEvent("onload", correctPNG);
 #set ($confPage = $helper.page)
 #set ($infoPanelWidth = $params.get("infopanel-width"))
 
-#parse ( "/templates/leftnavigation/includes/navlinks.vm")
+#parse ( "/templates/leftnav/includes/navlinks.vm")
 
 ## GENERAL PAGE DECORATING BEGINS
 

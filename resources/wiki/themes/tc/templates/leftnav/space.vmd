@@ -7,7 +7,7 @@ This decorator handles many contexts - pages, mail, blogposts, templates, space-
 #set ($context  = $params.get("context"))
 #set ($confPage = $helper.page)
 
-#parse ( "/templates/leftnavigation/includes/navlinks.vm")
+#parse ( "/templates/leftnav/includes/navlinks.vm")
 
 ## GENERAL PAGE DECORATING BEGINS
 

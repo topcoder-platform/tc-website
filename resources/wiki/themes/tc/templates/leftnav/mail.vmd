@@ -2,7 +2,7 @@
 Here the context is mail content. Current modes of display are - 'view', 'view-thread' and 'remove'
 *#
 
-#parse ( "/templates/leftnavigation/includes/navlinks.vm")
+#parse ( "/templates/leftnav/includes/navlinks.vm")
 
 #set ($helper = $params.get("helper"))
 #set ($mode = $params.get("mode"))

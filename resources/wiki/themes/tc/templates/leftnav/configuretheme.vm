@@ -17,7 +17,7 @@
 #decoratorParam ("selectedTab" "admin")
 #decoratorParam("helper" $action.helper)
 
-#parse ("/templates/leftnavigation/common-configuretheme.vm")
+#parse ("/templates/leftnav/common-configuretheme.vm")
 #end
 </body>
 #end
