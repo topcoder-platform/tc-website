@@ -373,6 +373,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br>
 
+            Lilly &amp; Deutsche Bank Announced as New Sponsors &amp; NSA Returns as Patron of TCCC07
+            <A href="/tc?module=Static&d1=pressroom&d2=pr_082407">...more</a><br>[August 24]<br><br>
+            
             Introducing the TopCoder UML Tool
             <A href="/tc?module=Static&d1=dev&d2=umltool&d3=description">...more</a><br>[August 9]<br><br>
             
@@ -391,11 +394,6 @@
             Live Coverage of 2007 TopCoder Open to Feature Broadcast Team
             <a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_062507">...more</a><br>[June 25]<br><br>
             
-            <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/computerworld.gif" width="81" height="21" alt="Computerworld" border="0" />
-            </div>
-            Outsourcing the eBay way
-            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com.au/index.php/id;1241090047;fp;2;fpid;1' refer='homepage' />">...more</a><br>[June 15]<br><br>
 
 
           </td>
