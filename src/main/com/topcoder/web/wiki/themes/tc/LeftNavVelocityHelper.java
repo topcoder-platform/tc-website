@@ -41,7 +41,7 @@ public class LeftNavVelocityHelper {
             URL url = new URL("http://" + ApplicationServer.DISTRIBUTED_UI_SERVER_NAME + "/distui/");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-            StringBuilder b = new StringBuilder(conn.getContentLength());
+            StringBuilder b = new StringBuilder(10000);
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(
                             conn.getInputStream()));
