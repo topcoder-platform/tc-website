@@ -60,6 +60,7 @@
         <ant antfile="build_tc.xml" target="jar_shared"/>
         <ant antfile="build_tc.xml" target="compile"/>
         <ant antfile="build_tc.xml" target="jar_common"/>
+        <ant antfile="build_tc.xml" target="build-security"/>
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -90,9 +91,7 @@
         <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${bin}/shared.jar" overwrite="yes"/>
         <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${common.jar}" overwrite="yes"/>
         <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${jars.dir}/tcs/base_exception.jar" overwrite="yes"/>
-        <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${jars.dir}/security.jar" overwrite="yes"/>
-
-
+        <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${build}/ejb_jars/security.jar" overwrite="yes"/>
 
     </target>
 
@@ -144,6 +143,7 @@
         <antcall target="copy-to-confluence"/>
         <antcall target="move-conf"/>
         <antcall target="move-lib"/>
+        <copy todir="${jboss_deploy}" file="${build}/ears/security.ear" overwrite="yes"/>
 <!--
         <exec executable="build.sh" dir="/home/wiki/confluence-2.5.6"/>
 -->
