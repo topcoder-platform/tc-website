@@ -50,10 +50,7 @@ $!settingsManager.globalSettings.customHtmlSettings.afterBodyStart
 
 #displayGlobalMessages($spaceKey $username)
 
-##always show the navigation
-#set $showNavigation = true
-
-##set ($showNavigation = $navHelper.hasNavigation($spaceKey) || $sitemeshPage.getProperty("page.pageops") || $sitemeshPage.getProperty("page.navops"))
+#set ($showNavigation = $navHelper.hasNavigation($spaceKey) || $sitemeshPage.getProperty("page.pageops") || $sitemeshPage.getProperty("page.navops"))
 
 ## CONTENT DIV BEGINS
 <div id="PageContent">
