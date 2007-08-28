@@ -2,6 +2,35 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.28.07<br>1:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_qual_rd3">TCCC07 - Qual Round 3 - Problem Set &amp; Analysis</A></span><br><br>
+      In Qualification Round 3 of TCCC07 there were only 455 participants. As this was less than the 550 available spots, any positive score was enough to advance. Thanks to the very solvable easy problem, 445 coders were able to solve it and to advance to the next round.</td>
+         <td class="newsPhoto"><img src="/i/m/ivan_metelsky_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10481120" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_qual_rd3">full story</A> | 
+         <tc-webtag:forumLink forumID="517187" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   --------------------------------%>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>08.28.07<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://forums.topcoder.com/?module=Thread&threadID=585029&start=24&mc=35">Congratulations to tomekkulczynski</a></span><br><br>
+        It's been a good year for <tc-webtag:handle coderId="14886245" context="algorithm"/> -- in June he made it to the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=bracket">TCO07 finals</a> in Vegas, and last week he topped the list of winners at the <A href="<tc-webtag:linkTracking link='http://ioi2007.hsin.hr/index.php?page=results' refer='/tc'/>">19th International Olympiad in Informatics</a> in Zagreb. Congratulations!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://forums.topcoder.com/?module=Thread&threadID=585029&start=24&mc=35">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.28.07<br>9:15 AM</td>
@@ -154,19 +183,6 @@
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">details</A> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.21.07<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank sponsors the TCCC07</A></span><br><br>
-        We're excited to announce that Deutsche Bank has joined the 2007 TopCoder Collegiate Challenge as a sponsor. Welcome aboard!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">details</A> | 
-        <tc-webtag:forumLink forumID="517145" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
