@@ -9,6 +9,7 @@ import java.util.Set;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.HSRegistrationHelper;
 import com.topcoder.web.common.model.Address;
@@ -84,7 +85,28 @@ public class Secondary extends Base {
                                 return;
                             }
                         }
-                            
+                        
+                        setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT)));
+
+                        setDefault(Constants.SHOW_EARNINGS, String.valueOf(params.get(Constants.SHOW_EARNINGS)));
+
+                        if (!u.isNew()) {
+                            setDefault(Constants.HANDLE, u.getHandle());
+                        }
+                        List nots = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
+                        if (nots != null) {
+                            getRequest().setAttribute("notifications", nots);
+                        }
+                        getRequest().setAttribute(Constants.FIELDS, fields);
+                        getRequest().setAttribute(Constants.REQUIRED_FIELDS,
+                                RegFieldHelper.getMainRequiredFieldSet(getRequestedTypes(), u));
+                        getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
+                        getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
+                        getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
+                        getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
+                        setNextPage("/main.jsp");
+                        setIsNextPageInContext(true);
+                    } else {
                         loadFieldsIntoUserObject(fields, params);
                         Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
                         log.debug("we have " + secondaryFields.size() + " secondary fields");
@@ -296,10 +318,24 @@ public class Secondary extends Base {
 
         if (fields.contains(Constants.MEMBER_CONTACT)) {
             UserPreference up = u.getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
-            String value = String.valueOf(params.get(Constants.MEMBER_CONTACT) != null);
+            String value = StringUtils.checkNull(String.valueOf(params.get(Constants.MEMBER_CONTACT)));
             if (up == null) {
                 up = new UserPreference();
                 Preference p = getFactory().getPreferenceDAO().find(Preference.MEMBER_CONTACT_PREFERENCE_ID);
+                up.setId(new UserPreference.Identifier(u, p));
+                up.setValue(value);
+                u.addUserPreference(up);
+            } else {
+                up.setValue(value);
+            }
+        }
+
+        if (fields.contains(Constants.SHOW_EARNINGS)) {
+            UserPreference up = u.getUserPreference(Preference.SHOW_EARNINGS_PREFERENCE_ID);
+            String value = StringUtils.checkNull(String.valueOf(params.get(Constants.SHOW_EARNINGS)));
+            if (up == null) {
+                up = new UserPreference();
+                Preference p = getFactory().getPreferenceDAO().find(Preference.SHOW_EARNINGS_PREFERENCE_ID);
                 up.setId(new UserPreference.Identifier(u, p));
                 up.setValue(value);
                 u.addUserPreference(up);
