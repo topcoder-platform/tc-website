@@ -38,119 +38,106 @@ window.attachEvent("onload", correctPNG);
 #set ($confPage = $helper.page)
 #set ($infoPanelWidth = $params.get("infopanel-width"))
 
-#parse ( "/templates/leftnav/includes/navlinks.vm")
-
+#infoPanelInitFromParams()
 ## GENERAL PAGE DECORATING BEGINS
 
-<style>
-    .imageLink {
-        margin: 2px;
-        vertical-align: bottom;
-        float: left;
-    }
-
-    /*Overwritten styles in the main.css*/
-    .greybox {
-        border: 0px;
-        border-top: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
-        background-color: #F0F0F0;
-        padding: 3px;
-        margin: 0;
-    }
-</style>
-
 <content tag="pageops">
-    <h5>
-        <a href="#" onCLick="toggleMenu('pagenav'); return false;"><img src="$req.contextPath/images/icons/docs_16.gif" width=16 height=16 border=0 align=absmiddle>
-            Page Operations</a></h5>
-
-    <div id="pagenav" class="subnav" style="display:none;">
-        <ul>
-            #foreach ($item in $action.webInterfaceManager.getDisplayableItems("system.page", $action.remoteUser,
-            $helper))
-            <li><a #if ($item.link.id) id="$item.link.id" #end href="$item.link.getDisplayableUrl($req, $helper)" #if
-                ($mode == $item.key) class="current" #end #if ($mode == "edit")
-                onClick="javascript:saveDraftOnPageChange(this); return false;" #end #if ($item.link.hasAccessKey())
-                accessKey="$item.link.getAccessKey($helper)"#end>$item.label.getDisplayableLabel($req, $helper)
-            </a>
-        </li>
-        #end
-    </ul>
-</div>
+<h1>Page Operations</h1>
+   <ul>
+      <li><img src="$req.contextPath/images/icons/docs_16.gif" width=16 height=16 border=0 style="vertical-align: bottom;">#viewPageLinkWithConfirm()</li>
+      #if ($page.isLatestVersion() == true)<li><img src="$req.contextPath/images/icons/edit_16.gif" width=16 height=16 border=0 style="vertical-align: bottom;">#editPageLink()</li>#end
+      #if ($page.isLatestVersion() == true)<li><img src="$req.contextPath/images/icons/document_attachment.png" width=16 height=16 border=0 style="vertical-align: bottom;">#viewPageAttachmentsLinkWithConfirm()</li>#end
+      <li><img src="$req.contextPath/images/icons/about_16.png" width=16 height=16 border=0 style="vertical-align: bottom;">#viewPageInfoLinkWithConfirm()</li>
+   </ul>
+<br />
 </content>
 
-<content tag="pageid">$page.id</content>
-
-
-<content tag="pageprefs">
-    #foreach ($item in $action.webInterfaceManager.getDisplayableItems("system.page.actions", $action.remoteUser,
-    $helper))
-    #set ($icon = $item.icon)
-    #set ($itemLabel = $item.label.getDisplayableLabel($req, $helper))
-    <a #if ($item.link.id) id="$item.link.id" #end href="$item.link.getDisplayableUrl($req,
-    $helper)"><img src="$icon.url.getDisplayableUrl($req, $helper)" height="$icon.height" width="$icon.width" border="0" align="absmiddle" title="$itemLabel" alt="$itemLabel">
-</a>
-#end
+<content tag="navops">
+<h1>Navigation</h1>
+<ul>
+     <li>#browseSpaceLinkAndImage()</li>
+     <li>#addPageLinkAndImage()</li>
+     <li>#addNewsLinkAndImage()</li>
+</ul>
+<br />
 </content>
 
-#if ($infoPanelRequired)
-<content tag="infoPanelRequired">$infoPanelRequired</content>
-<content tag="infoPanelWidth">$infoPanelWidth;</content>
-<content tag="helpPath">$help-path</content>
-#end
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td valign="top" class="pagebody">
 
-#parse ("/template/includes/actionerrors.vm")
+            ## MODE SPECIFIC DECORATING BEGINS
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="clear: both">
+                <tr>
+                    <td class="pagecontent" valign="top">
 
-#*
-Display page based on mode: currently 'view', 'edit', 'preview-edit', 'info' and 'attachments.
-See the individual page templates (viewpage.vm, editpage.vm, etc.) for the setting of the mode parameter.
-*#
-## VIEW
-#if ($mode == "view")
-#permitSearchEngines()
-<div id="pageInfoBar">
-    <div class="smalltext">
-        #editReport()
-        #parse ("/labels/labels-include.vm")
-    </div>
-</div>
-<br clear="all">
+                    #parse ("/template/includes/actionerrors.vm")
 
-#if ($helper.isHistoricalVersion())
-        #versionInfo()
-        #end
+                    #*
+                        Display page based on mode: currently 'view', 'edit', 'preview-edit', 'info' and 'attachments.
+                        See the individual page templates (viewpage.vm, editpage.vm, etc.) for the setting of the mode parameter.
+                    *#
+                    ## VIEW
+                    #if ($mode == "view")
+                            #permitSearchEngines()
+                            <table width="100%" style="margin-bottom: 5px">
+                                <tr>
+                                    <td align="left">
+                                        <span class="smalltext">
+                                            #editReport()
+                                        </span>
+                                    </td>
+                                    <td align="right" class="greyLinks" style="padding: 0px">
+                                        #watchLink()
+                                        &nbsp
+                                    </td>
+                                </tr>
+                            </table>
 
-<div class="wiki-content" style="margin-right:10px;">
-    $body
-</div>
+                            #if ($helper.isHistoricalVersion())
+                                #versionInfo()
+                            #end
 
-#trackbackRdf ($trackbackUtils.getContentIdentifier($page) $page.title $trackbackUtils.getPingUrl($page))
-        #renderChildren()
-        #renderComments()
+                            <div class="wiki-content">
+                               $body
+                            </div>
 
-        ## EDIT || PREVIEW-EDIT
-        #elseif ($mode == "edit" || $mode == "edit-preview")
-<div id="editpage">
-    $body
-</div>
-## INFO
-        #elseif ($mode == "view-information" || $mode == "view-source")
-        $body
+                            #trackbackRdf ($trackbackUtils.getContentIdentifier($page) $page.title $trackbackUtils.getPingUrl($page))
 
-        ## ATTACHMENTS
-        #elseif ($mode == "view-attachments")
-        $body
+                            #renderChildren()
 
-        ## FOR CUSTOM WEB-ITEMS
-        #else
-        $body
+                            #renderComments()
 
-        #end
+                    ## EDIT || PREVIEW-EDIT
+                    #elseif ($mode == "edit" || $mode == "edit-preview")
+                        $body
+
+                    ## INFO
+                    #elseif ($mode == "view-information" || $mode == "view-source")
+                        $body
+
+                    ## ATTACHMENTS
+                    #elseif ($mode == "view-attachments" || $mode == "move-attachments")
+                        $body
+                    #end
+                    </td>
+
+
+                    ## INFO PANEL FOR ANY PAGE
+                    #if ($infoPanelRequired == true)
+                        <td width="$infoPanelWidth" valign="top">
+                            #infoPanel(true true true true)
+                        </td>
+                    #end
+            </tr>
+        </table>
 
         ## MODE SPECIFIC DECORATING ENDS
-        ## GENERAL PAGE DECORATING ENDS
 
+        </td>
+    </tr>
+</table>
+## GENERAL PAGE DECORATING ENDS
 
-        #set ($viewingPageInfo = $params.get('viewingPageInfo'))
-        #parse ("/pages/page-breadcrumbs.vm")
+#set ($viewingPageInfo = $params.get('viewingPageInfo'))
+#parse ("/pages/page-breadcrumbs.vm")
