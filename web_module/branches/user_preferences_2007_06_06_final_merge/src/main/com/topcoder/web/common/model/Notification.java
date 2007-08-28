@@ -14,6 +14,7 @@ public class Notification extends Base implements Comparable {
     private String name;
     private String status;
     private Integer sort;
+    private NotificationType type;
     private Set registrationTypes;
     private Set users;
 
@@ -36,6 +37,14 @@ public class Notification extends Base implements Comparable {
 
     public Integer getSort() {
         return sort;
+    }
+
+    public NotificationType getType() {
+        return type;
+    }
+
+    public void setType(NotificationType type) {
+        this.type = type;
     }
 
     public Set getRegistrationTypes() {

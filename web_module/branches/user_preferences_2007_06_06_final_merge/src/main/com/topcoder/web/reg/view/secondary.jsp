@@ -201,7 +201,6 @@
         <tc-webtag:errorIterator id="err" name="${schoolCountry}">${err}<br></tc-webtag:errorIterator>
         <tc-webtag:errorIterator id="err" name="${schoolState}">${err}<br></tc-webtag:errorIterator>
         <tc-webtag:errorIterator id="err" name="${schoolId}">${err}<br></tc-webtag:errorIterator>
-        <tc-webtag:errorIterator id="err" name="${schoolVisible}">${err}<br></tc-webtag:errorIterator></span>
         </td>
     </tr>
     <tr>
@@ -221,11 +220,17 @@
     <c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="visibleSchool"/>
     <c:if test="${cf:contains(fields, visibleSchool)}">
         <tr>
+            <td colspan="2"><span class="bigRed">
+            <tc-webtag:errorIterator id="err" name="${visibleSchool}">${err}<br></tc-webtag:errorIterator></span>
+            </td>
+        </tr>
+        <tr>
             <td class="name">
-                <c:if test="${cf:contains(reqFields, visibleSchool)}">*</c:if> Allow others to see my school:
+                <c:if test="${cf:contains(reqFields, visibleSchool)}">*</c:if> Show / hide my school:
             </td>
             <td class="value">
-                <tc-webtag:chkBox name="${visibleSchool}"/>
+                <tc-webtag:radioButton name="${visibleSchool}" value="show"/> Show
+                <br/><tc-webtag:radioButton name="${visibleSchool}" value="hide"/> Hide
             </td>
         </tr>
     </c:if>
