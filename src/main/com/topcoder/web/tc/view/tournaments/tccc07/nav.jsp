@@ -116,8 +116,8 @@
                     | <a href="/tc?module=TCCC07ViewRegistration&et=<%=EventType.MARATHON_TOURNAMENT_ID%>"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a>
                 --%>
                     | <a href="/tc?module=TCCC07ViewRegistrants&et=<%=EventType.MARATHON_TOURNAMENT_ID%>"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a>
+                    | <a href="/tc?module=TCCC07MarathonAdvancers"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a>
                 <%--
-                    | <a href=""<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a>
                     | <a href=""<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a>
                 --%>
                 </p>
@@ -197,6 +197,11 @@
                     </p>
                 <% } %>
             <% } else if (tabLev1.equals(EventType.MARATHON_TOURNAMENT_ID.toString())) { %>
+                <% if (tabLev2.equals("advancers")) {%>
+                    <p id="tertiaryNav">
+                        <a href="/tc?module=TCCC07MarathonAdvancers"<% if (tabLev3.equals("overview")) {%> class="on"<% } %>>Overview</a>
+                    </p>
+                <% } %>
             <% } else if (tabLev1.equals(EventType.STUDIO_TOURNAMENT_ID.toString())) { %>
                 <% if (tabLev2.equals("advancers")) {%>
                     <p id="tertiaryNav">
