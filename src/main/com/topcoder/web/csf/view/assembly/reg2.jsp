@@ -37,7 +37,7 @@
             <div class="breadcrumb">
                 <A href="/?module=Static&amp;d1=competitions">Competitions</A>
                 > <A href="/?module=Static&d1=assembly&d2=activeContests">Active Assembly Competitions</A>
-                > British Telecom Wireless Cities Assembly Competition
+                > British Telecom Workspace
             </div>
 
             <div align="center">
@@ -47,10 +47,10 @@
 
                 <form name="terms" method="post" action="${sessionInfo.secureAbsoluteServletPath}">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AssemblyRegister"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_NAME%>" value="BT Wireless Cities Assembly Competition"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_NAME%>" value="British Telecom Workspace Assembly Mashup Competition"/>
 
 
-                    <iframe marginwidth="5" src="/?module=Static&d1=assembly&d2=terms" height="300" width="590" style="margin-bottom: 10px;"></iframe>
+                    <iframe marginwidth="5" src="/?module=Static&d1=assembly&d2=terms2" height="300" width="590" style="margin-bottom: 10px;"></iframe>
 
                     <br style="clear: both;">
 

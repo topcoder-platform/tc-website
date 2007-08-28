@@ -72,19 +72,44 @@
                     <% boolean even = true;%>
                     <tr class="<%=even?"light":"dark"%>">
                         <td class="value">
-                            <A href="/?module=Static&d1=assembly&d2=btWiCitiesDetails">British Telecom Wireless Cities</A>
+                            <A href="/?module=Static&d1=assembly&d2=btWorkspaceDetails">British Telecom Workspace</A>
                         </td>
                         <td class="valueC" nowrap="nowrap">
-                             <strong>08.17.2007</strong><br>15:00 EST
+                             <strong>08.28.2007</strong><br>17:00 EDT
                         </td>
                         <td class="valueC" nowrap="nowrap">
-                             <strong>08.31.2007</strong><br>17:00 EST
+                             <strong>09.12.2007</strong><br>17:00 EDT
                         </td>
                         <td class="valueR" nowrap="nowrap">
                             $7,000.00
                         </td>
                         <td class="valueC">
-                            13
+                            0
+                        </td>
+                        <td class="valueC">
+                            0
+                        </td>
+                        <td class="valueR" nowrap="nowrap">
+                            <A href="/?module=SecureStatic&d1=assembly&d2=reg2" class="button" style="margin: 4px;">Register</A>
+                            <A href="/?module=Static&d1=assembly&d2=orIntro" class="button" style="margin: 4px;">Submit</A>
+                        </td>
+                    </tr>
+                    <% even = !even;%>
+                    <tr class="<%=even?"light":"dark"%>">
+                        <td class="value">
+                            <A href="/?module=Static&d1=assembly&d2=btWiCitiesDetails">British Telecom Wireless Cities</A>
+                        </td>
+                        <td class="valueC" nowrap="nowrap">
+                             <strong>08.17.2007</strong><br>15:00 EDT
+                        </td>
+                        <td class="valueC" nowrap="nowrap">
+                             <strong>08.31.2007</strong><br>17:00 EDT
+                        </td>
+                        <td class="valueR" nowrap="nowrap">
+                            $7,000.00
+                        </td>
+                        <td class="valueC">
+                            21
                         </td>
                         <td class="valueC">
                             0

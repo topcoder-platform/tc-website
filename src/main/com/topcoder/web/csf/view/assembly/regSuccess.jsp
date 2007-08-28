@@ -33,14 +33,9 @@
                 <span class="pageName">Registration Successful</span>
             </div>
             
-<div class="linkBox">
-    <a href="http://csf.topcoder.com/forums?module=ThreadList&amp;forumID=6">Discuss this</a>
-</div>
-
 <div class="breadcrumb">
     <a href="/?module=Static&d1=competitions">Competitions</a>
     > <a href="/?module=Static&d1=assembly&d2=activeContests">Active Assembly Competitions</a>
-    > British Telecom Wireless Cities Assembly Competition
 </div>
 
 <div align="center" style="margin: 100px 0px 140px 0px;">
