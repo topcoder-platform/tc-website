@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>08.28.07<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='http://csf.topcoder.com/?module=Static&d1=assembly&d2=btWorkspaceDetails' refer='/tc'/>">BT Workspace Mashup Assembly Competition now open</A></span><br><br>
+        British Telecom &amp; Microsoft, in association with TopCoder, have launched the Workspace Mashup Assembly Competition. A total of $12,250 in prize money will be awarded to the top three mashup assembly submissions.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='http://csf.topcoder.com/?module=Static&d1=assembly&d2=btWorkspaceDetails' refer='/tc'/>">details</A> | 
+        <a href="http://csf.topcoder.com/forums?module=ThreadList&forumID=11">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.28.07<br>12:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -157,18 +170,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_qual_rd1">full story</A> | 
          <tc-webtag:forumLink forumID="517132" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.22.07<br>1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/longcontest/?module=ViewActiveContests">TCCC07 Marathon Match 2 now underway</A></span><br><br>
-        The second round of the 2007 TopCoder Collegiate Challenge Marathon Match competition has begun. Good luck!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/longcontest/?module=ViewActiveContests">details</A> | 
-        <tc-webtag:forumLink forumID="517160" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
