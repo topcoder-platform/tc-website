@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>$title - #siteTitle()</title>
+    #standardHeader()
+    #pluginStylesheet("com.atlassian.confluence.themes.leftnavigation:main" "leftnav.css")
+    $!settingsManager.globalSettings.customHtmlSettings.beforeHeadEnd
+
+    <script type="text/javascript">
+
+        function toggleMenu(menuId)
+        {
+            var visible = toggleVisibility(menuId);
+            if (visible)
+                setCookie("confluence.leftnav." + menuId, true);
+            else
+                setCookie("confluence.leftnav.", false);
+        }
+
+        function isMenuExpanded(menuId)
+        {
+            return getCookie("confluence.leftnav." + menuId);
+        }
+
+        function initMenuItem(menuId)
+        {
+            if (document.getElementById(menuId))
+            {
+                if (isMenuExpanded(menuId) == 'true')
+                {
+                    document.getElementById(menuId).style.display = "block";
+                }
+                else
+                {
+                    document.getElementById(menuId).style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</head>
+## HTML HEADER ENDS
+
+## HTML BODY BEGINS
+#onLoad()
+$!settingsManager.globalSettings.customHtmlSettings.afterBodyStart
+
+#set ($username = $sitemeshPage.getProperty("page.username"))
+#set ($spaceKey = $sitemeshPage.getProperty("page.spacekey"))
+
+#displayGlobalMessages($spaceKey $username)
+
+##always show the navigation
+#set $showNavigation = true
+
+##set ($showNavigation = $navHelper.hasNavigation($spaceKey) || $sitemeshPage.getProperty("page.pageops") || $sitemeshPage.getProperty("page.navops"))
+
+## CONTENT DIV BEGINS
+<div id="PageContent">
+    <div id="topBar" class="topBar" style="height:2.2em;">
+        <div class="topBarDiv" style="float:left; margin-top:0.5em; white-space: nowrap;">
+            ## LOCATION BAR: (BREADCRUMBS AND SEARCH BOX) BEGIN
+            &nbsp; #breadcrumbs()
+        </div>
+        <div style="float:right; white-space: nowrap;">
+            #quickSearch()
+        </div>
+    </div>
+    <table cellpadding="0" cellspacing="0" width="100%" style="margin-top:0px;">
+        <tr>
+            #if ($showNavigation)
+            <td width="150px" valign="top" class="sidebar" nowrap>
+                <div class="leftnav">
+                    <div id="logodiv">
+                        #if ($username)
+                        #set ($tildeUsername = "~$username")
+                        test#logoBlock($tildeUsername)
+                        #else
+                        #logoBlock($sitemeshPage.getProperty("page.spacekey"))
+                        #end
+                    </div>
+                    <div id="menu">
+                        $navHelper.renderNavigation($spaceKey))
+                        $!sitemeshPage.getProperty("page.pageops")
+                        $!sitemeshPage.getProperty("page.spaceops")
+                        $!sitemeshPage.getProperty("page.navops")
+                    </div>
+                    <script type="text/javascript">
+                        initMenuItem("browsenav");
+                        initMenuItem("pagenav");
+                        initMenuItem("addcontent");
+                    </script>
+                </div>
+            </td>
+            #end
+            <td valign="top" width="100%">
+                <!-- Inner content table -->
+            <table width="100%" cellpadding="2" cellspacing="0">
+                <tr>
+                    <td colspan="2" style="background-color:#F0F0F0">
+                        <div>
+                            ## LOCATION BAR: (BREADCRUMBS AND SEARCH BOX) END
+                            ## INFO BAR: (LOCATION, AND USER/GROUP OPTIONs) BEGIN
+                            <div style="float:right; margin-right:5px;">
+                                ## history, profile, admin, logout links
+                                #usernavbar()
+                                #printableicon()
+                                #if (!$sitemeshPage.getProperty("page.suppressPdfLink"))
+                                #pdficon()
+                                #end
+                                #feedicon()
+                            </div>
+                            ## INFO BAR: (LOGO, LOCATION, AND USER/GROUP OPTIONs) END
+                        </div>
+                        <div style="float:left;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" valign="top" style="border-left:1px solid #CCC; border-top:1px solid #CCC;">
+                    <div style="margin-bottom:10px; margin-left:10px;">
+                        <div style="float:right; margin-right:5px;">$!sitemeshPage.getProperty("page.pageprefs")</div>
+                        <div class="logoSpaceLink" style="margin-top: 5px; margin-bottom:5px">#spaceTitleLink()</div>
+                        <div class="pagetitle" style="padding: 0px; margin-bottom:5px; margin-top: 2px;">
+                            #if(!$showNavigation)
+                            #if ($sitemeshPage.getProperty("page.username"))
+                            #set ($username = $sitemeshPage.getProperty("page.username"))
+                            #set ($tildeUsername = "~$username")
+                            #logoBlock($tildeUsername)
+                            #else
+                            #logoBlock($sitemeshPage.getProperty("page.spacekey"))
+                            #end
+                            #end
+                            #pageTitleLink()
+                        </div>
+                    </div>
+                    ## hack to make give padding to the page when navigation is shown
+                    <div id="content"
+                    #if($showNavigation)style="margin-left:10px;"#end >
+                    $body
+</div>
+</td>
+#infoPanelInit()
+#if ($infoPanelRequired == true)
+<td valign="top" id="helptd" style="display:block; width:200px; border-top:1px solid #CCC;">
+    <div style="padding-left:5px;">
+        #infoPanel(true true true true)
+    </div>
+</td>
+#end
+</tr>
+</table>
+<!-- End inner content table -->
+</td>
+</tr>
+</table>
+</div>
+## PAGE DEPENDENT INLINE DECORATOR RENDERING SHOULD END HERE
+## CONTENT DIV ENDS
+#parse ("/decorators/includes/footer.vmd")
