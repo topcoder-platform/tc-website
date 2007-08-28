@@ -20,7 +20,6 @@ import java.net.URL;
  */
 public class LeftNavVelocityHelper {
     private static final Logger log = Logger.getLogger(LeftNavVelocityHelper.class);
-    public static final String DEFAULT_NAVIGATION_PAGE_NAME = "Navigation";
 
     private PageManager pageManager;
     private BandanaManager bandanaManager;
