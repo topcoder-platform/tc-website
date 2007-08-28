@@ -85,6 +85,12 @@
             </fileset>
         </copy>
         <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${tc_theme.jar}" overwrite="yes"/>
+        <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${bin}/shared.jar" overwrite="yes"/>
+        <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${bin}/tcwebcommon.jar" overwrite="yes"/>
+        <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${jars.dir}/tcs/base_exception.jar" overwrite="yes"/>
+        <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${jars.dir}/security.jar" overwrite="yes"/>
+
+
 
     </target>
 
