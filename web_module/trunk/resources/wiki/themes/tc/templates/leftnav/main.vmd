@@ -50,8 +50,10 @@ $!settingsManager.globalSettings.customHtmlSettings.afterBodyStart
 
 #displayGlobalMessages($spaceKey $username)
 
-#set ($showNavigation = $leftNav.hasNavigation($spaceKey) || $sitemeshPage.getProperty("page.pageops") ||
-$sitemeshPage.getProperty("page.navops"))
+##always show the navigation
+#set $showNavigation = true
+
+##set ($showNavigation = $navHelper.hasNavigation($spaceKey) || $sitemeshPage.getProperty("page.pageops") || $sitemeshPage.getProperty("page.navops"))
 
 ## CONTENT DIV BEGINS
 <div id="PageContent">
@@ -78,7 +80,7 @@ $sitemeshPage.getProperty("page.navops"))
                         #end
                     </div>
                     <div id="menu">
-                        $leftNav.renderNavigation($spaceKey))
+                        $navHelper.renderNavigation($spaceKey))
                         $!sitemeshPage.getProperty("page.pageops")
                         $!sitemeshPage.getProperty("page.spaceops")
                         $!sitemeshPage.getProperty("page.navops")
