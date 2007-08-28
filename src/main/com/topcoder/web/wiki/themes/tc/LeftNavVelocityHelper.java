@@ -25,6 +25,11 @@ public class LeftNavVelocityHelper {
     private BandanaManager bandanaManager;
     private ThemeManager themeManager;
 
+
+    public LeftNavVelocityHelper() {
+        log.debug("called constructor");
+    }
+
     public String renderNavigation(String spaceKey) {
 
         log.debug("called render navigation");
