@@ -117,7 +117,7 @@
     <c:if test="${cf:contains(fields, title)}">
         <tr>
             <td class="name">
-                Title:
+                Job Title:
             </td>
             <td class="value">
                     ${regUser.contact.title}
