@@ -1,5 +1,7 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -30,7 +32,7 @@ public class UserPreferenceDAOHibernate extends Base implements UserPreferenceDA
     public UserPreference find(Long userId, Integer preferenceId) {
         Query q = session.createQuery(" from UserPreference " +
                 " where user_id=" + userId +
-                " and preference_id=" + preferenceId);
+                " and preference_id=" + preferenceId).setCacheable(true);
         return (UserPreference) q.uniqueResult();
     }
 
@@ -38,5 +40,25 @@ public class UserPreferenceDAOHibernate extends Base implements UserPreferenceDA
         super.saveOrUpdate(up);
     }
 
+    public List<UserPreference> find(List<Long> userIdList, Integer preferenceId) {
+        StringBuffer query = new StringBuffer(100);
+        query.append(" from UserPreference " +
+                " where preference_id=" + preferenceId +
+                " and user_id in (");
 
+        for (Long id : userIdList) {
+            query.append(id).append(",");
+        }
+        query.delete(query.length() - 1, query.length());
+        query.append(")");
+
+        Query q = session.createQuery(query.toString());
+        return q.list();
+    }
+
+    public List<UserPreference> find(Integer preferenceId) {
+        Query q = session.createQuery(" from UserPreference " +
+                " where preference_id=" + preferenceId);
+        return q.list();
+    }
 }

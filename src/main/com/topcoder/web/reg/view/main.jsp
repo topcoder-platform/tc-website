@@ -403,11 +403,31 @@
             <c:if test="${cf:contains(reqFields, memberContact)}">*</c:if> Enable Member Contact:
         </td>
         <td class="value">
-            <tc-webtag:chkBox name="<%=Constants.MEMBER_CONTACT%>"/>Other users will be able to contact me.
+            <tc-webtag:radioButton name="<%=Constants.MEMBER_CONTACT%>" value="yes"/> Yes
+            <br/><tc-webtag:radioButton name="<%=Constants.MEMBER_CONTACT%>" value="no"/> No
             <br>
             <c:if test="${not regUser.new}">            
 	            To block specific TopCoder members from contacting you, go to the <a target="blackListWindow" href='/tc?module=BlackList'>black list</a> page.
             </c:if>
+        </td>
+    </tr>
+</c:if>
+
+<c:set value="<%=Constants.SHOW_EARNINGS%>" var="showEarnings"/>
+<c:if test="${cf:contains(fields, showEarnings)}">
+    <tr>
+        <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.SHOW_EARNINGS%>"><%=err%><br>
+        </tc-webtag:errorIterator></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="name">
+            <c:if test="${cf:contains(reqFields, memberContact)}">*</c:if> Show / hide earnings:
+        </td>
+        <td class="value">
+            <tc-webtag:radioButton name="<%=Constants.SHOW_EARNINGS%>" value="show"/> Show
+            <br/><tc-webtag:radioButton name="<%=Constants.SHOW_EARNINGS%>" value="hide"/> Hide
         </td>
     </tr>
 </c:if>

@@ -28,7 +28,7 @@ function goTo(selection){
      <TR>
        <TD WIDTH="170" VALIGN="top">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="affidavits"/>
+            <jsp:param name="node" value="my_topcoder"/>
          </jsp:include>
        </TD>
        <TD WIDTH="4" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>

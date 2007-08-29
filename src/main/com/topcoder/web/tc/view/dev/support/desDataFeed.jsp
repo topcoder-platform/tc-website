@@ -94,7 +94,7 @@
         <li>submit by date</li>
         <li>final score</li>
         <li>submit date</li>
-        <li>payment</li>
+        <li>payment ("hidden" if the user has opted to hide his/her earnings)</li>
         <li>placed</li>
         <li>old rating</li>
         <li>new rating</li>

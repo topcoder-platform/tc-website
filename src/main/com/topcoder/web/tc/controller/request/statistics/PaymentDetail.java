@@ -15,7 +15,10 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.SortInfo;
+import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
@@ -48,6 +51,14 @@ public class PaymentDetail extends BaseProcessor {
         // Coder ID is required.
         if (!hasParameter(Constants.CODER_ID)) {
             throw new TCWebException("parameter " + Constants.CODER_ID + " expected.");
+        }
+
+        if (!DAOUtil.useQueryToolFactory) {
+            HibernateUtils.getSession().beginTransaction();
+        }
+        UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(getRequest().getParameter(Constants.CODER_ID)), Preference.SHOW_EARNINGS_PREFERENCE_ID);
+        if (up != null && "hide".equals(up.getValue())) {
+            throw new NavigationException("Sorry, " + up.getId().getUser().getHandle() + " has chosen to hide this information.");
         }
 
         setDefault(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));

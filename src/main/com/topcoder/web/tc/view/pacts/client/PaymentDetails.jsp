@@ -33,7 +33,7 @@ function goTo(selection){
      <TR>
        <TD WIDTH="170" VALIGN="top">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="affidavits"/>
+            <jsp:param name="node" value="my_topcoder"/>
          </jsp:include>
        </TD>
          <td class="affidavitCell" width="100%" align="center">

@@ -1,5 +1,8 @@
 package com.topcoder.web.common.dao;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.UserPreference;
@@ -26,6 +29,23 @@ public class UserPreferenceDAOTestCase extends TCHibernateTestCase {
 
     public void testFind2() {
         UserPreference up = DAOUtil.getFactory().getUserPreferenceDAO().find(new Long(7545675), new Integer(24));
+        assertNotNull("could not find UserPreference", up);
+    }
+
+    public void testFind3() {
+        UserPreference up = DAOUtil.getFactory().getUserPreferenceDAO().find(new Long(7545675), new Integer(24));
+        assertNotNull("could not find UserPreference", up);
+    }
+
+    public void testFind4() {
+        List<UserPreference> up = DAOUtil.getFactory().getUserPreferenceDAO().find(24);
+        assertNotNull("could not find UserPreference", up);
+    }
+
+    public void testFind5() {
+        List<Long> l = new ArrayList<Long>();
+        l.add(new Long(7545675));
+        List<UserPreference> up = DAOUtil.getFactory().getUserPreferenceDAO().find(l, 24);
         assertNotNull("could not find UserPreference", up);
     }
 

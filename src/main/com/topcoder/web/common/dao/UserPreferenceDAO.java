@@ -1,5 +1,7 @@
 package com.topcoder.web.common.dao;
 
+import java.util.List;
+
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.UserPreference;
@@ -17,4 +19,7 @@ public interface UserPreferenceDAO {
 
     void saveOrUpdate(UserPreference u);
 
+    List<UserPreference> find(List<Long> userIdList, Integer preferenceId);
+
+    List<UserPreference> find(Integer preferenceId);
 }

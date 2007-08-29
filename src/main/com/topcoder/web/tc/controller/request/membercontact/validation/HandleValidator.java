@@ -49,7 +49,7 @@ public class HandleValidator implements Validator {
         String canReceive = DAOUtil.getFactory().getUserPreferenceDAO().find(
                     user.getId(), Preference.MEMBER_CONTACT_PREFERENCE_ID).getValue();
 
-        if (!"true".equals(canReceive)) {
+        if (!"yes".equals(canReceive)) {
             return new BasicResult(false, "This user has not enabled Member Contacting.");
         }
 

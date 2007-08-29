@@ -46,6 +46,7 @@
 <% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data");
   boolean registeredHS = ((Boolean)request.getAttribute("registeredHS")).booleanValue();
   boolean memberContactEnabled = ((Boolean)request.getAttribute("memberContactEnabled")).booleanValue();
+  boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanValue();
 %>
 
 <% if(rscCoderData.size() == 0) {%>
@@ -112,6 +113,7 @@ This member has not yet been rated in a competition.
             </td></tr>
             <tr><td class="cat" colspan="2">&#160;</td></tr>
 <% if (!registeredHS || (rscCoderData.getStringItem(0, "rating") != null) || (rscCoderData.getStringItem(0, "design_rating") != null) || (rscCoderData.getStringItem(0, "development_rating") != null)) { %>
+            <% if(!hidePayments) { %>
             <tr><td class="cat" nowrap="nowrap">Total Earnings:</td><td class="stat" align="right">
                 <% if (rscCoderData.getItem(0, "overall_earnings").getResultData() == null || rscCoderData.getDoubleItem(0, "overall_earnings") > 0) { %>
                 <A href="/tc?module=PaymentSummary&cr=<%=rscCoderData.getStringItem(0, "coder_id")%>">
@@ -121,6 +123,7 @@ This member has not yet been rated in a competition.
                 </A>
                 <% } %>
                 </td></tr>
+            <% } %>
 <% } %>
             <tr><td class="cat" nowrap="nowrap">Member Since:</td><td class="stat" align="right">
             <rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>

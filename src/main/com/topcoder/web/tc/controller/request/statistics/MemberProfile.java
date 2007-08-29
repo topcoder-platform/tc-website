@@ -17,8 +17,13 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Country;
+import com.topcoder.web.common.model.Preference;
+import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -184,7 +189,7 @@ public class MemberProfile extends Base {
 
                 }
             }
-
+            
             r = new Request();
             r.setContentHandle("member_contact_enabled");
             r.setProperty("cr", coderId);
@@ -195,9 +200,20 @@ public class MemberProfile extends Base {
 
             boolean memberContactEnabled = false;
             if(rsc2.size() > 0) {
-                memberContactEnabled = "true".equals(rsc2.getStringItem(0, "value"));
+                memberContactEnabled = "yes".equals(rsc2.getStringItem(0, "value"));
             }
 
+            // check whether or not show earnings
+            if (!DAOUtil.useQueryToolFactory) {
+                HibernateUtils.getSession().beginTransaction();
+            }
+            
+            if (!DAOUtil.useQueryToolFactory) {
+                HibernateUtils.getSession().beginTransaction();
+            }
+            UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(coderId), Preference.SHOW_EARNINGS_PREFERENCE_ID);
+            boolean hidePayments = up != null && "hide".equals(up.getValue());
+            
             getRequest().setAttribute("resultMap", result);
 
             getRequest().setAttribute("hasAlg", new Boolean(hasAlg));
@@ -207,6 +223,7 @@ public class MemberProfile extends Base {
             getRequest().setAttribute("hasDev", new Boolean(hasDev));
             getRequest().setAttribute("hasLong", new Boolean(hasLong));
             getRequest().setAttribute("memberContactEnabled", new Boolean(memberContactEnabled));
+            getRequest().setAttribute("hidePayments", new Boolean(hidePayments));
             getRequest().setAttribute("tab", tab);
 
             setNextPage(Constants.MEMBER_PROFILE);

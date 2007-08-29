@@ -1,16 +1,13 @@
-<%@ page language="java"
-         import="com.topcoder.shared.dataAccess.resultSet.*" %>
-
-<%@ page import="java.util.Iterator" %>
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
 <html>
+
 <head>
-    <title>TopCoder</title>
+    <title>TopCoder - My TopCoder</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../script.jsp" />
@@ -31,16 +28,20 @@
 <%-- Left Column Begins--%>
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="node" value="comp_recordbook"/>
+                <jsp:param name="node" value="my_topcoder"/>
             </jsp:include>
         </td>
 <%-- Left Column Ends --%>
 
 <%-- Center Column Begins --%>
         <td width="100%" align="center" class="bodyColumn">
-            <div class="fixedWidthBody">
+            <div class="maxWidthBody" align="left">
+            
+                <jsp:include page="../page_title.jsp" >
+                    <jsp:param name="image" value="my_tc"/>
+                    <jsp:param name="title" value="Submit a photo"/>
+                </jsp:include>
 
-            <jsp:include page="<%=(String)request.getAttribute("includeJsp")%>"/>
 
             </div>
         </td>

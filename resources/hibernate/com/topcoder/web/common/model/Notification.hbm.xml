@@ -10,6 +10,7 @@
         <property name="name" access="field"/>
         <property name="status" access="field"/>
         <property name="sort" access="field"/>
+        <many-to-one name="type" column="notify_type_id" class="NotificationType" access="field"/>
         <!--
         <many-to-one name="type" column="notify_type_id" class="NotificationType" access="field"/>
                 <set name="registrationTypes" table="registration_type_notify_xref" fetch="select" cascade="none" access="field">

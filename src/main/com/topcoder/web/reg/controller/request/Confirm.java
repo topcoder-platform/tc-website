@@ -156,7 +156,7 @@ public class Confirm extends Base {
                 //high school people have to show their school
                 u.getCoder().getCurrentSchool().setViewable(Boolean.TRUE);
             } else {
-                u.getCoder().getCurrentSchool().setViewable(Boolean.valueOf("on".equals(params.get(Constants.VISIBLE_SCHOOL))));
+                u.getCoder().getCurrentSchool().setViewable(Boolean.valueOf("show".equals(params.get(Constants.VISIBLE_SCHOOL))));
             }
 
             if (u.getCoder().getCurrentSchool() != null && getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType()))
