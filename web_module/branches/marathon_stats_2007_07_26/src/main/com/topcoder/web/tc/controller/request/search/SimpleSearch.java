@@ -9,6 +9,7 @@ import com.topcoder.web.common.CachedQueryDataAccess;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.MaxAge;
+import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.MemberSearch;
@@ -375,10 +376,10 @@ public class SimpleSearch extends Base {
 
 
         CachedQueryDataAccess cda = new CachedQueryDataAccess(MaxAge.QUARTER_HOUR, DBMS.DW_DATASOURCE_NAME);
-        Map res = cda.getData(r);
-        ResultSetContainer rsc = (ResultSetContainer) res.get("member_search");
+        Map<String, ResultSetContainer> res = cda.getData(r);
+        ResultSetContainer rsc = res.get("member_search");
                 
-        ResultSetContainer count = (ResultSetContainer) res.get("count");
+        ResultSetContainer count = res.get("count");
         m.setResults(rsc);
         m.setTotal(count.getIntItem(0, "count"));
         if (m.getEnd() > m.getTotal()) {
@@ -387,6 +388,22 @@ public class SimpleSearch extends Base {
         if (m.getTotal() == 0) {
             m.setStart(0);
         }
+        
+        SortInfo s = new SortInfo();
+        s.addDefault(rsc.getColumnIndex("sort_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("sort_hs_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("sort_mm_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("design_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("dev_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("num_ratings"), "desc");            
+        s.addDefault(rsc.getColumnIndex("last_competed"), "desc");            
+        s.addDefault(rsc.getColumnIndex("num_hs_ratings"), "desc");            
+        s.addDefault(rsc.getColumnIndex("last_hs_competed"), "desc");            
+        s.addDefault(rsc.getColumnIndex("num_mm_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_mm_competed"), "desc");
+        getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+
+        
         return m;
     }
 
