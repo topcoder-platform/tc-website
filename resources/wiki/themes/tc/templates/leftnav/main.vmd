@@ -10,8 +10,6 @@
 ## HTML BODY BEGINS
 #onLoad()
 
-<body>
-
 ## TOP
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -21,15 +19,17 @@
 ## LEFT NAV
         #if ($navHelper.hasNavigation($sitemeshPage.getProperty("page.spacekey")) || $sitemeshPage.getProperty("page.pageops") || $sitemeshPage.getProperty("page.navops"))
         <td width="180">
-        $!sitemeshPage.getProperty("page.pageops")
         $navHelper.renderNavigation($sitemeshPage.getProperty("page.spacekey"))
-        $!sitemeshPage.getProperty("page.navops")
-        $!sitemeshPage.getProperty("page.spaceops")
         </td>
         #end
         <td width="100%" align="left" class="bodyColumn">
 
 ## PAGE BODY
+    #if ($navHelper.hasNavigation($sitemeshPage.getProperty("page.spacekey")) || $sitemeshPage.getProperty("page.pageops") || $sitemeshPage.getProperty("page.navops"))
+    $!sitemeshPage.getProperty("page.pageops")
+    $!sitemeshPage.getProperty("page.navops")
+    $!sitemeshPage.getProperty("page.spaceops")
+    #end
     <table  border="0" cellpadding="0" cellspacing="0" width="100%">
         ## LOCATION BAR: (BREADCRUMBS AND SEARCH BOX) BEGIN
         <tr class="topBar">
