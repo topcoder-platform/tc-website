@@ -88,8 +88,6 @@
             </fileset>
         </copy>
         <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${tc_theme.jar}" overwrite="yes"/>
-        <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${jars.dir}/tcs/base_exception.jar" overwrite="yes"/>
-        <copy todir="${confluence_home}/confluence/WEB-INF/lib" file="${build}/ejb_jars/security.jar" overwrite="yes"/>
 
     </target>
 
@@ -137,6 +135,8 @@
         </copy>
         <copy todir="${jboss_lib}" file="${bin}/shared.jar" overwrite="yes"/>
         <copy todir="${jboss_lib}" file="${common.jar}" overwrite="yes"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/base_exception.jar" overwrite="yes"/>
+        <copy todir="${jboss_lib}" file="${build}/ejb_jars/security.jar" overwrite="yes"/>
 
     </target>
 
