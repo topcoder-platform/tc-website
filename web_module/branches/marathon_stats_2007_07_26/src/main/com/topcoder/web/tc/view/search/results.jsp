@@ -14,7 +14,7 @@
 <table cellspacing="0" cellpadding="0" class="stat" width="100%">
 <tbody>
    <tr>
-      <td class="title" colspan="12">
+      <td class="title" colspan="15">
          Member Search Results
       </td>
    </tr>
@@ -22,6 +22,7 @@
       <td class="header">Handle</td>
       <td class="headerC">Algo<br>Rating</td>
       <td class="headerC">HS<br>Rating</td>
+      <td class="headerC">Marathon<br>Rating</td>
       <td class="headerC">Des<br>Rating</td>
       <td class="headerC">Dev<br>Rating</td>
       <td class="header">School</td>
@@ -31,6 +32,8 @@
       <td class="headerC">Last<br><nobr>Algo Event</nobr></td>
       <td class="headerC">HS<br>Events</td>
       <td class="headerC">Last<br><nobr>HS Event</nobr></td>
+      <td class="headerC">Marathon<br>Events</td>
+      <td class="headerC">Last<br><nobr>Marathon Event</nobr></td>
    </tr>
    <%boolean even = false;%>
    <rsc:iterator list="<%=results%>" id="resultRow">
@@ -38,6 +41,7 @@
       <td class="value" nowrap="nowrap"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' /></td>
       <td class="valueR"><rsc:item row="<%=resultRow%>" name="rating" format="#" ifNull="unrated"/></td>
       <td class="valueR"><rsc:item row="<%=resultRow%>" name="hs_rating" format="#" ifNull="unrated"/></td>                  
+      <td class="valueR"><rsc:item row="<%=resultRow%>" name="mm_rating" format="#" ifNull="unrated"/></td>                  
       <td class="valueR"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="unrated"/></td>
       <td class="valueR"><rsc:item row="<%=resultRow%>" name="dev_rating" format="#" ifNull="unrated"/></td>
       <td class="value"><rsc:item row="<%=resultRow%>" name="school_name" ifNull="N/A"/></td>
@@ -47,6 +51,8 @@
       <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
       <td class="valueR"><rsc:item row="<%=resultRow%>" name="num_hs_ratings"/></td>
       <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_hs_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+      <td class="valueR"><rsc:item row="<%=resultRow%>" name="num_mm_ratings"/></td>
+      <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_mm_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
    </tr>
    <%even=!even;%>
    </rsc:iterator>
