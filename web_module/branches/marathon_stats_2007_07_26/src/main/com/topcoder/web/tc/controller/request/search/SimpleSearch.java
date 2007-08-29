@@ -261,7 +261,11 @@ public class SimpleSearch extends Base {
         searchQuery.append(" , mmr.rating as sort_mm_rating ");
 
         searchQuery.append(queryBottom.toString());
-        searchQuery.append(" ORDER BY rating_order, lower_handle");
+        if (m.getSortCol() == null) {
+            searchQuery.append(" ORDER BY rating_order, lower_handle");
+        } else {
+            searchQuery.append(" ORDER BY " + (m.getSortCol() + 1)  + (m.isSortAsc()? " asc " : " desc ") + " rating_order, lower_handle");
+        }
 
         StringBuffer filter = new StringBuffer(400);
         filter.append(" WHERE c.status = 'A'");
@@ -373,11 +377,7 @@ public class SimpleSearch extends Base {
         CachedQueryDataAccess cda = new CachedQueryDataAccess(MaxAge.QUARTER_HOUR, DBMS.DW_DATASOURCE_NAME);
         Map res = cda.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) res.get("member_search");
-        
-        if (m.getSortCol() != null) {
-            rsc.sortByColumn(m.getSortCol(), m.isSortAsc());
-        }
-        
+                
         ResultSetContainer count = (ResultSetContainer) res.get("count");
         m.setResults(rsc);
         m.setTotal(count.getIntItem(0, "count"));
