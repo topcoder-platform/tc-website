@@ -86,27 +86,6 @@ public class Secondary extends Base {
                             }
                         }
                         
-                        setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT)));
-
-                        setDefault(Constants.SHOW_EARNINGS, String.valueOf(params.get(Constants.SHOW_EARNINGS)));
-
-                        if (!u.isNew()) {
-                            setDefault(Constants.HANDLE, u.getHandle());
-                        }
-                        List nots = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
-                        if (nots != null) {
-                            getRequest().setAttribute("notifications", nots);
-                        }
-                        getRequest().setAttribute(Constants.FIELDS, fields);
-                        getRequest().setAttribute(Constants.REQUIRED_FIELDS,
-                                RegFieldHelper.getMainRequiredFieldSet(getRequestedTypes(), u));
-                        getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
-                        getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
-                        getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
-                        getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
-                        setNextPage("/main.jsp");
-                        setIsNextPageInContext(true);
-                    } else {
                         loadFieldsIntoUserObject(fields, params);
                         Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
                         log.debug("we have " + secondaryFields.size() + " secondary fields");

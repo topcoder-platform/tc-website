@@ -801,7 +801,9 @@ public abstract class Base extends LongHibernateProcessor {
         }
 
         setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
-        
+
+        setDefault(Constants.SHOW_EARNINGS, String.valueOf(params.get(Constants.SHOW_EARNINGS)));
+
         if (!u.isNew()) {
             setDefault(Constants.HANDLE, u.getHandle());
         }

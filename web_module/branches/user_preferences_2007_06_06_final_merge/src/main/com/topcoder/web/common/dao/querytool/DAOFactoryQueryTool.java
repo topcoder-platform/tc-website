@@ -183,4 +183,12 @@ public class DAOFactoryQueryTool implements DAOFactory {
     public VisaLetterEventDAO getVisaLetterEventDAO() {
         throw new RuntimeException("Not supported");
     }
+
+    public SeasonDAO getSeasonDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public SubmissionDAO getSubmissionDAO() {
+        throw new RuntimeException("Not supported");
+    }
 }
