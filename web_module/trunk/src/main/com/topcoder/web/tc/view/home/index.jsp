@@ -322,9 +322,9 @@
             <%-- SRM SPONSOR --%>
             <map name="mm">
             <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule" />
-            <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly" />
+            <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa" />
             </map>
-            <img src="/i/home/tccc07AlgoRd1A_lilly.png" alt="TCCC07 Algorithm Round 1A brought to you by Eli Lilly" border="0" style="display:block;" usemap="#mm"/>
+            <img src="/i/home/tccc07AlgoRd1B_nsa.png" alt="TCCC07 Algorithm Round 1B brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
             
                 
             <%-- 2 Registration Prototype contests open @ Studio 
