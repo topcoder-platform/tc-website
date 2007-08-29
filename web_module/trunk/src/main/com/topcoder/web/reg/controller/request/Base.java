@@ -842,54 +842,6 @@ abstract class Base extends LongHibernateProcessor {
         return factory;
     }
 
-    protected void inactivateHsUser(User u, String notes) throws Exception, RemoteException, CreateException, GeneralSecurityException {
-        log.debug("Inactivating user " + u.getId() + " for HS." + notes);
-        Context ctx = null;
-        try {
-            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
-            TCSubject tcs = new TCSubject(132456);
-            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-            PrincipalMgrRemote pmr = pmrh.create();
-            
-            UserPrincipal user = new UserPrincipal("", u.getId().longValue());
-            GroupPrincipal group = new GroupPrincipal("", 12); // HS group
-            
-            // Add the user to the HS group; if the user already belongs it will throw an exception
-            try {
-                pmr.addUserToGroup(group, user, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
-            } catch(Exception e) {}
-            
-            pmr.removeUserFromGroup(group, user, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
-
-            //refresh the cached object
-            SecurityHelper.getUserSubject(u.getId().longValue(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
-            
-        } finally {
-            close(ctx);
-        }
-
-        // Mark in event_registration table that the user tried to register but was not eligible.
-        UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
-        Event event = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON).getEvent();
-        
-        log.debug("Mark as not eligible in event id: " + event.getId());
-        
-        if (event != null) {            
-            EventRegistration er = u.getEventRegistration(event);
-            
-            if (er == null) {                
-                er = new EventRegistration();
-                er.setId(new EventRegistration.Identifier(u,event));
-                u.addEventRegistration(er);
-            }
-            er.setEligible(false);
-            er.setNotes(notes);
-            
-            userDAO.saveOrUpdate(u);
-            markForCommit();
-        }
-    }
-
     /**
      * Should be implemented by child classes to handle all the actual processing
      *
