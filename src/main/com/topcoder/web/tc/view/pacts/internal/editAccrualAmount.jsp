@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Add Assignment Document</title>
+    <title>AEdit user accrual amount</title>
     
     <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
@@ -40,7 +40,7 @@
         </tr>
 </table>
 
-<input type="submit" value="Save acrrual amount">
+<input type="submit" value="Save accrual amount">
 
 </form>
 
