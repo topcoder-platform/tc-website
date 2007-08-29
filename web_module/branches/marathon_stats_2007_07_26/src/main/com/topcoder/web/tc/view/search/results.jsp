@@ -4,7 +4,9 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
-<% ResultSetContainer results = memberSearch.getResults();%>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
+
+<% ResultSetContainer results = memberSearch.getResults(); %>
           <a name="data"></a>
          Search Results: 
          <strong><jsp:getProperty name="memberSearch" property="start"/></strong> to 
@@ -19,7 +21,8 @@
       </td>
    </tr>
    <tr>
-      <td class="header">Handle</td>
+      <td class="header"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<jsp:getProperty name="sessionInfo" property="servletPath"/>" includeParams="true" excludeParams="sr" />">
+                Handle</a></td>
       <td class="headerC">Algo<br>Rating</td>
       <td class="headerC">HS<br>Rating</td>
       <td class="headerC">Marathon<br>Rating</td>
