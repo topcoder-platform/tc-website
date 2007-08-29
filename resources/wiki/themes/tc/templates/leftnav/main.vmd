@@ -10,11 +10,27 @@
 ## HTML BODY BEGINS
 #onLoad()
 
-<p/>
-## CONTENT DIV BEGINS
-<div id="Content">
-    <table  border="0" cellpadding="0" cellspacing="0" width="100%">
+<body>
 
+## TOP
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+    <tr valign="top">
+
+## LEFT NAV
+        #if ($navHelper.hasNavigation($sitemeshPage.getProperty("page.spacekey")) || $sitemeshPage.getProperty("page.pageops") || $sitemeshPage.getProperty("page.navops"))
+        <td width="180">
+        $!sitemeshPage.getProperty("page.pageops")
+        $navHelper.renderNavigation($sitemeshPage.getProperty("page.spacekey"))
+        $!sitemeshPage.getProperty("page.navops")
+        $!sitemeshPage.getProperty("page.spaceops")
+        </td>
+        #end
+        <td width="100%" align="left" class="bodyColumn">
+
+## PAGE BODY
+    <table  border="0" cellpadding="0" cellspacing="0" width="100%">
         ## LOCATION BAR: (BREADCRUMBS AND SEARCH BOX) BEGIN
         <tr class="topBar">
             <td align="left" width="85%">
@@ -26,19 +42,7 @@
             </td>
         </tr>
     </table>
-    #if ($navHelper.hasNavigation($sitemeshPage.getProperty("page.spacekey")) || $sitemeshPage.getProperty("page.pageops") || $sitemeshPage.getProperty("page.navops"))
-    <table width="100%" cellpadding="0" cellspacing="0">
-    <tr>
-          <td width="15%" border="0" valign="top" class="leftnav" nowrap>
-             $!sitemeshPage.getProperty("page.pageops")
-             $navHelper.renderNavigation($sitemeshPage.getProperty("page.spacekey"))
-             $!sitemeshPage.getProperty("page.navops")
-             $!sitemeshPage.getProperty("page.spaceops")
-          </td>
-    <td valign="top">
-    #end
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
-
         ## LOCATION BAR: (BREADCRUMBS AND SEARCH BOX) END
 
         ## INFO BAR: (LOGO, LOCATION, AND USER/GROUP OPTIONs) BEGIN
@@ -71,15 +75,15 @@
         </tr>
         ## INFO BAR: (LOGO, LOCATION, AND USER/GROUP OPTIONs) END
     </table>
-    $body
-    #if ($navHelper.hasNavigation($sitemeshPage.getProperty("page.spacekey")) || $sitemeshPage.getProperty("page.pageops") || $sitemeshPage.getProperty("page.navops"))
-    <br/><br/>
-    </td>
-    </tr>
-    </table>
-    #end
-    ## PAGE DEPENDENT INLINE DECORATOR RENDERING SHOULD END HERE
-</div>
-## CONTENT DIV ENDS
 
+
+        </td>
+    </tr>
+</tbody>
+</table>
+
+## FOOT
 #parse ("/decorators/includes/footer.vmd")
+
+</body>
+</html>
