@@ -173,17 +173,17 @@
                 <A href="<tc-webtag:linkTracking link='http://studio.topcoder.com/?module=ViewContestDetails&ct=2093' refer='homepage' />"><img src="/i/home/licenseIDProject.jpg" alt="License ID Project" border="0" style="display:block;"/></A>
                 --%>
                 
-                <%-- CSF 
-                <A href="<tc-webtag:linkTracking link="http://csf.topcoder.com/?module=ViewContestDetails&ct=1006" refer="tc_Index"/>"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF Powered by TopCoder" style="display:block;" /></A>
-                --%>
+                <%-- CSF --%>
+                <A href="<tc-webtag:linkTracking link='http://csf.topcoder.com/?module=Static&d1=assembly&d2=btWorkspaceDetails' refer='tc_Index'/>"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF Powered by TopCoder" style="display:block;" /></A>
+                
                 
                <%-- TCCC07 
                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=about' refer='homepage' />"><img src="/i/home/tccc07_promo.png" alt="2007 TopCoder Collegiate Challenge" /></A>
                 --%>
                 
-               <%-- TC CHANNEL --%>
+               <%-- TC CHANNEL 
                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep04' refer='homepage' />"><img src="/i/home/tcchannel_promo_ep4.png" alt="TC Channel: Episode 4" /></A>
-               
+               --%>
 
             </td>
         </tr>
