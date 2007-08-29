@@ -24,9 +24,6 @@
             overrides="/decorators/main.vmd">
         <resource type="velocity" name="decorator"
                   location="templates/leftnav/main.vmd"/>
-        <resource type="stylesheet" name="leftnav.css"
-                  location="templates/leftnav/leftnav-css.vm">
-        </resource>
     </layout>
 
     <layout key="space" name="Space Decorator" class="com.atlassian.confluence.themes.VelocityDecorator"
