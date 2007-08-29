@@ -71,6 +71,12 @@ public class SimpleSearch extends Base {
             ret.setEnd(ret.getStart().intValue() + (Constants.SEARCH_SCROLL_SIZE - 1));
         }
 
+        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+        if (!sortCol.equals("")) {
+            ret.setSortCol(new Integer(sortCol));
+            ret.setSortAsc("asc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION)));
+        }
+        
         String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE));
         if (!handle.equals(""))
             ret.setHandle(handle);
@@ -364,6 +370,11 @@ public class SimpleSearch extends Base {
         CachedQueryDataAccess cda = new CachedQueryDataAccess(MaxAge.QUARTER_HOUR, DBMS.DW_DATASOURCE_NAME);
         Map res = cda.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) res.get("member_search");
+        
+        if (m.getSortCol() != null) {
+            rsc.sortByColumn(m.getSortCol(), m.isSortAsc());
+        }
+        
         ResultSetContainer count = (ResultSetContainer) res.get("count");
         m.setResults(rsc);
         m.setTotal(count.getIntItem(0, "count"));
