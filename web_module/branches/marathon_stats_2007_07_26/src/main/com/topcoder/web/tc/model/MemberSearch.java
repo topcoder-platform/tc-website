@@ -6,6 +6,8 @@ public class MemberSearch {
 
     private Integer start = null;
     private Integer end = null;
+    private Integer sortCol = null;
+    private boolean sortAsc = true;
     private int total = 0;
     private String handle = null;
     private String stateCode = null;
@@ -267,6 +269,22 @@ public class MemberSearch {
 
     public void setMaxDaysSinceLastMarComp(Integer maxDaysSinceLastMarComp) {
         this.maxDaysSinceLastMarComp = maxDaysSinceLastMarComp;
+    }
+
+    public Integer getSortCol() {
+        return sortCol;
+    }
+
+    public void setSortCol(Integer sortCol) {
+        this.sortCol = sortCol;
+    }
+
+    public boolean isSortAsc() {
+        return sortAsc;
+    }
+
+    public void setSortAsc(boolean sortAsc) {
+        this.sortAsc = sortAsc;
     }
 
 }
