@@ -42,7 +42,7 @@ public class AlgorithmSections extends AdvancersBase {
      * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#getDataSourceName()
      */
     protected String getDataSourceName() {
-        return DBMS.DW_DATASOURCE_NAME;
+        return DBMS.JTS_OLTP_DATASOURCE_NAME;
     }
 
     /* (non-Javadoc)
