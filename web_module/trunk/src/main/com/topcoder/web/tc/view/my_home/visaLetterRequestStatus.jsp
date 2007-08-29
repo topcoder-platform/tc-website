@@ -28,7 +28,7 @@
         <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="visa"/>
+                <jsp:param name="node" value="my_topcoder"/>
             </jsp:include>
         </td>
         <!-- Left Column Ends -->

@@ -43,6 +43,9 @@ public class UserPreference extends Base {
         this.value = value;
     }
 
+
+    
+    
     public static class Identifier implements Serializable {
         private User user;
         private Preference preference;
@@ -77,8 +80,9 @@ public class UserPreference extends Base {
             }
             try {
                 UserPreference.Identifier up = (UserPreference.Identifier) o;
-                return (up.getPreference().equals(getPreference()) &&
-                        up.getUser().equals(getUser()));
+                boolean e = (up.getPreference().getId().equals(getPreference().getId()) &&
+                        up.getUser().getId().equals(getUser().getId()));
+                return e;
             } catch (ClassCastException e) {
                 return false;
             }
@@ -86,9 +90,38 @@ public class UserPreference extends Base {
         }
 
         public int hashCode() {
-            return (user.getId() + " " + preference.getId()).hashCode();
+            int i = (user.getId() + " " + preference.getId()).hashCode();
+            return i;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        
+        if (getClass() != obj.getClass()) {
+            return false;
         }
 
+        final UserPreference other = (UserPreference) obj;
+        if (id == null) {
+            if (other.id != null) {
+                return false;
+            }
+        } else if (!id.equals(other.id)) {
+            return false;
+        }
+        return true;
     }
 
 }

@@ -101,7 +101,7 @@
         <li>room_name</li>
         <li>user id</li>
         <li>handle</li>
-        <li>prize</li>
+        <li>prize ("hidden" if the user has opted to hide his/her earnings)</li> 
         <li>old rating</li>
         <li>new rating</li>
         <li>new volatility</li>

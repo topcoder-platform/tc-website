@@ -1,5 +1,16 @@
 package com.topcoder.web.reg.controller.request;
 
+import java.rmi.RemoteException;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.ejb.CreateException;
+import javax.naming.Context;
+
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.TCSubject;
@@ -7,7 +18,13 @@ import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.dwload.CacheClearer;
+import com.topcoder.web.common.HSRegistrationHelper;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
@@ -15,7 +32,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.RegistrationTypeDAO;
 import com.topcoder.web.common.dao.UserDAO;
-import com.topcoder.web.common.HSRegistrationHelper;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.Response;
@@ -23,11 +39,6 @@ import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.Constants;
-
-import javax.ejb.CreateException;
-import javax.naming.Context;
-import java.rmi.RemoteException;
-import java.util.*;
 
 /**
  * @author dok
@@ -122,6 +133,14 @@ public class Submit extends Base {
             getRequest().setAttribute(Constants.USER, u);
             getRequest().getSession().invalidate();
 
+            if (DAOUtil.useQueryToolFactory) {
+                // clear preferences from cache
+                HashSet<String> s = new HashSet<String>();
+                s.add("user_preference");
+                s.add("user_preference_all");
+                CacheClearer.removelike(s);
+            }
+            
             setNextPage("/success.jsp");
             setIsNextPageInContext(true);
         } else {

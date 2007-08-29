@@ -1,15 +1,22 @@
 package com.topcoder.web.tc.controller.request.compstats;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.SoftwareComponent;
+import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.common.tag.HandleTag;
 import com.topcoder.web.tc.controller.request.Static;
-
-import java.util.Map;
 
 public class ComponentRecordbook extends Static {
 
@@ -65,6 +72,32 @@ public class ComponentRecordbook extends Static {
         ResultSetContainer rsc = (ResultSetContainer) result.get(dataRequest.getContentHandle());
         getRequest().setAttribute("result", rsc);
 
+        // for statistics that involve money, find out who wants to hide their payments.
+        if (handle.equals("overall_money") ||
+                handle.equals("royalties") ||
+                handle.equals("tournament_money") ||
+                handle.equals("component_money") ||
+                handle.equals("largest_comp_prize")) {
+
+            List<Long> coderList = new ArrayList<Long>(rsc.size());
+            for (ResultSetRow rsr : rsc) {
+                coderList.add(rsr.getLongItem("coder_id"));
+            }
+
+            if (!DAOUtil.useQueryToolFactory) {
+                HibernateUtils.getSession().beginTransaction();
+            }
+            List<UserPreference> upList  = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(coderList, Preference.SHOW_EARNINGS_PREFERENCE_ID);
+            List<Long> hideList = new ArrayList<Long>();
+            for (UserPreference up : upList) {
+                if ("hide".equals(up.getValue())) {
+                    log.debug("adding: " + up.getId().getUser().getId());
+                    hideList.add(up.getId().getUser().getId());
+                }
+            }
+            getRequest().setAttribute("hideList", hideList);
+        }
+        
         String includeJsp
                 = "/compstats/" + dataRequest.getContentHandle() + ".jsp";
         getRequest().setAttribute("includeJsp", includeJsp);

@@ -22,7 +22,7 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="cards_badges"/>
+                <jsp:param name="node" value="my_topcoder"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
