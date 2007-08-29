@@ -21,7 +21,7 @@
       </td>
    </tr>
    <tr>
-      <td class="header"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<jsp:getProperty name="sessionInfo" property="servletPath"/>" includeParams="true" excludeParams="sr" />">
+      <td class="header"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("lower_handle") %>" includeParams="true" excludeParams="sr" />">
                 Handle</a></td>
       <td class="headerC">Algo<br>Rating</td>
       <td class="headerC">HS<br>Rating</td>
