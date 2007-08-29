@@ -66,6 +66,7 @@
         <mapping resource="com/topcoder/web/common/model/MemberContactMessage.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/MemberContactBlackList.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Notification.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/NotificationType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/PasswordRecovery.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Path.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Phone.hbm.xml"/>
