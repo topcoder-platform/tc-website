@@ -157,7 +157,7 @@ public class SimpleSearch extends Base {
         } else {
             queryBottom.append(" , algo_rating mmr");
 
-            if (m.getMaxDaysSinceLastHSComp() != null) {
+            if (m.getMaxDaysSinceLastMarComp() != null) {
                 queryBottom.append(" , round mmro");
                 queryBottom.append(" , calendar mmcal");
             } else {
