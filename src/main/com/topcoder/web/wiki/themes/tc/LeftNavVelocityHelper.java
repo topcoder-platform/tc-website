@@ -49,6 +49,7 @@ public class LeftNavVelocityHelper {
 
             while ((inputLine = in.readLine()) != null) {
                 b.append(inputLine);
+                b.append("\n");
             }
             in.close();
 
