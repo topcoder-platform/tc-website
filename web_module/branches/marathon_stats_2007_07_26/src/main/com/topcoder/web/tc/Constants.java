@@ -86,6 +86,12 @@ public class Constants implements WebConstants {
     public static String MAX_NUM_HS_RATINGS;
     public static String MAX_DAYS_SINCE_LAST_HS_COMP;
 
+    public static String MIN_MAR_RATING;
+    public static String MAX_MAR_RATING;
+    public static String MIN_NUM_MAR_RATINGS;
+    public static String MAX_NUM_MAR_RATINGS;
+    public static String MAX_DAYS_SINCE_LAST_MAR_COMP;
+
 
     public static String PROJECT_ID;
     public static String PROJECT_TYPE_ID;

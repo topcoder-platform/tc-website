@@ -218,6 +218,59 @@ selections will be returned. Click on a Handle to view information about the Cod
       </td>
    </tr>
    <tr>
+      <td class="valueR" style="border: 0px;">
+         <strong>Marathon Match</strong> rating:
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Min:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MIN_MAR_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Max:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MAX_MAR_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" style="border: 0px;">
+         # of rated <strong>Marathon Match</strong> events:
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Min:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MIN_NUM_MAR_RATINGS%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Max:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MAX_NUM_MAR_RATINGS%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" style="border: 0px;">
+         Max time since last <strong>Marathon Match</strong> competition:
+      </td>
+      <td class="value" colspan="4" style="border: 0px;">
+         <select name="<%=Constants.MAX_DAYS_SINCE_LAST_MAR_COMP%>" size="1">
+         <option value="">None Specified</option>
+         <option value="30" <%=memberSearch.getMaxDaysSinceLastMarComp()!=null&&memberSearch.getMaxDaysSinceLastMarComp().equals(new Integer(30))?"selected":""%>>
+         30 Days
+         </option>
+         <option value="90" <%=memberSearch.getMaxDaysSinceLastMarComp()!=null&&memberSearch.getMaxDaysSinceLastMarComp().equals(new Integer(90))?"selected":""%>>
+         90 Days
+         </option>
+         <option value="180" <%=memberSearch.getMaxDaysSinceLastMarComp()!=null&&memberSearch.getMaxDaysSinceLastMarComp().equals(new Integer(180))?"selected":""%>>
+         180 Days
+         </option>
+         </select>
+      </td>
+   </tr>
+   <tr>
       <td class="valueC" colspan="5" style="border: 0px;">
          <div style="padding:6px;">
          <A href="javascript:document.searchForm.submit()" class="bodyText"><img src="/i/search.gif" width="60" height="18" border="0"/></A>
