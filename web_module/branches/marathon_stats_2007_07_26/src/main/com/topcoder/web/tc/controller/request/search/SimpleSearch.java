@@ -256,6 +256,9 @@ public class SimpleSearch extends Base {
         searchQuery.append(" , CASE WHEN mmr.rating= 0 THEN NULL ELSE ''||mmr.rating END as mm_rating");
         searchQuery.append(" , mmr.num_ratings as num_mm_ratings");
         searchQuery.append(" , (SELECT date FROM calendar cal WHERE cal.calendar_id = mmro.calendar_id) AS last_mm_competed");
+        searchQuery.append(" , r.rating as sort_rating ");
+        searchQuery.append(" , hsr.rating as sort_hs_rating ");
+        searchQuery.append(" , mmr.rating as sort_mm_rating ");
 
         searchQuery.append(queryBottom.toString());
         searchQuery.append(" ORDER BY rating_order, lower_handle");
