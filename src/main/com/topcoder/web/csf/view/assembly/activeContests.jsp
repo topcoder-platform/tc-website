@@ -84,7 +84,7 @@
                             $7,000.00
                         </td>
                         <td class="valueC">
-                            0
+                            8
                         </td>
                         <td class="valueC">
                             0
@@ -109,7 +109,7 @@
                             $7,000.00
                         </td>
                         <td class="valueC">
-                            21
+                            22
                         </td>
                         <td class="valueC">
                             0
