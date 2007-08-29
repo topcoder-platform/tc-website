@@ -3,7 +3,7 @@
 <head>
     <title>$title - #siteTitle()</title>
     #standardHeader()
-    #pluginStylesheet("com.atlassian.confluence.themes.leftnavigation:main" "leftnav.css")
+    <link type="text/css" rel="stylesheet" href="/css/tcStyles.css" />
 </head>
 ## HTML HEADER ENDS
 
