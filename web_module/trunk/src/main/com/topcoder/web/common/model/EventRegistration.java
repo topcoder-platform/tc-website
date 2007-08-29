@@ -43,7 +43,7 @@ public class EventRegistration extends Base {
         } else {
             try {
                 EventRegistration oa = (EventRegistration) o;
-                return getId().equals(oa.getId()) && eligible.equals(oa.isEligible());
+                return getId().equals(oa.getId());
             } catch (ClassCastException e) {
                 return false;
             }
