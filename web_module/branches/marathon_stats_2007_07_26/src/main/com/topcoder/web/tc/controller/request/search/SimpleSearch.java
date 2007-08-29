@@ -264,7 +264,7 @@ public class SimpleSearch extends Base {
         if (m.getSortCol() == null) {
             searchQuery.append(" ORDER BY rating_order, lower_handle");
         } else {
-            searchQuery.append(" ORDER BY " + (m.getSortCol() + 1)  + (m.isSortAsc()? " asc " : " desc ") + " rating_order, lower_handle");
+            searchQuery.append(" ORDER BY " + (m.getSortCol() + 1)  + (m.isSortAsc()? " asc" : " desc") + ", rating_order, lower_handle");
         }
 
         StringBuffer filter = new StringBuffer(400);
