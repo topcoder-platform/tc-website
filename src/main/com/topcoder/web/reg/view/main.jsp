@@ -117,7 +117,7 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, title)}">*</c:if> Title:
+            <c:if test="${cf:contains(reqFields, title)}">*</c:if> Job Title:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.TITLE%>" size="15" maxlength="<%=Constants.MAX_TITLE_LENGTH%>" editable="true"/>
