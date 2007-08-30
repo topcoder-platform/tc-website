@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.pacts.assignmentdocuments;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -11,7 +12,7 @@ import com.topcoder.web.ejb.pacts.assignmentdocuments.User;
  *
  * @author pulky
  */
-public class AssignmentDocument {
+public class AssignmentDocument implements Serializable, Cloneable {
     /**
      * Please change that number if you affect the fields in a way that will affect the
      * serialization for this object. 
