@@ -34,7 +34,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         boolean isWinner = false;
         for (Prize p : s.getPrizes()) {
             //we figure out the winner based on prizes because we'll consider that the "annoucing" of the winner, when the prize is set.
-            if (p.getPlace() == 1) {
+            if (p.getPlace()!=null && p.getPlace() == 1) {
                 isWinner = true;
                 break;
             }
