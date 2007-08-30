@@ -109,7 +109,7 @@ Min[0]=0
 
 For i = 1 to S
 For j = 0 to N - 1
-   If (V<sub>j</sub> i AND Min[i-V<sub>j</sub>]+1&lt;Min[i])
+   If (V<sub>j</sub>&lt;=i AND Min[i-V<sub>j</sub>]+1&lt;Min[i])
 Then Min[i]=Min[i-V<sub>j</sub>]+1
 
 Output Min[S]
