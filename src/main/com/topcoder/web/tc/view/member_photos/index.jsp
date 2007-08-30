@@ -1,42 +1,53 @@
-<%@  page language="java"  %>
-  
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html>
 
 <head>
-
-<title>Member Photo Info</title>
-
-<jsp:include page="../script.jsp" />
-
+    <title>TopCoder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="../script.jsp" />
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
 </head>
 
 <body>
 
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value=""/>
+</jsp:include>
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
     <tr valign="top">
+<%-- Left Column Begins--%>
+        <td width="180">
+            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="node" value="my_topcoder"/>
+            </jsp:include>
+        </td>
+<%-- Left Column Ends --%>
 
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
-<!-- Gutter Ends -->
+<%-- Center Column Begins --%>
+        <td width="100%" align="center" class="bodyColumn">
+            <div class="maxWidthBody" align="left">
 
-<!-- Center Column Begins --> 
-<td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="member_photos"/>  
-           <jsp:param name="image1" value="white"/>  
-        </jsp:include>
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
-      <tr>
-         <td><img src="/i/clear.gif" width="240" height="1" border="0"><br>
-            <p class="bodyText">
+                <jsp:include page="../page_title.jsp" >
+                    <jsp:param name="image" value="my_tc"/>
+                    <jsp:param name="title" value="Submit a photo"/>
+                </jsp:include>
+
+
+            <p>
             TopCoder is excited to offer all our members the opportunity to post photos of themselves on our website.  We feel that photos give
             a personal touch to each member's profile as well as an opportunity for other members to see who the rest of the TopCoder
             community is.
             </p>
-            <p><span class="bodySubtitle">Guidelines for Photo Content</span></p>
-            <p class="bodyText">
+            <h3>Guidelines for Photo Content</h3>
+            <p>
             Our guidelines for publishing member photos are similar to a driver's lices photo.  The photo should display your shoulders and 
             your face.  Please note that TopCoder will not publish inappropriate photos (ie. sticking our your tongue, making faces, etc.).
             <br /><br />
@@ -48,7 +59,7 @@
             <li>obviously not a recent photo of a member (no aliens,teddy bears, baby photos, etc.)</li>
             <li>copyrighted to another party</li>
             </ul>
-            <p class="bodyText">
+            <p>
             Here are two examples of acceptable and unacceptable photos:
             </p>
             <p align="center">
@@ -59,19 +70,27 @@
             <img src="/i/mpbad2.jpg" width="86" height="128" border="0">
             </p>
             <p><span class="bodySubtitle">Timeframe for Photo Processing</span></p>
-            <p class="bodyText">
+            <p>
             Since the photos are processed manually, it's unpredictable how soon your profile will be updated. On average, they get processed every other week. Please note that these dates may change as a result of holidays or other major TopCoder events.
             </p>            
-         </td>
-      </tr>
-</table>            
-<!-- Center Column Ends -->
 
-<!-- Gutter -->
-      <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<!-- Gutter Ends -->
+            </div>
+        </td>
+<%-- Center Column Ends --%>
+        
+<%-- Right Column Begins --%>
+        <td width="170">
+            <jsp:include page="../public_right.jsp">
+                <jsp:param name="level1" value="default"/>
+            </jsp:include>
+        </td>
+<%-- Right Column Ends --%>
+        
     </tr>
+</tbody>
 </table>
+
+<jsp:include page="../foot.jsp" />
 
 </body>
 
