@@ -22,41 +22,16 @@ public class ClearCache {
         TCResourceBundle b = new TCResourceBundle("cache");
         try {
             ctx = TCContext.getInitial(b.getProperty("host_url"));
-            //using reflection so that we don't a lot of nasty dependencies when using the class.
-             
             Object o = ctx.lookup(b.getProperty("jndi_name"));
+           remove(Fqn.ROOT.getName(), o);
 
-            /*
-            Method remove = null;
-            Method[] methods = o.getClass().getDeclaredMethods();
-            for (Method m : methods) {
-                System.out.println(m.getName());
-                if ("clearCache".equals(m.getName())) {
-                    remove = m;
-                    break;
-                }
-            }
-            remove.invoke(o);            
-*/
-    System.out.println(Fqn.ROOT.getName() + " " + Fqn.ROOT.toString());        
-            remove(Fqn.ROOT.getName(), o);
+           System.out.println("cleared!");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             TCContext.close(ctx);
         }
 
-        try {
-            JbossCacheClient cache = new JbossCacheClient();
-            cache.set("test", "hi");
-            int size = cache.getKeys().size();
-            cache.clearCache();
-            
-            System.out.println("cleared " + size + " elements");
-        } catch (TCCacheException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
     }
     
     private static Method remove = null;
