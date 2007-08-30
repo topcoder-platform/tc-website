@@ -175,10 +175,10 @@
                                 <A HREF="mailto:memberphotos@topcoder.com?subject=${regUser.activationCode}%20|%20[%20${regUser.handle}%20]%20|%20${regUser.id}%20<c:if test="${regUser.coder.memberPhoto!=null}">RE</c:if>SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT">
                                     <c:choose>
                                         <c:when test="${regUser.coder.memberPhoto!=null}">
-                                            Submit your photo                                        
+                                            Submit a photo                                        
                                         </c:when>
                                         <c:otherwise>
-                                            Resubmit your photo
+                                            Submit a different photo
                                         </c:otherwise>
                                     </c:choose></A>
                             </p>
