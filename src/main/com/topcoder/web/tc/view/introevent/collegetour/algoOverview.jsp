@@ -72,7 +72,7 @@
     In addition to <A href="/reg/">registering with TopCoder</A>, all competitors must register
     <a href="/tc?module=IntroEventViewRegister&eid=${eid}">here</a>
     and be onsite for the competition.
-    After the event ends, pizza will be served and a TopCoder representative will be present to discuss
+    After the event ends, food will be served and a TopCoder representative will be present to discuss
     TopCoder competitions and employment services.
 
     <br><br>
@@ -120,7 +120,7 @@
         </li>
         <li>
             <tc-webtag:format object="${resultsTime}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-            - Pizza, Results, TopCoder presentation
+            - Food, Results, TopCoder presentation
         </li>
     </ul>
 

@@ -65,7 +65,7 @@
                     with everyone solving the same Division II problems. Everyone who registers and attends the SRM will
                     receive a
                     TopCoder t-shirt and the top three performers will receive other great prizes. TopCoder will also
-                    provide pizza
+                    provide food
                     and beverages for all in attendance.
                     <br/><br/>
                     Prior to the SRM, TopCoder will provide the school with a web page dedicated to their event, to be
