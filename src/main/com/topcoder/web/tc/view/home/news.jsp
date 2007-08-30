@@ -2,6 +2,39 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%----------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.30.07<br>1:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1a">TCCC07 - Algo Round 1A - Problem Set &amp; Analysis</A></span><br><br>
+      Online Round 1A of the TCCC07 brought together 490 participants, of whom only 300 could advance. The problems were rather difficult for a first online round, however, so in the end only 296 coders managed to do so. First place went to <tc-webtag:handle coderId="9906197" context="algorithm"/>, with <tc-webtag:handle coderId="9927526" context="algorithm"/> and <tc-webtag:handle coderId="307060" context="algorithm"/> finishing second and third.</td>
+         <td class="newsPhoto"><img src="/i/m/krijgertje_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="9906197" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1a">full story</A> | 
+         <tc-webtag:forumLink forumID="517208" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   ----------------------------%>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>08.30.07<br>3:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=083007">Introducing the Configuration API &amp; Configuration Persistence components </A></span><br><br>
+      Today we will discuss the <A href="<tc-webtag:linkTracking link='http://software.topcoder.com/catalog/c_component.jsp?comp=24631840' refer='/tc'/>">Configuration API</a> and <A href="<tc-webtag:linkTracking link='http://software.topcoder.com/catalog/c_component.jsp?comp=26745972' refer='/tc'/>">Configuration Persistence</a> components, which were recently introduced to replace the traditional <A href="<tc-webtag:linkTracking link='http://software.topcoder.com/catalog/c_component.jsp?comp=500004' refer='/tc'/>">Configuration Manager</a> and refine TopCoder's approach to configuration management.</td>
+         <td class="newsPhoto"><img src="/i/m/FogleBird_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="160049" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=083007">full story</A> | 
+         <tc-webtag:forumLink forumID="517215" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.30.07<br>11:30 AM</td>
@@ -151,21 +184,5 @@
         <A href="/tc?module=TCCC07AlgorithmSections&rd=10898">details</A> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Marathon Match Tutorial" border="0" /><br>08.23.07<br>12:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=randomNumbers2">Generating random distributions, Part 2</A></span><br><br>
-      In <a href="/tc?module=Static&d1=tutorials&d2=randomNumbers">Part 1</a>, I looked at how to generate a single random number or event. Many marathon matches require more complicated lists or sets of items, however, so <a href="/tc?module=Static&d1=tutorials&d2=randomNumbers2">Part 2</a> will focus on how to tackle those.</td>
-         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="251074" context="marathon"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=randomNumbers2">full story</A> | 
-         <tc-webtag:forumLink forumID="517127" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=mm_index">archive</A>
    </td></tr>
    
