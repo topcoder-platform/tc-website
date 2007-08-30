@@ -2,7 +2,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<% ResultSetContainer mmcoders = (ResultSetContainer)request.getAttribute("top_mm_coders");%>
+<% ResultSetContainer mmcoders = (ResultSetContainer)request.getAttribute("top_mm_coders"); %>
 
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr valign="middle">
