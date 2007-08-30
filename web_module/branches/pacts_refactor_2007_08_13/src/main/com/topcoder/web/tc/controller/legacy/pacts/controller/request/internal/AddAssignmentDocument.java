@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.pacts.DeleteAffirmedAssignmentDocumentException;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocument;
@@ -96,6 +97,17 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                     return;
                 } catch (Exception e) {
                     e.printStackTrace();
+                    addError("error", e.getMessage());
+
+                    setDefault("reference_id", StringUtils.htmlEncode(getRequest().getParameter("reference_id")));
+                    setDefault("expire_date", StringUtils.htmlEncode(getRequest().getParameter("expire_date")));
+                    setDefault("affirmed_date", StringUtils.htmlEncode(getRequest().getParameter("affirmed_date")));
+                    setDefault("assignment_document_type_id", StringUtils.htmlEncode(getRequest().getParameter("assignment_document_type_id")));
+                    setDefault("assignment_document_status_id", StringUtils.htmlEncode(getRequest().getParameter("assignment_document_status_id")));
+                    setDefault("assignment_document_text", StringUtils.htmlEncode(getRequest().getParameter("assignment_document_text")));
+                    setDefault("assignment_document_hard_copy", StringUtils.htmlEncode(getRequest().getParameter("assignment_document_hard_copy")));
+
+                    getRequest().setAttribute("reference_description", "Enter search text for component name:");
                 }
             }
         } else {
