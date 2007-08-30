@@ -68,7 +68,7 @@
                     <tr class="<%=even?"light":"dark"%>">
                         <td class="value">
                             <strong><tc-webtag:beanWrite name="contest" property="contestName"/> &gt; <tc-webtag:beanWrite name="contest" property="roundName"/></strong>
-                            <c:forEach items="${originalRounds[contest.problemId]} var="r">
+                            <c:forEach items="${originalRounds[contest.problemId]}" var="r">
                                 ${r.name}-${r.id}<br/> 
                             </c:forEach>
                         </td>
