@@ -99,7 +99,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                     e.printStackTrace();
                     addError("error", e.getMessage());
 
-                    setDefault("reference_id", StringUtils.htmlEncode(getRequest().getParameter("reference_id")));
+                    setDefault("reference_id", referenceId);
                     setDefault("expire_date", StringUtils.htmlEncode(getRequest().getParameter("expire_date")));
                     setDefault("affirmed_date", StringUtils.htmlEncode(getRequest().getParameter("affirmed_date")));
                     setDefault("assignment_document_type_id", StringUtils.htmlEncode(getRequest().getParameter("assignment_document_type_id")));
