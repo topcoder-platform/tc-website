@@ -83,6 +83,7 @@
                         </td>
                         <td class="valueC">
                             <tc-webtag:beanWrite name="contest" property="numCompetitors"/>
+                            ${contest.numCompetitors}
                         </td>
                         <td class="valueC">
                                 <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>">submit</a>
