@@ -136,7 +136,7 @@ public abstract class SelectTag extends BaseTag {
             s.append(" class=\"").append(styleClass).append("\"");
         }
         if (onChange != null) {
-            s.append(" onChange=\"").append(onChange).append("\"");
+            s.append(" onchange=\"").append(onChange).append("\"");
         }
         if (size != null) {
             s.append(" size=\"").append(size).append("\"");
