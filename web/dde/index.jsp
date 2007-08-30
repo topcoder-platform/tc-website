@@ -130,5 +130,8 @@
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
 
+<%-- CrazyEgg website heatmapping code --%>
+<script type="text/javascript" src="http://cetrk.com/pages/scripts/0004/0536.js"> </script>
+
 </body>
 </html>
