@@ -70,7 +70,7 @@
                     <tr class="<%=even?"light":"dark"%>">
                         <td class="value">
                             <c:forEach items="${originalRounds[contest.problemID]}" var="r" varStatus="status">
-                                <a href="/longcontest/?module=ViewStandings&rd=${r.id}" class="bcLink">
+                                <a href="/longcontest/?module=ViewStandings&amp;rd=${r.id}" class="bcLink">
                                     ${r.name}
                                 </a>
                                 <c:if test="${not status.last }">
@@ -85,10 +85,10 @@
                             ${contest.numCompetitors}
                         </td>
                         <td class="valueC">
-                                <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>">submit</a>
+                                <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&amp;<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&amp;<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&amp;<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>">submit</a>
                         </td>
                         <td class="valueC">
-                            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewStandings&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>">standings</a>
+                            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewStandings&amp;<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>">standings</a>
                         </td>
                     </tr>
                     <%even = !even;%>
