@@ -52,13 +52,14 @@
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                             <tr>
-                                <td class="tableTitle" colspan="4">Practice Contests</td>
+                                <td class="tableTitle" colspan="5">Practice Contests</td>
                             </tr>
                             <tr>
                                 <td class="tableHeader" width="40%">Contest</td>
-                                <td class="tableHeader" width="20%" align="right">Competitors</td>
-                                <td class="tableHeader" width="20%">&nbsp;</td>
-                                <td class="tableHeader" width="20%">&nbsp;</td>
+                                <td class="tableHeader" width="30%">Problem</td>
+                                <td class="tableHeader" width="10%" align="right">Competitors</td>
+                                <td class="tableHeader" width="10%">&nbsp;</td>
+                                <td class="tableHeader" width="10%">&nbsp;</td>
                             </tr>
 
                             <%boolean even = true;%>
@@ -67,6 +68,11 @@
                                 <tr>
                                     <td class="<%=even?"statLt":"statDk"%>"><b>
                                         <tc-webtag:beanWrite name="contest" property="contestName"/> &gt; <tc-webtag:beanWrite name="contest" property="roundName"/></b></td>
+                                        
+                                    <td>
+                                        ${contest.problemName}
+                                    </td>
+                                        
                                     <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;">
                                             <tc-webtag:beanWrite name="contest" property="numCompetitors"/></td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center">
