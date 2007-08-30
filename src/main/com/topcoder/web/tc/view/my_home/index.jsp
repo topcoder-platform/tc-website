@@ -58,9 +58,11 @@
                         <td class="valueC" rowspan="10" nowrap="nowrap" style="vertical-align: middle; border-right: 1px solid #999999;">
                         <c:choose>
                             <c:when test="${regUser.coder.memberPhoto!=null}">
-                                <a href="/tc?module=MemberProfile&amp;cr=${regUser.id}">
-                                    <img src="${regUser.coder.memberPhoto.path.path}${regUser.coder.memberPhoto.fileName}" name="image_path" alt="" class="memberPhoto" />
-                                </a>
+                                <div>
+                                    <a href="/tc?module=MemberProfile&amp;cr=${regUser.id}">
+                                        <img src="${regUser.coder.memberPhoto.path.path}${regUser.coder.memberPhoto.fileName}" name="image_path" alt="" class="memberPhoto" />
+                                    </a>
+                                </div>
                             </c:when>
                             <c:otherwise>
                                 <a href="/tc?module=MemberProfile&amp;cr=${regUser.id}">
@@ -68,16 +70,17 @@
                                 </a>
                             </c:otherwise>
                         </c:choose>
-                        
-                            <br /><tc-webtag:handle coderId='${regUser.id}' />
-                            <br /><strong>Member Since:</strong>
-                            <br /><fmt:formatDate value="${regUser.coder.memberSince}" pattern="MM.dd.yyyy"/>
+                            <div>                        
+                                <tc-webtag:handle coderId='${regUser.id}' />
+                                <br /><strong>Member Since:</strong>
+                                <br /><fmt:formatDate value="${regUser.coder.memberSince}" pattern="MM.dd.yyyy"/>
+                            </div>
                         </td>
                         <td class="field" width="100%">
                             Name:
                         </td>
                         <td class="value">
-                            <div style="width: 180px;">
+                            <div style="width: 200px;">
                                 ${regUser.firstName} ${regUser.lastName}
                             </div>
                         </td>
