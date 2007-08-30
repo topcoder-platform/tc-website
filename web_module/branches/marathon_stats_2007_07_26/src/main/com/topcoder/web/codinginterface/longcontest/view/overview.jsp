@@ -15,16 +15,6 @@
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
-
-<% 
-   int roundType = request.getAttribute(Constants.ROUND_TYPE_ID) == null ? Constants.LONG_ROUND_TYPE_ID : ((Integer) request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();
-    String image = "long_comps_topcoder";
-    
-    if (roundType == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID || roundType == Constants.INTEL_LONG_ROUND_TYPE_ID ) {
-        image = "long_comps_intel";
-    } 
-%>
-
 <html>
 <head>
     <title>TopCoder</title>
@@ -69,7 +59,7 @@ return false;
 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
 <jsp:include page="page_title.jsp">
-    <jsp:param name="image" value="<%=image%>"/>
+    <jsp:param name="image" value="long_comps_topcoder"/>
     <jsp:param name="title" value="Contest Overview"/>
 </jsp:include>
 

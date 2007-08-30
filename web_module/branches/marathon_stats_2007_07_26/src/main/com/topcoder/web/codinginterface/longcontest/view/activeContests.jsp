@@ -130,8 +130,7 @@
                                                >Submit</a>
                                         </logic:notEqual>
                                    </logic:equal>
-                                   </c:otherwise>  
-                               </c:choose>
+                               </c:otherwise>  
                            </c:choose>
                         </td>
                         <td class="valueC" align="center">
