@@ -67,9 +67,13 @@
                 <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
                     <tr class="<%=even?"light":"dark"%>">
                         <td class="value">
-                            <strong><tc-webtag:beanWrite name="contest" property="contestName"/> &gt; <tc-webtag:beanWrite name="contest" property="roundName"/></strong>
-                            <c:forEach items="${originalRounds[contest.problemID]}" var="r">
-                                ${r.name}-${r.id}<br/> 
+                            <c:forEach items="${originalRounds[contest.problemID]}" var="r" varStatus="status">
+                                <a href="?module=ViewStandings&rd=${r.id}" class="bcLink">
+                                    r.name
+                                </a>
+                                <c:if test="${not status.last }">
+                                    <br/>
+                                </c:if>
                             </c:forEach>
                         </td>
                         <td class="value">
