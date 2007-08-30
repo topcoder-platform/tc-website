@@ -47,18 +47,19 @@ public class ViewPractice extends ViewActiveContests {
                 Date startTime = (Date) rsc.getItem(i, "start_time").getResultData();
                 Date endTime = (Date) rsc.getItem(i, "end_time").getResultData();
                 int numParticipants = getNumParticipants(dai, roundID);
-                boolean usrRoundRegistered = true;
-
+                int roundTypeId = rsc.getIntItem(i, "round_type_id");
+                
                 // Save contest properties to be displayed later on
                 longContest.setContestName(contestName);
                 longContest.setRoundID(roundID);
                 longContest.setRoundName(roundName);
                 longContest.setStartTime(startTime);
                 longContest.setEndTime(endTime);
-                longContest.setCoderRegistered(usrRoundRegistered);
+                longContest.setCoderRegistered(true);
                 longContest.setContestID(contestID);
                 longContest.setStarted(true); // Practices don't have time contraints
                 longContest.setNumCompetitors(numParticipants);
+                longContest.setRoundTypeId(roundTypeId);
 
                 // Get the problem for the round
                 RoundProblem prob = getRoundProblem(dai, roundID);
