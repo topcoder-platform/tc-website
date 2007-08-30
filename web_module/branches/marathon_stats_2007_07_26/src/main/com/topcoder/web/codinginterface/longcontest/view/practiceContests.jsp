@@ -11,6 +11,8 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
+
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <html>
@@ -77,7 +79,7 @@
                             </c:forEach>
                         </td>
                         <td class="value">
-                            ${contest.problemName}
+                           <mm:problemLink roundId="${contest.roundID}" problemId="${contest.problemID}" problemName="${contest.problemName}" />                            
                         </td>
                         <td class="valueC">
                             <tc-webtag:beanWrite name="contest" property="numCompetitors"/>
