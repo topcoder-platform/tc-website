@@ -70,10 +70,10 @@
                     </tr>
                     <c:if test="${isHighSchool}">
                         <tr class="light">
-                            <td class="value" nowrap="nowrap">
+                            <td class="value" nowrap="nowrap" style="border: none;">
                                 <span style="display: block; padding-top: 4px;">Show / hide my school:</span>
                             </td>
-                            <td class="value" width="100%">
+                            <td class="value" width="100%" style="border: none;">
                                 <tc-webtag:errorIterator id="err" name="err_show_school">
                                     <span class="bigRed"><%=err%></span>
                                 </tc-webtag:errorIterator>
@@ -84,7 +84,7 @@
                     </c:if>
                     <c:forEach var="preference" items="${preferenceList}">
                         <tr class="light">
-                            <td class="value" width="100%">
+                            <td class="value" width="100%" style="border: none;">
                                 <tc-webtag:errorIterator id="err" name="err_${preference.id}">
                                     <span class="bigRed"><%=err%></span><br />
                                 </tc-webtag:errorIterator>
@@ -94,7 +94,7 @@
                                 </c:if>
                                 </span>
                             </td>
-                            <td class="value" nowrap="nowrap">
+                            <td class="value" nowrap="nowrap" style="border: none;">
                                 <c:choose>
                                     <c:when test="${preference.type.id == 1}">
                                         <tc-webtag:chkBox name="pref_${preference.id}"/>
