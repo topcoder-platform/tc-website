@@ -40,6 +40,8 @@ public class Home extends Base {
             dataRequest.setProperty("er", "10");   // just get the top 10
             getRequest().setAttribute("top_coders",
                     dwDai.getData(dataRequest).get("Coder_Ratings"));
+            getRequest().setAttribute("top_mm_coders",
+                    dwDai.getData(dataRequest).get("marathon_coder_rank"));
             getRequest().setAttribute("School_Avg_Rating",
                     dwDai.getData(dataRequest).get("School_Avg_Rating"));
             getRequest().setAttribute("Country_Avg_Rating",
