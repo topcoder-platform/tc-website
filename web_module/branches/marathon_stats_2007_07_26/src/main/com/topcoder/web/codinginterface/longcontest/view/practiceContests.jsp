@@ -82,7 +82,6 @@
                            <mm:problemLink roundId="${contest.roundID}" problemId="${contest.problemID}" problemName="${contest.problemName}" />                            
                         </td>
                         <td class="valueC">
-                            <tc-webtag:beanWrite name="contest" property="numCompetitors"/>
                             ${contest.numCompetitors}
                         </td>
                         <td class="valueC">
