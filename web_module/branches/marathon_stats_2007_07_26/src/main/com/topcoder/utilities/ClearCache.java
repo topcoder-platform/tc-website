@@ -22,11 +22,12 @@ public class ClearCache {
         try {
             ctx = TCContext.getInitial(b.getProperty("host_url"));
             //using reflection so that we don't a lot of nasty dependencies when using the class.
-            CacheClient cache = (CacheClient) ctx.lookup(b.getProperty("jndi_name"));
+            //CacheClient cache = (CacheClient) 
+            Object o = ctx.lookup(b.getProperty("jndi_name"));
 
-            cache.clearCache();
+            //cache.clearCache();
             
-            System.out.println("1. cleared");
+            System.out.println("1. cleared " + o.getClass().getName());
 
         } catch (Exception e) {
             e.printStackTrace();
