@@ -10,22 +10,10 @@
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
 <%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-<% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID) == null ? Constants.LONG_ROUND_TYPE_ID : ((Integer) request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
-<% String myNode = "long_compete";
-    String image = "long_comps_topcoder";
-    if (roundType == Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
-        myNode = "long_practice";
-    } else if (roundType == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
-        myNode = "long_intelmtcs_practice";
-        image = "long_comps_intel";
-    } else if (roundType == Constants.INTEL_LONG_ROUND_TYPE_ID) {
-        myNode = "long_intelmtcs_compete";
-        image = "long_comps_intel";
-    }
-%>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -54,7 +42,7 @@
 <%-- Left Column Begins--%>
         <td width="180">
             <jsp:include page="includes/global_left.jsp">
-                <jsp:param name="node" value="<%=myNode%>"/>
+                <jsp:param name="node" value="long_compete"/>
             </jsp:include>
         </td>
 <%-- Left Column Ends --%>
@@ -64,7 +52,7 @@
 
 <%-- value of image is 'long_comps_topcoder' or 'long_comps_intel' --%>
 <jsp:include page="page_title.jsp">
-    <jsp:param name="image" value="<%=image%>"/>
+    <jsp:param name="image" value="long_comps_topcoder"/>
     <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
@@ -126,16 +114,25 @@
 
                         </td>
                         <td class="valueC">
-                            <logic:equal name="contest" property="passed" value="false">
-                                <logic:equal name="contest" property="coderRegistered" value="false">
-                                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewReg&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>"
-                                       >Register/Submit</a>
-                                </logic:equal>
-                                <logic:notEqual name="contest" property="coderRegistered" value="false">
-                                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>"
-                                       >Submit</a>
-                                </logic:notEqual>
-                            </logic:equal>
+                            <c:choose>
+                                <c:when test="${isAnonymous}">
+                                            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewReg&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>"
+                                               >Register/Submit</a>                                
+                                </c:when>
+                                <c:otherwise>                          
+                                    <logic:equal name="contest" property="passed" value="false">
+                                        <logic:equal name="contest" property="coderRegistered" value="false">
+                                            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewReg&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>"
+                                               >Register</a>
+                                        </logic:equal>
+                                        <logic:notEqual name="contest" property="coderRegistered" value="false">
+                                            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>"
+                                               >Submit</a>
+                                        </logic:notEqual>
+                                   </logic:equal>
+                                   </c:otherwise>  
+                               </c:choose>
+                           </c:choose>
                         </td>
                         <td class="valueC" align="center">
                             <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" >

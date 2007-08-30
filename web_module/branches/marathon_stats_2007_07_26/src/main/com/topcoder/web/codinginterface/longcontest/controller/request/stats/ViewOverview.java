@@ -53,7 +53,6 @@ public class ViewOverview extends Base {
             }
             
             r.setProperty(Constants.ROUND_ID, roundID);
-            r.setProperty(Constants.ROUND_TYPE_ID, getRequest().getAttribute(Constants.ROUND_TYPE_ID).toString());
             
             Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
             ResultSetContainer rsc = result.get("long_contest_overview_coders");
