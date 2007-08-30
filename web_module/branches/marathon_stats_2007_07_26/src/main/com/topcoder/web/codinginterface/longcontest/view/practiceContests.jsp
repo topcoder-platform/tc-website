@@ -68,8 +68,8 @@
                     <tr class="<%=even?"light":"dark"%>">
                         <td class="value">
                             <c:forEach items="${originalRounds[contest.problemID]}" var="r" varStatus="status">
-                                <a href="?module=ViewStandings&rd=${r.id}" class="bcLink">
-                                    r.name
+                                <a href="/longcontest/?module=ViewStandings&rd=${r.id}" class="bcLink">
+                                    ${r.name}
                                 </a>
                                 <c:if test="${not status.last }">
                                     <br/>
