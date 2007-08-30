@@ -60,17 +60,17 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Featured Customer</td></tr></table>
             
 
-<!-- UBS begins -->
+<!-- Talbots begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/clients/ubs_logo.png" alt="UBS" border="0" /></td>
+                    <td width="170"><img src="/images/clients/talbots_logo.gif" alt="Talbots" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">UBS is one of the world's leading financial firms. UBS is: the world's leading wealth management business; a global investment banking and securities firm; a key asset manager; and the market leader in Swiss corporate and individual client banking. As an organization, UBS combines financial strength with a culture that embraces change. As an integrated firm, UBS creates added value for clients by drawing on the combined resources and expertise of all its businesses.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www.ubs.com" refer="customer_index"/>" target="_blank">homepage</A>
+                    <td width="99%" class="bodyText">With hundreds of locations in the US, Canada, and the UK, Talbots is a leading specialty retailer, cataloger, and e-tailer of women's classic apparel.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www1.talbots.com/talbotsonline/index.asp" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
-<!-- UBS ends -->
+<!-- Talbots ends -->
 
              <hr width="100%" size="1px" noshade>
              
@@ -379,21 +379,22 @@ ESPN ends
 <!-- Rodale ends -->
 
              <hr width="100%" size="1px" noshade>
+
              
-<!-- Talbots begins -->
+<!-- UBS begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/clients/talbots_logo.gif" alt="Talbots" border="0" /></td>
+                    <td width="170"><img src="/images/clients/ubs_logo.png" alt="UBS" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">With hundreds of locations in the US, Canada, and the UK, Talbots is a leading specialty retailer, cataloger, and e-tailer of women's classic apparel.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www1.talbots.com/talbotsonline/index.asp" refer="customer_index"/>" target="_blank">homepage</A>
+                    <td width="99%" class="bodyText">UBS is one of the world's leading financial firms. UBS is: the world's leading wealth management business; a global investment banking and securities firm; a key asset manager; and the market leader in Swiss corporate and individual client banking. As an organization, UBS combines financial strength with a culture that embraces change. As an integrated firm, UBS creates added value for clients by drawing on the combined resources and expertise of all its businesses.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.ubs.com" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
-<!-- Talbots ends -->
+<!-- UBS ends -->
 
              <hr width="100%" size="1px" noshade>
-
+             
 <!-- Verisign begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
