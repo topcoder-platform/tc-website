@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.30.07<br>11:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm363">SRM 363 - Problem Set &amp; Analysis</A></span><br><br>
+      As the last chance to practice before the TCCC 2007 qualification rounds, SRM 363 attracted 1312 coders. The match in Division 1 started very fast with a standard easy problem, followed by a tricky medium. Unfortunately, the 1000 pointer was too hard (maybe even NP hard) to be solved by anyone (including me).</td>
+         <td class="newsPhoto"><img src="/i/m/mateuszek_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="11801002" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm363">full story</A> | 
+         <tc-webtag:forumLink forumID="516060" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.29.07<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 1B set for August 30</A></span><br><br>
@@ -151,21 +167,5 @@
          <A href="/tc?module=Static&d1=tutorials&d2=randomNumbers2">full story</A> | 
          <tc-webtag:forumLink forumID="517127" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=mm_index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.23.07<br>10:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_qual_rd2">TCCC07 - Qual Round 2 - Problem Set &amp; Analysis</A></span><br><br>
-      With 729 competitors vying for 550 slots, Qualification Round 2 of the TCCC07 was a bit less intense than the first round. Newcomer <tc-webtag:handle coderId="22692136" context="algorithm"/> from China took first place with an impressive 1653.14 points. Second place was also taken by a newcomer, <tc-webtag:handle coderId="22682047" context="algorithm"/>, with <tc-webtag:handle coderId="21075542" context="algorithm"/> only 12.79 points behind in third place.</td>
-         <td class="newsPhoto"><img src="/i/m/ivan_metelsky_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10481120" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_qual_rd2">full story</A> | 
-         <tc-webtag:forumLink forumID="517155" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
