@@ -39,7 +39,7 @@ return false;
 <body>
 
         <jsp:include page="/top.jsp" >
-            <jsp:param name="level1" value=""/>
+            <jsp:param name="level1" value="long"/>
         </jsp:include>
      
 
