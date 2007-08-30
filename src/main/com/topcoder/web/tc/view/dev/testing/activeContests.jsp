@@ -37,7 +37,10 @@
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
-<div align="right"><A href="/tc?module=Static&d1=dev&d2=testing&d3=instructions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0" /></A></div>
+<div align="right" style="margin: 6px 0px;">
+    <a href="/tc?module=Static&d1=dev&d2=testing&d3=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
+</div>
+
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
    <tr><td class="title" colspan="8">Active Software Testing Contests</td></tr>
    <tr>
