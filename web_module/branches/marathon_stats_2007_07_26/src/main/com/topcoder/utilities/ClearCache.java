@@ -10,8 +10,11 @@ public class ClearCache {
      */
     public static void main(String[] args) {
         try {
-            new JbossCacheClient().clearCache();
-            System.out.println("cleared!");
+            JbossCacheClient cache = new JbossCacheClient();
+            int size = cache.getKeys().size();
+            cache.clearCache();
+            
+            System.out.println("cleared " + size + " elements");
         } catch (TCCacheException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
