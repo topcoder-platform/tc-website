@@ -132,6 +132,7 @@ function loaded() {
   <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
   <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document_id}"/>
   <input type="hidden" name="module" value="AddAssignmentDocument"/>
+  <input type="hidden" name="reference_id"/>
 
         <table cellpadding="5" cellspacing="5" border="0">
         <tr id="errorsTr">
