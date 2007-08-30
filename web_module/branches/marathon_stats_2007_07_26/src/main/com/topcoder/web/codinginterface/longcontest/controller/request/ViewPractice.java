@@ -79,7 +79,7 @@ public class ViewPractice extends ViewActiveContests {
             }
            
             // the key is the problem_id, and for each problem, it contains a list of RoundInfo
-            Map<Integer, List<RoundInfo> > rounds = new HashMap<Integer, List<RoundInfo> >();
+            Map<Long, List<RoundInfo> > rounds = new HashMap<Long, List<RoundInfo> >();
             
             ResultSetContainer origRsc = new ResultSetContainer(m.get("long_contest_original_rounds"), new RoundDisplayNameCalculator("display_name"));
 
@@ -87,7 +87,7 @@ public class ViewPractice extends ViewActiveContests {
                 List<RoundInfo> list = rounds.get(row.getIntItem("problem_id"));
                 if (list == null) {
                     list = new ArrayList<RoundInfo>();
-                    rounds.put(row.getIntItem("problem_id"), list);
+                    rounds.put(row.getLongItem("problem_id"), list);
                 }
                 list.add(new RoundInfo(row.getIntItem("round_id"), row.getStringItem("display_name")));
             }
