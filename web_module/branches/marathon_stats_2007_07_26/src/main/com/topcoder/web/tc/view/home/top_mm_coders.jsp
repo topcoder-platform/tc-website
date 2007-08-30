@@ -2,7 +2,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<% ResultSetContainer coders = (ResultSetContainer)request.getAttribute("top_mm_coders");%>
+<% ResultSetContainer mmcoders = (ResultSetContainer)request.getAttribute("top_mm_coders");%>
 
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr valign="middle">
@@ -18,7 +18,7 @@
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText" width="45%">Rating</td>
     </tr>
     <% boolean even= true; %>
-    <rsc:iterator list="<%=coders%>" id="resultRow">
+    <rsc:iterator list="<%=mmcoders%>" id="resultRow">
         <tr>
             <td align="right" class="formHandleEven"><rsc:item name="rank" row="<%=resultRow%>"/>&#160;&#160;&#160;</td>
             <td align="left" class="formHandleEven" nowrap="nowrap"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="marathon_match"/></td>
