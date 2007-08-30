@@ -10,6 +10,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <html>
@@ -67,6 +68,9 @@
                     <tr class="<%=even?"light":"dark"%>">
                         <td class="value">
                             <strong><tc-webtag:beanWrite name="contest" property="contestName"/> &gt; <tc-webtag:beanWrite name="contest" property="roundName"/></strong>
+                            <c:forEach items="${originalRounds[contest.problemId]} var="r">
+                                ${r.name}-${r.id}<br/> 
+                            </c:forEach>
                         </td>
                         <td class="value">
                             ${contest.problemName}
@@ -75,11 +79,7 @@
                             <tc-webtag:beanWrite name="contest" property="numCompetitors"/>
                         </td>
                         <td class="valueC">
-                            &nbsp;
-                            <logic:equal name="contest" property="roundTypeId" value="14">
                                 <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>">submit</a>
-                            </logic:equal>
-                            &nbsp;
                         </td>
                         <td class="valueC">
                             <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewStandings&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>">standings</a>

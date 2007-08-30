@@ -2,6 +2,7 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +12,9 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.model.LongContest;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.algo.Round;
 
 public class ViewPractice extends ViewActiveContests {
 
@@ -74,7 +77,24 @@ public class ViewPractice extends ViewActiveContests {
 
                 contests.add(longContest);
             }
+           
+            // the key is the problem_id, and for each problem, it contains a list of RoundInfo
+            Map<Integer, List<RoundInfo> > rounds = new HashMap<Integer, List<RoundInfo> >();
+            
+            ResultSetContainer origRsc = new ResultSetContainer(m.get("long_contest_original_rounds"), new RoundDisplayNameCalculator("display_name"));
 
+            for (ResultSetContainer.ResultSetRow row : origRsc) {
+                List<RoundInfo> list = rounds.get(row.getIntItem("problem_id"));
+                if (list == null) {
+                    list = new ArrayList<RoundInfo>();
+                    rounds.put(row.getIntItem("problem_id"), list);
+                }
+                list.add(new RoundInfo(row.getIntItem("round_id"), row.getStringItem("display_name")));
+            }
+
+            getRequest().setAttribute("originalRounds", rounds);
+
+            
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
@@ -112,4 +132,22 @@ public class ViewPractice extends ViewActiveContests {
         return rsc.getIntItem(0, 0);
     }
 
+    public class RoundInfo {
+        private String name;
+        private int id;
+        
+        public RoundInfo(int id, String name) {
+            super();
+            this.id = id;
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+        
+        public int getId() {
+            return id;
+        }
+    }
 }
