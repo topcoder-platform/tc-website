@@ -1,14 +1,11 @@
 package com.topcoder.utilities;
 
-import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.rmi.PortableRemoteObject;
 
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCResourceBundle;
-import com.topcoder.web.common.cache.CacheClient;
 import com.topcoder.web.common.cache.JbossCacheClient;
 import com.topcoder.web.common.cache.TCCacheException;
 
@@ -25,11 +22,17 @@ public class ClearCache {
             //using reflection so that we don't a lot of nasty dependencies when using the class.
              
             Object o = ctx.lookup(b.getProperty("jndi_name"));
-            
-            CacheClient cache = (CacheClient) PortableRemoteObject.narrow(o, CacheClient.class);
-            cache.clearCache();
-            
-            System.out.println("1. cleared " + o.getClass().getName());
+
+            Method remove = null;
+            Method[] methods = o.getClass().getDeclaredMethods();
+            for (Method m : methods) {
+                System.out.println(m.getName());
+                if ("clearCache".equals(m.getName())) {
+                    remove = m;
+                    break;
+                }
+            }
+            remove.invoke(o);            
 
         } catch (Exception e) {
             e.printStackTrace();
