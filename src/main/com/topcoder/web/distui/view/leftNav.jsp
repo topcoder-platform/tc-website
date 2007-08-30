@@ -142,15 +142,7 @@
 
    nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?&amp;module=SurveyList", "Surveys", "competitor_surveys"));
 
-   nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_my_tc')", "My TopCoder", "m_my_tc"));
-//      nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/Registration?update=true", "Update My Profile", "competitor_update_profile"));
-      nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/reg/?nrg=false", "Update My Profile", "competitor_update_profile"));
-      nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReferrals", "Member Referrals", "referrals"));
-      nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/PactsMemberServlet?module=AffidavitHistory", "Affidavits", "affidavits"));
-      nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=VisaSelection", "Visa Letter Status", "visa"));
-      nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/PactsMemberServlet?module=AssignmentDocumentHistory", "Assignment Documents", "assignment_docs"));
-      nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/PactsMemberServlet?module=PaymentHistory", "Payments", "payments"));
-      nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=card&amp;d2=description", "Cards / Badges", "cards_badges"));
+   nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=MyHome", "My TopCoder", "my_topcoder"));
 
    nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_about_tc')", "About TopCoder", "m_about_tc"));
       nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=index", "Overview", "tc_overview"));
