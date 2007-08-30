@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.rmi.PortableRemoteObject;
 
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCResourceBundle;
@@ -22,10 +23,11 @@ public class ClearCache {
         try {
             ctx = TCContext.getInitial(b.getProperty("host_url"));
             //using reflection so that we don't a lot of nasty dependencies when using the class.
-            //CacheClient cache = (CacheClient) 
+             
             Object o = ctx.lookup(b.getProperty("jndi_name"));
-
-            //cache.clearCache();
+            
+            CacheClient cache = (CacheClient) PortableRemoteObject.narrow(o, CacheClient.class);
+            cache.clearCache();
             
             System.out.println("1. cleared " + o.getClass().getName());
 
