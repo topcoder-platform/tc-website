@@ -15,8 +15,8 @@
 <!--  Leave empty if the round doesn't exist or it's not finished -->
 
 <c:set value="stat?c=round_overview&er=5&rd=" var="details_link"/>
-<c:set var="round1A_id" value="11111"/>
-<c:set var="round1B_id" value="11222"/>
+<c:set var="round1A_id" value="10898"/>
+<c:set var="round1B_id" value="10897"/>
 <c:set var="round1C_id" value="11333"/>
 <c:set var="round2_id" value="22222"/>
 <c:set var="round3_id" value="33333"/>
@@ -120,40 +120,42 @@
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round1_sort")%>"/>">Round 1</a>
                             <br />details: 
-                            <br /><c:if test = "${not empty round1A_id}"><a href="${details_link}${round1A_id}">A</a></c:if>
+                            <br />
+                            <c:if test = "${not empty round1A_id}"><a href="${details_link}${round1A_id}">A</a></c:if>
                             <c:if test = "${not empty round1B_id}"><a href="${details_link}${round1B_id}">B</a></c:if>
-                            <c:if test = "${not empty round1C_id}"><a href="${details_link}${round1C_id}">C</a></c:if>
+                            <%--<c:if test = "${not empty round1C_id}"><a href="${details_link}${round1C_id}">C</a></c:if>--%>
                             </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round2_sort")%>"/>">Round 2</a>
-                            <br /><c:if test = "${not empty round2_id}"><a href="${details_link}${round2_id}">details</a></c:if>
+                            <br /><%--<c:if test = "${not empty round2_id}"><a href="${details_link}${round2_id}">details</a></c:if>--%>
                             <br />&nbsp;
                         </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round3_sort")%>"/>">Round 3</a>
-                            <br /><c:if test = "${not empty round3_id}"><a href="${details_link}${round3_id}">details</a></c:if>
+                            <br /><%--<c:if test = "${not empty round3_id}"><a href="${details_link}${round3_id}">details</a></c:if>--%>
                             <br />&nbsp;
                         </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round4_sort")%>"/>">Round 4</a>
-                            <br /><c:if test = "${not empty round4_id}"><a href="${details_link}${round4_id}">details</a></c:if>
+                            <br /><%--<c:if test = "${not empty round4_id}"><a href="${details_link}${round4_id}">details</a></c:if>--%>
                             <br />&nbsp;
                         </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("semi_sort")%>"/>">Semi</a>
                             <br />details: 
-                            <br /><c:if test = "${not empty semi1_id}"><a href="${details_link}${semi1_id}">1</a></c:if>
-                            <c:if test = "${not empty semi2_id}"><a href="${details_link}${semi2_id}">2</a></c:if>
-                            <c:if test = "${not empty semi3_id}"><a href="${details_link}${semi3_id}">3</a></c:if>
+                            <br />&nbsp;
+                            <%--<c:if test = "${not empty semi1_id}"><a href="${details_link}${semi1_id}">1</a></c:if>--%>
+                            <%--<c:if test = "${not empty semi2_id}"><a href="${details_link}${semi2_id}">2</a></c:if>--%>
+                            <%--<c:if test = "${not empty semi3_id}"><a href="${details_link}${semi3_id}">3</a></c:if>--%>
                         </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("wildcard_sort")%>"/>">Wildcard</a>
-                            <br /><c:if test = "${not empty wildcard_id}"><a href="${details_link}${wildcard_id}">details</a></c:if>
+                            <br /><%--<c:if test = "${not empty wildcard_id}"><a href="${details_link}${wildcard_id}">details</a></c:if>--%>
                             <br />&nbsp;
                         </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("finals_sort")%>"/>">Final</a>
-                            <br /><c:if test = "${not empty finals_id}"><a href="${details_link}${finals_id}">details</a></c:if>
+                            <br /><%--<c:if test = "${not empty finals_id}"><a href="${details_link}${finals_id}">details</a></c:if>--%>
                             <br />&nbsp;
                         </td>
                     </tr>
