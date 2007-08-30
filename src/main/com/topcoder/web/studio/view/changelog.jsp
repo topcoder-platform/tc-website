@@ -26,6 +26,13 @@
 
 <div class="contentSpacer">
 <p>
+    2.0.9 - 2007.08.xx
+    <ul>
+        <li>Fix NPE when attempting to download a submisson that was the client selection, but did not get another prize -dok</li>
+    </ul>
+
+</p
+<p>
     2.0.8 - 2007.08.21
     <ul>
         <li>Fix final submission processing so that it quietly deals with invalid mime types -dok</li>
