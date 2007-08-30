@@ -44,7 +44,7 @@
 
 
 <p>
-    5.10.20 - 2007.08.xx
+    5.11.0 - 2007.08.30
     <ul>
         <li>New My Topcoder pages and user preferences -pulky</li>
         <li>Added the possibility for a user to hide his payment information -pulky</li>
