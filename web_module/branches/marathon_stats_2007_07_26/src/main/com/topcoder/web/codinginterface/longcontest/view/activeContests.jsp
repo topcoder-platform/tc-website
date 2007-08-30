@@ -55,6 +55,10 @@
     <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
+            <div align="right" style="margin: 6px 0px;">
+                <a href="/longcontest/?module=Static&amp;d1=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
+            </div>
+
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat">
 
                 <tr>
@@ -150,6 +154,13 @@
                     <%even = !even;%>
                 </logic:iterate>
 
+                <tr class="light">
+                    <td class="valueC" colspan="8">
+                        <div align="center" style="margin: 40px 0px 40px 0px;">
+                            There are currently no active contests, but check back soon.
+                        </div>
+                    </td>
+                </tr>
             </table>
 
         </td>
