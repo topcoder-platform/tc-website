@@ -11,6 +11,7 @@ public class ClearCache {
     public static void main(String[] args) {
         try {
             JbossCacheClient cache = new JbossCacheClient();
+            cache.set("test", "hi");
             int size = cache.getKeys().size();
             cache.clearCache();
             
