@@ -100,7 +100,7 @@
             </jsp:include>
 
             <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br/>                
-            <span class="bodySubtitle">Problem: ${infoRow.map['class_name']}</span>
+            <span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span>
 
             <p>
                 <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId="${infoRow.map['coder_id']}"/></span>
