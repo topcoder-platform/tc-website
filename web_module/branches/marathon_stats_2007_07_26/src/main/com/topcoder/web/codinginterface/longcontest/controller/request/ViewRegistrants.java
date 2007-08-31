@@ -77,7 +77,7 @@ public class ViewRegistrants extends Base {
             setDefault(DataAccessConstants.START_RANK, "" + startRank);
 
             
-            ResultSetContainer infoRsc = new ResultSetContainer(result.get("long_contest_round_registrants"), new RoundDisplayNameCalculator("display_name"));
+            ResultSetContainer infoRsc = new ResultSetContainer(result.get("long_contest_round_registrants_info"), new RoundDisplayNameCalculator("display_name"));
             result.put("long_contest_round_registrants_info", infoRsc);
             
 
