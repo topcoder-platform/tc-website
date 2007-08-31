@@ -1,48 +1,41 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>$title - #siteTitle()</title>
+    #if ($sitemeshPage.getProperty("page.spacename"))
+        <title>$title - $sitemeshPage.getProperty("page.spacename") - #siteTitle()</title>
+    #else
+        <title>$title - #siteTitle()</title>
+    #end
     #standardHeader()
-    <link type="text/css" rel="stylesheet" href="/css/tcStyles.css" />
+    $!settingsManager.globalSettings.customHtmlSettings.beforeHeadEnd
 </head>
 ## HTML HEADER ENDS
 
 ## HTML BODY BEGINS
 #onLoad()
+$!settingsManager.globalSettings.customHtmlSettings.afterBodyStart
 
-## TOP
+#set ($username = $sitemeshPage.getProperty("page.username"))
+#set ($spaceKey = $sitemeshPage.getProperty("page.spacekey"))
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-<tbody>
-    <tr valign="top">
+#displayGlobalMessages($spaceKey $username)
 
-## LEFT NAV
-        #if ($navHelper.hasNavigation($sitemeshPage.getProperty("page.spacekey")) || $sitemeshPage.getProperty("page.pageops") || $sitemeshPage.getProperty("page.navops"))
-        <td width="180">
-        $navHelper.renderNavigation($sitemeshPage.getProperty("page.spacekey"))
-        </td>
-        #end
-        <td width="100%" align="left" class="bodyColumn">
+## CONTENT DIV BEGINS
+<div id="PageContent">
 
-## PAGE BODY
-    #if ($navHelper.hasNavigation($sitemeshPage.getProperty("page.spacekey")) || $sitemeshPage.getProperty("page.pageops") || $sitemeshPage.getProperty("page.navops"))
-    $!sitemeshPage.getProperty("page.pageops")
-    $!sitemeshPage.getProperty("page.navops")
-    $!sitemeshPage.getProperty("page.spaceops")
-    #end
-    <table  border="0" cellpadding="0" cellspacing="0" width="100%">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
         ## LOCATION BAR: (BREADCRUMBS AND SEARCH BOX) BEGIN
         <tr class="topBar">
-            <td align="left" width="85%">
+            <td align="left">
                 &nbsp;
                 <span class="topBarDiv"> #breadcrumbs() </span>
             </td>
-            <td align="right" valign="middle" width="1%" nowrap>
+
+            <td align="right" valign="middle" style="white-space:nowrap">
                 #quickSearch()
             </td>
         </tr>
-    </table>
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
         ## LOCATION BAR: (BREADCRUMBS AND SEARCH BOX) END
 
         ## INFO BAR: (LOGO, LOCATION, AND USER/GROUP OPTIONs) BEGIN
@@ -50,22 +43,30 @@
             <td style="padding: 5px" colspan="2">
             <table style="padding: 0px; margin: 0px 5px; width: 100%;" cellspacing="0" cellpadding="1" border="0">
                 <tr>
-                    <td rowspan="2" valign="bottom" width="1%">
-                    <a href="$req.contextPath/dashboard.action"><img src="#logo($sitemeshPage.getProperty("page.spacekey"))" align="absmiddle" border="0"></a>
-                    </td>
-                    <td valign="bottom" align="left" width="1%" nowrap>
+					#if ($sitemeshPage.getProperty("page.username"))
+						#set ($tildeUsername = "~$username")
+					<td rowspan="2" valign="bottom" width="1%">#logoBlock($tildeUsername)</td>
+					#else
+					<td rowspan="2" valign="bottom" width="1%">#logoBlock($spaceKey)</td>
+					#end
+					<td valign="bottom" align="left" width="1%" nowrap>&nbsp;
                         <span class="logoSpaceLink">#spaceTitleLink()</span>
                     </td>
                     <td align="right" valign="top" width="98%">
                         ## history, profile, admin, logout links
                         #usernavbar()
-                        #printableicon()
-                        #pdficon()
+						
+						#printableicon()
+                        #if (!$sitemeshPage.getProperty("page.suppressPdfLink"))
+                            #pdficon()
+                        #end
+                        #feedicon()
+                        &nbsp;
                     </td>
                 </tr>
                 <tr>
-                    <td height="22" align="left" colspan="2">
-                        <span class="pagetitle" style="padding: 0px; margin: 0px; text-decoration: none">
+                    <td height="22" align="left" colspan="2">&nbsp;
+                        <span class="pagetitle" style="line-height: 1; margin: 0px; text-decoration: none">
                             #pageTitleLink()
                         </span>
                     </td>
@@ -76,14 +77,11 @@
         ## INFO BAR: (LOGO, LOCATION, AND USER/GROUP OPTIONs) END
     </table>
 
+    ## PAGE DEPENDENT INLINE DECORATOR RENDERING SHOULD BEGIN HERE
+    $body
 
-        </td>
-    </tr>
-</tbody>
-</table>
+    ## PAGE DEPENDENT INLINE DECORATOR RENDERING SHOULD END HERE
+</div>
+## CONTENT DIV ENDS
 
-## FOOT
 #parse ("/decorators/includes/footer.vmd")
-
-</body>
-</html>
