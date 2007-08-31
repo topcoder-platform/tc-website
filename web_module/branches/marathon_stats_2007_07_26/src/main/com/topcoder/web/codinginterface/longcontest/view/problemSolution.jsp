@@ -1,5 +1,6 @@
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page
         language="java"
         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
@@ -11,13 +12,11 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
+<%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <jsp:useBean id="resultMap" type="java.util.Map" scope="request"/>
-<%
-    ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_contest_submission");
-    ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) rsc.get(0);
-%>
+
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID) == null ? Constants.LONG_ROUND_TYPE_ID : ((Integer) request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
 <% String myNode = "long_compete";
     String image = "long_comps_topcoder";
@@ -31,7 +30,7 @@
         image = "long_comps_intel";
     }
 %>
-
+<% ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) request.getAttribute("infoRow"); %>
 <%!
     private String addSpace(String text) {
         int i = -1;
@@ -100,18 +99,16 @@
                 <jsp:param name="title" value="Problem Solution"/>
             </jsp:include>
 
-            <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/> &gt; <rsc:item name="round_name" row="<%=infoRow%>"/></span>
-            <br>
-            <span class="bodySubtitle">Problem: <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>">
-                <rsc:item name="problem_name" row="<%=infoRow%>"/></a></span>
+            <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br/>                
+            <span class="bodySubtitle">Problem: ${infoRow.map['class_name']}</span>
 
             <p>
-                <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId='<%=infoRow.getLongItem("coder_id")%>'/></span>
+                <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId="${infoRow.map['coder_id']}"/></span>
                 <br>
-                <span class="bodySubtitle">Submission: <rsc:item name="submission_number" row="<%=infoRow%>"/></span>
+                <span class="bodySubtitle">Submission: ${infoRow.map['submission_number']}</span>
                 <br>
                 <% if (String.valueOf(true).equals(request.getAttribute("mostRecent"))&&String.valueOf(true).equals(request.getAttribute(Constants.EXAMPLE_FLAG))) { %>
-                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleResults&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=infoRow%>"/>">Example
+                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleResults&amp;<%=Constants.PROBLEM_ID%>=${infoRow.map['problem_id']}<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}&amp;<%=Constants.CODER_ID%>=${infoRow.map['coder_id']}">Example
                     Results</A>
                 <br>
                 <% } %>
