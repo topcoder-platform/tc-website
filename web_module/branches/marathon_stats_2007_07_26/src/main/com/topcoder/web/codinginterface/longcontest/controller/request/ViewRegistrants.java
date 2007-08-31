@@ -70,12 +70,16 @@ public class ViewRegistrants extends Base {
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
 
             rsc = new ResultSetContainer(rsc, startRank, endRank);
-            rsc = new ResultSetContainer(rsc, new RoundDisplayNameCalculator("display_name"));
 
             result.put("long_contest_round_registrants", rsc);
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, "" + numRecords);
             setDefault(DataAccessConstants.START_RANK, "" + startRank);
+
+            
+            ResultSetContainer infoRsc = new ResultSetContainer(result.get("long_contest_round_registrants"), new RoundDisplayNameCalculator("display_name"));
+            result.put("long_contest_round_registrants_info", infoRsc);
+            
 
             request.setAttribute("resultMap", result);
 
