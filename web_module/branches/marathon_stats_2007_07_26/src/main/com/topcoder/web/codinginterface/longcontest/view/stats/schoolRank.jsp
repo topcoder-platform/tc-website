@@ -75,7 +75,7 @@
                     </tr>   
                </c:forEach>   
             </table>
-               
+               Note: in order for a school to be ranked, it must have at least 5 members.
             </div>
                 </td>
 
