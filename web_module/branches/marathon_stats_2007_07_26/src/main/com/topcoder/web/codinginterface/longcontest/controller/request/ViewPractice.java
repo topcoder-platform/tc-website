@@ -85,14 +85,11 @@ public class ViewPractice extends ViewActiveContests {
 
             for (ResultSetContainer.ResultSetRow row : origRsc) {
                 List<RoundInfo> list = rounds.get(row.getLongItem("problem_id"));
-                log.debug("problem id: " + row.getLongItem("problem_id"));
                 if (list == null) {
-                    log.debug("new list!");
                     list = new ArrayList<RoundInfo>();
                     rounds.put(row.getLongItem("problem_id"), list);
                 }
                 list.add(new RoundInfo(row.getIntItem("round_id"), row.getStringItem("display_name")));
-                log.debug("adding: " + row.getStringItem("display_name"));
             }
 
             getRequest().setAttribute("originalRounds", rounds);
