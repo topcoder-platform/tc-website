@@ -65,8 +65,8 @@
             </jsp:include>
 
             <div style="float:right;">
-                <div id="printableLink"><a href="Javascript:makeInvisible();" >Printable view</a></div>
-                <div id="navigableLink" class="invisible"><a href="Javascript:makeNavigable();" >Normal view</a></div>
+                <div id="printableLink"><A href="Javascript:makeInvisible();" mce_href="Javascript:makeInvisible();">Printable view</A></div>
+                <div id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();" mce_href="Javascript:makeNavigable();">Normal view</A></div>
             </div>
 
             <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br />                
