@@ -57,7 +57,7 @@
             <logic:notEqual name="systemTestCount" value="0">
                 <span class="bodySubtitle">System Tests Remaining: <%=systemTestCount%></span><br/><br/>
             </logic:notEqual>    
-${roundTypes }
+
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                 <tr>
                     <td>
