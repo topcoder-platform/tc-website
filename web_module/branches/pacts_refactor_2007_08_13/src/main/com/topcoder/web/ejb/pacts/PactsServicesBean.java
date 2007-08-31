@@ -3538,7 +3538,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 ps.setNull(13, Types.VARCHAR);
             }
 
-            for (int i = 14; i <= 20; i++) {
+            for (int i = 14; i <= 21; i++) {
                 ps.setNull(i, Types.DECIMAL);
             }
             switch (BasePayment.getReferenceTypeId(p.getHeader().getTypeId())) {
