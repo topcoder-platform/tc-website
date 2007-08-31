@@ -1,3 +1,8 @@
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
 <%@ page language="java" %>
           
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -6,15 +11,15 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
-<title>TopCoder Statistics</title>
-<jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_stats"/>
-</jsp:include>
-<jsp:include page="/script.jsp" />
-  
+    <title>TopCoder Statistics</title>
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
+    <jsp:include page="/script.jsp" />
+ 
 </head>
 
 <body>
@@ -37,6 +42,7 @@
                 <!-- Center Column Begins -->
                 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
+               Note: in order for a school to be ranked, it must have at least 5 members. <br/>
         <div class="fixedWidthBody">
 
                 <jsp:include page="../page_title.jsp" >
@@ -65,7 +71,7 @@
                         <td class="valueC">${row.map['rank']}</td>
                         <td class="value">${row.map['name']}</td>     
                         <td class="value">
-                            <a href="${sessionInfo.servletPath}?module=CoderRank&cc=${row.map['country_code']}">
+                            <a href="${sessionInfo.servletPath}?module=CoderRank&amp;cc=${row.map['country_code']}">
                                 ${row.map['country_name']}
                             </a>
                         </td>                        
@@ -75,7 +81,6 @@
                     </tr>   
                </c:forEach>   
             </table>
-               Note: in order for a school to be ranked, it must have at least 5 members.
             </div>
                 </td>
 
