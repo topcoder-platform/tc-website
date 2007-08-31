@@ -40,9 +40,8 @@
                 <!-- Left Column Ends -->
 
                 <!-- Center Column Begins -->
-                <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+                <td class="statTableSpacer" width="100%" valign="top">
 
-               Note: in order for a school to be ranked, it must have at least 5 members. <br/>
         <div class="fixedWidthBody">
 
                 <jsp:include page="../page_title.jsp" >
@@ -51,11 +50,13 @@
                 </jsp:include>
 
                 <div align="center">
-                     <A href="${sessionInfo.servletPath}?module=CoderRank" class="bcLink">Competitors</A>
+                     <a href="${sessionInfo.servletPath}?module=CoderRank" class="bcLink">Competitors</a>
                      | Schools
-                     | <A href="${sessionInfo.servletPath}?module=CountryRank" class="bcLink">Countries</A>
+                     | <a href="${sessionInfo.servletPath}?module=CountryRank" class="bcLink">Countries</a>
                 </div>
                 <br/>
+                <br/>
+               Note: in order for a school to be ranked, it must have at least 5 members. <br/>
 
             <table class="stat" cellpadding="0" cellspacing="0" width="510" border="0">
                <tr><td class="title" colspan="5">Top Ranked Marathon Match Schools</td></tr>
@@ -92,7 +93,7 @@
          </td>
 
                 <!-- Gutter -->
-                <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+                <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
                 <!-- Gutter Ends -->
             </tr>
         </table>
