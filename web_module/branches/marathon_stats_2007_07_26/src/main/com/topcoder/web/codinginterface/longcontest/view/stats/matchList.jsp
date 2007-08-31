@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
           java.util.Map"%>
@@ -14,48 +18,50 @@
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statistics</title>
-<jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_stats"/>
-</jsp:include>
-<jsp:include page="/script.jsp" />
-<script type="text/javascript">
-function submitEnter(e) {
-var keycode;
-if (window.event) keycode = window.event.keyCode;
-else if (e) keycode = e.which;
-else return true;
-if (keycode == 13) {
-document.matchListForm.submit();
-return false;
-} else return true;
-}
-</script>
+    <title>TopCoder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="../script.jsp" />
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
+
+    <script type="text/javascript">
+    function submitEnter(e) {
+        var keycode;
+        if (window.event) keycode = window.event.keyCode;
+        else if (e) keycode = e.which;
+        else return true;
+        if (keycode == 13) {
+            document.matchListForm.submit();
+            return false;
+        } else return true;
+    }
+    </script>
    
 </head>
 
 <body>
 
-        <jsp:include page="/top.jsp" >
-            <jsp:param name="level1" value="long"/>
-        </jsp:include>
-     
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value=""/>
+</jsp:include>
 
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr valign="top">
-                <!-- Left Column Begins-->
-                <td width="180">
-                    <jsp:include page="/includes/global_left.jsp">
-                        <jsp:param name="node" value="long_match_archive"/>
-                    </jsp:include>
-                </td>
-                <!-- Left Column Ends -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+    <tr valign="top">
+<%-- Left Column Begins--%>
+        <td width="180">
+            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="node" value="long_match_archive"/>
+            </jsp:include>
+        </td>
+<%-- Left Column Ends --%>
 
-                <!-- Center Column Begins -->
-                <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+<%-- Center Column Begins --%>
+        <td width="100%" align="center" class="bodyColumn">
 
                 <jsp:include page="../page_title.jsp" >
                     <jsp:param name="image" value="statistics_w"/>
@@ -90,7 +96,7 @@ return false;
                    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
                         <td class="value"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
                         <td class="value" nowrap="nowrap">
-                            <a href="/longcontest/stats/?module=ViewOverview&rd=${row.map['round_id']}"/>${row.map['display_name']}</a>                                                    
+                            <a href="/longcontest/stats/?module=ViewOverview&amp;rd=${row.map['round_id']}">${row.map['display_name']}</a>                                                    
                         </td>
                         <td class="value">
                            <mm:problemLink roundId="${row.map['round_id']}" problemId="${row.map['problem_id']}" problemName="${row.map['problem_name']}" />
@@ -98,12 +104,12 @@ return false;
                         <td class="valueR">${row.map['num_competitors']}</td>
                         <td class="valueR">${row.map['num_submissions']}</td>
                         <td class="valueR"><fmt:formatNumber value="${row.map['avg_submissions']}"  minFractionDigits="2" maxFractionDigits="2"/></td>      
-                        <td class="valueC"><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=${row.map['forum_id']}" class="statLink">discuss</a></td>
+                        <td class="valueC"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&amp;forumID=${row.map['forum_id']}" class="statLink">discuss</a></td>
                     </tr>   
                </c:forEach>   
             </table>
 
-        <center>
+        <div align="center">
         <div class="pagingBox" style="width:300px;">
                     <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" /> |
                     <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" />
@@ -114,27 +120,27 @@ return false;
                         &#160;at a time starting with &#160;
                         <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
                         <a href="javascript:document.matchListForm.submit();" class="bcLink">&#160;[ submit ]</a>
-                    </div>
-        </center>        
+        </div>        
  
                     </form>
-                </td>
 
-
-         <td width="170">
-            <jsp:include page="/public_right.jsp">
-               <jsp:param name="level1" value="default"/>
+        </td>
+<%-- Center Column Ends --%>
+        
+<%-- Right Column Begins --%>
+        <td width="170">
+            <jsp:include page="../public_right.jsp">
+                <jsp:param name="level1" value="default"/>
             </jsp:include>
-         </td>
+        </td>
+<%-- Right Column Ends --%>
+        
+    </tr>
+</tbody>
+</table>
 
-                <!-- Gutter -->
-                <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-                <!-- Gutter Ends -->
-            </tr>
-        </table>
+<jsp:include page="../foot.jsp" />
 
-        <jsp:include page="/foot.jsp" />
-
-    </body>
+</body>
 
 </html>
