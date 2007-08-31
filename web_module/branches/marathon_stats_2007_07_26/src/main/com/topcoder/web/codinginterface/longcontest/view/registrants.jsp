@@ -12,6 +12,7 @@
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
 <%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
 <% String myNode = "long_compete";
@@ -69,7 +70,6 @@
                 <span class="errorText"><%=message%></span><br>
             </logic:notEmpty>
             <logic:empty name="<%=Constants.MESSAGE%>">
-                <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
                 <jsp:useBean id="resultMap" type="java.util.Map" scope="request"/>
                 <jsp:useBean id="sortLinkBase" class="java.lang.String" scope="request"/>
                 <jsp:useBean id="prevPageLink" class="java.lang.String" scope="request"/>
@@ -80,7 +80,8 @@
                     ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) rsc.get(0);
                 %>
                 
-                <span class="bigHandle">Contest: <mm:contestLink roundId="<%=infoRow.getStringItem("round_id") %>" roundTypeId="<%=new Integer(infoRow.getIntItem("round_type_id")) %>" contestName="<%=infoRow.getStringItem("contest_name") %>" roundName="<%=infoRow.getStringItem("round_name") %>" styleClass="bcLink" /></span><br>
+                <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" />
+                    </span><br>
                 
             <span class="bodySubtitle">Problem: <a href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=infoRow.getStringItem("round_id") %>&<%=Constants.PROBLEM_ID%>=<%=infoRow.getStringItem("problem_id") %>" class="bcLink">
                       <rsc:item name="problem_name" row="<%=infoRow%>"/></a></span><br>
@@ -96,6 +97,7 @@
                        </logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty>
                    </div>
                 </div>
+                                
 
                 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                     <tr>

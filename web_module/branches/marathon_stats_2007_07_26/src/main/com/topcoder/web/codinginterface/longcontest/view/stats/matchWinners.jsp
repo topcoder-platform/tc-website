@@ -110,7 +110,7 @@ return false;
                    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
                         <td class="value"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
                         <td class="value" nowrap="nowrap">
-                            <a href="/longcontest/stats/?module=ViewOverview&rd=${row.map['round_id']}"/>${row.map['display_name']}</a>
+                            <a href="/longcontest/stats/?module=ViewOverview&amp;rd=${row.map['round_id']}"/>${row.map['display_name']}</a>
                         </td>
                         <td class="value">
                            <mm:problemLink roundId="${row.map['round_id']}" problemId="${row.map['problem_id']}" problemName="${row.map['problem_name']}" />

@@ -12,6 +12,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 import com.topcoder.web.common.*;
 
 import java.util.Map;
@@ -64,11 +65,12 @@ public class ViewRegistrants extends Base {
             Request r = new Request();
             r.setProperty(Constants.ROUND_ID, roundID);
             r.setContentHandle("long_contest_round_registrants");
-            Map result = getDataAccess(false).getData(r);
-            ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_round_registrants");
+            Map<String, ResultSetContainer> result = getDataAccess(false).getData(r);
+            ResultSetContainer rsc = result.get("long_contest_round_registrants");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
 
             rsc = new ResultSetContainer(rsc, startRank, endRank);
+            rsc = new ResultSetContainer(rsc, new RoundDisplayNameCalculator("display_name"));
 
             result.put("long_contest_round_registrants", rsc);
 
