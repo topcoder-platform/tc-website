@@ -98,7 +98,7 @@ return false;
                    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
                         <td class="valueC">${row.map['rank']}</td>
                         <td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon_match"/></td>                        
-                        <td class="valueR">${row.map['rating']}</td>
+                        <td class="valueC">${row.map['rating']}</td>
                     </tr>   
                </c:forEach>   
             </table>
