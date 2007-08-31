@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText">&nbsp;</td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=083107"><strong>Our favorite professors: TopCoder staff look back</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Aug 31, 2007</td> 
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="160049" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=083007"><strong>Introducing the Configuration API<br />&amp; Configuration Persistence components</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Aug 30, 2007</td> 
