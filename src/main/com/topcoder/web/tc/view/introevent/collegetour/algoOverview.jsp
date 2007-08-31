@@ -65,7 +65,7 @@
     until
     <tc-webtag:format object="${eventEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
     in
-    the ${mainEvent.location}. This event is being run in conjunction
+     ${mainEvent.location}. This event is being run in conjunction
     with
     <A href="/tc?module=MatchDetails&rd=${mainEvent.roundId}">${contestName}
     </A>.
