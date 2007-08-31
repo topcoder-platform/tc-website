@@ -101,7 +101,7 @@ text-align: left;
 
                 <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br>                
                 <span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span><br/>
-            <span class="bodySubtitle">Competitors: ${infoRow.map['num_competitors']</span><br>
+            <span class="bodySubtitle">Competitors: ${infoRow.map['num_competitors']}</span><br>
 
             <div class="pagingBox">&#160;</div>
 
