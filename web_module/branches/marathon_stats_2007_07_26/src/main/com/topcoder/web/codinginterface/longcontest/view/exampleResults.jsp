@@ -1,5 +1,6 @@
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page
         language="java"
         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
@@ -9,6 +10,8 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
+<%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
+
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <jsp:useBean id="resultMap" type="java.util.Map" scope="request"/>
@@ -56,16 +59,16 @@
         <%-- Left Column Ends --%>
 
         <%-- Center Column Begins --%>
-        <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+        <td class="statTableSpacer" width="100%" valign="top">
 
             <jsp:include page="page_title.jsp">
                 <jsp:param name="image" value="<%=image%>"/>
                 <jsp:param name="title" value="Example Results"/>
             </jsp:include>
 
-            <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br>                
+            <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br/>                
             <span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span><br/>
-            <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId='<%=(String)request.getAttribute(Constants.CODER_ID)%>'/></span><br>
+            <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId='<%=(String)request.getAttribute(Constants.CODER_ID)%>'/></span><br/>
 
             <%-- this substring bullshit is because we're storing a string in the db serialized and pretty
             printer wraps strings in double quotes.  they are getting removed with this substring as they
@@ -108,7 +111,7 @@
         </td>
         <%-- Right Column Ends --%>
 
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" alt="" /></td>
     </tr>
 </table>
 
