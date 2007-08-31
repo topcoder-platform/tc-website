@@ -38,7 +38,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Top earners from software royalties.  Component competitors earn software royalties for winning contests designing and developing components used by TopCoder Software customers.
+<strong>Record:</strong> Top earners from software royalties.  Component competitors earn software royalties for winning contests designing and developing components used by TopCoder Software customers.<br /><br />A record will be listed as "HIDDEN" if the competitor has opted to hide his/her payments.
 </span>
 </div>
 </html>
