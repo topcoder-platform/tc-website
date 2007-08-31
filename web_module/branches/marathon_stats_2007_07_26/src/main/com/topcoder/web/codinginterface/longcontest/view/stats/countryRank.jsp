@@ -73,7 +73,7 @@
                             </a>
                         </td>                        
                         <td class="valueC">${row.map['rated_count']}</td>
-                        <td class="valueR"><fmt:formatNumber value="${row.map['avg_rating']}" pattern="######0.00"/></td>
+                        <td class="valueC"><fmt:formatNumber value="${row.map['avg_rating']}" pattern="######0.00"/></td>
                     </tr>   
                </c:forEach>   
             </table>
