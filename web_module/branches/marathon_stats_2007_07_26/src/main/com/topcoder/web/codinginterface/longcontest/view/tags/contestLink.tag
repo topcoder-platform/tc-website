@@ -4,6 +4,6 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<a href="/longcontest/stats/?module=ViewOverview&amp;rd=${roundId}" class="${empty styleClass? "bcLink" : styleClass}">
+<a href="/longcontest/?module=ViewStandings&amp;rd=${roundId}" class="${empty styleClass? "bcLink" : styleClass}">
     ${name}
 </a>

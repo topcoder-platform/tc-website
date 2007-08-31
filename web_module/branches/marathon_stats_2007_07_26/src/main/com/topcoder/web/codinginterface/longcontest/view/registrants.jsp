@@ -55,7 +55,7 @@
         <%-- Left Column Ends --%>
 
         <%-- Center Column Begins --%>
-        <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+        <td class="statTableSpacer" width="100%" valign="top">
 
             <jsp:include page="page_title.jsp">
                 <jsp:param name="image" value="<%=image%>"/>
@@ -68,7 +68,7 @@
 
             <logic:notEmpty name="<%=Constants.MESSAGE%>">
                 <tc-webtag:useBean id="message" type="java.lang.String" name="<%=Constants.MESSAGE%>" toScope="page"/>
-                <span class="errorText"><%=message%></span><br>
+                <span class="errorText"><%=message%></span><br/>
             </logic:notEmpty>
             <logic:empty name="<%=Constants.MESSAGE%>">
                 <jsp:useBean id="resultMap" type="java.util.Map" scope="request"/>
@@ -81,7 +81,7 @@
                 
                 <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br>
                 
-            <span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span><br>
+            <span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span><br/>
                 
                 <span class="bodySubtitle">Registrants: ${infoRow.map['num_competitors']}</span><br>
 
