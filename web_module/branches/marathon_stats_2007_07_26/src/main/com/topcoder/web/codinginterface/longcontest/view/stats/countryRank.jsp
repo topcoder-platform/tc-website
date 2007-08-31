@@ -68,12 +68,12 @@
                    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
                         <td class="valueC">${row.map['rank']}</td>
                         <td class="value">
-                            <a href="${sessionInfo.servletPath}?module=CoderRank&cc=${row.map['country_code']}">
+                            <a href="${sessionInfo.servletPath}?module=CoderRank&amp;cc=${row.map['country_code']}">
                                 ${row.map['name']}
                             </a>
                         </td>                        
                         <td class="valueC">${row.map['rated_count']}</td>
-                        <td class="valueC"><fmt:formatNumber value="${row.map['avg_rating']}" minFractionDigits="2" maxFractionDigits="2"/></td>
+                        <td class="valueC"><fmt:formatNumber value="${row.map['avg_rating']}" pattern="######0.00"/></td>
                     </tr>   
                </c:forEach>   
             </table>

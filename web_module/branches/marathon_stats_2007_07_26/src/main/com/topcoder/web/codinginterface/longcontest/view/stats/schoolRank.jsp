@@ -55,7 +55,7 @@
                      | <a href="${sessionInfo.servletPath}?module=CountryRank" class="bcLink">Countries</a>
                 </div>
                 <br/>
-               Note: in order for a school to be ranked, it must have at least 5 members. <br/>
+               <b>Note:</b> in order for a school to be ranked, it must have at least 5 members. <br/>
 
             <table class="stat" cellpadding="0" cellspacing="0" width="510" border="0">
                <tr><td class="title" colspan="5">Top Ranked Marathon Match Schools</td></tr>
