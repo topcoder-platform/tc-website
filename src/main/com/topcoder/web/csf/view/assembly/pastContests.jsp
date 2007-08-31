@@ -74,6 +74,30 @@
                     <% boolean even = true;%>
                     <tr class="<%=even?"light":"dark"%>">
                         <td class="value">
+                            <A href="/?module=Static&d1=assembly&d2=btWiCitiesDetails">British Telecom Wireless Cities</A>
+                        </td>
+                        <td class="value">
+                            &nbsp;
+                        </td>
+                        <td class="valueC">
+                            22
+                        </td>
+                        <td class="valueC">
+                            -
+                        </td>
+                        <td class="valueR" nowrap="nowrap">
+                            $7,000.00
+                        </td>
+                        <td class="valueC" nowrap="nowrap">
+                             <strong>08.17.2007</strong><br>15:00 EST
+                        </td>
+                        <td class="valueC" nowrap="nowrap">
+                             <strong>08.31.2007</strong><br>17:00 EST
+                        </td>
+                    </tr>
+                    <% even = !even;%>
+                    <tr class="<%=even?"light":"dark"%>">
+                        <td class="value">
                             <A href="/?module=Static&d1=assembly&d2=msSessionManifestDetails">Microsoft Session Manifest Tool</A>
                         </td>
                         <td class="value">
