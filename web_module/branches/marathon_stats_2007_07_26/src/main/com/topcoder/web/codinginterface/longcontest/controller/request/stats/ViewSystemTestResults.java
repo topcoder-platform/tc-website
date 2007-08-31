@@ -16,6 +16,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
@@ -27,6 +28,7 @@ import java.util.HashMap;
 import java.util.ListIterator;
 import java.util.Map;
 import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 
 /**
  * @author Porgery
@@ -82,7 +84,7 @@ public class ViewSystemTestResults extends Base {
                 r.setProperty(Constants.TEST_CASE_ID, request.getParameter(Constants.TEST_CASE_ID));
 
             log.debug("get cases and coders");
-            Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
+            Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
             log.debug("got cases and coders");
 
             Request rScores = new Request();
@@ -92,7 +94,7 @@ public class ViewSystemTestResults extends Base {
 
             log.debug("get scores");
             //too much data to store for very long.
-            Map scoresMap = getDataAccess(DBMS.DW_DATASOURCE_NAME, MaxAge.HALF_HOUR).getData(rScores);
+            Map<String, ResultSetContainer> scoresMap = getDataAccess(DBMS.DW_DATASOURCE_NAME, MaxAge.HALF_HOUR).getData(rScores);
             log.debug("got scores");
 
             ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_test_results_coders");
@@ -116,6 +118,11 @@ public class ViewSystemTestResults extends Base {
             rscCol = (ResultSetContainer) rscCol.subList(startCol - 1, endCol);
             result.put("long_contest_test_results_cases", rscCol);
 
+            ResultSetContainer infoRsc = new ResultSetContainer(result.get("long_contest_overview_info"), new RoundDisplayNameCalculator("display_name"));
+            if (infoRsc.size() == 0) {
+                throw new NavigationException("Couldn't find round info for round " + request.getParameter(Constants.ROUND_ID));
+            }
+            request.setAttribute("infoRow", infoRsc.get(0));
 
             ResultSetContainer rscScores = (ResultSetContainer) scoresMap.get("long_contest_system_test_results");
             HashMap hash = new HashMap();
