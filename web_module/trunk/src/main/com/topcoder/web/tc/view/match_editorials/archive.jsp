@@ -44,6 +44,7 @@
    <tr><td valign="middle" class="bodyText" colspan="2">
    <strong>August</strong>
    </td></tr>
+   <tr><td class="bodyText">08.28.07</td><td class="bodyText" nowrap="0" width="100%">TCCC07 - Algorithm Round 1A - <a href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1a">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.23.07</td><td class="bodyText" nowrap="0" width="100%">TCCC07 - Qualification Round 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc07_qual_rd3">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.21.07</td><td class="bodyText" nowrap="0" width="100%">TCCC07 - Qualification Round 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc07_qual_rd2">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.18.07</td><td class="bodyText" nowrap="0" width="100%">TCCC07 - Qualification Round 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc07_qual_rd1">Problem Set & Analysis</a></td></tr>
