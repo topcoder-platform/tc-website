@@ -14,6 +14,7 @@
 <jsp:useBean id="resultMap" type="java.util.Map" scope="request"/>
 <%
     ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_contest_example_results");
+%>
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
 <% String myNode = "long_compete";
     String image = "long_comps_topcoder";
