@@ -92,7 +92,7 @@
         <%-- Left Column Ends --%>
 
         <%-- Center Column Begins --%>
-        <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+        <td class="statTableSpacer" width="100%" valign="top">
 
             <jsp:include page="page_title.jsp">
                 <jsp:param name="image" value="<%=image%>"/>
@@ -104,13 +104,13 @@
 
             <p>
                 <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId="${infoRow.map['coder_id']}"/></span>
-                <br>
+                <br/>
                 <span class="bodySubtitle">Submission: ${infoRow.map['submission_number']}</span>
-                <br>
+                <br/>
                 <% if (String.valueOf(true).equals(request.getAttribute("mostRecent"))&&String.valueOf(true).equals(request.getAttribute(Constants.EXAMPLE_FLAG))) { %>
-                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleResults&amp;<%=Constants.PROBLEM_ID%>=${infoRow.map['problem_id']}<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}&amp;<%=Constants.CODER_ID%>=${infoRow.map['coder_id']}">Example
-                    Results</A>
-                <br>
+                <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleResults&amp;<%=Constants.PROBLEM_ID%>=${infoRow.map['problem_id']}<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}&amp;<%=Constants.CODER_ID%>=${infoRow.map['coder_id']}">Example
+                    Results</a>
+                <br/>
                 <% } %>
 
 
@@ -129,7 +129,7 @@
         </td>
         <%-- Right Column Ends --%>
 
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" alt="" /></td>
     </tr>
 </table>
 
