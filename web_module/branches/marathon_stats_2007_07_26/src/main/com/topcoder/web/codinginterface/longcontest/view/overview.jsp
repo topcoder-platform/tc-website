@@ -87,10 +87,8 @@ Please select a contest:<br />
 
 <span class="bigHandle">Contest: ${infoRow.map['display_name'] }</span>
 <br />
-      <span class="bodySubtitle">Problem: <a href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&amp;<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}&amp;<%=Constants.PROBLEM_ID%>=${infoRow.map['problem_id']}" class="bcLink">
-          ${infoRow.map['problem_name']}</a></span>
-
-<br />                
+<span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span><br/>
+                
 <span class="bodySubtitle">Categories:
 <c:choose>
     <c:when test="${empty categories}">None</c:when>
