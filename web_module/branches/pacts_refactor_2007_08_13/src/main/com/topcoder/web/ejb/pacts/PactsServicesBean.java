@@ -1718,7 +1718,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public AssignmentDocument getAssignmentDocument(long assignmentDocumentId) {
-        log.debug("get the assignment document from the db");
+        log.debug("get the assignment document from the db: " + assignmentDocumentId);
 
         try {
             Map searchCriteria = new HashMap();
@@ -1746,7 +1746,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public List getAssignmentDocumentByProjectId(long projectId) {
-        log.debug("get the assignment document from the db (project_id)");
+        log.debug("get the assignment document from the db (project_id = " + projectId + ")");
 
         try {
             Map searchCriteria = new HashMap();
@@ -1818,7 +1818,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public List getAssignmentDocumentByUserIdProjectId(long userId, long projectId) {
-        log.debug("get the assignment document from the db (user_id, project_id)");
+        log.debug("get the assignment document from the db (user_id = " + userId + ", project_id = " + projectId + ")");
 
         try {
             Map searchCriteria = new HashMap();
@@ -1843,7 +1843,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public List getAssignmentDocumentByUserIdStudioContestId(long userId, long studioContestId) {
-        log.debug("get the assignment document from the db (user_id, studio_contest_id)");
+        log.debug("get the assignment document from the db (user_id = " + userId + ", studio_contest_id = " + studioContestId + ")");
 
         try {
             Map searchCriteria = new HashMap();
@@ -3517,58 +3517,59 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             insertPaymentDetail.append("  algorithm_round_id, component_project_id, algorithm_problem_id, studio_contest_id, ");
             insertPaymentDetail.append("  component_contest_id, digital_run_stage_id, digital_run_season_id, parent_payment_id, ");
             insertPaymentDetail.append("  charity_ind, total_amount, installment_number) ");
-            insertPaymentDetail.append(" VALUES(?,?,null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            insertPaymentDetail.append(" VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
             ps = c.prepareStatement(insertPaymentDetail.toString());
             ps.setLong(1, paymentDetailId);
             ps.setDouble(2, p.getNetAmount());
-            ps.setDouble(3, p.getGrossAmount());
-            ps.setLong(4, p.getCurrentStatus().getId());
-            setNullableLong(ps, 5, 0);
-            ps.setInt(6, p.getRationaleId());
-            ps.setString(7, p.getHeader().getDescription());
-            ps.setInt(8, p.getHeader().getTypeId());
-            ps.setInt(9, p.getHeader().getMethodId());
-            ps.setTimestamp(10, new Timestamp(System.currentTimeMillis())); // date_modified
-            ps.setTimestamp(11, makeTimestamp(p.getDueDate(), true, false));
+            ps.setTimestamp(3, makeTimestamp(p.getPayDate(), true, false));
+            ps.setDouble(4, p.getGrossAmount());
+            ps.setLong(5, p.getCurrentStatus().getId());
+            setNullableLong(ps, 6, 0);
+            ps.setInt(7, p.getRationaleId());
+            ps.setString(8, p.getHeader().getDescription());
+            ps.setInt(9, p.getHeader().getTypeId());
+            ps.setInt(10, p.getHeader().getMethodId());
+            ps.setTimestamp(11, new Timestamp(System.currentTimeMillis())); // date_modified
+            ps.setTimestamp(12, makeTimestamp(p.getDueDate(), true, false));
             if (!checkNull(p.getHeader().getClient()).equals("")) {
-                ps.setString(12, p.getHeader().getClient());
+                ps.setString(13, p.getHeader().getClient());
             } else {
-                ps.setNull(12, Types.VARCHAR);
+                ps.setNull(13, Types.VARCHAR);
             }
 
-            for (int i = 13; i <= 20; i++) {
+            for (int i = 14; i <= 20; i++) {
                 ps.setNull(i, Types.DECIMAL);
             }
             switch (BasePayment.getReferenceTypeId(p.getHeader().getTypeId())) {
                 case REFERENCE_ALGORITHM_ROUND_ID:
-                    setNullableLong(ps, 13, p.getHeader().getAlgorithmRoundId());
+                    setNullableLong(ps, 14, p.getHeader().getAlgorithmRoundId());
                     break;
                 case REFERENCE_COMPONENT_PROJECT_ID:
-                    setNullableLong(ps, 14, p.getHeader().getComponentProjectId());
+                    setNullableLong(ps, 15, p.getHeader().getComponentProjectId());
                     break;
                 case REFERENCE_ALGORITHM_PROBLEM_ID:
-                    setNullableLong(ps, 15, p.getHeader().getAlgorithmProblemId());
+                    setNullableLong(ps, 16, p.getHeader().getAlgorithmProblemId());
                     break;
                 case REFERENCE_STUDIO_CONTEST_ID:
-                    setNullableLong(ps, 16, p.getHeader().getStudioContestId());
+                    setNullableLong(ps, 17, p.getHeader().getStudioContestId());
                     break;
                 case REFERENCE_COMPONENT_CONTEST_ID:
-                    setNullableLong(ps, 17, p.getHeader().getComponentContestId());
+                    setNullableLong(ps, 18, p.getHeader().getComponentContestId());
                     break;
                 case REFERENCE_DIGITAL_RUN_STAGE_ID:
-                    setNullableLong(ps, 18, p.getHeader().getDigitalRunStageId());
+                    setNullableLong(ps, 19, p.getHeader().getDigitalRunStageId());
                     break;
                 case REFERENCE_DIGITAL_RUN_SEASON_ID:
-                    setNullableLong(ps, 19, p.getHeader().getDigitalRunSeasonId());
+                    setNullableLong(ps, 20, p.getHeader().getDigitalRunSeasonId());
                     break;
                 case REFERENCE_PARENT_PAYMENT_ID:
-                    setNullableLong(ps, 20, p.getHeader().getParentPaymentId());
+                    setNullableLong(ps, 21, p.getHeader().getParentPaymentId());
                     break;
             }
-            ps.setBoolean(21, p.isCharity());
-            ps.setDouble(22, p.getTotalAmount() == 0 ? p.getGrossAmount() : p.getTotalAmount()); // default to gross amount if not filled.
-            ps.setInt(23, p.getInstallmentNumber());
+            ps.setBoolean(22, p.isCharity());
+            ps.setDouble(23, p.getTotalAmount() == 0 ? p.getGrossAmount() : p.getTotalAmount()); // default to gross amount if not filled.
+            ps.setInt(24, p.getInstallmentNumber());
             ps.executeUpdate();
 
             // insert reasons:
