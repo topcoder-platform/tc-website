@@ -61,7 +61,7 @@
 
             <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br/>                
             <span class="bodySubtitle">Problem: ${infoRow.map['class_name']}</span><br/>
-
+<br/>
             <div align="center">
                 <tc-webtag:problemStatement problem="<%=(Problem)request.getAttribute(Constants.PROBLEM_STATEMENT_KEY)%>" language="<%=((Language)request.getAttribute(Constants.LANGUAGE_ID)).getName()%>"/>
             </div>
