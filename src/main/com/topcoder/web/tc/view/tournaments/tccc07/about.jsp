@@ -30,7 +30,7 @@
                 <p>The 2007 TopCoder Collegiate Challenge is back and it's sure to be better than ever!  Last year, <tc-webtag:handle coderId="10574855" context="algorithm"/>, <tc-webtag:handle coderId="9998760" context="development"/>, and <tc-webtag:handle coderId="293874" context="design"/> left San Diego with the grand prizes.  This year, we're giving five students the chance to be TopCoder Champions!</p>
 
                 <p>There are four competitions that you can chose from:  Algorithm Competition, Component Design and Development Competition, Marathon Match Competition and Studio Design Competition.</p>
-                <p>If you want a chance to visit Walt Disney World and  win part of the $250,000 prize purse, here's what to do:</p>
+                <p>If you want a chance to visit Walt Disney World and  win part of the $260,000 prize purse, here's what to do:</p>
                     <ol>
                         <li>Become a TopCoder member.  It's free!  You need to be one to participate. <a href="/reg" alt="TopCoder Registration">Join now</a>.</li>
                         <li>Make sure you're eligible.  All registered TopCoder collegiate members over the age of 18 may compete.  See complete rules for full details.</li>
