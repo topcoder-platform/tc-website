@@ -14,8 +14,6 @@
 <jsp:useBean id="resultMap" type="java.util.Map" scope="request"/>
 <%
     ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_contest_example_results");
-    ResultSetContainer info = (ResultSetContainer) resultMap.get("long_contest_round_component_info");
-%>
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
 <% String myNode = "long_compete";
     String image = "long_comps_topcoder";
@@ -64,11 +62,8 @@
                 <jsp:param name="title" value="Example Results"/>
             </jsp:include>
 
-                <span class="bigHandle">Contest:
-                        <A href="?module=ViewStandings&rd=<rsc:item name="round_id" set="<%=info%>"/>" class="bcLink"><rsc:item name="contest_name" set="<%=info%>"/> &gt; <rsc:item name="round_name" set="<%=info%>"/></A>
-            </span><br>
-            <span class="bodySubtitle">Problem: <a class="bcLink" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" set="<%=info%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" set="<%=info%>"/>">
-                <rsc:item name="problem_name" set="<%=info%>"/></a></span><br>
+            <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br>                
+            <span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span><br/>
             <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId='<%=(String)request.getAttribute(Constants.CODER_ID)%>'/></span><br>
 
             <%-- this substring bullshit is because we're storing a string in the db serialized and pretty

@@ -89,7 +89,7 @@
         <%-- Left Column Ends --%>
 
         <%-- Center Column Begins --%>
-        <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+        <td class="statTableSpacer" width="100%" valign="top">
 
             <jsp:include page="page_title.jsp">
                 <jsp:param name="image" value="<%=image%>"/>
@@ -102,7 +102,7 @@
                 <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br>                
                 <span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span><br/>
             <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId='<%=request.getParameter(Constants.CODER_ID)%>'/></span>
-            <br>
+            <br/>
 
             <form name="exampleForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 
@@ -126,7 +126,7 @@
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                             <tr>
-                                <td class="tableTitle" colspan="${over or self? 4 : 3 }">Example Tests: ${infoRow.map['num_submissions']}</td>
+                                <td class="tableTitle" colspan="<%= over || self? 4 : 3 %>">Example Tests: ${infoRow.map['num_submissions']}</td>
                             </tr>
                             <tr>
                                 <td class="tableHeader" align="center" nowrap="nowrap">
