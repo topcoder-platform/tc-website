@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.31.07<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 1C set for September 1</A></span><br><br>
+        Algorithm Round 1C of the 2007 TopCoder Collegiate Challenge, brought to you by Deutsche Bank, kicks off tomorrow afternoon at 1:00 PM EDT. Don't miss it!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</A> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.31.07<br>10:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -157,18 +170,5 @@
         <A href="/tc?module=Static&d1=pressroom&d2=pr_082707">details</A> | 
         <tc-webtag:forumLink forumID="517188" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>08.27.07<br>12:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='http://csf.topcoder.com/' refer='/tc'/>">BT Workspace Design Mashup winner</A></span><br><br>
-        British Telecom &amp; Microsoft, in association with TopCoder, are happy to announce that sbTopCoder has won the BT Workspace Design Mashup Competition with a prize of $3,000.00 -- plus the chance to claim part of the series prize of $40,000. Congratulations!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://csf.topcoder.com/">details</A> | 
-        <a href="http://csf.topcoder.com/forums?module=ThreadList&forumID=9&mc=16">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
