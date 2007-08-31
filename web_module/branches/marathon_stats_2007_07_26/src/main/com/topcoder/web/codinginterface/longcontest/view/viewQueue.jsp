@@ -96,7 +96,7 @@ ${roundTypes }
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
                                         <a href="?module=ViewStandings&rd=<%=resultRow.getRoundId()%>"><%=resultRow.getContestName()%> &gt; <%=resultRow.getRoundName()%></a>
-                                        <mm:contest roundName="<%=resultRow.getRoundName()%>" contestName="<%=resultRow.getContestName()%>" roundTypeId="<%= (Integer) roundTypes.get(resultRow.getRoundId()) %>"/>
+                                        <mm:contest roundName="<%=resultRow.getRoundName()%>" contestName="<%=resultRow.getContestName()%>" roundTypeId="<%= (Integer) roundTypes.get(new Integer(resultRow.getRoundId())) %>"/>
                                         
                                         
                                         
