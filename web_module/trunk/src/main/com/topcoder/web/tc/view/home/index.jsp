@@ -164,9 +164,9 @@
                 <%-- SRM SPONSOR --%>
                 <map name="mm">
                 <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db" />
                 </map>
-                <img src="/i/home/tccc07AlgoRd1B_nsa.png" alt="TCCC07 Algorithm Round 1B brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
+                <img src="/i/home/tccc07AlgoRd1C_db.png" alt="TCCC07 Algorithm Round 1C brought to you by Deutsche Bank" border="0" style="display:block;" usemap="#mm"/>
                 
 
                 <%-- LICENSE ID 
