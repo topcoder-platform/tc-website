@@ -74,6 +74,8 @@
                     <td class="headerC" nowrap="nowrap">End Time</td>
                 </tr>
 
+    <c:choose>    
+    <c:when test="${not empty contest}" >
                 <%boolean even = true;%>
                 <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
                     <tr class="<%=even?"light":"dark"%>">
@@ -153,7 +155,8 @@
                     </tr>
                     <%even = !even;%>
                 </logic:iterate>
-
+        </c:when>
+        <c:otherwise>
                 <tr class="light">
                     <td class="valueC" colspan="8">
                         <div align="center" style="margin: 40px 0px 40px 0px;">
@@ -161,6 +164,8 @@
                         </div>
                     </td>
                 </tr>
+        </c:otherwise>
+        </c:choose>
             </table>
 
         </td>
