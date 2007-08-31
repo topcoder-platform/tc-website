@@ -1,13 +1,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
-    #if ($sitemeshPage.getProperty("page.spacename"))
-        <title>$title - $sitemeshPage.getProperty("page.spacename") - #siteTitle()</title>
-    #else
-        <title>$title - #siteTitle()</title>
-    #end
+    <title>$title - #siteTitle()</title>
     #standardHeader()
     $!settingsManager.globalSettings.customHtmlSettings.beforeHeadEnd
+    <link type="text/css" rel="stylesheet" href="/css/tcStyles.css" />
 </head>
 ## HTML HEADER ENDS
 
@@ -15,13 +13,20 @@
 #onLoad()
 $!settingsManager.globalSettings.customHtmlSettings.afterBodyStart
 
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+    <tr valign="top">
+        <td width="180">
+            $navHelper.renderNavigation($sitemeshPage.getProperty("page.spacekey"))
+        </td>
+        <td width="100%" align="left" class="bodyColumn">
+
 #set ($username = $sitemeshPage.getProperty("page.username"))
 #set ($spaceKey = $sitemeshPage.getProperty("page.spacekey"))
 
 #displayGlobalMessages($spaceKey $username)
 
 ## CONTENT DIV BEGINS
-<div id="PageContent">
 
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
 
@@ -43,20 +48,20 @@ $!settingsManager.globalSettings.customHtmlSettings.afterBodyStart
             <td style="padding: 5px" colspan="2">
             <table style="padding: 0px; margin: 0px 5px; width: 100%;" cellspacing="0" cellpadding="1" border="0">
                 <tr>
-					#if ($sitemeshPage.getProperty("page.username"))
-						#set ($tildeUsername = "~$username")
-					<td rowspan="2" valign="bottom" width="1%">#logoBlock($tildeUsername)</td>
-					#else
-					<td rowspan="2" valign="bottom" width="1%">#logoBlock($spaceKey)</td>
-					#end
-					<td valign="bottom" align="left" width="1%" nowrap>&nbsp;
+                    #if ($sitemeshPage.getProperty("page.username"))
+                        #set ($tildeUsername = "~$username")
+                    <td rowspan="2" valign="bottom" width="1%">#logoBlock($tildeUsername)</td>
+                    #else
+                    <td rowspan="2" valign="bottom" width="1%">#logoBlock($spaceKey)</td>
+                    #end
+                    <td valign="bottom" align="left" width="1%" nowrap>&nbsp;
                         <span class="logoSpaceLink">#spaceTitleLink()</span>
                     </td>
                     <td align="right" valign="top" width="98%">
                         ## history, profile, admin, logout links
                         #usernavbar()
-						
-						#printableicon()
+                        
+                        #printableicon()
                         #if (!$sitemeshPage.getProperty("page.suppressPdfLink"))
                             #pdficon()
                         #end
@@ -81,7 +86,15 @@ $!settingsManager.globalSettings.customHtmlSettings.afterBodyStart
     $body
 
     ## PAGE DEPENDENT INLINE DECORATOR RENDERING SHOULD END HERE
-</div>
+
 ## CONTENT DIV ENDS
 
+        </td>
+    </tr>
+</tbody>
+</table>
+
 #parse ("/decorators/includes/footer.vmd")
+
+</body>
+</html>
