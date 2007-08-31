@@ -17,7 +17,9 @@ $!settingsManager.globalSettings.customHtmlSettings.afterBodyStart
 <tbody>
     <tr valign="top">
         <td width="180">
-            $navHelper.renderNavigation($sitemeshPage.getProperty("page.spacekey"))
+            #if ($navHelper.hasNavigation($sitemeshPage.getProperty("page.spacekey")) || $sitemeshPage.getProperty("page.pageops") || $sitemeshPage.getProperty("page.navops"))
+                $navHelper.renderNavigation($sitemeshPage.getProperty("page.spacekey"))
+            #end
         </td>
         <td width="100%" align="left" class="bodyColumn">
 
