@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.DataAccessConstants,
             com.topcoder.web.codinginterface.longcontest.Constants"%>
@@ -13,7 +17,6 @@
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>TopCoder Statistics</title>
@@ -54,7 +57,7 @@ return false;
                 <!-- Left Column Ends -->
 
                 <!-- Center Column Begins -->
-                <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+                <td class="statTableSpacer" width="100%" valign="top">
 
         <div class="fixedWidthBody">
 
@@ -65,8 +68,8 @@ return false;
 
                 <div align="center">
                     Competitors
-                     | <A href="${sessionInfo.servletPath}?module=SchoolRank" class="bcLink">Schools</A>
-                     | <A href="${sessionInfo.servletPath}?module=CountryRank" class="bcLink">Countries</A>
+                     | <a href="${sessionInfo.servletPath}?module=SchoolRank" class="bcLink">Schools</a>
+                     | <a href="${sessionInfo.servletPath}?module=CountryRank" class="bcLink">Countries</a>
                 </div>
 
                 <form name="f" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
@@ -124,7 +127,7 @@ return false;
          </td>
 
                 <!-- Gutter -->
-                <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+                <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" alt="" /></td>
                 <!-- Gutter Ends -->
             </tr>
         </table>

@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <%@ page language="java" %>
           
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -8,7 +12,6 @@
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>TopCoder Statistics</title>
@@ -37,7 +40,7 @@
                 <!-- Left Column Ends -->
 
                 <!-- Center Column Begins -->
-                <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+                <td class="statTableSpacer" width="100%" valign="top">
 
         <div class="fixedWidthBody">
 
@@ -47,8 +50,8 @@
                 </jsp:include>
 
                 <div align="center">
-                     <A href="${sessionInfo.servletPath}?module=CoderRank" class="bcLink">Competitors</A>
-                     | <A href="${sessionInfo.servletPath}?module=SchoolRank" class="bcLink">Schools</A>
+                     <a href="${sessionInfo.servletPath}?module=CoderRank" class="bcLink">Competitors</a>
+                     | <a href="${sessionInfo.servletPath}?module=SchoolRank" class="bcLink">Schools</a>
                      | Countries
                 </div>
             <br/>
@@ -86,7 +89,7 @@
          </td>
 
                 <!-- Gutter -->
-                <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+                <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" alt="" /></td>
                 <!-- Gutter Ends -->
             </tr>
         </table>

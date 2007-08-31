@@ -55,7 +55,6 @@
                      | <a href="${sessionInfo.servletPath}?module=CountryRank" class="bcLink">Countries</a>
                 </div>
                 <br/>
-                <br/>
                Note: in order for a school to be ranked, it must have at least 5 members. <br/>
 
             <table class="stat" cellpadding="0" cellspacing="0" width="510" border="0">
@@ -93,7 +92,7 @@
          </td>
 
                 <!-- Gutter -->
-                <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" alt=""/></td>
                 <!-- Gutter Ends -->
             </tr>
         </table>
