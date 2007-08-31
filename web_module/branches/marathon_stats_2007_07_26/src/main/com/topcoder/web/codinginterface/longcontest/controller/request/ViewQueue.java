@@ -32,8 +32,6 @@ public class ViewQueue extends Base {
                 
                 TestServices service = TestServicesLocator.getService();
                 List longTestQueueStatus = service.getLongTestQueueStatus();
-                longTestQueueStatus.add(new LongTestQueueStatusItem(150, 7545675, new Date(), "2007 TC Open", 10757, "Online Round 4","Java"," Java",1));                
-                longTestQueueStatus.add(new LongTestQueueStatusItem(150, 7545675, new Date(), "Marathon Match 8", 10678, "Marathon Match 8","c++"," c++",1));                
                 
                 List longSummaryList = new LinkedList();
                 int systemTestCount = 0;

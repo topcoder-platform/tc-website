@@ -47,7 +47,7 @@
         <%-- Left Column Ends --%>
 
         <%-- Center Column Begins --%>
-        <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+        <td class="statTableSpacer" width="100%" valign="top">
 
             <jsp:include page="page_title.jsp">
                 <jsp:param name="image" value="<%=image%>"/>
@@ -95,8 +95,9 @@ ${roundTypes }
                                         <tc-webtag:handle context='marathon_match' coderId='<%=resultRow.getUserId()%>'/>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
-                                        <a href="?module=ViewStandings&rd=<%=resultRow.getRoundId()%>"><%=resultRow.getContestName()%> &gt; <%=resultRow.getRoundName()%></a>
-                                        <mm:contest roundName="<%=resultRow.getRoundName()%>" contestName="<%=resultRow.getContestName()%>" roundTypeId="<%= (Integer) roundTypes.get(new Integer(resultRow.getRoundId())) %>"/>
+                                        <a href="?module=ViewStandings&amp;rd=<%=resultRow.getRoundId()%>">
+                                            <mm:contest roundName="<%=resultRow.getRoundName()%>" contestName="<%=resultRow.getContestName()%>" roundTypeId="<%= (Integer) roundTypes.get(new Integer(resultRow.getRoundId())) %>"/>
+                                        </a>
                                         
                                         
                                         
@@ -116,10 +117,10 @@ ${roundTypes }
                                 </tr>
                                 <%even = !even;%>
                             </logic:iterate>
-                        </TABLE>
+                        </table>
                     </TD>
                 </tr>
-            </TABLE>
+            </table>
 
 
         </td>
@@ -132,7 +133,7 @@ ${roundTypes }
         </td>
         <%-- Right Column Ends --%>
 
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" alt="" /></td>
     </tr>
 </table>
 
