@@ -8,6 +8,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
+<%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <jsp:useBean id="result" type="java.util.List" scope="request"/>
 <jsp:useBean id="systemTestCount" type="java.lang.Number" scope="request"/>
@@ -29,6 +30,7 @@
 </head>
 
 <body>
+<% java.util.Map<Integer,Integer> roundTypes = (java.util.Map<Integer,Integer>) request.getAttribute("roundTypes"); %>
 
 <jsp:include page="top.jsp">
     <jsp:param name="level1" value="long"/>
@@ -93,7 +95,11 @@ ${roundTypes }
                                         <tc-webtag:handle context='marathon_match' coderId='<%=resultRow.getUserId()%>'/>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
-                                        <A href="?module=ViewStandings&rd=<%=resultRow.getRoundId()%>"><%=resultRow.getContestName()%> &gt; <%=resultRow.getRoundName()%></A>
+                                        <a href="?module=ViewStandings&rd=<%=resultRow.getRoundId()%>"><%=resultRow.getContestName()%> &gt; <%=resultRow.getRoundName()%></a>
+                                        <mm:contest roundName="<%=resultRow.getRoundName()%>" contestName="<%=resultRow.getContestName()%>" roundTypeId="<%= roundTypes.get(resultRow.getRoundId()) %>"/>
+                                        
+                                        
+                                        
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
                                         <%=resultRow.getLanguageName()%>

@@ -50,7 +50,7 @@ public class ViewQueue extends Base {
                 }
                 
                 
-                getRequest().setAttribute("roundTypes", longSummaryList);
+                getRequest().setAttribute("roundTypes", roundTypes);
                 getRequest().setAttribute("result", longSummaryList);
                 getRequest().setAttribute("systemTestCount",  new Integer(systemTestCount));
 /*
