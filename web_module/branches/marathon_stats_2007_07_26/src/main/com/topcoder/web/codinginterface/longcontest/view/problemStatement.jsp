@@ -28,57 +28,74 @@
 <html>
 <head>
     <title>TopCoder</title>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_stats"/>
-</jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="script.jsp" />
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
+    <script type="text/javascript" src="/js/print.js" ></script>
 </head>
 
 <body>
 
-<jsp:include page="top.jsp">
-    <jsp:param name="level1" value="long"/>
+<div id="onTop">
+<jsp:include page="top.jsp" >
+    <jsp:param name="level1" value=""/>
 </jsp:include>
+</div>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
     <tr valign="top">
-        <%-- Left Column Begins--%>
-        <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="<%=myNode%>"/>
-         </jsp:include>
+<%-- Left Column Begins--%>
+        <td width="180" id="onLeft">
+            <jsp:include page="includes/global_left.jsp">
+                <jsp:param name="node" value="<%=myNode%>"/>
+            </jsp:include>
         </td>
-        <%-- Left Column Ends --%>
+<%-- Left Column Ends --%>
 
-        <%-- Center Column Begins --%>
-        <td class="statTableSpacer" width="100%" valign="top">
+<%-- Center Column Begins --%>
+        <td width="100%" align="left" class="bodyColumn">
 
             <jsp:include page="page_title.jsp">
                 <jsp:param name="image" value="<%=image%>"/>
                 <jsp:param name="title" value="Problem Statement"/>
             </jsp:include>
 
-            <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br/>                
-            <span class="bodySubtitle">Problem: ${infoRow.map['class_name']}</span><br/>
-<br/>
-            <div align="center">
+            <div style="float:right;">
+                <div id="printableLink"><a href="Javascript:makeInvisible();" >Printable view</a></div>
+                <div id="navigableLink" class="invisible"><a href="Javascript:makeNavigable();" >Normal view</a></div>
+            </div>
+
+            <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br />                
+            <span class="bodySubtitle">Problem: ${infoRow.map['class_name']}</span><br />
+<br />
+            <div>
                 <tc-webtag:problemStatement problem="<%=(Problem)request.getAttribute(Constants.PROBLEM_STATEMENT_KEY)%>" language="<%=((Language)request.getAttribute(Constants.LANGUAGE_ID)).getName()%>"/>
             </div>
-        </td>
 
-        <%-- Right Column Begins --%>
-        <td width="170">
+
+        </td>
+<%-- Center Column Ends --%>
+        
+<%-- Right Column Begins --%>
+        <td width="170" id="onRight">
             <jsp:include page="public_right.jsp">
-                <jsp:param name="level1" value="privatelabel"/>
+                <jsp:param name="level1" value="default"/>
             </jsp:include>
         </td>
-        <%-- Right Column Ends --%>
-
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" alt="" /></td>        
+<%-- Right Column Ends --%>
+        
     </tr>
+</tbody>
 </table>
 
-<jsp:include page="foot.jsp"/>
+<div id="onBottom">
+<jsp:include page="foot.jsp" />
+</div>
+
 </body>
+
 </html>
