@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.codinginterface.longcontest.Constants" %>
 <%@ page
@@ -13,11 +17,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html>
 
 <head>
@@ -74,7 +73,6 @@
                     <td class="headerC" nowrap="nowrap">End Time</td>
                 </tr>
 
-    <c:choose>    
                 <%boolean even = true;%>
                 <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
                     <tr class="<%=even?"light":"dark"%>">
