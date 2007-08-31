@@ -1,5 +1,6 @@
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page
         language="java"
         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
@@ -76,17 +77,13 @@
                 <jsp:useBean id="nextPageLink" class="java.lang.String" scope="request"/>
                 <%
                     ResultSetContainer registrants = (ResultSetContainer) resultMap.get("long_contest_round_registrants");
-                    ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_contest_round_registrants_info");
-                    ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) rsc.get(0);
                 %>
                 
-                <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" />
-                    </span><br>
+                <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br>
                 
-            <span class="bodySubtitle">Problem: <a href="${sessionInfo.servletPath}?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=infoRow.getStringItem("round_id") %>&<%=Constants.PROBLEM_ID%>=<%=infoRow.getStringItem("problem_id") %>" class="bcLink">
-                      <rsc:item name="problem_name" row="<%=infoRow%>"/></a></span><br>
+            <span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span><br>
                 
-                <span class="bodySubtitle">Registrants: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
+                <span class="bodySubtitle">Registrants: ${infoRow.map['num_competitors']}</span><br>
 
                <div style="clear: both;" align="center">
                    <div class="pagingBox">

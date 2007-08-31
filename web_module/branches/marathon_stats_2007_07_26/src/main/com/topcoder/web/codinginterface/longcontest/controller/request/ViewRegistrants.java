@@ -76,9 +76,12 @@ public class ViewRegistrants extends Base {
             setDefault(DataAccessConstants.NUMBER_RECORDS, "" + numRecords);
             setDefault(DataAccessConstants.START_RANK, "" + startRank);
 
-            
             ResultSetContainer infoRsc = new ResultSetContainer(result.get("long_contest_round_registrants_info"), new RoundDisplayNameCalculator("display_name"));
-            result.put("long_contest_round_registrants_info", infoRsc);
+            if (infoRsc.size() == 0) {
+                throw new NavigationException("Couldn't find round info for round " + roundID);
+            }
+            
+            request.setAttribute("infoRow", infoRsc.get(0));
             
 
             request.setAttribute("resultMap", result);
