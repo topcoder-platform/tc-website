@@ -65,7 +65,7 @@
         <%-- Left Column Ends --%>
 
         <%-- Center Column Begins --%>
-        <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+        <td class="statTableSpacer" width="100%" valign="top">
 
             <jsp:include page="page_title.jsp">
                 <jsp:param name="image" value="<%=image%>"/>
@@ -76,7 +76,7 @@
                <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
             </div>
             <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br/>                
-            <span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span>
+            <span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span><br/>
 
             <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId='<%=request.getParameter(Constants.CODER_ID)%>'/></span>
             <br />
@@ -107,24 +107,24 @@
                             </tr>
                             <tr>
                                 <td class="tableHeader" width="20%">
-                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="4"/>">Submission</A></td>
+                                    <a href="<%=sortLinkBase%><tc-webtag:sort column="4"/>">Submission</a></td>
                                 <td class="tableHeader" width="20%" align="center">
-                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="5"/>">Time</A></td>
+                                    <a href="<%=sortLinkBase%><tc-webtag:sort column="5"/>">Time</a></td>
                                 <td class="tableHeader" width="20%" align="right">
-                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="6"/>">Score</A></td>
+                                    <a href="<%=sortLinkBase%><tc-webtag:sort column="6"/>">Score</a></td>
                                 <td class="tableHeader" width="20%" align="center">
-                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="<%=submissions.getColumnIndex("language_name")%>"/>">Language</A></td>
+                                    <a href="<%=sortLinkBase%><tc-webtag:sort column="<%=submissions.getColumnIndex("language_name")%>"/>">Language</a></td>
                             </tr>
                             <%boolean even = true;%>
                             <rsc:iterator list="<%=submissions%>" id="resultRow">
                                 <tr>
                                     <td class="<%=even?"statLt":"statDk"%>">
                                     <% if (over||self) { %>
-                                       <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&amp;<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&amp;<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&amp;<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&amp;<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>" class="statLink">
+                                       <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&amp;<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&amp;<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&amp;<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&amp;<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>" class="statLink">
                                     <% } %>
                                         <rsc:item name="submission_number" row="<%=resultRow%>"/>
                                     <% if (over||self) { %>
-                                       </A>
+                                       </a>
                                     <% } %>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
@@ -136,10 +136,10 @@
                                 </tr>
                                 <%even = !even;%>
                             </rsc:iterator>
-                        </TABLE>
-                    </TD>
+                        </table>
+                    </td>
                 </tr>
-            </TABLE>
+            </table>
             <p>* Indicates that this submission has not yet been scored</p>
 
             <div class="pagingBox">
@@ -160,7 +160,7 @@
         </td>
         <%-- Right Column Ends --%>
 
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" alt="" /></td>
     </tr>
 </table>
 
