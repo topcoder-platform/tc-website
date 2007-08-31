@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.DataAccessConstants,
            com.topcoder.web.tc.Constants,
@@ -15,29 +19,30 @@
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statistics</title>
-<jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_stats"/>
-</jsp:include>
-<jsp:include page="/script.jsp" />
-<script type="text/javascript">
-function submitEnter(e) {
-var keycode;
-if (window.event) keycode = window.event.keyCode;
-else if (e) keycode = e.which;
-else return true;
-if (keycode == 13) {
-document.matchWinnersForm.submit();
-return false;
-} else return true;
-}
-</script>
+    <title>TopCoder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="../script.jsp" />
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
 
     <script language="JavaScript" type="text/javascript" src="/js/main.js"></script>
 
+    <script type="text/javascript">
+    function submitEnter(e) {
+        var keycode;
+        if (window.event) keycode = window.event.keyCode;
+        else if (e) keycode = e.which;
+        else return true;
+        if (keycode == 13) {
+        document.matchWinnersForm.submit();
+        return false;
+        } else return true;
+    }
+    </script>
 
     <style type="text/css">
     div.shortList {
@@ -50,29 +55,27 @@ return false;
         white-space: nowrap;
     }
     </style>
-
-
 </head>
 
 <body>
 
-        <jsp:include page="/top.jsp" >
-            <jsp:param name="level1" value="long"/>
-        </jsp:include>
-               
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value=""/>
+</jsp:include>
 
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr valign="top">
-                <!-- Left Column Begins-->
-                <td width="180">
-                    <jsp:include page="/includes/global_left.jsp">
-                        <jsp:param name="node" value="long_match_winners"/>
-                    </jsp:include>
-                </td>
-                <!-- Left Column Ends -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+    <tr valign="top">
+<%-- Left Column Begins--%>
+        <td width="180">
+            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="node" value="long_match_winners"/>
+            </jsp:include>
+        </td>
+<%-- Left Column Ends --%>
 
-                <!-- Center Column Begins -->
-                <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+<%-- Center Column Begins --%>
+        <td width="100%" align="center" class="bodyColumn">
 
                 <jsp:include page="../page_title.jsp" >
                     <jsp:param name="image" value="statistics_w"/>
@@ -93,8 +96,8 @@ return false;
                 </div>
                 </center>
 
-         * the number of wins the competitor had as a result of that match
             <table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
+            <tbody>
                <tr><td class="title" colspan="7">Marathon Match Winners</td></tr>
                <tr>
                   <td class="header"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%= MatchWinners.DATE_COLUMN %>" includeParams="true" excludeParams="sr" />">Date</a></td>
@@ -110,7 +113,7 @@ return false;
                    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
                         <td class="value"><tc-webtag:format object="${row.map['date']}" format="MM.dd.yyyy" /></td>
                         <td class="value" nowrap="nowrap">
-                            <a href="/longcontest/stats/?module=ViewOverview&amp;rd=${row.map['round_id']}"/>${row.map['display_name']}</a>
+                            <a href="/longcontest/stats/?module=ViewOverview&amp;rd=${row.map['round_id']}">${row.map['display_name']}</a>
                         </td>
                         <td class="value">
                            <mm:problemLink roundId="${row.map['round_id']}" problemId="${row.map['problem_id']}" problemName="${row.map['problem_name']}" />
@@ -131,7 +134,7 @@ return false;
                                     </div>
                                     <div id="winnersFull${roundId}" class="fullList">
                                             <c:forEach items="${winnersMap[roundId]}" var="winner">
-                                                <tc-webtag:handle coderId="${winner.coderId}" context="marathon_match"/> <br/> 
+                                                <tc-webtag:handle coderId="${winner.coderId}" context="marathon_match"/> <br /> 
                                             </c:forEach>
                                         <a href="javascript: hide('winnersFull${roundId}'); hide('winsFull${roundId}'); showBlock('winnersShort${roundId}');" onfocus="this.blur();">close</a>
                                     </div>
@@ -139,7 +142,7 @@ return false;
                                 <td class="valueR">
                                     <div id="winsFull${roundId}" class="fullList">
                                     <c:forEach items="${winnersMap[roundId]}" var="winner">
-                                        ${winner.numWins} <br/> 
+                                        ${winner.numWins} <br /> 
                                     </c:forEach>
                                     </div>
                                     &nbsp;
@@ -149,52 +152,55 @@ return false;
                             <c:otherwise>
                                 <td class="value">
                                     <c:forEach items="${winnersMap[roundId]}" var="winner">
-                                        <tc-webtag:handle coderId="${winner.coderId}" context="marathon_match"/> <br/> 
+                                        <tc-webtag:handle coderId="${winner.coderId}" context="marathon_match"/> <br /> 
                                     </c:forEach>
                                 </td>
                                 <td class="valueR">
                                     <c:forEach items="${winnersMap[roundId]}" var="winner">
-                                        ${winner.numWins} <br/> 
+                                        ${winner.numWins} <br /> 
                                     </c:forEach>
                                 </td>                           
                             </c:otherwise>
                         </c:choose>
                     </tr>   
                </c:forEach>   
+            </tbody>
             </table>
 
-        <center>
+         <p class="small" align="left">* the number of wins the competitor had as a result of that match</p>
+
+        <div align="center">
                 <div class="pagingBox" style="width:300px;">
                     <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" /> |
                     <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" />
                 </div>
 
-                        View &#160;
+                        View &nbsp;
                         <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-                        &#160;at a time starting with &#160;
+                        &nbsp;at a time starting with &nbsp;
                         <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-                        <a href="javascript:document.matchWinnersForm.submit();" class="bcLink">&#160;[ submit ]</a>
-                    </div>
-        </center>
+                        <a href="javascript:document.matchWinnersForm.submit();" class="bcLink">&nbsp;[ submit ]</a>
+        </div>
 
                     </form>
-                </td>
 
-
-         <td width="170">
-            <jsp:include page="/public_right.jsp">
-               <jsp:param name="level1" value="default"/>
+        </td>
+<%-- Center Column Ends --%>
+        
+<%-- Right Column Begins --%>
+        <td width="170">
+            <jsp:include page="../public_right.jsp">
+                <jsp:param name="level1" value="default"/>
             </jsp:include>
-         </td>
+        </td>
+<%-- Right Column Ends --%>
+        
+    </tr>
+</tbody>
+</table>
 
-                <!-- Gutter -->
-                <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-                <!-- Gutter Ends -->
-            </tr>
-        </table>
+<jsp:include page="../foot.jsp" />
 
-        <jsp:include page="/foot.jsp" />
-
-    </body>
+</body>
 
 </html>
