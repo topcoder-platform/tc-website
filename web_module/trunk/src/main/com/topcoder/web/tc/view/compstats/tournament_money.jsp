@@ -39,7 +39,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Top Earners from tournament prizes only.  This does not include reliability bonuses.
+<strong>Record:</strong> Top Earners from tournament prizes only.  This does not include reliability bonuses.<br /><br />A record will be listed as "HIDDEN" if the competitor has opted to hide his/her payments.
 </span>
 </div>
 </html>

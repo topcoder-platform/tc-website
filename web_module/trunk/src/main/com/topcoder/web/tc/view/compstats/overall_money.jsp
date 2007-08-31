@@ -38,7 +38,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> The top earners for all Design and Development contest prizes.  This includes royalties, contest prizes and tournament prizes but does not include reliability bonuses.
+<strong>Record:</strong> The top earners for all Design and Development contest prizes.  This includes royalties, contest prizes and tournament prizes but does not include reliability bonuses.<br /><br />A record will be listed as "HIDDEN" if the competitor has opted to hide his/her payments.
 </span>
 </div>
 </html>
