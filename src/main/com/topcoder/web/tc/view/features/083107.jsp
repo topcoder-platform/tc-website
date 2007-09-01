@@ -97,7 +97,7 @@ The best professor I ever had was Aaron Brenner. He was my English professor. Ou
 
 <br />
 <div class="authorPhoto">
-    <img src="/i/m/nophoto.jpg">
+    <img src="/i/m/TimStevens_big.jpg">
 </div>
 <div class="authorText">
     <tc-webtag:handle coderId="133700"/><br />
