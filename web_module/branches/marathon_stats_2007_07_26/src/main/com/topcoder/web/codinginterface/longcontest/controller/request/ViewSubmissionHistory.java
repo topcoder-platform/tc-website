@@ -111,7 +111,7 @@ public class ViewSubmissionHistory extends Base {
                                 .append("=").append("" + (rsc.getStartRow() + numRecords))
                                 .toString());
             }
-
+            request.setAttribute("canViewProblem", canViewProblem(new Long(request.getParameter(Constants.ROUND_ID))));
             setNextPage(Constants.PAGE_SUBMISSION_HISTORY);
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
