@@ -3,11 +3,8 @@
 <%@ attribute name="contestName" required="true"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:set var="rt" value="TEST" scope="request"/>
+<c:set var="rt" value="${roundTypeId}" scope="request"/>
+<c:set var="rn" value="${roundName}" scope="request"/>
+<c:set var="cn" value="${contestName}" scope="request"/>
 
-rt: <%= request.getAttribute("rt") %>
-rn: <%= request.getAttribute("roundName") %>
-<c:choose>
-	<c:when test="${roundTypeId == 19}">${contestName} ${roundName}</c:when>
-	<c:otherwise>${roundName}</c:otherwise>
-</c:choose>
+<%= com.topcoder.web.codinginterface.longcontest.Helper.displayName(rt,cn,rn) %>
