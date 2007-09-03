@@ -11,6 +11,8 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
+<%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <jsp:useBean id="resultMap" type="java.util.Map" scope="request"/>
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
@@ -27,10 +29,7 @@
      }
 %>
 <%
-    ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_contest_system_test_detail");
-    ResultSetContainer.ResultSetRow testRow = null;
-    if (rsc != null && !rsc.isEmpty())
-        testRow = (ResultSetContainer.ResultSetRow) rsc.get(0);
+    ResultSetContainer.ResultSetRow testRow = (ResultSetContainer.ResultSetRow) request.getAttribute("infoRow")
 %>
 <html>
 <head>
@@ -74,6 +73,9 @@
             <span class="bigHandle">Contest: <A href="/longcontest/stats/?module=ViewOverview&rd=<rsc:item name="round_id" row="<%=testRow%>"/>" class="bcLink"><rsc:item name="contest_name" row="<%=testRow%>"/> &gt; <rsc:item name="round_name" row="<%=testRow%>"/></A></span><br>
             <span class="bodySubtitle">Problem: <a class="bcLink" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=testRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=testRow%>"/>">
                 <rsc:item name="problem_name" row="<%=testRow%>"/></a></span>
+    
+            <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br/>                
+            <span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" isLink="${canViewProblem}" /> </span><br/>
 
             <p>
 
