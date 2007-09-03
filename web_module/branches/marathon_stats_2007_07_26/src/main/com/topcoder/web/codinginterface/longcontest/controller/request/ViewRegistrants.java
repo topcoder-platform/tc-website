@@ -116,7 +116,7 @@ public class ViewRegistrants extends Base {
                                 .append("=").append("" + (rsc.getStartRow() + numRecords))
                                 .toString());
             }
-
+            request.setAttribute("canViewProblem", canViewProblem(new Long(roundID)));
             setNextPage(Constants.PAGE_VIEW_REGISTRANTS);
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
