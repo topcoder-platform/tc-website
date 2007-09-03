@@ -8,6 +8,10 @@
 
 package com.topcoder.web.codinginterface.longcontest.controller.request.stats;
 
+import java.util.HashMap;
+import java.util.ListIterator;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -15,6 +19,8 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
@@ -23,12 +29,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.MaxAge;
-
-import java.util.HashMap;
-import java.util.ListIterator;
-import java.util.Map;
-import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
-import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 
 /**
  * @author Porgery
@@ -87,17 +87,8 @@ public class ViewSystemTestResults extends Base {
             Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
             log.debug("got cases and coders");
 
-            Request rScores = new Request();
-            rScores.setContentHandle("long_contest_system_test_scores");
-            rScores.setProperty(Constants.ROUND_ID, request.getParameter(Constants.ROUND_ID));
-            rScores.setProperty(Constants.PROBLEM_ID, request.getParameter(Constants.PROBLEM_ID));
-
-            log.debug("get scores");
-            //too much data to store for very long.
-            Map<String, ResultSetContainer> scoresMap = getDataAccess(DBMS.DW_DATASOURCE_NAME, MaxAge.HALF_HOUR).getData(rScores);
-            log.debug("got scores");
-
-            ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_test_results_coders");
+            
+            ResultSetContainer rsc = result.get("long_contest_test_results_coders");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
             if ("".equals(startRowStr) && "".equals(sortColStr) && request.getParameter(Constants.CODER_ID) != null) {
                 //go to the specified coder's row
@@ -114,9 +105,29 @@ public class ViewSystemTestResults extends Base {
             rsc = (ResultSetContainer) rsc.subList(startRow - 1, endRow);
             result.put("long_contest_test_results_coders", rsc);
 
-            ResultSetContainer rscCol = (ResultSetContainer) result.get("long_contest_test_results_cases");
+            String coders = createList(rsc, "coder_id");
+            log.debug("coders: " + coders);
+            
+            ResultSetContainer rscCol = result.get("long_contest_test_results_cases");
             rscCol = (ResultSetContainer) rscCol.subList(startCol - 1, endCol);
             result.put("long_contest_test_results_cases", rscCol);
+
+            String testCasesIds  = createList(rscCol, "test_case_id");
+            log.debug("test cases: " + testCasesIds);
+            
+            
+            Request rScores = new Request();
+            rScores.setContentHandle("long_contest_system_test_scores");
+            rScores.setProperty(Constants.ROUND_ID, request.getParameter(Constants.ROUND_ID));
+            rScores.setProperty(Constants.PROBLEM_ID, request.getParameter(Constants.PROBLEM_ID));
+            rScores.setProperty("crs", coders);
+            rScores.setProperty("tids", testCasesIds);
+
+            log.debug("get scores");
+            //too much data to store for very long.
+            Map<String, ResultSetContainer> scoresMap = getDataAccess(DBMS.DW_DATASOURCE_NAME, MaxAge.HALF_HOUR).getData(rScores);
+            log.debug("got scores");
+
 
             ResultSetContainer infoRsc = new ResultSetContainer(result.get("long_contest_overview_info"), new RoundDisplayNameCalculator("display_name"));
             if (infoRsc.size() == 0) {
@@ -216,5 +227,13 @@ public class ViewSystemTestResults extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+
+    private String createList(ResultSetContainer rsc, String colName) {
+        StringBuffer sb = new StringBuffer(100);
+        for (ResultSetContainer.ResultSetRow row : rsc) {
+            sb.append(row.getStringItem(colName)).append(",");
+        }
+        return sb.substring(0, sb.length()-1);
     }
 }
