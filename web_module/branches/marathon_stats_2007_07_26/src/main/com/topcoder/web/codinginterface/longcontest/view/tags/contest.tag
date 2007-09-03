@@ -7,4 +7,4 @@
 <c:set var="rn" value="${roundName}" scope="request"/>
 <c:set var="cn" value="${contestName}" scope="request"/>
 
-<%= com.topcoder.web.codinginterface.longcontest.Helper.displayName((Integer) request.getAttribute("rt"), (String) request.getAttribute("cn"), (String) request.getAttribute("rn")) %>
+<%= com.topcoder.web.codinginterface.longcontest.Helper.displayName(((Integer) request.getAttribute("rt")).intValue(), (String) request.getAttribute("cn"), (String) request.getAttribute("rn")) %>
