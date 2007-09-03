@@ -2,6 +2,12 @@
 <%@ attribute name="roundName" required="true"  %>
 <%@ attribute name="contestName" required="true"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+<%
+    String name = com.topcoder.web.codinginterface.longcontest.Helper.displayName(roundTypeId contestName, roundName);
+%>
+contestName: <%= contestName %>
 <c:choose>
 	<c:when test="${roundTypeId == 19}">${contestName} ${roundName}</c:when>
 	<c:otherwise>${roundName}</c:otherwise>
