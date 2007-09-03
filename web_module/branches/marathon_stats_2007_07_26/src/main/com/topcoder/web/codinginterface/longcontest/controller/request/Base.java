@@ -17,6 +17,8 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.model.ImageInfo;
+import com.topcoder.web.ejb.roundregistration.RoundRegistration;
+import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -267,6 +269,19 @@ public abstract class Base extends BaseProcessor {
             return !((ResultSetContainer) getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r).get("round_exists")).isEmpty();
         }
     }
+
+    /**
+     * Returns whether the logged user can view the problem statement for the round.
+     * In order to view it, either the round must be over, or the user registered to the round, or the user be an admin.
+     * 
+     * @param roundId
+     * @return
+     * @throws Exception
+     */
+    protected boolean canViewProblem(long roundId) throws Exception {
+        RoundRegistrationLocal roundReg = (RoundRegistrationLocal) createLocalEJB(getInitialContext(), RoundRegistration.class);
+        return isRoundOver(roundId) || roundReg.exists(getUser().getId(), roundId) || getSessionInfo().isAdmin();
+    }        
 
 }
 
