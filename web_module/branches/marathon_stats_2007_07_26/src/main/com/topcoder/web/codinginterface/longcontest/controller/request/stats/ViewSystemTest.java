@@ -34,7 +34,7 @@ public class ViewSystemTest extends Base {
             Map<String, ResultSetContainer> m = dataAccess.getData(r);
             ResultSetContainer infoRsc = new ResultSetContainer(m.get("long_contest_system_test_detail"), new RoundDisplayNameCalculator("display_name"));
 
-            request.setAttribute("infoRow", infoRsc);
+            request.setAttribute("infoRow", infoRsc.get(0));
             setNextPage(Constants.PAGE_VIEW_SYSTEM_TEST);
             setIsNextPageInContext(true);
         } catch (TCWebException e) {

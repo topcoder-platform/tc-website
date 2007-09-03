@@ -69,12 +69,8 @@
                <A href="/longcontest/stats/?<%=Constants.MODULE%>=ViewSystemTestResults&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=testRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=testRow%>"/>">back to results</A>
             </div>
 
-            <span class="bigHandle">Contest: <A href="/longcontest/stats/?module=ViewOverview&rd=<rsc:item name="round_id" row="<%=testRow%>"/>" class="bcLink"><rsc:item name="contest_name" row="<%=testRow%>"/> &gt; <rsc:item name="round_name" row="<%=testRow%>"/></A></span><br>
-            <span class="bodySubtitle">Problem: <a class="bcLink" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=testRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=testRow%>"/>">
-                <rsc:item name="problem_name" row="<%=testRow%>"/></a></span>
-    
             <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br/>                
-            <span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" isLink="${canViewProblem}" /> </span><br/>
+            <span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span><br/>
 
             <p>
 
