@@ -234,6 +234,7 @@ public class ViewSystemTestResults extends Base {
         for (ResultSetContainer.ResultSetRow row : rsc) {
             sb.append(row.getStringItem(colName)).append(",");
         }
+        if (sb.length() == 0) return "-1";
         return sb.substring(0, sb.length()-1);
     }
 }
