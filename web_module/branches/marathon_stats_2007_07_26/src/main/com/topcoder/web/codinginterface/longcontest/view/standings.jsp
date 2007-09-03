@@ -93,7 +93,7 @@
 <span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span><br>
 <%}%>
 <span class="bigHandle">Contest: ${infoRow.map['display_name']}</span><br/>                
-<span class="bodySubtitle">Problem: ${infoRow.map['problem_name']}</span><br/>
+<span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" isLink="${canViewProblem}" /> </span><br/>
     
     <c:if test="${not isIntel}">
         <span class="bodySubtitle">Registrants: <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&amp;<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}" class="bcLink">
