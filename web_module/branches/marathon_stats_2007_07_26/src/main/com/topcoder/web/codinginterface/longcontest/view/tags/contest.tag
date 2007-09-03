@@ -3,8 +3,7 @@
 <%@ attribute name="contestName" required="true"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-round name: <%= getRoundName() %>
-
+rt: <%= request.getAttribute("roundTypeId") %>
 <c:choose>
 	<c:when test="${roundTypeId == 19}">${contestName} ${roundName}</c:when>
 	<c:otherwise>${roundName}</c:otherwise>
