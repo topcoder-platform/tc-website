@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 rt: <%= request.getAttribute("roundTypeId") %>
+rn: <%= request.getAttribute("roundName") %>
 <c:choose>
 	<c:when test="${roundTypeId == 19}">${contestName} ${roundName}</c:when>
 	<c:otherwise>${roundName}</c:otherwise>
