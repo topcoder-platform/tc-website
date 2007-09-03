@@ -73,7 +73,7 @@ text-align: left;
 
 <body>
 
-<jsp:include page="top.jsp">
+<jsp:include page="/top.jsp">
     <jsp:param name="level1" value="long"/>
 </jsp:include>
 
@@ -90,7 +90,7 @@ text-align: left;
         <%-- Center Column Begins --%>
         <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
-            <jsp:include page="page_title.jsp">
+            <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="<%=image%>"/>
                 <jsp:param name="title" value="System Test Results"/>
             </jsp:include>
@@ -186,7 +186,7 @@ text-align: left;
 
         <%-- Right Column Begins --%>
         <td width="170">
-            <jsp:include page="public_right.jsp">
+            <jsp:include page="/public_right.jsp">
                 <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
         </td>

@@ -8,6 +8,12 @@ import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.controller.request.Static;
 import com.topcoder.web.common.TCWebException;
 
+/**
+ * Handle all the recordbook pages.
+ * 
+ * @author Cucu
+ *
+ */
 public class Recordbook extends Static {
 
     protected void businessProcessing() throws Exception {
@@ -26,7 +32,7 @@ public class Recordbook extends Static {
             dataRequest.setProperty(Constants.WIN_STREAK_TYPE, streakType);
             getRequest().setAttribute(Constants.WIN_STREAK_TYPE, streakType);
                       
-            includeJsp = Constants.MARATHON_CONSECUTIVE_RATING_INCREASES;
+            includeJsp = "/stats/consecutiveRatingIncreases.jsp";
                         
         } else if (handle.equals("marathon_consecutive_top_finishes")) {
             // check valid values
@@ -47,7 +53,7 @@ public class Recordbook extends Static {
         } else if(handle.equals("marathon_most_wins")) {
             boolean all = "true".equals(getRequest().getParameter("all"));
             if (all) {
-                dataRequest.setProperty(Constants.ROUND_TYPE_ID, "19"); // MARATHON TOURNAMENT. FIX Constant!                
+                dataRequest.setProperty(Constants.ROUND_TYPE_ID, Constants.LONG_ROUND_TOURNAMENT_TYPE_ID + "");                 
             }
             getRequest().setAttribute("allTypes", all);
             
@@ -70,8 +76,6 @@ public class Recordbook extends Static {
         
         } else throw new TCWebException("Invalid c parameter: " + handle);
         
-        log.debug("includeJsp=" + includeJsp);
-//        includeJsp = "/stats/consecutiveRatingIncreases.jsp";
         getRequest().setAttribute("handle", handle);
 
         DataAccessInt dai = getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
@@ -80,7 +84,7 @@ public class Recordbook extends Static {
         getRequest().setAttribute("results", rsc);
         
         getRequest().setAttribute("includeJsp", includeJsp);
-        setNextPage("/stats/recordbook.jsp");
+        setNextPage(Constants.PAGE_RECORDBOOK);
         setIsNextPageInContext(true);
     }
 }

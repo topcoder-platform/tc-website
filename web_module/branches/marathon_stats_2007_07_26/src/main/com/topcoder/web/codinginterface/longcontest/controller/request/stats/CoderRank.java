@@ -71,7 +71,7 @@ public class CoderRank extends Base {
         setDefault(DataAccessConstants.START_RANK, sr);
 
         getRequest().setAttribute("list", rsc);
-        setNextPage("/stats/coderRank.jsp");
+        setNextPage(Constants.PAGE_CODER_RANK);
         setIsNextPageInContext(true);
     
 

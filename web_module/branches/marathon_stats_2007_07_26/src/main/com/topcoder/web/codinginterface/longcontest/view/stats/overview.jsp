@@ -67,7 +67,7 @@
 <%-- Center Column Begins --%>
         <td width="100%" align="left" class="bodyColumn">
 
-<jsp:include page="page_title.jsp">
+<jsp:include page="../page_title.jsp">
     <jsp:param name="image" value="long_comps_topcoder"/>
 </jsp:include>
 
