@@ -28,7 +28,7 @@
      }
 %>
 <%
-    ResultSetContainer.ResultSetRow testRow = (ResultSetContainer.ResultSetRow) request.getAttribute("infoRow")
+    ResultSetContainer.ResultSetRow testRow = (ResultSetContainer.ResultSetRow) request.getAttribute("infoRow");
 %>
 <html>
 <head>
