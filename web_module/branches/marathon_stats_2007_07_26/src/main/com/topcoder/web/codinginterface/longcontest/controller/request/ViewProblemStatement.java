@@ -1,5 +1,8 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
+import java.io.StringReader;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -9,17 +12,17 @@ import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.problemParser.ProblemComponentFactory;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
-import com.topcoder.web.common.*;
-import com.topcoder.web.ejb.roundregistration.RoundRegistration;
-import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.coder.Coder;
-
-import java.io.StringReader;
-import java.util.Map;
 
 
 public class ViewProblemStatement extends Base {
@@ -36,18 +39,14 @@ public class ViewProblemStatement extends Base {
         try {
             TCRequest request = getRequest();
             long rd = Long.parseLong(request.getParameter(Constants.ROUND_ID));
-            RoundRegistrationLocal roundReg = (RoundRegistrationLocal) createLocalEJB(getInitialContext(), RoundRegistration.class);
-            if (!isRoundOver(rd) && !roundReg.exists(getUser().getId(), rd) && !getSessionInfo().isAdmin()) {
-                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-            }
+
             long cid;
             if (request.getParameter(Constants.COMPONENT_ID) == null) {
                 Request r = new Request();
                 r.setContentHandle("long_contest_problem_component");
                 r.setProperty(Constants.PROBLEM_ID, request.getParameter(Constants.PROBLEM_ID));
-                cid = ((ResultSetContainer)
-                        getDataAccess(false).getData(r).get("long_contest_problem_component"))
-                        .getIntItem(0, "component_id");
+                cid = getDataAccess(false).getData(r).get("long_contest_problem_component")
+                    .getIntItem(0, "component_id");
             } else {
                 cid = Long.parseLong(request.getParameter(Constants.COMPONENT_ID));
             }
@@ -60,15 +59,20 @@ public class ViewProblemStatement extends Base {
                 r.setProperty(Constants.COMPONENT_ID, String.valueOf(cid));
                 r.setProperty(Constants.ROUND_ID, String.valueOf(rd));
                 r.setProperty(Constants.CODER_ID, String.valueOf(getUser().getId()));
-                ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("long_contest_recent_compilation");
+                ResultSetContainer rsc = getDataAccess().getData(r).get("long_contest_recent_compilation");
                 if (!rsc.isEmpty()&&rsc.getItem(0, "language_id").getResultData()!=null) {
                     lid = rsc.getIntItem(0, "language_id");
                 } else {
                     Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
-                    lid = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
-                    if (lid==0) {
+                    try {
+                        Integer lang = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+                        if (lang != null) {
+                            lid = lang;
+                        }
+                    } catch (RowNotFoundException e) {
                         lid = JavaLanguage.ID;
                     }
+
                 }
 
             }
@@ -111,7 +115,7 @@ public class ViewProblemStatement extends Base {
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
             throw e;
-        } catch (Exception e) {
+        } catch (Throwable e) {
             throw new TCWebException(e);
         }
     }
