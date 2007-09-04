@@ -4,6 +4,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>09.04.07<br>4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://forums.topcoder.com/?module=Thread&threadID=586772">Coder of the Month dates updated</A></span><br><br>
+        We've got three new "Coders of the Month" featured below. As you may have noticed, however, they are the Coders for August, rather than September. We've changed this to be more accurate (because their accomplishments took place in August, they now hold the title for that month) and have updated our archives accordingly.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=COMHistory&achtid=5">algorithm</a> | 
+        <a href="/tc?module=COMHistory&achtid=6">design</a> | 
+        <a href="/tc?module=COMHistory&achtid=7">development</a> | 
+        <a href="http://forums.topcoder.com/?module=Thread&threadID=586772">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.04.07<br>12:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA chat before SRM 364</A></span><br><br>
@@ -157,18 +172,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</A> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>08.27.07<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep04' refer='/tc' />">TC Channel: Episode 4</A></span><br><br>
-        The fourth installment of TC Channel, TopCoder's video news magazine, is now online. This episode features a profile of <tc-webtag:handle coderId="286907" />, <tc-webtag:handle coderId="144400" context="algorithm"/>'s latest TV appearance, a review of configuration components, and more.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep04' refer='/tc' />">details</A> | 
-        <tc-webtag:forumLink forumID="517192" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
    
