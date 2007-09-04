@@ -17,7 +17,7 @@
 <c:set value="stat?c=round_overview&er=5&rd=" var="details_link"/>
 <c:set var="round1A_id" value="10898"/>
 <c:set var="round1B_id" value="10897"/>
-<c:set var="round1C_id" value="11333"/>
+<c:set var="round1C_id" value="10899"/>
 <c:set var="round2_id" value="22222"/>
 <c:set var="round3_id" value="33333"/>
 <c:set var="round4_id" value="44444"/>
@@ -123,7 +123,7 @@
                             <br />
                             <c:if test = "${not empty round1A_id}"><a href="${details_link}${round1A_id}">A</a></c:if>
                             <c:if test = "${not empty round1B_id}"><a href="${details_link}${round1B_id}">B</a></c:if>
-                            <%--<c:if test = "${not empty round1C_id}"><a href="${details_link}${round1C_id}">C</a></c:if>--%>
+                            <c:if test = "${not empty round1C_id}"><a href="${details_link}${round1C_id}">C</a></c:if>
                             </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round2_sort")%>"/>">Round 2</a>
