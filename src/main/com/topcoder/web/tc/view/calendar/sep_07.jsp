@@ -85,7 +85,6 @@
          </div>
          <div class="hs">
          <strong><A href="/tc?module=MatchDetails&rd=10779">TCHS SRM 38</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA</A><br>
          9:00 PM
          </div>
       </td>
@@ -213,7 +212,6 @@
          </div>
          <div class="hs">
          <strong><A href="/tc?module=MatchDetails&rd=10784">TCHS SRM 40</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank</A><br>
          11:00 AM
          </div>
       </td>
