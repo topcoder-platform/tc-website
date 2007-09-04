@@ -2,6 +2,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
 
 <html>
 <div class="fixedWidthBody">
@@ -35,8 +36,10 @@
        <tr class='${status.index % 2 == 1? "dark" : "light" }'>
             <td class="valueC">${row.map['rank']}</td>
             <td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon"/></td>
-            <td class="valueR" >${row.map['new_rating'] }</td>
-            <td class="value" nowrap="nowrap">${row.map['name'] }</td>
+            <td class="valueR" >${row.map['new_rating'] }</td>            
+            <td class="value" nowrap="nowrap">
+                    <mm:contest roundTypeId="${row.map['round_type_id']}" contestName="${row.map['contest_name']}" roundName="${row.map['round_name']}" />                            
+             </td>
             <td class="valueC" ><fmt:formatDate value="${row.map['date']}" pattern="MM/dd/yyyy"/> </td>
     </tr>
     </c:forEach>
