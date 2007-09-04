@@ -163,10 +163,10 @@
 
                 <%-- SRM SPONSOR --%>
                 <map name="mm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db" />
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10778" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa" />
                 </map>
-                <img src="/i/home/tccc07AlgoRd1C_db.png" alt="TCCC07 Algorithm Round 1C brought to you by Deutsche Bank" border="0" style="display:block;" usemap="#mm"/>
+                <img src="/i/home/srm364_nsa.png" alt="SRM 364 brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
                 
 
                 <%-- LICENSE ID 
@@ -403,33 +403,26 @@
     </tr>
     <tr>
         <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">August Events:</A></td>
+        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">September Events:</A></td>
     </tr>
     <tr>
         <td class="homeArrow">&#160; </td>
         <td class="homeText"><br>
-            <b>08.01</b> - SRM 361 - TopCoder - 9 PM<br><br>
-            <b>08.01</b> - TCHS SRM 36 - 9 PM<br><br>
-            <b>08.02</b> - TCCC CDDC Week 2 Projects Posted - 9 AM<br><br>
-            <b>08.07</b> - SRM 362 - 7 AM<br><br>
-            <b>08.07</b> - TCHS SRM 37 - 7 AM<br><br>
-            <b>08.07</b> - TCCC MM Reg Closes - 5 PM<br><br>
-            <b>08.08</b> - TCCC MM Round 1 - 12 NOON<br><br>
-            <b>08.08</b> - Marathon Match 20 - 12 NOON<br><br>
-            <b>08.09</b> - TCCC CDDC Week 3 Projects Posted - 9 AM<br><br>
-            <b>08.11</b> - SRM 363 - 12 NOON<br><br>
-            <b>08.16</b> - TCCC CDDC Week 4 Projects Posted - 9 AM<br><br>
-            <b>08.16</b> - TCCC Algo Reg Closes - 5 PM<br><br>
-            <b>08.18</b> - TCCC Algo Qual Round 1 - 1 PM<br><br>
-            <b>08.21</b> - TCCC Algo Qual Round 2 - 7 AM<br><br>
-            <b>08.22</b> - Marathon Match 21 - 12 NOON<br><br>
-            <b>08.22</b> - TCCC MM Round 2 - 12 NOON<br><br>
-            <b>08.23</b> - TCCC CDDC Week 5 Projects Posted - 9 AM<br><br>
-            <b>08.23</b> - TCCC CDDC Week Reg Closes - 9 AM<br><br>
-            <b>08.23</b> - TCCC Algo Qual Round 3 - 9 PM<br><br>
-            <b>08.24</b> - TCCC Studio Reg Closes - 5 PM<br><br>
-            <b>08.28</b> - TCCC Algo Round 1A - 9 PM<br><br>
-            <b>08.30</b> - TCCC Algo Round 1B - 7 AM<br><br>
+            <b>09.01</b> - TCCC Algo Round 1C - 1 PM<br><br>
+            <b>09.04</b> - SRM 364 - 9 PM<br><br>
+            <b>09.04</b> - TCHS SRM 38 - 9 PM<br><br>
+            <b>09.05</b> - Marathon Match 22 - 12 NOON<br><br>
+            <b>09.05</b> - TCCC MM Round 3 - 12 NOON<br><br>
+            <b>09.08</b> - TCCC Algo Round 2 - 1 PM<br><br>
+            <b>09.12</b> - SRM 365 - 11 AM<br><br>
+            <b>09.14</b> - TCCC Visa Request Deadline - 5 PM<br><br>
+            <b>09.15</b> - TCCC Algo Round 3 - 1 PM<br><br>
+            <b>09.18</b> - SRM 366 - 7 AM<br><br>
+            <b>09.18</b> - TCHS SRM 39 - 7 AM<br><br>
+            <b>09.20</b> - TCCC CDDDC Round 1 Projects Posted - 9 AM<br><br>
+            <b>09.22</b> - TCCC Algo Round 4 - 1 PM<br><br>
+            <b>09.26</b> - SRM 367 - 11 AM<br><br>
+            <b>09.26</b> - TCHS SRM 40 - 11 AM<br><br>
             <%--<b>01.13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br><br>--%>
         </td>
     </tr>
