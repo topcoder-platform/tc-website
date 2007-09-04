@@ -46,7 +46,7 @@
     <tc-webtag:forumLink forumID="515162" message="Discuss this article" />
 </div>
 
-<span class="bigTitle">Meet the April Coders of the Month</span>
+<span class="bigTitle">Meet the March Coders of the Month</span>
 <br /><br />
 <%--
 <div class="authorPhoto">
@@ -59,7 +59,7 @@
 --%>
 <br clear="all">
 
-<p>We caught up with April's "coders of the month," to learn a little bit more about them, what brought them to TopCoder, and their insights.</p>
+<p>We caught up with March's "coders of the month," to learn a little bit more about them, what brought them to TopCoder, and their insights.</p>
 
 <p>
 <a href="/tc?module=COMHistory&achtid=5">Algorithm</a>: <tc-webtag:handle coderId="22675302" /><br>
