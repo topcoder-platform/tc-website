@@ -383,6 +383,12 @@
             Lilly &amp; Deutsche Bank Announced as New Sponsors &amp; NSA Returns as Patron of TCCC07
             <A href="/tc?module=Static&d1=pressroom&d2=pr_082407">...more</a><br>[August 24]<br><br>
             
+            <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/topcoder_logo.png" width="67" height="30" alt="TopCoder" border="0" />
+            </div>
+            6 State companies among fastest growing
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.publicbroadcasting.net/wnpr/news.newsmain?action=article&ARTICLE_ID=1139736' refer='/homepage_index' />">...more</a><br>[August 23]<br><br>
+            
             Introducing the TopCoder UML Tool
             <A href="/tc?module=Static&d1=dev&d2=umltool&d3=description">...more</a><br>[August 9]<br><br>
             
@@ -392,11 +398,6 @@
             TopCoder Announces New Collaboration Initiatives
             <A href="/tc?module=Static&d1=pressroom&d2=pr_071807">...more</a><br>[July 18]<br><br>
             
-            <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/guardian_logo.png" width="67" height="30" alt="Guardian Unlimited" border="0" />
-            </div>
-            Bill Taylor on big ideas
-            <a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />">...more</a><br>[July 10]<br><br>
 
 
           </td>
