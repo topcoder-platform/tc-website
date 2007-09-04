@@ -2,6 +2,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants, com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.model.EventType,
                  com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.tc.controller.request.tournament.AdvancersBase" %>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
