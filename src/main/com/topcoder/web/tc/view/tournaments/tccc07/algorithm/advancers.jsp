@@ -146,7 +146,8 @@
                         </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("semi_sort")%>"/>">Semi</a>
-                            <br />details: 
+                            <br />
+                            <c:if test = "${not empty semi1_id}"><a href="${details_link}${semi1_id}">details:</a></c:if>
                             <br />&nbsp;
                             <c:if test = "${not empty semi1_id}"><a href="${details_link}${semi1_id}">1</a></c:if>
                             <c:if test = "${not empty semi2_id}"><a href="${details_link}${semi2_id}">2</a></c:if>
