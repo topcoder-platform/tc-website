@@ -70,7 +70,7 @@
                    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
                         <td class="valueC">${row.map['rank']}</td>
                         <td class="value">
-                            <a href=/tc?module=AdvancedSearch&sn=<c:out value="${row.map['rank']}"/> >
+                            <a href=/tc?module=AdvancedSearch&sn=<c:out value="${row.map['name']}"/> >
                             ${row.map['name']}
                             </a>
                         </td>     
