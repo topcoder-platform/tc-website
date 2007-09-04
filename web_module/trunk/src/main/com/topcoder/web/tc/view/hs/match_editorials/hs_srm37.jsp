@@ -489,7 +489,7 @@ for a clear implementation.
  
 
 <div class="authorPhoto">
-    <img src="/i/m/nophoto.jpg" alt="Author" />
+    <img src="/i/m/Janq_big.jpg" alt="Author" />
 </div>
 <div class="authorText">
     By&#160;<tc-webtag:handle coderId="10389461" context="algorithm"/><br />    <em>TopCoder Member</em>
