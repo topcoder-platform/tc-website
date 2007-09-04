@@ -1,8 +1,7 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.web.common.model.EventType, com.topcoder.shared.dataAccess.*, 
-                 com.topcoder.web.tc.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.tc.controller.request.tournament.AdvancersBase" %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants, com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.web.common.model.EventType,
+                 com.topcoder.web.tc.Constants" %>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -17,13 +16,17 @@
 <c:set value="stat?c=round_overview&er=5&rd=" var="details_link"/>
 <c:set var="round1A_id" value="10898"/>
 <c:set var="round1B_id" value="10897"/>
-<c:set var="round1C_id" value=""/>
-<c:set var="round2_id" value="22222"/>
-<c:set var="round3_id" value="33333"/>
-<c:set var="round4_id" value="44444"/>
-<c:set var="semi1_id" value="55111"/>
-<c:set var="semi2_id" value="55222"/>
-<c:set var="semi3_id" value="55333"/>
+<c:set var="round1C_id" value="10899"/>
+<c:set var="round2_id" value=""/>
+<c:set var="round3_id" value=""/>
+<%--
+<c:set var="round2_id" value="10891"/>
+<c:set var="round3_id" value="10908"/>
+--%>
+<c:set var="round4_id" value=""/>
+<c:set var="semi1_id" value=""/>
+<c:set var="semi2_id" value=""/>
+<c:set var="semi3_id" value=""/>
 <c:set var="wildcard_id" value=""/>
 <c:set var="finals_id" value=""/>
 
@@ -127,35 +130,35 @@
                             </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round2_sort")%>"/>">Round 2</a>
-                            <br /><%--<c:if test = "${not empty round2_id}"><a href="${details_link}${round2_id}">details</a></c:if>--%>
+                            <br /><c:if test = "${not empty round2_id}"><a href="${details_link}${round2_id}">details</a></c:if>
                             <br />&nbsp;
                         </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round3_sort")%>"/>">Round 3</a>
-                            <br /><%--<c:if test = "${not empty round3_id}"><a href="${details_link}${round3_id}">details</a></c:if>--%>
+                            <br /><c:if test = "${not empty round3_id}"><a href="${details_link}${round3_id}">details</a></c:if>
                             <br />&nbsp;
                         </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round4_sort")%>"/>">Round 4</a>
-                            <br /><%--<c:if test = "${not empty round4_id}"><a href="${details_link}${round4_id}">details</a></c:if>--%>
+                            <br /><c:if test = "${not empty round4_id}"><a href="${details_link}${round4_id}">details</a></c:if>
                             <br />&nbsp;
                         </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("semi_sort")%>"/>">Semi</a>
                             <br />details: 
                             <br />&nbsp;
-                            <%--<c:if test = "${not empty semi1_id}"><a href="${details_link}${semi1_id}">1</a></c:if>--%>
-                            <%--<c:if test = "${not empty semi2_id}"><a href="${details_link}${semi2_id}">2</a></c:if>--%>
-                            <%--<c:if test = "${not empty semi3_id}"><a href="${details_link}${semi3_id}">3</a></c:if>--%>
+                            <c:if test = "${not empty semi1_id}"><a href="${details_link}${semi1_id}">1</a></c:if>
+                            <c:if test = "${not empty semi2_id}"><a href="${details_link}${semi2_id}">2</a></c:if>
+                            <c:if test = "${not empty semi3_id}"><a href="${details_link}${semi3_id}">3</a></c:if>
                         </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("wildcard_sort")%>"/>">Wildcard</a>
-                            <br /><%--<c:if test = "${not empty wildcard_id}"><a href="${details_link}${wildcard_id}">details</a></c:if>--%>
+                            <br /><c:if test = "${not empty wildcard_id}"><a href="${details_link}${wildcard_id}">details</a></c:if>
                             <br />&nbsp;
                         </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("finals_sort")%>"/>">Final</a>
-                            <br /><%--<c:if test = "${not empty finals_id}"><a href="${details_link}${finals_id}">details</a></c:if>--%>
+                            <br /><c:if test = "${not empty finals_id}"><a href="${details_link}${finals_id}">details</a></c:if>
                             <br />&nbsp;
                         </td>
                     </tr>
