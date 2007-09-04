@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">09.04.07 12:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA chat before SRM 364</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.31.07 2:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 1C set for September 1</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.29.07 11:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 1B set for August 30</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.28.07 9:15 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 1A set for August 28</A></td></tr>

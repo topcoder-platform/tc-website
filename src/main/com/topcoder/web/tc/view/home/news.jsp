@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.04.07<br>12:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA chat before SRM 364</A></span><br><br>
+        SRM 364, with $5,000 in prizes, is brought to you by NSA. Before the match, NSA representatives will be in the Arena to discuss the exciting career opportunities at the agency. The chat begins at 8:00 PM EDT -- don’t miss it!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">details</A> | 
+        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>08.31.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -157,21 +170,5 @@
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep04' refer='/tc' />">details</A> | 
         <tc-webtag:forumLink forumID="517192" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Marathon Match Tutorial" border="0" /><br>08.27.07<br>3:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=combinatorics">Basics of combinatorics</A></span><br><br>
-      The myriad ways of counting the number of elements in a set is one of the main tasks in combinatorics, and I&rsquo;ll try to describe some basic aspects of it in this tutorial.</td>
-         <td class="newsPhoto"><img src="/i/m/x-ray_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="22654859" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=combinatorics">full story</A> | 
-         <tc-webtag:forumLink forumID="517191" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
    
