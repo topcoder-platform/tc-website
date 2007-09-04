@@ -67,11 +67,15 @@
                   <td class="headerC">Rating</td>
                </tr>
                <c:forEach items="${list}" var="row" varStatus="status">
+                    <c:url var="schoolLink" value="/tc" >
+                            <c:param name="module" value="AdvancedSearch" />
+                            <c:param name="sn" value="{row.map['name']}" />
+                    </c:url>
                    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
                         <td class="valueC">${row.map['rank']}</td>
                         <td class="value">
-                            <a href=/tc?module=AdvancedSearch&sn=<c:out value="${row.map['name']}"/> >
-                            ${row.map['name']}
+                            <a href="${schoolLink}">
+                                ${row.map['name']}
                             </a>
                         </td>     
                         <td class="value">
