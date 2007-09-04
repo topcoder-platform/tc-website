@@ -39,17 +39,18 @@
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
     <tr valign="top">
-        <%-- Left Column Begins--%>
+<%-- Left Column Begins--%>
         <td width="180">
-         <jsp:include page="includes/global_left.jsp">
+            <jsp:include page="includes/global_left.jsp">
             <jsp:param name="node" value="long_queue"/>
-         </jsp:include>
+            </jsp:include>
         </td>
-        <%-- Left Column Ends --%>
+<%-- Left Column Ends --%>
 
-        <%-- Center Column Begins --%>
-        <td class="statTableSpacer" width="100%" valign="top">
+<%-- Center Column Begins --%>
+        <td width="100%" align="left" class="bodyColumn">
 
             <jsp:include page="page_title.jsp">
                 <jsp:param name="image" value="<%=image%>"/>
@@ -57,7 +58,7 @@
             </jsp:include>
             
             <logic:notEqual name="systemTestCount" value="0">
-                <span class="bodySubtitle">System Tests Remaining: <%=systemTestCount%></span><br/><br/>
+                <p align="center">System Tests Remaining: <strong><%=systemTestCount%></strong></p>
             </logic:notEqual>    
 
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat">
@@ -125,19 +126,22 @@
 
 
         </td>
-
-        <%-- Right Column Begins --%>
+<%-- Center Column Ends --%>
+        
+<%-- Right Column Begins --%>
         <td width="170">
             <jsp:include page="public_right.jsp">
-                <jsp:param name="level1" value="privatelabel"/>
+                <jsp:param name="level1" value="default"/>
             </jsp:include>
         </td>
-        <%-- Right Column Ends --%>
-
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" alt="" /></td>
+<%-- Right Column Ends --%>
+        
     </tr>
+</tbody>
 </table>
 
-<jsp:include page="foot.jsp"/>
+<jsp:include page="foot.jsp" />
+
 </body>
+
 </html>

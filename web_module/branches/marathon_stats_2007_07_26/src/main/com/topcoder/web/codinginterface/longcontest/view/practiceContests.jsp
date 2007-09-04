@@ -51,6 +51,10 @@
                 <jsp:param name="title" value="Practice Contests"/>
             </jsp:include>
 
+            <div align="right" style="margin: 6px 0px;">
+                <a href="/longcontest/?module=Static&amp;d1=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
+            </div>
+
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat">
             <tbody>
                 <tr>

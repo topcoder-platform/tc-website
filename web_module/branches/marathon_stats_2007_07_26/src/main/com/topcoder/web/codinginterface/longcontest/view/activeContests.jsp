@@ -49,10 +49,10 @@
 <%-- Center Column Begins --%>
         <td width="100%" align="left" class="bodyColumn">
 
-<jsp:include page="page_title.jsp">
-    <jsp:param name="image" value="long_comps_topcoder"/>
-    <jsp:param name="title" value="Active Contests"/>
-</jsp:include>
+            <jsp:include page="page_title.jsp">
+                <jsp:param name="image" value="long_comps_topcoder"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
 
             <div align="right" style="margin: 6px 0px;">
                 <a href="/longcontest/?module=Static&amp;d1=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
