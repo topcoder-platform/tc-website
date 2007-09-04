@@ -79,7 +79,6 @@ public class ViewExampleHistory extends Base {
             setDefault(DataAccessConstants.START_RANK, "" + startRank);
             setDefault(Constants.ROUND_ID, request.getParameter(Constants.ROUND_ID));
 
-            request.setAttribute("canViewProblem", canViewProblem(new Long(request.getParameter(Constants.ROUND_ID))));
             request.setAttribute("resultMap", result);
             request.setAttribute(Constants.COMPONENT_ID, component);
 

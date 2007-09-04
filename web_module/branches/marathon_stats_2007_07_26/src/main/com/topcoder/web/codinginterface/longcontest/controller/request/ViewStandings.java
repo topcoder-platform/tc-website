@@ -141,7 +141,6 @@ public class ViewStandings extends Base {
                     }
 
                     
-                    request.setAttribute("canViewProblem", canViewProblem(new Long(roundID)));
                     request.setAttribute(Constants.ROUND_STANDINGS_LIST_KEY, standings);
                     request.setAttribute(Constants.ROUND_ID, roundID);
                     request.setAttribute("isIntel", roundTypeID == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID || roundTypeID == Constants.INTEL_LONG_ROUND_TYPE_ID);

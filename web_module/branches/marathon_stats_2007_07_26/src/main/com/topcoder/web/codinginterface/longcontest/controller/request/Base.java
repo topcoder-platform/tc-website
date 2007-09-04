@@ -270,18 +270,6 @@ public abstract class Base extends BaseProcessor {
         }
     }
 
-    /**
-     * Returns whether the logged user can view the problem statement for the round.
-     * In order to view it, either the round must be over, or the user registered to the round, or the user be an admin.
-     * 
-     * @param roundId
-     * @return
-     * @throws Exception
-     */
-    protected boolean canViewProblem(long roundId) throws Exception {
-        RoundRegistrationLocal roundReg = (RoundRegistrationLocal) createLocalEJB(getInitialContext(), RoundRegistration.class);
-        return isRoundOver(roundId) || roundReg.exists(getUser().getId(), roundId) || getSessionInfo().isAdmin();
-    }        
 
 }
 
