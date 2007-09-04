@@ -10,14 +10,14 @@
    <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br>- August</div>
    <table cellpadding="0" cellspacing="0" border="0" width="165">
    <tr>
-      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/ACman_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/myprasanna_big2.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</A></strong><br>
-         <tc-webtag:handle coderId="22629261" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br>
+         <tc-webtag:handle coderId="13366203" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br>
          <span class="small">
-         SRM 360: 1696<br>
-         SRM 359: 1776<br>
-         SRM 358: 1591
+         TCCC07 Rd 1A: 1984<br>
+         TCCC07 Qual 1: 1895<br>
+         SRM 363: 1727
          </span><br><br>
       </td>
    </tr>
@@ -25,20 +25,20 @@
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</A></strong><br>
-         <tc-webtag:handle coderId="21926605" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br> 
+         <tc-webtag:handle coderId="20437508" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br> 
          <span class="small">
-         9 design wins in July<br><br>
+         3 wins in August<br>
+         Won last 14 components<br>
          </span><br><br>
       </td>
    </tr>
    <tr>
-      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/sidonath_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</A></strong><br>
-         <tc-webtag:handle coderId="22680930" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br>
+         <tc-webtag:handle coderId="15604762" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br>
          <span class="small">
-         2 development wins<br>
-         4 wins out of first 5 competitions<br>
+         4 components, 4 wins<br><br>
          </span><br><br>
       </td>
    </tr>

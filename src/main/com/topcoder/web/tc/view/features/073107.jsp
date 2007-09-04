@@ -57,7 +57,7 @@
     <tc-webtag:forumLink forumID="516783" message="Discuss this article" />
 </div>
 
-<span class="bigTitle">Meet the July Coders of the Month</span>
+<span class="bigTitle">Meet the June Coders of the Month</span>
 <br /><br />
 
 <div class="authorText">
@@ -67,7 +67,7 @@
 
 <br clear="all">
 
-<p>July's "Coders of the Month" are a diverse mix, hailing from Estonia, Ukraine and India, but there are some similarities among them. For example, two of them like to listen to music while they code, while the third compares TopCoder SRMs themselves to musical performances. 
+<p>June's "Coders of the Month" are a diverse mix, hailing from Estonia, Ukraine and India, but there are some similarities among them. For example, two of them like to listen to music while they code, while the third compares TopCoder SRMs themselves to musical performances. 
 
 
 In this article, we'll look at how these three coders approach TopCoder competition, and what they do when they need a break.</p>

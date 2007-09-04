@@ -57,7 +57,7 @@
     <tc-webtag:forumLink forumID="517154" message="Discuss this article" />
 </div>
  
-<span class="bigTitle">Meet the August Coders of the Month</span>
+<span class="bigTitle">Meet the July Coders of the Month</span>
 <br /><br />
 
 <div class="authorText">
@@ -67,12 +67,12 @@
 
 <br clear="all">
 
-<p>August's "Coders of the Month" include an Italian designer, a Chinese algorithm competitor, and a developer from Bosnia &amp;  Herzegovina.  In this article, we ask them for their advice to newbies, the accomplishments that they're most proud of, and the things that stress them out. </p>
+<p>July's "Coders of the Month" include an Italian designer, a Chinese algorithm competitor, and a developer from Bosnia &amp;  Herzegovina.  In this article, we ask them for their advice to newbies, the accomplishments that they're most proud of, and the things that stress them out. </p>
 
 <br />
 <p>
 <div class="authorPhoto">
-    <img src="/i/m/ACman_big.jpg" alt="ACman, August's Algorithm Coder of the Month" />
+    <img src="/i/m/ACman_big.jpg" alt="ACman, July's Algorithm Coder of the Month" />
 </div>
 <a href="/tc?module=COMHistory&achtid=5">Algorithm</a>: <tc-webtag:handle coderId="22629261" context="algorithm"/><br />
   SRM 360: 1696<br />
@@ -96,7 +96,7 @@
 <br />
 <p>
 <div class="authorPhoto">
-    <img src="/i/m/nophoto.jpg" alt="fabrizyo, August's Designer of the Month" />
+    <img src="/i/m/nophoto.jpg" alt="fabrizyo, July's Designer of the Month" />
 </div>
 <a href="/tc?module=COMHistory&achtid=6">Design</a>: <tc-webtag:handle coderId="21926605" context="design"/><br />
 9 design wins last month </p><br />
@@ -113,7 +113,7 @@
 <br />
 <p>
 <div class="authorPhoto">
-    <img src="/i/m/sidonath_big.jpg" alt="sidonath, August's Development Coder of the Month" />
+    <img src="/i/m/sidonath_big.jpg" alt="sidonath, July's Development Coder of the Month" />
 </div>
 <a href="/tc?module=COMHistory&achtid=7">Development</a>: <tc-webtag:handle coderId="22680930" context="development"/><br />
 2 development wins<br />
