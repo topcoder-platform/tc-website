@@ -67,7 +67,7 @@
                   <td class="headerC">Rating</td>
                </tr>
                <c:forEach items="${list}" var="row" varStatus="status">
-                    <c:url var="schoolLink" value="/tc" >
+                    <c:url var="schoolLink" value="" context="/tc">
                             <c:param name="module" value="AdvancedSearch" />
                             <c:param name="sn" value="${row.map['name']}" />
                     </c:url>
