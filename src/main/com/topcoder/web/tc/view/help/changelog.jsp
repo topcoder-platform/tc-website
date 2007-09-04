@@ -47,6 +47,7 @@
     5.11.1 - 2007.09.xx
     <ul>
         <li>Add tccc07 sponsor track advancers -dok</li>
+        <li>Fix Unicode escaping in assignment docs and affidavits -pulky</li>
     </ul>
 </p>
 
