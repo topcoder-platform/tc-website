@@ -69,7 +69,7 @@
                <c:forEach items="${list}" var="row" varStatus="status">
                     <c:url var="schoolLink" value="/tc" >
                             <c:param name="module" value="AdvancedSearch" />
-                            <c:param name="sn" value="{row.map['name']}" />
+                            <c:param name="sn" value="${row.map['name']}" />
                     </c:url>
                    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
                         <td class="valueC">${row.map['rank']}</td>
