@@ -15,7 +15,7 @@
 <!--  Leave empty if the round doesn't exist or it's not finished -->
 
 <c:set value="stat?c=round_overview&er=5&rd=" var="details_link"/>
-<c:set var="round1_id" value="10898"/>
+<c:set var="round1_id" value="10906"/>
 <c:set var="round2_id" value=""/>
 <c:set var="round3_id" value=""/>
 <c:set var="finals_id" value=""/>
@@ -97,27 +97,18 @@
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
                     <tr>
-                        <td class="headerC">
-                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
-                        </td>
                         <td class="header">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
                             <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="12" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
-                        </td>
-                        <td class="headerC">
-                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("section")%>"/>">Section</a>
                         </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
                         </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round1_sort")%>"/>">Round 1</a>
-                            <br />details:
-                            <br />
-                            <c:if test = "${not empty round1A_id}"><a href="${details_link}${round1A_id}">A</a></c:if>
-                            <c:if test = "${not empty round1B_id}"><a href="${details_link}${round1B_id}">B</a></c:if>
-                            <c:if test = "${not empty round1C_id}"><a href="${details_link}${round1C_id}">C</a></c:if>
-                            </td>
+                            <br /><c:if test = "${not empty round1_id}"><a href="${details_link}${round1_id}">details</a></c:if>
+                            <br />&nbsp;
+                        </td>
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round2_sort")%>"/>">Round 2</a>
                             <br /><c:if test = "${not empty round2_id}"><a href="${details_link}${round2_id}">details</a></c:if>
@@ -126,25 +117,6 @@
                         <td class="headerC">
                             <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round3_sort")%>"/>">Round 3</a>
                             <br /><c:if test = "${not empty round3_id}"><a href="${details_link}${round3_id}">details</a></c:if>
-                            <br />&nbsp;
-                        </td>
-                        <td class="headerC">
-                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round4_sort")%>"/>">Round 4</a>
-                            <br /><c:if test = "${not empty round4_id}"><a href="${details_link}${round4_id}">details</a></c:if>
-                            <br />&nbsp;
-                        </td>
-                        <td class="headerC">
-                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("semi_sort")%>"/>">Semi</a>
-                            <br />
-                            <c:if test = "${not empty semi1_id}"><a href="${details_link}${semi1_id}">details:</a></c:if>
-                            <br />&nbsp;
-                            <c:if test = "${not empty semi1_id}"><a href="${details_link}${semi1_id}">1</a></c:if>
-                            <c:if test = "${not empty semi2_id}"><a href="${details_link}${semi2_id}">2</a></c:if>
-                            <c:if test = "${not empty semi3_id}"><a href="${details_link}${semi3_id}">3</a></c:if>
-                        </td>
-                        <td class="headerC">
-                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("wildcard_sort")%>"/>">Wildcard</a>
-                            <br /><c:if test = "${not empty wildcard_id}"><a href="${details_link}${wildcard_id}">details</a></c:if>
                             <br />&nbsp;
                         </td>
                         <td class="headerC">
@@ -159,16 +131,11 @@
 <%boolean even = false;%>
 <rsc:iterator list="<%=rsc%>" id="resultRow">
 <tr class="<%=(even ? "dark" : "light")%>">
-<td class="valueC">${resultRow.map["seed"]}</td>
 <td class="value"><tc-webtag:handle coderId="${resultRow.map['coder_id']}" context="algorithm"/></td>
-<td class="valueC">${resultRow.map["section"]}</td>
 <td class="valueC">${resultRow.map["rating"]}</td>
 <td class="${resultRow.map['round1'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["round1"]}</td>
 <td class="${resultRow.map['round2'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["round2"]}</td>
 <td class="${resultRow.map['round3'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["round3"]}</td>
-<td class="${resultRow.map['round4'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["round4"]}</td>
-<td class="${resultRow.map['semi'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["semi"]}</td>
-<td class="${resultRow.map['wildcard'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["wildcard"]}</td>
 <td class="${resultRow.map['final'] == 'Eliminated' ? 'valueCE' : 'valueCA'}">${resultRow.map["final"]}</td>
 </tr>
 <%even = !even;%>
