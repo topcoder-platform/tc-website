@@ -55,7 +55,7 @@
             </tr>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="8365955" /></td>
-               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=082007"><strong>Meet the August Coders of the Month</strong></A></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=082007"><strong>Meet the July Coders of the Month</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Aug 20, 2007</td> 
             </tr>
             <tr valign="top">
@@ -70,7 +70,7 @@
             </tr>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="8365955" /></td>
-               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=073107"><strong>Meet the July Coders of the Month</strong></A></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=073107"><strong>Meet the June Coders of the Month</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Jul 31, 2007</td> 
             </tr>
             <tr valign="top">
@@ -110,7 +110,7 @@
             </tr>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="8365955" /></td>
-               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=062807"><strong>Meet the June Coders of the Month</strong></A></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=062807"><strong>Meet the May Coders of the Month</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Jun 28, 2007</td> 
             </tr>
            <tr valign="top">
@@ -145,7 +145,7 @@
             </tr>
             <tr valign="top">
                <td class="bodyText">&#160;</td>
-               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=052907"><strong>Meet the May Coders of the Month</strong></A></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=052907"><strong>Meet the April Coders of the Month</strong></A></td>
                <td class="bodyText" nowrap=nowrap>May 29, 2007</td> 
             </tr>
             <tr valign="top">
@@ -190,7 +190,7 @@
             </tr>
             <tr valign="top">
                <td class="bodyText">&#160;</td>
-               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=041207"><strong>Meet the April Coders of the Month</strong></A></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=041207"><strong>Meet the March Coders of the Month</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Apr 12, 2007</td> 
             </tr>
             <tr valign="top">
