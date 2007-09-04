@@ -49,9 +49,7 @@ public class SponsorAdvancers extends AdvancersBase {
     @Override
     protected void setSortInfo(ResultSetContainer rsc) {
         SortInfo s = new SortInfo();
-        s.addDefault(rsc.getColumnIndex("seed"), "asc");
         s.addDefault(rsc.getColumnIndex("handle_sort"), "asc");
-        s.addDefault(rsc.getColumnIndex("section"), "asc");
         s.addDefault(rsc.getColumnIndex("rating"), "desc");
         s.addDefault(rsc.getColumnIndex("round1_sort"), "asc");
         s.addDefault(rsc.getColumnIndex("round2_sort"), "asc");
