@@ -66,22 +66,22 @@
                 <h1><span>Advancers</span></h1>
 
                 <form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
-                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07AlgorithmAdvancers"/>
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC07SponsorAdvancers"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
                 <tc-webtag:hiddenInput name="<%=AdvancersBase.FULL_LIST%>"/>
 
                 <div align="center">
-                <a href="/tc?module=TCCC07AlgorithmAdvancers">Reset sorting</a>
+                <a href="/tc?module=TCCC07SponsorAdvancers">Reset sorting</a>
 
                 <c:choose>
                     <c:when test="${full}">
-                        | <a href="/tc?module=TCCC07AlgorithmAdvancers&full=false">Pages</a>
+                        | <a href="/tc?module=TCCC07SponsorAdvancers&full=false">Pages</a>
                         | Full view
                     </c:when>
                     <c:otherwise>
                         | Page view
-                        | <a href="/tc?module=TCCC07AlgorithmAdvancers&full=true">Full view</a>
+                        | <a href="/tc?module=TCCC07SponsorAdvancers&full=true">Full view</a>
                     </c:otherwise>
                 </c:choose>
 
