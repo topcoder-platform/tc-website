@@ -15,16 +15,16 @@
 <html>
 <head>
 <title>TopCoder Statistics</title>
-<jsp:include page="/style.jsp">
+<jsp:include page="../style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
-<jsp:include page="/script.jsp" />
+<jsp:include page="../script.jsp" />
   
 </head>
 
 <body>
 
-        <jsp:include page="/top.jsp" >
+        <jsp:include page="../top.jsp" >
             <jsp:param name="level1" value="long"/>
         </jsp:include>
      
@@ -33,7 +33,7 @@
             <tr valign="top">
                 <!-- Left Column Begins-->
                 <td width="180">
-                    <jsp:include page="/includes/global_left.jsp">
+                    <jsp:include page="../includes/global_left.jsp">
                         <jsp:param name="node" value="top_rated_long"/>
                     </jsp:include>
                 </td>
@@ -83,7 +83,7 @@
 
 
          <td width="170">
-            <jsp:include page="/public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="default"/>
             </jsp:include>
          </td>
@@ -94,7 +94,7 @@
             </tr>
         </table>
 
-        <jsp:include page="/foot.jsp" />
+        <jsp:include page="../foot.jsp" />
 
     </body>
 

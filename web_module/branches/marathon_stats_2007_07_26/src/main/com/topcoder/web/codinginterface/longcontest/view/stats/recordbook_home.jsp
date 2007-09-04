@@ -35,7 +35,7 @@
 
 <div class="fixedWidthBody">
 
-        <jsp:include page="/page_title.jsp">
+        <jsp:include page="../page_title.jsp">
             <jsp:param name="image" value="statistics_w"/>
             <jsp:param name="title" value="Marathon Competition Record Book"/>
         </jsp:include>

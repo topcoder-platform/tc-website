@@ -26,8 +26,8 @@
 <html>
 <head>
     <title>TopCoder</title>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
+<jsp:include page="../script.jsp" />
+<jsp:include page="../style.jsp">
 <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -50,7 +50,7 @@
 <%-- Left Column Begins--%>
 <td width="180">
     <%-- value of level2 is 'topcoder' or 'intel_active_contests' --%>
-         <jsp:include page="/includes/global_left.jsp">
+         <jsp:include page="../includes/global_left.jsp">
             <jsp:param name="node" value="<%=myNode%>"/>
          </jsp:include>
 </td>

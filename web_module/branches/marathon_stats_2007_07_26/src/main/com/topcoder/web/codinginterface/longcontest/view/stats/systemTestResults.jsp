@@ -42,8 +42,8 @@
 <html>
 <head>
     <title>TopCoder</title>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
+<jsp:include page="../script.jsp" />
+<jsp:include page="../style.jsp">
 <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -73,7 +73,7 @@ text-align: left;
 
 <body>
 
-<jsp:include page="/top.jsp">
+<jsp:include page="../top.jsp">
     <jsp:param name="level1" value="long"/>
 </jsp:include>
 
@@ -81,7 +81,7 @@ text-align: left;
     <tr valign="top">
         <%-- Left Column Begins--%>
         <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
+         <jsp:include page="../includes/global_left.jsp">
             <jsp:param name="node" value="<%=myNode%>"/>
          </jsp:include>
         </td>
@@ -90,7 +90,7 @@ text-align: left;
         <%-- Center Column Begins --%>
         <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
-            <jsp:include page="/page_title.jsp">
+            <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="<%=image%>"/>
                 <jsp:param name="title" value="System Test Results"/>
             </jsp:include>
@@ -186,7 +186,7 @@ text-align: left;
 
         <%-- Right Column Begins --%>
         <td width="170">
-            <jsp:include page="/public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                 <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
         </td>

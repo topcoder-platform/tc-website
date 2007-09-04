@@ -12,7 +12,7 @@
 
 <body>
 
-<jsp:include page="/top.jsp">
+<jsp:include page="../top.jsp">
     <jsp:param name="level1" value="long"/>
 </jsp:include>
 
@@ -20,7 +20,7 @@
     <tr valign="top">
         <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="node" value="long_recordbook"/>
             </jsp:include>
         </td>
@@ -39,7 +39,7 @@
 
         <!-- Right Column Begins -->
         <td width="170">
-            <jsp:include page="/public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                 <jsp:param name="level1" value="default"/>
             </jsp:include>
         </td>
@@ -51,7 +51,7 @@
     </tr>
 </table>
 
-<jsp:include page="/foot.jsp"/>
+<jsp:include page="../foot.jsp"/>
 
 </body>
 

@@ -21,8 +21,8 @@
     <title>TopCoder</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <jsp:include page="/script.jsp" />
-    <jsp:include page="/style.jsp">
+    <jsp:include page="../script.jsp" />
+    <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
     <script type="text/javascript">
@@ -49,7 +49,7 @@
 
 <body>
 
-<jsp:include page="/top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -58,7 +58,7 @@
     <tr valign="top">
 <%-- Left Column Begins--%>
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="node" value="long_match_overview"/>
             </jsp:include>
         </td>
@@ -182,7 +182,7 @@ Avg. Submissions: <fmt:formatNumber value="${infoRow.map['avg_submissions']}"  m
         
 <%-- Right Column Begins --%>
         <td width="170">
-            <jsp:include page="/public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                 <jsp:param name="level1" value="default"/>
             </jsp:include>
         </td>
@@ -192,7 +192,7 @@ Avg. Submissions: <fmt:formatNumber value="${infoRow.map['avg_submissions']}"  m
 </tbody>
 </table>
 
-<jsp:include page="/foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

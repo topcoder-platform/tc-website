@@ -1,5 +1,7 @@
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <%@ page
         language="java"
 
@@ -21,12 +23,12 @@
 <html>
 <head>
     <title>TopCoder</title>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_stats"/>
-</jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="script.jsp" />
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
 </head>
 
 <body>
@@ -40,7 +42,7 @@
     <tr valign="top">
         <%-- Left Column Begins--%>
         <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
+         <jsp:include page="includes/global_left.jsp">
             <jsp:param name="node" value="long_queue"/>
          </jsp:include>
         </td>
@@ -58,68 +60,67 @@
                 <span class="bodySubtitle">System Tests Remaining: <%=systemTestCount%></span><br/><br/>
             </logic:notEqual>    
 
-            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat">
+            <tbody>
                 <tr>
-                    <td>
-                        <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-                            <tr>
-                                <td class="tableTitle" colspan="6">Queue Status</td>
-                            </tr>
-                            <tr>
-                                <td class="tableHeader" width="15%">
-                                    Handle
-                                </td>
-                                <td class="tableHeader" width="15%">
-                                    Contest
-                                </td>
-                                <td class="tableHeader" width="15%">
-                                    Language
-                                </td>
-                                <td class="tableHeader" width="20%" align="center">
-                                    Entered Queue
-                                </td>
-                                <td class="tableHeader" width="15%" align="right">
-                                    Type
-                                </td>
-                                <td class="tableHeader" width="20%" align="right">
-                                    Tests Remaining
-                                </td>
-                            </tr>
-                            <% if (result.isEmpty()) { %>
-                            <tr><td colspan="6" class="statDk">There are currently no submissions in the queue.</td></tr>
-                            <% } %>
-                            <%boolean even = true;%>
-                            <logic:iterate collection="<%=result%>" id="resultRow" type="com.topcoder.server.ejb.TestServices.LongTestQueueStatusItem">
-                                <tr>
-                                    <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
-                                        <tc-webtag:handle context='marathon_match' coderId='<%=resultRow.getUserId()%>'/>
-                                    </td>
-                                    <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
-                                        <a href="?module=ViewStandings&amp;rd=<%=resultRow.getRoundId()%>">
-                                            <mm:contest roundName="<%=resultRow.getRoundName()%>" contestName="<%=resultRow.getContestName()%>" roundTypeId="<%= (Integer) roundTypes.get(new Integer(resultRow.getRoundId())) %>"/>
-                                        </a>
-                                        
-                                        
-                                        
-                                    </td>
-                                    <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
-                                        <%=resultRow.getLanguageName()%>
-                                    </td>
-                                    <td class="<%=even?"statLt":"statDk"%>" align="center">
-                                        <tc-webtag:format object="<%=resultRow.getQueueDate()%>" format="MM.dd.yyyy HH:mm:ss"/>
-                                    </td>
-                                    <td class="<%=even?"statLt":"statDk"%>" align="right">
-                                        <%=resultRow.getSubmissionType()%>
-                                    </td>
-                                    <td class="<%=even?"statLt":"statDk"%>" align="right">
-                                        <%=resultRow.getCount()%>
-                                    </td>
-                                </tr>
-                                <%even = !even;%>
-                            </logic:iterate>
-                        </table>
-                    </TD>
+                    <td class="title" colspan="6">Queue Status</td>
                 </tr>
+                <tr>
+                    <td class="header">
+                        Handle
+                    </td>
+                    <td class="header">
+                        Contest
+                    </td>
+                    <td class="header">
+                        Language
+                    </td>
+                    <td class="headerC">
+                        Entered Queue
+                    </td>
+                    <td class="headerR">
+                        Type
+                    </td>
+                    <td class="headerR">
+                        Tests Remaining
+                    </td>
+                </tr>
+                <% if (result.isEmpty()) { %>
+                <tr class="light">
+                    <td colspan="6" class="valueC">
+                        <div align="center" style="margin: 40px 0px 40px 0px;">
+                            There are currently no submissions in the queue.
+                        </div>
+                    </td>
+                </tr>
+                <% } %>
+                <%boolean even = true;%>
+                <logic:iterate collection="<%=result%>" id="resultRow" type="com.topcoder.server.ejb.TestServices.LongTestQueueStatusItem">
+                    <tr class="<%=even?"light":"dark"%>">
+                        <td class="value" nowrap="nowrap">
+                            <tc-webtag:handle context='marathon_match' coderId='<%=resultRow.getUserId()%>'/>
+                        </td>
+                        <td class="value" nowrap="nowrap">
+                            <a href="?module=ViewStandings&amp;rd=<%=resultRow.getRoundId()%>">
+                                <mm:contest roundName="<%=resultRow.getRoundName()%>" contestName="<%=resultRow.getContestName()%>" roundTypeId="<%= (Integer) roundTypes.get(new Integer(resultRow.getRoundId())) %>"/>
+                            </a>
+                        </td>
+                        <td class="value" nowrap="nowrap">
+                            <%=resultRow.getLanguageName()%>
+                        </td>
+                        <td class="valueC">
+                            <tc-webtag:format object="<%=resultRow.getQueueDate()%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
+                        </td>
+                        <td class="valueR">
+                            <%=resultRow.getSubmissionType()%>
+                        </td>
+                        <td class="valueR">
+                            <%=resultRow.getCount()%>
+                        </td>
+                    </tr>
+                    <%even = !even;%>
+                </logic:iterate>
+            </tbody>
             </table>
 
 
