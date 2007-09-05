@@ -23,7 +23,6 @@ import com.topcoder.web.common.cache.MaxAge;
 import javax.servlet.http.Cookie;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -66,10 +65,6 @@ public class BasicAuthentication implements WebAuthentication {
 
     //cache this because it's expensive to generate
     private String userHash = null;
-
-    //this is used to hold the cookie values until they are written to the response.
-    //that way we can avoid sending the same cookie more than one time.
-    private HashMap<String, Cookie> cookies = new HashMap<String, Cookie>();
 
     /**
      * Construct an authentication instance backed by the given persistor
@@ -137,24 +132,6 @@ public class BasicAuthentication implements WebAuthentication {
         this.response = response;
         this.defaultCookiePath = r;
         this.dataSource = dataSource;
-    }
-
-    /**
-     * Write all the cookies to the response.  We batch them up
-     * so that they can be written all at once so that the developer
-     * doesn't have to worry about setting the same cookie more than once.
-     * Whatever the last thing the cookie was set to will be what is written
-     * to the response.
-     *
-     * This method must be called before the response is written and flushed
-     * to the user.
-     */
-    public void flushCookies() {
-        log.debug("flush cookies");
-        for (Map.Entry<String, Cookie> entry : cookies.entrySet()) {
-            log.debug("add " + entry.getValue().getName());
-            response.addCookie(entry.getValue());
-        }
     }
 
     /**
@@ -279,7 +256,13 @@ public class BasicAuthentication implements WebAuthentication {
      */
     public User getUser() {
         User u = getUserFromPersistor();
-        if (u == null) u = guest;
+        if (u == null) {
+          //check big session cookie
+            u = checkBigSession();
+            if (u==null) {
+                u=guest;
+            }
+        } 
         if (!u.isAnonymous()) {
             markKnownUser();
         }
@@ -380,8 +363,10 @@ public class BasicAuthentication implements WebAuthentication {
             String hash = hashForUser(uid);
             Cookie c = new Cookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME, "" + uid + "|" + hash);
             c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
+            c.setDomain("topcoder.com");
+            c.setPath("/");
             log.debug("setcookie: " + c.getName() + " " + c.getValue());
-            cookies.put(c.getName(), c);
+            response.addCookie(c);
         }
         if (uid != guest.getId()) {
             markKnownUser();
@@ -394,8 +379,9 @@ public class BasicAuthentication implements WebAuthentication {
     private void clearCookie() {
         Cookie c = new Cookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME, "");
         c.setMaxAge(0);
-        //c.setPath(defaultCookiePath.getName());
-        cookies.put(c.getName(), c);
+       c.setDomain("topcoder.com");
+       c.setPath("/");
+        response.addCookie(c);
     }
 
 
@@ -440,24 +426,24 @@ public class BasicAuthentication implements WebAuthentication {
         String hash = hashForUser(uid);
         Cookie c = new Cookie(BIG_SESSION_KEY, uid + "|" + hash);
         c.setMaxAge(request.getSession().getMaxInactiveInterval());
-/*
         c.setDomain("topcoder.com");
         c.setPath("/");
-*/
-        cookies.put(c.getName(), c);
+        response.addCookie(c);
+/*
         if (rememberUser) {
             setBigLongSessionCookie(uid);
         }
+*/
     }
 
-    private void setBigLongSessionCookie(long uid) throws Exception {
+/*    private void setBigLongSessionCookie(long uid) throws Exception {
         String hash = hashForUser(uid);
         Cookie c = new Cookie(BIG_LONG_SESSION_KEY, uid + "|" + hash);
         c.setDomain("topcoder.com");
         c.setPath("/");
         c.setMaxAge(Integer.MAX_VALUE);
-        cookies.put(c.getName(), c);
-    }
+        response.addCookie(c);
+    }*/
 
     private User checkBigSession() {
         Cookie[] ca = request.getCookies();
@@ -487,7 +473,7 @@ public class BasicAuthentication implements WebAuthentication {
     private void markKnownUser() {
         Cookie c = new Cookie(KNOWN_USER, String.valueOf(true));
         c.setMaxAge(Integer.MAX_VALUE);
-        cookies.put(c.getName(), c);
+        response.addCookie(c);
         knownUser = true;
     }
 
