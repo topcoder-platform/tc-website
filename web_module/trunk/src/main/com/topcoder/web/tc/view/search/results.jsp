@@ -13,45 +13,42 @@
          <strong><jsp:getProperty name="memberSearch" property="end"/></strong> of
          <strong><jsp:getProperty name="memberSearch" property="total"/></strong><br />
 
+<div align="center" style="padding:5px 0px 5px 0px;">
+    <strong>Sort by: 
+    <a style="text-decoration:none;" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("lower_handle") %>" includeParams="true" excludeParams="sr" />">Handle</a> | 
+    <a style="text-decoration:none;" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("state_code") %>" includeParams="true" excludeParams="sr" />">State / Province</a> | 
+    <a style="text-decoration:none;" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("country_name") %>" includeParams="true" excludeParams="sr" />">Country</a>
+    </strong>
+</div>
 <table cellspacing="0" cellpadding="0" class="stat" width="100%">
 <tbody>
     <tr>
         <td class="title" colspan="16">Member Search Results</td>
     </tr>
     <tr>
-        <td class="header" colspan="3">Sort by:</td>
-        <td class="headerC" colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("lower_handle") %>" includeParams="true" excludeParams="sr" />">
-                Handle</a></td>
-        <td class="headerC" colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("state_code") %>" includeParams="true" excludeParams="sr" />">
-                    State / Province</a></td>
-        <td class="headerC"  colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("country_name") %>" includeParams="true" excludeParams="sr" />">
-                    Country</a></td>
-        <td class="header" colspan="4">&nbsp;</td>
-    </tr>
-    <tr>
         <td class="headerC">&nbsp;</td>
-        <td class="headerC" colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("sort_rating") %>" includeParams="true" excludeParams="sr" />">Algorithm</a></td>
-        <td class="headerC" colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("design_rating") %>" includeParams="true" excludeParams="sr" />">Design</a></td>
-        <td class="headerC" colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("dev_rating") %>" includeParams="true" excludeParams="sr" />">Development</a></td>
-        <td class="headerC" colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_hs_ratings") %>" includeParams="true" excludeParams="sr" />">TCHS</a></td>
-        <td class="headerC" colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_mm_ratings") %>" includeParams="true" excludeParams="sr" />">Marathon Match</a></td>
+        <td class="headerC" colspan="3" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("sort_rating") %>" includeParams="true" excludeParams="sr" />">Algorithm</a></td>
+        <td class="headerC" colspan="3" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("design_rating") %>" includeParams="true" excludeParams="sr" />">Design</a></td>
+        <td class="headerC" colspan="3" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("dev_rating") %>" includeParams="true" excludeParams="sr" />">Development</a></td>
+        <td class="headerC" colspan="3" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_hs_ratings") %>" includeParams="true" excludeParams="sr" />">TCHS</a></td>
+        <td class="headerC" colspan="3" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_mm_ratings") %>" includeParams="true" excludeParams="sr" />">Marathon Match</a></td>
     </tr>
     <tr>
         <td class="header"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("lower_handle") %>" includeParams="true" excludeParams="sr" />">Handle</a></td>
-        <td class="header">Rating</td>
-        <td class="header"># Ratings</td>
+        <td class="headerC" style="border-left:solid 1px #ffffff;">Rating</td>
+        <td class="headerC"># Ratings</td>
         <td class="headerC">Last Event</td>
-        <td class="header">Rating</td>
-        <td class="header"># Ratings</td>
+        <td class="headerC" style="border-left:solid 1px #ffffff;">Rating</td>
+        <td class="headerC"># Ratings</td>
         <td class="headerC">Last Event</td>
-        <td class="header">Rating</td>
-        <td class="header"># Ratings</td>
+        <td class="headerC" style="border-left:solid 1px #ffffff;">Rating</td>
+        <td class="headerC"># Ratings</td>
         <td class="headerC">Last Event</td>
-        <td class="header">Rating</td>
-        <td class="header"># Ratings</td>
+        <td class="headerC" style="border-left:solid 1px #ffffff;">Rating</td>
+        <td class="headerC"># Ratings</td>
         <td class="headerC">Last Event</td>
-        <td class="header">Rating</td>
-        <td class="header"># Ratings</td>
+        <td class="headerC" style="border-left:solid 1px #ffffff;">Rating</td>
+        <td class="headerC"># Ratings</td>
         <td class="headerC">Last Event</td>
     </tr>
    
@@ -63,28 +60,28 @@
             <rsc:item row="<%=resultRow%>" name="country_name"/><br />
             <rsc:item row="<%=resultRow%>" name="state_code"/></td>
         
-            <%-- Algorithm --%>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="rating" format="#" ifNull="unrated"/></td>
+        <%-- Algorithm --%>
+        <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="rating" format="#" ifNull="unrated"/></td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_ratings"/></td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
         
         <%-- Design --%>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="unrated"/></td>
+        <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="unrated"/></td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_des_ratings"/></td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_des_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
         
         <%-- Development --%>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="dev_rating" format="#" ifNull="unrated"/></td>
+        <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="dev_rating" format="#" ifNull="unrated"/></td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_dev_ratings"/></td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_dev_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
         
         <%-- TCHS --%>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="hs_rating" format="#" ifNull="unrated"/></td>
+        <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="hs_rating" format="#" ifNull="unrated"/></td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_hs_ratings"/></td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_hs_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
         
         <%-- Marathon Match --%>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="mm_rating" format="#" ifNull="unrated"/></td>
+        <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="mm_rating" format="#" ifNull="unrated"/></td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_mm_ratings"/></td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_mm_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
    </tr>
