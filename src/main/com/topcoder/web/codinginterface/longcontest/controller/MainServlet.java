@@ -2,14 +2,11 @@ package com.topcoder.web.codinginterface.longcontest.controller;
 
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.ServletConfig;
@@ -44,6 +41,7 @@ public class MainServlet extends BaseServlet {
         return rp;
     }
 
+/*
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
         if (ApplicationServer.ENVIRONMENT==ApplicationServer.PROD) {
@@ -55,5 +53,6 @@ public class MainServlet extends BaseServlet {
                     BasicAuthentication.MAIN_SITE);
         }
     }
+*/
 
 }
