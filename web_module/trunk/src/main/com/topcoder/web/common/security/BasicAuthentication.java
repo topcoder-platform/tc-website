@@ -168,7 +168,7 @@ public class BasicAuthentication implements WebAuthentication {
             long uid = sub.getUserId();
             setCookie(uid, rememberUser);
             setUserInPersistor(makeUser(uid));
-            setBigSessionCookie(uid, rememberUser);
+            setBigSessionCookie(uid);
             //flushCookies();
             log.info("login succeeded");
 
@@ -361,11 +361,11 @@ public class BasicAuthentication implements WebAuthentication {
     public void setCookie(long uid, boolean rememberUser) throws Exception {
         if (rememberUser) {
             String hash = hashForUser(uid);
-            Cookie c = new Cookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME, "" + uid + "|" + hash);
+            Cookie c = new Cookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME, uid + "|" + hash);
             c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
             c.setDomain("topcoder.com");
             c.setPath("/");
-            log.debug("setcookie: " + c.getName() + " " + c.getValue());
+            //log.debug("setcookie: " + c.getName() + " " + c.getValue());
             response.addCookie(c);
         }
         if (uid != guest.getId()) {
@@ -419,10 +419,9 @@ public class BasicAuthentication implements WebAuthentication {
      * Add a cookie that will work across domains to help us preserve
      * a user http session between web applications and domains.
      * @param uid
-     * @param rememberUser
      * @throws Exception
      */
-    private void setBigSessionCookie(long uid, boolean rememberUser) throws Exception {
+    private void setBigSessionCookie(long uid) throws Exception {
         String hash = hashForUser(uid);
         Cookie c = new Cookie(BIG_SESSION_KEY, uid + "|" + hash);
         c.setMaxAge(request.getSession().getMaxInactiveInterval());
