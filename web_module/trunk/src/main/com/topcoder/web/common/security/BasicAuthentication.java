@@ -63,7 +63,6 @@ public class BasicAuthentication implements WebAuthentication {
     //them logged in across web apps.
     private static final String BIG_SESSION_KEY = "bskey";
     private static final String BIG_LONG_SESSION_KEY = "blskey";
-    private static final int BIG_SESSION_EXPIRATION_SECONDS = 60*30;
 
     //cache this because it's expensive to generate
     private String userHash = null;
@@ -440,8 +439,10 @@ public class BasicAuthentication implements WebAuthentication {
         String hash = hashForUser(uid);
         Cookie c = new Cookie(BIG_SESSION_KEY, uid + "|" + hash);
         c.setMaxAge(request.getSession().getMaxInactiveInterval());
+/*
         c.setDomain("topcoder.com");
         c.setPath("/");
+*/
         cookies.put(c.getName(), c);
         if (rememberUser) {
             setBigLongSessionCookie(uid);
