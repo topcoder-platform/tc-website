@@ -438,7 +438,7 @@ public class BasicAuthentication implements WebAuthentication {
         String hash = hashForUser(uid);
         Cookie c = new Cookie(BIG_SESSION_KEY, uid + "|" + hash);
         c.setMaxAge(BIG_SESSION_EXPIRATION_SECONDS);
-        c.setDomain(".topcoder.com");
+        c.setDomain("dev.topcoder.com");
         c.setPath("/");
         cookies.put(c.getName(), c);
         if (rememberUser) {
