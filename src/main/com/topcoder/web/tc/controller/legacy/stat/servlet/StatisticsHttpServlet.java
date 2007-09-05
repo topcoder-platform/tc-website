@@ -173,7 +173,6 @@ public class StatisticsHttpServlet extends BaseServlet {
                 request.setAttribute("QUERY_RESPONSE", dataMap);
                 Map mpage = (Map) sctx.getAttribute("PAGECTRL");
                 sctx.getRequestDispatcher((String) mpage.get(dataRequest.getContentHandle())).forward(request, response);
-                authentication.flushCookies();
             } catch (Exception e) {
                 e.printStackTrace();
                 sctx.getRequestDispatcher(sctx.getAttribute("GLOBAL_ERROR").toString()).forward(request, response);

@@ -40,6 +40,4 @@ public interface WebAuthentication extends Authentication {
      */
     boolean isKnownUser();
 
-    void flushCookies();
-
 }

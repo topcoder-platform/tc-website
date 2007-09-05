@@ -174,7 +174,6 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
                     } else {
                         throw new NavigationException();
                     }
-                    authentication.flushCookies();
                 }
 
             } catch (Throwable e) {
@@ -249,7 +248,6 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
                     } else {
                         throw new NavigationException();
                     }
-                    authentication.flushCookies();
                 }
 
             } catch (Throwable e) {

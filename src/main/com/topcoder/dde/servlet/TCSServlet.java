@@ -106,7 +106,6 @@ public class TCSServlet extends BaseServlet {
                 if (!response.isCommitted()) {
                     fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
                 }
-                authentication.flushCookies();
             } catch (Throwable e) {
                 handleException(request, response, e);
             }
