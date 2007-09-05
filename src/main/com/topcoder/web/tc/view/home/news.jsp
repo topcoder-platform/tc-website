@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.05.07<br>1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/longcontest/?module=ViewActiveContests">TCCC07 Marathon Match 3 now underway</A></span><br><br>
+        The third round of the 2007 TopCoder Collegiate Challenge Marathon Match competition has begun. Good luck!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/longcontest/?module=ViewActiveContests">details</A> | 
+        <tc-webtag:forumLink forumID="517234" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.05.07<br>12:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -163,17 +176,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_qual_rd3">full story</A> | 
          <tc-webtag:forumLink forumID="517187" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>08.28.07<br>11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="http://forums.topcoder.com/?module=Thread&threadID=585029&start=24&mc=35">Congratulations to tomekkulczynski</a></span><br><br>
-        It's been a good year for <tc-webtag:handle coderId="14886245" context="algorithm"/> -- in May his team made it to the <a href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketTeam">TCHS07 finals</a>, in June he made it to the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=bracket">TCO07 finals</a> in Vegas, and last week he topped the list of winners at the <A href="<tc-webtag:linkTracking link='http://ioi2007.hsin.hr/index.php?page=results' refer='/tc'/>">19th International Olympiad in Informatics</a> in Zagreb. Congratulations!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="http://forums.topcoder.com/?module=Thread&threadID=585029&start=24&mc=35">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
