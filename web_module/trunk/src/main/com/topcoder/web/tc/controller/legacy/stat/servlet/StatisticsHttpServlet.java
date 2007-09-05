@@ -6,7 +6,13 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.RequestTracker;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.controller.legacy.stat.bean.CoderRatingStyleBean;
 import com.topcoder.web.tc.controller.legacy.stat.bean.QuickStatListBean;
@@ -167,6 +173,7 @@ public class StatisticsHttpServlet extends BaseServlet {
                 request.setAttribute("QUERY_RESPONSE", dataMap);
                 Map mpage = (Map) sctx.getAttribute("PAGECTRL");
                 sctx.getRequestDispatcher((String) mpage.get(dataRequest.getContentHandle())).forward(request, response);
+                authentication.flushCookies();
             } catch (Exception e) {
                 e.printStackTrace();
                 sctx.getRequestDispatcher(sctx.getAttribute("GLOBAL_ERROR").toString()).forward(request, response);

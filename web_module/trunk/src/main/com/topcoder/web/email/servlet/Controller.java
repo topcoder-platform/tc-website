@@ -2,7 +2,12 @@ package com.topcoder.web.email.servlet;
 
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
@@ -93,7 +98,7 @@ public class Controller
                 request.setAttribute("module", "Login");
                 fetchRegularPage(request, response, "/tc", true);
             }
-
+            auth.flushCookies();
         } catch (Exception e) {
             throw new ServletException(e.toString());
         }

@@ -18,13 +18,28 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.RequestTracker;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.ContractBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.PaymentBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.UserTaxFormBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitWithText;
+import com.topcoder.web.tc.controller.legacy.pacts.common.ContractHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.ContractWithText;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsMemberTableModel;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormWithText;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -159,6 +174,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
                     } else {
                         throw new NavigationException();
                     }
+                    authentication.flushCookies();
                 }
 
             } catch (Throwable e) {
@@ -233,6 +249,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
                     } else {
                         throw new NavigationException();
                     }
+                    authentication.flushCookies();
                 }
 
             } catch (Throwable e) {
