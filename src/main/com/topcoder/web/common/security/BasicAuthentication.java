@@ -233,6 +233,8 @@ public class BasicAuthentication implements WebAuthentication {
             User u1 = checkBigSession();
             if (u1!=null) {
                 log.debug("XXXXXX FOUND IT XXXXXXX");
+            } else {
+                log.debug("XXXXXX MISSED IT XXXXXXX");
             }
         }
 
@@ -375,10 +377,8 @@ public class BasicAuthentication implements WebAuthentication {
         if (rememberUser) {
             String hash = hashForUser(uid);
             Cookie c = new Cookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME, "" + uid + "|" + hash);
-            //c.setPath(defaultCookiePath.getName());
-            //c.setMaxAge(rememberUser ? Integer.MAX_VALUE : -1);  // this should fit comfortably, since the expiration date is a string on the wire
             c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
-            //log.debug("setcookie: " + c.getName() + " " + c.getValue());
+            log.debug("setcookie: " + c.getName() + " " + c.getValue());
             cookies.put(c.getName(), c);
         }
         if (uid != guest.getId()) {
@@ -437,8 +437,9 @@ public class BasicAuthentication implements WebAuthentication {
     private void setBigSessionCookie(long uid, boolean rememberUser) throws Exception {
         String hash = hashForUser(uid);
         Cookie c = new Cookie(BIG_SESSION_KEY, uid + "|" + hash);
-        c.setMaxAge(BIG_SESSION_EXPIRATION_SECONDS);
-        c.setDomain("dev.topcoder.com");
+        log.debug("session expiration " +request.getSession().getMaxInactiveInterval());
+        c.setMaxAge(request.getSession().getMaxInactiveInterval());
+        //c.setDomain("dev.topcoder.com");
         c.setPath("/");
         cookies.put(c.getName(), c);
         if (rememberUser) {
