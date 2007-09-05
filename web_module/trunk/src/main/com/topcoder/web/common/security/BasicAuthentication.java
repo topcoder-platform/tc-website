@@ -61,7 +61,6 @@ public class BasicAuthentication implements WebAuthentication {
     //sessions only live within a web app, but we really want to be able to keep
     //them logged in across web apps.
     private static final String BIG_SESSION_KEY = "bskey";
-    private static final String BIG_LONG_SESSION_KEY = "blskey";
 
     //cache this because it's expensive to generate
     private String userHash = null;
@@ -188,6 +187,7 @@ public class BasicAuthentication implements WebAuthentication {
     public void logout() {
         log.info("logging out");
         clearCookie();
+        clearBigCookie();
         setUserInPersistor(guest);
     }
 
@@ -374,13 +374,13 @@ public class BasicAuthentication implements WebAuthentication {
     }
 
    /**
-     * Remove any cookie previously set on the client by the method above.
+     * Remove cookie previously set on the client by the method above.
      */
     private void clearCookie() {
         Cookie c = new Cookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME, "");
         c.setMaxAge(0);
-       c.setDomain("topcoder.com");
-       c.setPath("/");
+        c.setDomain("topcoder.com");
+        c.setPath("/");
         response.addCookie(c);
     }
 
@@ -435,6 +435,19 @@ public class BasicAuthentication implements WebAuthentication {
         }
 */
     }
+
+    /**
+      * Remove any cookie previously set on the client by the method above.
+      */
+     private void clearBigCookie() {
+         Cookie c = new Cookie(BIG_SESSION_KEY, "");
+         c.setMaxAge(0);
+         c.setDomain("topcoder.com");
+         c.setPath("/");
+         response.addCookie(c);
+     }
+
+
 
 /*    private void setBigLongSessionCookie(long uid) throws Exception {
         String hash = hashForUser(uid);
