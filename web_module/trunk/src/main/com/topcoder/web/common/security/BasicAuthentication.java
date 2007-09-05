@@ -281,6 +281,7 @@ public class BasicAuthentication implements WebAuthentication {
               //check big session cookie
                 u = checkBigSession();
                 if (u==null) {
+                    log.debug("didn't find user via sso");
                     u=guest;
                 }
             }
@@ -467,7 +468,7 @@ public class BasicAuthentication implements WebAuthentication {
     private User checkBigSession() {
         Cookie[] ca = request.getCookies();
         for (int i = 0; ca != null && i < ca.length; i++) {
-            log.debug(ca[i].getName() + " " + ca[i].getValue());
+            //log.debug(ca[i].getName() + " " + ca[i].getValue());
             if (ca[i].getName().equals(BIG_SESSION_KEY)) {
 
                 try {
