@@ -13,8 +13,6 @@ import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * An authentication implementation for the TCS site.  It doesn't provide actual login facilities
@@ -30,11 +28,6 @@ public class TCSAuthentication implements WebAuthentication {
     private HttpServletResponse response;
     private static final User GUEST = SimpleUser.createGuest();
     private boolean knownUser = false;
-
-    //this is used to hold the cookie values until they are written to the response.
-    //that way we can avoid sending the same cookie more than one time.
-    private HashMap<String, Cookie> cookies = new HashMap<String, Cookie>();
-
 
 
     public TCSAuthentication(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -124,7 +117,7 @@ public class TCSAuthentication implements WebAuthentication {
     private void markKnownUser() {
         Cookie c = new Cookie(KNOWN_USER, String.valueOf(true));
         c.setMaxAge(Integer.MAX_VALUE);
-        cookies.put(c.getName(), c);
+        response.addCookie(c);
         knownUser = true;
     }
 
@@ -141,19 +134,4 @@ public class TCSAuthentication implements WebAuthentication {
         }
     }
 
-        /**
-     * Write all the cookies to the response.  We batch them up
-     * so that they can be written all at once so that the developer
-     * doesn't have to worry about setting the same cookie more than once.
-     * Whatever the last thing the cookie was set to will be what is written
-     * to the response.
-     *
-     * This method must be called before the response is written and flushed
-     * to the user.
-     */
-    public void flushCookies() {
-        for (Map.Entry<String, Cookie> entry : cookies.entrySet()) {
-            response.addCookie(entry.getValue());
-        }
-    }
 }

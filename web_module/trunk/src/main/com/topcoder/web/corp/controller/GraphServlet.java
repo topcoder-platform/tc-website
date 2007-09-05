@@ -123,7 +123,6 @@ public final class GraphServlet extends HttpServlet {
                 throw new NavigationException("GraphServlet:process:ERROR:invalid command: " +
                         dataRequest.getContentHandle());
             }
-            authentication.flushCookies();
             response.setContentType("image/gif");
             response.setHeader("content-disposition", "inline; filename=graph.png");
             response.setHeader("Content-Length", String.valueOf(result.length));

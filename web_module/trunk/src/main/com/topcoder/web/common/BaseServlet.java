@@ -219,7 +219,6 @@ public abstract class BaseServlet extends HttpServlet {
                     }
                 }
                 if (!response.isCommitted()) {
-                    authentication.flushCookies();
                     fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
                 }
                 //if there is an exception in post processing, and we've already started writting the response

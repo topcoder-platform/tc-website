@@ -208,7 +208,6 @@ public class TransactionServlet extends HttpServlet {
                 req.getRequestDispatcher(defaultPageFailure).forward(req, resp);
             }
             if (auth!=null) {
-                auth.flushCookies();
             }
         } else {
             throw new ServletException("get-op " + op + " not supported");
