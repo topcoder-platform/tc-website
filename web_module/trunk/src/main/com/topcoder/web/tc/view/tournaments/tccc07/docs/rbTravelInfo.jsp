@@ -30,53 +30,57 @@
 <h2>Please read all instructions carefully before proceeding.</h2>
 
 
-<h2>Travel Information - must be submitted by 5:00 PM EDT (GMT/UTC -4) on on Friday, May 11,
-    2007 (we appreciate a quick response)</h2>
+<h2>Travel Information - must be submitted by 5:00 PM EDT (GMT/UTC -4) on Friday,
+September 28, 2007.
+</h2>
 
 <p>
     <B><U>HOTEL INFORMATION:</U></B><br/>
     <br/>
-    <a href="http://www.mirage.com/" target="blank">The Mirage</a><br/>
-    3400 S. Las Vegas Blvd.<br/>
-    Las Vegas, NV 89109<br/>
-    800-374-9000<br/>
+    <a href="http://disneyworld.disney.go.com/wdw/resorts/resortLanding?id=contemporaryResortLandingPage&bhcp=1">Contemporary Resort at Walt Disney World</a><br/>
+    4600 North World Drive<br/>
+    Lake Buena Vista, Florida, USA<br/>
+    Phone: 407-824-1000<br/>
 </p>
 
 <p>
-A hotel room will be confirmed for your arrival on June 26 and departure on June 30, 2007. The
-    check-in time is 3:00 PM and check out time is 12:00 PM (Noon). If you have any special requests,
-    please indicate them on the travel form below. The cost of your sleeping room and applicable taxes
-    will be charged to the TopCoder master account. You will be required, however, to provide a
-    credit card upon check-in for any incidental expenses. </p>
+A hotel room will be confirmed for your arrival on October 30 and departure on November 4, 2007. The check-in time
+    is 3:00PM and check out time is 11:00AM. If you have any special requests, please indicate them on the travel
+    form below. The cost of your sleeping room and applicable taxes will be charged to the TopCoder master account.
+    You will be required, however, to provide a credit card upon check-in for any incidental expenses. </p>
 
 <B><U>AIRLINE INFORMATION:</U></B>
 
 <p>
-As soon as you send in this form, TopCoder will secure airline reservations based upon your registration
-    information and will email a travel itinerary to you by Wednesday, June 20, 2006. Please be advised
-    that once airlines tickets are confirmed, any changes are subject to penalty fees at your own expense.
-    The flight reserved by and paid for by TopCoder is for arrival on June 26, 2007 and departure on
-    June 30, 2007 (or Sunday, July 1, 2007 if ticket cost is significantly less due to a Saturday night stay).
-    Unless there are extenuating circumstances, which DO NOT include personal holiday/vacation, flights
-    will not be booked for dates other than those stated. Extended flights and/or hotel room nights are
-    your responsibility to coordinate with Globe Travel directly and TopCoder will only reimburse you the
-    cost of a flight for the dates stated above.
+As soon as you send in this form, TopCoder will secure airline reservations based upon your registration information and
+    will email a travel itinerary to you by Wednesday, October 24, 2007. Please be advised that once airlines
+    tickets are confirmed, any changes are subject to penalty fees at your own expense. TopCoder will
+    provide air travel arrangements for each competitor. 
 
+</p>
+
+<p>The flight reserved by and paid for by TopCoder is for arrival on October 30, 2007 and departure on
+    November 4,. Unless there are extenuating circumstances, which DO NOT include personal holiday/vacation,
+    flights will not be booked for dates other than those stated. Extended flights and/or hotel room nights
+    are your responsibility to coordinate with Globe Travel directly and TopCoder will only reimburse you the cost
+    of a flight for the dates stated above. Please be sure to state any requests below for Globe Travel.
 </p>
 <B><U>AIRPORT TRANSPORTATION:</U></B>
 
 <p>
 
-    TopCoder will provide transportation to and from the hotel and airport in Las Vegas. Further information on
-    where to board upon your arrival at the airport will be indicated on your agenda.</p>
+    Disney’s Magical Express will provide transportation to and from the hotel and airport in Orlando. They will be
+    sending a packet of information regarding your stay including luggage tags for your bag.  Further information on
+    where to meet them upon your arrival at the airport will also be indicated on your agenda.
+</p>
 
 
 <h2 align="center">Travel Form</h2>
 <form name="questForm" method="POST" action="${sessionInfo.secureAbsoluteServletPath}">
-<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO07TravelInfoSubmit"/>
+<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCCC07TravelInfoSubmit"/>
 <table border="0" cellspacing="3" cellpadding="0" width="100%" class="bodyText">
 <tr>
-    <td colspan="2"><U><B>COMPETITOR INFORMATION:</B></U><br/></td>
+    <td colspan="2"><U><B>REVIEW BOARD MEMBER INFORMATION:</B></U><br/></td>
 </tr>
 
 
@@ -100,10 +104,6 @@ As soon as you send in this form, TopCoder will secure airline reservations base
     <td align="left"><input type="text" name="a34" size="15"/></td>
 </tr>
 
-<tr>
-    <td align="right"><input type="hidden" name="q35" value="School"/>School:</td>
-    <td align="left"><input type="text" name="a35" size="15"/></td>
-</tr>
 
 
 <tr>
@@ -127,31 +127,6 @@ As soon as you send in this form, TopCoder will secure airline reservations base
 </tr>
 
 <tr>
-    <td colspan="2"><U><B>Media Information:</B></U></td>
-</tr>
-
-<tr>
-    <td colspan="2">
-        Please list your local newspapers, radio, and television stations for your hometown.
-    </td>
-</tr>
-
-<tr>
-    <td align="right"><input type="hidden" name="q39" value="Newspapers"/>Newspapers:</td>
-    <td align="left"><input type="text" name="a39" size="50"/></td>
-</tr>
-
-<tr>
-    <td align="right"><input type="hidden" name="q40" value="Radio"/>Radio:</td>
-    <td align="left"><input type="text" name="a40" size="50"/></td>
-</tr>
-
-<tr>
-    <td align="right"><input type="hidden" name="q41" value="TV"/>TV:</td>
-    <td align="left"><input type="text" name="a41" size="50"/></td>
-</tr>
-
-<tr>
     <td colspan="2"><U><B>TRAVEL INFORMATION:</B></U></td>
 </tr>
 <tr>
@@ -163,8 +138,8 @@ As soon as you send in this form, TopCoder will secure airline reservations base
 
 <tr>
     <td align="right">
-        <input type="hidden" name="q44" value="June 26, 2007 - Preferred arrival time"/>
-        June 26, 2007 - Preferred arrival time in Las Vegas:
+        <input type="hidden" name="q44" value="October 30, 2007- Preferred arrival time"/>
+        October 30, 2007 - Preferred arrival time in Orlando:
     </td>
     <td align="left"><select name="a44">
         <option value="AM">AM</option>
@@ -174,8 +149,8 @@ As soon as you send in this form, TopCoder will secure airline reservations base
 
 <tr>
     <td align="right">
-        <input type="hidden" name="q45" value="June 30, 2007 - preferred departure time"/>June 30, 2007 -
-        Preferred departure time from Las Vegas:
+        <input type="hidden" name="q45" value="November 4, 2007 - preferred departure time"/>
+        November 4, 2007 - Preferred departure time from Orlando:
     </td>
     <td align="left"><select name="a45">
         <option value="AM">AM</option>
@@ -227,6 +202,19 @@ As soon as you send in this form, TopCoder will secure airline reservations base
 </tr>
 
 <tr>
+    <td align="center" colspan="2">
+        <input type="hidden" name="q143" value="Meals/Special Requests"/>
+       If  you have any special considerations regarding meals or need special assistance, please note that here:
+    </td>
+</tr>
+<tr>
+    <td align="right" colspan="2">
+        <textarea cols="80" rows="10" name="a143"></textarea>
+    </td>
+</tr>
+
+
+<tr>
     <td colspan="2"><U><B>Introduction Information:</B></U></td>
 </tr>
 
@@ -269,7 +257,7 @@ As soon as you send in this form, TopCoder will secure airline reservations base
     <td colspan="2">
         <br/><br/>
         <font color="#ff0000">PLEASE NOTE:</font>
-        Guests are invited to attend the TCO07. However, all
+        Guests are invited to attend the TCCC07. However, all
         costs (hotel, travel, meals, etc.) are at the guest's own expense.
         <br/><br/>
     </td>
