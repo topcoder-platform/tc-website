@@ -1000,5 +1000,58 @@
         </attribute>
     </tag>
 
+    <tag>
+        <name>nextPage</name>
+        <tag-class>com.topcoder.web.common.tag.NextPageTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>servletPath</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>list</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>com.topcoder.shared.dataAccess.resultSet.ResultSetContainer</type>
+        </attribute>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>text</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>prevPage</name>
+        <tag-class>com.topcoder.web.common.tag.PrevPageTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>servletPath</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>list</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>com.topcoder.shared.dataAccess.resultSet.ResultSetContainer</type>
+        </attribute>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>text</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
 </taglib>

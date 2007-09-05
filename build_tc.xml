@@ -1358,6 +1358,9 @@
             <webinf dir="${struts.dir}">
                 <include name="struts-logic.tld"/>
             </webinf>
+            <webinf dir="${java}/com/topcoder/web/codinginterface/longcontest/view/">
+                <include name="tags/*.tag"/>
+            </webinf>            
             <lib dir="${struts.dir}">
                 <include name="*.jar"/>
             </lib>
