@@ -61,6 +61,7 @@ public class BasicAuthentication implements WebAuthentication {
     //sessions only live within a web app, but we really want to be able to keep
     //them logged in across web apps.
     private static final String BIG_SESSION_KEY = "tcsso";
+    private static final int SSO_TIMEOUT_SECONDS = 60*30; //30 minutes
     private static final String LOGGED_OUT = "logout";
 
     //cache this because it's expensive to generate
@@ -458,7 +459,7 @@ public class BasicAuthentication implements WebAuthentication {
     private void setBigSessionCookie(long uid) throws Exception {
         String hash = hashForUser(uid);
         Cookie c = new Cookie(BIG_SESSION_KEY, uid + "|" + hash);
-        c.setMaxAge(request.getSession().getMaxInactiveInterval());
+        c.setMaxAge(SSO_TIMEOUT_SECONDS);
         c.setDomain("topcoder.com");
         c.setPath("/");
         response.addCookie(c);
