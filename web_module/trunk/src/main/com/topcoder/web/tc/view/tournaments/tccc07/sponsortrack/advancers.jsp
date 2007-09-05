@@ -56,10 +56,10 @@
     <div id="containAll">
     <div id="content">
 
-        <jsp:include page="../nav.jsp" >
-        <jsp:param name="tabLev1" value="<%=EventType.SPONSOR_TRACK_ID%>"/>
+        <jsp:include page="nav.jsp" >
+        <jsp:param name="tabLev1" value="overview"/>
         <jsp:param name="tabLev2" value="advancers"/>
-        <jsp:param name="tabLev3" value="overview"/>
+        <jsp:param name="tabLev3" value=""/>
         </jsp:include>
 
             <div id="pageBody">
@@ -72,18 +72,7 @@
                 <tc-webtag:hiddenInput name="<%=AdvancersBase.FULL_LIST%>"/>
 
                 <div align="center">
-                <a href="/tc?module=TCCC07SponsorAdvancers">Reset sorting</a>
-
-                <c:choose>
-                    <c:when test="${full}">
-                        | <a href="/tc?module=TCCC07SponsorAdvancers&full=false">Pages</a>
-                        | Full view
-                    </c:when>
-                    <c:otherwise>
-                        | Page view
-                        | <a href="/tc?module=TCCC07SponsorAdvancers&full=true">Full view</a>
-                    </c:otherwise>
-                </c:choose>
+                <a href="/tc?module=TCCC07SponsorAdvancers&full=true">Reset sorting</a>
 
                 <br />
                     <c:if test="${!full}">
