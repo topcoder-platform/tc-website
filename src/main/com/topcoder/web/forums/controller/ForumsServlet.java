@@ -208,8 +208,8 @@ public class ForumsServlet extends BaseServlet {
                 }
                 if (!response.isCommitted()) {
                     fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
-                    return;
                 }
+                authentication.flushCookies();
             } catch (Throwable e) {
                 handleException(request, response, e);
             }

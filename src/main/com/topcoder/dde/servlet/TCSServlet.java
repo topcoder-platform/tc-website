@@ -8,7 +8,15 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.RequestProcessor;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.ServletException;
@@ -97,8 +105,8 @@ public class TCSServlet extends BaseServlet {
                 }
                 if (!response.isCommitted()) {
                     fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
-                    return;
                 }
+                authentication.flushCookies();
             } catch (Throwable e) {
                 handleException(request, response, e);
             }

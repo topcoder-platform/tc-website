@@ -1,6 +1,11 @@
 package com.topcoder.web.corp.controller;
 
-import com.topcoder.security.*;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.NoSuchUserException;
+import com.topcoder.security.NotAuthorizedException;
+import com.topcoder.security.RolePrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -13,7 +18,12 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.cache.CacheClient;
 import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.security.BasicAuthentication;
@@ -48,7 +58,12 @@ import java.io.IOException;
 import java.rmi.RemoteException;
 import java.sql.Date;
 import java.text.DecimalFormat;
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.Vector;
 
 /**
  * Credit card transaction servlet. Used for both client and VeriSign
@@ -180,7 +195,6 @@ public class TransactionServlet extends HttpServlet {
                     log.debug("user unauthorized to access resource and user " +
                             "not logged in, forwarding to login page.");
                     fetchLoginPage(req, resp);
-                    return;
                 } else {
                     /* If the user is logged-in and is not authorized to access
                        the resource, send them to an authorization failed page */
@@ -192,6 +206,9 @@ public class TransactionServlet extends HttpServlet {
                 e.printStackTrace();
                 req.setAttribute(KEY_EXCEPTION, e);
                 req.getRequestDispatcher(defaultPageFailure).forward(req, resp);
+            }
+            if (auth!=null) {
+                auth.flushCookies();
             }
         } else {
             throw new ServletException("get-op " + op + " not supported");
