@@ -61,6 +61,7 @@ public class BasicAuthentication implements WebAuthentication {
     //sessions only live within a web app, but we really want to be able to keep
     //them logged in across web apps.
     private static final String BIG_SESSION_KEY = "tcsso";
+    private static final String LOGGED_OUT = "logout";
 
     //cache this because it's expensive to generate
     private String userHash = null;
@@ -169,7 +170,13 @@ public class BasicAuthentication implements WebAuthentication {
             setCookie(uid, rememberUser);
             setUserInPersistor(makeUser(uid));
             setBigSessionCookie(uid);
-            //flushCookies();
+
+            Cookie c = new Cookie(LOGGED_OUT,String.valueOf(false));
+            c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
+            c.setDomain("topcoder.com");
+            c.setPath("/");
+            response.addCookie(c);
+
             log.info("login succeeded");
 
         } catch (Exception e) {
@@ -189,6 +196,24 @@ public class BasicAuthentication implements WebAuthentication {
         clearCookie();
         clearBigCookie();
         setUserInPersistor(guest);
+
+        Cookie c = new Cookie(LOGGED_OUT,String.valueOf(true));
+        c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
+        c.setDomain("topcoder.com");
+        c.setPath("/");
+        response.addCookie(c);
+
+    }
+
+    private boolean isLoggedOut() {
+        Cookie[] ca = request.getCookies();
+        for (int i = 0; ca != null && i < ca.length; i++) {
+            if (ca[i].getName().equals(LOGGED_OUT)) {
+                return String.valueOf(true).equals(ca[i].getValue());
+            }
+        }
+        return false;
+
     }
 
 
@@ -207,47 +232,51 @@ public class BasicAuthentication implements WebAuthentication {
          * requests in the persistor.  if they're not in the cookie either, then
          * they're anonymous
          */
-        User u = getUserFromPersistor();
-        if (log.isDebugEnabled()) {
-            User u1 = checkBigSession();
-            if (u1!=null) {
-                log.debug("XXXXXX FOUND IT XXXXXXX");
-            } else {
-                log.debug("XXXXXX MISSED IT XXXXXXX");
-            }
-        }
-
-        if (u == null) {
-            //given the way tomcat/apache handles sessions in a cluster, we can't do this
-            //because the session id is different on the two nodes.  potentially we could
-            //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
-            //it breaks the idea of a pluggable persistor, but we never use that anyway.
-//            u = (User) persistor.getObject(request.getSession().getId() + USER_COOKIE_NAME);
-            u = (User) persistor.getObject(USER_COOKIE_NAME);
-            if (u == null) {
-                u = checkCookie();
-                if (u == null) {
-                    u = guest;
-                    //log.debug("*** made up a guest ***");
+        if (isLoggedOut()) {
+            return guest;
+        } else {
+            User u = getUserFromPersistor();
+            if (log.isDebugEnabled()) {
+                User u1 = checkBigSession();
+                if (u1!=null) {
+                    log.debug("XXXXXX FOUND IT XXXXXXX");
                 } else {
-                    //log.debug("*** " + u.getUserName() + " was in cookie ***");
+                    log.debug("XXXXXX MISSED IT XXXXXXX");
                 }
+            }
+
+            if (u == null) {
                 //given the way tomcat/apache handles sessions in a cluster, we can't do this
                 //because the session id is different on the two nodes.  potentially we could
                 //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
                 //it breaks the idea of a pluggable persistor, but we never use that anyway.
+//            u = (User) persistor.getObject(request.getSession().getId() + USER_COOKIE_NAME);
+                u = (User) persistor.getObject(USER_COOKIE_NAME);
+                if (u == null) {
+                    u = checkCookie();
+                    if (u == null) {
+                        u = guest;
+                        //log.debug("*** made up a guest ***");
+                    } else {
+                        //log.debug("*** " + u.getUserName() + " was in cookie ***");
+                    }
+                    //given the way tomcat/apache handles sessions in a cluster, we can't do this
+                    //because the session id is different on the two nodes.  potentially we could
+                    //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
+                    //it breaks the idea of a pluggable persistor, but we never use that anyway.
 //                persistor.setObject(request.getSession().getId() + USER_COOKIE_NAME, u);
-                persistor.setObject(USER_COOKIE_NAME, u);
+                    persistor.setObject(USER_COOKIE_NAME, u);
+                } else {
+                    //log.debug("*** " + u.getUserName() + " was stale ***");
+                }
             } else {
-                //log.debug("*** " + u.getUserName() + " was stale ***");
+                //log.debug("*** " + u.getUserName() + " was live***");
             }
-        } else {
-            //log.debug("*** " + u.getUserName() + " was live***");
+            if (!u.isAnonymous()) {
+                markKnownUser();
+            }
+            return u;
         }
-        if (!u.isAnonymous()) {
-            markKnownUser();
-        }
-        return u;
     }
 
     /**
@@ -255,18 +284,23 @@ public class BasicAuthentication implements WebAuthentication {
      * this session.  Otherwise returns an anonymous user.
      */
     public User getUser() {
-        User u = getUserFromPersistor();
-        if (u == null) {
-          //check big session cookie
-            u = checkBigSession();
-            if (u==null) {
-                u=guest;
+        if (isLoggedOut()) {
+            return guest;
+        } else {
+            User u = getUserFromPersistor();
+            if (u == null) {
+              //check big session cookie
+                u = checkBigSession();
+                if (u==null) {
+                    u=guest;
+                }
             }
-        } 
-        if (!u.isAnonymous()) {
-            markKnownUser();
+            if (!u.isAnonymous()) {
+                markKnownUser();
+            }
+            return u;
+
         }
-        return u;
     }
 
     protected User makeUser(long id) {
