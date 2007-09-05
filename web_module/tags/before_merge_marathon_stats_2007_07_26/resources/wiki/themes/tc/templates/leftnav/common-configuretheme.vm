@@ -1,0 +1,39 @@
+#parse ( "/template/includes/actionerrors.vm" )
+
+<form method="POST" action="doconfiguretheme.action" name="configurethemeform">
+<div class="steptitle" style="width: 100%; margin-top: 10px">
+#if (!$space.key)
+    <div class="steptitle">Navigation Space</div>
+    <div class="stepdesc" style="width: 90%">
+        Choose the space which should provide the navigation page.
+    </div>
+     <div class="stepfield">
+
+        <select name="spacekey" tabindex="6">
+        <option value="">No Global Navigation Page</option>
+        #foreach ($space in $spaces)
+            <option value="$space.getKey()" #if($spacekey == $space.getKey()) selected #end>$space.getName()</option>
+        #end
+        </select>
+
+
+    </div>
+#else
+    <input type="hidden" name="key" value="$space.key" />
+#end
+<p>
+<div class="steptitle">Navigation Page</div>
+
+    <div class="stepdesc" style="width: 90%">
+        Define the name of the page which should be used as the navigation page.
+    </div>
+    <div class="stepfield">
+         <span>
+            <input type="text" name="pagename" value="$!pagename" size="40">
+        </span>
+    </div>
+    <div class="stepdesc" style="width: 90%;">
+        #tag (Submit "value='Save'" "name='submit'" "theme='simple'" )
+    </div>
+</div>
+</form>
