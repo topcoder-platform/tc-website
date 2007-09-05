@@ -3,6 +3,31 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <% ResultSetContainer countries = (ResultSetContainer)request.getAttribute("Country_Avg_Rating");%>
 
+<div id="topTenAlgoCountries" style="display: none;">
+<table cellpadding="0" cellspacing="0" class="rightNav" style="width: 100%;">
+<tbody>
+    <tr>
+        <td class="title" colspan="3">Algorithm Countries</td>
+    </tr>
+    <tr>
+        <td class="headerC">&nbsp;</td>
+        <td class="header">Handle</td>
+        <td class="headerR">Rating</td>
+    </tr>
+    <%boolean even = true;%>
+    <rsc:iterator list="<%=countries%>" id="resultRow">
+    <tr class="<%=even?"light":"dark"%>">
+        <td class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></td>
+        <td class="value"><strong><a class="gMetal" href="/tc?module=AlgoRank&<%=Constants.COUNTRY_CODE%>=<rsc:item name="country_code" row="<%=resultRow%>"/>"><rsc:item name="name" row="<%=resultRow%>"/></a></strong></td>
+        <td class="valueR"><rsc:item name="avg_rating" row="<%=resultRow%>"/></td>
+    </tr>
+    <%even = !even;%>
+    </rsc:iterator>
+</tbody>
+</table>
+</div>
+
+<%--
 <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr valign="middle">
         <td class="statTextBig" width="1%" nowrap="0">&#160;Countries</td>
@@ -28,3 +53,4 @@
         <% even = !even;%>
     </rsc:iterator>
 </table>
+--%>

@@ -4,6 +4,32 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% ResultSetContainer coders = (ResultSetContainer)request.getAttribute("top_developers");%>
 
+<div id="topTenDev" style="display: none;">
+<table cellpadding="0" cellspacing="0" class="rightNav" style="width: 100%;">
+<tbody>
+    <tr>
+        <td class="title" colspan="3">Development</td>
+    </tr>
+    <tr>
+        <td class="headerC">&nbsp;</td>
+        <td class="header">Handle</td>
+        <td class="headerR">Rating</td>
+    </tr>
+    <%boolean even = true;%>
+    <rsc:iterator list="<%=coders%>" id="resultRow">
+    <tr class="<%=even?"light":"dark"%>">
+        <td class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></td>
+        <td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="development" /></td>
+        <td class="valueR"><rsc:item name="rating" row="<%=resultRow%>" format="#"/></td>
+    </tr>
+    <%even = !even;%>
+    </rsc:iterator>
+</tbody>
+</table>
+</div>
+
+
+<%--
 <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr valign="middle">
         <td class="statTextBig" width="1%" nowrap="0">&#160;Developers</td>
@@ -15,7 +41,6 @@
          <div style="padding:0px 0px 3px 5px;">
             <div style="float:left;"><A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/interface/emblem/digitalrun.png" alt="The Digital Run" border="0" /></A></div>
             <A href="/tc?&ph=113&module=LeaderBoard" class="gMetal">leaderboard</A>
-            <%--| <A href="/tc?module=RookieBoard&ph=113" class="gMetal">ROTY</A>--%>
          </div>
       </td>
    </tr>
@@ -37,3 +62,4 @@
     </rsc:iterator>
 
 </table>
+--%>

@@ -2,6 +2,31 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <% ResultSetContainer schools = (ResultSetContainer)request.getAttribute("School_Avg_Rating");%>
 
+<div id="topTenAlgoSchools" style="display: none;">
+<table cellpadding="0" cellspacing="0" class="rightNav" style="width: 100%;">
+<tbody>
+    <tr>
+        <td class="title" colspan="3">Algorithm Schools</td>
+    </tr>
+    <tr>
+        <td class="headerC">&nbsp;</td>
+        <td class="header">School</td>
+        <td class="headerR">Rating</td>
+    </tr>
+    <%boolean even = true;%>
+    <rsc:iterator list="<%=schools%>" id="resultRow">
+    <tr class="<%=even?"light":"dark"%>">
+        <td class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></td>
+        <td class="value"><strong><rsc:item name="name" row="<%=resultRow%>"/></strong></td>
+        <td class="valueR"><rsc:item name="avg_rating" row="<%=resultRow%>"/></td>
+    </tr>
+    <%even = !even;%>
+    </rsc:iterator>
+</tbody>
+</table>
+</div>
+
+<%--
 <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr valign="middle">
         <td class="statTextBig" width="1%" nowrap="0">&#160;Schools</td>
@@ -25,3 +50,4 @@
         <% even = !even;%>
     </rsc:iterator>
 </table>
+--%>
