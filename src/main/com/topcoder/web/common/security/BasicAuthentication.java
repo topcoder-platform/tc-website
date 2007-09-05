@@ -210,7 +210,7 @@ public class BasicAuthentication implements WebAuthentication {
     private boolean isLoggedOut() {
         Cookie[] ca = request.getCookies();
         for (int i = 0; ca != null && i < ca.length; i++) {
-            if (ca[i].getName().equals(LOGGED_OUT)) {
+            if (ca[i].getName().equals(LOGGED_OUT+"_"+ ApplicationServer.ENVIRONMENT)) {
                 return String.valueOf(true).equals(ca[i].getValue());
             }
         }
@@ -281,7 +281,7 @@ public class BasicAuthentication implements WebAuthentication {
               //check big session cookie
                 u = checkBigSession();
                 if (u==null) {
-                    log.debug("didn't find user via sso");
+                    //log.debug("didn't find user via sso");
                     u=guest;
                 }
             }
@@ -420,7 +420,7 @@ public class BasicAuthentication implements WebAuthentication {
         Cookie[] ca = request.getCookies();
         for (int i = 0; ca != null && i < ca.length; i++) {
             //log.debug(ca[i].getName() + " " + ca[i].getValue());
-            if (ca[i].getName().equals(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME)) {
+            if (ca[i].getName().equals(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME+"_"+ ApplicationServer.ENVIRONMENT)) {
 
                 try {
                     StringTokenizer st = new StringTokenizer(ca[i].getValue(), "|");
@@ -469,7 +469,7 @@ public class BasicAuthentication implements WebAuthentication {
         Cookie[] ca = request.getCookies();
         for (int i = 0; ca != null && i < ca.length; i++) {
             //log.debug(ca[i].getName() + " " + ca[i].getValue());
-            if (ca[i].getName().equals(BIG_SESSION_KEY)) {
+            if (ca[i].getName().equals(BIG_SESSION_KEY+"_"+ ApplicationServer.ENVIRONMENT)) {
 
                 try {
                     StringTokenizer st = new StringTokenizer(ca[i].getValue(), "|");
