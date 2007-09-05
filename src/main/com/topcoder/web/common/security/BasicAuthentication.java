@@ -60,7 +60,7 @@ public class BasicAuthentication implements WebAuthentication {
     //we'll use this key to provide a way to keep someone logged in accross sessions.
     //sessions only live within a web app, but we really want to be able to keep
     //them logged in across web apps.
-    private static final String BIG_SESSION_KEY = "bskey";
+    private static final String BIG_SESSION_KEY = "tcsso";
 
     //cache this because it's expensive to generate
     private String userHash = null;
@@ -429,11 +429,6 @@ public class BasicAuthentication implements WebAuthentication {
         c.setDomain("topcoder.com");
         c.setPath("/");
         response.addCookie(c);
-/*
-        if (rememberUser) {
-            setBigLongSessionCookie(uid);
-        }
-*/
     }
 
     /**
@@ -446,17 +441,6 @@ public class BasicAuthentication implements WebAuthentication {
          c.setPath("/");
          response.addCookie(c);
      }
-
-
-
-/*    private void setBigLongSessionCookie(long uid) throws Exception {
-        String hash = hashForUser(uid);
-        Cookie c = new Cookie(BIG_LONG_SESSION_KEY, uid + "|" + hash);
-        c.setDomain("topcoder.com");
-        c.setPath("/");
-        c.setMaxAge(Integer.MAX_VALUE);
-        response.addCookie(c);
-    }*/
 
     private User checkBigSession() {
         Cookie[] ca = request.getCookies();
