@@ -7,6 +7,11 @@
 <link type="text/css" rel="stylesheet" href="/css/style.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <link type="text/css" rel="stylesheet" href="/css/TCOstyle.css" />
+<% } else if (key.equals("tc_home")) { %>
+<link type="text/css" rel="stylesheet" href="/css/style.css" />
+<link type="text/css" rel="stylesheet" href="/css/coders.css" />
+<link type="text/css" rel="stylesheet" href="/css/tcStyles.css" />
+<link type="text/css" rel="stylesheet" href="/css/rightNav.css" />
 <% } else if (key.equals("tc_calendar")) { %>
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <link type="text/css" rel="stylesheet" href="/css/tcCalendar.css" />

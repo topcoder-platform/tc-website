@@ -47,13 +47,13 @@ public class TextInputTag extends BaseTag {
                 ret.append("style=\"").append(style).append("\" ");
             }
             if (onClick!=null) {
-                ret.append("onClick=\"").append(onClick).append("\" ");
+                ret.append("onclick=\"").append(onClick).append("\" ");
             }
             if (id != null) {
                 ret.append("id=\"").append(id).append("\" ");
             }
             if (onKeyPress != null) {
-                ret.append("onKeyPress=\"").append(onKeyPress).append("\" ");
+                ret.append("onkeypress=\"").append(onKeyPress).append("\" ");
             }
 
             if (value == null) {

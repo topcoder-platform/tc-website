@@ -4,52 +4,93 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
-<% ResultSetContainer results = memberSearch.getResults();%>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
+
+<% ResultSetContainer results = memberSearch.getResults(); %>
           <a name="data"></a>
          Search Results: 
          <strong><jsp:getProperty name="memberSearch" property="start"/></strong> to 
          <strong><jsp:getProperty name="memberSearch" property="end"/></strong> of
-         <strong><jsp:getProperty name="memberSearch" property="total"/></strong><br>
+         <strong><jsp:getProperty name="memberSearch" property="total"/></strong><br />
 
 <table cellspacing="0" cellpadding="0" class="stat" width="100%">
 <tbody>
-   <tr>
-      <td class="title" colspan="12">
-         Member Search Results
-      </td>
-   </tr>
-   <tr>
-      <td class="header">Handle</td>
-      <td class="headerC">Algo<br>Rating</td>
-      <td class="headerC">HS<br>Rating</td>
-      <td class="headerC">Des<br>Rating</td>
-      <td class="headerC">Dev<br>Rating</td>
-      <td class="header">School</td>
-      <td class="headerC">State</td>
-      <td class="header">Country</td>
-      <td class="headerC">Algo<br>Events</td>
-      <td class="headerC">Last<br><nobr>Algo Event</nobr></td>
-      <td class="headerC">HS<br>Events</td>
-      <td class="headerC">Last<br><nobr>HS Event</nobr></td>
-   </tr>
-   <%boolean even = false;%>
-   <rsc:iterator list="<%=results%>" id="resultRow">
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value" nowrap="nowrap"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' /></td>
-      <td class="valueR"><rsc:item row="<%=resultRow%>" name="rating" format="#" ifNull="unrated"/></td>
-      <td class="valueR"><rsc:item row="<%=resultRow%>" name="hs_rating" format="#" ifNull="unrated"/></td>                  
-      <td class="valueR"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="unrated"/></td>
-      <td class="valueR"><rsc:item row="<%=resultRow%>" name="dev_rating" format="#" ifNull="unrated"/></td>
-      <td class="value"><rsc:item row="<%=resultRow%>" name="school_name" ifNull="N/A"/></td>
-      <td class="valueC"><rsc:item row="<%=resultRow%>" name="state_code"/></td>
-      <td class="value"><rsc:item row="<%=resultRow%>" name="country_name"/></td>
-      <td class="valueR"><rsc:item row="<%=resultRow%>" name="num_ratings"/></td>
-      <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
-      <td class="valueR"><rsc:item row="<%=resultRow%>" name="num_hs_ratings"/></td>
-      <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_hs_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+    <tr>
+        <td class="title" colspan="16">Member Search Results</td>
+    </tr>
+    <tr>
+        <td class="header" colspan="3">Sort by:</td>
+        <td class="headerC" colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("lower_handle") %>" includeParams="true" excludeParams="sr" />">
+                Handle</a></td>
+        <td class="headerC" colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("state_code") %>" includeParams="true" excludeParams="sr" />">
+                    State / Province</a></td>
+        <td class="headerC"  colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("country_name") %>" includeParams="true" excludeParams="sr" />">
+                    Country</a></td>
+        <td class="header" colspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="headerC">&nbsp;</td>
+        <td class="headerC" colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("sort_rating") %>" includeParams="true" excludeParams="sr" />">Algorithm</a></td>
+        <td class="headerC" colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("design_rating") %>" includeParams="true" excludeParams="sr" />">Design</a></td>
+        <td class="headerC" colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("dev_rating") %>" includeParams="true" excludeParams="sr" />">Development</a></td>
+        <td class="headerC" colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_hs_ratings") %>" includeParams="true" excludeParams="sr" />">TCHS</a></td>
+        <td class="headerC" colspan="3"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_mm_ratings") %>" includeParams="true" excludeParams="sr" />">Marathon Match</a></td>
+    </tr>
+    <tr>
+        <td class="header"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("lower_handle") %>" includeParams="true" excludeParams="sr" />">Handle</a></td>
+        <td class="header">Rating</td>
+        <td class="header"># Ratings</td>
+        <td class="headerC">Last Event</td>
+        <td class="header">Rating</td>
+        <td class="header"># Ratings</td>
+        <td class="headerC">Last Event</td>
+        <td class="header">Rating</td>
+        <td class="header"># Ratings</td>
+        <td class="headerC">Last Event</td>
+        <td class="header">Rating</td>
+        <td class="header"># Ratings</td>
+        <td class="headerC">Last Event</td>
+        <td class="header">Rating</td>
+        <td class="header"># Ratings</td>
+        <td class="headerC">Last Event</td>
+    </tr>
+   
+    <%boolean even = false;%>
+    <rsc:iterator list="<%=results%>" id="resultRow">
+    <tr class="<%=even?"dark":"light"%>">
+        <td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' /><br />
+            <rsc:item row="<%=resultRow%>" name="school_name" ifNull="N/A"/><br />
+            <rsc:item row="<%=resultRow%>" name="country_name"/><br />
+            <rsc:item row="<%=resultRow%>" name="state_code"/></td>
+        
+            <%-- Algorithm --%>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="rating" format="#" ifNull="unrated"/></td>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_ratings"/></td>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+        
+        <%-- Design --%>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="unrated"/></td>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_des_ratings"/></td>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_des_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+        
+        <%-- Development --%>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="dev_rating" format="#" ifNull="unrated"/></td>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_dev_ratings"/></td>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_dev_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+        
+        <%-- TCHS --%>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="hs_rating" format="#" ifNull="unrated"/></td>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_hs_ratings"/></td>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_hs_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+        
+        <%-- Marathon Match --%>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="mm_rating" format="#" ifNull="unrated"/></td>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_mm_ratings"/></td>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_mm_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
    </tr>
    <%even=!even;%>
    </rsc:iterator>
+   
 </table>
 <div class="pagingBox">
 <%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bodyText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>

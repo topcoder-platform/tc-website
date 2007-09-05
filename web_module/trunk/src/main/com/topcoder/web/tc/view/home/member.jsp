@@ -5,17 +5,31 @@
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_main"/>
+<jsp:include page="../script.jsp" />
+<jsp:include page="../style.jsp">
+  <jsp:param name="key" value="tc_home"/>
 </jsp:include>
 
-    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"> </script>
+<script type="text/javascript" src="/js/main.js"  ></script>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"> </script>
 <script type="text/javascript">
   <!--
     _uacct = "UA-321688-1"; urchinTracker();
     -->
-    </script>
+</script>
+<script type="text/javascript">
+var currTopTen = null;
+function swapTopTen(topTenID){
+    currTopTen = document.getElementById(topTenID);
+    hide('topTenAlgo');
+    hide('topTenAlgoSchools');
+    hide('topTenAlgoCountries');
+    hide('topTenDes');
+    hide('topTenDev');
+    hide('topTenMM');
+    showBlock(topTenID);
+}
+</script>
 </head>
 
 <body>
@@ -34,15 +48,10 @@
 <tr valign="top">
 <!-- Left Column Begins-->
       <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
+         <jsp:include page="../includes/global_left.jsp">
             <jsp:param name="node" value="competition_home"/>
          </jsp:include>
          <jsp:include page="coder_of_month.jsp" />
-        <%--
-         <div style="float:left; clear:left;">
-            <jsp:include page="/calendar.jsp" />
-         </div>
-         --%>
       </td>
 <!-- Left Column Ends -->
 
@@ -73,34 +82,68 @@
 
 <!-- Right Column Begins -->
  <td width="180">
-   <table border="0" cellspacing="0" cellpadding="0" width="100%">
-      <tr><td><jsp:include page="message.jsp" /></td></tr>
-      <tr><td><jsp:include page="my_stats_right.jsp" /></td></tr>
-      <tr><td><img src="/i/clear.gif" width="1" height="5" border="0" /></td></tr>
-      <tr><td><img src="/i/top_10_lists_top.gif" alt="Competition Leaders" width="180" height="11" border="0"></td></tr>
-      <tr><td><img src="/i/module_labels_comp_leaders.gif" alt="Competition Leaders" width="180" height="20" border="0" /></td></tr>
-      <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
-      <tr><td><jsp:include page="top_coders.jsp" /></td></tr>
-      <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
-      <tr><td><jsp:include page="top_designers.jsp" /></td></tr>
-      <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
-      <tr><td><jsp:include page="top_developers.jsp" /></td></tr>
-      <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
-      <tr><td><jsp:include page="top_schools.jsp" /></td></tr>
-      <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
-      <tr><td><jsp:include page="top_countries.jsp" /></td></tr>
-      <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
-      <tr><td><img src="/i/home_right_bottom.gif" width="180" height="20" border="0" /></td></tr>
-   </table>
 
-   <p><br/></p>
+    <div>
+    <img src="/i/interface/rightNavTop.png" alt="" style="display: block;"/>
+    </div>
+
+    <div class="rightNav">
+        <div class="setWidth">
+            <div class="contain">
+
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr><td><jsp:include page="message.jsp" /></td></tr>
+                </table>
+                <jsp:include page="my_stats_right.jsp" />
+
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+    <img src="/i/interface/rightNavBottom.png" alt="" style="display: block;" />
+    </div>
+                
+    <div>
+    <img src="/i/interface/rightNavTop.png" alt="" style="display: block;"/>
+    </div>
+
+    <div class="rightNav">
+        <div class="setWidth">
+            <div class="contain">
+
+                <div align="center" style="margin-bottom: 4px;">
+                    <img src="/i/home/top10.png" alt="Top 10" style="display:block;" />
+                </div>
+
+                <div style="padding-bottom: 10px;" align="center">
+                    <select name="topTen" onchange="swapTopTen(this.value)">
+                    <option value="topTenAlgo" selected="selected">Algorithm</option>
+                    <option value="topTenAlgoSchools">Algorithm Schools</option>
+                    <option value="topTenAlgoCountries">Algorithm Countries</option>
+                    <option value="topTenDes">Design</option>
+                    <option value="topTenDev">Development</option>
+                    <option value="topTenMM">Marathon Matches</option>
+                    </select>
+                </div>
+                
+                <jsp:include page="top_coders.jsp" />
+                <jsp:include page="top_schools.jsp" />
+                <jsp:include page="top_countries.jsp" />
+                <jsp:include page="top_designers.jsp" />
+                <jsp:include page="top_developers.jsp" />
+                <jsp:include page="top_mm_coders.jsp" />
+
+            </div>
+        </div>
+    </div>
+
+    <div>
+    <img src="/i/interface/rightNavBottom.png" alt="" style="display: block;" />
+    </div>
+
  </td>
 <!-- Right Column Ends -->
-
-<!-- Gutter -->
-       <td width="2"><img src="/i/clear.gif" width="2" height="1" border="0"></td>
-<!-- Gutter Ends -->
-
    </tr>
 </table>
 

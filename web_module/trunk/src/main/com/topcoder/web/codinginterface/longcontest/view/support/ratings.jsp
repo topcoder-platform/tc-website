@@ -10,7 +10,7 @@
 <body>
 
 <jsp:include page="../top.jsp" >
-<jsp:param name="level1" value=""/>
+<jsp:param name="level1" value="long"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -18,7 +18,7 @@
     <tr valign="top">
 <%-- Left Column Begins--%>
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="node" value="long_rating_system"/>
             </jsp:include>
         </td>

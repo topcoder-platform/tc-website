@@ -17,6 +17,8 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.model.ImageInfo;
+import com.topcoder.web.ejb.roundregistration.RoundRegistration;
+import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -267,6 +269,7 @@ public abstract class Base extends BaseProcessor {
             return !((ResultSetContainer) getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r).get("round_exists")).isEmpty();
         }
     }
+
 
 }
 

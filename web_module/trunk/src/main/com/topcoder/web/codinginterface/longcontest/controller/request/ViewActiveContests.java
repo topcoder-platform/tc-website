@@ -1,5 +1,10 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -7,20 +12,15 @@ import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.model.LongContest;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.ImageInfo;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Map;
-
 /**
- * Displays active and a couple of pass contests
+ * Displays active contests
  *
- * @author farsight
+ * @author farsight, cucu
  * @version 1.0
  */
 public class ViewActiveContests extends Base {
@@ -32,29 +32,19 @@ public class ViewActiveContests extends Base {
         User usr = getUser();
 
         // The collection of contests to display
-        ArrayList contests = new ArrayList();
+        List<LongContest> contests = new ArrayList<LongContest>();
 
         try {
-            int type = Constants.LONG_ROUND_TYPE_ID;
-            if (StringUtils.isNumber(getRequest().getParameter(Constants.ROUND_TYPE_ID))) {
-                if (Integer.parseInt(getRequest().getParameter(Constants.ROUND_TYPE_ID))
-                        == Constants.INTEL_LONG_ROUND_TYPE_ID) {
-                    type = Constants.INTEL_LONG_ROUND_TYPE_ID;
-                }
-            }
-            getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(type));
-
             // Data source
             DataAccessInt dai = getDataAccess();
 
             // Prepare a request to get active contest information
             Request r = new Request();
             r.setContentHandle("long_contest_active_contests");
-            r.setProperty(Constants.ROUND_TYPE_ID, String.valueOf(type));
 
             // Fetch Data
-            Map m = dai.getData(r);
-            ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_active_contests");
+            Map<String, ResultSetContainer> m = dai.getData(r);
+            ResultSetContainer rsc = m.get("long_contest_active_contests");
 
             RoundRegistrationLocal reg =
                     (RoundRegistrationLocal) createLocalEJB(getInitialContext(), RoundRegistration.class);
@@ -72,10 +62,11 @@ public class ViewActiveContests extends Base {
                 longContest.setEndTime((Date) rsc.getItem(i, "end_time").getResultData());
                 longContest.setCoderRegistered(reg.exists(usr.getId(), rsc.getLongItem(i, "round_id")));
                 longContest.setContestID(rsc.getLongItem(i, "contest_id"));
-                longContest.setStarted(rsc.getBooleanItem(i, "started"));
+                longContest.setStarted(true);
                 longContest.setNumCompetitors(rsc.getIntItem(i, "num_competitors"));
                 longContest.setNumRegistrants(rsc.getIntItem(i, "num_registrants"));
                 longContest.setSubmissionCount(rsc.getIntItem(i, "submission_count"));
+                longContest.setRoundTypeId(rsc.getIntItem(i, "round_type_id"));
                 if (rsc.getStringItem(i, "forum_id") != null) {
                     longContest.setForumId(rsc.getLongItem(i, "forum_id"));
                 }
@@ -98,60 +89,14 @@ public class ViewActiveContests extends Base {
                 contests.add(longContest);
 
             }
-
-            //todo change this so that it looks to the dw to get the list of contests
-            //todo and then populates a couple fields from transactional to fill out the list
-            Request reqPassContests = new Request();
-            reqPassContests.setContentHandle("long_contest_pass_contests");
-            reqPassContests.setProperty(Constants.ROUND_TYPE_ID, String.valueOf(type));
-
-            Map mapPassContests = dai.getData(reqPassContests);
-            ResultSetContainer rscPassContests = (ResultSetContainer) mapPassContests.get("long_contest_pass_contests");
-            for (int i = 0; i < rscPassContests.getRowCount(); i++) {
-                if (areResultsAvailable(rscPassContests.getLongItem(i, "round_id"))) {
-                    LongContest longContest = new LongContest();
-                    longContest.setPassed(true);
-
-                    // Store the values into a model
-                    longContest.setContestName(rscPassContests.getStringItem(i, "contest_name"));
-                    longContest.setRoundID(rscPassContests.getLongItem(i, "round_id"));
-                    longContest.setRoundName(rscPassContests.getStringItem(i, "round_name"));
-                    longContest.setStartTime((Date) rscPassContests.getItem(i, "start_time").getResultData());
-                    longContest.setEndTime((Date) rscPassContests.getItem(i, "end_time").getResultData());
-                    longContest.setCoderRegistered(reg.exists(usr.getId(), rscPassContests.getLongItem(i, "round_id")));
-                    longContest.setContestID(rscPassContests.getLongItem(i, "contest_id"));
-                    longContest.setNumCompetitors(rscPassContests.getIntItem(i, "num_competitors"));
-                    longContest.setNumRegistrants(rscPassContests.getIntItem(i, "num_registrants"));
-                    longContest.setSubmissionCount(rscPassContests.getIntItem(i, "submission_count"));
-
-                    if (rscPassContests.getStringItem(i, "forum_id") != null) {
-                        longContest.setForumId(rscPassContests.getLongItem(i, "forum_id"));
-                    }
-                    if (rscPassContests.getItem(i, "file_path").getResultData() != null) {
-                        longContest.setSponsorImage(makeImage(rscPassContests.getRow(i)));
-                    }
-
-                    // Gets the problem for the round
-                    RoundProblem prob = getRoundProblem(dai, rscPassContests.getLongItem(i, "round_id"));
-
-                    if (prob != null) {
-                        longContest.setComponentID(prob.getComponentID());
-                        longContest.setProblemID(prob.getProblemID());
-                        longContest.setProblemName(prob.getName());
-                    }
-
-                    contests.add(longContest);
-                }
-            }
-
-
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
         }
 
-        // Store the contests in the http request
+        
+        getRequest().setAttribute("isAnonymous", usr.isAnonymous());
         getRequest().setAttribute(Constants.CONTEST_LIST_KEY, contests);
 
         setNextPage(Constants.PAGE_ACTIVE_CONTESTS);

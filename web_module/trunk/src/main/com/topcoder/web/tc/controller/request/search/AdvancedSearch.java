@@ -50,6 +50,11 @@ public class AdvancedSearch extends SimpleSearch {
         setDefault(Constants.MIN_NUM_HS_RATINGS, m.getMinNumHSRatings() == null ? "" : m.getMinNumHSRatings().toString());
         setDefault(Constants.MAX_NUM_HS_RATINGS, m.getMaxNumHSRatings() == null ? "" : m.getMaxNumHSRatings().toString());
         setDefault(Constants.MAX_DAYS_SINCE_LAST_HS_COMP, m.getMaxDaysSinceLastHSComp() == null ? "" : m.getMaxDaysSinceLastHSComp().toString());
+        setDefault(Constants.MIN_MAR_RATING, m.getMinMarRating() == null ? "" : m.getMinMarRating().toString());
+        setDefault(Constants.MAX_MAR_RATING, m.getMaxMarRating() == null ? "" : m.getMaxMarRating().toString());
+        setDefault(Constants.MIN_NUM_MAR_RATINGS, m.getMinNumMarRatings() == null ? "" : m.getMinNumMarRatings().toString());
+        setDefault(Constants.MAX_NUM_MAR_RATINGS, m.getMaxNumMarRatings() == null ? "" : m.getMaxNumMarRatings().toString());
+        setDefault(Constants.MAX_DAYS_SINCE_LAST_MAR_COMP, m.getMaxDaysSinceLastMarComp() == null ? "" : m.getMaxDaysSinceLastMarComp().toString());
     }
 
     /**
@@ -127,6 +132,27 @@ public class AdvancedSearch extends SimpleSearch {
         String maxDaysSinceLastHSComp = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_DAYS_SINCE_LAST_HS_COMP));
         if (!maxDaysSinceLastHSComp.equals(""))
             ret.setMaxDaysSinceLastHSComp(new Integer(maxDaysSinceLastHSComp));
+
+        // Marathon
+        String minMarRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_MAR_RATING));
+        if (!minMarRating.equals(""))
+            ret.setMinMarRating(new Integer(minMarRating));
+
+        String maxMarRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_MAR_RATING));
+        if (!maxMarRating.equals(""))
+            ret.setMaxMarRating(new Integer(maxMarRating));
+
+        String minNumMarRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_NUM_MAR_RATINGS));
+        if (!minNumMarRatings.equals(""))
+            ret.setMinNumMarRatings(new Integer(minNumMarRatings));
+
+        String maxNumMarRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_NUM_MAR_RATINGS));
+        if (!maxNumMarRatings.equals(""))
+            ret.setMaxNumMarRatings(new Integer(maxNumMarRatings));
+
+        String maxDaysSinceLastMarComp = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_DAYS_SINCE_LAST_MAR_COMP));
+        if (!maxDaysSinceLastMarComp.equals(""))
+            ret.setMaxDaysSinceLastMarComp(new Integer(maxDaysSinceLastMarComp));
 
         ret.setStateList(getStateList());
         ret.setCountryList(getCountryList());

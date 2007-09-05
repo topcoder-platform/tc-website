@@ -9,6 +9,7 @@ import com.topcoder.web.common.CachedQueryDataAccess;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.MaxAge;
+import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.MemberSearch;
@@ -71,6 +72,12 @@ public class SimpleSearch extends Base {
             ret.setEnd(ret.getStart().intValue() + (Constants.SEARCH_SCROLL_SIZE - 1));
         }
 
+        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+        if (!sortCol.equals("")) {
+            ret.setSortCol(new Integer(sortCol));
+            ret.setSortAsc("asc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION)));
+        }
+        
         String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE));
         if (!handle.equals(""))
             ret.setHandle(handle);
@@ -115,6 +122,7 @@ public class SimpleSearch extends Base {
 
         boolean needsRating = true;
         boolean needsHSRating = true;
+        boolean needsMarRating = true;
 
         if (m.getMinRating() == null && m.getMaxRating() == null &&
                 m.getMinNumRatings() == null && m.getMaxNumRatings() == null &&
@@ -148,6 +156,22 @@ public class SimpleSearch extends Base {
             }
         }
 
+        if (m.getMinMarRating() == null && m.getMaxMarRating() == null &&
+                m.getMinNumMarRatings() == null && m.getMaxNumMarRatings() == null &&
+                m.getMaxDaysSinceLastMarComp() == null) {
+            queryBottom.append(" , OUTER (algo_rating mmr, OUTER round mmro)");
+            needsMarRating = false;
+        } else {
+            queryBottom.append(" , algo_rating mmr");
+
+            if (m.getMaxDaysSinceLastMarComp() != null) {
+                queryBottom.append(" , round mmro");
+                queryBottom.append(" , calendar mmcal");
+            } else {
+                queryBottom.append(" , OUTER round mmro");
+            }
+        }
+
         queryBottom.append(" , outer country co");
         if (m.getSchoolName() != null) {
             queryBottom.append(" , school s");
@@ -167,6 +191,7 @@ public class SimpleSearch extends Base {
         }
         queryBottom.append(" WHERE c.coder_id = r.coder_id");
         queryBottom.append(" AND c.coder_id = hsr.coder_id");
+        queryBottom.append(" AND c.coder_id = mmr.coder_id");
         queryBottom.append(" AND c.status = 'A'");
         if (m.getStateCode() != null)
             queryBottom.append(" AND c.state_code like '").append(StringUtils.replace(m.getStateCode(), "'", "''")).append("'");
@@ -174,12 +199,15 @@ public class SimpleSearch extends Base {
             queryBottom.append(" AND c.handle_lower like '").append(StringUtils.replace(m.getHandle(), "'", "''").toLowerCase()).append("'");
         queryBottom.append(" AND r.last_rated_round_id = ro.round_id");
         queryBottom.append(" AND hsr.last_rated_round_id = hsro.round_id");
+        queryBottom.append(" AND mmr.last_rated_round_id = mmro.round_id");
         queryBottom.append(betweenFilter("r.rating", m.getMinRating(), m.getMaxRating()));
         queryBottom.append(betweenFilter("hsr.rating", m.getMinHSRating(), m.getMaxHSRating()));
+        queryBottom.append(betweenFilter("mmr.rating", m.getMinMarRating(), m.getMaxMarRating()));
         queryBottom.append(betweenFilter("desr.rating", m.getMinDesignRating(), m.getMaxDesignRating()));
         queryBottom.append(betweenFilter("devr.rating", m.getMinDevRating(), m.getMaxDevRating()));
         queryBottom.append(betweenFilter("r.num_ratings", m.getMinNumRatings(), m.getMaxNumRatings()));
         queryBottom.append(betweenFilter("hsr.num_ratings", m.getMinNumHSRatings(), m.getMaxNumHSRatings()));
+        queryBottom.append(betweenFilter("mmr.num_ratings", m.getMinNumMarRatings(), m.getMaxNumMarRatings()));
         if (m.getCountryCode() != null)
             queryBottom.append(" AND c.comp_country_code like '").append(StringUtils.replace(m.getCountryCode(), "'", "''")).append("'");
         if (m.getMaxDaysSinceLastComp() != null) {
@@ -189,6 +217,10 @@ public class SimpleSearch extends Base {
         if (m.getMaxDaysSinceLastHSComp() != null) {
             queryBottom.append(" AND hscal.calendar_id = hsro.calendar_id");
             queryBottom.append(" AND hscal.date > CURRENT - ").append(m.getMaxDaysSinceLastHSComp()).append(" UNITS DAY");
+        }
+        if (m.getMaxDaysSinceLastMarComp() != null) {
+            queryBottom.append(" AND mmcal.calendar_id = mmro.calendar_id");
+            queryBottom.append(" AND mmcal.date > CURRENT - ").append(m.getMaxDaysSinceLastMarComp()).append(" UNITS DAY");
         }
         queryBottom.append(" AND c.comp_country_code = co.country_code");
         queryBottom.append(" AND s.school_id = cs.school_id");
@@ -204,6 +236,7 @@ public class SimpleSearch extends Base {
         queryBottom.append(" AND devr.phase_id = 113");
         queryBottom.append(" AND r.algo_rating_type_id=1");
         queryBottom.append(" AND hsr.algo_rating_type_id=2");
+        queryBottom.append(" AND mmr.algo_rating_type_id=3");
 
         StringBuffer searchQuery = new StringBuffer(400);
         searchQuery.append(" SELECT c.coder_id AS user_id");
@@ -221,9 +254,37 @@ public class SimpleSearch extends Base {
         searchQuery.append(" , CASE WHEN hsr.rating= 0 THEN NULL ELSE ''||hsr.rating END as hs_rating");
         searchQuery.append(" , hsr.num_ratings as num_hs_ratings");
         searchQuery.append(" , (SELECT date FROM calendar cal WHERE cal.calendar_id = hsro.calendar_id) AS last_hs_competed");
-
+        searchQuery.append(" , CASE WHEN mmr.rating= 0 THEN NULL ELSE ''||mmr.rating END as mm_rating");
+        searchQuery.append(" , mmr.num_ratings as num_mm_ratings");
+        searchQuery.append(" , (SELECT date FROM calendar cal WHERE cal.calendar_id = mmro.calendar_id) AS last_mm_competed");
+        searchQuery.append(" , r.rating as sort_rating ");
+        searchQuery.append(" , hsr.rating as sort_hs_rating ");
+        searchQuery.append(" , mmr.rating as sort_mm_rating ");
+        searchQuery.append(" , (select max(num_ratings) from tcs_dw:project_result pr, tcs_dw:project p "); 
+        searchQuery.append("      where p.project_id = pr.project_id  ");
+        searchQuery.append("      and phase_id = 112 ");
+        searchQuery.append("      and user_id = c.coder_id) as num_des_ratings ");       
+        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p "); 
+        searchQuery.append("     where p.project_id = pr.project_id "); 
+        searchQuery.append("     and phase_id = 112 ");
+        searchQuery.append("     and rating_ind = 1 ");
+        searchQuery.append("     and user_id = c.coder_id) as last_des_competed ");
+        searchQuery.append(" , (select max(num_ratings) from tcs_dw:project_result pr, tcs_dw:project p "); 
+        searchQuery.append("      where p.project_id = pr.project_id  ");
+        searchQuery.append("      and phase_id = 113 ");
+        searchQuery.append("      and user_id = c.coder_id) as num_dev_ratings ");       
+        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p "); 
+        searchQuery.append("     where p.project_id = pr.project_id "); 
+        searchQuery.append("     and phase_id = 113 ");
+        searchQuery.append("     and rating_ind = 1 ");
+        searchQuery.append("     and user_id = c.coder_id) as last_dev_competed ");
+        
         searchQuery.append(queryBottom.toString());
-        searchQuery.append(" ORDER BY rating_order, lower_handle");
+        if (m.getSortCol() == null) {
+            searchQuery.append(" ORDER BY rating_order, lower_handle");
+        } else {
+            searchQuery.append(" ORDER BY " + (m.getSortCol() + 1)  + (m.isSortAsc()? " asc" : " desc") + ", rating_order, lower_handle");
+        }
 
         StringBuffer filter = new StringBuffer(400);
         filter.append(" WHERE c.status = 'A'");
@@ -257,10 +318,26 @@ public class SimpleSearch extends Base {
             filter.append(" AND hscal.date > CURRENT - ").append(m.getMaxDaysSinceLastHSComp()).append(" UNITS DAY");
         }
 
+        if (m.getMaxDaysSinceLastMarComp() != null) {
+            countQuery.append(" , round mmro");
+            countQuery.append(" , calendar mmcal");
+
+            filter.append(" AND mmr.last_rated_round_id = mmro.round_id");
+            filter.append(" AND mmcal.calendar_id = mmro.calendar_id");
+            filter.append(" AND mmcal.date > CURRENT - ").append(m.getMaxDaysSinceLastMarComp()).append(" UNITS DAY");
+        }
+
+        
         if (needsHSRating) {
             countQuery.append(" , algo_rating hsr");
             filter.append(" AND c.coder_id = hsr.coder_id");
             filter.append(" AND hsr.algo_rating_type_id=2");
+        }
+
+        if (needsMarRating) {
+            countQuery.append(" , algo_rating mmr");
+            filter.append(" AND c.coder_id = mmr.coder_id");
+            filter.append(" AND mmr.algo_rating_type_id=3");
         }
 
         if (m.getSchoolName() != null) {
@@ -295,15 +372,20 @@ public class SimpleSearch extends Base {
 
         filter.append(betweenFilter("r.rating", m.getMinRating(), m.getMaxRating()));
         filter.append(betweenFilter("hsr.rating", m.getMinHSRating(), m.getMaxHSRating()));
+        filter.append(betweenFilter("mmr.rating", m.getMinMarRating(), m.getMaxMarRating()));
         filter.append(betweenFilter("desr.rating", m.getMinDesignRating(), m.getMaxDesignRating()));
         filter.append(betweenFilter("devr.rating", m.getMinDevRating(), m.getMaxDevRating()));
         filter.append(betweenFilter("r.num_ratings", m.getMinNumRatings(), m.getMaxNumRatings()));
         filter.append(betweenFilter("hsr.num_ratings", m.getMinNumHSRatings(), m.getMaxNumHSRatings()));
+        filter.append(betweenFilter("mmr.num_ratings", m.getMinNumMarRatings(), m.getMaxNumMarRatings()));
         if (m.getCountryCode() != null)
             filter.append(" AND c.comp_country_code like '").append(StringUtils.replace(m.getCountryCode(), "'", "''")).append("'");
 
         countQuery.append(filter);
 
+        log.debug("count query: " + countQuery.toString());
+        log.debug("search query: " + searchQuery.toString());
+        
         QueryRequest r = new QueryRequest();
         r.addQuery("member_search", searchQuery.toString());
         r.addQuery("count", countQuery.toString());
@@ -312,9 +394,10 @@ public class SimpleSearch extends Base {
 
 
         CachedQueryDataAccess cda = new CachedQueryDataAccess(MaxAge.QUARTER_HOUR, DBMS.DW_DATASOURCE_NAME);
-        Map res = cda.getData(r);
-        ResultSetContainer rsc = (ResultSetContainer) res.get("member_search");
-        ResultSetContainer count = (ResultSetContainer) res.get("count");
+        Map<String, ResultSetContainer> res = cda.getData(r);
+        ResultSetContainer rsc = res.get("member_search");
+                
+        ResultSetContainer count = res.get("count");
         m.setResults(rsc);
         m.setTotal(count.getIntItem(0, "count"));
         if (m.getEnd() > m.getTotal()) {
@@ -323,6 +406,22 @@ public class SimpleSearch extends Base {
         if (m.getTotal() == 0) {
             m.setStart(0);
         }
+        
+        SortInfo s = new SortInfo();
+        s.addDefault(rsc.getColumnIndex("sort_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("sort_hs_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("sort_mm_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("design_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("dev_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("num_ratings"), "desc");            
+        s.addDefault(rsc.getColumnIndex("last_competed"), "desc");            
+        s.addDefault(rsc.getColumnIndex("num_hs_ratings"), "desc");            
+        s.addDefault(rsc.getColumnIndex("last_hs_competed"), "desc");            
+        s.addDefault(rsc.getColumnIndex("num_mm_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_mm_competed"), "desc");
+        getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+
+        
         return m;
     }
 

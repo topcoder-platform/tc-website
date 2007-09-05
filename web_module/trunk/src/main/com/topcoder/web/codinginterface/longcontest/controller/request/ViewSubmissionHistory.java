@@ -6,6 +6,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 import com.topcoder.web.common.*;
 
 import java.util.Map;
@@ -55,13 +56,19 @@ public class ViewSubmissionHistory extends Base {
             r.setProperty(Constants.CODER_ID, request.getParameter(Constants.CODER_ID));
             r.setProperty(Constants.COMPONENT_ID, component);
             r.setProperty(Constants.ROUND_ID, request.getParameter(Constants.ROUND_ID));
-            Map result = getDataAccess(false).getData(r);
+            Map<String, ResultSetContainer> result = getDataAccess(false).getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("long_coder_submissions");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
 
             rsc = new ResultSetContainer(rsc, startRank, endRank);
 
             result.put("long_coder_submissions", rsc);
+
+            ResultSetContainer infoRsc = new ResultSetContainer(result.get("long_contest_coder_submissions_info"), new RoundDisplayNameCalculator("display_name"));
+            if (infoRsc.size() == 0) {
+                throw new NavigationException("Couldn't find round info for round " + request.getParameter(Constants.ROUND_ID));
+            }            
+            request.setAttribute("infoRow", infoRsc.get(0));
 
 //            SortInfo s = new SortInfo();
 //            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
@@ -104,7 +111,6 @@ public class ViewSubmissionHistory extends Base {
                                 .append("=").append("" + (rsc.getStartRow() + numRecords))
                                 .toString());
             }
-
             setNextPage(Constants.PAGE_SUBMISSION_HISTORY);
             setIsNextPageInContext(true);
         } catch (TCWebException e) {

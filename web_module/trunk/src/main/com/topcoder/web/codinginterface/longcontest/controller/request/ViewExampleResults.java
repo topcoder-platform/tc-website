@@ -4,7 +4,10 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
@@ -42,8 +45,19 @@ public class ViewExampleResults extends Base {
                 r.setProperty(Constants.ROUND_ID, round);
                 r.setProperty(Constants.PROBLEM_ID, problem);
 
+
+                
                 DataAccessInt dataAccess = getDataAccess();
-                Map m = dataAccess.getData(r);
+                Map<String, ResultSetContainer> m = dataAccess.getData(r);
+
+                ResultSetContainer infoRsc = new ResultSetContainer(m.get("long_contest_round_component_info"), new RoundDisplayNameCalculator("display_name"));
+                if (infoRsc.size() == 0) {
+                    throw new NavigationException("Couldn't find round info for round " + request.getParameter(Constants.ROUND_ID));
+                }
+                
+                request.setAttribute("infoRow", infoRsc.get(0));
+
+                
                 request.setAttribute("resultMap", m);
                 request.setAttribute(Constants.CODER_ID, coder);
                 setNextPage(Constants.PAGE_VIEW_EXAMPLE_RESULTS);

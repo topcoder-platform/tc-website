@@ -1,4 +1,7 @@
-<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <%@ page
         language="java"
         import="com.topcoder.web.codinginterface.longcontest.Constants"
@@ -7,120 +10,114 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
+
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
-<% String myNode = "long_compete";
-    String image = "long_comps_topcoder";
-     if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
-         myNode="long_practice";
-     } else if (roundType ==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
-         myNode="long_intelmtcs_practice";
-         image = "long_comps_intel";
-     } else if (roundType ==Constants.INTEL_LONG_ROUND_TYPE_ID) {
-         myNode="long_intelmtcs_compete";
-         image = "long_comps_intel";
-     }
-%>
 
 <html>
 <head>
     <title>TopCoder</title>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_stats"/>
-</jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="script.jsp" />
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
 </head>
 
 <body>
 
-<jsp:include page="top.jsp">
+<jsp:include page="top.jsp" >
     <jsp:param name="level1" value="long"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
     <tr valign="top">
-        <%-- Left Column Begins--%>
+<%-- Left Column Begins--%>
         <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="<%=myNode%>"/>
-         </jsp:include>
+            <jsp:include page="includes/global_left.jsp">
+                <jsp:param name="node" value="long_practice"/>
+            </jsp:include>
         </td>
-        <%-- Left Column Ends --%>
+<%-- Left Column Ends --%>
 
-        <%-- Center Column Begins --%>
-        <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+<%-- Center Column Begins --%>
+        <td width="100%" align="left" class="bodyColumn">
 
             <jsp:include page="page_title.jsp">
-                <jsp:param name="image" value="<%=image%>"/>
+                <jsp:param name="image" value="long_comps_topcoder"/>
                 <jsp:param name="title" value="Practice Contests"/>
             </jsp:include>
 
-            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
+            <div align="right" style="margin: 6px 0px;">
+                <a href="/longcontest/?module=Static&amp;d1=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
+            </div>
+
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat">
+            <tbody>
                 <tr>
-                    <td>
-                        <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-
-                            <tr>
-                                <td class="tableTitle" colspan="4">Practice Contests</td>
-                            </tr>
-                            <tr>
-                                <td class="tableHeader" width="40%">Contest</td>
-<%--
-                                <td class="tableHeader" width="10%" align="right">Registrants</td>
---%>
-                                <td class="tableHeader" width="20%" align="right">Competitors</td>
-                                <td class="tableHeader" width="20%">&nbsp;</td>
-                                <td class="tableHeader" width="20%">&nbsp;</td>
-                            </tr>
-
-                            <%boolean even = true;%>
-
-                            <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
-                                <tr>
-                                    <td class="<%=even?"statLt":"statDk"%>"><b>
-                                        <tc-webtag:beanWrite name="contest" property="contestName"/> &gt; <tc-webtag:beanWrite name="contest" property="roundName"/></b></td>
-<%--
-                                    <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;">
-                                        <A href="registrants page" class="statLink">
-                                            <tc-webtag:beanWrite name="contest" property="numRegistrants"/></A></td>
---%>
-                                    <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;">
-                                            <tc-webtag:beanWrite name="contest" property="numCompetitors"/></td>
-                                    <td class="<%=even?"statLt":"statDk"%>" align="center">
-                                        <% if (myNode.equals("long_intelmtcs_practice")) { %>
-                                            &nbsp;
-                                        <% } else { %>
-                                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>">submit</A>
-                                        <% } %>
-                                    </td>
-                                    <td class="<%=even?"statLt":"statDk"%>" align="center">
-                                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewStandings&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>">standings</A>
-                                    </td>
-                                </tr>
-                                <%even = !even;%>
-                            </logic:iterate>
-                        </TABLE>
-                    </TD>
+                    <td class="title" colspan="5">Practice Contests</td>
                 </tr>
-            </TABLE>
+                <tr>
+                    <td class="header">Original Contest</td>
+                    <td class="header">Problem</td>
+                    <td class="headerC">Competitors</td>
+                    <td class="headerC">&nbsp;</td>
+                    <td class="headerC">&nbsp;</td>
+                </tr>
+
+                <%boolean even = true;%>
+
+                <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
+                    <tr class="<%=even?"light":"dark"%>">
+                        <td class="value">
+                            <c:forEach items="${originalRounds[contest.problemID]}" var="r" varStatus="status">
+                                <a href="/longcontest/?module=ViewStandings&amp;rd=${r.id}" class="bcLink">
+                                    ${r.name}
+                                </a>
+                                <c:if test="${not status.last }">
+                                    <br/>
+                                </c:if>
+                            </c:forEach>
+                        </td>
+                        <td class="value">
+                           <mm:problemLink roundId="${contest.roundID}" problemId="${contest.problemID}" problemName="${contest.problemName}" />                            
+                        </td>
+                        <td class="valueC">
+                            ${contest.numCompetitors}
+                        </td>
+                        <td class="valueC">
+                                <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&amp;<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&amp;<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&amp;<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>">submit</a>
+                        </td>
+                        <td class="valueC">
+                            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewStandings&amp;<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>">standings</a>
+                        </td>
+                    </tr>
+                    <%even = !even;%>
+                </logic:iterate>
+            </tbody>
+            </table>
 
 
         </td>
-
-        <%-- Right Column Begins --%>
+<%-- Center Column Ends --%>
+        
+<%-- Right Column Begins --%>
         <td width="170">
             <jsp:include page="public_right.jsp">
-                <jsp:param name="level1" value="privatelabel"/>
+                <jsp:param name="level1" value="default"/>
             </jsp:include>
         </td>
-        <%-- Right Column Ends --%>
-
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+<%-- Right Column Ends --%>
+        
     </tr>
+</tbody>
 </table>
 
-<jsp:include page="foot.jsp"/>
+<jsp:include page="foot.jsp" />
+
 </body>
+
 </html>

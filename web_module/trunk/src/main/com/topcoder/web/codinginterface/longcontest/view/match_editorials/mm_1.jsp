@@ -6,8 +6,8 @@
 <html>
 <head>
 <title>TopCoder</title>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
+<jsp:include page="../script.jsp" />
+<jsp:include page="../style.jsp">
 <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -15,7 +15,7 @@
 
 <body>
 
-<jsp:include page="/top.jsp">
+<jsp:include page="../top.jsp">
     <jsp:param name="level1" value="long"/>
 </jsp:include>
 
@@ -23,7 +23,7 @@
 <tr valign="top">
 <%-- Left Column Begins--%>
 <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
+         <jsp:include page="../includes/global_left.jsp">
             <jsp:param name="node" value="long_editorials"/>
          </jsp:include>
 </td>
@@ -34,7 +34,7 @@
 <div align="center">
    <div class="bodyText" style="width: 100%; text-align: left;">
 
-    <jsp:include page="/page_title.jsp">
+    <jsp:include page="../page_title.jsp">
         <jsp:param name="image" value="long_comps_topcoder"/>
         <jsp:param name="title" value="Match Editorials"/>
     </jsp:include>
@@ -218,7 +218,7 @@ After running several test cases, I observed that the highest score was achieved
 
 <%-- Right Column Begins --%>
 <td width="170">
-    <jsp:include page="/public_right.jsp">
+    <jsp:include page="../public_right.jsp">
         <jsp:param name="level1" value="default"/>
     </jsp:include>
 </td>
@@ -228,6 +228,6 @@ After running several test cases, I observed that the highest score was achieved
 </tr>
 </table>
 
-<jsp:include page="/foot.jsp"/>
+<jsp:include page="../foot.jsp"/>
 </body>
 </html>

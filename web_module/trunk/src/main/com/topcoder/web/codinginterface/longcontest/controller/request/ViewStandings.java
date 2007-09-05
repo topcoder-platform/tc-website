@@ -6,6 +6,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
@@ -67,12 +68,20 @@ public class ViewStandings extends Base {
                 }
                 r.setProperty("rd", roundID);
 
-                Map m = dai.getData(r);
+                Map<String, ResultSetContainer> m = dai.getData(r);
 
                 // Does this round exist?
-                if (((ResultSetContainer) m.get("long_contest_round_information")).isEmpty()) {
+                ResultSetContainer info = m.get("long_contest_round_information"); 
+                if (info.isEmpty()) {
                     throw new NavigationException("Invalid round specified.");
                 }
+
+                ResultSetContainer infoRsc = new ResultSetContainer(m.get("long_contest_round_information"), new RoundDisplayNameCalculator("display_name"));
+                if (infoRsc.size() == 0) {
+                    throw new NavigationException("Couldn't find round info for round " +roundID);
+                }
+                
+                request.setAttribute("infoRow", infoRsc.get(0));
 
                 // Round started yet?
                 boolean started = ((ResultSetContainer) m.get("long_contest_started")).getBooleanItem(0, 0);
@@ -88,7 +97,8 @@ public class ViewStandings extends Base {
                 if (!started) {
                     throw new NavigationException("Invalid round specified.");
                 } else if (over&&areResultsAvailable(Long.parseLong(roundID))) { // go to overview page
-                    String url = buildProcessorRequestString("ViewOverview", new String[]{Constants.ROUND_ID}, new String[]{roundID});
+//                    String url = buildProcessorRequestString("ViewOverview", new String[]{Constants.ROUND_ID}, new String[]{roundID});
+                    String url = "/longcontest/stats/?module=ViewOverview&rd=" + roundID;
                     log.debug("Going to overview page: " + url);
                     setNextPage(url);
                     setIsNextPageInContext(false);
@@ -130,10 +140,10 @@ public class ViewStandings extends Base {
                                 Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1);
                     }
 
+                    
                     request.setAttribute(Constants.ROUND_STANDINGS_LIST_KEY, standings);
-                    request.setAttribute("roundInfo", m.get("long_contest_round_information"));
                     request.setAttribute(Constants.ROUND_ID, roundID);
-
+                    request.setAttribute("isIntel", roundTypeID == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID || roundTypeID == Constants.INTEL_LONG_ROUND_TYPE_ID);
                     setNextPage(Constants.PAGE_STANDINGS);
                     setIsNextPageInContext(true);
 

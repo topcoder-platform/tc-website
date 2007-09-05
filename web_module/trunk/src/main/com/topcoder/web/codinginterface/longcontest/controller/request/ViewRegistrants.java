@@ -12,6 +12,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 import com.topcoder.web.common.*;
 
 import java.util.Map;
@@ -64,8 +65,8 @@ public class ViewRegistrants extends Base {
             Request r = new Request();
             r.setProperty(Constants.ROUND_ID, roundID);
             r.setContentHandle("long_contest_round_registrants");
-            Map result = getDataAccess(false).getData(r);
-            ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_round_registrants");
+            Map<String, ResultSetContainer> result = getDataAccess(false).getData(r);
+            ResultSetContainer rsc = result.get("long_contest_round_registrants");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
 
             rsc = new ResultSetContainer(rsc, startRank, endRank);
@@ -74,6 +75,14 @@ public class ViewRegistrants extends Base {
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, "" + numRecords);
             setDefault(DataAccessConstants.START_RANK, "" + startRank);
+
+            ResultSetContainer infoRsc = new ResultSetContainer(result.get("long_contest_round_registrants_info"), new RoundDisplayNameCalculator("display_name"));
+            if (infoRsc.size() == 0) {
+                throw new NavigationException("Couldn't find round info for round " + roundID);
+            }
+            
+            request.setAttribute("infoRow", infoRsc.get(0));
+            
 
             request.setAttribute("resultMap", result);
 
@@ -107,7 +116,6 @@ public class ViewRegistrants extends Base {
                                 .append("=").append("" + (rsc.getStartRow() + numRecords))
                                 .toString());
             }
-
             setNextPage(Constants.PAGE_VIEW_REGISTRANTS);
             setIsNextPageInContext(true);
         } catch (TCWebException e) {

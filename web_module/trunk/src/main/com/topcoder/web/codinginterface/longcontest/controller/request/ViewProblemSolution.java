@@ -7,6 +7,8 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
@@ -60,7 +62,15 @@ public class ViewProblemSolution extends Base {
             //caching this is a little sketchy cuz we could end up caching the transactional version.
             //but they shouldn't be different, so we'll roll the dice
             DataAccessInt dataAccess = getDataAccess(dataSource, true);
-            Map m = dataAccess.getData(r);
+            Map<String, ResultSetContainer> m = dataAccess.getData(r);
+            
+            ResultSetContainer infoRsc = new ResultSetContainer(m.get("long_contest_submission"), new RoundDisplayNameCalculator("display_name"));
+            if (infoRsc.size() == 0) {
+                throw new NavigationException("Couldn't find round info for round " + round);
+            }            
+            request.setAttribute("infoRow", infoRsc.get(0));
+
+            
             request.setAttribute("resultMap", m);
             request.setAttribute("mostRecent",
                     String.valueOf(isMostRecentSubmission(round, coder, problem, submissionNumber)));

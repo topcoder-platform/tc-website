@@ -1,17 +1,20 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.model.LongContest;
-import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 import com.topcoder.web.common.TCWebException;
-
-import java.util.Date;
-import java.util.Map;
-import java.util.Vector;
+import com.topcoder.web.common.model.algo.Round;
 
 public class ViewPractice extends ViewActiveContests {
 
@@ -19,7 +22,7 @@ public class ViewPractice extends ViewActiveContests {
 
     protected void longContestProcessing() throws TCWebException {
 
-        Vector contests = new Vector();
+        List<LongContest> contests = new ArrayList<LongContest>();
 
         try {
             // Data source
@@ -28,21 +31,11 @@ public class ViewPractice extends ViewActiveContests {
             // Prepare data request
             Request r = new Request();
             r.setContentHandle("long_contest_round_view_practice");
-            if (StringUtils.isNumber(getRequest().getParameter(Constants.ROUND_TYPE_ID))) {
-                int type = Integer.parseInt(getRequest().getParameter(Constants.ROUND_TYPE_ID));
-                if (type == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
-                    r.setProperty(Constants.ROUND_TYPE_ID, String.valueOf(type));
-                    getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(type));
-                } else {
-                    r.setProperty(Constants.ROUND_TYPE_ID, String.valueOf(Constants.LONG_PRACTICE_ROUND_TYPE_ID));
-                    getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(Constants.LONG_PRACTICE_ROUND_TYPE_ID));
-                }
-            }
 
-            Map m = dai.getData(r);
+            Map<String, ResultSetContainer> m = dai.getData(r);
 
             // Get the practice rounds
-            ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_round_practice");
+            ResultSetContainer rsc = m.get("long_contest_round_practice");
 
             // Go through the practice rounds and build a list of them
             for (int i = 0; i < rsc.getRowCount(); i++) {
@@ -56,20 +49,20 @@ public class ViewPractice extends ViewActiveContests {
                 long roundID = rsc.getLongItem(i, "round_id");
                 Date startTime = (Date) rsc.getItem(i, "start_time").getResultData();
                 Date endTime = (Date) rsc.getItem(i, "end_time").getResultData();
-                boolean hasStarted = true; // Practices don't have time contraints
                 int numParticipants = getNumParticipants(dai, roundID);
-                boolean usrRoundRegistered = true;
-
+                int roundTypeId = rsc.getIntItem(i, "round_type_id");
+                
                 // Save contest properties to be displayed later on
                 longContest.setContestName(contestName);
                 longContest.setRoundID(roundID);
                 longContest.setRoundName(roundName);
                 longContest.setStartTime(startTime);
                 longContest.setEndTime(endTime);
-                longContest.setCoderRegistered(usrRoundRegistered);
+                longContest.setCoderRegistered(true);
                 longContest.setContestID(contestID);
-                longContest.setStarted(hasStarted);
+                longContest.setStarted(true); // Practices don't have time contraints
                 longContest.setNumCompetitors(numParticipants);
+                longContest.setRoundTypeId(roundTypeId);
 
                 // Get the problem for the round
                 RoundProblem prob = getRoundProblem(dai, roundID);
@@ -84,7 +77,24 @@ public class ViewPractice extends ViewActiveContests {
 
                 contests.add(longContest);
             }
+           
+            // the key is the problem_id, and for each problem, it contains a list of RoundInfo
+            Map<Long, List<RoundInfo> > rounds = new HashMap<Long, List<RoundInfo> >();
+            
+            ResultSetContainer origRsc = new ResultSetContainer(m.get("long_contest_original_rounds"), new RoundDisplayNameCalculator("display_name"));
 
+            for (ResultSetContainer.ResultSetRow row : origRsc) {
+                List<RoundInfo> list = rounds.get(row.getLongItem("problem_id"));
+                if (list == null) {
+                    list = new ArrayList<RoundInfo>();
+                    rounds.put(row.getLongItem("problem_id"), list);
+                }
+                list.add(new RoundInfo(row.getIntItem("round_id"), row.getStringItem("display_name")));
+            }
+
+            getRequest().setAttribute("originalRounds", rounds);
+
+            
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
@@ -112,7 +122,8 @@ public class ViewPractice extends ViewActiveContests {
         try {
             r.setContentHandle("long_contest_round_num_participants");
             r.setProperty("rd", "" + roundID);
-            Map m = dai.getData(r);
+
+            Map<String, ResultSetContainer> m = dai.getData(r);
             rsc = (ResultSetContainer) m.get("long_contest_round_num_participants");
         } catch (Exception e) {
             log.error("Error occured executing DB command: getNumParticipants", e);
@@ -121,4 +132,22 @@ public class ViewPractice extends ViewActiveContests {
         return rsc.getIntItem(0, 0);
     }
 
+    public class RoundInfo {
+        private String name;
+        private int id;
+        
+        public RoundInfo(int id, String name) {
+            super();
+            this.id = id;
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+        
+        public int getId() {
+            return id;
+        }
+    }
 }

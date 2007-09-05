@@ -1297,7 +1297,6 @@ public class TCLoadTCS extends TCLoad {
                         "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
                         "         and submission_status_id in (1, 4) " +
                         "        ) as num_submissions_passed_review  " +
-
                         "    , pr.payment " +
                         "    , pr.old_rating " +
                         "    , pr.new_rating " +
@@ -1311,13 +1310,17 @@ public class TCLoadTCS extends TCLoad {
                         "    , pr.point_adjustment" +
                         "    , pr.current_reliability_ind " +
                         "    , pr.reliable_submission_ind " +
-                        "    , pr.rating_order " +
-                        "    , (select max(cvd.price) " +
-                        "           from comp_versions cv " +
-                        "              , comp_version_dates cvd " +
-                        "           where cv.component_id = cc.component_id " +
-                        "           and cv.comp_vers_id = cvd.comp_vers_id " +
-                        "           and cvd.phase_id = (p.project_category_id + 111)) as amount " +
+                        "    , pr.rating_order " +                        
+                        "    , NVL ((select max(cvd.price) " + 
+                        "             from comp_version_dates cvd  " +
+                        "             , project_info pi_ci " +
+                        "             where pi_ci.value = cvd.comp_vers_id " +  
+                        "             and cvd.phase_id = p.project_category_id+111 " +                        
+                        "             and pi_ci.project_id = p.project_id  " +
+                        "             and pi_ci.project_info_type_id = 1), " +
+                        "          (select value from project_info pi_am where pi_am.project_info_type_id = 16 and pi_am.project_id = p.project_id) " +
+                        "                ) as amount  " +                        
+                        "     , (select value from project_info where project_id = p.project_id and project_info_type_id = 26) as dr_ind " +
                         "    from project_result pr" +
                         "       ,project p" +
                         "       ,project_info pi" +
@@ -1466,11 +1469,15 @@ public class TCLoadTCS extends TCLoad {
                     if (stage != null &&
                             (projectResults.getInt("project_stat_id") == 7 ||  // COMPLETED
                                     projectResults.getInt("project_stat_id") == 1) && // ACTIVE
-                            projectResults.getInt("rating_ind") == 1) {
+                            projectResults.getInt("rating_ind") == 1 &&
+                            !"Off".equals(projectResults.getString("dr_ind"))) {
 
                         hasDR = true;
                         ContestResultCalculator crc = stageCalculators.get(stage);
                         if (crc != null) {
+                            if (projectResults.getDouble("amount") < 0.01) {
+                                log.warn("Project " + project_id + " has amount=0! Please check it.");
+                            }
                             ProjectResult pr = new ProjectResult(project_id, projectResults.getInt("project_stat_id"), projectResults.getLong("user_id"),
                                     projectResults.getDouble("final_score"), placed,
                                     0, projectResults.getDouble("amount"), numSubmissionsPassedReview, passedReview);
@@ -1531,7 +1538,12 @@ public class TCLoadTCS extends TCLoad {
                     }
                     resultInsert.setInt(25, projectResults.getInt("rating_ind") == 1 ? currNumRatings + 1 : currNumRatings);
                     resultInsert.setObject(26, projectResults.getObject("rating_order"));
-                    resultInsert.setDouble(27, potentialPoints);
+                    
+                    if (hasDR) {
+                        resultInsert.setDouble(27, potentialPoints);
+                    } else {
+                        resultInsert.setNull(27, Types.DECIMAL);
+                    }
 
                     //log.debug("before result insert");
                     //try {
@@ -4788,19 +4800,16 @@ public class TCLoadTCS extends TCLoad {
                         "       ,pr.placed " +
                         "       ,pr.point_adjustment " +
                         "       ,pr.final_score " +
-                        "       ,pr.passed_review_ind " +
-                        "       , (select max(cvd.price) " +
+                        "       ,pr.passed_review_ind " +                        
+                        "       , NVL ((select max(cvd.price) " +
                         "           from project_info pi_ci " +
-                        "                , comp_catalog cc  " +
-                        "                , comp_versions cv " +
                         "                , comp_version_dates cvd " +
-                        "           where pi_ci.project_info_type_id = 2 " +
-                        "           and cc.component_id = pi_ci.value " +
-                        "           and cv.component_id = cc.component_id " +
-                        "           and cv.comp_vers_id = cvd.comp_vers_id " +
+                        "           where pi_ci.project_info_type_id = 1 " +
+                        "           and cvd.comp_vers_id = pi_ci.value " +
                         "           and cvd.phase_id = ? " +
-                        "           and cvd.phase_id = cv.phase_id  " +
-                        "           and pi_ci.project_id = p.project_id) as amount " +
+                        "           and pi_ci.project_id = p.project_id)," +
+                        "           (select value from project_info pi_am where pi_am.project_info_type_id = 16 and pi_am.project_id = p.project_id) " +
+                        "            ) as amount " +
                         "       ,pi_dr.value as dr_ind " +
                         "       ,(select count(*) from submission s, upload u  " +
                         "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
@@ -4864,6 +4873,9 @@ public class TCLoadTCS extends TCLoad {
                 // Skip non Digital Review projects
                 if ("Off".equals(rs.getString("dr_ind"))) {
                     continue;
+                }
+                if (rs.getDouble("amount") < 0.01) {
+                    log.warn("Project: " + rs.getLong("project_id") + " has zero amount!" );
                 }
                 ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
                         rs.getDouble("final_score"), rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"),
