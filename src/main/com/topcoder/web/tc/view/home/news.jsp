@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.05.07<br>12:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1b">TCCC07 - Algo Round 1B - Problem Set &amp; Analysis</A></span><br><br>
+      Coders from Russia dominated this round, occupying the top 3 spots in the final table. Rating favorite <tc-webtag:handle coderId="10574855" context="algorithm"/> easily won this round, followed by TCO07 finalists <tc-webtag:handle coderId="21971539" context="algorithm"/> and <tc-webtag:handle coderId="21822659" context="algorithm"/>.</td>
+         <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1b">full story</A> | 
+         <tc-webtag:forumLink forumID="517209" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>09.04.07<br>4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://forums.topcoder.com/?module=Thread&threadID=586772">Coder of the Month dates updated</A></span><br><br>
@@ -159,18 +175,5 @@
    <tr><td class="newsLinksCell">
         <a href="http://forums.topcoder.com/?module=Thread&threadID=585029&start=24&mc=35">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.28.07<br>9:15 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 1A set for August 28</A></span><br><br>
-        Algorithm Round 1A of the 2007 TopCoder Collegiate Challenge, brought to you by Eli Lilly, kicks off tonight at 9:00 PM EDT. Don't miss it!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</A> | 
-        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
