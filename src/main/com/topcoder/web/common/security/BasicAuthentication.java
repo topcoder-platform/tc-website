@@ -13,6 +13,7 @@ import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
@@ -172,7 +173,7 @@ public class BasicAuthentication implements WebAuthentication {
             setUserInPersistor(makeUser(uid));
             setBigSessionCookie(uid);
 
-            Cookie c = new Cookie(LOGGED_OUT,String.valueOf(false));
+            Cookie c = new Cookie(LOGGED_OUT+"_"+ ApplicationServer.ENVIRONMENT,String.valueOf(false));
             c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
             c.setDomain("topcoder.com");
             c.setPath("/");
@@ -198,7 +199,7 @@ public class BasicAuthentication implements WebAuthentication {
         clearBigCookie();
         setUserInPersistor(guest);
 
-        Cookie c = new Cookie(LOGGED_OUT,String.valueOf(true));
+        Cookie c = new Cookie(LOGGED_OUT+"_"+ ApplicationServer.ENVIRONMENT,String.valueOf(true));
         c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
         c.setDomain("topcoder.com");
         c.setPath("/");
@@ -383,7 +384,7 @@ public class BasicAuthentication implements WebAuthentication {
     public void setCookie(long uid, boolean rememberUser) throws Exception {
         if (rememberUser) {
             String hash = hashForUser(uid);
-            Cookie c = new Cookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME, uid + "|" + hash);
+            Cookie c = new Cookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME+"_"+ ApplicationServer.ENVIRONMENT, uid + "|" + hash);
             c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
             c.setDomain("topcoder.com");
             c.setPath("/");
@@ -399,7 +400,7 @@ public class BasicAuthentication implements WebAuthentication {
      * Remove cookie previously set on the client by the method above.
      */
     private void clearCookie() {
-        Cookie c = new Cookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME, "");
+        Cookie c = new Cookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME+"_"+ ApplicationServer.ENVIRONMENT, "");
         c.setMaxAge(0);
         c.setDomain("topcoder.com");
         c.setPath("/");
@@ -445,7 +446,7 @@ public class BasicAuthentication implements WebAuthentication {
      */
     private void setBigSessionCookie(long uid) throws Exception {
         String hash = hashForUser(uid);
-        Cookie c = new Cookie(BIG_SESSION_KEY, uid + "|" + hash);
+        Cookie c = new Cookie(BIG_SESSION_KEY+"_"+ ApplicationServer.ENVIRONMENT, uid + "|" + hash);
         c.setMaxAge(SSO_TIMEOUT_SECONDS);
         c.setDomain("topcoder.com");
         c.setPath("/");
@@ -456,7 +457,7 @@ public class BasicAuthentication implements WebAuthentication {
       * Remove any cookie previously set on the client by the method above.
       */
      private void clearBigCookie() {
-         Cookie c = new Cookie(BIG_SESSION_KEY, "");
+         Cookie c = new Cookie(BIG_SESSION_KEY+"_"+ ApplicationServer.ENVIRONMENT, "");
          c.setMaxAge(0);
          c.setDomain("topcoder.com");
          c.setPath("/");
@@ -489,7 +490,7 @@ public class BasicAuthentication implements WebAuthentication {
 
 
     private void markKnownUser() {
-        Cookie c = new Cookie(KNOWN_USER, String.valueOf(true));
+        Cookie c = new Cookie(KNOWN_USER+"_"+ ApplicationServer.ENVIRONMENT, String.valueOf(true));
         c.setMaxAge(Integer.MAX_VALUE);
         response.addCookie(c);
         knownUser = true;
