@@ -490,7 +490,7 @@ public class BasicAuthentication implements WebAuthentication {
 
 
     private void markKnownUser() {
-        Cookie c = new Cookie(KNOWN_USER+"_"+ ApplicationServer.ENVIRONMENT, String.valueOf(true));
+        Cookie c = new Cookie(KNOWN_USER, String.valueOf(true));
         c.setMaxAge(Integer.MAX_VALUE);
         response.addCookie(c);
         knownUser = true;
