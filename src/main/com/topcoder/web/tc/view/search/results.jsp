@@ -35,21 +35,31 @@
     </tr>
     <tr>
         <td class="header"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("lower_handle") %>" includeParams="true" excludeParams="sr" />">Handle</a></td>
-        <td class="headerC" style="border-left:solid 1px #ffffff;">Rating</td>
+        
+        <%-- Algorithm --%>
+        <td class="headerC" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("sort_rating") %>" includeParams="true" excludeParams="sr" />">Rating</a></td>
+        <td class="headerC"># Ratings</td>
+        <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_competed") %>" includeParams="true" excludeParams="sr" />">Last Event</a></td>
+        
+        <%-- Design --%>
+        <td class="headerC" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("design_rating") %>" includeParams="true" excludeParams="sr" />">Rating</a></td>
         <td class="headerC"># Ratings</td>
         <td class="headerC">Last Event</td>
-        <td class="headerC" style="border-left:solid 1px #ffffff;">Rating</td>
+        
+        <%-- Development --%>
+        <td class="headerC" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("dev_rating") %>" includeParams="true" excludeParams="sr" />">Rating</a></td>
         <td class="headerC"># Ratings</td>
         <td class="headerC">Last Event</td>
-        <td class="headerC" style="border-left:solid 1px #ffffff;">Rating</td>
+        
+        <%-- TCHS --%>
+        <td class="headerC" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("sort_hs_rating") %>" includeParams="true" excludeParams="sr" />">Rating</a></td>
         <td class="headerC"># Ratings</td>
-        <td class="headerC">Last Event</td>
-        <td class="headerC" style="border-left:solid 1px #ffffff;">Rating</td>
+        <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_hs_competed") %>" includeParams="true" excludeParams="sr" />">Last Event</td>
+        
+        <%-- Marathon Match --%>
+        <td class="headerC" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("sort_mm_rating") %>" includeParams="true" excludeParams="sr" />">Rating</a></td>
         <td class="headerC"># Ratings</td>
-        <td class="headerC">Last Event</td>
-        <td class="headerC" style="border-left:solid 1px #ffffff;">Rating</td>
-        <td class="headerC"># Ratings</td>
-        <td class="headerC">Last Event</td>
+        <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_mm_competed") %>" includeParams="true" excludeParams="sr" />">Last Event</td>
     </tr>
    
     <%boolean even = false;%>
