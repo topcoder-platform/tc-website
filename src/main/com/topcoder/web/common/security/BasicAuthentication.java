@@ -233,19 +233,7 @@ public class BasicAuthentication implements WebAuthentication {
          * requests in the persistor.  if they're not in the cookie either, then
          * they're anonymous
          */
-        if (isLoggedOut()) {
-            return guest;
-        } else {
-            User u = getUserFromPersistor();
-            if (log.isDebugEnabled()) {
-                User u1 = checkBigSession();
-                if (u1!=null) {
-                    log.debug("XXXXXX FOUND IT XXXXXXX");
-                } else {
-                    log.debug("XXXXXX MISSED IT XXXXXXX");
-                }
-            }
-
+        User u = getUser();
             if (u == null) {
                 //given the way tomcat/apache handles sessions in a cluster, we can't do this
                 //because the session id is different on the two nodes.  potentially we could
@@ -277,7 +265,6 @@ public class BasicAuthentication implements WebAuthentication {
                 markKnownUser();
             }
             return u;
-        }
     }
 
     /**
