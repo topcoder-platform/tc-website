@@ -151,7 +151,9 @@ public class BasicAuthentication implements WebAuthentication {
      * to the user.
      */
     public void flushCookies() {
+        log.debug("flush cookies");
         for (Map.Entry<String, Cookie> entry : cookies.entrySet()) {
+            log.debug("add " + entry.getValue().getName());
             response.addCookie(entry.getValue());
         }
     }
