@@ -7,6 +7,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.*;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 
 import java.util.Map;
 
@@ -59,7 +60,7 @@ public class ViewExampleHistory extends Base {
             r.setProperty(Constants.CODER_ID, request.getParameter(Constants.CODER_ID));
             r.setProperty(Constants.COMPONENT_ID, component);
             r.setProperty(Constants.ROUND_ID, request.getParameter(Constants.ROUND_ID));
-            Map result = getDataAccess(false).getData(r);
+            Map<String, ResultSetContainer> result = getDataAccess(false).getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("long_coder_examples");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
 
@@ -67,8 +68,12 @@ public class ViewExampleHistory extends Base {
 
             result.put("long_coder_examples", rsc);
 
-//            SortInfo s = new SortInfo();
-//            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+            ResultSetContainer infoRsc = new ResultSetContainer(result.get("long_contest_coder_examples_info"), new RoundDisplayNameCalculator("display_name"));
+            if (infoRsc.size() == 0) {
+                throw new NavigationException("Couldn't find round info for round " + request.getParameter(Constants.ROUND_ID));
+            }
+            
+            request.setAttribute("infoRow", infoRsc.get(0));
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, "" + numRecords);
             setDefault(DataAccessConstants.START_RANK, "" + startRank);
@@ -76,41 +81,6 @@ public class ViewExampleHistory extends Base {
 
             request.setAttribute("resultMap", result);
             request.setAttribute(Constants.COMPONENT_ID, component);
-/*
-
-            SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-
-            StringBuffer buf = new StringBuffer(100);
-            buf.append(info.getServletPath());
-            buf.append("?").append(Constants.MODULE).append("=ViewSubmissionHistory");
-            buf.append("&").append(Constants.ROUND_ID).append("=").append(request.getParameter(Constants.ROUND_ID));
-            buf.append("&").append(Constants.COMPONENT_ID).append("=").append(component);
-            buf.append("&").append(Constants.CODER_ID).append("=").append(request.getParameter(Constants.CODER_ID));
-            if (request.getParameter(DataAccessConstants.NUMBER_RECORDS) != null)
-                buf.append("&").append(DataAccessConstants.NUMBER_RECORDS).append("=").append(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
-
-            request.setAttribute("sortLinkBase", buf.toString());
-
-            if (request.getParameter(DataAccessConstants.SORT_COLUMN) != null)
-                buf.append("&").append(DataAccessConstants.SORT_COLUMN).append("=").append(request.getParameter(DataAccessConstants.SORT_COLUMN));
-            if (request.getParameter(DataAccessConstants.SORT_DIRECTION) != null)
-                buf.append("&").append(DataAccessConstants.SORT_DIRECTION).append("=").append(request.getParameter(DataAccessConstants.SORT_DIRECTION));
-
-            if (rsc.croppedDataBefore()) {
-                request.setAttribute("prevPageLink",
-                        new StringBuffer().append(buf)
-                                .append("&").append(DataAccessConstants.START_RANK)
-                                .append("=").append("" + Math.max(1, rsc.getStartRow() - numRecords))
-                                .toString());
-            }
-            if (rsc.croppedDataAfter()) {
-                request.setAttribute("nextPageLink",
-                        new StringBuffer().append(buf)
-                                .append("&").append(DataAccessConstants.START_RANK)
-                                .append("=").append("" + (rsc.getStartRow() + numRecords))
-                                .toString());
-            }
-*/
 
             setNextPage(Constants.PAGE_EXAMPLE_HISTORY);
             setIsNextPageInContext(true);

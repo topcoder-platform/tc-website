@@ -10,7 +10,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 /**
  * Element capable of holding some other elements.
- * This is usefull for example to create a new tag and put fields inside.
+ * This is useful for example to create a new tag and put fields inside.
  * 
  * 
  * @author Cucu
@@ -19,7 +19,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 public class ElementContainer implements RSCElement {
 
     private String tagName;
-    private List elements;
+    private List<RSCElement> elements;
     
     /**
      * Create an element container.
@@ -28,7 +28,7 @@ public class ElementContainer implements RSCElement {
      */
     public ElementContainer(String tagName) {
         this.tagName = tagName;
-        elements = new ArrayList();
+        elements = new ArrayList<RSCElement>();
     }
     
     /**
@@ -70,8 +70,7 @@ public class ElementContainer implements RSCElement {
         }
         
         
-        for (int i = 0; i < elements.size(); i++) {
-            RSCElement e = (RSCElement) elements.get(i);
+        for (RSCElement e : elements) {
             e.writeXML(hd, rsc, row);
         }
 

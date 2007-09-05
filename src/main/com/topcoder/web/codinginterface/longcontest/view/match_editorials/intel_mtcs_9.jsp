@@ -6,8 +6,8 @@
 <html>
 <head>
 <title>TopCoder</title>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
+<jsp:include page="../script.jsp" />
+<jsp:include page="../style.jsp">
 <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -26,7 +26,7 @@
 <tr valign="top">
 <%-- Left Column Begins--%>
 <td width="180" id="onLeft">
-         <jsp:include page="/includes/global_left.jsp">
+         <jsp:include page="../includes/global_left.jsp">
             <jsp:param name="node" value="long_editorials"/>
          </jsp:include>
 </td>
@@ -37,7 +37,7 @@
 <div align="center">
    <div class="bodyText" style="width: 100%; text-align: left;">
 
-    <jsp:include page="/page_title.jsp">
+    <jsp:include page="../page_title.jsp">
         <jsp:param name="image" value="long_comps_topcoder"/>
         <jsp:param name="title" value="Match Editorials"/>
     </jsp:include>
@@ -471,7 +471,7 @@ select n that maximizes E(n)
 
 <%-- Right Column Begins --%>
 <td width="170" id="onRight">
-    <jsp:include page="/public_right.jsp">
+    <jsp:include page="../public_right.jsp">
         <jsp:param name="level1" value="default"/>
     </jsp:include>
 </td>

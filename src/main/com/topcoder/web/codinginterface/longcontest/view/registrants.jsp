@@ -1,5 +1,6 @@
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page
         language="java"
         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
@@ -10,6 +11,10 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
+<%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
+
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
 <% String myNode = "long_compete";
     String image = "long_comps_topcoder";
@@ -26,8 +31,8 @@
 <html>
 <head>
     <title>TopCoder</title>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
+<jsp:include page="script.jsp" />
+<jsp:include page="style.jsp">
 <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -43,14 +48,14 @@
     <tr valign="top">
         <%-- Left Column Begins--%>
         <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
+         <jsp:include page="includes/global_left.jsp">
             <jsp:param name="node" value="<%=myNode%>"/>
          </jsp:include>
         </td>
         <%-- Left Column Ends --%>
 
         <%-- Center Column Begins --%>
-        <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+        <td class="statTableSpacer" width="100%" valign="top">
 
             <jsp:include page="page_title.jsp">
                 <jsp:param name="image" value="<%=image%>"/>
@@ -63,22 +68,21 @@
 
             <logic:notEmpty name="<%=Constants.MESSAGE%>">
                 <tc-webtag:useBean id="message" type="java.lang.String" name="<%=Constants.MESSAGE%>" toScope="page"/>
-                <span class="errorText"><%=message%></span><br>
+                <span class="errorText"><%=message%></span><br/>
             </logic:notEmpty>
             <logic:empty name="<%=Constants.MESSAGE%>">
-                <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
                 <jsp:useBean id="resultMap" type="java.util.Map" scope="request"/>
                 <jsp:useBean id="sortLinkBase" class="java.lang.String" scope="request"/>
                 <jsp:useBean id="prevPageLink" class="java.lang.String" scope="request"/>
                 <jsp:useBean id="nextPageLink" class="java.lang.String" scope="request"/>
                 <%
                     ResultSetContainer registrants = (ResultSetContainer) resultMap.get("long_contest_round_registrants");
-                    ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_contest_round_registrants_info");
-                    ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) rsc.get(0);
                 %>
-
-                <span class="bigHandle">Contest: <A href="?module=ViewStandings&rd=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink"><rsc:item name="contest_name" row="<%=infoRow%>"/> &gt; <rsc:item name="round_name" row="<%=infoRow%>"/></A></span><br>
-                <span class="bodySubtitle">Registrants: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
+                
+                <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br>                
+                <span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span><br/>
+                
+                <span class="bodySubtitle">Registrants: ${infoRow.map['num_competitors']}</span><br>
 
                <div style="clear: both;" align="center">
                    <div class="pagingBox">
@@ -89,6 +93,7 @@
                        </logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty>
                    </div>
                 </div>
+                                
 
                 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                     <tr>

@@ -1,8 +1,11 @@
 package com.topcoder.web.tc.controller.request;
 
+import java.util.Map;
+
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
@@ -38,16 +41,15 @@ public class Home extends Base {
             dataRequest.setContentHandle("public_home_data");
             dataRequest.setProperty("sr", "1");
             dataRequest.setProperty("er", "10");   // just get the top 10
-            getRequest().setAttribute("top_coders",
-                    dwDai.getData(dataRequest).get("Coder_Ratings"));
-            getRequest().setAttribute("School_Avg_Rating",
-                    dwDai.getData(dataRequest).get("School_Avg_Rating"));
-            getRequest().setAttribute("Country_Avg_Rating",
-                    dwDai.getData(dataRequest).get("Country_Avg_Rating"));
-            getRequest().setAttribute("top_developers",
-                    dwDai.getData(dataRequest).get("top_developers"));
-            getRequest().setAttribute("top_designers",
-                    dwDai.getData(dataRequest).get("top_designers"));
+            
+            Map<String, ResultSetContainer> map = dwDai.getData(dataRequest);
+            
+            getRequest().setAttribute("top_coders", map.get("Coder_Ratings"));
+            getRequest().setAttribute("top_mm_coders",map.get("marathon_coder_rank"));
+            getRequest().setAttribute("School_Avg_Rating",map.get("School_Avg_Rating"));
+            getRequest().setAttribute("Country_Avg_Rating",map.get("Country_Avg_Rating"));
+            getRequest().setAttribute("top_developers",map.get("top_developers"));
+            getRequest().setAttribute("top_designers",map.get("top_designers"));
 
 /*
             CachedDataAccess surveyDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);

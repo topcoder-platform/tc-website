@@ -23,6 +23,15 @@ public class LongContest {
     private ImageInfo sponsorImage;
     private long forumId;
     private int submissionCount;
+    private int roundTypeId;
+
+    public int getRoundTypeId() {
+        return roundTypeId;
+    }
+
+    public void setRoundTypeId(int roundTypeId) {
+        this.roundTypeId = roundTypeId;
+    }
 
     public boolean isCoderRegistered() {
         return coderRegistered;

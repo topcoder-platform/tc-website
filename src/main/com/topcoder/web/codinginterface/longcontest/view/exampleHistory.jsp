@@ -1,5 +1,7 @@
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <%@ page
         language="java"
         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
@@ -13,6 +15,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
+<%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <jsp:useBean id="resultMap" type="java.util.Map" scope="request"/>
 <jsp:useBean id="sortLinkBase" class="java.lang.String" scope="request"/>
@@ -27,8 +30,6 @@
     ResultSetContainer tmp = (ResultSetContainer) resultMap.get("long_contest_over");
     boolean over = tmp.getBooleanItem(0, 0);
     boolean self = !examples.isEmpty() && examples.getLongItem(0, "coder_id")==sessionInfo.getUserId();
-    tmp = (ResultSetContainer) resultMap.get("long_contest_coder_examples_info");
-    ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) tmp.get(0);
 %>
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
 <% String myNode = "long_compete";
@@ -47,8 +48,8 @@
 <html>
 <head>
     <title>TopCoder</title>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
+<jsp:include page="script.jsp" />
+<jsp:include page="style.jsp">
 <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -81,14 +82,14 @@
     <tr valign="top">
         <%-- Left Column Begins--%>
         <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
+         <jsp:include page="includes/global_left.jsp">
             <jsp:param name="node" value="<%=myNode%>"/>
          </jsp:include>
         </td>
         <%-- Left Column Ends --%>
 
         <%-- Center Column Begins --%>
-        <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+        <td class="statTableSpacer" width="100%" valign="top">
 
             <jsp:include page="page_title.jsp">
                 <jsp:param name="image" value="<%=image%>"/>
@@ -98,13 +99,10 @@
             <div style="float:right; padding: 0px 0px 0px 5px;">
                <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
             </div>
-            <span class="bigHandle">Contest:
-                    <A href="?module=ViewStandings&rd=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink"><rsc:item name="contest_name" row="<%=infoRow%>"/> &gt; <rsc:item name="round_name" row="<%=infoRow%>"/></A>
-            </span><br>
-            <span class="bodySubtitle">Problem: <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>" class="bcLink">
-                <rsc:item name="problem_name" row="<%=infoRow%>"/></a></span><br>
+                <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br>                
+                <span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span><br/>
             <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId='<%=request.getParameter(Constants.CODER_ID)%>'/></span>
-            <br>
+            <br/>
 
             <form name="exampleForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 
@@ -128,11 +126,7 @@
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                             <tr>
-                                <% if (over||self) { %>
-                                <td class="tableTitle" colspan="4">Example Tests: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
-                                <% } else { %>
-                                <td class="tableTitle" colspan="3">Example Tests: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
-                                <% } %>
+                                <td class="tableTitle" colspan="<%= over || self? 4 : 3 %>">Example Tests: ${infoRow.map['num_submissions']}</td>
                             </tr>
                             <tr>
                                 <td class="tableHeader" align="center" nowrap="nowrap">
@@ -150,7 +144,7 @@
                                 <tr>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center">
                                     <% if (over||self) { %>
-                                       <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>&amp;<%=Constants.EXAMPLE_FLAG%>=1" class="statLink">
+                                       <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&amp;<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&amp;<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&amp;<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&amp;<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>&amp;<%=Constants.EXAMPLE_FLAG%>=1" class="statLink">
                                     <% } %>
                                         <rsc:item name="submission_number" row="<%=resultRow%>"/>
                                     <% if (over||self) { %>
@@ -164,7 +158,7 @@
                                     <% if (over||self) { %>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                                     <% if (resultRow.getIntItem("status_id")==150) { %>
-                                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleResults&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>" class="statLink">example results</A>
+                                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleResults&amp;<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&amp;<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&amp;<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>" class="statLink">example results</A>
                                     <% } %>
                                     </td>
                                     <% } %>

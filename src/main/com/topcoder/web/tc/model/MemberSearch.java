@@ -6,6 +6,8 @@ public class MemberSearch {
 
     private Integer start = null;
     private Integer end = null;
+    private Integer sortCol = null;
+    private boolean sortAsc = true;
     private int total = 0;
     private String handle = null;
     private String stateCode = null;
@@ -30,6 +32,12 @@ public class MemberSearch {
     private Integer maxNumHSRatings = null;
     private Integer maxDaysSinceLastHSComp = null;
     
+    private Integer minMarRating = null;
+    private Integer maxMarRating = null;
+    private Integer minNumMarRatings = null;
+    private Integer maxNumMarRatings = null;
+    private Integer maxDaysSinceLastMarComp = null;
+
     public Integer getMaxDaysSinceLastHSComp() {
         return maxDaysSinceLastHSComp;
     }
@@ -221,6 +229,62 @@ public class MemberSearch {
 
     public void setMaxDevRating(Integer maxDevRating) {
         this.maxDevRating = maxDevRating;
+    }
+
+    public Integer getMinMarRating() {
+        return minMarRating;
+    }
+
+    public void setMinMarRating(Integer minMarRating) {
+        this.minMarRating = minMarRating;
+    }
+
+    public Integer getMaxMarRating() {
+        return maxMarRating;
+    }
+
+    public void setMaxMarRating(Integer maxMarRating) {
+        this.maxMarRating = maxMarRating;
+    }
+
+    public Integer getMinNumMarRatings() {
+        return minNumMarRatings;
+    }
+
+    public void setMinNumMarRatings(Integer minNumMarRatings) {
+        this.minNumMarRatings = minNumMarRatings;
+    }
+
+    public Integer getMaxNumMarRatings() {
+        return maxNumMarRatings;
+    }
+
+    public void setMaxNumMarRatings(Integer maxNumMarRatings) {
+        this.maxNumMarRatings = maxNumMarRatings;
+    }
+
+    public Integer getMaxDaysSinceLastMarComp() {
+        return maxDaysSinceLastMarComp;
+    }
+
+    public void setMaxDaysSinceLastMarComp(Integer maxDaysSinceLastMarComp) {
+        this.maxDaysSinceLastMarComp = maxDaysSinceLastMarComp;
+    }
+
+    public Integer getSortCol() {
+        return sortCol;
+    }
+
+    public void setSortCol(Integer sortCol) {
+        this.sortCol = sortCol;
+    }
+
+    public boolean isSortAsc() {
+        return sortAsc;
+    }
+
+    public void setSortAsc(boolean sortAsc) {
+        this.sortAsc = sortAsc;
     }
 
 }
