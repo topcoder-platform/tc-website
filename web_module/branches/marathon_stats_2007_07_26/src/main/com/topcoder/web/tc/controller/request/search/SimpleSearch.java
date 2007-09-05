@@ -260,7 +260,25 @@ public class SimpleSearch extends Base {
         searchQuery.append(" , r.rating as sort_rating ");
         searchQuery.append(" , hsr.rating as sort_hs_rating ");
         searchQuery.append(" , mmr.rating as sort_mm_rating ");
-
+        searchQuery.append(" , (select max(num_ratings) from project_result pr, project p "); 
+        searchQuery.append("      where p.project_id = pr.project_id  ");
+        searchQuery.append("      and phase_id = 112 ");
+        searchQuery.append("      and user_id = c.coder_id) as num_des_ratings ");       
+        searchQuery.append(" , (select max(rating_date)  from project_result pr, project p "); 
+        searchQuery.append("     where p.project_id = pr.project_id "); 
+        searchQuery.append("     and phase_id = 112 ");
+        searchQuery.append("     and rating_ind = 1 ");
+        searchQuery.append("     and user_id = c.coder_id) as last_des_competed ");
+        searchQuery.append(" , (select max(num_ratings) from project_result pr, project p "); 
+        searchQuery.append("      where p.project_id = pr.project_id  ");
+        searchQuery.append("      and phase_id = 113 ");
+        searchQuery.append("      and user_id = c.coder_id) as num_dev_ratings ");       
+        searchQuery.append(" , (select max(rating_date)  from project_result pr, project p "); 
+        searchQuery.append("     where p.project_id = pr.project_id "); 
+        searchQuery.append("     and phase_id = 113 ");
+        searchQuery.append("     and rating_ind = 1 ");
+        searchQuery.append("     and user_id = c.coder_id) as last_dev_competed ");
+        
         searchQuery.append(queryBottom.toString());
         if (m.getSortCol() == null) {
             searchQuery.append(" ORDER BY rating_order, lower_handle");

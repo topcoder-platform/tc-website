@@ -99,14 +99,14 @@
    <tr class="<%=even?"dark":"light"%>">
         <td class="valueC">Des</td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="unrated"/></td>
-        <td class="valueC">&nbsp;</td>
-        <td class="valueC">&nbsp;</td>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_des_ratings"/></td>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_des_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
    </tr>
    <tr class="<%=even?"dark":"light"%>">
         <td class="valueC">Dev</td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="dev_rating" format="#" ifNull="unrated"/></td>
-        <td class="valueC">&nbsp;</td>
-        <td class="valueC">&nbsp;</td>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_dev_ratings"/></td>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_dev_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
    </tr>
    <tr class="<%=even?"dark":"light"%>">
         <td class="valueC">HS</td>
