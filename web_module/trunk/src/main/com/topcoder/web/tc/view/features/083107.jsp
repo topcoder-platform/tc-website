@@ -149,7 +149,7 @@ I never took a class with my favorite professor. Instead, he was a resident prof
     <em>Component Architect</em>
 </div>
 <br clear="all">
-My favorite professor back in the good ol' days of college at Auburn University was Roland Hubscher. New students feared him, yet experienced students loved him because of his challenging teaching style and antics. If you messed up, he would call you out in front of everyone and make you feel ignorant, but then he would gracefully praise you once you grasped the concepts. He was always pushing the learning limits of his students and always made you think &quot;out of the box.&quot; Plus, every Friday night, he would take all the willing ACM members to the local bar to relax and get to know each other. It was nice to have such a great teacher who wasn't afraid to hang out with you and shoot the bull.
+My favorite professor back in the good ol' days of college at Auburn University was <a target="_blank" href="<tc-webtag:linkTracking link='http://hubscher.org/roland/' refer='083107'/>">Roland H&uuml;bscher</a>. New students feared him, yet experienced students loved him because of his challenging teaching style and antics. If you messed up, he would call you out in front of everyone and make you feel ignorant, but then he would gracefully praise you once you grasped the concepts. He was always pushing the learning limits of his students and always made you think &quot;out of the box.&quot; Plus, every Friday night, he would take all the willing ACM members to the local bar to relax and get to know each other. It was nice to have such a great teacher who wasn't afraid to hang out with you and shoot the bull.
 </p>
 
 <br />
