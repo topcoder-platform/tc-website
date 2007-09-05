@@ -193,6 +193,7 @@ public class BasicAuthentication implements WebAuthentication {
             setCookie(uid, rememberUser);
             setUserInPersistor(makeUser(uid));
             setBigSessionCookie(uid, rememberUser);
+            flushCookies();
             log.info("login succeeded");
 
         } catch (Exception e) {
