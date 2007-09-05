@@ -98,7 +98,6 @@ public class Controller
                 request.setAttribute("module", "Login");
                 fetchRegularPage(request, response, "/tc", true);
             }
-            auth.flushCookies();
         } catch (Exception e) {
             throw new ServletException(e.toString());
         }
