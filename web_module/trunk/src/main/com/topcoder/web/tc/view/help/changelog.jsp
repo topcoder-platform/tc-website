@@ -43,12 +43,28 @@
 </jsp:include>
 
 <p>
-    5.11.2 - 2007.09.xx
+    5.12 - 2007.09.06
     <ul>
         <li>Fix Unicode escaping in assignment docs and affidavits -pulky</li>
         <li>Fix payment's paid date -pulky</li>
         <li>Fix users can see their own payments details no matter their privacy settings -pulky</li>
         <%--<li>PACTS refactor to remove tcwebcommon.jar dependency in services -pulky</li>--%>
+        <li>Marathon Match Stats -cucu
+            <ul>
+                <li>Enhanced member profile tab for marathon matches, adding data and graphics</li>
+                <li>Add Data Feeds for Marathon Matches</li>
+                <li>Updated the Left navigator to be more congruent with algo</li>
+                <li>Add match list page</li>
+                <li>Add match winners page</li>
+                <li>Update Active Contest page to just display the active contests instead of all</li>
+                <li>Add search by Marathon Matches criteria in advanced search, as well as columns in the result</li>
+                <li>Add Record Book pages for Marathon Matches</li>
+                <li>Add Top Ranks for Marathon Matches</li>
+                <li>Add Country Rank for Marathon Matches</li>
+                <li>Add Top 10 for Marathon Matches in home pagea</li>
+                <li>Improved speed for View System Test Results page</li>
+            </ul>
+        </li>
     </ul>
 </p>
 
