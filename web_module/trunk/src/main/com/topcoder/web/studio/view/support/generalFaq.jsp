@@ -29,11 +29,11 @@
 
                 <div class="linkBox"><studio:forumLink forumID="3"/></div>
 
-                <h1>Hints & Tips</h1>
+                <h1>General FAQs</h1>
                 
                 <div style="float: right; text-align: left; margin-left: 10px;">
                     <a href="/?module=Static&d1=support&d2=getStarted">Getting Started</a>
-                    <br />Hints & Tips
+                    <br />General FAQs
                     <br /><a href="/?module=Static&d1=support&d2=competitionFaq">Competition FAQs</a>
                 </div>
 

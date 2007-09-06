@@ -33,7 +33,7 @@
                 
                 <div style="float: right; text-align: left; margin-left: 10px;">
                     <a href="/?module=Static&d1=support&d2=getStarted">Getting Started</a>
-                    <br /><a href="/?module=Static&d1=support&d2=generalFaq">Hints & Tips</a>
+                    <br /><a href="/?module=Static&d1=support&d2=generalFaq">General FAQs</a>
                     <br />Competition FAQs
                 </div>
 
