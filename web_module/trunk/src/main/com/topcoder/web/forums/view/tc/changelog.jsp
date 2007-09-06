@@ -47,6 +47,15 @@
 <!-- Links to versions -->
 
 <p>
+	<b>2.0.4 - 2007.09.06</b>
+	<ul>
+		<li>Include jtsl.jar and standard.jar in packaging -dok</li>
+        <li>Use new left nav -dok</li>
+        <li>Use new SSO code -dok</li>
+    </ul>
+</p>
+
+<p>
 	<b>2.0.4 - 2007.05.xx</b>
 	<ul>
 		<li>charset = utf-8 <%-- dont' for get to set the local in the jive properties--%></li>
