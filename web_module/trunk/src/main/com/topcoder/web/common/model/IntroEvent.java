@@ -5,8 +5,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.topcoder.web.common.WebConstants;
-
 
 /**
  * @author cucu
@@ -94,39 +92,39 @@ public class IntroEvent extends Event  {
     
     
     public String getRecruiterName() {
-        return getConfig(new Integer(WebConstants.RECRUITER_NAME_PROP_ID)).getValue();
+        return getConfig(new Integer(IntroEventConfig.RECRUITER_NAME_PROP_ID)).getValue();
     }
 
     public String getFirstPlacePrize() {
-        return getConfig(new Integer(WebConstants.FIRST_PLACE_PROP_ID)).getValue();
+        return getConfig(new Integer(IntroEventConfig.FIRST_PLACE_PROP_ID)).getValue();
     }
 
     public String getSecondPlacePrize() {
-        return getConfig(new Integer(WebConstants.SECOND_PLACE_PROP_ID)).getValue();
+        return getConfig(new Integer(IntroEventConfig.SECOND_PLACE_PROP_ID)).getValue();
     }
 
     public String getThirdPlacePrize() {
-        return getConfig(new Integer(WebConstants.THIRD_PLACE_PROP_ID)).getValue();
+        return getConfig(new Integer(IntroEventConfig.THIRD_PLACE_PROP_ID)).getValue();
     }
 
     public String getLocation() {
-        return getConfig(new Integer(WebConstants.LOCATION_PROP_ID)).getValue();
+        return getConfig(new Integer(IntroEventConfig.LOCATION_PROP_ID)).getValue();
     }
 
     public int getEventStartDelta() {
-        return Integer.parseInt(getConfig(new Integer(WebConstants.EVENT_START_PROP_ID)).getValue());
+        return Integer.parseInt(getConfig(new Integer(IntroEventConfig.EVENT_START_PROP_ID)).getValue());
     }
     
     public int getEventEndDelta() {
-        return Integer.parseInt(getConfig(new Integer(WebConstants.EVENT_END_PROP_ID)).getValue());
+        return Integer.parseInt(getConfig(new Integer(IntroEventConfig.EVENT_END_PROP_ID)).getValue());
     }
 
     public int getResultsDelta() {
-        return Integer.parseInt(getConfig(new Integer(WebConstants.RESULTS_PROP_ID)).getValue());
+        return Integer.parseInt(getConfig(new Integer(IntroEventConfig.RESULTS_PROP_ID)).getValue());
     }
 
     public String getPagesBase() {
-        return getConfig(new Integer(WebConstants.PAGES_BASE_PROP_ID)).getValue();
+        return getConfig(new Integer(IntroEventConfig.PAGES_BASE_PROP_ID)).getValue();
     }
 
     public Timestamp getRoundStart() {

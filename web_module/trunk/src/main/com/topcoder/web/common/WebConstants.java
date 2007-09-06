@@ -157,14 +157,5 @@ public interface WebConstants {
     public static final int HS_MIN_REG_AGE = 13;
     public static final int HS_MAX_REG_AGE = 20;
     
-    public static final int RECRUITER_NAME_PROP_ID = 1;
-    public static final int FIRST_PLACE_PROP_ID = 2;
-    public static final int SECOND_PLACE_PROP_ID = 3;
-    public static final int THIRD_PLACE_PROP_ID = 4;
-    public static final int LOCATION_PROP_ID = 5;
-    public static final int EVENT_START_PROP_ID = 6;
-    public static final int EVENT_END_PROP_ID = 7;
-    public static final int RESULTS_PROP_ID = 8;
-    public static final int PAGES_BASE_PROP_ID = 11;
 
 }
