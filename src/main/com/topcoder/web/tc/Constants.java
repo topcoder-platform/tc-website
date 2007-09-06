@@ -24,10 +24,6 @@ public class Constants implements WebConstants {
     public static String VIEW_PAYMENT_SUMMARY_PAGE;
     public static String VIEW_PAYMENT_DETAIL_PAGE;
 
-    public static String LEADER_BOARD_COMMAND;
-    public static String LEADER_BOARD_QUERY;
-    public static String ROOKIE_BOARD_COMMAND;
-    public static String ROOKIE_BOARD_QUERY;
     public static String CODER_LIST_KEY;
     public static String HISTORY_LIST_KEY;
     public static String COMPETITION_HISTORY_COMMAND;
