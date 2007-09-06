@@ -75,7 +75,7 @@
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10785">SRM 368</A></strong><br>
          <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA</A><br>
-         9:00 PM
+         7:00 AM
          </div>
       </td>
       <td class="value">5
