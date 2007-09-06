@@ -17,7 +17,12 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.controller.TransactionServlet;
-import com.topcoder.web.ejb.product.*;
+import com.topcoder.web.ejb.product.Product;
+import com.topcoder.web.ejb.product.ProductHome;
+import com.topcoder.web.ejb.product.ProductUnit;
+import com.topcoder.web.ejb.product.ProductUnitHome;
+import com.topcoder.web.ejb.product.Unit;
+import com.topcoder.web.ejb.product.UnitHome;
 import com.topcoder.web.ejb.user.Contact;
 import com.topcoder.web.ejb.user.ContactHome;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
@@ -32,7 +37,11 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.rmi.RemoteException;
 import java.sql.Date;
-import java.util.*;
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 
 public class TransactionInfo implements Serializable {
@@ -82,7 +91,7 @@ public class TransactionInfo implements Serializable {
         SessionPersistor store = new SessionPersistor(req.getSession(true));
         TCRequest tcRequest = HttpObjectFactory.createRequest(req);
         TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(resp);
-        User user = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.CORP_SITE).getUser();
+        User user = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.MAIN_SITE).getUser();
         if (user.isAnonymous()) {
             throw new NotAuthorizedException("User not logged in: " + user.getId());
         } else {
