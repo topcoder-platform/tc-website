@@ -60,17 +60,17 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Featured Customer</td></tr></table>
             
 
-<!-- NEJ begins -->
+<!-- Verisign begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/clients/nejLogo.jpg" alt="NEJ" border="0" /></td>
+                    <td width="170"><img src="/images/clients/verisign_logo.png" alt="Verisign" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">NEJ, Inc. is an apparel and merchandise solutions company that operates three major divisions: Wholesale/Off-Price, Corporate Identity Merchandise, and Licensing. NEJ delivers straightforward, timely merchandising solutions to help companies build and protect their brands. With multiple product lines under multiple brand names, and 200,000 square feet in facilities to manage, immediate access to inventory data is critical to the success of the company. TopCoder is working with NEJ to implement a new application that effectively manages and tracks its inventory.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://nejinc.com/about/about.htm" refer="customer_index"/>" target="_blank">homepage</A>
+                    <td width="99%" class="bodyText">VeriSign Inc operates intelligent infrastructure services that enable and protect billions of interactions every day across the world's voice and data networks. Every day, we process as many as 18 billion Internet interactions and support over 100 million phone calls. We also provide the services that help over 3,000 enterprises and 500,000 Web sites to operate securely, reliably, and efficiently. VeriSign is a global enterprise with offices throughout the Asia-Pacific region, Europe, Latin America, and North America, supported by a widespread international network of data centers and operations centers.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.verisign.com" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
-<!-- NEJ ends -->
+<!-- Verisign ends -->
 
              <hr width="100%" size="1px" noshade>
              
@@ -310,6 +310,20 @@ ESPN ends
 
              <hr width="100%" size="1px" noshade>
              
+<!-- NEJ begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/nejLogo.jpg" alt="NEJ" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">NEJ, Inc. is an apparel and merchandise solutions company that operates three major divisions: Wholesale/Off-Price, Corporate Identity Merchandise, and Licensing. NEJ delivers straightforward, timely merchandising solutions to help companies build and protect their brands. With multiple product lines under multiple brand names, and 200,000 square feet in facilities to manage, immediate access to inventory data is critical to the success of the company. TopCoder is working with NEJ to implement a new application that effectively manages and tracks its inventory.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://nejinc.com/about/about.htm" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- NEJ ends -->
+
+             <hr width="100%" size="1px" noshade>
+             
 <!-- Oxford begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
@@ -392,20 +406,6 @@ ESPN ends
                 </tr>
             </table>
 <!-- UBS ends -->
-
-             <hr width="100%" size="1px" noshade>
-             
-<!-- Verisign begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr valign="top">
-                    <td width="170"><img src="/images/clients/verisign_logo.png" alt="Verisign" border="0" /></td>
-                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">VeriSign Inc operates intelligent infrastructure services that enable and protect billions of interactions every day across the world's voice and data networks. Every day, we process as many as 18 billion Internet interactions and support over 100 million phone calls. We also provide the services that help over 3,000 enterprises and 500,000 Web sites to operate securely, reliably, and efficiently. VeriSign is a global enterprise with offices throughout the Asia-Pacific region, Europe, Latin America, and North America, supported by a widespread international network of data centers and operations centers.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www.verisign.com" refer="customer_index"/>" target="_blank">homepage</A>
-                     </td>
-                </tr>
-            </table>
-<!-- Verisign ends -->
 
              <hr width="100%" size="1px" noshade>
              
