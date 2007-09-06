@@ -25,8 +25,19 @@
 
 
 <div class="contentSpacer">
+
+
 <p>
-    2.0.9 - 2007.08.xx
+    2.1.0 - 2007.09.06
+    <ul>
+        <li>Single Sign On -dok</li>
+    </ul>
+
+</p>
+
+
+<p>
+    2.0.9 - 2007.08.30
     <ul>
         <li>Fix NPE when attempting to download a submisson that was the client selection, but did not get another prize -dok</li>
     </ul>

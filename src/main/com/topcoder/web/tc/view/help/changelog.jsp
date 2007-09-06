@@ -43,8 +43,9 @@
 </jsp:include>
 
 <p>
-    5.12 - 2007.09.06
+    5.12.0 - 2007.09.06
     <ul>
+        <li>Signle Sign On -dok</li>
         <li>Fix Unicode escaping in assignment docs and affidavits -pulky</li>
         <li>Fix payment's paid date -pulky</li>
         <li>Fix users can see their own payments details no matter their privacy settings -pulky</li>

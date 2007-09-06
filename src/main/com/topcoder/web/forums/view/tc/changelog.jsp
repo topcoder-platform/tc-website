@@ -47,7 +47,7 @@
 <!-- Links to versions -->
 
 <p>
-	<b>2.0.4 - 2007.09.06</b>
+	<b>2.1.0 - 2007.09.06</b>
 	<ul>
 		<li>Include jtsl.jar and standard.jar in packaging -dok</li>
         <li>Use new left nav -dok</li>
