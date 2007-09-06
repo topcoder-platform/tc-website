@@ -82,7 +82,7 @@ text-align: left;
         <%-- Left Column Begins--%>
         <td width="180">
          <jsp:include page="../includes/global_left.jsp">
-            <jsp:param name="node" value="<%=myNode%>"/>
+            <jsp:param name="node" value="m_long_contests"/>
          </jsp:include>
         </td>
         <%-- Left Column Ends --%>
@@ -183,19 +183,22 @@ text-align: left;
             <div class="pagingBox">&#160;</div>
 
         </td>
-
-        <%-- Right Column Begins --%>
+<%-- Center Column Ends --%>
+        
+<%-- Right Column Begins --%>
         <td width="170">
             <jsp:include page="../public_right.jsp">
-                <jsp:param name="level1" value="privatelabel"/>
+                <jsp:param name="level1" value="default"/>
             </jsp:include>
         </td>
-        <%-- Right Column Ends --%>
-
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+<%-- Right Column Ends --%>
+        
     </tr>
+</tbody>
 </table>
 
-<jsp:include page="foot.jsp"/>
+<jsp:include page="../foot.jsp" />
+
 </body>
+
 </html>
