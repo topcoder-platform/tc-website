@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.11.2 - 2007.09.05
+    5.11.2 - 2007.09.xx
     <ul>
         <li>Fix Unicode escaping in assignment docs and affidavits -pulky</li>
         <li>Fix payment's paid date -pulky</li>
