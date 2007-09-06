@@ -8,14 +8,15 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.model.AssignmentDocument;
-import com.topcoder.web.common.model.AssignmentDocumentStatus;
-import com.topcoder.web.common.model.AssignmentDocumentType;
-import com.topcoder.web.common.model.ComponentProject;
-import com.topcoder.web.common.model.StudioContest;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.ejb.pacts.DeleteAffirmedAssignmentDocumentException;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocument;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentStatus;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentType;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.ComponentProject;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.StudioContest;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.User;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -96,6 +97,17 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                     return;
                 } catch (Exception e) {
                     e.printStackTrace();
+                    addError("error", e.getMessage());
+
+                    setDefault("reference_id", referenceId);
+                    setDefault("expire_date", StringUtils.htmlEncode(getRequest().getParameter("expire_date")));
+                    setDefault("affirmed_date", StringUtils.htmlEncode(getRequest().getParameter("affirmed_date")));
+                    setDefault("assignment_document_type_id", StringUtils.htmlEncode(getRequest().getParameter("assignment_document_type_id")));
+                    setDefault("assignment_document_status_id", StringUtils.htmlEncode(getRequest().getParameter("assignment_document_status_id")));
+                    setDefault("assignment_document_text", StringUtils.htmlEncode(getRequest().getParameter("assignment_document_text")));
+                    setDefault("assignment_document_hard_copy", StringUtils.htmlEncode(getRequest().getParameter("assignment_document_hard_copy")));
+
+                    getRequest().setAttribute("reference_description", "Enter search text for component name:");
                 }
             }
         } else {

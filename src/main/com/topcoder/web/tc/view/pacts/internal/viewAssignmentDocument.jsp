@@ -1,5 +1,5 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*,
-                 com.topcoder.web.common.model.AssignmentDocumentType" %>
+                 com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>

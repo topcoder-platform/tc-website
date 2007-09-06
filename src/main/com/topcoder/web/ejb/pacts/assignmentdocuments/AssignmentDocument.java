@@ -1,13 +1,24 @@
-package com.topcoder.web.common.model;
+package com.topcoder.web.ejb.pacts.assignmentdocuments;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import com.topcoder.web.ejb.pacts.assignmentdocuments.User;
+
 /**
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ *
  * @author pulky
  */
-public class AssignmentDocument extends Base {
+public class AssignmentDocument implements Serializable, Cloneable {
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+    
     private Long id;
     private AssignmentDocumentType type;
     private AssignmentDocumentStatus status;
