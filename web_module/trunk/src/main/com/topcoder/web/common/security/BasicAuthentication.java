@@ -440,8 +440,10 @@ public class BasicAuthentication implements WebAuthentication {
 
     private String cookieList() {
         StringBuilder buf = new StringBuilder(100);
-        for (Cookie c : request.getCookies()) {
-            buf.append(c.getName()).append(", ");
+        if (request.getCookies()!=null) {
+            for (Cookie c : request.getCookies()) {
+                buf.append(c.getName()).append(", ");
+            }
         }
         return buf.toString();
     }
