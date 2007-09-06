@@ -435,6 +435,9 @@ public class BasicAuthentication implements WebAuthentication {
      * @throws Exception
      */
     private void setBigSessionCookie(long uid) throws Exception {
+        if (log.isDebugEnabled()) {
+            log.debug("set sso cookie for " + uid);
+        }
         addGeneralCookie(BIG_SESSION_KEY, uid+"|"+hashForUser(uid), SSO_TIMEOUT_SECONDS);
     }
 
