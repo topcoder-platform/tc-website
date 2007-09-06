@@ -42,15 +42,20 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
-
 <p>
-    5.11.1 - 2007.09.xx
+    5.11.2 - 2007.09.05
     <ul>
-        <li>Add tccc07 sponsor track advancers -dok</li>
         <li>Fix Unicode escaping in assignment docs and affidavits -pulky</li>
         <li>Fix payment's paid date -pulky</li>
         <li>Fix users can see their own payments details no matter their privacy settings -pulky</li>
         <%--<li>PACTS refactor to remove tcwebcommon.jar dependency in services -pulky</li>--%>
+    </ul>
+</p>
+
+<p>
+    5.11.1 - 2007.09.05
+    <ul>
+        <li>Add tccc07 sponsor track advancers -dok</li>
     </ul>
 </p>
 
