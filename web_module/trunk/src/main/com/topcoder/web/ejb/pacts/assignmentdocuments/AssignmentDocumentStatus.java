@@ -1,20 +1,31 @@
-package com.topcoder.web.common.model;
+package com.topcoder.web.ejb.pacts.assignmentdocuments;
 
+import java.io.Serializable;
 
 /**
+ * VERY IMPORTANT: remember to update serialVersionUID if needed
+ *
  * @author pulky
  */
-public class AssignmentDocumentType extends Base {
-    public static final Long COMPONENT_COMPETITION_TYPE_ID = new Long(1);
-    public static final Long STUDIO_CONTEST_TYPE_ID = new Long(2);
+public class AssignmentDocumentStatus implements Serializable, Cloneable {
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object. 
+     */
+    private static final long serialVersionUID = 1L;
+    
+    public static final Long PENDING_STATUS_ID = new Long(1);
+    public static final Long DELETED_STATUS_ID = new Long(2);
+    public static final Long AFFIRMED_STATUS_ID = new Long(3);
+    public static final Long EXPIRED_STATUS_ID = new Long(4);
 
     private Long id;
     private String description;
 
-    public AssignmentDocumentType() {
+    public AssignmentDocumentStatus() {
     }
 
-    public AssignmentDocumentType(Long id) {
+    public AssignmentDocumentStatus(Long id) {
         setId(id);
     }
 
@@ -32,7 +43,6 @@ public class AssignmentDocumentType extends Base {
         this.description = description;
     }
 
-
     /**
      * @return the id
      */
@@ -46,6 +56,7 @@ public class AssignmentDocumentType extends Base {
     public void setId(Long id) {
         this.id = id;
     }
+
 
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
@@ -64,7 +75,7 @@ public class AssignmentDocumentType extends Base {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        final AssignmentDocumentType other = (AssignmentDocumentType) obj;
+        final AssignmentDocumentStatus other = (AssignmentDocumentStatus) obj;
         if (id == null) {
             if (other.id != null)
                 return false;

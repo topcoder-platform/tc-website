@@ -1,24 +1,24 @@
 package com.topcoder.web.studio.controller.request;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.AssignmentDocument;
-import com.topcoder.web.common.model.AssignmentDocumentStatus;
-import com.topcoder.web.common.model.AssignmentDocumentType;
-import com.topcoder.web.common.model.StudioContest;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocument;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentStatus;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentType;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.StudioContest;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.SubmissionType;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 
 /**
  * @author pulky
@@ -61,7 +61,7 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
 
                 ad.setSubmissionTitle(c.getName() + " - " + new SimpleDateFormat("MM/dd/yyyy").format(new Date(c.getStartTime().getTime())));
 
-                User user = new User();
+                com.topcoder.web.ejb.pacts.assignmentdocuments.User user = new com.topcoder.web.ejb.pacts.assignmentdocuments.User();
                 user.setId(u.getId());
                 ad.setUser(user);
                 ad.setType(new AssignmentDocumentType(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID));
