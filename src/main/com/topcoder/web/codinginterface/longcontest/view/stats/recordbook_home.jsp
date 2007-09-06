@@ -61,7 +61,7 @@
             <tr valign="top">
                 <td>
                     <strong>Most Match Wins</strong><br />
-                    The number of times a competitors has won a match.
+                    The number of times a competitor has won a match.
                     <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_most_wins">Non-Tournament</a> |
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_most_wins&amp;all=true">all</a>
