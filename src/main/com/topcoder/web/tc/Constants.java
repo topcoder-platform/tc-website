@@ -32,8 +32,6 @@ public class Constants implements WebConstants {
     public static String ALGO_COMPETITION_HISTORY_QUERY;
     public static String CURRENT_PERIOD_COMMAND;
     public static String CURRENT_PERIOD_QUERY;
-    public static String DR_SEASON_COMMAND;
-    public static String DR_SEASON_QUERY;
     public static String DR_STAGE_COMMAND;
     public static String DR_STAGE_QUERY;
 
