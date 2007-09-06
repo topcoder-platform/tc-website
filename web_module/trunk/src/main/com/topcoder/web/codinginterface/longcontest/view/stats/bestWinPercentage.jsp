@@ -34,7 +34,7 @@ Only matches where the competitor was rated are included.
     <c:forEach items="${results}" var="row" varStatus="status">
        <tr class='${status.index % 2 == 1? "dark" : "light" }'>
             <td class="valueC">${row.map['rank']}</td>
-            <td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon"/></td>
+            <td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon_match"/></td>
             <td class="valueR">${row.map['num_wins'] }</td>
             <td class="valueR"><fmt:formatNumber value="${row.map['percent']}" minFractionDigits="2" maxFractionDigits="2"/>%</td> 
     </tr>
