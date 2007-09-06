@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.web.studio.controller.request.mystudio.AssignmentDocumentHistory" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.common.model.AssignmentDocumentStatus" %>
+<%@ page import="com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentStatus" %>
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">

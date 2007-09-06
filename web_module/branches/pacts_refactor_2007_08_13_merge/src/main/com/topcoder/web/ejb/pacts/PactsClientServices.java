@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.ejb.EJBObject;
 
-import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 
 /**
