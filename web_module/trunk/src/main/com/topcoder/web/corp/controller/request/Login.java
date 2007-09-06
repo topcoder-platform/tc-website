@@ -45,7 +45,7 @@ public class Login extends BaseProcessor {
             } else {
                 try {
 
-                    getAuthentication().login(new SimpleUser(0, username, password));
+                    getAuthentication().login(new SimpleUser(0, username, password), false);
 
                     if (!hasActiveAccount(username)) throw new LoginException("Sorry, your account is not active.");
 
