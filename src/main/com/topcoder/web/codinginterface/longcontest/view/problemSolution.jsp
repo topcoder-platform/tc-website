@@ -108,7 +108,7 @@
                 <span class="bodySubtitle">Submission: ${infoRow.map['submission_number']}</span>
                 <br/>
                 <% if (String.valueOf(true).equals(request.getAttribute("mostRecent"))&&String.valueOf(true).equals(request.getAttribute(Constants.EXAMPLE_FLAG))) { %>
-                <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleResults&amp;<%=Constants.PROBLEM_ID%>=${infoRow.map['problem_id']}<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}&amp;<%=Constants.CODER_ID%>=${infoRow.map['coder_id']}">Example
+                <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleResults&amp;<%=Constants.PROBLEM_ID%>=${infoRow.map['problem_id']}&amp;<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}&amp;<%=Constants.CODER_ID%>=${infoRow.map['coder_id']}">Example
                     Results</a>
                 <br/>
                 <% } %>
