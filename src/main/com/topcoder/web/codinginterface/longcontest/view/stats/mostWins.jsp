@@ -18,11 +18,11 @@
 <tc-webtag:ifLink useLink="${allTypes}" text="Non-tournament" link="/longcontest/stats/?module=Recordbook&c=marathon_most_wins"/> |
 <tc-webtag:ifLink useLink="${not allTypes}" text="All" link="/longcontest/stats/?module=Recordbook&c=marathon_most_wins&amp;all=true"/> 
 <br><br>
-<strong>Record:</strong> The number of times a competitor has won a match.  A tie for first place is considered a win.
+<strong>Record:</strong> Most times a competitor has won a match.  A tie for first place is considered a win.
 <c:choose>
-    <c:when test="${allTypes}">Both tournament and non-tournament are taken into account.
+    <c:when test="${allTypes}">Both tournament and non-tournament rounds are included.
     </c:when>
-    <c:otherwise>Just non tournament rounds are used.
+    <c:otherwise>Only non tournament rounds are included.
     </c:otherwise>
 </c:choose>
 
@@ -30,7 +30,7 @@
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 510px; margin-right: 15px; margin-bottom: 15px;">
 <thead>
-    <tr><td class="title" colspan="3">Most Match Wins</td></tr>
+    <tr><td class="title" colspan="3">Most Wins</td></tr>
     <tr>
         <td class="headerC">Rank</td>
         <td class="header" width="100%">Coder</td>
