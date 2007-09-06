@@ -66,7 +66,7 @@
         <%-- Marathon Match --%>
         <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("mm_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
         <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_mm_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
-        <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_mm_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
+        <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_mm_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
     </tr>
    
     <%boolean even = false;%>
@@ -146,10 +146,10 @@
         <c:when test="${not empty rr.map['mm_rating'] and (rr.map['mm_rating']  > 0)}">
             <td class="valueC"><rsc:item row="<%=resultRow%>" name="mm_rating" format="#" ifNull="unrated"/></td>
             <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_mm_ratings"/></td>
-            <td class="valueC B"><rsc:item row="<%=resultRow%>" name="last_mm_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+            <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_mm_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
         </c:when>
         <c:otherwise>
-            <td class="valueC B" colspan="3">
+            <td class="valueC" colspan="3">
                 <span class="grayedOut">unrated</span>
             </td> 
         </c:otherwise>
