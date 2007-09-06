@@ -390,8 +390,8 @@ public class BasicAuthentication implements WebAuthentication {
      */
     public void setCookie(long uid, boolean rememberUser) throws Exception {
         if (rememberUser) {
-            String hash = hashForUser(uid);
-            addGeneralCookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME, uid + "|" + hash, Integer.MAX_VALUE);
+            addGeneralCookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME,
+                    uid + "|" + hashForUser(uid), Integer.MAX_VALUE);
         }
         if (uid != guest.getId()) {
             markKnownUser();
