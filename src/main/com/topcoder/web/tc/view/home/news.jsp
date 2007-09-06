@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>09.06.07<br>3:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=090607">College admissions and the "TopCoder edge"</A></span><br><br>
+      The college admissions process today is becoming more and more cutthroat. Applicant numbers are at record highs and acceptance rates are at record lows for the most prestigious institutions. In this article, I will cover using TopCoder in three specific areas of the process: the resume, the essay, and the interview.</td>
+         <td class="newsPhoto"><img src="/i/m/einstein41389_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="21931776" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=090607">full story</A> | 
+         <tc-webtag:forumLink forumID="517256" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.05.07<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/longcontest/?module=ViewActiveContests">TCCC07 Marathon Match 3 now underway</A></span><br><br>
@@ -160,21 +176,5 @@
         <A href="<tc-webtag:linkTracking link='http://csf.topcoder.com/?module=Static&d1=assembly&d2=btWorkspaceDetails' refer='/tc'/>">details</A> | 
         <a href="http://csf.topcoder.com/forums?module=ThreadList&forumID=11">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.28.07<br>12:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_qual_rd3">TCCC07 - Qual Round 3 - Problem Set &amp; Analysis</A></span><br><br>
-      In Qualification Round 3 of TCCC07 there were only 455 participants. As this was less than the 550 available spots, any positive score was enough to advance. Thanks to the very solvable easy problem, 445 coders were able to solve it and to advance to the next round.</td>
-         <td class="newsPhoto"><img src="/i/m/ivan_metelsky_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10481120" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_qual_rd3">full story</A> | 
-         <tc-webtag:forumLink forumID="517187" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    

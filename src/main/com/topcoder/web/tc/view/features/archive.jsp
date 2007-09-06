@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="21931776" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=090607"><strong>College admissions and the "TopCoder edge"</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Sep 6, 2007</td> 
+            </tr>
+            <tr valign="top">
                <td class="bodyText">&nbsp;</td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=083107"><strong>Our favorite professors: TopCoder staff look back</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Aug 31, 2007</td> 
