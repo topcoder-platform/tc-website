@@ -31,11 +31,11 @@
     </tr>
     <tr>
         <td class="headerC">&nbsp;</td>
-        <td class="headerC" colspan="3" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("sort_rating") %>" includeParams="true" excludeParams="sr" />">Algorithm</a></td>
-        <td class="headerC" colspan="3" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("design_rating") %>" includeParams="true" excludeParams="sr" />">Design</a></td>
-        <td class="headerC" colspan="3" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("dev_rating") %>" includeParams="true" excludeParams="sr" />">Development</a></td>
-        <td class="headerC" colspan="3" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_hs_ratings") %>" includeParams="true" excludeParams="sr" />">TCHS</a></td>
-        <td class="headerC" colspan="3" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_mm_ratings") %>" includeParams="true" excludeParams="sr" />">Marathon Match</a></td>
+        <td class="headerC" colspan="3" style="border-left:solid 1px #ffffff;">Algorithm</td>
+        <td class="headerC" colspan="3" style="border-left:solid 1px #ffffff;">Design</td>
+        <td class="headerC" colspan="3" style="border-left:solid 1px #ffffff;">Development</td>
+        <td class="headerC" colspan="3" style="border-left:solid 1px #ffffff;">TCHS</td>
+        <td class="headerC" colspan="3" style="border-left:solid 1px #ffffff;">Marathon Match</td>
     </tr>
     <tr>
         <td class="header"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("lower_handle") %>" includeParams="true" excludeParams="sr" />">Handle</a></td>
