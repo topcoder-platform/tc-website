@@ -470,7 +470,7 @@ public class BasicAuthentication implements WebAuthentication {
         if (log.isDebugEnabled()) {
             log.debug("set sso cookie for " + uid);
         }
-        addGeneralCookie(BIG_SESSION_KEY, uid + "|" + hashForUser(uid), SSO_TIMEOUT_SECONDS);
+        addGeneralCookie(BIG_SESSION_KEY, uid + "|" + hashForUser(uid), SSO_TIMEOUT_SECONDS*2);
     }
 
     /**
