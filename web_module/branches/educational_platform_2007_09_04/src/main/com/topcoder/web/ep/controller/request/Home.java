@@ -1,0 +1,35 @@
+/*
+* Home
+*
+* Created Sep 5, 2007
+*/
+package com.topcoder.web.ep.controller.request;
+
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.PermissionException;
+
+/**
+ * @author Pablo Wolfus (pulky)
+ * @version $Id$
+ */
+public class Home extends Base {
+
+    /* (non-Javadoc)
+     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     */
+    @Override
+    protected void dbProcessing() throws Exception {
+        if (userIdentified()) {
+            if (hasErrors()) {
+                setNextPage("/error.jsp");
+                setIsNextPageInContext(true);
+            } else {
+                setNextPage("/home.jsp");
+                setIsNextPageInContext(true);
+            }
+        } else {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
+    }
+
+}

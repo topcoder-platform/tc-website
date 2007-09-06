@@ -523,6 +523,7 @@
         <antcall target="deploy-privatelabel"/>
         <antcall target="deploy-longcontest"/>
         <antcall target="deploy-reg"/>
+        <antcall target="deploy-ep"/>
 
         <antcall target="move-libs"/>
         <antcall target="move-conf"/>
@@ -540,6 +541,7 @@
         <antcall target="expand-privatelabel"/>
         <antcall target="expand-longcontest"/>
         <antcall target="expand-reg"/>
+        <antcall target="expand-ep"/>
 
         <antcall target="move-libs"/>
         <antcall target="move-conf"/>
@@ -563,6 +565,7 @@
                 <include name="ProblemParser.properties"/>
                 <include name="Resume.properties"/>
                 <include name="Registration.properties"/>
+                <include name="EP.properties"/>
                 <include name="TC.properties"/>
                 <include name="PactsInternalServlet.properties"/>
                 <include name="cache.properties"/>
@@ -900,6 +903,73 @@
         <delete file="${jboss_deploy}/reg.war"/>
         <unwar src="${war.dir}/reg.war" dest="${jboss_deploy}/reg.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/reg.war/META-INF"/>
+    </target>
+
+    <target name="compile-ep" depends="jar_shared,jar_common,init">
+        <javac
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.5"
+                target="1.5"
+                >
+            <include name="com/topcoder/web/ep/**"/>
+        </javac>
+    </target>
+
+    <target name="war-ep" depends="compile-ep">
+        <war warfile="${war.dir}/ep.war" webxml="${resources}/ep/web.xml">
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/ep/**/*.class"/>
+                <!--todo remove this once we deploy the oracle -->
+                <include name="com/topcoder/web/oracle/model/**/*.class"/>
+            </classes>
+            <webinf dir="${resources}/taglib">
+                <include name="tc.tld"/>
+                <include name="tc-webtags.tld"/>
+                <include name="reg-tags.tld"/>
+                <include name="common-functions.tld"/>
+            </webinf>
+            <fileset dir="${java}/com/topcoder/web/ep/view">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <fileset dir="${java}/com/topcoder/web/jsp">
+                <include name="errorPage.jsp"/>
+                <include name="date_time.jsp"/>
+                <include name="script.jsp"/>
+                <include name="style.jsp"/>
+                <include name="menu.jsp"/>
+                <include name="page_title.jsp"/>
+            </fileset>
+            <webinf dir="${resources}/ep">
+                <include name="jboss-web.xml"/>
+            </webinf>
+            <classes dir="${resources}/reg">
+                <include name="hibernate.cfg.xml"/>
+            </classes>
+            <classes dir="${resources}/hibernate">
+                <include name="com/topcoder/web/common/**/*.xml"/>
+                <include name="com/topcoder/web/oracle/model/**/*.xml"/>
+                <include name="com/topcoder/web/tc/model/**/*.xml"/>
+            </classes>
+            <lib dir="${jars.dir}">
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
+            </lib>
+
+        </war>
+    </target>
+
+    <target name="deploy-ep" depends="war-ep,move-libs">
+        <antcall target="expand-ep"/>
+    </target>
+
+    <target name="expand-ep" depends="">
+        <delete file="${jboss_deploy}/ep.war"/>
+        <unwar src="${war.dir}/ep.war" dest="${jboss_deploy}/ep.war/" overwrite="yes"/>
+        <delete dir="${jboss_deploy}/ep.war/META-INF"/>
     </target>
 
     <target name="compile_tests" depends="compile">
