@@ -62,7 +62,7 @@ public class BasicAuthentication implements WebAuthentication {
     //sessions only live within a web app, but we really want to be able to keep
     //them logged in across web apps.
     private static final String BIG_SESSION_KEY = "tcsso";
-    private static final int SSO_TIMEOUT_SECONDS = 60*30; //30 minutes
+    private static final int SSO_TIMEOUT_SECONDS = 60 * 30; //30 minutes
     private static final String LOGGED_OUT = "logout";
 
     //cache this because it's expensive to generate
@@ -71,6 +71,7 @@ public class BasicAuthentication implements WebAuthentication {
     /**
      * Construct an authentication instance backed by the given persistor
      * and HTTP request and response.
+     *
      * @param userPersistor
      * @param request
      * @param response
@@ -87,6 +88,7 @@ public class BasicAuthentication implements WebAuthentication {
     /**
      * Construct an authentication instance backed by the given persistor
      * and HTTP request, response and cookie path resource.
+     *
      * @param userPersistor
      * @param request
      * @param response
@@ -103,6 +105,7 @@ public class BasicAuthentication implements WebAuthentication {
     /**
      * Construct an authentication instance backed by the given persistor
      * and HTTP request and response.
+     *
      * @param userPersistor
      * @param request
      * @param response
@@ -121,6 +124,7 @@ public class BasicAuthentication implements WebAuthentication {
     /**
      * Construct an authentication instance backed by the given persistor
      * and HTTP request, response and cookie path resource.
+     *
      * @param userPersistor
      * @param request
      * @param response
@@ -173,7 +177,7 @@ public class BasicAuthentication implements WebAuthentication {
             setUserInPersistor(makeUser(uid));
             setBigSessionCookie(uid);
 
-            addGeneralCookie(LOGGED_OUT,String.valueOf(false),Integer.MAX_VALUE);
+            addGeneralCookie(LOGGED_OUT, String.valueOf(false), Integer.MAX_VALUE);
             log.info("login succeeded");
 
         } catch (Exception e) {
@@ -193,12 +197,12 @@ public class BasicAuthentication implements WebAuthentication {
         clearCookie();
         clearBigCookie();
         setUserInPersistor(guest);
-        addGeneralCookie(LOGGED_OUT,String.valueOf(true), Integer.MAX_VALUE);
+        addGeneralCookie(LOGGED_OUT, String.valueOf(true), Integer.MAX_VALUE);
     }
 
     private void addGeneralCookie(String name, String value, int time) {
-        Cookie c = new Cookie(name+"_"+ApplicationServer.ENVIRONMENT,value);
-        c.setMaxAge(time);  // this should fit comfortably, since the expiration date is a string on the wire
+        Cookie c = new Cookie(name + "_" + ApplicationServer.ENVIRONMENT, value);
+        c.setMaxAge(time);
         c.setDomain(".topcoder.com");
         c.setPath("/");
         response.addCookie(c);
@@ -208,8 +212,10 @@ public class BasicAuthentication implements WebAuthentication {
     private boolean isLoggedOut() {
         Cookie[] ca = request.getCookies();
         for (int i = 0; ca != null && i < ca.length; i++) {
-            if (ca[i].getName().equals(LOGGED_OUT+"_"+ ApplicationServer.ENVIRONMENT)) {
-                return String.valueOf(true).equals(ca[i].getValue());
+            if (ca[i].getName().equals(LOGGED_OUT + "_" + ApplicationServer.ENVIRONMENT)) {
+                if (String.valueOf(true).equals(ca[i].getValue())) {
+                    return true;
+                }
             }
         }
         return false;
@@ -233,37 +239,37 @@ public class BasicAuthentication implements WebAuthentication {
          * they're anonymous
          */
         User u = getUser();
+        if (u == null) {
+            //given the way tomcat/apache handles sessions in a cluster, we can't do this
+            //because the session id is different on the two nodes.  potentially we could
+            //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
+            //it breaks the idea of a pluggable persistor, but we never use that anyway.
+//            u = (User) persistor.getObject(request.getSession().getId() + USER_COOKIE_NAME);
+            u = (User) persistor.getObject(USER_COOKIE_NAME);
             if (u == null) {
+                u = checkCookie();
+                if (u == null) {
+                    u = guest;
+                    //log.debug("*** made up a guest ***");
+                } else {
+                    //log.debug("*** " + u.getUserName() + " was in cookie ***");
+                }
                 //given the way tomcat/apache handles sessions in a cluster, we can't do this
                 //because the session id is different on the two nodes.  potentially we could
                 //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
                 //it breaks the idea of a pluggable persistor, but we never use that anyway.
-//            u = (User) persistor.getObject(request.getSession().getId() + USER_COOKIE_NAME);
-                u = (User) persistor.getObject(USER_COOKIE_NAME);
-                if (u == null) {
-                    u = checkCookie();
-                    if (u == null) {
-                        u = guest;
-                        //log.debug("*** made up a guest ***");
-                    } else {
-                        //log.debug("*** " + u.getUserName() + " was in cookie ***");
-                    }
-                    //given the way tomcat/apache handles sessions in a cluster, we can't do this
-                    //because the session id is different on the two nodes.  potentially we could
-                    //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
-                    //it breaks the idea of a pluggable persistor, but we never use that anyway.
 //                persistor.setObject(request.getSession().getId() + USER_COOKIE_NAME, u);
-                    persistor.setObject(USER_COOKIE_NAME, u);
-                } else {
-                    //log.debug("*** " + u.getUserName() + " was stale ***");
-                }
+                persistor.setObject(USER_COOKIE_NAME, u);
             } else {
-                //log.debug("*** " + u.getUserName() + " was live***");
+                //log.debug("*** " + u.getUserName() + " was stale ***");
             }
-            if (!u.isAnonymous()) {
-                markKnownUser();
-            }
-            return u;
+        } else {
+            //log.debug("*** " + u.getUserName() + " was live***");
+        }
+        if (!u.isAnonymous()) {
+            markKnownUser();
+        }
+        return u;
     }
 
     /**
@@ -276,11 +282,10 @@ public class BasicAuthentication implements WebAuthentication {
         } else {
             User u = getUserFromPersistor();
             if (u == null) {
-              //check big session cookie
                 u = checkBigSession();
-                if (u==null) {
+                if (u == null) {
                     //log.debug("didn't find user via sso");
-                    u=guest;
+                    u = guest;
                 }
             }
             if (!u.isAnonymous()) {
@@ -328,13 +333,14 @@ public class BasicAuthentication implements WebAuthentication {
      * which cannot be cached and still get immediate behavior 2 above.
      * note: gpaul - i've changed it to cache the password for 30 minutes to avoid the db hit.
      * but it is still pretty intensive...currently takes around 300 ms
-     * @return the hash
+     *
      * @param uid the user id
+     * @return the hash
      * @throws Exception if there is a problem getting data from the data base or if the MD5 algorithm doesn't exist
      */
     private String hashForUser(long uid) throws Exception {
         //log.debug("hash for user: " + uid);
-        if (userHash==null) {
+        if (userHash == null) {
             CachedDataAccess dai = new CachedDataAccess(MaxAge.HALF_HOUR, DBMS.OLTP_DATASOURCE_NAME);
             Request dataRequest = new Request();
             dataRequest.setProperty(DataAccessConstants.COMMAND, "userid_to_password");
@@ -357,8 +363,9 @@ public class BasicAuthentication implements WebAuthentication {
 
     /**
      * Compute a one-way hash of a password, similar to how a userid/password combination is hashed.
-     * @return the hashed password
+     *
      * @param password the password to hash
+     * @return the hashed password
      * @throws NoSuchAlgorithmException if MD5 doesn't exist
      */
     public String hashPassword(String password) throws NoSuchAlgorithmException {
@@ -376,9 +383,10 @@ public class BasicAuthentication implements WebAuthentication {
      * {@link #hashForUser(long)}.
      * <p/>
      * public so com.topcoder.web.hs.controller.requests.Base can reach it, a bit of a kludge
-     * @param uid the user id
-     * @throws Exception if there is a problem creating the has
+     *
+     * @param uid          the user id
      * @param rememberUser whether to set the cookie or not
+     * @throws Exception if there is a problem creating the has
      */
     public void setCookie(long uid, boolean rememberUser) throws Exception {
         if (rememberUser) {
@@ -390,26 +398,28 @@ public class BasicAuthentication implements WebAuthentication {
         }
     }
 
-   /**
+    /**
      * Remove cookie previously set on the client by the method above.
      */
     private void clearCookie() {
-       addGeneralCookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME, "", 0);
+        addGeneralCookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME, "", 0);
     }
-
-
 
 
     /**
      * Check each cookie in the request header for a cookie set above.
+     *
      * @return
      */
     public User checkCookie() {
         //log.debug("checkCookie called...");
         Cookie[] ca = request.getCookies();
+        if (log.isDebugEnabled()) {
+            log.debug(cookieList());
+        }
         for (int i = 0; ca != null && i < ca.length; i++) {
             //log.debug(ca[i].getName() + " " + ca[i].getValue());
-            if (ca[i].getName().equals(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME+"_"+ ApplicationServer.ENVIRONMENT)) {
+            if (ca[i].getName().equals(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME + "_" + ApplicationServer.ENVIRONMENT)) {
 
                 try {
                     StringTokenizer st = new StringTokenizer(ca[i].getValue(), "|");
@@ -428,9 +438,17 @@ public class BasicAuthentication implements WebAuthentication {
         return null;
     }
 
+    private String cookieList() {
+        StringBuilder buf = new StringBuilder(100);
+        for (Cookie c : request.getCookies()) {
+            buf.append(c.getName()).append(", ");
+        }
+        return buf.toString();
+    }
     /**
      * Add a cookie that will work across domains to help us preserve
      * a user http session between web applications and domains.
+     *
      * @param uid
      * @throws Exception
      */
@@ -438,21 +456,25 @@ public class BasicAuthentication implements WebAuthentication {
         if (log.isDebugEnabled()) {
             log.debug("set sso cookie for " + uid);
         }
-        addGeneralCookie(BIG_SESSION_KEY, uid+"|"+hashForUser(uid), SSO_TIMEOUT_SECONDS);
+        addGeneralCookie(BIG_SESSION_KEY, uid + "|" + hashForUser(uid), SSO_TIMEOUT_SECONDS);
     }
 
     /**
-      * Remove any cookie previously set on the client by the method above.
-      */
-     private void clearBigCookie() {
-         addGeneralCookie(BIG_SESSION_KEY, "", 0);
-     }
+     * Remove any cookie previously set on the client by the method above.
+     */
+    private void clearBigCookie() {
+        addGeneralCookie(BIG_SESSION_KEY, "", 0);
+    }
 
     private User checkBigSession() {
         Cookie[] ca = request.getCookies();
+        if (log.isDebugEnabled()) {
+            log.debug(cookieList());
+        }
+
         for (int i = 0; ca != null && i < ca.length; i++) {
-            log.debug(ca[i].getName() + " " + ca[i].getValue());
-            if (ca[i].getName().equals(BIG_SESSION_KEY+"_"+ ApplicationServer.ENVIRONMENT)) {
+            //log.debug(ca[i].getName() + " " + ca[i].getValue());
+            if (ca[i].getName().equals(BIG_SESSION_KEY + "_" + ApplicationServer.ENVIRONMENT)) {
 
                 try {
                     StringTokenizer st = new StringTokenizer(ca[i].getValue(), "|");
@@ -479,7 +501,6 @@ public class BasicAuthentication implements WebAuthentication {
         response.addCookie(c);
         knownUser = true;
     }
-
 
 
     private User getUserFromPersistor() {
