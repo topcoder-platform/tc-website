@@ -159,7 +159,7 @@ public class TransactionServlet extends HttpServlet {
         if (OP_TX_STATUS.equals(op)) {
             try {
                 SessionPersistor store = new SessionPersistor(req.getSession(true));
-                auth = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
+                auth = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
                 String retPage = txStatus(req, auth);
                 req.getRequestDispatcher(retPage).forward(req, resp);
             } catch (Exception e) {
@@ -170,7 +170,7 @@ public class TransactionServlet extends HttpServlet {
         } else if (OP_TERMS.equals(op)) {
             try {
                 SessionPersistor store = new SessionPersistor(req.getSession(true));
-                auth = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
+                auth = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
                 TCSubject tcUser = Util.retrieveTCSubject(auth.getActiveUser().getId());
                 Authorization authorization = new TCSAuthorization(tcUser);
 
@@ -251,7 +251,7 @@ public class TransactionServlet extends HttpServlet {
         if (OP_TX_STATUS.equals(op)) {
             try {
                 SessionPersistor store = new SessionPersistor(request.getSession(true));
-                auth = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
+                auth = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
                 String retPage = txStatus(request, auth);
                 response.sendRedirect(retPage);
             } catch (Exception e) {
@@ -262,7 +262,7 @@ public class TransactionServlet extends HttpServlet {
         } else if (OP_TX_BEGIN.equals(op)) {
             try {
                 SessionPersistor store = new SessionPersistor(request.getSession(true));
-                auth = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
+                auth = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
                 TCSubject tcUser = Util.retrieveTCSubject(auth.getActiveUser().getId());
                 Authorization authorization = new TCSAuthorization(tcUser);
 
