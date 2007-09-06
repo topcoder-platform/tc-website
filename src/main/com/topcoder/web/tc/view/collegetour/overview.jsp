@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.common.model.IntroEventConfig" %>
 <%@ page import="java.util.Map" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -61,18 +62,18 @@
     <h3>The Event</h3>
     TopCoder is sponsoring an onsite programming competition at <%=request.getAttribute(Constants.SCHOOL_NAME)%>
     on
-    <tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_START_PROP_ID))%>" format="EEEE MM.dd.yyyy"/>
+    <tc-webtag:format object="<%=conf.get(new Integer(IntroEventConfig.ROUND_START_PROP_ID))%>" format="EEEE MM.dd.yyyy"/>
     . <br><br>
 
     <span class="bigRed">Registration for this event ends on <tc-webtag:format object="<%=request.getAttribute("regEnd")%>" format="EEEE MM.dd.yyyy"/>.</span><br>
     <br>
 
     The event is from
-    <tc-webtag:format object="<%=conf.get(new Integer(Constants.EVENT_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+    <tc-webtag:format object="<%=conf.get(new Integer(IntroEventConfig.EVENT_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
     until
-    <tc-webtag:format object="<%=conf.get(new Integer(Constants.EVENT_END_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+    <tc-webtag:format object="<%=conf.get(new Integer(IntroEventConfig.EVENT_END_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
     in
-    the <%=conf.get(new Integer(Constants.LOCATION_PROP_ID))%>. This event is being run in conjunction
+    the <%=conf.get(new Integer(IntroEventConfig.LOCATION_PROP_ID))%>. This event is being run in conjunction
     with
     <A href="/tc?module=MatchDetails&rd=<%=request.getAttribute(Constants.ROUND_ID)%>"><%=request.getAttribute(Constants.ROUND_NAME)%>
     </A>.
@@ -88,16 +89,16 @@
         The top performers on 12/13 will win the following:
     </p>
     <ul>
-        <% if (conf.containsKey(new Integer(Constants.FIRST_PLACE_PROP_ID))) {%>
-        <li>1st place prize - <%=conf.get(new Integer(Constants.FIRST_PLACE_PROP_ID))%>
+        <% if (conf.containsKey(new Integer(IntroEventConfig.FIRST_PLACE_PROP_ID))) {%>
+        <li>1st place prize - <%=conf.get(new Integer(IntroEventConfig.FIRST_PLACE_PROP_ID))%>
         </li>
         <% } %>
-        <% if (conf.containsKey(new Integer(Constants.SECOND_PLACE_PROP_ID))) {%>
-        <li>2nd place prize - <%=conf.get(new Integer(Constants.SECOND_PLACE_PROP_ID))%>
+        <% if (conf.containsKey(new Integer(IntroEventConfig.SECOND_PLACE_PROP_ID))) {%>
+        <li>2nd place prize - <%=conf.get(new Integer(IntroEventConfig.SECOND_PLACE_PROP_ID))%>
         </li>
         <% } %>
-        <% if (conf.containsKey(new Integer(Constants.THIRD_PLACE_PROP_ID))) {%>
-        <li>3rd place prize - <%=conf.get(new Integer(Constants.THIRD_PLACE_PROP_ID))%>
+        <% if (conf.containsKey(new Integer(IntroEventConfig.THIRD_PLACE_PROP_ID))) {%>
+        <li>3rd place prize - <%=conf.get(new Integer(IntroEventConfig.THIRD_PLACE_PROP_ID))%>
         </li>
         <% } %>
         <% if (conf.containsKey(new Integer(11))) {%><%-- 4th-10th place prize --%>
@@ -119,20 +120,20 @@
     The timeline for the day of the event:
     <ul>
         <li>
-            <tc-webtag:format object="<%=conf.get(new Integer(Constants.EVENT_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+            <tc-webtag:format object="<%=conf.get(new Integer(IntroEventConfig.EVENT_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
             - Computer lab opens & competitors set up
         </li>
         <li>
-            <tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+            <tc-webtag:format object="<%=conf.get(new Integer(IntroEventConfig.ROUND_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
             - Competition starts
         </li>
         <li>
-            <tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_END_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+            <tc-webtag:format object="<%=conf.get(new Integer(IntroEventConfig.ROUND_END_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
             - Competition ends
         </li>
     </ul>
 
-    <strong><%=conf.get(new Integer(Constants.RECRUITER_NAME_PROP_ID))%>
+    <strong><%=conf.get(new Integer(IntroEventConfig.RECRUITER_NAME_PROP_ID))%>
     </strong>, a TopCoder representative, will be present to explain the TopCoder
     algorithm, design and development competitions, TopCoder Employment Services, and other aspects of
     TopCoder.
@@ -148,7 +149,7 @@
     <h3>The Event</h3>
     TopCoder is sponsoring an onsite programming competition at <%=request.getAttribute(Constants.SCHOOL_NAME)%>
     on
-    <tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_START_PROP_ID))%>" format="EEEE MM.dd.yyyy" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+    <tc-webtag:format object="<%=conf.get(new Integer(IntroEventConfig.ROUND_START_PROP_ID))%>" format="EEEE MM.dd.yyyy" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
     .
 
     <p align="center">
@@ -162,11 +163,11 @@
     <% } %>
 
     The event is from
-    <tc-webtag:format object="<%=conf.get(new Integer(Constants.EVENT_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+    <tc-webtag:format object="<%=conf.get(new Integer(IntroEventConfig.EVENT_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
     until
-    <tc-webtag:format object="<%=conf.get(new Integer(Constants.EVENT_END_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+    <tc-webtag:format object="<%=conf.get(new Integer(IntroEventConfig.EVENT_END_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
     in
-    the <%=conf.get(new Integer(Constants.LOCATION_PROP_ID))%>. This event is being run in conjunction
+    the <%=conf.get(new Integer(IntroEventConfig.LOCATION_PROP_ID))%>. This event is being run in conjunction
     with
     <A href="/tc?module=MatchDetails&rd=<%=request.getAttribute(Constants.ROUND_ID)%>"><%=request.getAttribute(Constants.ROUND_NAME)%>
     </A>.
@@ -181,16 +182,16 @@
     <h3>Prizes</h3>
 
     <ul>
-        <% if (conf.containsKey(new Integer(Constants.FIRST_PLACE_PROP_ID))) {%>
-        <li>1st place prize - <%=conf.get(new Integer(Constants.FIRST_PLACE_PROP_ID))%>
+        <% if (conf.containsKey(new Integer(IntroEventConfig.FIRST_PLACE_PROP_ID))) {%>
+        <li>1st place prize - <%=conf.get(new Integer(IntroEventConfig.FIRST_PLACE_PROP_ID))%>
         </li>
         <% } %>
-        <% if (conf.containsKey(new Integer(Constants.SECOND_PLACE_PROP_ID))) {%>
-        <li>2nd place prize - <%=conf.get(new Integer(Constants.SECOND_PLACE_PROP_ID))%>
+        <% if (conf.containsKey(new Integer(IntroEventConfig.SECOND_PLACE_PROP_ID))) {%>
+        <li>2nd place prize - <%=conf.get(new Integer(IntroEventConfig.SECOND_PLACE_PROP_ID))%>
         </li>
         <% } %>
-        <% if (conf.containsKey(new Integer(Constants.THIRD_PLACE_PROP_ID))) {%>
-        <li>3rd place prize - <%=conf.get(new Integer(Constants.THIRD_PLACE_PROP_ID))%>
+        <% if (conf.containsKey(new Integer(IntroEventConfig.THIRD_PLACE_PROP_ID))) {%>
+        <li>3rd place prize - <%=conf.get(new Integer(IntroEventConfig.THIRD_PLACE_PROP_ID))%>
         </li>
         <% } %>
     </ul>
@@ -208,24 +209,24 @@
     The timeline for the day of the event:
     <ul>
         <li>
-            <tc-webtag:format object="<%=conf.get(new Integer(Constants.EVENT_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+            <tc-webtag:format object="<%=conf.get(new Integer(IntroEventConfig.EVENT_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
             - Computer lab opens & competitors set up
         </li>
         <li>
-            <tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+            <tc-webtag:format object="<%=conf.get(new Integer(IntroEventConfig.ROUND_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
             - Competition starts
         </li>
         <li>
-            <tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_END_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+            <tc-webtag:format object="<%=conf.get(new Integer(IntroEventConfig.ROUND_END_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
             - Competition ends
         </li>
         <li>
-            <tc-webtag:format object="<%=conf.get(new Integer(Constants.RESULTS_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+            <tc-webtag:format object="<%=conf.get(new Integer(IntroEventConfig.RESULTS_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
             - Pizza, Results, TopCoder presentation
         </li>
     </ul>
 
-    <strong><%=conf.get(new Integer(Constants.RECRUITER_NAME_PROP_ID))%>
+    <strong><%=conf.get(new Integer(IntroEventConfig.RECRUITER_NAME_PROP_ID))%>
     </strong>, a TopCoder representative, will be present to explain the TopCoder
     algorithm, design and development competitions, TopCoder Employment Services, and other aspects of
     TopCoder.

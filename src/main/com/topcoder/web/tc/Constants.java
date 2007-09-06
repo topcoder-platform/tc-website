@@ -307,11 +307,6 @@ public class Constants implements WebConstants {
     public static final String COLLEGE_TOUR_CONFIG_INFO = "configInfo";
     public static final String ROUND_NAME = "rdname";
 
-    @Deprecated
-    public static final int ROUND_START_PROP_ID = 9;
-
-    @Deprecated
-    public static final int ROUND_END_PROP_ID = 10;
 
 
     public static final String EVENT_ID = "eid";
