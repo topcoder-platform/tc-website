@@ -3,15 +3,13 @@ package com.topcoder.web.tc.controller.request.authentication;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.TCSubject;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.SiteTest;
-import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.common.model.CoderSessionInfo;
-import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.web.tc.controller.request.Base;
 
 public class Logout extends Base {
 
@@ -32,6 +30,7 @@ public class Logout extends Base {
             dest = "http://" + info.getServerName() + "/tc";
         }
         
+/*
         String forumsURL = "http://"+ApplicationServer.FORUMS_SERVER_NAME;
         SiteTest siteTest = new SiteTest();
         boolean forumsServerActive = siteTest.check(forumsURL);
@@ -43,8 +42,11 @@ public class Logout extends Base {
             if (dest.startsWith(forumsURL)) {
                 dest = "http://"+ApplicationServer.SERVER_NAME+"/tc";
             }
+*/
             setNextPage(dest);
+/*
         }
+*/
         setIsNextPageInContext(false);
     }
 
