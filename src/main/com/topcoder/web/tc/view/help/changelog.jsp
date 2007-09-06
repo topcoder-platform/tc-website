@@ -48,6 +48,9 @@
     <ul>
         <li>Add tccc07 sponsor track advancers -dok</li>
         <li>Fix Unicode escaping in assignment docs and affidavits -pulky</li>
+        <li>Fix payment's paid date -pulky</li>
+        <li>Fix users can see their own payments details no matter their privacy settings -pulky</li>
+        <%--<li>PACTS refactor to remove tcwebcommon.jar dependency in services -pulky</li>--%>
     </ul>
 </p>
 
