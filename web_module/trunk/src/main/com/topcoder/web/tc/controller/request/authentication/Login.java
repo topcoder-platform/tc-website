@@ -5,11 +5,16 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.model.CoderSessionInfo;
-import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.tc.Constants;
@@ -83,10 +88,13 @@ public class Login extends Base {
                                 if (log.isDebugEnabled()) {
                                     log.debug("user active");
                                 }
+/*
                                 String forumsURL = "http://" + ApplicationServer.FORUMS_SERVER_NAME;
+*/
 
                                 String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                                 //todo make this https
+/*
                                 SiteTest siteTest = new SiteTest();
                                 boolean forumsServerActive = siteTest.check(forumsURL);
                                 if (forumsServerActive) {
@@ -104,8 +112,11 @@ public class Login extends Base {
                                     if (dest.startsWith(forumsURL)) {
                                         dest = "http://" + ApplicationServer.SERVER_NAME + "/tc";
                                     }
+*/
                                     setNextPage(dest);
+/*
                                 }
+*/
 
                                 setIsNextPageInContext(false);
                                 if (log.isDebugEnabled()) {
