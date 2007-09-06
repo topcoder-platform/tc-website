@@ -37,39 +37,31 @@
 
         <jsp:include page="../page_title.jsp">
             <jsp:param name="image" value="statistics_w"/>
-            <jsp:param name="title" value="Marathon Competition Record Book"/>
+            <jsp:param name="title" value="Marathon Match Record Book"/>
         </jsp:include>
 
 
-        <table cellpadding="6" cellspacing="0" border="0">
+        <table cellpadding="6" cellspacing="0" border="0" width="100%">
             <tr valign="top">
                 <td width="50%">
                     <strong>Consecutive Rating Increases</strong><br />
-                    Most rating increases in a row.
-                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=8">Non-Tournament</a> |
-                    <a href="/longcontest/stats/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=9">all</a>
+                    <a href="/longcontest/stats/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=9">Overall</a>
                 </td>
                 <td width="50%">
                     <strong>Best Average Placement</strong><br />
-                    Best average placement per match.
-                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_best_avg_placement">Overall</a> 
                 
                 </td>
             </tr>
             <tr valign="top">
                 <td>
-                    <strong>Most Match Wins</strong><br />
-                    The number of times a competitor has won a match.
-                    <br />
+                    <strong>Most Wins</strong><br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_most_wins">Non-Tournament</a> |
-                    <a href="/longcontest/stats/?module=Recordbook&c=marathon_most_wins&amp;all=true">all</a>
+                    <a href="/longcontest/stats/?module=Recordbook&c=marathon_most_wins&amp;all=true">Overall</a>
                 </td>
                 <td>
                     <strong>Consecutive Top Finishes</strong><br />
-                    The longest streaks where a competitor finished in the top 5 or 10 for every match.
-                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_consecutive_top_finishes&wst=10">Top 5</a> |                  
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_consecutive_top_finishes&wst=11">Top 10</a>                 
                 </td>
@@ -77,14 +69,10 @@
             <tr valign="top">
                 <td>
                     <strong>Rating Point Gain</strong><br />
-                    Largest rating point gain in a single match.
-                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_highest_rating_gain">Overall</a> 
                 </td>
                 <td>
                     <strong>Most Top Finishes</strong><br />
-                    Most career matches where a competitor finished in the top 5 or 10.
-                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_most_top_finishes&mp=5">Top 5</a> |                  
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_most_top_finishes&mp=10">Top 10</a>                 
                 </td>
@@ -92,22 +80,16 @@
             <tr valign="top">
                 <td>
                     <strong>Most Rated Events</strong><br />
-                    The competitors that have competed the most times.
-                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_most_rated_events">Overall</a> 
                 </td>
                 <td>
                     <strong>Best Win Percentage</strong><br />
-                    Highest percentage of wins per match where the competitor has made at least one submission (either test or full).  
-                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_best_win_percentage">Overall</a> 
                 </td>
             </tr>
             <tr valign="top">
                 <td>
                     <strong>Impressive Debuts</strong><br />
-                    The competitors who have achieved the highest ratings based on the results of their first match.
-                    <br />
                     <a href="/longcontest/stats/?module=Recordbook&c=marathon_impressive_debuts">Overall</a> 
                 </td>
                 <td>

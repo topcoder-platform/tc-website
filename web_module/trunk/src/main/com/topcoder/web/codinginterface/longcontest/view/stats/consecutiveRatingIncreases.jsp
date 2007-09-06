@@ -19,11 +19,11 @@
 <tc-webtag:ifLink useLink="${allTypes}" text="Non-tournament" link="/longcontest/stats/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=8"/> |
 <tc-webtag:ifLink useLink="${not allTypes}" text="All" link="/longcontest/stats/?module=Recordbook&c=marathon_consecutive_rating_increases&amp;wst=9"/> 
 <br><br>
-<strong>Record:</strong> Most rating increases in a row.  If a competitors rating does not change, their streak is broken.
+<strong>Record:</strong> Longest streak of matches which resulted in a rating increase.  If a competitor's rating does not change following a match, the streak ends.
 <c:choose>
-    <c:when test="${allTypes}">Both tournament and non-tournament are taken into account.
+    <c:when test="${allTypes}">Both tournament and non-tournament rounds are included.
     </c:when>
-    <c:otherwise>Just non tournament rounds are used.
+    <c:otherwise>Only non tournament rounds are included.
     </c:otherwise>
 </c:choose>
 

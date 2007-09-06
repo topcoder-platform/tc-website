@@ -17,7 +17,7 @@
 
 <br><br>
 <strong>Record:</strong> Best average placement per match.  A lower average is better.  
-Only matches where the competitor was rated are included.  Coders with less than 5 rated matches are not included  
+Only matches where the competitor was rated are included.  Coders with less than 5 rated matches are not included.
 
 </span>
 <br><br>

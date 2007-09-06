@@ -4,6 +4,7 @@
 <html>
 <head>
 <title>TopCoder Statistics</title>
+<script language="JavaScript" type="text/javascript" src="/js/popup.js"></script>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
