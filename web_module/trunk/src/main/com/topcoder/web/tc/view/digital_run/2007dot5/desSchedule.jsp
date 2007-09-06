@@ -47,7 +47,7 @@
 Includes components posted within the following date range, inclusive:
 <br><br>
 <strong>Stage #1:</strong> May 4, 2007 - August 31, 2007<br>
-<strong>Stage #2:</strong> September 1, 2006 - December 31, 2007<br>
+<strong>Stage #2:</strong> September 1, 2007 - December 31, 2007<br>
 <br><br>
 </div>
 
