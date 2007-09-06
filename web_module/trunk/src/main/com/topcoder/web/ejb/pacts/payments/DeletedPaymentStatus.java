@@ -22,17 +22,18 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UnsupportedSearchException;
 
 /**
- * This class represents a Deleted status for payments. 
+ * This class represents a Deleted status for payments.
  *
  * VERY IMPORTANT: remember to update serialVersionUID if needed
- * 
+ *
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
 public class DeletedPaymentStatus extends BasePaymentStatus {
     /**
      * Please change that number if you affect the fields in a way that will affect the
-     * serialization for this object. 
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
 
@@ -42,7 +43,7 @@ public class DeletedPaymentStatus extends BasePaymentStatus {
     public static final Long ID = 69l;
 
     /**
-     * Default constructor   
+     * Default constructor
      */
     public DeletedPaymentStatus() {
         super();
@@ -58,7 +59,7 @@ public class DeletedPaymentStatus extends BasePaymentStatus {
 
     /**
      * This method will handle the state activation for each particular status
-     * 
+     *
      * @param payment the payment to apply the event to
      * @throws StateTransitionFailureException if anything fails
      */
@@ -68,7 +69,7 @@ public class DeletedPaymentStatus extends BasePaymentStatus {
             cancelAttachedDocuments(payment);
         } catch (Exception e) {
             throw new StateTransitionFailureException(e);
-        }            
+        }
     }
 
     /**
@@ -88,7 +89,7 @@ public class DeletedPaymentStatus extends BasePaymentStatus {
         BasePaymentStatus newPaymentStatus = new DeletedPaymentStatus();
         newPaymentStatus.setDesc(this.desc);
         newPaymentStatus.setActive(this.active);
-        return newPaymentStatus;  
+        return newPaymentStatus;
     }
 
 }

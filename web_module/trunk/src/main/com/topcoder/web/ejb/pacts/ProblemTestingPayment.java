@@ -8,22 +8,23 @@ import java.util.Date;
  * Payment for a problem testing.  It can optionally refer to a round id.
  *
  * VERY IMPORTANT: remember to update serialVersionUID if needed
- * 
+ *
  * @author cucu
  */
 public class ProblemTestingPayment extends AlgorithmRoundReferencePayment {
 
     /**
      * Please change that number if you affect the fields in a way that will affect the
-     * serialization for this object. 
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
 
-	/**
-	 * This is used if there is no reference to a round.
-	 */
-	private String roundName = null;
-	
+    /**
+     * This is used if there is no reference to a round.
+     */
+    private String roundName = null;
+
     /**
      * Create a payment for problem testing referring to a round.
      *
@@ -56,25 +57,25 @@ public class ProblemTestingPayment extends AlgorithmRoundReferencePayment {
     protected BasePayment.Processor getProcessor() {
         return new Processor();
     }
-    
+
     /**
      * Get the name of the round, when there is no reference for it.
-     * 
+     *
      * @return the name of the round, when there is no reference for it.
      */
     public String getRoundName() {
-    	return roundName;
+        return roundName;
     }
 
     /**
      * Return whether this payment has a reference to a round.
-     * 
+     *
      * @return whether this payment has a reference to a round.
      */
     public boolean hasReference() {
-    	return getRoundId() > 0;
+        return getRoundId() > 0;
     }
-    
+
     /**
      * Processor for problem testing.
      *
@@ -89,19 +90,19 @@ public class ProblemTestingPayment extends AlgorithmRoundReferencePayment {
          * @return a description for this payment.
          */
         public String lookupDescription(BasePayment payment) throws SQLException {
-        	ProblemTestingPayment p = (ProblemTestingPayment) payment;
-        	
-        	if (p.hasReference()) {        	
-        		return "Problem Testing for " + getRoundName(p.getRoundId());
-        	}
-        	
-        	if (p.getRoundName() != null && p.getRoundName().trim().length() > 0) {
-        		return "Problem Testing for " + p.getRoundName();
-        	}
-        	
-        	return "Problem Testing";
+            ProblemTestingPayment p = (ProblemTestingPayment) payment;
+
+            if (p.hasReference()) {
+                return "Problem Testing for " + getRoundName(p.getRoundId());
+            }
+
+            if (p.getRoundName() != null && p.getRoundName().trim().length() > 0) {
+                return "Problem Testing for " + p.getRoundName();
+            }
+
+            return "Problem Testing";
         }
-        
+
         /**
          * Get when the event took date, i.e. the round end date, or today if there is no reference to a round.
          *
@@ -109,12 +110,12 @@ public class ProblemTestingPayment extends AlgorithmRoundReferencePayment {
          * @return the end date of the round
          */
         public Date lookupEventDate(BasePayment payment) throws SQLException {
-        	ProblemTestingPayment p = (ProblemTestingPayment) payment;
-        	
-        	if (p.hasReference()) {
-        		return getEndDate(p.getRoundId());
-        	}
-        	return new Date();
+            ProblemTestingPayment p = (ProblemTestingPayment) payment;
+
+            if (p.hasReference()) {
+                return getEndDate(p.getRoundId());
+            }
+            return new Date();
         }
 
         /**
@@ -124,14 +125,14 @@ public class ProblemTestingPayment extends AlgorithmRoundReferencePayment {
          * @throws SQLException if an error occurred trying to access db.
          */
         public String lookupReferenceDescription(BasePayment payment) throws SQLException {
-        	ProblemTestingPayment p = (ProblemTestingPayment) payment;
-        	
-        	if (p.hasReference()) {
-        		return getRoundName(p.getRoundId());
-        	}
-        	return p.getRoundName();
+            ProblemTestingPayment p = (ProblemTestingPayment) payment;
+
+            if (p.hasReference()) {
+                return getRoundName(p.getRoundId());
+            }
+            return p.getRoundName();
         }
-        
+
     }
 
 }

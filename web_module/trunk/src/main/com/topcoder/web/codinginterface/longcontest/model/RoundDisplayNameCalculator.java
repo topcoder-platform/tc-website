@@ -10,21 +10,23 @@ import com.topcoder.web.codinginterface.longcontest.Helper;
 
 /**
  * Calculated column to be added in a ResultSetContainer for the display name of a round.
- *  
+ *
  * @author Cucu
  *
  */
 public class RoundDisplayNameCalculator extends CalculatedColumn {
 
     /**
-     * Change it if the serialization for this object will change
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
 
     public RoundDisplayNameCalculator(String columnName) {
         super(Types.VARCHAR, columnName,0,0,"");
     }
-    
+
     @Override
     public TCResultItem calculate(ResultSetRow rsr) {
         String result = Helper.displayName(rsr.getIntItem("round_type_id"),

@@ -11,10 +11,10 @@ import com.topcoder.web.ejb.pacts.BasePayment;
 
 
 /**
- * This class represents a Paid status for payments. 
+ * This class represents a Paid status for payments.
  *
  * VERY IMPORTANT: remember to update serialVersionUID if needed
- * 
+ *
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
@@ -22,7 +22,8 @@ public class PaidPaymentStatus extends BasePaymentStatus {
 
     /**
      * Please change that number if you affect the fields in a way that will affect the
-     * serialization for this object. 
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
 
@@ -33,7 +34,7 @@ public class PaidPaymentStatus extends BasePaymentStatus {
 
     /**
      * This method is executed when a payment is paid and will set the paid date
-     * 
+     *
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#activate(com.topcoder.web.ejb.pacts.BasePayment)
      */
     @Override
@@ -42,7 +43,7 @@ public class PaidPaymentStatus extends BasePaymentStatus {
     }
 
     /**
-     * Default constructor   
+     * Default constructor
      */
     public PaidPaymentStatus() {
         super();
@@ -72,7 +73,7 @@ public class PaidPaymentStatus extends BasePaymentStatus {
         BasePaymentStatus newPaymentStatus = new PaidPaymentStatus();
         newPaymentStatus.setDesc(this.desc);
         newPaymentStatus.setActive(this.active);
-        return newPaymentStatus;  
+        return newPaymentStatus;
     }
 }
 

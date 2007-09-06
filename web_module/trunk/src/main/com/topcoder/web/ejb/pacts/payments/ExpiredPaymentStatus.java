@@ -8,10 +8,10 @@ package com.topcoder.web.ejb.pacts.payments;
 import com.topcoder.web.ejb.pacts.BasePayment;
 
 /**
- * This class represents an Expired status for payments. 
+ * This class represents an Expired status for payments.
  *
  * VERY IMPORTANT: remember to update serialVersionUID if needed
- * 
+ *
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
@@ -19,7 +19,8 @@ public class ExpiredPaymentStatus extends BasePaymentStatus {
 
     /**
      * Please change that number if you affect the fields in a way that will affect the
-     * serialization for this object. 
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
 
@@ -29,7 +30,7 @@ public class ExpiredPaymentStatus extends BasePaymentStatus {
     public static final Long ID = 68l;
 
     /**
-     * Default constructor   
+     * Default constructor
      */
     public ExpiredPaymentStatus() {
         super();
@@ -45,7 +46,7 @@ public class ExpiredPaymentStatus extends BasePaymentStatus {
 
     /**
      * This method will handle the state activation for each particular status
-     * 
+     *
      * @param payment the payment to apply the event to
      * @throws StateTransitionFailureException if anything fails
      */
@@ -55,7 +56,7 @@ public class ExpiredPaymentStatus extends BasePaymentStatus {
             cancelAttachedDocuments(payment);
         } catch (Exception e) {
             throw new StateTransitionFailureException(e);
-        }            
+        }
     }
 
     /**
@@ -75,7 +76,7 @@ public class ExpiredPaymentStatus extends BasePaymentStatus {
         BasePaymentStatus newPaymentStatus = new ExpiredPaymentStatus();
         newPaymentStatus.setDesc(this.desc);
         newPaymentStatus.setActive(this.active);
-        return newPaymentStatus;  
+        return newPaymentStatus;
     }
 
 }

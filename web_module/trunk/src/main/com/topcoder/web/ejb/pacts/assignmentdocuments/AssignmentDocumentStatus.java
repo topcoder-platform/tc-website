@@ -8,12 +8,14 @@ import java.io.Serializable;
  * @author pulky
  */
 public class AssignmentDocumentStatus implements Serializable, Cloneable {
+
     /**
      * Please change that number if you affect the fields in a way that will affect the
-     * serialization for this object. 
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
-    
+
     public static final Long PENDING_STATUS_ID = new Long(1);
     public static final Long DELETED_STATUS_ID = new Long(2);
     public static final Long AFFIRMED_STATUS_ID = new Long(3);

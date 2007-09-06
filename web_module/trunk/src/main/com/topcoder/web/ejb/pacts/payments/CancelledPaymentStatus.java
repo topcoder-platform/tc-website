@@ -9,10 +9,10 @@ import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 
 /**
- * This class represents a Canceled status for payments. 
+ * This class represents a Canceled status for payments.
  *
  * VERY IMPORTANT: remember to update serialVersionUID if needed
- * 
+ *
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
@@ -20,7 +20,8 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
 
     /**
      * Please change that number if you affect the fields in a way that will affect the
-     * serialization for this object. 
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
 
@@ -30,7 +31,7 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
     public static final Long ID = 65l;
 
     /**
-     * Default constructor   
+     * Default constructor
      */
     public CancelledPaymentStatus() {
         super();
@@ -46,7 +47,7 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
 
     /**
      * This method will handle the state activation for each particular status
-     * 
+     *
      * @param payment the payment to apply the event to
      * @throws StateTransitionFailureException if anything fails
      */
@@ -56,7 +57,7 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
             cancelAttachedDocuments(payment);
         } catch (Exception e) {
             throw new StateTransitionFailureException(e);
-        }            
+        }
     }
 
     /**
@@ -68,7 +69,7 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
             reasons.add(AvailableStatusReason.EXPIRED_AFFIDAVIT_REASON.getStatusReason());
         }
     }
-    
+
     /**
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#parentCancelled(com.topcoder.web.ejb.pacts.BasePayment)
      */
@@ -99,7 +100,7 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
         }
         return 0;
     }
-    
+
     /**
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#newInstance()
      */
@@ -108,7 +109,7 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
         BasePaymentStatus newPaymentStatus = new CancelledPaymentStatus();
         newPaymentStatus.setDesc(this.desc);
         newPaymentStatus.setActive(this.active);
-        return newPaymentStatus;  
+        return newPaymentStatus;
     }
 
 }

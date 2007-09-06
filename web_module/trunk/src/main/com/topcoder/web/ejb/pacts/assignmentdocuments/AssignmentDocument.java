@@ -13,12 +13,14 @@ import com.topcoder.web.ejb.pacts.assignmentdocuments.User;
  * @author pulky
  */
 public class AssignmentDocument implements Serializable, Cloneable {
+
     /**
      * Please change that number if you affect the fields in a way that will affect the
-     * serialization for this object. 
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
-    
+
     private Long id;
     private AssignmentDocumentType type;
     private AssignmentDocumentStatus status;
@@ -62,16 +64,16 @@ public class AssignmentDocument implements Serializable, Cloneable {
         if (!status.getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
             return new Integer(0);
         }
-        
+
         Calendar aux = new GregorianCalendar();
         aux.setTimeInMillis(getExpireDate().getTime());
         aux.set(aux.get(Calendar.YEAR), aux.get(Calendar.MONTH), aux.get(Calendar.DATE), 0, 0, 0);
 
         int difInDays = 1 + (int) ((aux.getTimeInMillis() - Calendar.getInstance().getTimeInMillis())/(1000*60*60*24));
-        
+
         return new Integer((difInDays > 0) ? difInDays : 0);
     }
-    
+
     /**
      * @param affirmedDate the affirmedDate to set
      */

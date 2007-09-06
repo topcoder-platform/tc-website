@@ -31,10 +31,11 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
  * VERY IMPORTANT: remember to update serialVersionUID if needed
  */
 public class Payment implements PactsConstants, java.io.Serializable {
-    
+
     /**
      * Please change that number if you affect the fields in a way that will affect the
-     * serialization for this object. 
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
 
@@ -47,17 +48,17 @@ public class Payment implements PactsConstants, java.io.Serializable {
     private String method;
     private String description;
     //private long statusId;
-    
+
     private BasePaymentStatus currentStatus;
-    
+
     //private String statusDesc;
     private String modifiedDate;
     private String rationale;
     private int rationaleId;
     private double netAmount;
     private double grossAmount;
-    private double totalAmount;    
-    private int installmentNumber;    
+    private double totalAmount;
+    private int installmentNumber;
     private String printDate;
     private String payDate;
     private String dueDate;
@@ -171,7 +172,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
                     }
                 }
             }
-            
+
 
             if (!currentStatus.equals(PaymentStatusFactory.createStatus(PaymentStatus.PAID_PAYMENT_STATUS))) {
                 rsc = (ResultSetContainer) results.get(CURRENT_CODER_ADDRESS);
@@ -547,28 +548,28 @@ public class Payment implements PactsConstants, java.io.Serializable {
         this.address3 = address3;
     }
 
-	public boolean isCharity() {
-		return charity;
-	}
+    public boolean isCharity() {
+        return charity;
+    }
 
-	public void setCharity(boolean charity) {
-		this.charity = charity;
-	}
+    public void setCharity(boolean charity) {
+        this.charity = charity;
+    }
 
-	public int getInstallmentNumber() {
-		return installmentNumber;
-	}
+    public int getInstallmentNumber() {
+        return installmentNumber;
+    }
 
-	public void setInstallmentNumber(int installmentNumber) {
-		this.installmentNumber = installmentNumber;
-	}
+    public void setInstallmentNumber(int installmentNumber) {
+        this.installmentNumber = installmentNumber;
+    }
 
-	public double getTotalAmount() {
-		return totalAmount;
-	}
+    public double getTotalAmount() {
+        return totalAmount;
+    }
 
-	public void setTotalAmount(double totalAmount) {
-		this.totalAmount = totalAmount;
-	}
+    public void setTotalAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
 
 }
