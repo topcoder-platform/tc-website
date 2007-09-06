@@ -95,24 +95,60 @@
         </c:choose>
         
         <%-- Design --%>
-        <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="unrated"/></td>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_des_ratings"/></td>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_des_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+        <c:choose>
+        <c:when test="${not empty rr.map['design_rating'] and (rr.map['design_rating']  > 0)}">
+            <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="unrated"/></td>
+            <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_des_ratings"/></td>
+            <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_des_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+        </c:when>
+        <c:otherwise>
+            <td class="valueC" colspan="3">
+                unrated
+            </td> 
+        </c:otherwise>
+        </c:choose>
         
         <%-- Development --%>
-        <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="dev_rating" format="#" ifNull="unrated"/></td>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_dev_ratings"/></td>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_dev_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+        <c:choose>
+        <c:when test="${not empty rr.map['dev_rating'] and (rr.map['dev_rating']  > 0)}">
+            <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="dev_rating" format="#" ifNull="unrated"/></td>
+            <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_dev_ratings"/></td>
+            <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_dev_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+        </c:when>
+        <c:otherwise>
+            <td class="valueC" colspan="3">
+                unrated
+            </td> 
+        </c:otherwise>
+        </c:choose>
         
         <%-- TCHS --%>
-        <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="hs_rating" format="#" ifNull="unrated"/></td>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_hs_ratings"/></td>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_hs_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+        <c:choose>
+        <c:when test="${not empty rr.map['hs_rating'] and (rr.map['hs_rating']  > 0)}">
+            <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="hs_rating" format="#" ifNull="unrated"/></td>
+            <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_hs_ratings"/></td>
+            <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_hs_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+        </c:when>
+        <c:otherwise>
+            <td class="valueC" colspan="3">
+                unrated
+            </td> 
+        </c:otherwise>
+        </c:choose>
         
         <%-- Marathon Match --%>
-        <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="mm_rating" format="#" ifNull="unrated"/></td>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_mm_ratings"/></td>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_mm_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+        <c:choose>
+        <c:when test="${not empty rr.map['mm_rating'] and (rr.map['mm_rating']  > 0)}">
+            <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="mm_rating" format="#" ifNull="unrated"/></td>
+            <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_mm_ratings"/></td>
+            <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_mm_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+        </c:when>
+        <c:otherwise>
+            <td class="valueC" colspan="3">
+                unrated
+            </td> 
+        </c:otherwise>
+        </c:choose>
    </tr>
    <%even=!even;%>
    </rsc:iterator>
