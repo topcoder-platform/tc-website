@@ -11,11 +11,11 @@ import com.topcoder.web.common.TCResponse;
  */
 public class StudioForumsAuthentication extends BasicAuthentication {
     public StudioForumsAuthentication(Persistor userPersistor, TCRequest request, TCResponse response) throws Exception {
-        super(userPersistor, request, response, BasicAuthentication.STUDIO_SITE);
+        super(userPersistor, request, response, BasicAuthentication.MAIN_SITE);
     }
 
     public StudioForumsAuthentication(Persistor userPersistor, TCRequest request, TCResponse response, String dataSource) throws Exception {
-        super(userPersistor, request, response, BasicAuthentication.STUDIO_SITE, dataSource);
+        super(userPersistor, request, response, BasicAuthentication.MAIN_SITE, dataSource);
     }
 
 }
