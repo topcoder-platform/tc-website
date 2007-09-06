@@ -62,7 +62,7 @@ public class BasicAuthentication implements WebAuthentication {
     //sessions only live within a web app, but we really want to be able to keep
     //them logged in across web apps.
     private static final String BIG_SESSION_KEY = "tcsso";
-    private static final int SSO_TIMEOUT_SECONDS = 60 * 31;
+    private static final int SSO_TIMEOUT_SECONDS = 60 * 30;
     private static final String LOGGED_OUT = "logout";
 
     //cache this because it's expensive to generate
@@ -82,9 +82,11 @@ public class BasicAuthentication implements WebAuthentication {
         this.persistor = userPersistor;
         this.request = request;
         this.response = response;
+/*
         if (log.isDebugEnabled()) {
             log.debug(cookieList());
         }
+*/
     }
 
     /**
@@ -102,9 +104,11 @@ public class BasicAuthentication implements WebAuthentication {
         this.request = request;
         this.response = response;
         this.defaultCookiePath = r;
+/*
         if (log.isDebugEnabled()) {
             log.debug(cookieList());
         }
+*/
     }
 
     /**
@@ -123,9 +127,11 @@ public class BasicAuthentication implements WebAuthentication {
         this.request = request;
         this.response = response;
         this.dataSource = dataSource;
+/*
         if (log.isDebugEnabled()) {
             log.debug(cookieList());
         }
+*/
     }
 
     /**
@@ -145,9 +151,11 @@ public class BasicAuthentication implements WebAuthentication {
         this.response = response;
         this.defaultCookiePath = r;
         this.dataSource = dataSource;
+/*
         if (log.isDebugEnabled()) {
             log.debug(cookieList());
         }
+*/
     }
 
     /**
