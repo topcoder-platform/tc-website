@@ -51,7 +51,7 @@
 <%-- Left Column Begins--%>
         <td width="180" id="onLeft">
             <jsp:include page="includes/global_left.jsp">
-                <jsp:param name="node" value="<%=myNode%>"/>
+                <jsp:param name="node" value="m_long_contests"/>
             </jsp:include>
         </td>
 <%-- Left Column Ends --%>
@@ -71,7 +71,7 @@
 
             <span class="bigHandle">Contest: <mm:contestLink roundId="${infoRow.map['round_id']}" name="${infoRow.map['display_name']}" /></span><br />                
             <span class="bodySubtitle">Problem: ${infoRow.map['class_name']}</span><br />
-<br />
+            <br />
             <div>
                 <tc-webtag:problemStatement problem="<%=(Problem)request.getAttribute(Constants.PROBLEM_STATEMENT_KEY)%>" language="<%=((Language)request.getAttribute(Constants.LANGUAGE_ID)).getName()%>"/>
             </div>
