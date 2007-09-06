@@ -82,7 +82,9 @@ public class BasicAuthentication implements WebAuthentication {
         this.persistor = userPersistor;
         this.request = request;
         this.response = response;
-        log.debug("cookie path: " + defaultCookiePath.getName());
+        if (log.isDebugEnabled()) {
+            log.debug(cookieList());
+        }
     }
 
     /**
@@ -100,6 +102,9 @@ public class BasicAuthentication implements WebAuthentication {
         this.request = request;
         this.response = response;
         this.defaultCookiePath = r;
+        if (log.isDebugEnabled()) {
+            log.debug(cookieList());
+        }
     }
 
     /**
@@ -118,7 +123,9 @@ public class BasicAuthentication implements WebAuthentication {
         this.request = request;
         this.response = response;
         this.dataSource = dataSource;
-        log.debug("cookie path: " + defaultCookiePath.getName());
+        if (log.isDebugEnabled()) {
+            log.debug(cookieList());
+        }
     }
 
     /**
@@ -138,6 +145,9 @@ public class BasicAuthentication implements WebAuthentication {
         this.response = response;
         this.defaultCookiePath = r;
         this.dataSource = dataSource;
+        if (log.isDebugEnabled()) {
+            log.debug(cookieList());
+        }
     }
 
     /**
@@ -414,9 +424,11 @@ public class BasicAuthentication implements WebAuthentication {
     public User checkCookie() {
         //log.debug("checkCookie called...");
         Cookie[] ca = request.getCookies();
+/*
         if (log.isDebugEnabled()) {
             log.debug(cookieList());
         }
+*/
         for (int i = 0; ca != null && i < ca.length; i++) {
             //log.debug(ca[i].getName() + " " + ca[i].getValue());
             if (ca[i].getName().equals(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME + "_" + ApplicationServer.ENVIRONMENT)) {
@@ -430,7 +442,7 @@ public class BasicAuthentication implements WebAuthentication {
                     return makeUser(uid);
 
                 } catch (Exception e) {
-                    log.error("exception parsing cookie", e);
+                    log.warn("exception parsing cookie", e);
                     /* junk in the cookie, ignore it */
                 }
             }
@@ -470,9 +482,11 @@ public class BasicAuthentication implements WebAuthentication {
 
     private User checkBigSession() {
         Cookie[] ca = request.getCookies();
+/*
         if (log.isDebugEnabled()) {
             log.debug(cookieList());
         }
+*/
 
         for (int i = 0; ca != null && i < ca.length; i++) {
             //log.debug(ca[i].getName() + " " + ca[i].getValue());
@@ -487,7 +501,7 @@ public class BasicAuthentication implements WebAuthentication {
                     return makeUser(uid);
 
                 } catch (Exception e) {
-                    log.error("exception parsing cookie", e);
+                    log.warn("exception parsing cookie", e);
                     /* junk in the cookie, ignore it */
                 }
             }
