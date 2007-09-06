@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <title>$title - #siteTitle()</title>
+    #standardHeader()
+    $!settingsManager.globalSettings.customHtmlSettings.beforeHeadEnd
+    <link type="text/css" rel="stylesheet" href="/css/tcStyles.css" />
+</head>
+## HTML HEADER ENDS
+
+## HTML BODY BEGINS
+#onLoad()
+$!settingsManager.globalSettings.customHtmlSettings.afterBodyStart
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+    <tr valign="top">
+        <td width="180">
+            $navHelper.renderNavigation($sitemeshPage.getProperty("page.spacekey"))
+        </td>
+        <td width="100%" align="left" class="bodyColumn">
+
+#set ($username = $sitemeshPage.getProperty("page.username"))
+#set ($spaceKey = $sitemeshPage.getProperty("page.spacekey"))
+
+#displayGlobalMessages($spaceKey $username)
+
+## CONTENT DIV BEGINS
+
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+        ## LOCATION BAR: (BREADCRUMBS AND SEARCH BOX) BEGIN
+        <tr class="topBar">
+            <td align="left">
+                &nbsp;
+                <span class="topBarDiv"> #breadcrumbs() </span>
+            </td>
+
+            <td align="right" valign="middle" style="white-space:nowrap">
+                #quickSearch()
+            </td>
+        </tr>
+        ## LOCATION BAR: (BREADCRUMBS AND SEARCH BOX) END
+
+        ## INFO BAR: (LOGO, LOCATION, AND USER/GROUP OPTIONs) BEGIN
+        <tr>
+            <td style="padding: 5px" colspan="2">
+            <table style="padding: 0px; margin: 0px 5px; width: 100%;" cellspacing="0" cellpadding="1" border="0">
+                <tr>
+                    #if ($sitemeshPage.getProperty("page.username"))
+                        #set ($tildeUsername = "~$username")
+                    <td rowspan="2" valign="bottom" width="1%">#logoBlock($tildeUsername)</td>
+                    #else
+                    <td rowspan="2" valign="bottom" width="1%">#logoBlock($spaceKey)</td>
+                    #end
+                    <td valign="bottom" align="left" width="1%" nowrap>&nbsp;
+                        <span class="logoSpaceLink">#spaceTitleLink()</span>
+                    </td>
+                    <td align="right" valign="top" width="98%">
+                        ## history, profile, admin, logout links
+                        #usernavbar()
+                        
+                        #printableicon()
+                        #if (!$sitemeshPage.getProperty("page.suppressPdfLink"))
+                            #pdficon()
+                        #end
+                        #feedicon()
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td height="22" align="left" colspan="2">&nbsp;
+                        <span class="pagetitle" style="line-height: 1; margin: 0px; text-decoration: none">
+                            #pageTitleLink()
+                        </span>
+                    </td>
+                </tr>
+            </table>
+            </td>
+        </tr>
+        ## INFO BAR: (LOGO, LOCATION, AND USER/GROUP OPTIONs) END
+    </table>
+
+    ## PAGE DEPENDENT INLINE DECORATOR RENDERING SHOULD BEGIN HERE
+    $body
+
+    ## PAGE DEPENDENT INLINE DECORATOR RENDERING SHOULD END HERE
+
+## CONTENT DIV ENDS
+
+        </td>
+    </tr>
+</tbody>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+    <tr>
+        <td width="100%" class="footer">
+            <a href="http://www.topcoder.com/" class="footerLinks">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=index" class="footerLinks">About TopCoder</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index" class="footerLinks">Press Room</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=contactus" class="footerLinks">Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=privacy" class="footerLinks">Privacy</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=terms" class="footerLinks">Terms</a>
+            <br />
+            <a href="http://www.topcoder.com/tc" class="footerLinks">Developer Center</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://www.topcoder.com/corp/?module=Static&amp;d1=corp&amp;d2=index" class="footerLinks">Corporate Services</a>
+        </td>
+    </tr>
+    <tr><td width="100%" class="copyright">Copyright &#169; 2001-2007, TopCoder, Inc. All rights reserved.</td></tr>
+</tbody>
+</table>
+
+## THIS IS CONFLUENCE'S FOOTER
+## parse ("/decorators/includes/footer.vmd")
+
+</body>
+</html>
