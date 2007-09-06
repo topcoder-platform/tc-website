@@ -175,7 +175,7 @@ public class BasicAuthentication implements WebAuthentication {
 
             Cookie c = new Cookie(LOGGED_OUT+"_"+ ApplicationServer.ENVIRONMENT,String.valueOf(false));
             c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
-            c.setDomain("topcoder.com");
+            c.setDomain(".topcoder.com");
             c.setPath("/");
             response.addCookie(c);
 
@@ -201,7 +201,7 @@ public class BasicAuthentication implements WebAuthentication {
 
         Cookie c = new Cookie(LOGGED_OUT+"_"+ ApplicationServer.ENVIRONMENT,String.valueOf(true));
         c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
-        c.setDomain("topcoder.com");
+        c.setDomain(".topcoder.com");
         c.setPath("/");
         response.addCookie(c);
 
@@ -387,7 +387,7 @@ public class BasicAuthentication implements WebAuthentication {
             String hash = hashForUser(uid);
             Cookie c = new Cookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME+"_"+ ApplicationServer.ENVIRONMENT, uid + "|" + hash);
             c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
-            c.setDomain("topcoder.com");
+            c.setDomain(".topcoder.com");
             c.setPath("/");
             //log.debug("setcookie: " + c.getName() + " " + c.getValue());
             response.addCookie(c);
@@ -403,7 +403,7 @@ public class BasicAuthentication implements WebAuthentication {
     private void clearCookie() {
         Cookie c = new Cookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME+"_"+ ApplicationServer.ENVIRONMENT, "");
         c.setMaxAge(0);
-        c.setDomain("topcoder.com");
+        c.setDomain(".topcoder.com");
         c.setPath("/");
         response.addCookie(c);
     }
@@ -449,7 +449,7 @@ public class BasicAuthentication implements WebAuthentication {
         String hash = hashForUser(uid);
         Cookie c = new Cookie(BIG_SESSION_KEY+"_"+ ApplicationServer.ENVIRONMENT, uid + "|" + hash);
         c.setMaxAge(SSO_TIMEOUT_SECONDS);
-        c.setDomain("topcoder.com");
+        c.setDomain(".topcoder.com");
         c.setPath("/");
         response.addCookie(c);
     }
@@ -460,7 +460,7 @@ public class BasicAuthentication implements WebAuthentication {
      private void clearBigCookie() {
          Cookie c = new Cookie(BIG_SESSION_KEY+"_"+ ApplicationServer.ENVIRONMENT, "");
          c.setMaxAge(0);
-         c.setDomain("topcoder.com");
+         c.setDomain(".topcoder.com");
          c.setPath("/");
          response.addCookie(c);
      }
