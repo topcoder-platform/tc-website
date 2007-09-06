@@ -8,9 +8,9 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 
 /**
  * This class models a Payment Status reason.
- * 
+ *
  * VERY IMPORTANT: remember to update serialVersionUID if needed
- * 
+ *
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
@@ -18,13 +18,14 @@ public class PaymentStatusReason implements java.io.Serializable {
 
     /**
      * Please change that number if you affect the fields in a way that will affect the
-     * serialization for this object. 
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
 
     /**
-     * Enum for all the possible predefined status reasons 
-     * 
+     * Enum for all the possible predefined status reasons
+     *
      * @author Pablo Wolfus (pulky)
      * @version $Id$
      */
@@ -37,42 +38,42 @@ public class PaymentStatusReason implements java.io.Serializable {
         EXPIRED_IP_TRANSFER_REASON (new PaymentStatusReason(51l, "Expired assignment document")),
         ACCOUNT_STATUS_REASON (new PaymentStatusReason(52l, "Account status")),
         ATTACHED_TO_PARENT_REASON (new PaymentStatusReason(100l, "Attached to parent"));
-        
+
         /**
          * The PaymentStatusReason attached to the enum element
          */
         private PaymentStatusReason paymentStatusReason;
-         
+
         /**
          * Enums elements constructor
-         * 
+         *
          * @param paymentStatusReason the attached payment status reason object
          */
         AvailableStatusReason(PaymentStatusReason paymentStatusReason) {
             this.paymentStatusReason = paymentStatusReason;
         }
-        
+
         /**
          * Payment status reason object getter
-         * 
+         *
          * @return the Payment status reason object
          */
         public PaymentStatusReason getStatusReason() {
             return paymentStatusReason;
         }
     }
-    
+
     /**
      * Gets the corresponding payment status reason object using the specified id
-     * 
-     * @param statusReasonId the id of the payment status reason to retrieve 
-     * @return the requested payment status reason object 
+     *
+     * @param statusReasonId the id of the payment status reason to retrieve
+     * @return the requested payment status reason object
      * @throws InvalidStatusReasonException if the status is invalid.
      */
     public static PaymentStatusReason getStatusReasonUsingId(Long statusReasonId) throws InvalidStatusReasonException {
         for (AvailableStatusReason availableStatusReason : AvailableStatusReason.values()) {
             if (availableStatusReason.getStatusReason().getId().equals(statusReasonId)) {
-                return availableStatusReason.getStatusReason(); 
+                return availableStatusReason.getStatusReason();
             }
         }
         throw new InvalidStatusReasonException();
@@ -80,31 +81,31 @@ public class PaymentStatusReason implements java.io.Serializable {
 
     /**
      * Retrieve all possible payment's status reasons
-     * 
+     *
      * @return a list of PaymentStatusReason with all the possible payment status reasons
      */
     public static List<PaymentStatusReason> getAllStatusReasonList() {
-        List statusReasonList = new ArrayList<PaymentStatusReason>(); 
+        List statusReasonList = new ArrayList<PaymentStatusReason>();
 
         for (AvailableStatusReason availableStatusReason : AvailableStatusReason.values()) {
             statusReasonList.add(availableStatusReason.getStatusReason());
         }
-        return statusReasonList;            
+        return statusReasonList;
     }
 
     /**
-     * The Payment status reason id 
+     * The Payment status reason id
      */
     private Long id;
-    
+
     /**
-     * The Payment status reason description 
+     * The Payment status reason description
      */
     private String desc;
 
     /**
      * Default constructor
-     * 
+     *
      * @param id the id of the payment status reason
      * @param desc the description of the payment status reason
      */
@@ -112,19 +113,19 @@ public class PaymentStatusReason implements java.io.Serializable {
         this.id = id;
         this.desc = desc;
     }
-    
+
     /**
      * Description getter
-     * 
+     *
      * @return the description of the payment status reason
      */
     public String getDesc() {
         return desc;
     }
-    
+
     /**
      * ID getter
-     * 
+     *
      * @return the id of the payment status reason
      */
     public Long getId() {

@@ -11,10 +11,10 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 
 /**
- * This class represents a Owed status for payments. 
+ * This class represents a Owed status for payments.
  *
  * VERY IMPORTANT: remember to update serialVersionUID if needed
- * 
+ *
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
@@ -22,7 +22,8 @@ public class OwedPaymentStatus extends BasePaymentStatus {
 
     /**
      * Please change that number if you affect the fields in a way that will affect the
-     * serialization for this object. 
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
 
@@ -37,7 +38,7 @@ public class OwedPaymentStatus extends BasePaymentStatus {
     public static final Long ID = 56l;
 
     /**
-     * Default constructor   
+     * Default constructor
      */
     public OwedPaymentStatus() {
         super();
@@ -57,11 +58,11 @@ public class OwedPaymentStatus extends BasePaymentStatus {
     @Override
     public void paymentUpdated(BasePayment oldPayment, BasePayment newPayment) throws StateTransitionFailureException {
         log.debug("paymentUpdated called for payment: " + oldPayment.getId());
-        
+
         // if charity changed:
         if (oldPayment.isCharity() != newPayment.isCharity()) {
             if (newPayment.isCharity()) {
-                // the payment was moved to charity but we are in owed status, so nothing should be done. 
+                // the payment was moved to charity but we are in owed status, so nothing should be done.
             } else {
                 // the payment was moved to non-charity so we need to move it to the correct state.
                 // move it to owed and activate it.
@@ -121,6 +122,6 @@ public class OwedPaymentStatus extends BasePaymentStatus {
         BasePaymentStatus newPaymentStatus = new OwedPaymentStatus();
         newPaymentStatus.setDesc(this.desc);
         newPaymentStatus.setActive(this.active);
-        return newPaymentStatus;  
+        return newPaymentStatus;
     }
 }

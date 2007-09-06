@@ -19,12 +19,14 @@ import com.topcoder.shared.docGen.xml.XMLDocument;
  * @author pulky
  */
 public class AssignmentDocumentTemplate implements Serializable, Cloneable {
+
     /**
      * Please change that number if you affect the fields in a way that will affect the
-     * serialization for this object. 
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
-    
+
     private Long id;
     private String text;
 
@@ -64,7 +66,7 @@ public class AssignmentDocumentTemplate implements Serializable, Cloneable {
     }
 
     public String transformTemplate(AssignmentDocument ad, XMLDocument tc) {
-        try {    
+        try {
             TransformerFactory tFactory = TransformerFactory.newInstance();
             StringReader xmlIn = new StringReader(tc.getXML(false));
             StringReader xslIn = new StringReader(text);
@@ -75,12 +77,12 @@ public class AssignmentDocumentTemplate implements Serializable, Cloneable {
             // Perform the transformation, sending the output to the response.
             StringWriter res = new StringWriter();
             transformer.transform(xmlSource, new StreamResult(res));
-    
+
             return res.toString();
         } catch (Exception e) {
             e.printStackTrace();
         }
-    
+
         return null;
 
     }

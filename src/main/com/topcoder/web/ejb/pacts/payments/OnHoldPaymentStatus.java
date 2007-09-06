@@ -26,10 +26,10 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
- * This class represents a On Hold status for payments. 
+ * This class represents a On Hold status for payments.
  *
  * VERY IMPORTANT: remember to update serialVersionUID if needed
- * 
+ *
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
@@ -37,7 +37,8 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
 
     /**
      * Please change that number if you affect the fields in a way that will affect the
-     * serialization for this object. 
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
 
@@ -52,7 +53,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     public static final Long ID = 55l;
 
     /**
-     * Default constructor   
+     * Default constructor
      */
     public OnHoldPaymentStatus() {
         super();
@@ -60,8 +61,8 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getId()
      */
     @Override
@@ -76,7 +77,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
      * 3) The payment needs an affirmed affidavit to continue
      * 4) The payment needs an affirmed IP Transfer to continue
      * 5) The payment needs a signed hard copy IP Transfer to continue
-     * 
+     *
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#activate(com.topcoder.web.ejb.pacts.BasePayment)
      */
     @Override
@@ -85,54 +86,54 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
 
         try {
             DataInterfaceBean dib = new DataInterfaceBean();
-   
+
             if (payment instanceof ReliabilityBonusPayment) {
-                log.debug("instanceof ReliabilityBonusPayment");                
-                
+                log.debug("instanceof ReliabilityBonusPayment");
+
                 // if the payment is a reliability it should get the parent's status
                 // until the parent reaches accruing.
-                
+
                 Map criteria = new HashMap();
                 criteria.put(PactsConstants.PAYMENT_ID, String.valueOf(((ParentReferencePayment) payment).getParentId()));
 
                 List<BasePayment> payments = dib.findCoderPayments(criteria);
-                
+
                 // if not exactly one result, throw exception
                 if (payments.size() != 1) {
                     throw new StateTransitionFailureException("Not exactly one result found for payment: " + payment.getId());
                 }
-                
+
                 BasePayment parentPayment = payments.get(0);
-                
+
                 log.debug("Parent: " + parentPayment.getId() + " - " + parentPayment.getDescription());
                 log.debug("Parent status: " + parentPayment.getCurrentStatus().getDesc());
-                
+
                 if (parentPayment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ON_HOLD_PAYMENT_STATUS)) ||
                     parentPayment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
-                    
+
                     // clone the status and returns
                     BasePaymentStatus bps = clone();
                     bps.getReasons().clear();
                     bps.getReasons().add(AvailableStatusReason.ATTACHED_TO_PARENT_REASON.getStatusReason());
                     payment.setCurrentStatus(bps);
-                    
+
                     return;
                 }
             }
-            
+
             // charity payments don't need checks
             log.debug("Payment charity: " + payment.isCharity());
-            if (!payment.isCharity() && payment.getPaymentType() != BasePayment.CHARITY_PAYMENT) { 
+            if (!payment.isCharity() && payment.getPaymentType() != BasePayment.CHARITY_PAYMENT) {
                 // check for tax form (every payment type)
                  checkUserTaxForm(payment, dib);
-    
+
                  // check for affirmed affidavit (alg contests, alg tournaments, marathon matrches)
                  checkAffirmedAffidavit(payment);
-    
+
                  // check for affirmed IP document (component contests, studio contests)
                  checkAffirmedIPTransferDocument(payment, dib);
             }
-            
+
             nextState(payment);
         } catch (Exception e) {
             throw new StateTransitionFailureException(e);
@@ -145,13 +146,13 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     @Override
     public void paymentUpdated(BasePayment oldPayment, BasePayment newPayment) throws StateTransitionFailureException {
         log.debug("paymentUpdated called for payment: " + oldPayment.getId());
-        
+
         // if charity changed:
         if (oldPayment.isCharity() != newPayment.isCharity()) {
             if (newPayment.isCharity()) {
                 // the payment was moved to charity, it shouldn't have any restrictions
                 reasons.clear();
-                nextState(newPayment);                
+                nextState(newPayment);
             } else {
                 // shouldn't happen
             }
@@ -293,12 +294,12 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
         BasePaymentStatus newPaymentStatus = new OnHoldPaymentStatus();
         newPaymentStatus.setDesc(this.desc);
         newPaymentStatus.setActive(this.active);
-        return newPaymentStatus;  
+        return newPaymentStatus;
     }
-    
+
     /**
      * Private helper method to check if the payment should stay on hold due to missing affirmed IP Transfer
-     * 
+     *
      * @param payment the payment to check for
      * @param dib pacts services provider
      * @throws RemoteException
@@ -315,7 +316,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
                      reasons.add(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason());
                  }
              }
-      
+
              if (payment.getPaymentType() == BasePayment.TC_STUDIO_PAYMENT) {
                  if (!dib.hasAffirmedAssignmentDocument(payment.getPaymentType(), payment.getCoderId(), ((StudioContestPayment) payment).getContestId())) {
                      reasons.add(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason());
@@ -331,7 +332,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
 
     /**
      * Private helper method to check if the payment should stay on hold due to missing affirmed affidavit
-     * 
+     *
      * @param payment the payment to check for
      */
     private void checkAffirmedAffidavit(BasePayment payment) throws Exception {
@@ -340,16 +341,16 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
             payment.getPaymentType() == BasePayment.HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT ||
             payment.getPaymentType() == BasePayment.MARATHON_MATCH_PAYMENT ||
             payment.getPaymentType() == BasePayment.MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT) {
-            
+
             DataInterfaceBean dib = new DataInterfaceBean();
-        
+
             Map criteria = new HashMap();
             criteria.put(PactsConstants.USER_ID, String.valueOf(payment.getCoderId()));
             criteria.put(PactsConstants.ROUND_ID, String.valueOf(((AlgorithmRoundReferencePayment)payment).getRoundId()));
             criteria.put(PactsConstants.IS_AFFIRMED, "true");
-        
+
             Map affirmedAffidavit = dib.findAffidavits(criteria);
-            
+
             if (((ResultSetContainer) affirmedAffidavit.get(PactsConstants.AFFIDAVIT_HEADER_LIST)).size() <= 0) {
                 reasons.add(AvailableStatusReason.NO_AFFIRMED_AFFIDAVIT_REASON.getStatusReason());
             }
@@ -358,7 +359,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
 
     /**
      * Private helper method to check if the payment should stay on hold due to missing tax form
-     * 
+     *
      * @param payment the payment to check for
      * @param dib pacts services provider
      * @throws RemoteException

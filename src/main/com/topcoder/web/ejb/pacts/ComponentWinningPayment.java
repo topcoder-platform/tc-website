@@ -6,7 +6,7 @@ import java.sql.SQLException;
  * Payment for a component winning.
  *
  * VERY IMPORTANT: remember to update serialVersionUID if needed
- * 
+ *
  * @author cucu
  *
  */
@@ -14,7 +14,8 @@ public class ComponentWinningPayment extends ComponentProjectReferencePayment {
 
     /**
      * Please change that number if you affect the fields in a way that will affect the
-     * serialization for this object. 
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
 
@@ -94,11 +95,11 @@ public class ComponentWinningPayment extends ComponentProjectReferencePayment {
             ComponentProjectReferencePayment p = (ComponentProjectReferencePayment) payment;
 
             String type = getProjectType(p.getProjectId());
-            
+
             if (p.getInstallmentNumber() == 2 && "Design".equals(type)) {
-            	return getComponentName(p.getProjectId()) + " - Development Support";            	
+                return getComponentName(p.getProjectId()) + " - Development Support";
             } else {
-            	return getComponentName(p.getProjectId()) + " - " + type + ", " + getOrdinal(p.getPlaced());
+                return getComponentName(p.getProjectId()) + " - " + type + ", " + getOrdinal(p.getPlaced());
             }
 
         }

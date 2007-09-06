@@ -32,13 +32,14 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
  * VERY IMPORTANT: remember to update serialVersionUID if needed
  */
 public class PaymentHeader implements PactsConstants, java.io.Serializable {
-    
+
     /**
      * Please change that number if you affect the fields in a way that will affect the
-     * serialization for this object. 
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
-    
+
     private static Logger log = Logger.getLogger(PaymentHeader.class);
 
 /*  Explanation of Members
@@ -74,7 +75,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private long digitalRunStageId;
     private long digitalRunSeasonId;
     private long parentPaymentId;
-    
+
     private String modifyDate;
     private String createDate;
 
@@ -366,7 +367,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     }
     public long getReferenceId() {
         switch(BasePayment.getReferenceTypeId(typeId)) {
-        case REFERENCE_ALGORITHM_ROUND_ID : return algorithmRoundId; 
+        case REFERENCE_ALGORITHM_ROUND_ID : return algorithmRoundId;
         case REFERENCE_COMPONENT_PROJECT_ID : return componentProjectId;
         case REFERENCE_ALGORITHM_PROBLEM_ID : return algorithmProblemId;
         case REFERENCE_STUDIO_CONTEST_ID : return studioContestId;
@@ -378,21 +379,21 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         return 0;
     }
 
-	public String getCreateDate() {
-		return createDate;
-	}
+    public String getCreateDate() {
+        return createDate;
+    }
 
-	public void setCreateDate(String createDate) {
-		this.createDate = createDate;
-	}
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
 
-	public String getModifyDate() {
-		return modifyDate;
-	}
+    public String getModifyDate() {
+        return modifyDate;
+    }
 
-	public void setModifyDate(String modifyDate) {
-		this.modifyDate = modifyDate;
-	}
-    
+    public void setModifyDate(String modifyDate) {
+        this.modifyDate = modifyDate;
+    }
+
 
 }

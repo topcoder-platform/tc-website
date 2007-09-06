@@ -25,7 +25,8 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
 
     /**
      * Please change that number if you affect the fields in a way that will affect the
-     * serialization for this object. 
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
 
@@ -38,9 +39,9 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
      * The payment status id
      */
     public static final Long ID = 71l;
-    
+
     /**
-     * Default constructor   
+     * Default constructor
      */
     public AccruingPaymentStatus() {
         super();
@@ -57,8 +58,8 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     /**
      * This method checks for the accrual amount and decide wether to stay in this state or move to the next:
      * - If the user has requested his winnings to be accrued, the payments will move to owed when the accrual threshold is reached
-     * - When the threshold is reached, all the rest of the accruing payments must be notified. 
-     * 
+     * - When the threshold is reached, all the rest of the accruing payments must be notified.
+     *
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#activate(com.topcoder.web.ejb.pacts.BasePayment)
      */
     @Override
@@ -69,31 +70,31 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
         DataInterfaceBean dib = new DataInterfaceBean();
         try {
             // check the user's accrual threshold
-            
+
             double accrualThreshold = 0;
-            
+
             // charity payments don't need checks
-            if (!payment.isCharity() && payment.getPaymentType() != BasePayment.CHARITY_PAYMENT) { 
+            if (!payment.isCharity() && payment.getPaymentType() != BasePayment.CHARITY_PAYMENT) {
                 dib.getUserAccrualThreshold(payment.getCoderId());
-                log.debug("accrualThreshold: " + accrualThreshold);            
+                log.debug("accrualThreshold: " + accrualThreshold);
             }
-            
+
             if (accrualThreshold > 0) {
                 // check total amount for currently accruing payments for this user
                 double totalAmount = dib.getUserAccruingPaymentsTotal(payment.getCoderId());
                 log.debug("totalAmount: " + totalAmount);
                 log.debug("payment.getNetAmount(): " + payment.getNetAmount());
-                
+
                 if (totalAmount + payment.getNetAmount() >= accrualThreshold) {
                     // we have reached the amount, notify all accrual payments and move to the next status
                     log.debug("need to notify all accruing payments");
                     Map criteria = new HashMap();
                     criteria.put(PactsConstants.USER_ID, String.valueOf(payment.getCoderId()));
                     criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()));
-        
+
                     List<BasePayment> payments = dib.findCoderPayments(criteria);
                     log.debug("need to notify " + payments.size() + " payments");
-                    
+
                     // notify the status manager and update each payment
                     for (BasePayment notifyPayment : payments) {
                         notifyPayment.getCurrentStatus().accrualThresholdReached(notifyPayment);
@@ -110,7 +111,7 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
             e.printStackTrace();
             throw new StateTransitionFailureException(e);
         }
-        
+
     }
 
     /**
@@ -119,13 +120,13 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     @Override
     public void paymentUpdated(BasePayment oldPayment, BasePayment newPayment) throws StateTransitionFailureException {
         log.debug("paymentUpdated called for payment: " + oldPayment.getId());
-        
+
         // if charity changed:
         if (oldPayment.isCharity() != newPayment.isCharity()) {
             if (newPayment.isCharity()) {
                 // the payment was moved to charity, it shouldn't have any restrictions
                 reasons.clear();
-                nextState(newPayment);                
+                nextState(newPayment);
             } else {
                 // shouldn't happen
             }
@@ -140,16 +141,16 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
         payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS));
         payment.getCurrentStatus().parentCancelled(payment);
     }
-    
+
     /**
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#accrualThresholdReached(com.topcoder.web.ejb.pacts.BasePayment)
      */
     @Override
     public void accrualThresholdReached(BasePayment payment) throws StateTransitionFailureException {
         nextState(payment);
-        
-    }   
-    
+
+    }
+
     /**
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#nextState(com.topcoder.web.ejb.pacts.BasePayment)
      */
@@ -159,7 +160,7 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
         payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS));
         payment.getCurrentStatus().activate(payment);
     }
-    
+
     /**
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#delete(com.topcoder.web.ejb.pacts.BasePayment)
      */
@@ -191,6 +192,6 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
         BasePaymentStatus newPaymentStatus = new AccruingPaymentStatus();
         newPaymentStatus.setDesc(this.desc);
         newPaymentStatus.setActive(this.active);
-        return newPaymentStatus;  
+        return newPaymentStatus;
     }
 }
