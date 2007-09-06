@@ -345,7 +345,10 @@
             </webinf>
             <lib dir="${jars.dir}">
                 <include name="object_formatter.jar"/>
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
             </lib>
+           
         </war>
         <antcall target="explode-forums"/>
     </target>
