@@ -5,21 +5,22 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-
 <jsp:useBean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <a name="jump"></a>
 
 <% ResultSetContainer results = memberSearch.getResults(); %>
-          <a name="data"></a>
-         Search Results: 
-         <strong><jsp:getProperty name="memberSearch" property="start"/></strong> to 
-         <strong><jsp:getProperty name="memberSearch" property="end"/></strong> of
-         <strong><jsp:getProperty name="memberSearch" property="total"/></strong><br />
+<div class="pagingBox">
+    Search Results: 
+    <strong><jsp:getProperty name="memberSearch" property="start"/></strong> to 
+    <strong><jsp:getProperty name="memberSearch" property="end"/></strong> of
+    <strong><jsp:getProperty name="memberSearch" property="total"/></strong><br />
+    <%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+    | <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+</div>
 
-<div align="center" style="padding:5px 0px 5px 0px;">
+<div align="left">
     <strong>Sort by: 
     <a style="text-decoration:none;" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("lower_handle") %>" includeParams="true" excludeParams="sr" />#jump">Handle</a> | 
     <a style="text-decoration:none;" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("state_code") %>" includeParams="true" excludeParams="sr" />#jump">State</a> | 
@@ -27,6 +28,7 @@
     <a style="text-decoration:none;" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("country_name") %>" includeParams="true" excludeParams="sr" />#jump">Country</a>
     </strong>
 </div>
+<div style="clear:both;">
 <table cellspacing="0" cellpadding="0" class="stat" width="100%">
 <tbody>
     <tr>
@@ -159,7 +161,8 @@
    </rsc:iterator>
    
 </table>
+</div>
 <div class="pagingBox">
-<%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bodyText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-| <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bodyText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+<%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+| <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\">next &gt;&gt;</a>":"next &gt;&gt;")%>
 </div>
