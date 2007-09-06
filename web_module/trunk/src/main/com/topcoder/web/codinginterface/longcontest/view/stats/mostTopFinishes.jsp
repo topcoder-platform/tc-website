@@ -28,7 +28,7 @@
     <tr>
         <td class="headerC">Rank</td>
         <td class="header" width="100%">Coder</td>
-        <td class="headerC">Wins</td>
+        <td class="headerC">Top ${mp} Finishes</td>
     </tr>
 </thead>
 <tbody>
