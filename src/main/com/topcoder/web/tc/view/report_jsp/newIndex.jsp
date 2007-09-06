@@ -136,15 +136,19 @@ Payment Reports
 <br/>
 Submission Reports
 <UL>
+<%--
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=SubmissionsByMonthByPhase&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Submissions
             by Month and Phase</A></LI>
+--%>
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=ScoresBySubmitters&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Scores
             by Submitter - Last 6 Months</A></LI>
+<%--
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=AverageCompTime&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Average
             Time by Phase</A></LI>
+--%>
 
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=repeat_phases&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Repeat
