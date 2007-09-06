@@ -56,28 +56,43 @@
         <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_dev_competed") %>" includeParams="true" excludeParams="sr" />">Last Event</td>
         
         <%-- TCHS --%>
-        <td class="headerC" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("sort_hs_rating") %>" includeParams="true" excludeParams="sr" />">Rating</a></td>
+        <td class="headerC" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("hs_rating") %>" includeParams="true" excludeParams="sr" />">Rating</a></td>
         <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_hs_ratings") %>" includeParams="true" excludeParams="sr" />"># Ratings</a></td>
         <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_hs_competed") %>" includeParams="true" excludeParams="sr" />">Last Event</td>
         
         <%-- Marathon Match --%>
-        <td class="headerC" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("sort_mm_rating") %>" includeParams="true" excludeParams="sr" />">Rating</a></td>
+        <td class="headerC" style="border-left:solid 1px #ffffff;"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("mm_rating") %>" includeParams="true" excludeParams="sr" />">Rating</a></td>
         <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_mm_ratings") %>" includeParams="true" excludeParams="sr" />"># Ratings</a></td>
         <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_mm_competed") %>" includeParams="true" excludeParams="sr" />">Last Event</td>
     </tr>
    
     <%boolean even = false;%>
     <rsc:iterator list="<%=results%>" id="resultRow">
+    <c:set var="rr" value="<%= resultRow %>" />
     <tr class="<%=even?"dark":"light"%>">
         <td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' /><br />
-            <rsc:item row="<%=resultRow%>" name="school_name" ifNull="N/A"/><br />
-            <rsc:item row="<%=resultRow%>" name="country_name"/><br />
-            <rsc:item row="<%=resultRow%>" name="state_code"/></td>
+            <c:if test="${not empty rr.map['school_name'] }">
+                <rsc:item row="<%=resultRow%>" name="school_name"/><br/>
+            </c:if>
+            <c:if test="${not empty rr.map['state_code'] }">
+                <rsc:item row="<%=resultRow%>" name="state_code"/>,  
+            </c:if>
+            <rsc:item row="<%=resultRow%>" name="country_name"/>
+            </td>
         
         <%-- Algorithm --%>
-        <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="rating" format="#" ifNull="unrated"/></td>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_ratings"/></td>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+        <c:choose>
+        <c:when test="${not empty rr.map['rating'] and (rr.map['rating']  > 0)}">
+            <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="rating" format="#" ifNull="unrated"/></td>
+            <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_ratings"/></td>
+            <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+        </c:when>
+        <c:otherwise>
+            <td class="valueC" colspan="3">
+                unrated
+            </td> 
+        </c:otherwise>
+        </c:choose>
         
         <%-- Design --%>
         <td class="valueC" style="border-left:solid 1px #ffffff;"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="unrated"/></td>
