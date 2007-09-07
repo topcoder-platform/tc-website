@@ -70,13 +70,13 @@
     </tr>
     <%boolean even = true;%>
     <rsc:iterator list="<%=results%>" id="resultRow">
-        <TR class="<%=even?"light":"dark"%>">
+        <tr class="<%=even?"light":"dark"%>">
             <td class="value"><a href="/longcontest/stats/?module=ViewOverview&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>">
                     <%= com.topcoder.web.codinginterface.longcontest.Helper.displayName(
                             resultRow.getIntItem("round_type_id"), resultRow.getStringItem("contest_name"), resultRow.getStringItem("round_name"))
                              %>                                        
                 </a>
-            </TD>
+            </td>
             <td class="valueR"><rsc:item row="<%=resultRow%>" name="placed"/></TD>
             <td class="valueR"><rsc:item row="<%=resultRow%>" name="point_total" format="0.00"/></TD>
             <td class="valueR"><rsc:item row="<%=resultRow%>" name="system_point_total" format="0.00"/></TD>
@@ -84,7 +84,7 @@
             <td class="valueR"><rsc:item row="<%=resultRow%>" name="new_vol" /></TD>
             <td class="valueR">
                 <a href="/longcontest/stats/?module=ViewSystemTestResults&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>">Results</a>
-            </TD>
+            </td>
         </tr>
     <%even=!even;%>
     </rsc:iterator>
