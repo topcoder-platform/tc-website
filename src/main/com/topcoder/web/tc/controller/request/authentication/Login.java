@@ -88,36 +88,8 @@ public class Login extends Base {
                                 if (log.isDebugEnabled()) {
                                     log.debug("user active");
                                 }
-/*
-                                String forumsURL = "http://" + ApplicationServer.FORUMS_SERVER_NAME;
-*/
-
                                 String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
-                                //todo make this https
-/*
-                                SiteTest siteTest = new SiteTest();
-                                boolean forumsServerActive = siteTest.check(forumsURL);
-                                if (forumsServerActive) {
-                                    dest = StringUtils.replace(StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)), "&", "%26");
-                                    StringBuffer nextPage = new StringBuffer(forumsURL).append("/?module=Login");
-                                    nextPage.append("&").append(USER_ID).append("=").append(sub.getUserId());
-                                    nextPage.append("&").append(USER_NAME).append("=").append(username);
-                                    nextPage.append("&").append(PASSWORD).append("=").append(((BasicAuthentication) getAuthentication()).hashPassword(password));
-                                    if (!rememberUser.equals("")) {
-                                        nextPage.append("&").append(REMEMBER_USER).append("=").append(rememberUser);
-                                    }
-                                    nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
-                                    setNextPage(nextPage.toString());
-                                } else {
-                                    if (dest.startsWith(forumsURL)) {
-                                        dest = "http://" + ApplicationServer.SERVER_NAME + "/tc";
-                                    }
-*/
-                                    setNextPage(dest);
-/*
-                                }
-*/
-
+                                setNextPage(dest);
                                 setIsNextPageInContext(false);
                                 if (log.isDebugEnabled()) {
                                     log.debug("on successful login, going to " + getNextPage());
@@ -152,7 +124,7 @@ public class Login extends Base {
                 } catch (TCWebException e) {
                     throw e;
                 } catch (Exception e) {
-                    throw(new TCWebException(e));
+                    throw (new TCWebException(e));
                 }
             }
 
