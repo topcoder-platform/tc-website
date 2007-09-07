@@ -242,7 +242,7 @@
         </jar>
     </target>
 
-    <target name="package-EJB-UserBean" depends="compile">
+    <target name="package-EJB-UserBean" depends="compile_forums">
         <jar jarfile="${ejb_jars}/User.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/*.class"/>
@@ -250,7 +250,7 @@
         </jar>
     </target>
 
-    <target name="package-EJB-EmailBean" depends="compile">
+    <target name="package-EJB-EmailBean" depends="compile_forums">
         <jar jarfile="${ejb_jars}/Email.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/email/*.class"/>
