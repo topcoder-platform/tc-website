@@ -280,7 +280,7 @@ public class TransactionServlet extends HttpServlet {
                     if (txInfo.isFromEligibleCountry()) {
                         InitialContext ic = null;
                         try {
-                            TCContext.getInitial();
+                            ic = TCContext.getInitial();
                             UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
                             //they must have agreeded to terms, since the purchase is beginning.  should probably be done outside
                             //but then we don't have access to the transaction info object
