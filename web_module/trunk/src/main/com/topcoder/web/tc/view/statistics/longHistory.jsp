@@ -71,7 +71,7 @@
     <%boolean even = true;%>
     <rsc:iterator list="<%=results%>" id="resultRow">
         <TR class="<%=even?"light":"dark"%>">
-            <td class="value"><a href="/longcontest/?module=ViewOverview&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>">
+            <td class="value"><a href="/longcontest/stats/?module=ViewOverview&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>">
                     <%= com.topcoder.web.codinginterface.longcontest.Helper.displayName(
                             resultRow.getIntItem("round_type_id"), resultRow.getStringItem("contest_name"), resultRow.getStringItem("round_name"))
                              %>                                        
