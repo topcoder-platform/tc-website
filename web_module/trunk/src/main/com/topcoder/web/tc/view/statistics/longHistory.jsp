@@ -83,7 +83,7 @@
             <td class="valueR"><rsc:item row="<%=resultRow%>" name="new_rating" /></TD>
             <td class="valueR"><rsc:item row="<%=resultRow%>" name="new_vol" /></TD>
             <td class="valueR">
-                <a href="/longcontest/stats/?module=ViewSystemTestResults&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&cr=<%=resultRow%>" name="coder_id"/>">Results</a>
+                <a href="/longcontest/stats/?module=ViewSystemTestResults&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>">Results</a>
             </TD>
         </tr>
     <%even=!even;%>
