@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="General TopCoder News" border="0" /><br>09.07.07<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description">TCCC07 Blog Contest now open</A></span><br><br>
+        We're looking for two bloggers who can convey the behind-the-scenes experience of attending an onsite tournament. Show us your creativity, and you could win a trip to the TCCC at Walt Disney World.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description">details</a> | 
+        <tc-webtag:forumLink forumID="517257" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>09.06.07<br>3:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -163,18 +176,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</A> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>08.28.07<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='http://csf.topcoder.com/?module=Static&d1=assembly&d2=btWorkspaceDetails' refer='/tc'/>">BT Workspace Mashup Assembly Competition now open</A></span><br><br>
-        British Telecom &amp; Microsoft, in association with TopCoder, have launched the Workspace Mashup Assembly Competition. A total of $12,250 in prize money will be awarded to the top three mashup assembly submissions.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='http://csf.topcoder.com/?module=Static&d1=assembly&d2=btWorkspaceDetails' refer='/tc'/>">details</A> | 
-        <a href="http://csf.topcoder.com/forums?module=ThreadList&forumID=11">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
