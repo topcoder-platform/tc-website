@@ -73,7 +73,7 @@
         <TR class="<%=even?"light":"dark"%>">
             <td class="value"><a href="/longcontest/?module=ViewOverview&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>">
                     <%= com.topcoder.web.codinginterface.longcontest.Helper.displayName(
-                            resultRow.getIntItem("round_type_id"), resultRow.getStringItem("contest_name"), resultRow.getStringItem("round_name"));
+                            resultRow.getIntItem("round_type_id"), resultRow.getStringItem("contest_name"), resultRow.getStringItem("round_name"))
                              %>                                        
                 </a>
             </TD>
