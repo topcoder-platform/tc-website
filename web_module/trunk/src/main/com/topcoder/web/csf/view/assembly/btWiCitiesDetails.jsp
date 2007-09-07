@@ -43,6 +43,7 @@
     > British Telecom Wireless Cities Assembly Competition
 </div>
 
+<%--
         <div align="center">
         <table class="bodyText" style="margin-top: 20px; margin-bottom: 20px; width: 320px;" cellpadding="0" cellspacing="0">
             <tbody>
@@ -70,6 +71,7 @@
             </tbody>
         </table>
         </div>
+--%>
 
 <h2>Project Overview</h2>
 
