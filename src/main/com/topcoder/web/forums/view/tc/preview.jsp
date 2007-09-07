@@ -82,7 +82,7 @@ function AllowTabCharacter() {
 <body>
 
 <jsp:include page="top.jsp" >
-    <jsp:param name="level1" value=""/>
+    <jsp:param name="level1" value="forums"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">

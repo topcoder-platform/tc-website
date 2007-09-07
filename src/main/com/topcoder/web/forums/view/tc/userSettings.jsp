@@ -33,7 +33,7 @@
 <body onload="toggleTabs('<%=section%>')">
 
 <jsp:include page="top.jsp" >
-    <jsp:param name="level1" value=""/>
+    <jsp:param name="level1" value="forums"/>
 </jsp:include>
 
 <script type="text/javascript">
