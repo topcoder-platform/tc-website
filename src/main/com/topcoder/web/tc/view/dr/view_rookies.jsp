@@ -159,21 +159,21 @@ Please select a <strong>season</strong><br>
         </td>
     </tr>
     <tr>
-        <td class="header" colspan="2" style="border-right: 1px solid #999999;">&#160;</td>
-        <td class="headerC" colspan="4" style="border-right: 1px solid #999999;">Completed Contests</td>
+        <td class="header B" colspan="2">&#160;</td>
+        <td class="headerC B" colspan="4">Completed Contests</td>
         <td class="headerC" colspan="2" nowrap="nowrap">Current Contests</td>
     </tr>
     <tr>
         <td class="headerC">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Rank</a>
         </td>
-        <td class="header" style="border-right: 1px solid #999999;" width="25%">
+        <td class="header B" width="25%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a>
         </td>
         <td class="headerR" colspan="3">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
         </td>
-        <td class="headerR" style="border-right: 1px solid #999999;" width="25%">
+        <td class="headerR B" width="25%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top 10<br>
                 Prize</a>*
         </td>
@@ -190,19 +190,19 @@ Please select a <strong>season</strong><br>
     <c:forEach items="${results}" var="boardRow" varStatus="status">
     <tr class='${status.index % 2 == 1? "dark" : "light" }'>
         <td class="valueC">${boardRow.rank}</td>
-        <td class="value" style="border-right: 1px solid #999999;">
+        <td class="value B">
             <tc-webtag:handle coderId='${boardRow.userId}' context='${context}'/>
             <c:if test="${boardRow.potential}">***</c:if></td>
         <td class="valueC">
             <c:if test="${boardRow.winTrip}">
                 <div id="pop${status.index }a" class="popUp"><div>Trip to the next TCO Finals for finishing as the <strong>Rookie of the Year</strong></div></div>
-                <div align="center"><img src="/i/interface/emblem/trip.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }a')" onmouseout="popHide()" /></div>
+                <div align="center"><img src="/i/interface/emblem/trip.gif" alt="" border="0" onMouseOver="popUp(this,'pop${status.index }a')" onMouseOut="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueC">
             <c:if test="${boardRow.placementPrize>0}">
                 <div id="pop${status.index }b" class="popUp"><div>Cash prize for placing in the <strong>Top Ten</strong></div></div>
-                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }b')" onmouseout="popHide()" /></div>
+                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onMouseOver="popUp(this,'pop${status.index }b')" onMouseOut="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueR">
@@ -212,7 +212,7 @@ Please select a <strong>season</strong><br>
             </a>
             </c:if>
 	        </td>
-	<td class="valueR" style="border-right: 1px solid #999999;"><c:if test="${boardRow.placementPrize>0}">
+	<td class="valueR B">"><c:if test="${boardRow.placementPrize>0}">
 	    <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
 	</c:if>
 	    <c:if test="${boardRow.placementPrize==0}">

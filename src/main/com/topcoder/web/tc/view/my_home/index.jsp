@@ -55,7 +55,7 @@
                         </td>
                     </tr>
                     <tr class="light">
-                        <td class="valueC" rowspan="10" nowrap="nowrap" style="vertical-align: middle; border-right: 1px solid #999999;">
+                        <td class="valueC B" rowspan="10" nowrap="nowrap" style="vertical-align: middle;">
                         <c:choose>
                             <c:when test="${regUser.coder.memberPhoto!=null}">
                                 <div>

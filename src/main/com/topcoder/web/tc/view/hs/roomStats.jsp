@@ -154,7 +154,7 @@
         <td class="headerR" colspan="2">Submissions</td>
         <td class="headerR" colspan="2">Defenses</td>
         <td class="headerR" colspan="2">Challenges</td>
-        <td class="headerC" colspan="2" style="border-right:1px solid #999999;">&#160;</td>
+        <td class="headerC B" colspan="2">&#160;</td>
         <td class="headerC" colspan="3">Rating</td>
     </tr>
     <tr>
@@ -200,7 +200,7 @@
 	            System<br>Test
 	        </A>
 
-        <td class="headerR" width="16%" style="border-right:1px solid #999999;">
+        <td class="headerR B" width="16%">
 	   		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoomStats<tc-webtag:sort column="<%=roomResult.getColumnIndex("final_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
 	            Point<br>Total
 	        </A>
@@ -243,7 +243,7 @@
 
         <td class="value" nowrap>
             <div id="d_CODERID_<%=resultRow.getItem("coder_id").toString() %>" class="popUp"><div><rsc:item name="team_name" row="<%=resultRow%>"/></div></div>
-            <A href="/tc?module=HSTeamResults&rd=<%= round.getRoundId() %>&tmid=<%= resultRow.getItem("team_id") %>" id="a_CODERID" onmouseover="popUp(this,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onmouseout="popHide()">
+            <A href="/tc?module=HSTeamResults&rd=<%= round.getRoundId() %>&tmid=<%= resultRow.getItem("team_id") %>" id="a_CODERID" onMouseOver="popUp(this,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onMouseOut="popHide()">
                 <%= Base.cutTeamName(resultRow.getStringItem("team_name")) %></A>
         </td>
 
@@ -271,7 +271,7 @@
         <td class="valueR">
             <rsc:item name="system_test_points" row="<%=resultRow%>" format="0.00"/>
         </td>
-        <td class="valueR" style="border-right:1px solid #999999;">
+        <td class="valueR B">
             <rsc:item name="final_points" row="<%=resultRow%>" format="0.00"/>
         </td>
 
