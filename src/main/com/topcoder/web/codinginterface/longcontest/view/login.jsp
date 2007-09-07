@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.codinginterface.longcontest.Constants,
-                 com.topcoder.web.common.BaseServlet" %>
+                 com.topcoder.web.codinginterface.longcontest.controller.request.Login" %>
+<%@ page import="com.topcoder.web.common.BaseServlet" %>
 <%@ page import="com.topcoder.web.common.StringUtils" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -105,6 +106,10 @@
                                     </td>
                                 </tr>
 
+                                                            <tr valign="middle">
+                                <td nowrap class="bodyText" colspan="3">
+                                    <input type="checkbox" name="<%=Login.REMEMBER_USER%>"> Remember Me</td>
+                            </tr>
 
                                 <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0">
                                 </td></tr>
