@@ -111,7 +111,7 @@
                     <%
                         Timestamp start = (Timestamp) request.getAttribute("roundStart");
                         Timestamp presentation = new Timestamp(start.getTime() - 330 * 60 * 1000);
-                        Timestamp food = new Timestamp(start.getTime() - 60 * 60 * 1000);
+                        Timestamp food = new Timestamp(start.getTime() - 120 * 60 * 1000);
                     %>
         <li>
             <tc-webtag:format object="<%=presentation%>" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
