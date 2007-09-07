@@ -47,68 +47,77 @@
 <!-- Links to versions -->
 
 <p>
-	<b>2.1.0 - 2007.09.06</b>
-	<ul>
-		<li>Include jtsl.jar and standard.jar in packaging -dok</li>
+    <b>2.1.1 - 2007.09.06</b>
+    <ul>
+        <li>Add login and logout processes instead of using the main site -dok</li>
+    </ul>
+</p>
+<p>
+    <b>2.1.0 - 2007.09.06</b>
+    <ul>
+        <li>Include jtsl.jar and standard.jar in packaging -dok</li>
         <li>Use new left nav -dok</li>
         <li>Use new SSO code -dok</li>
     </ul>
 </p>
 
 <p>
-	<b>2.0.4 - 2007.05.xx</b>
-	<ul>
-		<li>charset = utf-8 <%-- dont' for get to set the local in the jive properties--%></li>
-	</ul>
+    <b>2.0.4 - 2007.05.xx</b>
+    <ul>
+        <li>charset = utf-8 <%-- dont' for get to set the local in the jive properties--%></li>
+    </ul>
 </p>
 
 
 <p>
-	<b>>2.0.3 - 2007.05.02</b>
-	<ul>
-		<li>Updated the web cache.</li>
-		<li>Expanded search to include software categories.</li>
-		<li>Added an option to collapse read posts in the threaded view, to improve readability of long threads.</li>
-		<li>Added a [h] tag equivalent to the [handle] tag.</li>
-	 	<li>Added "Your vote: {score}" tooltip to message ratings.</li>
-	</ul>
+    <b>>2.0.3 - 2007.05.02</b>
+    <ul>
+        <li>Updated the web cache.</li>
+        <li>Expanded search to include software categories.</li>
+        <li>Added an option to collapse read posts in the threaded view, to improve readability of long threads.</li>
+        <li>Added a [h] tag equivalent to the [handle] tag.</li>
+        <li>Added "Your vote: {score}" tooltip to message ratings.</li>
+    </ul>
 </p>
 
 <p>
     <b>2.0.2 - 2007.04.16</b>
     <ul>
-		<li>Improved performance for users having many software permissions.</li>
-		<li>Added software forums watches.</li>
+        <li>Improved performance for users having many software permissions.</li>
+        <li>Added software forums watches.</li>
     </ul>
 </p>
 
 <p>
     <b>2.0.1 - 2007.03.14</b>
     <ul>
-		<li>Refactored code/EJBs/DB schema, improved response time for several pages.</li>
-		<li>Added a "Cancel" option to preview and post pages.</li>
-		<li>Removed links to nonexistent component pages.</li>
-		<li>Fixed an error in downloading attachments with names containing spaces in Firefox.</li>
-		<li>Fixed an error where calling malformed thread view URLs exceeded the request limit.</li>
+        <li>Refactored code/EJBs/DB schema, improved response time for several pages.</li>
+        <li>Added a "Cancel" option to preview and post pages.</li>
+        <li>Removed links to nonexistent component pages.</li>
+        <li>Fixed an error in downloading attachments with names containing spaces in Firefox.</li>
+        <li>Fixed an error where calling malformed thread view URLs exceeded the request limit.</li>
     </ul>
 </p>
 
 <p>
     <b>2.0 - 2007.02.12</b>
     <ul>
-		<li>Migrated software forums into TopCoder Forums. Browse all forums from one place with the latest features!</li>
-	    <li>Integrated software registration and administration processes with TC/TCS sites and online review.</li>
-	    <li>Enabled software forum moderators to create or edit forums.</li>
-	    <li>Added watches for software categories. Members can modify, delete, or unsubscribe from software-related email notifications.</li>
+        <li>Migrated software forums into TopCoder Forums. Browse all forums from one place with the latest features!
+        </li>
+        <li>Integrated software registration and administration processes with TC/TCS sites and online review.</li>
+        <li>Enabled software forum moderators to create or edit forums.</li>
+        <li>Added watches for software categories. Members can modify, delete, or unsubscribe from software-related
+            email notifications.
+        </li>
     </ul>
 </p>
 
 <p>
     <b>1.3.0 - 2007.01.17</b>
     <ul>
-		<li>Updated category view to display categories with subcategories.</li>
-		<li>Added attachment support for messages.</li>
-		<li>Expanded options for header links pointing to external articles and sites.</li>
+        <li>Updated category view to display categories with subcategories.</li>
+        <li>Added attachment support for messages.</li>
+        <li>Expanded options for header links pointing to external articles and sites.</li>
         <li>Enabled request throttle.</li>
     </ul>
 </p>
@@ -117,17 +126,17 @@
     <b>1.2.1 - 2006.09.11</b>
     <ul>
         <li>Added timezones to displayed dates.</li>
-		<li>Added filters for limiting the maximum width of images and displaying shortened links.</li>
-		<li>Created a syntax highlighter for Python.</li>
+        <li>Added filters for limiting the maximum width of images and displaying shortened links.</li>
+        <li>Created a syntax highlighter for Python.</li>
     </ul>
 </p>
 
 <p>
     <b>1.2.0 - 2006.08.14</b>
     <ul>
-    	<li>Deployed <a href="http://studio.topcoder.com/forums">TopCoder Studio Forums</a>.</li>
+        <li>Deployed <a href="http://studio.topcoder.com/forums">TopCoder Studio Forums</a>.</li>
         <li>Fixed a case sensitivity error concerning [handle] tags.</li>
-		<li>Improved the efficiency of "Mark all as read".</li>
+        <li>Improved the efficiency of "Mark all as read".</li>
     </ul>
 </p>
 
@@ -135,8 +144,9 @@
     <b>1.1.13 - 2006.07.17</b>
     <ul>
         <li>Fixed view of collapsed posts in IE.</li>
-		<li>Fixed a database issue with read tracking.</li>
-		<li>Added support for header links (pointing to external websites, articles, etc.) for forum and thread views.</li>
+        <li>Fixed a database issue with read tracking.</li>
+        <li>Added support for header links (pointing to external websites, articles, etc.) for forum and thread views.
+        </li>
     </ul>
 </p>
 
@@ -224,11 +234,13 @@
 
 <p>
     <b>1.1.6 - 2005.09.14</b>
-    <ul>    
-		<li>Updated main page such that each forum can display its N most recent posts, or posts made within the last N days.</li>
-		<li>Displayed day of week in message headers.</li>
-		<li>Added "Mark watched threads as read" option in user settings.</li>
-    </ul> 
+    <ul>
+        <li>Updated main page such that each forum can display its N most recent posts, or posts made within the last N
+            days.
+        </li>
+        <li>Displayed day of week in message headers.</li>
+        <li>Added "Mark watched threads as read" option in user settings.</li>
+    </ul>
 </p>
 
 <p>
@@ -291,7 +303,7 @@
 </p>
 
 <p>
-	<b>1.1 - 2005.07.18</b>
+    <b>1.1 - 2005.07.18</b>
     <ul>
         <li>Deployed the current version of TopCoder Forums.</li>
         <li>Stripped HTML from message subjects.</li>
