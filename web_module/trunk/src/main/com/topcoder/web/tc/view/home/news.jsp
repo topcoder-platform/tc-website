@@ -4,7 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="General TopCoder News" border="0" /><br>09.07.07<br>10:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>09.07.07<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/longcontest/?module=ViewActiveContests">Marathon Match statistics upgraded</A></span><br><br>
+        We've made several enhancements to our Marathon Match data, including an expanded, reorganized Statistics section; expanded Member Profile data, including ratings history and distribution graphs; and more.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <tc-webtag:forumLink forumID="517258" message="discuss this" />| 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.07.07<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description">TCCC07 Blog Contest now open</A></span><br><br>
         We're looking for two bloggers who can convey the behind-the-scenes experience of attending an onsite tournament. Show us your creativity, and you could win a trip to the TCCC at Walt Disney World.</td>
@@ -163,18 +175,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm363">full story</A> | 
          <tc-webtag:forumLink forumID="516060" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.29.07<br>11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 1B set for August 30</A></span><br><br>
-        Algorithm Round 1B of the 2007 TopCoder Collegiate Challenge, brought to you by NSA, kicks off tomorrow morning at 7:00 AM EDT. Don't miss it!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</A> | 
-        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
