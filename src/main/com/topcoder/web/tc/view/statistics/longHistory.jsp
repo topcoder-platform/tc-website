@@ -2,6 +2,7 @@
 <%@ page import="java.util.Map" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
 <% ResultSetContainer results = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("long_comp_history"); %>
 
 <HTML>
@@ -70,7 +71,11 @@
     <%boolean even = true;%>
     <rsc:iterator list="<%=results%>" id="resultRow">
         <TR class="<%=even?"light":"dark"%>">
-            <td class="value"><A href="/longcontest/?module=ViewOverview&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>"><rsc:item row="<%=resultRow%>" name="contest_name"/> > <rsc:item row="<%=resultRow%>" name="round_name"/></A>
+            <td class="value"><a href="/longcontest/?module=ViewOverview&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>">
+                    <%= com.topcoder.web.codinginterface.longcontest.Helper.displayName(
+                            resultRow.getIntItem("round_type_id"), resultRow.getStringItem("contest_name"), resultRow.getStringItem("round_name"));
+                             %>                                        
+                </a>
             </TD>
             <td class="valueR"><rsc:item row="<%=resultRow%>" name="placed"/></TD>
             <td class="valueR"><rsc:item row="<%=resultRow%>" name="point_total" format="0.00"/></TD>
@@ -78,7 +83,7 @@
             <td class="valueR"><rsc:item row="<%=resultRow%>" name="new_rating" /></TD>
             <td class="valueR"><rsc:item row="<%=resultRow%>" name="new_vol" /></TD>
             <td class="valueR">
-                <a href="/longcontest/longcontest?module=ViewSystemTestResults&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>">Results</a>
+                <a href="/longcontest/stats/?module=ViewSystemTestResults&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&cr=<%=resultRow%>" name="coder_id"/>">Results</a>
             </TD>
         </tr>
     <%even=!even;%>
