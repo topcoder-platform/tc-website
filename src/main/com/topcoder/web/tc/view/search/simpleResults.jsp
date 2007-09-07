@@ -37,7 +37,7 @@
 
 </head>
 
-<body onLoad="location.hash='jump'">
+<body>
 
 <jsp:include page="../top.jsp"/>
 
