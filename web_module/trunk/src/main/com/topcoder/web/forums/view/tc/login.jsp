@@ -1,5 +1,4 @@
-<%@ page contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.web.common.BaseServlet,
+<%@ page import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.forums.controller.request.Login"
         %>
