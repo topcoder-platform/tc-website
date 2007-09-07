@@ -18,7 +18,7 @@ import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.tc.Constants;
+import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
 
 import java.util.Arrays;
@@ -80,7 +80,7 @@ public class Login extends ForumsProcessor {
                         if (log.isDebugEnabled()) {
                             log.debug("status: " + status);
                         }
-                        if (Arrays.binarySearch(Constants.ACTIVE_STATI, status) >= 0) {
+                        if (Arrays.binarySearch(WebConstants.ACTIVE_STATI, status) >= 0) {
                             //check if they have an active email address
                             if (getEmailStatus(sub.getUserId()) != EmailActivate.ACTIVE_STATUS) {
                                 getAuthentication().logout();
@@ -88,7 +88,7 @@ public class Login extends ForumsProcessor {
                                 if (log.isDebugEnabled()) {
                                     log.debug("inactive email");
                                 }
-                                setNextPage(Constants.EMAIL_ACTIVATE);
+                                setNextPage(ForumConstants.EMAIL_ACTIVATE);
                                 setIsNextPageInContext(true);
                                 return;
                             } else {
@@ -108,13 +108,13 @@ public class Login extends ForumsProcessor {
                         } else {
                             getAuthentication().logout();
                             AuthFactory.logoutUser(getRequest(), getResponse());
-                            if (Arrays.binarySearch(Constants.INACTIVE_STATI, status) >= 0) {
+                            if (Arrays.binarySearch(WebConstants.INACTIVE_STATI, status) >= 0) {
                                 if (log.isDebugEnabled()) {
                                     log.debug("user inactive");
                                 }
                                 throw new LoginException("Sorry, your account is not active.  " +
                                         "If you believe this is an error, please contact TopCoder.");
-                            } else if (Arrays.binarySearch(Constants.UNACTIVE_STATI, status) >= 0) {
+                            } else if (Arrays.binarySearch(WebConstants.UNACTIVE_STATI, status) >= 0) {
                                 if (log.isDebugEnabled()) {
                                     log.debug("user unactive");
                                 }
@@ -150,7 +150,7 @@ public class Login extends ForumsProcessor {
             String nextPage = info.getRequestString().substring(nextPageIdx + "nextpage=".length());
             getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, nextPage);
         }
-        setNextPage(Constants.LOGIN);
+        setNextPage("/login.jsp");
         setIsNextPageInContext(true);
     }
 
