@@ -409,10 +409,10 @@ public class SimpleSearch extends Base {
         s.addDefault(rsc.getColumnIndex("num_ratings"), "desc");            
         s.addDefault(rsc.getColumnIndex("last_competed"), "desc");            
         s.addDefault(rsc.getColumnIndex("design_rating"), "desc");            
-        s.addDefault(rsc.getColumnIndex("num_des_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("num_des_ratings"), "desc");            
         s.addDefault(rsc.getColumnIndex("last_des_competed"), "desc");            
         s.addDefault(rsc.getColumnIndex("dev_rating"), "desc");            
-        s.addDefault(rsc.getColumnIndex("num_dev_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("num_dev_ratings"), "desc");            
         s.addDefault(rsc.getColumnIndex("last_dev_competed"), "desc");            
         s.addDefault(rsc.getColumnIndex("hs_rating"), "desc");            
         s.addDefault(rsc.getColumnIndex("num_hs_ratings"), "desc");            
