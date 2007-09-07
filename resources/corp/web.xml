@@ -1465,6 +1465,10 @@
         <url-pattern>/graph</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>TransactionServlet</servlet-name>
+        <url-pattern>/Tx/</url-pattern>
+    </servlet-mapping>
 
     <error-page>
         <error-code>404</error-code>
