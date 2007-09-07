@@ -4,10 +4,26 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>09.07.07<br>4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=090707">Introducing August's Coders of the Month</A></span><br><br>
+      Last month, we saw great performances by three veteran TopCoder members: one from India, one from the Russian Federation, and one from China. In this article, they tell us a little bit about themselves.</td>
+         <td class="newsPhoto">&nbsp;</td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=090707">full story</A> | 
+         <tc-webtag:forumLink forumID="517269" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>09.07.07<br>2:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/registration/actions/ProjectManagement.do?method=displayProjectList">New Registration Tool for Assembly Contests</A></span><br><br>
-        TopCoder has a new tool for managing team registrations for Assembly Contests. Using the Registration Tool, members can register for projects, create and manage teams, and more. The tool is accessible from the Assembly "Active Contests" menu, or you can go there directly: <a href="/registration/">www.topcoder.com/registration</a>.</td>
+        TopCoder has a new tool for managing team registrations for Assembly Contests. Using the Registration Tool, members can register for projects, create and manage teams, and more. The tool is accessible from the Assembly "Active Contests" menu, or you can go there directly: <a href="/registration/">www.topcoder.com/registration/</a>.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/registration/actions/ProjectManagement.do?method=displayProjectList">details</a> | 
@@ -153,21 +169,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</A> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.31.07<br>10:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1a">TCCC07 - Algo Round 1A - Problem Set &amp; Analysis</A></span><br><br>
-      Online Round 1A of the TCCC07 brought together 490 participants, of whom only 300 could advance. The problems were rather difficult for a first online round, however, so in the end only 296 coders managed to do so. First place went to <tc-webtag:handle coderId="9906197" context="algorithm"/>, with <tc-webtag:handle coderId="9927526" context="algorithm"/> and <tc-webtag:handle coderId="307060" context="algorithm"/> finishing second and third.</td>
-         <td class="newsPhoto"><img src="/i/m/krijgertje_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="9906197" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1a">full story</A> | 
-         <tc-webtag:forumLink forumID="517208" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
