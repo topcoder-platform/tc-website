@@ -128,7 +128,7 @@
         </li>
     </ul>
 
-    Results will be revealed and prizes will be distributed on [TIME].
+    Results will be revealed and prizes will be distributed on 13 September at 11:30 AM MSD.
 
     <br><br>
 
