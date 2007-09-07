@@ -88,7 +88,7 @@ public class Login extends Base {
                                 if (log.isDebugEnabled()) {
                                     log.debug("user active");
                                 }
-                                String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
+                                String dest = determineNextPage();
                                 setNextPage(dest);
                                 setIsNextPageInContext(false);
                                 if (log.isDebugEnabled()) {
@@ -180,17 +180,27 @@ public class Login extends Base {
         }
     }
 
-/*
-    private long getUserId(String handle) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("user_id_using_handle");
-        r.setProperty("ha", handle);
-        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("user_id");
-        if (rsc.isEmpty())
-            return -1;
-        else
-            return rsc.getLongItem(0, "user_id");
+    private String determineNextPage() {
+        String nextPage = (String) getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
+        if (nextPage == null) {
+            nextPage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
+        } else {
+            log.debug("next page from attribute");
+        }
+        if (nextPage == null) {
+            nextPage = getRequest().getHeader("Referer");
+        } else {
+            log.debug("next page from parameter");
+        }
+        if (nextPage == null) {
+            nextPage = getSessionInfo().getAbsoluteServletPath();
+        } else {
+            log.debug("next page from referer header");
+        }
+        if (nextPage != null) {
+            log.debug("next page from session info");
+        }
+        return nextPage;
     }
-*/
 
 }
