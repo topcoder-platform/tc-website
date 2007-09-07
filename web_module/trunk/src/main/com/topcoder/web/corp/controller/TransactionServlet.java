@@ -764,7 +764,7 @@ public class TransactionServlet extends HttpServlet {
         CacheClient cc = CacheClientFactory.create();
         //keying based on the session id from the original request
         //verisign gives this back to us useing a parameter
-        return (TransactionInfo) cc.get(KEY_TRANSACTION_INFO + transactionKey(request));
+        return new TransactionInfo(((Object[])cc.get(KEY_TRANSACTION_INFO + transactionKey(request))));
 
     }
 
@@ -772,7 +772,7 @@ public class TransactionServlet extends HttpServlet {
         log.debug("add transaction for " + info.getBuyerID() + " " + info.getProductID());
         CacheClient cc = CacheClientFactory.create();
         //keying based on the session id from the original request
-        cc.set(KEY_TRANSACTION_INFO + transactionKey(request), info);
+        cc.set(KEY_TRANSACTION_INFO + transactionKey(request), info.createCachable());
     }
 
     private void removeTransaction(HttpServletRequest request) throws Exception {

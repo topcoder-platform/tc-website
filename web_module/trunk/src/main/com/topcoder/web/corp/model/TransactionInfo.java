@@ -136,6 +136,44 @@ public class TransactionInfo implements Serializable {
         }
     }
 
+    public Object[] createCachable() {
+        Object[] ret = new Object[12];
+        int i=0;
+        ret[i++]=userBackPage;
+        ret[i++]=productID;
+        ret[i++]=buyerID;
+            ret[i++]=companyID;
+            ret[i++]=qtty;
+            ret[i++]=cost;
+            ret[i++]=tcExc;
+            ret[i++]=terms;
+            ret[i++]=termsId;
+            ret[i++]=agreed;
+            ret[i++]=fromEligibleCountry;
+            ret[i++]=rolesPerProduct;
+        return ret;
+    }
+
+    public TransactionInfo(Object[] cached) {
+        TransactionInfo ret = new TransactionInfo();
+        int i=0;
+        ret.userBackPage= (String) cached[i++];
+        ret.productID =(Long)cached[i++];
+        ret.buyerID=(Long)cached[i++];
+            ret.companyID=(Long)cached[i++];
+            ret.qtty=(Integer)cached[i++];
+            ret.cost=(Double)cached[i++];
+            ret.tcExc=(String)cached[i++];
+            ret.terms=(String)cached[i++];
+            ret.termsId=(Long)cached[i++];
+            ret.agreed=(Boolean)cached[i++];
+            ret.fromEligibleCountry=(Boolean)cached[i++];
+            ret.rolesPerProduct=(Set)cached[i++];
+
+    }
+
+
+
     /**
      * Verifies if productID, unitTypeID, contactID, companyID, cost
      * and, qtty fields in thansaction info class are ok. If not, then
@@ -371,15 +409,6 @@ public class TransactionInfo implements Serializable {
         }
     }
 
-    public String getCacheKey() {
-        StringBuffer buf = new StringBuffer(100);
-        buf.append("productid:").append(productID);
-        buf.append("userid:").append(buyerID);
-        buf.append("companyId:").append(companyID);
-        buf.append("quantity:").append(qtty);
-        buf.append("cost:").append(cost);
-        return buf.toString();
-    }
 
 
 }
