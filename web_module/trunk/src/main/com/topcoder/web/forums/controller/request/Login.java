@@ -19,7 +19,6 @@ import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.forums.ForumConstants;
-import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
 
 import java.util.Arrays;
 
@@ -82,7 +81,7 @@ public class Login extends ForumsProcessor {
                         }
                         if (Arrays.binarySearch(WebConstants.ACTIVE_STATI, status) >= 0) {
                             //check if they have an active email address
-                            if (getEmailStatus(sub.getUserId()) != EmailActivate.ACTIVE_STATUS) {
+                            if (getEmailStatus(sub.getUserId()) != WebConstants.ACTIVE_EMAIL_STATUS) {
                                 getAuthentication().logout();
                                 AuthFactory.logoutUser(getRequest(), getResponse());
                                 if (log.isDebugEnabled()) {
