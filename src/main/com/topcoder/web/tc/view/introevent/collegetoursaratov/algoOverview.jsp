@@ -1,3 +1,4 @@
+<%@ page import="java.sql.Timestamp" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -106,12 +107,18 @@
 
     The timeline for the day of the event:
     <ul>
+
+                    <%
+                        Timestamp start = (Timestamp) request.getAttribute("eventStart");
+                        Timestamp presentation = new Timestamp(start.getTime() - 330 * 60 * 1000);
+                        Timestamp food = new Timestamp(start.getTime() - 60 * 60 * 1000);
+                    %>
         <li>
-            [TIME]
+            <tc-webtag:format object="<%=presentation%>" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
             - TopCoder Presentation
         </li>
         <li>
-            [TIME]
+            <tc-webtag:format object="<%=food%>" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
             - Food
         </li>
         <li>
