@@ -109,7 +109,7 @@
     <ul>
 
                     <%
-                        Timestamp start = (Timestamp) request.getAttribute("eventStart");
+                        Timestamp start = (Timestamp) request.getAttribute("roundStart");
                         Timestamp presentation = new Timestamp(start.getTime() - 330 * 60 * 1000);
                         Timestamp food = new Timestamp(start.getTime() - 60 * 60 * 1000);
                     %>
