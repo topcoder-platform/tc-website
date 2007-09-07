@@ -1,9 +1,9 @@
 <%@  page
   language="java"
-  import="java.text.DecimalFormat,
-          com.topcoder.shared.util.ApplicationServer" %>
+  import="com.topcoder.shared.util.ApplicationServer,
+          com.topcoder.web.common.BaseServlet" %>
 <%@ page import="com.topcoder.web.common.SessionInfo"%>
-<%@ page import="com.topcoder.web.common.BaseServlet"%>
+<%@ page import="java.text.DecimalFormat"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%
     SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
@@ -91,12 +91,16 @@ Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())
             Hello,&nbsp;<tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" />
             <% if (level1.equals("long")) { %>
                 | <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Logout">Logout</a>
+            <% } else if (level1.equals("forums")) { %>
+                | <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/?module=Logout">Logout</a>
             <% } else { %>
                 | <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout">Logout</a>
             <% } %>
         <% } else {
             if (level1.equals("long")) {%>
                 <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Login">Login</a>
+            <% } else if (level1.equals("forums")) { %>
+                <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/?module=Login">Login</a>
             <% } else { %>
                 <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Login">Login</a>
             <% } %>
