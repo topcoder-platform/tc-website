@@ -116,7 +116,7 @@
     <tr>
         <td class="header">&#160;</td>
         <td class="header" nowrap="nowrap" width="50%">Top Teams</td>
-        <td class="headerR" style="border-right:1px solid #999999;">Score</td>
+        <td class="headerR B">Score</td>
         <td class="header">&#160;</td>
         <td class="header" nowrap="nowrap" width="50%">Top Individuals</td>
         <td class="headerC">Room</td>
@@ -138,7 +138,7 @@
         <td class="value">
             <A href='/tc?module=HSTeamResults&rd=<%= round.getRoundId() %>&tmid=<%= teamResult.getItem(i, "team_id") %>'><%= teamResult.getStringItem(i, "name") %></A>
         </td>
-        <td class="valueR" style="border-right:1px solid #999999;">
+        <td class="valueR B">
             <%= teamResult.getItem(i, "team_points").toString() %>
         </td>
         <% } else { %>
@@ -146,7 +146,7 @@
         </td>
         <td class="value">&nbsp;
         </td>
-        <td class="valueR" style="border-right:1px solid #999999;">&nbsp;
+        <td class="valueR B">&nbsp;
         </td>
         <% } %>
 

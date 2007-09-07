@@ -155,15 +155,15 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
         </td>
     </tr>
     <tr>
-        <td class="header" colspan="2" style="border-right: 1px solid #999999;">&#160;</td>
-        <td class="headerC" colspan="7" style="border-right: 1px solid #999999;">Completed Contests</td>
+        <td class="header B" colspan="2">&#160;</td>
+        <td class="headerC B" colspan="7">Completed Contests</td>
         <td class="headerC" colspan="2" nowrap="nowrap">Current Contests</td>
     </tr>
     <tr>
         <td class="headerC">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Rank</a>
         </td>
-        <td class="header" style="border-right: 1px solid #999999;" width="16%">
+        <td class="header B" width="16%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a>
         </td>
         <td class="headerR" colspan="4">
@@ -175,7 +175,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
         <td class="headerR" nowrap="nowrap" width="16%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
                 Performer<br>Prize</a>*</td>
-        <td class="headerR" style="border-right: 1px solid #999999;" width="16%">
+        <td class="headerR B" width="16%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Total<br>
                 Prizes</a>*</td>
         <td class="headerR" width="16%">
@@ -191,24 +191,24 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
     <c:forEach items="${results}" var="boardRow" varStatus="status">
     <tr class='${status.index % 2 == 1? "dark" : "light" }'>
         <td class="valueC">${boardRow.rank}</td>
-        <td class="value" style="border-right: 1px solid #999999;">
+        <td class="value B">
             <tc-webtag:handle coderId='${boardRow.userId}' context='${context}'/></td>
         <td class="valueC">
             <c:if test="${boardRow.winTrip}">
                 <div id="pop${status.index }a" class="popUp"><div>Trip to the next TCO Finals for placing in the <strong>Top Five</strong></div></div>
-                <div align="center"><img src="/i/interface/emblem/trip.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }a')" onmouseout="popHide()" /></div>
+                <div align="center"><img src="/i/interface/emblem/trip.gif" alt="" border="0" onMouseOver="popUp(this,'pop${status.index }a')" onMouseOut="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueC">
             <c:if test="${boardRow.winTrip}">
                 <div id="pop${status.index }b" class="popUp"><div>Cash prize for placing in the <strong>Top Five</strong></div></div>
-                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }b')" onmouseout="popHide()" /></div>
+                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onMouseOver="popUp(this,'pop${status.index }b')" onMouseOut="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueC">
             <c:if test="${boardRow.topPerformer}">
                 <div id="pop${status.index }c" class="popUp"><div>Cash prize for placing in the <strong>Top Performers</strong></div></div>
-                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }c')" onmouseout="popHide()" /></div>
+                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onMouseOver="popUp(this,'pop${status.index }c')" onMouseOut="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueR">
@@ -224,7 +224,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
         <td class="valueR"><c:if test="${boardRow.pointsPrize>0}">
             <fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/>
         </c:if></td>
-        <td class="valueR" style="border-right: 1px solid #999999;">
+        <td class="valueR B">">
             <c:if test="${boardRow.totalPrize>0}">
                 <fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/>
             </c:if>

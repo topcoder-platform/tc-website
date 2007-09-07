@@ -207,7 +207,7 @@
 	            Point<br>Total
 	        </A>
 		</td>
-        <td class="headerR" rowspan="2" style="border-right:1px solid #999999;">Advanced
+        <td class="headerR B" rowspan="2">Advanced
         <td class="headerC" colspan="6">Rating</td>
     </tr>
     <tr>
@@ -256,7 +256,7 @@
             </td>
             <td class="value" nowrap>
                 <div id="d_CODERID_<%=resultRow.getItem("coder_id").toString() %>" class="popUp"><div><rsc:item name="team_name" row="<%=resultRow%>"/></div></div>
-                <A href="/tc?module=HSTeamResults&rd=<%= round.getRoundId() %>&tmid=<%= resultRow.getItem("team_id") %>" id="a_CODERID" onmouseover="popUp(this,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onmouseout="popHide()">
+                <A href="/tc?module=HSTeamResults&rd=<%= round.getRoundId() %>&tmid=<%= resultRow.getItem("team_id") %>" id="a_CODERID" onMouseOver="popUp(this,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onMouseOut="popHide()">
                     <%= Base.cutTeamName(resultRow.getStringItem("team_name")) %></A>
             </td>
 
@@ -276,7 +276,7 @@
             <td class="valueR" colspan="2">
                 <rsc:item name="final_points" row="<%=resultRow%>" format="0.00"/>
             </td>
-            <td class="valueC" style="border-right:1px solid #999999;">
+            <td class="valueC B">
                 <rsc:item name="advanced" row="<%=resultRow%>"/>
             </td>
             <td class="valueR">
@@ -308,11 +308,11 @@
 
     <form name="pagingForm">
         View &nbsp;
-        <input name="nr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="<%= li.getNumberOfRows() %>" type="text">
+        <input name="nr" size="4" maxlength="4" onKeyPress="submitEnter(event)" value="<%= li.getNumberOfRows() %>" type="text">
         <%= groupByRoom ? " rooms " : "" %>
         &nbsp;at a time starting with &nbsp;
 
-        <input name="sr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="<%= li.getStartRow() %>" type="text">
+        <input name="sr" size="4" maxlength="4" onKeyPress="submitEnter(event)" value="<%= li.getStartRow() %>" type="text">
         <a href="Javascript:showRows(document.pagingForm.sr.value, document.pagingForm.nr.value, false)" class="bcLink">
             &nbsp;[ submit ]</a>
     </form>

@@ -76,7 +76,7 @@
 
     <tr class="light">
 <td class="valueC">1</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="22661509" /></td>
+<td class="value B"><tc-webtag:handle coderId="22661509" /></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">12000.00</td>
@@ -86,7 +86,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">2</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="11790647" /></td>
+<td class="value B"><tc-webtag:handle coderId="11790647" /></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">9390.00</td>
@@ -96,7 +96,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">2</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="22672905" /></td>
+<td class="value B"><tc-webtag:handle coderId="22672905" /></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">9390.00</td>
@@ -106,7 +106,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">4</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="15604762" /></td>
+<td class="value B"><tc-webtag:handle coderId="15604762" /></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">7000.00</td>
@@ -116,7 +116,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">5</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="278460" /></td>
+<td class="value B"><tc-webtag:handle coderId="278460" /></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">6950.00</td>
@@ -126,7 +126,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">6</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="21271044" /></td>
+<td class="value B"><tc-webtag:handle coderId="21271044" /></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">4625.00</td>
@@ -136,7 +136,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">7</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="299180" /></td>
+<td class="value B"><tc-webtag:handle coderId="299180" /></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">3450.00</td>
@@ -146,7 +146,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">8</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="22652099" /></td>
+<td class="value B"><tc-webtag:handle coderId="22652099" /></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">3333.33</td>
@@ -156,7 +156,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">8</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="22691296" /></td>
+<td class="value B"><tc-webtag:handle coderId="22691296" /></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">3333.33</td>
@@ -166,7 +166,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">8</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="22691306" /></td>
+<td class="value B"><tc-webtag:handle coderId="22691306" /></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">3333.33</td>
@@ -176,7 +176,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">11</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="22682300" /></td>
+<td class="value B"><tc-webtag:handle coderId="22682300" /></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">3190.00</td>
@@ -186,7 +186,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">11</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="21866650" /></td>
+<td class="value B"><tc-webtag:handle coderId="21866650" /></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">3190.00</td>
@@ -196,7 +196,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">13</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="22672442" /></td>
+<td class="value B"><tc-webtag:handle coderId="22672442" /></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">3000.00</td>
@@ -206,7 +206,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">13</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="22681353" /></td>
+<td class="value B"><tc-webtag:handle coderId="22681353" /></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">3000.00</td>
@@ -216,7 +216,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">15</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="10651566" /></td>
+<td class="value B"><tc-webtag:handle coderId="10651566" /></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">2045.00</td>
@@ -226,7 +226,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">16</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="7211060" /></td>
+<td class="value B"><tc-webtag:handle coderId="7211060" /></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">2000.00</td>
@@ -236,7 +236,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">17</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="22654284" /></td>
+<td class="value B"><tc-webtag:handle coderId="22654284" /></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">1440.00</td>
@@ -246,7 +246,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">18</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="21935467" /></td>
+<td class="value B"><tc-webtag:handle coderId="21935467" /></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">1250.00</td>
@@ -256,7 +256,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">19</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="21822205" /></td>
+<td class="value B"><tc-webtag:handle coderId="21822205" /></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">1000.00</td>
@@ -266,7 +266,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">20</td>
-<td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId="10627428" /></td>
+<td class="value B"><tc-webtag:handle coderId="10627428" /></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">630.00</td>
