@@ -6,10 +6,15 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
@@ -35,9 +40,10 @@ public class ViewReg extends Base {
 
     protected void longContestProcessing() throws TCWebException {
 
+        User user = getAuthentication().getUser();
         // You need to be logged in before continuing...
-        if (!SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        if (!SecurityHelper.hasPermission(user, new ClassResource(this.getClass()))) {
+            throw new PermissionException(user, new ClassResource(this.getClass()));
         }
 
         // Get the round ID we want to register for
@@ -46,7 +52,7 @@ public class ViewReg extends Base {
         try {
             long round = Long.parseLong(roundID);
             // Is the coder already registered for the round?
-            if (isUserRegistered(getUser().getId(), round)) {
+            if (isUserRegistered(user.getId(), round)) {
                 Integer type = (Integer) getRequest().getAttribute(Constants.ROUND_TYPE_ID);
                 setNextPage(buildProcessorRequestString("ViewActiveContests",
                         new String[]{Constants.ROUND_TYPE_ID}, new String[]{type.toString()}));
@@ -55,11 +61,11 @@ public class ViewReg extends Base {
                 throw new NavigationException("Registration is not currently open");
             } else {
 
-                if (requiresInvitation(round) && !isInvited(getUser().getId(), round)) {
+                if (requiresInvitation(round) && !isInvited(user.getId(), round)) {
                     throw new NavigationException("Sorry, this round is by invitation only.");
                 }
 
-                if (isParallelRound(getUser().getId(), round)) {
+                if (isParallelRound(user.getId(), round)) {
                     throw new NavigationException("Sorry, you can not register for this round, you must compete in the version of this round that you were invited to.");
                 }
 

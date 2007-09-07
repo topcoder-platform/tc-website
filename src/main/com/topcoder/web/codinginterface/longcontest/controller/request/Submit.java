@@ -17,6 +17,7 @@ import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.problemParser.ProblemComponentFactory;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
@@ -57,14 +58,15 @@ public class Submit extends Base {
 
     protected void longContestProcessing() throws TCWebException {
         TCRequest request = getRequest();
+        User user = getAuthentication().getUser();
 
         // The user must be signed in to submit code
-        if (!SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        if (!SecurityHelper.hasPermission(user, new ClassResource(this.getClass()))) {
+            throw new PermissionException(user, new ClassResource(this.getClass()));
         }
 
         // Get the user's id
-        long uid = getUser().getId();
+        long uid = user.getId();
 
         try {
 
@@ -144,7 +146,7 @@ public class Submit extends Base {
             } else {
                 //load up their default language
                 Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
-                Integer lang = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+                Integer lang = coder.getLanguageId(uid, DBMS.OLTP_DATASOURCE_NAME);
                 if (lang != null) {
                     language = lang;
                 }
@@ -254,9 +256,9 @@ public class Submit extends Base {
                         language, com.topcoder.shared.util.ApplicationServer.WEB_SERVER_ID, code, examplesOnly);
 
                 LongCompResultLocal longCompResult = (LongCompResultLocal) createLocalEJB(getInitialContext(), LongCompResult.class);
-                if (!longCompResult.exists(rid, getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
-                    longCompResult.createLongCompResult(rid, getUser().getId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
-                    longCompResult.setAttended(rid, getUser().getId(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                if (!longCompResult.exists(rid, uid, DBMS.OLTP_DATASOURCE_NAME)) {
+                    longCompResult.createLongCompResult(rid, uid, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                    longCompResult.setAttended(rid, uid, true, DBMS.JTS_OLTP_DATASOURCE_NAME);
                 }
                 try {
                     lock();

@@ -3,6 +3,7 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.User;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
@@ -17,8 +18,9 @@ public class ViewAdminForceSubmit extends Base {
 
     protected void longContestProcessing() throws Exception {
         //get a list of the submissions and put them in the request for display
-        if (!SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        User user = getAuthentication().getUser();
+        if (!SecurityHelper.hasPermission(getAuthentication().getUser(), new ClassResource(this.getClass()))) {
+            throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         } else {
             Request r = new Request();
             r.setContentHandle("long_contest_submissions");
