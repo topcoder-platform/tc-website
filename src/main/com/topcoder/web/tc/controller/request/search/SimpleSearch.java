@@ -405,17 +405,21 @@ public class SimpleSearch extends Base {
         }
         
         SortInfo s = new SortInfo();
-        s.addDefault(rsc.getColumnIndex("sort_rating"), "desc");            
-        s.addDefault(rsc.getColumnIndex("sort_hs_rating"), "desc");            
-        s.addDefault(rsc.getColumnIndex("sort_mm_rating"), "desc");            
-        s.addDefault(rsc.getColumnIndex("design_rating"), "desc");            
-        s.addDefault(rsc.getColumnIndex("dev_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("rating"), "desc");            
         s.addDefault(rsc.getColumnIndex("num_ratings"), "desc");            
         s.addDefault(rsc.getColumnIndex("last_competed"), "desc");            
+        s.addDefault(rsc.getColumnIndex("design_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("num_des_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("last_des_competed"), "desc");            
+        s.addDefault(rsc.getColumnIndex("dev_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("num_dev_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("last_dev_competed"), "desc");            
+        s.addDefault(rsc.getColumnIndex("hs_rating"), "desc");            
         s.addDefault(rsc.getColumnIndex("num_hs_ratings"), "desc");            
         s.addDefault(rsc.getColumnIndex("last_hs_competed"), "desc");            
-        s.addDefault(rsc.getColumnIndex("num_mm_ratings"), "desc");
-        s.addDefault(rsc.getColumnIndex("last_mm_competed"), "desc");
+        s.addDefault(rsc.getColumnIndex("mm_rating"), "desc");            
+        s.addDefault(rsc.getColumnIndex("num_mm_ratings"), "desc");            
+        s.addDefault(rsc.getColumnIndex("last_mm_competed"), "desc");            
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
         
