@@ -1,17 +1,21 @@
 package com.topcoder.web.common.tag;
 
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.model.SortInfo;
-
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
+
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.TagSupport;
+
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.model.SortInfo;
 
 public class SortTag extends TagSupport {
 
@@ -125,13 +129,18 @@ public class SortTag extends TagSupport {
         return SKIP_BODY;
     }
 
-    private void add(StringBuffer buf, String key, String val) {
+    private void add(StringBuffer buf, String key, String val) throws JspException {
         if (val != null) {
             //log.debug("adding " + key + " " + val);
             buf.append("&amp;");
             buf.append(key);
             buf.append("=");
-            buf.append(val);
+            try {
+                buf.append(URLEncoder.encode(val, "UTF-8"));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                throw new JspException("can't encode URL!");
+            }
         }
     }
 
