@@ -156,6 +156,7 @@ public interface WebConstants {
 
     public static final int HS_MIN_REG_AGE = 13;
     public static final int HS_MAX_REG_AGE = 20;
-    
+
+    public static final int ACTIVE_EMAIL_STATUS = 1;
 
 }

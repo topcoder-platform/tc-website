@@ -54,6 +54,10 @@ public interface ForumConstants {
     public final static Long FORUM_POST_PERMISSION = new Long(2);
     public final static Long FORUM_MODERATE_AND_POST_PERMISSION = new Long(3);
 
+
+    public final static String EMAIL_ACTIVATE = "/authentication/emailActivate.jsp";
+
+
     // Groups
     public final static String GROUP_SOFTWARE_MODERATORS_PREFIX = "Software_Moderators_";
     public final static String GROUP_SOFTWARE_USERS_PREFIX = "Software_Users_";
