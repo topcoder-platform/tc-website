@@ -42,7 +42,7 @@
         <!-- end parameters required by BaseServlet -->
         <init-param>
             <param-name>authentication_implementation</param-name>
-            <param-value>com.topcoder.web.common.security.TCForumsAuthentication</param-value>
+            <param-value>com.topcoder.web.common.security.BasicAuthentication</param-value>
         </init-param>
     </servlet>
 
