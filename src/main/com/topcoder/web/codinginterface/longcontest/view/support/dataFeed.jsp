@@ -67,7 +67,7 @@
         <li>marathon volatility</li>
         <li>number of rated marathon events</li>
     </ul>
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_coder_list</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_coder_list</strong>
 </p>
 
 <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Active Marathon Match Coder List</span><br/>
@@ -82,7 +82,7 @@
         <li>number of rated marathon events</li>
     </ul>
 
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_marathon_list</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_marathon_list</strong>
 </p>
 
 <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Marathon Match Rating History</span><br/>
@@ -104,7 +104,7 @@
         <li>percentile</li>
     </ul>
 
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_marathon_rating_history&amp;cr=USER_ID</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_marathon_rating_history&amp;cr=USER_ID</strong>
     <br/>
     You will need to replace "USER_ID" in the query string to get data about a particular competitor.
 </p>
@@ -118,7 +118,7 @@
         <li>round type</li>
         <li>date</li>
     </ul>
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_marathon_round_list</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_marathon_round_list</strong>
 </p>
 
 
@@ -141,7 +141,7 @@
         <li>num submissions</li>
         <li>rated flag</li>
     </ul>
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_marathon_round_results&amp;rd=ROUND_ID</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_marathon_round_results&amp;rd=ROUND_ID</strong>
     <br/>
     You will need to replace "ROUND_ID" in the query string to get data about a particular round.
 
@@ -170,7 +170,7 @@
             </ul>
         </li>               
     </ul>
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=IndividualResultsFeed&rd=ROUND_ID&cr=CODER_ID</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=IndividualResultsFeed&rd=ROUND_ID&cr=CODER_ID</strong>
     <br/>
     You will need to replace "ROUND_ID" and "USER_ID" in the query string to get data about a particular round and coder.
 </p>
