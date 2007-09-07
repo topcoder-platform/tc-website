@@ -257,7 +257,7 @@ public class BasicAuthentication implements WebAuthentication {
          * they're anonymous
          */
         User u = getUser();
-        if (u == null) {
+        if (u == null || u.getId()==guest.getId()) {
             //given the way tomcat/apache handles sessions in a cluster, we can't do this
             //because the session id is different on the two nodes.  potentially we could
             //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
