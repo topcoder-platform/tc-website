@@ -111,6 +111,10 @@
             - TopCoder Presentation
         </li>
         <li>
+            [TIME]
+            - Food
+        </li>
+        <li>
             <tc-webtag:format object="${eventStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
             - Computer lab opens & competitors set up
         </li>
@@ -122,16 +126,11 @@
             <tc-webtag:format object="${sysTestEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
             - Competition ends
         </li>
-        <li>
-            [TIME]
-            - Food
-        </li>
-        <li>
-            [TIME]
-            - Results & Prizes
-        </li>
     </ul>
 
+    Results will be revealed and prizes will be distributed on [TIME].
+
+    <br><br>
 
     <strong>${mainEvent.recruiterName }</strong>, a TopCoder representative, will give a presentation to explain the benefits of TopCoder membership and competition.
 
