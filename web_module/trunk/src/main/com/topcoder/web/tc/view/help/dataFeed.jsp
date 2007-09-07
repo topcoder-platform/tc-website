@@ -63,7 +63,7 @@
         <li>development volatility</li>
         <li>number of rated development events</li>
     </ul>
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_coder_list</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_coder_list</strong>
 </p>
 
 <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Active Algorithm Coder List</span><br/>
@@ -77,7 +77,7 @@
         <li>number of rated algorithm events</li>
     </ul>
 
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_algorithm_list</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_algorithm_list</strong>
 </p>
 
 <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Algorithm Round List</span><br/>
@@ -89,7 +89,7 @@
         <li>round type</li>
         <li>date</li>
     </ul>
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_round_list</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_round_list</strong>
 </p>
 
 
@@ -151,7 +151,7 @@
         <li>level three placed</li>
         <li>level three language</li>
     </ul>
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_round_results&amp;rd=ROUND_ID</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_round_results&amp;rd=ROUND_ID</strong>
     <br/>
     You will need to replace "ROUND_ID" in the query string to get data about a particular round.
 
@@ -173,7 +173,7 @@
         <li>percentile</li>
     </ul>
 
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_rating_history&amp;cr=USER_ID</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_rating_history&amp;cr=USER_ID</strong>
     <br/>
     You will need to replace "USER_ID" in the query string to get data about a particular competitor.
 </p>
@@ -191,7 +191,7 @@
     <li>number of submissions</li>
     <li>attended (Y or N)</li>
     </ul>
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_development_rating_history&amp;cr=user_ID</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_development_rating_history&amp;cr=user_ID</strong>
     <br />
     NOTE: You will need to replace "USER_ID" in the query string to get data about a particular competitor.
 

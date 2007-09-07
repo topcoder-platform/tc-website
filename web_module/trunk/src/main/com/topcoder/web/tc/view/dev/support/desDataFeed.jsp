@@ -64,7 +64,7 @@
         <li>number of rated development events</li>
     </ul>
 
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_coder_list</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_coder_list</strong>
 </p>
 
 <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Active Designer List</span><br/>
@@ -78,7 +78,7 @@
         <li>number of rated design events</li>
     </ul>
 
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_designer_list</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_designer_list</strong>
 </p>
 
 <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Design Rating History</span><br/>
@@ -101,7 +101,7 @@
         <li>rating date</li>
     </ul>
 
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_design_rating_history&amp;cr=USER_ID</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_design_rating_history&amp;cr=USER_ID</strong>
     <br/>
     NOTE: You will need to replace "USER_ID" in the query string to get data about a particular competitor.
 </p>
@@ -173,7 +173,7 @@
         </li>
     </ul>
 
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ComponentProjectResultFeed&amp;pj=PROJECT_ID</strong>
+    <strong>FEED:<br />http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ComponentProjectResultFeed&amp;pj=PROJECT_ID</strong>
     <br/>
     NOTE: You will need to replace "PROJECT_ID" in the query string to get data about a particular project.
 </p>
