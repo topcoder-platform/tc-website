@@ -5,7 +5,6 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.BaseLanguage;
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.ServerBusyException;
@@ -17,8 +16,6 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.model.ImageInfo;
-import com.topcoder.web.ejb.roundregistration.RoundRegistration;
-import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -218,10 +215,6 @@ public abstract class Base extends BaseProcessor {
     public DataAccessInt getDataAccess(String datasource, MaxAge maxAge) throws Exception {
         if (datasource == null) return null;
         return new CachedDataAccess(maxAge, datasource);
-    }
-
-    protected User getUser() {
-        return getAuthentication().getUser();
     }
 
     /**

@@ -2,11 +2,19 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
@@ -18,7 +26,11 @@ import com.topcoder.web.ejb.survey.Response;
 
 import javax.transaction.Status;
 import javax.transaction.TransactionManager;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * Registers a coder for a round.
@@ -35,15 +47,16 @@ public class SubmitReg extends ViewReg {
 
         log.debug("SubmitReg called");
 
+        User user = getAuthentication().getUser();
         // The user must be logged in to register for a round
-        if (!SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        if (!SecurityHelper.hasPermission(user, new ClassResource(this.getClass()))) {
+            throw new PermissionException(user, new ClassResource(this.getClass()));
         }
 
         // Gets the round id the user wants to register for
         String roundID = getRequest().getParameter(Constants.ROUND_ID);
         try {
-            long userID = getUser().getId();
+            long userID = user.getId();
 
             long round = Long.parseLong(roundID);
             if (isUserRegistered(userID, round)) {
@@ -84,11 +97,11 @@ public class SubmitReg extends ViewReg {
             // Checks to make sure the user responed to all required questions
             checkRequiredQuestions(responses);
 
-            if (requiresInvitation(round) && !isInvited(getUser().getId(), round)) {
+            if (requiresInvitation(round) && !isInvited(user.getId(), round)) {
                 throw new NavigationException("Sorry, this round is by invitation only.");
             }
 
-            if (isParallelRound(getUser().getId(), round)) {
+            if (isParallelRound(user.getId(), round)) {
                 throw new NavigationException("Sorry, you can not register for this round, you must compete in the version of this round that you were invited to.");
             }
 
@@ -231,7 +244,7 @@ public class SubmitReg extends ViewReg {
                 }
                 SurveyResponse response = new SurveyResponse();
                 response.setQuestionId(question.getId());
-                response.setUserId(getUser().getId());
+                response.setUserId(getAuthentication().getUser().getId());
                 if (question.isFreeForm()) {
                     String text = StringUtils.checkNull(values[i]).trim();
                     if (text.length() != 0) {
