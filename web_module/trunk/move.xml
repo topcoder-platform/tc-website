@@ -209,6 +209,8 @@
                 <include name="lib/jars/tcjive.jar"/>
                 <include name="build/wars/forums.war"/>
                 <include name="build/ejb_jars/messagehistory.jar"/>
+                <include name="build/ejb_jars/User.jar"/>
+                <include name="build/ejb_jars/Email.jar"/>
                 <include name="build/ejb_jars/forums.jar"/>
                 <include name="lib/bin/shared.jar"/>
                 <include name="lib/bin/tcwebcommon.jar"/>

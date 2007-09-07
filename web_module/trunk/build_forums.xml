@@ -424,8 +424,8 @@
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
-        <copy todir="${jboss_deploy}" file="${ejb_jars}/user.jar"/>
-        <copy todir="${jboss_deploy}" file="${ejb_jars}/email.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/User.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/Email.jar"/>
     </target>
 
     <target name="run-ForumConverter" depends="compile_forumData">
