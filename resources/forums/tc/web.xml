@@ -24,10 +24,12 @@
             <param-value>Login</param-value>
         </init-param>
 
+<!--
         <init-param>
             <param-name>login_servlet</param-name>
             <param-value>/tc</param-value>
         </init-param>
+-->
 
         <init-param>
             <param-name>processor_path</param-name>
