@@ -150,6 +150,7 @@
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=hotels"<% if (tabLev3.equals("hotels")) {%> class="on"<% } %>>Hotels</a>
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=whatToDo"<% if (tabLev3.equals("whattodo")) {%> class="on"<% } %>>Walt Disney World</a>
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=professor&d4=description"<% if (tabLev3.equals("professor")) {%> class="on"<% } %>>Prestigious Professor Award</a>
+                        | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description"<% if (tabLev3.equals("blog")) {%> class="on"<% } %>>Blog contest</a>
                     </p>
                 <% } else if (tabLev2.equals("onsiteevents")) { %>
                     <p id="tertiaryNav">
