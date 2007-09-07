@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">09.07.07 12:45 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 2 set for September 8</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.07.07 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description">TCCC07 Blog Contest now open</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.05.07 1:00 PM - </td><td width="100%"><A href="/longcontest/?module=ViewActiveContests">TCCC07 Marathon Match 3 now underway</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.04.07 12:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA chat before SRM 364</A></td></tr>

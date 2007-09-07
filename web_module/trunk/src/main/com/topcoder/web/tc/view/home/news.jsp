@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.07.07<br>12:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 2 set for September 8</A></span><br><br>
+        Algorithm Round 2 of the 2007 TopCoder Collegiate Challenge, brought to you by Eli Lilly, kicks off tomorrow afternoon at 1:00 PM EDT. Don't miss it!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</a> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>09.07.07<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/longcontest/?module=ViewActiveContests">Marathon Match statistics upgraded</A></span><br><br>
@@ -159,21 +172,5 @@
          <A href="/tc?module=Static&d1=features&d2=083007">full story</A> | 
          <tc-webtag:forumLink forumID="517215" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>08.30.07<br>11:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm363">SRM 363 - Problem Set &amp; Analysis</A></span><br><br>
-      As the last chance to practice before the TCCC 2007 qualification rounds, SRM 363 attracted 1312 coders. The match in Division 1 started very fast with a standard easy problem, followed by a tricky medium. Unfortunately, the 1000 pointer was too hard (maybe even NP hard) to be solved by anyone (including me).</td>
-         <td class="newsPhoto"><img src="/i/m/mateuszek_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="11801002" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm363">full story</A> | 
-         <tc-webtag:forumLink forumID="516060" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
