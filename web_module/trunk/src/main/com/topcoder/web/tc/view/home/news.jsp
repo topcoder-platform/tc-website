@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>09.07.07<br>2:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/registration/actions/ProjectManagement.do?method=displayProjectList">New Registration Tool for Assembly Contests</A></span><br><br>
+        TopCoder has a new tool for managing team registrations for Assembly Contests. Using the Registration Tool, members can register for projects, create and manage teams, and more. The tool is accessible from the Assembly "Active Contests" menu, or you can go there directly: <a href="/registration/">www.topcoder.com/registration</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/registration/actions/ProjectManagement.do?method=displayProjectList">details</a> | 
+        <tc-webtag:forumLink forumID="517268" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.07.07<br>12:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 2 set for September 8</A></span><br><br>
@@ -156,21 +169,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1a">full story</A> | 
          <tc-webtag:forumLink forumID="517208" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>08.30.07<br>3:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=083007">Introducing the Configuration API &amp; Configuration Persistence components </A></span><br><br>
-      Today we will discuss the <A href="<tc-webtag:linkTracking link='http://software.topcoder.com/catalog/c_component.jsp?comp=24631840' refer='/tc'/>">Configuration API</a> and <A href="<tc-webtag:linkTracking link='http://software.topcoder.com/catalog/c_component.jsp?comp=26745972' refer='/tc'/>">Configuration Persistence</a> components, which were recently introduced to replace the traditional <A href="<tc-webtag:linkTracking link='http://software.topcoder.com/catalog/c_component.jsp?comp=500004' refer='/tc'/>">Configuration Manager</a> and refine TopCoder's approach to configuration management.</td>
-         <td class="newsPhoto"><img src="/i/m/FogleBird_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="160049" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=083007">full story</A> | 
-         <tc-webtag:forumLink forumID="517215" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    

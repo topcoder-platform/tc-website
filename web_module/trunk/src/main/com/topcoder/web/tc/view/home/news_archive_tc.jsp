@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%"> 
+<tr class="bodyText"><td nowrap="nowrap">09.07.07 2:15 PM - </td><td width="100%"><A href="/registration/actions/ProjectManagement.do?method=displayProjectList">New Registration Tool for Assembly Contests</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.04.07 4:30 PM - </td><td width="100%"><A href="http://forums.topcoder.com/?module=Thread&threadID=586772">Coder of the Month dates updated</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.28.07 5:00 PM - </td><td width="100%"><A href="http://csf.topcoder.com/?module=Static&d1=assembly&d2=btWorkspaceDetails">BT Workspace Mashup Assembly Competition now open</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.28.07 11:00 AM - </td><td width="100%"><A href="http://forums.topcoder.com/?module=Thread&threadID=585029&start=24&mc=35">Congratulations to tomekkulczynski</A></td></tr>
