@@ -152,6 +152,8 @@
             <include name="com/topcoder/common/web/data/**"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
+            <include name="com/topcoder/web/ejb/email/**"/
+            <include name="com/topcoder/web/ejb/user/**"/>
         </javac>
         <antcall target="jar_common"/>
     </target>
@@ -240,6 +242,23 @@
         </jar>
     </target>
 
+    <target name="package-EJB-UserBean" depends="compile">
+        <jar jarfile="${ejb_jars}/User.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/user" includes="*.xml"/>
+        </jar>
+    </target>
+
+    <target name="package-EJB-EmailBean" depends="compile">
+        <jar jarfile="${ejb_jars}/Email.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/email/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/email" includes="*.xml"/>
+        </jar>
+    </target>
+
+
     <!-- ==============
          End JBoss EJBs
          ============== -->
@@ -311,6 +330,8 @@
         <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
+        <antcall target="package-EJB-UserBean"/>
+        <antcall target="package-EJB-EmailBean"/>
     </target>
 	
     <target name="war-forums" depends="compile_forums">
@@ -403,6 +424,8 @@
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/user.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/email.jar"/>
     </target>
 
     <target name="run-ForumConverter" depends="compile_forumData">
