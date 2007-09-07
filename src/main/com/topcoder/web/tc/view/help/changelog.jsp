@@ -43,6 +43,13 @@
 </jsp:include>
 
 <p>
+    5.12.1 - 2007.09.xx
+    <ul>
+        <li>Allow remember me for login to marathon match site -dok</li>
+    </ul>
+</p>
+
+<p>
     5.12.0 - 2007.09.06
     <ul>
         <li>Signle Sign On -dok</li>
