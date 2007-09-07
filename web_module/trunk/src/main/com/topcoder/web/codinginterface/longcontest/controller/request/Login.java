@@ -25,6 +25,7 @@ import java.util.Arrays;
 public class Login extends Base {
 
     public static final String USER_ID = "userid";
+    public static final String REMEMBER_USER = "rem";
 
     protected void longContestProcessing() throws TCWebException {
 
@@ -32,6 +33,8 @@ public class Login extends Base {
         String username = getRequest().getParameter(Constants.KEY_USER_HANDLE);
         String password = getRequest().getParameter(Constants.KEY_USER_PASS);
         String loginStatus = StringUtils.checkNull(getRequest().getParameter(WebConstants.STATUS));
+        String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
+
 
         // if not null, we got here via a form submit;
         // otherwise, skip this and just draw the login form
@@ -75,7 +78,7 @@ public class Login extends Base {
                                     setIsNextPageInContext(false);
                                 }
                                 log.debug("on successful login, going to " + getNextPage());
-                                getAuthentication().login(new SimpleUser(0, username, password), false);
+                                getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
                                 return;
                             }
                         } else {
