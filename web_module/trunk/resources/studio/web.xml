@@ -78,7 +78,7 @@
         <!-- end parameters for ForumsServlet processor mapping -->
         <init-param>
             <param-name>authentication_implementation</param-name>
-            <param-value>com.topcoder.web.common.security.StudioForumsAuthentication</param-value>
+            <param-value>com.topcoder.web.common.security.BasicAuthentication</param-value>
         </init-param>
     </servlet>
 
