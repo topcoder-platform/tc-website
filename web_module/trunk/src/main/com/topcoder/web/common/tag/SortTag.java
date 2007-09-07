@@ -136,7 +136,6 @@ public class SortTag extends TagSupport {
             buf.append(key);
             buf.append("=");
             try {
-                log.debug("adding " + key + " " + val+ " encoded: " + URLEncoder.encode(val, "UTF-8"));
                 buf.append(URLEncoder.encode(val, "UTF-8"));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
