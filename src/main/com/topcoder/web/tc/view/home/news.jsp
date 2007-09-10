@@ -2,6 +2,19 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%-------------------------- hold till noon
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>09.10.07<br>12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='http://www.equitrader.com/trader/xco/tournaments' refer='/tc' />">Test your trading skills, win $20,000</A></span><br><br>
+        Looking to test your analytic and algorithm skills in a whole new arena? Check out the Equitrader Collegiate Challenge, hosted by TopCoder’s sister company, offering a total of $100,000 in prizes in three tracks -- algorithmic trading, a standard Equitrader competition, and a league-based school competition. Registration ends September 30.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='http://www.equitrader.com/trader/xco/tournaments' refer='/tc' />">learn more</a> | 
+        <tc-webtag:forumLink forumID="517278" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   ------------------------------%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>09.07.07<br>4:00 PM</td>
@@ -156,18 +169,5 @@
          <A href="/tc?module=Static&d1=features&d2=083107">full story</A> | 
          <tc-webtag:forumLink forumID="517221" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>08.31.07<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 1C set for September 1</A></span><br><br>
-        Algorithm Round 1C of the 2007 TopCoder Collegiate Challenge, brought to you by Deutsche Bank, kicks off tomorrow afternoon at 1:00 PM EDT. Don't miss it!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</A> | 
-        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
