@@ -5,11 +5,7 @@ import com.atlassian.confluence.user.UserAccessor;
 import com.atlassian.seraph.auth.AuthenticatorException;
 import com.atlassian.seraph.util.CookieUtils;
 import com.atlassian.user.impl.DefaultUser;
-import com.topcoder.security.GeneralSecurityException;
-import com.topcoder.security.NoSuchUserException;
-import com.topcoder.security.RolePrincipal;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.*;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.util.logging.Logger;
@@ -38,7 +34,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
     public boolean login(HttpServletRequest request, HttpServletResponse response,
                          String userName, String password, boolean cookie) throws AuthenticatorException {
-        log.debug("XXX login called");
+        log.debug("XXX login called " + userName);
 
         try {
 
