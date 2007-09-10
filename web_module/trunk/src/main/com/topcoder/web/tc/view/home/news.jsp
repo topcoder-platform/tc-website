@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.10.07<br>4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2127">Design the TCO08 logo</A></span><br><br>
+        The contest to design the logo for the 2008 TopCoder Open is now underway at TopCoder Studio. The contest will award cash prizes of $5,000 to up six competitors. Submissions are due in just one week, so don't delay.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2127">details</A> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=94">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>09.10.07<br>4:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -157,20 +170,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1b">full story</A> | 
          <tc-webtag:forumLink forumID="517209" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>09.04.07<br>4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://forums.topcoder.com/?module=Thread&threadID=586772">Coder of the Month dates updated</A></span><br><br>
-        We've got three new "Coders of the Month" featured below. As you may have noticed, however, they are the Coders for August, rather than September. We've changed this to be more accurate (because their accomplishments took place in August, they now hold the title for that month) and have updated our archives accordingly.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=COMHistory&achtid=5">algorithm</a> | 
-        <a href="/tc?module=COMHistory&achtid=6">design</a> | 
-        <a href="/tc?module=COMHistory&achtid=7">development</a> | 
-        <a href="http://forums.topcoder.com/?module=Thread&threadID=586772">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
