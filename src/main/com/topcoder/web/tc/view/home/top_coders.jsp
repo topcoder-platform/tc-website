@@ -4,7 +4,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% ResultSetContainer coders = (ResultSetContainer)request.getAttribute("top_coders");%>
 
-<div id="topTenAlgo">
+<div id="topTenAlgo" style="display: none;">
 <table cellpadding="0" cellspacing="0" class="rightNav" style="width: 100%;">
 <tbody>
     <tr>
