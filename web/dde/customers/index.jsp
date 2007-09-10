@@ -60,17 +60,17 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Featured Customer</td></tr></table>
             
 
-<!-- Verisign begins -->
+<!--IMS Health begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/clients/verisign_logo.png" alt="Verisign" border="0" /></td>
+                    <td width="170"><img src="/images/clients/ims_logo.gif" alt="IMS Health" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">VeriSign Inc operates intelligent infrastructure services that enable and protect billions of interactions every day across the world's voice and data networks. Every day, we process as many as 18 billion Internet interactions and support over 100 million phone calls. We also provide the services that help over 3,000 enterprises and 500,000 Web sites to operate securely, reliably, and efficiently. VeriSign is a global enterprise with offices throughout the Asia-Pacific region, Europe, Latin America, and North America, supported by a widespread international network of data centers and operations centers.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www.verisign.com" refer="customer_index"/>" target="_blank">homepage</A>
+                    <td width="99%" class="bodyText">IMS is the global source for pharmaceutical market intelligence, providing critical information, analysis and services that drive decisions and shape strategies. Just about every major pharmaceutical and biotech company in the world is a customer of IMS. The company's unique mix of experience and expertise makes it the right choice for help in optimizing portfolios, ensuring successful launches, managing brands, and improving the effectiveness of sales teams. A key component of the company's market intelligence is its ability to capture and analyze detailed information on prescriptions. TopCoder is working with IMS to build an automated application that improves this process.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.imshealth.com/" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
-<!-- Verisign ends -->
+<!-- IMS Health ends -->
 
              <hr width="100%" size="1px" noshade>
              
@@ -296,20 +296,6 @@ ESPN ends
 
              <hr width="100%" size="1px" noshade>
              
-<!--IMS Health begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr valign="top">
-                    <td width="170"><img src="/images/clients/ims_logo.gif" alt="IMS Health" border="0" /></td>
-                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">IMS is the global source for pharmaceutical market intelligence, providing critical information, analysis and services that drive decisions and shape strategies. Just about every major pharmaceutical and biotech company in the world is a customer of IMS. The company's unique mix of experience and expertise makes it the right choice for help in optimizing portfolios, ensuring successful launches, managing brands, and improving the effectiveness of sales teams. A key component of the company's market intelligence is its ability to capture and analyze detailed information on prescriptions. TopCoder is working with IMS to build an automated application that improves this process.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www.imshealth.com/" refer="customer_index"/>" target="_blank">homepage</A>
-                     </td>
-                </tr>
-            </table>
-<!-- IMS Health ends -->
-
-             <hr width="100%" size="1px" noshade>
-             
 <!-- NEJ begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
@@ -409,6 +395,19 @@ ESPN ends
 
              <hr width="100%" size="1px" noshade>
              
+<!-- Verisign begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/verisign_logo.png" alt="Verisign" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">VeriSign Inc operates intelligent infrastructure services that enable and protect billions of interactions every day across the world's voice and data networks. Every day, we process as many as 18 billion Internet interactions and support over 100 million phone calls. We also provide the services that help over 3,000 enterprises and 500,000 Web sites to operate securely, reliably, and efficiently. VeriSign is a global enterprise with offices throughout the Asia-Pacific region, Europe, Latin America, and North America, supported by a widespread international network of data centers and operations centers.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.verisign.com" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- Verisign ends -->
+
+             <hr width="100%" size="1px" noshade>
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                     <td colspan="2" class="bodyText" align="center">
