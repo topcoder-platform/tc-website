@@ -19,6 +19,8 @@ import com.topcoder.web.common.model.User;
  */
 public class Professor extends Base {
 
+    private Long id;
+
     private User user;
     private School school;
     private int statusId;
@@ -28,6 +30,14 @@ public class Professor extends Base {
 
     public Professor() {
         this.students = new HashSet();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public School getSchool() {
@@ -69,5 +79,6 @@ public class Professor extends Base {
     public void setClassrooms(Set classrooms) {
         this.classrooms = classrooms;
     }
+
 
 }

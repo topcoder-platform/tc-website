@@ -6,6 +6,11 @@
 <hibernate-mapping package="com.topcoder.web.common.model.educ">
 
     <class name="Professor" table="professor">
+        <id name="id" column="user_id" access="field">
+            <generator class="foreign">
+                <param name="property">user</param>
+            </generator>
+        </id>
         <one-to-one name="user" class="com.topcoder.web.common.model.User" constrained="true"/>
         <one-to-one name="school" class="com.topcoder.web.common.model.School" constrained="true"/>
         <property name="statusId" column="status_id" access="field"/>

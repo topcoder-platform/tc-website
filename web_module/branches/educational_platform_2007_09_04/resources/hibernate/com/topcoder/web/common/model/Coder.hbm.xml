@@ -41,12 +41,12 @@
         </set>
         <set name="professors" table="student_professor_xref" cascade="save-update" access="field">
             <key column="coder_id" foreign-key="student_id" not-null="true"/>
-            <many-to-many column="professor_id" class="Professor"/>
+            <many-to-many column="professor_id" class="com.topcoder.web.common.model.educ.Professor"/>
         </set>
 
         <set name="classrooms" table="student_classroom_xref" cascade="save-update" access="field">
             <key column="coder_id" foreign-key="student_id" not-null="true"/>
-            <many-to-many column="classroom_id" class="Classroom"/>
+            <many-to-many column="classroom_id" class="com.topcoder.web.common.model.educ.Classroom"/>
         </set>
 
     </class>
