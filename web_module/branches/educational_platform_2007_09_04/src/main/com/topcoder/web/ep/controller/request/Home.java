@@ -55,14 +55,6 @@ public class Home extends Base {
                     setIsNextPageInContext(true);
                 }
             }
-            
-            if (hasErrors()) {
-                setNextPage("/error.jsp");
-                setIsNextPageInContext(true);
-            } else {
-                setNextPage("/home.jsp");
-                setIsNextPageInContext(true);
-            }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }

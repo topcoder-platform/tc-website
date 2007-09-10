@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.common.BaseServlet" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -34,10 +35,8 @@
 
 
 <body>
-School info
-<hr/>
 Hello, ${user.handle}, Welcoome to Educational Plattform!
-
+</br>
 <c:choose>
     <c:when test="${not empty classrooms}">
         Here are your classrooms:
