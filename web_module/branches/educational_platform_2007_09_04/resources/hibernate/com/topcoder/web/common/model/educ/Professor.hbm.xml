@@ -16,13 +16,13 @@
         <property name="statusId" column="status_id" access="field"/>
 
         <set name="classrooms" cascade="save-update" inverse="true" access="field">
-            <key column="user_id" not-null="true"/>
+            <key column="professor_id" not-null="true"/>
             <one-to-many class="Classroom"/>
         </set>
  
         <set name="students" table="student_professor_xref" inverse="true" access="field">
             <key column="professor_id"/>
-            <many-to-many column="student_id" foreign-key="coder_id" unique="true" class="com.topcoder.web.common.model.Coder"/>
+            <many-to-many column="coder_id" unique="true" class="com.topcoder.web.common.model.Coder"/>
         </set>
     </class>
 </hibernate-mapping>
