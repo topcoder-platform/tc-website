@@ -92,7 +92,7 @@ return false;
                  in ${countryName }
                 </c:if>
                 <c:if test="${not empty schoolName }">
-                 for school ${schoolName }
+                 for ${schoolName } school
                 </c:if>
                    </td>
                 </tr>
