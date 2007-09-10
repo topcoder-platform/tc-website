@@ -83,29 +83,29 @@
         <li>He learned programming at the AAST.</li>
     </ol>
     
-<p>While the AUC and FCI are both very strong (with FCI ranked highest among the Egyptian schools on <a href="/stat?c=school_avg_rating">TopCoder's list</a>), one thing that distinguishes the AAST is the Regional Informatics Center (RIC). Here, talented students from all over the country - including other universities - come together to train and compete, for free.</p>
+<p>While the AUC and FCI are both very strong (with FCI ranked highest among the Egyptian schools on <a href="/stat?c=school_avg_rating">TopCoder's list</a>), one thing that distinguishes the AAST is the Regional Informatics Center (RIC). Here, talented students from all over the country - including other universities - come together to train and compete, for free.</p><br />
 
-<div align="center"><img src="/i/education/feature091007/feature091007_1.jpg" alt="The AAST's Regional Informatics Center" /><br /><em>The AAST's Regional Informatics Center</em></div><br />
+<div align="center"><img style="border:1px solid #000000;" src="/i/education/feature091007/feature091007_1.jpg" alt="The AAST's Regional Informatics Center" /><br /><em>The AAST's Regional Informatics Center</em></div><br />
 
 <p>Let's meet some more of the Egyptian coders.</p>
 
 <p><tc-webtag:handle coderId="7400531" context="algorithm"/>, Egypt's sole red coder, is a coach at the American University in Cairo. <tc-webtag:handle coderId="15898205" context="algorithm"/>, currently ranked #5 in country, is one of his students. In addition to his TopCoder success, <tc-webtag:handle coderId="7400531" context="algorithm"/> went to the ACM world finals in 2006 and received his undergraduate degree in electronics engineering through the <a target="_blank" href="<tc-webtag:linkTracking link='http://www.aucegypt.edu/support/development/gifts_at_work/pssf.html' refer='feature_091007' />">Citibank Public School Scholarship</a>.</p>
 
-<div align="center"><img src="/i/education/feature091007/feature091007_2.jpg" alt="mafattah and his team from American University" /><br /><em><tc-webtag:handle coderId="7400531" context="algorithm"/> and his team from American University</em></div><br />
+<div align="center"><img style="border:1px solid #000000;" src="/i/education/feature091007/feature091007_2.jpg" alt="mafattah and his team from American University" /><br /><em><tc-webtag:handle coderId="7400531" context="algorithm"/> and his team from American University</em></div><br />
 
 <p><tc-webtag:handle coderId="2057853" context="algorithm"/>, currently #3 in the country, is one of the best of all, and certainly one of the most influential. A coach in the Informatics Center at the AAST, he never spares an effort to help you, regardless of whether it's a holiday or weekend. He's also an assistant instructor at the AAST -- he teaches algorithms, Java and discrete mathematics, and he taught algorithms to most of the computer science students at the AAST. He's also the coach of the Egyptian IOI (the International Olympiad in Informatics) team and he organized the EOI, which is the Egyptian version of the IOI.</p>
 
-<div align="center"><img src="/i/education/feature091007/feature091007_3.jpg" alt="moh_taha_eg monitors the action at AAST's Informatics Center" /><br /><em><tc-webtag:handle coderId="2057853" context="algorithm"/> monitors the action at AAST's Informatics Center</em></div><br />
+<div align="center"><img style="border:1px solid #000000;" src="/i/education/feature091007/feature091007_3.jpg" alt="moh_taha_eg monitors the action at AAST's Informatics Center" /><br /><em><tc-webtag:handle coderId="2057853" context="algorithm"/> monitors the action at AAST's Informatics Center</em></div><br />
 
-<p><tc-webtag:handle coderId="16067947" context="algorithm"/>, <tc-webtag:handle coderId="10190099" context="algorithm"/> and <tc-webtag:handle coderId="11970025" context="algorithm"/> are the first team at the AAST now (shown below, with <tc-webtag:handle coderId="2057853" context="algorithm"/>); they got the first place in the ACM Regional 2006 and went to the finals in Japan. <tc-webtag:handle coderId="16067947" context="algorithm"/> and <tc-webtag:handle coderId="10190099" context="algorithm"/>, both named Mostafa, are in the same class in the computer engineering department in the AAST, while <tc-webtag:handle coderId="11970025" context="algorithm"/> is an assistant at the school.</p>
+<p><tc-webtag:handle coderId="16067947" context="algorithm"/>, <tc-webtag:handle coderId="10190099" context="algorithm"/> and <tc-webtag:handle coderId="11970025" context="algorithm"/> are the first team at the AAST now (shown below, with <tc-webtag:handle coderId="2057853" context="algorithm"/>); they got the first place in the ACM Regional 2006 and went to the finals in Japan. <tc-webtag:handle coderId="16067947" context="algorithm"/> and <tc-webtag:handle coderId="10190099" context="algorithm"/>, both named Mostafa, are in the same class in the computer engineering department in the AAST, while <tc-webtag:handle coderId="11970025" context="algorithm"/> is an assistant at the school.</p><br />
 
-<div align="center"><img src="/i/education/feature091007/feature091007_4.jpg" alt="ACM Final 2007 Japan moh_taha_eg &amp; Patriot &amp; da_brain_damage &amp; need4speed.jpg" /></div><br />
+<div align="center"><img style="border:1px solid #000000;" src="/i/education/feature091007/feature091007_4.jpg" alt="ACM Final 2007 Japan moh_taha_eg &amp; Patriot &amp; da_brain_damage &amp; need4speed.jpg" /></div><br />
 
 <p><tc-webtag:handle coderId="19841837" context="algorithm"/>, currently #6 in the country, is one of the more active TopCoder members from the FCI, and was another participant at the ACM world finals in 2006. <tc-webtag:handle coderId="15155743" context="algorithm"/>, <tc-webtag:handle coderId="22630224" context="algorithm"/>, and <tc-webtag:handle coderId="20538097" context="algorithm"/> are other members from that school.</p>
 
 <p>Some other AAST coders also include <tc-webtag:handle coderId="10144656" context="algorithm"/>, <tc-webtag:handle coderId="21777558" context="algorithm"/>, <tc-webtag:handle coderId="21467899" context="algorithm"/>, <tc-webtag:handle coderId="21795173" context="algorithm"/> and <tc-webtag:handle coderId="22663539" context="algorithm"/>.</p>
 
-<div align="center"><img src="/i/education/feature091007/feature091007_5.jpg" alt="HOKSHA during a presentation on Python… or perhaps doing "the robot"" /><br /><em><tc-webtag:handle coderId="21795173" context="algorithm"/> during a presentation on Python… or perhaps doing "the robot"</em></div><br />
+<div align="center"><img style="border:1px solid #000000;" src="/i/education/feature091007/feature091007_5.jpg" alt="HOKSHA during a presentation on Python… or perhaps doing "the robot"" /><br /><em><tc-webtag:handle coderId="21795173" context="algorithm"/> during a presentation on Python… or perhaps doing "the robot"</em></div><br />
 
 <p>These are just a fraction of the coders at the AAST, and our country in general. With recent successes by our team, along with other Egyptian university teams, more and more students are getting interested in algorithms and coding competitions, so look for more members to appear on TopCoder soon.</p>
 
