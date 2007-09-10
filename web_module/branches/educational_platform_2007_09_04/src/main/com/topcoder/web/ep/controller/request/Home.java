@@ -7,6 +7,8 @@ package com.topcoder.web.ep.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -20,6 +22,11 @@ public class Home extends Base {
     @Override
     protected void dbProcessing() throws Exception {
         if (userIdentified()) {
+            User u  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+
+            //if u.getCoder().get
+            
+            
             if (hasErrors()) {
                 setNextPage("/error.jsp");
                 setIsNextPageInContext(true);

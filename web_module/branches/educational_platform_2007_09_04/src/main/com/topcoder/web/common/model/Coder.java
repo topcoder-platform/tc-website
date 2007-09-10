@@ -34,12 +34,17 @@ public class Coder extends Base {
 
     private Set ratings;
 
+    private Set professors;
+    private Set classrooms;
+
     public Coder() {
         this.resumes = new HashSet();
         this.teams = new HashSet();
         this.images = new HashSet();
         this.createdSchools = new HashSet();
         this.ratings = new HashSet();
+        this.professors = new HashSet();
+        this.classrooms = new HashSet();
     }
 
 
@@ -197,6 +202,22 @@ public class Coder extends Base {
             }
         }
         return found;
+    }
+   
+    public Set getProfessors() {
+        return Collections.unmodifiableSet(professors);
+    }
+
+    public void setProfessors(Set professors) {
+        this.professors = professors;
+    }
+    
+    public Set getClassrooms() {
+        return Collections.unmodifiableSet(classrooms);
+    }
+
+    public void setRClassrooms(Set classrooms) {
+        this.classrooms = classrooms;
     }
 
     public Image getMemberPhoto() {

@@ -9,8 +9,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import com.topcoder.web.common.WebConstants;
-import com.topcoder.web.common.model.comp.ContestPrize;
 import com.topcoder.web.common.model.comp.UserContestPrize;
+import com.topcoder.web.common.model.educ.Professor;
 import com.topcoder.web.common.voting.RankBallot;
 
 /**
@@ -48,6 +48,7 @@ public class User extends Base {
     private Set responses;
     private Set ballots;
     private Set<UserContestPrize> compPrizes;
+    private Professor professor;
     
     /**
      * hoke: used for making changes
@@ -303,6 +304,14 @@ public class User extends Base {
 
     public void setCoder(Coder coder) {
         this.coder = coder;
+    }
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
     }
 
     public Contact getContact() {

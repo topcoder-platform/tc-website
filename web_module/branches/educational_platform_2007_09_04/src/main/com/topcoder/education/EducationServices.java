@@ -25,7 +25,7 @@ public class EducationServices {
         
         
         // TODO: change to properties
-        Long roundId = ers.createRound(classroomId, classroomName, name, assignedProblems, start, end, codingLength, showOtherScores, scoreType, languages)
+        Long roundId = ers.createRound(classroomId, classroomName, name, assignedProblems, start, end, codingLength, showOtherScores, scoreType, languages);
         
         ers.registerInRound(roundId, userIds);
     }

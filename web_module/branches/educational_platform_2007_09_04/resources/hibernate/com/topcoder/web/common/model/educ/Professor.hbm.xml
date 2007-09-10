@@ -9,7 +9,11 @@
         <one-to-one name="user" class="User" constrained="true"/>
         <one-to-one name="school" class="School" constrained="true"/>
         <property name="statusId" column="status_id" access="field"/>
-        <property name="createDate" column="create_date" insert="false" update="false"/>
+
+        <set name="classrooms" cascade="save-update" inverse="true" access="field">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="Classroom"/>
+        </set>
 
         <set name="students" table="student_professor_xref" inverse="true" access="field">
             <key column="professor_id"/>

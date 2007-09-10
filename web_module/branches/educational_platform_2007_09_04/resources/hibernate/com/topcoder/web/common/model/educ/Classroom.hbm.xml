@@ -11,11 +11,12 @@
                 <param name="sequence_name">CLASSROOM_SEQ</param>
             </generator>
         </id>
+        
+        <many-to-one name="professor" column="professor_id" access="field" class="Professor"/>
         <property name="name" column="name" access="field"/>
         <property name="statusId" column="status_id" access="field"/>
         <property name="academicPeriod" column="academic_period" access="field"/>
         <property name="description" column="description" access="field"/>
-        <property name="createDate" column="create_date" insert="false" update="false"/>
 
         <set name="students" table="student_classroom_xref" inverse="true" access="field">
             <key column="classroom_id"/>

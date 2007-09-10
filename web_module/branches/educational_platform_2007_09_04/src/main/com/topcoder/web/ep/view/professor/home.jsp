@@ -11,7 +11,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Home</title>
+    <title>Login</title>
 
     <script type="text/javascript">
         function submitEnter(e) {
