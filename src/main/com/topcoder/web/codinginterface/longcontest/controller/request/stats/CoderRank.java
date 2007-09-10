@@ -22,6 +22,7 @@ public class CoderRank extends Base {
     public void longContestProcessing() throws Exception {
 
         String countryCode = StringUtils.checkNull(getRequest().getParameter(Constants.COUNTRY_CODE));
+        String schoolId = StringUtils.checkNull(getRequest().getParameter(Constants.SCHOOL_ID));
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
         String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
 
@@ -59,7 +60,22 @@ public class CoderRank extends Base {
             getRequest().setAttribute("countryName", countryInfo.getStringItem(0, "country_name"));
             rsc = results.get("marathon_country_coder_rank");
             setDefault(Constants.COUNTRY_CODE, countryCode);
+        
+        
+        } else if (!"".equals(schoolId)) {
+            r.setContentHandle("marathon_school_coder_rank");
+            r.setProperty(Constants.SCHOOL_ID, schoolId);
+            Map<String, ResultSetContainer> results = getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r);
+            ResultSetContainer info = results.get("school_info");
+            if (info.size() != 1) {
+                throw new NavigationException("School " + schoolId + " not found");
+            }
+            
+            getRequest().setAttribute("schoolName", info.getStringItem(0, "name"));
+            rsc = results.get("marathon_school_coder_rank");
+            setDefault(Constants.SCHOOL_ID, schoolId);
         } else {
+        
             // Just use cache for standard pages of 50 rows starting in 1, 51, 101... 
             boolean cached = (nr == 50) && ((sr % 50) == 1); 
 

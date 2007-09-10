@@ -76,16 +76,23 @@ return false;
 
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CoderRank"/>
                 <tc-webtag:hiddenInput name="<%=Constants.COUNTRY_CODE%>"/>
+                <tc-webtag:hiddenInput name="<%=Constants.SCHOOL_ID %>"/>
 
                 <div class="pagingBox">
                     <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" /> |
                     <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" />
                 </div>
 
+            <c:if test="${not empty schoolName }">
+                <strong>Note:</strong> some rank positions may be skipped when the user has chosen to hide his/her school information.
+            </c:if>
             <table class="stat" cellpadding="0" cellspacing="0" width="510" border="0">
                <tr><td class="title" colspan="3">Top Ranked Marathon Match Competitors
                 <c:if test="${not empty countryName }">
                  in ${countryName }
+                </c:if>
+                <c:if test="${not empty schoolName }">
+                 for school ${schoolName }
                 </c:if>
                    </td>
                 </tr>

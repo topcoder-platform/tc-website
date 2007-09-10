@@ -69,7 +69,11 @@
                <c:forEach items="${list}" var="row" varStatus="status">
                    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
                         <td class="valueC">${row.map['rank']}</td>
-                        <td class="value">${row.map['name']}</td>     
+                        <td class="value">
+                            <a href="${sessionInfo.servletPath}?module=CoderRank&amp;scid=${row.map['school_id']}">                        
+                                     ${row.map['name']}
+                             </a>
+                           </td>     
                         <td class="value">
                             <a href="${sessionInfo.servletPath}?module=CoderRank&amp;cc=${row.map['country_code']}">
                                 ${row.map['country_name']}
