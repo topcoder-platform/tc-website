@@ -1,8 +1,7 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants, com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.common.model.EventType,
-                 com.topcoder.web.tc.Constants" %>
-<%@ page import="com.topcoder.web.tc.controller.request.tournament.AdvancersBase" %>
+                 com.topcoder.web.tc.Constants,
+                 com.topcoder.web.tc.controller.request.tournament.AdvancersBase" %>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -16,7 +15,7 @@
 
 <c:set value="stat?c=round_overview&er=5&rd=" var="details_link"/>
 <c:set var="round1_id" value="10906"/>
-<c:set var="round2_id" value=""/>
+<c:set var="round2_id" value="10917"/>
 <c:set var="round3_id" value=""/>
 <c:set var="finals_id" value=""/>
 
