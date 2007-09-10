@@ -2,19 +2,19 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%-------------------------- hold till noon
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>09.10.07<br>12:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>09.10.07<br>10:15 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='http://www.equitrader.com/trader/xco/tournaments' refer='/tc' />">Test your trading skills, win $20,000</A></span><br><br>
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.equitrader.com/trader/xco/tournaments' refer='/tc' />">Test your trading skills, win $20,000</A></span><br><br>
         Looking to test your analytic and algorithm skills in a whole new arena? Check out the Equitrader Collegiate Challenge, hosted by TopCoder’s sister company, offering a total of $100,000 in prizes in three tracks -- algorithmic trading, a standard Equitrader competition, and a league-based school competition. Registration ends September 30.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='http://www.equitrader.com/trader/xco/tournaments' refer='/tc' />">learn more</a> | 
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.equitrader.com/trader/xco/tournaments' refer='/tc' />">learn more</a> | 
         <tc-webtag:forumLink forumID="517278" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-   ------------------------------%>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>09.07.07<br>4:00 PM</td>
