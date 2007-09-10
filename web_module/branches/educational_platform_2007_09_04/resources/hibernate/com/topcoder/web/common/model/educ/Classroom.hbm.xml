@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.topcoder.web.common.model">
+<hibernate-mapping package="com.topcoder.web.common.model.educ">
 
     <class name="Classroom" table="classroom">
         <id name="id" column="classroom_id">
@@ -20,7 +20,7 @@
 
         <set name="students" table="student_classroom_xref" inverse="true" access="field">
             <key column="classroom_id"/>
-            <many-to-many column="student_id" foreign-key="coder_id" unique="true" class="Coder"/>
+            <many-to-many column="student_id" foreign-key="coder_id" unique="true" class="com.topcoder.web.common.model.Coder"/>
         </set>
     </class>
 </hibernate-mapping>

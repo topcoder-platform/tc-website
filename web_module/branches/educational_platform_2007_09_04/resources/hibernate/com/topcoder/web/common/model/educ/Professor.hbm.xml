@@ -3,11 +3,11 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.topcoder.web.common.model">
+<hibernate-mapping package="com.topcoder.web.common.model.educ">
 
     <class name="Professor" table="professor">
-        <one-to-one name="user" class="User" constrained="true"/>
-        <one-to-one name="school" class="School" constrained="true"/>
+        <one-to-one name="user" class="com.topcoder.web.common.model.User" constrained="true"/>
+        <one-to-one name="school" class="com.topcoder.web.common.model.School" constrained="true"/>
         <property name="statusId" column="status_id" access="field"/>
 
         <set name="classrooms" cascade="save-update" inverse="true" access="field">
@@ -17,7 +17,7 @@
 
         <set name="students" table="student_professor_xref" inverse="true" access="field">
             <key column="professor_id"/>
-            <many-to-many column="student_id" foreign-key="coder_id" unique="true" class="Coder"/>
+            <many-to-many column="student_id" foreign-key="coder_id" unique="true" class="com.topcoder.web.common.model.Coder"/>
         </set>
     </class>
 </hibernate-mapping>
