@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=091007"><strong>Spotlight: The Arab Academy for Science &amp; Technology</strong></a>, by <tc-webtag:handle coderId="21777558" /><br>
+Egypt's <a href="/tc?module=AlgoRank&cc=818">algorithm contingent</a> has 118 current active members and a <a href="/stat?c=country_avg_rating">country rank</a> of 31, along with one (relatively recent) red coder, <tc-webtag:handle coderId="7400531" context="algorithm"/>. In this article, I'll introduce some of the coders from our community, primarily from my school: the Arab Academy for Science and Technology.</li>
 <li><a href="/tc?module=Static&d1=features&d2=090707"><strong>Introducing August's Coders of the Month</strong></a><br>
 Last month, we saw great performances by three veteran TopCoder members: one from India, one from the Russian Federation, and one from China. In this article, they tell us a little bit about themselves.</li>
 <li><a href="/tc?module=Static&d1=features&d2=090607"><strong>College admissions and the "TopCoder edge"</strong></a>, by <tc-webtag:handle coderId="21931776" /><br>
 The college admissions process today is becoming more and more cutthroat. Applicant numbers are at record highs and acceptance rates are at record lows for the most prestigious institutions. In this article, I will cover using TopCoder in three specific areas of the process: the resume, the essay, and the interview.</li>
-<li><a href="/tc?module=Static&d1=features&d2=083107"><strong>Our favorite professors: TopCoder staff look back</strong></a><br>
-With the 2007 TopCoder Collegiate Challenge's <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=professor&d4=description">Prestigious Professor Program</a> now underway, we asked some TopCoder staffers to reflect on their favorite and most influential professors.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
