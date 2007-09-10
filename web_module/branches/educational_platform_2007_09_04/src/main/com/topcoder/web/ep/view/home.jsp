@@ -39,19 +39,15 @@ School info
 Hello, ${user.handle}, Welcoome to Educational Plattform!
 
 <c:choose>
-<c:when test="${not empty classrooms}"></c:when>
-Here are your classrooms:
-    <c:forEach items="${classrooms}" var="classroom">
-    <a href="">${classroom.name}</a>
-    </c:forEach>
+    <c:when test="${not empty classrooms}">
+        Here are your classrooms:
+        <c:forEach items="${classrooms}" var="classroom">
+            <a href="">${classroom.name}</a>
+        </c:forEach>
+    </c:when>
+    <c:otherwise>
+        You don't have classrooms associated.
+    </c:otherwise>
 </c:choose>
-<c:otherwise>
-You don't have classrooms associated.
-</c:otherwise>
-
-
-    <c:forEach items="${results}" var="boardRow" varStatus="status">
-
-
 </body>
 </html>
