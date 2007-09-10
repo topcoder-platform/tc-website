@@ -19,8 +19,7 @@
 </script>
 <script type="text/javascript">
 var currTopTen = null;
-function swapTopTen(topTenID){
-    currTopTen = document.getElementById(topTenID);
+function swapTop10(topTenID){
     hide('topTenAlgo');
     hide('topTenAlgoSchools');
     hide('topTenAlgoCountries');
@@ -28,6 +27,12 @@ function swapTopTen(topTenID){
     hide('topTenDev');
     hide('topTenMM');
     showBlock(topTenID);
+}
+function top10DefRemoveLink(){
+    document.getElementById('defaultLinkBox').innerHTML="<strong>Default saved</strong>";
+}
+function top10DefAddLink(){
+    document.getElementById('defaultLinkBox').innerHTML='<strong><a href="javascript:top10DefRemoveLink();" class="gMetal">Make default</a></strong>';
 }
 </script>
 </head>
@@ -117,7 +122,7 @@ function swapTopTen(topTenID){
                 </div>
 
                 <div style="padding-bottom: 10px;" align="center">
-                    <select name="topTen" onchange="swapTopTen(this.value)">
+                    <select name="topTen" onchange="swapTop10(this.value); top10DefAddLink();">
                     <option value="topTenAlgo" selected="selected">Algorithm</option>
                     <option value="topTenAlgoSchools">Algorithm Schools</option>
                     <option value="topTenAlgoCountries">Algorithm Countries</option>
@@ -125,8 +130,8 @@ function swapTopTen(topTenID){
                     <option value="topTenDev">Development</option>
                     <option value="topTenMM">Marathon Matches</option>
                     </select>
-                    <div style="margin-top: 6px;">
-                        <strong><a href="" class="gMetal">Make default</a></strong>
+                    <div id="defaultLinkBox">
+                        <strong><a href="javascript:top10DefRemoveLink();" class="gMetal">Make default</a></strong>
                     </div>
                 </div>
                 
