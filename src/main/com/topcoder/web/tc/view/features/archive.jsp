@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="21777558" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=091007"><strong>Spotlight: The Arab Academy for Science &amp; Technology</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Sep 10, 2007</td> 
+            </tr>
+            <tr valign="top">
                <td class="bodyText">&nbsp;</td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=090707"><strong>Introducing August's Coders of the Month</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Sep 7, 2007</td> 
