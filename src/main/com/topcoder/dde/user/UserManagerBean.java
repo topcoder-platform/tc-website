@@ -27,7 +27,6 @@ import com.topcoder.util.config.ConfigManagerInterface;
 import com.topcoder.util.errorhandling.BaseException;
 import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.ejb.forums.ForumsHome;
-
 import org.apache.log4j.Logger;
 
 import javax.ejb.*;
@@ -1048,14 +1047,10 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
             // add the user to the appropriate role to view the forum
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
-        	Forums forums = null;
-        	try {
-        		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
-        		forums = forumsHome.create();
-        	} catch (Exception e) { 
-            	logger.debug("Error initializing Forums EJB");
-            }
-        	forums.assignRole(userId, "Software_Users_" + activeForumCategory.getId());
+            Forums forums = null;
+            ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
+            forums = forumsHome.create();
+            forums.assignRole(userId, "Software_Users_" + activeForumCategory.getId());
 
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
