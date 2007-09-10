@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.10.07<br>12:15 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1c">TCCC07 - Algo Round 1C - Problem Set &amp; Analysis</A></span><br><br>
+      Online Round 1C of the 2007 TopCoder Collegiate Challenge was a bit better attended than Rounds 1A and 1B, with 514 participants. The problem set was somewhat different from the previous two rounds as well, with the first two problems easier and the last problem harder.</td>
+         <td class="newsPhoto"><img src="/i/m/ivan_metelsky_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10481120" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1c">full story</A> | 
+         <tc-webtag:forumLink forumID="517222" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>09.10.07<br>10:15 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A target="_blank" href="<tc-webtag:linkTracking link='http://www.equitrader.com/trader/xco/tournaments' refer='/tc' />">Test your trading skills, win $20,000</A></span><br><br>
@@ -153,21 +169,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">details</A> | 
         <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>08.31.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=083107">Our favorite professors: TopCoder staff look back</A></span><br><br>
-      With the 2007 TopCoder Collegiate Challenge's <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=professor&d4=description">Prestigious Professor Program</a> now underway, we asked some TopCoder staffers to reflect on their favorite and most influential professors.</td>
-         <td class="newsPhoto">&nbsp;</td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=083107">full story</A> | 
-         <tc-webtag:forumLink forumID="517221" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
