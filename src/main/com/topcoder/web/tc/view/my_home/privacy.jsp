@@ -7,6 +7,7 @@
 
 <c:set var="group" value="<%= request.getAttribute("group") %>"/>
 <c:set value="<%=Preference.MEMBER_CONTACT_PREFERENCE_ID%>" var="memberContactPrefId"/>
+<c:set value="<%=Preference.SHOW_EARNINGS_PREFERENCE_ID%>" var="showEarningsPrefId"/>
 
 <html>
 
@@ -92,8 +93,10 @@
                                 <c:if test="${preference.id == memberContactPrefId}">
                                 <br />Edit my <a href="/tc?module=BlackList">black list</a>
                                 </c:if>
+                                <c:if test="${preference.id == showEarningsPrefId}">
                                 <br /><span class="grayedOut">(You will still be able to see your own earnings statistics)</span>
                                 </span>
+                                </c:if>
                             </td>
                             <td class="value" nowrap="nowrap" style="border: none;">
                                 <c:choose>
