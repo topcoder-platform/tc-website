@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="Classroom" table="classroom">
+        <id name="id" column="classroom_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">CLASSROOM_SEQ</param>
+            </generator>
+        </id>
+        <property name="name" column="name" access="field"/>
+        <property name="statusId" column="status_id" access="field"/>
+        <property name="academicPeriod" column="academic_period" access="field"/>
+        <property name="description" column="description" access="field"/>
+        <property name="createDate" column="create_date" insert="false" update="false"/>
+
+        <set name="students" table="student_classroom_xref" inverse="true" access="field">
+            <key column="classroom_id"/>
+            <many-to-many column="student_id" foreign-key="coder_id" unique="true" class="Coder"/>
+        </set>
+    </class>
+</hibernate-mapping>

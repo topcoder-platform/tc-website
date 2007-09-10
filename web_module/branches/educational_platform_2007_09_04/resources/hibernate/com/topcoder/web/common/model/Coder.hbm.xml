@@ -39,7 +39,15 @@
             <key column="coder_id" not-null="true"/>
             <one-to-many class="AlgoRating"/>
         </set>
+        <set name="professors" table="student_professor_xref" cascade="save-update" access="field">
+            <key column="coder_id" foreign-key="student_id" not-null="true"/>
+            <many-to-many column="professor_id" class="Professor"/>
+        </set>
 
+        <set name="classrooms" table="student_classroom_xref" cascade="save-update" access="field">
+            <key column="coder_id" foreign-key="student_id" not-null="true"/>
+            <many-to-many column="classroom_id" class="Classroom"/>
+        </set>
 
     </class>
 </hibernate-mapping>
