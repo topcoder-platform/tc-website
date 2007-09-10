@@ -90,8 +90,9 @@
                                 </tc-webtag:errorIterator>
                                 <span style="display: block; padding-top: 4px;">${preference.name}:
                                 <c:if test="${preference.id == memberContactPrefId}">
-                                <br />(Edit my <a href="/tc?module=BlackList">black list</a>)
+                                <br />Edit my <a href="/tc?module=BlackList">black list</a>
                                 </c:if>
+                                <br /><span class="grayedOut">(You will still be able to see your own earnings statistics)</span>
                                 </span>
                             </td>
                             <td class="value" nowrap="nowrap" style="border: none;">
