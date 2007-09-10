@@ -165,9 +165,17 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
         // sum the total points won by the top performers
         double totalPoints = 0;
         
+        // min points required for a coder to be in the top performers.
+        // max place is not enough since it could happen that some coders are tied.
+        double minPoints = -1;
+        
+        
         for (ContestResult result : cr) {        
-            if (result.getPlace() >  maxPlace) break;
-            
+            if (result.getPlace() >= maxPlace && minPoints < 0) {
+                minPoints = result.getFinalPoints();
+            }
+            if (result.getFinalPoints() < minPoints) break;
+                
             totalPoints += result.getFinalPoints();
         }
         
@@ -176,7 +184,7 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
             // Set prizes
             double amountPerPoint = prizePool / totalPoints;
             for (ContestResult result : cr) {
-                if (result.getPlace() > maxPlace) break;
+                if (result.getFinalPoints() < minPoints) break;
     
                 result.setPrize(amountPerPoint * result.getFinalPoints());
             }
@@ -203,6 +211,10 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
                 if (o1.getFinalPoints() < o2.getFinalPoints()) return 1;
             }
             
+            // Rank he coders with higher potential points first.
+            // When the contest is over, potential points will be 0, so it won't apply.
+            if (o1.getPotentialPoints() > o2.getPotentialPoints()) return -1;
+            if (o1.getPotentialPoints() < o2.getPotentialPoints()) return 1;
 
             // Break tie with rule #1:
             // The competitor who has the most higher-placed submissions in the Stage.
