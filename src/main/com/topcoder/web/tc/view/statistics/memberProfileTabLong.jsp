@@ -113,10 +113,13 @@ doWrite(s);
 </c:when>
 <c:otherwise>
                 <tr class="dark">
-                    <td class="valueC" colspan="2" style="border-top: none;">
-                     <strong><A HREF="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<rsc:item set="<%=rsc%>" name="coder_id"/>">[competition history]</A></strong><br /><br /></td>
+                    <td class="valueC" colspan="2" style="border-top: none; padding: 20px;">
+                     <strong><A HREF="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<rsc:item set="<%=rsc%>" name="coder_id"/>">[competition history]</A></strong></td>
                     </td>
                     <td class="valueC" valign="top" rowspan="15" width="100%" style="border-left: 1px solid #999999; border-top: none;">
+                        <div style="margin: 80px;">
+                            This member has not yet competed in a rated match.
+                        </div>
                     </td>
                 </tr>
                 <tr class="light">
