@@ -125,6 +125,9 @@ function swapTopTen(topTenID){
                     <option value="topTenDev">Development</option>
                     <option value="topTenMM">Marathon Matches</option>
                     </select>
+                    <div style="margin-top: 6px;">
+                        <strong><a href="" class="gMetal">Make default</a></strong>
+                    </div>
                 </div>
                 
                 <jsp:include page="top_coders.jsp" />
