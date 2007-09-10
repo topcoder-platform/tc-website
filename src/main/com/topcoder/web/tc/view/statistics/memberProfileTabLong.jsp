@@ -137,9 +137,6 @@ doWrite(s);
                 <tr class="dark">
                     <td class="field" nowrap="nowrap">Avg. Num. Submissions:</td><td class="valueR"><rsc:item set="<%=rsc%>" name="avg_submissions" ifNull="N/A" format="0.00"/></td>
                 </tr>
-                <tr class="light">
-                    <td class="field">Competitions:</td><td class="valueR"><A HREF="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<rsc:item set="<%=rsc%>" name="coder_id"/>"><rsc:item set="<%=rsc%>" name="num_competitions"/></A></td>
-                </tr>
 </c:otherwise>                
 </c:choose>                
                 
