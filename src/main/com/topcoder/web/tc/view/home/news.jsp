@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.11.07<br>1:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly">Eli Lilly chat before SRM 365</A></span><br><br>
+        Don't miss a discussion with Eli Lilly representatives from all over the globe before SRM 365. The chat will start at 10:00 AM EDT.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly">details</a> | 
+        <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.11.07<br>1:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -157,21 +170,5 @@
         <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description">details</a> | 
         <tc-webtag:forumLink forumID="517257" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>09.06.07<br>3:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=090607">College admissions and the "TopCoder edge"</A></span><br><br>
-      The college admissions process today is becoming more and more cutthroat. Applicant numbers are at record highs and acceptance rates are at record lows for the most prestigious institutions. In this article, I will cover using TopCoder in three specific areas of the process: the resume, the essay, and the interview.</td>
-         <td class="newsPhoto"><img src="/i/m/einstein41389_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="21931776" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=090607">full story</A> | 
-         <tc-webtag:forumLink forumID="517256" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
