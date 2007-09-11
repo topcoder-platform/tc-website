@@ -6,7 +6,8 @@
 package com.topcoder.web.ep.controller.request;
 
 import com.topcoder.web.common.LongHibernateProcessor;
-import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
+import com.topcoder.web.common.dao.DAOFactory;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.ep.Constants;
 
@@ -17,6 +18,7 @@ import com.topcoder.web.ep.Constants;
 public abstract class Base extends LongHibernateProcessor {
 
     private User user = null;
+    private DAOFactory factory = null;
 
     /**
      * Retrieve the user that is involved in the current registration process.
@@ -32,7 +34,7 @@ public abstract class Base extends LongHibernateProcessor {
             if (user == null) {
                 if (userLoggedIn()) {
                     log.debug("get user from the dao");
-                    user = new UserDAOHibernate().find(new Long(getUser().getId()));
+                    user = getFactory().getUserDAO().find(new Long(getUser().getId()));
                     if (user != null) {
                         setActiveUser(user);
                     } else {
@@ -68,5 +70,11 @@ public abstract class Base extends LongHibernateProcessor {
         this.user = u;
         getRequest().getSession().setAttribute(Constants.USER, user);
     }
-
+    
+    protected DAOFactory getFactory() {
+        if (factory  == null) {
+            factory = DAOUtil.getFactory();
+        }
+        return factory;
+    }
 }

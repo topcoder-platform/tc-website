@@ -26,7 +26,7 @@ public class Home extends Base {
     @Override
     protected void dbProcessing() throws Exception {
         if (userIdentified()) {
-            User u  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+            User u  = getFactory().getUserDAO().find(new Long(getUser().getId()));
 
             // check wether student or professor
             getRequest().setAttribute("user", u);

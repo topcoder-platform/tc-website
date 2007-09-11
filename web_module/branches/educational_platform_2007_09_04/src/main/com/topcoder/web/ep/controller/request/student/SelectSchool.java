@@ -51,10 +51,10 @@ public class SelectSchool extends Base {
             Long schoolId = getSchoolParam();
             
             // add selected school to the session
-            School s  = DAOUtil.getFactory().getSchoolDAO().find(schoolId);
+            School s  = getFactory().getSchoolDAO().find(schoolId);
 
             // get professors from that school
-            List<Professor> professors  = DAOUtil.getFactory().getProfessorDAO().getProfessors(s);
+            List<Professor> professors  = getFactory().getProfessorDAO().getProfessors(s);
             getRequest().setAttribute("professors", professors);            
             
             setNextPage("/student/selectProfessor.jsp");
