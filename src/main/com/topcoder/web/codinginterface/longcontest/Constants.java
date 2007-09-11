@@ -100,6 +100,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String PAGE_MATCH_LIST;
     public static String PAGE_MATCH_WINNERS;
     public static String PAGE_CODER_RANK;    
+    public static String PAGE_SCHOOL_CODER_RANK;    
     public static String PAGE_COUNTRY_RANK;
     public static String PAGE_RECORDBOOK;
     public static String PAGE_SCHOOL_RANK;

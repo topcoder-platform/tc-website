@@ -46,7 +46,7 @@ public class CoderRank extends Base {
         r.setProperty(DataAccessConstants.END_RANK, String.valueOf(endRank));
 
         ResultSetContainer rsc = null;
-        
+        String page = Constants.PAGE_CODER_RANK;
             
         if (!"".equals(countryCode)) {
             r.setContentHandle("marathon_country_coder_rank");
@@ -74,6 +74,7 @@ public class CoderRank extends Base {
             getRequest().setAttribute("schoolName", info.getStringItem(0, "name"));
             rsc = results.get("marathon_school_coder_rank");
             setDefault(Constants.SCHOOL_ID, schoolId);
+            page = Constants.PAGE_SCHOOL_CODER_RANK;
         } else {
         
             // Just use cache for standard pages of 50 rows starting in 1, 51, 101... 
@@ -87,7 +88,7 @@ public class CoderRank extends Base {
         setDefault(DataAccessConstants.START_RANK, sr);
 
         getRequest().setAttribute("list", rsc);
-        setNextPage(Constants.PAGE_CODER_RANK);
+        setNextPage(page);
         setIsNextPageInContext(true);
     
 
