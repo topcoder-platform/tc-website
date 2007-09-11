@@ -5,7 +5,11 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Long_Data"); %>
+<% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data"); %>
+
 <c:set value="<%=rsc.get(0)%>" var="row"/>
+<c:set value="<%=rscCoderData.get(0)%>" var="rowCoderData"/>
+<c:set value="${not empty row.map['school_rank']}" var="inSchool" />
 <script src="/js/tcscript.js" type="text/javascript"></script>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat">
@@ -13,7 +17,8 @@
                 
 <c:choose>
 <c:when test="${not empty row.map['rating']}" >
-                <tr class="dark">
+<c:set var="even" value="true"/>
+                <tr class="${even? 'dark' : 'light'}">
                     <td class="valueC" colspan="2" style="border-top: none;">
                         <div class="ratingBox">
                         Rating:<br />
@@ -22,7 +27,7 @@
                         </tc-webtags:ratingColor></div>
                      <br /><strong><A HREF="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<rsc:item set="<%=rsc%>" name="coder_id"/>">[competition history]</A></strong><br /><br /></td>
                     </td>
-                    <td class="valueC" valign="top" rowspan="15" width="100%" style="border-left: 1px solid #999999; border-top: none;">
+                    <td class="valueC" valign="top" rowspan="${inSchool? 17 : 16}" width="100%" style="border-left: 1px solid #999999; border-top: none;">
 <script language="JavaScript">
 var s='<object ' +
 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ' +
@@ -54,11 +59,13 @@ doWrite(s);
 </script>
                     </td>
                 </tr>
-                <tr class="light">
+                <c:set var="even" value="${not even}" />
+                <tr class="${even? 'dark' : 'light'}">
                     <td class="field">Percentile:</td>
                     <td class="valueR"><c:out value="${row.map['percentile']}" default="N/A"/></td>
                 </tr>
-                <tr class="dark">
+                <c:set var="even" value="${not even}" />
+                <tr class="${even? 'dark' : 'light'}">
                     <td class="field">Rank:</td>
                     <td class="valueR" nowrap="nowrap">
                     <c:choose>
@@ -67,7 +74,8 @@ doWrite(s);
                     </c:choose>
                     </td>
                 </tr>
-                <tr class="light">
+                <c:set var="even" value="${not even}" />
+                <tr class="${even? 'dark' : 'light'}">
                     <td class="field">Country Rank:</td>
                     <td class="valueR" nowrap="nowrap">
                     <c:choose>
@@ -76,37 +84,59 @@ doWrite(s);
                     </c:choose>
                     </td>
                 </tr>
-                <tr class="dark">
+                <c:if test="${inSchool}" >
+                <c:set var="even" value="${not even}" />
+                    <tr class="${even? 'dark' : 'light'}">
+                        <td class="field">School Rank:</td>
+                        <td class="valueR" nowrap="nowrap">
+                        <c:choose>
+                            <c:when test="${empty rowCoderData.map['school_name']}" >N/A</c:when>
+                            <c:otherwise>${row.map['school_rank']} of ${row.map['num_school_ranked']} </c:otherwise>
+                        </c:choose>
+                        </td>
+                    </tr>
+                </c:if>
+                <c:set var="even" value="${not even}" />
+                <tr class="${even? 'dark' : 'light'}">
                     <td class="field">Volatility:</td><td class="valueR">${row.map['vol']}</td>
                 </tr>
-                <tr class="light">
+                <c:set var="even" value="${not even}" />
+                <tr class="${even? 'dark' : 'light'}">
                     <td class="field">Maximum Rating:</td><td class="valueR">${row.map['highest_rating']}</td>
                 </tr>
-                <tr class="dark">
+                <c:set var="even" value="${not even}" />
+                <tr class="${even? 'dark' : 'light'}">
                     <td class="field">Minimum Rating:</td><td class="valueR">${row.map['lowest_rating']}</td>
-                </tr>
-                <tr class="light">
+                <c:set var="even" value="${not even}" />
+                <tr class="${even? 'dark' : 'light'}">
                     <td class="field">Best Rank:</td><td class="valueR">${row.map['best_rank']}</td>
                 </tr>
-                <tr class="dark">
+                <c:set var="even" value="${not even}" />
+                <tr class="${even? 'dark' : 'light'}">
                     <td class="field">Wins:</td><td class="valueR">${row.map['num_wins']}</td>
                 </tr>
-                <tr class="light">
+                <c:set var="even" value="${not even}" />
+                <tr class="${even? 'dark' : 'light'}">
                     <td class="field">Top Five Finishes:</td><td class="valueR">${row.map['num_top_five']}</td>
                 </tr>
-                <tr class="dark">
+                <c:set var="even" value="${not even}" />
+                <tr class="${even? 'dark' : 'light'}">
                     <td class="field">Top Ten Finishes:</td><td class="valueR">${row.map['num_top_ten']}</td>
                 </tr>
-                <tr class="light">
+                <c:set var="even" value="${not even}" />
+                <tr class="${even? 'dark' : 'light'}">
                     <td class="field">Avg. Rank:</td><td class="valueR"><rsc:item set="<%=rsc%>" name="avg_rank" ifNull="N/A" format="0.00"/></td>
                 </tr>
-                <tr class="dark">
+                <c:set var="even" value="${not even}" />
+                <tr class="${even? 'dark' : 'light'}">
                     <td class="field" nowrap="nowrap">Avg. Num. Submissions:</td><td class="valueR"><rsc:item set="<%=rsc%>" name="avg_submissions" ifNull="N/A" format="0.00"/></td>
                 </tr>
-                <tr class="light">
+                <c:set var="even" value="${not even}" />
+                <tr class="${even? 'dark' : 'light'}">
                     <td class="field">Competitions:</td><td class="valueR"><A HREF="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<rsc:item set="<%=rsc%>" name="coder_id"/>"><rsc:item set="<%=rsc%>" name="num_competitions"/></A></td>
                 </tr>
-                <tr class="dark">
+                <c:set var="even" value="${not even}" />
+                <tr class="${even? 'dark' : 'light'}">
                     <td class="field">Most Recent Event:</td><td class="valueR" nowrap="nowrap">${row.map['last_round']}<br />
                                                 <rsc:item name="last_round_date" set="<%=rsc%>" format="MM.dd.yy"/></td>
                 </tr>
@@ -116,7 +146,7 @@ doWrite(s);
                     <td class="valueC" colspan="2" style="border-top: none; padding: 20px;">
                      <strong><A HREF="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<rsc:item set="<%=rsc%>" name="coder_id"/>">[competition history]</A></strong></td>
                     </td>
-                    <td class="valueC" valign="top" rowspan="15" width="100%" style="border-left: 1px solid #999999; border-top: none;">
+                    <td class="valueC" valign="top" rowspan="6" width="100%" style="border-left: 1px solid #999999; border-top: none;">
                         <div style="margin: 80px;">
                             This member has not yet competed in a rated match.
                         </div>
