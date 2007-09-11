@@ -32,6 +32,8 @@ public class SelfRegister extends Base {
         if (userIdentified()) {
             log.debug("User identified - " + getUser().getUserName());
             
+            // TODO: only students
+            
             // prepare stuff for the long transaction
             clearSession();
 

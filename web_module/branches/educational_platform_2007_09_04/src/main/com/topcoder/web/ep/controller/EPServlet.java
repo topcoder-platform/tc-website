@@ -5,11 +5,14 @@
 */
 package com.topcoder.web.ep.controller;
 
+import java.util.MissingResourceException;
+
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SecurityHelper;
@@ -45,4 +48,19 @@ public class EPServlet extends BaseServlet {
         protected TCSubject getUser(long id) throws Exception {
         return SecurityHelper.getUserSubject(id, DBMS.JTS_OLTP_DATASOURCE_NAME);
     }
+        
+    protected String getProcessor(String key) {
+        String ret = super.getProcessor(key);
+        if (ret.equals(key)) {
+            //yuck, gonna throw errors all over the place
+            TCResourceBundle bundle = new TCResourceBundle("TC");
+            try {
+                ret = bundle.getProperty(key);
+            } catch (MissingResourceException ignore) {
+                //just return what we got
+            }
+        }
+        return ret;
+    }
+
 }
