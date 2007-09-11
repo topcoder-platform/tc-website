@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.11.07<br>12:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm38">TCHS SRM 38 - Problem Set &amp; Analysis</A></span><br><br>
+      The match started quickly, and after only a few minutes there were coders who had the easy problem and the medium problem done. The problems were pretty easy for most of the coders, but the 1000 problem was fair.</td>
+         <td class="newsPhoto"><img src="/i/m/vlad_D_big5.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="13298470" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm38">full story</A> | 
+         <tc-webtag:forumLink forumID="516564" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.11.07<br>10:45 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -157,18 +173,5 @@
          <A href="/tc?module=Static&d1=features&d2=090607">full story</A> | 
          <tc-webtag:forumLink forumID="517256" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.05.07<br>1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/longcontest/?module=ViewActiveContests">TCCC07 Marathon Match 3 now underway</A></span><br><br>
-        The third round of the 2007 TopCoder Collegiate Challenge Marathon Match competition has begun. Good luck!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/longcontest/?module=ViewActiveContests">details</A> | 
-        <tc-webtag:forumLink forumID="517234" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
