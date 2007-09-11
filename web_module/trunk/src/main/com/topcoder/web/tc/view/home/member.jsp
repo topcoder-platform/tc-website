@@ -28,12 +28,6 @@ function swapTop10(topTenID){
     hide('topTenMM');
     showBlock(topTenID);
 }
-function top10DefRemoveLink(){
-    document.getElementById('defaultLinkBox').innerHTML="<strong>Default saved</strong>";
-}
-function top10DefAddLink(){
-    document.getElementById('defaultLinkBox').innerHTML='<strong><a href="javascript:top10DefRemoveLink();" class="gMetal">Make default</a></strong>';
-}
 </script>
 </head>
 
@@ -130,9 +124,6 @@ function top10DefAddLink(){
                     <option value="topTenDev">Development</option>
                     <option value="topTenMM">Marathon Matches</option>
                     </select>
-                    <div id="defaultLinkBox">
-                        <strong><a href="javascript:top10DefRemoveLink();" class="gMetal">Make default</a></strong>
-                    </div>
                 </div>
                 
                 <jsp:include page="top_coders.jsp" />
