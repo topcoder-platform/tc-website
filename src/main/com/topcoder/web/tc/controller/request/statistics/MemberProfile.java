@@ -208,9 +208,6 @@ public class MemberProfile extends Base {
                 HibernateUtils.getSession().beginTransaction();
             }
             
-            if (!DAOUtil.useQueryToolFactory) {
-                HibernateUtils.getSession().beginTransaction();
-            }
             UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(coderId), Preference.SHOW_EARNINGS_PREFERENCE_ID);
             boolean hidePayments = up != null && "hide".equals(up.getValue());
             
