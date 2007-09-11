@@ -15,6 +15,7 @@
     -->
 </script>
 <script type="text/javascript" src="/js/main.js"  ></script>
+<script type="text/javascript" src="/js/cookie.js"  ></script>
 <script type="text/javascript">
 var currTopTen = null;
 function swapTopTen(topTenID){
@@ -26,11 +27,19 @@ function swapTopTen(topTenID){
     hide('topTenDev');
     hide('topTenMM');
     showBlock(topTenID);
+    createCookie('defaultTopTen',topTenID,365);
 }
+
+function init() {
+   id = readCookie('defaultTopTen');
+   if (id == null) id = 'topTenAlgo';
+   swapTopTen(id);
+}
+
 </script>
 </head>
 
-<body>
+<body onload="init()">
 
 <%--
 <div style="position:absolute; left:200px; top:190px;">
