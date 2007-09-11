@@ -17,7 +17,7 @@
 <script type="text/javascript" src="/js/main.js"  ></script>
 <script type="text/javascript" src="/js/cookie.js"  ></script>
 <script type="text/javascript">
-var currTopTen = null;
+
 function swapTopTen(topTenID){
     currTopTen = document.getElementById(topTenID);
     hide('topTenAlgo');
@@ -33,6 +33,14 @@ function swapTopTen(topTenID){
 function init() {
    id = readCookie('defaultTopTen');
    if (id == null) id = 'topTenAlgo';
+   
+   for (var i = 0; i < document.f.topTen.length; i++) {
+      if (document.f.topTen.options[i].value == id) {
+         document.f.topTen.selectedIndex = i;
+         break;
+      }
+   }
+   
    swapTopTen(id);
 }
 
@@ -103,6 +111,7 @@ function init() {
                 </div>
 
                 <div style="padding-bottom: 10px;" align="center">
+                <form name="f" action="#">
                     <select name="topTen" onchange="swapTopTen(this.value)">
                     <option value="topTenAlgo" selected="selected">Algorithm</option>
                     <option value="topTenAlgoSchools">Algorithm Schools</option>
@@ -111,6 +120,7 @@ function init() {
                     <option value="topTenDev">Development</option>
                     <option value="topTenMM">Marathon Matches</option>
                     </select>
+                    </form>
                 </div>
                 
                 <jsp:include page="top_coders.jsp" />
