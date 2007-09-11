@@ -57,7 +57,7 @@ public class SelectSchool extends Base {
             List<Professor> professors  = DAOUtil.getFactory().getProfessorDAO().getProfessors(s);
             getRequest().setAttribute("professors", professors);            
             
-            setNextPage("/selectProfessor.jsp");
+            setNextPage("/student/selectProfessor.jsp");
             setIsNextPageInContext(true);            
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
