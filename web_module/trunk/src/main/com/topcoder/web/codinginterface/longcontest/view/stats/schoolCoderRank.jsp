@@ -74,8 +74,8 @@ return false;
 
                 <form name="f" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 
-                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CoderRank"/>
-                <tc-webtag:hiddenInput name="<%=Constants.COUNTRY_CODE%>"/>
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SchoolCoderRank"/>
+                <tc-webtag:hiddenInput name="<%=Constants.SCHOOL_ID %>"/>
 
                 <div class="pagingBox">
                     <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${list}" styleClass="bcLink" /> |
@@ -83,20 +83,14 @@ return false;
                 </div>
 
             <table class="stat" cellpadding="0" cellspacing="0" width="510" border="0">
-               <tr><td class="title" colspan="3">Top Ranked Marathon Match Competitors
-                <c:if test="${not empty countryName }">
-                 in ${countryName }
-                </c:if>
-                   </td>
+               <tr><td class="title" colspan="2">Marathon Match Competitors for ${schoolName } school</td>
                 </tr>
                <tr>
-                  <td class="headerC">Rank</td>
                   <td class="header">Handle</td>
                   <td class="headerC">Rating</td>
                </tr>
                <c:forEach items="${list}" var="row" varStatus="status">
                    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
-                        <td class="valueC">${row.map['rank']}</td>
                         <td class="value"><tc-webtag:handle coderId="${row.map['coder_id']}" context="marathon_match"/></td>                        
                         <td class="valueC">${row.map['rating']}</td>
                     </tr>   
