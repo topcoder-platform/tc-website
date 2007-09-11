@@ -19,6 +19,8 @@ import com.topcoder.web.common.WebConstants;
  */
 public class Constants implements WebConstants {
 
+    public static final String USER = "activeUser";
+
     private static final TCResourceBundle bundle = new TCResourceBundle("EP");
     private static final Logger log = Logger.getLogger(Constants.class);
 

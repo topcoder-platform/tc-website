@@ -1,5 +1,6 @@
 package com.topcoder.web.common.dao;
 
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -95,4 +96,7 @@ public interface DAOFactory {
     VisaLetterEventDAO getVisaLetterEventDAO();
 
     VisaLetterRequestDAO getVisaLetterRequestDAO();
+    
+    ProfessorDAO getProfessorDAO();
+
 }

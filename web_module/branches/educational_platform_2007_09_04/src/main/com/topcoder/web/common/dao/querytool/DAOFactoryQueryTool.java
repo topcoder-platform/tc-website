@@ -1,6 +1,7 @@
 package com.topcoder.web.common.dao.querytool;
 
 import com.topcoder.web.common.dao.*;
+import com.topcoder.web.common.dao.hibernate.ProfessorDAOHibernate;
 
 /**
  * @author pulky
@@ -189,6 +190,10 @@ public class DAOFactoryQueryTool implements DAOFactory {
     }
 
     public SubmissionDAO getSubmissionDAO() {
+        throw new RuntimeException("Not supported");
+    }
+    
+    public ProfessorDAO getProfessorDAO() {
         throw new RuntimeException("Not supported");
     }
 }

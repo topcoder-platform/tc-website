@@ -51,7 +51,7 @@ public class Home extends Base {
                     setIsNextPageInContext(true);
                 } else {
                     log.debug("first time - self register");
-                    setNextPage("/selfRegister.jsp");
+                    setNextPage("/student/selfRegister.jsp");
                     setIsNextPageInContext(true);
                 }
             }

@@ -37,17 +37,13 @@
 
 <body>
 Hello, <tc-webtag:handle coderId='${user.id}'/>, Welcoome to Educational Plattform!
+</br>
+Now you should complete your self-registration first.
 </br></br>
-<c:choose>
-    <c:when test="${not empty classrooms}">
-        Here are your classrooms:
-        <c:forEach items="${classrooms}" var="classroom">
-            <a href="">${classroom.name}</a>
-        </c:forEach>
-    </c:when>
-    <c:otherwise>
-        You don't have classrooms associated.
-    </c:otherwise>
-</c:choose>
+Please follow the direction below:
+</br>
+1 Select your professor 2 Enter your information 3 End self registration
+</br></br>
+<a href="/ep?module=SelfRegister>Start now</a>
 </body>
 </html>

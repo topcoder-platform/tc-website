@@ -923,14 +923,17 @@
         <war warfile="${war.dir}/ep.war" webxml="${resources}/ep/web.xml">
             <classes dir="${classes}">
                 <include name="com/topcoder/web/ep/**/*.class"/>
-                <!--todo remove this once we deploy the oracle -->
+                <!--
                 <include name="com/topcoder/web/oracle/model/**/*.class"/>
+				-->
             </classes>
             <webinf dir="${resources}/taglib">
+                    <include name="tc-webtags.tld"/>
+                <!--
                 <include name="tc.tld"/>
-                <include name="tc-webtags.tld"/>
                 <include name="reg-tags.tld"/>
                 <include name="common-functions.tld"/>
+				-->
             </webinf>
             <fileset dir="${java}/com/topcoder/web/ep/view">
                 <include name="**/*.jsp"/>
