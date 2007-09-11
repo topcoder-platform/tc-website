@@ -77,7 +77,7 @@ The Problems
 
 </font> 
 
-<A href=""><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
+<A href="Javascript:openProblemRating(8094)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
 
 <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=516564" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 
@@ -192,7 +192,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
 
 </font> 
 
-<A href=""><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
+<A href="Javascript:openProblemRating(8070)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
 
 <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=516564" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 
@@ -302,7 +302,7 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
 
 </font> 
 
-<A href=""><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
+<A href="Javascript:openProblemRating(8136)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
 
 <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=516564" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 
