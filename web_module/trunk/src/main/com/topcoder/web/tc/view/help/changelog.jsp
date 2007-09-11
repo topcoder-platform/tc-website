@@ -46,6 +46,9 @@
     5.12.1 - 2007.09.xx
     <ul>
         <li>Allow remember me for login to marathon match site -dok</li>
+        <li>Add cookie to remember the selected Top 10 in the home page -cucu</li>
+        <li>Add page that lists the marathon coders for a school -cucu</li>
+        <li>Add school rank in marathon tab for member profile -cucu</li>
     </ul>
 </p>
 
