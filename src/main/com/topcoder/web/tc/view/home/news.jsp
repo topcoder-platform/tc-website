@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.11.07<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa">Visa invitation letter deadline approaching</A></span><br><br>
+        Don't forget! You have until this Friday, September 14 at 5:00 PM EDT to request a visa invitation letter. If you haven't received a letter and are still going strong in the TCCC07, ask now! If you're unsure whether you need one, read <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa">here</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa">details</a> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.11.07<br>1:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly">Eli Lilly chat before SRM 365</A></span><br><br>
@@ -157,18 +170,5 @@
    <tr><td class="newsLinksCell">
         <tc-webtag:forumLink forumID="517258" message="discuss this" />| 
         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.07.07<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description">TCCC07 Blog Contest now open</A></span><br><br>
-        We're looking for two bloggers who can convey the behind-the-scenes experience of attending an onsite tournament. Show us your creativity, and you could win a trip to the TCCC at Walt Disney World.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description">details</a> | 
-        <tc-webtag:forumLink forumID="517257" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
