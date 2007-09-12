@@ -2,7 +2,6 @@ package com.topcoder.web.common.dao.hibernate;
 
 import java.util.List;
 
-import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import com.topcoder.web.common.dao.ProfessorDAO;
@@ -21,8 +20,6 @@ public class ProfessorDAOHibernate extends GenericBase<Professor, Long> implemen
     public List<Professor> getProfessors(School school) {
         return getSession().createCriteria(Professor.class)
             .add(Restrictions.eq("school", school))
-            .createCriteria("user")
-            .addOrder(Order.asc("firstName"))
             .list();
     }
 }
