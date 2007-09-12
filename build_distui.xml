@@ -232,12 +232,13 @@
         <copy todir="${jboss_conf}">
             <fileset dir="${resources}">
                 <include name="ApplicationServer.properties"/>
+                <include name="DBMS.properties"/>
+                <include name="DataAccess.properties"/>
             </fileset>
         </copy>
         <unwar src="${war.dir}/distui.war" dest="${jboss_deploy}/distui.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/distui.war/META-INF"/>
     </target>
-
 
 </project>
 
