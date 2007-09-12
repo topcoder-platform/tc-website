@@ -125,8 +125,7 @@
     </ul>
 
 
-    <strong>${mainEvent.recruiterName }
-    </strong>, will give a presentation to explain the benefits of TopCoder membership and competition.
+    <strong>${mainEvent.recruiterName }</strong>, will give a presentation to explain the benefits of TopCoder membership and competition.
 
     <br><br>
     
