@@ -929,6 +929,7 @@
             </classes>
             <webinf dir="${resources}/taglib">
                     <include name="tc-webtags.tld"/>
+	                <include name="taconite.tld"/>
                 <!--
                 <include name="tc.tld"/>
                 <include name="reg-tags.tld"/>
