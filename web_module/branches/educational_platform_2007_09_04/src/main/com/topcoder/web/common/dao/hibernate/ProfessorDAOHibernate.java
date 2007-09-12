@@ -2,6 +2,7 @@ package com.topcoder.web.common.dao.hibernate;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.hibernate.criterion.Restrictions;
 
 import com.topcoder.web.common.dao.ProfessorDAO;
@@ -19,7 +20,12 @@ public class ProfessorDAOHibernate extends GenericBase<Professor, Long> implemen
     @SuppressWarnings("unchecked")
     public List<Professor> getProfessors(School school) {
         return getSession().createCriteria(Professor.class)
-            .add(Restrictions.eq("school", school))
-            .list();
+        .add(Restrictions.sqlRestriction("{alias}.school_id = ?", school.getId(), Hibernate.LONG))
+        .list();
+        
+        // this didn't work
+//        return getSession().createCriteria(Professor.class)
+//        .add(Restrictions.eq("school", school))
+//        .list();
     }
 }
