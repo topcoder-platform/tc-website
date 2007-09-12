@@ -8,8 +8,11 @@
 <jsp:useBean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
-<a name="jump"></a>
+<div class="bigRed" align="center" style="margin: 40px;">
+    Your search returned 0 matches. Please try different search criteria.
+</div>
 
+<a name="jump"></a>
 <% ResultSetContainer results = memberSearch.getResults(); %>
 <div class="pagingBox">
     Search Results: 
