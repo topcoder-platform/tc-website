@@ -39,10 +39,11 @@
 
 <div class="breadcrumb">
     <a href="/?module=Static&d1=competitions">Competitions</a>
-    > <a href="/?module=Static&d1=assembly&d2=activeContests">Active Assembly Competitions</a>
+    > <a href="/?module=Static&d1=assembly&d2=pastContests">Past Assembly Competitions</a>
     > British Telecom Workspace
 </div>
 
+<%--
         <div align="center">
         <table class="bodyText" style="margin-top: 20px; margin-bottom: 20px; width: 320px;" cellpadding="0" cellspacing="0">
             <tbody>
@@ -70,6 +71,7 @@
             </tbody>
         </table>
         </div>
+--%>
 
 <h2>Project Overview</h2>
 

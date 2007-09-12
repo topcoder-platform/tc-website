@@ -69,6 +69,7 @@
                         </td>
                         <td class="header">&nbsp;</td>
                     </tr>
+<%--
                     <% boolean even = true;%>
                     <tr class="<%=even?"light":"dark"%>">
                         <td class="value">
@@ -95,8 +96,8 @@
                         </td>
                     </tr>
                     <% even = !even;%>
+--%>
 
-<%--
                 <tr class="light">
 
                     <td class="valueC" colspan="7">
@@ -106,7 +107,6 @@
                         </div>
                     </td>
                 </tr>
---%>
 
                 </tbody>
             </table>

@@ -30,6 +30,8 @@
         </jsp:include>
 
         <div id="main">
+
+<%--
             <div class="pageHeader">
                 <span class="pageName">Register for This Competition</span>
             </div>
@@ -61,6 +63,7 @@
                 </form>
 
             </div>
+--%>
 
         </div>
 
