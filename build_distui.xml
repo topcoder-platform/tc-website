@@ -194,6 +194,7 @@
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="nav.tld"/>
+                <include name="tc-webtags.tld"/>
             </webinf>
             <webinf dir="${resources}/distui">
                 <include name="jboss-web.xml"/>
