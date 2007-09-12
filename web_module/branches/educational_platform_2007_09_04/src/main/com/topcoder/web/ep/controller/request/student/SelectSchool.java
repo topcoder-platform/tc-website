@@ -13,7 +13,6 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.educ.Professor;
 import com.topcoder.web.ep.Constants;

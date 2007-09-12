@@ -20,6 +20,11 @@ import com.topcoder.web.common.WebConstants;
 public class Constants implements WebConstants {
 
     public static final String USER = "activeUser";
+    public static final String SCHOOL_ID = "schid";
+    public static String SCHOOL_NAME;
+
+    public static int MAX_SCHOOL_NAME_LENGTH;
+    public static int MAX_SCHOOL_RESULTS;
 
     private static final TCResourceBundle bundle = new TCResourceBundle("EP");
     private static final Logger log = Logger.getLogger(Constants.class);
