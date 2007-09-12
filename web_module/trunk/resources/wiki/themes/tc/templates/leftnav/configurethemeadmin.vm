@@ -5,7 +5,7 @@
 	</head>
 
 	<body>
-        #parse ("/templates/leftnavigation/common-configuretheme.vm")
+        #parse ("/templates/leftnav/common-configuretheme.vm")
         #parse ("/admin/lookandfeel/lookandfeel-breadcrumbs.vm")
 	</body>
 </html>

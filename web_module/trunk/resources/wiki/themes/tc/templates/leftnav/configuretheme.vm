@@ -19,7 +19,7 @@
                 #decoratorParam ("selectedTab" "admin")
                 #decoratorParam("helper" $action.spaceHelper)
 
-                #parse ("/templates/leftnavigation/common-configuretheme.vm")
+                #parse ("/templates/leftnav/common-configuretheme.vm")
             #end
         </body>
     #end
