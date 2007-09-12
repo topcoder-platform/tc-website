@@ -59,6 +59,9 @@
     <velocity-context-item key="velocityHelper" name="Velocity Helper" class="com.topcoder.web.wiki.themes.tc.LeftNavVelocityHelper"
             context-key="navHelper"/>
 
+    <velocity-context-item key="topVelocityHelper" name="Top Velocity Helper" class="com.topcoder.web.wiki.themes.tc.TopVelocityHelper"
+            context-key="topHelper"/>
+
     <xwork name="themeaction" key="themeaction">
         <package name="leftnav" extends="default" namespace="/themes/leftnav">
             <default-interceptor-ref name="defaultStack" />
