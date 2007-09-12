@@ -203,6 +203,7 @@
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
                 <include name="taconite.jar"/>
+                <include name="object_formatter.jar"/>
             </lib>
             <lib dir="${bin}">
                 <include name="shared.jar"/>
