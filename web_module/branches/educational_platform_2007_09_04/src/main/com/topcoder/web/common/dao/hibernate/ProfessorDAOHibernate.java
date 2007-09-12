@@ -21,7 +21,8 @@ public class ProfessorDAOHibernate extends GenericBase<Professor, Long> implemen
     public List<Professor> getProfessors(School school) {
         return getSession().createCriteria(Professor.class)
             .add(Restrictions.eq("school", school))
-            .addOrder(Order.asc("user.firstName"))
+            .createCriteria("user")
+            .addOrder(Order.asc("firstName"))
             .list();
     }
 }
