@@ -1,8 +1,6 @@
 package com.topcoder.web.wiki.themes.tc;
 
 import com.atlassian.bandana.BandanaManager;
-import com.atlassian.confluence.pages.PageManager;
-import com.atlassian.confluence.themes.ThemeManager;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 
@@ -21,9 +19,7 @@ import java.net.URL;
 public class LeftNavVelocityHelper {
     private static final Logger log = Logger.getLogger(LeftNavVelocityHelper.class);
 
-    private PageManager pageManager;
     private BandanaManager bandanaManager;
-    private ThemeManager themeManager;
 
 
     public LeftNavVelocityHelper() {
@@ -35,10 +31,20 @@ public class LeftNavVelocityHelper {
         log.debug("called render navigation");
         try {
 
-            if (log.isDebugEnabled()) {
-                log.debug("url gonna be " + "http://" + ApplicationServer.DISTRIBUTED_UI_SERVER_NAME + "/distui/");
+            SettingsManager settingsManager = new SettingsManager(bandanaManager);
+            LeftNavSettings settings = settingsManager.getSpaceThemeSettings(spaceKey);
+            String node= settings.getNavKey();
+
+            StringBuilder buf = new StringBuilder(100);
+            buf.append("http://").append(ApplicationServer.DISTRIBUTED_UI_SERVER_NAME).append("/distui/?module=LeftNav");
+            if (node!=null && !"".equals(node)) {
+                buf.append("&node=").append(node);
             }
-            URL url = new URL("http://" + ApplicationServer.DISTRIBUTED_UI_SERVER_NAME + "/distui/");
+            if (log.isDebugEnabled()) {
+                log.debug("url gonna be " + buf.toString());
+            }
+
+            URL url = new URL(buf.toString());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
             StringBuilder b = new StringBuilder(10000);
@@ -64,15 +70,9 @@ public class LeftNavVelocityHelper {
     }
 
 
-    public void setPageManager(PageManager pageManager) {
-        this.pageManager = pageManager;
-    }
-
     public void setBandanaManager(BandanaManager bandanaManager) {
         this.bandanaManager = bandanaManager;
     }
 
-    public void setThemeManager(ThemeManager themeManager) {
-        this.themeManager = themeManager;
-    }
+
 }
