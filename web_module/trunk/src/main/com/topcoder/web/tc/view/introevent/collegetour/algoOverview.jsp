@@ -126,9 +126,7 @@
 
 
     <strong>${mainEvent.recruiterName }
-    </strong>, a TopCoder representative, will be present to explain the TopCoder
-    algorithm, design and development competitions, TopCoder Employment Services, and other aspects of
-    TopCoder.
+    </strong>, will give a presentation to explain the benefits of TopCoder membership and competition.
 
     <br><br>
     
