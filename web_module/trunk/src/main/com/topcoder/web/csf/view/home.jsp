@@ -37,11 +37,11 @@
             <div style="float: right; margin: 0px 0px 10px 10px;">
                 <map name="highlights">
                 <area shape="rect" alt="" coords="1,1,199,95" href="/?module=Static&d1=leaderboardOverview" />
-                <area shape="rect" alt="" coords="1,105,199,195" href="/?module=Static&d1=assembly&d2=btWorkspaceDetails" />
+                <area shape="rect" alt="" coords="1,105,199,195" href="/?module=Static&d1=assembly&d2=pastContests" />
                 <area shape="rect" alt="" coords="1,205,199,295" href="/?module=Static&d1=assembly&d2=pastContests" />
                 <%--<area shape="rect" alt="" coords="1,305,199,399" href="/?module=ViewContestDetails&ct=1007" />--%>
                 </map>
-                <img src="/i/home/highlights0831.png" alt="Series Prizes" usemap="#highlights" />
+                <img src="/i/home/highlights0912.png" alt="Series Prizes" usemap="#highlights" />
             </div>
 
             <p>
