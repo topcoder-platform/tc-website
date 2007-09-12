@@ -399,6 +399,13 @@
             </fileset>
         </copy>
 
+        <copy todir="${jboss_lib}">
+            <fileset dir="${jars.dir}/tcs">
+                <include name="base_exception.jar"/>
+            </fileset>
+        </copy>
+
+
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
     	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
     	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/data_validation/1.0/data_validation.jar"/>
