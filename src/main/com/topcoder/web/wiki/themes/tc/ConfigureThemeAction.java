@@ -74,7 +74,7 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
         Map params = ActionContext.getContext().getParameters();
 
         Space s;
-        String navKey;
+        String[] navKey;
         for (Object o : getSpaces()) {
             s = (Space)o;
             if (log.isDebugEnabled()) {
@@ -82,11 +82,11 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
             }
             //accessing the parameters directly because i can't figure out how to do it
             //correctly within the framework with the autowiring
-            navKey = (String)params.get(s.getKey());
+            navKey = (String[])params.get(s.getKey());
             if (navKey!=null) {
                 LeftNavSettings settings = new LeftNavSettings();
                 settings.setSpace(s.getKey());
-                settings.setNavKey(navKey);
+                settings.setNavKey(navKey[0]);//we are assuming only 1 will be present
                 settingsManager.setSpaceThemeSettings(settings, s.getKey());
             }
         }
