@@ -20,6 +20,7 @@ import com.topcoder.web.common.WebConstants;
 public class Constants implements WebConstants {
 
     public static final String USER = "activeUser";
+    public static final String SCHOOL = "school";
     public static final String SCHOOL_ID = "schid";
     public static String SCHOOL_NAME;
 

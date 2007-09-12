@@ -44,19 +44,20 @@ public class SelectSchool extends Base {
             }
         }
         if (getActiveUser() == null) {
-            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
         } else if (userLoggedIn()) {
             // get school parameter
             Long schoolId = getSchoolParam();
             
             // add selected school to the session
             School s  = getFactory().getSchoolDAO().find(schoolId);
+            setSchool(s);
 
             // get professors from that school
             List<Professor> professors  = getFactory().getProfessorDAO().getProfessors(s);
             getRequest().setAttribute("professors", professors);            
             
-            setNextPage("/student/selectProfessor.jsp");
+            setNextPage("/student/selectClassroom.jsp");
             setIsNextPageInContext(true);            
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));

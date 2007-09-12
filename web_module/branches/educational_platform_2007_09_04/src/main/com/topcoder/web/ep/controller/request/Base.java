@@ -8,6 +8,7 @@ package com.topcoder.web.ep.controller.request;
 import com.topcoder.web.common.LongHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.ep.Constants;
 
@@ -59,6 +60,7 @@ public abstract class Base extends LongHibernateProcessor {
     protected void clearSession() {
         getRequest().getSession().setAttribute(Constants.USER, null);
     }
+
     /**
      * Set the  user in the current request processor.  This is generally
      * only necessary if it's a new user istering.  Existing users can be loaded
@@ -69,6 +71,30 @@ public abstract class Base extends LongHibernateProcessor {
     protected void setActiveUser(User u) {
         this.user = u;
         getRequest().getSession().setAttribute(Constants.USER, user);
+    }
+    
+    /**
+     * Set the  user in the current request processor.  
+     *
+     * @param s the school to set
+     */
+    protected void setSchool(School s) {
+        getRequest().getSession().setAttribute(Constants.SCHOOL, s);
+    }
+    
+    /**
+     * Get the school in the current request processor. 
+     */
+    protected School getSchool() {
+        School school = (School) getRequest().getSession().getAttribute(Constants.SCHOOL);
+        if (school == null) {
+                throw new RuntimeException("Couldn't find school in the session");
+        } else {
+            if (log.isDebugEnabled()) {
+                log.debug("got id: " + school.getId() + " name: " + school.getName() + " school from session");
+            }
+        }
+        return school;
     }
     
     protected DAOFactory getFactory() {
