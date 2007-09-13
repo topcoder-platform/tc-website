@@ -24,7 +24,7 @@ public class TravelInfoSubmit extends BaseSubmitTravelInfo {
 
     protected String[] getRecipients() {
         if (ApplicationServer.ENVIRONMENT == ApplicationServer.PROD) {
-            return new String[]{"jdamato@topcoder.com", "bhealy@topcoder.com"};
+            return new String[]{"jdamato@topcoder.com", "bhealy@topcoder.com", "coakes@topcoder.com"};
         } else {
             return new String[]{"gpaul@topcoder.com"};
         }
