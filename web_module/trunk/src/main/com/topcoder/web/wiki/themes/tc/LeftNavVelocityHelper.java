@@ -37,7 +37,11 @@ public class LeftNavVelocityHelper {
             }
             SettingsManager settingsManager = new SettingsManager(bandanaManager);
             LeftNavSettings settings = settingsManager.getSpaceThemeSettings(spaceKey);
-            String node= settings.getNavKey();
+
+            String node= null;
+            if (settings!=null) {
+                node = settings.getNavKey();
+            }
 
             StringBuilder buf = new StringBuilder(100);
             buf.append("http://").append(ApplicationServer.DISTRIBUTED_UI_SERVER_NAME).append("/distui/?module=LeftNav");
