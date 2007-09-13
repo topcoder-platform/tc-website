@@ -32,6 +32,9 @@ public class LeftNavVelocityHelper {
         try {
 
             //figure out the appropriate node key to pass to the left nav so the the right node is highlighted.
+            if (bandanaManager==null) {
+                log.debug("bandana manager null");
+            }
             SettingsManager settingsManager = new SettingsManager(bandanaManager);
             LeftNavSettings settings = settingsManager.getSpaceThemeSettings(spaceKey);
             String node= settings.getNavKey();
