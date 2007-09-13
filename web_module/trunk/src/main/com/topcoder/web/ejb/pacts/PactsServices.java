@@ -163,8 +163,17 @@ public interface PactsServices extends EJBObject {
     int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
             throws IllegalUpdateException, RemoteException, SQLException;
 
+    /**
+     * @deprecated
+     */    
     List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
     	throws IllegalUpdateException, RemoteException, SQLException, EventFailureException;
+
+    List generateComponentPayments(long projectId, long status, String client)
+        throws IllegalUpdateException, RemoteException, SQLException, EventFailureException, DevSupportException;
+
+    List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId)
+    throws IllegalUpdateException, RemoteException, SQLException, EventFailureException, DevSupportException;
 
     List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, RemoteException, EventFailureException;
 
