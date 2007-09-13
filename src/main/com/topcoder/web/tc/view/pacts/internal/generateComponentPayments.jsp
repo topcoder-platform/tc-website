@@ -66,12 +66,13 @@
                     </tr>
                     <tr>
                         <td colspan="3" align="center">
-                            <table border="1" cellpadding="5" cellspacing="0">
+                            <table border="0" cellpadding="3" cellspacing="0">
                             <tr>
                                 <td colspan="2" align="center">
                                     <strong>Development Support</strong>
                                 </td>
-                                
+                           </tr>
+                           <tr>
                                 <td>
                                     Project
                                 </td>         
