@@ -2,6 +2,7 @@
 <%@ page import="com.topcoder.web.ep.Constants"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -38,7 +39,14 @@
                                 <td>${classroom.name}</td>
                                 <td>${classroom.academicPeriod}</td>
                                 <td>${classroom.description}</td>
-                                <td><tc-webtag:chkBox name = "clsid" value="${classroom.id}"/></td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${empty checked_classrooms || cf:contains(checked_classrooms, classroom.id)}">
+                                           <input type="checkbox" name="clsid" value="${classroom.id}" checked="checked"></c:when>
+                                        <c:otherwise>
+                                           <input type="checkbox" name="clsid" value="${classroom.id}"></c:otherwise>
+                                    </c:choose>
+	                           </td>
                             </tr>
                         </c:forEach>
                     </c:if>
