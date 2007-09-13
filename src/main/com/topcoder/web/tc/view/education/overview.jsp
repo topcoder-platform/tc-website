@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=091307"><strong>An interview with fabrizyo</strong></a>, <tc-webtag:handle coderId="21926605" context="design" /><br>
+While a few final fixes are still pending, and a few scores may yet move, it appears that somebody has finally broken the hold of <tc-webtag:handle coderId="287614" context="design" /> on the <a href="/tc?&ph=112&module=LeaderBoard">Digital Run Design Cup</a>. With 18,515 points in Stage 1 of the 2007.5 DR, Fabrizio Lovato, 27, brings Digital Run bragging rights -- and more than $80,000 in total prizes -- to his home in Italy.</li>
 <li><a href="/tc?module=Static&d1=features&d2=091007"><strong>Spotlight: The Arab Academy for Science &amp; Technology</strong></a>, by <tc-webtag:handle coderId="21777558" /><br>
 Egypt's <a href="/tc?module=AlgoRank&cc=818">algorithm contingent</a> has 118 current active members and a <a href="/stat?c=country_avg_rating">country rank</a> of 31, along with one (relatively recent) red coder, <tc-webtag:handle coderId="7400531" context="algorithm"/>. In this article, I'll introduce some of the coders from our community, primarily from my school: the Arab Academy for Science and Technology.</li>
 <li><a href="/tc?module=Static&d1=features&d2=090707"><strong>Introducing August's Coders of the Month</strong></a><br>
 Last month, we saw great performances by three veteran TopCoder members: one from India, one from the Russian Federation, and one from China. In this article, they tell us a little bit about themselves.</li>
-<li><a href="/tc?module=Static&d1=features&d2=090607"><strong>College admissions and the "TopCoder edge"</strong></a>, by <tc-webtag:handle coderId="21931776" /><br>
-The college admissions process today is becoming more and more cutthroat. Applicant numbers are at record highs and acceptance rates are at record lows for the most prestigious institutions. In this article, I will cover using TopCoder in three specific areas of the process: the resume, the essay, and the interview.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
