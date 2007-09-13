@@ -83,6 +83,7 @@
     </servlet>
 
 
+<!--
     <filter>
         <filter-name>GZIPResponse</filter-name>
         <filter-class>com.topcoder.web.common.GZIPResponseFilter</filter-class>
@@ -97,6 +98,7 @@
         <filter-name>GZIPResponse</filter-name>
         <servlet-name>forums</servlet-name>
     </filter-mapping>
+-->
 
     <servlet-mapping>
         <servlet-name>creativeservlet</servlet-name>

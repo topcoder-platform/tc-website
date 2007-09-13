@@ -46,6 +46,7 @@
         </init-param>
     </servlet>
 
+<!--
 
     <filter>
         <filter-name>GZIPResponse</filter-name>
@@ -56,6 +57,7 @@
         <filter-name>GZIPResponse</filter-name>
         <servlet-name>forums</servlet-name>
     </filter-mapping>
+-->
 
 
     <servlet-mapping>
