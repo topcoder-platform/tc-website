@@ -65,33 +65,36 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3">
-                            Development Support
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">
-                            <table border="0">
+                        <td colspan="3" align="center">
+                            <table border="1" cellpadding="5" cellspacing="0">
                             <tr>
+                                <td colspan="2" align="center">
+                                    <strong>Development Support</strong>
+                                </td>
+                                
                                 <td>
-                                    <strong>Project</strong>
+                                    Project
                                 </td>         
                                 <td>               
-                                    <strong>Coder</strong>
+                                    Coder
                                  </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <tc-webtag:radioButton name="<%=GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="auto"/>automatic<br/>
-                                    <tc-webtag:radioButton name="<%=GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="none"/>none<br/>
-                                    <tc-webtag:radioButton name="<%= GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="other"/>project 
-                                    <input type="text" name="<%= GenerateComponentPayments.DEV_SUPPORT_PROJECT_ID %>" maxlength="20" size="10" value="<%=devSupportProjectId%>"/>
-                                </td>
-                                <td>
-                                    <tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="designer"/>the designer<br/>
-                                    <tc-webtag:radioButton name="<%= GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="other"/>coder <input type="text" name="coder" maxlength="20" size="10" value="<%=coder%>"/>
-                                </td>
+                                <td><tc-webtag:radioButton name="<%=GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="auto"/>automatic</td>                                 
+                                 <td>&nbsp;</td>
                             </tr>
+                            <tr>
+                                <td><tc-webtag:radioButton name="<%=GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="none"/>none</td>
+                                <td><tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="designer"/>the designer</td>
+                            </tr>
+                            <tr>
+                                <td><tc-webtag:radioButton name="<%= GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="other"/>project: 
+                                    <input type="text" name="<%= GenerateComponentPayments.DEV_SUPPORT_PROJECT_ID %>" maxlength="20" size="10" value="<%=devSupportProjectId%>"/> \
+                                </td> 
+                                <td><tc-webtag:radioButton name="<%= GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="other"/>coder:
+                                     <input type="text" name="coder" maxlength="20" size="10" value="<%=coder%>"/>
+                                </td>
+                            </tr>   
                             </table>
                         </td>
                     </tr>
