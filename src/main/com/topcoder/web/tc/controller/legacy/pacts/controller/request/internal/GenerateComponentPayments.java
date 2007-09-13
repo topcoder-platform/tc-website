@@ -36,6 +36,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             Map map = dib.getProjectTerminationStatusTypes();
             getRequest().setAttribute(PROJECT_TERMINATION_STATUS_LIST, map.get(PROJECT_TERMINATION_STATUS_LIST));
             setDefault(IS_DEV_SUPPORT_BY_DESIGNER, devSupport);
+            setDefault(DEV_SUPPORT_PROJECT, devSupportProject);
             setNextPage(INTERNAL_GENERATE_COMPONENT_PAYMENTS);
             setIsNextPageInContext(true);
 
