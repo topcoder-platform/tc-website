@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.12.1 - 2007.09.xx
+    5.12.1 - 2007.09.13
     <ul>
         <li>Fix Unicode escaping in assignment docs and affidavits -pulky</li>
         <li>Allow remember me for login to marathon match site -dok</li>
