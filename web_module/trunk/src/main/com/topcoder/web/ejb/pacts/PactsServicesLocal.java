@@ -168,7 +168,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
      * @deprecated
      */
     List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
-    		throws IllegalUpdateException,  SQLException, EventFailureException, DevSupportException;
+    		throws IllegalUpdateException,  SQLException, EventFailureException;
 
     List generateComponentPayments(long projectId, long status, String client)
         throws IllegalUpdateException,  SQLException, EventFailureException, DevSupportException;
