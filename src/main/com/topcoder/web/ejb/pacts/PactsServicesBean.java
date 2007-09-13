@@ -4780,6 +4780,36 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
+     * Generate  payments for components, excluding development support payments.
+     */
+    public List generateComponentPayments(long projectId, long status, String client)
+            throws IllegalUpdateException, SQLException, EventFailureException, DevSupportException {
+        return generateComponentPayments(projectId, status, client, false, 0, 0);
+    }
+
+    
+    /**
+     * Generate payments for components, including development support if needed.
+     */
+    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId)
+            throws IllegalUpdateException, SQLException, EventFailureException, DevSupportException {
+        return generateComponentPayments(projectId, status, client, true, devSupportCoderId, devSupportProjectId);
+    }
+
+    /**
+     * @deprecated
+     */
+    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
+            throws IllegalUpdateException, SQLException, EventFailureException {
+        try {
+            return generateComponentPayments(projectId, status, client, true, devSupportCoderId, 0);
+        } catch (DevSupportException e) {
+            // this is to avoid changing the interface.
+            throw new IllegalArgumentException(e);
+        }
+    }
+
+    /**
      * Generates all the payments for the people who won money for the given project (designers, developers,
      * and review board members). If it is a development project, it may pay the missing 25% to the designer.
      * It doesn't insert the payments in the DB, just generates and return them.
@@ -4787,16 +4817,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param projectId         The ID of the project
      * @param status            The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
      * @param client            The project's client (optional)
+     * @param payDevSupport     whether to pay dev support if needed
      * @param devSupportCoderId the id of the coder that did development support, or 0 to use the designer. This parameter is just used when paying dev components.
-     * @param makeChanges       If true, updates the database; if false, logs
-     *                          the changes that would have been made had this parameter been true.
      * @return The generated payments in a List of BasePayment
      * @throws IllegalUpdateException If the affidavit/payment information
      *                                has already been generated for this round.
      * @throws SQLException           If there was some error updating the data.
      */
-    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
-            throws IllegalUpdateException, SQLException, EventFailureException {
+    private List generateComponentPayments(long projectId, long status, String client, boolean payDevSupport, long devSupportCoderId, long devSupportProjectId)
+            throws IllegalUpdateException, SQLException, EventFailureException, DevSupportException {
         log.debug("generateComponentPayments called...");
         List payments = new ArrayList();
 
@@ -4831,7 +4860,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 double amount = rsc.getDoubleItem(i, "paid");
                 int placed = rsc.getIntItem(i, "placed");
                 log.info("coder: " + coderId + " placed: "  + placed + " amount: " + amount );
-                payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed, devSupportCoderId));
+                payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed, devSupportCoderId, payDevSupport, devSupportProjectId));
             }
         }
 
@@ -5772,7 +5801,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param projectId   project that is being paid.
      * @param placed      the place of the coder in the contest.
      */
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, EventFailureException {
+    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) 
+         throws SQLException, EventFailureException {
         return generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, 0);
     }
 
@@ -5788,7 +5818,33 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param devSupportCoderId the id of the coder that did development support, or 0 to use the designer. This parameter is just used when paying dev components.
      * @param placed            the place of the coder in the contest.
      */
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws SQLException, EventFailureException {
+    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) 
+        throws SQLException, EventFailureException  {
+        try {
+            return generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, devSupportCoderId, true, 0);
+        } catch (DevSupportException e) {
+            // Done this way in order to avoid changing the interface
+            throw new IllegalArgumentException(e);
+        }
+    }
+    
+    /**
+     * Create payments for a design/dev project.
+     * For a 1st place design project, it just creates a payment consisting in the 75% of the amount.
+     * For a 1st place dev project, it finds the associated design project and creates a payment for the project.
+     *
+     * @param coderId           coder to be paid.
+     * @param grossAmount       amount to be paid.
+     * @param client            the client of the project.
+     * @param projectId         project that is being paid.
+     * @param placed            the place of the coder in the contest.
+     * @param devSupportCoderId the id of the coder that did development support, or 0 to use the designer. This parameter is just used when paying dev components.
+     * @param payDevSupport     whether to pay dev support if needed
+     * @param devSupportProjectId if dev support needs to be paid and this value is positive, that project is paid as dev support. If the value is 0, the design project
+     * is automatically retrieved.
+     */
+    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId,
+            boolean payDevSupport, long devSupportProjectId) throws SQLException, EventFailureException, DevSupportException {
         int projectType = getProjectType(projectId);
 
 
@@ -5806,13 +5862,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             p.setGrossAmount(grossAmount * DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT);
             l.add(p);
         } else if (projectType == DEVELOPMENT_PROJECT) {
-            long designProject = getDesignProject(projectId);
-            log.info("1st place for dev project, will pay 2nd installment to project id: " +designProject);
             // add the development payment as it is
             ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
             l.add(cwp);
 
-            if (designProject > 0) {
+            if (payDevSupport) {
+                long designProject = devSupportProjectId > 0? devSupportProjectId : getDesignProject(projectId);
+                log.info("1st place for dev project, will pay 2nd installment to project id: " +designProject);
+    
+                if (designProject <= 0) {
+                    throw new DevSupportException("Can't find a design project for dev project " + projectId);
+                } 
+                
                 String query = "SELECT sum(gross_amount) as amount_paid " +
                         "     , max(total_amount) as total_amount " +
                         "     , max(installment_number) as installment_number " +
@@ -5827,32 +5888,37 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
                 ResultSetContainer rsc = runSelectQuery(query, false);
 
-                if (rsc.getItem(0, "amount_paid").getResultData() != null) {
-                    int installment = rsc.getIntItem(0, "installment_number") + 1;
-                    double totalAmount = rsc.getDoubleItem(0, "total_amount");
-                    double paid = rsc.getDoubleItem(0, "amount_paid");
-                    String client2 = rsc.getStringItem(0, "client");
-                    long coderId2 = rsc.getLongItem(0, "user_id");
-                    int methodId = rsc.getIntItem(0, "payment_method_id");
-
-                    log.info("installment: " + installment + " total: " + totalAmount + " paid: " + paid);
-                    if (totalAmount > paid) {
-                        if (devSupportCoderId > 0) {
-                            coderId2 = devSupportCoderId;
-                        }
-
-                        // create the design project
-                        BasePayment p = new ComponentWinningPayment(coderId2, totalAmount, client2, designProject, 1);
-                        p.setGrossAmount(totalAmount - paid);
-                        p.setInstallmentNumber(installment);
-
-                        if (devSupportCoderId == 0) {
-                            p.setMethodId(methodId);
-                        }
-                        log.info("Pay to: " + coderId2 + " $ " + (totalAmount - paid) + " for project " + designProject);
-                        l.add(p);
-                    }
+                if (rsc.getItem(0, "amount_paid").getResultData() == null) {
+                    throw new DevSupportException("Can't find any previous payment for design project " + projectId);
                 }
+
+                int installment = rsc.getIntItem(0, "installment_number") + 1;
+                double totalAmount = rsc.getDoubleItem(0, "total_amount");
+                double paid = rsc.getDoubleItem(0, "amount_paid");
+                String client2 = rsc.getStringItem(0, "client");
+                long coderId2 = rsc.getLongItem(0, "user_id");
+                int methodId = rsc.getIntItem(0, "payment_method_id");
+
+                log.info("installment: " + installment + " total: " + totalAmount + " paid: " + paid);
+                if (totalAmount > paid) {
+                    if (devSupportCoderId > 0) {
+                        coderId2 = devSupportCoderId;
+                    }
+
+                    // create the design project
+                    BasePayment p = new ComponentWinningPayment(coderId2, totalAmount, client2, designProject, 1);
+                    p.setGrossAmount(totalAmount - paid);
+                    p.setInstallmentNumber(installment);
+
+                    if (devSupportCoderId == 0) {
+                        p.setMethodId(methodId);
+                    }
+                    log.info("Pay to: " + coderId2 + " $ " + (totalAmount - paid) + " for project " + designProject);
+                    l.add(p);
+                }
+                
+        
+                
             }
         } else throw new IllegalArgumentException("Project " + projectId + " not found or is not a dev/des component");
 

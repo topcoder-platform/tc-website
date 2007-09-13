@@ -164,8 +164,17 @@ public interface PactsServicesLocal extends EJBLocalObject {
     int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
             throws IllegalUpdateException, SQLException;
 
+    /**
+     * @deprecated
+     */
     List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
-    		throws IllegalUpdateException,  SQLException, EventFailureException;
+    		throws IllegalUpdateException,  SQLException, EventFailureException, DevSupportException;
+
+    List generateComponentPayments(long projectId, long status, String client)
+        throws IllegalUpdateException,  SQLException, EventFailureException, DevSupportException;
+
+    List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId)
+        throws IllegalUpdateException,  SQLException, EventFailureException, DevSupportException;
 
     List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, EventFailureException;
 

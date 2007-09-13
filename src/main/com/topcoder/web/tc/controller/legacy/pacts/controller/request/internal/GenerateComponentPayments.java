@@ -10,6 +10,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.DevSupportException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -73,7 +74,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 counts[2] =0;
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
                 
-                List l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, devSupportId);
+                List l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, devSupportId, 0);
                 
                 l = bean.addPayments(l);
                 List ids = new ArrayList();
@@ -109,6 +110,10 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                     addError(PROJECT_TERMINATION_STATUS, "Error: Missing project termination status");
                 }
             }
+        } catch (DevSupportException dse) {
+            // TO DO!!
+            log.debug(dse.getMessage());
+            throw new TCWebException(dse);
         } catch (NumberFormatException e) {
             addError(PROJECT_ID, "Error: Please enter a value for project id");
         } catch (IllegalUpdateException e) {
