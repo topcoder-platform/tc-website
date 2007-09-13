@@ -40,14 +40,16 @@
             <div align="left" style="margin-bottom: 20px;">
                 <img src="/i/introevent/bcsLogo.png" alt="" />
             </div>
-            <h2>Problem Statement for SumOfSelectedCells</h2>
+            <h2>Problem Statement for Paintball</h2>
 
+            <%--
             <div>
             <strong>
             Problem Statement 
-            | <A href="/tc?module=Static&d1=introevent&d2=bcsscs&d3=sumOfSelectedCellsSol" class="bcLink">Solution</A>
+            | <A href="/tc?module=Static&d1=introevent&d2=bcsscs&d3=paintballSol" class="bcLink">Solution</A>
             </strong>
             </div>
+            --%>
             
             <table>
                 <tbody>
@@ -57,10 +59,21 @@
                     <tr>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td>
-                            <p>There is a rectangular table with an integer written in each cell.</p>
-                            <p>Later, Jessie will come and select some cells in such a way that each row and each column contains no more than one selected cell. She will always select the maximum possible number of cells. However, there might be several possible selections of that size.</p>
-                            <p>Larry suggested a hypothesis: "No matter what maximum selection Jessie choses, the sum of the numbers in the selected cells will always be the same."</p>
-                            <p>Given a String[] table, check whether Larry's hypothesis is correct and return "CORRECT" or "INCORRECT" (quotes for clarity only).</p>
+                            <p>For his birthday, Bart received the brand new video game "Paintball!". In this game, a person plays on teams over the Internet against various competitors, attempting to hit their opponents with paint balls. Each player earns a point each time that they "splatter" an opponent with a paintball, and lose a point for each time they get "splattered". Due to the way that the game is played, it is also possible to accidentally splatter yourself or a teammate. In that case, the shooter loses a point, and the person who was splattered (if not the shooter) does not lose any points. A team's score is simply the sum of the scores of its players.</p>
+                            <p>Although Bart loves the game, he is disappointed that the game does not provide a leaderboard during gameplay. However, it does provide the list of <strong>players</strong>, formatted as "NAME TEAM" (where NAME is the player's name, and TEAM is his team), and a series of <strong>messages</strong>, each formatted as "NAME1 SPLATTERED NAME2" (all quotes for clarity), where NAME1 indicates the name of the person who shot the paintball, and NAME2 indicates the name of the person who got splattered. Bart would like to have an updated scoreboard, and that is where you come in.</p>
+                            <p>All teams will receive a rank number from 1 to M (the total number of teams), based on the team scores (with 1 corresponding to the highest score). If multiple teams have the same score, then the team with the name that comes first alphabetically will receive a lower rank number. For each team (in order from 1 to M), its leaderboard entry will be formatted as follows:</p>
+                                <ol>
+                                    <li>The first line will be "TEAM SCORE" (quotes for clarity), where TEAM is the team name, and SCORE is the team score (with no extra leading zeroes).</li>
+                                    <li>Let N be the number of players on the team. Assign rank numbers to the N players from 1 to N, giving a lower rank number to a higher score. If multiple players have the same score, assign the player whose name comes first alphabetically to the lower rank number.</li>
+                                    <li>From the player with rank 1 to rank N, output a line with 2 spaces, the player's name, a single space, and then the player's score (with no extra leading zeroes).</li>
+                                </ol>
+                            <p>Thus, if player A from team RED splatters player B from team BLUE (and they are the only players in the game), the leaderboard will be:</p>
+                            <pre>RED 1
+  A 1
+BLUE -1
+  B -1
+</pre>
+                            <p>You are to generate the leaderboard and return it.</p>
                         </td>
                     </tr>
                     <tr>
@@ -76,23 +89,23 @@
                                 <tbody>
                                     <tr>
                                         <td>Class:</td>
-                                        <td>SumOfSelectedCells</td>
+                                        <td>Paintball</td>
                                     </tr>
                                     <tr>
                                         <td>Method:</td>
-                                        <td>hypothesis</td>
+                                        <td>getLeaderboard</td>
                                     </tr>
                                     <tr>
                                         <td>Parameters:</td>
-                                        <td>String[]</td>
+                                        <td>String[], String[]</td>
                                     </tr>
                                     <tr>
                                         <td>Returns:</td>
-                                        <td>String</td>
+                                        <td>String[]</td>
                                     </tr>
                                     <tr>
                                         <td>Method signature:</td>
-                                        <td>String hypothesis(String[] table)</td>
+                                        <td>String[] getLeaderboard(String[] players, String[] messages)</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">(be sure your method is public)</td>
@@ -111,31 +124,57 @@
                         <td colspan="2">&nbsp;</td>
                     </tr>
                     <tr>
+                        <td colspan="2"><h3>Notes</h3></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">-</td>
+                        <td>A SCORE of 0 should be output as 0, not as -0.</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                    </tr>
+                    <tr>
                         <td colspan="2"><h3>Constraints</h3></td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td><strong>table</strong> will contain between 1 and 20 elements, inclusive.</td>
+                        <td><strong>players</strong> will contain between 1 and 50 elements, inclusive.</td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td>Each element of <strong>table</strong> will be contain between 1 and 50 characters, inclusive.</td>
+                        <td>Each element of <strong>players</strong> will be contain between 3 and 50 characters, inclusive.</td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td>Each element of <strong>table</strong> will be a space-separated list of integers.</td>
+                        <td>Each element of <strong>players</strong> will be formatted as "NAME TEAM" (quotes for clarity).</td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td>Each element of <strong>table</strong> will contain the same number of entries.</td>
+                        <td>In each element of <strong>players</strong>, NAME will consist of uppercase characters ('A'-'Z') and will contain at least 1 character.</td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td>Each element of <strong>table</strong> will contain between 1 and 20 entries, inclusive.</td>
+                        <td>There will be no duplicate NAMEs in <strong>players</strong>.</td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td>All numbers in the table will be between 1 and 50, inclusive, with no leading zeroes.</td>
+                        <td>In each element of <strong>players</strong>, TEAM will consist of uppercase characters ('A'-'Z') and will contain at least 1 character.</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">-</td>
+                        <td><strong>messages</strong> will contain between 1 and 50 elements, inclusive.</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">-</td>
+                        <td>Each element of <strong>messages</strong> will contain between 14 and 50 characters, inclusive.</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">-</td>
+                        <td>Each element of <strong>messages</strong> will be formatted as described in the problem statement.</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">-</td>
+                        <td>In each element of <strong>messages</strong>, NAME1 and NAME2 will be NAMEs found in <strong>players</strong>.</td>
                     </tr>
                     <tr>
                         <td colspan="2">&nbsp;</td>
@@ -158,7 +197,8 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{"5 6 6"}</pre>
+                                                            <pre>{"A RED", "B BLUE"}
+{"A SPLATTERED B"}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -167,7 +207,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: "INCORRECT"</pre>
+                                            <pre>Returns: {"RED 1", "  A 1", "BLUE -1", "  B -1" }</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -175,7 +215,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">Jessie will select exactly one cell. The sum will be either 5 or 6.</td>
+                                                        <td colspan="2">The example from the statement.</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -200,10 +240,8 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{"11 12 13 14",
- "21 22 23 24",
- "31 32 33 34",
- "41 42 43 44"}</pre>
+                                                            <pre>{"LISA RED", "BART RED", "HOMER BLUE", "MARGE BLUE", "MAGGIE GREEN"}
+{"MAGGIE SPLATTERED HOMER", "MAGGIE SPLATTERED MARGE"}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -212,7 +250,15 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: "CORRECT"</pre>
+                                            <pre>Returns: 
+{"GREEN 2",
+"  MAGGIE 2",
+"RED 0",
+"  BART 0",
+"  LISA 0",
+"BLUE -2",
+"  HOMER -1",
+"  MARGE -1" }</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -220,7 +266,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">There are 4! = 24 possible selections for Jessie, but it can be shown that each of them gives the sum of 1 + 2 + 3 + 4 + 10 + 20 + 30 + 40 = 110.</td>
+                                                        <td colspan="2">&nbsp;</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -245,9 +291,13 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{"3 7",
- "3 7",
- "3 7"}</pre>
+                                                            <pre>{"TODD STRIKEFORCE",
+ "BART OMEGA",
+ "DATA STRIKEFORCE",
+ "MILHOUSE OMEGA",
+ "NELSON DISCOVERYCHANNEL",
+ "MARTIN DISCOVERYCHANNEL"}
+{"BART SPLATTERED MARTIN","TODD SPLATTERED MARTIN"}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -256,7 +306,16 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: "CORRECT"</pre>
+                                            <pre>Returns: 
+{"OMEGA 1",
+"  BART 1",
+"  MILHOUSE 0",
+"STRIKEFORCE 1",
+"  TODD 1",
+"  DATA 0",
+"DISCOVERYCHANNEL -2",
+"  NELSON 0",
+"  MARTIN -2" }</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -264,7 +323,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">Jessie will select exactly one 3 and exactly one 7 giving a total of 10.</td>
+                                                        <td colspan="2">&nbsp;</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -275,7 +334,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="center" nowrap="true">3)</td>
+                        <td align="center" nowrap="true">4)</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
@@ -289,9 +348,9 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{"1 2 3",
- "4 5 6",
- "9 8 7"}</pre>
+                                                            <pre>{"A B", "AA AA", "AAA AAA"}
+{"A SPLATTERED AAA", "A SPLATTERED AAA", "A SPLATTERED AAA", 
+"AA SPLATTERED AAA", "AA SPLATTERED AAA"}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -300,7 +359,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: "INCORRECT"</pre>
+                                            <pre>Returns: {"B 3", "  A 3", "AA 2", "  AA 2", "AAA -5", "  AAA -5" }</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -308,7 +367,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">Jessie can get 13 (2 + 4 + 7) or 15 (1 + 6 + 8) or 17 (3 + 5 + 9).</td>
+                                                        <td colspan="2">&nbsp;</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -318,6 +377,7 @@
                             </table>
                         </td>
                     </tr>
+                    
                 </tbody>
             </table>
             
