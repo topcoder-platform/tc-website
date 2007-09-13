@@ -7,9 +7,20 @@ import com.topcoder.util.config.ConfigManagerException;
 import com.topcoder.util.config.UnknownNamespaceException;
 
 import javax.naming.Context;
-import java.sql.*;
+import java.sql.Connection;
 import java.sql.Date;
-import java.util.*;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Types;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 public class ReliabilityRating {
     protected static final Logger log = Logger.getLogger(ReliabilityRating.class);
@@ -628,8 +639,10 @@ public class ReliabilityRating {
                     " , pr.final_score" +
                     " from project_result pr" +
                     " , project_phase pi" +
+                    " , project p" +
                     " where pr.project_id = pi.project_id" +
                     " and pi.phase_type_id = 2" +
+                    " and p.project_category_id in (1,2)" +
                     " and pi.scheduled_start_time >= ?" +
                     " and pr.reliability_ind = 1" +
                     " and pr.reliable_submission_ind is null";
@@ -760,6 +773,7 @@ public class ReliabilityRating {
                     "and pr.project_id = p.project_id " +
                     "and ci.project_id = pr.project_id " +
                     "and ci.user_id = pr.user_id " +
+                    " and p.project_category_id in (1,2) " +
                     " order by ci.create_time";
 
     private final static String setReliability =
