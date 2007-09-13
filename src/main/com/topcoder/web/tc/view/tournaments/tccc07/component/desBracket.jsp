@@ -51,14 +51,12 @@
                           <td align="right"><img src="/i/tournament/tccc07/bracket_SW.png" alt="" border="0" /></td>
                        </tr>
                     </table>
-                    <%--
                     <p align="center">
                         The Review Board for the<br />TCCC07 Component Design Finals:<br /><br />
-                        <tc-webtag:handle coderId="278342" context="design" darkBG="true" /><br />
-                        <tc-webtag:handle coderId="10526732" context="design" darkBG="true" /><br />
-                        <tc-webtag:handle coderId="10348862" context="design" darkBG="true" />
+                        <tc-webtag:handle coderId="277356" context="design" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="152342" context="design" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="151743" context="design" darkBG="true" />
                     </p>
-                    --%>
                 </div>
 
             </div>
