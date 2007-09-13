@@ -759,7 +759,8 @@ public class ReliabilityRating {
             "update project_result " +
                     "set reliability_ind = 1 " +
                     "where reliability_ind is null " +
-                    "and final_score >= ?";
+                    "and final_score >= ? "+
+                    " and project_id in (select project_id from project where project_category_id in (1,2)) ";
 
     private final static String getUnmarked =
             "select pr.user_id, pr.project_id, p.project_category_id, ci.create_time " +
