@@ -5,13 +5,15 @@
 */
 package com.topcoder.web.ejb.pacts;
 
+import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
+
 /**
  * VERY IMPORTANT: remember to update serialVersionUID if needed
  *
  * @author Cucu
  * @version $Id$
  */
-public class DevSupportException extends Exception {
+public class DevSupportException extends IllegalUpdateException {
 
     /**
      * Please change that number if you affect the fields in a way that will affect the
@@ -31,21 +33,6 @@ public class DevSupportException extends Exception {
      */
     public DevSupportException(String arg0) {
         super(arg0);
-    }
-
-    /**
-     * @param arg0
-     */
-    public DevSupportException(Throwable arg0) {
-        super(arg0);
-    }
-
-    /**
-     * @param arg0
-     * @param arg1
-     */
-    public DevSupportException(String arg0, Throwable arg1) {
-        super(arg0, arg1);
     }
 
 }

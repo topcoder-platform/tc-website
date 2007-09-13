@@ -4783,7 +4783,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Generate  payments for components, excluding development support payments.
      */
     public List generateComponentPayments(long projectId, long status, String client)
-            throws IllegalUpdateException, SQLException, EventFailureException, DevSupportException {
+            throws IllegalUpdateException, SQLException, EventFailureException {
         return generateComponentPayments(projectId, status, client, false, 0, 0);
     }
 
@@ -4792,7 +4792,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Generate payments for components, including development support if needed.
      */
     public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId)
-            throws IllegalUpdateException, SQLException, EventFailureException, DevSupportException {
+            throws IllegalUpdateException, SQLException, EventFailureException  {
         return generateComponentPayments(projectId, status, client, true, devSupportCoderId, devSupportProjectId);
     }
 
@@ -4801,12 +4801,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
             throws IllegalUpdateException, SQLException, EventFailureException {
-        try {
-            return generateComponentPayments(projectId, status, client, true, devSupportCoderId, 0);
-        } catch (DevSupportException e) {
-            // this is to avoid changing the interface.
-            throw new IllegalArgumentException(e);
-        }
+        return generateComponentPayments(projectId, status, client, true, devSupportCoderId, 0);
     }
 
     /**
@@ -4825,7 +4820,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException           If there was some error updating the data.
      */
     private List generateComponentPayments(long projectId, long status, String client, boolean payDevSupport, long devSupportCoderId, long devSupportProjectId)
-            throws IllegalUpdateException, SQLException, EventFailureException, DevSupportException {
+            throws IllegalUpdateException, SQLException, EventFailureException {
         log.debug("generateComponentPayments called...");
         List payments = new ArrayList();
 
@@ -5819,7 +5814,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param placed            the place of the coder in the contest.
      */
     public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) 
-        throws SQLException, EventFailureException  {
+            throws SQLException, EventFailureException  {
         try {
             return generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, devSupportCoderId, true, 0);
         } catch (DevSupportException e) {
