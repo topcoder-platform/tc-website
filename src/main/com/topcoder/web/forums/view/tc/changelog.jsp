@@ -47,7 +47,7 @@
 <!-- Links to versions -->
 
 <p>
-    <b>2.1.1 - 2007.09.xx</b>
+    <b>2.1.1 - 2007.09.12</b>
     <ul>
         <li>Add login and logout processes instead of using the main site -dok</li>
     </ul>
