@@ -72,6 +72,7 @@ public class LeftNavVelocityHelper {
 
 
     public void setBandanaManager(BandanaManager bandanaManager) {
+        log.debug("set bandana manager called");
         this.bandanaManager = bandanaManager;
     }
 
