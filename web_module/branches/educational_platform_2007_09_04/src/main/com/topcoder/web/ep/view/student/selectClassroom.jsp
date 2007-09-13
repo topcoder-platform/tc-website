@@ -41,7 +41,7 @@
                                 <td>${classroom.description}</td>
                                 <td>
                                     <c:choose>
-                                        <c:when test="${empty checked_classrooms || cf:contains(checked_classrooms, classroom.id)}">
+                                        <c:when test="${not empty checked_classrooms && cf:contains(checked_classrooms, classroom.id)}">
                                            <input type="checkbox" name="clsid" value="${classroom.id}" checked="checked"></c:when>
                                         <c:otherwise>
                                            <input type="checkbox" name="clsid" value="${classroom.id}"></c:otherwise>

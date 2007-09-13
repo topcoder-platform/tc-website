@@ -4,7 +4,10 @@ import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
+
+import com.topcoder.web.common.model.educ.Classroom;
 
 /**
  * A class to hold coder data.
@@ -212,6 +215,14 @@ public class Coder extends Base {
         this.professors = professors;
     }
     
+    public void addClassroom(Classroom c) {
+        this.classrooms.add(c);
+    }
+
+    public void addClassrooms(List<Classroom> classrooms) {
+        this.classrooms.addAll(classrooms);
+    }
+
     public Set getClassrooms() {
         return Collections.unmodifiableSet(classrooms);
     }
