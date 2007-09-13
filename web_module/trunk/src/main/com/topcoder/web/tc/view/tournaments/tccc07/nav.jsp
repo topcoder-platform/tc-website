@@ -191,10 +191,12 @@
                 <% if (tabLev2.equals("design")) {%>
                     <p id="tertiaryNav">
                         <a href="/tc?module=TCCC07ContestDetails&ct=420&eid=3002"<% if (tabLev3.equals("results")) {%> class="on"<% } %>>Results</a>
+                        | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a>
                     </p>
                 <% } else if (tabLev2.equals("development")) { %>
                     <p id="tertiaryNav">
                         <a href="/tc?module=TCCC07ContestDetails&ct=421&eid=3002"<% if (tabLev3.equals("results")) {%> class="on"<% } %>>Results</a>
+                        | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a>
                     </p>
                 <% } %>
             <% } else if (tabLev1.equals(EventType.MARATHON_TOURNAMENT_ID.toString())) { %>

@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.13.07<br>1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        TCCC07 Component <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a> &amp; <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a> finalists</A></span><br><br>
+        The finalists for the 2007 TopCoder Collegiate Challenge Component <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a> &amp; <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a> competitions are now online. Congratulations!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">design</a> | 
+        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">development</a> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.11.07<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa">Visa invitation letter deadline approaching</A></span><br><br>
@@ -158,17 +172,5 @@
         <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</a> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>09.07.07<br>11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/longcontest/?module=ViewActiveContests">Marathon Match statistics upgraded</A></span><br><br>
-        We've made several enhancements to our Marathon Match data, including an expanded, reorganized Statistics section; expanded Member Profile data, including ratings history and distribution graphs; and more.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <tc-webtag:forumLink forumID="517258" message="discuss this" />| 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
    
