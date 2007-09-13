@@ -25,10 +25,13 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
 
 
 	public final static String IS_DEV_SUPPORT_BY_DESIGNER = "dsd";
+	public final static String DEV_SUPPORT_PROJECT = "dsp";
+	public final static String DEV_SUPPORT_PROJECT_ID = "dspid";
 	
     protected void businessProcessing() throws TCWebException {
         try {
             String devSupport = getRequest().getParameter(IS_DEV_SUPPORT_BY_DESIGNER);
+            String devSupportProject = getRequest().getParameter(DEV_SUPPORT_PROJECT);
             DataInterfaceBean dib = new DataInterfaceBean();
             Map map = dib.getProjectTerminationStatusTypes();
             getRequest().setAttribute(PROJECT_TERMINATION_STATUS_LIST, map.get(PROJECT_TERMINATION_STATUS_LIST));
@@ -39,6 +42,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             String projectID = StringUtils.checkNull(getRequest().getParameter(PROJECT_ID)).trim();
             String projectTermStatus = StringUtils.checkNull(getRequest().getParameter(PROJECT_TERMINATION_STATUS));
             String client = StringUtils.checkNull(getRequest().getParameter(PROJECT_CLIENT)).trim();
+            String devSupportProjectId = StringUtils.checkNull(getRequest().getParameter(DEV_SUPPORT_PROJECT_ID)).trim();
             boolean devSupportDes = "designer".equals(devSupport);
             long devSupportId = 0;
             
@@ -74,7 +78,25 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 counts[2] =0;
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
                 
-                List l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, devSupportId, 0);
+                List l;
+                if ("none".equals(devSupportProject)) {
+                    log.debug("Development support will not be paid");
+                    l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client);
+                } else {
+                    long pid = 0;
+                    if ("other".equals(devSupportProject)) {
+                        pid = Integer.parseInt(devSupportProjectId);
+                        log.debug("Development support paid to project " + pid);
+                    } else if ("auto".equals(devSupportProject)) {
+                        log.debug("Development support paid to design project");                        
+                    } else {
+                        addError(PROJECT_TERMINATION_STATUS, "Please select the development support project");
+                        return;
+                    }
+                    
+                    l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, devSupportId, pid);
+                    
+                }
                 
                 l = bean.addPayments(l);
                 List ids = new ArrayList();
@@ -111,9 +133,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 }
             }
         } catch (DevSupportException dse) {
-            // TO DO!!
-            log.debug(dse.getMessage());
-            throw new TCWebException(dse);
+            addError(PROJECT_ID, dse.getMessage());
         } catch (NumberFormatException e) {
             addError(PROJECT_ID, "Error: Please enter a value for project id");
         } catch (IllegalUpdateException e) {

@@ -12,6 +12,7 @@
 	String projTermStatus = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_TERMINATION_STATUS)).trim();
 	String client = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_CLIENT)).trim();
 	String coder = StringUtils.checkNull((String)request.getParameter("coder")).trim();
+	String devSupportProjectId = StringUtils.checkNull((String)request.getParameter("devSupportProjectId")).trim();
 %>
 <html>
     <head>
@@ -65,6 +66,11 @@
                     </tr>
                     <tr>
                         <td>
+                            Development support project:<br/>
+                            <tc-webtag:radioButton name="<%=GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="auto"/>automatic<br/>
+                            <tc-webtag:radioButton name="<%=GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="none"/>none<br/>
+                            <tc-webtag:radioButton name="<%= GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="other"/>project 
+                                    <input type="text" name="<%= GenerateComponentPayments.DEV_SUPPORT_PROJECT_ID %>" maxlength="20" size="10" value="<%=devSupportProjectId%>"/>
                         </td>
                         <td>
                         	If needed, pay development support to:<br/>
@@ -72,6 +78,7 @@
                         	<tc-webtag:radioButton name="<%= GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="other"/>coder <input type="text" name="coder" maxlength="20" size="10" value="<%=coder%>"/>
                         </td>
                         <td>
+                            
                         </td>
                     </tr>
                     
