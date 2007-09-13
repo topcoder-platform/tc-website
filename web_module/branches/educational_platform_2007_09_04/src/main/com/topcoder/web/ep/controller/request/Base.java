@@ -5,11 +5,14 @@
 */
 package com.topcoder.web.ep.controller.request;
 
+import java.util.List;
+
 import com.topcoder.web.common.LongHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 
 /**
@@ -74,7 +77,7 @@ public abstract class Base extends LongHibernateProcessor {
     }
     
     /**
-     * Set the  user in the current request processor.  
+     * Set the school in the current request processor.  
      *
      * @param s the school to set
      */
@@ -96,6 +99,31 @@ public abstract class Base extends LongHibernateProcessor {
         }
         return school;
     }
+    
+    /**
+     * Set the selected classrooms in the current request processor.  
+     *
+     * @param selectedClassrooms the selected classrooms to set
+     */
+    protected void setSelectedClassrooms(List<Classroom> selectedClassrooms) {
+        getRequest().getSession().setAttribute(Constants.CLASSROOMS, selectedClassrooms);
+    }
+    
+    /**
+     * Get the selected classrooms in the current request processor. 
+     */
+    protected List<Classroom> getSelectedClassrooms() {
+        List<Classroom> selectedClassrooms = (List<Classroom>) getRequest().getSession().getAttribute(Constants.CLASSROOMS);
+        if (selectedClassrooms == null) {
+                throw new RuntimeException("Couldn't find selected classrooms in the session");
+        } else {
+            if (log.isDebugEnabled()) {
+                log.debug("got " + selectedClassrooms.size() + " selected classrooms from session");
+            }
+        }
+        return selectedClassrooms;
+    }
+    
     
     protected DAOFactory getFactory() {
         if (factory  == null) {

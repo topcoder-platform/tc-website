@@ -5,27 +5,24 @@
 */
 package com.topcoder.web.ep.controller.request.student;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.educ.Professor;
+import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.Base;
-import com.topcoder.web.ep.controller.request.Home;
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class SelectSchool extends Base {
+public class SelfRegisterConfirm extends Base {
 
-    private static Logger log = Logger.getLogger(SelectSchool.class);
+    private static Logger log = Logger.getLogger(SelfRegisterConfirm.class);
 
     /* (non-Javadoc)
      * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
@@ -33,7 +30,7 @@ public class SelectSchool extends Base {
     @Override
     protected void dbProcessing() throws Exception {
         if (log.isDebugEnabled()) {
-            log.debug("Select school called...");
+            log.debug("Self register confirm called...");
             if (getActiveUser() == null) {
                 log.debug("user is null");
             } else if (getActiveUser().isNew()) {
@@ -46,38 +43,28 @@ public class SelectSchool extends Base {
         if (getActiveUser() == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
         } else if (userLoggedIn()) {
-            // get school parameter
-            Long schoolId = getSchoolParam();
+            // get selection
+            String[] values = getRequest().getParameterValues(Constants.CLASSROOM_ID);
             
-            // add selected school to the session
-            School s  = getFactory().getSchoolDAO().find(schoolId);
-            setSchool(s);
-
-            // get professors from that school
-            List<Professor> professors  = getFactory().getProfessorDAO().getProfessors(s);
-            getRequest().setAttribute("professors", professors);            
+            // add selected classrooms to the session
+            List<Classroom> selectedClassrooms = new ArrayList<Classroom>(values.length); 
+            for (String value : values) {
+                Classroom c = null;
+                if (value != null) {
+                    try {
+                        c = getFactory().getClassroomDAO().find(Long.parseLong(value));
+                    } catch (NumberFormatException e) {
+                        // just drop this selection
+                    }
+                    selectedClassrooms.add(c);
+                }
+            }
+            setSelectedClassrooms(selectedClassrooms);
             
-            setNextPage("/student/selectClassroom.jsp");
+            setNextPage("/student/selfRegisterConfirm.jsp");
             setIsNextPageInContext(true);            
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }        
-    }
-
-    private Long getSchoolParam() throws TCWebException {
-        String schoolId = StringUtils.checkNull(getRequest().getParameter(Constants.SCHOOL_ID));
-        
-        if (schoolId == "") {
-            throw new TCWebException("Invalid school id");
-        }
-
-        Long id;
-        try {
-            id = Long.parseLong(schoolId);
-        } catch (NumberFormatException e) {
-            throw new TCWebException("Invalid school id");
-        }
-        
-        return id;
     }
 }

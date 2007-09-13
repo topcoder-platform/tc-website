@@ -14,11 +14,11 @@ import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
 import java.util.Arrays;
 
 /**
- * @author dok
+ * @author pulky
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 27, 2006
  */
-public class Login extends Base {
+public class Login extends ShortHibernateProcessor {
 
 
     public static final String USER_ID = "userid";

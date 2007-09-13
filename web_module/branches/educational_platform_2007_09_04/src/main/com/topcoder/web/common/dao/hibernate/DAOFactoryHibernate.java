@@ -1,6 +1,7 @@
 package com.topcoder.web.common.dao.hibernate;
 
 import com.topcoder.web.common.dao.AlgoRatingTypeDAO;
+import com.topcoder.web.common.dao.ClassroomDAO;
 import com.topcoder.web.common.dao.CoderDAO;
 import com.topcoder.web.common.dao.CoderTypeDAO;
 import com.topcoder.web.common.dao.CompContestDAO;
@@ -238,4 +239,7 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new ProfessorDAOHibernate();
     }
 
+    public ClassroomDAO getClassroomDAO() {
+        return new ClassroomDAOHibernate();
+    }
 }

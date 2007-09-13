@@ -11,6 +11,13 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Select Classroom</title>
+    
+    <script type="text/javascript">
+        function submit() {
+            var myForm = document.f;
+            myForm.submit();
+        }
+    </script>
 </head>
 
 
@@ -23,18 +30,23 @@
             <table> 
                 <tr><td>School</td><td>Professor</td><td>Classroom</td><td>Academic period</td><td>Description</td><td>Select</td></tr>
                 <c:forEach items="${professors}" var="professor">
-                    <c:forEach items="${professor.classrooms}" var="classroom">                
-                        <tr>
-                            <td>${professor.school.name}</td>
-                            <td>${professor.user.lastName}, ${professor.user.firstName}</td>
-                            <td>${classroom.name}</td>
-                            <td>${classroom.academicPeriod}</td>
-                            <td>${classroom.description}</td>
-                            <td><tc-webtag:chkBox name="sel_${classroom.id}"/></td>
-                        </tr>
-                    </c:forEach>
+                    <c:if test="${not empty professor.classrooms}">
+                        <c:forEach items="${professor.classrooms}" var="classroom">                
+                            <tr>
+                                <td>${school.name}</td>
+                                <td>${professor.user.lastName}, ${professor.user.firstName}</td>
+                                <td>${classroom.name}</td>
+                                <td>${classroom.academicPeriod}</td>
+                                <td>${classroom.description}</td>
+                                <td><tc-webtag:chkBox name = "clsid" value="${classroom.id}"/></td>
+                            </tr>
+                        </c:forEach>
+                    </c:if>
                 </c:forEach>
             </table> 
+            <p>
+                <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Continue</a>
+            </p>
         </form>            
     </c:when>
     <c:otherwise>
