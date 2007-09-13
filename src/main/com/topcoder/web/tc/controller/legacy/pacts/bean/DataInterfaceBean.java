@@ -20,6 +20,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.DeleteAffirmedAssignmentDocumentException;
+import com.topcoder.web.ejb.pacts.DevSupportException;
 import com.topcoder.web.ejb.pacts.PactsServices;
 import com.topcoder.web.ejb.pacts.PactsServicesBean;
 import com.topcoder.web.ejb.pacts.PactsServicesLocal;
@@ -1386,11 +1387,27 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.generateRoundPayments(roundId, makeChanges, paymentTypeId);
     }
 
+    /**
+     * @deprecated
+     */
     public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
         throws IllegalUpdateException, RemoteException, SQLException, EventFailureException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.generateComponentPayments(projectId, status, client, devSupportCoderId);
     }
+
+    public List generateComponentPayments(long projectId, long status, String client)
+            throws IllegalUpdateException, RemoteException, SQLException, EventFailureException, DevSupportException {
+      PactsServicesLocal ps = getEjbHandle();
+      return ps.generateComponentPayments(projectId, status, client);
+    }
+    
+    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId)
+            throws IllegalUpdateException, RemoteException, SQLException, EventFailureException, DevSupportException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.generateComponentPayments(projectId, status, client, devSupportCoderId, devSupportProjectId);
+    }
+
 
     public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws RemoteException, SQLException, EventFailureException {
         PactsServicesLocal ps = getEjbHandle();
