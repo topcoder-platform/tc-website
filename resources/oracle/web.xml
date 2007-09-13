@@ -36,6 +36,7 @@
         <!--        <load-on-startup>2</load-on-startup>-->
     </servlet>
 
+<!--
     <filter>
         <filter-name>GZIPResponse</filter-name>
         <filter-class>com.topcoder.web.common.GZIPResponseFilter</filter-class>
@@ -45,6 +46,7 @@
         <filter-name>GZIPResponse</filter-name>
         <servlet-name>oracleservlet</servlet-name>
     </filter-mapping>
+-->
 
     <servlet-mapping>
         <servlet-name>oracleservlet</servlet-name>
