@@ -642,6 +642,7 @@ public class ReliabilityRating {
                     " , project p" +
                     " where pr.project_id = pi.project_id" +
                     " and pi.phase_type_id = 2" +
+                    " and p.project_id = pr.project_id " +
                     " and p.project_category_id in (1,2)" +
                     " and pi.scheduled_start_time >= ?" +
                     " and pr.reliability_ind = 1" +
