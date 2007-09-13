@@ -171,10 +171,10 @@ public interface PactsServicesLocal extends EJBLocalObject {
     		throws IllegalUpdateException,  SQLException, EventFailureException;
 
     List generateComponentPayments(long projectId, long status, String client)
-        throws IllegalUpdateException,  SQLException, EventFailureException, DevSupportException;
+        throws IllegalUpdateException,  SQLException, EventFailureException;
 
     List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId)
-        throws IllegalUpdateException,  SQLException, EventFailureException, DevSupportException;
+        throws IllegalUpdateException,  SQLException, EventFailureException;
 
     List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, EventFailureException;
 
