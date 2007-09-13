@@ -12,7 +12,7 @@
 	String projTermStatus = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_TERMINATION_STATUS)).trim();
 	String client = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_CLIENT)).trim();
 	String coder = StringUtils.checkNull((String)request.getParameter("coder")).trim();
-	String devSupportProjectId = StringUtils.checkNull((String)request.getParameter("devSupportProjectId")).trim();
+	String devSupportProjectId = StringUtils.checkNull((String)request.getParameter(GenerateComponentPayments.DEV_SUPPORT_PROJECT_ID)).trim();
 %>
 <html>
     <head>
@@ -65,23 +65,36 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            Development support project:<br/>
-                            <tc-webtag:radioButton name="<%=GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="auto"/>automatic<br/>
-                            <tc-webtag:radioButton name="<%=GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="none"/>none<br/>
-                            <tc-webtag:radioButton name="<%= GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="other"/>project 
-                                    <input type="text" name="<%= GenerateComponentPayments.DEV_SUPPORT_PROJECT_ID %>" maxlength="20" size="10" value="<%=devSupportProjectId%>"/>
-                        </td>
-                        <td>
-                        	If needed, pay development support to:<br/>
-                        	<tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="designer"/>the designer<br/>
-                        	<tc-webtag:radioButton name="<%= GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="other"/>coder <input type="text" name="coder" maxlength="20" size="10" value="<%=coder%>"/>
-                        </td>
-                        <td>
-                            
+                        <td colspan="3">
+                            Development Support
                         </td>
                     </tr>
-                    
+                    <tr>
+                        <td colspan="3">
+                            <table border="0">
+                            <tr>
+                                <td>
+                                    <strong>Project</strong>
+                                </td>         
+                                <td>               
+                                    <strong>Coder</strong>
+                                 </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <tc-webtag:radioButton name="<%=GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="auto"/>automatic<br/>
+                                    <tc-webtag:radioButton name="<%=GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="none"/>none<br/>
+                                    <tc-webtag:radioButton name="<%= GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="other"/>project 
+                                    <input type="text" name="<%= GenerateComponentPayments.DEV_SUPPORT_PROJECT_ID %>" maxlength="20" size="10" value="<%=devSupportProjectId%>"/>
+                                </td>
+                                <td>
+                                    <tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="designer"/>the designer<br/>
+                                    <tc-webtag:radioButton name="<%= GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="other"/>coder <input type="text" name="coder" maxlength="20" size="10" value="<%=coder%>"/>
+                                </td>
+                            </tr>
+                            </table>
+                        </td>
+                    </tr>
                     <tr>
                         <td align="center" colspan="3">
                             <a href="JavaScript:document.paymentForm.submit();">Generate Component Payments</a><br/>
