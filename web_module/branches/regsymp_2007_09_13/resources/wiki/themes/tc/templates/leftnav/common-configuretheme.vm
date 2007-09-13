@@ -1,0 +1,17 @@
+#parse ( "/template/includes/actionerrors.vm" )
+
+<form method="POST" action="doconfiguretheme.action" name="configurethemeform">
+    <div class="steptitle" style="width: 100%; margin-top: 10px">
+        <div class="stepfield">
+
+            #foreach ($navKey in $navKeys)
+                $navKey.getSpace() <input type="text" name="$navKey.getSpace()" value="$!navKey.getNavKey()" size="40"/>
+            <br />
+            #end
+        </div>
+
+        <div class="stepdesc" style="width: 90%;">
+            #tag (Submit "value='Save'" "name='submit'" "theme='simple'" )
+        </div>
+    </div>
+</form>

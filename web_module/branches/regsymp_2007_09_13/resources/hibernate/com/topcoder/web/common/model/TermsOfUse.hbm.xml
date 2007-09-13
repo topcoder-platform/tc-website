@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="TermsOfUse" table="terms_of_use" mutable="false">
+        <id name="id" column="terms_of_use_id" access="field"/>
+        <property name="text" column="terms_text" access="field"/>
+        <property name="typeId" column="terms_of_use_type_id" access="field"/>
+
+        <set name="users" table="user_terms_of_use_xref" inverse="true" access="field">
+            <key column="terms_of_use_id"/>
+            <many-to-many column="user_id" class="User"/>
+        </set>
+    </class>
+</hibernate-mapping>
