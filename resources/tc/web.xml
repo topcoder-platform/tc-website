@@ -172,6 +172,7 @@
     </servlet>
 
 
+<!-- let the web server do it
     <filter>
         <filter-name>GZIPResponse</filter-name>
         <filter-class>com.topcoder.web.common.GZIPResponseFilter</filter-class>
@@ -203,6 +204,7 @@
         <filter-name>GZIPResponse</filter-name>
         <servlet-name>PactsInternalServlet</servlet-name>
     </filter-mapping>
+-->
 
 
     <servlet-mapping>

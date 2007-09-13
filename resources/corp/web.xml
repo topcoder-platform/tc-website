@@ -152,10 +152,6 @@
             <param-value>com.topcoder.web.corp.controller.request.tces</param-value>
         </init-param>
 
-        <init-param>
-            <param-name>error_page</param-name>
-            <param-value>/errorPage.jsp</param-value>
-        </init-param>
 
         <init-param>
             <param-name>auth_failed_page</param-name>
@@ -1415,6 +1411,7 @@
     </servlet>
 
 
+<!--
     <filter>
         <filter-name>GZIPResponse</filter-name>
         <filter-class>com.topcoder.web.common.GZIPResponseFilter</filter-class>
@@ -1433,6 +1430,7 @@
         <filter-name>GZIPResponse</filter-name>
         <servlet-name>screening</servlet-name>
     </filter-mapping>
+-->
 
 
     <servlet-mapping>
@@ -1465,10 +1463,6 @@
         <url-pattern>/graph</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>TransactionServlet</servlet-name>
-        <url-pattern>/Tx/</url-pattern>
-    </servlet-mapping>
 
     <error-page>
         <error-code>404</error-code>
