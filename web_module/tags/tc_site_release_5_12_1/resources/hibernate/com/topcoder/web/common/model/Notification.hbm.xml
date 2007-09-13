@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="Notification" table="notify_lu" mutable="false">
+        <id name="id" column="notify_id" access="field"/>
+        <property name="name" access="field"/>
+        <property name="status" access="field"/>
+        <property name="sort" access="field"/>
+        <many-to-one name="type" column="notify_type_id" class="NotificationType" access="field"/>
+        <!--
+        <many-to-one name="type" column="notify_type_id" class="NotificationType" access="field"/>
+                <set name="registrationTypes" table="registration_type_notify_xref" fetch="select" cascade="none" access="field">
+                    <key column="notify_id" not-null="true"/>
+                    <many-to-many column="registration_type_id" class="RegistrationType"/>
+                </set>
+        -->
+        <set name="users" table="user_notify_xref" inverse="true" access="field">
+            <key column="notify_id" not-null="true"/>
+            <many-to-many column="user_id" class="User"/>
+        </set>
+        <set name="registrationTypes" table="registration_type_notify_xref" inverse="true" access="field">
+            <key column="notify_id" not-null="true"/>
+            <many-to-many column="registration_type_id" class="RegistrationType"/>
+        </set>
+    </class>
+
+</hibernate-mapping>
