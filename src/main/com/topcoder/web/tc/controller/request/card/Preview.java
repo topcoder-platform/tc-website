@@ -6,7 +6,6 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserPreference;
@@ -60,11 +59,15 @@ public class Preview extends Base {
 
     protected boolean isUnlocked() throws Exception {
         UserPreference up = (UserPreference) createEJB(getInitialContext(), UserPreference.class);
-        boolean cardUnlocked = false;
+        boolean cardUnlocked;
         try {
             up.getValue(getUser().getId(), Constants.UNLOCK_CARD_PREFERENCE_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
             cardUnlocked = true;
+/*
+todo can't friggin figure out why this does't work in prod.  it should catch RowNotFoundException dammit!
         } catch (RowNotFoundException e) {
+*/
+        } catch (Exception e) {
             cardUnlocked = false;
         }
         return cardUnlocked;
