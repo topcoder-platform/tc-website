@@ -51,9 +51,12 @@ public class SelfRegisterSubmit extends Base {
             
             u.getCoder().addClassrooms(classrooms);
 
+            getFactory().getUserDAO().saveOrUpdate(u);
+
             markForCommit();
             
             getRequest().setAttribute("classrooms", u.getCoder().getClassrooms());                
+            getRequest().setAttribute("user", u);
             setNextPage("/home.jsp");
             setIsNextPageInContext(true);            
         } else {
