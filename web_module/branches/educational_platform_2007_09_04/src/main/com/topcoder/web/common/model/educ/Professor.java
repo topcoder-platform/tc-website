@@ -94,6 +94,7 @@ public class Professor extends Base {
 
     @OneToMany( mappedBy = "classroom",
             fetch = FetchType.LAZY,
+            targetEntity = Classroom.class,
             cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
     public Set getClassrooms() {
         return Collections.unmodifiableSet(classrooms);
