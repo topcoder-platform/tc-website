@@ -90,8 +90,7 @@ public class Professor extends Base {
         this.user = user;
     }
 
-    @OneToMany( mappedBy = "classroom",
-            fetch = FetchType.LAZY,
+    @OneToMany(fetch = FetchType.LAZY,
             targetEntity = Classroom.class,
             cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
     public Set getClassrooms() {
