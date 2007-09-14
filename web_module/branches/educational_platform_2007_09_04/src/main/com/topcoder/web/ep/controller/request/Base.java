@@ -5,6 +5,7 @@
 */
 package com.topcoder.web.ep.controller.request;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -114,7 +115,7 @@ public abstract class Base extends LongHibernateProcessor {
      * Get the selected classrooms in the current request processor. 
      */
     protected Set<Classroom> getSelectedClassrooms() {
-        Set<Classroom> selectedClassrooms = (Set<Classroom>) getRequest().getSession().getAttribute(Constants.CLASSROOMS);
+        List<Classroom> selectedClassrooms = (List<Classroom>) getRequest().getSession().getAttribute(Constants.CLASSROOMS);
         if (selectedClassrooms == null) {
                 throw new RuntimeException("Couldn't find selected classrooms in the session");
         } else {
@@ -122,7 +123,7 @@ public abstract class Base extends LongHibernateProcessor {
                 log.debug("got " + selectedClassrooms.size() + " selected classrooms from session");
             }
         }
-        return selectedClassrooms;
+        return new HashSet<Classroom>(selectedClassrooms);
     }
     
     

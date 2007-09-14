@@ -7,8 +7,8 @@
 
     <class name="StudentClassroom" table="student_classroom_xref">
         <composite-id name="id" class="StudentClassroom$Identifier">
-            <key-many-to-one name="studentId" class="com.topcoder.web.common.model.Coder" column="student_id"/>
-            <key-many-to-one name="classroomId" class="Classroom" column="classroom_id"/>            
+            <key-many-to-one name="student" class="com.topcoder.web.common.model.Coder" column="student_id"/>
+            <key-many-to-one name="classroom" class="Classroom" column="classroom_id"/>            
         </composite-id>
 
         <property name="statusId" column="status_id" access="field"/>
