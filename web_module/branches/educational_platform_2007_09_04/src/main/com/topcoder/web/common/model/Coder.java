@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.common.model.educ.Professor;
 import com.topcoder.web.common.model.educ.StudentClassroom;
 
 /**
@@ -37,7 +38,7 @@ public class Coder extends Base {
 
     private Set ratings;
 
-    private Set professors;
+//    private Set professors;
     private Set studentClassrooms;
 
     public Coder() {
@@ -46,7 +47,7 @@ public class Coder extends Base {
         this.images = new HashSet();
         this.createdSchools = new HashSet();
         this.ratings = new HashSet();
-        this.professors = new HashSet();
+//        this.professors = new HashSet();
         this.studentClassrooms = new HashSet();
     }
 
@@ -208,12 +209,20 @@ public class Coder extends Base {
     }
    
     public Set getProfessors() {
-        return Collections.unmodifiableSet(professors);
+//        return Collections.unmodifiableSet(professors);
+        Set<Professor> ps = new HashSet<Professor>();
+        for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
+            if (sc.getStatusId().equals(StudentClassroom.PENDING_STATUS)) {
+                ps.add(sc.getId().getClassroom().getProfessor());
+            }
+        }
+        return Collections.unmodifiableSet(ps);
+        
     }
 
-    public void setProfessors(Set professors) {
-        this.professors = professors;
-    }
+//    public void setProfessors(Set professors) {
+//        this.professors = professors;
+//    }
     
     public void addClassroom(Classroom c) {
         this.studentClassrooms.add(new StudentClassroom(this, c, StudentClassroom.PENDING_STATUS));
