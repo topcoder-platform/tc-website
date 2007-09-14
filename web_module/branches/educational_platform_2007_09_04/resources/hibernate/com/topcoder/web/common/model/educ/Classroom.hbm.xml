@@ -17,10 +17,11 @@
         <property name="statusId" column="status_id" access="field"/>
         <property name="academicPeriod" column="academic_period" access="field"/>
         <property name="description" column="description" access="field"/>
-
-        <set name="students" table="student_classroom_xref" inverse="true" access="field">
-            <key column="classroom_id"/>
-            <many-to-many column="coder_id" unique="true" class="com.topcoder.web.common.model.Coder"/>
+        
+        <set name="studentClassrooms" table="student_classroom_xref" cascade="save-update" inverse="true" access="field">
+            <key column="classroom_id" not-null="true"/>
+            <one-to-many class="StudentClassroom"/>
         </set>
+        
     </class>
 </hibernate-mapping>

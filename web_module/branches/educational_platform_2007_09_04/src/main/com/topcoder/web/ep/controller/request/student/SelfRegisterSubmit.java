@@ -5,8 +5,7 @@
 */
 package com.topcoder.web.ep.controller.request.student;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
@@ -14,7 +13,6 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.Base;
 
 /**
@@ -47,7 +45,7 @@ public class SelfRegisterSubmit extends Base {
             
             User u = getActiveUser();
             
-            List<Classroom> classrooms = getSelectedClassrooms();
+            Set<Classroom> classrooms = getSelectedClassrooms();
             
             u.getCoder().addClassrooms(classrooms);
 

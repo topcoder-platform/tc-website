@@ -15,17 +15,17 @@ import java.util.Set;
  */
 public class Classroom {
 
-    private long id;
+    private Long id;
     private Professor professor;
     private String name;
-    private int statusId;
+    private Integer statusId;
     private String academicPeriod;
     private String description;
 
-    private Set students;
+    private Set studentClassrooms;
 
     public Classroom() {
-        this.students = new HashSet();
+        this.studentClassrooms = new HashSet();
     }
 
     public String getAcademicPeriod() {
@@ -44,11 +44,11 @@ public class Classroom {
         this.description = description;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -68,20 +68,20 @@ public class Classroom {
         this.professor = professor;
     }
 
-    public int getStatusId() {
+    public Integer getStatusId() {
         return statusId;
     }
 
-    public void setStatusId(int statusId) {
+    public void setStatusId(Integer statusId) {
         this.statusId = statusId;
     }
 
-    public Set getStudents() {
-        return Collections.unmodifiableSet(students);
+    public Set getStudentClassrooms() {
+        return Collections.unmodifiableSet(studentClassrooms);
     }
 
-    public void setStudents(Set students) {
-        this.students = students;
+    public void setStudentClassrooms(Set studentClassrooms) {
+        this.studentClassrooms = studentClassrooms;
     }
 
 }

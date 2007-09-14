@@ -6,6 +6,7 @@
 package com.topcoder.web.ep.controller.request;
 
 import java.util.List;
+import java.util.Set;
 
 import com.topcoder.web.common.LongHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
@@ -112,8 +113,8 @@ public abstract class Base extends LongHibernateProcessor {
     /**
      * Get the selected classrooms in the current request processor. 
      */
-    protected List<Classroom> getSelectedClassrooms() {
-        List<Classroom> selectedClassrooms = (List<Classroom>) getRequest().getSession().getAttribute(Constants.CLASSROOMS);
+    protected Set<Classroom> getSelectedClassrooms() {
+        Set<Classroom> selectedClassrooms = (Set<Classroom>) getRequest().getSession().getAttribute(Constants.CLASSROOMS);
         if (selectedClassrooms == null) {
                 throw new RuntimeException("Couldn't find selected classrooms in the session");
         } else {

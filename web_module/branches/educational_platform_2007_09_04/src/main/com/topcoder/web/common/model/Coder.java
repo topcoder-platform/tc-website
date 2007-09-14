@@ -4,10 +4,10 @@ import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.common.model.educ.StudentClassroom;
 
 /**
  * A class to hold coder data.
@@ -38,7 +38,7 @@ public class Coder extends Base {
     private Set ratings;
 
     private Set professors;
-    private Set classrooms;
+    private Set studentClassrooms;
 
     public Coder() {
         this.resumes = new HashSet();
@@ -47,7 +47,7 @@ public class Coder extends Base {
         this.createdSchools = new HashSet();
         this.ratings = new HashSet();
         this.professors = new HashSet();
-        this.classrooms = new HashSet();
+        this.studentClassrooms = new HashSet();
     }
 
 
@@ -216,19 +216,33 @@ public class Coder extends Base {
     }
     
     public void addClassroom(Classroom c) {
-        this.classrooms.add(c);
+        this.studentClassrooms.add(new StudentClassroom(this, c, StudentClassroom.PENDING_STATUS));
     }
 
-    public void addClassrooms(List<Classroom> classrooms) {
-        this.classrooms.addAll(classrooms);
+    public void addClassrooms(Set<Classroom> classrooms) {
+        Set<StudentClassroom> sc = new HashSet<StudentClassroom>();
+        for (Classroom c : classrooms) {
+            sc.add(new StudentClassroom(this, c, StudentClassroom.PENDING_STATUS));
+        }
+        this.studentClassrooms.addAll(sc);
+    }
+
+    public Set getStudentClassrooms() {
+        return Collections.unmodifiableSet(studentClassrooms);
     }
 
     public Set getClassrooms() {
-        return Collections.unmodifiableSet(classrooms);
+        Set<Classroom> cs = new HashSet<Classroom>();
+        for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
+            if (sc.getStatusId().equals(StudentClassroom.PENDING_STATUS)) {
+                cs.add(sc.getId().getClassroom());
+            }
+        }
+        return Collections.unmodifiableSet(cs);
     }
 
-    public void setRClassrooms(Set classrooms) {
-        this.classrooms = classrooms;
+    public void setStudentClassrooms(Set studentClassrooms) {
+        this.studentClassrooms = studentClassrooms;
     }
 
     public Image getMemberPhoto() {
