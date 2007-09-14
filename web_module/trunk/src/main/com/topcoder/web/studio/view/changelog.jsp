@@ -18,7 +18,7 @@
 <div id="contentOut" class="contentOut">
 <jsp:include page="top.jsp"/>
 <jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="home"/>
+    <jsp:param name="node" value="support"/>
 </jsp:include>
 <div id="contentIn" class="contentIn">
 <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
@@ -26,6 +26,7 @@
 
 <div class="contentSpacer">
 
+<h1>Studio Website Changelog</h1>
 
 <p>
     2.1.0 - 2007.09.06
