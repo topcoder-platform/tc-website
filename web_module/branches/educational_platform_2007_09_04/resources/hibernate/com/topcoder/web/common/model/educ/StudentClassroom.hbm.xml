@@ -6,6 +6,7 @@
 <hibernate-mapping package="com.topcoder.web.common.model.educ">
 
     <class name="StudentClassroom" table="student_classroom_xref">
+        <composite-id name="id" class="StudentClassroom$Identifier">
             <key-many-to-one name="studentId" class="User" column="student_id"/>
             <key-many-to-one name="classroomId" class="Preference" column="classroom_id"/>            
         </composite-id>
