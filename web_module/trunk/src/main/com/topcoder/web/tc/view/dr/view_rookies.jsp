@@ -212,7 +212,7 @@ Please select a <strong>season</strong><br>
             </a>
             </c:if>
 	        </td>
-	<td class="valueR B">"><c:if test="${boardRow.placementPrize>0}">
+	<td class="valueR B"><c:if test="${boardRow.placementPrize>0}">
 	    <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
 	</c:if>
 	    <c:if test="${boardRow.placementPrize==0}">

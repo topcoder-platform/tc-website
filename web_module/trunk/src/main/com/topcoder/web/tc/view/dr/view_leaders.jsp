@@ -224,7 +224,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
         <td class="valueR"><c:if test="${boardRow.pointsPrize>0}">
             <fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/>
         </c:if></td>
-        <td class="valueR B">">
+        <td class="valueR B">
             <c:if test="${boardRow.totalPrize>0}">
                 <fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/>
             </c:if>
