@@ -1,12 +1,21 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.tc.controller.request.tournament.tco08.SymposiumRegBase,
-                 com.topcoder.web.common.model.SymposiumReg" %> 
+                 com.topcoder.web.common.model.SymposiumReg,
+                 com.topcoder.web.common.tag.ListSelectTag" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<%
+    java.util.List paymentMethods = new java.util.ArrayList();
+    paymentMethods.add(new ListSelectTag.Option("Visa", "Visa"));
+    paymentMethods.add(new ListSelectTag.Option("MC", "Master Card"));
+    paymentMethods.add(new ListSelectTag.Option("AMEX", "American Express"));
+    paymentMethods.add(new ListSelectTag.Option("Discover", "Discover"));
+
+%>
 <html>
 
 <head>
@@ -45,7 +54,9 @@ function setStudent(){
 <h2>Registration for the Software Symposium at the 2008 TopCoder Open</h2>
 <br/>
 <br/>
-<table cellpadding="5" cellspacing="0">
+<form name="f" method="post" action="/tc">
+<tc-webtag:hiddenInput name="module" value="TCO08SymposiumRegister" /> 
+<table cellpadding="3" cellspacing="0">
 <tbody>
     <tr>
         <td colspan="2"><span class="bigRed">
@@ -172,20 +183,52 @@ function setStudent(){
     </tr>
     <tr>
         <td>Registration type:</td>
-        <td><tc-webtag:radioButton name="<%=SymposiumRegBase.REGISTRATION_TYPE + ""%>" value="<%=SymposiumReg.REG_TYPE_COLLEGIATE_TC+ ""%>" />Collegiate TopCoder Member: $99<br/>
+        <td><tc-webtag:radioButton name="<%=SymposiumRegBase.REGISTRATION_TYPE %>" value="<%=SymposiumReg.REG_TYPE_COLLEGIATE_TC+ ""%>" />Collegiate TopCoder Member: $99<br/>
             <c:if test="${not early}"> 
-                <tc-webtag:radioButton name="<%=SymposiumRegBase.REGISTRATION_TYPE + ""%>" value="<%=SymposiumReg.REG_TYPE_PROFESSIONAL+ ""%>"/>Professional: $299<br/>
+                <tc-webtag:radioButton name="<%=SymposiumRegBase.REGISTRATION_TYPE %>" value="<%=SymposiumReg.REG_TYPE_PROFESSIONAL+ ""%>"/>Professional: $299<br/>
             </c:if>                
             <c:if test="${early}"> 
-                <tc-webtag:radioButton name="<%=SymposiumRegBase.REGISTRATION_TYPE + ""%>" value="<%=SymposiumReg.REG_TYPE_PROFESSIONAL_EARLY+ ""%>"/>Professional Early bird<sup>*</sup>: $299<br/>
+                <tc-webtag:radioButton name="<%=SymposiumRegBase.REGISTRATION_TYPE %>" value="<%=SymposiumReg.REG_TYPE_PROFESSIONAL_EARLY+ ""%>"/>Professional Early bird<sup>*</sup>: $299<br/>
             </c:if>
         </td>
     </tr>
-    
-    
-
+    <tr>
+        <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.PAYMENT_METHOD%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        </td>
+    </tr>
+    <tr>
+        <td>* Method of Payment:</td>
+        <td><tc-webtag:listSelect name="<%=SymposiumRegBase.PAYMENT_METHOD %>" list="<%= paymentMethods %>"/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.CARD_NUMBER%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        </td>
+    </tr>
+    <tr>
+        <td>* Card Number:</td>
+        <td><tc-webtag:textInput name="<%=SymposiumRegBase.CARD_NUMBER%>" size="20" maxlength="30" editable="true"/></td>
+    </tr>
+    <tr>
+        <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.EXPIRATION_DATE%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        </td>
+    </tr>
+    <tr>
+        <td>* Expiration Date:</td>
+        <td><tc-webtag:textInput name="<%=SymposiumRegBase.EXPIRATION_DATE%>" size="5" maxlength="5" editable="true"/> (mm/yy)</td>
+    </tr>    
 </tbody>
 </table>
+
+<br/>
+<div align="center">
+    <a href="#" onclick="document.f.submit();return false;">Submit</a>
+</div>
+
+</form>
 
 <br/>
 <br/>
