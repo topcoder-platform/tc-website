@@ -1,14 +1,14 @@
 package com.topcoder.web.tc.controller.request.tournament.tco08;
 
-import com.topcoder.web.common.BaseProcessor;
 
 
-public class SymposiumRegister extends BaseProcessor {
+public class SymposiumRegister extends SymposiumRegBase {
+
 
     @Override
-    protected void businessProcessing() throws Exception {
+    protected void dbProcessing() throws Exception {
         setNextPage("tournaments/tco08/symposium/symposiumRegister.jsp");
-        setIsNextPageInContext(true);                
+        setIsNextPageInContext(true);                        
     }
 
 }
