@@ -40,10 +40,10 @@
             <one-to-many class="AlgoRating"/>
         </set>
 
-        <set name="professors" table="student_professor_xref" cascade="save-update" access="field">
+<!--          <set name="professors" table="student_professor_xref" cascade="save-update" access="field">
             <key column="student_id" not-null="true"/>
             <many-to-many column="professor_id" class="com.topcoder.web.common.model.educ.Professor"/>
-        </set>
+        </set>-->
         
         <set name="studentClassrooms" cascade="save-update" inverse="true" access="field">
             <key column="student_id" not-null="true"/>
