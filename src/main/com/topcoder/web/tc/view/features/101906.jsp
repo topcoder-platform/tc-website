@@ -177,7 +177,7 @@ Here are the top five best-represented countries from the past two TopCoder Open
         <td class="value">
         <strong>Poland</strong>
         </td>
-        <td class="valueR B">">
+        <td class="valueR B">
         11
         </td>
         <td class="value">
@@ -191,7 +191,7 @@ Here are the top five best-represented countries from the past two TopCoder Open
         <td class="value">
         <strong>Russian Federation</strong>
         </td>
-        <td class="valueR B">">
+        <td class="valueR B">
         8
         </td>
         <td class="value">
@@ -205,7 +205,7 @@ Here are the top five best-represented countries from the past two TopCoder Open
         <td class="value">
         <strong>China
         </td>
-        <td class="valueR B">">
+        <td class="valueR B">
         4
         </td>
         <td class="value">
@@ -219,7 +219,7 @@ Here are the top five best-represented countries from the past two TopCoder Open
         <td class="value">
         <strong>Norway
         </td>
-        <td class="valueR B">">
+        <td class="valueR B">
         4
         </td>
         <td class="value">
@@ -233,7 +233,7 @@ Here are the top five best-represented countries from the past two TopCoder Open
         <td class="value">
         <strong>United States
         </td>
-        <td class="valueR B">">
+        <td class="valueR B">
         4
         </td>
         <td class="value">
@@ -271,7 +271,7 @@ The big continental drift has been in second place, where North America and Asia
         <td class="value">
             <strong>Europe</strong>
         </td>
-        <td class="valueR B">">
+        <td class="valueR B">
             69%
         </td>
         <td class="value">
@@ -285,7 +285,7 @@ The big continental drift has been in second place, where North America and Asia
         <td class="value">
             <strong>Asia</strong>
         </td>
-        <td class="valueR B">">
+        <td class="valueR B">
             19%
         </td>
         <td class="value">
@@ -299,7 +299,7 @@ The big continental drift has been in second place, where North America and Asia
         <td class="value">
             <strong>North America</strong>
         </td>
-        <td class="valueR B">">
+        <td class="valueR B">
             10%
         </td>
         <td class="value">
@@ -313,7 +313,7 @@ The big continental drift has been in second place, where North America and Asia
         <td class="value">
             <strong>Africa</strong>
         </td>
-        <td class="valueR B">">
+        <td class="valueR B">
             2%
         </td>
         <td class="value">
