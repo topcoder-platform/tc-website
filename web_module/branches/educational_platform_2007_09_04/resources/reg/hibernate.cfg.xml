@@ -130,7 +130,9 @@
         <mapping resource="com/topcoder/web/common/model/comp/ProjectPhase.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/UserContestPrize.hbm.xml"/>
 
-        <mapping class="com.topcoder.web.common.model.educ.Professor"/>
+         <mapping class="com.topcoder.web.common.model.educ.Professor"/>  
+
+<!--        <mapping resource="com/topcoder/web/common/model/educ/Professor.hbm.xml"/>-->
 
         <mapping resource="com/topcoder/web/common/model/educ/Classroom.hbm.xml"/>
  

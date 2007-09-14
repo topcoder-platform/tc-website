@@ -9,7 +9,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,10 +17,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-import org.hibernate.annotations.Table;
 
 import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.School;
@@ -32,7 +33,7 @@ import com.topcoder.web.common.model.User;
  * @version $Id$
  */
 @Entity
-@Table(appliesTo="professor")
+@Table(name="professor")
 public class Professor extends Base {
 
     private Long id;
@@ -49,12 +50,8 @@ public class Professor extends Base {
         this.classrooms = new HashSet();
     }
 
-    @Id @GeneratedValue(generator="foreign")    
-    @GenericGenerator(name="foreign", strategy="foreign",
-        parameters = {
-            @Parameter(name="property", value = "user")
-        }
-    )
+    @GenericGenerator(name="generator", strategy="foreign", parameters=@Parameter(name="property", value="user"))@Id @GeneratedValue(generator="generator")    
+    @Column(name="user_id", nullable=false)
     public Long getId() {
         return id;
     }
@@ -90,9 +87,8 @@ public class Professor extends Base {
         this.user = user;
     }
 
-    @OneToMany(fetch = FetchType.LAZY,
-            targetEntity = Classroom.class,
-            cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="professor")
+    @Cascade( {CascadeType.SAVE_UPDATE} )
     public Set getClassrooms() {
         return Collections.unmodifiableSet(classrooms);
     }
