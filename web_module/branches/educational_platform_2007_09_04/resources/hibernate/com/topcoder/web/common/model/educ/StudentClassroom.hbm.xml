@@ -11,6 +11,6 @@
             <key-many-to-one name="classroomId" class="Preference" column="classroom_id"/>            
         </composite-id>
 
-        <property name="status" column="status_id" access="field"/>
+        <property name="statusId" column="status_id" access="field"/>
     </class>
 </hibernate-mapping>
