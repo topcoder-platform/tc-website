@@ -1,14 +1,15 @@
 package com.topcoder.web.reg.controller.request;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.dao.RegistrationTypeDAO;
 import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
+
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 
 /**
@@ -48,7 +49,7 @@ public class HsIneligible extends Base {
         
         User u = getRegUser();
         if (u == null) {
-            throw new NavigationException("Sorry, your session has expired.");
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg/?"+ Constants.NEW_REG+"="+String.valueOf(true));
         } 
         
         Set fields = RegFieldHelper.getMainFieldSet(regTypes, u);
