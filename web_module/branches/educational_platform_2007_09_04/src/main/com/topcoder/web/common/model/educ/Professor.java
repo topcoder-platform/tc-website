@@ -64,7 +64,6 @@ public class Professor extends Base {
     }
 
     @OneToOne @PrimaryKeyJoinColumn
-    @Column(nullable = false)
     public School getSchool() {
         return school;
     }
@@ -83,7 +82,6 @@ public class Professor extends Base {
     }
 
     @OneToOne @PrimaryKeyJoinColumn
-    @Column(nullable = false)
     public User getUser() {
         return user;
     }
