@@ -9,6 +9,20 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+import org.hibernate.annotations.Entity;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Table;
+
 import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.User;
@@ -17,21 +31,30 @@ import com.topcoder.web.common.model.User;
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
+@Entity
+@Table(appliesTo="professor")
 public class Professor extends Base {
 
     private Long id;
 
     private User user;
     private School school;
-    private int statusId;
+    private Integer statusId;
 
-    private Set students;
+//    private Set students;
     private Set classrooms;
 
     public Professor() {
-        this.students = new HashSet();
+//        this.students = new HashSet();
+        this.classrooms = new HashSet();
     }
 
+    @Id @GeneratedValue(generator="foreign")    
+    @GenericGenerator(name="foreign", strategy="foreign",
+        parameters = {
+            @Parameter(name="property", value = "user")
+        }
+    )
     public Long getId() {
         return id;
     }
@@ -40,6 +63,8 @@ public class Professor extends Base {
         this.id = id;
     }
 
+    @OneToOne @PrimaryKeyJoinColumn
+    @Column(nullable = false)
     public School getSchool() {
         return school;
     }
@@ -48,22 +73,17 @@ public class Professor extends Base {
         this.school = school;
     }
 
-    public int getStatusId() {
+    @Column(name = "status_id", nullable = false)
+    public Integer getStatusId() {
         return statusId;
     }
 
-    public void setStatusId(int statusId) {
+    public void setStatusId(Integer statusId) {
         this.statusId = statusId;
     }
 
-    public Set getStudents() {
-        return Collections.unmodifiableSet(students);
-    }
-
-    public void setStudents(Set students) {
-        this.students = students;
-    }
-
+    @OneToOne @PrimaryKeyJoinColumn
+    @Column(nullable = false)
     public User getUser() {
         return user;
     }
@@ -72,6 +92,9 @@ public class Professor extends Base {
         this.user = user;
     }
 
+    @OneToMany( mappedBy = "classroom",
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
     public Set getClassrooms() {
         return Collections.unmodifiableSet(classrooms);
     }
@@ -80,5 +103,12 @@ public class Professor extends Base {
         this.classrooms = classrooms;
     }
 
+//  public Set getStudents() {
+//  return Collections.unmodifiableSet(students);
+//}
+//
+//public void setStudents(Set students) {
+//  this.students = students;
+//}
 
 }

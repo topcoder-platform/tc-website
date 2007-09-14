@@ -1,13 +1,19 @@
 package com.topcoder.web.common;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.model.TCInterceptor;
-import org.hibernate.*;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import org.hibernate.EmptyInterceptor;
+import org.hibernate.Interceptor;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.model.TCInterceptor;
 
 /**
  * @author dok
@@ -18,7 +24,7 @@ public class HibernateUtils {
     protected static Logger log = Logger.getLogger(HibernateUtils.class);
     //private static final ThreadLocal tSession = new ThreadLocal();
     //private static final ThreadLocal tTransaction = new ThreadLocal();
-    private static final String INTERCEPTOR_CLASS = "hibernate.util.interceptor_class";
+    private static final String INTERCEPTOR_CLASS = "hibernate.util.interceptor_class"; 
 
     private static Configuration configuration;
     private static SessionFactory sessionFactory;
@@ -26,7 +32,7 @@ public class HibernateUtils {
     static {
         // Create the initial SessionFactory from the default configuration files
         try {
-            configuration = new Configuration();
+            configuration = new AnnotationConfiguration();
 
             // Read not only hibernate.properties, but also hibernate.cfg.xml
             configuration.configure();
