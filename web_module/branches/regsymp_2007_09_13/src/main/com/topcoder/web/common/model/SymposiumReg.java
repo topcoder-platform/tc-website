@@ -23,7 +23,7 @@ public class SymposiumReg extends Base {
     private Long id;
     private String firstName;
     private String lastName;
-    private Coder coder;
+    private User user;
     private Boolean professional;
     private String collegeName;
     private String companyName;
@@ -54,11 +54,11 @@ public class SymposiumReg extends Base {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    public Coder getCoder() {
-        return coder;
+    public User getUser() {
+        return user;
     }
-    public void setCoder(Coder coder) {
-        this.coder = coder;
+    public void setUser(User user) {
+        this.user = user;
     }
     public Boolean getProfessional() {
         return professional;
