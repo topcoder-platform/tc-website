@@ -1,16 +1,5 @@
 package com.topcoder.web.reg.controller.request;
 
-import java.rmi.RemoteException;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import javax.ejb.CreateException;
-import javax.naming.Context;
-
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.TCSubject;
@@ -40,6 +29,16 @@ import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.Constants;
 
+import javax.ejb.CreateException;
+import javax.naming.Context;
+import java.rmi.RemoteException;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -50,7 +49,7 @@ public class Submit extends Base {
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
         if (getRegUser() == null) {
-            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg/?"+Constants.NEW_REG+"="+String.valueOf(true));
         } else if (u.isNew() || userLoggedIn()) {
             //todo check if the handle is taken again
             boolean newUser = u.isNew();
