@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.14.07<br>6:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm365">SRM 365 - Problem Set &amp; Analysis</A></span><br><br>
+      In Division 1 the coders were faced with tricky problems, all of which required careful implementation and creative thinking rather than fast coding of well-known algorithms. 
+      A particularly tricky hard led to a very eventful challenge phase, with both <tc-webtag:handle coderId="22680151" context="algorithm"/> and <tc-webtag:handle coderId="10157606" context="algorithm"/> racking up record levels of successful challenges. When the dust settled, <tc-webtag:handle coderId="22664154" context="algorithm"/> was left in first place, followed by <tc-webtag:handle coderId="7442498" context="algorithm"/> and <tc-webtag:handle coderId="15805598" context="algorithm"/>.</td>
+         <td class="newsPhoto"><img src="/i/m/Xixas_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="22629218" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm365">full story</A> | 
+         <tc-webtag:forumLink forumID="516062" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.14.07<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 3 set for September 15</A></span><br><br>
@@ -162,18 +179,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1c">full story</A> | 
          <tc-webtag:forumLink forumID="517222" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>09.10.07<br>10:15 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.equitrader.com/trader/xco/tournaments' refer='/tc' />">Test your trading skills, win $20,000</A></span><br><br>
-        Looking to test your analytic and algorithm skills in a whole new arena? Check out the Equitrader Collegiate Challenge, hosted by TopCoder’s sister company, offering a total of $100,000 in prizes in three tracks -- algorithmic trading, a standard Equitrader competition, and a league-based school competition. Registration ends September 30.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.equitrader.com/trader/xco/tournaments' refer='/tc' />">learn more</a> | 
-        <tc-webtag:forumLink forumID="517278" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
