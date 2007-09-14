@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.14.07<br>12:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd2">TCCC07 - Algo Round 2 - Problem Set &amp; Analysis</A></span><br><br>
+      Round 2 of the 2007 TopCoder Collegiate Challege had to cut 900 competitors down to the 300 slots available in Round 3. In the battle to continue their quest for Disney World, coders had to face 3 problems of increasing difficulty.</td>
+         <td class="newsPhoto"><img src="/i/m/ivan_metelsky_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10481120" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd2">full story</A> | 
+         <tc-webtag:forumLink forumID="517259" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>09.13.07<br>3:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -121,7 +137,7 @@
    
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.10.07<br>12:15 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.10.07<br>12:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1c">TCCC07 - Algo Round 1C - Problem Set &amp; Analysis</A></span><br><br>
@@ -162,18 +178,5 @@
          <A href="/tc?module=Static&d1=features&d2=090707">full story</A> | 
          <tc-webtag:forumLink forumID="517269" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>09.07.07<br>2:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/registration/actions/ProjectManagement.do?method=displayProjectList">New Registration Tool for Assembly Contests</A></span><br><br>
-        TopCoder has a new tool for managing team registrations for Assembly Contests. Using the Registration Tool, members can register for projects, create and manage teams, and more. The tool is accessible from the Assembly "Active Contests" menu, or you can go there directly: <a href="/registration/">www.topcoder.com/registration/</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/registration/actions/ProjectManagement.do?method=displayProjectList">details</a> | 
-        <tc-webtag:forumLink forumID="517268" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    

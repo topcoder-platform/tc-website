@@ -44,6 +44,7 @@
    <tr><td valign="middle" class="bodyText" colspan="2">
    <strong>September</strong>
    </td></tr>
+   <tr><td class="bodyText">09.08.07</td><td class="bodyText" nowrap="0" width="100%">TCCC07 - Algorithm Round 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd2">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">09.04.07</td><td class="bodyText" nowrap="0" width="100%">SRM 364 - <a href="/tc?module=Static&d1=match_editorials&d2=srm364">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">09.01.07</td><td class="bodyText" nowrap="0" width="100%">TCCC07 - Algorithm Round 1C - <a href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1c">Problem Set & Analysis</a></td></tr>
    
