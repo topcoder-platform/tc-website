@@ -148,6 +148,10 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new SubmissionDAOHibernate();
     }
 
+    public SymposiumRegDAO getSymposiumRegDAO() {
+        return new SymposiumRegDAOHibernate();
+    }
+
     public TeamDAO getTeamDAO() {
         return new TeamDAOHibernate();
     }

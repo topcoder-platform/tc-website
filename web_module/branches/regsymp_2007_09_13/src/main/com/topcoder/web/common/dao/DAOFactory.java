@@ -76,6 +76,8 @@ public interface DAOFactory {
 
     SubmissionDAO getSubmissionDAO();
 
+    SymposiumRegDAO getSymposiumRegDAO();
+
     TeamDAO getTeamDAO();
 
     TeamTypeDAO getTeamTypeDAO();

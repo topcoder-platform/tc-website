@@ -98,6 +98,7 @@
         <mapping resource="com/topcoder/web/common/model/State.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/Survey.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/SymposiumReg.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/Team.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/TeamType.hbm.xml"/>

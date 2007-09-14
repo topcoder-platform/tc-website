@@ -147,6 +147,10 @@ public class DAOFactoryQueryTool implements DAOFactory {
     public StateDAO getStateDAO() {
         throw new RuntimeException("Not supported");
     }
+    
+    public SymposiumRegDAO getSymposiumRegDAO() {
+        throw new RuntimeException("Not supported");
+    }
 
     public TeamDAO getTeamDAO() {
         throw new RuntimeException("Not supported");
