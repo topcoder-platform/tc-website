@@ -7,7 +7,12 @@ import com.topcoder.web.common.model.*;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author dok
@@ -20,7 +25,7 @@ public class Confirm extends Base {
 
         User u = getRegUser();
         if (getRegUser() == null) {
-            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg/?"+Constants.NEW_REG+"="+String.valueOf(true));
         } else if (u.isNew() || userLoggedIn()) {
 
             Map params = getSecondaryUserInput();

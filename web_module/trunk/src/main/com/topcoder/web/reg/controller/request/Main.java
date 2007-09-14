@@ -1,11 +1,5 @@
 package com.topcoder.web.reg.controller.request;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
@@ -19,6 +13,12 @@ import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author dok
@@ -40,7 +40,7 @@ public class Main extends Base {
             }
         }
         if (getRegUser() == null) {
-            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg/?"+Constants.NEW_REG+"="+String.valueOf(true));
         } else if (getRegUser().isNew() || userLoggedIn()) {
             User u = getRegUser();
             RegistrationTypeDAO regTypeDAO = getFactory().getRegistrationTypeDAO();
