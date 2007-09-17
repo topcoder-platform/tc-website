@@ -38,16 +38,28 @@
 <body>
 Hello, <tc-webtag:handle coderId='${user.id}'/>, Welcoome to Educational Plattform!
 </br></br>
-<c:choose>
-    <c:when test="${not empty classrooms}">
-        Here are your classrooms:
-        <c:forEach items="${classrooms}" var="classroom">
-            <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a>
-        </c:forEach>
-    </c:when>
-    <c:otherwise>
-        You don't have classrooms associated.
-    </c:otherwise>
-</c:choose>
+    <c:choose>
+        <c:when test="${not empty activeClassrooms}">
+            Here are your active classrooms:
+            <c:forEach items="${activeClassrooms}" var="classroom">
+                <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a>
+            </c:forEach>
+        </c:when>
+        <c:otherwise>
+            You don't have active classrooms associated.
+        </c:otherwise>
+    </c:choose>
+    <br/>
+    <c:choose>
+        <c:when test="${not empty pendingClassrooms}">
+            Here are your pending classrooms:
+            <c:forEach items="${pendingClassrooms}" var="classroom">
+                <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a>
+            </c:forEach>
+        </c:when>
+        <c:otherwise>
+            You don't have pending classrooms associated.
+        </c:otherwise>
+    </c:choose>
 </body>
 </html>

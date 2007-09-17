@@ -46,7 +46,7 @@ Hello, <tc-webtag:handle coderId='${user.id}'/>, Welcoome to Educational Plattfo
             </c:forEach>
         </c:when>
         <c:otherwise>
-            You don't have activr classrooms associated.
+            You don't have active classrooms associated.
         </c:otherwise>
     </c:choose>
     <br/>
