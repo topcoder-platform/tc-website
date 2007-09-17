@@ -53,7 +53,7 @@ public class StudentClassroom extends Base {
         return statusId;
     }
 
-    public void setValue(Long statusId) {
+    public void setStatusId(Long statusId) {
         this.statusId = statusId;
     }
 
