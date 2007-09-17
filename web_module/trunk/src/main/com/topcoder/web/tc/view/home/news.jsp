@@ -39,7 +39,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd2">TCCC07 - Algo Round 2 - Problem Set &amp; Analysis</A></span><br><br>
       Round 2 of the 2007 TopCoder Collegiate Challege had to cut 900 competitors down to the 300 slots available in Round 3. In the battle to continue their quest for Disney World, coders had to face 3 problems of increasing difficulty.</td>
-         <td class="newsPhoto"><img src="/i/m/ivan_metelsky_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10481120" context="algorithm"/></td></tr></table>
+         <td class="newsPhoto"><img src="/i/m/andrewzta_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="11829284" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">

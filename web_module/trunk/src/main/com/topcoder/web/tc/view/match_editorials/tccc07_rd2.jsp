@@ -649,10 +649,10 @@ for a nice implementation of this idea.
 
 
 <div class="authorPhoto">
-    <img src="/i/m/ivan_metelsky_big.jpg" alt="Author" />
+    <img src="/i/m/andrewzta_big.jpg" alt="Author" />
 </div>
 <div class="authorText">
-    By&#160;<tc-webtag:handle coderId="10481120" context="algorithm"/><br />
+    By&#160;<tc-webtag:handle coderId="11829284" context="algorithm"/><br />
     <em>TopCoder Member</em>
 </div>
 
