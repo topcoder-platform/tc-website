@@ -120,7 +120,7 @@
         </li>
         <li>
             <tc-webtag:format object="${resultsTime}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-            - Food, Results, TopCoder presentation
+            - Food & TopCoder presentation
         </li>
     </ul>
 
