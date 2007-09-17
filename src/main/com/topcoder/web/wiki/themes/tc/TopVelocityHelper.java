@@ -43,6 +43,9 @@ public class TopVelocityHelper {
             if (userAccessor!=null) {
                 log.debug("it autowired right!");
             }
+            if (log.isDebugEnabled()) {
+                log.debug("user is : " + AuthenticatedUserThreadLocal.getUsername() + " XXX " + AuthenticatedUserThreadLocal.getUser());
+            }
             if (userId!=SimpleUser.createGuest().getId()) {
                 buf.append("&").append(WebConstants.USER_ID).append(userId);
             }
