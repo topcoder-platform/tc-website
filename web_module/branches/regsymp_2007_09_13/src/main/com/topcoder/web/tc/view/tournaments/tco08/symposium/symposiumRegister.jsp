@@ -44,11 +44,16 @@ function setStudent(){
     showBlock('companyInput');
 }
 
+function init() {
+    if (document.f.<%=SymposiumRegBase.PROFESSIONAL%>.value == true) setProf();
+    if (document.f.<%=SymposiumRegBase.PROFESSIONAL%>.value == true) setStudent();
+}
+
 </script>
     
 </head>
 
-<body>
+<body onload="init()">
 <center>
 <br/>
 <h2>Registration for the Software Symposium at the 2008 TopCoder Open</h2>
