@@ -3,10 +3,10 @@ package com.topcoder.web.common.security;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
 
-import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import java.lang.reflect.Method;
 
 /**
  * Houses a convenience method for getting EJB interfaces.
@@ -33,15 +33,12 @@ public class Constants {
      */
     public static Object createEJB(Class remoteclass) throws NamingException, Exception {
 
+
         /* create the context anew each time in case the JNDI provider is restarted. */
-        Context ctx = null;
+        InitialContext ctx = null;
         try {
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
-            Class remotehomeclass = Class.forName(remoteclass.getName() + "Home");
-            String refname = (String) remotehomeclass.getField("EJB_REF_NAME").get(null);
-            Object remotehome = ctx.lookup(refname);
-            Method createmethod = remotehome.getClass().getMethod("create", null);
-            return createmethod.invoke(remotehome, null);
+            return BaseProcessor.createEJB(ctx, remoteclass);
         } finally {
             TCContext.close(ctx);
         }
