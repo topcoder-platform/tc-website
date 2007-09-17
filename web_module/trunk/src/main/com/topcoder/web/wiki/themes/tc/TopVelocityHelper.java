@@ -1,6 +1,7 @@
 package com.topcoder.web.wiki.themes.tc;
 
 import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;
+import com.atlassian.confluence.user.UserAccessor;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.SimpleUser;
@@ -28,6 +29,7 @@ public class TopVelocityHelper {
     public TopVelocityHelper() {
         log.debug("called constructor");
     }
+    private UserAccessor userAccessor;
 
     public String renderTop() {
 
@@ -37,6 +39,10 @@ public class TopVelocityHelper {
             StringBuilder buf = new StringBuilder(100);
             buf.append("http://").append(ApplicationServer.DISTRIBUTED_UI_SERVER_NAME).append("/distui/?module=Top");
             long userId = getUserId(AuthenticatedUserThreadLocal.getUsername());
+            //long userId = getUserId(getUserAccessor().g);
+            if (userAccessor!=null) {
+                log.debug("it autowired right!");
+            }
             if (userId!=SimpleUser.createGuest().getId()) {
                 buf.append("&").append(WebConstants.USER_ID).append(userId);
             }
@@ -72,6 +78,9 @@ public class TopVelocityHelper {
     }
 
     private static long getUserId(String userName) throws Exception {
+        if (userName==null) {
+            return SimpleUser.createGuest().getId();
+        } else {
             CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
 
             Request r = new Request();
@@ -82,9 +91,18 @@ public class TopVelocityHelper {
                 return SimpleUser.createGuest().getId();
             else
                 return rsc.getLongItem(0, "user_id");
+        }
 
 
     }
 
 
+    public void setUserAccessor(UserAccessor userAccessor) {
+        this.userAccessor = userAccessor;
+    }
+
+
+    public UserAccessor getUserAccessor() {
+        return userAccessor;
+    }
 }
