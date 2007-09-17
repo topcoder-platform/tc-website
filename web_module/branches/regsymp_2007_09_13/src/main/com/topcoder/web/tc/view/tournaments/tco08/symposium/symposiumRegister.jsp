@@ -30,14 +30,14 @@
 <script type="text/javascript" src="/js/main.js"  ></script>
 <script type="text/javascript">
 
-function setProf(){
+function setStudent(){
     showBlock('collegeHeader');
     showBlock('collegeInput');
     hide('companyHeader');
     hide('companyInput');
 }
 
-function setStudent(){
+function setProf(){
     hide('collegeHeader');
     hide('collegeInput');
     showBlock('companyHeader');
@@ -45,8 +45,8 @@ function setStudent(){
 }
 
 function init() {
-    if (document.f.<%=SymposiumRegBase.PROFESSIONAL%>.value == true) setProf();
-    if (document.f.<%=SymposiumRegBase.PROFESSIONAL%>.value == true) setStudent();
+    if (document.f.<%=SymposiumRegBase.PROFESSIONAL%>[0].checked) setProf();
+    if (document.f.<%=SymposiumRegBase.PROFESSIONAL%>[1].checked) setStudent();
 }
 
 </script>
@@ -97,8 +97,8 @@ function init() {
     </tr>
     <tr>
         <td>* You are:</td>
-        <td><tc-webtag:radioButton name="<%=SymposiumRegBase.PROFESSIONAL%>" value="true" onClick="setProf()"/> Professional<br/> 
-           <tc-webtag:radioButton name="<%=SymposiumRegBase.PROFESSIONAL%>" value="false" onClick="setStudent()"/> College Student<br/>
+        <td><tc-webtag:radioButton name="<%=SymposiumRegBase.PROFESSIONAL%>" value="pro" onClick="setProf()"/> Professional<br/> 
+           <tc-webtag:radioButton name="<%=SymposiumRegBase.PROFESSIONAL%>" value="student" onClick="setStudent()"/> College Student<br/>
         </td>
     </tr>
     <tr>

@@ -162,8 +162,7 @@
     </tr>
     <tr>
         <td>* Method of Payment:</td>
-        <td><tc-webtag:listSelect name="<%=SymposiumRegBase.PAYMENT_METHOD %>" list="<%= paymentMethods %>"/>
-        </td>
+        <td></td>
     </tr>
     <tr>
         <td colspan="2"><span class="bigRed">

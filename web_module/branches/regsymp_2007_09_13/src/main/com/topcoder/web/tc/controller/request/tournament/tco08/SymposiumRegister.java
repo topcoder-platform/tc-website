@@ -75,10 +75,7 @@ public class SymposiumRegister extends SymposiumRegBase {
         pd.setCardNumber(validateNonEmpty(CARD_NUMBER, "card number"));
         String expiration = getRequest().getParameter(EXPIRATION_DATE);
         try {
-            Date exp= expirationFormat.parse(expiration);
-            if (exp.before(new Date())) {
-                addError(EXPIRATION_DATE, "The card is expired"); // is it ok?
-            }            
+            expirationFormat.parse(expiration);
         } catch (ParseException e) {
             addError(EXPIRATION_DATE, "Please enter a valid expiration date.");
         }
@@ -88,7 +85,7 @@ public class SymposiumRegister extends SymposiumRegBase {
     }
 
     private void setDefaults() {
-        String []fields = {GIVEN_NAME, SURNAME, HANDLE, PROFESSIONAL, PHONE_NUMBER, EMAIL_ADDRESS, ADDRESS_1, ADDRESS_2, CITY, ZIP, COUNTRY
+        String []fields = {GIVEN_NAME, SURNAME, HANDLE, PROFESSIONAL, COLLEGE, COMPANY, PHONE_NUMBER, EMAIL_ADDRESS, ADDRESS_1, ADDRESS_2, CITY, ZIP, COUNTRY
                 , REGISTRATION_TYPE, PAYMENT_METHOD, CARD_NUMBER, EXPIRATION_DATE};
         for (String field : fields) {
             setDefault(field, getRequest().getParameter(field));
