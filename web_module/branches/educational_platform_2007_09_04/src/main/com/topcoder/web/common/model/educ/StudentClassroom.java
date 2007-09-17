@@ -2,14 +2,14 @@ package com.topcoder.web.common.model.educ;
 
 import java.io.Serializable;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+//import javax.persistence.AttributeOverride;
+//import javax.persistence.AttributeOverrides;
+//import javax.persistence.Column;
+//import javax.persistence.Embeddable;
+//import javax.persistence.Entity;
+//import javax.persistence.Id;
+//import javax.persistence.ManyToOne;
+//import javax.persistence.Table;
 
 import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.Coder;
@@ -20,26 +20,15 @@ import com.topcoder.web.common.model.Coder;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: July 6, 2006
  */
-@Entity
-@Table(name="student_classroom_xref")
+//@Entity
+//@Table(name="student_classroom_xref")
 public class StudentClassroom extends Base {
 
     public static final Long PENDING_STATUS = 1l;
     
     private Identifier id = new Identifier();
     private Long statusId;
-    
 
-    //bidirectional association! Needed to trick hibernate ;P
-    @SuppressWarnings("unused")
-    @Column(name="student_id", nullable=false, updatable=false, insertable=false)
-    private Long student;
-
-    //bidirectional association! Needed to trick hibernate ;P
-    @SuppressWarnings("unused")
-    @Column(name="classroom_id", nullable=false, updatable=false, insertable=false)
-    private Long classroom;
-    
     public StudentClassroom() {
     }
 
@@ -49,10 +38,10 @@ public class StudentClassroom extends Base {
         this.statusId = statusId;
     }
 
-    @Id
-    @AttributeOverrides( {
-        @AttributeOverride(name="student", column=@Column(name="student_id", nullable=false) ), 
-        @AttributeOverride(name="classroom", column=@Column(name="classroom_id", nullable=false) ) } )
+//    @Id
+//    @AttributeOverrides( {
+//        @AttributeOverride(name="student", column=@Column(name="student_id", nullable=false) ), 
+//        @AttributeOverride(name="classroom", column=@Column(name="classroom_id", nullable=false) ) } )
     public Identifier getId() {
         return id;
     }
@@ -61,7 +50,7 @@ public class StudentClassroom extends Base {
         this.id = id;
     }
 
-    @Column(name="status_id")
+//    @Column(name="status_id")
     public Long getStatusId() {
         return statusId;
     }
@@ -69,25 +58,8 @@ public class StudentClassroom extends Base {
     public void setStatusId(Long statusId) {
         this.statusId = statusId;
     }
-    
-    public Coder getStudent() {
-        return id.getStudent();
-    }
 
-    public void setStudent(Coder student) {
-        id.setStudent(student);
-    }
-
-    public Classroom getClassroom() {
-        return id.getClassroom();
-    }
-
-    public void setClassroom(Classroom classroom) {
-        id.setClassroom(classroom);
-    }
-
-
-    @Embeddable
+//    @Embeddable
     public static class Identifier implements Serializable {
         private Coder student;
         private Classroom classroom;
@@ -100,7 +72,7 @@ public class StudentClassroom extends Base {
         public Identifier() {
         }
 
-        @ManyToOne
+//        @ManyToOne
         public Coder getStudent() {
             return student;
         }
@@ -109,7 +81,7 @@ public class StudentClassroom extends Base {
             this.student = student;
         }
 
-        @ManyToOne
+//        @ManyToOne
         public Classroom getClassroom() {
             return classroom;
         }
