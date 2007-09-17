@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.17.07<br>4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=ViewSurvey&sid=19443">Vote for the TCCC07 T-shirts</A></span><br><br>
+        The top six T-shirt designs have been selected and now it's time to rank your favorites. What will your tournament T-shirt look like? Vote now! Voting closes on Wednesday, September 19 at 2:00 pm EDT.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=ViewSurvey&sid=19443">details</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=90">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Algorithm Tutorial" border="0" /><br>09.17.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -163,21 +176,5 @@
         <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2127">details</A> | 
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=94">discuss this</a> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>09.10.07<br>4:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=091007">Spotlight: The Arab Academy for Science &amp; Technology</A></span><br><br>
-      Egypt's <a href="/tc?module=AlgoRank&cc=818">algorithm contingent</a> has 118 current active members and a <a href="/stat?c=country_avg_rating">country rank</a> of 31, along with one (relatively recent) red coder, <tc-webtag:handle coderId="7400531" context="algorithm"/>. In this article, I'll introduce some of the coders from our community, primarily from my school: the Arab Academy for Science and Technology.</td>
-         <td class="newsPhoto"><img src="/i/m/AbdelRahman_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="21777558" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=091007">full story</A> | 
-         <tc-webtag:forumLink forumID="517279" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
