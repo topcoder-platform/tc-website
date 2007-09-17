@@ -2,6 +2,8 @@ package com.topcoder.web.common.model.educ;
 
 import java.io.Serializable;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
@@ -37,9 +39,9 @@ public class StudentClassroom extends Base {
     }
 
     @Id
-//    @AttributeOverrides( {
-//        @AttributeOverride(name="student", column=@Column(name="student_id", nullable=false) ), 
-//        @AttributeOverride(name="classroom", column=@Column(name="classroom_id", nullable=false) ) } )
+    @AttributeOverrides( {
+        @AttributeOverride(name="student", column=@Column(name="student_id", nullable=false) ), 
+        @AttributeOverride(name="classroom", column=@Column(name="classroom_id", nullable=false) ) } )
     public Identifier getId() {
         return id;
     }
