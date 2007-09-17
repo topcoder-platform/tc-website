@@ -43,7 +43,7 @@ public class Professor extends Base {
     private Integer statusId;
 
 //    private Set students;
-    private Set classrooms;
+    private Set<Classroom> classrooms;
 
     public Professor() {
 //        this.students = new HashSet();
@@ -89,11 +89,11 @@ public class Professor extends Base {
 
     @OneToMany(fetch=FetchType.LAZY, mappedBy="professor")
     @Cascade( {CascadeType.SAVE_UPDATE} )
-    public Set getClassrooms() {
+    public Set<Classroom> getClassrooms() {
         return Collections.unmodifiableSet(classrooms);
     }
 
-    public void setClassrooms(Set classrooms) {
+    public void setClassrooms(Set<Classroom> classrooms) {
         this.classrooms = classrooms;
     }
 
