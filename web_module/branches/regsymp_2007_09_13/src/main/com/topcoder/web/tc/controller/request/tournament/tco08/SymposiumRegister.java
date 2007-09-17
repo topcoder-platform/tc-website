@@ -35,11 +35,11 @@ public class SymposiumRegister extends SymposiumRegBase {
         log.debug("getServerName "+ getRequest().getServerName());
         log.debug("getContextPath "+ getRequest().getContextPath());
         log.debug("getPathTranslated "+ getRequest().getPathTranslated());
+        log.debug("getQueryString "+ getRequest().getQueryString());
         
         String url = getRequest().getRequestURL().toString(); 
         if (url.startsWith("http:")) {
-            url = url.replace("http:", "https:");
-            setNextPage(url);
+            setNextPage("https://" + getRequest().getServerName() + getRequest().getServletPath() + getRequest().getQueryString());
             setIsNextPageInContext(false);
             return;
         }
