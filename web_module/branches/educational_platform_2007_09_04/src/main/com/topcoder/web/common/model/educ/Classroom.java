@@ -101,7 +101,7 @@ public class Classroom {
         this.statusId = statusId;
     }
 
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="StudentClassroom")
+    @OneToMany(fetch=FetchType.LAZY)
     @Cascade( {CascadeType.SAVE_UPDATE} )
     public Set<StudentClassroom> getStudentClassrooms() {
         return Collections.unmodifiableSet(studentClassrooms);
