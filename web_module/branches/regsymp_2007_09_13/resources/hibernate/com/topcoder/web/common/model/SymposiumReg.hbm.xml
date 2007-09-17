@@ -14,7 +14,7 @@
 
         <property name="firstName" column="first_name"/>
         <property name="lastName" column="last_name"/>
-        <many-to-one name="coder" column="coder_id" class="Coder"/>
+        <many-to-one name="user" column="user_id" class="User"/>
         <property name="professional" column="professional_ind"/>
         <property name="collegeName" column="college_name"/>
         <property name="companyName" column="company_name"/>
