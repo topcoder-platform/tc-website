@@ -28,7 +28,18 @@ public class StudentClassroom extends Base {
     
     private Identifier id = new Identifier();
     private Long statusId;
+    
 
+    //bidirectional association! Needed to trick hibernate ;P
+    @SuppressWarnings("unused")
+    @Column(name="student_id", nullable=false, updatable=false, insertable=false)
+    private Long student;
+
+    //bidirectional association! Needed to trick hibernate ;P
+    @SuppressWarnings("unused")
+    @Column(name="classroom_id", nullable=false, updatable=false, insertable=false)
+    private Long classroom;
+    
     public StudentClassroom() {
     }
 
@@ -58,6 +69,23 @@ public class StudentClassroom extends Base {
     public void setStatusId(Long statusId) {
         this.statusId = statusId;
     }
+    
+    public Coder getStudent() {
+        return id.getStudent();
+    }
+
+    public void setStudent(Coder student) {
+        id.setStudent(student);
+    }
+
+    public Classroom getClassroom() {
+        return id.getClassroom();
+    }
+
+    public void setClassroom(Classroom classroom) {
+        id.setClassroom(classroom);
+    }
+
 
     @Embeddable
     public static class Identifier implements Serializable {
