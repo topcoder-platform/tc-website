@@ -190,6 +190,10 @@
                <tc-webtag:handle coderId="22654859" />
                </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=combinatorics"><strong>Basics of combinatorics</strong></a>
             </td></tr>
+            <tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="21500759" context="algorithm"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=maxflowPushRelabel"><strong>A New Approach to the Maximum Flow Problem</strong></a>
+            </td></tr>
            <tr valign="top">
                <td class="bodyText" colspan="2"><br><a href="/tc?module=Static&d1=help&d2=writeForTC">Write algorithm tutorials for TopCoder.com</a></td>
             </tr>

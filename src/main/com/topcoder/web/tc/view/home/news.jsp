@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Algorithm Tutorial" border="0" /><br>09.17.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=maxflowPushRelabel">A New Approach to the Maximum Flow Problem</A></span><br><br>
+      This article presents a new approach for computing maximum flow in a graph. Previous articles had concentrated on finding maximum flow by finding augmenting paths. The approach presented in this article is called <strong>push-relabel</strong>, which is a separate class of algorithms.</td>
+         <td class="newsPhoto"><img src="/i/m/NilayVaish_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="21500759" context="algorithm" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=maxflowPushRelabel">full story</A> | 
+         <tc-webtag:forumLink forumID="517411" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.14.07<br>6:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -163,21 +179,5 @@
          <A href="/tc?module=Static&d1=features&d2=091007">full story</A> | 
          <tc-webtag:forumLink forumID="517279" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.10.07<br>12:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1c">TCCC07 - Algo Round 1C - Problem Set &amp; Analysis</A></span><br><br>
-      Online Round 1C of the 2007 TopCoder Collegiate Challenge was a bit better attended than Rounds 1A and 1B, with 514 participants. The problem set was somewhat different from the previous two rounds as well, with the first two problems easier and the last problem harder.</td>
-         <td class="newsPhoto"><img src="/i/m/ivan_metelsky_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="10481120" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd1c">full story</A> | 
-         <tc-webtag:forumLink forumID="517222" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
