@@ -2,7 +2,8 @@
     <enterprise-beans>
         <session>
             <ejb-name>PrincipalMgrEJB</ejb-name>
-            <jndi-name>security/PrincipalMgr</jndi-name>
+            <jndi-name>com.topcoder.security.admin.PrincipalMgrRemoteHome</jndi-name>
+            <local-jndi-name>java:/com.topcoder.security.admin.ForumsLocalHome</local-jndi-name>
             <resource-ref>
                 <res-ref-name>jdbc/DefaultDS</res-ref-name>
                 <jndi-name>java:/InformixDS</jndi-name>
@@ -10,7 +11,8 @@
         </session>
         <session>
             <ejb-name>PolicyMgrEJB</ejb-name>
-            <jndi-name>security/PolicyMgr</jndi-name>
+            <jndi-name>com.topcoder.security.admin.PolicyMgrRemoteHome</jndi-name>
+            <local-jndi-name>java:/com.topcoder.security.admin.PolicyMgrLocalHome</local-jndi-name>
             <resource-ref>
                 <res-ref-name>jdbc/DefaultDS</res-ref-name>
                 <jndi-name>java:/InformixDS</jndi-name>
@@ -18,7 +20,8 @@
         </session>
         <session>
             <ejb-name>PolicyEJB</ejb-name>
-            <jndi-name>security/Policy</jndi-name>
+            <jndi-name>com.topcoder.security.policy.PolicyRemoteHome</jndi-name>
+            <local-jndi-name>java:/com.topcoder.security.policy.PolicyLocalHome</local-jndi-name>
             <resource-ref>
                 <res-ref-name>jdbc/DefaultDS</res-ref-name>
                 <jndi-name>java:/InformixDS</jndi-name>
@@ -26,7 +29,8 @@
         </session>
         <session>
             <ejb-name>LoginEJB</ejb-name>
-            <jndi-name>security/Login</jndi-name>
+            <jndi-name>com.topcoder.security.login.LoginRemoteHome</jndi-name>
+            <local-jndi-name>java:/com.topcoder.security.login.LoginLocalHome</local-jndi-name>
             <resource-ref>
                 <res-ref-name>jdbc/DefaultDS</res-ref-name>
                 <jndi-name>java:/InformixDS</jndi-name>
