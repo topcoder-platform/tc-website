@@ -91,120 +91,324 @@ by <tc-webtag:handle coderId="347569" context="development"/>
 
 <br /><br />
 
-<p style="font-size:14px; font-weight:bold;">Component Development: Scores & Wagers</p>
-
-
+<p style="font-size:14px; font-weight:bold;">Component Development: Scores &amp; Wagers</p>
 <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
- <thead>
-  <tr class="sidebarTitle" nowrap="nowrap">
-    <td class="headerC" colspan="1">&nbsp;</td>
-    <td class="headerC" colspan="3">Round 1</td>
-    <td class="headerC" colspan="3">Round 2</td>
-    <td class="headerC" colspan="3">Round 3</td>
-    <td class="headerC" colspan="1">&nbsp;</td>
-  </tr>
-  <tr class="sidebarTitle" nowrap="nowrap">
-    <td class="header">Competitor</td>
-    <td class="headerC">score</td>
-    <td class="headerC">place</td>
-    <td class="headerC">wager</td>
-    <td class="headerC">score</td>
-    <td class="headerC">place</td>
-    <td class="headerC">wager</td>
-    <td class="headerC">score</td>
-    <td class="headerC">place</td>
-    <td class="headerC">wager</td>
-    <td class="headerC">Total</td>
-  </tr>
-</thead>
-<tbody>
-  <tr class="light">
-    <td class="value"><tc-webtag:handle coderId="15214882" context="development"/></td>
-    <td class="valueC">94.24</td>
-    <td class="valueC">1</td>
-    <td class="valueC">25</td>
-    <td class="valueC">89</td>
-    <td class="valueC">3</td>
-    <td class="valueC">20</td>
-    <td class="valueC">96.42</td>
-    <td class="valueC">1</td>
-    <td class="valueC">55</td>
-    <td class="valueC">86</td>
-  </tr>
-  <tr class="dark">
-    <td class="value"><tc-webtag:handle coderId="9998760" context="development"/></td>
-    <td class="valueC">91.88</td>
-    <td class="valueC">3</td>
-    <td class="valueC">18</td>
-    <td class="valueC">94.2</td>
-    <td class="valueC">1</td>
-    <td class="valueC">60</td>
-    <td class="valueC">95.85</td>
-    <td class="valueC">2</td>
-    <td class="valueC">22</td>
-    <td class="valueC">77</td>
-  </tr>
-  <tr class="light">
-    <td class="value"><tc-webtag:handle coderId="7210680" context="development"/></td>
-    <td class="valueC">93.21</td>
-    <td class="valueC">2</td>
-    <td class="valueC">24</td>
-    <td class="valueC">91.45</td>
-    <td class="valueC">2</td>
-    <td class="valueC">19</td>
-    <td class="valueC">95.22</td>
-    <td class="valueC">3</td>
-    <td class="valueC">57</td>
-    <td class="valueC">40</td>
-  </tr>
-  <tr class="dark">
-    <td class="value"><tc-webtag:handle coderId="7359397" context="development"/></td>
-    <td class="valueC">25</td>
-    <td class="valueC">6</td>
-    <td class="valueC">10</td>
-    <td class="valueC">78.1</td>
-    <td class="valueC">5</td>
-    <td class="valueC">30</td>
-    <td class="valueC">90.01</td>
-    <td class="valueC">4</td>
-    <td class="valueC">60</td>
-    <td class="valueC">22</td>
-  </tr>
-  <tr class="light">
-    <td class="value"><tc-webtag:handle coderId="15763373" context="development"/></td>
-    <td class="valueC">85.91</td>
-    <td class="valueC">4</td>
-    <td class="valueC">30</td>
-    <td class="valueC">67.02</td>
-    <td class="valueC">6</td>
-    <td class="valueC">10</td>
-    <td class="valueC">83.09</td>
-    <td class="valueC">5</td>
-    <td class="valueC">60</td>
-    <td class="valueC">20</td>
-  </tr>
-  <tr class="dark">
-    <td class="value"><tc-webtag:handle coderId="20092786" context="development"/></td>
-    <td class="valueC">82.48</td>
-    <td class="valueC">5</td>
-    <td class="valueC">33</td>
-    <td class="valueC">80.41</td>
-    <td class="valueC">4</td>
-    <td class="valueC">33</td>
-    <td class="valueC">25</td>
-    <td class="valueC">6</td>
-    <td class="valueC">34</td>
-    <td class="valueC">19</td>
-  </tr>
-</tbody>
+    <%-- Round 1 --%>
+    <thead>
+        <tr class="sidebarTitle" nowrap="nowrap">
+            <td class="headerC" colspan="1">&nbsp;</td>
+            <td class="headerC" colspan="5">Dynamic Web Page Data<br />
+                <A href="https://software.topcoder.com/catalog/c_component.jsp?comp=26778367&ver=1"><img src="/i/interface/java.gif" alt="Java" border="0" /></A>
+                <A href="https://software.topcoder.com/catalog/c_component.jsp?comp=26778513&ver=1"><img src="/i/interface/dotnet.gif" alt=".NET" border="0" /></A></td>
+            <td class="headerC" colspan="2">&nbsp;</td>
+        </tr>
+        <tr class="sidebarTitle" nowrap="nowrap">
+            <td class="headerC" colspan="1">&nbsp;</td>
+            <td class="headerC" colspan="5">Round 1</td>
+            <td class="headerC" colspan="2">&nbsp;</td>
+        </tr>
+        <tr class="sidebarTitle" nowrap="nowrap">
+            <td class="header">Competitor</td>
+            <td class="headerC">initial score</td>
+            <td class="headerC">final score</td>
+            <td class="headerC">place</td>
+            <td class="headerC">wager</td>
+            <td class="headerC">points</td>
+            <td class="headerC">link</td>
+            <td class="headerC">rd1 total</td>
+        </tr>
+    </thead> 
+    <%-- hefeng --%>
+    <tbody>
+        <tr class="light">
+            <td class="value"><tc-webtag:handle coderId="15214882" context="development"/></td>
+            <td class="valueC">90.8</td>
+            <td class="valueC">94.24</td>
+            <td class="valueC">1</td>
+            <td class="valueC">25</td>
+            <td class="valueC">25</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=50842"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">25</td>
+        </tr>
+    </tbody>
+    <%-- PE --%>
+    <tbody>
+        <tr class="dark">
+            <td class="value"><tc-webtag:handle coderId="9998760" context="development"/></td>
+            <td class="valueC">89.98</td>
+            <td class="valueC">91.88</td>
+            <td class="valueC">3</td>
+            <td class="valueC">18</td>
+            <td class="valueC">6</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=50740"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">6</td>
+        </tr>
+    </tbody>
+    <%-- cnettel --%>
+    <tbody>
+        <tr class="light">
+            <td class="value"><tc-webtag:handle coderId="7210680" context="development"/></td>
+            <td class="valueC">89.19</td>
+            <td class="valueC">93.21</td>
+            <td class="valueC">2</td>
+            <td class="valueC">24</td>
+            <td class="valueC">12</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=50830"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">12</td>
+        </tr>
+    </tbody>
+    <%-- wolve --%>
+    <tbody>
+        <tr class="dark">
+            <td class="value"><tc-webtag:handle coderId="7359397" context="development"/></td>
+            <td class="valueC">n/a</td>
+            <td class="valueC">n/a</td>
+            <td class="valueC">6</td>
+            <td class="valueC">10</td>
+            <td class="valueC">1</td>
+            <td class="valueC">n/a</td>
+            <td class="headerC">1</td>
+        </tr>
+    </tbody>
+    <%-- tyrian --%>
+    <tbody>
+        <tr class="light">
+            <td class="value"><tc-webtag:handle coderId="15763373" context="development"/></td>
+            <td class="valueC">83.51</td>
+            <td class="valueC">85.91</td>
+            <td class="valueC">4</td>
+            <td class="valueC">30</td>
+            <td class="valueC">7</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=50826"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">7</td>
+        </tr>
+    </tbody>
+    <%-- enefem21 --%>
+    <tbody>
+        <tr class="dark">
+            <td class="value"><tc-webtag:handle coderId="20092786" context="development"/></td>
+            <td class="valueC">82.48</td>
+            <td class="valueC">82.48</td>
+            <td class="valueC">5</td>
+            <td class="valueC">33</td>
+            <td class="valueC">6</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=50773"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">6</td>
+        </tr>
+        <tr><td colspan="8">&nbsp;</td></tr>
+    </tbody>
+    
+    <%-- Round 2 --%>
+    <thead>
+        <tr class="sidebarTitle" nowrap="nowrap">
+            <td class="headerC" colspan="1">&nbsp;</td>
+            <td class="headerC" colspan="5">AJAX Customizable Page Layout<br />
+                <A href="https://software.topcoder.com/catalog/c_component.jsp?comp=26783227&ver=1"><img src="/i/interface/java.gif" alt="Java" border="0" /></A>
+                <A href="https://software.topcoder.com/catalog/c_component.jsp?comp=26783401&ver=1"><img src="/i/interface/dotnet.gif" alt=".NET" border="0" /></A></td>
+            <td class="headerC" colspan="2">&nbsp;</td>
+        </tr>
+        <tr class="sidebarTitle" nowrap="nowrap">
+            <td class="headerC" colspan="1">&nbsp;</td>
+            <td class="headerC" colspan="5">Round 2</td>
+            <td class="headerC" colspan="2">&nbsp;</td>
+        </tr>
+        <tr class="sidebarTitle" nowrap="nowrap">
+            <td class="header">Competitor</td>
+            <td class="headerC">initial score</td>
+            <td class="headerC">final score</td>
+            <td class="headerC">place</td>
+            <td class="headerC">wager</td>
+            <td class="headerC">points</td>
+            <td class="headerC">link</td>
+            <td class="headerC">rd2 total</td>
+        </tr>
+    </thead> 
+    <%-- hefeng --%>
+    <tbody>
+        <tr class="light">
+            <td class="value"><tc-webtag:handle coderId="15214882" context="development"/></td>
+            <td class="valueC">86.92</td>
+            <td class="valueC">89</td>
+            <td class="valueC">3</td>
+            <td class="valueC">20</td>
+            <td class="valueC">6</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=52711"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">31</td>
+        </tr>
+    </tbody>
+    <%-- PE --%>
+    <tbody>
+        <tr class="dark">
+            <td class="value"><tc-webtag:handle coderId="9998760" context="development"/></td>
+            <td class="valueC">92.31</td>
+            <td class="valueC">94.2</td>
+            <td class="valueC">1</td>
+            <td class="valueC">60</td>
+            <td class="valueC">60</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=52561"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">66</td>
+        </tr>
+    </tbody>
+    <%-- cnettel --%>
+    <tbody>
+        <tr class="light">
+            <td class="value"><tc-webtag:handle coderId="7210680" context="development"/></td>
+            <td class="valueC">86.07</td>
+            <td class="valueC">91.45</td>
+            <td class="valueC">2</td>
+            <td class="valueC">19</td>
+            <td class="valueC">9</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=52714"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">21</td>
+        </tr>
+    </tbody>
+    <%-- wolve --%>
+    <tbody>
+        <tr class="dark">
+            <td class="value"><tc-webtag:handle coderId="7359397" context="development"/></td>
+            <td class="valueC">77.72</td>
+            <td class="valueC">78.1</td>
+            <td class="valueC">5</td>
+            <td class="valueC">30</td>
+            <td class="valueC">6</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=52724"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">7</td>
+        </tr>
+    </tbody>
+    <%-- tyrian --%>
+    <tbody>
+        <tr class="light">
+            <td class="value"><tc-webtag:handle coderId="15763373" context="development"/></td>
+            <td class="valueC">67.02</td>
+            <td class="valueC">67.02</td>
+            <td class="valueC">6</td>
+            <td class="valueC">10</td>
+            <td class="valueC">1</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=52730"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">8</td>
+        </tr>
+    </tbody>
+    <%-- enefem21 --%>
+    <tbody>
+        <tr class="dark">
+            <td class="value"><tc-webtag:handle coderId="20092786" context="development"/></td>
+            <td class="valueC">80.41</td>
+            <td class="valueC">80.41</td>
+            <td class="valueC">4</td>
+            <td class="valueC">33</td>
+            <td class="valueC">8</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=52738"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">14</td>
+        </tr>
+        <tr><td colspan="8">&nbsp;</td></tr>
+    </tbody>
+    
+    <%-- Round 3 --%>
+    <thead>
+        <tr class="sidebarTitle" nowrap="nowrap">
+            <td class="headerC" colspan="1">&nbsp;</td>
+            <td class="headerC" colspan="5">Stress Test<br />
+                <A href="https://software.topcoder.com/catalog/c_component.jsp?comp=4311900&ver=1"><img src="/i/interface/java.gif" alt="Java" border="0" /></A>
+                <A href="https://software.topcoder.com/catalog/c_component.jsp?comp=26767279&ver=1"><img src="/i/interface/dotnet.gif" alt=".NET" border="0" /></A></td>
+            <td class="headerC" colspan="2">&nbsp;</td>
+        </tr>
+        <tr class="sidebarTitle" nowrap="nowrap">
+            <td class="headerC" colspan="1">&nbsp;</td>
+            <td class="headerC" colspan="5">Round 3</td>
+            <td class="headerC" colspan="2">&nbsp;</td>
+        </tr>
+        <tr class="sidebarTitle" nowrap="nowrap">
+            <td class="header">Competitor</td>
+            <td class="headerC">initial score</td>
+            <td class="headerC">final score</td>
+            <td class="headerC">place</td>
+            <td class="headerC">wager</td>
+            <td class="headerC">points</td>
+            <td class="headerC">link</td>
+            <td class="headerC">rd3 total</td>
+        </tr>
+    </thead> 
+    <%-- hefeng --%>
+    <tbody>
+        <tr class="light">
+            <td class="value"><tc-webtag:handle coderId="15214882" context="development"/></td>
+            <td class="valueC">91.61</td>
+            <td class="valueC">96.42</td>
+            <td class="valueC">1</td>
+            <td class="valueC">55</td>
+            <td class="valueC">55</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=53981"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">86</td>
+        </tr>
+    </tbody>
+    <%-- PE --%>
+    <tbody>
+        <tr class="dark">
+            <td class="value"><tc-webtag:handle coderId="9998760" context="development"/></td>
+            <td class="valueC">90.25</td>
+            <td class="valueC">95.85</td>
+            <td class="valueC">2</td>
+            <td class="valueC">22</td>
+            <td class="valueC">11</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=53886"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">77</td>
+        </tr>
+    </tbody>
+    <%-- cnettel --%>
+    <tbody>
+        <tr class="light">
+            <td class="value"><tc-webtag:handle coderId="7210680" context="development"/></td>
+            <td class="valueC">91.11</td>
+            <td class="valueC">95.22</td>
+            <td class="valueC">3</td>
+            <td class="valueC">57</td>
+            <td class="valueC">19</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=53971"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">40</td>
+        </tr>
+    </tbody>
+    <%-- wolve --%>
+    <tbody>
+        <tr class="dark">
+            <td class="value"><tc-webtag:handle coderId="7359397" context="development"/></td>
+            <td class="valueC">85.67</td>
+            <td class="valueC">90.01</td>
+            <td class="valueC">4</td>
+            <td class="valueC">60</td>
+            <td class="valueC">15</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=53912"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">22</td>
+        </tr>
+    </tbody>
+    <%-- tyrian --%>
+    <tbody>
+        <tr class="light">
+            <td class="value"><tc-webtag:handle coderId="15763373" context="development"/></td>
+            <td class="valueC">80.47</td>
+            <td class="valueC">83.09</td>
+            <td class="valueC">5</td>
+            <td class="valueC">60</td>
+            <td class="valueC">12</td>
+            <td class="valueC"><a href="https://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=53969"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
+            <td class="headerC">20</td>
+        </tr>
+    </tbody>
+    <%-- enefem21 --%>
+    <tbody>
+        <tr class="dark">
+            <td class="value"><tc-webtag:handle coderId="20092786" context="development"/></td>
+            <td class="valueC">n/a</td>
+            <td class="valueC">n/a</td>
+            <td class="valueC">6</td>
+            <td class="valueC">34</td>
+            <td class="valueC">5</td>
+            <td class="valueC">n/a</td>
+            <td class="headerC">19</td>
+        </tr>
+        <tr><td colspan="8">&nbsp;</td></tr>
+    </tbody>
 </table>
-<p></p>
-
-
-
-
-
-
+<p>&nbsp;</p>
 
 
                     </div>
