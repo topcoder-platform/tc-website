@@ -12,6 +12,7 @@
         <li><a href="/admin/?module=CleanSchools">Clean Schools</a></li>
         <li><a href="/admin/?module=IntroEventList">Intro Events</a></li>
         <li><a href="/admin/?module=ProjectContestSetup&catid=1">Contest Project Setup</a></li>
+        <li><a href="/PactsInternalServlet">PACTS</a></li>
         <li><a href="/admin/?module=Static&d1=info">HELP!</a></li>
     </ul>
 </div>
