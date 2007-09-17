@@ -1,7 +1,14 @@
 package com.topcoder.web.wiki.themes.tc;
 
+import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.WebConstants;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,10 +34,17 @@ public class TopVelocityHelper {
         log.debug("called render top");
         try {
 
-            if (log.isDebugEnabled()) {
-                log.debug("url gonna be " + "http://" + ApplicationServer.DISTRIBUTED_UI_SERVER_NAME + "/distui/");
+            StringBuilder buf = new StringBuilder(100);
+            buf.append("http://").append(ApplicationServer.DISTRIBUTED_UI_SERVER_NAME).append("/distui/?module=Top");
+            long userId = getUserId(AuthenticatedUserThreadLocal.getUsername());
+            if (userId!=SimpleUser.createGuest().getId()) {
+                buf.append("&").append(WebConstants.USER_ID).append(userId);
             }
-            URL url = new URL("http://" + ApplicationServer.DISTRIBUTED_UI_SERVER_NAME + "/distui/?module=Top");
+            if (log.isDebugEnabled()) {
+                log.debug("url gonna be " + buf.toString());
+            }
+            URL url = new URL(buf.toString());
+
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
             StringBuilder b = new StringBuilder(10000);
@@ -51,7 +65,24 @@ public class TopVelocityHelper {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
+
+    }
+
+    private static long getUserId(String userName) throws Exception {
+            CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+
+            Request r = new Request();
+            r.setContentHandle("user_id_using_handle");
+            r.setProperty(WebConstants.HANDLE, userName);
+            ResultSetContainer rsc = da.getData(r).get("user_id");
+            if (rsc.isEmpty())
+                return SimpleUser.createGuest().getId();
+            else
+                return rsc.getLongItem(0, "user_id");
+
 
     }
 
