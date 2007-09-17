@@ -6,8 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.topcoder.web.common.model.Base;
@@ -71,7 +70,7 @@ public class StudentClassroom extends Base {
         public Identifier() {
         }
 
-        @OneToOne @PrimaryKeyJoinColumn
+        @ManyToOne
         public Coder getStudent() {
             return student;
         }
@@ -80,7 +79,7 @@ public class StudentClassroom extends Base {
             this.student = student;
         }
 
-        @OneToOne @PrimaryKeyJoinColumn
+        @ManyToOne
         public Classroom getClassroom() {
             return classroom;
         }
