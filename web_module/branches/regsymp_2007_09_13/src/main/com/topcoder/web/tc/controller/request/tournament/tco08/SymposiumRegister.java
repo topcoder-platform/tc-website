@@ -28,6 +28,14 @@ public class SymposiumRegister extends SymposiumRegBase {
     @Override
     protected void dbProcessing() throws Exception {
         
+        log.debug("getRequestURI "+ getRequest().getRequestURI());
+        log.debug("getRequestURL "+ getRequest().getRequestURL());
+        log.debug("getPathInfo "+ getRequest().getPathInfo());
+        log.debug("getServletPath "+ getRequest().getServletPath());
+        log.debug("getServerName "+ getRequest().getServerName());
+        log.debug("getContextPath "+ getRequest().getContextPath());
+        log.debug("getPathTranslated "+ getRequest().getPathTranslated());
+        
         String url = getRequest().getRequestURL().toString(); 
         if (url.startsWith("http:")) {
             url = url.replace("http:", "https:");
