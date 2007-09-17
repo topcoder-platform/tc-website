@@ -111,6 +111,7 @@
         <copy todir="${jboss_conf}">
             <fileset dir="${resources}">
                 <include name="ApplicationServer.properties"/>
+                <include name="cache.properties"/>
                 <include name="DBMS.properties"/>
                 <include name="DataAccess.properties"/>
             </fileset>
