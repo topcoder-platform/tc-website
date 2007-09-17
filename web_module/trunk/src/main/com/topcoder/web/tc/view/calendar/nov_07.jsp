@@ -145,6 +145,7 @@
       <td class="value">14
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10796">SRM 375</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA</A><br>
          9:00 PM
          </div>
       </td>
