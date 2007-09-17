@@ -16,7 +16,7 @@
 <c:set value="stat?c=round_overview&er=5&rd=" var="details_link"/>
 <c:set var="round1_id" value="10906"/>
 <c:set var="round2_id" value="10917"/>
-<c:set var="round3_id" value=""/>
+<c:set var="round3_id" value="10922"/>
 <c:set var="finals_id" value=""/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">

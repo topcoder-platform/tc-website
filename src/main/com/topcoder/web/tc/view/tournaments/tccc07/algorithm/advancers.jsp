@@ -19,10 +19,7 @@
 <c:set var="round1B_id" value="10897"/>
 <c:set var="round1C_id" value="10899"/>
 <c:set var="round2_id" value="10891"/>
-<c:set var="round3_id" value=""/>
-<%--
 <c:set var="round3_id" value="10908"/>
---%>
 <c:set var="round4_id" value=""/>
 <c:set var="semi1_id" value=""/>
 <c:set var="semi2_id" value=""/>
