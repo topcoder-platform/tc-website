@@ -7,6 +7,8 @@ import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.rmi.PortableRemoteObject;
+import java.lang.reflect.Method;
 
 /**
  * Houses a convenience method for getting EJB interfaces.
@@ -44,4 +46,34 @@ public class Constants {
         }
 
     }
+
+
+    /**
+     * Get a local instance of the specified EJB.
+     * Assumes the home class will have the same name plus "Home".
+     *
+     * @param localclass
+     * @return the ejb
+     * @throws NamingException
+     * @throws Exception
+     */
+    public static Object createLocalEJB(Class localclass) throws NamingException, Exception {
+
+
+        /* create the context anew each time in case the JNDI provider is restarted. */
+        InitialContext ctx = null;
+        try {
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+            Object home = ctx.lookup("java:/" + localclass.getName() + "Home");
+            Method createmethod = PortableRemoteObject.narrow(home,
+                    home.getClass()).getClass().getMethod("create", null);
+            return createmethod.invoke(home, null);
+
+        } finally {
+            TCContext.close(ctx);
+        }
+
+    }
+
+
 }
