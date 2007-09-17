@@ -39,10 +39,10 @@ public class Classroom {
     private String academicPeriod;
     private String description;
 
-    private Set studentClassrooms;
+    private Set<StudentClassroom> studentClassrooms;
 
     public Classroom() {
-        this.studentClassrooms = new HashSet();
+        this.studentClassrooms = new HashSet<StudentClassroom>();
     }
 
     @GenericGenerator(name="generator", strategy="com.topcoder.web.common.model.IdGenerator", parameters=@Parameter(name="sequence_name", value="CLASSROOM_SEQ"))@Id @GeneratedValue(generator="generator")
@@ -101,13 +101,13 @@ public class Classroom {
         this.statusId = statusId;
     }
 
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="unresolved")
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="StudentClassroom")
     @Cascade( {CascadeType.SAVE_UPDATE} )
-    public Set getStudentClassrooms() {
+    public Set<StudentClassroom> getStudentClassrooms() {
         return Collections.unmodifiableSet(studentClassrooms);
     }
 
-    public void setStudentClassrooms(Set studentClassrooms) {
+    public void setStudentClassrooms(Set<StudentClassroom> studentClassrooms) {
         this.studentClassrooms = studentClassrooms;
     }
 
