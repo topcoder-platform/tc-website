@@ -5,10 +5,15 @@ import com.atlassian.confluence.user.UserAccessor;
 import com.atlassian.seraph.auth.AuthenticatorException;
 import com.atlassian.seraph.util.CookieUtils;
 import com.atlassian.user.impl.DefaultUser;
-import com.topcoder.security.*;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.login.LoginRemote;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.NoSuchUserException;
+import com.topcoder.security.RolePrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrLocal;
+import com.topcoder.security.login.LoginLocal;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.security.Constants;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,7 +52,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                     if (authenticate(userName, password)) {
                         if (getUserAccessor().getUser(userName) == null) {
                             log.debug("XXX create the user");
-                            String[] groups = null;
+                            String[] groups;
                             if (isAdmin(userName)) {
                                 groups = new String[]{UserAccessor.GROUP_CONFLUENCE_USERS, GROUP_TOPCODER_STAFF};
                             } else {
@@ -97,11 +102,10 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
     }
 
-    /*
-        private char getStatus(long userId) throws Exception {
+/*        private char getStatus(long userId) throws Exception {
             char result;
             com.topcoder.web.ejb.user.User user = (com.topcoder.web.ejb.user.User)
-                    BaseProcessor.createEJB(getInitialContext(), com.topcoder.web.ejb.user.User.class);
+                    BaseProcessor.createLocalEJB(TCContext.getInitial(), com.topcoder.web.ejb.user.User.class);
             result = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
             return result;
 
@@ -110,7 +114,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
         private int getEmailStatus(long userId) throws Exception {
             int result;
-            Email email = (Email) BaseProcessor.createEJB(getInitialContext(), Email.class);
+            Email email = (Email) BaseProcessor.createLocalEJB(TCContext.getInitial(), Email.class);
             result = email.getStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
                     DBMS.COMMON_OLTP_DATASOURCE_NAME);
             return result;
@@ -120,8 +124,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
 
         try {
-            //todo make a local call
-            LoginRemote login = (LoginRemote) com.topcoder.web.common.security.Constants.createEJB(LoginRemote.class);
+            LoginLocal login = (LoginLocal) Constants.createLocalEJB(LoginLocal.class);
             login.login(userName, password);
             if (log.isDebugEnabled()) {
                 log.debug("correct user name and password");
@@ -154,10 +157,8 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     protected Principal getUser(String userName) {
         log.debug("XXX getUser called");
 
-        //todo make a local call
-        PrincipalMgrRemote pmr = null;
         try {
-            pmr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+            PrincipalMgrLocal pmr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
             UserPrincipal p = pmr.getUser(userName);
             DefaultUser du = new DefaultUser();
             du.setName(p.getName());
@@ -174,10 +175,8 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     }
 
     private boolean isAdmin(String userName) throws Exception {
-        //todo make a local call
-        PrincipalMgrRemote pmr = null;
         try {
-            pmr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+            PrincipalMgrLocal pmr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
             TCSubject sub = pmr.getUserSubject(pmr.getUser(userName).getId());
             for (Object rp : sub.getPrincipals()) {
                 if (((RolePrincipal) rp).getName().equals("group_Admin")) {
