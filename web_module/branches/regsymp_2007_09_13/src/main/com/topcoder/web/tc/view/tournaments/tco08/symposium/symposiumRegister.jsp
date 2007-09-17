@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.tc.controller.request.tournament.tco08.SymposiumRegBase,
                  com.topcoder.web.common.model.SymposiumReg" %> 
+<%@ page import="com.topcoder.web.common.tag.ListSelectTag" %> 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,13 +10,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
+<%
+    java.util.List paymentMethods = new java.util.ArrayList();
+    paymentMethods.add(new ListSelectTag.Option("Visa", "Visa"));
+    paymentMethods.add(new ListSelectTag.Option("MC", "Master Card"));
+    paymentMethods.add(new ListSelectTag.Option("AMEX", "American Express"));
+    paymentMethods.add(new ListSelectTag.Option("Discover", "Discover"));
+
+%>
 <html>
 
 <head>
     <title>TopCoder</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <jsp:include page="paymentMethods.jsp" />
     <jsp:include page="../../../script.jsp" />
     <jsp:include page="../../../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
@@ -186,7 +195,7 @@ function init() {
                 <tc-webtag:radioButton name="<%=SymposiumRegBase.REGISTRATION_TYPE %>" value="<%=SymposiumReg.REG_TYPE_PROFESSIONAL+ ""%>"/>Professional: $299<br/>
             </c:if>                
             <c:if test="${early}"> 
-                <tc-webtag:radioButton name="<%=SymposiumRegBase.REGISTRATION_TYPE %>" value="<%=SymposiumReg.REG_TYPE_PROFESSIONAL_EARLY+ ""%>"/>Professional Early bird<sup>*</sup>: $299<br/>
+                <tc-webtag:radioButton name="<%=SymposiumRegBase.REGISTRATION_TYPE %>" value="<%=SymposiumReg.REG_TYPE_PROFESSIONAL_EARLY+ ""%>"/>Professional Early bird<sup>*</sup>: $199<br/>
             </c:if>
         </td>
     </tr>

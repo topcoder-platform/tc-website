@@ -31,7 +31,7 @@
 <br/>
 <br/>
 <form name="f" method="post" action="/tc">
-<tc-webtag:hiddenInput name="module" value="TCO08SymposiumRegister" /> 
+<tc-webtag:hiddenInput name="module" value="TCO08SymposiumRegisterSubmit" /> 
 <table cellpadding="3" cellspacing="0">
 <tbody>
     <tr>
@@ -104,17 +104,19 @@
         <td><c:choose>
                 <c:when test="${reg.registrationType == REG_TYPE_COLLEGIATE_TC }">Collegiate TopCoder Member: $99</c:when>
                 <c:when test="${reg.registrationType == REG_TYPE_PROFESSIONAL }">Professional: $299</c:when>
-                <c:when test="${reg.registrationType == REG_TYPE_PROFESSIONAL_EARLY }">Professional Early bird: $299</c:when>
+                <c:when test="${reg.registrationType == REG_TYPE_PROFESSIONAL_EARLY }">Professional Early bird: $199</c:when>
            </c:choose>
         </td>
     </tr>
     <tr>
         <td>Method of Payment:</td>
-        <td><c:forEach var="method" items="<%= paymentMethods %>">
-                <c:if test="${method.optionValue == payment.method }">
-                    ${method.optionText }
-                </c:if>
-            </c:forEach>
+        <td><c:choose>
+                <c:when test="${payment.method == 'Visa'}">Visa</c:when>                
+                <c:when test="${payment.method == 'MC'}">Master Card</c:when>                
+                <c:when test="${payment.method == 'AMEX'}">American Express</c:when>                
+                <c:when test="${payment.method == 'Discover'}">Discover</c:when>  
+                              
+            </c:choose>
         </td>
     </tr>
     <tr>
