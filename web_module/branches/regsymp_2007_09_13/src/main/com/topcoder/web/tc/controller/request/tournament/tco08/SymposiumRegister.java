@@ -27,19 +27,10 @@ public class SymposiumRegister extends SymposiumRegBase {
 
     @Override
     protected void dbProcessing() throws Exception {
-        
-        log.debug("getRequestURI "+ getRequest().getRequestURI());
-        log.debug("getRequestURL "+ getRequest().getRequestURL());
-        log.debug("getPathInfo "+ getRequest().getPathInfo());
-        log.debug("getServletPath "+ getRequest().getServletPath());
-        log.debug("getServerName "+ getRequest().getServerName());
-        log.debug("getContextPath "+ getRequest().getContextPath());
-        log.debug("getPathTranslated "+ getRequest().getPathTranslated());
-        log.debug("getQueryString "+ getRequest().getQueryString());
-        
+               
         String url = getRequest().getRequestURL().toString(); 
         if (url.startsWith("http:")) {
-            setNextPage("https://" + getRequest().getServerName() + getRequest().getServletPath() + getRequest().getQueryString());
+            setNextPage("https://" + getRequest().getServerName() + getRequest().getServletPath() + "?" +  getRequest().getQueryString());
             setIsNextPageInContext(false);
             return;
         }
@@ -59,11 +50,29 @@ public class SymposiumRegister extends SymposiumRegBase {
             return;
         }
         
-        SymposiumReg sr = buildRegObject();
+        SymposiumReg regData = buildRegObject();
+        PaymentData paymentData = buildPaymentData();
+        
 
-        // Validate payment info
-        String paymentMethod = validateNonEmpty(PAYMENT_METHOD, "method of payment");
-        String cardNumber = validateNonEmpty(CARD_NUMBER, "card number");
+        // If there are input errors, set the defaults and reload the page
+        if (hasErrors()) {
+            setDefaults();
+            setNextPage("tournaments/tco08/symposium/symposiumRegister.jsp");
+            return;            
+        }
+        
+        getRequest().getSession().setAttribute(REG_DATA_ATTR, regData);
+        getRequest().getSession().setAttribute(PAYMENT_DATA_ATTR, paymentData);
+
+        // Everything OK, so go to the confirmation page
+        setNextPage("tournaments/tco08/symposium/confirm.jsp");
+    }
+    
+    private PaymentData buildPaymentData() {
+        PaymentData pd = new PaymentData();
+        
+        pd.setMethod(validateNonEmpty(PAYMENT_METHOD, "method of payment"));
+        pd.setCardNumber(validateNonEmpty(CARD_NUMBER, "card number"));
         String expiration = getRequest().getParameter(EXPIRATION_DATE);
         try {
             Date exp= expirationFormat.parse(expiration);
@@ -73,18 +82,11 @@ public class SymposiumRegister extends SymposiumRegBase {
         } catch (ParseException e) {
             addError(EXPIRATION_DATE, "Please enter a valid expiration date.");
         }
-
-        // If there are input errors, set the defaults and reload the page
-        if (hasErrors()) {
-            setDefaults();
-            setNextPage("tournaments/tco08/symposium/symposiumRegister.jsp");
-            return;            
-        }
+        pd.setExpirationDate(expiration);
         
-        // Everything OK, so go to the confirmation page
-        setNextPage("tournaments/tco08/symposium/confirm.jsp");
+        return pd;
     }
-    
+
     private void setDefaults() {
         String []fields = {GIVEN_NAME, SURNAME, HANDLE, PROFESSIONAL, PHONE_NUMBER, EMAIL_ADDRESS, ADDRESS_1, ADDRESS_2, CITY, ZIP, COUNTRY
                 , REGISTRATION_TYPE, PAYMENT_METHOD, CARD_NUMBER, EXPIRATION_DATE};

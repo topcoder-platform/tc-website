@@ -22,4 +22,8 @@ public abstract class SymposiumRegBase extends ShortHibernateProcessor {
     public static final String CARD_NUMBER = "cn";
     public static final String EXPIRATION_DATE = "ed";
     public static final String NAME_OF_CARD = "nc";
+
+    public static final String REG_DATA_ATTR = "rda";
+    public static final String PAYMENT_DATA_ATTR = "pda";
+
 }
