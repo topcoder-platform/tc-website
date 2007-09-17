@@ -24,6 +24,8 @@ import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
+import com.topcoder.web.common.model.Coder;
+
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
@@ -109,6 +111,26 @@ public class Classroom {
 
     public void setStudentClassrooms(Set<StudentClassroom> studentClassrooms) {
         this.studentClassrooms = studentClassrooms;
+    }
+
+    public Set<Coder> getStudents(Long statusId) {
+        Set<Coder> ss = new HashSet<Coder>(this.studentClassrooms.size());
+        for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
+            if (sc.getStatusId().equals(statusId)) {
+                ss.add(sc.getId().getStudent());
+            }
+        }
+        return ss;
+    }    
+    
+    public boolean hasStudent(Long studentId) {
+        for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
+            if (sc.getId().getStudent().getId().equals(studentId) && 
+                    sc.getStatusId().equals(StudentClassroom.PENDING_STATUS)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

@@ -1,9 +1,9 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.BaseServlet" %>
-<%@ page import="com.topcoder.web.common.StringUtils" %>
-<%@ page import="com.topcoder.web.reg.controller.request.Login" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -11,7 +11,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Login</title>
+    <title>Educational Platform</title>
 
     <script type="text/javascript">
         function submitEnter(e) {
@@ -36,51 +36,30 @@
 
 
 <body>
-<div align="center">
-    <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
-        <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
-            <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
-            <input type="hidden" name="module" value="Login">
-
-            <div align="center">
-                <span class="bigRed"><%= message %></span>
-                <table cellpadding="0" cellspacing="0" border="0" class="regFields">
-                    <tr>
-                        <td class="name">
-                            Handle:
-                        </td>
-                        <td class="value">
-                            <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="name">
-                            Password:
-                        </td>
-                        <td class="value">
-                            <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" size="12" onkeypress="submitEnter(event)">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="value">
-                            &#160;
-                        </td>
-                        <td class="value">
-                            <a href="#" onclick="document.frmLogin.submit();return false;" class="bodyText">Login</a>
-                        </td>
-                    </tr>
-                </table>
-
-                <p><br/></p>
-
-                <script type="text/javascript">
-                    document.frmLogin.<%=Login.USER_NAME%>.focus();
-                </script>
-
-        </form>
-
-    </div>
-</div>
-
+Hello, <tc-webtag:handle coderId='${user.id}'/>, Welcoome to Educational Plattform!
+</br></br>
+    <c:choose>
+        <c:when test="${not empty activeClassrooms}">
+            Here are your active classrooms:
+            <c:forEach items="${activeClassrooms}" var="classroom">
+                <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a>
+            </c:forEach>
+        </c:when>
+        <c:otherwise>
+            You don't have activr classrooms associated.
+        </c:otherwise>
+    </c:choose>
+    <br/>
+    <c:choose>
+        <c:when test="${not empty pendingClassrooms}">
+            Here are your pending classrooms:
+            <c:forEach items="${pendingClassrooms}" var="classroom">
+                <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a>
+            </c:forEach>
+        </c:when>
+        <c:otherwise>
+            You don't have pending classrooms associated.
+        </c:otherwise>
+    </c:choose>
 </body>
 </html>

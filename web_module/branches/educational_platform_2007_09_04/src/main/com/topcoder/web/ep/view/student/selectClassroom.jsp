@@ -46,7 +46,7 @@
                                         <c:otherwise>
                                            <input type="checkbox" name="clsid" value="${classroom.id}"></c:otherwise>
                                     </c:choose>
-	                           </td>
+                               </td>
                             </tr>
                         </c:forEach>
                     </c:if>

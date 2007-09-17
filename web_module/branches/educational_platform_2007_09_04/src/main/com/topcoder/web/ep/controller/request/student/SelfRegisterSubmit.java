@@ -13,6 +13,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.controller.request.Base;
 
 /**
@@ -53,9 +54,10 @@ public class SelfRegisterSubmit extends Base {
 
             markForCommit();
             
-            getRequest().setAttribute("classrooms", u.getCoder().getClassrooms());                
+            getRequest().setAttribute("activeClassrooms", u.getCoder().getClassrooms(StudentClassroom.ACTIVE_STATUS));                
+            getRequest().setAttribute("pendingClassrooms", u.getCoder().getClassrooms(StudentClassroom.PENDING_STATUS));                
             getRequest().setAttribute("user", u);
-            setNextPage("/home.jsp");
+            setNextPage("/student/home.jsp");
             setIsNextPageInContext(true);            
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));

@@ -42,7 +42,7 @@ Hello, <tc-webtag:handle coderId='${user.id}'/>, Welcoome to Educational Plattfo
     <c:when test="${not empty classrooms}">
         Here are your classrooms:
         <c:forEach items="${classrooms}" var="classroom">
-            <a href="">${classroom.name}</a>
+            <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a>
         </c:forEach>
     </c:when>
     <c:otherwise>

@@ -12,6 +12,7 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.educ.StudentClassroom;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -34,7 +35,7 @@ public class Home extends ShortHibernateProcessor {
             if (u.isProfessor()) {
                 log.debug(u.getHandle() + " is a professor");
                 getRequest().setAttribute("classrooms", u.getProfessor().getClassrooms());                
-                setNextPage("/home.jsp");
+                setNextPage("/professor/home.jsp");
                 setIsNextPageInContext(true);
             } else {
                 log.debug(u.getHandle() + " is a student");
@@ -47,8 +48,9 @@ public class Home extends ShortHibernateProcessor {
                 if (u.getCoder().getProfessors().size() > 0) {
                     log.debug("student with registration");
                     // user already registered
-                    getRequest().setAttribute("classrooms", u.getCoder().getClassrooms());                
-                    setNextPage("/home.jsp");
+                    getRequest().setAttribute("activeClassrooms", u.getCoder().getClassrooms(StudentClassroom.ACTIVE_STATUS));                
+                    getRequest().setAttribute("pendingClassrooms", u.getCoder().getClassrooms(StudentClassroom.PENDING_STATUS));                
+                    setNextPage("/student/home.jsp");
                     setIsNextPageInContext(true);
                 } else {
                     log.debug("first time - self register");
