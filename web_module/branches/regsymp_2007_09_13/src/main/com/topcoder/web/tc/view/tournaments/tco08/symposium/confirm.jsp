@@ -38,42 +38,34 @@
     <tr>
         <td>Surname:</td>
         <td>${reg.lastName }</td>
-    </tr>
-    <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.HANDLE%>"><%=err%><br/></tc-webtag:errorIterator></span>
-        </td>
-    </tr>
+    </tr>    
     <tr>
         <td>TopCoder handle:</td>
-        <td><tc-webtag:textInput name="<%=SymposiumRegBase.HANDLE%>" size="10" maxlength="50" editable="true"/></td>
-    </tr>
-    <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.PROFESSIONAL%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <td><c:choose> 
+            <c:when test="${not empty reg.user}">${reg.user.handle }</c:when>
+            <c:otherwise>N/A</c:otherwise>
+            </c:choose>
         </td>
     </tr>
     <tr>
-        <td>* You are:</td>
-        <td><tc-webtag:radioButton name="<%=SymposiumRegBase.PROFESSIONAL%>" value="true" onClick="setProf()"/> Professional<br/> 
-           <tc-webtag:radioButton name="<%=SymposiumRegBase.PROFESSIONAL%>" value="false" onClick="setStudent()"/> College Student<br/>
+        <td>You are:</td>
+        <td><c:choose>
+                <c:when test="${reg.professional}">Professional</c:when>
+                <c:otherwise>College Student</c:otherwise>
+            </c:choose>
         </td>
     </tr>
     <tr>
-        <td><div id="collegeHeader" style="display: none;">
-            College/University:
-            </div>
-            <div id="companyHeader" style="display: none;">
-            Company:
-            </div>
+        <td><c:choose>
+                <c:when test="${reg.professional}">Company:</c:when>
+                <c:otherwise>College/University:</c:otherwise>
+            </c:choose>
         </td>
-        <td>
-            <div id="collegeInput" style="display: none;">
-                <tc-webtag:textInput name="<%=SymposiumRegBase.COLLEGE%>" size="30" maxlength="64" editable="true"/>
-            </div>
-            <div id="companyInput" style="display: none;">
-                <tc-webtag:textInput name="<%=SymposiumRegBase.COMPANY%>" size="30" maxlength="64" editable="true"/>
-            </div>        
+        <td><c:choose>
+                <c:when test="${reg.professional and not empty reg.companyName}">${reg.companyName}</c:when>
+                <c:when test="${not reg.professional and not empty reg.collegeName}">${reg.collegeName}</c:when>
+                <c:otherwise>N/A</c:otherwise>
+            </c:choose>
         </td>
     </tr>
     <tr>

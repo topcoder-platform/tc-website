@@ -114,9 +114,11 @@ public class SymposiumRegister extends SymposiumRegBase {
         if (getRequest().getParameter(PROFESSIONAL) == null) {
             addError(PROFESSIONAL, "Please choose an option");
         } else {
-            sr.setProfessional("true".equalsIgnoreCase(getRequest().getParameter(PROFESSIONAL)));
+            sr.setProfessional("pro".equalsIgnoreCase(getRequest().getParameter(PROFESSIONAL)));
         }
         
+        sr.setCollegeName(getRequest().getParameter(COLLEGE));
+        sr.setCompanyName(getRequest().getParameter(COMPANY));
         sr.setPhoneNumber(validateNonEmpty(PHONE_NUMBER, "phone number"));
         sr.setEmailAddress(validateNonEmpty(EMAIL_ADDRESS, "email address"));
         sr.setAddress1(validateNonEmpty(ADDRESS_1, "address"));
