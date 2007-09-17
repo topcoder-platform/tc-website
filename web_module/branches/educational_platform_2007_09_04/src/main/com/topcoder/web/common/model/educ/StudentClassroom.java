@@ -2,11 +2,12 @@ package com.topcoder.web.common.model.educ;
 
 import java.io.Serializable;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.topcoder.web.common.model.Base;
@@ -37,9 +38,9 @@ public class StudentClassroom extends Base {
     }
 
     @EmbeddedId
-    @AttributeOverrides( {
-        @AttributeOverride(name="student", column=@Column(name="student_id", nullable=false) ), 
-        @AttributeOverride(name="classroom", column=@Column(name="classroom_id", nullable=false) ) } )
+//    @AttributeOverrides( {
+//        @AttributeOverride(name="student", column=@Column(name="student_id", nullable=false) ), 
+//        @AttributeOverride(name="classroom", column=@Column(name="classroom_id", nullable=false) ) } )
     public Identifier getId() {
         return id;
     }
@@ -57,6 +58,7 @@ public class StudentClassroom extends Base {
         this.statusId = statusId;
     }
 
+    @Embeddable
     public static class Identifier implements Serializable {
         private Coder student;
         private Classroom classroom;
@@ -69,6 +71,7 @@ public class StudentClassroom extends Base {
         public Identifier() {
         }
 
+        @OneToOne @PrimaryKeyJoinColumn
         public Coder getStudent() {
             return student;
         }
@@ -77,6 +80,7 @@ public class StudentClassroom extends Base {
             this.student = student;
         }
 
+        @OneToOne @PrimaryKeyJoinColumn
         public Classroom getClassroom() {
             return classroom;
         }
