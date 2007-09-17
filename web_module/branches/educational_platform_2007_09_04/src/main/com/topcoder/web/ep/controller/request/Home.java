@@ -34,8 +34,7 @@ public class Home extends ShortHibernateProcessor {
             getRequest().setAttribute("user", u);
             if (u.isProfessor()) {
                 log.debug(u.getHandle() + " is a professor");
-                getRequest().setAttribute("activeClassrooms", u.getCoder().getClassrooms(StudentClassroom.ACTIVE_STATUS));                
-                getRequest().setAttribute("pendingClassrooms", u.getCoder().getClassrooms(StudentClassroom.PENDING_STATUS));                
+                getRequest().setAttribute("classrooms", u.getProfessor().getClassrooms());                
                 setNextPage("/professor/home.jsp");
                 setIsNextPageInContext(true);
             } else {
