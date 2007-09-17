@@ -87,7 +87,7 @@ public class Professor extends Base {
         this.user = user;
     }
 
-    @OneToMany(fetch=FetchType.LAZY) //, mappedBy="professor"
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="professor")
     @Cascade( {CascadeType.SAVE_UPDATE} )
     public Set<Classroom> getClassrooms() {
         return Collections.unmodifiableSet(classrooms);
