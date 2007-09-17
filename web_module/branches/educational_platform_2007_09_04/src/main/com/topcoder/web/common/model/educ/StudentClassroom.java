@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -37,7 +37,7 @@ public class StudentClassroom extends Base {
         this.statusId = statusId;
     }
 
-    @EmbeddedId
+    @Id
 //    @AttributeOverrides( {
 //        @AttributeOverride(name="student", column=@Column(name="student_id", nullable=false) ), 
 //        @AttributeOverride(name="classroom", column=@Column(name="classroom_id", nullable=false) ) } )
