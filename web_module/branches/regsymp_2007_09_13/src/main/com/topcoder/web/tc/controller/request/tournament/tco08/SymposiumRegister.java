@@ -27,6 +27,15 @@ public class SymposiumRegister extends SymposiumRegBase {
 
     @Override
     protected void dbProcessing() throws Exception {
+        
+        String url = getRequest().getRequestURL().toString(); 
+        if (url.startsWith("http:")) {
+            url = url.replace("http:", "https:");
+            setNextPage(url);
+            setIsNextPageInContext(false);
+            return;
+        }
+        
         boolean early = EARLY_BID_END_DATE.getTime().after(new Date());
         
         // just for test, remove!!
@@ -116,7 +125,9 @@ public class SymposiumRegister extends SymposiumRegBase {
         }
 
         String rt = validateNonEmpty(REGISTRATION_TYPE, "registration type");
-        sr.setRegistrationType(new Integer(rt));
+        if ( rt != null) {
+            sr.setRegistrationType(new Integer(rt));
+        }
 
         
         
