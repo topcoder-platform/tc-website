@@ -8,6 +8,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="reg" value="<%= request.getSession().getAttribute(SymposiumRegBase.REG_DATA_ATTR) %>" />
 <c:set var="payment" value="<%= request.getSession().getAttribute(SymposiumRegBase.PAYMENT_DATA_ATTR) %>" />
+<c:set var="REG_TYPE_COLLEGIATE_TC" value="<%=SymposiumReg.REG_TYPE_COLLEGIATE_TC %>" />
+<c:set var="REG_TYPE_PROFESSIONAL" value="<%=SymposiumReg.REG_TYPE_PROFESSIONAL %>" />
+<c:set var="REG_TYPE_PROFESSIONAL_EARLY" value="<%=SymposiumReg.REG_TYPE_PROFESSIONAL_EARLY %>" />
 <html>
 
 <head>
@@ -69,126 +72,71 @@
         </td>
     </tr>
     <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.PHONE_NUMBER%>"><%=err%><br/></tc-webtag:errorIterator></span>
-        </td>
+        <td>Phone number:</td>
+        <td>${reg.phoneNumber}</td>
     </tr>
     <tr>
-        <td>* Phone number:</td>
-        <td><tc-webtag:textInput name="<%=SymposiumRegBase.PHONE_NUMBER%>" size="12" maxlength="30" editable="true"/></td>
+        <td>Email address:</td>
+        <td>${reg.emailAddress }</td>
     </tr>
     <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.EMAIL_ADDRESS%>"><%=err%><br/></tc-webtag:errorIterator></span>
-        </td>
-    </tr>
-    <tr>
-        <td>* Email address:</td>
-        <td><tc-webtag:textInput name="<%=SymposiumRegBase.EMAIL_ADDRESS%>" size="25" maxlength="100" editable="true"/></td>
-    </tr>
-    <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.ADDRESS_1%>"><%=err%><br/></tc-webtag:errorIterator></span>
-        </td>
-    </tr>
-    <tr>
-        <td>* Address 1:</td>
-        <td><tc-webtag:textInput name="<%=SymposiumRegBase.ADDRESS_1%>" size="40" maxlength="254" editable="true"/></td>
-    </tr>
-    <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.ADDRESS_2%>"><%=err%><br/></tc-webtag:errorIterator></span>
-        </td>
+        <td>Address 1:</td>
+        <td>${reg.address1}</td>
     </tr>
     <tr>
         <td>Address 2:</td>
-        <td><tc-webtag:textInput name="<%=SymposiumRegBase.ADDRESS_2%>" size="40" maxlength="254" editable="true"/></td>
+        <td>${reg.address2}</td>
     </tr>
     <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.CITY%>"><%=err%><br/></tc-webtag:errorIterator></span>
-        </td>
-    </tr>
-    <tr>
-        <td>* City:</td>
-        <td><tc-webtag:textInput name="<%=SymposiumRegBase.CITY%>" size="20" maxlength="64" editable="true"/></td>
-    </tr>
-    <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.ZIP%>"><%=err%><br/></tc-webtag:errorIterator></span>
-        </td>
+        <td>City:</td>
+        <td>${reg.city}</td>
     </tr>
     <tr>
         <td>Postal Code:</td>
-        <td><tc-webtag:textInput name="<%=SymposiumRegBase.ZIP%>" size="8" maxlength="15" editable="true"/></td>
-    </tr>
-    <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.COUNTRY%>"><%=err%><br/></tc-webtag:errorIterator></span>
-        </td>
+        <td>${reg.zip }</td>
     </tr>
     <tr>
         <td>Country:</td>
-        <td><tc-webtag:objectSelect name="<%=SymposiumRegBase.COUNTRY%>" list="${countries}" valueField="code" textField="name"/></td>
-    </tr>
-    <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.REGISTRATION_TYPE%>"><%=err%><br/></tc-webtag:errorIterator></span>
-        </td>
+        <td>${reg.country.name }</td>
     </tr>
     <tr>
         <td>Registration type:</td>
-        <td><tc-webtag:radioButton name="<%=SymposiumRegBase.REGISTRATION_TYPE %>" value="<%=SymposiumReg.REG_TYPE_COLLEGIATE_TC+ ""%>" />Collegiate TopCoder Member: $99<br/>
-            <c:if test="${not early}"> 
-                <tc-webtag:radioButton name="<%=SymposiumRegBase.REGISTRATION_TYPE %>" value="<%=SymposiumReg.REG_TYPE_PROFESSIONAL+ ""%>"/>Professional: $299<br/>
-            </c:if>                
-            <c:if test="${early}"> 
-                <tc-webtag:radioButton name="<%=SymposiumRegBase.REGISTRATION_TYPE %>" value="<%=SymposiumReg.REG_TYPE_PROFESSIONAL_EARLY+ ""%>"/>Professional Early bird<sup>*</sup>: $299<br/>
-            </c:if>
+        <td><c:choose>
+                <c:when test="${reg.registrationType == REG_TYPE_COLLEGIATE_TC }">Collegiate TopCoder Member: $99</c:when>
+                <c:when test="${reg.registrationType == REG_TYPE_PROFESSIONAL }">Professional: $299</c:when>
+                <c:when test="${reg.registrationType == REG_TYPE_PROFESSIONAL_EARLY }">Professional Early bird: $299</c:when>
+           </c:choose>
         </td>
     </tr>
     <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.PAYMENT_METHOD%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <td>Method of Payment:</td>
+        <td><c:forEach var="method" items="<%= paymentMethods %>">
+                <c:if test="${method.optionValue == payment.method }">
+                    ${method.optionText }
+                </c:if>
+            </c:forEach>
         </td>
     </tr>
     <tr>
-        <td>* Method of Payment:</td>
-        <td></td>
+        <td>Card Number:</td>
+        <td>${payment.cardNumber }</td>
     </tr>
     <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.CARD_NUMBER%>"><%=err%><br/></tc-webtag:errorIterator></span>
-        </td>
-    </tr>
-    <tr>
-        <td>* Card Number:</td>
-        <td><tc-webtag:textInput name="<%=SymposiumRegBase.CARD_NUMBER%>" size="20" maxlength="30" editable="true"/></td>
-    </tr>
-    <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=SymposiumRegBase.EXPIRATION_DATE%>"><%=err%><br/></tc-webtag:errorIterator></span>
-        </td>
-    </tr>
-    <tr>
-        <td>* Expiration Date:</td>
-        <td><tc-webtag:textInput name="<%=SymposiumRegBase.EXPIRATION_DATE%>" size="5" maxlength="5" editable="true"/> (mm/yy)</td>
+        <td>Expiration Date:</td>
+        <td>${payment.expirationDate}</td>
     </tr>    
 </tbody>
 </table>
 
 <br/>
 <div align="center">
-    <a href="#" onclick="document.f.submit();return false;">Submit</a>
+    <a href="#" onclick="document.f.submit();return false;">Confirm</a>
 </div>
 
 </form>
 
 <br/>
 <br/>
-<c:if test="${early}"> 
-    <sup>*</sup> if booked by February 1. After that date, professional is $299.
-</c:if>
 
 <br/>
 </center>

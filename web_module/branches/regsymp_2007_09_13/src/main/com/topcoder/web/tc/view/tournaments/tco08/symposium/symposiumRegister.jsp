@@ -1,27 +1,20 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.tc.controller.request.tournament.tco08.SymposiumRegBase,
-                 com.topcoder.web.common.model.SymposiumReg,
-                 com.topcoder.web.common.tag.ListSelectTag" %> 
+                 com.topcoder.web.common.model.SymposiumReg" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%
-    java.util.List paymentMethods = new java.util.ArrayList();
-    paymentMethods.add(new ListSelectTag.Option("Visa", "Visa"));
-    paymentMethods.add(new ListSelectTag.Option("MC", "Master Card"));
-    paymentMethods.add(new ListSelectTag.Option("AMEX", "American Express"));
-    paymentMethods.add(new ListSelectTag.Option("Discover", "Discover"));
 
-%>
 <html>
 
 <head>
     <title>TopCoder</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="paymentMethods.jsp" />
     <jsp:include page="../../../script.jsp" />
     <jsp:include page="../../../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
