@@ -15,6 +15,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -101,7 +102,12 @@ public class Classroom {
         this.statusId = statusId;
     }
 
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="classroom")
+    @OneToMany
+    @JoinTable(
+            name="student_classroom_xref",
+            joinColumns = { @JoinColumn( name="classroom_id") },
+            inverseJoinColumns = @JoinColumn( name="student_id")
+    )
     @Cascade( {CascadeType.SAVE_UPDATE} )
     public Set<StudentClassroom> getStudentClassrooms() {
         return Collections.unmodifiableSet(studentClassrooms);

@@ -132,9 +132,9 @@
 
          <mapping class="com.topcoder.web.common.model.educ.Professor"/>  
          <mapping class="com.topcoder.web.common.model.educ.Classroom"/>  
-         <mapping class="com.topcoder.web.common.model.educ.StudentClassroom"/>  
+<!--         <mapping class="com.topcoder.web.common.model.educ.StudentClassroom"/>  
 
-<!--        <mapping resource="com/topcoder/web/common/model/educ/Professor.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/educ/Professor.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/educ/Classroom.hbm.xml"/>-->
  
