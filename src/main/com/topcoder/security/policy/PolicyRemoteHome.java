@@ -12,7 +12,7 @@ import java.rmi.RemoteException;
  */
 public interface PolicyRemoteHome extends javax.ejb.EJBHome {
 
-    public static final String EJB_REF_NAME = "security/Policy";
+    public static final String EJB_REF_NAME = PolicyRemoteHome.class.getName();
 
     public PolicyRemote create()
             throws RemoteException, CreateException, EJBException;

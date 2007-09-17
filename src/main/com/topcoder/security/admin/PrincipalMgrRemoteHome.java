@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
  */
 public interface PrincipalMgrRemoteHome extends javax.ejb.EJBHome {
 
-    public static final String EJB_REF_NAME = "security/PrincipalMgr";
+    public static final String EJB_REF_NAME = PrincipalMgrRemoteHome.class.getName();
 
     public PrincipalMgrRemote create()
             throws RemoteException, CreateException, EJBException;
