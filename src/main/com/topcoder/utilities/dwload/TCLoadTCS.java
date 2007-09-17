@@ -1814,9 +1814,6 @@ public class TCLoadTCS extends TCLoad {
     }
 
     public void doLoadSubmissionReview() throws Exception {
-        //todo fix this load...it's total crap right now.  we're not getting the right data at all.
-        //todo we're loading at the granularity of submission, when we need to be loading at the granularity of submission/reviewer
-        //todo raw score and final score are the primary problems.
         log.info("load submission review");
         ResultSet submissionInfo = null;
         ResultSet projects = null;
@@ -1832,7 +1829,7 @@ public class TCLoadTCS extends TCLoad {
                 "select u.project_id " +
                         "  ,ri1.value as user_id " +
                         "  ,ri2.value as reviewer_id " +
-                        "   ,s.initial_score as raw_score " +
+                        "   ,r.initial_score as raw_score " +
                         "   ,r.score as final_score " +
                         "   ,(select count(*) from review_item_comment ric,review_item ri " +
                         "       where ric.review_item_id = ri.review_item_id and ri.review_id = r.review_id and ric.comment_type_id = 4) as num_appeals " +
