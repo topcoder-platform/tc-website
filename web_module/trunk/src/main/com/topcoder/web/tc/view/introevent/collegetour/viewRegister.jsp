@@ -77,8 +77,6 @@
     </div>
 
 
-</div>
-
 </td>
 <!-- Center Column Ends -->
 
