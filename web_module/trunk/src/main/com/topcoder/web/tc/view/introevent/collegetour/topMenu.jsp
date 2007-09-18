@@ -1,7 +1,9 @@
+<%@ page import="com.topcoder.web.common.model.IntroEventConfig" %>
 <%@ page contentType="text/html" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="active" value="${param.active}"/>
+<c:set var="showResults" value="<%=IntroEventConfig.SHOW_RESULTS_PROP_ID%>"/>
 
 <p align="center">
     <c:if test="${not empty mainEvent.forumId}">
@@ -19,7 +21,10 @@
         <tc-webtag:ifLink useLink="${active!='algo_reg'}" text="Registration" link="/tc?module=IntroEventViewRegister&eid=${algoEventId}"/>
         |
         <tc-webtag:ifLink useLink="${active!='algo_viewreg'}" text="Registrants" link="/tc?module=IntroEventViewRegistrants&eid=${algoEventId}"/>
-        <tc-webtag:ifLink useLink="${active!='algo_viewresults'}" text="Results" link="/tc?module=IntroEventAlgoResults&eid=${algoEventId}"/>
+        <c:if test="${mainEvent.config[showresults]=='true'}">
+            |
+            <tc-webtag:ifLink useLink="${active!='algo_viewresults'}" text="Results" link="/tc?module=IntroEventAlgoResults&eid=${algoEventId}"/>
+        </c:if>
         <br/>
         <br/>
     </c:if>
