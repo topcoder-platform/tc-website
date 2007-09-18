@@ -23,7 +23,7 @@
         <tc-webtag:ifLink useLink="${active!='algo_viewreg'}" text="Registrants" link="/tc?module=IntroEventViewRegistrants&eid=${algoEventId}"/>
         <c:if test="${mainEvent.config[showResults].value=='true'}">
             |
-            <tc-webtag:ifLink useLink="${active!='algo_viewresults'}" text="Results" link="/tc?module=IntroEventAlgoResults&eid=${algoEventId}"/>
+            <tc-webtag:ifLink useLink="${active!='algo_results'}" text="Results" link="/tc?module=IntroEventAlgoResults&eid=${algoEventId}"/>
         </c:if>
         <br/>
         <br/>
