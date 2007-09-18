@@ -1,7 +1,10 @@
 package com.topcoder.web.wiki.themes.tc;
 
 import com.atlassian.bandana.BandanaManager;
+import com.atlassian.confluence.pages.Page;
+import com.atlassian.confluence.pages.PageManager;
 import com.atlassian.confluence.spaces.Space;
+import com.atlassian.confluence.spaces.SpaceType;
 import com.atlassian.confluence.spaces.actions.AbstractSpaceAction;
 import com.opensymphony.xwork.ActionContext;
 import com.topcoder.shared.util.logging.Logger;
@@ -18,6 +21,7 @@ import java.util.Map;
 public class ConfigureThemeAction extends AbstractSpaceAction {
     private static final Logger log = Logger.getLogger(ConfigureThemeAction.class);
     private BandanaManager bandanaManager;
+    private PageManager pageManager;
     private List navKeys;
 
     /**
@@ -37,21 +41,20 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
             // First get a settings manager to read already existing values...
             SettingsManager settingsManager = new SettingsManager(bandanaManager);
             Space s;
+            Page p;
             List spaces = getSpaces();
             navKeys=new ArrayList(spaces.size());
             for (Object o : spaces) {
                 s = (Space)o;
-                if (log.isDebugEnabled()) {
-                    log.debug("space " + s.getKey());
+                List pages = pageManager.getPages(s, true);
+                for (Object page : pages) {
+                    p = (Page)page;
+                    LeftNavSettings setting = settingsManager.getPageThemeSettings(s.getKey(), p.getTitle());
+                    if (setting!=null) {
+                        navKeys.add(setting);
+                    }
                 }
-                LeftNavSettings setting = new LeftNavSettings();
-                setting.setSpace(s.getKey());
-                if (settingsManager.getSpaceThemeSettings(s.getKey())!=null) {
-                    setting.setNavKey(settingsManager.getSpaceThemeSettings(s.getKey()).getNavKey());
-                }
-                navKeys.add(setting);
             }
-
             return INPUT;
         }
         finally {
@@ -74,20 +77,22 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
         Map params = ActionContext.getContext().getParameters();
 
         Space s;
+        Page p;
         String[] navKey;
         for (Object o : getSpaces()) {
             s = (Space)o;
-            if (log.isDebugEnabled()) {
-                log.debug("space " + s.getKey());
-            }
-            //accessing the parameters directly because i can't figure out how to do it
-            //correctly within the framework with the autowiring
-            navKey = (String[])params.get(s.getKey());
-            if (navKey!=null) {
+            List pages = pageManager.getPages(s, true);
+            for (Object page : pages) {
+                p = (Page)page;
+                navKey = (String[])params.get(s.getKey()+"_"+p.getTitle());
                 LeftNavSettings settings = new LeftNavSettings();
                 settings.setSpace(s.getKey());
+                settings.setPageTitle(p.getTitle());
+                //accessing the parameters directly because i can't figure out how to do it
+                //correctly within the framework with the autowiring
                 settings.setNavKey(navKey[0]);//we are assuming only 1 will be present
-                settingsManager.setSpaceThemeSettings(settings, s.getKey());
+                settingsManager.setPageThemeSettings(settings, s.getKey(), p.getTitle());
+
             }
         }
 
@@ -95,13 +100,17 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
     }
 
     public List getSpaces() {
-        return spaceManager.getSpaces();
+        return spaceManager.getSpacesByType(SpaceType.GLOBAL);
     }
 
     public void setBandanaManager(BandanaManager bandanaManager) {
         this.bandanaManager = bandanaManager;
     }
 
+
+    public void setPageManager(PageManager pageManager) {
+        this.pageManager = pageManager;
+    }
 
     public List getNavKeys() {
         return navKeys;
@@ -110,4 +119,5 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
     public void setNavKeys(List navKeys) {
         this.navKeys = navKeys;
     }
+
 }

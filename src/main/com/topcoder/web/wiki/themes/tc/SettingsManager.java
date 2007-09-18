@@ -1,7 +1,6 @@
 package com.topcoder.web.wiki.themes.tc;
 
 import com.atlassian.bandana.BandanaManager;
-import com.atlassian.confluence.setup.bandana.ConfluenceBandanaContext;
 
 /**
  * @author dok
@@ -23,26 +22,30 @@ public class SettingsManager {
     }
 
     /**
-     * returns the theme settings for the space given.
-     * If no space is give, the global settings are returned.
+     * returns the theme settings for the page given.
      *
      * @return LeftNavSettings
      */
 
-    public LeftNavSettings getSpaceThemeSettings(String spaceKey) {
-        return (LeftNavSettings) bandanaManager.getValue(new ConfluenceBandanaContext(spaceKey), THEMEKEY, false);
+    public LeftNavSettings getPageThemeSettings(String spaceKey, String pageTitle) {
+        return (LeftNavSettings) bandanaManager.getValue(new PageBandanaContext(spaceKey, pageTitle), THEMEKEY, false);
     }
 
 
     /**
-     * saves the Theme Settings via Bandana in context to the given space.
-     * If the space is null, the settings will be saved as global settings.
+     * saves the Theme Settings via Bandana in context to the given space and page
      *
      * @param settings
      * @param spaceKey
      */
-    public void setSpaceThemeSettings(LeftNavSettings settings, String spaceKey) {
-        bandanaManager.setValue(new ConfluenceBandanaContext(spaceKey), THEMEKEY, settings);
+    public void setPageThemeSettings(LeftNavSettings settings, String spaceKey, String pageTitle) {
+        if (spaceKey==null) {
+            throw new IllegalArgumentException("spaceKey can not be null");
+        }
+        if (pageTitle==null) {
+            throw new IllegalArgumentException("pageTitle can not be null");
+        }
+        bandanaManager.setValue(new PageBandanaContext(spaceKey, pageTitle), THEMEKEY, settings);
     }
 
     public void setBandanaManager(BandanaManager bandanaManager) {

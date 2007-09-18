@@ -26,7 +26,7 @@ public class LeftNavVelocityHelper {
         log.debug("called constructor");
     }
 
-    public String renderNavigation(String spaceKey) {
+    public String renderNavigation(String spaceKey, String pageTitle) {
 
         log.debug("called render navigation");
         try {
@@ -36,7 +36,7 @@ public class LeftNavVelocityHelper {
                 log.debug("bandana manager null");
             }
             SettingsManager settingsManager = new SettingsManager(bandanaManager);
-            LeftNavSettings settings = settingsManager.getSpaceThemeSettings(spaceKey);
+            LeftNavSettings settings = settingsManager.getPageThemeSettings(spaceKey, pageTitle);
 
             String node= null;
             if (settings!=null) {

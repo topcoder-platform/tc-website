@@ -21,7 +21,7 @@ $topHelper.renderTop()
 <tbody>
     <tr valign="top">
         <td width="180">
-            $navHelper.renderNavigation($sitemeshPage.getProperty("page.spacekey"))
+            $navHelper.renderNavigation($sitemeshPage.getProperty("page.spacekey"),$sitemeshPage.getProperty("page.pageTitle"))
         </td>
         <td width="100%" align="left" class="bodyColumn">
 
