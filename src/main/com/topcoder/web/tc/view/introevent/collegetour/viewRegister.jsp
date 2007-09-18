@@ -54,7 +54,7 @@
             The registration is not yet open.
             </c:when>
             <c:when test="${isLate}">
-            The registration has already closed.
+            Registration is closed.
             </c:when>
             <c:when test="${isRegistered}">
                 You are already registered for this event.

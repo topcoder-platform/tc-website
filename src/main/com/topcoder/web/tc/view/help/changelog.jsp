@@ -42,6 +42,15 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+
+<p>
+    5.12.2 - 2007.09.18
+    <ul>
+        <li>Add results for algorithm intro events -dok</li>
+    </ul>
+
+</p>
+
 <p>
     5.12.1 - 2007.09.13
     <ul>
