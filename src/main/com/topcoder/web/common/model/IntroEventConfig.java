@@ -19,6 +19,11 @@ public class IntroEventConfig extends Base {
     public static final int EVENT_END_PROP_ID = 7;
     public static final int RESULTS_PROP_ID = 8;
     public static final int PAGES_BASE_PROP_ID = 11;
+    public static final int SHOW_RESULTS_PROP_ID = 13;
+    public static final int PRESENTATION_PROP_ID = 14;
+    public static final int FOOD_PROP_ID = 15;
+    public static final int PRIZES_PROP_ID = 16;
+    public static final int FOOD_PRESENTATION_PROP_ID = 17;
 
     @Deprecated
     public static final int ROUND_START_PROP_ID = 9;
@@ -89,7 +94,7 @@ public class IntroEventConfig extends Base {
             }
             IntroEventConfig.Identifier iec = (IntroEventConfig.Identifier) o;
             return iec.getIntroEvent().getId().equals(this.getIntroEvent().getId())
-                && iec.getPropertyId().equals(this.getPropertyId());
+                    && iec.getPropertyId().equals(this.getPropertyId());
         }
 
         public int hashCode() {
@@ -100,7 +105,6 @@ public class IntroEventConfig extends Base {
             return buf.toString().hashCode();
         }
     }
-
 
 
 }
