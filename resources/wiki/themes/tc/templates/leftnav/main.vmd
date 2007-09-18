@@ -3,18 +3,7 @@
 <html>
 <head>
     <title>$title - #siteTitle()</title>
-##    #standardHeader()
-
-## standardHeader CONTENT MINUS THE STYLESHEET
-    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
-    <META HTTP-EQUIV="Expires" CONTENT="-1">
-    <script language="javascript">
-        var contextPath = '';
-        var i18n = [];
-    </script>
-    <script type="text/javascript" src="/s/812/1/_/decorators/effects.js"></script>
-## ENDS HERE
-
+    ##standardHeader()
     $!settingsManager.globalSettings.customHtmlSettings.beforeHeadEnd
     <link type="text/css" rel="stylesheet" href="/css/tcStyles.css" />
     <link type="text/css" rel="stylesheet" href="/css/coders.css" />
