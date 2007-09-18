@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.request.introevent;
 
+import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
@@ -28,7 +29,7 @@ public class AlgoResults extends Base {
             Request r = new Request();
             r.setContentHandle("intro_event_algo_results");
             r.setProperty(Constants.EVENT_ID, String.valueOf(getEvent().getId()));
-            DataAccess da = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            DataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             getRequest().setAttribute("results", da.getData(r).get("intro_event_algo_results"));
 
             setNextIntroEventPage("algoResults.jsp");
