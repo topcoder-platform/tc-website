@@ -18,6 +18,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -113,6 +114,7 @@ public class Classroom {
         this.studentClassrooms = studentClassrooms;
     }
 
+    @Transient
     public Set<Coder> getStudents(Long statusId) {
         Set<Coder> ss = new HashSet<Coder>(this.studentClassrooms.size());
         for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
@@ -122,7 +124,8 @@ public class Classroom {
         }
         return ss;
     }    
-    
+
+    @Transient
     public boolean hasStudent(Long studentId) {
         for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
             if (sc.getId().getStudent().getId().equals(studentId) && 

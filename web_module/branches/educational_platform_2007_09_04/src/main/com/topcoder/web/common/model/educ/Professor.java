@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -102,6 +103,7 @@ public class Professor extends Base {
         this.classrooms.add(classroom);
     }
 
+    @Transient
     public Set<Coder> getStudents() {
         Set<Coder> cs = new HashSet<Coder>();
         for (Classroom c : this.classrooms) {
