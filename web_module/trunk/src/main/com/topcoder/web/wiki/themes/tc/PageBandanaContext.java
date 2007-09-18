@@ -43,7 +43,7 @@ public class PageBandanaContext implements BandanaContext {
 
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ConfluenceBandanaContext)) return false;
+        if (!(o instanceof PageBandanaContext)) return false;
 
         final PageBandanaContext pageBandanaContext = (PageBandanaContext) o;
 
