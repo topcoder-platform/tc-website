@@ -104,7 +104,7 @@ public class EditClassroom extends Base {
                         c.setName(classroomName);
                         c.setAcademicPeriod(classroomAcademicPeriod);
                         c.setDescription(classroomDescription);
-    
+
                         Set<Coder> sc = c.getStudents(StudentClassroom.PENDING_STATUS);
                         sc.addAll(c.getStudents(StudentClassroom.ACTIVE_STATUS));
     
@@ -115,6 +115,8 @@ public class EditClassroom extends Base {
                         }
                         getRequest().setAttribute("checked_students", checkedStudents);            
                         
+                        getRequest().setAttribute("possible_students", getActiveUser().getProfessor().getStudents());            
+
                         // next step, students.
                         setNextPage("/professor/selectStudents.jsp");
                         setIsNextPageInContext(true);

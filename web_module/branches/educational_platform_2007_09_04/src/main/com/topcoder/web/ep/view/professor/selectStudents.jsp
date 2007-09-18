@@ -23,9 +23,7 @@
     
     
     <body>
-        Professor: ${classroom.professor.user.lastName}, ${classroom.professor.user.firstName}
-        <br/>
-        Classroom: ${classroom.name}
+        Name: ${classroom.name}
         <br/>
         Academic period: ${classroom.academicPeriod}
         <br/>
@@ -35,11 +33,10 @@
         <form name="f" action="${sessionInfo.servletPath}" method="post">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditClassroomConfirm"/><br/>
         <c:choose>
-            <c:when test="${not empty activeStudents}">
-                <tr><td>School</td><td>Professor</td><td>Classroom</td><td>Academic period</td><td>Description</td><td>Select</td></tr>
+            <c:when test="${not empty possible_students}">
                 <table> 
                     <tr><td>Student name</td><td>&nbsp;</td></tr>
-                    <c:forEach items="${classroom.students}" var="student">                
+                    <c:forEach items="${possible_students}" var="student">                
                         <tr>
                             <td>${student.user.lastName}, ${student.user.firstName}</td>
                             <td>
