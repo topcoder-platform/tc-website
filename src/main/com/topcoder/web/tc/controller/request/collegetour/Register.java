@@ -1,17 +1,5 @@
 package com.topcoder.web.tc.controller.request.collegetour;
 
-import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.ejb.collegetour.Registration;
-import com.topcoder.web.ejb.collegetour.RegistrationLocal;
-
-import javax.transaction.Status;
-import javax.transaction.TransactionManager;
-import java.sql.Timestamp;
 
 /**
  * @author dok
