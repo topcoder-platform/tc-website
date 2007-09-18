@@ -40,6 +40,7 @@ public class EditClassroom extends Base {
             log.debug("User identified - " + getUser().getUserName());
             
             if (!"POST".equals(getRequest().getMethod())) {
+                log.debug("First pass - " + getUser().getUserName());
                 // the user has just got here
                 //set up the user object we're gonna use
                 User u = getActiveUser();
@@ -75,6 +76,7 @@ public class EditClassroom extends Base {
                 setNextPage("/professor/editClassroom.jsp");
                 setIsNextPageInContext(true);
             } else {
+                log.debug("Second pass - " + getUser().getUserName());
                 if (getActiveUser() == null) {
                     throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
                 } else if (userLoggedIn()) {

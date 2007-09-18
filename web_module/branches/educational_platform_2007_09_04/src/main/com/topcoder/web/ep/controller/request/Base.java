@@ -156,23 +156,24 @@ public abstract class Base extends LongHibernateProcessor {
      *
      * @param classrooms the classrooms to set
      */
-    protected void setClassroom(Classroom classrooms) {
-        getRequest().getSession().setAttribute(Constants.CLASSROOMS, classrooms);
+    protected void setClassroom(Classroom classroom) {
+        log.debug("set " + classroom.getName() + " classroom in session");
+        getRequest().getSession().setAttribute(Constants.CLASSROOMS, classroom);
     }
     
     /**
      * Get the classroomss in the current request processor. 
      */
     protected Classroom getClassroom() {
-        Classroom classrooms = (Classroom) getRequest().getSession().getAttribute(Constants.CLASSROOM);
-        if (classrooms == null) {
+        Classroom classroom = (Classroom) getRequest().getSession().getAttribute(Constants.CLASSROOM);
+        if (classroom == null) {
                 throw new RuntimeException("Couldn't find classrooms in the session");
         } else {
             if (log.isDebugEnabled()) {
-                log.debug("got " + classrooms.getName() + " classrooms from session");
+                log.debug("got " + classroom.getName() + " classrooms from session");
             }
         }
-        return classrooms;
+        return classroom;
     }
     
     

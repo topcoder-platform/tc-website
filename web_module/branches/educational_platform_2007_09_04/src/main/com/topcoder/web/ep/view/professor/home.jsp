@@ -40,7 +40,7 @@ Hello, <tc-webtag:handle coderId='${user.id}'/>, Welcoome to Educational Plattfo
 </br></br>
 <c:choose>
     <c:when test="${not empty classrooms}">
-        Here are your classrooms:
+        Here are your classrooms:<br/><br/>
         <c:forEach items="${classrooms}" var="classroom">
             <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a> 
             <a href="/ep?module=EditClassroom&amp;clsid=${classroom.id}">Edit</a><br/>
