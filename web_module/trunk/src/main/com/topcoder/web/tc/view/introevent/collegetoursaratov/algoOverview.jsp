@@ -140,6 +140,7 @@
     <br><br>
 
     <strong>${mainEvent.recruiterName }</strong>, a TopCoder representative, will give a presentation to explain the benefits of TopCoder membership and competition.
+    <a href="/download/misc/College_Tour_Presentation.ppt">The presentation</a> is available for download.
 
     <br><br>
     
