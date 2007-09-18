@@ -70,6 +70,7 @@
                                         <rsc:item name="point_total" row="<%=resultRow%>" format="0.00"/>
                                     </td>
                                 </tr>
+                                <% even=!even;%>
                             </rsc:iterator>
                         </tbody>
                     </table>
