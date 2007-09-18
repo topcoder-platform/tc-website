@@ -25,8 +25,6 @@
     <body>
         <form name="f" action="${sessionInfo.servletPath}" method="post">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditClassroomSubmit"/><br/>
-        Professor: ${classroom.professor.user.lastName}, ${classroom.professor.user.firstName}
-        <br/>
         Classroom: ${classroom.name}
         <br/>
         Academic period: ${classroom.academicPeriod}
@@ -35,7 +33,7 @@
         <br/>
         
         <c:choose>
-            <c:when test="${not empty activeStudents}">
+            <c:when test="${not empty students}">
                 Selected Students:
                 <table> 
                     <tr><td>Student name</td></tr>

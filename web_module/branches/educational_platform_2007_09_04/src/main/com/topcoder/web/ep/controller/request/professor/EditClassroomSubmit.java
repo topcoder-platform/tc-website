@@ -51,14 +51,13 @@ public class EditClassroomSubmit extends Base {
             Set<Coder> students = getSelectedStudents();
 
             // add students to classroom
-            Set<StudentClassroom> ssc = classroom.getStudentClassrooms();
             for (Coder s : students) {
                 StudentClassroom sc = new StudentClassroom();
                 sc.getId().setClassroom(classroom);
                 sc.getId().setStudent(s);
                 
-                if (!ssc.contains(sc)) {
-                    ssc.add(sc);
+                if (!classroom.contains(sc)) {
+                    classroom.addStudentClassroom(sc);
                 }
             }
 

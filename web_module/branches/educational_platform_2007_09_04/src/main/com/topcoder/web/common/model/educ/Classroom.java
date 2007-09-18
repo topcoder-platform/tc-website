@@ -136,4 +136,13 @@ public class Classroom {
         return false;
     }
 
+    @Transient
+    public boolean contains(StudentClassroom sc) {
+        return this.studentClassrooms.contains(sc);
+    }
+
+    @Transient
+    public void addStudentClassroom(StudentClassroom sc) {
+        this.studentClassrooms.add(sc);
+    }
 }
