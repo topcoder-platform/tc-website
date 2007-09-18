@@ -1,18 +1,7 @@
 package com.topcoder.web.tc.controller.request.collegetour;
 
-import java.sql.Timestamp;
-import java.util.HashMap;
-import java.util.Iterator;
-
-import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.IntroEventConfig;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -21,14 +10,16 @@ import com.topcoder.web.tc.Constants;
  *          Create Date: Dec 5, 2005
  */
 abstract public class Base extends BaseProcessor {
+    private long eventId = 0;
+/*
     private long schoolId = 0;
     private long roundId = 0;
-    private long eventId = 0;
     private long forumId = 0;
     private Timestamp codingStart = null;
     private Timestamp sysTestEnd = null;
     private Timestamp regStart = null;
     private Timestamp regEnd = null;
+*/
 
     protected final void businessProcessing() throws Exception {
         String eid = getRequest().getParameter(Constants.COLLEGE_TOUR_EVENT_ID);
@@ -87,6 +78,7 @@ abstract public class Base extends BaseProcessor {
         collegeTourProcessing();
     }
 
+/*
     protected void loadConfigInfo() throws Exception {
         Request r = new Request();
         r.setContentHandle("college_tour_event_config");
@@ -116,8 +108,9 @@ abstract public class Base extends BaseProcessor {
 
         }
     }
+*/
 
-    public Timestamp getRegStart() {
+    /*public Timestamp getRegStart() {
         return regStart;
     }
 
@@ -133,17 +126,18 @@ abstract public class Base extends BaseProcessor {
         return roundId;
     }
 
-    public long getEventId() {
-        return eventId;
-    }
 
     public long getForumId() {
         return forumId;
     }
+*/
+    public long getEventId() {
+        return eventId;
+    }
 
     protected abstract void collegeTourProcessing() throws Exception;
 
-    public DataAccessInt getDataAccess() throws Exception {
+/*    public DataAccessInt getDataAccess() throws Exception {
         return getDataAccess(DBMS.OLTP_DATASOURCE_NAME, false);
     }
 
@@ -159,5 +153,5 @@ abstract public class Base extends BaseProcessor {
         else
             dAccess = new DataAccess(datasource);
         return dAccess;
-    }
+    }*/
 }
