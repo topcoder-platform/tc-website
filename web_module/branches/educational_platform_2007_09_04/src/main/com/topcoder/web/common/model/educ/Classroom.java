@@ -35,6 +35,7 @@ import com.topcoder.web.common.model.Coder;
 @Table(name="classroom")
 public class Classroom {
 
+    public static final Integer ACTIVE = 1;
     private Long id;
     private Professor professor;
     private String name;

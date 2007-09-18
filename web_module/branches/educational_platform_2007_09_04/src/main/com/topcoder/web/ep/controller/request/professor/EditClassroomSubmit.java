@@ -55,6 +55,7 @@ public class EditClassroomSubmit extends Base {
                 StudentClassroom sc = new StudentClassroom();
                 sc.getId().setClassroom(classroom);
                 sc.getId().setStudent(s);
+                sc.setStatusId(StudentClassroom.ACTIVE_STATUS);
                 
                 if (!classroom.contains(sc)) {
                     classroom.addStudentClassroom(sc);

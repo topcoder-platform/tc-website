@@ -104,7 +104,7 @@ public class EditClassroom extends Base {
                         c.setName(classroomName);
                         c.setAcademicPeriod(classroomAcademicPeriod);
                         c.setDescription(classroomDescription);
-
+                        c.setStatusId(Classroom.ACTIVE);
                         Set<Coder> sc = c.getStudents(StudentClassroom.PENDING_STATUS);
                         sc.addAll(c.getStudents(StudentClassroom.ACTIVE_STATUS));
     
