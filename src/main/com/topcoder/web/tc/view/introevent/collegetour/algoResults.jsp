@@ -64,7 +64,7 @@
                             <rsc:iterator list="<%=results%>" id="resultRow">
                                 <tr class="<%=(even ? "dark" : "light")%>">
                                     <td class="value">
-                                        <tc-webtag:handle coderId="${resultRow.map['coder_id']}%>" context="algorithm"/>
+                                        <tc-webtag:handle coderId="${resultRow.map['coder_id']}" context="algorithm"/>
                                     </td>
                                     <td class="valueR">
                                         <rsc:item name="point_total" row="<%=resultRow%>" format="0.00"/>
