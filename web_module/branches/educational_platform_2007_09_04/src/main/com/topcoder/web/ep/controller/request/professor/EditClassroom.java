@@ -97,7 +97,7 @@ public class EditClassroom extends Base {
                     if (!hasErrors()) {
                         Classroom c = getClassroom();
                         
-                        if (!c.getProfessor().getId().equals(getUser().getId())) {
+                        if (c.getId() != null && !c.getProfessor().getId().equals(getUser().getId())) {
                             throw new NavigationException("You don't have permission to see this page.");
                         }
     
