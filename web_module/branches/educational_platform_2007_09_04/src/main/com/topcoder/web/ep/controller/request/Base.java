@@ -158,7 +158,7 @@ public abstract class Base extends LongHibernateProcessor {
      */
     protected void setClassroom(Classroom classroom) {
         log.debug("set " + classroom.getName() + " classroom in session");
-        getRequest().getSession().setAttribute(Constants.CLASSROOMS, classroom);
+        getRequest().getSession().setAttribute(Constants.CLASSROOM, classroom);
     }
     
     /**
