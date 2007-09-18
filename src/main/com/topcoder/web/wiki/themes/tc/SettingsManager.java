@@ -1,6 +1,7 @@
 package com.topcoder.web.wiki.themes.tc;
 
 import com.atlassian.bandana.BandanaManager;
+import com.atlassian.confluence.setup.bandana.ConfluenceBandanaContext;
 
 /**
  * @author dok
@@ -28,7 +29,7 @@ public class SettingsManager {
      */
 
     public LeftNavSettings getPageThemeSettings(String spaceKey, String pageTitle) {
-        return (LeftNavSettings) bandanaManager.getValue(new PageBandanaContext(spaceKey, pageTitle), THEMEKEY, false);
+        return (LeftNavSettings) bandanaManager.getValue(new ConfluenceBandanaContext(spaceKey), THEMEKEY, false);
     }
 
 
@@ -45,7 +46,7 @@ public class SettingsManager {
         if (pageTitle==null) {
             throw new IllegalArgumentException("pageTitle can not be null");
         }
-        bandanaManager.setValue(new PageBandanaContext(spaceKey, pageTitle), THEMEKEY, settings);
+        bandanaManager.setValue(new ConfluenceBandanaContext(spaceKey), THEMEKEY, settings);
     }
 
     public void setBandanaManager(BandanaManager bandanaManager) {
