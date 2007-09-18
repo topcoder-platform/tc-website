@@ -261,6 +261,7 @@
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/assignmentdocuments/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/bean/DataInterfaceBean.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/common/PactsConstants.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/common/model/AssignmentDocumentType.class"/>
         </jar>
     </target>
 
@@ -1361,7 +1362,7 @@
             </webinf>
             <webinf dir="${java}/com/topcoder/web/codinginterface/longcontest/view/">
                 <include name="tags/*.tag"/>
-            </webinf>            
+            </webinf>
             <lib dir="${struts.dir}">
                 <include name="*.jar"/>
             </lib>
