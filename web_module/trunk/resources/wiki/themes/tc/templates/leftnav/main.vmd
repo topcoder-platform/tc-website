@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>$title - #siteTitle()</title>
-    ##standardHeader()
+    #standardHeader()
     $!settingsManager.globalSettings.customHtmlSettings.beforeHeadEnd
     <link type="text/css" rel="stylesheet" href="/css/tcStyles.css" />
     <link type="text/css" rel="stylesheet" href="/css/coders.css" />
