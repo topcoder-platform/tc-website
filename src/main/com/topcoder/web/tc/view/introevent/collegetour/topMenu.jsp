@@ -19,12 +19,16 @@
         <tc-webtag:ifLink useLink="${active!='algo_info'}" text="Instructions" link="/tc?module=IntroEventAlgoInfo&eid=${algoEventId}"/>
         |
         <tc-webtag:ifLink useLink="${active!='algo_reg'}" text="Registration" link="/tc?module=IntroEventViewRegister&eid=${algoEventId}"/>
-        |
-        <tc-webtag:ifLink useLink="${active!='algo_viewreg'}" text="Registrants" link="/tc?module=IntroEventViewRegistrants&eid=${algoEventId}"/>
-        <c:if test="${mainEvent.config[showResults].value=='true'}">
-            |
-            <tc-webtag:ifLink useLink="${active!='algo_results'}" text="Results" link="/tc?module=IntroEventAlgoResults&eid=${algoEventId}"/>
-        </c:if>
+        <c:choose>
+            <c:when test="${mainEvent.config[showResults].value=='true'}">
+                |
+                <tc-webtag:ifLink useLink="${active!='algo_results'}" text="Results" link="/tc?module=IntroEventAlgoResults&eid=${algoEventId}"/>
+             </c:when>
+            <c:otherwise>
+                |
+                <tc-webtag:ifLink useLink="${active!='algo_viewreg'}" text="Registrants" link="/tc?module=IntroEventViewRegistrants&eid=${algoEventId}"/>
+            </c:otherwise>
+        </c:choose>        
         <br/>
         <br/>
     </c:if>
