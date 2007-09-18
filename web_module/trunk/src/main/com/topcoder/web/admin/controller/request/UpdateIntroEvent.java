@@ -95,7 +95,6 @@ public class UpdateIntroEvent extends IntroEventBase {
                 IntroEventConfig iec = null;
                 if (updating) {
                     iec = ie.getConfig(prop.getId());
-                    iec.setValue(value);
                 }
                 if (iec == null) {
                     iec = new IntroEventConfig();
