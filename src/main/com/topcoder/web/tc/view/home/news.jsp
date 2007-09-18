@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="TopCoder Surveys" border="0" /><br>09.18.07<br>11:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=ViewSurvey&sid=10781">TC Channel Survey</A></span><br><br>
+        What would you like to see in future episodes of the TC Channel? Take this simple survey, and let us know -- and watch for the September edition of the show, coming next week.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=ViewSurvey&sid=10781">details</a> | 
+        <tc-webtag:forumLink forumID="517421" message="discuss this" /> | 
+        <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.17.07<br>4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=ViewSurvey&sid=19443">Vote for the TCCC07 T-shirts</A></span><br><br>
@@ -11,7 +24,7 @@
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tc?module=ViewSurvey&sid=19443">details</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=90">discuss this</a> |
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=90">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
@@ -163,18 +176,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm364">full story</A> | 
          <tc-webtag:forumLink forumID="516061" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.10.07<br>4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2127">Design the TCO08 logo</A></span><br><br>
-        The contest to design the logo for the 2008 TopCoder Open is now underway at TopCoder Studio. The contest will award cash prizes of $5,000 to up six competitors. Submissions are due in just one week, so don't delay.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2127">details</A> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=94">discuss this</a> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
