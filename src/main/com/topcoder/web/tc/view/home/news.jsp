@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.18.07<br>4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description' refer='/tc' />">Last call for blog entries</A></span><br><br>
+        It's not too late to win a trip to blog about the TCCC from Disney World, but time is running out. Get your entries in by Wednesday, September 19 at 10:00 AM EDT.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="517257" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="TopCoder Surveys" border="0" /><br>09.18.07<br>11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=ViewSurvey&sid=10781">TC Channel Survey</A></span><br><br>
@@ -160,21 +173,5 @@
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm38">full story</A> | 
          <tc-webtag:forumLink forumID="516564" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.11.07<br>10:45 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm364">SRM 364 - Problem Set &amp; Analysis</A></span><br><br>
-      After nearly a month since the previous SRM, SRM 364 kicked off in high gear with 1164 competitors ready for action.  The long break did not seem to affect these brave souls, and many were shouting "Woohoo!" as their code passed the system tests.</td>
-         <td class="newsPhoto">&nbsp;<br>by <tc-webtag:handle coderId="7296000" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm364">full story</A> | 
-         <tc-webtag:forumLink forumID="516061" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
