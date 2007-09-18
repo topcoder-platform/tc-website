@@ -21,9 +21,12 @@ public class Constants implements WebConstants {
 
     public static final String USER = "activeUser";
     public static final String SCHOOL = "school";
+    public static final String CLASSROOM = "classroom";
     public static final String CLASSROOMS = "classrooms";
+    public static final String STUDENTS = "students";
     public static final String SCHOOL_ID = "schid";
     public static final String CLASSROOM_ID = "clsid";
+    public static final String STUDENT_ID = "stid";
     public static String SCHOOL_NAME;
 
     public static int MAX_SCHOOL_NAME_LENGTH;

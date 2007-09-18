@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@ page import="com.topcoder.web.ep.Constants"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
@@ -10,11 +11,20 @@
     <head>
         <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>View Classroom details</title>
+        <title>Edit Classroom Students Confirmation</title>
+    
+        <script type="text/javascript">
+            function submit() {
+                var myForm = document.f;
+                myForm.submit();
+            }
+        </script>
     </head>
     
     
     <body>
+        <form name="f" action="${sessionInfo.servletPath}" method="post">
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditClassroomSubmit"/><br/>
         Professor: ${classroom.professor.user.lastName}, ${classroom.professor.user.firstName}
         <br/>
         Classroom: ${classroom.name}
@@ -26,39 +36,24 @@
         
         <c:choose>
             <c:when test="${not empty activeStudents}">
-                Active Students:
+                Selected Students:
                 <table> 
-                    <tr><td>Student name</td><td>&nbsp;</td></tr>
-                    <c:forEach items="${activeStudents}" var="student">                
+                    <tr><td>Student name</td></tr>
+                    <c:forEach items="${students}" var="student">                
                         <tr>
                             <td>${student.user.lastName}, ${student.user.firstName}</td>
-                            <td><a href="">delete</a></td>
                         </tr>
                     </c:forEach>
                 </table>
             </c:when>
             <c:otherwise>
-                There are no active students in this classroom.
+                No students were selected for this classroom.
             </c:otherwise>
         </c:choose>
         <br/>
-        <c:choose>
-            <c:when test="${not empty pendingStudents}">
-                Pending Students:
-                <table> 
-                    <tr><td>Student name</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-                    <c:forEach items="${pendingStudents}" var="student">                
-                        <tr>
-                            <td>${student.user.lastName}, ${student.user.firstName}</td>
-                            <td><a href="">activate</a></td>
-                            <td><a href="">delete</a></td>
-                        </tr>
-                    </c:forEach>
-                </table>
-            </c:when>
-            <c:otherwise>
-                There are no pending students in this classroom.
-            </c:otherwise>
-        </c:choose>
+            <p>
+                <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Continue</a>
+            </p>
+        </form>            
     </body>
 </html>

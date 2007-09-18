@@ -25,6 +25,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import com.topcoder.web.common.model.Base;
+import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.User;
 
@@ -97,12 +98,19 @@ public class Professor extends Base {
         this.classrooms = classrooms;
     }
 
-//  public Set getStudents() {
-//  return Collections.unmodifiableSet(students);
-//}
-//
-//public void setStudents(Set students) {
-//  this.students = students;
-//}
+    public void addClassrooms(Classroom classroom) {
+        this.classrooms.add(classroom);
+    }
 
+    public Set<Coder> getStudents() {
+        Set<Coder> cs = new HashSet<Coder>();
+        for (Classroom c : this.classrooms) {
+            for (StudentClassroom sc : c.getStudentClassrooms()) {
+                if (!cs.contains(sc.getId().getStudent())) {
+                    cs.add(sc.getId().getStudent());
+                }
+            }
+        }
+        return Collections.unmodifiableSet(cs);
+    }
 }

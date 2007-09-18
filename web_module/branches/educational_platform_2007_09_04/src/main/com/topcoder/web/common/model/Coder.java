@@ -39,7 +39,7 @@ public class Coder extends Base {
     private Set ratings;
 
 //    private Set professors;
-    private Set studentClassrooms;
+    private Set<StudentClassroom> studentClassrooms;
 
     public Coder() {
         this.resumes = new HashSet();
@@ -48,7 +48,7 @@ public class Coder extends Base {
         this.createdSchools = new HashSet();
         this.ratings = new HashSet();
 //        this.professors = new HashSet();
-        this.studentClassrooms = new HashSet();
+        this.studentClassrooms = new HashSet<StudentClassroom>();
     }
 
 
@@ -211,7 +211,7 @@ public class Coder extends Base {
     public Set getProfessors() {
 //        return Collections.unmodifiableSet(professors);
         Set<Professor> ps = new HashSet<Professor>();
-        for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
+        for (StudentClassroom sc : this.studentClassrooms) {
             if (sc.getStatusId().equals(StudentClassroom.PENDING_STATUS) ||
                     sc.getStatusId().equals(StudentClassroom.ACTIVE_STATUS)) {
                 ps.add(sc.getId().getClassroom().getProfessor());
@@ -243,7 +243,7 @@ public class Coder extends Base {
 
     public Set getClassrooms(Long statusId) {
         Set<Classroom> cs = new HashSet<Classroom>();
-        for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
+        for (StudentClassroom sc : this.studentClassrooms) {
             if (sc.getStatusId().equals(statusId)) {
                 cs.add(sc.getId().getClassroom());
             }

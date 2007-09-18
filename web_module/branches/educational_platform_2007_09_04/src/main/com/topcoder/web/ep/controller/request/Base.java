@@ -12,6 +12,7 @@ import java.util.Set;
 import com.topcoder.web.common.LongHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
@@ -124,6 +125,54 @@ public abstract class Base extends LongHibernateProcessor {
             }
         }
         return new HashSet<Classroom>(selectedClassrooms);
+    }
+    
+    /**
+     * Set the selected students in the current request processor.  
+     *
+     * @param selectedStudents the selected students to set
+     */
+    protected void setSelectedStudents(List<Coder> selectedStudents) {
+        getRequest().getSession().setAttribute(Constants.STUDENTS, selectedStudents);
+    }
+    
+    /**
+     * Get the selected students in the current request processor. 
+     */
+    protected Set<Coder> getSelectedStudents() {
+        List<Coder> selectedStudents = (List<Coder>) getRequest().getSession().getAttribute(Constants.STUDENTS);
+        if (selectedStudents == null) {
+                throw new RuntimeException("Couldn't find selected students in the session");
+        } else {
+            if (log.isDebugEnabled()) {
+                log.debug("got " + selectedStudents.size() + " selected students from session");
+            }
+        }
+        return new HashSet<Coder>(selectedStudents);
+    }
+    
+    /**
+     * Set the classrooms in the current request processor.  
+     *
+     * @param classrooms the classrooms to set
+     */
+    protected void setClassroom(Classroom classrooms) {
+        getRequest().getSession().setAttribute(Constants.CLASSROOMS, classrooms);
+    }
+    
+    /**
+     * Get the classroomss in the current request processor. 
+     */
+    protected Classroom getClassroom() {
+        Classroom classrooms = (Classroom) getRequest().getSession().getAttribute(Constants.CLASSROOM);
+        if (classrooms == null) {
+                throw new RuntimeException("Couldn't find classrooms in the session");
+        } else {
+            if (log.isDebugEnabled()) {
+                log.debug("got " + classrooms.getName() + " classrooms from session");
+            }
+        }
+        return classrooms;
     }
     
     
