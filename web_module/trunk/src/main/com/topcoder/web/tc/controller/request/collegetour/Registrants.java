@@ -1,7 +1,5 @@
 package com.topcoder.web.tc.controller.request.collegetour;
 
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.web.tc.Constants;
 
 /**
  * @author dok
