@@ -155,8 +155,7 @@ public class Classroom {
     @Transient
     public void deactivateStudent(Coder s) {
         for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
-            if (sc.getId().getStudent().getId().equals(s.getId()) && 
-                    sc.getStatusId().equals(StudentClassroom.ACTIVE_STATUS)) {
+            if (sc.getId().getStudent().getId().equals(s.getId())) {
                 sc.setStatusId(StudentClassroom.INACTIVE_STATUS);
             }
         }
@@ -165,8 +164,7 @@ public class Classroom {
     @Transient
     public void activateStudent(Coder s) {
         for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
-            if (sc.getId().getStudent().getId().equals(s.getId()) && 
-                    !sc.getStatusId().equals(StudentClassroom.ACTIVE_STATUS)) {
+            if (sc.getId().getStudent().getId().equals(s.getId())) {
                 sc.setStatusId(StudentClassroom.ACTIVE_STATUS);
             }
         }

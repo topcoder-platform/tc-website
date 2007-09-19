@@ -40,6 +40,11 @@
                         <tr>
                             <td>${student.user.lastName}, ${student.user.firstName}</td>
                             <td>
+                                    <c:forEach items="${checked_students}" var="chkStudent">
+                                        ${chkStudent} - ${student.id} - ${cf:contains(checked_students, student.id)}
+                                    </c:forEach>
+                            <br/>
+                            
                                 <c:choose>
                                     <c:when test="${not empty checked_students && cf:contains(checked_students, student.id)}">
                                        <input type="checkbox" name="stid" value="${student.id}" checked="checked"></c:when>

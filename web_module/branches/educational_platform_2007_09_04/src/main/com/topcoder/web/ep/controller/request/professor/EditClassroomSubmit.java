@@ -53,7 +53,7 @@ public class EditClassroomSubmit extends Base {
             // four possibilities:
             // 1 - selected student is not in the collection -> add it as active
             // 2 - selected student is in the collection -> leave it and change its status to active only if it is inactive
-            // 3 - not selected student is in the collection -> leave it and change its status to inactive
+            // 3 - not selected student is in the collection (pending or active) -> leave it and change its status to inactive
             // 4 - not selected student is not in the collection -> don't do anything
             
             for (Coder s : students) {
@@ -79,7 +79,13 @@ public class EditClassroomSubmit extends Base {
             // 3
             for (Coder s : classroom.getStudents(StudentClassroom.ACTIVE_STATUS)) {
                 if (!students.contains(s)) {
-                    log.debug("Deactivation" + s.getUser().getHandle());
+                    log.debug("Deactivating " + s.getUser().getHandle());
+                    classroom.deactivateStudent(s);
+                }
+            }
+            for (Coder s : classroom.getStudents(StudentClassroom.PENDING_STATUS)) {
+                if (!students.contains(s)) {
+                    log.debug("Deactivating " + s.getUser().getHandle());
                     classroom.deactivateStudent(s);
                 }
             }
