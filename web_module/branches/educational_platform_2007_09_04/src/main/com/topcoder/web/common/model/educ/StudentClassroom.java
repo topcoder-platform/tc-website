@@ -122,7 +122,6 @@ public class StudentClassroom extends Base {
         final int PRIME = 31;
         int result = 1;
         result = PRIME * result + ((id == null) ? 0 : id.hashCode());
-        result = PRIME * result + ((statusId == null) ? 0 : statusId.hashCode());
         return result;
     }
 
@@ -142,11 +141,6 @@ public class StudentClassroom extends Base {
             if (other.id != null)
                 return false;
         } else if (!id.equals(other.id))
-            return false;
-        if (statusId == null) {
-            if (other.statusId != null)
-                return false;
-        } else if (!statusId.equals(other.statusId))
             return false;
         return true;
     }
