@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.19.07<br>4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=SurveyResults&sid=19443">TCCC07 T-shirt winner</A></span><br><br>
+        We've got a winner in the TCCC07 T-shirt contest. Congratulations to <tc-webtag:handle coderId="14940030" />, who not only took first place but came in third as well.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=SurveyResults&sid=19443">details</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=902&start=0&mc=1#3402">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.19.07<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         TCCC07 Component <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a> &amp; <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a> finalists updated</span><br><br>
@@ -163,19 +176,5 @@
          <A href="/tc?module=Static&d1=features&d2=091307">full story</A> | 
          <tc-webtag:forumLink forumID="517344" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.13.07<br>1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        TCCC07 Component <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a> &amp; <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a> finalists</span><br><br>
-        The finalists for the 2007 TopCoder Collegiate Challenge Component <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a> &amp; <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a> competitions are now online. Congratulations!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">design</a> | 
-        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">development</a> | 
-        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
