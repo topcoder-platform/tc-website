@@ -82,15 +82,15 @@ public class EditClassroom extends Base {
                 } else if (userLoggedIn()) {
                     String classroomName = StringUtils.checkNull(getRequest().getParameter("classroom_name"));
                     if (classroomName == "") {
-                        addError("classroom_name", "Please enter a name");
+                        addError("error", "Please enter a name");
                     }
                     String classroomAcademicPeriod = StringUtils.checkNull(getRequest().getParameter("classroom_academic_period"));
                     if (classroomAcademicPeriod == "") {
-                        addError("classroom_name", "Please enter a name");
+                        addError("error", "Please enter a academic period");
                     }
                     String classroomDescription = StringUtils.checkNull(getRequest().getParameter("classroom_description"));
                     if (classroomDescription == "") {
-                        addError("classroom_name", "Please enter a name");
+                        addError("error", "Please enter a description");
                     }
                     // got a response, validate.
                     
