@@ -39,10 +39,11 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">09.13.07 1:00 PM - </td><td width="100%">TCCC07 Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a> &amp; <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a> finalists updated</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.18.07 4:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description">Last call for blog entries</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.17.07 4:30 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=19443">Vote for the TCCC07 T-shirts</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.14.07 1:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 3 set for September 15</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">09.13.07 1:00 PM - </td><td width="100%">TCCC07 Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a> &amp; <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a> finalists</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.13.07 1:00 PM - </td><td width="100%">TCCC07 Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a> &amp; <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a> finalists</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.11.07 3:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa">Visa invitation letter deadline approaching</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.11.07 1:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly">Eli Lilly chat before SRM 365</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.10.07 4:30 PM - </td><td width="100%"><A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2127">Design the TCO08 logo</A></td></tr>

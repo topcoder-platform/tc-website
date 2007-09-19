@@ -52,10 +52,18 @@
                        </tr>
                     </table>
                     <p align="center">
+                        Component Design Alternates:<br /><br />
+                        <tc-webtag:handle coderId="20256177" context="design" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="275640" context="design" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="15540298" context="design" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="8419911" context="design" darkBG="true" />
+                    </p>
+                    <p>&nbsp</p>
+                    <p align="center">
                         The Review Board for the<br />TCCC07 Component Design Finals:<br /><br />
                         <tc-webtag:handle coderId="277356" context="design" darkBG="true" /><br />
-                        <tc-webtag:handle coderId="152342" context="design" darkBG="true" /><br />
-                        <tc-webtag:handle coderId="151743" context="design" darkBG="true" />
+                        <tc-webtag:handle coderId="151743" context="design" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="152342" context="design" darkBG="true" />
                     </p>
                 </div>
 
