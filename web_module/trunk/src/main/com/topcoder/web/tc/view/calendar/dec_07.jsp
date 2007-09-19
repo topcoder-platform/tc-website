@@ -110,6 +110,11 @@
          </div>
       </td>
       <td class="value">12
+         <div class="long">
+         <strong><A href="/tc?module=MatchDetails&rd=10933">Marathon Match 27</A></strong><br>
+         12:00 NOON<br>
+         1 week
+         </div>
       </td>
       <td class="value">13
          <div class="des_dev">
