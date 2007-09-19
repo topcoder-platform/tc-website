@@ -36,11 +36,11 @@ public class LeftNavVelocityHelper {
                 log.debug("bandana manager null");
             }
             SettingsManager settingsManager = new SettingsManager(bandanaManager);
-            LeftNavSettings settings = settingsManager.getPageThemeSettings(spaceKey, pageTitle);
+            LeftNavSettings settings = settingsManager.getSpaceThemeSettings(spaceKey);
 
             String node= null;
             if (settings!=null) {
-                node = settings.getNavKey();
+                node = settings.getNavKey(pageTitle);
             }
 
             StringBuilder buf = new StringBuilder(100);
