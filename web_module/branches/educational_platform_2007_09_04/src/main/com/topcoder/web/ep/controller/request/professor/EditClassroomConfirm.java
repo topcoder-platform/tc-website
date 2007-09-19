@@ -47,17 +47,22 @@ public class EditClassroomConfirm extends Base {
             String[] values = getRequest().getParameterValues(Constants.STUDENT_ID);
             
             // add selected students to the session
-            List<Coder> selectedStudents = new ArrayList<Coder>(values.length); 
-            for (String value : values) {
-                Coder s = null;
-                if (value != null) {
-                    try {
-                        s = getFactory().getCoderDAO().find(Long.parseLong(value));
-                    } catch (NumberFormatException e) {
-                        // just drop this selection
+            List<Coder> selectedStudents;
+            if (values != null) {
+                selectedStudents = new ArrayList<Coder>(values.length); 
+                for (String value : values) {
+                    Coder s = null;
+                    if (value != null) {
+                        try {
+                            s = getFactory().getCoderDAO().find(Long.parseLong(value));
+                        } catch (NumberFormatException e) {
+                            // just drop this selection
+                        }
+                        selectedStudents.add(s);
                     }
-                    selectedStudents.add(s);
                 }
+            } else {
+                selectedStudents = new ArrayList<Coder>();
             }
             setSelectedStudents(selectedStudents);
             
