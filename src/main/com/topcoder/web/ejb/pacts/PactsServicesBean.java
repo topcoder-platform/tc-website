@@ -5884,7 +5884,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 ResultSetContainer rsc = runSelectQuery(query, false);
 
                 if (rsc.getItem(0, "amount_paid").getResultData() == null) {
-                    throw new DevSupportException("Can't find any previous payment for design project " + projectId);
+                    throw new DevSupportException("Can't find any previous payment for design project " + designProject);
                 }
 
                 int installment = rsc.getIntItem(0, "installment_number") + 1;
