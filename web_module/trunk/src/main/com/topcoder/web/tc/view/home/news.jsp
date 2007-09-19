@@ -7,7 +7,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.19.07<br>4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=SurveyResults&sid=19443">TCCC07 T-shirt winner</A></span><br><br>
-        We've got a winner in the TCCC07 T-shirt contest. Congratulations to <tc-webtag:handle coderId="14940030" />, who not only took first place but came in third as well.</td>
+        We've got a winner in the TCCC07 T-shirt contest. Congratulations to <tc-webtag:handle coderId="14940030" />, who won not only the vote, but took second place as well.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tc?module=SurveyResults&sid=19443">details</a> | 
