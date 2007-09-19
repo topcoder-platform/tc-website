@@ -6,9 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
@@ -79,6 +78,7 @@ public class StudentClassroom extends Base {
         }
 
         @OneToOne (mappedBy="student")
+        @JoinColumn(name="student_id")
         @Cascade( {CascadeType.ALL} )
         public Coder getStudent() {
             return student;
@@ -89,6 +89,7 @@ public class StudentClassroom extends Base {
         }
 
         @OneToOne (mappedBy="classroom")
+        @JoinColumn(name="classroom_id")
         @Cascade( {CascadeType.ALL} )
         public Classroom getClassroom() {
             return classroom;
