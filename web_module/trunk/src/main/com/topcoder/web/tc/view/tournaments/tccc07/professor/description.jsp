@@ -41,7 +41,7 @@
                 <p>The top three winning members and professors win an expenses-paid trip to Orlando, including airfare, hotel and meals paid for by TopCoder.</p>
                 
                 <h2>Important dates</h2>
-                <p>Submit your entry now! The deadline for submission is Monday, September 17, 2007, at 5:00 PM EDT. Submissions received after that time will not be considered. The online voting will take place from September 24 - 28. The lucky winners will be announced on the website and via email on October 1, 2007.</p>
+                <p>Submit your entry now! The deadline for submission is Friday, September 21, 2007, at 5:00 PM EDT. Submissions received after that time will not be considered. The online voting will take place from September 24 - 28. The lucky winners will be announced on the website and via email on October 1, 2007.</p>
                 
                 <h2>Rules</h2>
                 <p>Each eligible member may make only one submission. Submissions must meet the following criteria to be considered:</p>
