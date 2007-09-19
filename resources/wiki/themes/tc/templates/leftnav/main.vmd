@@ -5,6 +5,7 @@
     <title>$title - #siteTitle()</title>
     ##standardHeader()
     $!settingsManager.globalSettings.customHtmlSettings.beforeHeadEnd
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <link type="text/css" rel="stylesheet" href="/css/tcStyles.css" />
     <link type="text/css" rel="stylesheet" href="/css/coders.css" />
     <link type="text/css" rel="stylesheet" href="/css/wiki.css" />
