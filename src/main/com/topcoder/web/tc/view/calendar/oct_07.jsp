@@ -96,6 +96,11 @@
          </div>
       </td>
       <td class="value">10
+         <div class="long">
+         <strong><A href="/tc?module=MatchDetails&rd=10930">Marathon Match 24</A></strong><br>
+         12:00 NOON<br>
+         2 weeks
+         </div>
       </td>
       <td class="value">11
          <div class="des_dev">

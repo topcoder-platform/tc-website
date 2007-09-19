@@ -205,6 +205,11 @@
       <td class="value">25
       </td>
       <td class="value">26
+         <div class="long">
+         <strong><A href="/tc?module=MatchDetails&rd=10929">Marathon Match 23</A></strong><br>
+         12:00 NOON<br>
+         1 week
+         </div>
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10783">SRM 367</A></strong><br>
          <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank</A><br>
