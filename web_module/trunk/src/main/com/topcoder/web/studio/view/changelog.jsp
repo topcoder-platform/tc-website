@@ -29,6 +29,15 @@
 <h1>Studio Website Changelog</h1>
 
 <p>
+    2.1.1 - 2007.09.19
+    <ul>
+        <li>When submissions are not available we will no longer allow the winner to be downloaded. -dok</li>
+    </ul>
+
+</p>
+
+
+<p>
     2.1.0 - 2007.09.06
     <ul>
         <li>Single Sign On -dok</li>
