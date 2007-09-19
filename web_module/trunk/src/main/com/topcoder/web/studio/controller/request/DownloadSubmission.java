@@ -45,8 +45,12 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             throw new NavigationException("Submissions are not available until the contest is over.");
         }
 
-        //we link to winners on the home page, so that's why people can download the winning submission.
+
+/*
+   we used link to winners on the home page and let people downloa the winning submission...not anymore
         if (isWinner || "true".equals(s.getContest().getViewableSubmissions().getValue()) || isOwner) {
+*/
+        if ("true".equals(s.getContest().getViewableSubmissions().getValue()) || isOwner) {
 
             //create the file input stream first so that if there is a problem, we'll get the error and be able to go
             //to an error page.  if we work with the output stream, we won't be able to do that.
