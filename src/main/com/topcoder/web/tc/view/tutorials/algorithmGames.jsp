@@ -57,7 +57,8 @@
                 <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br>
                 </span> <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br>
                 </span>
-                <tc-webtag:forumLink forumID="515870" message="Discuss this article" />
+                <tc-webtag:forumLink forumID="515870" message="Discuss this article" /><br />
+                <a href="/tc?module=Static&d1=help&d2=writeForTC">Write for TopCoder</a>
             </div>
             
             <span class="bigTitle">Algorithm Games</span>

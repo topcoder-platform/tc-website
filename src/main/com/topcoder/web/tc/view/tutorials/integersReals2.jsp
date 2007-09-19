@@ -5,13 +5,11 @@
 <html>
 <head>
 <title>Algorithm Tutorials</title>
-<%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:include page="../script.jsp" />
-    <jsp:include page="/style.jsp">
-      <jsp:param name="key" value="tc_main"/>
-    </jsp:include>
-    
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_main"/>
+</jsp:include>
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 <style type="text/css">
 .code
 {
@@ -25,53 +23,44 @@
    background-color: #EEEEEE;
    border: 1px solid #999;
 }
-.math    
-{ 
-	font-family: "Century Schoolbook", serif;
-}
-.GAtableText
+.math
 {
-   color: #333;
-   font-size: 11px;
+   font-family: times, times new roman, serif;
    font-weight: normal;
-   line-height: 14px;
+   font-style: italic;
+   font-size: 14px;
 }
-.GAtableText
-{
-	background-color: #EEEEEE;
-}
-
 </style>
 </head>
-
 <body>
-
-<jsp:include page="../top.jsp" >
+<div id="onTop">
+    <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
-</jsp:include>
-
+    </jsp:include>
+</div>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
-<!-- Left Column Begins-->
-        <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-             <jsp:param name="node" value="algo_tutorials"/>
-          </jsp:include>
+    <tr valign="top">
+        <!-- Left Column Begins-->
+        <td width="180" id="onLeft"><jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="algo_tutorials"/>
+            </jsp:include>
         </td>
-<!-- Left Column Ends -->
-
-<!-- Center Column Begins -->
-         <td width="100%" align="center">
-
-         <div class="tutorBodyFull">
-
-<jsp:include page="../page_title.jsp" >
-   <jsp:param name="image" value="alg_tut"/>
-   <jsp:param name="title" value="&#160;"/>
-</jsp:include>
-
-<div style="float: right;"><tc-webtag:forumLink forumID="505889" message="Discuss this article" /></div>
-<span class="bodyTitle">Representation of Integers and Reals</span>
+        <!-- Left Column Ends -->
+        <!-- Center Column Begins -->
+        <td width="100%" align="left" class="bodyColumn">
+            <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="alg_tut"/>
+            <jsp:param name="title" value="&#160;"/>
+            </jsp:include>
+            <div class="linkBox">
+                <A href="/tc?module=Static&d1=tutorials&d2=alg_index">Archive</A><br />
+                <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br /></span>
+                <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br /></span>
+                <tc-webtag:forumLink forumID="505889" message="Discuss this article" /><br />
+                <a href="/tc?module=Static&d1=help&d2=writeForTC">Write for TopCoder</a>
+            </div>
+            
+<span class="bodyTitle">Representation of Integers and Reals, Part 2</span>
 
 <p>
 <img src="/i/m/misof_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
@@ -432,15 +421,14 @@ Thus even if you have two identical pieces of code, you can't be sure that they 
 <li><A NAME="tex2html29" HREF="http://docs.sun.com/source/806-3568/ncg_goldberg.html">What Every Computer Scientist Should Know About Floating-Point Arithmetic</A> (a pretty long article by David Goldberg)</li>
 </ul>
 
-        </div>
-        <p><br/></p>
+<p>&nbsp</p>
         </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-         <td width="170">
+         <td width="170" id="onRight">
             <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+               <jsp:param name="level1" value="defaults"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->
@@ -451,7 +439,9 @@ Thus even if you have two identical pieces of code, you can't be sure that they 
     </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 
