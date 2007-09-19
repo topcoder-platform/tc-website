@@ -134,7 +134,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 }
             }
         } catch (DevSupportException dse) {
-            addError(PROJECT_ID, dse.getMessage());
+            addError("dev_support_error", dse.getMessage());
         } catch (NumberFormatException e) {
             addError(PROJECT_ID, "Error: Please enter a value for project id");
         } catch (IllegalUpdateException e) {
