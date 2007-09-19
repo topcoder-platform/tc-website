@@ -1,17 +1,17 @@
 package com.topcoder.web.common.model.educ;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
+//
+//import javax.persistence.Column;
+//import javax.persistence.Embeddable;
+//import javax.persistence.Entity;
+//import javax.persistence.Id;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.OneToOne;
+//import javax.persistence.Table;
+//
+//import org.hibernate.annotations.Cascade;
+//import org.hibernate.annotations.CascadeType;
 
 import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.Coder;
@@ -22,8 +22,8 @@ import com.topcoder.web.common.model.Coder;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: July 6, 2006
  */
-@Entity
-@Table(name="student_classroom_xref")
+//@Entity
+//@Table(name="student_classroom_xref")
 public class StudentClassroom extends Base {
 
     public static final Long PENDING_STATUS = 1l;
@@ -46,7 +46,7 @@ public class StudentClassroom extends Base {
 //    @AttributeOverrides( {
 //        @AttributeOverride(name="student", column=@Column(name="student_id", nullable=false) ), 
 //        @AttributeOverride(name="classroom", column=@Column(name="classroom_id", nullable=false) ) } )
-    @Id
+//    @Id
     public Identifier getId() {
         return id;
     }
@@ -55,7 +55,7 @@ public class StudentClassroom extends Base {
         this.id = id;
     }
 
-    @Column(name="status_id")
+//    @Column(name="status_id")
     public Long getStatusId() {
         return statusId;
     }
@@ -64,7 +64,7 @@ public class StudentClassroom extends Base {
         this.statusId = statusId;
     }
 
-    @Embeddable
+//    @Embeddable
     public static class Identifier implements Serializable {
         private Coder student;
         private Classroom classroom;
@@ -77,9 +77,9 @@ public class StudentClassroom extends Base {
         public Identifier() {
         }
 
-        @OneToOne (targetEntity=com.topcoder.web.common.model.Coder.class, mappedBy="student")
-        @JoinColumn(name="student_id")
-        @Cascade( {CascadeType.ALL} )
+//        @OneToOne (targetEntity=com.topcoder.web.common.model.Coder.class, mappedBy="student")
+//        @JoinColumn(name="student_id")
+//        @Cascade( {CascadeType.ALL} )
         public Coder getStudent() {
             return student;
         }
@@ -88,9 +88,9 @@ public class StudentClassroom extends Base {
             this.student = student;
         }
 
-        @OneToOne (targetEntity=com.topcoder.web.common.model.educ.Classroom.class, mappedBy="classroom")
-        @JoinColumn(name="classroom_id")
-        @Cascade( {CascadeType.ALL} )
+//        @OneToOne (targetEntity=com.topcoder.web.common.model.educ.Classroom.class, mappedBy="classroom")
+//        @JoinColumn(name="classroom_id")
+//        @Cascade( {CascadeType.ALL} )
         public Classroom getClassroom() {
             return classroom;
         }
