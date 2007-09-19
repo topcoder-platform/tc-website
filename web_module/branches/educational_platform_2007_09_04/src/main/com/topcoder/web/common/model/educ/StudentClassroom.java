@@ -2,12 +2,14 @@ package com.topcoder.web.common.model.educ;
 
 import java.io.Serializable;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.Coder;
@@ -38,10 +40,11 @@ public class StudentClassroom extends Base {
         this.statusId = statusId;
     }
 
-    @EmbeddedId
-    @AttributeOverrides( {
-        @AttributeOverride(name="student", column=@Column(name="student_id", nullable=false) ), 
-        @AttributeOverride(name="classroom", column=@Column(name="classroom_id", nullable=false) ) } )
+//    @EmbeddedId
+//    @AttributeOverrides( {
+//        @AttributeOverride(name="student", column=@Column(name="student_id", nullable=false) ), 
+//        @AttributeOverride(name="classroom", column=@Column(name="classroom_id", nullable=false) ) } )
+    @Id
     public Identifier getId() {
         return id;
     }
@@ -72,6 +75,8 @@ public class StudentClassroom extends Base {
         public Identifier() {
         }
 
+        @OneToMany(mappedBy="student")
+        @Cascade( {CascadeType.ALL} )
         public Coder getStudent() {
             return student;
         }
@@ -80,6 +85,8 @@ public class StudentClassroom extends Base {
             this.student = student;
         }
 
+        @OneToMany(mappedBy="classroom")
+        @Cascade( {CascadeType.ALL} )
         public Classroom getClassroom() {
             return classroom;
         }
