@@ -75,7 +75,7 @@
                            </tr>
                            <tr>
                                 <td>
-                                    <strong>Project</strong>
+                                    <strong>Design Project</strong>
                                 </td>         
                                 <td>               
                                     <strong>Coder</strong>
@@ -90,7 +90,7 @@
                                 <td><tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="designer"/>the designer</td>
                             </tr>
                             <tr>
-                                <td><tc-webtag:radioButton name="<%= GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="other"/>project: 
+                                <td><tc-webtag:radioButton name="<%= GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="other"/>project id: 
                                     <input type="text" name="<%= GenerateComponentPayments.DEV_SUPPORT_PROJECT_ID %>" maxlength="20" size="10" value="<%=devSupportProjectId%>"/>
                                 </td> 
                                 <td><tc-webtag:radioButton name="<%= GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="other"/>coder:
