@@ -6,12 +6,13 @@ import com.atlassian.confluence.pages.PageManager;
 import com.atlassian.confluence.spaces.Space;
 import com.atlassian.confluence.spaces.SpaceType;
 import com.atlassian.confluence.spaces.actions.AbstractSpaceAction;
-import com.opensymphony.xwork.ActionContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.StringUtils;
 
-import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * @author dok
@@ -22,7 +23,10 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
     private static final Logger log = Logger.getLogger(ConfigureThemeAction.class);
     private BandanaManager bandanaManager;
     private PageManager pageManager;
-    private List navKeys;
+    private Iterator<Map.Entry<String,  Iterator<Map.Entry<String, String>>>> navKeys;
+    private String pageTitle;
+    private String navKey;
+    private String spaceKey;
 
     /**
      * is excecuteted when you first enter the configuration page
@@ -43,18 +47,16 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
             Space s;
             Page p;
             List spaces = getSpaces();
-            navKeys=new ArrayList(spaces.size());
+            TreeMap<String,  Iterator<Map.Entry<String, String>>> temp =
+                    new TreeMap<String,  Iterator<Map.Entry<String, String>>>();
             for (Object o : spaces) {
                 s = (Space)o;
-                List pages = pageManager.getPages(s, true);
-                for (Object page : pages) {
-                    p = (Page)page;
-                    LeftNavSettings setting = settingsManager.getPageThemeSettings(s.getKey(), p.getTitle());
-                    if (setting!=null) {
-                        navKeys.add(setting);
-                    }
+                LeftNavSettings setting = settingsManager.getSpaceThemeSettings(s.getKey());
+                if (setting!=null && !setting.isEmpty()) {
+                    temp.put(s.getKey(), setting.iterator());
                 }
             }
+            navKeys=temp.entrySet().iterator();
             return INPUT;
         }
         finally {
@@ -70,30 +72,32 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
      */
     public String execute() throws Exception {
         log.debug("execute called");
-        // after submission of the form we will have to create a new settings manager
-        SettingsManager settingsManager = new SettingsManager(bandanaManager);
-        //preset the object we want to serialize with the values of the form fields.
 
-        Map params = ActionContext.getContext().getParameters();
+        if (!"".equals(StringUtils.checkNull(getPageTitle())) && !"".equals(StringUtils.checkNull(getSpaceKey()))) {
+            //a little lazy on the validation, we could check that the space and title actually exist
+            if (spaceManager.getSpace(getSpaceKey())!=null) {
+              if (pageManager.getPage(getSpaceKey(), getPageTitle()) !=null) {
 
-        Space s;
-        Page p;
-        String[] navKey;
-        for (Object o : getSpaces()) {
-            s = (Space)o;
-            List pages = pageManager.getPages(s, true);
-            for (Object page : pages) {
-                p = (Page)page;
-                navKey = (String[])params.get(s.getKey()+"_"+p.getTitle());
-                LeftNavSettings settings = new LeftNavSettings();
-                settings.setSpace(s.getKey());
-                settings.setPageTitle(p.getTitle());
-                //accessing the parameters directly because i can't figure out how to do it
-                //correctly within the framework with the autowiring
-                settings.setNavKey(navKey[0]);//we are assuming only 1 will be present
-                settingsManager.setPageThemeSettings(settings, s.getKey(), p.getTitle());
-
+                  SettingsManager settingsManager = new SettingsManager(bandanaManager);
+                  LeftNavSettings settings = settingsManager.getSpaceThemeSettings(getSpaceKey());
+                  if (settings ==null) {
+                      settings = new LeftNavSettings();
+                      settings.setSpace(getSpaceKey());
+                  }
+                  if ("".equals(StringUtils.checkNull(getNavKey()))) {
+                      settings.removeNavKey(getPageTitle());
+                  } else {
+                     settings.setNavKey(getPageTitle(), getNavKey());
+                  }
+                  settingsManager.setSpaceThemeSettings(settings, getSpaceKey());
+                  return SUCCESS;
+              } else {
+                  log.debug("page not found " + getPageTitle());
+              }
+            } else {
+                log.debug("space not found " + getSpaceKey());
             }
+
         }
 
         return SUCCESS;
@@ -107,17 +111,36 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
         this.bandanaManager = bandanaManager;
     }
 
-
     public void setPageManager(PageManager pageManager) {
         this.pageManager = pageManager;
     }
 
-    public List getNavKeys() {
+    public Iterator<Map.Entry<String,  Iterator<Map.Entry<String, String>>>> getNavKeys() {
         return navKeys;
     }
 
-    public void setNavKeys(List navKeys) {
-        this.navKeys = navKeys;
+
+    public String getPageTitle() {
+        return pageTitle;
     }
 
+    public void setPageTitle(String pageTitle) {
+        this.pageTitle = pageTitle;
+    }
+
+    public String getSpaceKey() {
+        return spaceKey;
+    }
+
+    public void setSpaceKey(String spaceKey) {
+        this.spaceKey = spaceKey;
+    }
+
+    public String getNavKey() {
+        return navKey;
+    }
+
+    public void setNavKey(String navKey) {
+        this.navKey = navKey;
+    }
 }
