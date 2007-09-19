@@ -8,6 +8,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <% ResultSetContainer results = (ResultSetContainer) request.getAttribute("results");%>
 <html>
@@ -130,25 +131,32 @@
         </td>
         <td class="valueC">
             <c:choose>
-                <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
-                    <div align="center">
-                        <strong>ID:</strong> <rsc:item name="submission_id" row="<%=resultRow%>"/>
-                        <div style="overflow: hidden; width: 300px;">
-                            <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
-                        </div>
-                    </div>
+                <c:when test="${resultRow.map['show_submissions']}">
+                    <c:choose>
+                        <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
+                            <div align="center">
+                                <strong>ID:</strong> <rsc:item name="submission_id" row="<%=resultRow%>"/>
+                                <div style="overflow: hidden; width: 300px;">
+                                    <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div align="center">
+                                <strong>ID:</strong> <rsc:item name="submission_id" row="<%=resultRow%>"/>
+                                <div id="pop<%=i%>" class="popUp">
+                                    <div>View submission</div>
+                                </div>
+                                <br />
+                                <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                                    <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
+                                </a>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
                 </c:when>
                 <c:otherwise>
-                    <div align="center">
-                        <strong>ID:</strong> <rsc:item name="submission_id" row="<%=resultRow%>"/>
-                        <div id="pop<%=i%>" class="popUp">
-                            <div>View submission</div>
-                        </div>
-                        <br />
-                        <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                            <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
-                        </a>
-                    </div>
+                    <img src="/i/layout/magnifyFade.gif" alt="" />
                 </c:otherwise>
             </c:choose>
         </td>

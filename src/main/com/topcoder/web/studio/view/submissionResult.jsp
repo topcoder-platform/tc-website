@@ -1,7 +1,7 @@
-<%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ page import="java.util.Map" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="studio.tld" prefix="studio" %>
@@ -59,14 +59,21 @@
 <div align="center" style="margin-bottom: 20px;">
     <div style="overflow: hidden; width: 300px;">
         <c:choose>
-            <c:when test="${submission.mimeType.fileType.imageFile}">
-                <studio_tags:submissionDisplay submissionId="${submission.id}" width="${submission.width}" height="${submission.height}"/>
+            <c:when test="${submission.contest.viewableSubmissions.value}">
+                <c:choose>
+                    <c:when test="${submission.mimeType.fileType.imageFile}">
+                        <studio_tags:submissionDisplay submissionId="${submission.id}" width="${submission.width}" height="${submission.height}"/>
+                    </c:when>
+                    <c:otherwise>
+                        <div id="popIt" class="popUp"><div>View submission</div></div>
+                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
+                            <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'popIt')" onmouseout="popHide()"/>
+                        </a>
+                    </c:otherwise>
+                </c:choose>
             </c:when>
             <c:otherwise>
-                <div id="popIt" class="popUp"><div>View submission</div></div>
-                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
-                    <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'popIt')" onmouseout="popHide()"/>
-                </a>
+                <img src="/i/layout/magnifyFade.gif" alt="" />
             </c:otherwise>
         </c:choose>
 

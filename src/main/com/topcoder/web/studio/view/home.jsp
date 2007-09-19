@@ -7,6 +7,7 @@
 <% ResultSetContainer recentWinners = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("recent_winners");%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <html>
 <head>
@@ -144,10 +145,17 @@
                                     <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
                                 </td>
                                 <td class="valueR">
-                                    <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-                                    <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                    <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()" />
-                                    </A>
+                                    <c:choose>
+                                        <c:when test="${resultRow.map['show_submissions']}">
+                                            <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
+                                            <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                                                <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()" />
+                                            </A>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <img src="/i/layout/magnify.gif" alt="" />
+                                        </c:otherwise>
+                                    </c:choose>
                                 </td>
                                 <td class="value">
                                     <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
