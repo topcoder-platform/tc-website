@@ -110,9 +110,9 @@ public class EditClassroom extends Base {
                         sc.addAll(c.getStudents(StudentClassroom.ACTIVE_STATUS));
     
                         // generate checked students collection
-                        Set checkedStudents = new HashSet<Coder>();
+                        Set checkedStudents = new HashSet<Long>();
                         for (Coder coder : sc) {
-                            checkedStudents.add(coder.getId().toString());
+                            checkedStudents.add(coder.getId());
                         }
                         getRequest().setAttribute("checked_students", checkedStudents);            
                         
