@@ -52,23 +52,29 @@ public class EditClassroomSubmit extends Base {
 
             // three possibilities:
             // 1 - selected student is not in the collection -> add it as active
-            // 2 - selected student is in the collection -> leave it and leave its status
+            // 2 - selected student is in the collection -> leave it and change its status to active only if it is inactive
             // 3 - not selected student is in the collection -> leave it and change its status to inactive
             // 4 - not selected student is not in the collection -> don't do anything
             
-            // 1
             for (Coder s : students) {
                 StudentClassroom sc = new StudentClassroom();
                 sc.getId().setClassroom(classroom);
                 sc.getId().setStudent(s);
                 sc.setStatusId(StudentClassroom.ACTIVE_STATUS);
                 
-                if (!classroom.contains(sc)) {
+                StudentClassroom existing = classroom.getStudentClassroom(sc);
+                if (existing == null) {
+                    // 1
                     classroom.addStudentClassroom(sc);
+                } else {
+                    // 2
+                    if (existing.getStatusId().equals(StudentClassroom.INACTIVE_STATUS)) {
+                        existing.setStatusId(StudentClassroom.ACTIVE_STATUS);
+                    }
                 }
             }
             
-            // 2
+            // 3
             for (Coder s : classroom.getStudents(StudentClassroom.ACTIVE_STATUS)) {
                 if (!students.contains(s)) {
                     classroom.deactivateStudent(s);

@@ -138,8 +138,13 @@ public class Classroom {
     }
 
     @Transient
-    public boolean contains(StudentClassroom sc) {
-        return this.studentClassrooms.contains(sc);
+    public StudentClassroom getStudentClassroom(StudentClassroom orig) {
+        for (StudentClassroom sc : this.studentClassrooms) {
+            if (sc.equals(orig)) {
+                return sc;
+            }
+        }
+        return null;
     }
 
     @Transient
