@@ -3,6 +3,7 @@ package com.topcoder.web.common.model.educ;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -62,7 +63,7 @@ public class StudentClassroom extends Base {
         this.statusId = statusId;
     }
 
-
+    @Embeddable
     public static class Identifier implements Serializable {
         private Coder student;
         private Classroom classroom;
