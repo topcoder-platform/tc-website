@@ -3,7 +3,7 @@
 <form method="POST" action="doconfiguretheme.action" name="configurethemeform">
     <div class="steptitle" style="width: 100%; margin-top: 10px">
         <div class="stepfield">
-Add/Edit:
+Add/Edit: (to remove a mapping, set it to be empty)
             <br />
             <br />
 
