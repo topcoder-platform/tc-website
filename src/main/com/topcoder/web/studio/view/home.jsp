@@ -153,7 +153,7 @@
                                             </A>
                                         </c:when>
                                         <c:otherwise>
-                                            <img src="/i/layout/magnifyFade.gif" alt="" />
+                                            <img src="/i/layout/magnifyFade.png" alt="" />
                                         </c:otherwise>
                                     </c:choose>
                                 </td>
