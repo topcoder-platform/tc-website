@@ -23,29 +23,25 @@ public class SettingsManager {
     }
 
     /**
-     * returns the theme settings for the page given.
+     * returns the theme settings for the space given.
+     * If no space is give, the global settings are returned.
      *
      * @return LeftNavSettings
      */
 
-    public LeftNavSettings getPageThemeSettings(String spaceKey, String pageTitle) {
+    public LeftNavSettings getSpaceThemeSettings(String spaceKey) {
         return (LeftNavSettings) bandanaManager.getValue(new ConfluenceBandanaContext(spaceKey), THEMEKEY, false);
     }
 
 
     /**
-     * saves the Theme Settings via Bandana in context to the given space and page
+     * saves the Theme Settings via Bandana in context to the given space.
+     * If the space is null, the settings will be saved as global settings.
      *
      * @param settings
      * @param spaceKey
      */
-    public void setPageThemeSettings(LeftNavSettings settings, String spaceKey, String pageTitle) {
-        if (spaceKey==null) {
-            throw new IllegalArgumentException("spaceKey can not be null");
-        }
-        if (pageTitle==null) {
-            throw new IllegalArgumentException("pageTitle can not be null");
-        }
+    public void setSpaceThemeSettings(LeftNavSettings settings, String spaceKey) {
         bandanaManager.setValue(new ConfluenceBandanaContext(spaceKey), THEMEKEY, settings);
     }
 

@@ -92,15 +92,18 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
                   settingsManager.setSpaceThemeSettings(settings, getSpaceKey());
                   return SUCCESS;
               } else {
-                  log.debug("page not found " + getPageTitle());
+                  addActionError("page not found " + getPageTitle());
               }
             } else {
-                log.debug("space not found " + getSpaceKey());
+                addActionError("space not found " + getSpaceKey());
             }
 
         }
-
-        return SUCCESS;
+        if (getActionErrors().size() > 0) {
+            return ERROR;
+        } else {
+            return SUCCESS;
+        }
     }
 
     public List getSpaces() {

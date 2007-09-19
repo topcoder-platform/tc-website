@@ -1,6 +1,9 @@
 package com.topcoder.web.wiki.themes.tc;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * @author dok
@@ -9,8 +12,7 @@ import java.io.Serializable;
  */
 public class LeftNavSettings implements Serializable {
     private String space;
-    private String pageTitle;
-    private String navKey;
+    private HashMap<String, String> navKeys = new HashMap<String, String>();
 
 
     public String getSpace() {
@@ -21,20 +23,28 @@ public class LeftNavSettings implements Serializable {
         this.space = space;
     }
 
-    public String getNavKey() {
-        return navKey;
+    public String getNavKey(String pageTitle) {
+        return navKeys.get(pageTitle);
     }
 
-    public void setNavKey(String navKey) {
-        this.navKey = navKey;
+    public void setNavKey(String pageTitle, String navKey) {
+        navKeys.put(pageTitle, navKey);
     }
 
-
-    public String getPageTitle() {
-        return pageTitle;
+    public void removeNavKey(String pageTitle) {
+        navKeys.remove(pageTitle);
     }
 
-    public void setPageTitle(String pageTitle) {
-        this.pageTitle = pageTitle;
+    public boolean hasNavKey(String pageTitle) {
+        return navKeys.containsKey(pageTitle);
     }
+
+    public Iterator<Map.Entry<String, String>> iterator() {
+        return navKeys.entrySet().iterator();
+    }
+
+    public boolean isEmpty() {
+        return navKeys.isEmpty();
+    }
+
 }
