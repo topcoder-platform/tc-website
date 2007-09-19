@@ -7,6 +7,8 @@ import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
@@ -76,7 +78,7 @@ public class StudentClassroom extends Base {
         public Identifier() {
         }
 
-        @OneToMany(mappedBy="student")
+        @OneToOne (mappedBy="student")
         @Cascade( {CascadeType.ALL} )
         public Coder getStudent() {
             return student;
@@ -86,7 +88,7 @@ public class StudentClassroom extends Base {
             this.student = student;
         }
 
-        @OneToMany(mappedBy="classroom")
+        @OneToOne (mappedBy="classroom")
         @Cascade( {CascadeType.ALL} )
         public Classroom getClassroom() {
             return classroom;
