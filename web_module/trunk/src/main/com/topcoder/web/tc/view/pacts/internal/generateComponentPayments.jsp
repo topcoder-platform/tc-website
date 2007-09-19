@@ -51,6 +51,7 @@
                     				<font color="red"><%=errStr%></font>
                     			<% 	if (errStr!=null && !errStr.equals("")) { errCount++; } %>
                     		</tc-webtag:errorIterator>
+                            <tc-webtag:errorIterator id="err" name="dev_support_error"><font color="red"><%=err%></font></tc-webtag:errorIterator>
                     	</td>
                     </tr>
                     <tr>
