@@ -87,8 +87,7 @@ public class Classroom {
     }
 
     @ManyToOne()
-    @JoinColumn(name="professor_id")
-    @Column(nullable=false)
+    @JoinColumn(name="professor_id", nullable=false)
     public Professor getProfessor() {
         return professor;
     }
