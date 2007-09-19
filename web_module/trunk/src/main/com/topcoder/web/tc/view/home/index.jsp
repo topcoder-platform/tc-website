@@ -319,21 +319,21 @@
             <img src="/i/home/tco07Rd1-B_nsa.png" alt="TCO07 Round 1-B brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
             --%>
 
-            <%-- SRM SPONSOR 
+            <%-- SRM SPONSOR --%>
             <map name="mm">
             <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule" />
-            <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa" />
+            <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db" />
             </map>
-            <img src="/i/home/tccc07AlgoRd1B_nsa.png" alt="TCCC07 Algorithm Round 1B brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
-            --%>
+            <img src="/i/home/tccc07AlgoRd4_db.png" alt="TCCC07 Algorithm Round 4 brought to you by Deutsche Bank" border="0" style="display:block;" usemap="#mm"/>
+            
                 
             <%-- 2 Registration Prototype contests open @ Studio 
             <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests" target="_blank"><img src="/i/home/regproto_studiopromo.png" alt="2 Registration Prototype contests open @ Studio" border="0" style="display:block;" /></A>
             --%>
             
-            <%-- TCCC07 --%>
+            <%-- TCCC07 
                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description' refer='homepage' />"><img src="/i/home/tccc07_promo_blog.png" alt="2007 TopCoder Collegiate Challenge" /></A>
-             
+             --%>
              
             <%-- UML Tool 
             <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='homepage_promo' />"><img src="/i/home/umltoolReleasePromo.png" alt="UML Tool Release" /></A>
