@@ -64,11 +64,13 @@ public class EditClassroomSubmit extends Base {
                 
                 StudentClassroom existing = classroom.getStudentClassroom(sc);
                 if (existing == null) {
+                    log.debug("Adding " + sc.getId().getStudent().getUser().getHandle() + " to the registered list");
                     // 1
                     classroom.addStudentClassroom(sc);
                 } else {
                     // 2
                     if (existing.getStatusId().equals(StudentClassroom.INACTIVE_STATUS)) {
+                        log.debug("Changing" + sc.getId().getStudent().getUser().getHandle() + " registration status");
                         existing.setStatusId(StudentClassroom.ACTIVE_STATUS);
                     }
                 }
@@ -77,6 +79,7 @@ public class EditClassroomSubmit extends Base {
             // 3
             for (Coder s : classroom.getStudents(StudentClassroom.ACTIVE_STATUS)) {
                 if (!students.contains(s)) {
+                    log.debug("Deactivation" + s.getUser().getHandle());
                     classroom.deactivateStudent(s);
                 }
             }
