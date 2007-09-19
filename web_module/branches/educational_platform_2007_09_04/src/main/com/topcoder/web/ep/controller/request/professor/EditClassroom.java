@@ -127,7 +127,7 @@ public class EditClassroom extends Base {
                         setDefault("classroom_academic_period", classroomAcademicPeriod);
                         setDefault("classroom_description", classroomDescription);
     
-                        setNextPage("/student/editClassroom.jsp");
+                        setNextPage("/professor/editClassroom.jsp");
                         setIsNextPageInContext(true);
                     }
                 } else {
