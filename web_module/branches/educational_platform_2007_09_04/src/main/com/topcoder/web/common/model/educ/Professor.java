@@ -52,7 +52,9 @@ public class Professor extends Base {
         this.classrooms = new HashSet();
     }
 
-    @GenericGenerator(name="generator", strategy="foreign", parameters=@Parameter(name="property", value="user"))@Id @GeneratedValue(generator="generator")    
+    @Id @GeneratedValue(generator="generator")
+    @GenericGenerator(name="generator", strategy="foreign", 
+            parameters=@Parameter(name="property", value="user"))
     @Column(name="user_id", nullable=false)
     public Long getId() {
         return id;
@@ -89,8 +91,8 @@ public class Professor extends Base {
         this.user = user;
     }
 
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="professor")
-    @Cascade( {CascadeType.SAVE_UPDATE} )
+    @OneToMany(mappedBy="professor")
+    @Cascade( {CascadeType.ALL} )
     public Set<Classroom> getClassrooms() {
         return Collections.unmodifiableSet(classrooms);
     }
@@ -100,6 +102,7 @@ public class Professor extends Base {
     }
 
     public void addClassrooms(Classroom classroom) {
+        classroom.setProfessor(this);
         this.classrooms.add(classroom);
     }
 

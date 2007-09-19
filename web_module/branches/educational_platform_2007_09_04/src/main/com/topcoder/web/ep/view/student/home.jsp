@@ -61,5 +61,7 @@ Hello, <tc-webtag:handle coderId='${user.id}'/>, Welcoome to Educational Plattfo
             You don't have pending classrooms associated.
         </c:otherwise>
     </c:choose>
+    <br/>
+    <a href="/ep?module=SelfRegister">Register to classroom</a>
 </body>
 </html>

@@ -86,8 +86,9 @@ public class Classroom {
         this.name = name;
     }
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name="professor_id")
+    @Column(nullable=false)
     public Professor getProfessor() {
         return professor;
     }
@@ -145,5 +146,25 @@ public class Classroom {
     @Transient
     public void addStudentClassroom(StudentClassroom sc) {
         this.studentClassrooms.add(sc);
+    }
+
+    @Transient
+    public void deactivateStudent(Coder s) {
+        for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
+            if (sc.getId().getStudent().getId().equals(s.getId()) && 
+                    sc.getStatusId().equals(StudentClassroom.ACTIVE_STATUS)) {
+                sc.setStatusId(StudentClassroom.INACTIVE_STATUS);
+            }
+        }
+    }
+
+    @Transient
+    public void activateStudent(Coder s) {
+        for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
+            if (sc.getId().getStudent().getId().equals(s.getId()) && 
+                    !sc.getStatusId().equals(StudentClassroom.ACTIVE_STATUS)) {
+                sc.setStatusId(StudentClassroom.ACTIVE_STATUS);
+            }
+        }
     }
 }
