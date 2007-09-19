@@ -26,7 +26,7 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
     private Iterator<Map.Entry<String,  Iterator<Map.Entry<String, String>>>> navKeys;
     private String pageTitle;
     private String navKey;
-    private String spaceKey;
+    private String spacekey;
 
     /**
      * is excecuteted when you first enter the configuration page
@@ -73,29 +73,29 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
     public String execute() throws Exception {
         log.debug("execute called");
 
-        if (!"".equals(StringUtils.checkNull(getPageTitle())) && !"".equals(StringUtils.checkNull(getSpaceKey()))) {
+        if (!"".equals(StringUtils.checkNull(getPageTitle())) && !"".equals(StringUtils.checkNull(getSpacekey()))) {
             //a little lazy on the validation, we could check that the space and title actually exist
-            if (spaceManager.getSpace(getSpaceKey())!=null) {
-              if (pageManager.getPage(getSpaceKey(), getPageTitle()) !=null) {
+            if (spaceManager.getSpace(getSpacekey())!=null) {
+              if (pageManager.getPage(getSpacekey(), getPageTitle()) !=null) {
 
                   SettingsManager settingsManager = new SettingsManager(bandanaManager);
-                  LeftNavSettings settings = settingsManager.getSpaceThemeSettings(getSpaceKey());
+                  LeftNavSettings settings = settingsManager.getSpaceThemeSettings(getSpacekey());
                   if (settings ==null) {
                       settings = new LeftNavSettings();
-                      settings.setSpace(getSpaceKey());
+                      settings.setSpace(getSpacekey());
                   }
                   if ("".equals(StringUtils.checkNull(getNavKey()))) {
                       settings.removeNavKey(getPageTitle());
                   } else {
                      settings.setNavKey(getPageTitle(), getNavKey());
                   }
-                  settingsManager.setSpaceThemeSettings(settings, getSpaceKey());
+                  settingsManager.setSpaceThemeSettings(settings, getSpacekey());
                   return SUCCESS;
               } else {
                   addActionError("page not found " + getPageTitle());
               }
             } else {
-                addActionError("space not found " + getSpaceKey());
+                addActionError("space not found " + getSpacekey());
             }
 
         }
@@ -131,12 +131,12 @@ public class ConfigureThemeAction extends AbstractSpaceAction {
         this.pageTitle = pageTitle;
     }
 
-    public String getSpaceKey() {
-        return spaceKey;
+    public String getSpacekey() {
+        return spacekey;
     }
 
-    public void setSpaceKey(String spaceKey) {
-        this.spaceKey = spaceKey;
+    public void setSpacekey(String spacekey) {
+        this.spacekey = spacekey;
     }
 
     public String getNavKey() {
