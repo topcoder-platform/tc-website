@@ -5,17 +5,15 @@
 <html>
 <head>
 <title>Algorithm Tutorials</title>
-<%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:include page="../script.jsp" />
-    <jsp:include page="/style.jsp">
-      <jsp:param name="key" value="tc_main"/>
-    </jsp:include>
-
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_main"/>
+</jsp:include>
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 <style type="text/css">
 .code
 {
-   width: 500;
+   width: 550;
    padding: 10px;
    margin: 20px;
    color: #333;
@@ -25,52 +23,43 @@
    background-color: #EEEEEE;
    border: 1px solid #999;
 }
-.math    
-{ 
-	font-family: "Century Schoolbook", serif;
-}
-.GAtableText
+.math
 {
-   color: #333;
-   font-size: 11px;
+   font-family: times, times new roman, serif;
    font-weight: normal;
-   line-height: 14px;
+   font-style: italic;
+   font-size: 14px;
 }
-.GAtableText
-{
-	background-color: #EEEEEE;
-}
-
 </style>
 </head>
-
 <body>
-
-<jsp:include page="../top.jsp" >
+<div id="onTop">
+    <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
-</jsp:include>
-
+    </jsp:include>
+</div>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
-<!-- Left Column Begins-->
-        <td width="180">
-           <jsp:include page="/includes/global_left.jsp">
+    <tr valign="top">
+        <!-- Left Column Begins-->
+        <td width="180" id="onLeft"><jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="algo_tutorials"/>
-         </jsp:include>
+            </jsp:include>
         </td>
-<!-- Left Column Ends -->
+        <!-- Left Column Ends -->
+        <!-- Center Column Begins -->
+        <td width="100%" align="left" class="bodyColumn">
+            <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="alg_tut"/>
+            <jsp:param name="title" value="&#160;"/>
+            </jsp:include>
+            <div class="linkBox">
+                <A href="/tc?module=Static&d1=tutorials&d2=alg_index">Archive</A><br />
+                <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br /></span>
+                <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br /></span>
+                <tc-webtag:forumLink forumID="505895" message="Discuss this article" /><br />
+                <a href="/tc?module=Static&d1=help&d2=writeForTC">Write for TopCoder</a>
+            </div>
 
-<!-- Center Column Begins -->
-         <td width="100%" align="center">
-
-         <div class="tutorBodyFull">
-
-<jsp:include page="../page_title.jsp" >
-   <jsp:param name="image" value="alg_tut"/>
-   <jsp:param name="title" value="&#160;"/>
-</jsp:include>
-
-<div style="float: right;"><tc-webtag:forumLink forumID="505895" message="Discuss this article" /></div>
 <span class="bodyTitle">Binary Search</span>
 
 <p>
@@ -403,15 +392,14 @@ Harder<br>
 <a href="/stat?c=problem_statement&pm=2342&rd=4770">SquareFree</a> - SRM 190<br>
 <a href="/stat?c=problem_statement&pm=1206&rd=4540">Flags</a> - SRM 147<br>
 
-       </div>
-        <p><br/></p>
+<p>&nbsp</p>
         </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-         <td width="170">
+         <td width="170" id="onRight">
             <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+               <jsp:param name="level1" value="defaults"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->
@@ -422,7 +410,9 @@ Harder<br>
     </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 
