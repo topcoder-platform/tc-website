@@ -77,7 +77,7 @@ public class StudentClassroom extends Base {
         public Identifier() {
         }
 
-        @OneToOne (mappedBy="student")
+        @OneToOne (targetEntity=com.topcoder.web.common.model.Coder.class, mappedBy="student")
         @JoinColumn(name="student_id")
         @Cascade( {CascadeType.ALL} )
         public Coder getStudent() {
@@ -88,7 +88,7 @@ public class StudentClassroom extends Base {
             this.student = student;
         }
 
-        @OneToOne (mappedBy="classroom")
+        @OneToOne (targetEntity=com.topcoder.web.common.model.educ.Classroom.class, mappedBy="classroom")
         @JoinColumn(name="classroom_id")
         @Cascade( {CascadeType.ALL} )
         public Classroom getClassroom() {
