@@ -15,8 +15,9 @@ Add/Edit:
         #end
         </select>
 
-            Page: <input type="text" name="pageTitle" value="" size="100"/>
-
+            <br />
+            Page: <input type="text" name="pageTitle" value="" size="40"/>
+<br />
             Nav Node: <input type="text" name="navKey" value="" size="40"/>
 
         </div>
