@@ -4,6 +4,38 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.19.07<br>2:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm366">SRM 366 - Problem Set &amp; Analysis</A></span><br><br>
+      The Division I coders got a relatively easy set today, so speed did matter a lot. The easy problem was a pretty straightforward one, which most coders solved within a few minutes.</td>
+         <td class="newsPhoto"><img src="/i/m/jthread_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="11818890" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm366">full story</A> | 
+         <tc-webtag:forumLink forumID="516063" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.19.07<br>2:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm39">TCHS SRM 39 - Problem Set &amp; Analysis</A></span><br><br>
+      This match was defined by a tough problemset for the competitors, with no solutions to the hard problem and only 12 coders solving the other two. However, there were few wrong submissions, thanks perhaps to the examples in the problems.</td>
+         <td class="newsPhoto"><img src="/i/m/jbernadas_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="22653044" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm39">full story</A> | 
+         <tc-webtag:forumLink forumID="516565" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.18.07<br>4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description' refer='/tc' />">Last call for blog entries</A></span><br><br>
@@ -144,34 +176,5 @@
         <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa">details</a> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.11.07<br>1:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly">Eli Lilly chat before SRM 365</A></span><br><br>
-        Don't miss a discussion with Eli Lilly representatives from all over the globe before SRM 365. The chat will start at 10:00 AM EDT.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly">details</a> | 
-        <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.11.07<br>1:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm38">TCHS SRM 38 - Problem Set &amp; Analysis</A></span><br><br>
-      The match started quickly, and after only a few minutes there were coders who had the easy problem and the medium problem done. The problems were pretty easy for most of the coders, but the 1000 problem was fair.</td>
-         <td class="newsPhoto"><img src="/i/m/vlad_D_big5.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="13298470" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm38">full story</A> | 
-         <tc-webtag:forumLink forumID="516564" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
    
