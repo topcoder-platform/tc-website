@@ -3,15 +3,34 @@
 <form method="POST" action="doconfiguretheme.action" name="configurethemeform">
     <div class="steptitle" style="width: 100%; margin-top: 10px">
         <div class="stepfield">
-
-            #foreach ($navKey in $navKeys)
-                $navKey.getSpace() <input type="text" name="$navKey.getSpace()" value="$!navKey.getNavKey()" size="40"/>
+Add/Edit:
             <br />
-            #end
+            <br />
+
+
+            Space:
+        <select name="spacekey">
+        #foreach ($space in $spaces)
+            <option value="$space.key">$webwork.htmlEncode($space.name)</option>
+        #end
+        </select>
+
+            Page: <input type="text" name="pageTitle" value="" size="100"/>
+
+            Nav Node: <input type="text" name="navKey" value="" size="40"/>
+
         </div>
 
         <div class="stepdesc" style="width: 90%;">
             #tag (Submit "value='Save'" "name='submit'" "theme='simple'" )
+        </div>
+        <div class="stepfield">
+            #foreach ($space in $navKeys)
+                #foreach ($page in $space.getValue())
+                    $page.getValue() ==> $space.getKey()/$page.getKey()
+                    <br />
+                #end
+            #end
         </div>
     </div>
 </form>
