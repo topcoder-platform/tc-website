@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.19.07<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        TCCC07 Component <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a> &amp; <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a> finalists updated</span><br><br>
+        The updated list of TopCoder Collegiate Challenge component finalists, along with their alternates, is now online. The TCCC07 <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a> &amp; <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a> finals kick off online tomorrow -- good luck!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">design</a> | 
+        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">development</a> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.19.07<br>2:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -155,25 +169,12 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.13.07<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        TCCC07 Component <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a> &amp; <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a> finalists</A></span><br><br>
+        TCCC07 Component <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a> &amp; <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a> finalists</span><br><br>
         The finalists for the 2007 TopCoder Collegiate Challenge Component <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a> &amp; <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a> competitions are now online. Congratulations!</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">design</a> | 
         <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">development</a> | 
-        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.11.07<br>3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa">Visa invitation letter deadline approaching</A></span><br><br>
-        Don't forget! You have until this Friday, September 14 at 5:00 PM EDT to request a visa invitation letter. If you haven't received a letter and are still going strong in the TCCC07, ask now! If you're unsure whether you need one, read <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa">here</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=getVisa">details</a> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>

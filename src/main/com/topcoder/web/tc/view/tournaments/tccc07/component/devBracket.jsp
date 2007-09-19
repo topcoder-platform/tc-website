@@ -37,13 +37,13 @@
                        </tr>
                        <tr>
                           <td style="padding: 15px" valign="middle" align="center">
-                              <tc-webtag:handle coderId="15072390" context="development" darkBG="true" /><br /><br />
                               <tc-webtag:handle coderId="10063132" context="development" darkBG="true" /><br /><br />
                               <tc-webtag:handle coderId="20092786" context="development" darkBG="true" /><br /><br />
                               <tc-webtag:handle coderId="20095099" context="development" darkBG="true" /><br /><br />
                               <tc-webtag:handle coderId="21075542" context="development" darkBG="true" /><br /><br />
                               <tc-webtag:handle coderId="15046749" context="development" darkBG="true" /><br /><br />
                               <tc-webtag:handle coderId="9998760" context="development" darkBG="true" /><br /><br />
+                              <tc-webtag:handle coderId="20937270" context="development" darkBG="true" /><br /><br />
                               <tc-webtag:handle coderId="15604762" context="development" darkBG="true" />
                           </td>
                        </tr>
@@ -51,6 +51,14 @@
                           <td align="right"><img src="/i/tournament/tccc07/bracket_SW.png" alt="" border="0" /></td>
                        </tr>
                     </table>
+                    <p align="center">
+                        Component Development Alternates:<br /><br />
+                        <tc-webtag:handle coderId="20262386" context="development" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="15692556" context="development" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="22652765" context="development" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="22655207" context="development" darkBG="true" />
+                    </p>
+                    <p>&nbsp</p>
                     <p align="center">
                         The Review Board for the<br />TCCC07 Component Development Finals:<br /><br />
                         <tc-webtag:handle coderId="7210680" context="development" darkBG="true" /><br />
