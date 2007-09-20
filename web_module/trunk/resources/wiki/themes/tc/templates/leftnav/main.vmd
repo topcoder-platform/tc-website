@@ -38,7 +38,6 @@ $topHelper.renderTop()
         ## LOCATION BAR: (BREADCRUMBS AND SEARCH BOX) BEGIN
         <tr class="topBar">
             <td align="left">
-                &nbsp;
                 <span class="topBarDiv"> #breadcrumbs() </span>
             </td>
 
@@ -75,7 +74,7 @@ $topHelper.renderTop()
                     </td>
                 </tr>
                 <tr>
-                    <td height="22" align="left" colspan="2">&nbsp;
+                    <td height="22" align="left" colspan="2">
                         <span class="pagetitle" style="line-height: 1; margin: 0px; text-decoration: none">
                             #pageTitleLink()
                         </span>
