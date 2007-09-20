@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>09.20.07<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&d1=dev&d2=umltool&d3=description&node=des_uml_tool">Try the TopCoder UML Tool</a></span><br><br>
+        Starting today, you are now free to use TopCoder's UML Tool in Software Design component competitions.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=dev&d2=umltool&d3=description&node=des_uml_tool">details</a> | 
+        <a href="http://forums.topcoder.com/?module=Category&categoryID=2479">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.19.07<br>4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=SurveyResults&sid=19443">TCCC07 T-shirt winner</A></span><br><br>
@@ -160,21 +173,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd2">full story</A> | 
          <tc-webtag:forumLink forumID="517259" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>09.13.07<br>3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=091307">An interview with fabrizyo</A></span><br><br>
-      While a few final fixes are still pending, and a few scores may yet move, it appears that somebody has finally broken the hold of <tc-webtag:handle coderId="287614" context="design" /> on the <a href="/tc?&ph=112&module=LeaderBoard">Digital Run Design Cup</a>. With 18,515 points in Stage 1 of the 2007.5 DR, Fabrizio Lovato, 27, brings Digital Run bragging rights -- and more than $80,000 in total prizes -- to his home in Italy.</td>
-         <td class="newsPhoto"><img src="/i/m/fabrizyo_big.jpg" alt="Author" width="55" height="61"/><br><tc-webtag:handle coderId="21926605" context="design" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=091307">full story</A> | 
-         <tc-webtag:forumLink forumID="517344" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
