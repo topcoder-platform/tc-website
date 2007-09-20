@@ -63,7 +63,7 @@
                 
                 <ol>
                 <li>Make sure the machine you are installing on has the proper version of Java (1.5)</li>
-                <li><a href="">Download</a> and execute installer jar. The OS may support doing this in the GUI, or you can use the command line: java -jar UML_Tool_Frontend_Installer-0.1.7.jar</li>
+                <li><a href="/download/development/umltool/UML_Tool_Frontend_Installer-0.1.7.jar">Download</a> and execute installer jar. The OS may support doing this in the GUI, or you can use the command line: java -jar UML_Tool_Frontend_Installer-0.1.7.jar</li>
                 <li>Follow instructions on installer screen</li>
                 </ol>
 
