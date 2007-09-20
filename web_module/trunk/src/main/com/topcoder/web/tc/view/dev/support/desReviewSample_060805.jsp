@@ -77,7 +77,7 @@
                     <tbody><tr>
                         <td align="left" width="5%">
                             
-                                <img src="http://software.topcoder.com/images/icon_design.gif" alt="" height="62" width="66">
+                                <img src="http://software.topcoder.com/i/icon_design.gif" alt="" height="62" width="66">
                             
                             
                         </td>
@@ -97,7 +97,7 @@
                     </tr>
                     <tr>
                         <td class="whiteBkgnd" colspan="4">
-                            <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="1" width="1">
+                            <img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="1" width="1">
                         </td>
                     </tr>
                 </tbody></table>
@@ -504,7 +504,7 @@ parameters or return values to exist in the diagram.
                         <table border="0" cellpadding="2" cellspacing="0" width="100%">
                             <tbody><tr>
                                 <td class="normal">
-                                    <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1">
+                                    <img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1">
                                 </td>
                             </tr>
                         </tbody></table>
@@ -1033,7 +1033,7 @@ makes the refactored solution preferable to the designer&#8217;s solution.
                         <table border="0" cellpadding="2" cellspacing="0" width="100%">
                             <tbody><tr>
                                 <td class="normal">
-                                    <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1">
+                                    <img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1">
                                 </td>
                             </tr>
                         </tbody></table>
@@ -1638,7 +1638,7 @@ appropriately? </p><p class="scorecardQuestion">
                         <table border="0" cellpadding="2" cellspacing="0" width="100%">
                             <tbody><tr>
                                 <td class="normal">
-                                    <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1">
+                                    <img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1">
                                 </td>
                             </tr>
                         </tbody></table>
@@ -1760,7 +1760,7 @@ not require any additional information from the designer).
                             <tr>
                                 <td class="forumTextOdd" width="80%">
 <p class="scorecardQuestion">The method documentation in the 'Documentation' tab of Poseidon provides detailed description of the method's scope, parameters (including what is considered valid or not), return type (range, nulls, etc.) and any exceptions that may be thrown. Properties, delegates, indexers and events of C# are considered methods for the purpose of this question.</p>
-<p class="scorecardQuestion">This documentation is for the component developer, not the component users. It is not javadoc on how to use the method. It should contain helpful information to the developer on how to write the method and what are its constraints. Examples of argument values are not required. The designer does not have to explicitly say what is considered valid if this information is already contained elsewhere (in the tags or in the free-form text). Duplicating the valid/invalid information and exception information in both the documentation tags and free form text is not required (nor even recommended). Algorithms and complex validation (such as with a regex pattern) should be explained only in the free form text. The reviewer should assume that any variable (null, empty string, int range, etc) is valid/invalid if not specifically denoted as an invalid/valid by the exceptions text or other free form information. Also note that specifying 'raised signals’ in Poseidon is not required if the exception has been clearly denoted in the documentation tags or free form text.</p>
+<p class="scorecardQuestion">This documentation is for the component developer, not the component users. It is not javadoc on how to use the method. It should contain helpful information to the developer on how to write the method and what are its constraints. Examples of argument values are not required. The designer does not have to explicitly say what is considered valid if this information is already contained elsewhere (in the tags or in the free-form text). Duplicating the valid/invalid information and exception information in both the documentation tags and free form text is not required (nor even recommended). Algorithms and complex validation (such as with a regex pattern) should be explained only in the free form text. The reviewer should assume that any variable (null, empty string, int range, etc) is valid/invalid if not specifically denoted as an invalid/valid by the exceptions text or other free form information. Also note that specifying 'raised signalsï¿½ in Poseidon is not required if the exception has been clearly denoted in the documentation tags or free form text.</p>
 <p class="scorecardQuestion">For C# designs, the reviewer should verify that property setters handle argument validation and throw appropriate exceptions.</p>
 <p class="scorecardQuestion">Rating 1 - Documentation is consistently missing or unhelpful. </p>
 <p class="scorecardQuestion">Rating 2 - Documentation is missing in at least one method documentation or consistently provides little help to the developer. </p>
@@ -1985,14 +1985,14 @@ visually in the diagram.
 <p class="scorecardQuestion">The component specification contains a comprehensive demo section.</p>
 <p class="scorecardQuestion">Is the demo section complete? Was it written to promote the component to potential users?</p>
 <p class="scorecardQuestion">The demo section is not a reference implementation or a set of unit tests. It should give the reader a quick, concise demonstration of the major functionality of the component. "Major functionality" is defined as the requirements specified in the requirements documentation.</p>
-<p class="scorecardQuestion">The demo section needs to compile only with respect to the component’s API. All other elements (application provided methods, classes, objects, etc.) shown can be assumed if commented properly and, may include pseudocode. Examples of this would be:</p>
+<p class="scorecardQuestion">The demo section needs to compile only with respect to the componentï¿½s API. All other elements (application provided methods, classes, objects, etc.) shown can be assumed if commented properly and, may include pseudocode. Examples of this would be:</p>
 <p class="scorecardQuestion">
 a) ACMEInterface appACME = application provided object<br>
 b) Date todayPlusOne = todays date plus 1 day
 </p>
-<p class="scorecardQuestion">The 'compilability’ requirement should be lenient on well-formed source code (i.e. missing semi-colons, non-closed parens/quotes, etc. do not count). It is the developer’s responsibility to correct the demo to ensure well formedness.</p>
+<p class="scorecardQuestion">The 'compilabilityï¿½ requirement should be lenient on well-formed source code (i.e. missing semi-colons, non-closed parens/quotes, etc. do not count). It is the developerï¿½s responsibility to correct the demo to ensure well formedness.</p>
 <p class="scorecardQuestion">External setup information does not need to be included in the demo as long as comments provide enough information to understand what setup the demo relied on.</p>
-<p class="scorecardQuestion">Only the relevant output of the demo needs to be shown (i.e. when the component’s job is to output something specific). Logging output does not need to be shown.</p>
+<p class="scorecardQuestion">Only the relevant output of the demo needs to be shown (i.e. when the componentï¿½s job is to output something specific). Logging output does not need to be shown.</p>
 <p class="scorecardQuestion">Rating 1 - Demo section is missing or the existing demo section contains non-compilable errors (don't actually try to compile it - just view it to make sure it looks correct). </p>
 <p class="scorecardQuestion">Rating 2 - The demo section demonstrates some but not all of the requirements or the demo section demonstrates class/methods/variables that don't exist in the design (probably were never updated).</p>
 <p class="scorecardQuestion">Rating 3 - The demo section demonstrates each of the requirements correctly.</p>
@@ -2215,7 +2215,7 @@ for this rating.
                         <table border="0" cellpadding="2" cellspacing="0" width="100%">
                             <tbody><tr>
                                 <td class="normal">
-                                    <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1">
+                                    <img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1">
                                 </td>
                             </tr>
                         </tbody></table>
@@ -2313,7 +2313,7 @@ reasoning for assigning anything but a perfect score in this category.
                         <table border="0" cellpadding="2" cellspacing="0" width="100%">
                             <tbody><tr>
                                 <td class="normal">
-                                    <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1">
+                                    <img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1">
                                 </td>
                             </tr>
                         </tbody></table>

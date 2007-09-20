@@ -60,7 +60,7 @@
                     <td width="427" class="bodyCopy">
 
 <!-- Overview -->
-                        <img src="../images/spacer.gif" width="425" height="4" alt><br/>
+                        <img src="../i/spacer.gif" width="425" height="4" alt><br/>
                         <a href="#contest" class="sidebarHeadLink">About the Contest</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#prizes" class="sidebarHeadLink">About the Prizes</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#conditions" class="sidebarHeadLink">Conditions of Participation</a>&nbsp;&nbsp;|&nbsp;&nbsp;

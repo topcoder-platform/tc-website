@@ -76,7 +76,7 @@
 					<td align="left" width="5%">
 						
                     
-						<img src="http://software.topcoder.com/images/icon_development.gif" alt="" height="62" width="66">
+						<img src="http://software.topcoder.com/i/icon_development.gif" alt="" height="62" width="66">
 
 					</td>
                     <td width="5%">
@@ -91,7 +91,7 @@
 					<td class="breadcrumb" align="right" valign="bottom" width="50%"></td>
 				</tr>
 				<tr>
-					<td class="whiteBkgnd" colspan="4"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="1" width="1"></td>
+					<td class="whiteBkgnd" colspan="4"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="1" width="1"></td>
 				</tr>
 			</tbody></table>
 			
@@ -185,7 +185,7 @@ design, but there should be no influence on the functionality.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[0].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[0].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -246,7 +246,7 @@ components should be used.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[1].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[1].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -308,7 +308,7 @@ score.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[2].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[2].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -322,7 +322,7 @@ score.
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -389,7 +389,7 @@ visibilities or changes in types).
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[3].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[3].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -446,7 +446,7 @@ few typos, then lower scores can be considered.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[4].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[4].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -511,7 +511,7 @@ from the designer.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[5].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[5].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -525,7 +525,7 @@ from the designer.
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -589,7 +589,7 @@ key order is important.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[6].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[6].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -637,7 +637,7 @@ used afterwards. </p><p class="scorecardQuestion">
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[7].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[7].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -691,7 +691,7 @@ and there seems to be no effort to avoid such situations.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[8].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[8].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -761,7 +761,7 @@ code.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[9].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[9].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -808,7 +808,7 @@ should be checked, too.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[10].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[10].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -858,7 +858,7 @@ the code style point of view should be tolerated.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[11].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[11].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -872,7 +872,7 @@ the code style point of view should be tolerated.
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -947,7 +947,7 @@ how the component will be used.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[12].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[12].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -1010,7 +1010,7 @@ on how the component will be used.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[13].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[13].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -1068,7 +1068,7 @@ on how the component will be used.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[14].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[14].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -1125,7 +1125,7 @@ simplified by removing useless comments.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[15].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[15].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -1198,7 +1198,7 @@ transfer can be made with multiple readings. </p><p class="scorecardQuestion">Ra
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[17].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[17].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -1235,7 +1235,7 @@ transfer can be made with multiple readings. </p><p class="scorecardQuestion">Ra
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[17].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[17].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -1252,7 +1252,7 @@ transfer can be made with multiple readings. </p><p class="scorecardQuestion">Ra
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -1319,7 +1319,7 @@ appear to be a pattern throughout the unit testing.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[18].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[18].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -1390,7 +1390,7 @@ properly documented.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[19].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[19].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -1462,7 +1462,7 @@ algorithm should be presented with different sets of data. </p><p class="scoreca
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[20].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[20].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -1530,7 +1530,7 @@ details that are system specific are stored in configuration files.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[21].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[21].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -1644,7 +1644,7 @@ testing of the component will be maintained or enhanced.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[24].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[24].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -1658,7 +1658,7 @@ testing of the component will be maintained or enhanced.
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -1700,8 +1700,8 @@ number of tests that were successful.
 			    	</td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
-						 Pass: <input name="questions[25].totalPass" size="4" value="5" class="registerForm" type="text"><br>
-						 Total: <input name="questions[25].totalTests" size="4" value="5" class="registerForm" type="text">
+						ï¿½Pass: <input name="questions[25].totalPass" size="4" value="5" class="registerForm" type="text"><br>
+						ï¿½Total: <input name="questions[25].totalTests" size="4" value="5" class="registerForm" type="text">
 	
 	
 			    	</td>
@@ -1717,7 +1717,7 @@ number of tests that were successful.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[25].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[25].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>
@@ -1731,7 +1731,7 @@ number of tests that were successful.
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -1798,7 +1798,7 @@ submission is clearly above average.
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[26].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[26].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        	</tr>

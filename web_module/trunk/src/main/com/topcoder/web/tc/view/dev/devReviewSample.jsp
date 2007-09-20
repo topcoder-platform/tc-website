@@ -47,7 +47,7 @@ border=0>
             <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
               <TBODY>
               <TR>
-                <TD align=left width="5%"><IMG height=62 alt="" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/icon_development.gif"
+                <TD align=left width="5%"><IMG height=62 alt="" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/i/icon_development.gif"
                   width=66> </TD>
                 <TD class=tableHeader noWrap width="45%"><STRONG>TCO - 
                   Distributed Simple Cache</STRONG> version 1.0</TD>

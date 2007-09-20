@@ -76,7 +76,7 @@
 					<td align="left" width="5%">
 						
                     
-						<img src="http://software.topcoder.com/images/icon_development.gif" alt="" height="62" width="66">
+						<img src="http://software.topcoder.com/i/icon_development.gif" alt="" height="62" width="66">
 
 					</td>
                     <td width="5%">
@@ -92,7 +92,7 @@
 					<td class="breadcrumb" align="right" valign="bottom" width="50%"></td>
 				</tr>
 				<tr>
-					<td class="whiteBkgnd" colspan="4"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="1" width="1"></td>
+					<td class="whiteBkgnd" colspan="4"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="1" width="1"></td>
 				</tr>
 			</tbody></table>
 			
@@ -202,7 +202,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -248,13 +248,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[4].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[4].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',4,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',4,0)" class="submitButton" type="submit">
@@ -294,13 +294,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[5].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[5].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',5,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',5,0)" class="submitButton" type="submit">
@@ -318,7 +318,7 @@ some places, but this should not be a widespread issue.</p></td>
     
     
 			    <tr>
-			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Copyright tag is populated: Copyright © 2003, TopCoder, Inc. All rights reserved</p></td>
+			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Copyright tag is populated: Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved</p></td>
 			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 33</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
@@ -338,13 +338,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[6].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[6].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',6,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',6,0)" class="submitButton" type="submit">
@@ -361,7 +361,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -403,13 +403,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[7].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[7].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',7,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',7,0)" class="submitButton" type="submit">
@@ -447,13 +447,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[8].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[8].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',8,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',8,0)" class="submitButton" type="submit">
@@ -470,7 +470,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -510,13 +510,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[9].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[9].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',9,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',9,0)" class="submitButton" type="submit">
@@ -554,13 +554,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[10].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[10].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',10,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',10,0)" class="submitButton" type="submit">
@@ -598,13 +598,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[11].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[11].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',11,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',11,0)" class="submitButton" type="submit">
@@ -621,7 +621,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -663,13 +663,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[12].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[12].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',12,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',12,0)" class="submitButton" type="submit">
@@ -686,7 +686,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -726,13 +726,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[13].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[13].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',13,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',13,0)" class="submitButton" type="submit">
@@ -772,13 +772,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[14].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[14].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',14,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',14,0)" class="submitButton" type="submit">
@@ -795,7 +795,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -819,8 +819,8 @@ some places, but this should not be a widespread issue.</p></td>
 			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 100</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
-						 Pass: <input name="questions[15].totalPass" size="4" value="60" class="registerForm" type="text"><br>
-						 Total: <input name="questions[15].totalTests" size="4" value="60" class="registerForm" type="text">
+						ï¿½Pass: <input name="questions[15].totalPass" size="4" value="60" class="registerForm" type="text"><br>
+						ï¿½Total: <input name="questions[15].totalTests" size="4" value="60" class="registerForm" type="text">
 	
 	
 					</td>
@@ -836,13 +836,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[15].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[15].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',15,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',15,0)" class="submitButton" type="submit">
@@ -859,7 +859,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -899,13 +899,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[16].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[16].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',16,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',16,0)" class="submitButton" type="submit">
@@ -922,7 +922,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -961,13 +961,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[16].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[16].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',16,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',16,0)" class="submitButton" type="submit">
@@ -984,7 +984,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -1029,13 +1029,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[17].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[17].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',17,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',17,0)" class="submitButton" type="submit">
@@ -1073,13 +1073,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[18].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[18].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',18,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',18,0)" class="submitButton" type="submit">
@@ -1117,13 +1117,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[19].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[19].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',19,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',19,0)" class="submitButton" type="submit">
@@ -1161,13 +1161,13 @@ some places, but this should not be a widespread issue.</p></td>
 				        		    <strong>Response 1:</strong></td>
 				        		<td class="forumTextOdd" width="60%">
 				        		    <textarea name="questions[20].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		<td class="forumTextOdd" valign="middle" width="15%">ï¿½
 				        		    <select name="questions[20].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
 				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',20,0)" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+				        		<td class="forumTextOdd" valign="middle" width="5%">ï¿½
 							        		
 				        		    
 				        		    <input name="submit" value="Add" onclick="set(this.form,'add',20,0)" class="submitButton" type="submit">
