@@ -328,13 +328,13 @@
 <table cellpadding="5" cellspacing="0">
     <tr><td colspan="3"><b>Address History</b></td></tr>
 
-    <tr>
+    <tr><td><b>field</b></td>
         <td><b>old address</b></td>
         <td><b>new address</b></td>
         <td><b>date of change</b></td>
     </tr>
     <rsc:iterator list="<%=addressList%>" id="resultRow">
-        <tr>
+        <tr><td><rsc:item name="field" row="<%=resultRow%>"/></td>
             <td><rsc:item name="old_value" row="<%=resultRow%>"/></td>
             <td><rsc:item name="new_value" row="<%=resultRow%>"/></td>
             <td><rsc:item name="timestamp" row="<%=resultRow%>" format="MM/dd/yyyy hh:mm a"/></td>
