@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>09.20.07<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&d1=calendar&d2=sep_07">New Marathon Matches added</a></span><br><br>
+        Looking for a challenge this fall? Five new Marathon Matches have been added to the calendar, with a total of 7 weeks of competition. The fun begins with Marathon Match 23, starting September 26, and continues through December.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=calendar&d2=sep_07">details</a> | 
+        <tc-webtag:forumLink forumID="517493" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="TopCoder Surveys" border="0" /><br>09.20.07<br>10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=ViewSurvey&sid=19500">TC Channel Survey: Remix</A></span><br><br>
@@ -157,18 +170,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm365">full story</A> | 
          <tc-webtag:forumLink forumID="516062" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.14.07<br>1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 3 set for September 15</A></span><br><br>
-        Algorithm Round 3 of the 2007 TopCoder Collegiate Challenge, brought to you by NSA, kicks off tomorrow afternoon at 1:00 PM EDT. Don't miss it!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</a> | 
-        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
