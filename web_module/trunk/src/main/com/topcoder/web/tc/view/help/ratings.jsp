@@ -66,7 +66,7 @@
 
 <!-- <TABLE WIDTH="104" BORDER="0" CELLPADDING="0" CELLSPACING="0">
 <TR>
-<TD COLSPAN="2"><IMG ALT="" HEIGHT="128" WIDTH="104" SRC="/images/ranks_2.gif"></TD>
+<TD COLSPAN="2"><IMG ALT="" HEIGHT="128" WIDTH="104" src="/i/ranks_2.gif"></TD>
 </TR>
 <TR>
 <TD><IMG ALT="" HEIGHT="2" WIDTH="14" SRC="/i/clear.gif" BORDER="0"/></TD><TD><IMG ALT="" HEIGHT="2" WIDTH="90" SRC="/i/clear.gif" BORDER="0"/></TD>

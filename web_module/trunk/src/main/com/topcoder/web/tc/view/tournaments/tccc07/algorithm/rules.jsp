@@ -144,9 +144,6 @@
                         <tr> 
                             <td class="header">Round</td> 
                             <td class="header">Date and Time*</td> 
-                            <td class="header">Maximum<br /># of Participants**</td> 
-                            <td class="header">Maximum<br /># of Advancers**</td> 
-                        </tr> 
                         <tr class="light"> 
                             <td class="value">Online Round 1 - Section A</td> 
                             <td class="value">Tuesday, August 28<br />Register: 6:00 - 8:55 PM<br />START: 9:00 PM</td> 

@@ -1,7 +1,6 @@
 <%@ page
   language="java"
-  import="java.net.URLEncoder,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
-          com.topcoder.shared.util.ApplicationServer"
+  import="com.topcoder.shared.dataAccess.Request,com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,com.topcoder.shared.util.ApplicationServer"
 
 %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -130,7 +129,7 @@ function goTo(selection){
 
 <%
 String currRound = resultRow_0==null?srb.getProperty("rd"):resultRow_0.getItem("round_id").toString();
-if (!sessionInfo.isAnonymous()){
+if (!sessionInfo.isAnonymous()) {
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
 pageContext.setAttribute("resultSetDates", rsc);
 
