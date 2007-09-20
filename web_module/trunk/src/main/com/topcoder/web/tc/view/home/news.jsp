@@ -7,7 +7,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.20.07<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=ViewSurvey&sid=19560">Vote for the TCCC07 Bloggers</A></span><br><br>
-        For this contest, we asked potential bloggers to use text, photos, and video to demonstrate the perspective they would bring to their coverage of the TCCC. Now it's in your hands -- check out the entries, and vote for your favorites now. Votings ends at 2:00 PM EDT on Friday, September 21.</td>
+        For this contest, we asked potential bloggers to use text, photos, or video to demonstrate the perspective they would bring to their coverage of the TCCC. Now it's in your hands -- check out the entries, and vote for your favorites now. Votings ends at 2:00 PM EDT on Friday, September 21.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <A href="/tc?module=ViewSurvey&sid=19560">details</a> | 
