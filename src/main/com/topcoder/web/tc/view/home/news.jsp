@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.20.07<br>12:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd3">TCCC07 Algo Round 3 - Problem Set &amp; Analysis</A></span><br><br>
+      Online Round 3 of the 2007 TopCoder Collegiate Challenge brought us something to think, something to code and a huge space for possible bugs. What else does a top coder need on a Saturday morning (or day, or night)?</td>
+         <td class="newsPhoto"><img src="/i/m/pashka_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="15881985" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd3">full story</A> | 
+         <tc-webtag:forumLink forumID="517409" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>09.20.07<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&d1=calendar&d2=sep_07">New Marathon Matches added</a></span><br><br>
@@ -153,22 +169,5 @@
          <A href="/tc?module=Static&d1=tutorials&d2=maxflowPushRelabel">full story</A> | 
          <tc-webtag:forumLink forumID="517411" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.14.07<br>6:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm365">SRM 365 - Problem Set &amp; Analysis</A></span><br><br>
-      In Division 1 the coders were faced with tricky problems, all of which required careful implementation and creative thinking rather than fast coding of well-known algorithms. 
-      A particularly tricky hard led to a very eventful challenge phase, with both <tc-webtag:handle coderId="22680151" context="algorithm"/> and <tc-webtag:handle coderId="10157606" context="algorithm"/> racking up record levels of successful challenges. When the dust settled, <tc-webtag:handle coderId="22664154" context="algorithm"/> was left in first place, followed by <tc-webtag:handle coderId="7442498" context="algorithm"/> and <tc-webtag:handle coderId="15805598" context="algorithm"/>.</td>
-         <td class="newsPhoto"><img src="/i/m/Xixas_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="22629218" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm365">full story</A> | 
-         <tc-webtag:forumLink forumID="516062" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
