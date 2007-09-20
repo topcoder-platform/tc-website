@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.20.07<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=ViewSurvey&sid=19560">Vote for the TCCC07 Bloggers</A></span><br><br>
+        For this contest, we asked potential bloggers to use text, photos, and video to demonstrate the perspective they would bring to their coverage of the TCCC. Now it's in your hands -- check out the entries, and vote for your favorites now. Votings ends at 2:00 PM EDT on Friday, September 21.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=ViewSurvey&sid=19560">details</a> | 
+        <tc-webtag:forumLink forumID="517257" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.20.07<br>12:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -153,21 +166,5 @@
         <a href="/tc?module=ViewSurvey&sid=19443">details</a> | 
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=90">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Algorithm Tutorial" border="0" /><br>09.17.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=maxflowPushRelabel">A New Approach to the Maximum Flow Problem</A></span><br><br>
-      This article presents a new approach for computing maximum flow in a graph. Previous articles had concentrated on finding maximum flow by finding augmenting paths. The approach presented in this article is called <strong>push-relabel</strong>, which is a separate class of algorithms.</td>
-         <td class="newsPhoto"><img src="/i/m/NilayVaish_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="21500759" context="algorithm" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=maxflowPushRelabel">full story</A> | 
-         <tc-webtag:forumLink forumID="517411" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
    
