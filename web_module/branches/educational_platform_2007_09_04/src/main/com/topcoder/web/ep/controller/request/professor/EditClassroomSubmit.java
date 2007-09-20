@@ -9,6 +9,7 @@ import java.util.Set;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.model.Coder;
@@ -96,9 +97,9 @@ public class EditClassroomSubmit extends Base {
 
             markForCommit();
             
-            getRequest().setAttribute("classrooms", u.getProfessor().getClassrooms());                
-            getRequest().setAttribute("user", u);
-            setNextPage("/professor/home.jsp");
+            getRequest().setAttribute("message", "You have successfuly added classroom " + classroom.getName());                  
+            getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/ep/");                  
+            setNextPage("/message.jsp");
             setIsNextPageInContext(true);            
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
