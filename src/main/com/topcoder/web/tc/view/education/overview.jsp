@@ -39,7 +39,7 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<li><a href="/tc?module=Static&d1=features&d2=092007"><strong>Disjoint-set Data Structures</strong></a>, by <tc-webtag:handle coderId="13298470" context="algorithm"/><br>
+<li><a href="/tc?module=Static&d1=tutorials&d2=disjointDataStructure"><strong>Disjoint-set Data Structures</strong></a>, by <tc-webtag:handle coderId="13298470" context="algorithm"/><br>
 The right data structure can reduce the time of execution, the time to implement the algorithm, and the amount of memory used. In this article, we'll focus on data structures for disjoint sets.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=maxflowPushRelabel"><strong>A New Approach to the Maximum Flow Problem</strong></a>, by <tc-webtag:handle coderId="21500759" /><br>
 This article presents a new approach for computing maximum flow in a graph. Previous articles had concentrated on finding maximum flow by finding augmenting paths. The approach presented in this article is called <strong>push-relabel</strong>, which is a separate class of algorithms.</li>

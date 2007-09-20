@@ -4,18 +4,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>09.20.07<br>4:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial" border="0" /><br>09.20.07<br>4:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=092007">Disjoint-set Data Structures</A></span><br><br>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=disjointDataStructure">Disjoint-set Data Structures</A></span><br><br>
       The right data structure can reduce the time of execution, the time to implement the algorithm, and the amount of memory used. In this article, we'll focus on data structures for disjoint sets.</td>
          <td class="newsPhoto"><img src="/i/m/vlad_D_big5.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="13298470" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=092007">full story</A> | 
+         <A href="/tc?module=Static&d1=tutorials&d2=disjointDataStructure">full story</A> | 
          <tc-webtag:forumLink forumID="517506" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
    
 <%--------------------------------------------------------%>
