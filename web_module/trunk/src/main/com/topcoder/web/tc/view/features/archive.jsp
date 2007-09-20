@@ -44,11 +44,6 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
-               <td class="bodyText"><tc-webtag:handle coderId="13298470" context="algorithm"/></td>
-               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=092007"><strong>Disjoint-set Data Structures</strong></A></td>
-               <td class="bodyText" nowrap=nowrap>Sep 20, 2007</td> 
-            </tr>
-            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="21926605" context="design"/></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=091307"><strong>An interview with fabrizyo</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Sep 13, 2007</td> 
