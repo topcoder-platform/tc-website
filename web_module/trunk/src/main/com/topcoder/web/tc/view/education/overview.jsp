@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=092007"><strong>Disjoint-set Data Structures</strong></a>, by <tc-webtag:handle coderId="13298470" context="algorithm"/><br>
+The right data structure can reduce the time of execution, the time to implement the algorithm, and the amount of memory used. In this article, we'll focus on data structures for disjoint sets.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=maxflowPushRelabel"><strong>A New Approach to the Maximum Flow Problem</strong></a>, by <tc-webtag:handle coderId="21500759" /><br>
 This article presents a new approach for computing maximum flow in a graph. Previous articles had concentrated on finding maximum flow by finding augmenting paths. The approach presented in this article is called <strong>push-relabel</strong>, which is a separate class of algorithms.</li>
 <li><a href="/tc?module=Static&d1=features&d2=091307"><strong>An interview with fabrizyo</strong></a>, <tc-webtag:handle coderId="21926605" context="design" /><br>
 While a few final fixes are still pending, and a few scores may yet move, it appears that somebody has finally broken the hold of <tc-webtag:handle coderId="287614" context="design" /> on the <a href="/tc?&ph=112&module=LeaderBoard">Digital Run Design Cup</a>. With 18,515 points in Stage 1 of the 2007.5 DR, Fabrizio Lovato, 27, brings Digital Run bragging rights -- and more than $80,000 in total prizes -- to his home in Italy.</li>
-<li><a href="/tc?module=Static&d1=features&d2=091007"><strong>Spotlight: The Arab Academy for Science &amp; Technology</strong></a>, by <tc-webtag:handle coderId="21777558" /><br>
-Egypt's <a href="/tc?module=AlgoRank&cc=818">algorithm contingent</a> has 118 current active members and a <a href="/stat?c=country_avg_rating">country rank</a> of 31, along with one (relatively recent) red coder, <tc-webtag:handle coderId="7400531" context="algorithm"/>. In this article, I'll introduce some of the coders from our community, primarily from my school: the Arab Academy for Science and Technology.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
