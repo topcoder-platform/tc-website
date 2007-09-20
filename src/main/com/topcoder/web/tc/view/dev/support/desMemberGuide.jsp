@@ -80,7 +80,7 @@ These are the current software versions used in the design, development and test
 <ul>
 <li>ANT version: 1.6.2</li>
 <li>NANT version: 0.84</li>
-<li>Poseidon version: 5.0</li>
+<li>Poseidon 5.0 or TopCoder UML Tool 0.1.7+</li>
 <li>JUnit version: 3.8.1</li>
 <li>NUnit version: 2.1</li>
 </ul>
