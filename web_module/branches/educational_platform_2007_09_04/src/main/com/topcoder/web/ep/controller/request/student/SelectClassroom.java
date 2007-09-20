@@ -71,16 +71,18 @@ public class SelectClassroom extends Base {
                 String[] values = getRequest().getParameterValues(Constants.CLASSROOM_ID);
                 
                 // add selected classrooms to the session
-                List<Classroom> selectedClassrooms = new ArrayList<Classroom>(values.length);
-                for (String value : values) {
-                    Classroom c = null;
-                    if (value != null) {
-                        try {
-                            c = getFactory().getClassroomDAO().find(Long.parseLong(value));
-                        } catch (NumberFormatException e) {
-                            // just drop this selection
+                List<Classroom> selectedClassrooms = new ArrayList<Classroom>();
+                if (values != null) {
+                    for (String value : values) {
+                        Classroom c = null;
+                        if (value != null) {
+                            try {
+                                c = getFactory().getClassroomDAO().find(Long.parseLong(value));
+                            } catch (NumberFormatException e) {
+                                // just drop this selection
+                            }
+                            selectedClassrooms.add(c);
                         }
-                        selectedClassrooms.add(c);
                     }
                 }
                 if (selectedClassrooms.size() == 0) {
