@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="TopCoder Surveys" border="0" /><br>09.20.07<br>10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=ViewSurvey&sid=19500">TC Channel Survey: Remix</A></span><br><br>
+        Earlier this week, we asked you to tell us what one thing you'd like to see most in future episodes of the TC Channel. In this new survey, we'd like your help in ranking those options.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=ViewSurvey&sid=19500">details</a> | 
+        <tc-webtag:forumLink forumID="517421" message="discuss this" /> | 
+        <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>09.20.07<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&d1=dev&d2=umltool&d3=description&node=des_uml_tool">Try the TopCoder UML Tool</a></span><br><br>
@@ -157,21 +170,5 @@
         <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</a> | 
         <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.14.07<br>12:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd2">TCCC07 - Algo Round 2 - Problem Set &amp; Analysis</A></span><br><br>
-      Round 2 of the 2007 TopCoder Collegiate Challege had to cut 900 competitors down to the 300 slots available in Round 3. In the battle to continue their quest for Disney World, coders had to face 3 problems of increasing difficulty.</td>
-         <td class="newsPhoto"><img src="/i/m/andrewzta_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="11829284" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd2">full story</A> | 
-         <tc-webtag:forumLink forumID="517259" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
