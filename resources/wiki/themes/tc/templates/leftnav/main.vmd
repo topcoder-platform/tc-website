@@ -59,7 +59,7 @@ $topHelper.renderTop()
                     ##else
                     ##<td rowspan="2" valign="bottom" width="1%">#logoBlock($spaceKey)</td>
                     ##end
-                    <td valign="bottom" align="left" width="1%" nowrap>&nbsp;
+                    <td valign="bottom" align="left" width="1%" nowrap>
                         <span class="logoSpaceLink">#spaceTitleLink()</span>
                     </td>
                     <td align="right" valign="top" width="98%">
