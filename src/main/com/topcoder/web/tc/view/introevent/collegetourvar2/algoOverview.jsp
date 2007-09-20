@@ -136,7 +136,7 @@
         </li>
         <li>
             <tc-webtag:format object="${resultsTime}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-            - Results & Prizes
+            - Results
         </li>
     </ul>
 
