@@ -134,7 +134,7 @@ How are returns of type double evaluated for correctness?
 </TD>
 </TR>
 <TR>
-<TD HEIGHT="20" VALIGN="top"><IMG ALT="" SRC="/images/spacer.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD>
+<TD HEIGHT="20" VALIGN="top"><IMG ALT="" src="/i/spacer.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD>
 </TR>
 <TR>
 <TD CLASS="bodyText" VALIGN="top">

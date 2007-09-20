@@ -16,15 +16,15 @@
 
  <!-- Verizon logo-->
         <td width="147" valign="top"><A href="http://www.verizon.com"><img src="/i/events/verizon2003/logo_black_147x41.gif" width="147" height="37" alt="Verizon" border="0"></A></td>
-        <td class="red"><img alt="" src="/images/spacer.gif" width="1" height="37"></td>
+        <td class="red"><img alt="" src="/i/spacer.gif" width="1" height="37"></td>
         <td valign="top" class="black" width="440"><img src="/i/events/verizon2003/vcc03_logo_secondary.gif" width="440" height="37" alt="Verizon Coding Contest" border="0"></td>
-        <td class="red"><img alt="" src="/images/spacer.gif" width="1" height="37"></td>
+        <td class="red"><img alt="" src="/i/spacer.gif" width="1" height="37"></td>
         <td valign="top" class="black" width="99%"><A href="http://www.topcoder.com"><img src="/i/events/verizon2003/pbtc_secondary2.gif" width="134" height="37" alt="Contest Powered by TopCoder" border="0"></A></td>
     </tr>
 
 <!-- Top Ad -->
     <tr>
-      <td class="red" height="1" colspan="5"><img alt="" src="/images/spacer.gif" width="10" height="1"></td>
+      <td class="red" height="1" colspan="5"><img alt="" src="/i/spacer.gif" width="10" height="1"></td>
    </tr>
 
 <table width="740" border="0" cellspacing="0" cellpadding="0">
@@ -60,7 +60,7 @@
                             Challenge has exceeded the 500-person limit and you are unable to participate.<br/><br/>
 
                             You can use your handle and password to login to the Practice Arena to
-                            hone your skills for future Verizon coding events – just click the
+                            hone your skills for future Verizon coding events ï¿½ just click the
                             "Practice Arena" link to the left.<br/><br/>
 
                             Thank you for your interest.<br/><br/><br/><br/><br/><br/><br/>

@@ -1,6 +1,4 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
-<%@ page import="com.topcoder.web.privatelabel.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
@@ -25,7 +23,7 @@
 
 <%-- Top Nav --%>
         <td class="black" width="588">
-        <td class="black"><img alt="" src="/images/spacer.gif" width="1" height="41"></td>
+        <td class="black"><img alt="" src="/i/spacer.gif" width="1" height="41"></td>
     </tr>
 
 <%-- Top Ad --%>

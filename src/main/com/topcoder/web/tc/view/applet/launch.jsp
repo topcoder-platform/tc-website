@@ -16,9 +16,9 @@
 
 <body bgcolor="#CCCCCC" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" onLoad="focus()">
 <table border="0" cellpadding="0" cellspacing="0" width="290" align="center">
-    <tr><td><img border="0" height="8" width="1" src="/images/spacer.gif"/></td></tr>
+    <tr><td><img border="0" height="8" width="1" src="/i/spacer.gif"/></td></tr>
     <tr><td class="bodyText"><font size="3"><b>Competition Arena</b></font></td></tr>
-    <tr><td><img border="0" height="12" width="1" src="/images/spacer.gif"/></td></tr>
+    <tr><td><img border="0" height="12" width="1" src="/i/spacer.gif"/></td></tr>
     <tr>
         <td class="bodyText">
             This page should present you with a button to start the competition arena applet.<br/><br/>
@@ -30,7 +30,7 @@
         </td>
     </tr>
     <tr>
-        <td valign="top"><img height="20" width="1" src="/images/spacer.gif"/></td>
+        <td valign="top"><img height="20" width="1" src="/i/spacer.gif"/></td>
     </tr>
     <tr>
         <td align="center" class="bodyText">
