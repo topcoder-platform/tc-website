@@ -88,7 +88,7 @@ Let <strong>G</strong> = <strong>(V,E)</strong> be a directed graph with vertex 
 
 <p>The value of a flow f is the net flow into the sink i.e. <strong> | f | = </strong><strong> &sum;</strong><strong></strong><strong> u </strong><strong> &#8714; </strong><strong> V</strong><strong></strong><strong> f(u,t)</strong> . <strong>Figure 1</strong> below shows a flow network with the edges marked with their capacities. Using this network we will illustrate the steps in the algorithm. </p>
 
-<p align="center"><img src="/i/education/maxflow_push/maxflow_push1.gif"></p>
+<p align="center"><img src="/i/education/maxflow_push/maxflow_push1.gif" /></p>
 
 <p align="center"> Figure 1 : Flow Network with Capacities </p>
 
@@ -124,35 +124,38 @@ Following are the three basic functions that constitute the algorithm: </p>
 <ol>
   <li><strong> Initialization</strong> &ndash; This is carried out once during the beginning of the algorithm. The height for all the vertices is set to zero except the source for which the height is kept at <strong>n</strong>. The preflow and the excess flow functions for all vertices are set to zero. Then all the edges coming out the source are filled to capacity. <strong>Figure 2</strong> shows the network after initialization. </li>
 
-<p align="center"><img width="362" height="195" src="/i/education/maxflow_push/maxflow_push2.gif"><br>
+<p align="center"><img width="362" height="195" src="/i/education/maxflow_push/maxflow_push2.gif" /><br>
   Figure 2 : Network after Initialization </p>
 <p>&nbsp; </p>
-<p align="center"><img src="/i/education/maxflow_push/maxflow_push3.gif"></p>
+<p align="center"><img src="/i/education/maxflow_push/maxflow_push3.gif" /></p>
 
 <p align="center"> Figure 3 : Code for Initialization </p>
 <p>&nbsp; </p>
 
   <li><strong> push(u,v)</strong> - This operation pushes flow from an overflowing tank to a tank to which it has a pipe that can take in more flow and the second tank is at a lower height than the first one. In other words, if vertex <strong>u</strong> has a positive excess flow, <strong>cf(u,v) &gt; 0</strong> and <strong>h(u) &gt; h(v)</strong>, then flow can be pushed onto the residual edge <strong>(u,v)</strong>. The amount of the flow pushed is given by <strong>min(e(u),cf(u,v))</strong>.<br /><br />
 <strong> Figure 4</strong> shows a vertex <strong>B</strong> that has an excess flow of <strong>10</strong>. It makes two pushes. In the first push, <strong>7</strong> units of flow are pushed to <strong>C</strong>. In the second push, <strong>3</strong> units of flow are pushed to <strong> E. Figure 5 </strong> illustrates the final result. </p>
-<p align="center"><img width="403" height="216" src="/i/education/maxflow_push/maxflow_push4.gif"></p>
+<p align="center"><img width="403" height="216" src="/i/education/maxflow_push/maxflow_push4.gif" /></p>
 <p align="center"> Figure 4 : Network before pushing flow from B </p>
 <p>&nbsp; </p>
-<p align="center"><img src="/i/education/maxflow_push/maxflow_push5.gif"></p>
+<p align="center"><img src="/i/education/maxflow_push/maxflow_push5.gif" /></p>
 <p align="center"> Figure 5 : Network pushing flow from B </p>
 <p>&nbsp; </p>
-<p align="center"><img src="/i/education/maxflow_push/maxflow_push6.gif"></p>
+<p align="center"><img src="/i/education/maxflow_push/maxflow_push6.gif" /></p>
 <p align="center"> Figure 6 : Code for Push sub-routine </p></li>
   <li><strong> relabel(u)</strong> - This operation raises the height of an overflowing tank that has no other tanks downhill from it. It applies if <strong>u</strong> is overflowing and <strong>h(u) &le; h(v)</strong> &or; residual edges <strong>(u,v)</strong> i.e. on all the residual edges from <strong>u</strong>, flow cannot be pushed. The height of the vertex <strong>u</strong> is increased by <strong>1</strong> more than the minimum height of its neighbor to which <strong>u</strong> has a residual edge.
 
-    <p align="center"><strong><img src="/i/education/maxflow_push/maxflow_push7.gif"></strong></p>
+    <p align="center"><strong><img src="/i/education/maxflow_push/maxflow_push7.gif" /></strong></p>
 <p align="center"> Figure 7 : Network after relabeling D </p>
 <p>In <strong>Figure 4</strong>, pick up vertex <strong>D</strong> for applying the push operation. We find that it has no vertex that is downhill to it and the edge from <strong>D</strong> to that vertex has excess capacity. So we relabel <strong>D</strong> as shown in <strong>Figure 5.</strong></p>
-<p align="center"><img src="/i/education/maxflow_push/maxflow_push8.gif"></p>
+<p align="center"><img src="/i/education/maxflow_push/maxflow_push8.gif" /></p>
 <p align="center">Figure 8 : Code for Relabel sub-routine</p>
 </li></ol>
 
 <p><span class="bodySubtitle">Generic Algorithm</span><br />
-The value <strong>e(t)</strong> will represent the maximum flow. We now try to see why this algorithm would work. This would need two observations that hold at all times during and after the execution of the algorithm.</p>
+The generic algorithm is as follows:<br />
+<p align="center"><img src="/i/education/maxflow_push/image096.gif" /></p>
+
+<p>The value <strong>e(t)</strong> will represent the maximum flow. We now try to see why this algorithm would work. This would need two observations that hold at all times during and after the execution of the algorithm.</p>
 <ol>
   <li><strong> A residual edge from u to v implies h(u) &le; h(v) + 1</strong> -We had earlier introduced this as a property of the height function. Now we make use of induction for proving this property. </li>
 
@@ -178,7 +181,7 @@ The value <strong>e(t)</strong> will represent the maximum flow. We now try to s
 
 <p><span class="bodySubtitle">Analysis </span><br />
 The analysis requires proving certain properties relating to the algorithm. </p>
-<p align="center"><img width="347" height="168" src="/i/education/maxflow_push/maxflow_push8a.gif"></p>
+<p align="center"><img width="347" height="168" src="/i/education/maxflow_push/maxflow_push8a.gif" /></p>
 <ol>
   <li><strong> s is reachable from all the overflowing vertices in the residual graph</strong> - Consider <strong>u</strong> as an overflowing and <strong>S</strong> as the set of all the vertices that are reachable from <strong>u</strong> in the residual graph. Suppose <strong>s </strong><strong> &notin;</strong><strong> 2S</strong> . Then for every vertex pair <strong>(v,w)</strong> such that <strong>v </strong><strong> &#8714;</strong><strong> S</strong> and <strong>w </strong><strong> &#8714;</strong><strong> V-S</strong> , <strong>f(w,v) &le; 0</strong>. Because if <strong>f(w,v) &gt; 0</strong>, then <strong>cf(v,w) &gt; 0</strong> which implies <strong>w</strong> is reachable from <strong>u</strong>. Thus, since <strong>e(v) &le; 0</strong>, for all <strong>v</strong><strong> &#8714;</strong><strong> S, e(v) = 0</strong>. In particular, <strong>e(u) = 0</strong>, which is a contradiction. <br>
   </li>
@@ -202,7 +205,7 @@ The analysis requires proving certain properties relating to the algorithm. </p>
 We will make use of a first-in, first-out strategy for selecting vertices on which push/relabel operation will be performed. This is done by creating a queue of vertices that are overflowing. Initially all the overflowing vertices are put into the queue in any order. We will run the algorithm till the queue becomes empty. </p>
 
 <p> In every iteration the vertex at the front of the queue is chosen for carrying out the operations. Let this vertex be <strong>u</strong>. Consider all the edges of <strong>u</strong>, both those that are incident on <strong>u</strong> and those that are incident on other vertices from <strong>u</strong>. These are edges along which <strong>u</strong> can potentially push more flow. Go through these edges one by one, pushing flow along edges that have excess capacity. This is done until either <strong>u</strong> becomes inactive or all the edges have been explored. If during the iteration any new vertex starts to overflow, then add that vertex to the end of the queue. If at the end of the iteration <strong>u</strong> is still overflowing, then it means <strong>u</strong> needs a relabeling. Relabel <strong>u</strong> and start the next iteration with <strong>u</strong> at the front of the queue. If any time during the process or at end of it <strong>u</strong> becomes inactive, remove <strong>u</strong> from the queue. This process of pushing excess flow from a vertex until it becomes inactive is called <strong>discharging a vertex</strong>. </p>
-<p align="center"><img src="/i/education/maxflow_push/maxflow_push9.jpg"></p>
+<p align="center"><img src="/i/education/maxflow_push/maxflow_push9.jpg" /></p>
 <p align="center"> Figure 9 : Code for First-In First-Out Algorithm </p>
 
 <p><span class="bodySubtitle">Analysis of First-In First-Out Algorithm </span><br />
@@ -226,6 +229,8 @@ In general any problem that has a solution using max-flow can be solved using <s
   <li><tc-webtag:handle coderId="8593420" context="algorithm"/>. <a href="/tc?module=Static&d1=tutorials&d2=maxFlow">Algorithm Tutorial: MaximumFlow</a></li>
   <li><tc-webtag:handle coderId="268851" context="algorithm"/>. <a href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs1">Algorithm Tutorial: Introduction to graphs and their data structures</a></li>
 </ol>
+<br />
+<p><em>The author would like to acknowledge the assistance of <tc-webtag:handle coderId="20814283" context="algorithm"/>, who helped review and improve this article prior to publication.</em></p>
 <br /><br />
 
         </td>
