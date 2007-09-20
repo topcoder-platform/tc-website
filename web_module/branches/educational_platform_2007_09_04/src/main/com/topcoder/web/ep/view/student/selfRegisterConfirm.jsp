@@ -23,10 +23,10 @@
 
 <body>
     <form name="f" action="${sessionInfo.servletPath}" method="post">
-        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SelfRegisterSubmit"/>
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SelfRegisterConfirm"/>
         You will be registering to the following classrooms: <br/>
-        <table> 
-            <tr><td>School</td><td>Professor</td><td>Classroom</td><td>Academic period</td><td>Description</td><td>Select</td></tr>
+        <table border="1"> 
+            <tr><td>School</td><td>Professor</td><td>Classroom</td><td>Academic period</td><td>Description</td></tr>
             <c:forEach items="${classrooms}" var="classroom">                
                 <tr>
                     <td>${school.name}</td>
@@ -38,8 +38,7 @@
             </c:forEach>
         </table> 
             <p>
-                <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Submit</a>
-                Or
+                <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Submit</a>or
                 <a href="/ep" class="button" style="width: 60px; margin-right: 10px;">Cancel</a>
             </p>
         </form>            

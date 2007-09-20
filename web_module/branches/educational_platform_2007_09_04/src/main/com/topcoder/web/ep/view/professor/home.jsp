@@ -41,10 +41,14 @@ Hello, <tc-webtag:handle coderId='${user.id}'/>, Welcoome to Educational Plattfo
 <c:choose>
     <c:when test="${not empty classrooms}">
         Here are your classrooms:<br/><br/>
+        <table border="1">
         <c:forEach items="${classrooms}" var="classroom">
-            <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a> 
-            <a href="/ep?module=EditClassroom&amp;clsid=${classroom.id}">Edit</a><br/>
+            <tr>
+                <td><a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a></td>
+                <td><a href="/ep?module=EditClassroom&amp;clsid=${classroom.id}">Edit</a></td>
+            </tr>
         </c:forEach>
+        </table>
     </c:when>
     <c:otherwise>
         You don't have classrooms associated.

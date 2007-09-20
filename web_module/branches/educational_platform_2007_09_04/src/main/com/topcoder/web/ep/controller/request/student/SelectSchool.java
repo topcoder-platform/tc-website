@@ -5,19 +5,11 @@
 */
 package com.topcoder.web.ep.controller.request.student;
 
-import java.util.List;
-
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.educ.Professor;
-import com.topcoder.web.ep.Constants;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.ep.controller.request.Base;
-import com.topcoder.web.ep.controller.request.Home;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -32,52 +24,26 @@ public class SelectSchool extends Base {
      */
     @Override
     protected void dbProcessing() throws Exception {
-        if (log.isDebugEnabled()) {
-            log.debug("Select school called...");
-            if (getActiveUser() == null) {
-                log.debug("user is null");
-            } else if (getActiveUser().isNew()) {
-                log.debug("user is new");
-            } else {
-                log.debug("handle : " + getActiveUser().getHandle());
-                log.debug("name: " + getActiveUser().getFirstName() + " " + getActiveUser().getLastName());
-            }
-        }
-        if (getActiveUser() == null) {
-            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
-        } else if (userLoggedIn()) {
-            // get school parameter
-            Long schoolId = getSchoolParam();
+        log.debug("Self registration called...");
+        if (userIdentified()) {
+            log.debug("User identified - " + getUser().getUserName());
             
-            // add selected school to the session
-            School s  = getFactory().getSchoolDAO().find(schoolId);
-            setSchool(s);
+            // TODO: only students
+            
+            // prepare stuff for the long transaction
+            clearSession();
 
-            // get professors from that school
-            List<Professor> professors  = getFactory().getProfessorDAO().getProfessors(s);
-            getRequest().setAttribute("professors", professors);            
+            //set up the user object we're gonna use
+            User u = getActiveUser();
+            if (u == null) {
+                u = new User();
+                setActiveUser(u);
+            }
             
-            setNextPage("/student/selectClassroom.jsp");
+            setNextPage("/student/selectSchool.jsp");
             setIsNextPageInContext(true);            
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }        
-    }
-
-    private Long getSchoolParam() throws TCWebException {
-        String schoolId = StringUtils.checkNull(getRequest().getParameter(Constants.SCHOOL_ID));
-        
-        if (schoolId == "") {
-            throw new TCWebException("Invalid school id");
-        }
-
-        Long id;
-        try {
-            id = Long.parseLong(schoolId);
-        } catch (NumberFormatException e) {
-            throw new TCWebException("Invalid school id");
-        }
-        
-        return id;
     }
 }

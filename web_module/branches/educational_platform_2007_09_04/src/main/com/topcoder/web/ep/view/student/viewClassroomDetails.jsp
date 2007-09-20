@@ -15,15 +15,21 @@
 
 
 <body>
-    School: ${classroom.professor.school.name}
+    <table border="1">
+            <tr>
+                <td>Professor</td>
+                <td>Classroom</td>
+                <td>Academic period</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>${classroom.professor.user.lastName}, ${classroom.professor.user.firstName}</td>
+                <td>${classroom.name}</td>
+                <td>${classroom.academicPeriod}</td>
+                <td>${classroom.description}</td>
+            </tr>
+    </table>
     <br/>
-    Professor: ${classroom.professor.user.lastName}, ${classroom.professor.user.firstName}
-    <br/>
-    Classroom: ${classroom.name}
-    <br/>
-    Academic period: ${classroom.academicPeriod}
-    <br/>
-    Description : ${classroom.description}
-    <br/>
+    <a href="/ep/">Back</a>
 </body>
 </html>

@@ -5,15 +5,15 @@
 */
 package com.topcoder.web.ep.controller.request.student;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.ep.Constants;
+import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.controller.request.Base;
 
 /**
@@ -30,7 +30,7 @@ public class SelfRegisterConfirm extends Base {
     @Override
     protected void dbProcessing() throws Exception {
         if (log.isDebugEnabled()) {
-            log.debug("Self register confirm called...");
+            log.debug("Self register submit called...");
             if (getActiveUser() == null) {
                 log.debug("user is null");
             } else if (getActiveUser().isNew()) {
@@ -43,25 +43,21 @@ public class SelfRegisterConfirm extends Base {
         if (getActiveUser() == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
         } else if (userLoggedIn()) {
-            // get selection
-            String[] values = getRequest().getParameterValues(Constants.CLASSROOM_ID);
             
-            // add selected classrooms to the session
-            List<Classroom> selectedClassrooms = new ArrayList<Classroom>(values.length); 
-            for (String value : values) {
-                Classroom c = null;
-                if (value != null) {
-                    try {
-                        c = getFactory().getClassroomDAO().find(Long.parseLong(value));
-                    } catch (NumberFormatException e) {
-                        // just drop this selection
-                    }
-                    selectedClassrooms.add(c);
-                }
-            }
-            setSelectedClassrooms(selectedClassrooms);
+            User u = getActiveUser();
             
-            setNextPage("/student/selfRegisterConfirm.jsp");
+            Set<Classroom> classrooms = getSelectedClassrooms();
+            
+            u.getCoder().addClassrooms(classrooms);
+
+            getFactory().getUserDAO().saveOrUpdate(u);
+
+            markForCommit();
+            
+            getRequest().setAttribute("activeClassrooms", u.getCoder().getClassrooms(StudentClassroom.ACTIVE_STATUS));                
+            getRequest().setAttribute("pendingClassrooms", u.getCoder().getClassrooms(StudentClassroom.PENDING_STATUS));                
+            getRequest().setAttribute("user", u);
+            setNextPage("/student/home.jsp");
             setIsNextPageInContext(true);            
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));

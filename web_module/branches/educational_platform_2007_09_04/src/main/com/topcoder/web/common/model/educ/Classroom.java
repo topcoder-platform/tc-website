@@ -130,7 +130,7 @@ public class Classroom {
     public boolean hasStudent(Long studentId) {
         for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
             if (sc.getId().getStudent().getId().equals(studentId) && 
-                    sc.getStatusId().equals(StudentClassroom.PENDING_STATUS)) {
+                    !sc.getStatusId().equals(StudentClassroom.INACTIVE_STATUS)) {
                 return true;
             }
         }

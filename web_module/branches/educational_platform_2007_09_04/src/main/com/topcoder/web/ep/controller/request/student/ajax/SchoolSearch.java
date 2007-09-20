@@ -1,4 +1,4 @@
-package com.topcoder.web.ep.controller.request.student;
+package com.topcoder.web.ep.controller.request.student.ajax;
 
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ep.controller.request.Base;
@@ -30,7 +30,7 @@ public class SchoolSearch extends Base {
                     getFactory().getSchoolDAO().searchByName(s, Constants.MAX_SCHOOL_RESULTS));
             setDefault(Constants.SCHOOL_NAME, schoolName);
         }
-        setNextPage("/student/searchSchool.jsp");
+        setNextPage("/student/ajax/searchSchool.jsp");
         setIsNextPageInContext(true);
 
     }

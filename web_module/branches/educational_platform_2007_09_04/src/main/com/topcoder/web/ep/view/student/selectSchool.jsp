@@ -73,7 +73,7 @@ function postRequest()
  </script>
 </head>
 <body onLoad="initialize()" >
-    <div align="center" >
+    <div >
         <span class="subtitle">School Search</span>
         <br><br>
 
@@ -84,8 +84,6 @@ function postRequest()
         <A href="javascript:doSearch();">Search</A>
         <br>
         Use * for a wildcard character
-        <br><br>
-
         <div id="searching">
         <p>
         <b><font color="#FF0000" size="+1">Searching...</font></b>

@@ -24,32 +24,24 @@
 
 <body>
 <c:choose>
-    <c:when test="${not empty professors}">
+    <c:when test="${not empty possible_classrooms}">
+        <tc-webtag:errorIterator id="err" name="error">
+            <font color="#FF0000"><%=err%></font><br/>
+        </tc-webtag:errorIterator>
         <form name="f" action="${sessionInfo.servletPath}" method="post">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SelfRegisterConfirm"/>
-            select a professor: <br/>
-            <table> 
+            Select a classroom: <br/>
+            <table border="1"> 
                 <tr><td>School</td><td>Professor</td><td>Classroom</td><td>Academic period</td><td>Description</td><td>Select</td></tr>
-                <c:forEach items="${professors}" var="professor">
-                    <c:if test="${not empty professor.classrooms}">
-                        <c:forEach items="${professor.classrooms}" var="classroom">                
-                            <tr>
-                                <td>${school.name}</td>
-                                <td>${professor.user.lastName}, ${professor.user.firstName}</td>
-                                <td>${classroom.name}</td>
-                                <td>${classroom.academicPeriod}</td>
-                                <td>${classroom.description}</td>
-                                <td>
-                                    <c:choose>
-                                        <c:when test="${not empty checked_classrooms && cf:contains(checked_classrooms, classroom.id)}">
-                                           <input type="checkbox" name="clsid" value="${classroom.id}" checked="checked"></c:when>
-                                        <c:otherwise>
-                                           <input type="checkbox" name="clsid" value="${classroom.id}"></c:otherwise>
-                                    </c:choose>
-                               </td>
-                            </tr>
-                        </c:forEach>
-                    </c:if>
+                <c:forEach items="${possible_classrooms}" var="classroom">                
+                    <tr>
+                        <td>${classroom.profesor.school.name}</td>
+                        <td>${classroom.professor.user.lastName}, ${classroom.professor.user.firstName}</td>
+                        <td>${classroom.name}</td>
+                        <td>${classroom.academicPeriod}</td>
+                        <td>${classroom.description}</td>
+                        <td><input type="checkbox" name="clsid" value="${classroom.id}"></c:otherwise></td>
+                    </tr>
                 </c:forEach>
             </table> 
             <p>
@@ -58,7 +50,7 @@
         </form>            
     </c:when>
     <c:otherwise>
-        There are no professors available for the selected school.
+        There are no classrooms available for the selected school.
     </c:otherwise>
 </c:choose>
 </body>

@@ -41,9 +41,13 @@ Hello, <tc-webtag:handle coderId='${user.id}'/>, Welcoome to Educational Plattfo
     <c:choose>
         <c:when test="${not empty activeClassrooms}">
             Here are your active classrooms:
+            <table border="1">
             <c:forEach items="${activeClassrooms}" var="classroom">
-                <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a>
+                <tr>
+                    <td><a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a></td>
+                </tr>
             </c:forEach>
+            </table>
         </c:when>
         <c:otherwise>
             You don't have active classrooms associated.
@@ -53,15 +57,19 @@ Hello, <tc-webtag:handle coderId='${user.id}'/>, Welcoome to Educational Plattfo
     <c:choose>
         <c:when test="${not empty pendingClassrooms}">
             Here are your pending classrooms:
+            <table border="1">
             <c:forEach items="${pendingClassrooms}" var="classroom">
-                <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a>
+                <tr>
+                    <td><a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a></td>
+                </tr>
             </c:forEach>
+            </table>
         </c:when>
         <c:otherwise>
             You don't have pending classrooms associated.
         </c:otherwise>
     </c:choose>
     <br/>
-    <a href="/ep?module=SelfRegister">Register to classroom</a>
+    <a href="/ep?module=SelectSchool">Register to classroom</a>
 </body>
 </html>
