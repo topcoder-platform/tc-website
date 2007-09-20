@@ -387,7 +387,7 @@ public int maxFinal(int[] changeIntervals, int beginLevel, int maxLevel) {
          if(canHave[i][j]) {
             if(j + changeIntervals[i] &lt;= maxLevel)
                canHave[i+1][j + changeIntervals[i]] = true;
-            if(j - changeIntervals[i] &gt; 0)
+            if(j - changeIntervals[i] &gt;= 0)
                canHave[i+1][j - changeIntervals[i]] = true;
          }
       }
