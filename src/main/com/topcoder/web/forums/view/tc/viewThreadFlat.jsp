@@ -274,10 +274,10 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
        	<%  if (ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
 	    	<%	ImageData imageData = (ImageData)request.getAttribute("imageData"); %>
 			<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
-	    		<img align="middle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
+	    		<img align="middle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/i/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
 			<%	} %>
 			<%	if (!"".equals(StringUtils.checkNull(imageData.getTechnologyIcon()))) { %>
-				<img align="middle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getTechnologyIcon()%>" alt="<%=imageData.getTechnologyText()%>" border="0"/>
+				<img align="middle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/i/<%=imageData.getTechnologyIcon()%>" alt="<%=imageData.getTechnologyText()%>" border="0"/>
 			<%	} %>
 		<%	} %>
 	</td>

@@ -74,7 +74,7 @@
 			<table border="0" cellpadding="0" cellspacing="0" width="100%">
 				<tbody><tr>
 					<td align="left" width="5%">
-						<img src="http://software.topcoder.com/images/icon_design.gif" alt="" height="62" width="66">
+						<img src="http://software.topcoder.com/i/icon_design.gif" alt="" height="62" width="66">
 					</td>
                     <td width="5%">
 					</td>
