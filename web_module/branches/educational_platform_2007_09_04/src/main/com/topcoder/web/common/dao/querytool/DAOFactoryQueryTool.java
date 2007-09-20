@@ -201,4 +201,8 @@ public class DAOFactoryQueryTool implements DAOFactory {
     public ClassroomDAO getClassroomDAO() {
         throw new RuntimeException("Not supported");
     }
+
+    public StudentClassroomDAO getStudentClassroomDAO() {
+        throw new RuntimeException("Not supported");
+    }
 }

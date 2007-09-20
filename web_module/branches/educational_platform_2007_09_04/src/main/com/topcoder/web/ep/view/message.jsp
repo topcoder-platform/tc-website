@@ -10,9 +10,9 @@
     </head>
     
     <body>
-        <div align="center">
+        <div>
             ${message}
-            <br/>            
+            <br/><br/>
             <a href="${nextpage}">Continue</a>
         </div>
     </body>

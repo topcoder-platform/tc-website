@@ -39,6 +39,7 @@ import com.topcoder.web.common.dao.SchoolTypeDAO;
 import com.topcoder.web.common.dao.SeasonDAO;
 import com.topcoder.web.common.dao.SecurityGroupDAO;
 import com.topcoder.web.common.dao.StateDAO;
+import com.topcoder.web.common.dao.StudentClassroomDAO;
 import com.topcoder.web.common.dao.SubmissionDAO;
 import com.topcoder.web.common.dao.TeamDAO;
 import com.topcoder.web.common.dao.TeamTypeDAO;
@@ -241,5 +242,9 @@ public class DAOFactoryHibernate implements DAOFactory {
 
     public ClassroomDAO getClassroomDAO() {
         return new ClassroomDAOHibernate();
+    }
+
+    public StudentClassroomDAO getStudentClassroomDAO() {
+        return new StudentClassroomDAOHibernate();
     }
 }

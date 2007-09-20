@@ -29,18 +29,18 @@
             <font color="#FF0000"><%=err%></font><br/>
         </tc-webtag:errorIterator>
         <form name="f" action="${sessionInfo.servletPath}" method="post">
-        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SelfRegisterConfirm"/>
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SelectClassroom"/>
             Select a classroom: <br/>
             <table border="1"> 
                 <tr><td>School</td><td>Professor</td><td>Classroom</td><td>Academic period</td><td>Description</td><td>Select</td></tr>
                 <c:forEach items="${possible_classrooms}" var="classroom">                
                     <tr>
-                        <td>${classroom.profesor.school.name}</td>
+                        <td>${school.name}</td>
                         <td>${classroom.professor.user.lastName}, ${classroom.professor.user.firstName}</td>
                         <td>${classroom.name}</td>
                         <td>${classroom.academicPeriod}</td>
                         <td>${classroom.description}</td>
-                        <td><input type="checkbox" name="clsid" value="${classroom.id}"></c:otherwise></td>
+                        <td><input type="checkbox" name="clsid" value="${classroom.id}"></td>
                     </tr>
                 </c:forEach>
             </table> 
@@ -51,6 +51,8 @@
     </c:when>
     <c:otherwise>
         There are no classrooms available for the selected school.
+        <br/>
+        <a href="/ep/?module=SelectSchool">Back</a>
     </c:otherwise>
 </c:choose>
 </body>

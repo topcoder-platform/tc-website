@@ -100,4 +100,6 @@ public interface DAOFactory {
     ProfessorDAO getProfessorDAO();
 
     ClassroomDAO getClassroomDAO();
+
+    StudentClassroomDAO getStudentClassroomDAO();
 }

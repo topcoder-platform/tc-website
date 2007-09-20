@@ -23,28 +23,31 @@
     
     
     <body>
-        Name: ${classroom.name}
-        <br/>
-        Academic period: ${classroom.academicPeriod}
-        <br/>
-        Description : ${classroom.description}
-        <br/>
-
+        Classroom Details:<br/>
+        <table border="1">
+            <tr>
+                <td>Name</td>
+                <td>Academic period</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>${classroom.name}</td>
+                <td>${classroom.academicPeriod}</td>
+                <td>${classroom.description}</td>
+            </tr>
+        </table>
+        
         <form name="f" action="${sessionInfo.servletPath}" method="post">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditClassroomConfirm"/><br/>
         <c:choose>
             <c:when test="${not empty possible_students}">
-                <table> 
+                Please select registered students
+                <table border="1"> 
                     <tr><td>Student name</td><td>&nbsp;</td></tr>
                     <c:forEach items="${possible_students}" var="student">                
                         <tr>
                             <td>${student.user.lastName}, ${student.user.firstName}</td>
                             <td>
-                                    <c:forEach items="${checked_students}" var="chkStudent">
-                                        ${chkStudent} - ${student.id} - ${cf:contains(checked_students, student.id)}
-                                    </c:forEach>
-                            <br/>
-                            
                                 <c:choose>
                                     <c:when test="${not empty checked_students && cf:contains(checked_students, student.id)}">
                                        <input type="checkbox" name="stid" value="${student.id}" checked="checked"></c:when>

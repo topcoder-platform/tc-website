@@ -148,6 +148,16 @@ public class Classroom {
     }
 
     @Transient
+    public StudentClassroom getStudentClassroom(Long coderId) {
+        for (StudentClassroom sc : this.studentClassrooms) {
+            if (sc.getId().getStudent().getId().equals(coderId)) {
+                return sc;
+            }
+        }
+        return null;
+    }
+
+    @Transient
     public void addStudentClassroom(StudentClassroom sc) {
         this.studentClassrooms.add(sc);
     }

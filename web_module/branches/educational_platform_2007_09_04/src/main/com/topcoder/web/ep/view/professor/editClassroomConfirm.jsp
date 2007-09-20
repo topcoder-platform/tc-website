@@ -24,18 +24,25 @@
     
     <body>
         <form name="f" action="${sessionInfo.servletPath}" method="post">
-        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditClassroomSubmit"/><br/>
-        Classroom: ${classroom.name}
-        <br/>
-        Academic period: ${classroom.academicPeriod}
-        <br/>
-        Description : ${classroom.description}
-        <br/>
-        
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditClassroomSubmit"/>
+        Classroom Details:<br/>
+        <table border="1">
+            <tr>
+                <td>Name</td>
+                <td>Academic period</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>${classroom.name}</td>
+                <td>${classroom.academicPeriod}</td>
+                <td>${classroom.description}</td>
+            </tr>
+        </table>
+        <br/>        
         <c:choose>
             <c:when test="${not empty students}">
                 Selected Students:
-                <table> 
+                <table border="1"> 
                     <tr><td>Student name</td></tr>
                     <c:forEach items="${students}" var="student">                
                         <tr>
@@ -50,7 +57,7 @@
         </c:choose>
         <br/>
             <p>
-                <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Continue</a>
+                <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Confirm and save</a>
             </p>
         </form>            
     </body>

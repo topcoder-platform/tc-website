@@ -15,24 +15,29 @@
     
     
     <body>
-        Professor: ${classroom.professor.user.lastName}, ${classroom.professor.user.firstName}
-        <br/>
-        Classroom: ${classroom.name}
-        <br/>
-        Academic period: ${classroom.academicPeriod}
-        <br/>
-        Description : ${classroom.description}
-        <br/>
-        
+        Classroom details:
+        <table border="1">
+                <tr>
+                    <td>Classroom</td>
+                    <td>Academic period</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td>${classroom.name}</td>
+                    <td>${classroom.academicPeriod}</td>
+                    <td>${classroom.description}</td>
+                </tr>
+        </table>
+        <br/>        
         <c:choose>
             <c:when test="${not empty activeStudents}">
                 Active Students:
-                <table> 
+                <table border="1">
                     <tr><td>Student name</td><td>&nbsp;</td></tr>
                     <c:forEach items="${activeStudents}" var="student">                
                         <tr>
                             <td>${student.user.lastName}, ${student.user.firstName}</td>
-                            <td><a href="">delete</a></td>
+                            <td><a href="/ep?module=DeactivateStudent&clsid=${classroom.id}&stid=${student.id}">delete</a></td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -45,13 +50,13 @@
         <c:choose>
             <c:when test="${not empty pendingStudents}">
                 Pending Students:
-                <table> 
+                <table border="1">
                     <tr><td>Student name</td><td>&nbsp;</td><td>&nbsp;</td></tr>
                     <c:forEach items="${pendingStudents}" var="student">                
                         <tr>
                             <td>${student.user.lastName}, ${student.user.firstName}</td>
-                            <td><a href="">activate</a></td>
-                            <td><a href="">delete</a></td>
+                            <td><a href="/ep?module=ActivateStudent&clsid=${classroom.id}&stid=${student.id}">activate</a></td>
+                            <td><a href="/ep?module=DeactivateStudent&clsid=${classroom.id}&stid=${student.id}">reject</a></td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -60,5 +65,9 @@
                 There are no pending students in this classroom.
             </c:otherwise>
         </c:choose>
+    <br/><br/>
+    <a href="/ep?module=EditClassroom&amp;clsid=${classroom.id}">Edit Classroom</a>
+    <br/><br/>
+    <a href="/ep/">Back</a>
     </body>
 </html>
