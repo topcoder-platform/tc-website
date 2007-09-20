@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">09.20.07 11:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=calendar&d2=sep_07">New Marathon Matches added</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.07.07 11:00 AM - </td><td width="100%"><A href="/longcontest/?module=ViewActiveContests">Marathon Match statistics upgraded</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.24.07 4:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=calendar&d2=may_07">Two new Marathon Matches added to Event Calendar</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.18.07 9:00 AM - </td><td width="100%">Marathon Match Ratings</td></tr>
