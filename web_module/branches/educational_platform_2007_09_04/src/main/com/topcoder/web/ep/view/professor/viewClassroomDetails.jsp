@@ -14,12 +14,10 @@
         <title>View Classroom details</title>
         <script type="text/javascript">
             function submitActive() {
-                alert('submitActive');
                 var myForm = document.fActive;
                 myForm.submit();
             }
             function submit(action) {
-                alert(action);
                 var myForm = document.f;
                 if (action == 'deactivate') {
                     myForm.<%=Constants.MODULE_KEY%>.value = 'DeactivateStudent';
