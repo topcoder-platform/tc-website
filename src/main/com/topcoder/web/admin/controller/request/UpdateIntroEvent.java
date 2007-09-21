@@ -73,11 +73,13 @@ public class UpdateIntroEvent extends IntroEventBase {
         // Fill the school field
         if (schoolType.equals(SCHOOL_TYPE_SELECT)) {
             Integer sid = getSelect(SCHOOL_SELECT_ID);
+            log.debug("select " + sid);
             if (sid != null) {
                 ie.setSchool(factory.getSchoolDAO().find(sid.longValue()));
             }
         } else if (schoolType.equals(SCHOOL_TYPE_ID)) {
             Integer sid = getInteger(SCHOOL_ID);
+            log.debug("id " + sid);
             if (sid != null) {
                 ie.setSchool(factory.getSchoolDAO().find(sid.longValue()));
             }
