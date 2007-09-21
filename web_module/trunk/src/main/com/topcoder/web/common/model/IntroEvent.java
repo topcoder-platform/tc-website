@@ -12,6 +12,7 @@ import java.util.Map;
 public class IntroEvent extends Event {
     private School school = null;
     private Long roundId = null;
+    private Long competitionRoundId = null;
     private Long forumId = null;
     private TimeZone timeZone = null;
     private Image image = null;
@@ -54,6 +55,14 @@ public class IntroEvent extends Event {
 
     public void setRoundId(Long roundId) {
         this.roundId = roundId;
+    }
+
+    public Long getCompetitionRoundId() {
+        return competitionRoundId;
+    }
+
+    public void setCompetitionRoundId(Long competitionRoundId) {
+        this.competitionRoundId = competitionRoundId;
     }
 
     public TimeZone getTimeZone() {
