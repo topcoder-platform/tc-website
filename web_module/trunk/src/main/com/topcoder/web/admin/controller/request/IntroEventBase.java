@@ -35,6 +35,7 @@ public abstract class IntroEventBase extends ShortHibernateProcessor {
     public static final String COMP_REG_END = "comp_reg_end";
     public static final String SCHOOL_SEARCH = "school_search";
     public static final String USE_ROUND_SEL = "use_round_sel";
+    public static final String COMPETITION_USE_ROUND_SEL = "cp" + USE_ROUND_SEL;
     public static final String ROUND_ID = WebConstants.ROUND_ID;
     public static final String ROUND_SELECT_ID = "rsid";
     public static final String COMPETITION_ROUND_ID = "cp" + ROUND_ID;
