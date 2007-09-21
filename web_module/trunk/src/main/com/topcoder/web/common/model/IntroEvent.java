@@ -135,4 +135,24 @@ public class IntroEvent extends Event {
         return roundName;
     }
 
+
+    public void setTimeZone(TimeZone timeZone) {
+        this.timeZone = timeZone;
+    }
+
+    public void setConfig(Map<Integer, IntroEventConfig> config) {
+        this.config = config;
+    }
+
+    public void setRoundStart(Timestamp roundStart) {
+        this.roundStart = roundStart;
+    }
+
+    public void setRoundEnd(Timestamp roundEnd) {
+        this.roundEnd = roundEnd;
+    }
+
+    public void setRoundName(String roundName) {
+        this.roundName = roundName;
+    }
 }
