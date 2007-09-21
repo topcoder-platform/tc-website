@@ -1,11 +1,11 @@
 package com.topcoder.web.common.model;
 
+import com.topcoder.web.common.model.comp.Contest;
+
 import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-
-import com.topcoder.web.common.model.comp.Contest;
 
 /**
  * @author dok
@@ -15,7 +15,7 @@ import com.topcoder.web.common.model.comp.Contest;
 public class Event extends Base {
     public static final Long TCO07_COMPONENT_ID = new Long(7);
     public static final Long TCCC07_COMPONENT_ID = new Long(3002);
-    
+
     private Long id;
     private EventType type;
     private String description;
@@ -127,13 +127,13 @@ public class Event extends Base {
     public void setContests(Set<Contest> contests) {
         this.contests = contests;
     }
-    
+
     public void addContest(Contest c) {
         contests.add(c);
     }
 
     public Set<Event> getChildren() {
-        return children;
+        return Collections.unmodifiableSet(children);
     }
 
     public void setChildren(Set<Event> children) {
