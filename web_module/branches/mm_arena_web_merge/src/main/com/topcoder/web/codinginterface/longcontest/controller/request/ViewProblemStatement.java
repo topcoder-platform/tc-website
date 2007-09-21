@@ -10,7 +10,6 @@ import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.language.JavaLanguage;
 import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.ProblemComponent;
-import com.topcoder.shared.problemParser.ProblemComponentFactory;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
@@ -92,7 +91,7 @@ public class ViewProblemStatement extends Base {
                 throw new NavigationException("The contest has not started yet.");
             }
             ResultSetContainer rsc = new ResultSetContainer(m.get("long_problem_xml"), new RoundDisplayNameCalculator("display_name"));
-            ResultSetContainer.ResultSetRow rr = rsc.getRow(0);            
+            ResultSetContainer.ResultSetRow rr = rsc.getRow(0);
             request.setAttribute("infoRow", rr);
 
             String problemText = rr.getStringItem("component_text");
