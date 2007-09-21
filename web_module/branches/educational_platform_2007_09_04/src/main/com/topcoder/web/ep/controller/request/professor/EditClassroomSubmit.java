@@ -91,13 +91,15 @@ public class EditClassroomSubmit extends Base {
                 }
             }
 
+            boolean update = classroom.getId() != null;
+            
             u.getProfessor().addClassrooms(classroom);
             
             getFactory().getUserDAO().saveOrUpdate(u);
 
             markForCommit();
             
-            getRequest().setAttribute("message", "You have successfuly added classroom " + classroom.getName());                  
+            getRequest().setAttribute("message", "You have successfuly " + (update ? "updated" : "added") + " classroom " + classroom.getName());                  
             getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/ep/");                  
             setNextPage("/message.jsp");
             setIsNextPageInContext(true);            

@@ -5,6 +5,9 @@
 */
 package com.topcoder.web.ep.controller.request.professor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
@@ -25,7 +28,7 @@ public abstract class StudentActivationBase extends ShortHibernateProcessor {
 
     private static Logger log = Logger.getLogger(StudentActivationBase.class);
 
-    protected abstract void process(StudentClassroom sc);
+    protected abstract void process(Classroom c, List<StudentClassroom> lsc);
 
     /* (non-Javadoc)
      * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
@@ -41,12 +44,15 @@ public abstract class StudentActivationBase extends ShortHibernateProcessor {
                 log.debug("is professor");
                 // this user is the classroom's professor
 
-                Long studentId = getStudentParam();
+                List<Long> studentIds = getStudentParam();
                 
-                StudentClassroom sc = c.getStudentClassroom(studentId);
+                List<StudentClassroom> lsc = new ArrayList<StudentClassroom>();
+                for (Long studentId : studentIds) {
+                    lsc.add(c.getStudentClassroom(studentId));
+                }
 
-                if (sc != null) {
-                    process(sc);
+                if (lsc.size() > 0) {
+                    process(c, lsc);
                 } else {
                     throw new TCWebException("The selected student is not registered to this class");
                 }
@@ -78,21 +84,25 @@ public abstract class StudentActivationBase extends ShortHibernateProcessor {
         return id;
     }
 
-    private Long getStudentParam() throws TCWebException {
-        String studentId = StringUtils.checkNull(getRequest().getParameter(Constants.STUDENT_ID));
+    private List<Long> getStudentParam() throws TCWebException {
+        String[] values = getRequest().getParameterValues(Constants.STUDENT_ID);
         
-        if (studentId == "") {
-            throw new TCWebException("Invalid student id");
+        if (values == null) {
+            throw new TCWebException("Invalid student ids");
         }
 
-        Long id;
-        try {
-            id = Long.parseLong(studentId);
-        } catch (NumberFormatException e) {
-            throw new TCWebException("Invalid student id");
+        List<Long> ids = new ArrayList<Long>();
+        for (String value : values) {
+            Long id;
+            try {
+                id = Long.parseLong(value);
+            } catch (NumberFormatException e) {
+                throw new TCWebException("Invalid student id");
+            }
+            ids.add(id);
         }
         
-        return id;
+        return ids;
     }
 
 }

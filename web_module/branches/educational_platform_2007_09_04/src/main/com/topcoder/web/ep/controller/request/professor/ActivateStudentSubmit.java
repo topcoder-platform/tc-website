@@ -5,9 +5,12 @@
 */
 package com.topcoder.web.ep.controller.request.professor;
 
+import java.util.List;
+
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
 
@@ -19,20 +22,24 @@ public class ActivateStudentSubmit extends StudentActivationBase {
 
     private static Logger log = Logger.getLogger(ActivateStudentSubmit.class);
 
-    protected void process(StudentClassroom sc) {
-
-        log.debug("activating " + sc.getId().getStudent().getUser().getHandle() + 
-                " for classroom " + sc.getId().getClassroom().getName());
-        
-        sc.setStatusId(StudentClassroom.ACTIVE_STATUS);
-        
-        DAOUtil.getFactory().getStudentClassroomDAO().saveOrUpdate(sc);
-                
-        getRequest().setAttribute("message", "You have successfuly activated student " + 
-                sc.getId().getStudent().getUser().getHandle() +
-                " for classroom " + sc.getId().getClassroom().getName());                  
+    protected void process(Classroom c, List<StudentClassroom> lsc) {
+        String message = "";
+        for (StudentClassroom sc : lsc) {
+            log.debug("activating " + sc.getId().getStudent().getUser().getHandle() + 
+                    " for classroom " + c.getName());
+            
+            sc.setStatusId(StudentClassroom.ACTIVE_STATUS);
+            
+            DAOUtil.getFactory().getStudentClassroomDAO().saveOrUpdate(sc);
+            
+            message += sc.getId().getStudent().getUser().getLastName() + ", " +
+                sc.getId().getStudent().getUser().getLastName() + "\n";
+        }
+        getRequest().setAttribute("message", "You have successfuly activated the following students:\n " + 
+                message +
+                " for classroom " + c.getName());                  
         getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, 
-                "/ep?module=ViewClassroomDetails&" + Constants.CLASSROOM_ID + "=" + sc.getId().getClassroom().getId());                  
+                "/ep?module=ViewClassroomDetails&" + Constants.CLASSROOM_ID + "=" + c.getId());                  
         setNextPage("/message.jsp");
     }
 }

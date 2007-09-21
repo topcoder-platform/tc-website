@@ -30,22 +30,21 @@
                     <td>Description</td>
                 </tr>
                 <tr>
-                    <td>${student_classroom.classroom.name}</td>
-                    <td>${student_classroom.classroom.academicPeriod}</td>
-                    <td>${student_classroom.classroom.description}</td>
+                    <td>${student_classroom.id.classroom.name}</td>
+                    <td>${student_classroom.id.classroom.academicPeriod}</td>
+                    <td>${student_classroom.id.classroom.description}</td>
                 </tr>
         </table>
         <br/>        
-        Are you sure you want to delete/reject ${student_classroom.student.user.lastName} registration?
+        Are you sure you want to delete/reject ${student_classroom.id.student.user.lastName}, ${student_classroom.id.student.user.firstName} registration?
         <form name="f" action="${sessionInfo.servletPath}" method="post">
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="DeactivateStudentSubmit"/>
-            <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${student_classroom.classroom.id}"/>
-            <tc-webtag:hiddenInput name="<%=Constants.STUDENT_ID%>" value="${student_classroom.student.id}"/>
+            <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${student_classroom.id.classroom.id}"/>
+            <tc-webtag:hiddenInput name="<%=Constants.STUDENT_ID%>" value="${student_classroom.id.student.id}"/>
             <p>
                 <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Confirm and save</a>
             </p>
         </form>            
-    <br/><br/>
-    <a href="/ep/">Back</a>
+    <a href="/ep?module=ViewClassroomDetails&amp;clsid=${student_classroom.id.classroom.id}">Back</a>
     </body>
 </html>
