@@ -1,13 +1,5 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
-
 import com.topcoder.netCommon.contest.SurveyAnswerData;
 import com.topcoder.netCommon.contest.SurveyChoiceData;
 import com.topcoder.server.ejb.TestServices.LongContestServicesException;
@@ -15,6 +7,7 @@ import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.i18n.MessageProvider;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
@@ -30,6 +23,14 @@ import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.QuestionType;
 import com.topcoder.web.common.tag.AnswerInput;
+
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 /**
  * Registers a coder for a round.
