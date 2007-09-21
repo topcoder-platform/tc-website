@@ -1,5 +1,5 @@
-<%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentStatus" %>
+<%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -85,7 +85,9 @@
             <br/>
             <p>Please use the form below to upload your submission:</p>
     
+<%--
             <p>The maximum file size per submission is 2MB.</p>
+--%>
 
             <p>Only ZIP Archive file type will be accepted:</p>
 
