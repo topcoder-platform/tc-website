@@ -71,6 +71,9 @@ public class EditIntroEvent extends IntroEventBase {
             setDefault(ROUND_ID, ie.getRoundId());
             setDefault(COMPETITION_ROUND_ID, ie.getCompetitionRoundId());
 
+            setDefault(ROUND_SELECT_ID, ie.getRoundId());
+            setDefault(COMPETITION_ROUND_SELECT_ID, ie.getCompetitionRoundId());
+
         }
 
         if (compEventId != null) {
