@@ -110,18 +110,6 @@ public class IntroEvent extends Event {
         return getConfig(IntroEventConfig.LOCATION_PROP_ID).getValue();
     }
 
-    public int getEventStartDelta() {
-        return Integer.parseInt(getConfig(IntroEventConfig.EVENT_START_PROP_ID).getValue());
-    }
-
-    public int getEventEndDelta() {
-        return Integer.parseInt(getConfig(IntroEventConfig.EVENT_END_PROP_ID).getValue());
-    }
-
-    public int getResultsDelta() {
-        return Integer.parseInt(getConfig(IntroEventConfig.RESULTS_PROP_ID).getValue());
-    }
-
     public String getPagesBase() {
         return getConfig(IntroEventConfig.PAGES_BASE_PROP_ID).getValue();
     }
