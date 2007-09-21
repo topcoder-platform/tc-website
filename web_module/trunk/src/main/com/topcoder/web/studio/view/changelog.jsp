@@ -29,6 +29,14 @@
 <h1>Studio Website Changelog</h1>
 
 <p>
+    2.1.2 - 2007.09.xx
+    <ul>
+        <li>Fix bug in admin tool where one couldn't correctly search by handle on submissions page after submissions went to OR -dok</li>
+    </ul>
+
+</p>
+
+<p>
     2.1.1 - 2007.09.19
     <ul>
         <li>When submissions are not available we will no longer allow the winner to be downloaded. -dok</li>
