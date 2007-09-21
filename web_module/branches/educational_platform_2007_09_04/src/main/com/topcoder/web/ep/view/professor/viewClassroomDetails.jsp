@@ -14,10 +14,12 @@
         <title>View Classroom details</title>
         <script type="text/javascript">
             function submitActive() {
+                alert('submitActive');
                 var myForm = document.fActive;
                 myForm.submit();
             }
             function submit(action) {
+                alert(action);
                 var myForm = document.f;
                 if (action == 'deactivate') {
                     myForm.<%=Constants.MODULE_KEY%>.value = 'DeactivateStudent';
@@ -73,12 +75,12 @@
         <br/>
         <c:choose>
             <c:when test="${not empty pendingStudents}">
-                <form name="fActive" action="${sessionInfo.servletPath}" method="post">
+                <form name="f" action="${sessionInfo.servletPath}" method="post">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value=""/><br/>
                     <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/><br/>
                     Pending Students:
                     <table border="1">
-                        <tr><td>Student name</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        <tr><td>Student name</td><td>&nbsp;</td></tr>
                         <c:forEach items="${pendingStudents}" var="student">                
                             <tr>
                                 <td>${student.user.lastName}, ${student.user.firstName}</td>

@@ -16,6 +16,7 @@ import com.topcoder.web.common.model.educ.StudentClassroom;
  */
 public class DeactivateStudent extends StudentActivationBase {
     protected void process(Classroom c, List<StudentClassroom> lsc) {
+        getRequest().setAttribute("classroom", c);
         getRequest().setAttribute("student_classrooms", lsc);
         setNextPage("/professor/deactivateStudentConfirm.jsp");
     }

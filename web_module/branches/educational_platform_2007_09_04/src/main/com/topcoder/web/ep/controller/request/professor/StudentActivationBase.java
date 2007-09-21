@@ -46,11 +46,16 @@ public abstract class StudentActivationBase extends ShortHibernateProcessor {
 
                 List<Long> studentIds = getStudentParam();
                 
+                String studentStr = "";
                 List<StudentClassroom> lsc = new ArrayList<StudentClassroom>();
                 for (Long studentId : studentIds) {
                     lsc.add(c.getStudentClassroom(studentId));
+                    
+                    studentStr += "&" + Constants.STUDENT_ID + "=" + studentId;
                 }
 
+                getRequest().setAttribute("selected_students", studentStr);
+                
                 if (lsc.size() > 0) {
                     process(c, lsc);
                 } else {
