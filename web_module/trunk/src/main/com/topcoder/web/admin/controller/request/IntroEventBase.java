@@ -1,16 +1,17 @@
 package com.topcoder.web.admin.controller.request;
 
-import java.util.Date;
-import java.util.List;
-
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Image;
 import com.topcoder.web.common.model.IntroEventPropertyType;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author cucu
@@ -34,8 +35,10 @@ public abstract class IntroEventBase extends ShortHibernateProcessor {
     public static final String COMP_REG_END = "comp_reg_end";
     public static final String SCHOOL_SEARCH = "school_search";
     public static final String USE_ROUND_SEL = "use_round_sel";
-    public static final String ROUND_ID = "rid";
+    public static final String ROUND_ID = WebConstants.ROUND_ID;
     public static final String ROUND_SELECT_ID = "rsid";
+    public static final String COMPETITION_ROUND_ID = "cp" + ROUND_ID;
+    public static final String COMPETITION_ROUND_SELECT_ID = "cp" + ROUND_SELECT_ID;
     public static final String ALGO_REG_USE_TIMEZONE = "algo_tz";
     public static final String COMP_REG_USE_TIMEZONE = "comp_tz";
     public static final String COMP_FIRST_WEEK = "comp_first_week";
@@ -52,36 +55,36 @@ public abstract class IntroEventBase extends ShortHibernateProcessor {
     public static final Integer SCHOOL_TYPE_ID = 2;
 
     protected void setEditIntroEventSelects(boolean hasAlgo, boolean hasComp, boolean setConfigDefaults) throws Exception {
-        DAOFactory factory = DAOUtil.getFactory(); 
-        
+        DAOFactory factory = DAOUtil.getFactory();
+
         List tz = factory.getTimeZoneDAO().getTimeZones();
         getRequest().setAttribute("timezones", tz);
-        
+
         List img = factory.getImageDAO().getImages(Image.INTRO_EVENT_TYPE);
         getRequest().setAttribute("images", img);
-        
+
 
         List<IntroEventPropertyType> configList = factory.getIntroEventPropertyTypeDAO().getTypes();
-        
+
         if (setConfigDefaults) {
             for (IntroEventPropertyType cfg : configList) {
-                setDefault("cfg" + cfg.getId(), cfg.getDefaultValue());            
+                setDefault("cfg" + cfg.getId(), cfg.getDefaultValue());
             }
         }
-        
+
         getRequest().setAttribute("config", configList);
-        
-        
+
+
         if (hasAlgo) {
-            List rounds = factory.getRoundDAO().getRoundsAfter(new Date());            
-            getRequest().setAttribute("rounds", rounds);        
-        }            
-        
+            List rounds = factory.getRoundDAO().getRoundsAfter(new Date());
+            getRequest().setAttribute("rounds", rounds);
+        }
+
         Request r = new Request();
         r.setContentHandle("find_forums");
         r.setProperty("fcid", "18"); // college tour category
         getRequest().setAttribute("forums", new DataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("find_forums"));
-        
+
     }
 
 
