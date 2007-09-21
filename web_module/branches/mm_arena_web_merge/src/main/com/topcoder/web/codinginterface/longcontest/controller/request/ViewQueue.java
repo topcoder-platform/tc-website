@@ -1,35 +1,19 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-<<<<<<< ViewQueue.java
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
-=======
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-
 import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
->>>>>>> 1.4.152.1
 import com.topcoder.server.ejb.TestServices.LongTestQueueStatusItem;
 import com.topcoder.shared.common.ServicesConstants;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.TCWebException;
 
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * @author dok
-<<<<<<< ViewQueue.java
  * @version $Revision$ Date: 2005/01/01 00:00:00
-=======
- * @version $Revision$ Date: 2005/01/01 00:00:00
->>>>>>> 1.4.152.1
  *          Create Date: Feb 17, 2006
  */
 public class ViewQueue extends Base {
@@ -37,16 +21,7 @@ public class ViewQueue extends Base {
 
         protected void longContestProcessing() throws TCWebException {
             try {
-<<<<<<< ViewQueue.java
-                // maps for a round_id the type of round
-                Map<Integer, Integer> roundTypes = new HashMap<Integer, Integer>();
-                
-                TestServices service = TestServicesLocator.getService();
-                List longTestQueueStatus = service.getLongTestQueueStatus();
-                
-=======
                 List longTestQueueStatus = LongContestServicesLocator.getService().getLongTestQueueStatus();
->>>>>>> 1.4.152.1
                 List longSummaryList = new LinkedList();
                 int systemTestCount = 0;
                 for (Iterator it = longTestQueueStatus.iterator(); it.hasNext(); ) {
@@ -55,38 +30,16 @@ public class ViewQueue extends Base {
                         systemTestCount +=  item.getCount();
                     } else {
                         longSummaryList.add(item);
-                        if (!roundTypes.containsKey(item.getRoundId())) {
-                            roundTypes.put(item.getRoundId(), getRoundType(item.getRoundId()));
-                        }
                     }
                 }
-                
-                
-                getRequest().setAttribute("roundTypes", roundTypes);
-                getRequest().setAttribute("result", longSummaryList);
+                getRequest().setAttribute("result",  longSummaryList);
                 getRequest().setAttribute("systemTestCount",  new Integer(systemTestCount));
-/*
-                if it become a problem, cache it. but things aren't going to line up between the
-                standings page and the queue page
-                CachedDataAccess dataAccess = (CachedDataAccess)getDataAccess(true);
-                dataAccess.setExpireTime(1000*60*10);
-*/
-                
+
+
                 setNextPage(Constants.PAGE_QUEUE_STATUS);
                 setIsNextPageInContext(true);
             } catch (Exception e) {
                 throw new TCWebException(e);
             }
         }
-
-        private int getRoundType(int roundId) throws Exception {
-            Request r = new Request();
-            r.setContentHandle("get_round_type");
-            r.setProperty(Constants.ROUND_ID, roundId + "");
-
-            ResultSetContainer rsc = getDataAccess(true).getData(r).get("get_round_type");
-            
-            return rsc.size() > 0? rsc.getIntItem(0, 0) : 13;
-        }
-                
     }
