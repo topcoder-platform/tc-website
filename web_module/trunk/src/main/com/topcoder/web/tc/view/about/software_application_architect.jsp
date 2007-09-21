@@ -83,7 +83,7 @@
 <b>Additional Responsibilities:</b>
 <ul>
 <li>May work with multiple customers simultaneously.</li>
-<li>Must be willing to travel. Travel will be minor, estimated at 20% - 30% of the time.</li>
+<li>Must be willing to travel. Travel is estimated at 50% of the time but will be extensive at times.</li>
 </ul>
 
 <b>Technical Skills:</b>

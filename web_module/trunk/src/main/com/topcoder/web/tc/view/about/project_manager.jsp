@@ -82,7 +82,7 @@
                         <b>Additional Responsibilities:</b>
                         <ul>
                         <li>May work with multiple customers simultaneously.</li>
-                        <li>Must be willing to travel.</li>
+                        <li>Must be willing to travel Monday-Friday within the continental United States.</li>
                         </ul>
 
                         <b>Technical Skills:</b>
