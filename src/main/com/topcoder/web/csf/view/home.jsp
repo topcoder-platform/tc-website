@@ -41,7 +41,7 @@
                 <area shape="rect" alt="" coords="1,205,199,295" href="/?module=Static&d1=assembly&d2=pastContests" />
                 <%--<area shape="rect" alt="" coords="1,305,199,399" href="/?module=ViewContestDetails&ct=1007" />--%>
                 </map>
-                <img src="/i/home/highlights0912.png" alt="Series Prizes" usemap="#highlights" />
+                <img src="/i/home/highlights0921.png" alt="Series Prizes" usemap="#highlights" />
             </div>
 
             <p>
