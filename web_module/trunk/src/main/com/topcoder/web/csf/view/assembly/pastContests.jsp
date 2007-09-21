@@ -101,7 +101,7 @@
                             <A href="/?module=Static&d1=assembly&d2=btWiCitiesDetails">British Telecom Wireless Cities</A>
                         </td>
                         <td class="value">
-                            dhbello
+                            <strong>dhbello</strong>
                         </td>
                         <td class="valueC">
                             22

@@ -64,15 +64,6 @@
                                 <br />- <strong>Winner:</strong> September 27
                             <br /><br /><a href="/?module=Static&d1=assembly&d2=btWiCitiesDetails">details</a>
                         </div>
-                        <div style="margin:10px;">
-                            <h3>British Telecom Wireless Cities</h3>
-                                - <strong>Submission Start Date:</strong> August 17, 2007
-                                <br />- <strong>Submission End Date:</strong> August 31, 2007
-                                <br />- <strong>Review Start Date:</strong> August 31, 2007
-                                <br />- <strong>Review End Date:</strong> September 17, 2007
-                                <br />- <strong>Winner:</strong> September 18
-                            <br /><br /><a href="/?module=Static&d1=assembly&d2=btWiCitiesDetails">details</a>
-                        </div>
 <%--
                             <h3>No active competitions at this time.<br />Please check again soon.</h3>
 --%>
@@ -150,7 +141,16 @@
                                 <br />- <strong>Winner:</strong> <a href="/?module=Static&d1=assembly&d2=pastContests">View the results!</a>
                             <br /><br /><a href="/?module=Static&d1=assembly&d2=msSessionManifestDetails ">details</a>
                         </div>
-                    </td>
+                       <div style="margin:10px;">
+                            <h3>British Telecom Wireless Cities</h3>
+                                - <strong>Submission Start Date:</strong> August 17, 2007
+                                <br />- <strong>Submission End Date:</strong> August 31, 2007
+                                <br />- <strong>Review Start Date:</strong> August 31, 2007
+                                <br />- <strong>Review End Date:</strong> September 17, 2007
+                                <br />- <strong>Winner:</strong> September 18
+                            <br /><br /><a href="/?module=Static&d1=assembly&d2=btWiCitiesDetails">details</a>
+                        </div>
+             </td>
                 </tr>
             </tbody>
             </table>
