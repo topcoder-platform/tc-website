@@ -1,10 +1,10 @@
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
 <%@ page import="com.topcoder.web.studio.model.SubmissionStatus" %>
 <%@ page import="com.topcoder.web.studio.model.SubmissionType" %>
 <%@ page import="java.util.Date" %>
-<%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -287,7 +287,7 @@ Show submissions by (Enter Handle):
             <td class="valueC">
                 <c:choose>
                     <c:when test="${resultRow.map['review_status_id']==passed}">
-                            <button name="submit${resultRow.map['submission_id']}" value="submit" type="submit" onclick="sendToReview(${resultRow.map['submission_id']})">
+                            <button name="submit${resultRow.map['submission_id']}" value="submi${resultRow.map['submission_id']}t" type="submit" onclick="sendToReview(${resultRow.map['submission_id']})">
                                 <c:choose>
                                     <c:when test="${empty resultRow.map['or_submission_id']}">
                                         Send To OR
