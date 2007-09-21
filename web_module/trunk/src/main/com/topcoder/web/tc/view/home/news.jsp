@@ -4,6 +4,45 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.21.07<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=SurveyResults&sid=19560">TCCC07 Bloggers Contest Winners</A></span><br><br>
+        <tc-webtag:handle coderId="2057853" /> and <tc-webtag:handle coderId="8510917" />, you're going to TCCC07!  Congratulations, guys.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=SurveyResults&sid=19560">details</a> | 
+        <tc-webtag:forumLink forumID="517257" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.21.07<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=bracket">TCCC07 Studio Design finalists</A></span><br><br>
+        Meet the eight competitors that will battle it out in the on-site Studio Design finals of the 2007 TopCoder Collegiate Challenge.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=bracket">details</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=926&start=0"</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.21.07<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 4 set for September 22</A></span><br><br>
+        The final online round of the TopCoder Collegiate Challenge Algorithm Competition, sponsored by Deutsche Bank, gets underway tomorrow at 1:00 PM EDT. Tune into the Arena to see who makes the cut.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</a> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial" border="0" /><br>09.20.07<br>4:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -156,18 +195,5 @@
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="517257" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="TopCoder Surveys" border="0" /><br>09.18.07<br>11:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=10781">TC Channel Survey</A></span><br><br>
-        What would you like to see in future episodes of the TC Channel? Take this simple survey, and let us know -- and watch for the September edition of the show, coming next week.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=ViewSurvey&sid=10781">details</a> | 
-        <tc-webtag:forumLink forumID="517421" message="discuss this" /> | 
-        <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
    
