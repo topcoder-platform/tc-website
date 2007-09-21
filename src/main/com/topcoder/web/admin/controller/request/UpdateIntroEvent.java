@@ -33,6 +33,7 @@ public class UpdateIntroEvent extends IntroEventBase {
 
     public static final String[] RESTORE_VALUES = {EVENT_NAME, EVENT_SHORT_NAME, SCHOOL_TYPE, SCHOOL_ID, FORUM_ID, TIMEZONE_ID, IMAGE_ID,
             ALGO_REG_START, ALGO_REG_END, COMP_REG_START, COMP_REG_END, SCHOOL_SEARCH, USE_ROUND_SEL, ROUND_ID, ROUND_SELECT_ID,
+            COMPETITION_USE_ROUND_SEL, COMPETITION_ROUND_ID, COMPETITION_ROUND_SELECT_ID,
             COMP_FIRST_WEEK, COMP_NUMBER_WEEKS, OVERALL_PRIZES[0], OVERALL_PRIZES[1], OVERALL_PRIZES[2],
             WEEKLY_PRIZES[0], WEEKLY_PRIZES[1], WEEKLY_PRIZES[2]};
 
@@ -114,6 +115,14 @@ public class UpdateIntroEvent extends IntroEventBase {
             } else {
                 Long roundId = getLong(ROUND_ID);
                 if (roundId != null) ie.setRoundId(roundId);
+            }
+
+            if ("1".equals(getRequest().getParameter(COMPETITION_USE_ROUND_SEL))) {
+                Integer roundId = getSelect(COMPETITION_ROUND_SELECT_ID);
+                if (roundId != null) ie.setCompetitionRoundId(roundId.longValue());
+            } else {
+                Long roundId = getLong(COMPETITION_ROUND_ID);
+                if (roundId != null) ie.setCompetitionRoundId(roundId);
             }
 
             algo = getRequest().getParameter(ALGO_EVENT_ID) == null ? new Event() :
