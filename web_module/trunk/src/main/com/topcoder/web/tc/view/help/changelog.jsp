@@ -44,6 +44,15 @@
 
 
 <p>
+    5.12.3 - 2007.09.24
+    <ul>
+        <li>Adjust intro event admin tool to better support results -dok</li>
+        <li>Backend changes for marathon matches (applet based competition) -dok</li>
+    </ul>
+
+</p>
+
+<p>
     5.12.2 - 2007.09.18
     <ul>
         <li>Add results for algorithm intro events -dok</li>
