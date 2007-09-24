@@ -72,8 +72,7 @@
     In addition to <A href="/reg/">registering with TopCoder</A>, all competitors must register
     <a href="/tc?module=IntroEventViewRegister&eid=${eid}">here</a>
     and be onsite for the competition.
-    After the event ends, food will be served and a TopCoder representative will be present to discuss
-    TopCoder competitions and employment services.
+    In addition to the programming contest, TopCoder will provide food and give a presentation on the benefits of TopCoder membership.
 
     <br><br>
 
@@ -104,26 +103,32 @@
 
     <h3>Event Schedule</h3>
 
-    The timeline for the day of the event:
+    The timeline for Wednesday 09.26.2007:
     <ul>
         <li>
-            <tc-webtag:format object="${eventStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+            05:30 PM EEST
             - Computer lab opens & competitors set up
         </li>
         <li>
-            <tc-webtag:format object="${roundStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+            06:00 PM EEST
             - Competition starts
         </li>
         <li>
-            <tc-webtag:format object="${sysTestEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+            07:35 PM EEST
             - Competition ends
         </li>
         <li>
-            <tc-webtag:format object="${resultsTime}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-            - Food & TopCoder presentation
+            08:30 PM EEST
+            - Preliminary results announced
         </li>
     </ul>
-
+    And for Thursday 09.27.2007
+    <ul>
+        <li>
+            07:00 PM EEST
+            - Award ceremony (TopCoder presentation, official results, prizes, souvenirs, food). 
+        </li>
+    </ul>
 
     <strong>${mainEvent.recruiterName }</strong> will give a presentation to explain the benefits of TopCoder membership and competition.
     <a href="/download/misc/College_Tour_Presentation.ppt">The presentation</a> is available for download.
