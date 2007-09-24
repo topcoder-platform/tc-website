@@ -31,10 +31,18 @@
 <A href="/to"><img src="/i/home/predictRd2.png" alt="Predict the winners"/></A>
 --%>
 
-<%-- TCCC07 --%>
+<%-- TCCC07 
 <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=about' refer='/tc' />"><img src="/i/home/tccc07.png" alt="TCCC07" /></A>
+--%>
 
-
+<%-- TCCC07 Prestigious Professor Program --%>
+        <map name="tccc07">
+        <area shape="rect" alt="" coords="10,26,253,118" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about" />
+        <area shape="rect" alt="" coords="277,11,480,133" href="/tc?module=ViewSurvey&sid=19559" />
+        </map>
+        <img src="/i/home/tccc07_ppa.png" alt="TCCC07 Prestigious Professor Program" usemap="#tccc07" style="display: block;" />
+        
+        
 <%-- UML Tool 
 <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />"><img src="/i/home/umltoolRelease.jpg" alt="UML Tool Release" /></A>
 --%>
