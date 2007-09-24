@@ -50,6 +50,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<%-- TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_082707"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_092407">TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit</A></strong></font><br />
+                        TopCoder Chairman and Founder Jack Hughes will speak at the prestigious Business Innovation Factory's third Collaborative Innovation Summit (BIF-3), an intense, energetic, story-based conversation between America's most engaging public and private sector innovators. <span class="prHead"> [September 24]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
 <%-- TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

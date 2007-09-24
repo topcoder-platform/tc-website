@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br>09.24.07<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=pressroom&d2=pr_092407">TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit</A></span><br><br>
+        TopCoder Chairman and Founder Jack Hughes will speak at the prestigious Business Innovation Factory's third Collaborative Innovation Summit (BIF-3), an intense, energetic, story-based conversation between America's most engaging public and private sector innovators</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=pressroom&d2=pr_092407">details</a> | 
+        <tc-webtag:forumLink forumID="517549" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.21.07<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=SurveyResults&sid=19560">TCCC07 Bloggers Contest Winners</A></span><br><br>
@@ -149,51 +162,6 @@
         <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">design</a> | 
         <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">development</a> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.19.07<br>2:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm366">SRM 366 - Problem Set &amp; Analysis</A></span><br><br>
-      The Division I coders got a relatively easy set today, so speed did matter a lot. The easy problem was a pretty straightforward one, which most coders solved within a few minutes.</td>
-         <td class="newsPhoto"><img src="/i/m/jthread_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="11818890" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm366">full story</A> | 
-         <tc-webtag:forumLink forumID="516063" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.19.07<br>2:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm39">TCHS SRM 39 - Problem Set &amp; Analysis</A></span><br><br>
-      This match was defined by a tough problemset for the competitors, with no solutions to the hard problem and only 12 coders solving the other two. However, there were few wrong submissions, thanks perhaps to the examples in the problems.</td>
-         <td class="newsPhoto"><img src="/i/m/jbernadas_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="22653044" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm39">full story</A> | 
-         <tc-webtag:forumLink forumID="516565" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.18.07<br>4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description' refer='/tc' />">Last call for blog entries</A></span><br><br>
-        It's not too late to win a trip to blog about the TCCC from Disney World, but time is running out. Get your entries in by Wednesday, September 19 at 10:00 AM EDT.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="517257" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    

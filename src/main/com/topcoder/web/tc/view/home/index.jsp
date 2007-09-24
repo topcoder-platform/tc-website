@@ -377,6 +377,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br>
 
+            TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit
+            <A href="/tc?module=Static&d1=pressroom&d2=pr_092407">...more</a><br>[September 24]<br><br>
+            
             TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America
             <A href="/tc?module=Static&d1=pressroom&d2=pr_082707">...more</a><br>[August 27]<br><br>
             
@@ -394,9 +397,6 @@
             
             Fox TV: "Top Computer Programmers Compete"
             <A href="/tc?module=Static&d1=pressroom&d2=art_080207">...more</a><br>[August 2]<br><br>
-            
-            TopCoder Announces New Collaboration Initiatives
-            <A href="/tc?module=Static&d1=pressroom&d2=pr_071807">...more</a><br>[July 18]<br><br>
             
 
 
