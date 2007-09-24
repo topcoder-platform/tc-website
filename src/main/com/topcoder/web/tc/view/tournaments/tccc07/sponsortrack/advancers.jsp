@@ -17,7 +17,7 @@
 <c:set var="round1_id" value="10906"/>
 <c:set var="round2_id" value="10917"/>
 <c:set var="round3_id" value="10922"/>
-<c:set var="finals_id" value=""/>
+<c:set var="finals_id" value="10934"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
