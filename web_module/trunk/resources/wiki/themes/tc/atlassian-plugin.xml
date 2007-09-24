@@ -13,6 +13,7 @@
         <layout key="com.topcoder.web.wiki.themes.tc:blogpost"/>
         <layout key="com.topcoder.web.wiki.themes.tc:space"/>
         <layout key="com.topcoder.web.wiki.themes.tc:spaceadminpanel"/>
+        <layout key="com.topcoder.web.wiki.themes.tc:global"/>
         <param name="space-config-path" value="/themes/leftnav/configuretheme.action"/>
         <param name="global-config-path" value="/admin/themes/leftnav/configuretheme.action"/>
         <resource key="icon" name="themeicon.gif" type="download" location="templates/leftnav/images/themeicon.gif">
@@ -54,6 +55,12 @@
             overrides="/decorators/panels/spaceadminpanel.vmd">
         <resource type="velocity" name="decorator"
                   location="templates/leftnav/panels/spaceadminpanel.vmd"/>
+    </layout>
+
+    <layout key="global" name="Global Decorator" class="com.atlassian.confluence.themes.VelocityDecorator"
+            overrides="/decorators/global.vmd">
+        <resource type="velocity" name="decorator"
+                  location="templates/leftnav/global.vmd"/>
     </layout>
 
     <velocity-context-item key="velocityHelper" name="Velocity Helper" class="com.topcoder.web.wiki.themes.tc.LeftNavVelocityHelper"
