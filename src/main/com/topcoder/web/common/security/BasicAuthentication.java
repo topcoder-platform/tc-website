@@ -304,6 +304,9 @@ public class BasicAuthentication implements WebAuthentication {
                 if (u == null) {
                     //log.debug("didn't find user via sso");
                     u = guest;
+                } else {
+                    //essentially, cache it in the session so that we don't have to go to the cookie again
+                    setUserInPersistor(u);
                 }
             }
             if (!u.isAnonymous()) {
