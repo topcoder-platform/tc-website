@@ -322,7 +322,7 @@ public class BasicAuthentication implements WebAuthentication {
                     setUserInPersistor(u);
                 }
             }
-            if (!u.isAnonymous()) {
+            if (!u.isAnonymous() && !readOnly) {
                 markKnownUser();
             }
             return u;
@@ -544,6 +544,7 @@ public class BasicAuthentication implements WebAuthentication {
 
 
     private void markKnownUser() {
+
         Cookie c = new Cookie(KNOWN_USER, String.valueOf(true));
         c.setMaxAge(Integer.MAX_VALUE);
         response.addCookie(c);
