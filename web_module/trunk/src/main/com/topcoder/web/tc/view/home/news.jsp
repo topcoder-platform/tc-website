@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.24.07<br>2:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=ViewSurvey&sid=19559">Vote for the TCCC07 Prestigious Professor</A></span><br><br>
+        With this year's TCCC, we asked members to nominate the educators who had made a "profound difference" in their lives. Read their stories, and vote for your favorites. Voting ends Tuesday, September 25 at 5:00 PM EDT.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=ViewSurvey&sid=19559">details</a> | 
+        <tc-webtag:forumLink forumID="517552" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br>09.24.07<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=pressroom&d2=pr_092407">TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit</A></span><br><br>
@@ -148,20 +161,6 @@
    <tr><td class="newsLinksCell">
         <a href="/tc?module=SurveyResults&sid=19443">details</a> | 
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=902&start=0&mc=1#3402">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.19.07<br>3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        TCCC07 Component <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a> &amp; <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a> finalists updated</span><br><br>
-        The updated list of TopCoder Collegiate Challenge component finalists, along with their alternates, is now online. The TCCC07 <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a> &amp; <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a> finals kick off online tomorrow -- good luck!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">design</a> | 
-        <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">development</a> | 
-        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
