@@ -13,6 +13,8 @@
         <layout key="com.topcoder.web.wiki.themes.tc:blogpost"/>
         <layout key="com.topcoder.web.wiki.themes.tc:space"/>
         <layout key="com.topcoder.web.wiki.themes.tc:spaceadminpanel"/>
+        <layout key="com.topcoder.web.wiki.themes.tc:login"/>
+        <layout key="com.topcoder.web.wiki.themes.tc:macros"/>
         <param name="space-config-path" value="/themes/leftnav/configuretheme.action"/>
         <param name="global-config-path" value="/admin/themes/leftnav/configuretheme.action"/>
         <resource key="icon" name="themeicon.gif" type="download" location="templates/leftnav/images/themeicon.gif">
@@ -54,6 +56,18 @@
             overrides="/decorators/panels/spaceadminpanel.vmd">
         <resource type="velocity" name="decorator"
                   location="templates/leftnav/panels/spaceadminpanel.vmd"/>
+    </layout>
+
+    <layout key="login" name="Login Page" class="com.atlassian.confluence.themes.VelocityDecorator"
+            overrides="/login.vm">
+        <resource type="velocity" name="decorator"
+                  location="templates/leftnav/login.vm"/>
+    </layout>
+
+    <layout key="macros" name="Macros" class="com.atlassian.confluence.themes.VelocityDecorator"
+            overrides="templates/includes/macros.vm">
+        <resource type="velocity" name="decorator"
+                  location="templates/leftnav/login.vm"/>
     </layout>
 
     <velocity-context-item key="velocityHelper" name="Velocity Helper" class="com.topcoder.web.wiki.themes.tc.LeftNavVelocityHelper"
