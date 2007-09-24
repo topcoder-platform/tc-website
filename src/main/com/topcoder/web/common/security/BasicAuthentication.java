@@ -67,6 +67,7 @@ public class BasicAuthentication implements WebAuthentication {
 
     //cache this because it's expensive to generate
     private String userHash = null;
+    private boolean readOnly = false;
 
     /**
      * Construct an authentication instance backed by the given persistor
@@ -82,6 +83,7 @@ public class BasicAuthentication implements WebAuthentication {
         this.persistor = userPersistor;
         this.request = request;
         this.response = response;
+        this.readOnly = this.response==null;
 /*
         if (log.isDebugEnabled()) {
             log.debug(cookieList());
@@ -104,6 +106,7 @@ public class BasicAuthentication implements WebAuthentication {
         this.request = request;
         this.response = response;
         this.defaultCookiePath = r;
+        this.readOnly = this.response==null;
 /*
         if (log.isDebugEnabled()) {
             log.debug(cookieList());
@@ -127,6 +130,7 @@ public class BasicAuthentication implements WebAuthentication {
         this.request = request;
         this.response = response;
         this.dataSource = dataSource;
+        this.readOnly = this.response==null;
 /*
         if (log.isDebugEnabled()) {
             log.debug(cookieList());
@@ -151,6 +155,7 @@ public class BasicAuthentication implements WebAuthentication {
         this.response = response;
         this.defaultCookiePath = r;
         this.dataSource = dataSource;
+        this.readOnly = this.response==null;
 /*
         if (log.isDebugEnabled()) {
             log.debug(cookieList());
@@ -179,6 +184,9 @@ public class BasicAuthentication implements WebAuthentication {
      * @throws LoginException
      */
     public void login(User u, boolean rememberUser) throws LoginException {
+        if (readOnly) {
+            throw new RuntimeException("Sorry, this intance can not be used to login because it is read only, it was instantiated with no response object.");
+        }
         log.info("attempting login as " + u.getUserName() + " path: " + defaultCookiePath.getName() + " remember " + rememberUser);
         try {
             LoginRemote login = (LoginRemote) Constants.createEJB(LoginRemote.class);
@@ -211,6 +219,10 @@ public class BasicAuthentication implements WebAuthentication {
      * 2.  clear their identifying cookies
      */
     public void logout() {
+        if (readOnly) {
+            throw new RuntimeException("Sorry, this intance can not be used to logout because it is read only, it was instantiated with no response object.");
+        }
+
         log.info("logging out");
         clearCookie();
         clearBigCookie();
@@ -284,7 +296,7 @@ public class BasicAuthentication implements WebAuthentication {
         } else {
             //log.debug("*** " + u.getUserName() + " was live***");
         }
-        if (!u.isAnonymous()) {
+        if (!u.isAnonymous() && !readOnly) {
             markKnownUser();
         }
         return u;
@@ -306,7 +318,9 @@ public class BasicAuthentication implements WebAuthentication {
                     u = guest;
                 } 
                 //essentially, cache it in the session so that we don't have to go to the cookie again
-                setUserInPersistor(u);
+                if (!readOnly) {
+                    setUserInPersistor(u);
+                }
             }
             if (!u.isAnonymous()) {
                 markKnownUser();
@@ -413,6 +427,10 @@ public class BasicAuthentication implements WebAuthentication {
      * @throws Exception if there is a problem creating the has
      */
     public void setCookie(long uid, boolean rememberUser) throws Exception {
+        if (readOnly) {
+            throw new RuntimeException("Sorry, this intance can not be used to set a cookie because it is read only, it was instantiated with no response object.");
+        }
+
         if (rememberUser) {
             addGeneralCookie(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME,
                     uid + "|" + hashForUser(uid), Integer.MAX_VALUE);
