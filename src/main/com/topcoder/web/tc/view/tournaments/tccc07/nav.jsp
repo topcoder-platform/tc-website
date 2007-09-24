@@ -209,9 +209,7 @@
                 <% if (tabLev2.equals("advancers")) {%>
                     <p id="tertiaryNav">
                         <a href="/tc?module=TCCC07StudioLeaderboard&eid=3004"<% if (tabLev3.equals("leaderboard")) {%> class="on"<% } %>>Leaderboard</a>
-                        <%-- release when ready
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=bracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a>
-                        --%>
                     </p>
                 <% } %>
             <% } %>
