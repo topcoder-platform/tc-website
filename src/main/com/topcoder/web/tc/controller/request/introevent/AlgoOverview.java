@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request.introevent;
 
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.model.IntroEventConfig;
 
@@ -28,37 +29,37 @@ public class AlgoOverview extends Base {
 
         IntroEventConfig tempConfig = null;
         tempConfig = getMainEvent().getConfig(IntroEventConfig.EVENT_START_PROP_ID);
-        if (tempConfig!=null && tempConfig.getValue()!=null) {
+        if (tempConfig!=null && !"".equals(StringUtils.checkNull(tempConfig.getValue()))) {
             getRequest().setAttribute("eventStart", new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60)));
         }
 
         tempConfig = getMainEvent().getConfig(IntroEventConfig.EVENT_END_PROP_ID);
-        if (tempConfig!=null && tempConfig.getValue()!=null) {
+        if (tempConfig!=null && !"".equals(StringUtils.checkNull(tempConfig.getValue()))) {
             getRequest().setAttribute("eventEnd", new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60)));
         }
 
         tempConfig = getMainEvent().getConfig(IntroEventConfig.RESULTS_PROP_ID);
-        if (tempConfig!=null && tempConfig.getValue()!=null) {
+        if (tempConfig!=null && !"".equals(StringUtils.checkNull(tempConfig.getValue()))) {
             getRequest().setAttribute("resultsTime", new Timestamp(sysTestEnd.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60)));
         }
 
         tempConfig = getMainEvent().getConfig(IntroEventConfig.FOOD_PROP_ID);
-        if (tempConfig!=null && tempConfig.getValue()!=null) {
+        if (tempConfig!=null && !"".equals(StringUtils.checkNull(tempConfig.getValue()))) {
             getRequest().setAttribute("foodTime", new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60)));
         }
 
         tempConfig = getMainEvent().getConfig(IntroEventConfig.PRESENTATION_PROP_ID);
-        if (tempConfig!=null && tempConfig.getValue()!=null) {
+        if (tempConfig!=null && !"".equals(StringUtils.checkNull(tempConfig.getValue()))) {
             getRequest().setAttribute("presentationTime", new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60)));
         }
 
         tempConfig = getMainEvent().getConfig(IntroEventConfig.PRIZES_PROP_ID);
-        if (tempConfig!=null && tempConfig.getValue()!=null) {
+        if (tempConfig!=null && !"".equals(StringUtils.checkNull(tempConfig.getValue()))) {
             getRequest().setAttribute("prizeTime", new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60)));
         }
 
         tempConfig = getMainEvent().getConfig(IntroEventConfig.FOOD_PRESENTATION_PROP_ID);
-        if (tempConfig!=null && tempConfig.getValue()!=null) {
+        if (tempConfig!=null && !"".equals(StringUtils.checkNull(tempConfig.getValue()))) {
             getRequest().setAttribute("foodPresentationTime", new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60)));
         }
         setNextIntroEventPage("algoOverview.jsp");
