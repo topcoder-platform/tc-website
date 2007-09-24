@@ -4,6 +4,32 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.24.07<br>4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=ViewSurvey&sid=19628">Vote for the TCO08 logo</A></span><br><br>
+        We asked Studio members to design a tournament logo for the TCO08 that was "professional, clean, uncluttered and eye-catching." Check out the finalists, and vote for your favorite. Voting ends Thursday, September 27 at 2:00 PM EDT.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=ViewSurvey&sid=19628">details</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=940&start=0">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature News" border="0" /><br>09.24.07<br>4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=features&d2=092407">Introducing TopCoder's &quot;Iron Man&quot;</A></span><br><br>
+        On September 9, 2005, during <a href="/stat?c=round_overview&er=5&rd=7996">SRM 262</a>, <tc-webtag:handle coderId="8511003" context="algorithm"/> began a remarkable streak. Fueled by a desire to compete in every match that he could, he has now competed in a record 100 consecutive SRMs, and he's still going strong.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=092407">details</a> | 
+        <tc-webtag:forumLink forumID="517553" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.24.07<br>2:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=ViewSurvey&sid=19559">Vote for the TCCC07 Prestigious Professor</A></span><br><br>
@@ -136,31 +162,5 @@
         <a href="/tc?module=ViewSurvey&sid=19500">details</a> | 
         <tc-webtag:forumLink forumID="517421" message="discuss this" /> | 
         <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>09.20.07<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&d1=dev&d2=umltool&d3=description&node=des_uml_tool">Try the TopCoder UML Tool</a></span><br><br>
-        Starting today, you are now free to use TopCoder's UML Tool in Software Design component competitions.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=dev&d2=umltool&d3=description&node=des_uml_tool">details</a> | 
-        <a href="http://forums.topcoder.com/?module=Category&categoryID=2479">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.19.07<br>4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=SurveyResults&sid=19443">TCCC07 T-shirt winner</A></span><br><br>
-        We've got a winner in the TCCC07 T-shirt contest. Congratulations to <tc-webtag:handle coderId="14940030" />, who won not only the vote, but took second place as well.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=SurveyResults&sid=19443">details</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=902&start=0&mc=1#3402">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
