@@ -203,7 +203,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 */
 
         TCRequest tcRequest = HttpObjectFactory.createRequest(httpServletRequest);
-        TCResponse tcResponse = HttpObjectFactory.createResponse(httpServletResponse);
+        TCResponse tcResponse = httpServletResponse==null?null:HttpObjectFactory.createResponse(httpServletResponse);
         try {
             WebAuthentication authentication =
                     new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
