@@ -80,7 +80,7 @@
                             <% pageContext.setAttribute("sponsorImage", ((LongContest) contest).getSponsorImage());%>
                             <div style="float: right; margin-left: 4px;">
                                 <ci:sponsorImage image="sponsorImage" alt="Sponsor" border="0" ifNull=""/></div>
-                                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=MatchDetails&amp;<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" >
+                                    <a href="/tc?module=MatchDetails&amp;<%=Constants.ROUND_ID%>=${contest.roundID}" >
                                         <mm:contest roundTypeId="${contest.roundTypeId}" contestName="${contest.contestName}" roundName="${contest.roundName}" />
                                     </a>
                             <div style="margin: 6px 10px;">
