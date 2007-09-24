@@ -207,11 +207,14 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         TCRequest tcRequest = HttpObjectFactory.createRequest(httpServletRequest);
         TCResponse tcResponse = httpServletResponse==null?null:HttpObjectFactory.createResponse(httpServletResponse);
         try {
+
+            //UserManager.getInstance().getUser(username)
+
             WebAuthentication authentication =
                     new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
                             tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
-            DefaultUser ret = new DefaultUser();
-            ret.setFullName(authentication.getActiveUser().getUserName());
+            DefaultUser ret = new DefaultUser(authentication.getActiveUser().getUserName());
+            ret.setFullName(ret.getName());
             return ret;
 
         } catch (Exception e) {
