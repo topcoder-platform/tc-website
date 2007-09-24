@@ -102,9 +102,9 @@
         <pathelement location="${jars.dir}/hibernate-3.1/ant-antlr-1.6.5.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.1/antlr-2.7.6rc1.jar"/>
 
-        <!-- app side dependencies...get rid of this if possible it's bad long contest design -->
         <pathelement location="${jars.dir}/TestServices.jar"/>
-        <pathelement location="${jars.dir}/DBServices.jar"/>
+        <pathelement location="${jars.dir}/asyncservices.jar"/>
+        <!-- app side dependencies...get rid of this if possible it's bad long contest design -->
         <pathelement location="${jars.dir}/tc.jar"/>
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
@@ -612,6 +612,10 @@
                 <include name="idgenerator.jar"/>
                 <include name="httpunit.jar"/>
                 <include name="itext-1.1.jar"/>
+
+                <include name="tc.jar"/>
+                <include name="TestServices.jar"/>
+                <include name="asyncservices.jar"/>
             </fileset>
             <fileset dir="${jars.dir}/tcs/id_generator/3.0">
                 <include name="id_generator.jar"/>

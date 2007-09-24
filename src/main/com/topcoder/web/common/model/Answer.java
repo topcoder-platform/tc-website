@@ -20,6 +20,7 @@ public class Answer implements Serializable, Cloneable, Comparable {
         ret.setQuestionId(questionId);
         ret.setText(text);
         ret.setSort(sort);
+        ret.setCorrect(correct);
         return ret;
     }
 

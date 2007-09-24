@@ -1,16 +1,14 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.server.ejb.DBServices.DBServices;
-import com.topcoder.server.ejb.DBServices.DBServicesLocator;
-import com.topcoder.server.ejb.TestServices.CompilationTimeoutException;
-import com.topcoder.server.ejb.TestServices.TestServices;
-import com.topcoder.server.ejb.TestServices.TestServicesException;
-import com.topcoder.server.ejb.TestServices.TestServicesLocator;
+import com.topcoder.server.ejb.TestServices.LongContestServicesException;
+import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.i18n.MessageProvider;
 import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.language.JavaLanguage;
+import com.topcoder.shared.language.Language;
 import com.topcoder.shared.messaging.messages.LongCompileRequest;
 import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.problem.DataType;
@@ -29,15 +27,12 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.render.DataTypeRenderer;
 import com.topcoder.web.ejb.coder.Coder;
-import com.topcoder.web.ejb.longcompresult.LongCompResult;
-import com.topcoder.web.ejb.longcompresult.LongCompResultLocal;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 
 import javax.ejb.CreateException;
 import javax.naming.NamingException;
 import java.io.StringReader;
 import java.rmi.RemoteException;
-import java.rmi.ServerException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -69,7 +64,6 @@ public class Submit extends Base {
         long uid = user.getId();
 
         try {
-
             // Get the query parameters
             long cid = Long.parseLong(getParameter(request, Constants.COMPONENT_ID));
             long rid = Long.parseLong(getParameter(request, Constants.ROUND_ID));
@@ -194,7 +188,6 @@ public class Submit extends Base {
                     // Any code in the DB?
                     if (!lastCompilation.isEmpty()) {
                         code = lastCompilation.getStringItem(0, "compilation_text");
-
                     }
                     // put the updated values back into request
                     request.setAttribute(Constants.CODE, code);
@@ -210,19 +203,7 @@ public class Submit extends Base {
                 setIsNextPageInContext(true);
             } else if (action.equals("submit")) { // user is submiting code
 
-                // Language specified?
-                if (!allowedLanguages.contains(BaseLanguage.getLanguage(language))) {
-                    log.debug("set message in request to please select a valid language");
-                    request.setAttribute(Constants.MESSAGE, "Please select a valid language.");
-                    request.setAttribute(Constants.LANGUAGES, allowedLanguages);
-                    setNextPage(Constants.SUBMISSION_JSP);
-                    setIsNextPageInContext(true);
-                    return;
-                } else if ("".equals(StringUtils.checkNull(code).trim())) {
-                    request.setAttribute(Constants.MESSAGE, "Please include some code.");
-                    request.setAttribute(Constants.LANGUAGES, allowedLanguages);
-                    setNextPage(Constants.SUBMISSION_JSP);
-                    setIsNextPageInContext(true);
+                if (!checkLanguages(request, code, language, allowedLanguages)) {
                     return;
                 }
 
@@ -255,74 +236,36 @@ public class Submit extends Base {
                 LongCompileRequest lcr = new LongCompileRequest(uid, cid, rid, cd,
                         language, com.topcoder.shared.util.ApplicationServer.WEB_SERVER_ID, code, examplesOnly);
 
-                LongCompResultLocal longCompResult = (LongCompResultLocal) createLocalEJB(getInitialContext(), LongCompResult.class);
-                if (!longCompResult.exists(rid, uid, DBMS.OLTP_DATASOURCE_NAME)) {
-                    longCompResult.createLongCompResult(rid, uid, DBMS.JTS_OLTP_DATASOURCE_NAME);
-                    longCompResult.setAttended(rid, uid, true, DBMS.JTS_OLTP_DATASOURCE_NAME);
-                }
                 try {
                     lock();
-
                     LongCompileResponse res = null;
                     try {
                         //Tell the user that the code is compiling...
                         showProcessingPage();
-
-                        res = TestServicesLocator.getService().submitLong(lcr);
-                    } catch (ServerException e) {
-                        if (e.getCause() != null) {
-                            throw (Exception) e.getCause();
-                        }
-                        throw e;
+                        res = LongContestServicesLocator.getService().submit(lcr);
                     } finally {
                         unlock();
                     }
-
-                    // Records errors and other info
-                    if (res.getCompileStatus()) { // everything went ok! :)
+                    if (res.getCompileStatus()) {
+                        // everything went ok! :)
                         closeProcessingPage(buildProcessorRequestString("SubmitSuccess",
-                                new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID},
-                                new String[]{String.valueOf(rid), String.valueOf(cd), String.valueOf(cid)}));
-                    } else { // Compilation errors!
-                        // Save temp variables into session
-                        request.getSession().setAttribute(Constants.CODE, code);
-                        request.getSession().setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
-                        log.debug("set message in session to " + res.getCompileError());
-                        if (isNearEnd(rid)) {
-                            request.getSession().setAttribute(Constants.MESSAGE, res.getCompileError() + "\n\n"
-                                    + NEAR_END);
-                        } else {
-                            request.getSession().setAttribute(Constants.MESSAGE, res.getCompileError());
-                        }
-                        // Go back to coding.
-                        closeProcessingPage(buildProcessorRequestString("Submit",
-                                new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID, Constants.LANGUAGE_ID},
-                                new String[]{String.valueOf(rid), String.valueOf(cd), String.valueOf(cid), String.valueOf(language)}));
-                    }
-                } catch (CompilationTimeoutException e) {
-                    log.debug("compilation timed out...");
-                    // The compilation timed out
-                    log.debug("set message in session to code compilation request timed out");
-                    if (isNearEnd(rid)) {
-                        request.getSession().setAttribute(Constants.MESSAGE, "Your code compilation request timed out.\n\n"
-                                + NEAR_END);
+                                    new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID},
+                                    new String[]{String.valueOf(rid), String.valueOf(cd), String.valueOf(cid)}));
                     } else {
-                        request.getSession().setAttribute(Constants.MESSAGE, message);
+                        reportError(request, cd, rid, cid, res.getCompileError(), code, language);
                     }
-
-                    request.getSession().setAttribute(Constants.CODE, code);
-                    request.getSession().setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
-                    // Go back to coding.
-                    closeProcessingPage(buildProcessorRequestString("Submit",
-                            new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID, Constants.LANGUAGE_ID},
-                            new String[]{String.valueOf(rid), String.valueOf(cd), String.valueOf(cid), String.valueOf(language)}));
+                } catch (LongContestServicesException e) {
+                    reportError(request, cd, rid, cid, "Submit failed: "+MessageProvider.getText(e.getLocalizableMessage()), code, language);
                 } catch (ServerBusyException sbe) {
                     throw new NavigationException("A submit request is already being processed.");
                 }
             } else if (action.equals("save")) { // user is saving code
-                boolean res = saveCode(code, language, uid, cd, rid, cid);
+                try {
+                    if (!checkLanguages(request, code, language, allowedLanguages)) {
+                        return;
+                    }
 
-                if (res) {
+                    saveCode(code, language, uid, cd, rid, cid);
                     // save complete
                     // go back to coding!
                     log.debug("set message in request to successful save");
@@ -334,7 +277,10 @@ public class Submit extends Base {
                     request.setAttribute(Constants.LANGUAGES, allowedLanguages);
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
-                } else {
+                } catch (LongContestServicesException e) {
+                    reportError(request, cd, rid, cid, "Save failed: "+MessageProvider.getText(e.getLocalizableMessage()), code, language);
+                } catch (Exception e) {
+                    log.error("Could not save the code:", e);
                     throw new NavigationException("Your code cannot be saved at this time.");
                 }
             }
@@ -345,6 +291,45 @@ public class Submit extends Base {
             log.error("Unexpected error in code submit module.", e);
             throw new TCWebException("An error occurred while compiling your code", e);
         }
+    }
+
+    private boolean checkLanguages(TCRequest request, String code, int language, List allowedLanguages) {
+        Language lang = null;
+        try {
+            lang = BaseLanguage.getLanguage(language);
+        } catch (Exception e) {
+        }
+        // Language specified?
+        if (lang == null || !allowedLanguages.contains(lang)) {
+            log.debug("set message in request to please select a valid language");
+            request.setAttribute(Constants.MESSAGE, "Please select a valid language.");
+            request.setAttribute(Constants.LANGUAGES, allowedLanguages);
+            setNextPage(Constants.SUBMISSION_JSP);
+            setIsNextPageInContext(true);
+            return false;
+        } else if ("".equals(StringUtils.checkNull(code).trim())) {
+            request.setAttribute(Constants.MESSAGE, "Please include some code.");
+            request.setAttribute(Constants.LANGUAGES, allowedLanguages);
+            setNextPage(Constants.SUBMISSION_JSP);
+            setIsNextPageInContext(true);
+            return false;
+        }
+        return true;
+    }
+
+    private void reportError(TCRequest request, long cd, long rid, long cid, String message, String code, int language) throws Exception {
+        if (isNearEnd(rid)) {
+            request.getSession().setAttribute(Constants.MESSAGE, message + "\n\n" + NEAR_END);
+        } else {
+            request.getSession().setAttribute(Constants.MESSAGE, message);
+        }
+        request.getSession().setAttribute(Constants.CODE, code);
+        request.getSession().setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
+        // Go back to coding.
+        closeProcessingPage(buildProcessorRequestString("Submit",
+                new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID, Constants.LANGUAGE_ID},
+                new String[]{String.valueOf(rid), String.valueOf(cd), String.valueOf(cid), String.valueOf(language)}));
+
     }
 
     private boolean isNearEnd(long roundId) throws Exception {
@@ -390,23 +375,11 @@ public class Submit extends Base {
     }
 
     // Save the user's code into the database
-    private boolean saveCode(String code, int lang, long uid, long cd, long rid, long cid) throws Exception {
+    private void saveCode(String code, int lang, long uid, long cd, long rid, long cid) throws Exception {
         log.debug("saveCode called... lang=" + lang + " uid=" + uid + " cd=" + cd + " rid=" + rid + " cid=" + cid);
 
-        // Find the DB_Services bean so we could set the problem state to open before saving the code.
-        DBServices dbs = DBServicesLocator.getService();
-
-
-        if (!dbs.isLongComponentOpened((int) uid, (int) rid, (int) cid)) { // Is there a record of the user opening the problem?
-            dbs.coderOpenLongComponent((int) uid, (int) cd, (int) rid, (int) cid);
-        }
-
         // Find the TestServices bean so we could save the code.
-        TestServices ts = TestServicesLocator.getService();
-
-        // Save the code!
-        return ts.saveLongComponent(cd, rid, cid, uid, code, lang).isSuccess();
-
+        LongContestServicesLocator.getService().save((int) cd, (int) rid, (int) cid, (int) uid, code, (int) lang);
     }
 
     // Checks to see if the user is registered for this round contest.
@@ -419,7 +392,6 @@ public class Submit extends Base {
             log.error("Error isUserRegistered user: " + userID + " for round: "
                     + roundID, e);
             throw e;
-
         }
         return ret;
 
@@ -427,8 +399,8 @@ public class Submit extends Base {
 
 
     //todo this may need to be modified if in the future we limit which languages are available
-    protected static List getLanguages(long roundId) throws TestServicesException, RemoteException, NamingException, CreateException {
-        return Arrays.asList(TestServicesLocator.getService().getAllowedLanguagesForRound((int) roundId));
+    protected static List getLanguages(long roundId) throws LongContestServicesException, RemoteException, NamingException, CreateException {
+        return Arrays.asList(LongContestServicesLocator.getService().getAllowedLanguagesForRound((int) roundId));
     }
 
     private boolean acceptingSubmissions(long componentId) throws Exception {

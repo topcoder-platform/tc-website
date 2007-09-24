@@ -1,8 +1,5 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import java.io.StringReader;
-import java.util.Map;
-
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -23,6 +20,9 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.coder.Coder;
+
+import java.io.StringReader;
+import java.util.Map;
 
 
 public class ViewProblemStatement extends Base {
@@ -86,13 +86,13 @@ public class ViewProblemStatement extends Base {
             r.setProperty(Constants.ROUND_ID, String.valueOf(rd));
             DataAccessInt dataAccess = getDataAccess(false);
             Map<String, ResultSetContainer> m = dataAccess.getData(r);
-            boolean started = ((ResultSetContainer) m.get("long_contest_started")).getBooleanItem(0, 0);
+            boolean started = m.get("long_contest_started").getBooleanItem(0, 0);
             //let admins see the problem even if the contest isn't open
             if (!started&&!getSessionInfo().isAdmin()) {
                 throw new NavigationException("The contest has not started yet.");
             }
             ResultSetContainer rsc = new ResultSetContainer(m.get("long_problem_xml"), new RoundDisplayNameCalculator("display_name"));
-            ResultSetContainer.ResultSetRow rr = rsc.getRow(0);            
+            ResultSetContainer.ResultSetRow rr = rsc.getRow(0);
             request.setAttribute("infoRow", rr);
 
             String problemText = rr.getStringItem("component_text");

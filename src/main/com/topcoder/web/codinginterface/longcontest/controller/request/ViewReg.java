@@ -225,6 +225,7 @@ public class ViewReg extends Base {
                 a.setQuestionId(row.getLongItem("question_id"));
                 a.setSort(row.getIntItem("sort_order"));
                 a.setText(row.getStringItem("answer_text"));
+                a.setCorrect(new Boolean(row.getIntItem("correct") == 1));
                 ret.add(a);
             }
         }

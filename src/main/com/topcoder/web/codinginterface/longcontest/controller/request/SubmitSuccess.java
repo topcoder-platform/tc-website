@@ -1,6 +1,6 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.server.ejb.TestServices.TestServicesLocator;
+import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.TCWebException;
 
@@ -13,7 +13,7 @@ public class SubmitSuccess extends Base {
 
     protected void longContestProcessing() throws TCWebException {
         try {
-            int numberOfSubmissionOnLongTestQueue = TestServicesLocator.getService().getNumberOfSubmissionOnLongTestQueue();
+            int numberOfSubmissionOnLongTestQueue = LongContestServicesLocator.getService().getNumberOfSubmissionOnLongTestQueue();
             getRequest().setAttribute(Constants.QUEUE_LENGTH, new Long(numberOfSubmissionOnLongTestQueue));
             getRequest().setAttribute(Constants.ROUND_ID, getRequest().getParameter(Constants.ROUND_ID));
             getRequest().setAttribute(Constants.COMPONENT_ID, getRequest().getParameter(Constants.COMPONENT_ID));

@@ -1,9 +1,13 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
+import com.topcoder.netCommon.contest.SurveyAnswerData;
+import com.topcoder.netCommon.contest.SurveyChoiceData;
+import com.topcoder.server.ejb.TestServices.LongContestServicesException;
+import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.i18n.MessageProvider;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.User;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
@@ -17,19 +21,15 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
-import com.topcoder.web.common.model.SurveyResponse;
+import com.topcoder.web.common.model.QuestionType;
 import com.topcoder.web.common.tag.AnswerInput;
-import com.topcoder.web.ejb.longcompresult.LongCompResult;
-import com.topcoder.web.ejb.longcompresult.LongCompResultLocal;
-import com.topcoder.web.ejb.roundregistration.RoundRegistration;
-import com.topcoder.web.ejb.survey.Response;
 
-import javax.transaction.Status;
-import javax.transaction.TransactionManager;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
@@ -84,13 +84,23 @@ public class SubmitReg extends ViewReg {
             List responses = new ArrayList(10); // User's survey responses
 
             // Go through the params and look for survey questions
+            Map questions = new HashMap();
             for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
                 paramName = (String) params.nextElement(); // A possible survey question?
                 log.debug("param: " + paramName);
                 if (paramName.startsWith(AnswerInput.PREFIX)) { // It is if it starts with....
-                    List l = validateAnswer(paramName); // Get the user's answers for the question
-                    if (l != null)
-                        responses.addAll(l);
+                    SurveyAnswerData r = validateAnswer(paramName); // Get the user's answers for the question
+                    if (r != null) {
+                        Integer questionID = new Integer(r.getQuestionID());
+                        if (questions.containsKey(questionID)) {
+                            SurveyAnswerData response = (SurveyAnswerData) questions.get(questionID);
+                            response.getChoices().addAll(r.getChoices());
+                            response.getAnswers().addAll(r.getAnswers());
+                        } else {
+                            questions.put(questionID, r);
+                            responses.add(r);
+                        }
+                    }
                 }
             }
 
@@ -106,31 +116,10 @@ public class SubmitReg extends ViewReg {
             }
 
             if (!hasErrors()) { // If the user responded to all the questions, let's go...
-
-                TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 try {
-                    tm.begin();
-                    SurveyResponse resp = null;
-                    Response response = (Response) createEJB(getInitialContext(), Response.class);
-                    // Go through each of the user survey responses and put them into the DB
-                    for (Iterator it = responses.iterator(); it.hasNext();) {
-                        resp = (SurveyResponse) it.next();
-                        if (resp.isFreeForm()) {
-                            response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getText());
-                        } else {
-                            response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
-                        }
-                    }
-
-                    // register user for round
-                    registerUser(userID, Long.parseLong(roundID));
-
-                    tm.commit();
-                } catch (Exception e) {
-                    if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
-                        tm.rollback();
-                    }
-                    throw e;
+                    LongContestServicesLocator.getService().register((int) round, (int) getUser().getId(), responses);
+                } catch (LongContestServicesException e) {
+                    throw new NavigationException(MessageProvider.getText(e.getLocalizableMessage()));
                 }
             }
 
@@ -154,41 +143,18 @@ public class SubmitReg extends ViewReg {
 
 
     /**
-     * Registers user for round
-     *
-     * @param userID  The coder's ID
-     * @param roundID The round's ID
-     * @throws Exception
-     */
-    protected void registerUser(long userID, long roundID) throws Exception {
-        try {
-            RoundRegistration reg = (RoundRegistration) createEJB(getInitialContext(), RoundRegistration.class);
-            LongCompResultLocal longCompResult = (LongCompResultLocal) createLocalEJB(getInitialContext(), LongCompResult.class);
-            reg.createRoundRegistration(userID, roundID);
-            longCompResult.createLongCompResult(roundID, userID, DBMS.JTS_OLTP_DATASOURCE_NAME);
-            longCompResult.setAttended(roundID, userID, false, DBMS.JTS_OLTP_DATASOURCE_NAME);
-        } catch (Exception e) {
-            log.error("Error registerating user: " + userID + " for round: " + roundID, e);
-            throw e;
-        }
-    }
-
-    /**
      * Go through the request and pull out the users answers
      *
      * @param paramName
      * @return a list of the user's responses
      */
-    private List validateAnswer(String paramName) {
+    private SurveyAnswerData validateAnswer(String paramName) {
 
         Question question = null;
         String[] values = getRequest().getParameterValues(paramName);
-        List ret = null;
+        SurveyAnswerData response = null;
         String errorKey = null;
-        if (values == null) {
-            ret = new ArrayList(0);
-        } else {
-            ret = new ArrayList(values.length);
+        if (values != null) {
             long questionId = -1;
             long answerId = -1;
             for (int i = 0; i < values.length; i++) {
@@ -208,10 +174,12 @@ public class SubmitReg extends ViewReg {
                         return null;  //quit now
                     }
                 }
+                Answer answer = null;
                 if (st.hasMoreTokens()) {
                     //this must be a multiple choice question
                     try {
                         answerId = Long.parseLong(st.nextToken());
+                        answer = findAnswer(answerId, question);
                     } catch (NumberFormatException e) {
                         log.debug("numberformat trying to get answer for multiple choice");
                         addError(errorKey, "Invalid answer.");
@@ -219,7 +187,7 @@ public class SubmitReg extends ViewReg {
                     if (question.getStyleId() != Question.MULTIPLE_CHOICE) {
                         log.debug("param has answerid but it's not multiple choice");
                         addError(errorKey, "Invalid answer.");
-                    } else if (findAnswer(answerId, question) == null) {
+                    } else if (answer == null) {
                         log.debug("can't find multiple choice answer");
                         addError(errorKey, "Invalid answer.");
                     }
@@ -232,35 +200,39 @@ public class SubmitReg extends ViewReg {
                     if (question.getStyleId() == Question.SINGLE_CHOICE) {
                         try {
                             answerId = Long.parseLong(values[i]);
+                            answer = findAnswer(answerId, question);
                         } catch (NumberFormatException e) {
                             log.debug("numberformat trying to get answer for single choice");
                             addError(errorKey, "Invalid answer.");
                         }
-                        if (findAnswer(answerId, question) == null) {
+                        if (answer == null) {
                             log.debug("can't find single choice answer");
                             addError(errorKey, "Invalid answer.");
                         }
                     }
                 }
-                SurveyResponse response = new SurveyResponse();
-                response.setQuestionId(question.getId());
-                response.setUserId(getAuthentication().getUser().getId());
+                //This is ugly, we should unify survey management. Using Core services format.
+                if (response == null) {
+                    response = new SurveyAnswerData((int) questionId, question.getStyleId(), question.isRequired() && question.getType().getId() == QuestionType.ELIGIBLE);
+                    ArrayList answers = new ArrayList();
+                    ArrayList choices = new ArrayList();
+                    response.setAnswers(answers);
+                    response.setChoices(choices);
+                }
                 if (question.isFreeForm()) {
                     String text = StringUtils.checkNull(values[i]).trim();
                     if (text.length() != 0) {
-                        response.setText(StringUtils.checkNull(values[i]));
-                        response.setFreeForm(true);
-                        ret.add(response);
+                        response.getAnswers().add(StringUtils.checkNull(values[i]));
+                        response.getChoices().add(new SurveyChoiceData(0, "", true));
                     }
                 } else {
-                    response.setAnswerId(answerId);
-                    response.setFreeForm(false);
-                    ret.add(response);
+                    response.getAnswers().add("");
+                    response.getChoices().add(new SurveyChoiceData((int) answerId, answer.getText(), answer.isCorrect()));
                 }
             }
         }
-        log.debug("q: " + question.getId() + "required: " + question.isRequired() + " ret: " + ret.size());
-        return ret;
+        log.debug("q: " + question.getId() + "required: " + question.isRequired() + " ret: " + response == null ? 0 : response.getAnswers().size());
+        return response;
     }
 
     // Checks to make sure the user responed to all required questions
@@ -277,11 +249,11 @@ public class SubmitReg extends ViewReg {
 
     // Checks the list of response to see if it contains the given question
     private boolean containsQuestion(List responses, Question question) {
-        SurveyResponse r = null;
+        SurveyAnswerData r = null;
         boolean found = false;
         for (Iterator it = responses.iterator(); it.hasNext() && !found;) {
-            r = (SurveyResponse) it.next();
-            found = (r.getQuestionId() == question.getId());
+            r = (SurveyAnswerData) it.next();
+            found = (r.getQuestionID() == question.getId());
         }
         return found;
     }
@@ -301,25 +273,30 @@ public class SubmitReg extends ViewReg {
     // Returns the Answer with the given answerID
     private Answer findAnswer(long answerId, Question question) {
         Answer a = null;
-        boolean found = false;
-        for (Iterator it = question.getAnswerInfo().iterator(); it.hasNext() && !found;) {
+        log.debug("looking :" + answerId);
+        for (Iterator it = question.getAnswerInfo().iterator(); it.hasNext();) {
             a = (Answer) it.next();
-            found = a.getId().equals(new Long(answerId));
+            log.debug(a.getId()+"-"+a.getText());
+            if (a.getId().longValue() == answerId) {
+                log.debug("found");
+                return a;
+            }
         }
-        return found ? a : null;
+        return null;
     }
 
     // Set default response answers
     private void setDefaults(List responses) {
-        SurveyResponse r = null;
+        SurveyAnswerData r = null;
         for (Iterator it = responses.iterator(); it.hasNext();) {
-            r = (SurveyResponse) it.next();
-            if (findQuestion(r.getQuestionId()).getStyleId() == Question.MULTIPLE_CHOICE) {
-                setDefault(AnswerInput.PREFIX + r.getQuestionId() + "," + r.getAnswerId(), "true");
-            } else if (r.isFreeForm()) {
-                setDefault(AnswerInput.PREFIX + r.getQuestionId(), r.getText());
+            r = (SurveyAnswerData) it.next();
+            Question question = findQuestion(r.getQuestionID());
+            if (question.getStyleId() == Question.MULTIPLE_CHOICE) {
+                setDefault(AnswerInput.PREFIX + r.getQuestionID() + "," + ((SurveyChoiceData)(r.getChoices().get(0))).getID(), "true");
+            } else if (question.isFreeForm()) {
+                setDefault(AnswerInput.PREFIX + r.getQuestionID(), r.getAnswers().get(0));
             } else {
-                setDefault(AnswerInput.PREFIX + r.getQuestionId(), new Long(r.getAnswerId()));
+                setDefault(AnswerInput.PREFIX + r.getQuestionID(), new Long(((SurveyChoiceData)(r.getChoices().get(0))).getID()));
             }
         }
     }
