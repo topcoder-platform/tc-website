@@ -5,12 +5,22 @@
 
 <hibernate-mapping package="com.topcoder.web.common.model.algo">
 
-    <class name="Round" table="round" mutable="false">
-        <id name="id" column="round_id" access="field" />
+    <class name="Round" table="round">
+        <id name="id" column="round_id">
+            <generator class="com.topcoder.web.common.model.LegacyIdGenerator">
+                <param name="sequence">95</param>
+            </generator>
+        </id>
         <many-to-one name="contest" column="contest_id" class="Contest" access="field"/>
 
         <property name="name" column="name" access="field"/>
         <property name="shortName" column="short_name" access="field"/>
         <property name="status" column="status" access="field"/>
+
+        <property name="registrationLimit" column="registration_limit"  access="field"/>
+        <property name="invitational" column="invitational" access="field"/>
+        <many-to-one name="type" column="round_type_id" class="RoundType" access="field" fetch="join"/>
+        <property name="rated" column="rated_ind" access="field"/>
+        
     </class>
 </hibernate-mapping>

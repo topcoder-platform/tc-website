@@ -52,55 +52,114 @@ public class RoundSegment extends Base {
 
     public static class Identifier implements Serializable {
 
-        private Long roundId = null;
-        private Long segmentId = null;
+        private Round round = null;
+        private Segment segment = null;
 
         public Identifier() {
 
         }
 
-
-        public Identifier(Long roundId, Long segmentId) {
-            super();
-            this.roundId = roundId;
-            this.segmentId = segmentId;
+        /**
+         * @return the round
+         */
+        public Round getRound() {
+            return round;
         }
 
 
-        protected void setRoundId(Long roundId) {
-            this.roundId = roundId;
+        /**
+         * @param round the round to set
+         */
+        public void setRound(Round round) {
+            this.round = round;
         }
 
 
-        protected void setSegmentId(Long segmentId) {
-            this.segmentId = segmentId;
+        /**
+         * @return the segment
+         */
+        public Segment getSegment() {
+            return segment;
         }
 
 
-        protected Long getRoundId() {
-            return roundId;
+        /**
+         * @param segment the segment to set
+         */
+        public void setSegment(Segment segment) {
+            this.segment = segment;
         }
 
-
-        protected Long getSegmentId() {
-            return segmentId;
-        }
-
-
-        @Override
-        public boolean equals(Object obj) {
-            if (obj == null || !(obj instanceof RoundSegment.Identifier)) {
-                return false;
-            }
-            RoundSegment.Identifier rs = (RoundSegment.Identifier) obj;
-
-            return rs.getRoundId().equals(this.getRoundId()) && rs.getSegmentId().equals(this.getSegmentId());
-        }
-
+        /* (non-Javadoc)
+         * @see java.lang.Object#hashCode()
+         */
         @Override
         public int hashCode() {
-            return (getRoundId() + " " + getSegmentId()).hashCode();
+            final int PRIME = 31;
+            int result = 1;
+            result = PRIME * result + ((round == null) ? 0 : round.hashCode());
+            result = PRIME * result + ((segment == null) ? 0 : segment.hashCode());
+            return result;
         }
+
+        /* (non-Javadoc)
+         * @see java.lang.Object#equals(java.lang.Object)
+         */
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
+            if (getClass() != obj.getClass())
+                return false;
+            final Identifier other = (Identifier) obj;
+            if (round == null) {
+                if (other.round != null)
+                    return false;
+            } else if (!round.equals(other.round))
+                return false;
+            if (segment == null) {
+                if (other.segment != null)
+                    return false;
+            } else if (!segment.equals(other.segment))
+                return false;
+            return true;
+        }
+
+
+    }
+
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = 1;
+        result = PRIME * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final RoundSegment other = (RoundSegment) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
     }
 
 
