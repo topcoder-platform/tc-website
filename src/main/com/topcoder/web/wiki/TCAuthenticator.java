@@ -161,8 +161,10 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     }
 
     protected Principal getUser(String userName) {
-        log.debug("XXX getUser called ");
-        Thread.dumpStack();
+        if (log.isDebugEnabled()) {
+            log.debug("XXX getUser called ");
+            Thread.dumpStack();
+        }
 
         try {
             PrincipalMgrLocal pmr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
