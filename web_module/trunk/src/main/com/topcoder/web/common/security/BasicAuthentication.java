@@ -2,7 +2,7 @@ package com.topcoder.web.common.security;
 
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrLocal;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
@@ -316,13 +316,17 @@ public class BasicAuthentication implements WebAuthentication {
 
     protected User makeUser(long id) {
         try {
-            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-            if (dataSource == null) {
-                UserPrincipal up = pmgr.getUser(id);
-                return new SimpleUser(id, up.getName(), "");
+            if (id==guest.getId()) {
+                return guest;
             } else {
-                UserPrincipal up = pmgr.getUser(id, dataSource);
-                return new SimpleUser(id, up.getName(), "");
+                PrincipalMgrLocal pmgr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
+                if (dataSource == null) {
+                    UserPrincipal up = pmgr.getUser(id);
+                    return new SimpleUser(id, up.getName(), "");
+                } else {
+                    UserPrincipal up = pmgr.getUser(id, dataSource);
+                    return new SimpleUser(id, up.getName(), "");
+                }
             }
         } catch (Exception e) {
             log.warn("caught exception in makeUser with id = " + id, e);
