@@ -163,7 +163,6 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     protected Principal getUser(String userName) {
         if (log.isDebugEnabled()) {
             log.debug("XXX getUser called ");
-            Thread.dumpStack();
         }
 
         try {
@@ -216,7 +215,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             return ret;
 
         } catch (Exception e) {
-            log.warn(e.getMessage());
+            log.warn(e.getMessage(), e);
             return null;
         }
     }
