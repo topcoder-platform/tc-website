@@ -13,7 +13,13 @@ import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrLocal;
 import com.topcoder.security.login.LoginLocal;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.Constants;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -192,15 +198,17 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
     public Principal getUser(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         log.debug("XXX getUser(request, response) called");
-        return super.getUser(httpServletRequest, httpServletResponse);
 /*
+        return super.getUser(httpServletRequest, httpServletResponse);
+*/
+
         TCRequest tcRequest = HttpObjectFactory.createRequest(httpServletRequest);
         TCResponse tcResponse = HttpObjectFactory.createResponse(httpServletResponse);
         try {
             WebAuthentication authentication =
                     new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
                             tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
-            User ret = new DefaultUser();
+            DefaultUser ret = new DefaultUser();
             ret.setFullName(authentication.getActiveUser().getUserName());
             return ret;
 
@@ -208,6 +216,5 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             log.warn(e.getMessage());
             return null;
         }
-*/
     }
 }
