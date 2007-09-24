@@ -80,8 +80,8 @@
                             <% pageContext.setAttribute("sponsorImage", ((LongContest) contest).getSponsorImage());%>
                             <div style="float: right; margin-left: 4px;">
                                 <ci:sponsorImage image="sponsorImage" alt="Sponsor" border="0" ifNull=""/></div>
-                                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" >
-                                        <mm:contest roundTypeId="${contest.roundTypeId}" contestName="${contest.contestName}" roundName="${contest.roundName}" />                            
+                                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=MatchDetails&amp;<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" >
+                                        <mm:contest roundTypeId="${contest.roundTypeId}" contestName="${contest.contestName}" roundName="${contest.roundName}" />
                                     </a>
                             <div style="margin: 6px 10px;">
                                 <logic:notEqual name="contest" property="forumId" value="0">
@@ -142,6 +142,10 @@
                 </tr>
                 </logic:empty>
             </table>
+
+            <div align="center" style="margin:10px;">
+                <a href="javascript:arena();"><img src="/i/longcontest/launchArena.png" alt="Launch Arena" /></a>
+            </div>
 
         </td>
 <%-- Center Column Ends --%>
