@@ -120,7 +120,8 @@ public class Classroom {
         this.studentClassrooms = studentClassrooms;
     }
     
-    @OneToOne @PrimaryKeyJoinColumn
+    @ManyToOne()
+    @JoinColumn(name="school_id", nullable=false)
     public School getSchool() {
         return school;
     }
