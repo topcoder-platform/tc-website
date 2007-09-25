@@ -142,6 +142,7 @@
 <!--        <mapping resource="com/topcoder/web/common/model/educ/Professor.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/educ/Classroom.hbm.xml"/>-->
 
+         <mapping resource="com/topcoder/web/common/model/educ/ProfessorSchool.hbm.xml"/>  
          <mapping resource="com/topcoder/web/common/model/educ/StudentClassroom.hbm.xml"/>  
  
  
