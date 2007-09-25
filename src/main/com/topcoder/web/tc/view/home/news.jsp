@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>09.25.07<br>1:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&d1=calendar&d2=oct_07">New SRM added to calendar</a></span><br><br>
+        We've added a new SRM to the schedule: <a href="/tc?module=MatchDetails&rd=10936">SRM 368</a> will start at 7:00 AM EDT on October 2. We've updated the Event Calendar to reflect this new match and the updated SRM numbers over the next few months.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=calendar&d2=oct_07">details</a> | 
+        <tc-webtag:forumLink forumID="517574" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.24.07<br>4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=ViewSurvey&sid=19628">Vote for the TCO08 logo</A></span><br><br>
@@ -149,18 +162,5 @@
         <a href="/tc?module=Static&d1=calendar&d2=sep_07">details</a> | 
         <tc-webtag:forumLink forumID="517493" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="TopCoder Surveys" border="0" /><br>09.20.07<br>10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=19500">TC Channel Survey: Remix</A></span><br><br>
-        Earlier this week, we asked you to tell us what one thing you'd like to see most in future episodes of the TC Channel. In this new survey, we'd like your help in ranking those options.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=ViewSurvey&sid=19500">details</a> | 
-        <tc-webtag:forumLink forumID="517421" message="discuss this" /> | 
-        <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
    
