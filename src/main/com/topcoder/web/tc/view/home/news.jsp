@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Tournament News" border="0" /><br>09.25.07<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep05' refer='/tc' />">TC Channel: Episode 5</A></span><br><br>
+        This month's episode of the TC Channel is now online. Highlights from this edition include an interview with <tc-webtag:handle coderId="8511003" context="algorithm"/>, a profile of <tc-webtag:handle coderId="282718" context="marathon_match"/>'s legendary workstation, and <tc-webtag:handle coderId="159052" context="algorithm"/> discussing Marathon Match visualizations.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep05' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="517575" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.25.07<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=bracket">TCCC07 Marathon Match finalists</A></span><br><br>
@@ -146,21 +159,5 @@
         <A href="/tc?module=ViewSurvey&sid=19560">details</a> | 
         <tc-webtag:forumLink forumID="517257" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.20.07<br>12:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd3">TCCC07 Algo Round 3 - Problem Set &amp; Analysis</A></span><br><br>
-      Online Round 3 of the 2007 TopCoder Collegiate Challenge brought us something to think, something to code and a huge space for possible bugs. What else does a top coder need on a Saturday morning (or day, or night)?</td>
-         <td class="newsPhoto"><img src="/i/m/pashka_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="15881985" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd3">full story</A> | 
-         <tc-webtag:forumLink forumID="517409" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
