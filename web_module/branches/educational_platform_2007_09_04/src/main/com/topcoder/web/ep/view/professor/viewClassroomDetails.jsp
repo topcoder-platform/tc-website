@@ -35,11 +35,13 @@
         Classroom details:
         <table border="1">
                 <tr>
+                    <td>School</td>
                     <td>Classroom</td>
                     <td>Academic period</td>
                     <td>Description</td>
                 </tr>
                 <tr>
+                    <td>${classroom.school.name}</td>
                     <td>${classroom.name}</td>
                     <td>${classroom.academicPeriod}</td>
                     <td>${classroom.description}</td>
