@@ -1,6 +1,10 @@
 package com.topcoder.ejb.ContestAdminServices;
 
-import com.topcoder.common.web.data.*;
+import com.topcoder.common.web.data.Challenge;
+import com.topcoder.common.web.data.Problem;
+import com.topcoder.common.web.data.Room;
+import com.topcoder.common.web.data.Round;
+import com.topcoder.common.web.data.SystemTestCaseReport;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
@@ -39,81 +43,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
     private static final int STATUS_OVERTURNED = 91;
     private static final int STATUS_NULLIFIED = 92;
 
-
-    /*****************************************************************************************
-     * Saves a contest.
-     *
-     * @param ca - ContestAdmin
-     * @exception EJBException
-     * @return int contest_id
-     ******************************************************************************************
-     **/
-    public int saveContest(ContestAdmin ca) {
-        log.debug("Contest: saveContest() called ... ");
-        java.sql.Connection conn = null;
-        PreparedStatement ps = null;
-        int retVal = 0;
-        int contest_id = 0;
-
-        try {
-            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
-
-            StringBuffer query = new StringBuffer(120);
-            if (ca.getModified() == "M") {
-                query.append(" UPDATE contest SET name = ?, start_date = ?, ").
-                        append("                     end_date = ?, status = ?, language_id = ?, ").
-                        append("                     ad_start = ?, ad_end = ? ").
-                        append("  WHERE  contest_id = ? ");
-
-                contest_id = ca.getContestId();
-            } else {
-                query.append(" INSERT INTO contest (name, start_date, end_date, status, ").
-                        append(" language_id, ad_start, ad_end, contest_id) ").
-                        append(" VALUES (?,?,?,?,?,?,?,?) ");
-
-                //contest_id = getNextContestId();
-                contest_id = DBMS.getSeqId(conn, DBMS.JMA_SEQ);
-            }
-
-            ps = conn.prepareStatement(query.toString());
-            ps.setString(1, ca.getContestName());
-            ps.setTimestamp(2, ca.getContestStartTimestamp());
-            ps.setTimestamp(3, ca.getContestEndTimestamp());
-            ps.setString(4, ca.getStatus());
-            ps.setInt(5, ca.getLanguage().getLanguageId());
-            ps.setTimestamp(6, ca.getAdStartTimestamp());
-            ps.setTimestamp(7, ca.getAdEndTimestamp());
-            ps.setInt(8, contest_id);
-
-            retVal = ps.executeUpdate();
-            if (retVal != 1)
-                throw new SQLException("ContestBean saveContest retval = " + retVal);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new EJBException("Contest: saveContest: Error:\n" + e);
-        } finally {
-            try {
-                if (ps != null) {
-                    ps.close();
-                    ps = null;
-                }
-            } catch (Exception Ignore) {
-                log.debug("Contest: saveContest: ps close error in finally");
-                Ignore.printStackTrace();
-            }
-            try {
-                if (conn != null) {
-                    conn.close();
-                    conn = null;
-                }
-            } catch (Exception Ignore) {
-                log.debug("Contest: saveContest: conn close error in finally");
-                Ignore.printStackTrace();
-            }
-        }
-
-        return contest_id;
-    }
 
     /*****************************************************************************************
      * Retrieves all rounds and corresponding characteristics from the
