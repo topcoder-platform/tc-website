@@ -2,7 +2,6 @@ package com.topcoder.web.common.model;
 
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.topcoder.web.common.model.educ.Professor;

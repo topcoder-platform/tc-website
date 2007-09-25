@@ -35,8 +35,7 @@
             </tc-webtag:errorIterator>
             <br/>
                 <c:forEach items="${classroom.professor.activeSchools}" var="school">                
-                    <c:choose>
-                        <c:when test="classroom.professor.activeSchools.size > 1">
+                    <c:choose>                        <c:when test="${fn:length(classroom.professor.activeSchools) > 1}">
                             <tc-webtag:radioButton name="<%=Constants.SCHOOL_ID%>" value="${school.id}">${school.name}</tc-webtag:radioButton>&nbsp;&nbsp;
                         </c:when>
                         <c:otherwise><tc-webtag:hiddenInput name="<%=Constants.SCHOOL_ID%>" value="${school.id}"/></c:otherwise>

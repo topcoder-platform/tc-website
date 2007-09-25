@@ -125,7 +125,7 @@ public class Professor extends Base {
         Set schools = new HashSet<School>();
         for (ProfessorSchool ps : professorSchools) {
             log.debug("Professor " + this.getUser().getHandle() + " has school " + ps.getId().getSchool().getName() + " status: " + ps.getStatusId());
-            if (ps.getStatusId() == ProfessorSchool.ACTIVE_STATUS) {
+            if (ps.getStatusId().equals(ProfessorSchool.ACTIVE_STATUS)) {
                 schools.add(ps.getId().getSchool());
             }
         }
@@ -135,8 +135,8 @@ public class Professor extends Base {
     @Transient
     public School getSchoolUsingId(Long schoolId) {
         for (ProfessorSchool ps : professorSchools) {
-            if (ps.getStatusId() == ProfessorSchool.ACTIVE_STATUS
-                    && ps.getId().getSchool().getId() == schoolId) {
+            if (ps.getStatusId().equals(ProfessorSchool.ACTIVE_STATUS)
+                    && ps.getId().getSchool().getId().equals(schoolId)) {
                 return ps.getId().getSchool();
             }
         }
