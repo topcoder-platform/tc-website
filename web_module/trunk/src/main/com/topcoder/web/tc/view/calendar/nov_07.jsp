@@ -108,7 +108,7 @@
       </td>
       <td class="value">6
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10793">SRM 373</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10793">SRM 374</A></strong><br>
          <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=XXX">XXX</A><br>--%>
          11:00 AM
          </div>
@@ -130,7 +130,7 @@
       </td>
       <td class="value">10
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10794">SRM 374</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10794">SRM 375</A></strong><br>
          12:00 Noon
          </div>
          <div class="hs">
@@ -149,7 +149,7 @@
       </td>
       <td class="value">14
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10796">SRM 375</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10796">SRM 376</A></strong><br>
          <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA</A><br>
          9:00 PM
          </div>
@@ -164,7 +164,7 @@
       </td>
       <td class="value">17
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10797">SRM 376</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10797">SRM 377</A></strong><br>
          12:00 Noon
          </div>
       </td>
@@ -177,7 +177,7 @@
       </td>
       <td class="value">20
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10798">SRM 377</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10798">SRM 378</A></strong><br>
          11:00 AM
          </div>
          <div class="hs">
@@ -213,7 +213,7 @@
          1 week
          </div>
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10800">SRM 378</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10800">SRM 379</A></strong><br>
          9:00 PM
          </div>
          <div class="hs">
