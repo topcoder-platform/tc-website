@@ -331,10 +331,10 @@
 
             <%-- SRM SPONSOR --%>
             <map name="mm">
-            <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule" />
+            <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10783" />
             <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db" />
             </map>
-            <img src="/i/home/tccc07AlgoRd4_db.png" alt="TCCC07 Algorithm Round 4 brought to you by Deutsche Bank" border="0" style="display:block;" usemap="#mm"/>
+            <img src="/i/home/srm367_db.png" alt="SRM 367 brought to you by Deutsche Bank" border="0" style="display:block;" usemap="#mm"/>
             
                 
             <%-- 2 Registration Prototype contests open @ Studio 
