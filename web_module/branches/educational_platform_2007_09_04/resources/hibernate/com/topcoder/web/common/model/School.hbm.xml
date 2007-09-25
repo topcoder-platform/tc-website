@@ -21,11 +21,5 @@
         <!-- This field is just read and never written, since insert and update are set to false -->
         <property name="modifyDate" column="modify_date" access="field" update="false" insert="false" />
 
-        <many-to-one name="professor" class="Coder" column="user_id" access="field"/>
-        <set name="ProfessorSchools" cascade="save-update" inverse="true" access="field">
-            <key column="school_id" not-null="true"/>
-            <one-to-many class="class=com.topcoder.web.common.model.educ.ProfessorSchool"/>
-        </set>
-
     </class>
 </hibernate-mapping>
