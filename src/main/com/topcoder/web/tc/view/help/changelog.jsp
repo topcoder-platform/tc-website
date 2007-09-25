@@ -42,6 +42,15 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+<p>
+    5.12.4 - 2007.09.xx
+    <ul>
+<%--
+        <li>update so that no code uses the stored procedure for id's anymore -dok</li>
+--%>
+    </ul>
+
+</p>
 
 <p>
     5.12.3 - 2007.09.24
