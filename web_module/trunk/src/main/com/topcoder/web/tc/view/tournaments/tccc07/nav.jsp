@@ -203,6 +203,7 @@
                 <% if (tabLev2.equals("advancers")) {%>
                     <p id="tertiaryNav">
                         <a href="/tc?module=TCCC07MarathonAdvancers"<% if (tabLev3.equals("overview")) {%> class="on"<% } %>>Overview</a>
+                        | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=bracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a>
                     </p>
                 <% } %>
             <% } else if (tabLev1.equals(EventType.STUDIO_TOURNAMENT_ID.toString())) { %>
