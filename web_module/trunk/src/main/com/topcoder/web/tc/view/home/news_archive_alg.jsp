@@ -40,6 +40,7 @@
                 </jsp:include>
 
                 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">09.25.07 1:15 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=calendar&d2=oct_07">New SRM added to calendar</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.10.07 11:30 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=sponsors&d2=tcsChat20070801">SRM 361 chat trascript: "About being orange"</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.27.07 3:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=MatchDetails&rd=10773">$5,000 in prizes for SRM 361</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.19.07 2:45 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=sponsors&d2=bt">British Telecommunications to sponsor SRMs with cash prizes</A></td></tr>
