@@ -3,7 +3,6 @@ package com.topcoder.web.wiki;
 import com.atlassian.confluence.user.ConfluenceAuthenticator;
 import com.atlassian.confluence.user.UserAccessor;
 import com.atlassian.seraph.auth.AuthenticatorException;
-import com.atlassian.seraph.util.CookieUtils;
 import com.atlassian.user.impl.DefaultUser;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.NoSuchUserException;
@@ -12,12 +11,14 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrLocal;
 import com.topcoder.security.login.LoginLocal;
+import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.Constants;
+import com.topcoder.web.common.security.LightAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 
@@ -50,6 +51,12 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         try {
 
             Principal user = getUser(userName);
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+            WebAuthentication authentication =
+                    new LightAuthentication(new SessionPersistor(tcRequest.getSession()),
+                            tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
+
             if (user != null) {
 
                 //todo check for user status and email status potentially
@@ -66,6 +73,11 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                             }
                             getUserAccessor().addUser(userName, "", "", userName, groups);
                         }
+
+                        authentication.login(new SimpleUser(0, userName, password), cookie);
+
+
+/*
                         request.getSession().setAttribute(LOGGED_IN_KEY, user);
                         request.getSession().setAttribute(LOGGED_OUT_KEY, null);
                         if (getRoleMapper().canLogin(user, request)) {
@@ -76,6 +88,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                         } else {
                             request.getSession().removeAttribute(LOGGED_IN_KEY);
                         }
+*/
                         return true;
                     } else {
                         return false;
@@ -90,6 +103,8 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             }
 
 
+            authentication.logout();
+/*
             if (response != null && CookieUtils.getCookie(request, getLoginCookieKey()) != null) {
 
                 try {
@@ -99,6 +114,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                     log.error("Could not invalidate cookie: " + e, e);
                 }
             }
+*/
 
             return false;
 
@@ -108,7 +124,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
     }
 
-/*        private char getStatus(long userId) throws Exception {
+    /*        private char getStatus(long userId) throws Exception {
             char result;
             com.topcoder.web.ejb.user.User user = (com.topcoder.web.ejb.user.User)
                     BaseProcessor.createLocalEJB(TCContext.getInitial(), com.topcoder.web.ejb.user.User.class);
@@ -168,9 +184,9 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         try {
             PrincipalMgrLocal pmr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
             UserPrincipal p = pmr.getUser(userName);
-            DefaultUser du = new DefaultUser();
+            DefaultUser du = new DefaultUser(p.getName());
             du.setName(p.getName());
-            du.setFullName(p.getName());
+            du.setFullName(du.getName());
             return du;
         } catch (NoSuchUserException e) {
             log.debug("no such user");
@@ -205,7 +221,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 */
 
         TCRequest tcRequest = HttpObjectFactory.createRequest(httpServletRequest);
-        TCResponse tcResponse = httpServletResponse==null?null:HttpObjectFactory.createResponse(httpServletResponse);
+        TCResponse tcResponse = httpServletResponse == null ? null : HttpObjectFactory.createResponse(httpServletResponse);
         try {
 
             //UserManager.getInstance().getUser(username)
