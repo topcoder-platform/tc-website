@@ -49,6 +49,7 @@ public class EditClassroomSubmit extends Base {
             User u = getActiveUser();
             
             Classroom classroom = getClassroom();
+            log.debug("classroom's school: " + classroom.getSchool() == null ? null : classroom.getSchool().getName());
             Set<Coder> students = getSelectedStudents();
 
             // four possibilities:
@@ -94,7 +95,9 @@ public class EditClassroomSubmit extends Base {
             boolean update = classroom.getId() != null;
             
             u.getProfessor().addClassrooms(classroom);
-            
+
+            log.debug("(2)classroom's school: " + classroom.getSchool() == null ? null : classroom.getSchool().getName());
+
             getFactory().getUserDAO().saveOrUpdate(u);
 
             markForCommit();

@@ -139,6 +139,8 @@ public class EditClassroom extends Base {
                         
                         getRequest().setAttribute("possible_students", getActiveUser().getProfessor().getStudents());            
 
+                        log.debug("classroom's school: " + c.getSchool() == null ? null : c.getSchool().getName());
+
                         // next step, students.
                         setNextPage("/professor/selectStudents.jsp");
                         setIsNextPageInContext(true);

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.ep.Constants"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -36,7 +37,7 @@
             <br/>
                 <c:forEach items="${classroom.professor.activeSchools}" var="school">                
                     <c:choose>                        <c:when test="${fn:length(classroom.professor.activeSchools) > 1}">
-                            <tc-webtag:radioButton name="<%=Constants.SCHOOL_ID%>" value="${school.id}">${school.name}</tc-webtag:radioButton>&nbsp;&nbsp;
+                            <tc-webtag:radioButton name="<%=Constants.SCHOOL_ID%>" value="${school.id}"/>${school.name}&nbsp;&nbsp;
                         </c:when>
                         <c:otherwise><tc-webtag:hiddenInput name="<%=Constants.SCHOOL_ID%>" value="${school.id}"/></c:otherwise>
                     </c:choose>
