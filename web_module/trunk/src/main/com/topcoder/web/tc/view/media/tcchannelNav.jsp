@@ -2,8 +2,28 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <c:choose>
-    <c:when test="${param['clip']=='ep04' || param['clip']==null}">
-        <strong>Episode 4</strong>
+    <c:when test="${param['clip']=='ep05' || param['clip']==null}">
+        <strong>Episode 5</strong>
+        (<tc-webtag:forumLink forumID="517575" message="discuss" />)
+        <div style="margin-left: 10px;">
+            00:00 Introduction
+            <br />00:48 News
+            <br />03:36 Member Profile
+            <br />09:07 Show Us Your Station
+            <br />12:14 Edu-tainment
+            <br />20:42 TC Trivia
+<%--
+            <br /><a href="/movies/tcchannel/ep05.mov">Low-bandwidth version</a>
+--%>
+        </div>
+    </c:when>
+    <c:otherwise>
+        <a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep05">Episode 5</a>
+    </c:otherwise>
+</c:choose>
+<c:choose>
+    <c:when test="${param['clip']=='ep04'}">
+        <br /><strong>Episode 4</strong>
         (<tc-webtag:forumLink forumID="517192" message="discuss" />)
         <div style="margin-left: 10px;">
             00:00 Introduction
@@ -17,7 +37,7 @@
         </div>
     </c:when>
     <c:otherwise>
-        <a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep04">Episode 4</a>
+        <br /><a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep04">Episode 4</a>
     </c:otherwise>
 </c:choose>
 <c:choose>
