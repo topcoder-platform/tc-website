@@ -311,7 +311,7 @@ public class BasicAuthentication implements WebAuthentication {
             return guest;
         } else {
             User u = getUserFromPersistor();
-            if (u == null) {
+            if (u == null || u.getId()==guest.getId()) {
                 u = checkBigSession();
                 if (u == null) {
                     //log.debug("didn't find user via sso");
