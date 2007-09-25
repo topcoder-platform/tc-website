@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.25.07<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=bracket">TCCC07 Marathon Match finalists</A></span><br><br>
+        Meet the eight Marathon Match finalists who will battle it out at Walt Disney World.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=bracket">details</a> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>09.25.07<br>1:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&d1=calendar&d2=oct_07">New SRM added to calendar</a></span><br><br>
@@ -149,18 +162,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd3">full story</A> | 
          <tc-webtag:forumLink forumID="517409" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>09.20.07<br>11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&d1=calendar&d2=sep_07">New Marathon Matches added</a></span><br><br>
-        Looking for a challenge this fall? Five new Marathon Matches have been added to the calendar, with a total of 7 weeks of competition. The fun begins with Marathon Match 23, starting September 26, and continues through December.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=calendar&d2=sep_07">details</a> | 
-        <tc-webtag:forumLink forumID="517493" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
    

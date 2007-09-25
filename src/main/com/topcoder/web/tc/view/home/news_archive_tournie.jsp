@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">09.25.07 3:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=bracket">TCCC07 Marathon Match finalists</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.24.07 4:30 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=19628">Vote for the TCO08 logo</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.24.07 2:45 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=19559">Vote for the TCCC07 Prestigious Professor</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.21.07 3:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=19560">TCCC07 Bloggers Contest Winners</A></td></tr>
