@@ -241,12 +241,20 @@ public class Coder extends Base {
         return Collections.unmodifiableSet(studentClassrooms);
     }
 
-    public Set getClassrooms(Long statusId) {
+    public Set<Classroom> getClassrooms(Long statusId) {
         Set<Classroom> cs = new HashSet<Classroom>();
         for (StudentClassroom sc : this.studentClassrooms) {
             if (sc.getStatusId().equals(statusId)) {
                 cs.add(sc.getId().getClassroom());
             }
+        }
+        return Collections.unmodifiableSet(cs);
+    }
+
+    public Set<Classroom> getClassrooms() {
+        Set<Classroom> cs = new HashSet<Classroom>();
+        for (StudentClassroom sc : this.studentClassrooms) {
+                cs.add(sc.getId().getClassroom());
         }
         return Collections.unmodifiableSet(cs);
     }

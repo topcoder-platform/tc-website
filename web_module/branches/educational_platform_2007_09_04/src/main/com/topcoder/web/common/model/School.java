@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.topcoder.web.common.model.educ.Professor;
+import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.ProfessorSchool;
 
 /**
@@ -23,6 +23,7 @@ public class School extends Base {
     private Date modifyDate;
 
     private Set<ProfessorSchool> professorSchools;
+    private Set<Classroom> classrooms;
 
     public School() {
         this.professorSchools = new HashSet<ProfessorSchool>();
@@ -129,13 +130,18 @@ public class School extends Base {
         this.professorSchools = professorSchools;
     }
 
-    public Set<Professor> getActiveProfessors() {
-        Set professors = new HashSet<Professor>();
-        for (ProfessorSchool ps : professorSchools) {
-            if (ps.getStatusId() == ProfessorSchool.ACTIVE_STATUS) {
-                professors.add(ps.getId().getProfessor());
-            }
-        }
-        return professors;
+    /**
+     * @return the classrooms
+     */
+    public Set<Classroom> getClassrooms() {
+        return classrooms;
     }
+
+    /**
+     * @param classrooms the classrooms to set
+     */
+    public void setClassrooms(Set<Classroom> classrooms) {
+        this.classrooms = classrooms;
+    }
+
 }

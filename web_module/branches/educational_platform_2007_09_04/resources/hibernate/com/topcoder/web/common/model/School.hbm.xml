@@ -25,6 +25,11 @@
             <key column="school_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.model.educ.ProfessorSchool"/>
         </set>
+
+        <set name="classrooms" cascade="save-update" inverse="true" access="field">
+            <key column="school_id" not-null="true"/>
+            <one-to-many class="com.topcoder.web.common.model.educ.Classroom"/>
+        </set>
         
     </class>
 </hibernate-mapping>

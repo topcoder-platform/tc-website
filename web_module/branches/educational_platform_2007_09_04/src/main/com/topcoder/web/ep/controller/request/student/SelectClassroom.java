@@ -6,6 +6,7 @@
 package com.topcoder.web.ep.controller.request.student;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -107,18 +108,13 @@ public class SelectClassroom extends Base {
      * @param s
      */
     private void setPossibleClassrooms(School s) {
-        // get professors from that school
-        Set<Professor> professors  = s.getActiveProfessors();
-        
         // include only non-registered classrooms
         User u = getActiveUser();
-        
-        Set<Classroom> sc = new HashSet<Classroom>();
-        for (Professor p : professors) {
-            for (Classroom c: p.getClassrooms()) {
-                if (!u.getCoder().getStudentClassrooms().contains(new StudentClassroom(u.getCoder(), c, null))) {
-                    sc.add(c);
-                }
+
+        Set<Classroom> sc = s.getClassrooms();
+        for (Classroom c : u.getCoder().getClassrooms()) {
+            if (sc.contains(c)) {
+                sc.remove(c);
             }
         }
         getRequest().setAttribute("possible_classrooms", sc);
