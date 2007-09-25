@@ -88,9 +88,14 @@ public class EditClassroom extends Base {
                     throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
                 } else if (userLoggedIn()) {
                     Long schoolId = getSchoolParam();
-                    School s = getActiveUser().getProfessor().getSchoolUsingId(schoolId);                    
-                    if (s == null) {
-                        throw new TCWebException("Invalid school id");                        
+                    School s = null;
+                    if (schoolId == null) {
+                        addError("error", "Please select a school");
+                    } else {
+                        s = getActiveUser().getProfessor().getSchoolUsingId(schoolId);                    
+                        if (s == null) {
+                            throw new TCWebException("Invalid school id");                        
+                        }
                     }
                     
                     String classroomName = StringUtils.checkNull(getRequest().getParameter("classroom_name"));
@@ -108,7 +113,7 @@ public class EditClassroom extends Base {
                     // got a response, validate.
                     
                     // check there's no other classroom with the same name, academic period in the same school.
-                    if (getActiveUser().getProfessor().hasClassroom(s,
+                    if (s != null && getActiveUser().getProfessor().hasClassroom(s,
                             classroomName, 
                             classroomAcademicPeriod)) {
                         addError("error", "This classroom already exists");
