@@ -1,26 +1,5 @@
 package com.topcoder.web.ejb.pacts;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.sql.Types;
-import java.text.DecimalFormat;
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.ejb.EJBException;
-import javax.ejb.SessionContext;
-
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.docGen.xml.RecordTag;
@@ -42,23 +21,32 @@ import com.topcoder.web.ejb.pacts.payments.EventFailureException;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusReasonException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager.UserEvents;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.UserProfileBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
-import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
-import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
-import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
-import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
-import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
-import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+
+import javax.ejb.EJBException;
+import javax.ejb.SessionContext;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.sql.Types;
+import java.text.DecimalFormat;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -3232,7 +3220,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             // Get ID numbers.  As affidavit references payment, we must add the
             // payment first (if applicable).
-            long affidavitId = (long) DBMS.getSeqId(c, DBMS.AFFIDAVIT_SEQ);
+            long affidavitId = IdGeneratorClient.getSeqId("AFFIDAVIT_SEQ");
             long paymentId = -1;
 
             String paymentStr = "null";
@@ -3319,7 +3307,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             setLockTimeout(con);
 
             // Get ID numbers
-            long contractId = (long) DBMS.getSeqId(con, DBMS.CONTRACT_SEQ);
+            long contractId = IdGeneratorClient.getSeqId("CONTRACT_SEQ");
 
             StringBuffer insertContract = new StringBuffer(300);
             insertContract.append("INSERT INTO contract ");
@@ -3509,7 +3497,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     private long insertPaymentDetail(Connection c, Payment p) throws Exception {
         PreparedStatement ps = null;
-        long paymentDetailId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_DETAIL_SEQ);
+        long paymentDetailId = IdGeneratorClient.getSeqId("PAYMENT_DETAIL_SEQ");
         try {
             StringBuffer insertPaymentDetail = new StringBuffer(300);
             insertPaymentDetail.append("INSERT INTO payment_detail ");
@@ -3603,7 +3591,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     // Assumes autocommit is false
     private long makeNewPayment(Connection c, Payment p, boolean createReferralPayment) throws Exception {
         log.debug("makeNewPayment called...");
-        long paymentId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_SEQ);
+        long paymentId = IdGeneratorClient.getSeqId("PAYMENT_SEQ");
         long paymentDetailId = 0;
 
         PreparedStatement ps = null;
@@ -3746,7 +3734,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             setLockTimeout(c);
-            long taxFormId = (long) DBMS.getSeqId(c, DBMS.TAX_FORM_SEQ);
+            long taxFormId = IdGeneratorClient.getSeqId("TAX_FORM_SEQ");
 
             StringBuffer insertTaxForm = new StringBuffer(300);
             insertTaxForm.append("INSERT INTO tax_form ");
@@ -3871,7 +3859,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = DBMS.getConnection(trxDataSource);
 
             // Get ID number
-            long noteId = (long) DBMS.getSeqId(c, DBMS.NOTE_SEQ);
+            long noteId = IdGeneratorClient.getSeqId("NOTE_SEQ");
 
             // Add the note, then add to the appropriate xref table
             StringBuffer insertNote = new StringBuffer(300);
