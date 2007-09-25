@@ -155,9 +155,9 @@
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunDevCup.png" alt="The Digital Run Development Cup" border="0" style="display:block;"/></A>
                 --%>
                 
-                <%-- DIGITAL RUN TOTAL PRIZES --%>
+                <%-- DIGITAL RUN TOTAL PRIZES 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunTotalPrizes.png" alt="The Digital Run Total Prizes" border="0" style="display:block;"/></A>
-                
+                --%>
 
                 <%-- TCO07
                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07sm.png" alt="TCO07" border="0" style="display:block;"/></A>
@@ -191,9 +191,9 @@
                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=about' refer='homepage' />"><img src="/i/home/tccc07_promo.png" alt="2007 TopCoder Collegiate Challenge" /></A>
                 --%>
                 
-               <%-- TC CHANNEL 
-               <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep04' refer='homepage' />"><img src="/i/home/tcchannel_promo_ep4.png" alt="TC Channel: Episode 4" /></A>
-               --%>
+               <%-- TC CHANNEL --%>
+               <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep05' refer='homepage' />"><img src="/i/home/tcchannel_promo_ep5.png" alt="TC Channel: Episode 5" /></A>
+               
 
             </td>
         </tr>
