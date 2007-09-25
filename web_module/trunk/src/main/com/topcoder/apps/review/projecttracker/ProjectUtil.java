@@ -14,17 +14,22 @@ import com.topcoder.util.errorhandling.BaseException;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.util.idgenerator.IDGenerator;
 import com.topcoder.util.idgenerator.IDGeneratorFactory;
-import com.topcoder.util.log.Log;
-import com.topcoder.util.log.LogFactory;
-import com.topcoder.util.log.LogException;
-import com.topcoder.util.log.Level;
-import com.topcoder.apps.review.persistence.Common;
 
-import java.sql.*;
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Types;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * The test of ProjectUtil.
@@ -250,6 +255,9 @@ public class ProjectUtil {
         ps.setLong(3, projectTypeId);
         rs = ps.executeQuery();
 
+
+        
+
         if (rs.next()) {
             throw new BaseException("Online Review: A project already exists! Terminate it before changing phase!");
         }
@@ -276,7 +284,7 @@ public class ProjectUtil {
         ps.executeUpdate();
         close(ps);
 
-        prepareProjectInfo(conn, compVersId, projectId, modUserId, forumCategoryId, price);
+        prepareProjectInfo(conn, compVersId, projectId, modUserId, forumCategoryId, price, projectTypeId);
 
         // Prepare project_audit the modify reason is Created
         ps = conn.prepareStatement("INSERT INTO project_audit " +
@@ -499,7 +507,8 @@ public class ProjectUtil {
         }
     }
 
-    private static void prepareProjectInfo(Connection conn, long compVersId, long projectId, long modUserId, long forumCategoryId, final double price) throws SQLException {
+    private static void prepareProjectInfo(Connection conn, long compVersId, long projectId, long modUserId,
+                                           long forumCategoryId, final double price, final int projectTypeId) throws SQLException {
         System.out.println("price " + price);
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -604,6 +613,11 @@ public class ProjectUtil {
         
         // Payments
         createProjectInfo(ps, projectId, 16, String.valueOf(price), modUserId);
+
+        //digital run
+        if (projectTypeId==1 || projectTypeId ==2) {
+            createProjectInfo(ps, projectId, 26, "On", modUserId);
+        }
 
         close(ps);
     }
