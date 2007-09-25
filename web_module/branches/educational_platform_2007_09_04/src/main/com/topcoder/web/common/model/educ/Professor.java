@@ -124,6 +124,7 @@ public class Professor extends Base {
     public Set<School> getActiveSchools() {
         Set schools = new HashSet<School>();
         for (ProfessorSchool ps : professorSchools) {
+            log.debug("Professor " + this.getUser().getHandle() + " has school " + ps.getId().getSchool().getName());
             if (ps.getStatusId() == ProfessorSchool.ACTIVE_STATUS) {
                 schools.add(ps.getId().getSchool());
             }
