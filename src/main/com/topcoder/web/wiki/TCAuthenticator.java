@@ -238,10 +238,12 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                     new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
                             tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
             if (authentication.getActiveUser().isAnonymous()) {
+                log.debug("anon");
                 return null;
             } else {
                 DefaultUser ret = new DefaultUser(authentication.getActiveUser().getUserName());
                 ret.setFullName(ret.getName());
+                log.debug("got " + ret.getName());
                 return ret;
             }
 
