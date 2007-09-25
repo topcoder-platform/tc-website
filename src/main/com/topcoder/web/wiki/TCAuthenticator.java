@@ -64,7 +64,8 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                 //todo check for user status and email status potentially
                 //todo remove from topcoder-staff group if they are not an admin
                 try {
-                    if (authenticate(userName, password)) {
+                    TCSubject sub = authenticate(userName, password);
+                    if (sub!=null) {
                         if (getUserAccessor().getUser(userName) == null) {
                             log.debug("XXX create the user");
                             String[] groups;
@@ -76,7 +77,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                             getUserAccessor().addUser(userName, "", "", userName, groups);
                         }
 
-                        authentication.login(new SimpleUser(0, userName, password), cookie);
+                        authentication.login(new SimpleUser(sub.getUserId(), userName, password), cookie);
 
 
 /*
@@ -144,28 +145,29 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             return result;
         }
     */
-    private boolean authenticate(String userName, String password) {
+    private TCSubject authenticate(String userName, String password) {
 
 
+        TCSubject ret = null;
         try {
             LoginLocal login = (LoginLocal) Constants.createLocalEJB(LoginLocal.class);
-            login.login(userName, password);
+            ret = login.login(userName, password);
             if (log.isDebugEnabled()) {
                 log.debug("correct user name and password");
             }
-            return true;
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         } catch (GeneralSecurityException e) {
-            return false;
+            return ret;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        return ret;
     }
 
     protected boolean authenticate(Principal principal, String password) {
         log.debug("XXX authenticate called");
-        return authenticate(principal.getName(), password);
+        return authenticate(principal.getName(), password)==null;
     }
 
     public void setUserAccessor(UserAccessor userAccessor) {
