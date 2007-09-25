@@ -1,8 +1,5 @@
 package com.topcoder.web.common.dao;
 
-import java.util.List;
-
-import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.educ.Professor;
 
 /**
@@ -11,7 +8,4 @@ import com.topcoder.web.common.model.educ.Professor;
  *          Create Date: Jan 18, 2007
  */
 public interface ProfessorDAO extends GenericDAO<Professor, Long> {
-
-    List getProfessors(School school);
-
 }

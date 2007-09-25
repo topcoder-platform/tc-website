@@ -16,6 +16,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
+import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.StudentClassroom;
@@ -49,6 +50,10 @@ public class EditClassroom extends Base {
                     setActiveUser(u);
                 }
     
+                if (u.getProfessor().getActiveSchools().size() == 0) {
+                    throw new TCWebException("No active schools for this professor");
+                }
+                
                 // new or edit
                 Long classroomId = getClassroomParam();
     
@@ -61,11 +66,13 @@ public class EditClassroom extends Base {
                         throw new NavigationException("You don't have permission to see this page.");
                     }
                     
+                    setDefault(Constants.SCHOOL_ID, c.getSchool().getId());
                     setDefault("classroom_name", c.getName());
                     setDefault("classroom_academic_period", c.getAcademicPeriod());
                     setDefault("classroom_description", c.getDescription());
                 } else {
                     c = new Classroom();
+                    c.setProfessor(u.getProfessor());
                 }
                 
                 // prepare stuff for the long transaction
@@ -80,6 +87,12 @@ public class EditClassroom extends Base {
                 if (getActiveUser() == null) {
                     throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
                 } else if (userLoggedIn()) {
+                    Long schoolId = getSchoolParam();
+                    School s = getActiveUser().getProfessor().getSchoolUsingId(schoolId);                    
+                    if (s == null) {
+                        throw new TCWebException("Invalid school id");                        
+                    }
+                    
                     String classroomName = StringUtils.checkNull(getRequest().getParameter("classroom_name"));
                     if (classroomName == "") {
                         addError("error", "Please enter a name");
@@ -94,6 +107,13 @@ public class EditClassroom extends Base {
                     }
                     // got a response, validate.
                     
+                    // check there's no other classroom with the same name, academic period in the same school.
+                    if (getActiveUser().getProfessor().hasClassroom(s,
+                            classroomName, 
+                            classroomAcademicPeriod)) {
+                        addError("error", "This classroom already exists");
+                    }
+                    
                     if (!hasErrors()) {
                         Classroom c = getClassroom();
                         
@@ -105,6 +125,7 @@ public class EditClassroom extends Base {
                         c.setAcademicPeriod(classroomAcademicPeriod);
                         c.setDescription(classroomDescription);
                         c.setStatusId(Classroom.ACTIVE);
+                        c.setSchool(s);
                         
                         Set<Coder> sc = c.getStudents(StudentClassroom.PENDING_STATUS);
                         sc.addAll(c.getStudents(StudentClassroom.ACTIVE_STATUS));
@@ -150,6 +171,23 @@ public class EditClassroom extends Base {
             id = Long.parseLong(classroomId);
         } catch (NumberFormatException e) {
             throw new TCWebException("Invalid classroom id");
+        }
+        
+        return id;
+    }
+
+    private Long getSchoolParam() throws TCWebException {
+        String schoolId = StringUtils.checkNull(getRequest().getParameter(Constants.SCHOOL_ID));
+        
+        if (schoolId == "") {
+            return null;
+        }
+
+        Long id;
+        try {
+            id = Long.parseLong(schoolId);
+        } catch (NumberFormatException e) {
+            throw new TCWebException("Invalid school id");
         }
         
         return id;

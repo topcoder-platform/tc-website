@@ -17,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -26,6 +28,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import com.topcoder.web.common.model.Coder;
+import com.topcoder.web.common.model.School;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -42,6 +45,8 @@ public class Classroom {
     private Integer statusId;
     private String academicPeriod;
     private String description;
+
+    private School school;
 
     private Set<StudentClassroom> studentClassrooms;
 
@@ -114,6 +119,16 @@ public class Classroom {
     public void setStudentClassrooms(Set<StudentClassroom> studentClassrooms) {
         this.studentClassrooms = studentClassrooms;
     }
+    
+    @OneToOne @PrimaryKeyJoinColumn
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
+
 
     @Transient
     public Set<Coder> getStudents(Long statusId) {

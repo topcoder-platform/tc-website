@@ -108,7 +108,7 @@ public class SelectClassroom extends Base {
      */
     private void setPossibleClassrooms(School s) {
         // get professors from that school
-        List<Professor> professors  = getFactory().getProfessorDAO().getProfessors(s);
+        Set<Professor> professors  = s.getActiveProfessors();
         
         // include only non-registered classrooms
         User u = getActiveUser();

@@ -1,6 +1,12 @@
 package com.topcoder.web.common.model;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import com.topcoder.web.common.model.educ.Professor;
+import com.topcoder.web.common.model.educ.ProfessorSchool;
 
 /**
  * @author dok
@@ -17,7 +23,10 @@ public class School extends Base {
     private Boolean viewable;
     private Date modifyDate;
 
+    private Set<ProfessorSchool> professorSchools;
+
     public School() {
+        this.professorSchools = new HashSet<ProfessorSchool>();
     }
 
     public Long getId() {
@@ -107,4 +116,27 @@ public class School extends Base {
         this.modifyDate = modifyDate;
     }
 
+    /**
+     * @return the professorSchools
+     */
+    public Set<ProfessorSchool> getProfessorSchools() {
+        return professorSchools;
+    }
+
+    /**
+     * @param professorSchools the professorSchools to set
+     */
+    public void setProfessorSchools(Set<ProfessorSchool> professorSchools) {
+        this.professorSchools = professorSchools;
+    }
+
+    public Set<Professor> getActiveProfessors() {
+        Set professors = new HashSet<Professor>();
+        for (ProfessorSchool ps : professorSchools) {
+            if (ps.getStatusId() == ProfessorSchool.ACTIVE_STATUS) {
+                professors.add(ps.getId().getProfessor());
+            }
+        }
+        return professors;
+    }
 }

@@ -34,6 +34,15 @@
                 <font color="#FF0000"><%=err%></font><br/>
             </tc-webtag:errorIterator>
             <br/>
+                <c:forEach items="${classroom.professor.activeSchools}" var="school">                
+                    <c:choose>
+                        <c:when test="classroom.professor.activeSchools.size > 1">
+                            <tc-webtag:radioButton name="<%=Constants.SCHOOL_ID%>" value="${school.id}">${school.name}</tc-webtag:radioButton>&nbsp;&nbsp;
+                        </c:when>
+                        <c:otherwise><tc-webtag:hiddenInput name="<%=Constants.SCHOOL_ID%>" value="${school.id}"/></c:otherwise>
+                    </c:choose>
+                </c:forEach>
+            <br/>
             Classroom: <tc-webtag:textInput name="classroom_name" size="60" editable="true" />
             <br/>
             Academic period: <tc-webtag:textInput name="classroom_academic_period" size="60" editable="true" />

@@ -11,6 +11,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -40,15 +41,15 @@ public class Professor extends Base {
     private Long id;
 
     private User user;
-    private School school;
     private Integer statusId;
 
-//    private Set students;
+    private Set<ProfessorSchool> professorSchools;
+
     private Set<Classroom> classrooms;
 
     public Professor() {
-//        this.students = new HashSet();
-        this.classrooms = new HashSet();
+        this.classrooms = new HashSet<Classroom>();
+        this.professorSchools = new HashSet<ProfessorSchool>();
     }
 
     @Id @GeneratedValue(generator="generator")
@@ -63,13 +64,14 @@ public class Professor extends Base {
         this.id = id;
     }
 
-    @OneToOne @PrimaryKeyJoinColumn
-    public School getSchool() {
-        return school;
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="id.professor")
+    @Cascade( {CascadeType.SAVE_UPDATE} )
+    public Set<ProfessorSchool> getProfessorSchools() {
+        return Collections.unmodifiableSet(professorSchools);
     }
 
-    public void setSchool(School school) {
-        this.school = school;
+    public void setProfessorSchools(Set<ProfessorSchool> professorSchools) {
+        this.professorSchools = professorSchools;
     }
 
     @Column(name = "status_id", nullable = false)
@@ -117,4 +119,39 @@ public class Professor extends Base {
         }
         return Collections.unmodifiableSet(cs);
     }
+    
+    @Transient
+    public Set<School> getActiveSchools() {
+        Set schools = new HashSet<School>();
+        for (ProfessorSchool ps : professorSchools) {
+            if (ps.getStatusId() == ProfessorSchool.ACTIVE_STATUS) {
+                schools.add(ps.getId().getSchool());
+            }
+        }
+        return schools;
+    }
+
+    @Transient
+    public School getSchoolUsingId(Long schoolId) {
+        for (ProfessorSchool ps : professorSchools) {
+            if (ps.getStatusId() == ProfessorSchool.ACTIVE_STATUS
+                    && ps.getId().getSchool().getId() == schoolId) {
+                return ps.getId().getSchool();
+            }
+        }
+        return null;
+    }
+
+    @Transient
+    public boolean hasClassroom(School s, String classroomName, String classroomAcademicPeriod) {
+        for (Classroom c : classrooms) {
+            if (c.getName().equals(classroomName) &&
+                    c.getAcademicPeriod().equals(classroomAcademicPeriod) &&
+                    c.getSchool().equals(s)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
 }

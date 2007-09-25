@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model.educ">
+
+    <class name="ProfessorSchool" table="professor_school_xref">
+        <composite-id name="id" class="ProfessorSchool$Identifier">
+            <key-many-to-one name="Professor" class="Professor" column="professor_id"/>
+            <key-many-to-one name="School" class="com.topcoder.web.common.model.School" column="school_id"/>
+        </composite-id>
+
+        <property name="statusId" column="status_id" access="field" not-null="true"/>
+    </class>
+</hibernate-mapping>
