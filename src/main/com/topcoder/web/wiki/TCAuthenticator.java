@@ -12,6 +12,7 @@ import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrLocal;
 import com.topcoder.security.login.LoginLocal;
 import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.TCRequest;
@@ -38,6 +39,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
     private static int AUTOLOGIN_COOKIE_AGE = 365 * 24 * 60 * 60;
     private static String GROUP_TOPCODER_STAFF = "topcoder-staff";
+    private static final User guest = SimpleUser.createGuest();
 
     public boolean login(HttpServletRequest request, HttpServletResponse response,
                          String userName, String password) throws AuthenticatorException {
@@ -184,10 +186,14 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         try {
             PrincipalMgrLocal pmr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
             UserPrincipal p = pmr.getUser(userName);
-            DefaultUser du = new DefaultUser(p.getName());
-            du.setName(p.getName());
-            du.setFullName(du.getName());
-            return du;
+            if (p.getId()==guest.getId()) {
+                return null;
+            } else {
+                DefaultUser du = new DefaultUser(p.getName());
+                du.setName(p.getName());
+                du.setFullName(du.getName());
+                return du;
+            }
         } catch (NoSuchUserException e) {
             log.debug("no such user");
             return null;
@@ -229,9 +235,13 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             WebAuthentication authentication =
                     new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
                             tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
-            DefaultUser ret = new DefaultUser(authentication.getActiveUser().getUserName());
-            ret.setFullName(ret.getName());
-            return ret;
+            if (authentication.getActiveUser().isAnonymous()) {
+                return null;
+            } else {
+                DefaultUser ret = new DefaultUser(authentication.getActiveUser().getUserName());
+                ret.setFullName(ret.getName());
+                return ret;
+            }
 
         } catch (Exception e) {
             log.warn(e.getMessage(), e);
