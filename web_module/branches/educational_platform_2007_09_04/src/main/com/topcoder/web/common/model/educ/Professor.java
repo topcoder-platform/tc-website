@@ -108,12 +108,14 @@ public class Professor extends Base {
     }
 
     @Transient
-    public Set<Coder> getStudents() {
+    public Set<Coder> getStudents(School s) {
         Set<Coder> cs = new HashSet<Coder>();
         for (Classroom c : this.classrooms) {
-            for (StudentClassroom sc : c.getStudentClassrooms()) {
-                if (!cs.contains(sc.getId().getStudent())) {
-                    cs.add(sc.getId().getStudent());
+            if (c.getSchool().equals(s)) {
+                for (StudentClassroom sc : c.getStudentClassrooms()) {
+                    if (!cs.contains(sc.getId().getStudent())) {
+                        cs.add(sc.getId().getStudent());
+                    }
                 }
             }
         }

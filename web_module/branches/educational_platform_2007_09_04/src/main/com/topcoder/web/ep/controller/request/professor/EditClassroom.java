@@ -111,16 +111,22 @@ public class EditClassroom extends Base {
                         addError("error", "Please enter a description");
                     }
                     // got a response, validate.
+
+                    Classroom c = getClassroom();
                     
                     // check there's no other classroom with the same name, academic period in the same school.
                     if (s != null && getActiveUser().getProfessor().hasClassroom(s,
                             classroomName, 
                             classroomAcademicPeriod)) {
-                        addError("error", "This classroom already exists");
+                        // check if it's not finding the edited classroom
+                        if (!(c.getId() != null && c.getName().equals(classroomName) &&
+                                c.getAcademicPeriod().equals(classroomAcademicPeriod) &&
+                                c.getSchool().equals(s))) {
+                            addError("error", "This classroom already exists");
+                        }
                     }
                     
                     if (!hasErrors()) {
-                        Classroom c = getClassroom();
                         
                         if (c.getId() != null && !c.getProfessor().getId().equals(getUser().getId())) {
                             throw new NavigationException("You don't have permission to see this page.");
@@ -142,7 +148,7 @@ public class EditClassroom extends Base {
                         }
                         getRequest().setAttribute("checked_students", checkedStudents);            
                         
-                        getRequest().setAttribute("possible_students", getActiveUser().getProfessor().getStudents());            
+                        getRequest().setAttribute("possible_students", getActiveUser().getProfessor().getStudents(s));            
 
                         log.debug("classroom's school: " + c.getSchool() == null ? null : c.getSchool().getName());
 
