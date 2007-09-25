@@ -8,7 +8,7 @@
         <div style="margin-left: 10px;">
             00:00 Introduction
             <br />00:48 News
-            <br />03:36 Member Profile
+            <br />03:36 Member Profile: <tc-webtag:handle coderId="8511003" context="algorithm"/>
             <br />09:07 Show Us Your Station
             <br />12:14 Edu-tainment
             <br />20:42 TC Trivia
