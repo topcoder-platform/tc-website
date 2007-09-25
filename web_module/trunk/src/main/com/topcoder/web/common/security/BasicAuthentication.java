@@ -318,9 +318,7 @@ public class BasicAuthentication implements WebAuthentication {
                     u = guest;
                 } 
                 //essentially, cache it in the session so that we don't have to go to the cookie again
-                if (!readOnly) {
-                    setUserInPersistor(u);
-                }
+                setUserInPersistor(u);
             }
             if (!u.isAnonymous() && !readOnly) {
                 markKnownUser();
