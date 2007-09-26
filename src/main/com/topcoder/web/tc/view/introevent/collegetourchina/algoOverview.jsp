@@ -141,7 +141,7 @@
     <c:set var="lectureEndTime" value="20"/>
     <c:set var="lectureLocation" value="21"/>
 
-    TopCoder is also sponsoring a lecture at ${main.school.name} on ${event.config[lectureDate]}.  The lecture is from ${event.config[lectureStartTime]} until ${event.config[lectureEndTime]} in ${event.config[lectureLocation]}.
+    TopCoder is also sponsoring a lecture at ${main.school.name} on ${mainEvent.config[lectureDate]}.  The lecture is from ${mainEvent.config[lectureStartTime]} until ${mainEvent.config[lectureEndTime]} in ${mainEvent.config[lectureLocation]}.
 
     <br><br>
     
