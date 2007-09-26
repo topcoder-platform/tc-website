@@ -48,6 +48,7 @@
 <%--
         <li>update so that no code uses the stored procedure for id's anymore -dok</li>
 --%>
+        <li>Add some more properties to the intro event admin tool -dok</li>
     </ul>
 
 </p>
