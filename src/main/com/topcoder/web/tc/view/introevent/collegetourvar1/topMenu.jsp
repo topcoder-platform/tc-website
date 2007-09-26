@@ -3,7 +3,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="active" value="${param.active}"/>
-<c:set var="showResults" value="<%=new Integer(IntroEventConfig.SHOW_RESULTS_PROP_ID)%>"/>
+<c:set var="showResults" value="<%=IntroEventConfig.SHOW_RESULTS_PROP_ID%>"/>
 
 <p align="center">
     <c:if test="${not empty mainEvent.forumId}">
