@@ -120,42 +120,58 @@
     The timeline for the day of the event:
     <ul>
         <c:forEach items="${schedule}" var="schedItem">
-            <li>
+
             <c:choose>
                 <c:when test="${schedItem.a==eventStartId}">
+                    <li>
                     <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
                     - Computer lab opens &amp; competitors set up
+                    </li>
                 </c:when>
                 <c:when test="${schedItem.a==roundStartId}">
+                    <li>
                     <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
                     - Competition starts
+                    </li>
                 </c:when>
                 <c:when test="${schedItem.a==sysTestEndId}">
+                    <li>
                     <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
                     - Competition ends
+                    </li>
                 </c:when>
                 <c:when test="${schedItem.a==foodPresentationId}">
+                    <li>
                     <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
                     - Food &amp; TopCoder presentation
+                    </li>
                 </c:when>
                 <c:when test="${schedItem.a==resultsId}">
+                    <li>
                     <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
                     - Food &amp; TopCoder presentation
+                    </li>
                 </c:when>
                 <c:when test="${schedItem.a==presentationId}">
+                    <li>
                     <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
                     - TopCoder presentation
+                    </li>
                 </c:when>
                 <c:when test="${schedItem.a==foodId}">
+                    <li>
                     <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
                     - Food
+                    </li>
                 </c:when>
                 <c:when test="${schedItem.a==prizesId}">
+                    <li>
                     <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
                     - Prizes
+                        </li>
                 </c:when>
             </c:choose>
-                </li>
+
         </c:forEach>
     </ul>
 
