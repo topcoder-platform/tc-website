@@ -24,6 +24,10 @@ public class IntroEventConfig extends Base {
     public static final int FOOD_PROP_ID = 15;
     public static final int PRIZES_PROP_ID = 16;
     public static final int FOOD_PRESENTATION_PROP_ID = 17;
+    public static final int LECTURE_DATE = 18;
+    public static final int LECTURE_START_TIME = 19;
+    public static final int LECTURE_END_TIME = 20;
+    public static final int LECTURE_LOCATION = 21;
 
     @Deprecated
     public static final int ROUND_START_PROP_ID = 9;
