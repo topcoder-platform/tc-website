@@ -35,7 +35,7 @@ public class TopVelocityHelper {
         try {
 
             StringBuilder buf = new StringBuilder(100);
-            buf.append("http://").append(ApplicationServer.DISTRIBUTED_UI_SERVER_NAME).append("/distui/?module=Top");
+            buf.append("http://").append(ApplicationServer.DISTRIBUTED_UI_SERVER_NAME).append("/distui/?module=Top&level1=wiki");
             long userId = getUserId(AuthenticatedUserThreadLocal.getUsername());
             if (log.isDebugEnabled()) {
                 log.debug("user is : " + AuthenticatedUserThreadLocal.getUsername() + " XXX " + AuthenticatedUserThreadLocal.getUser());
