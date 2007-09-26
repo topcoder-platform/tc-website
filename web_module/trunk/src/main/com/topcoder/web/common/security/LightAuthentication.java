@@ -47,9 +47,7 @@ public class LightAuthentication extends BasicAuthentication {
     public void login(User u, boolean rememberUser) throws LoginException {
         log.info("attempting login as " + u.getUserName() + " path: " + defaultCookiePath.getName() + " remember " + rememberUser);
         try {
-            long uid = u.getId();
-            setCookie(uid, rememberUser);
-            setUserInPersistor(makeUser(uid));
+            setLoginCookies(u.getId(), rememberUser);
             log.info("login succeeded");
 
         } catch (Exception e) {
