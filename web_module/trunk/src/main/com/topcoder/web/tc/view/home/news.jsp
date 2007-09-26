@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.26.07<br>10:15 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd4">TCCC07 Algo Round 4 - Problem Set &amp; Analysis</A></span><br><br>
+      This was a very important match for the 140 coders that had the opportunity to earn a trip to Disney World, the chance to compete in the onsite rounds and the possibility to meet lots of other TopCoders. Congratulations to <tc-webtag:handle coderId="251074" context="algorithm"/> and everybody else who made it onsite!</td>
+         <td class="newsPhoto"><img src="/i/m/dskloet_big.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="19786437" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd4">details</A> | 
+         <tc-webtag:forumLink forumID="517547" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Tournament News" border="0" /><br>09.25.07<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep05' refer='/tc' />">TC Channel: Episode 5</A></span><br><br>
@@ -146,18 +162,5 @@
          <A href="/tc?module=Static&d1=tutorials&d2=disjointDataStructure">full story</A> | 
          <tc-webtag:forumLink forumID="517506" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.20.07<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=19560">Vote for the TCCC07 Bloggers</A></span><br><br>
-        For this contest, we asked potential bloggers to use text, photos, or video to demonstrate the perspective they would bring to their coverage of the TCCC. Now it's in your hands -- check out the entries, and vote for your favorites now. Votings ends at 2:00 PM EDT on Friday, September 21.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=19560">details</a> | 
-        <tc-webtag:forumLink forumID="517257" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
