@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.26.07<br>12:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=SurveyResults&sid=19559">Prestigious Professor vote results</A></span><br><br>
+        Congratulations to the most prestigious professors in our vote -- Yue Chen, Vitaly Bondarenko, and Wenhu Wu -- as well as the three members who nominated them: <tc-webtag:handle coderId="11889868" context="algorithm"/>, <tc-webtag:handle coderId="7389864" context="algorithm"/>, and <tc-webtag:handle coderId="10526732" context="algorithm"/>, respectively. Congratulations!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=SurveyResults&sid=19559">details</a> | 
+        <tc-webtag:forumLink forumID="517580" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.26.07<br>10:15 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -20,7 +33,7 @@
    
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Tournament News" border="0" /><br>09.25.07<br>5:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>09.25.07<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep05' refer='/tc' />">TC Channel: Episode 5</A></span><br><br>
         This month's episode of the TC Channel is now online. Highlights from this edition include an interview with <tc-webtag:handle coderId="8511003" context="algorithm"/>, a profile of <tc-webtag:handle coderId="282718" context="marathon_match"/>'s legendary workstation, and <tc-webtag:handle coderId="159052" context="algorithm"/> discussing Marathon Match visualizations.</td>
@@ -146,21 +159,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</a> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial" border="0" /><br>09.20.07<br>4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=disjointDataStructure">Disjoint-set Data Structures</A></span><br><br>
-      The right data structure can reduce the time of execution, the time to implement the algorithm, and the amount of memory used. In this article, we'll focus on data structures for disjoint sets.</td>
-         <td class="newsPhoto"><img src="/i/m/vlad_D_big5.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="13298470" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=disjointDataStructure">full story</A> | 
-         <tc-webtag:forumLink forumID="517506" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
    
