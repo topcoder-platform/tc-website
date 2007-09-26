@@ -17,6 +17,8 @@ import java.util.Comparator;
  * @author Cucu
  */
 public class AlgoOverview extends Base {
+    public static final Integer ROUND_START_ID = -1;
+    public static final Integer SYS_TEST_END_ID = -2;
     
     @Override
     protected void introEventProcessing() throws Exception {
@@ -34,6 +36,8 @@ public class AlgoOverview extends Base {
         Pair<Integer, Timestamp> h;
 
         ArrayList<Pair<Integer, Timestamp>> schedule = new ArrayList<Pair<Integer, Timestamp>>(10);
+        schedule.add(new Pair<Integer, Timestamp>(ROUND_START_ID, codingStart));
+        schedule.add(new Pair<Integer, Timestamp>(SYS_TEST_END_ID, sysTestEnd));
 
         IntroEventConfig tempConfig;
         tempConfig = getMainEvent().getConfig(IntroEventConfig.EVENT_START_PROP_ID);
