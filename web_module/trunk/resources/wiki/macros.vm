@@ -353,7 +353,7 @@ Prints the search box (if Confluence is setup)
             <a href="$!req.contextPath/users/viewuserprofile.action?username=$generalUtil.doubleUrlEncode($user.name)">$action.getText('navbar.preferences.name')</a> |
 *#
             #if ($permissionHelper.isGlobalAdministrator($user))
-                <a href="$req.contextPath/admin/console.action">$action.getText('administration.name')</a> |
+                <a href="$req.contextPath/admin/console.action">$action.getText('administration.name')</a> ##|
             #end
 #*
  TC we don't want this stuff because we handle it in the top
