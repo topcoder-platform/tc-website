@@ -79,16 +79,7 @@ public class BasicAuthentication implements WebAuthentication {
      * @throws Exception
      */
     public BasicAuthentication(Persistor userPersistor, TCRequest request, TCResponse response) throws Exception {
-        this.defaultCookiePath = MAIN_SITE;
-        this.persistor = userPersistor;
-        this.request = request;
-        this.response = response;
-        this.readOnly = this.response==null;
-/*
-        if (log.isDebugEnabled()) {
-            log.debug(cookieList());
-        }
-*/
+        this(userPersistor, request, response, MAIN_SITE);
     }
 
     /**
@@ -102,16 +93,7 @@ public class BasicAuthentication implements WebAuthentication {
      * @throws Exception
      */
     public BasicAuthentication(Persistor userPersistor, TCRequest request, TCResponse response, Resource r) throws Exception {
-        this.persistor = userPersistor;
-        this.request = request;
-        this.response = response;
-        this.defaultCookiePath = r;
-        this.readOnly = this.response==null;
-/*
-        if (log.isDebugEnabled()) {
-            log.debug(cookieList());
-        }
-*/
+        this(userPersistor, request, response, MAIN_SITE, null);
     }
 
     /**
@@ -125,17 +107,7 @@ public class BasicAuthentication implements WebAuthentication {
      * @throws Exception
      */
     public BasicAuthentication(Persistor userPersistor, TCRequest request, TCResponse response, String dataSource) throws Exception {
-        this.defaultCookiePath = MAIN_SITE;
-        this.persistor = userPersistor;
-        this.request = request;
-        this.response = response;
-        this.dataSource = dataSource;
-        this.readOnly = this.response==null;
-/*
-        if (log.isDebugEnabled()) {
-            log.debug(cookieList());
-        }
-*/
+        this(userPersistor, request, response, MAIN_SITE, dataSource);
     }
 
     /**
@@ -156,11 +128,9 @@ public class BasicAuthentication implements WebAuthentication {
         this.defaultCookiePath = r;
         this.dataSource = dataSource;
         this.readOnly = this.response==null;
-/*
         if (log.isDebugEnabled()) {
-            log.debug(cookieList());
+            log.debug("readonly " + readOnly);
         }
-*/
     }
 
     /**
