@@ -1,7 +1,8 @@
-<%@ page import="com.topcoder.web.common.BaseServlet,
-                 com.topcoder.web.common.StringUtils,
-                 com.topcoder.web.forums.controller.request.Login"
+<%@ page import="com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.web.common.BaseServlet,
+                 com.topcoder.web.common.StringUtils"
         %>
+<%@ page import="com.topcoder.web.forums.controller.request.Login" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -74,7 +75,7 @@
                         <img src="/i/clear.gif" alt="" width="380" height="1" border="0"/><br/>
 
                         <p><b>Forgot your password?</b><br/>
-                        If you cannot remember your password <A href="/tc?module=RecoverPassword" class="bodyText">click here</A>
+                        If you cannot remember your password <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click here</A>
                         and we can help you restore your account.</p>
 
                         <p><b>New to TopCoder?</b><br/>
