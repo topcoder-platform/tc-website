@@ -6,11 +6,9 @@
 <c:set var="showResults" value="<%=new Integer(IntroEventConfig.SHOW_RESULTS_PROP_ID)%>"/>
 
 <p align="center">
-    <c:if test="${not empty mainEvent.forumId}">
-        <tc-webtag:forumLink forumID="${mainEvent.forumId }" message="Discuss this event"/>
+        <tc-webtag:forumLink forumID="517577" message="Discuss this event"/>
         <br/>
         <br/>
-    </c:if>
 
     <c:if test="${not empty algoEventId}">
         <b>Algorithm Competition:</b>

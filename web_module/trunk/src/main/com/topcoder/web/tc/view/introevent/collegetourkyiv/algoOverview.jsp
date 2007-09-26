@@ -54,21 +54,25 @@
     <br>
 
     <h3>The Event</h3>
-    TopCoder is sponsoring an onsite programming competition at ${mainEvent.school.name} on
-    <tc-webtag:format object="${roundStart}" format="EEEE MM.dd.yyyy" timeZone="${mainEvent.timeZone.description}"/>. <br><br>
+    TopCoder is sponsoring an onsite programming competition at 
+    Kyiv National Taras Shevchenko University, Kyiv National Technical University "KPI", and National University of Kyiv-Mohyla Academy
+    on
+    Tuesday 10.02.2007.
+    <br><br>
 
-    <span class="bigRed">Registration for this event ends on <tc-webtag:format object="${event.registrationEnd}" format="EEEE MM.dd.yyyy hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>.</span><br>
+    <span class="bigRed">Registration for this event ends on 
+    Monday 10.01.2007 11:59 PM EEST.
+    </span><br>
     <br>
     
-    The event is from
-    <tc-webtag:format object="${eventStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+    The event will take place on each campus from
+    01:30 PM EEST
     until
-    <tc-webtag:format object="${eventEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+    04:00 PM EEST
     in
      ${mainEvent.location}. This event is being run in conjunction
     with
-    <A href="/tc?module=MatchDetails&rd=${mainEvent.roundId}">${contestName}
-    </A>.
+    <A href="/tc?module=MatchDetails&rd=10936">Single Round Match 368</A>.
     In addition to <A href="/reg/">registering with TopCoder</A>, all competitors must register
     <a href="/tc?module=IntroEventViewRegister&eid=${eid}">here</a>
     and be onsite for the competition.
@@ -135,7 +139,7 @@
 
     Final results will be announced and prizes will be distributed on the day following the event.
     <br /><br />
-    <strong>${mainEvent.recruiterName }</strong> will give a presentation to explain the benefits of TopCoder membership and competition.
+    <strong>Lena Nosova</strong> will give a presentation to explain the benefits of TopCoder membership and competition.
     <a href="/download/misc/College_Tour_Presentation.ppt">The presentation</a> is available for download.
 
     <br><br>
