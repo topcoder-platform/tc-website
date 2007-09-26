@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.12.4 - 2007.09.xx
+    5.12.4 - 2007.09.26
     <ul>
 <%--
         <li>update so that no code uses the stored procedure for id's anymore -dok</li>
