@@ -27,6 +27,8 @@ public class AlgoOverview extends Base {
         getRequest().setAttribute("roundStart", codingStart);
         getRequest().setAttribute("sysTestEnd", sysTestEnd);
 
+        //todo figure out a way to order these and put them in the request so that we can loop through and display them.
+
         IntroEventConfig tempConfig = null;
         tempConfig = getMainEvent().getConfig(IntroEventConfig.EVENT_START_PROP_ID);
         if (tempConfig!=null && !"".equals(StringUtils.checkNull(tempConfig.getValue()))) {
