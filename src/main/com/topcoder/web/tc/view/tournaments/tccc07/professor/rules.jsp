@@ -57,7 +57,7 @@
                 <h2>Selection of Winner</h2>
                 <p>The top ten (10) nominated professors will be selected by a review panel of TopCoder staff and named as finalists. Those finalists will then be posted on the TopCoder website for the community to vote for the three (3) candidates they feel deserve to go to the TCCC.</p>
                 <p>Submissions will be accepted from August 13, 2007 through September 21, 2007.</p>
-                <p>Online voting will take place from September 24 - 28, 2007.</p>
+                <p>Online voting will take place from September 24 - 25, 2007.</p>
                 <p>In order for professors to be eligible for the contest, they must be available to travel to the United States October 30 - November 2, 2007.</p>
                 
                 <a name="prize"></a>
