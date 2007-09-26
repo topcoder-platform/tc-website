@@ -4,6 +4,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>09.26.07<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://forums.topcoder.com/?module=Thread&threadID=588630">Marathon Match support added to the Arena</A></span><br><br>
+        You can now use the Arena to compete and practice in Marathon Matches.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://forums.topcoder.com/?module=Thread&threadID=588630">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.26.07<br>12:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=SurveyResults&sid=19559">Prestigious Professor vote results</A></span><br><br>
@@ -145,19 +157,6 @@
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=bracket">details</a> | 
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=926&start=0">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.21.07<br>3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">TCCC07 Algorithm Round 4 set for September 22</A></span><br><br>
-        The final online round of the TopCoder Collegiate Challenge Algorithm Competition, sponsored by Deutsche Bank, gets underway tomorrow at 1:00 PM EDT. Tune into the Arena to see who makes the cut.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule">details</a> | 
-        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
