@@ -136,10 +136,10 @@
     <%--
     todo get some constants going here
     --%>
-    <c:set var="lectureDate" value="18"/>
-    <c:set var="lectureStartTime" value="19"/>
-    <c:set var="lectureEndTime" value="20"/>
-    <c:set var="lectureLocation" value="21"/>
+    <c:set var="lectureDate" value="<%=18%>"/>
+    <c:set var="lectureStartTime" value="<%=19%>"/>
+    <c:set var="lectureEndTime" value="<%=20%>"/>
+    <c:set var="lectureLocation" value="<%=21%>"/>
 
     TopCoder is also sponsoring a lecture at ${main.school.name} on ${mainEvent.config[lectureDate]}.  The lecture is from ${mainEvent.config[lectureStartTime]} until ${mainEvent.config[lectureEndTime]} in ${mainEvent.config[lectureLocation]}.
 
