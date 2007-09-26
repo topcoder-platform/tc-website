@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.common.model.IntroEventConfig" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -133,13 +134,10 @@
 
     <h3>Lecture Schedule</h3>
 
-    <%--
-    todo get some constants going here
-    --%>
-    <c:set var="lectureDate" value="<%=18%>"/>
-    <c:set var="lectureStartTime" value="<%=19%>"/>
-    <c:set var="lectureEndTime" value="<%=20%>"/>
-    <c:set var="lectureLocation" value="<%=21%>"/>
+    <c:set var="lectureDate" value="<%=IntroEventConfig.LECTURE_DATE%>"/>
+    <c:set var="lectureStartTime" value="<%=IntroEventConfig.LECTURE_START_TIME%>"/>
+    <c:set var="lectureEndTime" value="<%=IntroEventConfig.LECTURE_END_TIME%>"/>
+    <c:set var="lectureLocation" value="<%=IntroEventConfig.LECTURE_LOCATION%>"/>
 
     TopCoder is also sponsoring a lecture at ${main.school.name} on ${mainEvent.config[lectureDate]}.  The lecture is from ${mainEvent.config[lectureStartTime]} until ${mainEvent.config[lectureEndTime]} in ${mainEvent.config[lectureLocation]}.
 
