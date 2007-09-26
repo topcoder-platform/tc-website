@@ -129,6 +129,8 @@
     <strong>${mainEvent.recruiterName }</strong> will give a presentation to explain the benefits of TopCoder membership and competition.
     <a href="/download/misc/College_Tour_Presentation.ppt">The presentation</a> is available for download.
 
+    <br><br>
+
     <h3>Lecture Schedule</h3>
 
     TopCoder is also sponsoring a lecture at [UNIVERSITY] on [DAY, DATE].  The lecture is from [TIME] until [TIME] in [PLACE].
