@@ -1,11 +1,15 @@
 package com.topcoder.web.tc.controller.request.introevent;
 
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.Pair;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.model.IntroEventConfig;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Display an overview of the algorithm competition.
@@ -27,44 +31,76 @@ public class AlgoOverview extends Base {
         getRequest().setAttribute("roundStart", codingStart);
         getRequest().setAttribute("sysTestEnd", sysTestEnd);
 
-        //todo figure out a way to order these and put them in the request so that we can loop through and display them.
+        Pair<Integer, Timestamp> h;
 
-        IntroEventConfig tempConfig = null;
+        ArrayList<Pair<Integer, Timestamp>> schedule = new ArrayList<Pair<Integer, Timestamp>>(10);
+
+        IntroEventConfig tempConfig;
         tempConfig = getMainEvent().getConfig(IntroEventConfig.EVENT_START_PROP_ID);
         if (tempConfig!=null && !"".equals(StringUtils.checkNull(tempConfig.getValue()))) {
-            getRequest().setAttribute("eventStart", new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60)));
+            Timestamp t = new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60));
+            getRequest().setAttribute("eventStart", t);
+            h= new Pair<Integer, Timestamp>(IntroEventConfig.EVENT_START_PROP_ID, t);
+            schedule.add(h);
         }
 
         tempConfig = getMainEvent().getConfig(IntroEventConfig.EVENT_END_PROP_ID);
         if (tempConfig!=null && !"".equals(StringUtils.checkNull(tempConfig.getValue()))) {
-            getRequest().setAttribute("eventEnd", new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60)));
+            Timestamp t = new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60));
+            getRequest().setAttribute("eventEnd", t);
+            h= new Pair<Integer, Timestamp>(IntroEventConfig.EVENT_END_PROP_ID, t);
+            schedule.add(h);
         }
 
         tempConfig = getMainEvent().getConfig(IntroEventConfig.RESULTS_PROP_ID);
         if (tempConfig!=null && !"".equals(StringUtils.checkNull(tempConfig.getValue()))) {
-            getRequest().setAttribute("resultsTime", new Timestamp(sysTestEnd.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60)));
+            Timestamp t =new Timestamp(sysTestEnd.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60));
+            getRequest().setAttribute("resultsTime", t);
+            h= new Pair<Integer, Timestamp>(IntroEventConfig.RESULTS_PROP_ID, t);
+            schedule.add(h);
         }
 
         tempConfig = getMainEvent().getConfig(IntroEventConfig.FOOD_PROP_ID);
         if (tempConfig!=null && !"".equals(StringUtils.checkNull(tempConfig.getValue()))) {
-            getRequest().setAttribute("foodTime", new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60)));
+            Timestamp t =new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60));
+            getRequest().setAttribute("foodTime", t);
+            h= new Pair<Integer, Timestamp>(IntroEventConfig.FOOD_PROP_ID, t);
+            schedule.add(h);
         }
 
         tempConfig = getMainEvent().getConfig(IntroEventConfig.PRESENTATION_PROP_ID);
         if (tempConfig!=null && !"".equals(StringUtils.checkNull(tempConfig.getValue()))) {
-            getRequest().setAttribute("presentationTime", new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60)));
+            Timestamp t =new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60));
+            getRequest().setAttribute("presentationTime", t);
+            h= new Pair<Integer, Timestamp>(IntroEventConfig.PRESENTATION_PROP_ID, t);
+            schedule.add(h);
         }
 
         tempConfig = getMainEvent().getConfig(IntroEventConfig.PRIZES_PROP_ID);
         if (tempConfig!=null && !"".equals(StringUtils.checkNull(tempConfig.getValue()))) {
-            getRequest().setAttribute("prizeTime", new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60)));
+            Timestamp t =new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60));
+            getRequest().setAttribute("prizeTime", t);
+            h= new Pair<Integer, Timestamp>(IntroEventConfig.PRIZES_PROP_ID, t);
+            schedule.add(h);
         }
 
         tempConfig = getMainEvent().getConfig(IntroEventConfig.FOOD_PRESENTATION_PROP_ID);
         if (tempConfig!=null && !"".equals(StringUtils.checkNull(tempConfig.getValue()))) {
-            getRequest().setAttribute("foodPresentationTime", new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60)));
+            Timestamp t =new Timestamp(codingStart.getTime()+(Integer.parseInt(tempConfig.getValue())*1000*60));
+            getRequest().setAttribute("foodPresentationTime", t);
+            h= new Pair<Integer, Timestamp>(IntroEventConfig.FOOD_PRESENTATION_PROP_ID, t);
+            schedule.add(h);
         }
         setNextIntroEventPage("algoOverview.jsp");
+
+
+        Collections.sort(schedule, new Comparator<Pair<Integer, Timestamp>>(){
+            public int compare(Pair<Integer, Timestamp> o1, Pair<Integer, Timestamp> o2) {
+                return o1.getB().compareTo(o2.getB());
+            }
+        });
+
+        getRequest().setAttribute("schedule", schedule);
     }
 
 
