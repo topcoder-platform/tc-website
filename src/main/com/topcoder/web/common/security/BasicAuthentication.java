@@ -168,12 +168,7 @@ public class BasicAuthentication implements WebAuthentication {
                 log.debug("datasource was not null");
                 sub = login.login(u.getUserName(), u.getPassword(), dataSource);
             }
-            long uid = sub.getUserId();
-            setCookie(uid, rememberUser);
-            setUserInPersistor(makeUser(uid));
-            setBigSessionCookie(uid);
-
-            addGeneralCookie(LOGGED_OUT, String.valueOf(false), Integer.MAX_VALUE);
+            setLoginCookies(sub.getUserId(), rememberUser);
             log.info("login succeeded");
 
         } catch (Exception e) {
@@ -181,6 +176,13 @@ public class BasicAuthentication implements WebAuthentication {
             //not necessarily accurate, but gotta say something...
             throw new LoginException("Handle or password incorrect.");
         }
+    }
+
+    protected void setLoginCookies(long uid, boolean rememberUser) throws Exception {
+        setCookie(uid, rememberUser);
+        setUserInPersistor(makeUser(uid));
+        setBigSessionCookie(uid);
+        addGeneralCookie(LOGGED_OUT, String.valueOf(false), Integer.MAX_VALUE);
     }
 
     /**
