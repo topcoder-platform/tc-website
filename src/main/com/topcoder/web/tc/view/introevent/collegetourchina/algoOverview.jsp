@@ -133,7 +133,15 @@
 
     <h3>Lecture Schedule</h3>
 
-    TopCoder is also sponsoring a lecture at [UNIVERSITY] on [DAY, DATE].  The lecture is from [TIME] until [TIME] in [PLACE].
+    <%--
+    todo get some constants going here
+    --%>
+    <c:set var="lectureDate" value="18"/>
+    <c:set var="lectureStartTime" value="19"/>
+    <c:set var="lectureEndTime" value="20"/>
+    <c:set var="lectureLocation" value="21"/>
+
+    TopCoder is also sponsoring a lecture at ${main.school.name} on ${event.config[lectureDate]}.  The lecture is from ${event.config[lectureStartTime]} until ${event.config[lectureEndTime]} in ${event.config[lectureLocation]}.
 
     <br><br>
     
