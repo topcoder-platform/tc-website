@@ -128,9 +128,11 @@ public class BasicAuthentication implements WebAuthentication {
         this.defaultCookiePath = r;
         this.dataSource = dataSource;
         this.readOnly = this.response==null;
+/*
         if (log.isDebugEnabled()) {
             log.debug("readonly " + readOnly);
         }
+*/
     }
 
     /**
