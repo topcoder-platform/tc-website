@@ -1,3 +1,5 @@
+<%@ page import="com.topcoder.web.common.model.IntroEventConfig" %>
+<%@ page import="com.topcoder.web.tc.controller.request.introevent.AlgoOverview" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -104,24 +106,57 @@
 
     <h3>Event Schedule</h3>
 
+    <c:set var="eventStartId" value="<%=IntroEventConfig.EVENT_START_PROP_ID%>"/>
+    <c:set var="resultsId" value="<%=IntroEventConfig.RESULTS_PROP_ID%>"/>
+    <c:set var="foodId" value="<%=IntroEventConfig.FOOD_PROP_ID%>"/>
+    <c:set var="presentationId" value="<%=IntroEventConfig.PRESENTATION_PROP_ID%>"/>
+    <c:set var="prizesId" value="<%=IntroEventConfig.PRIZES_PROP_ID%>"/>
+    <c:set var="foodPresentationId" value="<%=IntroEventConfig.FOOD_PRESENTATION_PROP_ID%>"/>
+    <c:set var="roundStartId" value="<%=AlgoOverview.ROUND_START_ID%>"/>
+    <c:set var="sysTestEndId" value="<%=AlgoOverview.SYS_TEST_END_ID%>"/>
+
+
+
     The timeline for the day of the event:
     <ul>
-        <li>
-            <tc-webtag:format object="${eventStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-            - Computer lab opens & competitors set up
-        </li>
-        <li>
-            <tc-webtag:format object="${roundStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-            - Competition starts
-        </li>
-        <li>
-            <tc-webtag:format object="${sysTestEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-            - Competition ends
-        </li>
-        <li>
-            <tc-webtag:format object="${resultsTime}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-            - Food & TopCoder presentation
-        </li>
+        <c:forEach items="${schedule}" var="schedItem">
+            <li>
+            <c:choose>
+                <c:when test="${schedItem.a==eventStartId}">
+                    <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+                    - Computer lab opens &amp; competitors set up
+                </c:when>
+                <c:when test="${schedItem.a==roundStartId}">
+                    <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+                    - Competition starts
+                </c:when>
+                <c:when test="${schedItem.a==sysTestEndId}">
+                    <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+                    - Competition ends
+                </c:when>
+                <c:when test="${schedItem.a==foodPresentationId}">
+                    <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+                    - Food &amp; TopCoder presentation
+                </c:when>
+                <c:when test="${schedItem.a==resultsId}">
+                    <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+                    - Food &amp; TopCoder presentation
+                </c:when>
+                <c:when test="${schedItem.a==presentationId}">
+                    <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+                    - TopCoder presentation
+                </c:when>
+                <c:when test="${schedItem.a==foodId}">
+                    <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+                    - Food
+                </c:when>
+                <c:when test="${schedItem.a==prizesId}">
+                    <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+                    - Prizes
+                </c:when>
+            </c:choose>
+                </li>
+        </c:forEach>
     </ul>
 
 
