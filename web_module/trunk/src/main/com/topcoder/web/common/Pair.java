@@ -9,6 +9,15 @@ public class Pair<T,S> {
     private T a;
     private S b;
 
+    public Pair() {
+
+    }
+    
+    public Pair(T a, S b) {
+        this.a = a;
+        this.b = b;
+    }
+
 
     public T getA() {
         return a;
