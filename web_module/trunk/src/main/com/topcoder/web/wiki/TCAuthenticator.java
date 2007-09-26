@@ -3,7 +3,9 @@ package com.topcoder.web.wiki;
 import com.atlassian.confluence.user.ConfluenceAuthenticator;
 import com.atlassian.confluence.user.UserAccessor;
 import com.atlassian.seraph.auth.AuthenticatorException;
+import com.atlassian.user.Group;
 import com.atlassian.user.impl.DefaultUser;
+import com.atlassian.user.search.page.Pager;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.RolePrincipal;
@@ -11,12 +13,18 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrLocal;
 import com.topcoder.security.login.LoginLocal;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.LightAuthentication;
@@ -27,6 +35,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.rmi.RemoteException;
 import java.security.Principal;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * @author dok
@@ -37,7 +48,6 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     //public class TCAuthenticator extends DefaultAuthenticator {
     private final static Logger log = Logger.getLogger(TCAuthenticator.class);
 
-    private static int AUTOLOGIN_COOKIE_AGE = 365 * 24 * 60 * 60;
     private static String GROUP_TOPCODER_STAFF = "topcoder-staff";
     private static final User guest = SimpleUser.createGuest();
 
@@ -60,39 +70,30 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                             tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
 
             if (user != null) {
-
-                //todo check for user status and email status potentially
-                //todo remove from topcoder-staff group if they are not an admin
                 try {
                     TCSubject sub = authenticate(userName, password);
                     if (sub!=null) {
-                        if (getUserAccessor().getUser(userName) == null) {
-                            log.debug("XXX create the user");
-                            String[] groups;
-                            if (isAdmin(userName)) {
-                                groups = new String[]{UserAccessor.GROUP_CONFLUENCE_USERS, GROUP_TOPCODER_STAFF};
-                            } else {
-                                groups = new String[]{UserAccessor.GROUP_CONFLUENCE_USERS};
+                        if (Arrays.binarySearch(WebConstants.ACTIVE_STATI, getStatus(sub.getUserId())) >= 0) {
+                            com.atlassian.user.User cUser = getUserAccessor().getUser(userName);
+                            if (cUser == null) {
+                                log.debug("XXX create the user");
+                                String[] groups = new String[]{UserAccessor.GROUP_CONFLUENCE_USERS};
+                                getUserAccessor().addUser(userName, "", "", userName, groups);
                             }
-                            getUserAccessor().addUser(userName, "", "", userName, groups);
-                        }
 
-                        authentication.login(new SimpleUser(sub.getUserId(), userName, password), cookie);
+                            boolean isTCAdmin = isAdmin(userName);
+                            boolean isConfluenceAdmin = hasStaffGroup(cUser);
 
-
-/*
-                        request.getSession().setAttribute(LOGGED_IN_KEY, user);
-                        request.getSession().setAttribute(LOGGED_OUT_KEY, null);
-                        if (getRoleMapper().canLogin(user, request)) {
-                            if (cookie && response != null) {
-                                CookieUtils.setCookie(request, response, getLoginCookieKey(),
-                                        encodeCookie(userName, password), AUTOLOGIN_COOKIE_AGE, getCookiePath(request));
+                            if (isTCAdmin && !isConfluenceAdmin) {
+                                getUserAccessor().addMembership(GROUP_TOPCODER_STAFF, userName);
+                            } else if (!isTCAdmin && isConfluenceAdmin) {
+                                getUserAccessor().removeMembership(GROUP_TOPCODER_STAFF, userName);
                             }
+                            authentication.login(new SimpleUser(sub.getUserId(), userName, password), cookie);
+                            return true;
                         } else {
-                            request.getSession().removeAttribute(LOGGED_IN_KEY);
+                            return false;
                         }
-*/
-                        return true;
                     } else {
                         return false;
                     }
@@ -107,18 +108,6 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
 
             authentication.logout();
-/*
-            if (response != null && CookieUtils.getCookie(request, getLoginCookieKey()) != null) {
-
-                try {
-                    CookieUtils.invalidateCookie(request, response, getLoginCookieKey(), getCookiePath(request));
-                }
-                catch (Exception e) {
-                    log.error("Could not invalidate cookie: " + e, e);
-                }
-            }
-*/
-
             return false;
 
         } catch (Exception e) {
@@ -127,16 +116,32 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
     }
 
-    /*        private char getStatus(long userId) throws Exception {
-            char result;
-            com.topcoder.web.ejb.user.User user = (com.topcoder.web.ejb.user.User)
-                    BaseProcessor.createLocalEJB(TCContext.getInitial(), com.topcoder.web.ejb.user.User.class);
-            result = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-            return result;
+    private boolean hasStaffGroup(com.atlassian.user.User user) {
+        Pager p = getUserAccessor().getGroups(user);
+        Group g;
+        boolean found = false;
+        for (Iterator it = p.iterator(); it.hasNext()&&!found;) {
+            g = (Group)it.next();
+            if (g.getName().equals(GROUP_TOPCODER_STAFF)) {
+                found = true;
+            }
+        }
+        return found;
+    }
+
+       private char getStatus(long userId) throws Exception {
+           DataAccess dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+           Request dataRequest = new Request();
+           dataRequest.setProperty(DataAccessConstants.COMMAND, "userid_to_password");
+           dataRequest.setProperty("uid", Long.toString(userId));
+           Map dataMap = dai.getData(dataRequest);
+           ResultSetContainer rsc = (ResultSetContainer) dataMap.get("userid_to_password");
+           String password = rsc.getStringItem(0, "password");
+           return rsc.getStringItem(0, "status").charAt(0);
 
         }
 
-
+/*
         private int getEmailStatus(long userId) throws Exception {
             int result;
             Email email = (Email) BaseProcessor.createLocalEJB(TCContext.getInitial(), Email.class);
@@ -223,27 +228,18 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     }
 
     public Principal getUser(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
-        log.debug("XXX getUser(request, response) called");
-/*
-        return super.getUser(httpServletRequest, httpServletResponse);
-*/
-
+        //log.debug("XXX getUser(request, response) called");
         TCRequest tcRequest = HttpObjectFactory.createRequest(httpServletRequest);
         TCResponse tcResponse = httpServletResponse == null ? null : HttpObjectFactory.createResponse(httpServletResponse);
         try {
-
-            //UserManager.getInstance().getUser(username)
-
             WebAuthentication authentication =
                     new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
                             tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
             if (authentication.getActiveUser().isAnonymous()) {
-                log.debug("anon");
                 return null;
             } else {
                 DefaultUser ret = new DefaultUser(authentication.getActiveUser().getUserName());
                 ret.setFullName(ret.getName());
-                log.debug("got " + ret.getName());
                 return ret;
             }
 
