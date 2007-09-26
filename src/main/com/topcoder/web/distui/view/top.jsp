@@ -101,6 +101,8 @@ Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())
                 <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Login">Login</a>
             <% } else if (level1.equals("forums")) { %>
                 <a class="gMetal" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Login">Login</a>
+            <% } else if (level1.equals("wiki")) { %>
+                <a class="gMetal" href="http://<%=ApplicationServer.WIKI_SERVER_NAME%>/login.action">Login</a>
             <% } else { %>
                 <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Login">Login</a>
             <% } %>
