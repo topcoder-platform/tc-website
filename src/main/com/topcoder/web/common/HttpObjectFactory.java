@@ -34,6 +34,15 @@ public class HttpObjectFactory {
         return ret;
     }
 
+    /**
+     * this method ignores multipart requests, and just makes simple requests
+     * @param r the request
+     * @return the wrapped request
+     */
+    public static TCRequest createSimpleRequest(HttpServletRequest r) {
+        return new SimpleRequest(r);
+    }
+
     public static TCResponse createResponse(HttpServletResponse r) {
         return new SimpleResponse(r);
     }

@@ -63,7 +63,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         try {
 
             Principal user = getUser(userName);
-            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCRequest tcRequest = HttpObjectFactory.createSimpleRequest(request);
             TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             WebAuthentication authentication =
                     new LightAuthentication(new SessionPersistor(tcRequest.getSession()),
@@ -229,7 +229,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
     public Principal getUser(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         //log.debug("XXX getUser(request, response) called");
-        TCRequest tcRequest = HttpObjectFactory.createRequest(httpServletRequest);
+        TCRequest tcRequest = HttpObjectFactory.createSimpleRequest(httpServletRequest);
         TCResponse tcResponse = httpServletResponse == null ? null : HttpObjectFactory.createResponse(httpServletResponse);
         try {
             WebAuthentication authentication =
