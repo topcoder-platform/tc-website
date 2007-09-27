@@ -1,13 +1,15 @@
 package com.topcoder.web.wiki.themes.tc;
 
 import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.WebConstants;
-import com.topcoder.web.wiki.TCAuthenticator;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -22,7 +24,6 @@ import java.net.URL;
  */
 public class TopVelocityHelper {
     private static final Logger log = Logger.getLogger(LeftNavVelocityHelper.class);
-    private HttpServletRequest httpServletRequest;
 
     public TopVelocityHelper() {
         log.debug("called constructor");
@@ -36,8 +37,7 @@ public class TopVelocityHelper {
             StringBuilder buf = new StringBuilder(100);
             buf.append("http://").append(ApplicationServer.DISTRIBUTED_UI_SERVER_NAME).append("/distui/?module=Top&level1=wiki");
 
-            //long userId = getUserId(AuthenticatedUserThreadLocal.getUsername());
-            long userId = new TCAuthenticator().getUserId(getHttpServletRequest());
+            long userId = getUserId(AuthenticatedUserThreadLocal.getUsername());
             if (log.isDebugEnabled()) {
                 log.debug("user is : " + AuthenticatedUserThreadLocal.getUsername() + " XXX " + AuthenticatedUserThreadLocal.getUser());
             }
@@ -77,7 +77,6 @@ public class TopVelocityHelper {
 
 
 
-/*
     private static long getUserId(String userName) throws Exception {
         if (userName==null) {
             return SimpleUser.createGuest().getId();
@@ -96,14 +95,5 @@ public class TopVelocityHelper {
 
 
     }
-*/
 
-
-    public HttpServletRequest getHttpServletRequest() {
-        return httpServletRequest;
-    }
-
-    public void setHttpServletRequest(HttpServletRequest httpServletRequest) {
-        this.httpServletRequest = httpServletRequest;
-    }
 }
