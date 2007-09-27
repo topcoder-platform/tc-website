@@ -17,7 +17,9 @@
         <div id="tclogo">
             <a href="/"><img src="/i/tournament/tccc07/topcoderlogo.png" alt="TopCoder&#174;" /></a>
         </div>
+        <%--
         <a style="position: absolute; top: 60px; left: 460px;" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=registerNow"><img src="/i/tournament/tccc07/registerNow.png" alt="REGISTER NOW!" /></a>
+        --%>
     </div>
     
     <div style="margin-top:0px;">
