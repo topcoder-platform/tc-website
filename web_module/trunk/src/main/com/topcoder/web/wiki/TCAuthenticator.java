@@ -223,14 +223,10 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         }
     }
 
-    public Principal getUser(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+    public Principal getUser(HttpServletRequest request, HttpServletResponse response) {
         //log.debug("XXX getUser(request, response) called");
-        TCRequest tcRequest = HttpObjectFactory.createSimpleRequest(httpServletRequest);
-        TCResponse tcResponse = httpServletResponse == null ? null : HttpObjectFactory.createResponse(httpServletResponse);
         try {
-            WebAuthentication authentication =
-                    new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
-                            tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
+            WebAuthentication authentication = getAuth(request, response);
             if (authentication.getActiveUser().isAnonymous()) {
                 return null;
             } else {
@@ -245,4 +241,22 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             return null;
         }
     }
+
+    public long getUserId(HttpServletRequest request) {
+        try {
+            WebAuthentication authentication = getAuth(request, null);
+            return authentication.getActiveUser().getId();
+        } catch (Exception e) {
+            log.warn(e.getMessage(), e);
+            return guest.getId();
+        }
+    }
+
+    private WebAuthentication getAuth(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        TCRequest tcRequest = HttpObjectFactory.createSimpleRequest(request);
+        TCResponse tcResponse = response == null ? null : HttpObjectFactory.createResponse(response);
+            return new BasicAuthentication(new SessionPersistor(request.getSession()),
+                            tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
+    }
+
 }

@@ -1,14 +1,11 @@
 package com.topcoder.web.wiki.themes.tc;
 
 import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.wiki.TCAuthenticator;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
@@ -38,9 +35,10 @@ public class TopVelocityHelper {
 
             StringBuilder buf = new StringBuilder(100);
             buf.append("http://").append(ApplicationServer.DISTRIBUTED_UI_SERVER_NAME).append("/distui/?module=Top&level1=wiki");
-            long userId = getUserId(AuthenticatedUserThreadLocal.getUsername());
+
+            //long userId = getUserId(AuthenticatedUserThreadLocal.getUsername());
+            long userId = new TCAuthenticator().getUserId(getRequest());
             if (log.isDebugEnabled()) {
-                log.debug("request is null?" + request==null);
                 log.debug("user is : " + AuthenticatedUserThreadLocal.getUsername() + " XXX " + AuthenticatedUserThreadLocal.getUser());
             }
             if (userId!=SimpleUser.createGuest().getId()) {
@@ -79,6 +77,7 @@ public class TopVelocityHelper {
 
 
 
+/*
     private static long getUserId(String userName) throws Exception {
         if (userName==null) {
             return SimpleUser.createGuest().getId();
@@ -97,6 +96,7 @@ public class TopVelocityHelper {
 
 
     }
+*/
 
 
     public HttpServletRequest getRequest() {
