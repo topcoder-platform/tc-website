@@ -105,6 +105,10 @@
     </target>
 
     <target name="compile" depends="init,jar_shared" unless="compile_set">
+        <ant antfile="build_tc.xml" target="jar_shared"/>
+        <ant antfile="build_tc.xml" target="compile"/>
+        <ant antfile="build_tc.xml" target="jar_common"/>
+        <ant antfile="build_tc.xml" target="build-security"/>
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -125,7 +129,6 @@
             <exclude name="com/topcoder/web/oracle/**"/>
         </javac>
         <property name="compile_set" value="true"/>
-        <antcall target="jar_common"/>
     </target>
 
     <target name="javadocs">
@@ -173,7 +176,6 @@
         <war warfile="${war.dir}/distui.war" webxml="${resources}/distui/web.xml">
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="errorPage.jsp"/>
-                <include name="top.jsp"/>
                 <include name="foot.jsp"/>
                 <include name="date_time.jsp"/>
                 <include name="script.jsp"/>
@@ -224,7 +226,7 @@
     <target name="deploy">
         <antcall target="war"/>
         <antcall target="expand"/>
-
+        <copy todir="${jboss_deploy}" file="${build}/ears/security.ear" overwrite="yes"/>
 
     </target>
 
@@ -236,7 +238,21 @@
                 <include name="DBMS.properties"/>
                 <include name="DataAccess.properties"/>
             </fileset>
+
         </copy>
+        <mkdir dir="${jboss_conf}/com/topcoder/security"/>
+        <mkdir dir="${jboss_conf}/com/topcoder/util/config"/>
+        <copy todir="${jboss_conf}/com/topcoder/security">
+            <fileset dir="${resources}/com/topcoder/security">
+                <include name="Util.properties"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss_conf}/com/topcoder/util/config">
+            <fileset dir="${resources}/com/topcoder/util/config">
+                <include name="ConfigManager.properties"/>
+            </fileset>
+        </copy>
+
         <unwar src="${war.dir}/distui.war" dest="${jboss_deploy}/distui.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/distui.war/META-INF"/>
     </target>
