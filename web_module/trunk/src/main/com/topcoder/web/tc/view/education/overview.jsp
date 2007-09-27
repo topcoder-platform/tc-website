@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=092707"><strong>Know your hero: marek.cygan</strong></a>, by <tc-webtag:handle coderId="8472826" context="algorithm"/><br>
+This issue of the 'Know Your Hero' interview series features Marek Cygan (TopCoder handle: <tc-webtag:handle coderId="7442498" context="algorithm"/>). <tc-webtag:handle coderId="7442498" context="algorithm"/> has recently become a target in Algorithm competition and, after SRM 366, he has become the highest rated coder from Poland (breaking <tc-webtag:handle coderId="144400" context="algorithm"/>'s long-standing domination).</li>
 <li><a href="/tc?module=Static&d1=features&d2=092407"><strong>Introducing TopCoder's &quot;Iron Man&quot;</strong></a><br>
 On September 9, 2005, during <a href="/stat?c=round_overview&er=5&rd=7996">SRM 262</a>, <tc-webtag:handle coderId="8511003" context="algorithm"/> began a remarkable streak. Fueled by a desire to compete in every match that he could, he has now competed in a record 100 consecutive SRMs, and he's still going strong.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=disjointDataStructure"><strong>Disjoint-set Data Structures</strong></a>, by <tc-webtag:handle coderId="13298470" context="algorithm"/><br>
 The right data structure can reduce the time of execution, the time to implement the algorithm, and the amount of memory used. In this article, we'll focus on data structures for disjoint sets.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=maxflowPushRelabel"><strong>A New Approach to the Maximum Flow Problem</strong></a>, by <tc-webtag:handle coderId="21500759" /><br>
-This article presents a new approach for computing maximum flow in a graph. Previous articles had concentrated on finding maximum flow by finding augmenting paths. The approach presented in this article is called <strong>push-relabel</strong>, which is a separate class of algorithms.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
