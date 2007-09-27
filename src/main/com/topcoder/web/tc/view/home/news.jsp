@@ -7,7 +7,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.27.07<br>4:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=SurveyResults&sid=19628">TCO08 logo design winner</A></span><br><br>
-        Congratulations to <tc-webtag:handle coderId="14947701" />, the winning designer for the 2008 TopCoder Open logo contest. This victory is <tc-webtag:handle coderId="14947701" />'s second TCO logo in three years (he won the '06 contest as well). Congratulations!</td>
+        Congratulations to <tc-webtag:handle coderId="14947701" />, the winning designer for the 2008 TopCoder Open logo contest. This victory is <tc-webtag:handle coderId="14947701" />'s second TCO logo in three years (he won the <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=oldcontests&d2=tco06Finals">'06 contest</a> as well). Congratulations!</td>
    </tr>
    <tr><td class="newsLinksCell">
         <A href="/tc?module=SurveyResults&sid=19628">details</a> | 
