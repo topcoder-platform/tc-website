@@ -72,22 +72,27 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             if (user != null) {
                 try {
                     TCSubject sub = authenticate(userName, password);
-                    if (sub!=null) {
+                    if (sub != null) {
                         if (Arrays.binarySearch(WebConstants.ACTIVE_STATI, getStatus(sub.getUserId())) >= 0) {
-                            com.atlassian.user.User cUser = getUserAccessor().getUser(userName);
+                            //confluence likes to work with lower case user names
+                            com.atlassian.user.User cUser = getUserAccessor().getUser(userName.toLowerCase());
+                            log.debug("got user " + cUser.getName());
                             if (cUser == null) {
                                 log.debug("XXX create the user");
                                 String[] groups = new String[]{UserAccessor.GROUP_CONFLUENCE_USERS};
-                                getUserAccessor().addUser(userName, "", "", userName, groups);
+                                //confluence likes to work with lower case user names
+                                getUserAccessor().addUser(userName.toLowerCase(), "", "", userName, groups);
                             }
 
                             boolean isTCAdmin = isAdmin(userName);
                             boolean isConfluenceAdmin = hasStaffGroup(cUser);
 
                             if (isTCAdmin && !isConfluenceAdmin) {
-                                getUserAccessor().addMembership(GROUP_TOPCODER_STAFF, userName);
+                                //confluence likes to work with lower case user names
+                                getUserAccessor().addMembership(GROUP_TOPCODER_STAFF, userName.toLowerCase());
                             } else if (!isTCAdmin && isConfluenceAdmin) {
-                                getUserAccessor().removeMembership(GROUP_TOPCODER_STAFF, userName);
+                                //confluence likes to work with lower case user names
+                                getUserAccessor().removeMembership(GROUP_TOPCODER_STAFF, userName.toLowerCase());
                             }
                             authentication.login(new SimpleUser(sub.getUserId(), userName, password), cookie);
                             return true;
@@ -120,8 +125,8 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         Pager p = getUserAccessor().getGroups(user);
         Group g;
         boolean found = false;
-        for (Iterator it = p.iterator(); it.hasNext()&&!found;) {
-            g = (Group)it.next();
+        for (Iterator it = p.iterator(); it.hasNext() && !found;) {
+            g = (Group) it.next();
             if (g.getName().equals(GROUP_TOPCODER_STAFF)) {
                 found = true;
             }
@@ -129,27 +134,18 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         return found;
     }
 
-       private char getStatus(long userId) throws Exception {
-           DataAccess dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
-           Request dataRequest = new Request();
-           dataRequest.setProperty(DataAccessConstants.COMMAND, "userid_to_password");
-           dataRequest.setProperty("uid", Long.toString(userId));
-           Map dataMap = dai.getData(dataRequest);
-           ResultSetContainer rsc = (ResultSetContainer) dataMap.get("userid_to_password");
-           String password = rsc.getStringItem(0, "password");
-           return rsc.getStringItem(0, "status").charAt(0);
+    private char getStatus(long userId) throws Exception {
+        DataAccess dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+        Request dataRequest = new Request();
+        dataRequest.setProperty(DataAccessConstants.COMMAND, "userid_to_password");
+        dataRequest.setProperty("uid", Long.toString(userId));
+        Map dataMap = dai.getData(dataRequest);
+        ResultSetContainer rsc = (ResultSetContainer) dataMap.get("userid_to_password");
+        return rsc.getStringItem(0, "status").charAt(0);
 
-        }
+    }
 
-/*
-        private int getEmailStatus(long userId) throws Exception {
-            int result;
-            Email email = (Email) BaseProcessor.createLocalEJB(TCContext.getInitial(), Email.class);
-            result = email.getStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
-                    DBMS.COMMON_OLTP_DATASOURCE_NAME);
-            return result;
-        }
-    */
+
     private TCSubject authenticate(String userName, String password) {
 
 
@@ -172,7 +168,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
     protected boolean authenticate(Principal principal, String password) {
         log.debug("XXX authenticate called");
-        return authenticate(principal.getName(), password)==null;
+        return authenticate(principal.getName(), password) == null;
     }
 
     public void setUserAccessor(UserAccessor userAccessor) {
@@ -193,7 +189,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         try {
             PrincipalMgrLocal pmr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
             UserPrincipal p = pmr.getUser(userName);
-            if (p.getId()==guest.getId()) {
+            if (p.getId() == guest.getId()) {
                 return null;
             } else {
                 DefaultUser du = new DefaultUser(p.getName());
@@ -238,8 +234,9 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             if (authentication.getActiveUser().isAnonymous()) {
                 return null;
             } else {
-                DefaultUser ret = new DefaultUser(authentication.getActiveUser().getUserName());
-                ret.setFullName(ret.getName());
+                //confluence likes to work with lower case user names
+                DefaultUser ret = new DefaultUser(authentication.getActiveUser().getUserName().toLowerCase());
+                ret.setFullName(authentication.getActiveUser().getUserName());
                 return ret;
             }
 
