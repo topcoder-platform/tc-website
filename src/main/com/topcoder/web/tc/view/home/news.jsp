@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br>09.27.07<br>3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=092707">Know your hero: marek.cygan</A></span><br><br>
+      This issue of the 'Know Your Hero' interview series features Marek Cygan (TopCoder handle: <tc-webtag:handle coderId="7442498" context="algorithm"/>). <tc-webtag:handle coderId="7442498" context="algorithm"/> has recently become a target in Algorithm competition and, after SRM 366, he has become the highest rated coder from Poland (breaking <tc-webtag:handle coderId="144400" context="algorithm"/>'s long-standing domination).</td>
+         <td class="newsPhoto"><img src="/i/m/jakubr_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="8472826" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=092707">details</A> | 
+         <tc-webtag:forumLink forumID="517603" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>09.26.07<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://forums.topcoder.com/?module=Thread&threadID=588630">Marathon Match support added to the Arena</A></span><br><br>
@@ -144,19 +160,6 @@
    <tr><td class="newsLinksCell">
         <A href="/tc?module=SurveyResults&sid=19560">details</a> | 
         <tc-webtag:forumLink forumID="517257" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.21.07<br>3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=bracket">TCCC07 Studio Design finalists</A></span><br><br>
-        Meet the eight competitors that will battle it out in the on-site Studio Design finals of the 2007 TopCoder Collegiate Challenge.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=bracket">details</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=926&start=0">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
