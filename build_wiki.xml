@@ -131,6 +131,16 @@
                 <include name="ConfigManager.properties"/>
             </fileset>
         </copy>
+
+        <mkdir dir="${jboss_conf}/com/topcoder/servlet/request"/>
+        <copy todir="${jboss_conf}/com/topcoder/servlet/request">
+            <fileset dir="${resources}/com/topcoder/servlet/request">
+                <include name="FileUpload.xml"/>
+            </fileset>
+        </copy>
+
+
+
     </target>
 
     <target name="move-lib">
