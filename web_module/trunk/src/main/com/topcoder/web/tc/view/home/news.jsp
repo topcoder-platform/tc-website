@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.27.07<br>4:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=SurveyResults&sid=19628">TCO08 logo design winner</A></span><br><br>
+        Congratulations to <tc-webtag:handle coderId="14947701" />, the winning designer for the 2008 TopCoder Open logo contest. This victory is <tc-webtag:handle coderId="14947701" />'s second TCO logo in three years (he won the '06 contest as well). Congratulations!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=SurveyResults&sid=19628">details</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=950&start=0">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br>09.27.07<br>3:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -148,18 +161,5 @@
         <A href="/tc?module=Static&d1=pressroom&d2=pr_092407">details</a> | 
         <tc-webtag:forumLink forumID="517549" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.21.07<br>3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=SurveyResults&sid=19560">TCCC07 Bloggers Contest Winners</A></span><br><br>
-        <tc-webtag:handle coderId="2057853" /> and <tc-webtag:handle coderId="8510917" />, you're going to TCCC07!  Congratulations, guys.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=SurveyResults&sid=19560">details</a> | 
-        <tc-webtag:forumLink forumID="517257" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
