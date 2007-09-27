@@ -1,15 +1,15 @@
 package com.topcoder.web.tc.controller.request.introevent;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.model.EventType;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Show the results for the component competition.
