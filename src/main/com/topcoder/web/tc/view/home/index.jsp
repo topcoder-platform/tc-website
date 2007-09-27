@@ -329,13 +329,13 @@
             <img src="/i/home/tco07Rd1-B_nsa.png" alt="TCO07 Round 1-B brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
             --%>
 
-            <%-- SRM SPONSOR --%>
+            <%-- SRM SPONSOR 
             <map name="mm">
             <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10783" />
             <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db" />
             </map>
             <img src="/i/home/srm367_db.png" alt="SRM 367 brought to you by Deutsche Bank" border="0" style="display:block;" usemap="#mm"/>
-            
+            --%>
                 
             <%-- 2 Registration Prototype contests open @ Studio 
             <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests" target="_blank"><img src="/i/home/regproto_studiopromo.png" alt="2 Registration Prototype contests open @ Studio" border="0" style="display:block;" /></A>
@@ -345,9 +345,9 @@
                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description' refer='homepage' />"><img src="/i/home/tccc07_promo_blog.png" alt="2007 TopCoder Collegiate Challenge" /></A>
              --%>
              
-            <%-- UML Tool 
-            <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='homepage_promo' />"><img src="/i/home/umltoolReleasePromo.png" alt="UML Tool Release" /></A>
-            --%>
+            <%-- UML Tool --%>
+            <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></A>
+            
                
             <%-- TCHS07 
                <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule"><img src="/i/home/tchs07_promo_051007.png" alt="TCHS07" border="0" style="display:block;"/></A>
