@@ -10,6 +10,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.WebConstants;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,6 +25,7 @@ import java.net.URL;
  */
 public class TopVelocityHelper {
     private static final Logger log = Logger.getLogger(LeftNavVelocityHelper.class);
+    private HttpServletRequest request;
 
     public TopVelocityHelper() {
         log.debug("called constructor");
@@ -38,6 +40,7 @@ public class TopVelocityHelper {
             buf.append("http://").append(ApplicationServer.DISTRIBUTED_UI_SERVER_NAME).append("/distui/?module=Top&level1=wiki");
             long userId = getUserId(AuthenticatedUserThreadLocal.getUsername());
             if (log.isDebugEnabled()) {
+                log.debug("request is null?" + request==null);
                 log.debug("user is : " + AuthenticatedUserThreadLocal.getUsername() + " XXX " + AuthenticatedUserThreadLocal.getUser());
             }
             if (userId!=SimpleUser.createGuest().getId()) {
@@ -74,6 +77,8 @@ public class TopVelocityHelper {
 
     }
 
+
+
     private static long getUserId(String userName) throws Exception {
         if (userName==null) {
             return SimpleUser.createGuest().getId();
@@ -94,4 +99,11 @@ public class TopVelocityHelper {
     }
 
 
+    public HttpServletRequest getRequest() {
+        return request;
+    }
+
+    public void setRequest(HttpServletRequest request) {
+        this.request = request;
+    }
 }
