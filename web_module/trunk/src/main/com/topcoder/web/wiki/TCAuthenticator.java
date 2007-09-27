@@ -63,12 +63,8 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         try {
 
             Principal user = getUser(userName);
-            TCRequest tcRequest = HttpObjectFactory.createSimpleRequest(request);
-            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-            WebAuthentication authentication =
-                    new LightAuthentication(new SessionPersistor(tcRequest.getSession()),
-                            tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
-
+            WebAuthentication authentication = getAuth(request, response);
+                    
             if (user != null) {
                 try {
                     TCSubject sub = authenticate(userName, password);
@@ -242,20 +238,10 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         }
     }
 
-    public long getUserId(HttpServletRequest request) {
-        try {
-            WebAuthentication authentication = getAuth(request, null);
-            return authentication.getActiveUser().getId();
-        } catch (Exception e) {
-            log.warn(e.getMessage(), e);
-            return guest.getId();
-        }
-    }
-
     private WebAuthentication getAuth(HttpServletRequest request, HttpServletResponse response) throws Exception {
         TCRequest tcRequest = HttpObjectFactory.createSimpleRequest(request);
         TCResponse tcResponse = response == null ? null : HttpObjectFactory.createResponse(response);
-            return new BasicAuthentication(new SessionPersistor(request.getSession()),
+            return new LightAuthentication(new SessionPersistor(request.getSession()),
                             tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
     }
 
