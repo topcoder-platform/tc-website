@@ -22,7 +22,7 @@ import java.net.URL;
  */
 public class TopVelocityHelper {
     private static final Logger log = Logger.getLogger(LeftNavVelocityHelper.class);
-    private HttpServletRequest request;
+    private HttpServletRequest httpServletRequest;
 
     public TopVelocityHelper() {
         log.debug("called constructor");
@@ -37,7 +37,7 @@ public class TopVelocityHelper {
             buf.append("http://").append(ApplicationServer.DISTRIBUTED_UI_SERVER_NAME).append("/distui/?module=Top&level1=wiki");
 
             //long userId = getUserId(AuthenticatedUserThreadLocal.getUsername());
-            long userId = new TCAuthenticator().getUserId(getRequest());
+            long userId = new TCAuthenticator().getUserId(getHttpServletRequest());
             if (log.isDebugEnabled()) {
                 log.debug("user is : " + AuthenticatedUserThreadLocal.getUsername() + " XXX " + AuthenticatedUserThreadLocal.getUser());
             }
@@ -99,11 +99,11 @@ public class TopVelocityHelper {
 */
 
 
-    public HttpServletRequest getRequest() {
-        return request;
+    public HttpServletRequest getHttpServletRequest() {
+        return httpServletRequest;
     }
 
-    public void setRequest(HttpServletRequest request) {
-        this.request = request;
+    public void setHttpServletRequest(HttpServletRequest httpServletRequest) {
+        this.httpServletRequest = httpServletRequest;
     }
 }
