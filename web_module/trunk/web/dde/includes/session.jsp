@@ -1,16 +1,21 @@
 
-<%@ page import="com.topcoder.security.*,
-                 java.lang.reflect.UndeclaredThrowableException,
-                 com.topcoder.util.logging.Logger,
+<%@ page import="com.topcoder.dde.user.User,
+                 com.topcoder.dde.user.UserManagerRemote,
+                 com.topcoder.dde.user.UserManagerRemoteHome,
                  com.topcoder.dde.util.Cookies,
-                 javax.naming.Context,
-                 javax.naming.InitialContext,
-                 javax.rmi.PortableRemoteObject" %>
-<%@ page import="com.topcoder.security.admin.*" %>
-<%@ page import="com.topcoder.security.login.*" %>
-<%@ page import="com.topcoder.security.policy.*" %>
+                 com.topcoder.security.TCSubject,
+                 com.topcoder.security.admin.PolicyMgrRemote,
+                 com.topcoder.security.admin.PolicyMgrRemoteHome" %>
+<%@ page import="com.topcoder.security.admin.PrincipalMgrRemote" %>
+<%@ page import="com.topcoder.security.admin.PrincipalMgrRemoteHome" %>
+<%@ page import="com.topcoder.security.login.LoginRemote" %>
 
-<%@ page import="com.topcoder.dde.user.*" %>
+<%@ page import="com.topcoder.security.login.LoginRemoteHome" %>
+<%@ page import="com.topcoder.security.policy.PolicyRemote" %>
+<%@ page import="com.topcoder.security.policy.PolicyRemoteHome" %>
+<%@ page import="javax.naming.Context" %>
+<%@ page import="javax.naming.InitialContext" %>
+<%@ page import="javax.rmi.PortableRemoteObject" %>
 <%
 	////////////////////////////////////////////
 	// Load context
@@ -33,19 +38,19 @@
 	UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)  PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
   	UserManagerRemote USER_MANAGER = userManagerHome.create();
 
-	Object objPrincipalManager = CONTEXT.lookup("security/PrincipalMgr");
+	Object objPrincipalManager = CONTEXT.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
 	PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
 	PrincipalMgrRemote PRINCIPAL_MANAGER = principalManagerHome.create();
 
-	Object objPolicyManager = CONTEXT.lookup("security/PolicyMgr");
+	Object objPolicyManager = CONTEXT.lookup(PolicyMgrRemoteHome.EJB_REF_NAME);
 	PolicyMgrRemoteHome policyManagerHome = (PolicyMgrRemoteHome) PortableRemoteObject.narrow(objPolicyManager, PolicyMgrRemoteHome.class);
 	PolicyMgrRemote POLICY_MANAGER = policyManagerHome.create();
 
-	Object objLogin = CONTEXT.lookup("security/Login");
+	Object objLogin = CONTEXT.lookup(LoginRemoteHome.EJB_REF_NAME);
 	LoginRemoteHome loginHome = (LoginRemoteHome) PortableRemoteObject.narrow(objLogin, LoginRemoteHome.class);
 	LoginRemote LOGIN = loginHome.create();
 
-	Object objPolicy = CONTEXT.lookup("security/Policy");
+	Object objPolicy = CONTEXT.lookup(PolicyRemoteHome.EJB_REF_NAME);
 	PolicyRemoteHome policyHome = (PolicyRemoteHome) PortableRemoteObject.narrow(objPolicy, PolicyRemoteHome.class);
 	PolicyRemote POLICY = policyHome.create();
 
