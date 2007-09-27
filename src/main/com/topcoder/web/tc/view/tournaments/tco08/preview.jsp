@@ -37,7 +37,7 @@
         <td width="100%" align="center" class="bodyColumn">
             <div class="maxWidthBody" align="left">
             
---%>
+<%--
 <div style="padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #999999;" align="center">
     <img src="/i/tournament/tco08/previewLogo.png" alt="2008 TopCoder Open" />
 </div>
