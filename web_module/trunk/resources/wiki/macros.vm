@@ -1264,7 +1264,8 @@ decorator=printable" rel="nofollow"><img src="$req.contextPath/images/icons/prin
 
 #macro (onLoad)
     #if (!$textUtil.stringSet($sitemeshPage.getProperty("page.bodyOnLoad")))
-        <body onload="placeFocus()">
+        ##TC don't like this placeFocus crap <body onload="placeFocus()">
+        <body onload="">
     #else
         <body onload="$sitemeshPage.getProperty('page.bodyOnLoad')">
     #end
