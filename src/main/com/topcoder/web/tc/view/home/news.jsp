@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.28.07<br>11:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm40">TCHS SRM 40 - Problem Set &amp; Analysis</A></span><br><br>
+      The match started very quickly, with the experienced coders rattling off the straightforward easy problem in no time at all. A greedy medium problem was up next. This had a relatively intuitive solution, but one that required a bit of thought to show that it was correct. A deceptively tricky hard problem rounded out the set.</td>
+         <td class="newsPhoto"><img src="/i/m/StevieT_big2.jpg" alt="Author" width="55" height="61"/><br>by <tc-webtag:handle coderId="21911760" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm40">details</A> | 
+         <tc-webtag:forumLink forumID="516566" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.28.07<br>10:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -151,18 +167,5 @@
         <A href="/tc?module=Static&d1=features&d2=092407">details</a> | 
         <tc-webtag:forumLink forumID="517553" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.24.07<br>2:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=19559">Vote for the TCCC07 Prestigious Professor</A></span><br><br>
-        With this year's TCCC, we asked members to nominate the educators who had made a "profound difference" in their lives. Read their stories, and vote for your favorites. Voting ends Tuesday, September 25 at 5:00 PM EDT.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=19559">details</a> | 
-        <tc-webtag:forumLink forumID="517552" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
