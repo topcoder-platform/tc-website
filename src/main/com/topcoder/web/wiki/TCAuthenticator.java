@@ -81,7 +81,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                             }
 
                             boolean isTCAdmin = isAdmin(userName);
-                            boolean isConfluenceAdmin = hasStaffGroup(cUser);
+                            boolean isConfluenceAdmin = hasGroup(cUser, GROUP_TOPCODER_STAFF);
 
                             if (isTCAdmin && !isConfluenceAdmin) {
                                 //confluence likes to work with lower case user names
@@ -117,20 +117,8 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
     }
 
-    private boolean hasStaffGroup(com.atlassian.user.User user) {
-        Pager p = getUserAccessor().getGroups(user);
-        Group g;
-        boolean found = false;
-        for (Iterator it = p.iterator(); it.hasNext() && !found;) {
-            g = (Group) it.next();
-            if (g.getName().equals(GROUP_TOPCODER_STAFF)) {
-                found = true;
-            }
-        }
-        return found;
-    }
 
-    private char getStatus(long userId) throws Exception {
+    private char getStatus(final long userId) throws Exception {
         DataAccess dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
         Request dataRequest = new Request();
         dataRequest.setProperty(DataAccessConstants.COMMAND, "userid_to_password");
@@ -141,8 +129,29 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
     }
 
+    private boolean hasGroup(final com.atlassian.user.User user, final String group) {
+        long start = System.currentTimeMillis();
+        Pager p = getUserAccessor().getGroups(user);
+        Group g;
+        boolean found = false;
+        for (Iterator it = p.iterator(); it.hasNext() && !found;) {
+            g = (Group) it.next();
+            if (g.getName().equals(group)) {
+                found = true;
+            }
+        }
+        if (log.isDebugEnabled()) {
+            log.debug("took " + (System.currentTimeMillis()-start));
+        }
+        return found;
+    }
 
-    private TCSubject authenticate(String userName, String password) {
+    private boolean hasGroup(final String userName, final String group) {
+        return hasGroup(getUserAccessor().getUser(userName), group);
+    }
+
+
+    private TCSubject authenticate(final String userName, final String password) {
 
 
         TCSubject ret = null;
@@ -162,7 +171,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         return ret;
     }
 
-    protected boolean authenticate(Principal principal, String password) {
+    protected boolean authenticate(final Principal principal, final String password) {
         log.debug("XXX authenticate called");
         return authenticate(principal.getName(), password) == null;
     }
@@ -203,7 +212,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
     }
 
-    private boolean isAdmin(String userName) throws Exception {
+    private boolean isAdmin(final String userName) throws Exception {
         try {
             PrincipalMgrLocal pmr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
             TCSubject sub = pmr.getUserSubject(pmr.getUser(userName).getId());
@@ -226,6 +235,26 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             if (authentication.getActiveUser().isAnonymous()) {
                 return null;
             } else {
+                long start = System.currentTimeMillis();
+                String userName = authentication.getActiveUser().getUserName().toLowerCase();
+                boolean isTCAdmin = isAdmin(userName);
+                boolean isConfluenceAdmin = hasGroup(userName, GROUP_TOPCODER_STAFF);
+                boolean isConfluenceUser = hasGroup(userName, UserAccessor.GROUP_CONFLUENCE_USERS);
+                if (!isConfluenceUser) {
+                    getUserAccessor().addMembership(UserAccessor.GROUP_CONFLUENCE_USERS, userName);   
+                }
+
+                if (isTCAdmin && !isConfluenceAdmin) {
+                    //confluence likes to work with lower case user names
+                    getUserAccessor().addMembership(GROUP_TOPCODER_STAFF, userName);
+                } else if (!isTCAdmin && isConfluenceAdmin) {
+                    //confluence likes to work with lower case user names
+                    getUserAccessor().removeMembership(GROUP_TOPCODER_STAFF, userName);
+                }
+                if (log.isDebugEnabled()) {
+                    log.debug("all the security stuff took " + (System.currentTimeMillis()-start));
+                }
+
                 //confluence likes to work with lower case user names
                 DefaultUser ret = new DefaultUser(authentication.getActiveUser().getUserName().toLowerCase());
                 ret.setFullName(authentication.getActiveUser().getUserName());
