@@ -111,6 +111,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case PROBLEM_TESTING_PAYMENT:
             return REFERENCE_ALGORITHM_ROUND_ID;
 
+        case STUDIO_REVIEW_BOARD_PAYMENT:
         case COMPONENT_PAYMENT:
         case REVIEW_BOARD_PAYMENT:
             return REFERENCE_COMPONENT_PROJECT_ID;
@@ -162,6 +163,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT: return new HighSchoolTournamentPrizePayment(coderId, grossAmount, referenceId, placed);
         case COMPONENT_PAYMENT: return new ComponentWinningPayment(coderId, grossAmount, referenceId, placed);
         case REVIEW_BOARD_PAYMENT: return new ReviewBoardPayment(coderId, grossAmount, referenceId);
+        case STUDIO_REVIEW_BOARD_PAYMENT: return new ReviewBoardPayment(coderId, grossAmount, referenceId);
         case PROBLEM_WRITING_PAYMENT: return new ProblemWritingPayment(coderId, grossAmount, referenceId);
         case PROBLEM_TESTING_PAYMENT: return new ProblemTestingPayment(coderId, grossAmount, referenceId);
         case TC_STUDIO_PAYMENT: return new StudioContestPayment(coderId, grossAmount, referenceId, placed);
@@ -253,6 +255,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case CHARITY_PAYMENT: return "Charity Payment";
             case COMPONENT_PAYMENT: return "Component Payment";
             case REVIEW_BOARD_PAYMENT: return "Review Board Payment";
+            case STUDIO_REVIEW_BOARD_PAYMENT: return "Studio Review Board Payment";
             case ONE_OFF_PAYMENT: return "One-off Payment";
             case ARTICLE_PAYMENT: return "Article Payment";
             case ASSEMBLY_PAYMENT: return "Assembly Payment";
@@ -271,7 +274,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT: return "Marathon Match Tournament Prize Payment";
             case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: return "Algorithm Tournament Prize Payment";
             case HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT: return "High School Tournament Prize Payment";
-            case COLLEGE_TOUR_REP: return "College Tour Representative Payment";
+            case COLLEGE_TOUR_REP_PAYMENT: return "College Tour Representative Payment";
             case BUG_FIXES_PAYMENT: return "Bug Fixes Payment";
             case RELIABILITY_BONUS_PAYMENT: return "Reliability Bonus Payment";
             case DIGITAL_RUN_TOP_THIRD_PAYMENT: return "Digital Run Top Performers Payment";
