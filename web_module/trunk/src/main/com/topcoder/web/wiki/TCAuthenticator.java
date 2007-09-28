@@ -147,7 +147,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     }
 
     private boolean hasGroup(final String userName, final String group) {
-        return hasGroup(getUserAccessor().getUser(userName), group);
+        return hasGroup(getUserAccessor().getUser(userName.toLowerCase()), group);
     }
 
 
@@ -246,7 +246,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                 }
 
                 //confluence likes to work with lower case user names
-                DefaultUser ret = new DefaultUser(authentication.getActiveUser().getUserName().toLowerCase());
+                DefaultUser ret = new DefaultUser(userName);
                 ret.setFullName(authentication.getActiveUser().getUserName());
                 return ret;
             }
