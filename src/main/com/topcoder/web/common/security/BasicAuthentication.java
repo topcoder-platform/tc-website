@@ -548,7 +548,7 @@ public class BasicAuthentication implements WebAuthentication {
      * @param user
      */
     protected void setUserInPersistor(User user) {
-        log.debug("set " + user.getUserName() + " as logged in");
+        //log.debug("set " + user.getUserName() + " as logged in");
         //given the way tomcat/apache handles sessions in a cluster, we can't do this
         //because the session id is different on the two nodes.  potentially we could
         //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
