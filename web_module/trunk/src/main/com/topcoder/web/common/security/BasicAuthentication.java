@@ -3,7 +3,6 @@ package com.topcoder.web.common.security;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrLocal;
-import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
@@ -308,12 +307,7 @@ public class BasicAuthentication implements WebAuthentication {
             if (id == guest.getId()) {
                 return guest;
             } else {
-                if (log.isDebugEnabled()) {
-                    log.debug("this is what we're getting " + Constants.createLocalEJB(PrincipalMgrLocal.class).getClass().getName());
-                    log.debug("this is what we're getting " + Constants.createEJB(PrincipalMgrRemote.class).getClass().getName());
-                }
-                //PrincipalMgrLocal pmgr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
-                PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+                PrincipalMgrLocal pmgr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
                 if (dataSource == null) {
                     UserPrincipal up = pmgr.getUser(id);
                     return new SimpleUser(id, up.getName(), "");
