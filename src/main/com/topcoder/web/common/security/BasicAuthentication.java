@@ -307,6 +307,9 @@ public class BasicAuthentication implements WebAuthentication {
             if (id==guest.getId()) {
                 return guest;
             } else {
+                if (log.isDebugEnabled()) {
+                    log.debug("this is what we're getting "  +Constants.createLocalEJB(PrincipalMgrLocal.class).getClass().getName());
+                }
                 PrincipalMgrLocal pmgr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
                 if (dataSource == null) {
                     UserPrincipal up = pmgr.getUser(id);

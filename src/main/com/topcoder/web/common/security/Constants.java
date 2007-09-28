@@ -57,13 +57,16 @@ public class Constants {
      * @throws NamingException
      * @throws Exception
      */
-    public static Object createLocalEJB(Class localclass) throws NamingException, Exception {
+    public static Object createLocalEJB(Class localclass) throws Exception {
 
 
         /* create the context anew each time in case the JNDI provider is restarted. */
         InitialContext ctx = null;
         try {
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+            if (log.isDebugEnabled()) {
+                log.debug("gonna look up " + "java:/" + localclass.getName() + "Home");
+            }
             Object home = ctx.lookup("java:/" + localclass.getName() + "Home");
             Method createmethod = PortableRemoteObject.narrow(home,
                     home.getClass()).getClass().getMethod("create", null);
