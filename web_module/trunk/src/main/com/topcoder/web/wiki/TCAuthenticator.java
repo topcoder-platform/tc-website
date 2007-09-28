@@ -122,7 +122,6 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     }
 
     private boolean hasGroup(final com.atlassian.user.User user, final String group) {
-        long start =     System.currentTimeMillis();
         Pager p = getUserAccessor().getGroups(user);
         Group g;
         boolean found = false;
@@ -132,14 +131,10 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                 found = true;
             }
         }
-        if (log.isDebugEnabled()) {
-            log.debug("took " + (System.currentTimeMillis()-start));
-        }
         return found;
     }
 
     private TCSubject authenticate(final String userName, final String password) {
-
 
         TCSubject ret = null;
         try {
@@ -237,12 +232,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             if (authentication.getActiveUser().isAnonymous()) {
                 return null;
             } else {
-                long start = System.currentTimeMillis();
-                Principal p = checkAndAddUser(authentication.getActiveUser().getUserName());
-                if (log.isDebugEnabled()) {
-                    log.debug("all the security stuff took " + (System.currentTimeMillis()-start));
-                }
-                return p;
+                return checkAndAddUser(authentication.getActiveUser().getUserName());
             }
 
         } catch (Exception e) {
