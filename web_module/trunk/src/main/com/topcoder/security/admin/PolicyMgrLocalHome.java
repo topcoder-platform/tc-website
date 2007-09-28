@@ -9,7 +9,7 @@ import javax.ejb.EJBException;
  */
 public interface PolicyMgrLocalHome extends javax.ejb.EJBLocalHome {
 
-    public static final String EJB_REF_NAME = "java:"+PolicyMgrLocalHome.class.getName();;
+    public static final String EJB_REF_NAME = "java:" + PolicyMgrLocalHome.class.getName();
 
     public PolicyMgrLocal create() throws EJBException, CreateException;
 
