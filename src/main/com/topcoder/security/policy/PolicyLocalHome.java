@@ -11,7 +11,7 @@ import javax.ejb.EJBException;
  */
 public interface PolicyLocalHome extends javax.ejb.EJBLocalHome {
 
-    public static final String EJB_REF_NAME = "java:comp/env/ejb/security/PolicyEJB";
+    public static final String EJB_REF_NAME = "java:"+ PolicyLocalHome.class.getName();
 
     public PolicyLocal create() throws EJBException, CreateException;
 
