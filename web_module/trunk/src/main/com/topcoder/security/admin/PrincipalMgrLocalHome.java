@@ -9,7 +9,7 @@ import javax.ejb.EJBException;
  */
 public interface PrincipalMgrLocalHome extends javax.ejb.EJBLocalHome {
 
-    public static final String EJB_REF_NAME = "java:comp/env/ejb/security/PrincipalMgrEJB";
+    public static final String EJB_REF_NAME = "java:"+PrincipalMgrLocalHome.class.getName();;
 
     public PrincipalMgrLocal create() throws EJBException, CreateException;
 
