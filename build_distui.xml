@@ -202,9 +202,11 @@
                 <include name="shared.jar"/>
                 <include name="tcwebcommon.jar"/>
             </lib>
+<!--
             <lib dir="${ejb_jars}">
                 <include name="security.jar"/>
             </lib>
+-->
             <lib dir="${jars.dir}/tcs">
                 <include name="base_exception.jar"/>
             </lib>
