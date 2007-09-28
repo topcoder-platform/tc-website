@@ -1,16 +1,16 @@
 package com.topcoder.web.ejb.pacts;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
-
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 
 /**
  * Represents basic payment information, without reference information.
@@ -271,6 +271,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT: return "Marathon Match Tournament Prize Payment";
             case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: return "Algorithm Tournament Prize Payment";
             case HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT: return "High School Tournament Prize Payment";
+            case COLLEGE_TOUR_REP: return "College Tour Representative Payment";
             case BUG_FIXES_PAYMENT: return "Bug Fixes Payment";
             case RELIABILITY_BONUS_PAYMENT: return "Reliability Bonus Payment";
             case DIGITAL_RUN_TOP_THIRD_PAYMENT: return "Digital Run Top Performers Payment";
