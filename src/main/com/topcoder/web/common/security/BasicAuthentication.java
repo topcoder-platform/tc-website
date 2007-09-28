@@ -128,7 +128,7 @@ public class BasicAuthentication implements WebAuthentication {
         this.response = response;
         this.defaultCookiePath = r;
         this.dataSource = dataSource;
-        this.readOnly = this.response==null;
+        this.readOnly = this.response == null;
 /*
         if (log.isDebugEnabled()) {
             log.debug("readonly " + readOnly);
@@ -244,7 +244,7 @@ public class BasicAuthentication implements WebAuthentication {
          * they're anonymous
          */
         User u = getUser();
-        if (u == null || u.getId()==guest.getId()) {
+        if (u == null || u.getId() == guest.getId()) {
             //given the way tomcat/apache handles sessions in a cluster, we can't do this
             //because the session id is different on the two nodes.  potentially we could
             //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
@@ -286,12 +286,12 @@ public class BasicAuthentication implements WebAuthentication {
             return guest;
         } else {
             User u = getUserFromPersistor();
-            if (u == null || u.getId()==guest.getId()) {
+            if (u == null || u.getId() == guest.getId()) {
                 u = checkBigSession();
                 if (u == null) {
                     //log.debug("didn't find user via sso");
                     u = guest;
-                } 
+                }
                 //essentially, cache it in the session so that we don't have to go to the cookie again
                 setUserInPersistor(u);
             }
@@ -305,11 +305,12 @@ public class BasicAuthentication implements WebAuthentication {
 
     protected User makeUser(long id) {
         try {
-            if (id==guest.getId()) {
+            if (id == guest.getId()) {
                 return guest;
             } else {
                 if (log.isDebugEnabled()) {
-                    log.debug("this is what we're getting "  +Constants.createLocalEJB(PrincipalMgrLocal.class).getClass().getName());
+                    log.debug("this is what we're getting " + Constants.createLocalEJB(PrincipalMgrLocal.class).getClass().getName());
+                    log.debug("this is what we're getting " + Constants.createEJB(PrincipalMgrRemote.class).getClass().getName());
                 }
                 //PrincipalMgrLocal pmgr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
                 PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
@@ -461,13 +462,14 @@ public class BasicAuthentication implements WebAuthentication {
 
     private String cookieList() {
         StringBuilder buf = new StringBuilder(100);
-        if (request.getCookies()!=null) {
+        if (request.getCookies() != null) {
             for (Cookie c : request.getCookies()) {
                 buf.append(c.getName()).append(", ");
             }
         }
         return buf.toString();
     }
+
     /**
      * Add a cookie that will work across domains to help us preserve
      * a user http session between web applications and domains.
