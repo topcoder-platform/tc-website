@@ -237,19 +237,9 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             } else {
                 long start = System.currentTimeMillis();
                 String userName = authentication.getActiveUser().getUserName().toLowerCase();
-                boolean isTCAdmin = isAdmin(userName);
-                boolean isConfluenceAdmin = hasGroup(userName, GROUP_TOPCODER_STAFF);
                 boolean isConfluenceUser = hasGroup(userName, UserAccessor.GROUP_CONFLUENCE_USERS);
                 if (!isConfluenceUser) {
                     getUserAccessor().addMembership(UserAccessor.GROUP_CONFLUENCE_USERS, userName);   
-                }
-
-                if (isTCAdmin && !isConfluenceAdmin) {
-                    //confluence likes to work with lower case user names
-                    getUserAccessor().addMembership(GROUP_TOPCODER_STAFF, userName);
-                } else if (!isTCAdmin && isConfluenceAdmin) {
-                    //confluence likes to work with lower case user names
-                    getUserAccessor().removeMembership(GROUP_TOPCODER_STAFF, userName);
                 }
                 if (log.isDebugEnabled()) {
                     log.debug("all the security stuff took " + (System.currentTimeMillis()-start));
