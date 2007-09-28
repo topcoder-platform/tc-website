@@ -66,7 +66,7 @@ public class Constants {
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
             if (log.isDebugEnabled()) {
                 log.debug("gonna look up " + "java:/" + localclass.getName() + "Home");
-                log.debug("context" + ctx.toString());
+                log.debug("context" + ctx.getEnvironment().toString());
             }
             Object home = ctx.lookup("java:/" + localclass.getName() + "Home");
             Method createmethod = PortableRemoteObject.narrow(home,
