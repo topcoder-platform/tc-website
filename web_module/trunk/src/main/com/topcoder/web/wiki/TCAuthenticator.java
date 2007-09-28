@@ -50,6 +50,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
     private static String GROUP_TOPCODER_STAFF = "topcoder-staff";
     private static final User guest = SimpleUser.createGuest();
+    private static final String[] groups = new String[]{UserAccessor.GROUP_CONFLUENCE_USERS};
 
     public boolean login(HttpServletRequest request, HttpServletResponse response,
                          String userName, String password) throws AuthenticatorException {
@@ -71,24 +72,15 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                     if (sub != null) {
                         if (Arrays.binarySearch(WebConstants.ACTIVE_STATI, getStatus(sub.getUserId())) >= 0) {
                             //confluence likes to work with lower case user names
-                            com.atlassian.user.User cUser = getUserAccessor().getUser(userName.toLowerCase());
-                            log.debug("got user " + cUser.getName());
-                            if (cUser == null) {
-                                log.debug("XXX create the user");
-                                String[] groups = new String[]{UserAccessor.GROUP_CONFLUENCE_USERS};
-                                //confluence likes to work with lower case user names
-                                getUserAccessor().addUser(userName.toLowerCase(), "", "", userName, groups);
-                            }
+                            com.atlassian.user.User cUser = checkAndAddUser(userName);
 
                             boolean isTCAdmin = isAdmin(userName);
                             boolean isConfluenceAdmin = hasGroup(cUser, GROUP_TOPCODER_STAFF);
 
                             if (isTCAdmin && !isConfluenceAdmin) {
-                                //confluence likes to work with lower case user names
-                                getUserAccessor().addMembership(GROUP_TOPCODER_STAFF, userName.toLowerCase());
+                                getUserAccessor().addMembership(GROUP_TOPCODER_STAFF, cUser.getName());
                             } else if (!isTCAdmin && isConfluenceAdmin) {
-                                //confluence likes to work with lower case user names
-                                getUserAccessor().removeMembership(GROUP_TOPCODER_STAFF, userName.toLowerCase());
+                                getUserAccessor().removeMembership(GROUP_TOPCODER_STAFF, cUser.getName());
                             }
                             authentication.login(new SimpleUser(sub.getUserId(), userName, password), cookie);
                             return true;
@@ -130,7 +122,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     }
 
     private boolean hasGroup(final com.atlassian.user.User user, final String group) {
-        long start = System.currentTimeMillis();
+        long start =     System.currentTimeMillis();
         Pager p = getUserAccessor().getGroups(user);
         Group g;
         boolean found = false;
@@ -145,11 +137,6 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         }
         return found;
     }
-
-    private boolean hasGroup(final String userName, final String group) {
-        return hasGroup(getUserAccessor().getUser(userName.toLowerCase()), group);
-    }
-
 
     private TCSubject authenticate(final String userName, final String password) {
 
@@ -228,6 +215,21 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         }
     }
 
+    /**
+     * check to see if a particular user exists in confluence yet, if not, add it.
+     * returns the confluence user.
+     * @param userName the user name, this should be in the normal case of the username.  this method
+     * will deal with confluence's case issues.
+     * @return the user that was either created, or retrieved
+     */
+    private com.atlassian.user.User checkAndAddUser(final String userName) {
+        com.atlassian.user.User cUser = getUserAccessor().getUser(userName.toLowerCase());
+        if (cUser == null) {
+            cUser = getUserAccessor().addUser(userName.toLowerCase(), "", "", userName, groups);
+        }
+        return cUser;
+
+    }
     public Principal getUser(HttpServletRequest request, HttpServletResponse response) {
         //log.debug("XXX getUser(request, response) called");
         try {
@@ -236,19 +238,11 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                 return null;
             } else {
                 long start = System.currentTimeMillis();
-                String userName = authentication.getActiveUser().getUserName().toLowerCase();
-                boolean isConfluenceUser = hasGroup(userName, UserAccessor.GROUP_CONFLUENCE_USERS);
-                if (!isConfluenceUser) {
-                    getUserAccessor().addMembership(UserAccessor.GROUP_CONFLUENCE_USERS, userName);   
-                }
+                Principal p = checkAndAddUser(authentication.getActiveUser().getUserName());
                 if (log.isDebugEnabled()) {
                     log.debug("all the security stuff took " + (System.currentTimeMillis()-start));
                 }
-
-                //confluence likes to work with lower case user names
-                DefaultUser ret = new DefaultUser(userName);
-                ret.setFullName(authentication.getActiveUser().getUserName());
-                return ret;
+                return p;
             }
 
         } catch (Exception e) {
