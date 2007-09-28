@@ -191,9 +191,12 @@
                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=about' refer='homepage' />"><img src="/i/home/tccc07_promo.png" alt="2007 TopCoder Collegiate Challenge" /></A>
                 --%>
                 
-               <%-- TC CHANNEL --%>
+               <%-- TC CHANNEL 
                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep05' refer='homepage' />"><img src="/i/home/tcchannel_promo_ep5.png" alt="TC Channel: Episode 5" /></A>
+               --%>
                
+               <%-- UML Tool --%>
+               <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></A>
 
             </td>
         </tr>
@@ -345,9 +348,9 @@
                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=description' refer='homepage' />"><img src="/i/home/tccc07_promo_blog.png" alt="2007 TopCoder Collegiate Challenge" /></A>
              --%>
              
-            <%-- UML Tool --%>
+            <%-- UML Tool 
             <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></A>
-            
+            --%>
                
             <%-- TCHS07 
                <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule"><img src="/i/home/tchs07_promo_051007.png" alt="TCHS07" border="0" style="display:block;"/></A>
@@ -373,6 +376,10 @@
             <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2104"><img src="/i/home/tccc07_logo_design_promo.png" alt="TCCC07 Logo Design Contest" border="0" style="display:block;"/></A>
             --%> 
              
+            <%-- TopCoder on 2007 Inc. 500 --%>
+            <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=pressroom&d2=pr_082707' refer='homepage_promo' />"><img src="/i/home/tc_inc500_promo.png" alt="TopCoder on 2007 Inc. 500" /></A>
+            
+            
         </td>
     </tr>
 </table>
