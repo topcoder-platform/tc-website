@@ -80,6 +80,7 @@
             <action name="doconfiguretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction">
                 <result name="success" type="redirect">/spaces/choosetheme.action?key=${key}</result>
             </action>
+            
         </package>
         <package name="leftnav-admin" extends="default" namespace="/admin/themes/leftnav">
         <default-interceptor-ref name="defaultStack" />
@@ -87,7 +88,10 @@
                 <result name="input" type="velocity">/templates/leftnav/configurethemeadmin.vm</result>
             </action>
             <action name="doconfiguretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction">
-                <result name="success" type="redirect">/admin/choosetheme.action</result>
+                <result name="success" type="redirect">/templates/leftnav/configurethemeadmin.vm</result>
+            </action>
+            <action name="doconfiguretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction">
+                <result name="error" type="velocity">/templates/leftnav/configurethemeadmin.vm</result>
             </action>
         </package>
     </xwork>
