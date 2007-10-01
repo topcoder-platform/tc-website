@@ -394,6 +394,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            TopCoder Open to Feature World's Elite Software Developers
+            <a href="/tc?module=Static&d1=pressroom&d2=pr_100107">...more</a><br />[October 1]<br /><br />
+            
             TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit
             <A href="/tc?module=Static&d1=pressroom&d2=pr_092407">...more</a><br />[September 24]<br /><br />
             
@@ -411,9 +414,6 @@
             
             Introducing the TopCoder UML Tool
             <A href="/tc?module=Static&d1=dev&d2=umltool&d3=description">...more</a><br />[August 9]<br /><br />
-            
-            Fox TV: "Top Computer Programmers Compete"
-            <A href="/tc?module=Static&d1=pressroom&d2=art_080207">...more</a><br />[August 2]<br /><br />
             
 
 
