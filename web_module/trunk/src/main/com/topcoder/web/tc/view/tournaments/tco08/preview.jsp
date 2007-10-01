@@ -37,7 +37,6 @@
         <td width="100%" align="center" class="bodyColumn">
             <div class="maxWidthBody" align="left">
             
-<%--
 <div style="padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #999999;" align="center">
     <img src="/i/tournament/tco08/previewLogo.png" alt="2008 TopCoder Open" />
 </div>
@@ -96,7 +95,7 @@ Only the top 120 competitors will make the TCO, so polish up your skills now to 
 <div align="center">
     <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&amp;forumID=517604"><img src="/i/tournament/tco08/previewDiscuss.png" alt="Discuss the 2008 TopCoder Open" /></a>
 </div>
---%>
+
             </div>
         </td>
 <%-- Center Column Ends --%>
