@@ -7,7 +7,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>10.01.07<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=preview' refer='/tc' />">2008 TopCoder Open</A></span><br><br>
-        Mark your calendars!  The TCO08 finals will take place May 11 - 15, 2008 at the Mirage in Las Vegas, NV.  We have lots of other big news about this event, so be sure to <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=preview' refer='/tc' />">read on!</a></td>
+        Mark your calendars!  The TCO08 finals will take place May 11 - 15, 2008 at the Mirage in Las Vegas, NV.  We have lots of other big news about this event, so be sure to <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=preview' refer='/tc' />">read on</a>.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=preview' refer='/tc' />">details</a> | 
