@@ -60,17 +60,17 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Featured Customer</td></tr></table>
             
 
-<!-- Direct Energy begins -->
+<!-- Talbots begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/clients/directenergy_logo.gif" alt="Direct Energy" border="0" /></td>
+                    <td width="170"><img src="/images/clients/talbots_logo.gif" alt="Talbots" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">Direct Energy is North America's largest competitive energy solutions provider, with over five million residential and commercial customer relationships. Direct Energy provides customers with choice and support in managing energy costs through a portfolio of innovative products and services.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www.directenergy.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                    <td width="99%" class="bodyText">With hundreds of locations in the US, Canada, and the UK, Talbots is a leading specialty retailer, cataloger, and e-tailer of women's classic apparel.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www1.talbots.com/talbotsonline/index.asp" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
-<!-- Direct Energy ends -->
+<!-- Talbots ends -->
 
              <hr width="100%" size="1px" noshade>
              
@@ -226,7 +226,19 @@
 
              <hr width="100%" size="1px" noshade>
              
+<!-- Direct Energy begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/directenergy_logo.gif" alt="Direct Energy" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">Direct Energy is North America's largest competitive energy solutions provider, with over five million residential and commercial customer relationships. Direct Energy provides customers with choice and support in managing energy costs through a portfolio of innovative products and services.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.directenergy.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- Direct Energy ends -->
 
+             <hr width="100%" size="1px" noshade>
              
 <%-- ESPN begins 
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -369,19 +381,7 @@ ESPN ends
 
              <hr width="100%" size="1px" noshade>
 
-<!-- Talbots begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr valign="top">
-                    <td width="170"><img src="/images/clients/talbots_logo.gif" alt="Talbots" border="0" /></td>
-                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">With hundreds of locations in the US, Canada, and the UK, Talbots is a leading specialty retailer, cataloger, and e-tailer of women's classic apparel.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www1.talbots.com/talbotsonline/index.asp" refer="customer_index"/>" target="_blank">homepage</A>
-                     </td>
-                </tr>
-            </table>
-<!-- Talbots ends -->
 
-             <hr width="100%" size="1px" noshade>
              
 <!-- UBS begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
