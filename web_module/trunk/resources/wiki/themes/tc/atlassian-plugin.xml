@@ -88,7 +88,7 @@
                 <result name="input" type="velocity">/templates/leftnav/configurethemeadmin.vm</result>
             </action>
             <action name="doconfiguretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction">
-                <result name="success" type="redirect">/templates/leftnav/configurethemeadmin.vm</result>
+                <result name="success" type="redirect">/admin/themes/leftnav/configuretheme.action</result>
             </action>
             <action name="doconfiguretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction">
                 <result name="error" type="velocity">/templates/leftnav/configurethemeadmin.vm</result>
