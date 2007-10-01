@@ -1,6 +1,7 @@
 package com.topcoder.web.forums.util.filter;
 
 import com.jivesoftware.util.StringUtils;
+
 import java.util.HashMap;
 
 /**
@@ -380,6 +381,7 @@ public class JavaViewer {
                             // 87 10 12 00-0L
                             state = NUMBER_BIN_INT_FLOAT_OCTAL;
                         }
+/*
                         else if (curr_char == 'l' || curr_char == 'L') {  // cheating... +l +L
                             tail_idx = i;
                             if (filterNumber) {
@@ -391,6 +393,7 @@ public class JavaViewer {
                             }
                             state = ACCEPT;
                         }
+*/
                         else {
                             //-E +f 5e 1x 34234x 7979/7897 79+897 890-7989
                             if (char_line[i-1] == '-' || char_line[i-1] == '+') {
