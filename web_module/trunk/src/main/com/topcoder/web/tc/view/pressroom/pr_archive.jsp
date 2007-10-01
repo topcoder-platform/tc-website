@@ -46,6 +46,7 @@
 
 <!-- 2007 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2007</font></td></tr>
+<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_100107">TopCoder Open to Feature World's Elite Software Developers in Competitive Programming's Top Tournament</A> [October 1]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_092407">TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit</A> [September 24]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_082707">TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America</A> [August 27]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_082407">Lilly and Deutsche Bank Announced as New Sponsors &amp; NSA Returns as Patron of 2007 TopCoder Collegiate Challenge</A> [August 24]<br/></td></tr>
