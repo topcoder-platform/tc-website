@@ -20,6 +20,5 @@
 <!-- delay the loading of large javascript files to the end so that they don't interfere with the loading of page content -->
 <span style="display: none">$!sitemeshPage.getProperty("page.labelsUIJavascriptInclude")</span>
 
-$!settingsManager.globalSettings.customHtmlSettings.beforeBodyEnd
 </body>
 </html>
