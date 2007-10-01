@@ -47,6 +47,12 @@
 <!-- Links to versions -->
 
 <p>
+    <b>2.1.2 - 2007.xx.xx</b>
+    <ul>
+        <li>Adjust VB, C# and Java code viewers so that it doesn't swallow the l in long literals like 1L -dok</li>
+    </ul>
+</p>
+<p>
     <b>2.1.1 - 2007.09.12</b>
     <ul>
         <li>Add login and logout processes instead of using the main site -dok</li>
