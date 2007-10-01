@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br>10.01.07<br>4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=pressroom&d2=pr_100107">TopCoder Open to Feature World's Elite Software Developers</A></span><br><br>
+        New this year, a TopCoder Masters Invitational will headline the event, with past TopCoder champions competing live in an unprecedented challenge of the most elite talent.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=pressroom&d2=pr_100107">details</a> | 
+        <tc-webtag:forumLink forumID="517634" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>10.01.07<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=preview' refer='/tc' />">2008 TopCoder Open</A></span><br><br>
@@ -154,18 +167,5 @@
         <a href="/tc?module=Static&d1=calendar&d2=oct_07">details</a> | 
         <tc-webtag:forumLink forumID="517574" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>09.24.07<br>4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=19628">Vote for the TCO08 logo</A></span><br><br>
-        We asked Studio members to design a tournament logo for the TCO08 that was "professional, clean, uncluttered and eye-catching." Check out the finalists, and vote for your favorite. Voting ends Thursday, September 27 at 2:00 PM EDT.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=19628">details</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=940&start=0">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
