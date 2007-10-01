@@ -99,4 +99,4 @@ $topHelper.renderTop()
 </table>
 
 
-#parse ("/decorators/includes/footer.vmd")
+#parse ("/templates/leftnav/footer.vmd")
