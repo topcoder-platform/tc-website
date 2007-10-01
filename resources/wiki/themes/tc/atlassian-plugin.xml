@@ -83,14 +83,12 @@
             
         </package>
         <package name="leftnav-admin" extends="default" namespace="/admin/themes/leftnav">
-        <default-interceptor-ref name="defaultStack" />
+            <default-interceptor-ref name="defaultStack" />
             <action name="configuretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction" method="doDefault">
                 <result name="input" type="velocity">/templates/leftnav/configurethemeadmin.vm</result>
             </action>
             <action name="doconfiguretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction">
                 <result name="success" type="redirect">/admin/themes/leftnav/configuretheme.action</result>
-            </action>
-            <action name="doconfiguretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction">
                 <result name="error" type="velocity">/templates/leftnav/configurethemeadmin.vm</result>
             </action>
         </package>
