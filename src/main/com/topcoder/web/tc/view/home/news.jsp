@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>10.01.07<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=preview' refer='/tc' />">2008 TopCoder Open</A></span><br><br>
+        Mark you calendars!  The TCO08 finals will take place May 11 - 15, 2008 at the Mirage in Las Vegas, NV.  We have lots of other big news about this event, so be sure to <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=preview' refer='/tc' />">read on!</a></td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=preview' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>09.28.07<br>11:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -154,18 +167,5 @@
         <A href="/tc?module=ViewSurvey&sid=19628">details</a> | 
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=940&start=0">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature News" border="0" /><br>09.24.07<br>4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=features&d2=092407">Introducing TopCoder's &quot;Iron Man&quot;</A></span><br><br>
-        On September 9, 2005, during <a href="/stat?c=round_overview&er=5&rd=7996">SRM 262</a>, <tc-webtag:handle coderId="8511003" context="algorithm"/> began a remarkable streak. Fueled by a desire to compete in every match that he could, he has now competed in a record 100 consecutive SRMs, and he's still going strong.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=092407">details</a> | 
-        <tc-webtag:forumLink forumID="517553" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
