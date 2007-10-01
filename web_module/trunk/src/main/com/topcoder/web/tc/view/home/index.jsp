@@ -392,28 +392,28 @@
     </tr>
     <tr>
         <td class="homeArrow">&#160;</td>
-        <td class="homeText"><br>
+        <td class="homeText"><br />
 
             TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit
-            <A href="/tc?module=Static&d1=pressroom&d2=pr_092407">...more</a><br>[September 24]<br><br>
+            <A href="/tc?module=Static&d1=pressroom&d2=pr_092407">...more</a><br />[September 24]<br /><br />
             
             TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America
-            <A href="/tc?module=Static&d1=pressroom&d2=pr_082707">...more</a><br>[August 27]<br><br>
+            <A href="/tc?module=Static&d1=pressroom&d2=pr_082707">...more</a><br />[August 27]<br /><br />
             
             Lilly &amp; Deutsche Bank Announced as New Sponsors &amp; NSA Returns as Patron of TCCC07
-            <A href="/tc?module=Static&d1=pressroom&d2=pr_082407">...more</a><br>[August 24]<br><br>
+            <A href="/tc?module=Static&d1=pressroom&d2=pr_082407">...more</a><br />[August 24]<br /><br />
             
             <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/topcoder_logo.png" width="67" height="30" alt="TopCoder" border="0" />
             </div>
             6 State companies among fastest growing
-            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.publicbroadcasting.net/wnpr/news.newsmain?action=article&ARTICLE_ID=1139736' refer='/homepage_index' />">...more</a><br>[August 23]<br><br>
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.publicbroadcasting.net/wnpr/news.newsmain?action=article&ARTICLE_ID=1139736' refer='/homepage_index' />">...more</a><br />[August 23]<br /><br />
             
             Introducing the TopCoder UML Tool
-            <A href="/tc?module=Static&d1=dev&d2=umltool&d3=description">...more</a><br>[August 9]<br><br>
+            <A href="/tc?module=Static&d1=dev&d2=umltool&d3=description">...more</a><br />[August 9]<br /><br />
             
             Fox TV: "Top Computer Programmers Compete"
-            <A href="/tc?module=Static&d1=pressroom&d2=art_080207">...more</a><br>[August 2]<br><br>
+            <A href="/tc?module=Static&d1=pressroom&d2=art_080207">...more</a><br />[August 2]<br /><br />
             
 
 
@@ -421,27 +421,28 @@
     </tr>
     <tr>
         <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">September Events:</A></td>
+        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">October Events:</A></td>
     </tr>
     <tr>
         <td class="homeArrow">&#160; </td>
-        <td class="homeText"><br>
-            <b>09.01</b> - TCCC Algo Round 1C - 1 PM<br><br>
-            <b>09.04</b> - SRM 364 - 9 PM<br><br>
-            <b>09.04</b> - TCHS SRM 38 - 9 PM<br><br>
-            <b>09.05</b> - Marathon Match 22 - 12 NOON<br><br>
-            <b>09.05</b> - TCCC MM Round 3 - 12 NOON<br><br>
-            <b>09.08</b> - TCCC Algo Round 2 - 1 PM<br><br>
-            <b>09.12</b> - SRM 365 - 11 AM<br><br>
-            <b>09.14</b> - TCCC Visa Request Deadline - 5 PM<br><br>
-            <b>09.15</b> - TCCC Algo Round 3 - 1 PM<br><br>
-            <b>09.18</b> - SRM 366 - 7 AM<br><br>
-            <b>09.18</b> - TCHS SRM 39 - 7 AM<br><br>
-            <b>09.20</b> - TCCC CDDDC Round 1 Projects Posted - 9 AM<br><br>
-            <b>09.22</b> - TCCC Algo Round 4 - 1 PM<br><br>
-            <b>09.26</b> - SRM 367 - 11 AM<br><br>
-            <b>09.26</b> - TCHS SRM 40 - 11 AM<br><br>
-            <%--<b>01.13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br><br>--%>
+        <td class="homeText"><br />
+            <strong>10.02</strong> - SRM 368 - 7 AM<br /><br />
+            <strong>10.04</strong> - TCCC CDDC Round 2 Projects Posted - 9 AM<br /><br />
+            <strong>10.04</strong> - SRM 369 - 7 AM<br /><br />
+            <strong>10.09</strong> - SRM 370 - 7 AM<br /><br />
+            <strong>10.10</strong> - Marathon Match 24 -  12 NOON<br /><br />
+            <strong>10.13</strong> - SRM 371 - 12 NOON<br /><br />
+            <strong>10.13</strong> - TCHS SRM 41 - 12 NOON<br /><br />
+            <strong>10.17</strong> - SRM 372 - 11 AM<br /><br />
+            <strong>10.17</strong> - TCHS SRM 42 - 11 AM<br /><br />
+            <strong>10.18</strong> - TCCC CDDC Round 3 Projects Posted - 9 AM<br /><br />
+            <strong>10.23</strong> - SRM 373 - 9 PM<br /><br />
+            <strong>10.23</strong> - TCHS SRM 43  - 9 PM<br /><br />
+            <strong>10.31</strong> - TCCC Algo Room 1 - 8:30 AM<br /><br />
+            <strong>10.31</strong> - TCCC Marathon Match Finals - 9 AM<br /><br />
+            <strong>10.31</strong> - TCCC CDDC 1 - 1 PM<br /><br />
+            <strong>10.31</strong> - TCCC Algo Room 2 - 4 PM<br /><br />
+            <%--<strong>01.13</strong> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br /><br />--%>
         </td>
     </tr>
 
@@ -459,7 +460,7 @@
             <A href="/tc?module=Static&d1=about&d2=contactus">Contact Us</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=about&d2=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</A>
-            <br>
+            <br />
             <A href="/tc" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
             <A href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A></td>
         <tr>
