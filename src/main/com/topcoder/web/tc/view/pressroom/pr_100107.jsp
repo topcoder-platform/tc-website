@@ -40,7 +40,7 @@
                         <jsp:param name="title" value="Press Release"/>
                     </jsp:include>
                     
-<div align="right"><tc-webtag:forumLink forumID="517604" message="Discuss this press release" /></div>
+<div align="right"><tc-webtag:forumLink forumID="517634" message="Discuss this press release" /></div>
                         
 <div align="center">
 <p><span class="bodyTitle">TopCoder Open to Feature World's Elite Software Developers in Competitive Programming's Top Tournament</span><br />
