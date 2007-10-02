@@ -60,17 +60,17 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Featured Customer</td></tr></table>
             
 
-<!-- Talbots begins -->
+<!-- NEJ begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/clients/talbots_logo.gif" alt="Talbots" border="0" /></td>
+                    <td width="170"><img src="/images/clients/nejLogo.jpg" alt="NEJ" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">With hundreds of locations in the US, Canada, and the UK, Talbots is a leading specialty retailer, cataloger, and e-tailer of women's classic apparel.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www1.talbots.com/talbotsonline/index.asp" refer="customer_index"/>" target="_blank">homepage</A>
+                    <td width="99%" class="bodyText">NEJ, Inc. is an apparel and merchandise solutions company that operates three major divisions: Wholesale/Off-Price, Corporate Identity Merchandise, and Licensing. NEJ delivers straightforward, timely merchandising solutions to help companies build and protect their brands. With multiple product lines under multiple brand names, and 200,000 square feet in facilities to manage, immediate access to inventory data is critical to the success of the company. TopCoder is working with NEJ to implement a new application that effectively manages and tracks its inventory.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://nejinc.com/about/about.htm" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
-<!-- Talbots ends -->
+<!-- NEJ ends -->
 
              <hr width="100%" size="1px" noshade>
              
@@ -310,19 +310,7 @@ ESPN ends
 
              <hr width="100%" size="1px" noshade>
              
-<!-- NEJ begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr valign="top">
-                    <td width="170"><img src="/images/clients/nejLogo.jpg" alt="NEJ" border="0" /></td>
-                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">NEJ, Inc. is an apparel and merchandise solutions company that operates three major divisions: Wholesale/Off-Price, Corporate Identity Merchandise, and Licensing. NEJ delivers straightforward, timely merchandising solutions to help companies build and protect their brands. With multiple product lines under multiple brand names, and 200,000 square feet in facilities to manage, immediate access to inventory data is critical to the success of the company. TopCoder is working with NEJ to implement a new application that effectively manages and tracks its inventory.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://nejinc.com/about/about.htm" refer="customer_index"/>" target="_blank">homepage</A>
-                     </td>
-                </tr>
-            </table>
-<!-- NEJ ends -->
 
-             <hr width="100%" size="1px" noshade>
              
 <!-- Oxford begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -380,7 +368,19 @@ ESPN ends
 <!-- Rodale ends -->
 
              <hr width="100%" size="1px" noshade>
+<!-- Talbots begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/talbots_logo.gif" alt="Talbots" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">With hundreds of locations in the US, Canada, and the UK, Talbots is a leading specialty retailer, cataloger, and e-tailer of women's classic apparel.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www1.talbots.com/talbotsonline/index.asp" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- Talbots ends -->
 
+             <hr width="100%" size="1px" noshade>
 
              
 <!-- UBS begins -->
