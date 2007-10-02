@@ -34,6 +34,8 @@
 
 <br/>
 
+<% String baseOltpUrl = Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.NEW_REPORT_KEY + "&" + Constants.DB_KEY + "=" + DBMS.OLTP_DATASOURCE_NAME + "&" + DataAccessConstants.COMMAND + "=";%>
+
 New Software Reports
 <UL>
     <% String baseTCSDWURL = Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.NEW_REPORT_KEY + "&" + Constants.DB_KEY + "=" + DBMS.TCS_DW_DATASOURCE_NAME + "&" + DataAccessConstants.COMMAND + "=";%>
@@ -247,6 +249,11 @@ Other
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=member_contact_report&"+Constants.DB_KEY+"="+Query.TRANSACTIONAL%>">Member
             Contact</A></LI>
 </UL>
+
+Intro Events
+<ul>
+    <LI><A HREF="<%=baseOltpUrl+"intro_event_competitor_report"%>">Competitor Report</a></LI>
+</ul>
 
 High School
 <ul>
