@@ -35,6 +35,8 @@ public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("EP");
     private static final Logger log = Logger.getLogger(Constants.class);
 
+    public static final long STUDENT_ROLE_ID = 2060;
+    public static final long PROFESSOR_ROLE_ID = 2061;
 
     private Constants() {
 

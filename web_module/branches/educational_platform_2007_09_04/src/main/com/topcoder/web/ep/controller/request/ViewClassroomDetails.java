@@ -37,6 +37,11 @@ public class ViewClassroomDetails extends ShortHibernateProcessor {
             
             if (c.getProfessor().getId().equals(getUser().getId())) {
                 log.debug("is professor");
+
+                // since it's a shared processor check if he has permission
+                if (!Helper.hasProfessorPermission(getLoggedInUser())) {
+                    throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+                }
                 // this user is the classroom's professor
                 getRequest().setAttribute("classroom", c);
                 getRequest().setAttribute("activeStudents", c.getStudents(StudentClassroom.ACTIVE_STATUS));                
