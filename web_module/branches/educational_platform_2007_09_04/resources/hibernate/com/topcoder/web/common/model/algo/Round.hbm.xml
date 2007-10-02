@@ -7,11 +7,11 @@
 
     <class name="Round" table="round">
         <id name="id" column="round_id">
-            <generator class="com.topcoder.web.common.model.LegacyIdGenerator">
-                <param name="sequence">95</param>
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">ROUND_SEQ</param>
             </generator>
         </id>
-        <many-to-one name="contest" column="contest_id" class="Contest" access="field"/>
+        <many-to-one  name="contest" column="contest_id" class="Contest" access="field" cascade="save-update" />
 
         <property name="name" column="name" access="field"/>
         <property name="shortName" column="short_name" access="field"/>
@@ -21,6 +21,31 @@
         <property name="invitational" column="invitational" access="field"/>
         <many-to-one name="type" column="round_type_id" class="RoundType" access="field" fetch="join"/>
         <property name="rated" column="rated_ind" access="field"/>
+        
+        <set name="rooms" cascade="save-update" inverse="true" access="field">
+            <key column="round_id" not-null="true"/>
+            <one-to-many class="com.topcoder.web.common.model.algo.Room"/>
+        </set>
+        
+        <set name="roundProperties" cascade="save-update" inverse="true" access="field">
+            <key column="round_id" not-null="true"/>
+            <one-to-many class="com.topcoder.web.common.model.algo.RoundProperty"/>
+        </set>
+        
+        <set name="roundSegments" cascade="save-update" inverse="true" access="field">
+            <key column="round_id" not-null="true"/>
+            <one-to-many class="com.topcoder.web.common.model.algo.RoundSegment"/>
+        </set>
+
+        <set name="roundComponents" cascade="all-delete-orphan" inverse="true" access="field">
+            <key column="round_id" not-null="true"/>
+            <one-to-many class="com.topcoder.web.common.model.algo.RoundComponent"/>
+        </set>
+
+        <set name="languages" table="round_language" access="field">
+            <key column="round_id" not-null="true"/>
+            <many-to-many column="language_id" class="Language"/>
+        </set>
         
     </class>
 </hibernate-mapping>

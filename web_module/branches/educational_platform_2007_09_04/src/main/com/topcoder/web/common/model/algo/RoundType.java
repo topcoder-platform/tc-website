@@ -9,9 +9,10 @@ public class RoundType {
     public static final Integer HS_SRM = 17;
     public static final Integer SRM = 1;
     public static final Integer MARATHON = 13;
+    public static final Integer EDUCATION_ROUND_TYPE = 21;
 
     private Integer id;
-    private Integer description;
+    private String description;
 
     public RoundType() {
         
@@ -25,11 +26,11 @@ public class RoundType {
         this.id = id;
     }
 
-    public Integer getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Integer description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 }

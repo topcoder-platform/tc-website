@@ -2,7 +2,11 @@ package com.topcoder.web.common.dao.querytool;
 
 import com.topcoder.web.common.dao.*;
 import com.topcoder.web.common.dao.hibernate.ClassroomDAOHibernate;
+import com.topcoder.web.common.dao.hibernate.ComponentDAOHibernate;
+import com.topcoder.web.common.dao.hibernate.ContestDAOHibernate;
+import com.topcoder.web.common.dao.hibernate.LanguageDAOHibernate;
 import com.topcoder.web.common.dao.hibernate.ProfessorDAOHibernate;
+import com.topcoder.web.common.dao.hibernate.RoundTypeDAOHibernate;
 
 /**
  * @author pulky
@@ -203,6 +207,22 @@ public class DAOFactoryQueryTool implements DAOFactory {
     }
 
     public StudentClassroomDAO getStudentClassroomDAO() {
+        throw new RuntimeException("Not supported");
+    }
+    
+    public RoundTypeDAO getRoundTypeDAO() {
+        throw new RuntimeException("Not supported");
+    }
+    
+    public ContestDAO getContestDAO() {
+        throw new RuntimeException("Not supported");
+    }
+    
+    public ComponentDAO getComponentDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public LanguageDAO getLanguageDAO() {
         throw new RuntimeException("Not supported");
     }
 }

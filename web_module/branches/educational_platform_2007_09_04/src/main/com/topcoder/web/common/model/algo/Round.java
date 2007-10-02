@@ -1,12 +1,18 @@
 package com.topcoder.web.common.model.algo;
 
+import java.sql.Timestamp;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 import com.topcoder.web.common.model.Base;
 
 /**
- * @author cucu
+ * @author pulky
  */
 public class Round extends Base {
 
+    public static final String FUTURE_STATUS = "F";
     protected Long id = null;
     protected Contest contest = null;
     protected String name = null;
@@ -18,6 +24,21 @@ public class Round extends Base {
     protected RoundType type = null;
     protected Integer rated = null;
 
+    private Set<Room> rooms;
+    private Set<RoundProperty> roundProperties;
+    private Set<RoundSegment> roundSegments;
+    private Set<RoundComponent> roundComponents;
+    private Set<Language> languages;
+    
+    public Round() {
+        super();
+        this.rooms= new HashSet<Room>();
+        this.roundProperties = new HashSet<RoundProperty>();
+        this.roundSegments = new HashSet<RoundSegment>();
+        this.roundComponents = new HashSet<RoundComponent>();
+        this.languages = new HashSet<Language>();
+    }
+    
     public Contest getContest() {
         return contest;
     }
@@ -78,6 +99,102 @@ public class Round extends Base {
     public Long getRegistrationLimit() {
         return registrationLimit;
     }
+
+    public Set<RoundProperty> getRoundProperties() {
+        return Collections.unmodifiableSet(roundProperties);
+    }
+
+    public void setRoundProperties(Set<RoundProperty> roundProperties) {
+        this.roundProperties = roundProperties;
+    }
+    
+    public void addProperty(Integer propertyId, Object propertyValue) {
+        RoundProperty rp = new RoundProperty();
+        
+        rp.getId().setRound(this);
+        rp.getId().setTypeId(propertyId);
+        rp.setValue(propertyValue);
+        
+        this.roundProperties.add(rp);
+    }
+
+    public void editProperty(Integer propertyId, Object propertyValue) {
+        for (RoundProperty rp : this.roundProperties) {
+            if (rp.getId().getTypeId().equals(propertyId)) {
+                rp.setValue(propertyValue);                
+            }
+        }
+    }
+
+    public Set<RoundSegment> getRoundSegments() {
+        return Collections.unmodifiableSet(roundSegments);
+    }
+
+    public void setRoundSegments(Set<RoundSegment> roundSegments) {
+        this.roundSegments = roundSegments;
+    }
+
+    public void addSegment(RoundSegment rs) {
+        rs.getId().setRound(this);
+        this.roundSegments.add(rs);
+    }
+    
+    public void updateSegmentsDates(Timestamp startDate, Timestamp endDate) {
+        for (RoundSegment rs : this.roundSegments) {
+            if (!rs.getId().getSegmentId().equals(1)) {
+                rs.setStartTime(startDate);
+                rs.setEndTime(endDate);
+            }
+        }
+    }
+
+    public Set<RoundComponent> getRoundComponents() {
+        return Collections.unmodifiableSet(roundComponents);
+    }
+
+    public void setRoundComponents(Set<RoundComponent> roundComponents) {
+        this.roundComponents = roundComponents;
+    }
+
+    public void addComponent(RoundComponent rc) {
+        rc.getId().setRound(this);
+        this.roundComponents.add(rc);
+    }
+
+    public void removeRoundComponent(RoundComponent rc) {
+        if  (this.roundComponents.contains(rc)) {
+            this.roundComponents.remove(rc);
+        }
+    }
+
+    public Set<Language> getLanguages() {
+        return Collections.unmodifiableSet(languages);
+    }
+
+    public void setLanguages(Set<Language> languages) {
+        this.languages = languages;
+    }
+
+    public void addLanguage(Language language) {
+        this.languages.add(language);
+    }
+
+    public void clearLanguages() {
+        this.languages.clear();
+    }
+
+    public Set<Room> getRooms() {
+        return Collections.unmodifiableSet(rooms);
+    }
+
+    public void setRooms(Set<Room> rooms) {
+        this.rooms = rooms;
+    }
+
+    public void addRoom(Room r) {
+        this.rooms.add(r);
+    }
+
     /**
      * @param registrationLimit the registrationLimit to set
      */
@@ -144,6 +261,5 @@ public class Round extends Base {
             return false;
         return true;
     }
-
 
 }

@@ -1,21 +1,20 @@
 package com.topcoder.web.common.model.algo;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+
 import com.topcoder.web.common.model.Base;
 
 /**
- * @author cucu
+ * @author pulky
  */
-public class RoundSegment extends Base {
+public class RoundComponent extends Base {
 
-    public static final String FUTURE_STATUS = "F";
     protected Identifier id = new Identifier();
-    protected Timestamp startTime = null;
-    protected Timestamp endTime = null;
-    protected String status;
+    protected Integer divisionId = null;
+    protected Difficulty difficulty = null;
+    protected Double points = null;
 
-    public RoundSegment() {
+    public RoundComponent() {
     }
 
     public Identifier getId() {
@@ -25,36 +24,53 @@ public class RoundSegment extends Base {
     public void setId(Identifier id) {
         this.id = id;
     }
-
-    public Timestamp getEndTime() {
-        return endTime;
+    
+    /**
+     * @return the difficulty
+     */
+    public Difficulty getDifficulty() {
+        return difficulty;
     }
 
-    public void setEndTime(Timestamp endTime) {
-        this.endTime = endTime;
+    /**
+     * @param difficulty the difficulty to set
+     */
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
     }
 
-    public Timestamp getStartTime() {
-        return startTime;
+    /**
+     * @return the divisionId
+     */
+    public Integer getDivisionId() {
+        return divisionId;
     }
 
-    public void setStartTime(Timestamp startTime) {
-        this.startTime = startTime;
+    /**
+     * @param divisionId the divisionId to set
+     */
+    public void setDivisionId(Integer divisionId) {
+        this.divisionId = divisionId;
     }
 
-    public String getStatus() {
-        return status;
+    /**
+     * @return the points
+     */
+    public Double getPoints() {
+        return points;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    /**
+     * @param points the points to set
+     */
+    public void setPoints(Double points) {
+        this.points = points;
     }
-
-
+    
     public static class Identifier implements Serializable {
 
         private Round round = null;
-        private Long segmentId = null;
+        private Component component = null;
 
         public Identifier() {
 
@@ -77,18 +93,18 @@ public class RoundSegment extends Base {
 
 
         /**
-         * @return the segment
+         * @return the component
          */
-        public Long getSegmentId() {
-            return segmentId;
+        public Component getComponent() {
+            return component;
         }
 
 
         /**
-         * @param segment the segment to set
+         * @param component the segment to set
          */
-        public void setSegmentId(Long segmentId) {
-            this.segmentId = segmentId;
+        public void setComponent(Component component) {
+            this.component = component;
         }
 
         /* (non-Javadoc)
@@ -99,7 +115,7 @@ public class RoundSegment extends Base {
             final int PRIME = 31;
             int result = 1;
             result = PRIME * result + ((round == null) ? 0 : round.hashCode());
-            result = PRIME * result + ((segmentId == null) ? 0 : segmentId.hashCode());
+            result = PRIME * result + ((component == null) ? 0 : component.hashCode());
             return result;
         }
 
@@ -120,10 +136,10 @@ public class RoundSegment extends Base {
                     return false;
             } else if (!round.equals(other.round))
                 return false;
-            if (segmentId == null) {
-                if (other.segmentId != null)
+            if (component == null) {
+                if (other.component != null)
                     return false;
-            } else if (!segmentId.equals(other.segmentId))
+            } else if (!component.equals(other.component))
                 return false;
             return true;
         }
@@ -154,7 +170,7 @@ public class RoundSegment extends Base {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        final RoundSegment other = (RoundSegment) obj;
+        final RoundComponent other = (RoundComponent) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -162,4 +178,5 @@ public class RoundSegment extends Base {
             return false;
         return true;
     }
+
 }

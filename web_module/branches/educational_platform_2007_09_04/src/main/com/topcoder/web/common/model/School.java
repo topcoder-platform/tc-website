@@ -27,6 +27,7 @@ public class School extends Base {
 
     public School() {
         this.professorSchools = new HashSet<ProfessorSchool>();
+        this.classrooms = new HashSet<Classroom>();
     }
 
     public Long getId() {

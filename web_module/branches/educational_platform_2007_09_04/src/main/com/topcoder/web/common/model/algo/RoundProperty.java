@@ -15,8 +15,13 @@ import com.topcoder.web.common.model.Base;
  */
 public class RoundProperty extends Base {
 
+    public static final Integer CLASSROOM_ID = 1;
+    public static final Integer CODING_PHASE_LENGTH = 2;
+    public static final Integer SHOW_ALL_SCORES = 3;
+    public static final Integer SCORE_TYPE = 4;
+    
     protected Identifier id = new Identifier();
-    protected Integer intValue;
+    protected Long intValue;
     protected String stringValue;
 
     public RoundProperty() {
@@ -34,7 +39,7 @@ public class RoundProperty extends Base {
     public static class Identifier implements Serializable {
 
         private Round round = null;
-        private Long typeId = null;
+        private Integer typeId = null;
 
         public Identifier() {
 
@@ -60,7 +65,7 @@ public class RoundProperty extends Base {
         /**
          * @return the typeId
          */
-        public Long getTypeId() {
+        public Integer getTypeId() {
             return typeId;
         }
 
@@ -68,7 +73,7 @@ public class RoundProperty extends Base {
         /**
          * @param typeId the typeId to set
          */
-        public void setTypeId(Long typeId) {
+        public void setTypeId(Integer typeId) {
             this.typeId = typeId;
         }
 
@@ -118,14 +123,14 @@ public class RoundProperty extends Base {
     /**
      * @return the intValue
      */
-    public Integer getIntValue() {
+    public Long getIntValue() {
         return intValue;
     }
 
     /**
      * @param intValue the intValue to set
      */
-    public void setIntValue(Integer intValue) {
+    public void setIntValue(Long intValue) {
         this.intValue = intValue;
     }
 
@@ -141,6 +146,24 @@ public class RoundProperty extends Base {
      */
     public void setStringValue(String stringValue) {
         this.stringValue = stringValue;
+    }
+
+    public void setValue(Object propertyValue) {
+        switch (id.typeId){
+        // Todo: change to constants
+            case 1:
+                setIntValue((Long) propertyValue);
+                break;
+            case 2:
+                setIntValue((Long) propertyValue);
+                break;
+            case 3:
+                setIntValue((Long) propertyValue);
+                break;
+            case 4:
+                setIntValue((Long) propertyValue);
+                break;
+        }
     }
 }
 

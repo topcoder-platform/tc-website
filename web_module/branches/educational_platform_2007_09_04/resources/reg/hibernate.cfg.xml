@@ -119,9 +119,14 @@
         <mapping resource="com/topcoder/web/common/voting/Vote.hbm.xml"/>
 
 
+        <mapping resource="com/topcoder/web/common/model/algo/Component.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/Contest.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/Difficulty.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/Language.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/Problem.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/Room.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/Round.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/RoundComponent.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/RoundProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/RoundSegment.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/RoundType.hbm.xml"/>

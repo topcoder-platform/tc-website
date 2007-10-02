@@ -1,52 +1,34 @@
 package com.topcoder.web.common.model.algo;
 
-import java.sql.Timestamp;
-
-import com.topcoder.web.common.model.Base;
-
 /**
- * @author cucu
+ * @author pulky
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: Jun 4, 2007
  */
-public class Contest extends Base {
+public class Language {
+    private Integer id;
+    private String name;
 
-    public static final String FUTURE_STATUS = "F";
-    
-    protected Long id = null;
-    protected String name = null;
-    protected Timestamp startDate = null;
-    protected Timestamp endDate = null;
-    protected String status = null;
+    public Language() {
+        
+    }
 
-    public Timestamp getEndDate() {
-        return endDate;
-    }
-    public void setEndDate(Timestamp endDate) {
-        this.endDate = endDate;
-    }
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(Long id) {
+
+    public void setId(Integer id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
-    public Timestamp getStartDate() {
-        return startDate;
-    }
-    public void setStartDate(Timestamp startDate) {
-        this.startDate = startDate;
-    }
-    public String getStatus() {
-        return status;
-    }
-    public void setStatus(String status) {
-        this.status = status;
-    }
+
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */
@@ -58,6 +40,7 @@ public class Contest extends Base {
         result = PRIME * result + ((name == null) ? 0 : name.hashCode());
         return result;
     }
+
     /* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)
      */
@@ -69,7 +52,7 @@ public class Contest extends Base {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        final Contest other = (Contest) obj;
+        final Language other = (Language) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -82,6 +65,6 @@ public class Contest extends Base {
             return false;
         return true;
     }
-
+    
     
 }

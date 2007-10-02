@@ -6,7 +6,9 @@ import com.topcoder.web.common.dao.CoderDAO;
 import com.topcoder.web.common.dao.CoderTypeDAO;
 import com.topcoder.web.common.dao.CompContestDAO;
 import com.topcoder.web.common.dao.CompanyDAO;
+import com.topcoder.web.common.dao.ComponentDAO;
 import com.topcoder.web.common.dao.ContactDAO;
+import com.topcoder.web.common.dao.ContestDAO;
 import com.topcoder.web.common.dao.ContestPrizeDAO;
 import com.topcoder.web.common.dao.CountryDAO;
 import com.topcoder.web.common.dao.DAOFactory;
@@ -20,6 +22,7 @@ import com.topcoder.web.common.dao.FileTypeDAO;
 import com.topcoder.web.common.dao.ImageDAO;
 import com.topcoder.web.common.dao.IntroEventDAO;
 import com.topcoder.web.common.dao.IntroEventPropertyTypeDAO;
+import com.topcoder.web.common.dao.LanguageDAO;
 import com.topcoder.web.common.dao.MemberContactBlackListDAO;
 import com.topcoder.web.common.dao.MemberContactMessageDAO;
 import com.topcoder.web.common.dao.NotificationDAO;
@@ -34,6 +37,7 @@ import com.topcoder.web.common.dao.QuestionTypeDAO;
 import com.topcoder.web.common.dao.ReferralDAO;
 import com.topcoder.web.common.dao.RegistrationTypeDAO;
 import com.topcoder.web.common.dao.RoundDAO;
+import com.topcoder.web.common.dao.RoundTypeDAO;
 import com.topcoder.web.common.dao.SchoolDAO;
 import com.topcoder.web.common.dao.SchoolTypeDAO;
 import com.topcoder.web.common.dao.SeasonDAO;
@@ -246,5 +250,21 @@ public class DAOFactoryHibernate implements DAOFactory {
 
     public StudentClassroomDAO getStudentClassroomDAO() {
         return new StudentClassroomDAOHibernate();
+    }
+    
+    public RoundTypeDAO getRoundTypeDAO() {
+        return new RoundTypeDAOHibernate();
+    }
+    
+    public ContestDAO getContestDAO() {
+        return new ContestDAOHibernate();
+    }
+
+    public ComponentDAO getComponentDAO() {
+        return new ComponentDAOHibernate();
+    }
+
+    public LanguageDAO getLanguageDAO() {
+        return new LanguageDAOHibernate();
     }
 }

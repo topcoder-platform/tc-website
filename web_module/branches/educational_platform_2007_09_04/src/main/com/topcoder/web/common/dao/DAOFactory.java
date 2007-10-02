@@ -1,5 +1,8 @@
 package com.topcoder.web.common.dao;
 
+import com.topcoder.web.common.model.algo.Contest;
+import com.topcoder.web.common.model.algo.RoundType;
+
 
 /**
  * @author dok
@@ -102,4 +105,12 @@ public interface DAOFactory {
     ClassroomDAO getClassroomDAO();
 
     StudentClassroomDAO getStudentClassroomDAO();
+
+    RoundTypeDAO getRoundTypeDAO();
+
+    ContestDAO getContestDAO();
+
+    ComponentDAO getComponentDAO();
+
+    LanguageDAO getLanguageDAO();
 }

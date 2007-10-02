@@ -1,7 +1,7 @@
 /*
-* Room
+* Component
 *
-* Created Sep 24, 2007
+* Created Oct 1, 2007
 */
 package com.topcoder.web.common.model.algo;
 
@@ -11,41 +11,17 @@ import com.topcoder.web.common.model.Base;
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class Room  extends Base {
+public class Problem extends Base {
 
     protected Long id = null;
-    protected Round round = null;
     protected String name = null;
-    protected Integer divisionId = null;
-    protected Integer roomTypeId = null;
-    protected Integer eligible = null;
-    protected Integer unrated = null;
+    protected String problemText = null;
+    protected Integer problemTypeId = null;
+    protected Integer statusId = null;
+    protected Integer proposedDivisionId = null;
+    protected Difficulty proposedDifficulty = null;
 
     
-    /**
-     * @return the divisionId
-     */
-    public Integer getDivisionId() {
-        return divisionId;
-    }
-    /**
-     * @param divisionId the divisionId to set
-     */
-    public void setDivisionId(Integer divisionId) {
-        this.divisionId = divisionId;
-    }
-    /**
-     * @return the eligible
-     */
-    public Integer getEligible() {
-        return eligible;
-    }
-    /**
-     * @param eligible the eligible to set
-     */
-    public void setEligible(Integer eligible) {
-        this.eligible = eligible;
-    }
     /**
      * @return the id
      */
@@ -71,43 +47,65 @@ public class Room  extends Base {
         this.name = name;
     }
     /**
-     * @return the roomTypeId
+     * @return the problemText
      */
-    public Integer getRoomTypeId() {
-        return roomTypeId;
+    public String getProblemText() {
+        return problemText;
     }
     /**
-     * @param roomTypeId the roomTypeId to set
+     * @param problemText the problemText to set
      */
-    public void setRoomTypeId(Integer roomTypeId) {
-        this.roomTypeId = roomTypeId;
+    public void setProblemText(String problemText) {
+        this.problemText = problemText;
     }
     /**
-     * @return the round
+     * @return the problemTypeId
      */
-    public Round getRound() {
-        return round;
+    public Integer getProblemTypeId() {
+        return problemTypeId;
     }
     /**
-     * @param round the round to set
+     * @param problemTypeId the problemTypeId to set
      */
-    public void setRound(Round round) {
-        this.round = round;
+    public void setProblemTypeId(Integer problemTypeId) {
+        this.problemTypeId = problemTypeId;
     }
     /**
-     * @return the unrated
+     * @return the proposedDifficulty
      */
-    public Integer getUnrated() {
-        return unrated;
+    public Difficulty getProposedDifficulty() {
+        return proposedDifficulty;
     }
     /**
-     * @param unrated the unrated to set
+     * @param proposedDifficulty the proposedDifficulty to set
      */
-    public void setUnrated(Integer unrated) {
-        this.unrated = unrated;
+    public void setProposedDifficulty(Difficulty proposedDifficulty) {
+        this.proposedDifficulty = proposedDifficulty;
     }
-
-    
+    /**
+     * @return the proposedDivisionId
+     */
+    public Integer getProposedDivisionId() {
+        return proposedDivisionId;
+    }
+    /**
+     * @param proposedDivisionId the proposedDivisionId to set
+     */
+    public void setProposedDivisionId(Integer proposedDivisionId) {
+        this.proposedDivisionId = proposedDivisionId;
+    }
+    /**
+     * @return the statusId
+     */
+    public Integer getStatusId() {
+        return statusId;
+    }
+    /**
+     * @param statusId the statusId to set
+     */
+    public void setStatusId(Integer statusId) {
+        this.statusId = statusId;
+    }
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */
@@ -117,7 +115,6 @@ public class Room  extends Base {
         int result = 1;
         result = PRIME * result + ((id == null) ? 0 : id.hashCode());
         result = PRIME * result + ((name == null) ? 0 : name.hashCode());
-        result = PRIME * result + ((round == null) ? 0 : round.hashCode());
         return result;
     }
     /* (non-Javadoc)
@@ -131,7 +128,7 @@ public class Room  extends Base {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        final Room other = (Room) obj;
+        final Problem other = (Problem) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -141,11 +138,6 @@ public class Room  extends Base {
             if (other.name != null)
                 return false;
         } else if (!name.equals(other.name))
-            return false;
-        if (round == null) {
-            if (other.round != null)
-                return false;
-        } else if (!round.equals(other.round))
             return false;
         return true;
     }

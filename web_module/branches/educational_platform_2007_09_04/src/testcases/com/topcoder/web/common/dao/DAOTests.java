@@ -1,8 +1,9 @@
 package com.topcoder.web.common.dao;
 
-import com.topcoder.web.reg.TCHibernateTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
+
+import com.topcoder.web.reg.TCHibernateTestCase;
 
 /**
  * @author dok
@@ -13,9 +14,9 @@ public class DAOTests extends TCHibernateTestCase {
     public static Test suite() {
         final TestSuite suite = new TestSuite();
 
+
         suite.addTest(new TestSuite(EventDAOTestCase.class));
         suite.addTest(new TestSuite(EventRegistrationDAOTestCase.class));
-        suite.addTest(new TestSuite(UserDAOTestCase.class));
         suite.addTest(new TestSuite(CoderTypeDAOTestCase.class));
         suite.addTest(new TestSuite(NotificationDAOTestCase.class));
         suite.addTest(new TestSuite(StateDAOTestCase.class));
@@ -27,25 +28,39 @@ public class DAOTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(DemographicAssignmentDAOTestCase.class));
         suite.addTest(new TestSuite(CountryDAOTestCase.class));
         suite.addTest(new TestSuite(TermsOfUseDAOTestCase.class));
-        suite.addTest(new TestSuite(CoderDAOTestCase.class));
         suite.addTest(new TestSuite(ReferralDAOTestCase.class));
-        suite.addTest(new TestSuite(SchoolDAOTestCase.class));
         suite.addTest(new TestSuite(SecurityGroupDAOTestCase.class));
-        suite.addTest(new TestSuite(UserDAOTestCase.class));
-        suite.addTest(new TestSuite(UserDAOTestCase.class));
         suite.addTest(new TestSuite(PreferenceGroupDAOTestCase.class));
         suite.addTest(new TestSuite(PreferenceDAOTestCase.class));
         suite.addTest(new TestSuite(PreferenceValueDAOTestCase.class));
         suite.addTest(new TestSuite(UserPreferenceDAOTestCase.class));
 
-        suite.addTest(new TestSuite(CoderDAOTestCase.class));
         suite.addTest(new TestSuite(TimeZoneDAOTestCase.class));
         suite.addTest(new TestSuite(ContactDAOTestCase.class));
-        suite.addTest(new TestSuite(CompanyDAOTestCase.class));
         suite.addTest(new TestSuite(CompanyDAOTestCase.class));
         suite.addTest(new TestSuite(SchoolTypeDAOTestCase.class));
         suite.addTest(new TestSuite(DemographicAnswerDAOTestCase.class));
 
+        suite.addTest(new TestSuite(FileTypeDAOTestCase.class));
+        suite.addTest(new TestSuite(MemberContactBlackListDAOTestCase.class));
+        suite.addTest(new TestSuite(MemberContactMessageDAOTestCase.class));
+        suite.addTest(new TestSuite(QuestionStyleDAOTestCase.class));
+        suite.addTest(new TestSuite(QuestionTypeDAOTestCase.class));
+
+
+        suite.addTest(new TestSuite(UserDAOTestCase.class));
+        suite.addTest(new TestSuite(CoderDAOTestCase.class));
+        suite.addTest(new TestSuite(SchoolDAOTestCase.class));
+
+        suite.addTest(new TestSuite(ProfessorDAOTestCase.class));
+        suite.addTest(new TestSuite(ClassroomDAOTestCase.class));
+        suite.addTest(new TestSuite(RoundDAOTestCase.class));
+
+        //TODO:
+//        suite.addTest(new TestSuite(ContestDAOTestCase.class));
+//        suite.addTest(new TestSuite(StudentClassroomDAOTestCase.class));
+        
+        
         return suite;
     }
 }

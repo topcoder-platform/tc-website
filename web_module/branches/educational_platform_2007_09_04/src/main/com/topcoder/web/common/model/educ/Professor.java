@@ -38,6 +38,8 @@ import com.topcoder.web.common.model.User;
 @Table(name="professor")
 public class Professor extends Base {
 
+    public static final Integer ACTIVE_STATUS = 1;
+
     private Long id;
 
     private User user;
@@ -107,6 +109,12 @@ public class Professor extends Base {
         this.classrooms.add(classroom);
     }
 
+    public void removeClassroom(Classroom classroom) {
+        if (this.classrooms.contains(classroom)){
+            this.classrooms.remove(classroom);
+        }
+    }
+    
     @Transient
     public Set<Coder> getStudents(School s) {
         Set<Coder> cs = new HashSet<Coder>();
@@ -156,5 +164,43 @@ public class Professor extends Base {
         }
         return false;
     }
+
+    @Transient
+    public void addProfessorSchools(ProfessorSchool ps) {
+        ps.getId().setProfessor(this);
+        this.professorSchools.add(ps);
+    }
+
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = 1;
+        result = PRIME * result + ((id == null) ? 0 : id.hashCode());
+        result = PRIME * result + ((user == null) ? 0 : user.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Professor other = (Professor) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        if (user == null) {
+            if (other.user != null)
+                return false;
+        } else if (!user.equals(other.user))
+            return false;
+        return true;
+    }
+
     
 }
