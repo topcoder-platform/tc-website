@@ -7,6 +7,9 @@ package com.topcoder.web.ep.controller;
 
 import java.util.MissingResourceException;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
@@ -15,6 +18,8 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
@@ -30,10 +35,6 @@ import com.topcoder.web.reg.controller.RegServlet;
  */
 public class EPServlet extends BaseServlet {
     private final static Logger log = Logger.getLogger(RegServlet.class);
-
-    protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
-        return true;
-    }
 
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
@@ -63,4 +64,22 @@ public class EPServlet extends BaseServlet {
         return ret;
     }
 
+    protected void handleException(HttpServletRequest request, HttpServletResponse response, Throwable e) throws Exception {
+        log.error("caught exception, forwarding to error page", e);
+        if (e instanceof PermissionException) {
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            request.setAttribute(MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.  Please confirm that you are a member of TopCoder Studio.");
+        } else if (e instanceof NavigationException) {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            request.setAttribute(MESSAGE_KEY, e.getMessage());
+            if (((NavigationException) e).hasUrl())
+                request.setAttribute(URL_KEY, ((NavigationException) e).getUrl());
+        } else {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            request.setAttribute(MESSAGE_KEY, "An error has occurred when attempting to process your request.");
+        }
+        request.setAttribute("exception", e);
+        fetchRegularPage(request, response, ERROR_PAGE, true);
+    }
+    
 }
