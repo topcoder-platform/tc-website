@@ -36,27 +36,27 @@
 </jsp:include>
 
 <span class="bigTitle">Overview</span>
-<br><br>
-<span class="bodySubtitle">Most recent articles:</span><br>
+<br /><br />
+<span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
-<li><a href="/tc?module=Static&d1=features&d2=092707"><strong>Know your hero: marek.cygan</strong></a>, by <tc-webtag:handle coderId="8472826" context="algorithm"/><br>
+<li><a href="/tc?module=Static&d1=features&d2=100207"><strong>TCCC07: By the numbers</strong></a><br />
+With the addition of four alternates to the Component Design and Development finals, this year's TopCoder Collegiate Challenge gives us that many more numbers to play with. A total of 3,426 competitors registered for this year's TCCC, a slight up-tick from last year's 3,317. Here's how the TCCC07 crop of competitors breaks down, based on some different comparisons.</li>
+<li><a href="/tc?module=Static&d1=features&d2=092707"><strong>Know your hero: marek.cygan</strong></a>, by <tc-webtag:handle coderId="8472826" context="algorithm"/><br />
 This issue of the 'Know Your Hero' interview series features Marek Cygan (TopCoder handle: <tc-webtag:handle coderId="7442498" context="algorithm"/>). <tc-webtag:handle coderId="7442498" context="algorithm"/> has recently become a target in Algorithm competition and, after SRM 366, he has become the highest rated coder from Poland (breaking <tc-webtag:handle coderId="144400" context="algorithm"/>'s long-standing domination).</li>
-<li><a href="/tc?module=Static&d1=features&d2=092407"><strong>Introducing TopCoder's &quot;Iron Man&quot;</strong></a><br>
+<li><a href="/tc?module=Static&d1=features&d2=092407"><strong>Introducing TopCoder's &quot;Iron Man&quot;</strong></a><br />
 On September 9, 2005, during <a href="/stat?c=round_overview&er=5&rd=7996">SRM 262</a>, <tc-webtag:handle coderId="8511003" context="algorithm"/> began a remarkable streak. Fueled by a desire to compete in every match that he could, he has now competed in a record 100 consecutive SRMs, and he's still going strong.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=disjointDataStructure"><strong>Disjoint-set Data Structures</strong></a>, by <tc-webtag:handle coderId="13298470" context="algorithm"/><br>
-The right data structure can reduce the time of execution, the time to implement the algorithm, and the amount of memory used. In this article, we'll focus on data structures for disjoint sets.</li>
 </ul>
-<span class="bodySubtitle">From the archives: </span><br>
+<span class="bodySubtitle">From the archives: </span><br />
 <ul>
-<li><A href="/tc?module=Static&d1=features&d2=100506"><strong>TopCoder @ Work: Incorporating new technologies</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
+<li><A href="/tc?module=Static&d1=features&d2=100506"><strong>TopCoder @ Work: Incorporating new technologies</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br />
 The situation: The boss has just returned from a technology conference, no doubt full of torturous new ideas. You perspire in your seat, waiting for the inevitable conversation. What twisted brand of innovation will he force upon your project today? Last year's mandatory integration of XML over HTTP launched the development team into long weekends of unpaid overtime, as "unanticipated" browser compatibility issues plagued your flagship product.</ul>
-<br>
-<span class="bodySubtitle">Tell us what you'd like to learn!</span><br>
+<br />
+<span class="bodySubtitle">Tell us what you'd like to learn!</span><br />
 Got ideas for educational content you'd like to see? Post your idea in <A href="http://forums.topcoder.com/?module=ThreadList&forumID=505803">the forum</A> for members to discuss, or send an email with your idea to <A href="mailto:editorial@topcoder.com">editorial@topcoder.com</A>.
-<br><br>
-<span class="bodySubtitle">Write for TopCoder!</span><br>
+<br /><br />
+<span class="bodySubtitle">Write for TopCoder!</span><br />
 Got knowledge you'd like to share? Check out our <A href="/tc?module=Static&d1=help&d2=writeForTC">writing guidelines</A> for suggested topics and payment details, or send an email with your idea to <A href="mailto:editorial@topcoder.com">editorial@topcoder.com</A>.
-<br><br>
+<br /><br />
 
         </td>
 <!-- Center Column Ends -->
