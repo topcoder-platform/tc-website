@@ -6,8 +6,6 @@
 package com.topcoder.web.ep.controller.request.student;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -20,8 +18,6 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.Professor;
-import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.Base;
 
@@ -38,20 +34,12 @@ public class SelectClassroom extends Base {
      */
     @Override
     protected void dbProcessing() throws Exception {
-        if (log.isDebugEnabled()) {
-            log.debug("Select school called...");
-            if (getActiveUser() == null) {
-                log.debug("user is null");
-            } else if (getActiveUser().isNew()) {
-                log.debug("user is new");
-            } else {
-                log.debug("handle : " + getActiveUser().getHandle());
-                log.debug("name: " + getActiveUser().getFirstName() + " " + getActiveUser().getLastName());
-            }
-        }
-        if (getActiveUser() == null) {
+        User u = getActiveUser(); 
+        if (u == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
-        } else if (userLoggedIn()) {
+        } else if (u.isProfessor()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        } else {
             setIsNextPageInContext(true);
             if (!"POST".equals(getRequest().getMethod())) {
                 log.debug("First pass - " + getUser().getUserName());
@@ -63,7 +51,7 @@ public class SelectClassroom extends Base {
                 setSchool(s);
     
                 // set possible classrooms
-                setPossibleClassrooms(s);            
+                setPossibleClassrooms(s, u);            
                 
                 setNextPage("/student/selectClassroom.jsp");
             } else {
@@ -93,24 +81,20 @@ public class SelectClassroom extends Base {
                 }
 
                 if (hasErrors()) {
-                    setPossibleClassrooms(getSchool());            
+                    setPossibleClassrooms(getSchool(), u);            
                     setNextPage("/student/selectClassroom.jsp");
                 } else {
                     setNextPage("/student/selfRegisterConfirm.jsp");
                 }
             }
-        } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }        
     }
 
     /**
      * @param s
      */
-    private void setPossibleClassrooms(School s) {
+    private void setPossibleClassrooms(School s, User u) {
         // include only non-registered classrooms
-        User u = getActiveUser();
-
         Set<Classroom> sc = s.getClassrooms();
         for (Classroom c : u.getCoder().getClassrooms()) {
             if (sc.contains(c)) {

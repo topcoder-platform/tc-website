@@ -8,7 +8,6 @@ package com.topcoder.web.ep.controller.request.student;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.ep.controller.request.Base;
 
 /**
@@ -24,26 +23,16 @@ public class SelectSchool extends Base {
      */
     @Override
     protected void dbProcessing() throws Exception {
-//        log.debug("Self registration called...");
-//        if (userIdentified()) {
-//            log.debug("User identified - " + getUser().getUserName());
-            
-            // TODO: only students
-            
+            log.debug("User identified - " + getUser().getUserName());
+
             // prepare stuff for the long transaction
             clearSession();
 
-            //set up the user object we're gonna use
-            User u = getActiveUser();
-            if (u == null) {
-                u = new User();
-                setActiveUser(u);
+            if (getActiveUser().isProfessor()) {
+                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
             
             setNextPage("/student/selectSchool.jsp");
             setIsNextPageInContext(true);            
-//        } else {
-//            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-//        }        
     }
 }
