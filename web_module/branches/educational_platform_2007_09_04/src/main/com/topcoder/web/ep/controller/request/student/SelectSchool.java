@@ -24,9 +24,9 @@ public class SelectSchool extends Base {
      */
     @Override
     protected void dbProcessing() throws Exception {
-        log.debug("Self registration called...");
-        if (userIdentified()) {
-            log.debug("User identified - " + getUser().getUserName());
+//        log.debug("Self registration called...");
+//        if (userIdentified()) {
+//            log.debug("User identified - " + getUser().getUserName());
             
             // TODO: only students
             
@@ -42,8 +42,8 @@ public class SelectSchool extends Base {
             
             setNextPage("/student/selectSchool.jsp");
             setIsNextPageInContext(true);            
-        } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        }        
+//        } else {
+//            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+//        }        
     }
 }
