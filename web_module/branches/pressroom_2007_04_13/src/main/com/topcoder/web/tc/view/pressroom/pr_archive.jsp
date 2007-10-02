@@ -18,281 +18,281 @@
 </jsp:include>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
-<!-- Left Column Begins-->
+<%-- Left Column Begins --%>
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="node" value="press_room"/>
             </jsp:include>
         </td>
-<!-- Left Column Ends -->
+<%-- Left Column ends --%>
 
-<!-- Center Column Begins -->
+<%-- Center Column begins --%>
         <td width="100%" align="center">
             
-            <div id="pressContainer">
-                <!-- Press Room Banner -->
-                <div id="pressRoom">
-                    <img class="floatR" src="/i/pressroom/press_banner_newspaper.png" alt="Press Room Banner Newspaper" />
-                    <div id="pressRoom2">
-                        <img class="floatL" src="/i/pressroom/press_banner_logo.png" alt="Press Room Banner Logo" />
-                    </div>
+            <div class="fixedWidth700Body">
+<%-- YOUR WORK GOES HERE --%>
+
+<%-- pr_wrapper begin --%>
+<div id="pr_wrapper">
+
+    <%-- pr_header begin --%>
+    <div id="pr_header">
+        <h1><a href="/tc?module=Static&d1=pressroom&d2=index" name="pr_top">Press Room</a></h1>
+    </div>
+    <%-- pr_header end --%>
+    
+    <%-- pr_menu begin --%>
+    <div id="pr_menu">
+        <ul>
+        <li><a href="/tc?module=Static&d1=pressroom&d2=index" title="Current News"><span>Current News</span></a></li>
+        <li id="pr_menuactive"><a href="/tc?module=Static&d1=pressroom&d2=pr_archive" title="Press Release Archive"><span>Press Release Archive</span></a></li>
+        <li><a href="/tc?module=Static&d1=pressroom&d2=mediaResources" title="Media Resources"><span>Media Resources</span></a></li>
+        <li><a href="/tc?module=Static&d1=pressroom&d2=mediaRequestForm" title="Media Request Form"><span>Media Request Form</span></a></li>
+        <li><a href="/tc?module=Static&d1=pressroom&d2=art_archive" title="Media Articles Archive"><span>Media Articles Archive</span></a></li>
+        </ul>
+    </div>
+    <%-- pr_menu end --%>
+    <div class="pr_clear"></div>
+    
+    
+    <%-- content rounded frame wrapper --%>
+    <div id="pr_frame"><div id="pr_frame2"><div id="pr_frame3">
+        
+        <div id="pr_content">
+        
+            <%-- Yearly Sub Content Container --%>
+            <div class="pr_subheader">
+                <h2><span>2007</span></h2>
+            </div>
+            
+            <%-- pr_border creation --%>
+            <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
+                <div class="pr_newsarchive">
+                    <h3>Division</h3>
+                    
+                    <dl>
+                    <dt>TCO (TopCoder Open)</dt>
+                    <dd><a href="#">TopCoder Announced TopCoder Open 2007 Sponsored by AOL. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>TCHS (TopCoder High School)</dt>
+                    <dd><a href="#">Registration Opens for First TopCoder High School Global Programming Tournament. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>TCCC (TopCoder Collegiate Challenge)</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>Corporate</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>Software</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <h3>Function</h3>
+                    
+                    <dl>
+                    <dt>Legal</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>Financial</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>Client Wins</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
                 </div>
                 
-                <div id="pressContainer2">
-                    <!-- Navigation Tabs -->
-                    <div id="tabHeader">
-                        <ul>
-                            <li><a href="/tc?module=Static&d1=pressroom&d2=index">Current News</a></li>
-                            <li id="tabCurrent"><a href="/tc?module=Static&d1=pressroom&d2=pr_archive">Press Releases Archive</a></li>
-                            <li><a href="/tc?module=Static&d1=pressroom&d2=media_resources">Media Resources</a></li>
-                            <li><a href="/tc?module=Static&d1=pressroom&d2=media_request_form">Media Request Form</a></li>
-                            <li><a href="/tc?module=Static&d1=pressroom&d2=art_archive">Media Articles Archive</a></li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Press Releases Archive -->
-                    <div>
-                        <!-- 2007 begins -->
-                        <div id="pressContainer3">
-                            <div id="headerYear">
-                                <img class="floatR" src="/i/pressroom/header_right.png" alt="Right Header" />
-                                <div id="headerYear2">
-                                    <img class="floatL" src="/i/pressroom/header_2007_left.png" alt="2007 Header" />
-                                </div>
-                            </div>
-                            <div id="pressContainer4">
-                                <!-- DIVISION begins -->
-                                <p class="chevronHeader"><span class="maroon">>> </span>DIVISION</p>
-                                <div style="padding-left:20px;">
-                                    <ul><span class="maroonHeader">TCO (TopCoder Open)</span>
-                                        <li><a href="">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">TCHS (TopCoder High School)</span>
-                                        <li><a href="">Registration Opens for First TopCoder High School Global Programming Tournament</a><span class="dateBracket">&nbsp;&nbsp;[February 13]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 11]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 9]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">TCCC (TopCoder Collegiate Challenge)</span>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 18]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">Corporate</span>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 15]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 14]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 13]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">Software</span>
-                                        <li><a href="">Connected Services Sandbox Launches</a><span class="dateBracket">&nbsp;&nbsp;[February 12]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 10]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 8]</span></li>
-                                    </ul>
-                                </div>
-                                <!-- DIVISION ends -->
-        
-                                <!-- FUNCTION begins -->
-                                <p class="chevronHeader"><span class="maroon">>> </span>FUNCTION</p>
-                                <div style="padding-left:20px;">
-                                    <ul><span class="maroonHeader">Legal</span>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 9]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 8]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 7]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">Financial</span>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 6]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 5]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 4]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">Client Wins</span>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 3]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 2]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 1]</span></li>
-                                    </ul>
-                                </div>
-                                <!-- FUNCTION ends -->
-                            </div>
-                            <!-- Back to Top Button begins -->
-                            <div class="topButton">
-                                <a href=""><img src="/i/pressroom/top_button.png" alt="Back to Top" /></a>
-                            </div>
-                            <!-- Back to Top Button ends-->
-                            
-                            <div id="headerYearFooter">
-                                <img class="floatR" src="/i/pressroom/year_footer_right.png" alt="Right Footer" />
-                                <div id="headerYearFooter2">
-                                    <img class="floatL" src="/i/pressroom/year_footer_left.png" alt="Left Footer" />
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 2007 ends -->
-                        
-                        <!-- 2006 Begins -->
-                        <div id="pressContainer3">
-                            <div id="headerYear">
-                                <img class="floatR" src="/i/pressroom/header_right.png" alt="Right Header" />
-                                <div id="headerYear2">
-                                    <img class="floatL" src="/i/pressroom/header_2006_left.png" alt="2006 Header" />
-                                </div>
-                            </div>
-                            <div id="pressContainer4">
-                                <!-- DIVISION Begins -->
-                                <p class="chevronHeader"><span class="maroon">>> </span>DIVISION</p>
-                                <div style="padding-left:20px;">
-                                    <ul><span class="maroonHeader">TCO (TopCoder Open)</span>
-                                        <li><a href="">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">TCHS (TopCoder High School)</span>
-                                        <li><a href="">Registration Opens for First TopCoder High School Global Programming Tournament</a><span class="dateBracket">&nbsp;&nbsp;[February 13]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 11]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 9]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">TCCC (TopCoder Collegiate Challenge)</span>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 18]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">Corporate</span>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 15]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 14]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 13]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">Software</span>
-                                        <li><a href="">Connected Services Sandbox Launches</a><span class="dateBracket">&nbsp;&nbsp;[February 12]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 10]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 8]</span></li>
-                                    </ul>
-                                </div>
-                                <!-- DIVISION Ends -->
-        
-                                <!-- FUNCTION Begins -->
-                                <p class="chevronHeader"><span class="maroon">>> </span>FUNCTION</p>
-                                <div style="padding-left:20px;">
-                                    <ul><span class="maroonHeader">Legal</span>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 9]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 8]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 7]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">Financial</span>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 6]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 5]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 4]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">Client Wins</span>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 3]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 2]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 1]</span></li>
-                                    </ul>
-                                </div>
-                                <!-- FUNCTION Ends -->
-                            </div>
-                            <!-- Back to Top Button begins -->
-                            <div class="topButton">
-                                <a href=""><img src="/i/pressroom/top_button.png" alt="Back to Top" /></a>
-                            </div>
-                            <!-- Back to Top Button ends-->
-                            
-                            <div id="headerYearFooter">
-                                <img class="floatR" src="/i/pressroom/year_footer_right.png" alt="Right Footer" />
-                                <div id="headerYearFooter2">
-                                    <img class="floatL" src="/i/pressroom/year_footer_left.png" alt="Left Footer" />
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 2006 Ends -->
-                        
-                        <!-- 2005 Begins -->
-                        <div id="pressContainer3">
-                            <div id="headerYear">
-                                <img class="floatR" src="/i/pressroom/header_right.png" alt="Right Header" />
-                                <div id="headerYear2">
-                                    <img class="floatL" src="/i/pressroom/header_2005_left.png" alt="2005 Header" />
-                                </div>
-                            </div>
-                            <div id="pressContainer4">
-                                <!-- DIVISION Begins -->
-                                <p class="chevronHeader"><span class="maroon">>> </span>DIVISION</p>
-                                <div style="padding-left:20px;">
-                                    <ul><span class="maroonHeader">TCO (TopCoder Open)</span>
-                                        <li><a href="">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">TCHS (TopCoder High School)</span>
-                                        <li><a href="">Registration Opens for First TopCoder High School Global Programming Tournament</a><span class="dateBracket">&nbsp;&nbsp;[February 13]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 11]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 9]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">TCCC (TopCoder Collegiate Challenge)</span>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 18]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">Corporate</span>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 15]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 14]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 13]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">Software</span>
-                                        <li><a href="">Connected Services Sandbox Launches</a><span class="dateBracket">&nbsp;&nbsp;[February 12]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 10]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 8]</span></li>
-                                    </ul>
-                                </div>
-                                <!-- DIVISION Ends -->
-        
-                                <!-- FUNCTION Begins -->
-                                <p class="chevronHeader"><span class="maroon">>> </span>FUNCTION</p>
-                                <div style="padding-left:20px;">
-                                    <ul><span class="maroonHeader">Legal</span>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 9]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 8]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 7]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">Financial</span>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 6]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 5]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 4]</span></li>
-                                    </ul>
-                                    <ul><span class="maroonHeader">Client Wins</span>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 3]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 2]</span></li>
-                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 1]</span></li>
-                                    </ul>
-                                </div>
-                                <!-- FUNCTION Ends -->
-                            </div>
-                            <!-- Back to Top Button begins -->
-                            <div class="topButton">
-                                <a href=""><img src="/i/pressroom/top_button.png" alt="Back to Top" /></a>
-                            </div>
-                            <!-- Back to Top Button ends-->
-                            
-                            <div id="headerYearFooter">
-                                <img class="floatR" src="/i/pressroom/year_footer_right.png" alt="Right Footer" />
-                                <div id="headerYearFooter2">
-                                    <img class="floatL" src="/i/pressroom/year_footer_left.png" alt="Left Footer" />
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 2005 Ends -->
-                    </div>
-                </div>
+                <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
+                <div class="pr_clear"></div>
+                
+            </div></div></div>
+            <%-- Yearly Container end --%>
+            
+            
+            <%-- Yearly Sub Content Container --%>
+            <div class="pr_subheader">
+                <h2><span>2006</span></h2>
             </div>
-        </td>
-<!-- Center Column Ends -->
+            
+            <%-- pr_border creation --%>
+            <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
+                <div class="pr_newsarchive">
+                    <h3>Division</h3>
+                    
+                    <dl>
+                    <dt>TCO (TopCoder Open)</dt>
+                    <dd><a href="#">TopCoder Announced TopCoder Open 2007 Sponsored by AOL. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>TCHS (TopCoder High School)</dt>
+                    <dd><a href="#">Registration Opens for First TopCoder High School Global Programming Tournament. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>TCCC (TopCoder Collegiate Challenge)</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>Corporate</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>Software</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <h3>Function</h3>
+                    
+                    <dl>
+                    <dt>Legal</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>Financial</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>Client Wins</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                </div>
+                
+                <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
+                <div class="pr_clear"></div>
+                
+            </div></div></div>
+            <%-- Yearly Container end --%>
+            
+            
+            <%-- Yearly Sub Content Container --%>
+            <div class="pr_subheader">
+                <h2><span>2006</span></h2>
+            </div>
+            
+            <%-- pr_border creation --%>
+            <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
+                <div class="pr_newsarchive">
+                    <h3>Division</h3>
+                    
+                    <dl>
+                    <dt>TCO (TopCoder Open)</dt>
+                    <dd><a href="#">TopCoder Announced TopCoder Open 2007 Sponsored by AOL. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>TCHS (TopCoder High School)</dt>
+                    <dd><a href="#">Registration Opens for First TopCoder High School Global Programming Tournament. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>TCCC (TopCoder Collegiate Challenge)</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>Corporate</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>Software</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <h3>Function</h3>
+                    
+                    <dl>
+                    <dt>Legal</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>Financial</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                    
+                    <dl>
+                    <dt>Client Wins</dt>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    </dl>
+                </div>
+                
+                <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
+                <div class="pr_clear"></div>
+                
+            </div></div></div>
+            <%-- Yearly Container end --%>
 
-<!-- Right Column Begins -->
+            
+        </div>
+        <%-- pr_content end --%>
+        
+    </div></div></div>
+    <%-- pr_frame_inner pr_frame --%>
+
+</div>
+<%-- pr_wrapper end --%>
+
+<%-------------------------%>
+            </div>
+            
+        </td>
+<%-- Center Column ends --%>
+
+<%-- Right Column begins --%>
         <td width="170">
             <jsp:include page="../public_right.jsp">
                 <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
         </td>
-<!-- Right Column Ends -->
+<%-- Right Column ends --%>
 
-<!-- Gutter -->
+<%-- Gutter --%>
         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<!-- Gutter Ends -->
+<%-- Gutter ends --%>
     </tr>
 </table>
 
