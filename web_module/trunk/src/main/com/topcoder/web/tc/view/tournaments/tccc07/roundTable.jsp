@@ -25,7 +25,7 @@
             <div id="pageBody">
 
                 <h1><span>2007 TopCoder Collegiate Challenge Roundtable</span></h1>
-                <div align="right"><tc-webtag:forumLink forumID="586767" message="Discuss this" /></div>
+                <div align="right"><a href="http://forums.topcoder.com/?module=Thread&threadID=586767">Discuss this</a></div>
                 
                 <h2>Designing Software for Reuse</h2>
                 
