@@ -50,7 +50,8 @@
         round_id == 9992 || round_id == 9999 || round_id == 10004 || round_id == 9995 || round_id == 10005 ||
         round_id == 10002 || round_id == 10659 || round_id == 10663 || round_id == 10665 || round_id == 10669 ||
         round_id == 10674 || round_id == 10664 || round_id == 10666 || round_id == 10669 || round_id == 10712 || round_id == 10710 ||
-	round_id == 10675 || round_id == 10711 || round_id == 10766 || round_id == 10770 ) { %>
+	round_id == 10675 || round_id == 10711 || round_id == 10766 || round_id == 10770 || round_id == 10787 ||
+	round_id == 10778 ) { %>
                                 <span class="bigRed">
                                     <b>
                                         <rsc:item name="contest_name" row="<%=rsr%>"/>
