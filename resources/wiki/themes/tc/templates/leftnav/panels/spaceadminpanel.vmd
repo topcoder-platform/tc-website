@@ -29,12 +29,10 @@
             <div class="navmenu">
                 #set ($location = "system.space.admin")
                 $generalUtil.profilePush($location)
-                #foreach ($section in $action.webInterfaceManager.getDisplayableSections($location, $action.remoteUser,
-                $helper))
+                #foreach ($section in $action.webInterfaceManager.getDisplayableSections($location, $action.remoteUser,$helper))
                 #set ($sectionKey = "$location/$section.key")
                 $generalUtil.profilePush($sectionKey)
-                #set ($displayableItems = $action.webInterfaceManager.getDisplayableItems($sectionKey,
-                $action.remoteUser, $helper))
+                #set ($displayableItems = $action.webInterfaceManager.getDisplayableItems($sectionKey,$action.remoteUser, $helper))
 
                 #if (!$displayableItems.isEmpty())
                 #if ($section.label.key)
