@@ -91,9 +91,7 @@
 
                     ## EDIT || PREVIEW-EDIT
                     #elseif ($mode == "edit" || $mode == "edit-preview")
-            <div id="editpage">
                         $body
-                </div>
 
                     ## INFO
                     #elseif ($mode == "view-information")
