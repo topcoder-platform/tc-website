@@ -635,6 +635,7 @@ decorator=printable" rel="nofollow"><img src="$req.contextPath/images/icons/prin
     </script>
 
     ## we can only serve main-action.css as a cacheable web resource when the webResourceManager is present
+#* TC, wacking this css stuff, we'll just use nick's
     #if ($webResourceManager)
         #if ($sitemeshPage.getProperty("page.spacekey"))
             <link rel="stylesheet" href="${webResourceManager.getSpaceCssPrefix($sitemeshPage.getProperty("page.spacekey"))}/styles/main-action.css?spaceKey=$sitemeshPage.getProperty("page.spacekey")" type="text/css" />
@@ -644,13 +645,17 @@ decorator=printable" rel="nofollow"><img src="$req.contextPath/images/icons/prin
     #else
         <link rel="stylesheet" href="$req.contextPath/styles/main-action.css" type="text/css" />
     #end
+*#
 
     #if (!$sitemeshPage.getProperty("page.allowindex"))
         <meta name="robots" content="noindex,nofollow">
         <meta name="robots" content="noarchive">
     #end
+
+#* TC we already have a favicon
     <link rel="shortcut icon" href="$req.contextPath/images/icons/favicon.ico">
     <link rel="icon" type="image/png" href="$req.contextPath/images/icons/favicon.png">
+*#    
     #includeJavascript('/decorators/effects.js')
 
 
