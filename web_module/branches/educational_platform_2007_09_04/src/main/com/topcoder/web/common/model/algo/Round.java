@@ -29,7 +29,9 @@ public class Round extends Base {
     private Set<RoundSegment> roundSegments;
     private Set<RoundComponent> roundComponents;
     private Set<Language> languages;
-    
+
+    private Set<ComponentState> componentStates;
+
     public Round() {
         super();
         this.rooms= new HashSet<Room>();
@@ -37,6 +39,7 @@ public class Round extends Base {
         this.roundSegments = new HashSet<RoundSegment>();
         this.roundComponents = new HashSet<RoundComponent>();
         this.languages = new HashSet<Language>();
+        this.componentStates = new HashSet<ComponentState>();
     }
     
     public Contest getContest() {
@@ -214,6 +217,20 @@ public class Round extends Base {
     public void setType(RoundType type) {
         this.type = type;
     }
+    /**
+     * @return the componentStates
+     */
+    public Set<ComponentState> getComponentStates() {
+        return componentStates;
+    }
+
+    /**
+     * @param componentStates the componentStates to set
+     */
+    public void setComponentStates(Set<ComponentState> componentStates) {
+        this.componentStates = componentStates;
+    }
+
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */

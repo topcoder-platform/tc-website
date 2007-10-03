@@ -1,5 +1,8 @@
 package com.topcoder.web.common.dao;
 
+import java.util.List;
+
+import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.educ.Classroom;
 
 /**
@@ -9,4 +12,6 @@ import com.topcoder.web.common.model.educ.Classroom;
  */
 public interface ClassroomDAO extends GenericDAO<Classroom, Long> {
 
+    public List<Round> getAssignments(Long classroomId);
+    
 }

@@ -17,8 +17,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -53,7 +51,7 @@ public class Classroom {
     public Classroom() {
         this.studentClassrooms = new HashSet<StudentClassroom>();
     }
-
+    
     @GenericGenerator(name="generator", strategy="com.topcoder.web.common.model.IdGenerator", parameters=@Parameter(name="sequence_name", value="CLASSROOM_SEQ"))@Id @GeneratedValue(generator="generator")
     @Column(name="classroom_id", nullable=false)
     public Long getId() {

@@ -1,6 +1,12 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import java.util.List;
+
+import org.hibernate.criterion.Restrictions;
+
 import com.topcoder.web.common.dao.ClassroomDAO;
+import com.topcoder.web.common.model.algo.Round;
+import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.educ.Classroom;
  
 
@@ -11,4 +17,12 @@ import com.topcoder.web.common.model.educ.Classroom;
  */
 public class ClassroomDAOHibernate extends GenericBase<Classroom, Long> implements ClassroomDAO {
 
+    public List<Round> getAssignments(Long classroomId) {
+        return getSession().createCriteria(Round.class)
+            .createCriteria("roundProperties")
+            .add(Restrictions.eq("id.typeId", RoundProperty.CLASSROOM_ID))
+            .add(Restrictions.eq("intValue", classroomId))
+            .list();
+    }
+    
 }
