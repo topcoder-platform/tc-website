@@ -233,19 +233,19 @@ public class ArenaHelper implements ArenaServices {
         List<RoundComponent> removeList = new ArrayList<RoundComponent>();
         // first remove deleted components
         for (RoundComponent rc : r.getRoundComponents()) {
-            if (!components.contains(rc.getId())) {
+            if (!components.contains(rc.getId().getComponent().getId())) {
                 // removeit
                 removeList.add(rc);
             } else {
                 // update
                 //Component updateComponent = components.get(components.indexOf(rc.getId().getComponent()));
-                Double updatePoints = points.get(components.indexOf(rc.getId()));
+                Double updatePoints = points.get(components.indexOf(rc.getId().getComponent().getId()));
                 
                 rc.setPoints(updatePoints != null ? updatePoints : rc.getId().getComponent().getProblem().getProposedDifficulty().getPointValue());
                 
                 // take them out from the list
-                points.remove(components.indexOf(rc.getId()));
-                components.remove(rc.getId());
+                points.remove(components.indexOf(rc.getId().getComponent().getId()));
+                components.remove(rc.getId().getComponent().getId());
             }
         }
 
