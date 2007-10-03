@@ -77,6 +77,7 @@
                 <p id="secondaryNav">
                     <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about"<% if (tabLev2.equals("details")) {%> class="on"<% } %>>Details</a>
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule"<% if (tabLev2.equals("joinus")) {%> class="on"<% } %>>Join us onsite</a>
+                    | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=roundTable"<% if (tabLev2.equals("roundtable")) {%> class="on"<% } %>>Roundtable Discussion</a>
                 <%--
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movies"<% if (tabLev2.equals("onsiteevents")) {%> class="on"<% } %>>Onsite events</a>
                 --%>

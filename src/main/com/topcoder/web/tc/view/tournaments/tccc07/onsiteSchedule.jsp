@@ -98,6 +98,10 @@
                                 <td class="value">Algorithm Wildcard Round</td>
                             </tr>
                             <tr class="light">
+                                <td class="value">4:00 PM - 5:00 PM</td>
+                                <td class="value">Designing for Reuse Roundtable</td>
+                            </tr>
+                            <tr class="dark">
                                 <td class="value">5:30 PM - 10:00 PM </td>
                                 <td class="value">Evening Event</td>
                             </tr>
