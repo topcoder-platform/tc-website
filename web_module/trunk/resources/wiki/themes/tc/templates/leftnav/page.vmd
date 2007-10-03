@@ -1,34 +1,3 @@
-<!--[if gte IE 5.5000]>
-<script language="JavaScript">
-function correctPNG() // correctly handle PNG transparency in Win IE 5.5 or higher.
-   {
-   for(var i=0; i<document.images.length; i++)
-      {
-	  var img = document.images[i]
-	  var imgName = img.src.toUpperCase()
-	  if (imgName.substring(imgName.length-3, imgName.length) == "PNG")
-	     {
-		 var imgID = (img.id) ? "id='" + img.id + "' " : ""
-		 var imgClass = (img.className) ? "class='" + img.className + "' " : ""
-		 var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
-		 var imgStyle = "display:inline-block;" + img.style.cssText
-		 if (img.align == "left") imgStyle = "float:left;" + imgStyle
-		 if (img.align == "right") imgStyle = "float:right;" + imgStyle
-		 if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
-		 var strNewHTML = "<span " + imgID + imgClass + imgTitle
-		 + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
-	     + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
-		 + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>"
-		 img.outerHTML = strNewHTML
-		 i = i-1
-	     }
-      }
-   }
-window.attachEvent("onload", correctPNG);
-</script>
-<![endif]-->
-
-
 ## PAGE SPECIFIC DECORATOR
 ## Here the context is the page. Modes are 'view', 'edit', 'edit-preview', 'view-information', and 'view-attachments'.
 
@@ -38,107 +7,125 @@ window.attachEvent("onload", correctPNG);
 #set ($confPage = $helper.page)
 #set ($infoPanelWidth = $params.get("infopanel-width"))
 
-#parse ( "/templates/leftnavigation/includes/navlinks.vm")
-
+#infoPanelInitFromParams()
 ## GENERAL PAGE DECORATING BEGINS
 
-<style>
-    .imageLink{
-        margin:2px;
-        vertical-align: bottom;
-        float:left;
-    }
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
 
-        /*Overwritten styles in the main.css*/
-        .greybox {
-            border: 0px;
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            background-color: #F0F0F0;
-	        padding: 3px;
-	        margin: 0;
-        }
-</style>
+#if ($action.isPrintableVersion() == false)
+    <tr>
+        <td>
+            <div class="greynavbar">
+                <span style="float:right; padding: 6px 10px 4px 0px">
+					#spaceActionLinks("" false)
+				</span>
 
-<content tag="pageops">
-<h5><a href="#" onCLick="toggleMenu('pagenav'); return false;"><img src="$req.contextPath/images/icons/docs_16.gif" width=16 height=16 border=0 align=absmiddle > Page Operations</a></h5>
-<div id="pagenav" class="subnav" style="display:none;">
-   <ul>
-	   #foreach ($item in $action.webInterfaceManager.getDisplayableItems("system.page", $action.remoteUser, $helper))
-		   <li><a #if ($item.link.id) id="$item.link.id" #end href="$item.link.getDisplayableUrl($req, $helper)" #if ($mode == $item.key) class="current" #end #if ($mode == "edit") onClick="javascript:saveDraftOnPageChange(this); return false;" #end #if ($item.link.hasAccessKey()) accessKey="$item.link.getAccessKey($helper)"#end>$item.label.getDisplayableLabel($req, $helper)</a></li>
-	   #end
-   </ul>
-</div>
-</content>
-
-<content tag="pageid">$page.id</content>
-
-
-<content tag="pageprefs">
-#foreach ($item in $action.webInterfaceManager.getDisplayableItems("system.page.actions", $action.remoteUser, $helper))
-    #set ($icon = $item.icon)
-    #set ($itemLabel = $item.label.getDisplayableLabel($req, $helper))
-    <a #if ($item.link.id) id="$item.link.id" #end href="$item.link.getDisplayableUrl($req, $helper)"><img src="$icon.url.getDisplayableUrl($req, $helper)" height="$icon.height" width="$icon.width" border="0" align="absmiddle" title="$itemLabel" alt="$itemLabel"></a>
+				<ul id="foldertab" style="margin-bottom: 0px; padding-top: 10px;">
+					#foreach ($item in $action.webInterfaceManager.getDisplayableItems("system.page", $action.remoteUser, $helper))
+						<li><a #if ($item.link.id) id="$item.link.id" #end href="$item.link.getDisplayableUrl($req, $helper)" #if ($mode == $item.key) class="current" #end #if ($mode == "edit") onClick="javascript:saveDraftOnPageChange(this); return false;" #end #if ($item.link.hasAccessKey()) accessKey="$item.link.getAccessKey($helper)"#end>$item.label.getDisplayableLabel($req, $helper)</a></li>
+					#end
+				</ul>
+            </div>
+        </td>
+    </tr>
 #end
-</content>
+    <tr>
+        <td valign="top" class="pagebody">
 
-#if ($infoPanelRequired)
-    <content tag="infoPanelRequired">$infoPanelRequired</content>
-    <content tag="infoPanelWidth">$infoPanelWidth;</content>
-    <content tag="helpPath">$help-path</content>
-#end
+            ## MODE SPECIFIC DECORATING BEGINS
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="clear: both">
+                <tr>
+                    <td width='100%' class="pagecontent" valign="top">
 
-#parse ("/template/includes/actionerrors.vm")
+                    #parse ("/template/includes/actionerrors.vm")
 
-#*
-    Display page based on mode: currently 'view', 'edit', 'preview-edit', 'info' and 'attachments.
-    See the individual page templates (viewpage.vm, editpage.vm, etc.) for the setting of the mode parameter.
-*#
-## VIEW
-#if ($mode == "view")
-    #permitSearchEngines()
-    <div id="pageInfoBar">
-        <div class="smalltext">
-            #editReport()
-            #parse ("/labels/labels-include.vm")
-        </div>
-    </div>
-    <br clear="all">
+                    #*
+                        Display page based on mode: currently 'view', 'edit', 'preview-edit', 'info' and 'attachments.
+                        See the individual page templates (viewpage.vm, editpage.vm, etc.) for the setting of the mode parameter.
+                    *#
+                    ## VIEW
 
-    #if ($helper.isHistoricalVersion())
-        #versionInfo()
-    #end
+                    #if ($mode == "view")
+                            #set ($labelable = $page)
+                            #permitSearchEngines()
+                            <table width="100%" style="margin-bottom: 5px" cellspacing="0">
+                                <tr>
+                                    <td align="left" valign="top">
+                                        <span class="smalltext">
+                                            #editReport()
+                                            #parse ("/labels/labels-include.vm")
+                                        </span>
+                                    </td>
+                                    <td align="right" valign="top">
+                                        #if(!$action.anonymousUser && !$action.isPrintableVersion())
+                                            <div style="padding: 5px; border: 1px solid #cccccc; margin: 0px; float:right;">
+                                                <center>
+                                                #foreach ($item in $action.webInterfaceManager.getDisplayableItems("system.page.actions", $action.remoteUser, $helper))
+                        							#set ($icon = $item.icon)
+                                                    #set ($itemLabel = $item.label.getDisplayableLabel($req, $helper))
+                                                    <a #if ($item.link.id) id="$item.link.id" #end href="$item.link.getDisplayableUrl($req, $helper)"><img src="$icon.url.getDisplayableUrl($req, $helper)" height="$icon.height" width="$icon.width" border="0" align="absmiddle" title="$itemLabel" alt="$itemLabel"></a>
+					                            #end
+                                                </center>
+                                            </div>
+                                        #end
+                                    </td>
+                                </tr>
+                            </table>
 
-    <div class="wiki-content" style="margin-right:10px;">
-       $body
-    </div>
+                            #if ($helper.isHistoricalVersion())
+                                <content tag="suppressPdfLink">true</content>
+                            #end
+                            #if ($helper.isHistoricalVersion() || $helper.action.navigatingVersions)
+                                #versionInfo()
+                            #end
 
-    #trackbackRdf ($trackbackUtils.getContentIdentifier($page) $page.title $trackbackUtils.getPingUrl($page))
-    #renderChildren()
-    #renderComments()
+                            <div class="wiki-content">
+                               $body
+                            </div>
 
-## EDIT || PREVIEW-EDIT
-#elseif ($mode == "edit" || $mode == "edit-preview")
-    <div id="editpage">
-    $body
-    </div>
-## INFO
-#elseif ($mode == "view-information" || $mode == "view-source")
-    $body
+                            #trackbackRdf ($trackbackUtils.getContentIdentifier($page) $page.title $trackbackUtils.getPingUrl($page))
 
-## ATTACHMENTS
-#elseif ($mode == "view-attachments")
-    $body
+                            #renderChildren()
 
-## FOR CUSTOM WEB-ITEMS
-#else
-    $body
+                            #renderComments()
 
-#end
+                    ## EDIT || PREVIEW-EDIT
+                    #elseif ($mode == "edit" || $mode == "edit-preview")
+            <div id="editpage">
+                        $body
+                </div>
 
-## MODE SPECIFIC DECORATING ENDS
+                    ## INFO
+                    #elseif ($mode == "view-information")
+                        $body
+
+                    ## ATTACHMENTS
+                    #elseif ($mode == "view-attachments" || $mode == "move-attachments")
+                        $body
+
+                    ## FOR CUSTOM WEB-ITEMS
+                    #else
+                        $body
+
+                    #end
+                    </td>
+
+
+                    ## INFO PANEL FOR ANY PAGE
+                    #if ($infoPanelRequired == true)
+                        <td valign="top" id="helptd" style="display:block; width:$infoPanelWidth;">
+                            #infoPanel(true true true true)
+                        </td>
+                    #end
+            </tr>
+        </table>
+
+        ## MODE SPECIFIC DECORATING ENDS
+
+        </td>
+    </tr>
+</table>
 ## GENERAL PAGE DECORATING ENDS
-
 
 #set ($viewingPageInfo = $params.get('viewingPageInfo'))
 #parse ("/pages/page-breadcrumbs.vm")
