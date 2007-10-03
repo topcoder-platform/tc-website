@@ -122,7 +122,7 @@
             </c:otherwise>
         </c:choose>
         <br/><br/>
-        <a href="/ep?module=EditAssignment&amp;clsid=${classroom.id">Edit</a>
+        <a href="/ep?module=EditAssignment&amp;clsid=${classroom.id}">Add new assignment</a>
     <br/><br/>
     <a href="/ep/">Back</a>
     </body>
