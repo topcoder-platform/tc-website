@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>$title - #siteTitle()</title>
-    ##standardHeader()
+    #standardHeader()
     $!settingsManager.globalSettings.customHtmlSettings.beforeHeadEnd
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <link type="text/css" rel="stylesheet" href="/css/tcStyles.css" />
