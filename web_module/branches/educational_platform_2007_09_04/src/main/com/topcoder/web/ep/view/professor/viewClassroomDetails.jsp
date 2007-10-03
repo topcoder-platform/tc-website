@@ -121,6 +121,8 @@
                 There are no assignments for this classroom.
             </c:otherwise>
         </c:choose>
+        <br/><br/>
+        <a href="/ep?module=EditAssignment&amp;clsid=${classroom.id">Edit</a>
     <br/><br/>
     <a href="/ep/">Back</a>
     </body>
