@@ -23,6 +23,12 @@
         </jsp:include>
         
             <div id="pageBody">
+                <div style="float: right;">
+                    <h2 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h2>
+                    <strong>
+                        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lillyChat20070912">SRM 365</A><br />
+                    </strong>
+                </div>
                 <div style="padding-bottom:10px;">
                     <a target="_blank" alt="TCCC07 Sponsored by Eli Lilly" href="<tc-webtag:linkTracking link='http://www.elililly.com/' refer='TCCC07_lilly' />"><img alt="TCCC07 Sponsored by Eli Lilly" src="/i/tournament/tccc07/lilly_logo.png" /></a>
                 </div>
