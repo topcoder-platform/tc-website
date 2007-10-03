@@ -26,6 +26,9 @@
 
                 <h1><span>Prestigious Professor Award</span></h1>
                 
+                <br />
+                <h2><div align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=professor&d4=winners">View the PPA Winners</a></div></h2>
+                
                 <p><strong>Is there a special Professor out there who deserves some recognition?  Want to win a FREE trip to the TCCC finals at Walt Disney World in Orlando, Florida?</strong>  Here's your chance to tell us about your extraordinary professor and win!</p>
                 
                 <h2>The contest</h2>
