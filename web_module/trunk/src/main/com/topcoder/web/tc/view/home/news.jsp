@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.03.07<br />12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lillyChat20070912">Eli Lilly SRM 365 chat transcript</A></span><br /><br />
+        Eli Lilly recently chatted in the Competition Arena before SRM 365.  Check out the chat if you missed it!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lillyChat20070912">details</a> | 
+        <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />10.02.07<br />3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -157,18 +170,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd4">details</A> | 
          <tc-webtag:forumLink forumID="517547" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br />09.25.07<br />5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep05' refer='/tc' />">TC Channel: Episode 5</A></span><br /><br />
-        This month's episode of the TC Channel is now online. Highlights from this edition include an interview with <tc-webtag:handle coderId="8511003" context="algorithm"/>, a profile of <tc-webtag:handle coderId="282718" context="marathon_match"/>'s legendary workstation, and <tc-webtag:handle coderId="159052" context="algorithm"/> discussing Marathon Match visualizations.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep05' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="517575" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
    

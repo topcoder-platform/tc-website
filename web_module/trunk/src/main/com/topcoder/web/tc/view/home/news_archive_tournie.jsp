@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">10.03.07 12:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lillyChat20070912">Eli Lilly SRM 365 chat transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.02.07 1:00 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2133">Design the TCO08 Web Site</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.01.07 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=preview">2008 TopCoder Open</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.27.07 4:45 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=19628">TCO08 logo design winner</A></td></tr>
