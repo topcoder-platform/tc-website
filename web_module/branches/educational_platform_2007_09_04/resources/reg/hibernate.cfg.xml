@@ -120,6 +120,7 @@
 
 
         <mapping resource="com/topcoder/web/common/model/algo/Component.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/ComponentState.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/Contest.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/Difficulty.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/Language.hbm.xml"/>

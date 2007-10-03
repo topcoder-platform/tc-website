@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Authorization;
-import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;

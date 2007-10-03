@@ -24,27 +24,32 @@
         
         <set name="rooms" cascade="save-update" inverse="true" access="field">
             <key column="round_id" not-null="true"/>
-            <one-to-many class="com.topcoder.web.common.model.algo.Room"/>
+            <one-to-many class="Room"/>
         </set>
         
         <set name="roundProperties" cascade="save-update" inverse="true" access="field">
             <key column="round_id" not-null="true"/>
-            <one-to-many class="com.topcoder.web.common.model.algo.RoundProperty"/>
+            <one-to-many class="RoundProperty"/>
         </set>
         
         <set name="roundSegments" cascade="save-update" inverse="true" access="field">
             <key column="round_id" not-null="true"/>
-            <one-to-many class="com.topcoder.web.common.model.algo.RoundSegment"/>
+            <one-to-many class="RoundSegment"/>
         </set>
 
         <set name="roundComponents" cascade="all-delete-orphan" inverse="true" access="field">
             <key column="round_id" not-null="true"/>
-            <one-to-many class="com.topcoder.web.common.model.algo.RoundComponent"/>
+            <one-to-many class="RoundComponent"/>
         </set>
 
         <set name="languages" table="round_language" access="field">
             <key column="round_id" not-null="true"/>
             <many-to-many column="language_id" class="Language"/>
+        </set>
+        
+        <set name="componentStates" inverse="true" access="field">
+            <key column="round_id" not-null="true"/>
+            <one-to-many class="ComponentState"/>
         </set>
         
     </class>
