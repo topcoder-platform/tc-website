@@ -102,7 +102,7 @@
                     <dd><textarea cols="50" rows="15" name="comment"></textarea></dd>
                     
                     <dt>&nbsp;</dt>
-                    <dd class="pr_submit"><a href="#"><img src="i/btn_submit.png" width="74" height="22"></a></dd>
+                    <dd class="pr_submit"><a href="#"><img src="/i/pressroom/btn_submit.png" width="74" height="22"></a></dd>
                 </dl>
                 </form>
             </div>

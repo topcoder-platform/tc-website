@@ -226,7 +226,7 @@
 <%-- Right Column ends --%>
 
 <%-- Gutter --%>
-        <td width="10"><img src="//i/pressroom/clear.gif" width="10" height="1" border="0"></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
 <%-- Gutter ends --%>
     </tr>
 </table>
