@@ -31,10 +31,10 @@ public class Login extends ShortHibernateProcessor {
         /* may be null */
         String username = getRequest().getParameter(USER_NAME);
         String password = getRequest().getParameter(PASSWORD);
+        String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
 
-/*
-        String loginStatus = StringUtils.checkNull(getRequest().getParameter(STATUS));
-*/
+
+        String nextPage = determineNextPage();
 
         /* if not null, we got here via a form submit;
          * otherwise, skip this and just draw the login form */
@@ -70,6 +70,10 @@ public class Login extends ShortHibernateProcessor {
                                 return;
                             } else {
                                 log.debug("user active");
+
+                                setNextPage(nextPage);
+                                setIsNextPageInContext(false);
+/*
                                 String nextPage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
                                 if (nextPage != null && !nextPage.equals("")) {
                                     setNextPage(nextPage);
@@ -78,9 +82,9 @@ public class Login extends ShortHibernateProcessor {
                                     setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
                                     setIsNextPageInContext(false);
                                 }
+*/
                                 log.debug("on successful login, going to " + getNextPage());
-                                getAuthentication().login(new SimpleUser(0, username, password), false);
-                                //clear the session for the case that they've been messing around as someone else or as no one
+                                getAuthentication().login(new SimpleUser(0, username, password), "on".equals(rememberUser.trim().toLowerCase()));
                                 return;
                             }
                         } else {
@@ -113,15 +117,33 @@ public class Login extends ShortHibernateProcessor {
             getAuthentication().logout();
         }
 
-        String nextpage = (String) getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
-        if (nextpage == null) nextpage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
-        if (nextpage == null) nextpage = getRequest().getHeader("Referer");
-        if (nextpage == null) nextpage = getSessionInfo().getAbsoluteServletPath();
-        getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, nextpage);
+        getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, nextPage);
         setNextPage("/login.jsp");
         setIsNextPageInContext(true);
     }
 
+    private String determineNextPage() {
+        String nextPage = (String) getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
+        if (nextPage == null) {
+            nextPage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
+        } else {
+            log.debug("next page from attribute");
+        }
+        if (nextPage == null) {
+            nextPage = getRequest().getHeader("Referer");
+        } else {
+            log.debug("next page from parameter");
+        }
+        if (nextPage == null) {
+            nextPage = getSessionInfo().getAbsoluteServletPath();
+        } else {
+            log.debug("next page from referer header");
+        }
+        if (nextPage != null) {
+            log.debug("next page from session info");
+        }
+        return nextPage;
+    }
 
     /**
      * shouldn't use ejb slooooooooow
