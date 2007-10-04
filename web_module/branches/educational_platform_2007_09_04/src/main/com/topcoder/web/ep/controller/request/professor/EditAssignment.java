@@ -74,7 +74,7 @@ public class EditAssignment extends Base {
                 setDefault("assignment_start", a.getContest().getStartDate());
                 setDefault("assignment_end", a.getContest().getEndDate());
                 setDefault("assignment_coding_phase_length", (Long)a.getProperty(RoundProperty.CODING_PHASE_LENGTH));
-                setDefault("assignment_show_all_scores", ((Long)a.getProperty(RoundProperty.SHOW_ALL_SCORES)).equals(1l) ? "checked" : null);
+                setDefault("assignment_show_all_scores", ((Long)a.getProperty(RoundProperty.SHOW_ALL_SCORES)).equals(1l) ? "true" : "false");
                 setDefault("assignment_score_type", (Long)a.getProperty(RoundProperty.SCORE_TYPE));
 
             } else {
