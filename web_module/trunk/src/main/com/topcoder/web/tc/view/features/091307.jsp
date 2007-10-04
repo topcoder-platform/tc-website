@@ -71,7 +71,7 @@
 <br clear="all">
 
 
-<p><em>While a few final fixes are still pending, and a few scores may yet move, it appears that somebody has finally broken the hold of <tc-webtag:handle coderId="287614" context="design" /> on the <a href="/tc?&ph=112&module=LeaderBoard">Digital Run Design Cup</a>. With 18,515 points in Stage 1 of the 2007.5 DR, Fabrizio Lovato, 27, brings Digital Run bragging rights -- and more than $80,000 in total prizes -- to his home in Italy.</em></p>
+<p><em>While a few final fixes are still pending, and a few scores may yet move, it appears that somebody has finally broken the hold of <tc-webtag:handle coderId="287614" context="design" /> on the <a href="/tc?module=LeaderBoard&ph=112&sc=&sd=&staid=5&nr=50&sr=">Digital Run Design Cup</a>. With 18,515 points in Stage 1 of the 2007.5 DR, Fabrizio Lovato, 27, brings Digital Run bragging rights -- and more than $80,000 in total prizes -- to his home in Italy.</em></p>
 <p><em>Over the course of the stage, <tc-webtag:handle coderId="21926605" context="design"/> competed on a total of 39 designs. He finished in the money in all but three of them, taking first place 25 times and coming in second on another 11. Thanks to his steady performance, he also earned more than $8,000 in reliability bonuses during the stage. (For more detailed data, check out his <a href="/tc?module=CompetitionHistory&ph=112&cr=21926605">competition history</a>.)</em></p>
 <p><strong>Q: You climbed from a respectable ninth place in Stage 4 of the '07 Digital Run to a very strong first-place finish. What did you do differently?</strong></p>
 <p>A: It was a set of things. When I saw that I could take a good spot in this DR, I used all my free time to work and improve my skills.</p>
