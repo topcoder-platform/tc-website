@@ -32,7 +32,7 @@
                 I was never involved in a Blogging process but actually, I have been involved in at least 15 onsite contests before, so I can really think about what the online and the onsite audience like to see in the Blogs and the newsletters.</p>
                 
                 <p><strong>News</strong><br />
-                The most important issue in this process is surely the news and statistics. So, in an onsite event I like to be among the crowd from the very morning until the last moment of the day, so that I do not miss anything. So, I think that I can get every single action that is happening and pass all the information to our audience through the Blogs. Also, do not worry about photos and videos; I know that the fans of every contestant like to see him in the important moments.</p><br />
+                The most important issue in this process is surely the news and statistics. So, in an onsite event I like to be among the crowd from the very morning until the last moment of the day, so that I do not miss anything. So, I think that I can get every single action that is happening and pass all the information to our audience through the Blogs. Also, do not worry about photos and videos; I know that the fans of every contestant like to see them in the important moments.</p><br />
                 <p align="center"><img style="border: 2px solid #2f2f2f;" src="/i/tournament/tccc07/blog/moh_taha_eg-01.png" alt="Thank you Christina!" /><br /><em><strong>Thanks for my friend Christina for drawing this for me</strong></em></p>
                 
                 <p><strong>Languages</strong><br />
