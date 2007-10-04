@@ -20,17 +20,28 @@ public class Register extends RegistrationBase {
         if (!userLoggedIn()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } 
-        
-        if (isEarly() || isLate() || isRegistered() || !isEligible()) {
-            throw new NavigationException("You can't register for this event.");
+
+
+        if (isEarly()) {
+            throw new NavigationException("Sorry, registration is not yet open.");
         }
-                
+        if (isLate()) {
+            throw new NavigationException("Sorry, registration is closed.");
+        }
+        if (isRegistered()) {
+            setNextIntroEventPage("registerSuccess.jsp");
+            return;
+        }
+        if (!isEligible()) {
+            throw new NavigationException("Sorry, you are not eligible.");
+        }
+
         UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
 
         user.addEventRegistration(event, null, Boolean.TRUE);
         userDAO.saveOrUpdate(user);
 
-        setNextIntroEventPage("registerSuccess.jsp");
+
         
     }
 
