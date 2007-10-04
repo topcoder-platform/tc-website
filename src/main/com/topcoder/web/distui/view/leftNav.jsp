@@ -3,6 +3,7 @@
 <%@ page import="com.topcoder.web.common.model.NavNode"%>
 <%@ page import="com.topcoder.web.common.model.NavTree"%>
 <%@ taglib uri="nav.tld" prefix="nav" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%
    /* m_name indicates the name of an expandable menu */
@@ -143,8 +144,6 @@
 
    nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=pressroom&amp;d2=index", "Press Room", "press_room"));
 
-   nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=media&amp;d2=tcchannel", "TC Channel", "tc_channel"));
-
    nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?&amp;module=SurveyList", "Surveys", "competitor_surveys"));
 
    nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=MyHome", "My TopCoder", "my_topcoder"));
@@ -189,6 +188,9 @@ function flipMenu(myMenuName){
 <div style="padding: 0px;"><img src="/i/interface/leftnav_top.gif" alt="" /></div>
 <div id="navbar">
     <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
+    <div style="float: left; padding: 10px 0px 0px 17px;">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel' refer='leftnav' />"><img src="/i/tcchannel/leftnavLogo.png" alt="TC Channel" /></a>
+    </div>
     <jsp:include page="includes/modules/simpleSearch.jsp"/>
 </div>
 <div style="float: left; clear:left; padding: 0px 0px 23px 0px;"><img src="/i/interface/leftnav_bottom.gif" alt="" /></div>
