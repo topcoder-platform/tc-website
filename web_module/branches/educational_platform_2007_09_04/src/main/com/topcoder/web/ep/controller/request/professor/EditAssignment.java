@@ -64,7 +64,7 @@ public class EditAssignment extends Base {
 
                 Object classroomProperty = a.getProperty(RoundProperty.CLASSROOM_ID);
 
-                if (classroomId == null) {
+                if (classroomProperty == null) {
                     throw new TCWebException("The assignment has an invalid classroom id");
                 }
 
