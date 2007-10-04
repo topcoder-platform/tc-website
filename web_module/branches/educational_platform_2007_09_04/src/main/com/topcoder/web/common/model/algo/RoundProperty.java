@@ -165,5 +165,20 @@ public class RoundProperty extends Base {
                 break;
         }
     }
+
+    public Object getValue() {
+        switch (id.typeId){
+        // Todo: change to constants
+            case 1:
+                return getIntValue();
+            case 2:
+                return getIntValue();
+            case 3:
+                return getIntValue();
+            case 4:
+                return getIntValue();
+        }
+        return null;
+    }
 }
 

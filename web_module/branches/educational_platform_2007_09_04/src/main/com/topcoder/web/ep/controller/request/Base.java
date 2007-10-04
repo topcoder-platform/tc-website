@@ -15,6 +15,7 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 
@@ -159,6 +160,16 @@ public abstract class Base extends LongHibernateProcessor {
     protected void setClassroom(Classroom classroom) {
         log.debug("set " + classroom.getName() + " classroom in session");
         getRequest().getSession().setAttribute(Constants.CLASSROOM, classroom);
+    }
+    
+    /**
+     * Set the assignment in the current request processor.  
+     *
+     * @param assignment the assignment to set
+     */
+    protected void setAssignment(Round assignment) {
+        log.debug("set " + assignment.getName() + " assignment in session");
+        getRequest().getSession().setAttribute(Constants.ASSIGNMENT, assignment);
     }
     
     /**

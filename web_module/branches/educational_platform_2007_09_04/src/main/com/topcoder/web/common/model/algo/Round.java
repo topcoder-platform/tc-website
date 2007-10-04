@@ -133,6 +133,15 @@ public class Round extends Base {
         }
     }
 
+    public Object getProperty(Integer propertyId) {
+        for (RoundProperty rp : this.roundProperties) {
+            if (rp.getId().getTypeId().equals(propertyId)) {
+                return rp.getValue();
+            }
+        }
+        return null;
+    }
+
     public Set<RoundSegment> getRoundSegments() {
         return Collections.unmodifiableSet(roundSegments);
     }
