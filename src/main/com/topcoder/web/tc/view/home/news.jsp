@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.04.07<br />10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">Round 2 of the TCCC07 CDDC Finals</A></span><br /><br />
+        Today marks the start of the second round of the 2007 TopCoder Collegiate Challenge Component Design and Development Competition finals.  Finalists and alternates will be introduced to their projects, and will have a week to design (or develop) them.  After a round of reviews, they will need to wait until the onsite competition to learn their review results and file any relevant appeals. This week's final round components include <a href="https://software.topcoder.com/catalog/c_component.jsp?comp=26965489&ver=1">AJAX Scrollable Data Bound Control</a> and <a href="https://software.topcoder.com/catalog/c_component.jsp?comp=26965587&ver=1">AJAX Scrollable JSF Data Bound Table</a> for design, and <a href="https://software.topcoder.com/catalog/c_component.jsp?comp=26945120&ver=1">NAnt Dependency Versions</a> and <a href="https://software.topcoder.com/catalog/c_component.jsp?comp=26945110&ver=1">Ant Dependency Versions</a> for development.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">details</a> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.03.07<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lillyChat20070912">Eli Lilly SRM 365 chat transcript</A></span><br /><br />
@@ -154,21 +167,5 @@
         <A href="/tc?module=SurveyResults&sid=19559">details</a> | 
         <tc-webtag:forumLink forumID="517580" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />09.26.07<br />10:15 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd4">TCCC07 Algo Round 4 - Problem Set &amp; Analysis</A></span><br /><br />
-      This was a very important match for the 140 coders that had the opportunity to earn a trip to Disney World, the chance to compete in the onsite rounds and the possibility to meet lots of other TopCoders. Congratulations to <tc-webtag:handle coderId="251074" context="algorithm"/> and everybody else who made it onsite!</td>
-         <td class="newsPhoto"><img src="/i/m/dskloet_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="19786437" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=tccc07_rd4">details</A> | 
-         <tc-webtag:forumLink forumID="517547" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
