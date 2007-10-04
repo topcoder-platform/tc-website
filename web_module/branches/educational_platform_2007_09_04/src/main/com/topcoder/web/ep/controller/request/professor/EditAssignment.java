@@ -189,9 +189,12 @@ public class EditAssignment extends Base {
                     setDefault("assignment_show_all_scores", showAllScores);
                     setDefault("assignment_score_type", scoreType);
 
+                    
                     Set<Integer> al = new HashSet<Integer>();
-                    for (String language : languages) {
-                        al.add(Integer.parseInt(language));
+                    if (languages != null) {
+                        for (String language : languages) {
+                            al.add(Integer.parseInt(language));
+                        }
                     }
                     
                     getRequest().setAttribute("assignment_languages", al);
