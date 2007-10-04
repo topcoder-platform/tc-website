@@ -26,6 +26,9 @@
             <div id="pageBody">
                 <h1><span>Blog Contest</span></h1>
 
+<br />
+<h2><div align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=blog&d4=winners">View the Blog Contest Winners</a></div></h2>
+
 <p>
 For this year's TopCoder Collegiate Challenge, we're looking for two bloggers who can convey the behind-the-scenes experience of attending an onsite tournament - and can broadcast it to members in a creative way. 
 </p>
