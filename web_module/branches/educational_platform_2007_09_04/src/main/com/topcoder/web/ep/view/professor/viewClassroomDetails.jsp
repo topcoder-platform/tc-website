@@ -105,13 +105,14 @@
             <c:when test="${not empty assignments}">
                 Classroom's assignments:
                 <table border="1">
-                    <tr><td>Name</td><td>Start</td><td>End</td><td>Finished (succeeded/failed/total)</td><td>&nbsp;</td></tr>
+                    <tr><td>Name</td><td>Start</td><td>End</td><td>Assigned</td><td>Finished (succeeded/failed)</td><td>&nbsp;</td></tr>
                     <c:forEach items="${assignments}" var="assignment">                
                         <tr>
                             <td>${assignment.name}</td>
                             <td>${assignment.contest.startDate}</td>
                             <td>${assignment.contest.endDate}</td>
-                            <td>${assignment.succeeded}/${assignment.failed}/${assignment.registered}</td>
+                            <td>${assignment.registered}</td>
+                            <td>${assignment.succeeded}/${assignment.failed}</td>
                             <td><a href="/ep?module=EditAssignment&amp;asid=${assignment.id}">Edit</a></td>
                         </tr>
                     </c:forEach>
