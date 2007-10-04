@@ -147,6 +147,8 @@ public class EditAssignment extends Base {
 
                 String showAllScores = StringUtils.checkNull(getRequest().getParameter("assignment_show_all_scores"));
 
+                log.debug("showAllScores: " + showAllScores);
+                
                 String scoreType = StringUtils.checkNull(getRequest().getParameter("assignment_score_type"));
                 if (scoreType == "") {
                     throw new TCWebException("Invalid score type");
