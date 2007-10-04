@@ -103,6 +103,7 @@ public class EditAssignment extends Base {
             
             AssignmentDTO adto = new AssignmentDTO();
 
+            adto.setRoundId(a.getId());
             adto.setClassroomId(c.getId());
             adto.setClassroomName(c.getName());
 

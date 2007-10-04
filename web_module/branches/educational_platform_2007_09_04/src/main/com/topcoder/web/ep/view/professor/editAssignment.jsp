@@ -14,7 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>
             <c:choose>
-                <c:when test="${not empty assignment.id}">Edit Assignment</c:when>
+                <c:when test="${not empty assignment.roundId}">Edit Assignment</c:when>
                 <c:otherwise>Add Assignment</c:otherwise>
             </c:choose>
         </title>
@@ -34,7 +34,7 @@
             <tc-webtag:errorIterator id="err" name="error">
                 <font color="#FF0000"><%=err%></font><br/>
             </tc-webtag:errorIterator>
-            Selected classroom: ${classroom.name}
+            Selected classroom: ${assignment.classroomName}
             <br/>
             <br/>
             Name: <tc-webtag:textInput name="assignment_name" size="60" editable="true" />
