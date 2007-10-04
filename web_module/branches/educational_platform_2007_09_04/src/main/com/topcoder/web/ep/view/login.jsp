@@ -16,7 +16,10 @@
         content="text/html;charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" href="/css/ep/main.css" />
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_ep"/>
+    </jsp:include>
+    <%-- each school requires its own stylesheet, linked in here --%>
     <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
     <script type="text/javascript">
         function submitEnter(e) {
@@ -43,29 +46,27 @@
 <body>
 
 <div align="center">
-    <!-- widther -->
     <div id="widther">
         <img src="/i/ep/widtherN.png" alt="" style="display:block;" />
-        <!-- spacer -->
         <div id="pageFrame">
 
-            <!-- header -->
-            <div id="pageHeader">
-                <a href="#" id="logo">&nbsp;</a>
-                <div class="schoolName">
-                    TopCoder College Platform<br />
-                    <a href="#">University of TopCoder</a>
-                </div>
-            </div>
+            <jsp:include page="header.jsp">
+                <jsp:param name="schoolname" value="University of TopCoder"/>
+            </jsp:include>
 
             <div id="pageContent" align="left">
-                <img src="/i/ep/contentNW.png" alt="" class="NW" />
-                <img src="/i/ep/contentNE.png" alt="" class="NE" />
+                <div class="N">
+                    <img src="/i/ep/contentNW.png" alt="" class="NW" />
+                    <img src="/i/ep/contentNE.png" alt="" class="NE" />
+                </div>
                 <div class="spacer">
+
+<%-- CONTENT BEGINS --%>
 
                     <div align="center">
                         <div class="window" style="width: 420px;" align="left">
                             <div class="spacer">
+
                                 <h1><span class="bg"><span class="spacer">Log in</span></span></h1>
 
                                 <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
@@ -95,12 +96,12 @@
                                         <div style="border: 1px solid #cccccc; background: #eeeeee; padding: 10px;" align="left">
                                             <div style="margin-bottom: 10px;">
                                                 <strong>Forgot your password?</strong>
-                                                <br />If you cannot remember your password <a href="#">click here</a> and we can help you restore your account.
+                                                <br />If you cannot remember your password <a href="/tc?module=RecoverPassword">click here</a> and we can help you restore your account.
                                             </div>
     
                                             <div>
                                                 <strong>New to TopCoder?</strong>
-                                                <br /><a href="#">Register now</a>. After you complete the registration process, we will send your account activation code via email.
+                                                <br /><a href="/reg/">Register now</a>. After you complete the registration process, we will send your account activation code via email.
                                             </div>
                                         </div>
                                     </div>
@@ -114,21 +115,17 @@
                             </div>
                         </div>
                     </div>
+
+<%-- CONTENT ENDS --%>
+
                 </div>
-                <img src="/i/ep/contentSW.png" alt="" class="SW" />
-                <img src="/i/ep/contentSE.png" alt="" class="SE" />
+                <div class="S">
+                    <img src="/i/ep/contentSW.png" alt="" class="SW" />
+                    <img src="/i/ep/contentSE.png" alt="" class="SE" />
+                </div>
             </div>
 
-            <!-- footer -->
-            <div id="pageFooter">
-                <div class="spacer">
-                    <a href="#">Home</a>
-                    &nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">About CPP</a>
-                    &nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Contact Us</a>
-                    &nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Privacy</a>
-                    &nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Terms</a>
-                </div>
-            </div>
+            <jsp:include page="footer.jsp"/>
 
         </div>
         <img src="/i/ep/widtherS.png" alt="" style="display:block;" />
