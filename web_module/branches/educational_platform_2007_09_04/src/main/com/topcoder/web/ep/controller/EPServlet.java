@@ -10,7 +10,6 @@ import java.util.MissingResourceException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
@@ -33,7 +32,7 @@ public class EPServlet extends BaseServlet {
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
         return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response,
-                BasicAuthentication.EP_SITE, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                BasicAuthentication.EP_SITE);
     }
 
     @Override
