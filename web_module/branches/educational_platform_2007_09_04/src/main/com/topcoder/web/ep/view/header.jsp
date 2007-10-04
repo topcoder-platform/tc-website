@@ -8,13 +8,12 @@
                 </div>
                 <div class="login">
                     <span>
-                    <%-- show this if they're not logged in 
-                    <a href="#">Log in</a>
-                    --%>
-                    <%-- show this if they are logged in --%>
+                    <%-- show this if they're not logged in --%>
+                    <strong><a href="/ep/tc?module=Login">Log in</a></strong>
+                    <%-- show this if they are logged in 
                     Hello, <tc-webtag:handle coderId='${user.id}'/>.
-                    <a href="/ep/tc?module=Logout">Log out</a>
-                    
+                    <strong><a href="/ep/tc?module=Logout">Log out</a></strong>
+                    --%>
                     </span>
                 </div>
             </div>
