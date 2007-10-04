@@ -1,8 +1,10 @@
 package com.topcoder.web.common.model.algo;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.topcoder.web.common.model.Base;
@@ -31,6 +33,7 @@ public class Round extends Base {
     private Set<Language> languages;
 
     private Set<ComponentState> componentStates;
+    private Set<RoundRegistration> roundRegistrations;
 
     public Round() {
         super();
@@ -40,6 +43,7 @@ public class Round extends Base {
         this.roundComponents = new HashSet<RoundComponent>();
         this.languages = new HashSet<Language>();
         this.componentStates = new HashSet<ComponentState>();
+        this.roundRegistrations = new HashSet<RoundRegistration>();
     }
     
     public Contest getContest() {
@@ -159,6 +163,14 @@ public class Round extends Base {
         this.roundComponents = roundComponents;
     }
 
+    public Set<RoundRegistration> getRoundRegistrations() {
+        return Collections.unmodifiableSet(roundRegistrations);
+    }
+
+    public void setRoundRegistrations(Set<RoundRegistration> roundRegistrations) {
+        this.roundRegistrations = roundRegistrations;
+    }
+
     public void addComponent(RoundComponent rc) {
         rc.getId().setRound(this);
         this.roundComponents.add(rc);
@@ -217,13 +229,47 @@ public class Round extends Base {
     public void setType(RoundType type) {
         this.type = type;
     }
+
     /**
      * @return the componentStates
      */
     public Set<ComponentState> getComponentStates() {
-        return componentStates;
+        return Collections.unmodifiableSet(componentStates);
     }
 
+    /**
+     * @return the componentStates using statusIds
+     */
+    public Set<ComponentState> getComponentStatesUsingStatusIds(List<Long> statusIds) {
+        Set<ComponentState> scs = new HashSet<ComponentState>();
+        for (ComponentState cs : componentStates) {
+            if (statusIds.contains(cs.getStatusId())) {
+                scs.add(cs);
+            }
+        }
+        return Collections.unmodifiableSet(scs);
+    }
+
+    
+    public int getRegistered() {
+        return this.componentStates.size();
+    }
+
+    public int getSucceeded() {
+        List ids = new ArrayList(1);
+        ids.add(ComponentState.SYSTEM_TEST_SUCCEEDED);
+
+        return this.getComponentStatesUsingStatusIds(ids).size();
+    }
+
+    public int getFailed() {
+        List ids = new ArrayList(2);
+        ids.add(ComponentState.CHALLENGE_SUCCEEDED);
+        ids.add(ComponentState.SYSTEM_TEST_FAILED);
+
+        return this.getComponentStatesUsingStatusIds(ids).size();
+    }
+    
     /**
      * @param componentStates the componentStates to set
      */

@@ -51,6 +51,11 @@
             <key column="round_id" not-null="true"/>
             <one-to-many class="ComponentState"/>
         </set>
-        
+
+        <set name="roundRegistrations" cascade="all-delete-orphan" inverse="true" access="field">
+            <key column="round_id" not-null="true"/>
+            <one-to-many class="RoundRegistration"/>
+        </set>
+
     </class>
 </hibernate-mapping>

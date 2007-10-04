@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import com.topcoder.web.common.model.algo.RoomResult;
+import com.topcoder.web.common.model.algo.RoundRegistration;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.Professor;
 import com.topcoder.web.common.model.educ.StudentClassroom;
@@ -40,6 +42,9 @@ public class Coder extends Base {
 
 //    private Set professors;
     private Set<StudentClassroom> studentClassrooms;
+    private Set<RoundRegistration> roundRegistrations;
+
+    private Set<RoomResult> roomResults;
 
     public Coder() {
         this.resumes = new HashSet();
@@ -49,6 +54,8 @@ public class Coder extends Base {
         this.ratings = new HashSet();
 //        this.professors = new HashSet();
         this.studentClassrooms = new HashSet<StudentClassroom>();
+        this.roundRegistrations = new HashSet<RoundRegistration>();
+        this.roomResults = new HashSet<RoomResult>();
     }
 
 
@@ -261,6 +268,22 @@ public class Coder extends Base {
 
     public void setStudentClassrooms(Set studentClassrooms) {
         this.studentClassrooms = studentClassrooms;
+    }
+
+    public Set getRoundRegistrations() {
+        return Collections.unmodifiableSet(roundRegistrations);
+    }
+
+    public void setRoundRegistrations(Set roundRegistrations) {
+        this.roundRegistrations = roundRegistrations;
+    }
+
+    public Set<RoomResult> getRoomResults() {
+        return Collections.unmodifiableSet(roomResults);
+    }
+
+    public void setRoomResults(Set<RoomResult> roomResults) {
+        this.roomResults = roomResults;
     }
 
     public Image getMemberPhoto() {

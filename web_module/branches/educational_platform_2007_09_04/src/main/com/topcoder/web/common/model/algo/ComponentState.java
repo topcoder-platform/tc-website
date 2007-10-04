@@ -14,6 +14,17 @@ import com.topcoder.web.common.model.Coder;
  */
 public class ComponentState extends Base {
 
+    public final static int NOT_OPENED = 110;// Default
+    public final static int REASSIGNED = 111; //Team problem that has been assigned to another team member
+    public final static int LOOKED_AT = 120;//Opened. Not yet compiled
+    public final static int COMPILED_UNSUBMITTED = 121;// Compiled, but not yet submitted
+    public final static int PASSED = 122;// Moving on without submitting
+    public final static int NOT_CHALLENGED = 130;// Submitted
+    public final static int CHALLENGE_FAILED = 131;
+    public final static int CHALLENGE_SUCCEEDED = 140;
+    public final static int SYSTEM_TEST_FAILED = 160;
+    public final static int SYSTEM_TEST_SUCCEEDED = 150;
+
     protected Long id = null;
     protected Double points = null;
     protected Integer statusId = null;

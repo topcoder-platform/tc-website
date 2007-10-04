@@ -5,6 +5,10 @@
 */
 package com.topcoder.web.common.model.algo;
 
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 import com.topcoder.web.common.model.Base;
 
 /**
@@ -21,6 +25,12 @@ public class Room  extends Base {
     protected Integer eligible = null;
     protected Integer unrated = null;
 
+    private Set<RoomResult> roomResults;
+
+    public Room() {
+        super();
+        this.roomResults = new HashSet<RoomResult>();
+    }
     
     /**
      * @return the divisionId
@@ -105,6 +115,14 @@ public class Room  extends Base {
      */
     public void setUnrated(Integer unrated) {
         this.unrated = unrated;
+    }
+
+    public Set<RoomResult> getRoomResults() {
+        return Collections.unmodifiableSet(roomResults);
+    }
+
+    public void setRoomResults(Set<RoomResult> roomResults) {
+        this.roomResults = roomResults;
     }
 
     

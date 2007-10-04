@@ -127,8 +127,10 @@
         <mapping resource="com/topcoder/web/common/model/algo/Problem.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/Room.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/Round.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/RoomResult.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/RoundComponent.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/RoundProperty.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/RoundRegistration.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/RoundSegment.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/RoundType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/Segment.hbm.xml"/>
