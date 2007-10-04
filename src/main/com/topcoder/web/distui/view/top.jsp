@@ -104,7 +104,7 @@ Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())
             <% } else if (level1.equals("wiki")) { %>
                 <a class="gMetal" href="http://<%=ApplicationServer.WIKI_SERVER_NAME%>/login.action">Login</a>
             <% } else { %>
-                <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Login">Login</a>
+                <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Login">Login</a>
             <% } %>
         <%}%>
     </div>
