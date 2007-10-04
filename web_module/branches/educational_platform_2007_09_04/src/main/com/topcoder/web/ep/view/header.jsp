@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
             <div id="pageHeader">
@@ -8,12 +9,17 @@
                 </div>
                 <div class="login">
                     <span>
+                <c:choose>
+                    <c:when test="${sessionInfo.anonymous}">
                     <%-- show this if they're not logged in --%>
                     <strong><a href="/ep/tc?module=Login">Log in</a></strong>
-                    <%-- show this if they are logged in 
+                    </c:when>
+                    <c:otherwise>
+                    <%-- show this if they are logged in --%>
                     Hello, <tc-webtag:handle coderId='${user.id}'/>.
-                    <strong><a href="/ep/tc?module=Logout">Log out</a></strong>
-                    --%>
+                    <strong><a href="/ep/?module=Logout">Log out</a></strong>
+                    </c:otherwise>
+                </c:choose>
                     </span>
                 </div>
             </div>
