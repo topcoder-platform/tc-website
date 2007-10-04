@@ -146,9 +146,6 @@ public class EditAssignment extends Base {
                 }
 
                 String showAllScores = StringUtils.checkNull(getRequest().getParameter("assignment_show_all_scores"));
-                if (showAllScores == "") {
-                    throw new TCWebException("Invalid show all scores flag");
-                }
 
                 String scoreType = StringUtils.checkNull(getRequest().getParameter("assignment_score_type"));
                 if (scoreType == "") {
@@ -157,7 +154,7 @@ public class EditAssignment extends Base {
 
 
                 String[] languages = getRequest().getParameterValues(Constants.LANGUAGE_ID);
-                if (languages.length == 0) {
+                if (languages == null || languages.length == 0) {
                     addError("error", "You must select at least one language");
                 }
                 
