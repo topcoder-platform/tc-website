@@ -6,6 +6,7 @@
 package com.topcoder.web.ep.controller.request.professor;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.topcoder.shared.security.ClassResource;
@@ -18,6 +19,7 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.algo.Language;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.educ.AssignmentScoreType;
@@ -77,6 +79,12 @@ public class EditAssignment extends Base {
                 setDefault("assignment_show_all_scores", ((Long)a.getProperty(RoundProperty.SHOW_ALL_SCORES)).equals(1l) ? "true" : "false");
                 setDefault("assignment_score_type", (Long)a.getProperty(RoundProperty.SCORE_TYPE));
 
+                Set<Integer> al = new HashSet<Integer>();
+                for (Language l : a.getLanguages()) {
+                    al.add(l.getId());
+                }
+                
+                getRequest().setAttribute("assignment_languages", al);
             } else {
                 // this is a new assignment, we need the classroom id
                 if (classroomId == null) {
@@ -94,7 +102,9 @@ public class EditAssignment extends Base {
             // prepare stuff for the long transaction
             clearSession();
 
-            getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());            
+            getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
+            
+            getRequest().setAttribute("languages", DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages());
             
             setAssignment(a);
             setClassroom(c);

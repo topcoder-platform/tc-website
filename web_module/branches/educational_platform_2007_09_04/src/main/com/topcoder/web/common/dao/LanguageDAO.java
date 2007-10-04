@@ -1,5 +1,7 @@
 package com.topcoder.web.common.dao;
 
+import java.util.List;
+
 import com.topcoder.web.common.model.algo.Language;
 
 
@@ -9,4 +11,7 @@ import com.topcoder.web.common.model.algo.Language;
  *          Create Date: Jan 18, 2007
  */
 public interface LanguageDAO extends GenericDAO<Language, Integer> {
+
+    public List<Language> findAssignmentLanguages();
+
 }

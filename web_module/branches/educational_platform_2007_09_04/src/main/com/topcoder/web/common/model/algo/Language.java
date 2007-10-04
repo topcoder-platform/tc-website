@@ -1,14 +1,34 @@
 package com.topcoder.web.common.model.algo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author pulky
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jun 4, 2007
  */
 public class Language {
+    public static final int JAVA_LANGUAGE = 1;
+    public static final int XML_LANGUAGE = 2;
+    public static final int CPP_LANGUAGE = 3;
+    public static final int CSHARP_LANGUAGE = 4;
+    public static final int VB_LANGUAGE = 5;
+    public static final int PHYTON_LANGUAGE = 6;
+
     private Integer id;
     private String name;
 
+    public static Set<Integer> assignmentLanguages = new HashSet<Integer>(4);
+    
+    // Todo: add an attribute to language table to see what we can 
+    static {
+        assignmentLanguages.add(JAVA_LANGUAGE);
+        assignmentLanguages.add(CPP_LANGUAGE);
+        assignmentLanguages.add(CSHARP_LANGUAGE);
+        assignmentLanguages.add(VB_LANGUAGE);
+    }
+    
     public Language() {
         
     }
