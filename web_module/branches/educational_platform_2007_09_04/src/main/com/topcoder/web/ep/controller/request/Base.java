@@ -15,9 +15,9 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
+import com.topcoder.web.ep.dto.AssignmentDTO;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -161,17 +161,7 @@ public abstract class Base extends LongHibernateProcessor {
         log.debug("set " + classroom.getName() + " classroom in session");
         getRequest().getSession().setAttribute(Constants.CLASSROOM, classroom);
     }
-    
-    /**
-     * Set the assignment in the current request processor.  
-     *
-     * @param assignment the assignment to set
-     */
-    protected void setAssignment(Round assignment) {
-        log.debug("set " + assignment.getName() + " assignment in session");
-        getRequest().getSession().setAttribute(Constants.ASSIGNMENT, assignment);
-    }
-    
+
     /**
      * Get the classroomss in the current request processor. 
      */
@@ -185,6 +175,31 @@ public abstract class Base extends LongHibernateProcessor {
             }
         }
         return classroom;
+    }
+
+    /**
+     * Set the assignment in the current request processor.  
+     *
+     * @param assignment the assignment to set
+     */
+    protected void setAssignment(AssignmentDTO assignment) {
+        log.debug("set assignment in session");
+        getRequest().getSession().setAttribute(Constants.ASSIGNMENT, assignment);
+    }
+    
+    /**
+     * Get the assignment in the current request processor. 
+     */
+    protected AssignmentDTO getAssignment() {
+        AssignmentDTO assignment = (AssignmentDTO) getRequest().getSession().getAttribute(Constants.ASSIGNMENT);
+        if (assignment == null) {
+                throw new RuntimeException("Couldn't find assignment in the session");
+        } else {
+            if (log.isDebugEnabled()) {
+                log.debug("got assignment from session");
+            }
+        }
+        return assignment;
     }
     
     

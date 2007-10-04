@@ -19,6 +19,7 @@ import com.topcoder.web.common.model.algo.RoundComponent;
 import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.algo.RoundSegment;
 import com.topcoder.web.common.model.algo.RoundType;
+import com.topcoder.web.ep.dto.AssignmentDTO;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -39,30 +40,28 @@ public class ArenaHelper implements ArenaServices {
      * @param scoreType
      * @param languages 
      */
-    public void addNewAssignment(Long classroomId, String classroomName, List<Long> components, List<Double> points, 
-            Timestamp startDate, Timestamp endDate, String assignmentName, Long coderPhaseLength, Long showAllScores, 
-            Long scoreType, List<Integer> languages) {
+    public void addNewAssignment(AssignmentDTO adto) {
         
         // create new contest
-        Contest ct = createContest(classroomName, startDate, endDate);
+        Contest ct = createContest(adto.getClassroomName(), adto.getStartDate(), adto.getEndDate());
         
         // create new round
-        Round r = createRound(assignmentName, ct);
+        Round r = createRound(adto.getAssignmentName(), ct);
         
         // add default room to the round
         addRoom(r);
         
         // assign custom properties to round 
-        assignProperties(r, classroomId, coderPhaseLength, showAllScores, scoreType);
+        assignProperties(r, adto.getClassroomId(), adto.getCoderPhaseLength(), adto.getShowAllScores(), adto.getScoreType());
         
         // create default segments for the round
-        assignSegments(r, startDate, endDate);
+        assignSegments(r, adto.getStartDate(), adto.getEndDate());
 
         // add selected components to the round
-        addComponents(r, components, points);
+        addComponents(r, adto.getComponents(), adto.getPoints());
 
         // add selected languages to the round
-        addLanguages(r, languages);
+        addLanguages(r, adto.getLanguages());
 
         DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
     }
@@ -80,25 +79,25 @@ public class ArenaHelper implements ArenaServices {
      * @param scoreType
      * @param languages 
      */
-    public void editAssignment(Long roundId, Long classroomId, String classroomName, List<Long> components, List<Double> points, Timestamp startDate, Timestamp endDate, String assignmentName, Long coderPhaseLength, Long showAllScores, Long scoreType, List<Integer> languages) {
-        Round r = DAOUtil.getFactory().getRoundDAO().find(roundId);
+    public void editAssignment(AssignmentDTO adto) {
+        Round r = DAOUtil.getFactory().getRoundDAO().find(adto.getRoundId());
         
-        r.setName(assignmentName);
+        r.setName(adto.getAssignmentName());
 
         // update contest dates and name
-        updateContest(classroomName, startDate, endDate, r);
+        updateContest(adto.getClassroomName(), adto.getStartDate(), adto.getEndDate(), r);
         
         // update properties values
-        updateRoundProperties(classroomId, coderPhaseLength, showAllScores, scoreType, r);
+        updateRoundProperties(adto.getClassroomId(), adto.getCoderPhaseLength(), adto.getShowAllScores(), adto.getScoreType(), r);
 
         // update segments dates
-        r.updateSegmentsDates(startDate, endDate);
+        r.updateSegmentsDates(adto.getStartDate(), adto.getEndDate());
 
         // now update components
-        updateRoundComponents(components, points, r);
+        updateRoundComponents(adto.getComponents(), adto.getPoints(), r);
 
         // finally update languages
-        updateLanguages(languages, r);
+        updateLanguages(adto.getLanguages(), r);
 
         DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
     }

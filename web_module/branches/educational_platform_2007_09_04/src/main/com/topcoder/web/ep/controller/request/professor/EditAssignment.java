@@ -5,6 +5,8 @@
 */
 package com.topcoder.web.ep.controller.request.professor;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,17 +18,15 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.Coder;
-import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.algo.Language;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.educ.AssignmentScoreType;
 import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.Base;
+import com.topcoder.web.ep.dto.AssignmentDTO;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -43,6 +43,9 @@ public class EditAssignment extends Base {
     protected void dbProcessing() throws Exception {
         log.debug("Edit assignment called...");
 
+        Long assignmentId = getAssignmentParam();
+        Long classroomId = getClassroomParam();
+
         if (!"POST".equals(getRequest().getMethod())) {
             log.debug("First pass - " + getUser().getUserName());
 
@@ -53,11 +56,7 @@ public class EditAssignment extends Base {
             }
             
             // new or edit
-            Long assignmentId = getAssignmentParam();
-            Long classroomId = getClassroomParam();
-
-            Round a = null;
-            Classroom c = null;
+            Round a;
             if (assignmentId != null) {
                 // we are editing
                 
@@ -86,6 +85,7 @@ public class EditAssignment extends Base {
                 
                 getRequest().setAttribute("assignment_languages", al);
             } else {
+                a = new Round();
                 // this is a new assignment, we need the classroom id
                 if (classroomId == null) {
                     throw new TCWebException("Invalid classroom id");
@@ -93,21 +93,20 @@ public class EditAssignment extends Base {
             }
 
             // check if this classroom belongs to the active user
-            c = DAOUtil.getFactory().getClassroomDAO().find(classroomId);
-            
-            if (!c.getProfessor().getId().equals(getUser().getId())) {
-                throw new NavigationException("You don't have permission to see this page.");
-            }
+            Classroom c = checkValidClassroom(classroomId);
 
             // prepare stuff for the long transaction
             clearSession();
 
             getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
-            
             getRequest().setAttribute("languages", DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages());
             
-            setAssignment(a);
-            setClassroom(c);
+            AssignmentDTO adto = new AssignmentDTO();
+
+            adto.setClassroomId(c.getId());
+            adto.setClassroomName(c.getName());
+
+            setAssignment(adto);
 
             setNextPage("/professor/editAssignment.jsp");
             setIsNextPageInContext(true);
@@ -116,86 +115,114 @@ public class EditAssignment extends Base {
             if (getActiveUser() == null) {
                 throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
             } else if (userLoggedIn()) {
-                Long schoolId = 0l;
-                School s = null;
-                if (schoolId == null) {
-                    addError("error", "Please select a school");
-                } else {
-                    s = getActiveUser().getProfessor().getSchoolUsingId(schoolId);                    
-                    if (s == null) {
-                        throw new TCWebException("Invalid school id");                        
-                    }
-                }
-                
-                String classroomName = StringUtils.checkNull(getRequest().getParameter("classroom_name"));
-                if (classroomName == "") {
-                    addError("error", "Please enter a name");
-                }
-                String classroomAcademicPeriod = StringUtils.checkNull(getRequest().getParameter("classroom_academic_period"));
-                if (classroomAcademicPeriod == "") {
-                    addError("error", "Please enter a academic period");
-                }
-                String classroomDescription = StringUtils.checkNull(getRequest().getParameter("classroom_description"));
-                if (classroomDescription == "") {
-                    addError("error", "Please enter a description");
-                }
                 // got a response, validate.
 
-                Classroom c = getClassroom();
-                
-                // check there's no other classroom with the same name, academic period in the same school.
-                if (s != null && getActiveUser().getProfessor().hasClassroom(s,
-                        classroomName, 
-                        classroomAcademicPeriod)) {
-                    // check if it's not finding the edited classroom
-                    if (!(c.getId() != null && c.getName().equals(classroomName) &&
-                            c.getAcademicPeriod().equals(classroomAcademicPeriod) &&
-                            c.getSchool().equals(s))) {
-                        addError("error", "This classroom already exists");
-                    }
+                String assignmentName = StringUtils.checkNull(getRequest().getParameter("assignment_name"));
+                if (assignmentName == "") {
+                    addError("error", "Please enter an assignment name");
                 }
                 
+                String assignmentStart = StringUtils.checkNull(getRequest().getParameter("assignment_start"));
+                if (assignmentStart == "") {
+                    addError("error", "Please enter an assignment start");
+                }
+                
+                String assignmentEnd = StringUtils.checkNull(getRequest().getParameter("assignment_end"));
+                if (assignmentEnd == "") {
+                    addError("error", "Please enter an assignment end");
+                }
+                
+                String codingPhaseLengthParam = StringUtils.checkNull(getRequest().getParameter("assignment_coding_phase_length"));
+                Long codingPhase = null;
+                if (codingPhaseLengthParam == "") {
+                    addError("error", "Please enter a coding phase length");
+                } else {
+                    try {
+                        codingPhase = Long.parseLong(codingPhaseLengthParam);
+                    } catch (NumberFormatException e) {
+                        addError("error", "Invalid coding phase length");
+                    }
+                }
+
+                String showAllScores = StringUtils.checkNull(getRequest().getParameter("assignment_show_all_scores"));
+                if (showAllScores == "") {
+                    throw new TCWebException("Invalid show all scores flag");
+                }
+
+                String scoreType = StringUtils.checkNull(getRequest().getParameter("assignment_score_type"));
+                if (scoreType == "") {
+                    throw new TCWebException("Invalid score type");
+                }
+
+
+                String[] languages = getRequest().getParameterValues(Constants.LANGUAGE_ID);
+                if (languages.length == 0) {
+                    addError("error", "You must select at least one language");
+                }
+                
+                // Todo: we don't want an assignment with the samen name alreay
+                
                 if (!hasErrors()) {
+                    // add assignment DTO to session
+                    AssignmentDTO adto = getAssignment();
+                    adto.setAssignmentName(assignmentName);
+                    adto.setCoderPhaseLength(codingPhase);
+                    adto.setShowAllScores("true".equals(showAllScores) ? 1l : 0l);
+                    adto.setScoreType(Long.parseLong(scoreType));
                     
-                    if (c.getId() != null && !c.getProfessor().getId().equals(getUser().getId())) {
-                        throw new NavigationException("You don't have permission to see this page.");
+                    // This will change when the UI gets the calendar javascript
+                    adto.setStartDate(new Timestamp(Timestamp.parse(assignmentStart)));
+                    adto.setEndDate(new Timestamp(Timestamp.parse(assignmentEnd)));
+                    
+                    List<Integer> languageList = new ArrayList<Integer>(languages.length);
+                    for (String language : languages) {
+                        languageList.add(Integer.parseInt(language));
                     }
-
-                    c.setName(classroomName);
-                    c.setAcademicPeriod(classroomAcademicPeriod);
-                    c.setDescription(classroomDescription);
-                    c.setStatusId(Classroom.ACTIVE);
-                    c.setSchool(s);
+                    adto.setLanguages(languageList);
                     
-                    Set<Coder> sc = c.getStudents(StudentClassroom.PENDING_STATUS);
-                    sc.addAll(c.getStudents(StudentClassroom.ACTIVE_STATUS));
-
-                    // generate checked students collection
-                    Set checkedStudents = new HashSet<Long>();
-                    for (Coder coder : sc) {
-                        checkedStudents.add(coder.getId());
-                    }
-                    getRequest().setAttribute("checked_students", checkedStudents);            
-                    
-                    getRequest().setAttribute("possible_students", getActiveUser().getProfessor().getStudents(s));            
-
-                    log.debug("classroom's school: " + c.getSchool() == null ? null : c.getSchool().getName());
-
-                    // next step, students.
-                    setNextPage("/professor/selectStudents.jsp");
+                    // next step, components.
+                    setNextPage("/professor/selectComponents.jsp");
                     setIsNextPageInContext(true);
                 } else {
-                    setDefault("classroom_name", classroomName);
-                    setDefault("classroom_academic_period", classroomAcademicPeriod);
-                    setDefault("classroom_description", classroomDescription);
+                    setDefault("assignment_name", assignmentName);
+                    setDefault("assignment_start", assignmentStart);
+                    setDefault("assignment_end", assignmentEnd);
+                    setDefault("assignment_coding_phase_length", codingPhaseLengthParam);
+                    setDefault("assignment_show_all_scores", showAllScores);
+                    setDefault("assignment_score_type", scoreType);
 
-                    setNextPage("/professor/editClassroom.jsp");
+                    Set<Integer> al = new HashSet<Integer>();
+                    for (String language : languages) {
+                        al.add(Integer.parseInt(language));
+                    }
+                    
+                    getRequest().setAttribute("assignment_languages", al);
+
+                    getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
+                    getRequest().setAttribute("languages", DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages());
+
+                    setNextPage("/professor/editAssignment.jsp");
                     setIsNextPageInContext(true);
                 }
             } else {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }        
         }
+    }
+
+
+    /**
+     * @param classroomId
+     * @return
+     * @throws NavigationException
+     */
+    private Classroom checkValidClassroom(Long classroomId) throws NavigationException {
+        Classroom c = DAOUtil.getFactory().getClassroomDAO().find(classroomId);
+        
+        if (!c.getProfessor().getId().equals(getUser().getId())) {
+            throw new NavigationException("You don't have permission to see this page.");
+        }
+        return c;
     }
     
     private Long getClassroomParam() throws TCWebException {

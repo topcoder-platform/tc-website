@@ -50,15 +50,15 @@
             Score type : <tc-webtag:objectSelect name="assignment_score_type" useTopValue="false" list="${assignment_score_types}" valueField="id" textField="description"/>
             <br/>
             Languages: 
-            <c:forEach items="${languages}" var="language">                
+            <c:forEach items="${languages}" var="language">
                 <c:choose>
                     <c:when test="${not empty assignment_languages && cf:contains(assignment_languages, language.id)}">
                        <input type="checkbox" name="lid" value="${language.id}" checked="checked"></c:when>
                     <c:otherwise>
                        <input type="checkbox" name="lid" value="${language.id}"></c:otherwise>
                 </c:choose>
+                ${language.name}
             </c:forEach>
-            <tc-webtag:objectSelect name="assignment_score_type" useTopValue="false" list="${assignment_score_types}" valueField="id" textField="description"/>
             <br/>
             <p>
                 <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Continue</a>
