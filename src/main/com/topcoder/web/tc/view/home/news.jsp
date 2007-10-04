@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />10.04.07<br />4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />">How Do You Like the UML Tool?</A></span><br /><br />
+        The TopCoder UML Tool has been available for component design competitions for two weeks now, and a competition has already been won using it!  We would like to collect your thoughts on the tool at this point in time.  Do you use it for our competitions?  If not, have you tried it?  Are there any missing features you consider essential before you will use the tool in a competition?  Do you have any other feedback on it?
+        <br /><br />We plan to make our tool mandatory by the end of November, so if there are any bugs or features you need us to address before you use it, now is the time to let us know!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />">details</a> | 
+        <a href="http://forums.topcoder.com/?module=Category&categoryID=2479">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />10.04.07<br />1:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=digital_run&d2=2007dot5Stage1Winners">2007.5 Digital Run: Stage 1 Winners</A></span><br /><br />
@@ -155,17 +169,5 @@
          <A href="/tc?module=Static&d1=features&d2=092707">details</A> | 
          <tc-webtag:forumLink forumID="517603" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />09.26.07<br />2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://forums.topcoder.com/?module=Thread&threadID=588630">Marathon Match support added to the Arena</A></span><br /><br />
-        You can now use the Arena to compete and practice in Marathon Matches.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://forums.topcoder.com/?module=Thread&threadID=588630">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
    
