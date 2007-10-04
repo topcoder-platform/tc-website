@@ -34,8 +34,8 @@
             <tc-webtag:errorIterator id="err" name="error">
                 <font color="#FF0000"><%=err%></font><br/>
             </tc-webtag:errorIterator>
+            Selected classroom: ${classroom.name}
             <br/>
-            Classroom: ${classroom.name}
             <br/>
             Name: <tc-webtag:textInput name="assignment_name" size="60" editable="true" />
             <br/>
@@ -45,9 +45,9 @@
             <br/>
             Coding phase length : <tc-webtag:textInput name="assignment_coding_phase_length" size="60" editable="true" />
             <br/>
-            show all coders: <tc-webtag:chkBox name="assignment_show_all_scores" size="60" editable="true" />
+            Show all coders: <tc-webtag:chkBox name="assignment_show_all_scores"/>
             <br/>
-            score type : <tc-webtag:objectSelect name="assignment_score_type" list="${assignment_score_types}" valueField="id" textField="description"/>
+            Score type : <tc-webtag:objectSelect name="assignment_score_type" useTopValue="false" list="${assignment_score_types}" valueField="id" textField="description"/>
             <br/>
             <p>
                 <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Continue</a>
