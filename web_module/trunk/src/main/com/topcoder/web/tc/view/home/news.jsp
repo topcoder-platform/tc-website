@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />10.04.07<br />1:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=digital_run&d2=2007dot5Stage1Winners">2007.5 Digital Run: Stage 1 Winners</A></span><br /><br />
+        Stage 1 of the 2007.5 Digital Run has been finalized.  Congratulations to <tc-webtag:handle coderId="21926605" context="design"/> and <tc-webtag:handle coderId="15046749" context="development"/> for winning the <a href="/tc?module=LeaderBoard&ph=112&sc=&sd=&staid=5&nr=50&sr=">Design</a> &amp; <a href="/tc?module=LeaderBoard&ph=113&sc=&sd=&staid=5&nr=50&sr=">Development</a> Cup series, respectively.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=digital_run&d2=2007dot5Stage1Winners">details</a> | 
+        <tc-webtag:forumLink forumID="517702" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.04.07<br />10:15 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">Round 2 of the TCCC07 CDDC Finals</A></span><br /><br />
@@ -154,18 +167,5 @@
    <tr><td class="newsLinksCell">
         <A href="http://forums.topcoder.com/?module=Thread&threadID=588630">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />09.26.07<br />12:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=SurveyResults&sid=19559">Prestigious Professor vote results</A></span><br /><br />
-        Congratulations to the most prestigious professors in our vote -- Yue Chen, Vitaly Bondarenko, and Wenhu Wu -- as well as the three members who nominated them: <tc-webtag:handle coderId="11889868" context="algorithm"/>, <tc-webtag:handle coderId="7389864" context="algorithm"/>, and <tc-webtag:handle coderId="10526732" context="algorithm"/>, respectively. Congratulations!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=SurveyResults&sid=19559">details</a> | 
-        <tc-webtag:forumLink forumID="517580" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
