@@ -37,7 +37,7 @@ public class EditClassroom extends Base {
     @Override
     protected void dbProcessing() throws Exception {
         log.debug("Edit Classroom called...");
-        if (userIdentified()) {
+        if (userLoggedIn()) {
             log.debug("User identified - " + getUser().getUserName());
             
             if (!"POST".equals(getRequest().getMethod())) {
@@ -45,10 +45,6 @@ public class EditClassroom extends Base {
                 // the user has just got here
                 //set up the user object we're gonna use
                 User u = getActiveUser();
-                if (u == null) {
-                    u = new User();
-                    setActiveUser(u);
-                }
     
                 if (u.getProfessor().getActiveSchools().size() == 0) {
                     throw new TCWebException("No active schools for this professor");

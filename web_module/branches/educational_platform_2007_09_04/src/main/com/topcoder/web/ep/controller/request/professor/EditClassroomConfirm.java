@@ -29,20 +29,9 @@ public class EditClassroomConfirm extends Base {
      */
     @Override
     protected void dbProcessing() throws Exception {
-        if (log.isDebugEnabled()) {
-            log.debug("Edit classroom confirm called...");
-            if (getActiveUser() == null) {
-                log.debug("user is null");
-            } else if (getActiveUser().isNew()) {
-                log.debug("user is new");
-            } else {
-                log.debug("handle : " + getActiveUser().getHandle());
-                log.debug("name: " + getActiveUser().getFirstName() + " " + getActiveUser().getLastName());
-            }
-        }
         if (getActiveUser() == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
-        } else if (userLoggedIn()) {            
+        } else {            
             // get selection
             String[] values = getRequest().getParameterValues(Constants.STUDENT_ID);
             
@@ -68,8 +57,6 @@ public class EditClassroomConfirm extends Base {
             
             setNextPage("/professor/editClassroomConfirm.jsp");
             setIsNextPageInContext(true);            
-        } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }        
     }
 }

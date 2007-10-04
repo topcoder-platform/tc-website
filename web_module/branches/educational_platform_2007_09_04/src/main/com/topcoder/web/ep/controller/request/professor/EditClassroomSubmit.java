@@ -31,20 +31,9 @@ public class EditClassroomSubmit extends Base {
      */
     @Override
     protected void dbProcessing() throws Exception {
-        if (log.isDebugEnabled()) {
-            log.debug("Edit classroom submit called...");
-            if (getActiveUser() == null) {
-                log.debug("user is null");
-            } else if (getActiveUser().isNew()) {
-                log.debug("user is new");
-            } else {
-                log.debug("handle : " + getActiveUser().getHandle());
-                log.debug("name: " + getActiveUser().getFirstName() + " " + getActiveUser().getLastName());
-            }
-        }
         if (getActiveUser() == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
-        } else if (userLoggedIn()) {
+        } else {
             
             User u = getActiveUser();
             
@@ -106,8 +95,6 @@ public class EditClassroomSubmit extends Base {
             getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/ep/");                  
             setNextPage("/message.jsp");
             setIsNextPageInContext(true);            
-        } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }        
     }
 }

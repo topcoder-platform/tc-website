@@ -23,16 +23,20 @@ public class SelectSchool extends Base {
      */
     @Override
     protected void dbProcessing() throws Exception {
+        if (userLoggedIn()) {
             log.debug("User identified - " + getUser().getUserName());
-
+    
             // prepare stuff for the long transaction
             clearSession();
-
+    
             if (getActiveUser().isProfessor()) {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
             
             setNextPage("/student/selectSchool.jsp");
-            setIsNextPageInContext(true);            
+            setIsNextPageInContext(true);
+        } else {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }        
     }
 }
