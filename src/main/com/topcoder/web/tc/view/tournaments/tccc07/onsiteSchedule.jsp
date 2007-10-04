@@ -36,7 +36,7 @@
                                 <td class="header" colspan="2">Tuesday, October 30, 2007</td> 
                             </tr>
                             <tr class="light"> 
-                                <td class="value">7:00 PM - 9:00 PM</td> 
+                                <td class="value">8:00 PM - 10:00 PM</td> 
                                 <td class="value">Welcome Reception</td>
                             </tr> 
                             <tr>
