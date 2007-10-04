@@ -147,8 +147,6 @@ public class EditAssignment extends Base {
 
                 String showAllScores = StringUtils.checkNull(getRequest().getParameter("assignment_show_all_scores"));
 
-                log.debug("showAllScores: " + showAllScores);
-                
                 String scoreType = StringUtils.checkNull(getRequest().getParameter("assignment_score_type"));
                 if (scoreType == "") {
                     throw new TCWebException("Invalid score type");
@@ -167,7 +165,7 @@ public class EditAssignment extends Base {
                     AssignmentDTO adto = getAssignment();
                     adto.setAssignmentName(assignmentName);
                     adto.setCoderPhaseLength(codingPhase);
-                    adto.setShowAllScores("true".equals(showAllScores) ? 1l : 0l);
+                    adto.setShowAllScores("on".equals(showAllScores) ? 1l : 0l);
                     adto.setScoreType(Long.parseLong(scoreType));
                     
                     // This will change when the UI gets the calendar javascript
@@ -188,7 +186,7 @@ public class EditAssignment extends Base {
                     setDefault("assignment_start", assignmentStart);
                     setDefault("assignment_end", assignmentEnd);
                     setDefault("assignment_coding_phase_length", codingPhaseLengthParam);
-                    setDefault("assignment_show_all_scores", showAllScores);
+                    setDefault("assignment_show_all_scores", "on".equals(showAllScores) ? "true" : "false");
                     setDefault("assignment_score_type", scoreType);
 
                     
