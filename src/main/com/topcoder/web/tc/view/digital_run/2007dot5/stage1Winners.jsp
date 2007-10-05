@@ -8,13 +8,25 @@
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_main"/>
+  <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <jsp:include page="../script.jsp" />
+<script language="javascript" type="text/javascript">
+<!--
+function menu_goto( menuform )
+{
+    selecteditem = menuform.newurl.selectedIndex ;
+    newurl = menuform.newurl.options[ selecteditem ].value ;
+    if (newurl.length != 0) {
+      location.href = newurl ;
+    }
+}
+//-->
+</script>
 </head>
 <body>
 
-<jsp:include page="../top.jsp" >
+<jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -33,31 +45,40 @@
 
 <div class="fixedWidthBody">
 <div align="center" style="margin-bottom: 20px;">
-<img src="/i/digital_run/digital_run_logo.png" alt="Digital Run" style="border-bottom: 1px solid #999999;"/>
+<A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=description"><img src="/i/digital_run/2007dot5SeasonLogo.png" alt="Digital Run" style="border-bottom: 1px solid #999999;"/></A>
 </div>
 
-<div align="center">
-<table cellpadding="0" cellspacing="0" border="0" class="bodyText">
+<div align="center" style="margin-bottom: 10px;">
+
+<form action="dummyvalue">
+<select name="newurl" onchange="menu_goto(this.form)">
+  <option value="/tc?module=Static&d1=digital_run&d2=2006description">2007 Season</option>
+  <option value="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=description" selected="selected">2007.5 Season</option>
+</select>
+</form>
+
+<table cellpadding="0" cellspacing="0" border="0" class="bodyText" style="margin-bottom: 10px;">
 <tr>
-<td align="left" style="padding-right:10px;border-right: 1px solid #999999;">
-<span class="subtitle">Design Cup Series</span><br />
-<A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=desOverview">Details</A><br />
-<A href="/tc?module=LeaderBoard&ph=112&sc=&sd=&staid=5&nr=50&sr=">Current leaderboard</A><br />
-<%--
-<A href="/tc?module=RookieBoard&ph=112&seid=1">Current ROTY leaderboard</A>
---%>
+<td align="left" style="padding-right:10px; border-right: 1px solid #999999;" valign="top">
+<span class="subtitle">Design Cup</span><br>
+<A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=desOverview" class="bcLink">Details</A><br>
+<A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Current Leaderboard</A><br>
 </td>
-<td align="left" style="padding-left:10px;">
-<span class="subtitle">Development Cup Series</span><br />
-<A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=devOverview">Details</A><br />
-<A href="/tc?module=LeaderBoard&ph=113&sc=&sd=&staid=5&nr=50&sr=">Current leaderboard</A><br />
-<%--
-<A href="/tc?module=RookieBoard&ph=113&seid=1">Current ROTY leaderboard</A>
---%>
+<td align="left" style="padding: 0 10px; border-right: 1px solid #999999;" valign="top">
+<span class="subtitle" class="bcLink">Development Cup</span><br>
+<A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=devOverview" class="bcLink">Details</A><br>
+<A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Current Leaderboard</A><br>
+</td>
+<td align="left" style="padding-left:10px;" valign="top">
+<span class="subtitle" class="bcLink">Assembly Cup</span> <span class="bigRed">NEW!</span><br>
+<A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=asmOverview" class="bcLink">Details</A><br>
+<A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=asmLeaderboardS1" class="bcLink">Current Leaderboard</A><br>
+
 </td>
 </tr>
 </table>
-</div>
+
+<div align="left">
 <br /><br />
 <span class="subtitle">Announcing the Digital Run: Stage 1 Winners</span><br />
 Stage 1 of the 2007.5 Digital Run season concluded on August 31, 2007. Here are the winners:
@@ -85,13 +106,16 @@ Check out the final <A href="/tc?module=RookieBoard&ph=113&seid=1">Development C
 --%>
 <br /><br />
 </div>
+
+</div>
+
 </td>
 <%-- Center Column Ends --%>
 
 <%-- Right Column Begins --%>
          <td width="170">
-            <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+            <jsp:include page="../../public_right.jsp">
+               <jsp:param name="level1" value="default"/>
             </jsp:include>
          </td>
 <%-- Right Column Ends --%>
@@ -102,7 +126,7 @@ Check out the final <A href="/tc?module=RookieBoard&ph=113&seid=1">Development C
     </tr>
 </table>
 
-<jsp:include page="../foot.jsp" />
+<jsp:include page="../../foot.jsp" />
 
 </body>
 

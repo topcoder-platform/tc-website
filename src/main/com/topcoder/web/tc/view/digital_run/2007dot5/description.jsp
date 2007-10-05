@@ -93,8 +93,8 @@ Current Leaderboard
 </tr>
 </table>
 
-<%--
 <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=stage1Winners" class="bcLink">Stage 1 Winners</A><br>
+<%--
 <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=stage2Winners" class="bcLink">Stage 2 Winners</A><br>
 <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=stage3Winners" class="bcLink">Stage 3 Winners</A>
 --%>
