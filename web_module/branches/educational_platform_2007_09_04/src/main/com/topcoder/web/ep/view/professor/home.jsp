@@ -70,25 +70,27 @@
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce suscipit velit eu ipsum. Nulla euismod eros at quam. Nullam ut nisl eget ante consequat tincidunt. Donec ultricies, neque pretium malesuada consectetuer, diam nibh congue nibh, imperdiet vulputate augue lectus ac dui. Vestibulum lorem ligula, rhoncus in, interdum quis, rhoncus vel, ligula. Duis in metus non metus ultricies tempus. Integer sit amet risus sit amet velit aliquam consectetuer. Aenean magna. Proin luctus, dolor ac luctus eleifend, neque ante adipiscing nunc, sed tincidunt nisi orci nec magna. Nullam ultrices accumsan dolor. Integer ante orci, lacinia sit amet, imperdiet vitae, aliquam at, orci. Integer in eros.
 </p>
 
-Hello, <tc-webtag:handle coderId='${user.id}'/>, Welcome to Educational Plattform!
-<br /><br />
 <c:choose>
     <c:when test="${not empty classrooms}">
-        Here are your classrooms:<br/><br/>
-        <table border="1">
+        Here are your classrooms:<br /><br />
+        <%-- Breakout classes by school. For each school, put an <h1> title like below, and then list the classes.--%>
+        <h1><span class="bg"><span class="spacer">University of TopCoder</span></span></h1>
         <c:forEach items="${classrooms}" var="classroom">
-            <tr>
-                <td><a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a></td>
-                <td><a href="/ep?module=EditClassroom&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/edit.png" alt="Edit classroom" /></a></td>
-            </tr>
+            <div class="classroomListing" align="center">
+                <div class="name">
+                    <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a>
+                </div>
+                <div>
+                    <a href="/ep?module=EditClassroom&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/edit.png" alt="Edit classroom" /></a>
+                </div>
+            </div>
         </c:forEach>
-        </table>
     </c:when>
     <c:otherwise>
         You don't have classrooms associated.
     </c:otherwise>
 </c:choose>
-<br/>
+<br clear="all" />
 
     <div align="center">
         <a href="/ep?module=EditClassroom"><img src="/i/ep/buttons/addClassroom.png" alt="Add classroom" /></a>
