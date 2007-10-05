@@ -18,8 +18,9 @@ public class ComponentDAOHibernate extends GenericBase<Component, Long> implemen
 
     public List searchByProblemName(String name, int maxResults) {
         return getSession().createCriteria(Component.class)
-        .add(Restrictions.like("problem.name", name))
-        .addOrder(Order.asc("problem.name"))
+        .createCriteria("problem")
+        .add(Restrictions.like("name", name))
+        .addOrder(Order.asc("name"))
         .setMaxResults(maxResults)
         .list();
     }
