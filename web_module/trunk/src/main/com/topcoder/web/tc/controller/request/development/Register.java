@@ -26,7 +26,6 @@ import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.common.tag.CalendarDateFormatMethod;
-import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
@@ -69,15 +68,14 @@ public class Register extends ViewRegistration {
 
             boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
             List responses = validateSurvey();
-            
-            boolean bother = true; 
-            
+
+            boolean bother = true;
+
             // only bother if the user is not a professional (tccc)
             // comment this line if not needed
-            bother = !CoderType.PROFESSIONAL.equals(DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId())).getCoderType().getId()); 
+            bother = !CoderType.PROFESSIONAL.equals(DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId())).getCoderType().getId());
             log.debug("Bother: " + bother);
 
-            
 //            Coder c = (Coder) createEJB(getInitialContext(), Coder.class);
 //            //boolean isStudent = c.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME) == 1;
             if (agreed && !hasErrors()) {
@@ -401,15 +399,16 @@ public class Register extends ViewRegistration {
                         "Thank you, for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=" + activeForumCategoryId + " ) which can be used to obtain design documentation (see the Design Phase Documents thread), as well as to ask questions regarding the component design. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\n\n" +
                         "The deadline for submitting a solution is " + date + ". Please upload your design using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at service@topcodersoftware.com.  All late submissions will be ignored.\n\n" +
                         "If you have any questions please contact service@topcodersoftware.com\n\n" +
-                        "Gentleware will be supporting Poseidon 4.x for TopCoder until April 1st " +
-                        "2006.  After April 1st, TopCoder will standardize on Poseidon 5.X\n\n" +
 
-                        "Below is your serial number for Poseidon for 5.0 UML Community Version.Edition." +
-                        "This license is good for one year and is valid for TopCoder work.\n\n" +
 
-                        key +
-                        "\n\n" +
-                        "If you have not downloaded 5.0 yet, please download the software from http://www.gentleware.com/downloadcenter.html\n\n" +
+                        "TopCoder currently supports two options for generating UML diagrams: the TopCoder UML Tool and Poseidon for UML 5.x.\n\n" +
+
+                        "You can read more about our UML tool and download it at\n" +
+                        "http://www.topcoder.com/tc?module=Static&d1=dev&d2=umltool&d3=description\n\n" +
+
+                        "If you choose to use Poseidon, you can obtain version 5 from ftp.gentleware.biz. Below is your serial number for Poseidon for 5.0 UML ommunity Edition. This license is good for one year and is valid for TopCoder work.\n\n" +
+
+                        key + "\n\n" +
                         "TopCoder Software Team");
 
             } else {
@@ -417,15 +416,14 @@ public class Register extends ViewRegistration {
                         "Thank you, for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=" + activeForumCategoryId + " ) which can be used to obtain the component design (See \"Development Phase Documents\" thread), as well as to ask questions regarding the development process or the component design. Please post your questions at any time and the component designer will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!\n\n" +
                         "The deadline for submitting a solution is " + date + ". Please upload your solution using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review. If you encounter any problems, please contact us at service@topcodersoftware.com.  Any late submissions will be ignored. \n\n" +
                         "If you have any questions please contact service@topcodersoftware.com\n\n" +
-                        "Gentleware will be supporting Poseidon 4.x for TopCoder until April 1st " +
-                        "2006.  After April 1st, TopCoder will standardize on Poseidon 5.X\n\n" +
+                        "TopCoder currently supports two options for generating UML diagrams: the TopCoder UML Tool and Poseidon for UML 5.x.\n\n" +
 
-                        "Below is your serial number for Poseidon for 5.0 UML Community Version.Edition." +
-                        "This license is good for one year and is valid for TopCoder work.\n\n" +
+                        "You can read more about our UML tool and download it at\n" +
+                        "http://www.topcoder.com/tc?module=Static&d1=dev&d2=umltool&d3=description\n\n" +
 
-                        key +
-                        "\n\n" +
-                        "If you have not downloaded 5.0 yet, please download the software from http://www.gentleware.com/downloadcenter.html\n\n" +
+                        "If you choose to use Poseidon, you can obtain version 5 from ftp.gentleware.biz. Below is your serial number for Poseidon for 5.0 UML ommunity Edition. This license is good for one year and is valid for TopCoder work.\n\n" +
+
+                        key + "\n\n" +
                         "TopCoder Software Team");
             }
             EmailEngine.send(mail);
