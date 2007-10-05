@@ -39,9 +39,9 @@
             <br/>
             Name: <tc-webtag:textInput name="assignment_name" size="60" editable="true" />
             <br/>
-            Start : <tc-webtag:textInput name="assignment_start" format="yyyy.MM.dd HH:mm" "size="16" maxlength="16" editable="true" />
+            Start : <tc-webtag:textInput name="assignment_start" format="yyyy.MM.dd HH:mm" size="16" maxlength="16" editable="true" />
             <br/>
-            End: <tc-webtag:textInput name="assignment_end" format="yyyy.MM.dd HH:mm" "size="16" maxlength="16" editable="true" />
+            End: <tc-webtag:textInput name="assignment_end" format="yyyy.MM.dd HH:mm" size="16" maxlength="16" editable="true" />
             <br/>
             Coding phase length : <tc-webtag:textInput name="assignment_coding_phase_length" size="60" editable="true" />
             <br/>

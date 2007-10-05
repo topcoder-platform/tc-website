@@ -77,8 +77,8 @@ public class EditAssignment extends Base {
                     classroomId = (Long) classroomProperty;
     
                     setDefault("assignment_name", a.getName());
-                    setDefault("assignment_start", a.getContest().getStartDate());
-                    setDefault("assignment_end", a.getContest().getEndDate());
+                    setDefault("assignment_start", formatDate(a.getContest().getStartDate()));
+                    setDefault("assignment_end", formatDate(a.getContest().getEndDate()));
                     setDefault("assignment_coding_phase_length", (Long)a.getProperty(RoundProperty.CODING_PHASE_LENGTH));
                     setDefault("assignment_show_all_scores", ((Long)a.getProperty(RoundProperty.SHOW_ALL_SCORES)).equals(1l) ? "true" : "false");
                     setDefault("assignment_score_type", (Long)a.getProperty(RoundProperty.SCORE_TYPE));
@@ -129,24 +129,26 @@ public class EditAssignment extends Base {
                     }
                     
                     String assignmentStart = StringUtils.checkNull(getRequest().getParameter("assignment_start"));
+                    Timestamp assignmentStartDate = null;
                     if (assignmentStart == "") {
                         addError("error", "Please enter an assignment start");
                     } else if (!isValidDate(assignmentStart)) {
                         addError("error", "Invalid assignment start date");
+                    } else {
+                        // This will change when the UI gets the calendar javascript
+                        assignmentStartDate = new Timestamp(parseDate(assignmentStart).getTime());
                     }
 
-                    // This will change when the UI gets the calendar javascript
-                    Timestamp assignmentStartDate = new Timestamp(parseDate(assignmentStart).getTime());
-
                     String assignmentEnd = StringUtils.checkNull(getRequest().getParameter("assignment_end"));
+                    Timestamp assignmentEndDate = null;
                     if (assignmentEnd == "") {
                         addError("error", "Please enter an assignment end");
                     } else if (!isValidDate(assignmentEnd)) {
                         addError("error", "Invalid assignment start date");
+                    } else {
+                        // This will change when the UI gets the calendar javascript
+                        assignmentEndDate = new Timestamp(parseDate(assignmentEnd).getTime());
                     }
-
-                    // This will change when the UI gets the calendar javascript
-                    Timestamp assignmentEndDate = new Timestamp(parseDate(assignmentEnd).getTime());
 
                     String codingPhaseLengthParam = StringUtils.checkNull(getRequest().getParameter("assignment_coding_phase_length"));
                     Long codingPhase = null;
@@ -285,6 +287,11 @@ public class EditAssignment extends Base {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm");
         ParsePosition pp = new ParsePosition(0);
         return sdf.parse(s, pp);
+    }
+
+    protected String formatDate(Date d) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm");
+        return sdf.format(d);
     }
 
 }
