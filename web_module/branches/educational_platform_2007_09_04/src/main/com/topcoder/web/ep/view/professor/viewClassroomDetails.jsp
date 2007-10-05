@@ -63,68 +63,48 @@
 <div class="window" align="left">
     <div class="spacer">
 
-        <h1><span class="bg"><span class="spacer">Classroom details</span></span></h1>
-        <table cellpadding="0" cellspacing="0" class="stat">
-            <tr>
-                <td class="header">School</td>
-                <td class="header">Classroom</td>
-                <td class="header">Academic period</td>
-                <td class="header">Description</td>
-            </tr>
-            <tr class="light">
-                <td class="value">${classroom.school.name}</td>
-                <td class="value">${classroom.name}</td>
-                <td class="value">${classroom.academicPeriod}</td>
-                <td class="value">${classroom.description}</td>
-            </tr>
-        </table>
-        <div>
-            <a href="/ep?module=EditClassroom&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/edit.png" alt="Edit classroom" /></a>
+        <h1><span class="bg"><span class="spacer">Students</span></span></h1>
+
+        <div align="center" style="margin: 40px;">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td style="padding-right: 10px; font-weight: bold;">
+                        <p>School:</p>
+                        <p>Classroom:</p>
+                        <p>Academic period:</p>
+                        <p>Description:</p>
+                    </td>
+                    <td>
+                        <p>${classroom.school.name}</p>
+                        <p>${classroom.name}</p>
+                        <p>${classroom.academicPeriod}</p>
+                        <p>${classroom.description}</p>
+                    </td>
+                </tr>
+            </table>
         </div>
 
-        <c:choose>
-            <c:when test="${not empty activeStudents}">
-                <form name="fActive" action="${sessionInfo.servletPath}" method="post">
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="DeactivateStudent"/><br />
-                    <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/><br />
-                    Active Students:
-                    <table cellpadding="0" cellspacing="0" class="stat">
-                        <tr><td class="header">Student name</td><td class="header">&nbsp;</td></tr>
-                        <%int i = 0;%>
-                        <c:forEach items="${activeStudents}" var="student">
-                            <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                <td class="value">${student.user.lastName}, ${student.user.firstName}</td>
-                                <td class="value"><input type="checkbox" name="stid" value="${student.id}"></td>
-                            </tr>
-                        <%i++;%>
-                        </c:forEach>
-                    </table>
-                    <p>
-                        <a href="javascript:submitActive()" class="button" style="width: 60px; margin-right: 10px;">Deactivate</a>
-                    </p>
-                </form>
-            </c:when>
-            <c:otherwise>
-                There are no active students in this classroom.
-            </c:otherwise>
-        </c:choose>
-        <br />
+        <div style="float: right; width: 350px;">
         <c:choose>
             <c:when test="${not empty pendingStudents}">
                 <form name="f" action="${sessionInfo.servletPath}" method="post">
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value=""/><br />
-                    <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/><br />
-                    Pending Students:
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value=""/>
+                    <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/>
+                    
                     <table cellpadding="0" cellspacing="0" class="stat">
-                        <tr><td class="header">Student name</td><td class="header">&nbsp;</td></tr>
+                        <tr><td class="title" colspan="2">Pending Students</td></tr>
+                        <tr><td class="header">Student name</td><td class="headerC">Select</td></tr>
                         <%int i = 0;%>
                         <c:forEach items="${pendingStudents}" var="student">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value">${student.user.lastName}, ${student.user.firstName}</td>
-                                <td class="value"><input type="checkbox" name="stid" value="${student.id}"></td>
+                                <td class="valueC"><input type="checkbox" name="stid" value="${student.id}" /></td>
                             </tr>
                         <%i++;%>
                         </c:forEach>
+                            <tr>
+                                <td colspan="2" align="right"><a href="">Select all</a></td>
+                            </tr>
                     </table>
                     <div>
                         <div style="float:left; margin-right: 10px;"><a href="javascript:submit('activate')"><img src="/i/ep/buttons/activate.png" alt="Activate" /></a></div>
@@ -133,10 +113,52 @@
                 </form>
             </c:when>
             <c:otherwise>
-                There are no pending students in this classroom.
+                    <table cellpadding="0" cellspacing="0" class="stat">
+                        <tr><td class="title" colspan="2">Pending Students</td></tr>
+                        <tr><td class="header">Student name</td><td class="headerC">Select</td></tr>
+                        <tr class="light"><td class="value" colspan="2">There are no pending students in this classroom.</td></tr>
+                    </table>
             </c:otherwise>
         </c:choose>
-    <br /><br />
+        </div>
+
+        <div style="width: 350px;">
+        <c:choose>
+            <c:when test="${not empty activeStudents}">
+                <form name="fActive" action="${sessionInfo.servletPath}" method="post">
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="DeactivateStudent"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/>
+                    <table cellpadding="0" cellspacing="0" class="stat">
+                        <tr><td class="title" colspan="2">Active Students</td></tr>
+                        <tr><td class="header">Student name</td><td class="headerC">Select</td></tr>
+                        <%int i = 0;%>
+                        <c:forEach items="${activeStudents}" var="student">
+                            <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                <td class="value">${student.user.lastName}, ${student.user.firstName}</td>
+                                <td class="valueC"><input type="checkbox" name="stid" value="${student.id}" /></td>
+                            </tr>
+                        <%i++;%>
+                        </c:forEach>
+                            <tr>
+                                <td colspan="2" align="right"><a href="">Select all</a></td>
+                            </tr>
+                    </table>
+                    <p>
+                        <a href="javascript:submitActive()" class="button" style="width: 60px; margin-right: 10px;"><img src="/i/ep/buttons/deactivate.png" alt="Deactivate" /></a>
+                    </p>
+                </form>
+            </c:when>
+            <c:otherwise>
+                    <table cellpadding="0" cellspacing="0" class="stat">
+                        <tr><td class="title" colspan="2">Active Students</td></tr>
+                        <tr><td class="header">Student name</td><td class="headerC">Select</td></tr>
+                        <tr class="light"><td class="value" colspan="2">There are no active students in this classroom.</td></tr>
+                    </table>
+            </c:otherwise>
+        </c:choose>
+        </div>
+
+<%--
         <c:choose>
             <c:when test="${not empty assignments}">
                 Classroom's assignments:
@@ -160,9 +182,10 @@
         </c:choose>
         <br /><br />
         <a href="/ep?module=EditAssignment&amp;clsid=${classroom.id}">Add new assignment</a>
-    <br /><br />
-    <a href="/ep/">Back</a>
+--%>
 
+    <br clear="all" />
+    <a href="/ep/"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>
 </div>
 
