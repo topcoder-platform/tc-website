@@ -84,7 +84,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
                     <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/students.png" alt="Students" /></a>
                 </div>
                 <div class="button">
-                    <a href=""><img src="/i/ep/buttons/assignments.png" alt="Assignments" /></a>
+                    <a href="/ep?module=ViewClassroomAssignments&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/assignments.png" alt="Assignments" /></a>
                 </div>
                 <div class="button">
                     <a href="/ep?module=EditClassroom&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/edit.png" alt="Edit classroom" /></a>

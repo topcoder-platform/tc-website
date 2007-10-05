@@ -158,32 +158,6 @@
         </c:choose>
         </div>
 
-<%--
-        <c:choose>
-            <c:when test="${not empty assignments}">
-                Classroom's assignments:
-                <table border="1">
-                    <tr><td>Name</td><td>Start</td><td>End</td><td>Assigned</td><td>Finished (succeeded/failed)</td><td>&nbsp;</td></tr>
-                    <c:forEach items="${assignments}" var="assignment">                
-                        <tr>
-                            <td>${assignment.name}</td>
-                            <td>${assignment.contest.startDate}</td>
-                            <td>${assignment.contest.endDate}</td>
-                            <td>${assignment.registered}</td>
-                            <td>${assignment.succeeded}/${assignment.failed}</td>
-                            <td><a href="/ep?module=EditAssignment&amp;asid=${assignment.id}">Edit</a></td>
-                        </tr>
-                    </c:forEach>
-                </table>
-            </c:when>
-            <c:otherwise>
-                There are no assignments for this classroom.
-            </c:otherwise>
-        </c:choose>
-        <br /><br />
-        <a href="/ep?module=EditAssignment&amp;clsid=${classroom.id}">Add new assignment</a>
---%>
-
     <br clear="all" />
     <a href="/ep/"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>

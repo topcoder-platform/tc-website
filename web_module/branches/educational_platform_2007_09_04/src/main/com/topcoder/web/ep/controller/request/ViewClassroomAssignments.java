@@ -21,9 +21,9 @@ import com.topcoder.web.ep.Constants;
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class ViewClassroomDetails extends ShortHibernateProcessor {
+public class ViewClassroomAssignments extends ShortHibernateProcessor {
 
-    private static Logger log = Logger.getLogger(ViewClassroomDetails.class);
+    private static Logger log = Logger.getLogger(ViewClassroomAssignments.class);
 
     /* (non-Javadoc)
      * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
@@ -44,15 +44,15 @@ public class ViewClassroomDetails extends ShortHibernateProcessor {
                 }
                 // this user is the classroom's professor
                 getRequest().setAttribute("classroom", c);
-                getRequest().setAttribute("activeStudents", c.getStudents(StudentClassroom.ACTIVE_STATUS));                
-                getRequest().setAttribute("pendingStudents", c.getStudents(StudentClassroom.PENDING_STATUS));
+                getRequest().setAttribute("assignments", DAOUtil.getFactory().getClassroomDAO().getAssignments(c.getId()));
 
-                setNextPage("/professor/viewClassroomDetails.jsp");
+                setNextPage("/professor/viewClassroomAssignments.jsp");
             } else if (c.hasStudent(getUser().getId())) {
                 log.debug("active student");
                 // this user is an active student of the classroom
-                getRequest().setAttribute("classroom", c);
-                setNextPage("/student/viewClassroomDetails.jsp");
+
+                // TODO
+                
             } else {
                 throw new NavigationException("You don't have permission to see this page.");
             }
