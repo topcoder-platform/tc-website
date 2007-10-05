@@ -170,6 +170,7 @@
                     <tr class="light">
                         <td class="value">
                             <p><a href="/reg/?nrg=false">Add registrations</a></p>
+                            <p><a href="/tc?module=HSViewUnregister">Unregister from TCHS</a></p>
                             <p><a href="/reg/?nrg=false">Update my profile</a></p>
                             <p>
                                 <A HREF="mailto:memberphotos@topcoder.com?subject=${regUser.activationCode}%20|%20[%20${regUser.handle}%20]%20|%20${regUser.id}%20<c:if test="${regUser.coder.memberPhoto!=null}">RE</c:if>SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT">
