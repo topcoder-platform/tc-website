@@ -40,7 +40,7 @@
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr class="bodyText"><td nowrap="nowrap">10.04.07 4:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=umltool&d3=description">How Do You Like the UML Tool?</A><br></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">10.04.07 1:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=digital_run&d2=2007dot5Stage1Winners">2007.5 Digital Run: Stage 1 Winners</A><br></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.04.07 1:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=stage1Winners">2007.5 Digital Run: Stage 1 Winners</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.20.07 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=umltool&d3=description&node=des_uml_tool">Try the TopCoder UML Tool</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.30.07 12:45 PM - </td><td width="100%"><A href="/tc?module=Static&d1=digital_run&d2=2007Stage4Winners">Digital Run: Stage 4 winners</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.23.07 7:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=support&d3=desReliability">Design &amp; Development reliability bonuses increased</A><br></td></tr>

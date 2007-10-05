@@ -20,11 +20,11 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />10.04.07<br />1:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=digital_run&d2=2007dot5Stage1Winners">2007.5 Digital Run: Stage 1 Winners</A></span><br /><br />
+        <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=stage1Winners">2007.5 Digital Run: Stage 1 Winners</A></span><br /><br />
         Stage 1 of the 2007.5 Digital Run has been finalized.  Congratulations to <tc-webtag:handle coderId="21926605" context="design"/> and <tc-webtag:handle coderId="15046749" context="development"/> for winning the <a href="/tc?module=LeaderBoard&ph=112&sc=&sd=&staid=5&nr=50&sr=">Design</a> &amp; <a href="/tc?module=LeaderBoard&ph=113&sc=&sd=&staid=5&nr=50&sr=">Development</a> Cup series, respectively.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=digital_run&d2=2007dot5Stage1Winners">details</a> | 
+        <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=stage1Winners">details</a> | 
         <tc-webtag:forumLink forumID="517702" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
