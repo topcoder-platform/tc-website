@@ -102,6 +102,7 @@ public class EditAssignment extends Base {
                 Classroom c = checkValidClassroom(classroomId);
     
                 // prepare stuff for the long transaction
+                // todo: add the rest of the object to clear in clearSession
                 clearSession();
     
                 getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
