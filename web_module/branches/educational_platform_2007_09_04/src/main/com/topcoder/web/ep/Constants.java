@@ -32,9 +32,13 @@ public class Constants implements WebConstants {
     public static final String LANGUAGE_ID = "lid";
     
     public static String SCHOOL_NAME;
+    public static String COMPONENT_NAME;
 
     public static int MAX_SCHOOL_NAME_LENGTH;
     public static int MAX_SCHOOL_RESULTS;
+
+    public static int MAX_COMPONENT_NAME_LENGTH;
+    public static int MAX_COMPONENT_RESULTS;
 
     private static final TCResourceBundle bundle = new TCResourceBundle("EP");
     private static final Logger log = Logger.getLogger(Constants.class);
