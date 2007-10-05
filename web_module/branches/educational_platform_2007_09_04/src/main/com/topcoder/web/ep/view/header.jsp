@@ -18,7 +18,7 @@
                         <strong><a href="/ep/tc?module=Login">Log in</a></strong>
                     </c:when>
                     <c:otherwise>
-                        Hello, <tc-webtag:handle coderId='${user.id}'/>.
+                        Hello, <tc-webtag:handle coderId='${sessionInfo.userId}'/>.
                         <strong><a href="/ep/?module=Logout">Log out</a></strong>
                     </c:otherwise>
                 </c:choose>
