@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.request.search;
 
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
@@ -55,6 +56,8 @@ public class AdvancedSearch extends SimpleSearch {
         setDefault(Constants.MIN_NUM_MAR_RATINGS, m.getMinNumMarRatings() == null ? "" : m.getMinNumMarRatings().toString());
         setDefault(Constants.MAX_NUM_MAR_RATINGS, m.getMaxNumMarRatings() == null ? "" : m.getMaxNumMarRatings().toString());
         setDefault(Constants.MAX_DAYS_SINCE_LAST_MAR_COMP, m.getMaxDaysSinceLastMarComp() == null ? "" : m.getMaxDaysSinceLastMarComp().toString());
+        setDefault(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+        setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
     }
 
     /**
