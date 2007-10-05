@@ -6,7 +6,10 @@
 package com.topcoder.web.ep.controller.request.professor;
 
 import java.sql.Timestamp;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -128,13 +131,23 @@ public class EditAssignment extends Base {
                     String assignmentStart = StringUtils.checkNull(getRequest().getParameter("assignment_start"));
                     if (assignmentStart == "") {
                         addError("error", "Please enter an assignment start");
+                    } else if (!isValidDate(assignmentStart)) {
+                        addError("error", "Invalid assignment start date");
                     }
-                    
+
+                    // This will change when the UI gets the calendar javascript
+                    Timestamp assignmentStartDate = new Timestamp(parseDate(assignmentStart).getTime());
+
                     String assignmentEnd = StringUtils.checkNull(getRequest().getParameter("assignment_end"));
                     if (assignmentEnd == "") {
                         addError("error", "Please enter an assignment end");
+                    } else if (!isValidDate(assignmentEnd)) {
+                        addError("error", "Invalid assignment start date");
                     }
-                    
+
+                    // This will change when the UI gets the calendar javascript
+                    Timestamp assignmentEndDate = new Timestamp(parseDate(assignmentEnd).getTime());
+
                     String codingPhaseLengthParam = StringUtils.checkNull(getRequest().getParameter("assignment_coding_phase_length"));
                     Long codingPhase = null;
                     if (codingPhaseLengthParam == "") {
@@ -170,9 +183,8 @@ public class EditAssignment extends Base {
                         adto.setShowAllScores("on".equals(showAllScores) ? 1l : 0l);
                         adto.setScoreType(Long.parseLong(scoreType));
                         
-                        // This will change when the UI gets the calendar javascript
-                        adto.setStartDate(new Timestamp(Timestamp.parse(assignmentStart)));
-                        adto.setEndDate(new Timestamp(Timestamp.parse(assignmentEnd)));
+                        adto.setStartDate(assignmentStartDate);
+                        adto.setEndDate(assignmentEndDate);
                         
                         List<Integer> languageList = new ArrayList<Integer>(languages.length);
                         for (String language : languages) {
@@ -263,6 +275,16 @@ public class EditAssignment extends Base {
         }
         
         return id;
+    }
+
+    protected boolean isValidDate(String s) {
+        return parseDate(s) != null;
+    }
+
+    protected Date parseDate(String s) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm");
+        ParsePosition pp = new ParsePosition(0);
+        return sdf.parse(s, pp);
     }
 
 }
