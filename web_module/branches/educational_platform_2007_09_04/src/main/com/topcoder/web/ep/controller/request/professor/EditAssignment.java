@@ -24,6 +24,7 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.algo.Language;
 import com.topcoder.web.common.model.algo.Round;
+import com.topcoder.web.common.model.algo.RoundComponent;
 import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.educ.AssignmentScoreType;
 import com.topcoder.web.common.model.educ.Classroom;
@@ -112,6 +113,11 @@ public class EditAssignment extends Base {
                 adto.setClassroomId(c.getId());
                 adto.setClassroomName(c.getName());
     
+                // fill the components
+                for (RoundComponent rc : a.getRoundComponents()) {
+                    adto.addComponent(rc.getId().getComponent().getId());
+                }
+                
                 setAssignment(adto);
     
                 setNextPage("/professor/editAssignment.jsp");
