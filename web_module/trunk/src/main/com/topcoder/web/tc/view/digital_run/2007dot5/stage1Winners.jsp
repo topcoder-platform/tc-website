@@ -103,7 +103,12 @@ Check out the final <A href="/tc?module=LeaderBoard&ph=113&sc=&sd=&staid=5&nr=50
 With the end of Stage 4, the 2007 Development Cup Rookie of the Year competition was wrapped up. Congratulations to <tc-webtag:handle coderId="21221008" context="development"/>, who piled up 8,785 points over the course of the year and took home the $7,500 Rookie of the Year prize.
 <br /><br />
 Check out the final <A href="/tc?module=RookieBoard&ph=113&seid=1">Development Cup: ROTY leaderboard</A>.
+<br /><br />
 --%>
+<strong>Assembly Cup:</strong><br />
+<tc-webtag:handle coderId="11790647" context="development"/> earned first place and claimed the $20,000 prize in TopCoder's inaugural Assembly Cup with 21,170 points. Those who got a piece of the $90,000 in prize money had a combined total of 91,335 points.
+<br /><br />
+Check out the final <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=asmLeaderboardS1">Assembly Cup: Stage 1 leaderboard</A>.
 <br /><br />
 </div>
 
