@@ -80,7 +80,13 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
                 <div class="name">
                     <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a>
                 </div>
-                <div>
+                <div class="button">
+                    <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/students.png" alt="Students" /></a>
+                </div>
+                <div class="button">
+                    <a href=""><img src="/i/ep/buttons/assignments.png" alt="Assignments" /></a>
+                </div>
+                <div class="button">
                     <a href="/ep?module=EditClassroom&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/edit.png" alt="Edit classroom" /></a>
                 </div>
             </div>
@@ -92,9 +98,9 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
 </c:choose>
 <br clear="all" />
 
-    <div align="center">
-        <a href="/ep?module=EditClassroom"><img src="/i/ep/buttons/addClassroom.png" alt="Add classroom" /></a>
-    </div>
+<div align="center">
+    <a href="/ep?module=EditClassroom"><img src="/i/ep/buttons/addClassroom.png" alt="Add classroom" /></a>
+</div>
 
     </div>
 </div>

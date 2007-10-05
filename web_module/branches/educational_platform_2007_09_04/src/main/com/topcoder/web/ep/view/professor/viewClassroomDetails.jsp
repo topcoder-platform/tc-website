@@ -1,66 +1,102 @@
-<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.ep.Constants"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<html>
-    <head>
-        <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>View Classroom details</title>
-        <script type="text/javascript">
-            function submitActive() {
-                var myForm = document.fActive;
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>TopCoder :: Education Platform</title>
+    <meta http-equiv="content-type" 
+        content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="tc_ep"/>
+    </jsp:include>
+    <%-- each school requires its own stylesheet, linked in here --%>
+    <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
+    <script type="text/javascript">
+        function submitActive() {
+            var myForm = document.fActive;
+            myForm.submit();
+        }
+        function submit(action) {
+            var myForm = document.f;
+            if (action == 'deactivate') {
+                myForm.<%=Constants.MODULE_KEY%>.value = 'DeactivateStudent';
+                myForm.submit();
+            } else if (action = 'activate') {
+                myForm.<%=Constants.MODULE_KEY%>.value = 'ActivateStudent';
                 myForm.submit();
             }
-            function submit(action) {
-                var myForm = document.f;
-                if (action == 'deactivate') {
-                    myForm.<%=Constants.MODULE_KEY%>.value = 'DeactivateStudent';
-                    myForm.submit();
-                } else if (action = 'activate') {
-                    myForm.<%=Constants.MODULE_KEY%>.value = 'ActivateStudent';
-                    myForm.submit();
-                }
-            }
-        </script>
-    </head>
+        }
+    </script>
+</head>
     
     
-    <body>
-        Classroom details:
-        <table border="1">
-                <tr>
-                    <td>School</td>
-                    <td>Classroom</td>
-                    <td>Academic period</td>
-                    <td>Description</td>
-                </tr>
-                <tr>
-                    <td>${classroom.school.name}</td>
-                    <td>${classroom.name}</td>
-                    <td>${classroom.academicPeriod}</td>
-                    <td>${classroom.description}</td>
-                </tr>
+<body>
+
+<div align="center">
+    <div id="widther">
+        <img src="/i/ep/widtherN.png" alt="" style="display:block;" />
+        <div id="pageFrame">
+
+            <jsp:include page="../header.jsp">
+                <jsp:param name="schoolname" value="University of TopCoder"/>
+            </jsp:include>
+
+            <div id="pageContent" align="left">
+                <div class="N">
+                    <img src="/i/ep/contentNW.png" alt="" class="NW" />
+                    <img src="/i/ep/contentNE.png" alt="" class="NE" />
+                </div>
+                <div class="spacer">
+
+<%-- CONTENT BEGINS --%>
+
+<div class="window" align="left">
+    <div class="spacer">
+
+        <h1><span class="bg"><span class="spacer">Classroom details</span></span></h1>
+        <table cellpadding="0" cellspacing="0" class="stat">
+            <tr>
+                <td class="header">School</td>
+                <td class="header">Classroom</td>
+                <td class="header">Academic period</td>
+                <td class="header">Description</td>
+            </tr>
+            <tr class="light">
+                <td class="value">${classroom.school.name}</td>
+                <td class="value">${classroom.name}</td>
+                <td class="value">${classroom.academicPeriod}</td>
+                <td class="value">${classroom.description}</td>
+            </tr>
         </table>
-        <br/>        
+        <div>
+            <a href="/ep?module=EditClassroom&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/edit.png" alt="Edit classroom" /></a>
+        </div>
+
         <c:choose>
             <c:when test="${not empty activeStudents}">
                 <form name="fActive" action="${sessionInfo.servletPath}" method="post">
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="DeactivateStudent"/><br/>
-                    <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/><br/>
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="DeactivateStudent"/><br />
+                    <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/><br />
                     Active Students:
-                    <table border="1">
-                        <tr><td>Student name</td><td>&nbsp;</td></tr>
-                        <c:forEach items="${activeStudents}" var="student">                
-                            <tr>
-                                <td>${student.user.lastName}, ${student.user.firstName}</td>
-                                <td><input type="checkbox" name="stid" value="${student.id}"></td>
+                    <table cellpadding="0" cellspacing="0" class="stat">
+                        <tr><td class="header">Student name</td><td class="header">&nbsp;</td></tr>
+                        <%int i = 0;%>
+                        <c:forEach items="${activeStudents}" var="student">
+                            <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                <td class="value">${student.user.lastName}, ${student.user.firstName}</td>
+                                <td class="value"><input type="checkbox" name="stid" value="${student.id}"></td>
                             </tr>
+                        <%i++;%>
                         </c:forEach>
                     </table>
                     <p>
@@ -72,35 +108,35 @@
                 There are no active students in this classroom.
             </c:otherwise>
         </c:choose>
-        <br/>
+        <br />
         <c:choose>
             <c:when test="${not empty pendingStudents}">
                 <form name="f" action="${sessionInfo.servletPath}" method="post">
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value=""/><br/>
-                    <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/><br/>
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value=""/><br />
+                    <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/><br />
                     Pending Students:
-                    <table border="1">
-                        <tr><td>Student name</td><td>&nbsp;</td></tr>
+                    <table cellpadding="0" cellspacing="0" class="stat">
+                        <tr><td class="header">Student name</td><td class="header">&nbsp;</td></tr>
+                        <%int i = 0;%>
                         <c:forEach items="${pendingStudents}" var="student">                
-                            <tr>
-                                <td>${student.user.lastName}, ${student.user.firstName}</td>
-                                <td><input type="checkbox" name="stid" value="${student.id}"></td>
+                            <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                <td class="value">${student.user.lastName}, ${student.user.firstName}</td>
+                                <td class="value"><input type="checkbox" name="stid" value="${student.id}"></td>
                             </tr>
+                        <%i++;%>
                         </c:forEach>
                     </table>
-                    <p>
-                        <a href="javascript:submit('activate')" class="button" style="width: 60px; margin-right: 10px;">Activate</a>
-                        <a href="javascript:submit('deactivate')" class="button" style="width: 60px; margin-right: 10px;">Reject</a>
-                    </p>
+                    <div>
+                        <div style="float:left; margin-right: 10px;"><a href="javascript:submit('activate')"><img src="/i/ep/buttons/activate.png" alt="Activate" /></a></div>
+                        <div style="float:left;"><a href="javascript:submit('deactivate')"><img src="/i/ep/buttons/reject.png" alt="Reject" /></a></div>
+                    </div>
                 </form>
             </c:when>
             <c:otherwise>
                 There are no pending students in this classroom.
             </c:otherwise>
         </c:choose>
-    <br/><br/>
-    <a href="/ep?module=EditClassroom&amp;clsid=${classroom.id}">Edit Classroom</a>
-    <br/><br/>
+    <br /><br />
         <c:choose>
             <c:when test="${not empty assignments}">
                 Classroom's assignments:
@@ -122,9 +158,29 @@
                 There are no assignments for this classroom.
             </c:otherwise>
         </c:choose>
-        <br/><br/>
+        <br /><br />
         <a href="/ep?module=EditAssignment&amp;clsid=${classroom.id}">Add new assignment</a>
-    <br/><br/>
+    <br /><br />
     <a href="/ep/">Back</a>
-    </body>
+
+    </div>
+</div>
+
+<%-- CONTENT ENDS --%>
+
+                </div>
+                <div class="S">
+                    <img src="/i/ep/contentSW.png" alt="" class="SW" />
+                    <img src="/i/ep/contentSE.png" alt="" class="SE" />
+                </div>
+            </div>
+
+            <jsp:include page="../footer.jsp"/>
+
+        </div>
+        <img src="/i/ep/widtherS.png" alt="" style="display:block;" />
+    </div>
+</div>
+
+</body>
 </html>
