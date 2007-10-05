@@ -30,6 +30,22 @@ function submitEnter(e) {
     } else return true;
 }
 
+function addComponent(componentId) {
+    var ajaxRequest = new AjaxRequest('/ep?module=AddComponent&cid=' + componentId);
+    
+    ajaxRequest.setPreRequest(preAddRequest);    
+    ajaxRequest.setPostRequest(postAddRequest);
+    ajaxRequest.sendRequest();
+}
+
+function removeComponent(componentId) {
+    var ajaxRequest = new AjaxRequest('/ep?module=RemoveComponent&cid=' + componentId);
+    
+    ajaxRequest.setPreRequest(preRemRequest);    
+    ajaxRequest.setPostRequest(postRemRequest);
+    ajaxRequest.sendRequest();
+}
+
 function doSearch() {
     var ajaxRequest = new AjaxRequest('/ep?module=ComponentSearch');
     
@@ -50,7 +66,27 @@ function postSearchRequest()
     toggleDiv("searching", 0)
 }
  
- function toggleDiv(divId, state) 
+function preAddRequest()
+{
+    toggleDiv("adding", 1);
+}
+
+function postAddRequest()
+{
+    toggleDiv("adding", 0)
+}
+ 
+function preRemRequest()
+{
+    toggleDiv("removing", 1);
+}
+
+function postRemRequest()
+{
+    toggleDiv("removing", 0)
+}
+ 
+function toggleDiv(divId, state) 
 {
     if(document.layers)   
     {
@@ -68,12 +104,31 @@ function postSearchRequest()
 
  function initialize() {
     toggleDiv("searching", 0);
+    toggleDiv("adding", 0);
+    toggleDiv("removing", 0);
 }
  
  </script>
 </head>
 <body onLoad="initialize()" >
-    <div id="addedComponets">&nbsp;</div>
+    <div id="addedComponents">
+        <c:choose>
+            <c:when test="${fn:length(assignment.components)==0}">
+                <span class="bigRed">You don't have components assigned.</span><br/><br/>
+            </c:when>
+            <c:otherwise>
+                <strong>Assigned components</strong><br/>
+                <table>
+                <tr><td>Id</td><td>&nbsp;</td></tr>
+                <c:forEach items="${assignment.components}" var="component">
+                    <tr><td><c:out value="${component}"/></td>
+                    <td><A href="javascript:removeComponent(${component});">Remove</A></td></tr>
+                </c:forEach>
+                </table>
+            </c:otherwise>
+        </c:choose>
+    </div>
+    <br/>
     <div >
         <span class="subtitle">School Components</span>
         <br><br>
@@ -92,12 +147,12 @@ function postSearchRequest()
         </div>
         <div id="adding">
         <p>
-        <b><font color="#FF0000" size="+1">adding...</font></b>
+        <b><font color="#FF0000" size="+1">Adding...</font></b>
         </p>
         </div>
         <div id="removing">
         <p>
-        <b><font color="#FF0000" size="+1">removing...</font></b>
+        <b><font color="#FF0000" size="+1">Removing...</font></b>
         </p>
         </div>
     </div>

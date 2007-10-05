@@ -98,6 +98,15 @@ public class AssignmentDTO {
     public void setComponents(List<Long> components) {
         this.components = components;
     }
+    
+    public void addComponent(Long componentId) {
+        this.components.add(componentId);
+    }
+
+    public void removeComponent(Long componentId) {
+        this.components.remove(componentId);
+    }
+
     /**
      * @return the endDate
      */
