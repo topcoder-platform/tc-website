@@ -52,7 +52,7 @@
                             </tr>
                             <tr class="light"> 
                                 <td class="value">11:00 AM - NOON </td> 
-                                <td class="value">Eli Lilly Presentation</td>
+                                <td class="value">NSA Presentation</td>
                             </tr>
                             <tr class="dark"> 
                                 <td class="value">12:30 - 1:30 PM</td> 
@@ -83,7 +83,7 @@
                             </tr>
                             <tr class="light"> 
                                 <td class="value">11:00 AM - NOON </td> 
-                                <td class="value">NSA Presentation</td>
+                                <td class="value">Eli Lilly Presentation</td>
                             </tr>
                             <tr class="dark">
                                 <td class="value">12:30 - 1:30 PM</td>
