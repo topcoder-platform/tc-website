@@ -20,6 +20,8 @@ public class AddComponent extends Base {
             addError("actionError", "Invalid component selected for addition");
         }
 
+        log.debug("Trying to add component: " + componentId);
+        
         AssignmentDTO adto = getAssignment();
         
         if (adto.getComponents().contains(componentId)) {

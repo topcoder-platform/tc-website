@@ -26,7 +26,7 @@ public class RemoveComponent extends Base {
             addError("actionError", "This component is not in the list");
         }
 
-        adto.addComponent(componentId);
+        adto.removeComponent(componentId);
 
         setNextPage("/professor/ajax/addComponents.jsp");
         setIsNextPageInContext(true);
