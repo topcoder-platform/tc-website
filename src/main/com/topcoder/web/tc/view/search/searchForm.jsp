@@ -1,5 +1,5 @@
-<%@ page import="com.topcoder.web.tc.Constants,
-                 com.topcoder.shared.dataAccess.DataAccessConstants"%>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants,
+                 com.topcoder.web.tc.Constants"%>
 <%@ page language="java"  %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -28,6 +28,8 @@ table.stat td{
 <input type="hidden" name="module" value="AdvancedSearch"/>
 <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
 <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
+    <tc-webtag:textInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+    <tc-webtag:textInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 Enter search criteria below then click the Search button. Search results matching the criteria
 selections will be returned. Click on a Handle to view information about the Coder.
 </p>
