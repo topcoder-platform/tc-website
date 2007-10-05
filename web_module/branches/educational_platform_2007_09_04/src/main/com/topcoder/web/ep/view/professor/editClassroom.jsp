@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.ep.Constants"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -6,16 +5,26 @@
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<html>
-    <head>
-        <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta http-equiv="content-type" 
+        content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="tc_ep"/>
+    </jsp:include>
+    <%-- each school requires its own stylesheet, linked in here --%>
+    <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
         <title>
             <c:choose>
-                <c:when test="${not empty classroom.id}">Edit Classroom</c:when>
-                <c:otherwise>Add Classroom</c:otherwise>
+                <c:when test="${not empty classroom.id}">TopCoder :: Edit classroom</c:when>
+                <c:otherwise>TopCoder :: Add classroom</c:otherwise>
             </c:choose>
         </title>
     
@@ -28,13 +37,42 @@
     </head>
     
     
-    <body>
+<body>
+
+<div align="center">
+    <div id="widther">
+        <img src="/i/ep/widtherN.png" alt="" style="display:block;" />
+        <div id="pageFrame">
+
+            <jsp:include page="../header.jsp">
+                <jsp:param name="schoolname" value="University of TopCoder"/>
+            </jsp:include>
+
+            <div id="pageContent" align="left">
+                <div class="N">
+                    <img src="/i/ep/contentNW.png" alt="" class="NW" />
+                    <img src="/i/ep/contentNE.png" alt="" class="NE" />
+                </div>
+                <div class="spacer">
+
+<%-- CONTENT BEGINS --%>
+
+<div class="window" align="left">
+    <div class="spacer">
+
+        <h1><span class="bg"><span class="spacer">
+        <c:choose>
+            <c:when test="${not empty classroom.id}">Edit classroom</c:when>
+            <c:otherwise>Add classroom</c:otherwise>
+        </c:choose>
+        </span></span></h1>
+
         <form name="f" action="${sessionInfo.servletPath}" method="post">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditClassroom"/>
             <tc-webtag:errorIterator id="err" name="error">
-                <font color="#FF0000"><%=err%></font><br/>
+                <font color="#FF0000"><%=err%></font><br />
             </tc-webtag:errorIterator>
-            <br/>
+            <br />
                 <c:forEach items="${classroom.professor.activeSchools}" var="school">                
                     <c:choose>                        <c:when test="${fn:length(classroom.professor.activeSchools) > 1}">
                             <tc-webtag:radioButton name="<%=Constants.SCHOOL_ID%>" value="${school.id}"/>${school.name}&nbsp;&nbsp;
@@ -42,16 +80,34 @@
                         <c:otherwise><tc-webtag:hiddenInput name="<%=Constants.SCHOOL_ID%>" value="${school.id}"/></c:otherwise>
                     </c:choose>
                 </c:forEach>
-            <br/>
+            <br />
             Classroom: <tc-webtag:textInput name="classroom_name" size="60" editable="true" />
-            <br/>
+            <br />
             Academic period: <tc-webtag:textInput name="classroom_academic_period" size="60" editable="true" />
-            <br/>
+            <br />
             Description : <tc-webtag:textInput name="classroom_description" size="60" editable="true" />
-            <br/>
-            <p>
-                <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Continue</a>
-            </p>
+            <br />
+            <a href="javascript:submit()"><img src="/i/ep/buttons/continue.png" /></a>
         </form>            
-    </body>
+
+    </div>
+</div>
+
+<%-- CONTENT ENDS --%>
+
+                </div>
+                <div class="S">
+                    <img src="/i/ep/contentSW.png" alt="" class="SW" />
+                    <img src="/i/ep/contentSE.png" alt="" class="SE" />
+                </div>
+            </div>
+
+            <jsp:include page="../footer.jsp"/>
+
+        </div>
+        <img src="/i/ep/widtherS.png" alt="" style="display:block;" />
+    </div>
+</div>
+
+</body>
 </html>
