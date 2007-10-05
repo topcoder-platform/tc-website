@@ -1,35 +1,36 @@
-<%@  page language="java"  %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
-<title>TopCoder Press Room</title>
-
-<jsp:include page="../script.jsp" />
-<jsp:include page="../style.jsp">
+    <title>TopCoder Press Room</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <jsp:include page="../script.jsp" />
+    <jsp:include page="../style.jsp">
     <jsp:param name="key" value="tc_pressroom"/>
-</jsp:include>
+    </jsp:include>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 </head>
-
 <body>
 
 <jsp:include page="../top.jsp" >
-    <jsp:param name="level1" value=""/>
+<jsp:param name="level1" value=""/>
 </jsp:include>
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
     <tr valign="top">
-<%-- Left Column Begins --%>
+<%-- Left Column Begins--%>
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="press_room"/>
             </jsp:include>
         </td>
-<%-- Left Column ends --%>
+<%-- Left Column Ends --%>
 
-<%-- Center Column begins --%>
-        <td width="100%" align="center">
-            
-            <div class="fixedWidth700Body">
+<%-- Center Column Begins --%>
+        <td width="100%" align="center" class="bodyColumn">
+            <div align="center">
 <%-- YOUR WORK GOES HERE --%>
 
 <%-- pr_wrapper begin --%>
@@ -48,7 +49,7 @@
         <li><a href="/tc?module=Static&d1=pressroom&d2=pr_archive" title="Press Release Archive"><span>Press Release Archive</span></a></li>
         <li><a href="/tc?module=Static&d1=pressroom&d2=mediaResources" title="Media Resources"><span>Media Resources</span></a></li>
         <li id="pr_menuactive"><a href="/tc?module=Static&d1=pressroom&d2=mediaRequestForm" title="Media Request Form"><span>Media Request Form</span></a></li>
-        <li><a href="/tc?module=Static&d1=pressroom&d2=art_archive" title="Media Articles Archive"><span>Media Articles Archive</span></a></li>
+        <li><a href="/tc?module=Static&d1=pressroom&d2=art_archive" title="Articles Archive"><span>Articles Archive</span></a></li>
         </ul>
     </div>
     <%-- pr_menu end --%>
@@ -58,7 +59,7 @@
     <%-- content rounded frame wrapper --%>
     <div id="pr_frame"><div id="pr_frame2"><div id="pr_frame3">
         
-        <div id="pr_content">
+        <div id="pr_content" align="left">
         
             <div id="pr_requestform">
                 <p>Please use the following form to request information from our Public Relations department.</p>
@@ -102,7 +103,7 @@
                     <dd><textarea cols="50" rows="15" name="comment"></textarea></dd>
                     
                     <dt>&nbsp;</dt>
-                    <dd class="pr_submit"><a href="#"><img src="/i/pressroom/btn_submit.png" width="74" height="22"></a></dd>
+                    <dd><a href="#" class="button" style="width:50; height:15px;">SUBMIT</a></dd>
                 </dl>
                 </form>
             </div>
@@ -118,26 +119,21 @@
 
 <%-------------------------%>
             </div>
-            
         </td>
-<%-- Center Column ends --%>
-
-<%-- Right Column begins --%>
+<%-- Center Column Ends --%>
+        
+<%-- Right Column Begins --%>
         <td width="170">
             <jsp:include page="../public_right.jsp">
-                <jsp:param name="level1" value="privatelabel"/>
+                <jsp:param name="level1" value="default"/>
             </jsp:include>
         </td>
-<%-- Right Column ends --%>
-
-<%-- Gutter --%>
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<%-- Gutter ends --%>
+<%-- Right Column Ends --%>
+        
     </tr>
+    </tbody>
 </table>
 
 <jsp:include page="../foot.jsp" />
-
 </body>
-
 </html>
