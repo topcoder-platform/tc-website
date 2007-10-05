@@ -21,9 +21,9 @@ public class AssignmentDTO {
     
     public AssignmentDTO() {
         super();
-        List<Long> components = new ArrayList<Long>();
-        List<Double> points = new ArrayList<Double>();
-        List<Integer> languages = new ArrayList<Integer>();
+        this.components = new ArrayList<Long>();
+        this.points = new ArrayList<Double>();
+        this.languages = new ArrayList<Integer>();
     }
     
     public AssignmentDTO(Long roundId, Long classroomId, String classroomName, List<Long> components, List<Double> points, Timestamp startDate, Timestamp endDate, String assignmentName, Long coderPhaseLength, Long showAllScores, Long scoreType, List<Integer> languages) {
