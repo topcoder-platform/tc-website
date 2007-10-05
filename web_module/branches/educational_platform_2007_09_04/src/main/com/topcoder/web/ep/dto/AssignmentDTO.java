@@ -105,10 +105,12 @@ public class AssignmentDTO {
     
     public void addComponent(Long componentId) {
         this.components.add(componentId);
+        this.points.add(100d);
     }
 
     public void removeComponent(Long componentId) {
         this.components.remove(componentId);
+        this.points.remove(0);
     }
 
     /**
