@@ -41,7 +41,7 @@ public class EditAssignmentSubmit extends Base {
                     // Todo: check if we have everything we need in the session and then go to the confirmation page 
 
                     AssignmentDTO adto = getAssignment();
-                    Boolean update = adto.getRoundId() == null; 
+                    Boolean update = adto.getRoundId() != null; 
                     if (update) {
                         // update
                         ArenaServicesFactory.getArenaServices().editAssignment(adto);                        
