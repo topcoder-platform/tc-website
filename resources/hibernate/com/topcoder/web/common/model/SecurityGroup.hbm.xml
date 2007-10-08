@@ -6,7 +6,7 @@
 <hibernate-mapping package="com.topcoder.web.common.model">
 
     <class name="SecurityGroup" table="security_groups" mutable="false">
-        <id name="groupId" column="group_id" access="field"/>
+        <id name="id" column="group_id" access="field"/>
         <property name="description" access="field"/>
         <property name="createUserId" column="create_user_id" access="field"/>
         <!--        <set name="users" table="user_group_xref" cascade="none" inverse="true" access="field">
