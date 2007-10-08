@@ -48,6 +48,7 @@
     <ul>
         <li>Fix bug in search results where if you sorted, and scrolled, it would lose your sort -dok</li>
         <li>Adjust development registration emai content to include TC UML tool -dok</li>
+        <li>Include link to unregister from TopCoder HS on My TopCoder Page -dok</li>
     </ul>
 
 </p>
