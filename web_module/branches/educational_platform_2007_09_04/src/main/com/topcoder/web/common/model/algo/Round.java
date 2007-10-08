@@ -187,6 +187,7 @@ public class Round extends Base {
 
     public void removeRoundComponent(RoundComponent rc) {
         if  (this.roundComponents.contains(rc)) {
+            log.debug("contains rc!");
             this.roundComponents.remove(rc);
         }
     }

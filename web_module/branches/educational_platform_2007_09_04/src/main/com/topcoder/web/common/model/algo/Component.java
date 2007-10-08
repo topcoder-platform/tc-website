@@ -100,6 +100,7 @@ public class Component extends Base {
 
     public void removeRoundComponent(RoundComponent rc) {
         if  (this.roundComponents.contains(rc)) {
+            log.debug("contains rc2!");
             this.roundComponents.remove(rc);
         }
     }

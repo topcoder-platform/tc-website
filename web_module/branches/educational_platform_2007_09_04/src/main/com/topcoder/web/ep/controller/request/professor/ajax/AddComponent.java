@@ -32,13 +32,16 @@ public class AddComponent extends Base {
         }
 
         // TODO: check if we can add this component (problem_set_component_xref)
-        Component cm = DAOUtil.getFactory().getComponentDAO().find(componentId);
 
-        adto.addComponent(new ComponentDTO(
-                componentId,
-                null,
-                cm.getProblem().getName()));
-
+        if (!hasErrors()) {
+            Component cm = DAOUtil.getFactory().getComponentDAO().find(componentId);
+    
+            adto.addComponent(new ComponentDTO(
+                    componentId,
+                    null,
+                    cm.getProblem().getName()));
+        }
+        
         setNextPage("/professor/ajax/addComponents.jsp");
         setIsNextPageInContext(true);
 

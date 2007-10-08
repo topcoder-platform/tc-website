@@ -44,7 +44,7 @@ public class EditAssignmentConfirm extends Base {
                     AssignmentDTO adto = getAssignment();
 
                     if (adto.getComponents().size() == 0) {
-                        addError("error", "You must select at least one component");
+                        addError("actionError", "You must select at least one component");
                     }
                     
                     // check points
@@ -54,7 +54,7 @@ public class EditAssignmentConfirm extends Base {
                         if (pointsParam == null || pointsParam != -1d) {
                             points.put(cdto.getComponentId(), pointsParam);
                         } else {
-                            addError("error", "Invalid points entered");
+                            addError("actionError", "Invalid points entered");
                             break;
                         }
                     }

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.algo.Component;
 import com.topcoder.web.common.model.algo.Contest;
@@ -27,6 +28,8 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  * @version $Id$
  */
 public class ArenaHelper implements ArenaServices {
+
+    private static Logger log = Logger.getLogger(ArenaHelper.class);
 
     /**
      * @param roundId 
@@ -248,6 +251,7 @@ public class ArenaHelper implements ArenaServices {
         }
 
         for (RoundComponent rc : removeList) {
+            log.debug("Removing RoundComponent: " + rc.getId().getRound().getId() + ", " + rc.getId().getComponent().getId());
             r.removeRoundComponent(rc);
             rc.getId().getComponent().removeRoundComponent(rc);
         }
