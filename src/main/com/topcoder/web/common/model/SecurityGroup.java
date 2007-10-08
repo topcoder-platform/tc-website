@@ -10,21 +10,21 @@ import java.util.Set;
  */
 public class SecurityGroup extends Base {
 
-    public static final Integer ACTIVE = new Integer(1);
-    public static final Integer INACTIVE = new Integer(2);
+    public static final Integer ACTIVE = 1;
+    public static final Integer INACTIVE = 2;
 
-    private Long groupId;
+    private Long id;
     private String description;
     private Long createUserId;
-    private Set users;
-    private Set registrationTypes;
+    private Set<User> users;
+    private Set<RegistrationType> registrationTypes;
 
     public SecurityGroup() {
 
     }
 
-    public Long getGroupId() {
-        return groupId;
+    public Long getId() {
+        return id;
     }
 
     public String getDescription() {
@@ -35,11 +35,11 @@ public class SecurityGroup extends Base {
         return createUserId;
     }
 
-    public Set getUsers() {
+    public Set<User> getUsers() {
         return Collections.unmodifiableSet(users);
     }
 
-    public Set getRegistrationTypes() {
+    public Set<RegistrationType> getRegistrationTypes() {
         return Collections.unmodifiableSet(registrationTypes);
     }
 
