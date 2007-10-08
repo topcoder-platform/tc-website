@@ -99,7 +99,8 @@ public class Professor extends Base {
 
     @OneToMany(mappedBy="professor")
     @Cascade( {CascadeType.ALL} )
-    @OrderBy("school.name asc, name asc")
+    @OrderBy("name asc")
+    // todo: need to add school.name asc,
     public Set<Classroom> getClassrooms() {
         return Collections.unmodifiableSet(classrooms);
     }

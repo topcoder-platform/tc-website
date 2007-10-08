@@ -36,6 +36,25 @@
                 myForm.submit();
             }
         }
+        
+        function checkAllPending(check) {
+            var elements = document.f.elements;
+            for (i=0; i<document.f.elements.length; i++) {
+                if (document.f.elements[i].type=="checkbox") {
+                    document.f.elements[i].checked = (check==true);
+                }
+            }
+        }
+        
+        function checkAllActive(check) {
+            var elements = document.fActive.elements;
+            for (i=0; i<document.fActive.elements.length; i++) {
+                if (document.fActive.elements[i].type=="checkbox") {
+                    document.fActive.elements[i].checked = (check==true);
+                }
+            }
+        }
+        
     </script>
 </head>
     
@@ -104,7 +123,7 @@
                         </c:forEach>
                             <tr>
                                 <td width="100%">&nbsp;</td>
-                                <td colspan="2" align="center" nowrap="nowrap"><a href="">Select all</a></td>
+                                <td colspan="2" align="center" nowrap="nowrap"><a href="Javascript:checkAllPending(true)">Select all</a></td>
                             </tr>
                     </table>
                     <div>
@@ -142,7 +161,7 @@
                         </c:forEach>
                             <tr>
                                 <td width="100%">&nbsp;</td>
-                                <td colspan="2" align="center" nowrap="nowrap"><a href="">Select all</a></td>
+                                <td colspan="2" align="center" nowrap="nowrap"><a href="Javascript:checkAllActive(true)">Select all</a></td>
                             </tr>
                     </table>
                     <div align="right">

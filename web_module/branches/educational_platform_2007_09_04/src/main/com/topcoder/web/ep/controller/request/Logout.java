@@ -2,10 +2,9 @@ package com.topcoder.web.ep.controller.request;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.BaseServlet;
 
 /**
- * @author dok
+ * @author pulky
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 27, 2006
  */
@@ -20,12 +19,7 @@ public class Logout extends BaseProcessor {
         // Invalidates the session
         getRequest().getSession().invalidate();
 
-        // Go to active contests page
-        String nextpage = (String)getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
-        if (nextpage == null) nextpage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
-        if (nextpage == null) nextpage = getRequest().getHeader("Referer");
-        if (nextpage == null) nextpage = getSessionInfo().getAbsoluteServletPath();
-        setNextPage(nextpage);
+        setNextPage(getSessionInfo().getAbsoluteServletPath());
         setIsNextPageInContext(false);
     }
 }
