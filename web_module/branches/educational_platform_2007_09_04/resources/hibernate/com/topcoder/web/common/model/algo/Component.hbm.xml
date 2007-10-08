@@ -8,7 +8,7 @@
     <class name="Component" table="component" mutable="false">
         <id name="id" column="component_id" access="field"/>
         
-        <one-to-one name="problem" class="com.topcoder.web.common.model.algo.Problem" access="field" fetch="select"/>
+        <many-to-one name="problem" column="problem_id" class="com.topcoder.web.common.model.algo.Problem" access="field" fetch="select"/>
         
         <property name="componentTypeId" column="component_type_id" access="field"/>
         <property name="componentText" column="component_text" access="field"/>
