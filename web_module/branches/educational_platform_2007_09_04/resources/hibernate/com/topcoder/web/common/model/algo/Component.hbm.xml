@@ -18,5 +18,6 @@
             <key column="component_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.model.algo.RoundComponent"/>
         </set>
+        
     </class>
 </hibernate-mapping>

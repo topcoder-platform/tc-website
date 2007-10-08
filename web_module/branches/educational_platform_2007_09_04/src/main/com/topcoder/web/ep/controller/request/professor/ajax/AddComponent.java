@@ -38,7 +38,7 @@ public class AddComponent extends Base {
     
             adto.addComponent(new ComponentDTO(
                     componentId,
-                    null,
+                    cm.getProblem().getProposedDifficulty().getPointValue(),
                     cm.getProblem().getName()));
         }
         

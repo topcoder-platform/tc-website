@@ -44,7 +44,7 @@ public class EditAssignmentConfirm extends Base {
                     AssignmentDTO adto = getAssignment();
 
                     if (adto.getComponents().size() == 0) {
-                        addError("actionError", "You must select at least one component");
+                        addError("actionError", "You must add at least one component");
                     }
                     
                     // check points
