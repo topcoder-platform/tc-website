@@ -7,37 +7,19 @@ import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.dwload.CacheClearer;
-import com.topcoder.web.common.HSRegistrationHelper;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.RegistrationTypeDAO;
 import com.topcoder.web.common.dao.UserDAO;
-import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.model.RegistrationType;
-import com.topcoder.web.common.model.Response;
-import com.topcoder.web.common.model.Season;
-import com.topcoder.web.common.model.SecurityGroup;
-import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.reg.Constants;
 
 import javax.ejb.CreateException;
 import javax.naming.Context;
 import java.rmi.RemoteException;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author dok
@@ -49,19 +31,19 @@ public class Submit extends Base {
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
         if (getRegUser() == null) {
-            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg/?"+Constants.NEW_REG+"="+String.valueOf(true));
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg/?" + Constants.NEW_REG + "=" + String.valueOf(true));
         } else if (u.isNew() || userLoggedIn()) {
             //todo check if the handle is taken again
             boolean newUser = u.isNew();
             getFactory().getUserDAO().saveOrUpdate(u);
 
-            HSRegistrationHelper rh = new HSRegistrationHelper(getRequest(), (Map<String,Response>) getRequest().getSession().getAttribute(Constants.HS_RESPONSES));
+            HSRegistrationHelper rh = new HSRegistrationHelper(getRequest(), (Map<String, Response>) getRequest().getSession().getAttribute(Constants.HS_RESPONSES));
 
-            if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && 
+            if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) &&
                     !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID)) {
                 rh.registerForSeason(u);
             }
-                
+
             securityStuff(newUser, u);
 
 
@@ -139,7 +121,7 @@ public class Submit extends Base {
                 s.add("user_preference_all");
                 CacheClearer.removelike(s);
             }
-            
+
             setNextPage("/success.jsp");
             setIsNextPageInContext(true);
         } else {
@@ -152,14 +134,14 @@ public class Submit extends Base {
     private void registerHsSeason(User u) {
         UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
         Event event = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON).getEvent();
-        
+
         log.debug("User " + u.getId() + " registered for HS season in event " + event.getId());
         if (event != null) {
             u.addEventRegistration(event, null, true);
             userDAO.saveOrUpdate(u);
             markForCommit();
         }
-        
+
     }
 
     private void securityStuff(boolean newUser, User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
@@ -173,15 +155,15 @@ public class Submit extends Base {
             PrincipalMgrRemote pmr = pmrh.create();
             if (newUser) {
                 //create the security user entry
-                myPrincipal = pmr.createUser(u.getId().longValue(), u.getHandle(), u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                myPrincipal = pmr.createUser(u.getId(), u.getHandle(), u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
             } else {
-                myPrincipal = new UserPrincipal("", u.getId().longValue());
+                myPrincipal = new UserPrincipal("", u.getId());
                 pmr.editPassword(myPrincipal, u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
             }
 
-            List types = getFactory().getSecurityGroupDAO().getSecurityGroups(getRequestedTypes());
-            for (Iterator it = types.iterator(); it.hasNext();) {
-                pmr.addUserToGroup(pmr.getGroup(((SecurityGroup) it.next()).getGroupId().longValue(), DBMS.JTS_OLTP_DATASOURCE_NAME),
+            List<SecurityGroup> types = getFactory().getSecurityGroupDAO().getSecurityGroups(getRequestedTypes());
+            for (SecurityGroup type : types) {
+                pmr.addUserToGroup(pmr.getGroup(type.getId(), DBMS.JTS_OLTP_DATASOURCE_NAME),
                         myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
             }
 
