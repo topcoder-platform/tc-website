@@ -68,13 +68,13 @@
         <div align="center" style="margin: 40px;">
             <table cellpadding="0" cellspacing="0">
                 <tr>
-                    <td style="padding-right: 10px; font-weight: bold;">
+                    <td style="padding-right: 10px; font-weight: bold;" align="left">
                         <p>School:</p>
                         <p>Classroom:</p>
                         <p>Academic period:</p>
                         <p>Description:</p>
                     </td>
-                    <td>
+                    <td align="left">
                         <p>${classroom.school.name}</p>
                         <p>${classroom.name}</p>
                         <p>${classroom.academicPeriod}</p>
@@ -91,8 +91,8 @@
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value=""/>
                     <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/>
                     
-                    <table cellpadding="0" cellspacing="0" class="stat">
-                        <tr><td class="title" colspan="2">Pending Students</td></tr>
+                    <table cellpadding="0" cellspacing="0" class="stat" width="100%">
+                        <tr><td class="title" colspan="2">Students awaiting your approval to join this classroom</td></tr>
                         <tr><td class="header">Student name</td><td class="headerC">Select</td></tr>
                         <%int i = 0;%>
                         <c:forEach items="${pendingStudents}" var="student">                
@@ -103,20 +103,21 @@
                         <%i++;%>
                         </c:forEach>
                             <tr>
-                                <td colspan="2" align="right"><a href="">Select all</a></td>
+                                <td width="100%">&nbsp;</td>
+                                <td colspan="2" align="center" nowrap="nowrap"><a href="">Select all</a></td>
                             </tr>
                     </table>
                     <div>
-                        <div style="float:left; margin-right: 10px;"><a href="javascript:submit('activate')"><img src="/i/ep/buttons/activate.png" alt="Activate" /></a></div>
-                        <div style="float:left;"><a href="javascript:submit('deactivate')"><img src="/i/ep/buttons/reject.png" alt="Reject" /></a></div>
+                        <div style="float:right; margin-left: 10px;"><a href="javascript:submit('deactivate')"><img src="/i/ep/buttons/reject.png" alt="Reject" /></a></div>
+                        <div style="float:right;"><a href="javascript:submit('activate')"><img src="/i/ep/buttons/activate.png" alt="Activate" /></a></div>
                     </div>
                 </form>
             </c:when>
             <c:otherwise>
-                    <table cellpadding="0" cellspacing="0" class="stat">
-                        <tr><td class="title" colspan="2">Pending Students</td></tr>
+                    <table cellpadding="0" cellspacing="0" class="stat" width="100%">
+                        <tr><td class="title" colspan="2">Students awaiting your approval to join this classroom</td></tr>
                         <tr><td class="header">Student name</td><td class="headerC">Select</td></tr>
-                        <tr class="light"><td class="value" colspan="2">There are no pending students in this classroom.</td></tr>
+                        <tr class="light"><td class="valueC" colspan="2"><div style="margin: 10px;">There are no pending students in this classroom.</div></td></tr>
                     </table>
             </c:otherwise>
         </c:choose>
@@ -128,7 +129,7 @@
                 <form name="fActive" action="${sessionInfo.servletPath}" method="post">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="DeactivateStudent"/>
                     <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/>
-                    <table cellpadding="0" cellspacing="0" class="stat">
+                    <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tr><td class="title" colspan="2">Active Students</td></tr>
                         <tr><td class="header">Student name</td><td class="headerC">Select</td></tr>
                         <%int i = 0;%>
@@ -140,26 +141,30 @@
                         <%i++;%>
                         </c:forEach>
                             <tr>
-                                <td colspan="2" align="right"><a href="">Select all</a></td>
+                                <td width="100%">&nbsp;</td>
+                                <td colspan="2" align="center" nowrap="nowrap"><a href="">Select all</a></td>
                             </tr>
                     </table>
-                    <p>
-                        <a href="javascript:submitActive()" class="button" style="width: 60px; margin-right: 10px;"><img src="/i/ep/buttons/deactivate.png" alt="Deactivate" /></a>
-                    </p>
+                    <div align="right">
+                        <a href="javascript:submitActive()"><img src="/i/ep/buttons/deactivate.png" alt="Deactivate" /></a>
+                    </div>
                 </form>
             </c:when>
             <c:otherwise>
-                    <table cellpadding="0" cellspacing="0" class="stat">
+                    <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tr><td class="title" colspan="2">Active Students</td></tr>
                         <tr><td class="header">Student name</td><td class="headerC">Select</td></tr>
-                        <tr class="light"><td class="value" colspan="2">There are no active students in this classroom.</td></tr>
+                        <tr class="light"><td class="valueC" colspan="2"><div style="margin: 10px;">There are no active students in this classroom.</div></td></tr>
                     </table>
             </c:otherwise>
         </c:choose>
         </div>
 
     <br clear="all" />
-    <a href="/ep/"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+    <div style="margin-top: 10px;">
+        <a href="/ep/"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+    </div>
+
     </div>
 </div>
 
