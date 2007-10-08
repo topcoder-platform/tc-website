@@ -46,8 +46,8 @@
                         <c:forEach items="${assignments}" var="assignment">                
                             <tr>
                                 <td>${assignment.name}</td>
-                                <td>${assignment.contest.startDate}</td>
-                                <td>${assignment.contest.endDate}</td>
+                                <td><fmt:formatDate value="${assignment.contest.startDate}" pattern="yyyy.MM.dd HH:mm"/></td>
+                                <td><fmt:formatDate value="${assignment.contest.endDate}" pattern="yyyy.MM.dd HH:mm"/></td>
                                 <td>${assignment.registered}</td>
                                 <td>${assignment.succeeded}/${assignment.failed}</td>
                                 <td><a href="/ep?module=EditAssignment&amp;asid=${assignment.id}">Edit</a></td>

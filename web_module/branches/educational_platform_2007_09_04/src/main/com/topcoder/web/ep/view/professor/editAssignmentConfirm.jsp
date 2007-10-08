@@ -38,8 +38,8 @@
             </tr>
             <tr>
                 <td>${assignment.classroomName}</td>
-                <td>${assignment.startDate}</td>
-                <td>${assignment.endDate}</td>
+                <td><fmt:formatDate value="${assignment.startDate}" pattern="yyyy.MM.dd HH:mm"/></td>
+                <td><fmt:formatDate value="${assignment.endDate}" pattern="yyyy.MM.dd HH:mm"/></td>
                 <td>${assignment.assignmentName}</td>
                 <td>${assignment.coderPhaseLength}</td>
                 <td>${assignment.showAllScores}</td>
