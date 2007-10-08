@@ -39,10 +39,10 @@
                           <td style="padding: 15px" valign="middle" align="center">
                               <tc-webtag:handle coderId="252022" context="design" darkBG="true" /><br /><br />
                               <tc-webtag:handle coderId="7568791" context="design" darkBG="true" /><br /><br />
+                              <tc-webtag:handle coderId="20256177" context="design" darkBG="true" /><br /><br />
                               <tc-webtag:handle coderId="10348862" context="design" darkBG="true" /><br /><br />
                               <tc-webtag:handle coderId="293874" context="design" darkBG="true" /><br /><br />
-                              <tc-webtag:handle coderId="19930287" context="design" darkBG="true" /><br /><br />
-                              <tc-webtag:handle coderId="15893754" context="design" darkBG="true" /><br /><br />
+                              <tc-webtag:handle coderId="275640" context="design" darkBG="true" /><br /><br />
                               <tc-webtag:handle coderId="21471587" context="design" darkBG="true" /><br /><br />
                               <tc-webtag:handle coderId="8518361" context="design" darkBG="true" />
                           </td>
@@ -51,6 +51,7 @@
                           <td align="right"><img src="/i/tournament/tccc07/bracket_SW.png" alt="" border="0" /></td>
                        </tr>
                     </table>
+                    <%--
                     <p align="center">
                         Component Design Alternates:<br /><br />
                         <tc-webtag:handle coderId="20256177" context="design" darkBG="true" /><br />
@@ -58,6 +59,7 @@
                         <tc-webtag:handle coderId="15540298" context="design" darkBG="true" /><br />
                         <tc-webtag:handle coderId="8419911" context="design" darkBG="true" />
                     </p>
+                    --%>
                     <p>&nbsp</p>
                     <p align="center">
                         The Review Board for the<br />TCCC07 Component Design Finals:<br /><br />

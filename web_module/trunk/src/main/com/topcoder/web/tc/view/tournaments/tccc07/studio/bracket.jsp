@@ -38,19 +38,25 @@
                        <tr>
                           <td style="padding: 15px" valign="middle" align="center">
                               <tc-webtag:handle coderId="22689218" darkBG="true" /><br /><br />
-                              <tc-webtag:handle coderId="20641048" darkBG="true" /><br /><br />
-                              <tc-webtag:handle coderId="22627622" darkBG="true" /><br /><br />
-                              <tc-webtag:handle coderId="22690239" darkBG="true" /><br /><br />
-                              <tc-webtag:handle coderId="22064865" darkBG="true" /><br /><br />
-                              <tc-webtag:handle coderId="15108574" darkBG="true" /><br /><br />
+                              <tc-webtag:handle coderId="13358674" darkBG="true" /><br /><br />
+                              <tc-webtag:handle coderId="15006955" darkBG="true" /><br /><br />
+                              <tc-webtag:handle coderId="22076237" darkBG="true" /><br /><br />
                               <tc-webtag:handle coderId="22626864" darkBG="true" /><br /><br />
-                              <tc-webtag:handle coderId="22673857" darkBG="true" />
+                              <tc-webtag:handle coderId="22673857" darkBG="true" /><br /><br />
+                              <tc-webtag:handle coderId="13298470" darkBG="true" />
                           </td>
                        </tr>
                        <tr>
                           <td align="right"><img src="/i/tournament/tccc07/bracket_SW.png" alt="" border="0" /></td>
                        </tr>
                     </table>
+                    <p>&nbsp</p>
+                    <p align="center">
+                        The Review Board for the<br />TCCC07 Studio Finals:<br /><br />
+                        <tc-webtag:handle coderId="22666646" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="14947661" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="22652674" darkBG="true" />
+                    </p>
                 </div>
 
             </div>
