@@ -231,7 +231,7 @@ necessarily integer) value Y.
 How to compute Y?
 </p>
 
-<img src="/i/education/srm368.png" />
+<div align="center"><img src="/i/education/srm368.png" /></div>
 
 <p>
 The situation can be drawn as a right triangle where the hypotenuse has length X and both legs 
