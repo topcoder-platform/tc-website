@@ -18,6 +18,11 @@
                 <c:otherwise>Add Assignment</c:otherwise>
             </c:choose>
         </title>
+        <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
+        <script type="text/javascript" src="/js/jscal/calendar.js"></script>
+        <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
+        <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
+        <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
     
         <script type="text/javascript">
             function submit() {
@@ -40,8 +45,10 @@
             Name: <tc-webtag:textInput name="assignment_name" size="60" editable="true" />
             <br/>
             Start : <tc-webtag:textInput name="assignment_start" format="yyyy.MM.dd HH:mm" size="16" maxlength="16" editable="true" />
+            <button id="trigger_assignment_start">Set</button>
             <br/>
             End: <tc-webtag:textInput name="assignment_end" format="yyyy.MM.dd HH:mm" size="16" maxlength="16" editable="true" />
+            <button id="trigger_assignment_end%>">Set</button>
             <br/>
             Coding phase length : <tc-webtag:textInput name="assignment_coding_phase_length" size="60" editable="true" />
             <br/>
@@ -65,4 +72,27 @@
             </p>
         </form>            
     </body>
+    <script language="javascript" type="text/javascript">
+    Calendar.setup(
+    {
+        inputField  : "assignment_start",         // ID of the input field
+        ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+        button      : "trigger_assignment_start",       // ID of the button
+        showsTime   : true,
+        singleClick  : false,
+        cache       : true
+    }
+            );
+    Calendar.setup(
+    {
+        inputField  : "assignment_end",         // ID of the input field
+        ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+        button      : "trigger_assignment_end",      // ID of the button
+        showsTime    : true,
+        singleClick  : false,
+        cache       : true
+    }
+            );
+</script>
+    
 </html>

@@ -13,9 +13,9 @@
                 </c:when>
                 <c:otherwise>
                     <strong>Results</strong><br/>
-                    Lists includes only up to the first <strong><%=Constants.MAX_COMPONENT_RESULTS%></strong> components. 
+                    Lists includes only up to the first <strong><%=Constants.MAX_COMPONENT_RESULTS%></strong> problems. 
                     <br/><br/>
-                    Please <strong>select</strong> components from list below.<br />
+                    Please <strong>select</strong> problems from list below.<br />
                     <table border="1"> 
                         <tr><td>Name</td><td>Points</td><td></td></tr>
                         <c:forEach items="${results}" var="result">

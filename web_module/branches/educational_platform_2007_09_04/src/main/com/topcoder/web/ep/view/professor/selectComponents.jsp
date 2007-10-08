@@ -125,7 +125,7 @@ function toggleDiv(divId, state)
                 </tc-webtag:errorIterator>
                 <c:choose>
                     <c:when test="${fn:length(assignment.components)==0}">
-                        <span class="bigRed">You don't have components assigned.</span><br/><br/>
+                        <span class="bigRed">You don't have problems assigned.</span><br/><br/>
                     </c:when>
                     <c:otherwise>
                         <strong>Assigned problems</strong><br/>
@@ -150,9 +150,8 @@ function toggleDiv(divId, state)
     <br/>
     <div id="main">
         <br>
-        <strong>Component Name:</strong><br>
+        <strong>Problem Name:</strong><br>
         <c:set value="<%=Constants.COMPONENT_NAME%>" var="componentName"/>
-        <tc-webtag:errorIterator id="err" name="${componentName}"><%=err%><br></tc-webtag:errorIterator>
         <tc-webtag:textInput onKeyPress="submitEnter(event)" name="${componentName}" size="50" maxlength="<%=Constants.MAX_COMPONENT_NAME_LENGTH%>" editable="true"/>
         <A href="javascript:doSearch();">Search</A>
         <br>

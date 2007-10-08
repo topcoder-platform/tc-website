@@ -10,10 +10,8 @@ import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import com.topcoder.shared.security.ClassResource;
@@ -298,13 +296,13 @@ public class EditAssignment extends Base {
     }
 
     protected Date parseDate(String s) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
         ParsePosition pp = new ParsePosition(0);
         return sdf.parse(s, pp);
     }
 
     protected String formatDate(Date d) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
         return sdf.format(d);
     }
 
