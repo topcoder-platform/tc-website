@@ -15,7 +15,7 @@ import java.util.Set;
  *          Create Date: May 19, 2006
  */
 public class SecurityGroupDAOHibernate extends Base implements SecurityGroupDAO {
-    public List getSecurityGroups(Set registrationTypes) {
+    public List<SecurityGroup> getSecurityGroups(Set registrationTypes) {
         StringBuffer query = new StringBuffer(100);
         query.append("SELECT rt.securityGroup FROM RegistrationType rt WHERE rt.id in (");
         for (Object registrationType : registrationTypes) {
@@ -53,6 +53,6 @@ public class SecurityGroupDAOHibernate extends Base implements SecurityGroupDAO 
     }
 
     public boolean hasGroup(User u, SecurityGroup g) {
-        return hasGroup(u.getId(), g.getId());   
+        return hasGroup(u.getId(), g.getId());
     }
 }

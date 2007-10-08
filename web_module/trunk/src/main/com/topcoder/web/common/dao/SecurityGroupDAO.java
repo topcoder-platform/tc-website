@@ -13,7 +13,7 @@ import java.util.Set;
  *          Create Date: May 19, 2006
  */
 public interface SecurityGroupDAO {
-    List getSecurityGroups(Set registrationTypes);
+    List<SecurityGroup> getSecurityGroups(Set registrationTypes);
 
     public boolean hasInactiveHSGroup(User u);
 
