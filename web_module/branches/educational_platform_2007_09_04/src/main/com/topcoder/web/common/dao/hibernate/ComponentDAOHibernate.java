@@ -24,4 +24,14 @@ public class ComponentDAOHibernate extends GenericBase<Component, Long> implemen
         .setMaxResults(maxResults)
         .list();
     }
+
+    public List searchAssignmentProblemsByProblemName(String name, int maxResults) {
+        return getSession().createCriteria(Component.class)
+        .add(Restrictions.eq("admitAssignment", Boolean.TRUE))
+        .createCriteria("problem")
+        .add(Restrictions.like("name", name))
+        .addOrder(Order.asc("name"))
+        .setMaxResults(maxResults)
+        .list();
+    }
 }

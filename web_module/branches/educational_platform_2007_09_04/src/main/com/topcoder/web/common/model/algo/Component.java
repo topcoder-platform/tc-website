@@ -24,6 +24,8 @@ public class Component extends Base {
     protected Integer statusId = null;
     private Set<RoundComponent> roundComponents;
 
+    protected Boolean admitAssignment = null;
+
     public Component() {
         super();
         this.roundComponents = new HashSet<RoundComponent>();
@@ -104,7 +106,23 @@ public class Component extends Base {
             this.roundComponents.remove(rc);
         }
     }
-    
+
+    /**
+     * @return the admitAssignment
+     */
+    public Boolean getAdmitAssignment() {
+        return admitAssignment;
+    }
+
+
+    /**
+     * @param admitAssignment the admitAssignment to set
+     */
+    public void setAdmitAssignment(Boolean admitAssignment) {
+        this.admitAssignment = admitAssignment;
+    }
+
+
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */

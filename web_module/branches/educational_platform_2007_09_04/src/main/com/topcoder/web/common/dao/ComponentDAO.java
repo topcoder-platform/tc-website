@@ -12,5 +12,7 @@ import com.topcoder.web.common.model.algo.Component;
 public interface ComponentDAO extends GenericDAO<Component, Long> {
 
     public List searchByProblemName(String name, int maxResults);
-    
+
+    public List searchAssignmentProblemsByProblemName(String name, int maxResults);
+
 }
