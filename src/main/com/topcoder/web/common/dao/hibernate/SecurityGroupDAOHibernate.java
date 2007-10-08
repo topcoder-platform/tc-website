@@ -43,7 +43,7 @@ public class SecurityGroupDAOHibernate extends Base implements SecurityGroupDAO 
     public boolean hasGroup(long userId, long groupId) {
         StringBuffer query = new StringBuffer(100);
         query.append("FROM UserGroup ug ");
-        query.append(" WHERE ug.securityGroup.registrationTypes.id = ? ");
+        query.append(" WHERE ug.securityGroup.id = ? ");
         query.append("AND ug.securityStatusId = ? AND ug.user.id = ?");
         Query q = session.createQuery(query.toString());
         q.setLong(0, groupId);
