@@ -27,7 +27,7 @@ public class ComponentSearch extends Base {
                 s=s+"%";
             }
             getRequest().setAttribute("results",
-                    getFactory().getComponentDAO().searchByProblemName(s, Constants.MAX_COMPONENT_RESULTS));
+                    getFactory().getComponentDAO().searchAssignmentProblemsByProblemName(s, Constants.MAX_COMPONENT_RESULTS));
             setDefault(Constants.COMPONENT_NAME, componentName);
         }
         setNextPage("/professor/ajax/searchComponents.jsp");
