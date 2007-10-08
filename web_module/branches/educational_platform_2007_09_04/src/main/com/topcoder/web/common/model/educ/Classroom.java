@@ -8,6 +8,8 @@ package com.topcoder.web.common.model.educ;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -131,13 +133,13 @@ public class Classroom {
 
     @Transient
     public Set<Coder> getStudents(Long statusId) {
-        Set<Coder> ss = new HashSet<Coder>(this.studentClassrooms.size());
+        SortedSet<Coder> cs = new TreeSet<Coder>(new StudentComparator());
         for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
             if (sc.getStatusId().equals(statusId)) {
-                ss.add(sc.getId().getStudent());
+                cs.add(sc.getId().getStudent());
             }
         }
-        return ss;
+        return cs;
     }    
 
     @Transient

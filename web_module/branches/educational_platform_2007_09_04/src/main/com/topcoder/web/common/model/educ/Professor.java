@@ -8,6 +8,8 @@ package com.topcoder.web.common.model.educ;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -97,7 +99,7 @@ public class Professor extends Base {
 
     @OneToMany(mappedBy="professor")
     @Cascade( {CascadeType.ALL} )
-    @OrderBy("name asc ")
+    @OrderBy("school.name asc, name asc")
     public Set<Classroom> getClassrooms() {
         return Collections.unmodifiableSet(classrooms);
     }
@@ -119,7 +121,7 @@ public class Professor extends Base {
     
     @Transient
     public Set<Coder> getStudents(School s) {
-        Set<Coder> cs = new HashSet<Coder>();
+        SortedSet<Coder> cs = new TreeSet<Coder>(new StudentComparator());
         for (Classroom c : this.classrooms) {
             if (c.getSchool().equals(s)) {
                 for (StudentClassroom sc : c.getStudentClassrooms()) {
@@ -129,7 +131,7 @@ public class Professor extends Base {
                 }
             }
         }
-        return Collections.unmodifiableSet(cs);
+        return cs;
     }
     
     @Transient
