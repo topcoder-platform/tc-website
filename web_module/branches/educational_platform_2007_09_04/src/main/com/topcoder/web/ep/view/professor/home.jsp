@@ -102,13 +102,14 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
             </div>
             <c:set var="oldSchool" value="${classroom.school}"/>
         </c:forEach>
+        <br clear="all" />
     </c:when>
     <c:otherwise>
-        You don't have classrooms associated.
+        <div align="center">
+            <a href="/ep?module=EditClassroom"><img src="/i/ep/buttons/addClassroom.png" alt="Add classroom" /></a>
+        </div>
     </c:otherwise>
 </c:choose>
-<br clear="all" />
-
     </div>
 </div>
 
