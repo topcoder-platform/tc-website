@@ -17,14 +17,13 @@
                         <span class="bigRed">You don't have components assigned.</span><br/><br/>
                     </c:when>
                     <c:otherwise>
-                        <strong>Assigned components</strong><br/>
+                        <strong>Assigned problems</strong><br/>
                         <table border="1"> 
-                        <tr><td>Id</td><td>Points</td><td> </td></tr>
+                        <tr><td>Name</td><td>Points</td><td> </td></tr>
                         <c:forEach items="${assignment.components}" var="component">
-                            <tr><td><c:out value="${component}"/></td>
-                            <td><tc-webtag:textInput name="points_${component}" size="5" editable="true" /></td>
-                            <td><a href="javascript:removeComponent(${component});">Remove</a></td></tr>
-                            <tc-webtag:hiddenInput name="<%=Constants.COMPONENTS%>" value="${component}"/>
+                            <tr><td><c:out value="${component.problemName}"/></td>
+                            <td><tc-webtag:textInput name="points_${component.componentId}" value="${component.points}" size="5" editable="true" /></td>
+                            <td><a href="javascript:removeComponent(${component.componentId});">Remove</a></td></tr>
                         </c:forEach>
                         </table>
                     </c:otherwise>

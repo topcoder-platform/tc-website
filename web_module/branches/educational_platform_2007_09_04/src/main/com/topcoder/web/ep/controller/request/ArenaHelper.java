@@ -20,6 +20,7 @@ import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.algo.RoundSegment;
 import com.topcoder.web.common.model.algo.RoundType;
 import com.topcoder.web.ep.dto.AssignmentDTO;
+import com.topcoder.web.ep.dto.ComponentDTO;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -58,7 +59,7 @@ public class ArenaHelper implements ArenaServices {
         assignSegments(r, adto.getStartDate(), adto.getEndDate());
 
         // add selected components to the round
-        addComponents(r, adto.getComponents(), adto.getPoints());
+        addComponents(r, adto.getComponents());
 
         // add selected languages to the round
         addLanguages(r, adto.getLanguages());
@@ -94,7 +95,7 @@ public class ArenaHelper implements ArenaServices {
         r.updateSegmentsDates(adto.getStartDate(), adto.getEndDate());
 
         // now update components
-        updateRoundComponents(adto.getComponents(), adto.getPoints(), r);
+        updateRoundComponents(adto.getComponents(), r);
 
         // finally update languages
         updateLanguages(adto.getLanguages(), r);
@@ -118,16 +119,16 @@ public class ArenaHelper implements ArenaServices {
      * @param components
      * @param points
      */
-    private static void addComponents(Round r, List<Long> components, List<Double> points) {
+    private static void addComponents(Round r, List<ComponentDTO> components) {
         int j = 0;
-        for (Long cid : components) {
-            Component cm = DAOUtil.getFactory().getComponentDAO().find(cid);
-            RoundComponent rcm = new RoundComponent();
-            rcm.getId().setComponent(cm);
-            rcm.setDivisionId(1);
-            rcm.setDifficulty(cm.getProblem().getProposedDifficulty());
-            rcm.setPoints(points.get(j) != null ? points.get(j) : cm.getProblem().getProposedDifficulty().getPointValue());
-            r.addComponent(rcm);
+        for (ComponentDTO cdto : components) {
+            Component cm = DAOUtil.getFactory().getComponentDAO().find(cdto.getComponentId());
+            RoundComponent rc = new RoundComponent();
+            rc.getId().setComponent(cm);
+            rc.setDivisionId(1);
+            rc.setDifficulty(cm.getProblem().getProposedDifficulty());
+            rc.setPoints(cdto.getPoints() != null ? cdto.getPoints() : cm.getProblem().getProposedDifficulty().getPointValue());
+            r.addComponent(rc);
             j++;
         }
     }
@@ -228,23 +229,23 @@ public class ArenaHelper implements ArenaServices {
      * @param points
      * @param r
      */
-    private static void updateRoundComponents(List<Long> components, List<Double> points, Round r) {
+    private static void updateRoundComponents(List<ComponentDTO> components, Round r) {
         List<RoundComponent> removeList = new ArrayList<RoundComponent>();
         // first remove deleted components
         for (RoundComponent rc : r.getRoundComponents()) {
-            if (!components.contains(rc.getId().getComponent().getId())) {
+            if (!components.contains(new ComponentDTO(rc.getId().getComponent().getId()))) {
                 // removeit
                 removeList.add(rc);
             } else {
+                ComponentDTO cdto = components.get(components.indexOf(new ComponentDTO(rc.getId().getComponent().getId()))); 
+
                 // update
                 //Component updateComponent = components.get(components.indexOf(rc.getId().getComponent()));
-                Double updatePoints = points.get(components.indexOf(rc.getId().getComponent().getId()));
                 
-                rc.setPoints(updatePoints != null ? updatePoints : rc.getId().getComponent().getProblem().getProposedDifficulty().getPointValue());
+                rc.setPoints(cdto.getPoints() != null ? cdto.getPoints() : rc.getId().getComponent().getProblem().getProposedDifficulty().getPointValue());
                 
                 // take them out from the list
-                points.remove(components.indexOf(rc.getId().getComponent().getId()));
-                components.remove(rc.getId().getComponent().getId());
+                components.remove(cdto);
             }
         }
 
@@ -255,13 +256,13 @@ public class ArenaHelper implements ArenaServices {
 
         // add new
         int j = 0;
-        for (Long cid : components) {
-            Component cm = DAOUtil.getFactory().getComponentDAO().find(cid);
+        for (ComponentDTO cdto: components) {
+            Component cm = DAOUtil.getFactory().getComponentDAO().find(cdto.getComponentId());
             RoundComponent rcm = new RoundComponent();
             rcm.getId().setComponent(cm);
             rcm.setDivisionId(1);
             rcm.setDifficulty(cm.getProblem().getProposedDifficulty());
-            rcm.setPoints(points.get(j) != null ? points.get(j) : cm.getProblem().getProposedDifficulty().getPointValue());
+            rcm.setPoints(cdto.getPoints() != null ? cdto.getPoints() : cm.getProblem().getProposedDifficulty().getPointValue());
             r.addComponent(rcm);
             j++;
         }

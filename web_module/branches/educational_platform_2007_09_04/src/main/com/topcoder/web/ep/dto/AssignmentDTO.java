@@ -8,8 +8,9 @@ public class AssignmentDTO {
     Long roundId = null;
     Long classroomId = null;
     String classroomName = null;
-    List<Long> components = null;
-    List<Double> points = null;
+    
+    List<ComponentDTO> components = null;
+
     Timestamp startDate = null;
     Timestamp endDate = null;
     String assignmentName = null;
@@ -21,18 +22,16 @@ public class AssignmentDTO {
     
     public AssignmentDTO() {
         super();
-        this.components = new ArrayList<Long>();
-        this.points = new ArrayList<Double>();
+        this.components = new ArrayList<ComponentDTO>();
         this.languages = new ArrayList<Integer>();
     }
     
-    public AssignmentDTO(Long roundId, Long classroomId, String classroomName, List<Long> components, List<Double> points, Timestamp startDate, Timestamp endDate, String assignmentName, Long coderPhaseLength, Long showAllScores, Long scoreType, List<Integer> languages) {
+    public AssignmentDTO(Long roundId, Long classroomId, String classroomName, List<ComponentDTO> components, Timestamp startDate, Timestamp endDate, String assignmentName, Long coderPhaseLength, Long showAllScores, Long scoreType, List<Integer> languages) {
         super();
         this.roundId = roundId;
         this.classroomId = classroomId;
         this.classroomName = classroomName;
         this.components = components;
-        this.points = points;
         this.startDate = startDate;
         this.endDate = endDate;
         this.assignmentName = assignmentName;
@@ -93,24 +92,22 @@ public class AssignmentDTO {
     /**
      * @return the components
      */
-    public List<Long> getComponents() {
+    public List<ComponentDTO> getComponents() {
         return components;
     }
     /**
      * @param components the components to set
      */
-    public void setComponents(List<Long> components) {
+    public void setComponents(List<ComponentDTO> components) {
         this.components = components;
     }
     
-    public void addComponent(Long componentId) {
-        this.components.add(componentId);
-        this.points.add(100d);
+    public void addComponent(ComponentDTO component) {
+        this.components.add(component);
     }
 
-    public void removeComponent(Long componentId) {
-        this.components.remove(componentId);
-        this.points.remove(0);
+    public void removeComponent(ComponentDTO component) {
+        this.components.remove(component);
     }
 
     /**
@@ -136,18 +133,6 @@ public class AssignmentDTO {
      */
     public void setLanguages(List<Integer> languages) {
         this.languages = languages;
-    }
-    /**
-     * @return the points
-     */
-    public List<Double> getPoints() {
-        return points;
-    }
-    /**
-     * @param points the points to set
-     */
-    public void setPoints(List<Double> points) {
-        this.points = points;
     }
     /**
      * @return the roundId

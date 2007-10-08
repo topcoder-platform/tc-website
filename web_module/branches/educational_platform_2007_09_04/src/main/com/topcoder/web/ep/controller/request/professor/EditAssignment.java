@@ -31,6 +31,7 @@ import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.Base;
 import com.topcoder.web.ep.dto.AssignmentDTO;
+import com.topcoder.web.ep.dto.ComponentDTO;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -116,7 +117,10 @@ public class EditAssignment extends Base {
     
                 // fill the components
                 for (RoundComponent rc : a.getRoundComponents()) {
-                    adto.addComponent(rc.getId().getComponent().getId());
+                    adto.addComponent(new ComponentDTO(
+                            rc.getId().getComponent().getId(),
+                            rc.getPoints(),
+                            rc.getId().getComponent().getProblem().getName())); 
                 }
                 
                 setAssignment(adto);
@@ -182,7 +186,7 @@ public class EditAssignment extends Base {
                         addError("error", "You must select at least one language");
                     }
                     
-                    // Todo: we don't want an assignment with the samen name alreay
+                    // Todo: we don't want an assignment with the same name alreay
                     
                     if (!hasErrors()) {
                         // add assignment DTO to session

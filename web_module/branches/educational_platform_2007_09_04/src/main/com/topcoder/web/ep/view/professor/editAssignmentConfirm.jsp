@@ -52,12 +52,13 @@
             </tr>
         </table>
         <br/>        
-        Components:
+        Problems:
         <table border="1"> 
-            <tr><td>Id</td></tr>
+            <tr><td>Name</td><td>Points</td></tr>
             <c:forEach items="${assignment.components}" var="component">                
                 <tr>
-                    <td>${component}</td>
+                    <td>${component.problemName}</td>
+                    <td>${component.points}</td>
                 </tr>
             </c:forEach>
         </table>

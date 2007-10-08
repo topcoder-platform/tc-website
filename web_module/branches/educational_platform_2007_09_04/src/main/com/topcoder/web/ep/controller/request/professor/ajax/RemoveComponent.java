@@ -5,6 +5,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.Base;
 import com.topcoder.web.ep.dto.AssignmentDTO;
+import com.topcoder.web.ep.dto.ComponentDTO;
 
 /**
  * @author pulky
@@ -22,11 +23,11 @@ public class RemoveComponent extends Base {
 
         AssignmentDTO adto = getAssignment();
         
-        if (!adto.getComponents().contains(componentId)) {
+        if (!adto.getComponents().contains(new ComponentDTO(componentId))) {
             addError("actionError", "This component is not in the list");
         }
 
-        adto.removeComponent(componentId);
+        adto.removeComponent(new ComponentDTO(componentId));
 
         setNextPage("/professor/ajax/addComponents.jsp");
         setIsNextPageInContext(true);
