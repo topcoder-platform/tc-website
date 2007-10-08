@@ -3,10 +3,13 @@ package com.topcoder.web.common.dao.hibernate;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.criterion.Restrictions;
 
 import com.topcoder.web.common.dao.RoundDAO;
 import com.topcoder.web.common.model.algo.Round;
+import com.topcoder.web.common.model.algo.RoundProperty;
 
 /**
  * @author cucu
@@ -24,6 +27,21 @@ public class RoundDAOHibernate extends Base implements RoundDAO {
 
         q.setDate("start", date);
         return q.list();
+    }
+    
+    public List<Round> findDuplicateName(Long classroomId, String assignmentName, Long roundId) {
+        Criteria c = session.createCriteria(Round.class)
+        .add(Restrictions.eq("name", assignmentName));
+
+        if (roundId != null) {
+            c.add(Restrictions.ne("id", roundId));
+        }
+
+        c.createCriteria("roundProperties")
+        .add(Restrictions.eq("id.typeId", RoundProperty.CLASSROOM_ID))
+        .add(Restrictions.eq("intValue", classroomId));
+
+        return c.list();
     }
 
     public Round find(Long id) {

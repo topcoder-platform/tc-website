@@ -2,6 +2,7 @@ package com.topcoder.web.common.dao;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import com.topcoder.web.common.model.algo.Round;
 
@@ -20,5 +21,7 @@ public interface RoundDAO {
     void saveOrUpdate(Round r);
 
     void delete(Round r);
+
+    List<Round> findDuplicateName(Long classroomId, String assignmentName, Long roundId);
 
 }

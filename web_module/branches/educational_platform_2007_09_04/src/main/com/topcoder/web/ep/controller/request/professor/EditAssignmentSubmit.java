@@ -38,9 +38,6 @@ public class EditAssignmentSubmit extends Base {
                 if (getActiveUser() == null) {
                     throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
                 } else if (userLoggedIn()) {
-                    // got a response, validate.
-                    // Todo: check if we have everything we need in the session and then go to the confirmation page 
-
                     AssignmentDTO adto = getAssignment();
                     Boolean update = adto.getRoundId() != null; 
                     if (update) {

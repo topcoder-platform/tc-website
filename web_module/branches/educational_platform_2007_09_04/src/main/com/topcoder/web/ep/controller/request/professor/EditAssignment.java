@@ -103,7 +103,6 @@ public class EditAssignment extends Base {
                 Classroom c = checkValidClassroom(classroomId);
     
                 // prepare stuff for the long transaction
-                // todo: add the rest of the object to clear in clearSession
                 clearSession();
     
                 getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
@@ -185,12 +184,15 @@ public class EditAssignment extends Base {
                     if (languages == null || languages.length == 0) {
                         addError("error", "You must select at least one language");
                     }
-                    
-                    // Todo: we don't want an assignment with the same name alreay
+
+                    AssignmentDTO adto = getAssignment();
+
+                    if (DAOUtil.getFactory().getRoundDAO().findDuplicateName(adto.getClassroomId(), assignmentName, adto.getRoundId()).size() > 0) {
+                        addError("error", "You already have an assignment with the same name");
+                    }
                     
                     if (!hasErrors()) {
                         // add assignment DTO to session
-                        AssignmentDTO adto = getAssignment();
                         adto.setAssignmentName(assignmentName);
                         adto.setCoderPhaseLength(codingPhase);
                         adto.setShowAllScores("on".equals(showAllScores) ? 1l : 0l);

@@ -18,13 +18,13 @@ public class RemoveComponent extends Base {
 
         Long componentId = getComponentParam();;
         if (componentId == null) {
-            addError("actionError", "Invalid component selected to remove");
+            addError("actionError", "Invalid problem selected to remove");
         }
 
         AssignmentDTO adto = getAssignment();
         
         if (!adto.getComponents().contains(new ComponentDTO(componentId))) {
-            addError("actionError", "This component is not in the list");
+            addError("actionError", "This problem is not in the list");
         }
 
         if (!hasErrors()) {
