@@ -16,14 +16,16 @@
                     Lists includes only up to the first <strong><%=Constants.MAX_COMPONENT_RESULTS%></strong> components. 
                     <br/><br/>
                     Please <strong>select</strong> components from list below.<br />
-                    <span id="submitMessage"></span><br/>
-                    <span class="small">
+                    <table border="1"> 
+                        <tr><td>Name</td><td>Points</td><td></td></tr>
                         <c:forEach items="${results}" var="result">
-                            <c:out value="${result.problem.name}"/><br/>
-                            <A class="small" href="javascript:addComponent(${result.id});">Add</A>
-                            <br/><br/>
+                            <tr>
+                            <td><c:out value="${result.problem.name}"/></td>
+                            <td><c:out value="${result.problem.proposedDifficulty.pointValue}"/></td>
+                            <td><A class="small" href="javascript:addComponent(${result.id});">Add</A></td>
+                            </tr>
                         </c:forEach>
-                    </span>
+                    </table>
                 </c:otherwise>
             </c:choose>
         </div>

@@ -10,8 +10,10 @@ import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.topcoder.shared.security.ClassResource;
@@ -185,12 +187,24 @@ public class EditAssignment extends Base {
                     if (languages == null || languages.length == 0) {
                         addError("error", "You must select at least one language");
                     }
+
+                    // check points
+                    AssignmentDTO adto = getAssignment();
+                    Map<Long, Double> points = new HashMap<Long, Double>(adto.getComponents().size());
+                    for (ComponentDTO cdto : adto.getComponents()) {
+                        Double pointsParam = getPointsParam(cdto.getComponentId()); 
+                        if (pointsParam != -1d) {
+                            points.put(cdto.getComponentId(), getPointsParam(cdto.getComponentId()));
+                        } else {
+                            addError("error", "Invalid points entered");
+                            break;
+                        }
+                    }
                     
                     // Todo: we don't want an assignment with the same name alreay
                     
                     if (!hasErrors()) {
                         // add assignment DTO to session
-                        AssignmentDTO adto = getAssignment();
                         adto.setAssignmentName(assignmentName);
                         adto.setCoderPhaseLength(codingPhase);
                         adto.setShowAllScores("on".equals(showAllScores) ? 1l : 0l);
@@ -204,6 +218,15 @@ public class EditAssignment extends Base {
                             languageList.add(Integer.parseInt(language));
                         }
                         adto.setLanguages(languageList);
+                        
+                        // update points
+                        for (ComponentDTO cdto : adto.getComponents()) {
+                            if (points.containsKey(cdto.getComponentId())) {
+                                cdto.setPoints(points.get(cdto.getComponentId()));
+                            } else {
+                                throw new TCWebException("Error: missing component points");
+                            }
+                        }
                         
                         // next step, components.
                         setNextPage("/professor/selectComponents.jsp");
@@ -288,6 +311,23 @@ public class EditAssignment extends Base {
         }
         
         return id;
+    }
+
+    private Double getPointsParam(Long componentId) throws TCWebException {
+        String pointsStr = StringUtils.checkNull(getRequest().getParameter("points_" + componentId));
+        
+        if (pointsStr == "") {
+            return null;
+        }
+
+        Double points;
+        try {
+            points = Double.parseDouble(pointsStr);
+        } catch (NumberFormatException e) {
+            return -1d;
+        }
+        
+        return points;
     }
 
     protected boolean isValidDate(String s) {

@@ -26,6 +26,8 @@
                             <td><a href="javascript:removeComponent(${component.componentId});">Remove</a></td></tr>
                         </c:forEach>
                         </table>
+                        
+                        Note: if you leave points field empty, problem's default points will be used.
                     </c:otherwise>
                 </c:choose>
                 <br/>

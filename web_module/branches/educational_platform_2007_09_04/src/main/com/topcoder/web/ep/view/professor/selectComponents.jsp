@@ -137,6 +137,8 @@ function toggleDiv(divId, state)
                             <td><a href="javascript:removeComponent(${component.componentId});">Remove</a></td></tr>
                         </c:forEach>
                         </table>
+                        
+                        Note: if you leave points field empty, problem's default points will be used.
                     </c:otherwise>
                 </c:choose>
                 <br/>
@@ -147,9 +149,7 @@ function toggleDiv(divId, state)
         </div>
     <br/>
     <div id="main">
-        <span class="subtitle">School Components</span>
-        <br><br>
-
+        <br>
         <strong>Component Name:</strong><br>
         <c:set value="<%=Constants.COMPONENT_NAME%>" var="componentName"/>
         <tc-webtag:errorIterator id="err" name="${componentName}"><%=err%><br></tc-webtag:errorIterator>
@@ -158,19 +158,13 @@ function toggleDiv(divId, state)
         <br>
         Use * for a wildcard character
         <div id="searching">
-        <p>
         <b><font color="#FF0000" size="+1">Searching...</font></b>
-        </p>
         </div>
         <div id="adding">
-        <p>
         <b><font color="#FF0000" size="+1">Adding...</font></b>
-        </p>
         </div>
         <div id="removing">
-        <p>
         <b><font color="#FF0000" size="+1">Removing...</font></b>
-        </p>
         </div>
     </div>
     <div id="results">&nbsp;</div>

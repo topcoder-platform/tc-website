@@ -34,9 +34,10 @@ public class EditAssignmentConfirm extends Base {
                 if (getActiveUser() == null) {
                     throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
                 } else if (userLoggedIn()) {
-                    // got a response, validate.
+                    // got a response, validate. 
                     // Todo: check if we have everything we need in the session and then go to the confirmation page 
-
+                    // for example, at least one selected component
+                    
                     setNextPage("/professor/editAssignmentConfirm.jsp");
                     setIsNextPageInContext(true);
                 } else {

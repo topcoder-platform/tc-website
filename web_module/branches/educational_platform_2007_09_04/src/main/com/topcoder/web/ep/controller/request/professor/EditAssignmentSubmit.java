@@ -14,6 +14,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ep.controller.request.ArenaServicesFactory;
 import com.topcoder.web.ep.controller.request.Base;
 import com.topcoder.web.ep.dto.AssignmentDTO;
+import com.topcoder.web.ep.dto.ComponentDTO;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -44,6 +45,12 @@ public class EditAssignmentSubmit extends Base {
                     Boolean update = adto.getRoundId() != null; 
                     if (update) {
                         // update
+                        log.debug("updating...");
+                        log.debug("roundId: " + adto.getRoundId());
+                        for (ComponentDTO cdto : adto.getComponents()) {
+                            log.debug("component: " + cdto.getComponentId());
+                        }
+                        
                         ArenaServicesFactory.getArenaServices().editAssignment(adto);                        
                     } else {
                         // new
@@ -52,7 +59,7 @@ public class EditAssignmentSubmit extends Base {
                     markForCommit();
                     
                     getRequest().setAttribute("message", "You have successfuly " + (update ? "updated" : "added") + " assignment " + adto.getAssignmentName());                  
-                    getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/ep/");                  
+                    getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/ep//?module=ViewClassroomAssignments&clsid=" + adto.getClassroomId());                  
                     setNextPage("/message.jsp");
                     setIsNextPageInContext(true);            
                 } else {

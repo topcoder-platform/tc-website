@@ -239,9 +239,7 @@ public class ArenaHelper implements ArenaServices {
             } else {
                 ComponentDTO cdto = components.get(components.indexOf(new ComponentDTO(rc.getId().getComponent().getId()))); 
 
-                // update
-                //Component updateComponent = components.get(components.indexOf(rc.getId().getComponent()));
-                
+                // update points
                 rc.setPoints(cdto.getPoints() != null ? cdto.getPoints() : rc.getId().getComponent().getProblem().getProposedDifficulty().getPointValue());
                 
                 // take them out from the list
