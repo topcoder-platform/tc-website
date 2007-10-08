@@ -100,8 +100,8 @@ public class Professor extends Base {
     @OneToMany(mappedBy="professor")
     @Cascade( {CascadeType.ALL} )
     @OrderBy("name asc")
-    // todo: need to add school.name asc,
     public Set<Classroom> getClassrooms() {
+        // todo: need to add school.name asc,
         return Collections.unmodifiableSet(classrooms);
     }
 
