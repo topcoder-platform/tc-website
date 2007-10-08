@@ -16,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -96,6 +97,7 @@ public class Professor extends Base {
 
     @OneToMany(mappedBy="professor")
     @Cascade( {CascadeType.ALL} )
+    @OrderBy("name asc ")
     public Set<Classroom> getClassrooms() {
         return Collections.unmodifiableSet(classrooms);
     }

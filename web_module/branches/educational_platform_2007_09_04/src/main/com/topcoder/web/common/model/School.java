@@ -1,5 +1,6 @@
 package com.topcoder.web.common.model;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -121,7 +122,7 @@ public class School extends Base {
      * @return the professorSchools
      */
     public Set<ProfessorSchool> getProfessorSchools() {
-        return professorSchools;
+        return Collections.unmodifiableSet(professorSchools);
     }
 
     /**
@@ -135,7 +136,7 @@ public class School extends Base {
      * @return the classrooms
      */
     public Set<Classroom> getClassrooms() {
-        return classrooms;
+        return Collections.unmodifiableSet(classrooms);
     }
 
     /**
@@ -145,4 +146,16 @@ public class School extends Base {
         this.classrooms = classrooms;
     }
 
+    /**
+     * @return the classrooms
+     */
+    public Set<Classroom> getClassroomsUsingProfessorId(Long professorId) {
+        Set<Classroom> sc = new HashSet<Classroom>();
+        for (Classroom c : classrooms) {
+            if (c.getProfessor().getId().equals(professorId)) {
+                sc.add(c);
+            }
+        }
+        return sc;
+    }
 }

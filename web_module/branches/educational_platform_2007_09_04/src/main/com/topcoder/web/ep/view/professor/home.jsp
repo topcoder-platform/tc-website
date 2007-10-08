@@ -71,11 +71,14 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
 </p>
 
 <c:choose>
+    <c:set var="oldSchool"/>
     <c:when test="${not empty classrooms}">
         Here are your classrooms:<br /><br />
         <%-- Breakout classes by school. For each school, put an <h1> title like below, and then list the classes.--%>
-        <h1><span class="bg"><span class="spacer">University of TopCoder</span></span></h1>
         <c:forEach items="${classrooms}" var="classroom">
+            <c:if test="${classroom.school != oldSchool}">
+                <h1><span class="bg"><span class="spacer">University of TopCoder</span></span></h1>
+            </c:if>
             <div class="classroomListing" align="center">
                 <div class="name">
                     <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a>
@@ -90,6 +93,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
                     <a href="/ep?module=EditClassroom&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/edit.png" alt="Edit classroom" /></a>
                 </div>
             </div>
+        <c:set var="oldSchool" value="${classroom.school}"/>
         </c:forEach>
     </c:when>
     <c:otherwise>

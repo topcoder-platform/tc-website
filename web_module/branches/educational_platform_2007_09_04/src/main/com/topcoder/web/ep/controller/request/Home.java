@@ -8,7 +8,6 @@ package com.topcoder.web.ep.controller.request;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -40,7 +39,7 @@ public class Home extends ShortHibernateProcessor {
                     throw new PermissionException(getUser(), new ClassResource(this.getClass()));
                 }
                 log.debug(u.getHandle() + " is a professor");
-                getRequest().setAttribute("classrooms", u.getProfessor().getClassrooms());                
+                getRequest().setAttribute("classrooms", u.getProfessor().getClassrooms());
                 setNextPage("/professor/home.jsp");
                 setIsNextPageInContext(true);
             } else {
