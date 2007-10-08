@@ -1,6 +1,7 @@
 package com.topcoder.web.common.dao;
 
 
+import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
 
 import java.util.List;
@@ -15,4 +16,8 @@ public interface SecurityGroupDAO {
     List getSecurityGroups(Set registrationTypes);
 
     public boolean hasInactiveHSGroup(User u);
+
+    public boolean hasGroup(long userId, long groupId);
+
+    boolean hasGroup(User u, SecurityGroup g);
 }
