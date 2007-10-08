@@ -193,8 +193,8 @@ public class EditAssignment extends Base {
                     Map<Long, Double> points = new HashMap<Long, Double>(adto.getComponents().size());
                     for (ComponentDTO cdto : adto.getComponents()) {
                         Double pointsParam = getPointsParam(cdto.getComponentId()); 
-                        if (pointsParam != -1d) {
-                            points.put(cdto.getComponentId(), getPointsParam(cdto.getComponentId()));
+                        if (pointsParam == null || pointsParam != -1d) {
+                            points.put(cdto.getComponentId(), pointsParam);
                         } else {
                             addError("error", "Invalid points entered");
                             break;
