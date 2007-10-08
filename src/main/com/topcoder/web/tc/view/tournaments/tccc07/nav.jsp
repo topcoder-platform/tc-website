@@ -177,9 +177,7 @@
                         <a href="/tc?module=TCCC07AlgorithmQualification"<% if (tabLev3.equals("qualification")) {%> class="on"<% } %>>Qualification</a>
                         | <a href="/tc?module=TCCC07AlgorithmSections&rd=10898"<% if (tabLev3.equals("sections")) {%> class="on"<% } %>>Sections</a>
                         | <a href="/tc?module=TCCC07AlgorithmAdvancers"<% if (tabLev3.equals("overview")) {%> class="on"<% } %>>Overview</a>
-<%--
                         | <a href=""<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a>
---%>
                     </p>
                 <% } else if (tabLev2.equals("summary")) { %>
                     <p id="tertiaryNav">
