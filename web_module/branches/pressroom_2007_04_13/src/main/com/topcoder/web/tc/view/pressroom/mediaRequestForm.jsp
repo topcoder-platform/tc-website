@@ -103,7 +103,7 @@
                     <dd><textarea cols="50" rows="15" name="comment"></textarea></dd>
                     
                     <dt>&nbsp;</dt>
-                    <dd><a href="#" class="button" style="width:50; height:15px;">SUBMIT</a></dd>
+                    <dd><a href="#" class="button" style="width:50; height:15px;">Submit</a></dd>
                 </dl>
                 </form>
             </div>

@@ -83,8 +83,7 @@
                                     <p>Lorem ipsum dolor sit amet conseqtetur, adispiscing ut labore et dolore magna aliqua. 
                                     <small>Size: 6.3MB | Format: avi | Player: Windows Media Player</small></p>
                                     
-                                    <p style="width:70; height:15px; float:left; padding:5px;"><a href="#" class="button" style="width:70;">VIEW</a></p>
-                                    <p style="width:70; height:15px; float:left; padding:5px;"><a href="#" class="button" style="width:70;">DOWNLOAD</a></p>
+                                    <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="#" class="button">View</a></span><span style="width:70; float:left; padding:5px;"><a href="#" class="button">Download</a></span></div>
                                 </td>
                             </tr>
                             
@@ -96,8 +95,7 @@
                                     <p>Lorem ipsum dolor sit amet conseqtetur, adispiscing ut labore et dolore magna aliqua. 
                                     <small>Size: 6.3MB | Format: avi | Player: Windows Media Player</small></p>
                                     
-                                    <p style="width:70; height:15px; float:left; padding:5px;"><a href="#" class="button" style="width:70;">VIEW</a></p>
-                                    <p style="width:70; height:15px; float:left; padding:5px;"><a href="#" class="button" style="width:70;">DOWNLOAD</a></p>
+                                    <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="#" class="button">View</a></span><span style="width:70; float:left; padding:5px;"><a href="#" class="button">Download</a></span></div>
                                 </td>
                             </tr>
                             </table>                        
@@ -113,8 +111,7 @@
                                     <p>Lorem ipsum dolor sit amet conseqtetur, adispiscing ut labore et dolore magna aliqua. 
                                     <small>Size: 6.3MB | Format: avi | Player: Windows Media Player</small></p>
                                     
-                                    <p><a href="#" class="button" style="width:30; height:15px; float:left; padding:5px;">VIEW</a></a>&nbsp;<a href="#" class="button" style="width:70; height:15px; float:left; padding:5px;">DOWNLOAD</a></a></p>
-                                                            
+                                    <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="#" class="button">View</a></span><span style="width:70; float:left; padding:5px;"><a href="#" class="button">Download</a></span></div>
                                 </div>
                             </div>
                             --%>
