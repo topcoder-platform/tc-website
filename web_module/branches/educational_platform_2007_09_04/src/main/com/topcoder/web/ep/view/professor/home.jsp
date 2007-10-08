@@ -77,11 +77,14 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
     <div class="spacer">
 <c:choose>
     <c:when test="${not empty classrooms}">
-        Here are your classrooms:<br /><br />
-        <%-- Breakout classes by school. For each school, put an <h1> title like below, and then list the classes.--%>
+        Here are your classrooms:
+        <div align="center">
+            <a href="/ep?module=EditClassroom"><img src="/i/ep/buttons/addClassroom.png" alt="Add classroom" /></a>
+        </div>
         <c:forEach items="${classrooms}" var="classroom">
             <c:if test="${classroom.school != oldSchool}">
-                <h1><span class="bg"><span class="spacer">${classroom.school.name}</span></span></h1>
+            <br clear="all" />
+            <h1><span class="bg"><span class="spacer">${classroom.school.name}</span></span></h1>
             </c:if>
             <div class="classroomListing" align="center">
                 <div class="name">
@@ -105,10 +108,6 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
     </c:otherwise>
 </c:choose>
 <br clear="all" />
-
-<div align="center">
-    <a href="/ep?module=EditClassroom"><img src="/i/ep/buttons/addClassroom.png" alt="Add classroom" /></a>
-</div>
 
     </div>
 </div>
