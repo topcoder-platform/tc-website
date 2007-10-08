@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.08.07<br />5:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm368">SRM 368 - Problem Set &amp; Analysis</A></span><br /><br />
+      After my previous sets of rather hard Division 2 problems I decided to try sharing a problem as the Div1 easy and Div2 hard. The experiment proved to be quite successful and led to a reasonably hard Division 2 problem set. Twenty-two coders were able to finish all three problems, and between them speed and successful challenges mattered.</td>
+         <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm368">details</A> | 
+         <tc-webtag:forumLink forumID="516065" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />10.04.07<br />4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />">How Do You Like the UML Tool?</A></span><br /><br />
@@ -153,21 +169,5 @@
         <A href="/tc?module=SurveyResults&sid=19628">details</a> | 
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=950&start=0">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />09.27.07<br />3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=092707">Know your hero: marek.cygan</A></span><br /><br />
-      This issue of the 'Know Your Hero' interview series features Marek Cygan (TopCoder handle: <tc-webtag:handle coderId="7442498" context="algorithm"/>). <tc-webtag:handle coderId="7442498" context="algorithm"/> has recently become a target in Algorithm competition and, after SRM 366, he has become the highest rated coder from Poland (breaking <tc-webtag:handle coderId="144400" context="algorithm"/>'s long-standing domination).</td>
-         <td class="newsPhoto"><img src="/i/m/jakubr_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8472826" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=092707">details</A> | 
-         <tc-webtag:forumLink forumID="517603" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
