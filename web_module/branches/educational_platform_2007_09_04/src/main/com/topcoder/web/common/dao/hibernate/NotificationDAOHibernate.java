@@ -23,7 +23,7 @@ public class NotificationDAOHibernate extends GenericBase<Notification, Integer>
             ret = Collections.EMPTY_LIST;
         } else {
             StringBuffer query = new StringBuffer(100);
-            query.append("SELECT distinct n FROM Notification n join n.registrationTypes r WHERE ");
+            query.append("SELECT distinct n.type.sort, n FROM Notification n join n.registrationTypes r WHERE ");
             query.append("n.status = 'A' AND r.id in (");
             for (RegistrationType regType : regTypes) {
                 query.append(regType.getId()).append(",");
