@@ -5,6 +5,7 @@ import com.topcoder.web.common.model.Notification;
 import com.topcoder.web.common.model.RegistrationType;
 import org.hibernate.Query;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -32,16 +33,14 @@ public class NotificationDAOHibernate extends GenericBase<Notification, Integer>
             query.append(")");
             query.append(" order by n.type.sort, n.sort");
             Query q = getSession().createQuery(query.toString());
-            ret = q.list();
+            List tmp = q.list();
 
             // this is informix fault, forcing to add the sort columns to the select clause.
             // so we need to take it out before returning the list
-/*
             ret = new ArrayList();
             for (Object[] obj : (List<Object[]>) tmp) {
                 ret.add(obj[1]);
             }
-*/
         }
         return ret;
     }
