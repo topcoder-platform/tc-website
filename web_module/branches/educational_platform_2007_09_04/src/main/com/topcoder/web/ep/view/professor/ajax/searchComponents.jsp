@@ -17,7 +17,7 @@
                     <br/><br/>
                     Please <strong>select</strong> problems from list below.<br />
                     <table border="1"> 
-                        <tr><td>Name</td><td>Points</td><td> </td></tr>
+                        <tr><td>Name</td><td>Points</td><td><![CDATA["&nbsp;"]]></td></tr>
                         <c:forEach items="${results}" var="result">
                             <tr>
                             <td><c:out value="${result.problem.name}"/></td>
