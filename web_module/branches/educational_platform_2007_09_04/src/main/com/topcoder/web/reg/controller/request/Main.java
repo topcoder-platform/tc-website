@@ -34,6 +34,14 @@ public class Main extends Base {
                 log.debug("name: " + getRegUser().getFirstName() + " " + getRegUser().getLastName());
             }
         }
+
+        //if someone is registering for just one thing, they might include that type in the request.  
+        String regTypeParam = StringUtils.checkNull(getRequest().getParameter(Constants.REGISTRATION_TYPE));
+
+        if (!"".equals(regTypeParam)) {
+            setRegUser(new User());
+        }
+
         if (getRegUser() == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
         } else if (getRegUser().isNew() || userLoggedIn()) {
@@ -57,15 +65,14 @@ public class Main extends Base {
                 //if it's not a post, they must be coming in directly, so lets see if they have made
                 //a request to register.  it could be that they are just editing some information in the
                 //session, but they could also be registering for the first time, and hitting this page directly
-                String regType = StringUtils.checkNull(getRequest().getParameter(Constants.REGISTRATION_TYPE));
-                if (!"".equals(regType)) {
-                    if (!StringUtils.isNumber(regType)) {
+                if (!"".equals(regTypeParam)) {
+                    if (!StringUtils.isNumber(regTypeParam)) {
                         throw new NavigationException("Invalid registration type specified.");
                     } else {
                         List<RegistrationType> types = regTypeDAO.getRegistrationTypes();
                         HashSet<RegistrationType> requestedTypes = new HashSet<RegistrationType>();
                         for (RegistrationType rt : types) {
-                            if (rt.getId().equals(new Integer(regType))) {
+                            if (rt.getId().equals(new Integer(regTypeParam))) {
                                 requestedTypes.add(rt);
                             }
                         }
