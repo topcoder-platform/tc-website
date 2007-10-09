@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />10.09.07<br />3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=100907">TopCoder @ Work: The Hacker vs. The Architect</A></span><br /><br />
+      In an IT world where the names of the hottest new design patterns and development methodologies are thrown around like umbrellas caught in tornadoes, a competent application architect commands a certain position of power and admiration. Yet amidst all of this, an important team member of yesterday is now all but forgotten: the hacker.</td>
+         <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="Author" width="55" height="61" />&nbsp;<img src="/i/m/rhudson_big.jpg" alt="Author" width="55" height="61" /><br />by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=100907">details</A> | 
+         <tc-webtag:forumLink forumID="517765" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.09.07<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=bracket">TCCC07 Algorithm bracket</A></span><br /><br />
@@ -153,21 +169,5 @@
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=preview' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />09.28.07<br />11:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm40">TCHS SRM 40 - Problem Set &amp; Analysis</A></span><br /><br />
-      The match started very quickly, with the experienced coders rattling off the straightforward easy problem in no time at all. A greedy medium problem was up next. This had a relatively intuitive solution, but one that required a bit of thought to show that it was correct. A deceptively tricky hard problem rounded out the set.</td>
-         <td class="newsPhoto"><img src="/i/m/StevieT_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="21911760" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm40">details</A> | 
-         <tc-webtag:forumLink forumID="516566" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
    
