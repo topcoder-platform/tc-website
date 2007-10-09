@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.09.07<br />4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=MatchDetails&rd=10930">Prizes Added to Marathon Match 24</A></span><br /><br />
+        As part of Marathon Match 24 we will be presenting a real world problem and use the solution in the development of a system for one of our clients.  We will be giving away $15,000 to the top competitors in the match.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=MatchDetails&rd=10930">details</a> | 
+        <a href="http://forums.topcoder.com/?module=Thread&threadID=589917">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />10.09.07<br />3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -156,18 +169,5 @@
         <A href="/tc?module=Static&d1=pressroom&d2=pr_100107">details</a> | 
         <tc-webtag:forumLink forumID="517634" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.01.07<br />10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=preview' refer='/tc' />">2008 TopCoder Open</A></span><br /><br />
-        Mark your calendars!  The TCO08 finals will take place May 11 - 15, 2008 at the Mirage in Las Vegas, NV.  We have lots of other big news about this event, so be sure to <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=preview' refer='/tc' />">read on</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=preview' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
