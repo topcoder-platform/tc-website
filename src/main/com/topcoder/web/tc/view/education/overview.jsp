@@ -39,12 +39,12 @@
 <br /><br />
 <span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=100907"><strong>TopCoder @ Work: The Hacker vs. The Architect</strong></a>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br />
+In an IT world where the names of the hottest new design patterns and development methodologies are thrown around like umbrellas caught in tornadoes, a competent application architect commands a certain position of power and admiration. Yet amidst all of this, an important team member of yesterday is now all but forgotten: the hacker.</li>
 <li><a href="/tc?module=Static&d1=features&d2=100207"><strong>TCCC07: By the numbers</strong></a><br />
 With the addition of four alternates to the Component Design and Development finals, this year's TopCoder Collegiate Challenge gives us that many more numbers to play with. A total of 3,426 competitors registered for this year's TCCC, a slight up-tick from last year's 3,317. Here's how the TCCC07 crop of competitors breaks down, based on some different comparisons.</li>
 <li><a href="/tc?module=Static&d1=features&d2=092707"><strong>Know your hero: marek.cygan</strong></a>, by <tc-webtag:handle coderId="8472826" context="algorithm"/><br />
 This issue of the 'Know Your Hero' interview series features Marek Cygan (TopCoder handle: <tc-webtag:handle coderId="7442498" context="algorithm"/>). <tc-webtag:handle coderId="7442498" context="algorithm"/> has recently become a target in Algorithm competition and, after SRM 366, he has become the highest rated coder from Poland (breaking <tc-webtag:handle coderId="144400" context="algorithm"/>'s long-standing domination).</li>
-<li><a href="/tc?module=Static&d1=features&d2=092407"><strong>Introducing TopCoder's &quot;Iron Man&quot;</strong></a><br />
-On September 9, 2005, during <a href="/stat?c=round_overview&er=5&rd=7996">SRM 262</a>, <tc-webtag:handle coderId="8511003" context="algorithm"/> began a remarkable streak. Fueled by a desire to compete in every match that he could, he has now competed in a record 100 consecutive SRMs, and he's still going strong.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br />
 <ul>
