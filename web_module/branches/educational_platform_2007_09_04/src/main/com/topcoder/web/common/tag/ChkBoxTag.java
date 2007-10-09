@@ -14,7 +14,7 @@ public class ChkBoxTag extends BaseTag {
             if (value != null) {
                 boolean checked = "true".equalsIgnoreCase(value);
                 if (checked) {
-                    ret.append("checked=\"").append(value).append("\" ");
+                    ret.append("checked=\"checked\"");
                 }
             }
             ret.append("/>");
