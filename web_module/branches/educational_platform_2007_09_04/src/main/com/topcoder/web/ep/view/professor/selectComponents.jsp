@@ -124,14 +124,14 @@ function toggleDiv(divId, state)
                     <font color="#FF0000"><%=err%></font><br/>
                 </tc-webtag:errorIterator>
                 <c:choose>
-                    <c:when test="${fn:length(assignment.components)==0}">
+                    <c:when test="${fn:length(ea_assignment.components)==0}">
                         <span class="bigRed">You don't have problems assigned.</span><br/><br/>
                     </c:when>
                     <c:otherwise>
                         <strong>Assigned problems</strong><br/>
                         <table border="1"> 
                         <tr><td>Name</td><td>Points</td><td>&nbsp;</td></tr>
-                        <c:forEach items="${assignment.components}" var="component">
+                        <c:forEach items="${ea_assignment.components}" var="component">
                             <tr><td><c:out value="${component.problemName}"/></td>
                             <td><tc-webtag:textInput name="points_${component.componentId}" value="${component.points}" size="5" editable="true" /></td>
                             <td><a href="javascript:removeComponent(${component.componentId});">Remove</a></td></tr>

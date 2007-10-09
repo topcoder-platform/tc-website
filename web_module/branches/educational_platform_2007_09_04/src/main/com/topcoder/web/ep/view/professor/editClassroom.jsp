@@ -23,7 +23,7 @@
     <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
         <title>
             <c:choose>
-                <c:when test="${not empty classroom.id}">TopCoder :: Edit classroom</c:when>
+                <c:when test="${not empty ec_classroom.id}">TopCoder :: Edit classroom</c:when>
                 <c:otherwise>TopCoder :: Add classroom</c:otherwise>
             </c:choose>
         </title>
@@ -62,7 +62,7 @@
 
         <h1><span class="bg"><span class="spacer">
         <c:choose>
-            <c:when test="${not empty classroom.id}">Edit classroom</c:when>
+            <c:when test="${not empty ec_classroom.id}">Edit classroom</c:when>
             <c:otherwise>Add classroom</c:otherwise>
         </c:choose>
         </span></span></h1>
@@ -73,9 +73,9 @@
                 <span class="bigRed"><%=err%></span><br />
             </tc-webtag:errorIterator>
             <br />
-                <c:forEach items="${classroom.professor.activeSchools}" var="school">                
+                <c:forEach items="${ec_classroom.professor.activeSchools}" var="school">                
                     <c:choose>
-                        <c:when test="${fn:length(classroom.professor.activeSchools) > 1}">
+                        <c:when test="${fn:length(ec_classroom.professor.activeSchools) > 1}">
                             <tc-webtag:radioButton name="<%=Constants.SCHOOL_ID%>" value="${school.id}"/>${school.name}&nbsp;&nbsp;
                         </c:when>
                         <c:otherwise><tc-webtag:hiddenInput name="<%=Constants.SCHOOL_ID%>" value="${school.id}"/></c:otherwise>

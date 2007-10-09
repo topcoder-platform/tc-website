@@ -33,18 +33,18 @@
                 <td>Description</td>
             </tr>
             <tr>
-                <td>${classroom.name}</td>
-                <td>${classroom.academicPeriod}</td>
-                <td>${classroom.description}</td>
+                <td>${ec_classroom.name}</td>
+                <td>${ec_classroom.academicPeriod}</td>
+                <td>${ec_classroom.description}</td>
             </tr>
         </table>
         <br/>        
         <c:choose>
-            <c:when test="${not empty students}">
+            <c:when test="${not empty ec_students}">
                 Selected Students:
                 <table border="1"> 
                     <tr><td>Student name</td></tr>
-                    <c:forEach items="${students}" var="student">                
+                    <c:forEach items="${ec_students}" var="student">                
                         <tr>
                             <td>${student.user.lastName}, ${student.user.firstName}</td>
                         </tr>

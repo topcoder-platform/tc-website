@@ -31,9 +31,9 @@
                 <td>Description</td>
             </tr>
             <tr>
-                <td>${classroom.name}</td>
-                <td>${classroom.academicPeriod}</td>
-                <td>${classroom.description}</td>
+                <td>${ec_classroom.name}</td>
+                <td>${ec_classroom.academicPeriod}</td>
+                <td>${ec_classroom.description}</td>
             </tr>
         </table>
         

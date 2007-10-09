@@ -37,15 +37,15 @@
                 <td>Languages</td>
             </tr>
             <tr>
-                <td>${assignment.classroomName}</td>
-                <td><fmt:formatDate value="${assignment.startDate}" pattern="yyyy.MM.dd HH:mm"/></td>
-                <td><fmt:formatDate value="${assignment.endDate}" pattern="yyyy.MM.dd HH:mm"/></td>
-                <td>${assignment.assignmentName}</td>
-                <td>${assignment.coderPhaseLength}</td>
-                <td>${assignment.showAllScores}</td>
-                <td>${assignment.scoreType}</td>
+                <td>${ea_assignment.classroomName}</td>
+                <td><fmt:formatDate value="${ea_assignment.startDate}" pattern="yyyy.MM.dd HH:mm"/></td>
+                <td><fmt:formatDate value="${ea_assignment.endDate}" pattern="yyyy.MM.dd HH:mm"/></td>
+                <td>${ea_assignment.assignmentName}</td>
+                <td>${ea_assignment.coderPhaseLength}</td>
+                <td>${ea_assignment.showAllScores}</td>
+                <td>${ea_assignment.scoreType}</td>
                 <td>
-                    <c:forEach items="${assignment.languages}" var="language">                
+                    <c:forEach items="${ea_assignment.languages}" var="language">                
                          ${language},
                     </c:forEach>
                 </td>                
@@ -55,7 +55,7 @@
         Problems:
         <table border="1"> 
             <tr><td>Name</td><td>Points</td></tr>
-            <c:forEach items="${assignment.components}" var="component">                
+            <c:forEach items="${ea_assignment.components}" var="component">                
                 <tr>
                     <td>${component.problemName}</td>
                     <td>${component.points}</td>
