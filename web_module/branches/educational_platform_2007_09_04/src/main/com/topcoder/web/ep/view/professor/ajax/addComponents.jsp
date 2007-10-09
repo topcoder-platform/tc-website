@@ -19,7 +19,7 @@
                     <c:otherwise>
                         <strong>Assigned problems</strong><br/>
                         <table border="1"> 
-                        <tr><td>Name</td><td>Points</td><td><![CDATA[&nbsp;]]></td></tr>
+                        <tr><td>Name</td><td>Points</td><td> </td></tr>
                         <c:forEach items="${ea_assignment.components}" var="component">
                             <tr><td><c:out value="${component.problemName}"/></td>
                             <td><tc-webtag:textInput name="points_${component.componentId}" value="${component.points}" size="5" editable="true" /></td>
