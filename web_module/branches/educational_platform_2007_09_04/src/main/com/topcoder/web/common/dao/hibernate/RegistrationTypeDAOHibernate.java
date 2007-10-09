@@ -22,7 +22,7 @@ public class RegistrationTypeDAOHibernate extends Base implements RegistrationTy
         super(session);
     }
 
-    public List getRegistrationTypes() {
+    public List<RegistrationType> getRegistrationTypes() {
         StringBuffer query = new StringBuffer(100);
         query.append(" from RegistrationType t ");
         query.append(" where t.active = 1");
