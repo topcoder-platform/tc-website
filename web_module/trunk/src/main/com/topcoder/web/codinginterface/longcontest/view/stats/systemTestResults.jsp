@@ -2,11 +2,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page
         language="java"
-        import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                com.topcoder.web.codinginterface.longcontest.Constants"
+        import="com.topcoder.shared.dataAccess.DataAccessConstants,
+                com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"
 
         %>
-<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
+<%@ page import="com.topcoder.web.codinginterface.longcontest.Constants"%>
 <%@ page import="java.util.HashMap"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -156,7 +156,7 @@ text-align: left;
                                     <td class="<%=style%>" align="left" nowrap="nowrap">
                                         <tc-webtag:handle context='marathon_match' coderId='<%=coderRow.getLongItem("coder_id")%>'/></td>
                                     <td class="<%=style%>">
-                                        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=coderRow%>"/>" class="statLink">
+                                        <a href="/longcontest/?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=coderRow%>"/>" class="statLink">
                                             <rsc:item name="system_point_total" row="<%=coderRow%>" format="0.00"/></a></td>
                                     <rsc:iterator list="<%=cases%>" id="caseRow">
                                         <td class="<%=style%>">
