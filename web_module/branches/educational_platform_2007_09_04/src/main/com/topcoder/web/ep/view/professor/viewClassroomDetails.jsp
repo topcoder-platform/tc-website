@@ -86,6 +86,7 @@
 
         <div align="center" style="margin: 40px;">
             <table cellpadding="0" cellspacing="0">
+            <tbody>
                 <tr>
                     <td style="padding-right: 10px; font-weight: bold;" align="left">
                         <p>School:</p>
@@ -100,6 +101,7 @@
                         <p>${classroom.description}</p>
                     </td>
                 </tr>
+            </tbody>
             </table>
         </div>
 

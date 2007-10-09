@@ -70,24 +70,53 @@
         <form name="f" action="${sessionInfo.servletPath}" method="post">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditClassroom"/>
             <tc-webtag:errorIterator id="err" name="error">
-                <font color="#FF0000"><%=err%></font><br />
+                <span class="bigRed"><%=err%></span><br />
             </tc-webtag:errorIterator>
             <br />
                 <c:forEach items="${classroom.professor.activeSchools}" var="school">                
-                    <c:choose>                        <c:when test="${fn:length(classroom.professor.activeSchools) > 1}">
+                    <c:choose>
+                        <c:when test="${fn:length(classroom.professor.activeSchools) > 1}">
                             <tc-webtag:radioButton name="<%=Constants.SCHOOL_ID%>" value="${school.id}"/>${school.name}&nbsp;&nbsp;
                         </c:when>
                         <c:otherwise><tc-webtag:hiddenInput name="<%=Constants.SCHOOL_ID%>" value="${school.id}"/></c:otherwise>
                     </c:choose>
                 </c:forEach>
             <br />
-            Classroom: <tc-webtag:textInput name="classroom_name" size="60" editable="true" />
-            <br />
-            Academic period: <tc-webtag:textInput name="classroom_academic_period" size="60" editable="true" />
-            <br />
-            Description : <tc-webtag:textInput name="classroom_description" size="60" editable="true" />
-            <br />
-            <a href="javascript:submit()"><img src="/i/ep/buttons/continue.png" /></a>
+
+            <div align="center">
+                <table cellpadding="4" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td align="left">
+                            <strong>Classroom name:</strong>
+                        </td>
+                        <td align="left">
+                            <tc-webtag:textInput name="classroom_name" size="60" editable="true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <strong>Academic period:</strong>
+                        </td>
+                        <td align="left">
+                            <tc-webtag:textInput name="classroom_academic_period" size="60" editable="true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <strong>Description:</strong>
+                        </td>
+                        <td align="left">
+                            <tc-webtag:textInput name="classroom_description" size="60" editable="true" />
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+
+            <div align="center">
+                <a href="javascript:submit()"><img src="/i/ep/buttons/continue.png" alt="Continue" /></a>
+            </div>
         </form>            
 
     </div>
