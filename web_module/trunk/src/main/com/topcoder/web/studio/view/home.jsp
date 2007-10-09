@@ -65,9 +65,9 @@
         <tr>
             <td style="padding: 0px 10px 0px 0px; border-right: 1px dashed #999999;">
 
-<%-- CSF --%>
+<%-- AIM --%>
                 <div>
-                    <a href="<tc-webtag:linkTracking link="http://csf.topcoder.com/?module=Static&d1=competitions" refer="studio_homepage" />"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF, Powered by TopCoder"/></A>
+                    <a href="<tc-webtag:linkTracking link="http://studio.topcoder.com/?module=ViewContestDetails&ct=2136" refer="studio_homepage" />"><img src="/i/home/aim_iconography.png" alt="AIM Iconography Contest"/></A>
                 </div>
 
 <%--   REGISTER NOW 
