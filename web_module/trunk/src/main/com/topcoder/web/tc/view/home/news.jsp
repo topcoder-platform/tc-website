@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.09.07<br />12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=bracket">TCCC07 Algorithm bracket</A></span><br /><br />
+        The 2007 TopCoder Collegiate Challenge Algorithm bracket is now available.  Be sure to also check out the updated <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a>, <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a>, <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=bracket">Marathon</a>, and <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=bracket">Studio</a> brackets.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=bracket">details</a> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.09.07<br />9:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -156,21 +169,5 @@
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm40">details</A> | 
          <tc-webtag:forumLink forumID="516566" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />09.28.07<br />10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm367">SRM 367 - Problem Set &amp; Analysis</A></span><br /><br />
-      In both divisions coders were faced by a quite balanced problem set. Almost all of the problems provided pretty good challenge opportunities. <tc-webtag:handle coderId="19849563" context="algorithm"/> won Division 1, <tc-webtag:handle coderId="7390224" context="algorithm"/> finished second, and third place went to <tc-webtag:handle coderId="7421158" context="algorithm"/>.</td>
-         <td class="newsPhoto"><img src="/i/m/gevak_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="7340263" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm367">details</A> | 
-         <tc-webtag:forumLink forumID="516064" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
