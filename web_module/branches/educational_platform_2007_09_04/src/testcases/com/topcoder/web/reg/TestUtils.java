@@ -118,7 +118,7 @@ public class TestUtils {
         p.setPrimary(Boolean.TRUE);
         ret.addPhoneNumber(p);
 
-        for (Iterator it = DAOUtil.getFactory().getNotificationDAO().getNotifications().iterator(); it.hasNext();) {
+        for (Iterator it = DAOUtil.getFactory().getNotificationDAO().findAll().iterator(); it.hasNext();) {
             ret.addNotification((Notification) it.next());
         }
 

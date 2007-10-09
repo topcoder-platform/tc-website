@@ -16,7 +16,7 @@ import java.util.List;
 public class NotificationValidatorTestCase extends TCHibernateTestCase {
     public void testValid() {
 
-        List l = DAOUtil.getFactory().getNotificationDAO().getNotifications();
+        List l = DAOUtil.getFactory().getNotificationDAO().findAll();
         assertTrue("found a valid notification to be invalid",
                 new NotificationValidator().validate(new ListInput(l)).isValid());
     }
