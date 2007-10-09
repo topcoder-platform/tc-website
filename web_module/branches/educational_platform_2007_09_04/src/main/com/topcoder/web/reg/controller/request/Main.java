@@ -1,24 +1,19 @@
 package com.topcoder.web.reg.controller.request;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.RegistrationTypeDAO;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
-import com.topcoder.web.common.model.Coder;
-import com.topcoder.web.common.model.CoderType;
-import com.topcoder.web.common.model.Contact;
-import com.topcoder.web.common.model.RegistrationType;
-import com.topcoder.web.common.model.Season;
-import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author dok
@@ -47,12 +42,10 @@ public class Main extends Base {
             //if it's a post, they're coming from the selection page, and they should have selected
             //some types, so add them.
             if ("POST".equals(getRequest().getMethod())) {
-                List types = regTypeDAO.getRegistrationTypes();
+                List<RegistrationType> types = regTypeDAO.getRegistrationTypes();
 
-                RegistrationType rt;
-                HashSet requestedTypes = new HashSet();
-                for (Iterator it = types.iterator(); it.hasNext();) {
-                    rt = (RegistrationType) it.next();
+                HashSet<RegistrationType> requestedTypes = new HashSet<RegistrationType>();
+                for (RegistrationType rt : types) {
                     if ("on".equals(getRequest().getParameter(Constants.REGISTRATION_TYPE + rt.getId()))) {
                         //log.debug("adding type: " + rt.getName());
                         requestedTypes.add(rt);
@@ -60,6 +53,29 @@ public class Main extends Base {
                 }
                 requestedTypes.addAll(u.getRegistrationTypes());
                 setRequestedTypes(requestedTypes);
+            } else {
+                //if it's not a post, they must be coming in directly, so lets see if they have made
+                //a request to register.  it could be that they are just editing some information in the
+                //session, but they could also be registering for the first time, and hitting this page directly
+                String regType = StringUtils.checkNull(getRequest().getParameter(Constants.REGISTRATION_TYPE));
+                if (!"".equals(regType)) {
+                    if (!StringUtils.isNumber(regType)) {
+                        throw new NavigationException("Invalid registration type specified.");
+                    } else {
+                        List<RegistrationType> types = regTypeDAO.getRegistrationTypes();
+                        HashSet<RegistrationType> requestedTypes = new HashSet<RegistrationType>();
+                        for (RegistrationType rt : types) {
+                            if (rt.getId().equals(new Integer(regType))) {
+                                requestedTypes.add(rt);
+                            }
+                        }
+                        if (types.isEmpty()) {
+                            throw new NavigationException("Invalid request, not registratoin type specified.");
+                        } else {
+                            setRequestedTypes(requestedTypes);
+                        }
+                    }
+                }
             }
 
             if (getRequestedTypes().isEmpty()) {
@@ -84,10 +100,7 @@ public class Main extends Base {
                 getRequest().setAttribute("registrationTypeList", getFactory().getRegistrationTypeDAO().getRegistrationTypes());
                 if (userLoggedIn()) {
                     //they're updating their info, and they're logged in, so here we go
-                    RegistrationType regType;
-                    for (Iterator it = new UserDAOHibernate().find(new Long(getUser().getId())).getRegistrationTypes().iterator(); it.hasNext();)
-                    {
-                        regType = (RegistrationType) it.next();
+                    for (RegistrationType regType : new UserDAOHibernate().find(getUser().getId()).getRegistrationTypes()) {
                         setDefault(Constants.REGISTRATION_TYPE + regType.getId(), String.valueOf(true));
                     }
                 }
@@ -96,8 +109,7 @@ public class Main extends Base {
                 setIsNextPageInContext(true);
             } else {
                 if (u.getContact() == null &&
-                        (getRequestedTypes().contains(regTypeDAO.getCorporateType()) || getRequestedTypes().contains(regTypeDAO.getSoftwareType())))
-                {
+                        (getRequestedTypes().contains(regTypeDAO.getCorporateType()) || getRequestedTypes().contains(regTypeDAO.getSoftwareType()))) {
                     Contact c = new Contact();
                     u.setContact(c);
                     c.setUser(u);
@@ -126,8 +138,6 @@ public class Main extends Base {
 
                 setMainDefaults(u);
 
-                setRegUser(u);
-
                 List nots = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
                 if (nots != null) {
                     getRequest().setAttribute("notifications", nots);
@@ -137,7 +147,7 @@ public class Main extends Base {
                 if (season != null && season.getEvent() != null && season.getEvent().getSurvey() != null) {
                     getRequest().setAttribute("questions", new ArrayList(season.getEvent().getSurvey().getQuestions()));
                 }
-                        
+
                 getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
                 getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
                 getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
@@ -145,7 +155,7 @@ public class Main extends Base {
                         RegFieldHelper.getMainFieldSet(getRequestedTypes(), getRegUser()));
                 Set reqFields = RegFieldHelper.getMainRequiredFieldSet(getRequestedTypes(), getRegUser());
                 getRequest().setAttribute(Constants.REQUIRED_FIELDS, reqFields);
-                getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
+                getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(Constants.REG_TERMS_ID));
                 getRequest().setAttribute("season", season);
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
