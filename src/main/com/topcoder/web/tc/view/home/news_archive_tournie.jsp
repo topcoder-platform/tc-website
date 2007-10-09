@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">10.09.07 12:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=bracket">TCCC07 Algorithm bracket</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.04.07 10:15 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">Round 2 of the TCCC07 CDDC Finals</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.03.07 12:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lillyChat20070912">Eli Lilly SRM 365 chat transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.02.07 1:00 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2133">Design the TCO08 Web Site</A></td></tr>
