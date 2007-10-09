@@ -1,7 +1,7 @@
 package com.topcoder.web.ep.controller.request.professor.ajax;
 
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.ep.controller.request.Base;
+import com.topcoder.web.ep.controller.request.LongBase;
 import com.topcoder.web.ep.Constants;
 
 /**
@@ -10,7 +10,7 @@ import com.topcoder.web.ep.Constants;
  *          Create Date: May 15, 2006
  *          
  */
-public class ComponentSearch extends Base {
+public class ComponentSearch extends LongBase {
     protected void dbProcessing() throws Exception {
 
         String componentName = getTrimmedParameter(Constants.COMPONENT_NAME);

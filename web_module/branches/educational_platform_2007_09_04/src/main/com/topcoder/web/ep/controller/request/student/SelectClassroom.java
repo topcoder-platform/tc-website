@@ -19,13 +19,13 @@ import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
-import com.topcoder.web.ep.controller.request.Base;
+import com.topcoder.web.ep.controller.request.LongBase;
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class SelectClassroom extends Base {
+public class SelectClassroom extends LongBase {
 
     private static Logger log = Logger.getLogger(SelectClassroom.class);
 

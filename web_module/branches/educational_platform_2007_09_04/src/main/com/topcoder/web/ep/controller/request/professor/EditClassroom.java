@@ -21,13 +21,13 @@ import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
-import com.topcoder.web.ep.controller.request.Base;
+import com.topcoder.web.ep.controller.request.LongBase;
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class EditClassroom extends Base {
+public class EditClassroom extends LongBase {
 
     private static Logger log = Logger.getLogger(EditClassroom.class);
 
@@ -36,6 +36,8 @@ public class EditClassroom extends Base {
      */
     @Override
     protected void dbProcessing() throws Exception {
+        this.sessionPrefix = "ec_";
+        
         log.debug("Edit Classroom called...");
         if (userLoggedIn()) {
             log.debug("User identified - " + getUser().getUserName());

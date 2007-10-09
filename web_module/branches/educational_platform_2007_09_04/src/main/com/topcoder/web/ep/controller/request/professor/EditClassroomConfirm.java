@@ -8,19 +8,17 @@ package com.topcoder.web.ep.controller.request.professor;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.ep.Constants;
-import com.topcoder.web.ep.controller.request.Base;
+import com.topcoder.web.ep.controller.request.LongBase;
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class EditClassroomConfirm extends Base {
+public class EditClassroomConfirm extends LongBase {
 
     private static Logger log = Logger.getLogger(EditClassroomConfirm.class);
 
@@ -29,6 +27,8 @@ public class EditClassroomConfirm extends Base {
      */
     @Override
     protected void dbProcessing() throws Exception {
+        this.sessionPrefix = "ec_";
+
         if (getActiveUser() == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
         } else {            

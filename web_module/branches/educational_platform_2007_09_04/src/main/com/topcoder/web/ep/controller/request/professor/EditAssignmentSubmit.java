@@ -12,7 +12,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ep.controller.request.ArenaServicesFactory;
-import com.topcoder.web.ep.controller.request.Base;
+import com.topcoder.web.ep.controller.request.ShortBase;
 import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
 
@@ -20,7 +20,7 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class EditAssignmentSubmit extends Base {
+public class EditAssignmentSubmit extends ShortBase {
 
     private static Logger log = Logger.getLogger(EditAssignmentSubmit.class);
 
@@ -29,6 +29,8 @@ public class EditAssignmentSubmit extends Base {
      */
     @Override
     protected void dbProcessing() throws Exception {
+        this.sessionPrefix = "ea_";
+
         log.debug("Edit assignment called...");
 
         if (userLoggedIn()) {
@@ -53,7 +55,8 @@ public class EditAssignmentSubmit extends Base {
                         // new
                         ArenaServicesFactory.getArenaServices().addNewAssignment(adto);
                     }
-                    markForCommit();
+//                    no need for this, we are in a short transaction
+//                    markForCommit();
                     
                     getRequest().setAttribute("message", "You have successfuly " + (update ? "updated" : "added") + " assignment " + adto.getAssignmentName());                  
                     getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/ep//?module=ViewClassroomAssignments&clsid=" + adto.getClassroomId());                  

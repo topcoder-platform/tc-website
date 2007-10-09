@@ -29,7 +29,7 @@ import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.educ.AssignmentScoreType;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
-import com.topcoder.web.ep.controller.request.Base;
+import com.topcoder.web.ep.controller.request.ShortBase;
 import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
 
@@ -37,7 +37,7 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class EditAssignment extends Base {
+public class EditAssignment extends ShortBase {
 
     private static Logger log = Logger.getLogger(EditAssignment.class);
 
@@ -46,8 +46,9 @@ public class EditAssignment extends Base {
      */
     @Override
     protected void dbProcessing() throws Exception {
+        this.sessionPrefix = "ea_";
+        
         log.debug("Edit assignment called...");
-
         if (userLoggedIn()) {
             User u = getActiveUser();
             log.debug("User identified - " + u.getHandle());

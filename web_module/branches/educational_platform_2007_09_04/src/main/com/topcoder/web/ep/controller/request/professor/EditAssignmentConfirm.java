@@ -14,7 +14,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.ep.controller.request.Base;
+import com.topcoder.web.ep.controller.request.ShortBase;
 import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
 
@@ -22,7 +22,7 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class EditAssignmentConfirm extends Base {
+public class EditAssignmentConfirm extends ShortBase {
 
     private static Logger log = Logger.getLogger(EditAssignmentConfirm.class);
 
@@ -31,8 +31,9 @@ public class EditAssignmentConfirm extends Base {
      */
     @Override
     protected void dbProcessing() throws Exception {
-        log.debug("Edit assignment called...");
+        this.sessionPrefix = "ea_";
 
+        log.debug("Edit assignment called...");
         if (userLoggedIn()) {
             if (!"POST".equals(getRequest().getMethod())) {
                 throw new TCWebException("Cannot get here via get");

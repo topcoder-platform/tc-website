@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.topcoder.web.common.LongHibernateProcessor;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
@@ -23,10 +23,12 @@ import com.topcoder.web.ep.dto.AssignmentDTO;
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public abstract class Base extends LongHibernateProcessor {
+public abstract class ShortBase extends ShortHibernateProcessor {
 
     private User user = null;
     private DAOFactory factory = null;
+    
+    public String sessionPrefix = "";
 
     /**
      * Retrieve the user that is involved in the current registration process.
@@ -65,12 +67,12 @@ public abstract class Base extends LongHibernateProcessor {
     }
 
     protected void clearSession() {
-        getRequest().getSession().setAttribute(Constants.USER, null);
-        getRequest().getSession().setAttribute(Constants.SCHOOL, null);
-        getRequest().getSession().setAttribute(Constants.CLASSROOMS, null);
-        getRequest().getSession().setAttribute(Constants.STUDENTS, null);
-        getRequest().getSession().setAttribute(Constants.CLASSROOM, null);
-        getRequest().getSession().setAttribute(Constants.ASSIGNMENT, null);
+        getRequest().getSession().setAttribute(sessionPrefix + Constants.USER, null);
+        getRequest().getSession().setAttribute(sessionPrefix + Constants.SCHOOL, null);
+        getRequest().getSession().setAttribute(sessionPrefix + Constants.CLASSROOMS, null);
+        getRequest().getSession().setAttribute(sessionPrefix + Constants.STUDENTS, null);
+        getRequest().getSession().setAttribute(sessionPrefix + Constants.CLASSROOM, null);
+        getRequest().getSession().setAttribute(sessionPrefix + Constants.ASSIGNMENT, null);
     }
 
     /**
@@ -82,7 +84,7 @@ public abstract class Base extends LongHibernateProcessor {
      */
     protected void setActiveUser(User u) {
         this.user = u;
-        getRequest().getSession().setAttribute(Constants.USER, user);
+        getRequest().getSession().setAttribute(sessionPrefix + Constants.USER, user);
     }
     
     /**
@@ -91,7 +93,7 @@ public abstract class Base extends LongHibernateProcessor {
      * @param s the school to set
      */
     protected void setSchool(School s) {
-        getRequest().getSession().setAttribute(Constants.SCHOOL, s);
+        getRequest().getSession().setAttribute(sessionPrefix + Constants.SCHOOL, s);
     }
     
     /**
@@ -115,7 +117,7 @@ public abstract class Base extends LongHibernateProcessor {
      * @param selectedClassrooms the selected classrooms to set
      */
     protected void setSelectedClassrooms(List<Classroom> selectedClassrooms) {
-        getRequest().getSession().setAttribute(Constants.CLASSROOMS, selectedClassrooms);
+        getRequest().getSession().setAttribute(sessionPrefix + Constants.CLASSROOMS, selectedClassrooms);
     }
     
     /**
@@ -139,7 +141,7 @@ public abstract class Base extends LongHibernateProcessor {
      * @param selectedStudents the selected students to set
      */
     protected void setSelectedStudents(List<Coder> selectedStudents) {
-        getRequest().getSession().setAttribute(Constants.STUDENTS, selectedStudents);
+        getRequest().getSession().setAttribute(sessionPrefix + Constants.STUDENTS, selectedStudents);
     }
     
     /**
@@ -164,7 +166,7 @@ public abstract class Base extends LongHibernateProcessor {
      */
     protected void setClassroom(Classroom classroom) {
         log.debug("set " + classroom.getName() + " classroom in session");
-        getRequest().getSession().setAttribute(Constants.CLASSROOM, classroom);
+        getRequest().getSession().setAttribute(sessionPrefix + Constants.CLASSROOM, classroom);
     }
 
     /**
@@ -189,7 +191,7 @@ public abstract class Base extends LongHibernateProcessor {
      */
     protected void setAssignment(AssignmentDTO assignment) {
         log.debug("set assignment in session");
-        getRequest().getSession().setAttribute(Constants.ASSIGNMENT, assignment);
+        getRequest().getSession().setAttribute(sessionPrefix + Constants.ASSIGNMENT, assignment);
     }
     
     /**

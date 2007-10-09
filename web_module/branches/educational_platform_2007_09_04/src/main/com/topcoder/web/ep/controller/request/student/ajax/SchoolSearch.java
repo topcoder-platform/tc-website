@@ -1,7 +1,7 @@
 package com.topcoder.web.ep.controller.request.student.ajax;
 
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.ep.controller.request.Base;
+import com.topcoder.web.ep.controller.request.LongBase;
 import com.topcoder.web.ep.Constants;
 
 /**
@@ -10,7 +10,7 @@ import com.topcoder.web.ep.Constants;
  *          Create Date: May 15, 2006
  *          
  */
-public class SchoolSearch extends Base {
+public class SchoolSearch extends LongBase {
     protected void dbProcessing() throws Exception {
 
         String schoolName = getTrimmedParameter(Constants.SCHOOL_NAME);

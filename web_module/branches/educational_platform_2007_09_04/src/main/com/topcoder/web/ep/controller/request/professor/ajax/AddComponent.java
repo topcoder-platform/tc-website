@@ -5,7 +5,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.algo.Component;
 import com.topcoder.web.ep.Constants;
-import com.topcoder.web.ep.controller.request.Base;
+import com.topcoder.web.ep.controller.request.LongBase;
 import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
 
@@ -15,7 +15,7 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  *          Create Date: May 15, 2006
  *          
  */
-public class AddComponent extends Base {
+public class AddComponent extends LongBase {
     protected void dbProcessing() throws Exception {
 
         Long componentId = getComponentParam();;

@@ -3,7 +3,7 @@ package com.topcoder.web.ep.controller.request.professor.ajax;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ep.Constants;
-import com.topcoder.web.ep.controller.request.Base;
+import com.topcoder.web.ep.controller.request.LongBase;
 import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
 
@@ -13,7 +13,7 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  *          Create Date: May 15, 2006
  *          
  */
-public class RemoveComponent extends Base {
+public class RemoveComponent extends LongBase {
     protected void dbProcessing() throws Exception {
 
         Long componentId = getComponentParam();;
