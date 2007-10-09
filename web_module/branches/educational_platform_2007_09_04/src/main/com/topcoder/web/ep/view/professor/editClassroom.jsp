@@ -12,6 +12,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
+    <title>TopCoder :: Education Platform</title>
     <meta http-equiv="content-type" 
         content="text/html;charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -21,12 +22,6 @@
     </jsp:include>
     <%-- each school requires its own stylesheet, linked in here --%>
     <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
-        <title>
-            <c:choose>
-                <c:when test="${not empty ec_classroom.id}">TopCoder :: Edit classroom</c:when>
-                <c:otherwise>TopCoder :: Add classroom</c:otherwise>
-            </c:choose>
-        </title>
     
         <script type="text/javascript">
             function submit() {
