@@ -40,7 +40,7 @@ public abstract class ShortBase extends ShortHibernateProcessor {
      */
     protected User getActiveUser() {
         if (user == null) {
-            user = (User) getRequest().getSession().getAttribute(Constants.USER);
+            user = (User) getRequest().getSession().getAttribute(sessionPrefix + Constants.USER);
             if (user == null) {
                 if (userLoggedIn()) {
                     log.debug("get user from the dao");
@@ -73,6 +73,8 @@ public abstract class ShortBase extends ShortHibernateProcessor {
         getRequest().getSession().setAttribute(sessionPrefix + Constants.STUDENTS, null);
         getRequest().getSession().setAttribute(sessionPrefix + Constants.CLASSROOM, null);
         getRequest().getSession().setAttribute(sessionPrefix + Constants.ASSIGNMENT, null);
+
+        log.debug("Cleaning, sessionPrefix: " + sessionPrefix);
     }
 
     /**
@@ -84,6 +86,7 @@ public abstract class ShortBase extends ShortHibernateProcessor {
      */
     protected void setActiveUser(User u) {
         this.user = u;
+        log.debug("setting user in session : " + user.getHandle() + " sessionPrefix: " + sessionPrefix);
         getRequest().getSession().setAttribute(sessionPrefix + Constants.USER, user);
     }
     
@@ -93,6 +96,7 @@ public abstract class ShortBase extends ShortHibernateProcessor {
      * @param s the school to set
      */
     protected void setSchool(School s) {
+        log.debug("setting school in session : " + s.getName() + " sessionPrefix: " + sessionPrefix);
         getRequest().getSession().setAttribute(sessionPrefix + Constants.SCHOOL, s);
     }
     
@@ -100,7 +104,7 @@ public abstract class ShortBase extends ShortHibernateProcessor {
      * Get the school in the current request processor. 
      */
     protected School getSchool() {
-        School school = (School) getRequest().getSession().getAttribute(Constants.SCHOOL);
+        School school = (School) getRequest().getSession().getAttribute(sessionPrefix + Constants.SCHOOL);
         if (school == null) {
                 throw new RuntimeException("Couldn't find school in the session");
         } else {
@@ -124,7 +128,7 @@ public abstract class ShortBase extends ShortHibernateProcessor {
      * Get the selected classrooms in the current request processor. 
      */
     protected Set<Classroom> getSelectedClassrooms() {
-        List<Classroom> selectedClassrooms = (List<Classroom>) getRequest().getSession().getAttribute(Constants.CLASSROOMS);
+        List<Classroom> selectedClassrooms = (List<Classroom>) getRequest().getSession().getAttribute(sessionPrefix + Constants.CLASSROOMS);
         if (selectedClassrooms == null) {
                 throw new RuntimeException("Couldn't find selected classrooms in the session");
         } else {
@@ -148,7 +152,7 @@ public abstract class ShortBase extends ShortHibernateProcessor {
      * Get the selected students in the current request processor. 
      */
     protected Set<Coder> getSelectedStudents() {
-        List<Coder> selectedStudents = (List<Coder>) getRequest().getSession().getAttribute(Constants.STUDENTS);
+        List<Coder> selectedStudents = (List<Coder>) getRequest().getSession().getAttribute(sessionPrefix + Constants.STUDENTS);
         if (selectedStudents == null) {
                 throw new RuntimeException("Couldn't find selected students in the session");
         } else {
@@ -173,7 +177,7 @@ public abstract class ShortBase extends ShortHibernateProcessor {
      * Get the classroomss in the current request processor. 
      */
     protected Classroom getClassroom() {
-        Classroom classroom = (Classroom) getRequest().getSession().getAttribute(Constants.CLASSROOM);
+        Classroom classroom = (Classroom) getRequest().getSession().getAttribute(sessionPrefix + Constants.CLASSROOM);
         if (classroom == null) {
                 throw new RuntimeException("Couldn't find classrooms in the session");
         } else {
@@ -198,7 +202,7 @@ public abstract class ShortBase extends ShortHibernateProcessor {
      * Get the assignment in the current request processor. 
      */
     protected AssignmentDTO getAssignment() {
-        AssignmentDTO assignment = (AssignmentDTO) getRequest().getSession().getAttribute(Constants.ASSIGNMENT);
+        AssignmentDTO assignment = (AssignmentDTO) getRequest().getSession().getAttribute(sessionPrefix + Constants.ASSIGNMENT);
         if (assignment == null) {
                 throw new RuntimeException("Couldn't find assignment in the session");
         } else {
