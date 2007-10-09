@@ -1,17 +1,11 @@
 package com.topcoder.web.common.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
-
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.model.comp.UserContestPrize;
 import com.topcoder.web.common.model.educ.Professor;
 import com.topcoder.web.common.voting.RankBallot;
+
+import java.util.*;
 
 /**
  * A class containing user information.
@@ -30,26 +24,26 @@ public class User extends Base {
     private String password;
     private String activationCode;
     private TimeZone timeZone;
-    private Set addresses;
-    private Set emailAddresses;
-    private Set phoneNumbers;
-    private Set notifications;
-    private Set userPreferences;
+    private Set<Address> addresses;
+    private Set<Email> emailAddresses;
+    private Set<Phone> phoneNumbers;
+    private Set<Notification> notifications;
+    private Set<UserPreference> userPreferences;
     /**
      * hoke: used getting information
      */
-    private Set demographicResponses;
-    private Set securityGroups;
+    private Set<DemographicResponse> demographicResponses;
+    private Set<SecurityGroup> securityGroups;
     private Coder coder;
     private Contact contact;
-    private Set terms;
-    private Set eventRegistrations;
+    private Set<TermsOfUse> terms;
+    private Set<EventRegistration> eventRegistrations;
     private SecretQuestion secretQuestion;
-    private Set responses;
-    private Set ballots;
+    private Set<Response> responses;
+    private Set<RankBallot> ballots;
     private Set<UserContestPrize> compPrizes;
     private Professor professor;
-    
+
     /**
      * hoke: used for making changes
      */
@@ -62,19 +56,19 @@ public class User extends Base {
 
     public User() {
         super();
-        status = new Character(WebConstants.UNACTIVE_STATI[1]);
-        addresses = new HashSet();
-        emailAddresses = new HashSet();
-        phoneNumbers = new HashSet();
-        demographicResponses = new HashSet();
-        notifications = new TreeSet();
-        securityGroups = new HashSet();
+        status = WebConstants.UNACTIVE_STATI[1];
+        addresses = new HashSet<Address>();
+        emailAddresses = new HashSet<Email>();
+        phoneNumbers = new HashSet<Phone>();
+        demographicResponses = new HashSet<DemographicResponse>();
+        notifications = new TreeSet<Notification>();
+        securityGroups = new HashSet<SecurityGroup>();
         transientResponses = new ArrayList();
-        userPreferences = new HashSet();
-        terms = new HashSet();
-        responses = new HashSet();
-        ballots = new HashSet();
-        eventRegistrations = new HashSet();
+        userPreferences = new HashSet<UserPreference>();
+        terms = new HashSet<TermsOfUse>();
+        responses = new HashSet<Response>();
+        ballots = new HashSet<RankBallot>();
+        eventRegistrations = new HashSet<EventRegistration>();
         compPrizes = new HashSet<UserContestPrize>();
     }
 
@@ -142,19 +136,19 @@ public class User extends Base {
         this.activationCode = activationCode;
     }
 
-    public Set getAddresses() {
+    public Set<Address> getAddresses() {
         return Collections.unmodifiableSet(addresses);
     }
 
-    public void setAddresses(Set addresses) {
+    public void setAddresses(Set<Address> addresses) {
         this.addresses = addresses;
     }
 
-    public Set getEmailAddresses() {
+    public Set<Email> getEmailAddresses() {
         return Collections.unmodifiableSet(emailAddresses);
     }
 
-    public void setEmailAddresses(Set emailAddresses) {
+    public void setEmailAddresses(Set<Email> emailAddresses) {
         this.emailAddresses = emailAddresses;
     }
 
@@ -189,7 +183,7 @@ public class User extends Base {
         return a;
     }
 
-    public Set getPhoneNumbers() {
+    public Set<Phone> getPhoneNumbers() {
         return Collections.unmodifiableSet(phoneNumbers);
     }
 
@@ -213,7 +207,7 @@ public class User extends Base {
     }
 
 
-    public void setPhoneNumbers(Set phoneNumbers) {
+    public void setPhoneNumbers(Set<Phone> phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
     }
 
@@ -237,11 +231,11 @@ public class User extends Base {
         this.timeZone = timeZone;
     }
 
-    public Set getDemographicResponses() {
+    public Set<DemographicResponse> getDemographicResponses() {
         return Collections.unmodifiableSet(demographicResponses);
     }
 
-    public void setDemographicResponses(Set demographicResponses) {
+    public void setDemographicResponses(Set<DemographicResponse> demographicResponses) {
         this.demographicResponses = demographicResponses;
     }
 
@@ -254,11 +248,11 @@ public class User extends Base {
         this.demographicResponses.remove(response);
     }
 
-    public Set getNotifications() {
+    public Set<Notification> getNotifications() {
         return Collections.unmodifiableSet(notifications);
     }
 
-    public void setNotifications(Set notifications) {
+    public void setNotifications(Set<Notification> notifications) {
         this.notifications = notifications;
     }
 
@@ -270,11 +264,11 @@ public class User extends Base {
         this.notifications.remove(notification);
     }
 
-    public Set getSecurityGroups() {
+    public Set<SecurityGroup> getSecurityGroups() {
         return Collections.unmodifiableSet(securityGroups);
     }
 
-    public void setSecurityGroups(Set securityGroups) {
+    public void setSecurityGroups(Set<SecurityGroup> securityGroups) {
         this.securityGroups = securityGroups;
     }
 
@@ -282,15 +276,15 @@ public class User extends Base {
         return handle.toLowerCase();
     }
 
-    public Set getRegistrationTypes() {
+    public Set<RegistrationType> getRegistrationTypes() {
         //i think this could be done better with an HQL query, but dunno how yet
         UserGroup g;
-        Set ret = new HashSet();
-        for (Iterator it = securityGroups.iterator(); it.hasNext();) {
-            g = (UserGroup) it.next();
+        Set<RegistrationType> ret = new HashSet<RegistrationType>();
+        for (Object securityGroup : securityGroups) {
+            g = (UserGroup) securityGroup;
             if (SecurityGroup.ACTIVE.equals(g.getSecurityStatusId())) {
-                for (Iterator it1 = g.getSecurityGroup().getRegistrationTypes().iterator(); it1.hasNext();) {
-                    RegistrationType o = (RegistrationType) it1.next();
+                for (Object o1 : g.getSecurityGroup().getRegistrationTypes()) {
+                    RegistrationType o = (RegistrationType) o1;
                     ret.add(o);
                 }
             }
@@ -342,11 +336,11 @@ public class User extends Base {
         this.transientResponses = transientResponses;
     }
 
-    public Set getTerms() {
+    public Set<TermsOfUse> getTerms() {
         return Collections.unmodifiableSet(terms);
     }
 
-    public void setTerms(Set terms) {
+    public void setTerms(Set<TermsOfUse> terms) {
         this.terms = terms;
     }
 
@@ -367,11 +361,11 @@ public class User extends Base {
         return found;
     }
 
-    public Set getUserPreferences() {
+    public Set<UserPreference> getUserPreferences() {
         return Collections.unmodifiableSet(userPreferences);
     }
 
-    public void setUserPreferences(Set userPreferences) {
+    public void setUserPreferences(Set<UserPreference> userPreferences) {
         this.userPreferences = userPreferences;
     }
 
@@ -380,8 +374,7 @@ public class User extends Base {
     }
 
     public UserPreference getUserPreference(Integer preferenceId) {
-        for (Iterator it = userPreferences.iterator(); it.hasNext();) {
-            UserPreference up = (UserPreference) it.next();
+        for (UserPreference up : userPreferences) {
             if (up.getId().getPreference().getId().equals(preferenceId)) {
                 return up;
             }
@@ -391,12 +384,12 @@ public class User extends Base {
 
     public boolean isShowEarningsEnabled() {
         UserPreference up = getUserPreference(Preference.SHOW_EARNINGS_PREFERENCE_ID);
-        return up == null ? false : "show".equals(up.getValue());
+        return up != null && "show".equals(up.getValue());
     }
 
     public boolean isMemberContactEnabled() {
         UserPreference up = getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
-        return up == null ? false : "yes".equals(up.getValue());
+        return up != null && "yes".equals(up.getValue());
     }
 
     public SecretQuestion getSecretQuestion() {
@@ -408,11 +401,11 @@ public class User extends Base {
     }
 
 
-    public Set getEventRegistrations() {
+    public Set<EventRegistration> getEventRegistrations() {
         return Collections.unmodifiableSet(eventRegistrations);
     }
 
-    public void setEventRegistrations(Set eventRegistrations) {
+    public void setEventRegistrations(Set<EventRegistration> eventRegistrations) {
         this.eventRegistrations = eventRegistrations;
     }
 
@@ -421,20 +414,19 @@ public class User extends Base {
     }
 
     public Set<UserContestPrize> getCompPrizes() {
-        return Collections.unmodifiableSet(compPrizes);        
+        return Collections.unmodifiableSet(compPrizes);
     }
-    
+
     public void setCompPrizes(Set<UserContestPrize> compContestPrizes) {
-        this.compPrizes = compContestPrizes;        
+        this.compPrizes = compContestPrizes;
     }
+
     public void addCompPrizes(UserContestPrize prize) {
-        this.compPrizes.add(prize);        
+        this.compPrizes.add(prize);
     }
-    
+
     public EventRegistration getEventRegistration(Event e) {
-        EventRegistration curr;
-        for (Iterator it = getEventRegistrations().iterator(); it.hasNext();) {
-            curr = ((EventRegistration) it.next());
+        for (EventRegistration curr : getEventRegistrations()) {
             if (curr.getId().getEvent().getId() == e.getId()) {
                 return curr;
             }
@@ -442,11 +434,11 @@ public class User extends Base {
         return null;
     }
 
-    public Set getResponses() {
+    public Set<Response> getResponses() {
         return Collections.unmodifiableSet(responses);
     }
 
-    public void setResponses(Set responses) {
+    public void setResponses(Set<Response> responses) {
         this.responses = responses;
     }
 
@@ -454,7 +446,7 @@ public class User extends Base {
         responses.add(r);
     }
 
-    public void addResponse(List r) {
+    public void addResponse(List<Response> r) {
         responses.addAll(r);
     }
 
@@ -462,28 +454,28 @@ public class User extends Base {
         responses.remove(r);
     }
 
-    public void addEventRegistration(Event event, List responses, Boolean eligible) {
+    public void addEventRegistration(Event event, List<Response> responses, Boolean eligible) {
         EventRegistration er = new EventRegistration();
         er.getId().setUser(this);
         er.getId().setEvent(event);
         er.setEligible(eligible);
 
         addEventRegistration(er);
-        
+
         if (event.getTerms() != null) {
-            addTerms(event.getTerms());        
+            addTerms(event.getTerms());
         }
-        
+
         if (responses != null) {
             addResponse(responses);
         }
     }
 
-    public Set getBallots() {
+    public Set<RankBallot> getBallots() {
         return Collections.unmodifiableSet(ballots);
     }
 
-    public void setBallots(Set ballots) {
+    public void setBallots(Set<RankBallot> ballots) {
         this.ballots = ballots;
     }
 
