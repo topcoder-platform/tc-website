@@ -90,6 +90,7 @@
                             <td class="headerC">Assigned</td>
                             <td class="headerC">Finished<br />(succeeded / failed)</td>
                             <td class="headerC">&nbsp;</td>
+                            <td class="headerC">&nbsp;</td>
                         </tr>
                         <%int i = 0;%>
                         <c:forEach items="${assignments}" var="assignment">                
@@ -100,6 +101,7 @@
                                 <td class="valueC">${assignment.registered}</td>
                                 <td class="valueC">${assignment.succeeded} / ${assignment.failed}</td>
                                 <td class="valueC"><a href="/ep?module=EditAssignment&amp;asid=${assignment.id}"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
+                                <td class="valueC"><a href="/ep/professor/?module=RegisterStudents&amp;asid=${assignment.id}"><img src="" alt="Register Students" /></a></td>
                             </tr>
                         <%i++;%>
                         </c:forEach>
