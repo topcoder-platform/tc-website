@@ -8,7 +8,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm369">SRM 369 - Problem Set &amp; Analysis</A></span><br /><br />
-      Competitors faced tricky problem sets in SRM 369, which ended up being cancelled due to some unfortunate technical issues. In division 1, seven coders submitted the hard problem including six who submitted all three.  However, <tc-webtag:handle coderId="10574855" context="algorithm"/> was the only person to successfully solve all three problems, with <tc-webtag:handle coderId="13351270" context="algorithm"/> and <tc-webtag:handle coderId="15881985" context="algorithm"/> rounding out the top 3.</td>
+      Competitors faced tricky problem sets in SRM 369, which ended up being unrated due to some unfortunate technical issues. In division 1, seven coders submitted the hard problem including six who submitted all three.  However, <tc-webtag:handle coderId="10574855" context="algorithm"/> was the only person to successfully solve all three problems, with <tc-webtag:handle coderId="13351270" context="algorithm"/> and <tc-webtag:handle coderId="15881985" context="algorithm"/> rounding out the top 3.</td>
          <td class="newsPhoto"><img src="/i/m/eleusive_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8369955" context="algorithm"/></td></tr></table>
       </td>
    </tr>

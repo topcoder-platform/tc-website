@@ -55,7 +55,7 @@
 <h2>Match summary</h2> 
 
 <p> 
-Competitors faced tricky problem sets in SRM 369, which ended up being cancelled due to some unfortunate technical issues.<br /><br />
+Competitors faced tricky problem sets in SRM 369, which ended up being unrated due to some unfortunate technical issues.<br /><br />
 In division 1, seven coders submitted the hard problem including six who submitted all three.  However, <tc-webtag:handle coderId="10574855" context="algorithm"/> was the only person to successfully solve all three problems,
 with <tc-webtag:handle coderId="13351270" context="algorithm"/> and <tc-webtag:handle coderId="15881985" context="algorithm"/> rounding out the top 3.  The easy problem, which was also division 2's medium problem, was very tricky,
 and required careful thinking in order to avoid many pitfalls.  The medium problem also had a fairly low success rate, and required some mathematical observations.  The challenge phase was very active,
