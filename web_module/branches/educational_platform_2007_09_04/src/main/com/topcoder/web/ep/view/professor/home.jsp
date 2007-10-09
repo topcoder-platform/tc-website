@@ -77,10 +77,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
     <div class="spacer">
 <c:choose>
     <c:when test="${not empty classrooms}">
-        Here are your classrooms:
-        <div align="center">
-            <a href="/ep?module=EditClassroom"><img src="/i/ep/buttons/addClassroom.png" alt="Add classroom" /></a>
-        </div>
+
         <c:forEach items="${classrooms}" var="classroom">
             <c:if test="${classroom.school != oldSchool}">
             <br clear="all" />
@@ -103,11 +100,12 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
             <c:set var="oldSchool" value="${classroom.school}"/>
         </c:forEach>
         <br clear="all" />
-    </c:when>
-    <c:otherwise>
-        <div align="center">
+        <div align="center" style="border-top: 1px solid #969696; padding-top: 10px;">
             <a href="/ep?module=EditClassroom"><img src="/i/ep/buttons/addClassroom.png" alt="Add classroom" /></a>
         </div>
+    </c:when>
+    <c:otherwise>
+        <div align="center"><a href="/ep?module=EditClassroom"><img src="/i/ep/buttons/addClassroom.png" alt="Add classroom" /></a></div>
     </c:otherwise>
 </c:choose>
     </div>
