@@ -8,20 +8,26 @@ package com.topcoder.web.ep.controller.request;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.algo.Component;
 import com.topcoder.web.common.model.algo.Contest;
 import com.topcoder.web.common.model.algo.Room;
+import com.topcoder.web.common.model.algo.RoomResult;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundComponent;
 import com.topcoder.web.common.model.algo.RoundProperty;
+import com.topcoder.web.common.model.algo.RoundRegistration;
 import com.topcoder.web.common.model.algo.RoundSegment;
 import com.topcoder.web.common.model.algo.RoundType;
 import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
+import com.topcoder.web.ep.dto.RegistrationDTO;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -31,18 +37,57 @@ public class ArenaHelper implements ArenaServices {
 
     private static Logger log = Logger.getLogger(ArenaHelper.class);
 
+    private Map<Long, Coder> codersMap = new HashMap<Long, Coder>(); 
+    private Map<Long, Round> roundsMap = new HashMap<Long, Round>(); 
+
+    
     /**
-     * @param roundId 
-     * @param c
-     * @param lc
-     * @param points 
-     * @param startDate
-     * @param endDate
-     * @param assignmentName
-     * @param coderPhaseLength
-     * @param showAllScores
-     * @param scoreType
-     * @param languages 
+     * @param rdto the registration data transfer object to add 
+     */
+    public void addRegistration(List<RegistrationDTO> rdtol) {
+        codersMap.clear();
+        roundsMap.clear();
+        for (RegistrationDTO rdto : rdtol) {
+            // get entities:
+            Coder c = getCoder(rdto.getCoderId());
+            Round r = getRound(rdto.getRoundId());
+            
+            RoundRegistration rr = new RoundRegistration();
+            
+            rr.getId().setCoder(c);
+            rr.setTimestamp(new Timestamp((new Date()).getTime()));
+            rr.setEligible(1);
+            rr.setTeamId(null);
+            
+            r.addRegistration(rr);
+            
+            RoomResult rmr = new RoomResult();
+            rmr.getId().setCoder(c);
+            rmr.getId().setRound(r);
+
+            // there's only one room in this kind of round
+            Room rm = r.getRooms().iterator().next();
+            
+            rmr.setRoomSeed(0);
+            rmr.setOldRating(0);
+            rmr.setNewRating(0);
+            rmr.setPaid(0d);
+            rmr.setRoomPlaced(0);
+            rmr.setDivisionPlaced(0);
+            rmr.setAttended("N");
+            rmr.setAdvanced("N");
+            rmr.setOverallRank(0);
+            rmr.setPointTotal(0d);
+            rmr.setDivisionSeed(0);
+
+            rm.addResult(rmr);
+
+            DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
+        }
+    }    
+    
+    /**
+     * @param adto the assignment data transfer object to add 
      */
     public void addNewAssignment(AssignmentDTO adto) {
         
@@ -72,16 +117,7 @@ public class ArenaHelper implements ArenaServices {
 
     
     /**
-     * @param roundId 
-     * @param c
-     * @param lc
-     * @param startDate
-     * @param endDate
-     * @param assignmentName
-     * @param coderPhaseLength
-     * @param showAllScores
-     * @param scoreType
-     * @param languages 
+     * @param adto the assignment data transfer object to update 
      */
     public void editAssignment(AssignmentDTO adto) {
         Round r = DAOUtil.getFactory().getRoundDAO().find(adto.getRoundId());
@@ -106,7 +142,33 @@ public class ArenaHelper implements ArenaServices {
         DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
     }
 
-    
+
+    /**
+     * @param coderId
+     */
+    private Coder getCoder(Long coderId) {
+        Coder result = null;
+        if (codersMap.containsKey(coderId)) {
+            result = codersMap.get(coderId);
+        } else {
+            result = DAOUtil.getFactory().getCoderDAO().find(coderId);
+        }
+        return result;
+    }
+
+    /**
+     * @param roundId
+     */
+    private Round getRound(Long roundId) {
+        Round result = null;
+        if (roundsMap.containsKey(roundId)) {
+            result = roundsMap.get(roundId);
+        } else {
+            result = DAOUtil.getFactory().getRoundDAO().find(roundId);
+        }
+        return result;
+    }
+
     /**
      * @param r
      * @param languages

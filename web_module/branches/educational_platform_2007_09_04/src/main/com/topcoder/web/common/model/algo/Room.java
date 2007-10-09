@@ -125,6 +125,10 @@ public class Room  extends Base {
         this.roomResults = roomResults;
     }
 
+    public void addResult(RoomResult rr) {
+        rr.getId().setRoom(this);
+        this.roomResults.add(rr);
+    }
     
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()

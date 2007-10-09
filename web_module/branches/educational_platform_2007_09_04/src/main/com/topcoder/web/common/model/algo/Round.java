@@ -180,6 +180,11 @@ public class Round extends Base {
         this.roundRegistrations = roundRegistrations;
     }
 
+    public void addRegistration(RoundRegistration rr) {
+        rr.getId().setRound(this);
+        this.roundRegistrations.add(rr);
+    }
+
     public void addComponent(RoundComponent rc) {
         rc.getId().setRound(this);
         this.roundComponents.add(rc);

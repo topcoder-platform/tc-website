@@ -12,9 +12,9 @@ package com.topcoder.web.ep.dto;
  */
 public class ComponentDTO {
 
-    Long componentId = null;
-    Double points = null;
-    String problemName = null;
+    private Long componentId = null;
+    private Double points = null;
+    private String problemName = null;
     
     public ComponentDTO(Long componentId) {
         super();

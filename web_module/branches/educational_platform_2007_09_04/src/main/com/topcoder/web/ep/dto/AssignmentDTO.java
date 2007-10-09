@@ -5,19 +5,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AssignmentDTO {
-    Long roundId = null;
-    Long classroomId = null;
-    String classroomName = null;
+    private Long roundId = null;
+    private Long classroomId = null;
+    private String classroomName = null;
     
-    List<ComponentDTO> components = null;
+    private List<ComponentDTO> components = null;
 
-    Timestamp startDate = null;
-    Timestamp endDate = null;
-    String assignmentName = null;
-    Long coderPhaseLength = null;
-    Long showAllScores = null;
-    Long scoreType = null;
-    List<Integer> languages = null;
+    private Timestamp startDate = null;
+    private Timestamp endDate = null;
+    private String assignmentName = null;
+    private Long coderPhaseLength = null;
+    private Long showAllScores = null;
+    private Long scoreType = null;
+    private List<Integer> languages = null;
 
     
     public AssignmentDTO() {
