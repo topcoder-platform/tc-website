@@ -93,6 +93,14 @@
     you are agreeing to license it under the GNU Public License, Version 2.0.
 </p>
 <%}%>
+<%if(rsr.getIntItem("round_id") == 10862 ) {%>
+<p align="justify">
+    This Marathon Match has some new rules and terms.  Please make sure to read
+    the rules carefully before competing.  You must be eligible to compete in the match 
+    as defined in the rules and by winning a prize you agree to transfer ownership of
+    your submission to TopCoder.
+</p>
+<%}%>
 
 <p align="justify">
     Unlike traditional algorithm competitions, the system is not necessarily testing for correctness. 
@@ -116,6 +124,35 @@
     There will be $5000 in total prize money.  The first and second highest scoring
     submissions in each of the five languages supported will receive $750 and $250,
     respectively.
+<p align="justify">
+    
+</p>
+<%}%>
+<%if(rsr.getIntItem("round_id") == 10930) {%>
+<div class="sectionHeader">Prizes</div>
+    <p align="justify">There will be $15000 in total prize money.  The 10 highest scorers in the round will receive prizes as follows:</p>
+
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$7000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$3000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$2000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$1000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th-6th</td><td class="bodyText" align="right">$500</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">7th-10th</td><td class="bodyText" align="right">$250</td>
+    </tr>
+</table>
+    
 <p align="justify">
     
 </p>
