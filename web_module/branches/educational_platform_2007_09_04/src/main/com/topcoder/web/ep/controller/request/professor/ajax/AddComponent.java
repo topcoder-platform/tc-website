@@ -17,6 +17,7 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  */
 public class AddComponent extends LongBase {
     protected void dbProcessing() throws Exception {
+        this.sessionPrefix = "ea_";
 
         Long componentId = getComponentParam();;
         if (componentId == null) {

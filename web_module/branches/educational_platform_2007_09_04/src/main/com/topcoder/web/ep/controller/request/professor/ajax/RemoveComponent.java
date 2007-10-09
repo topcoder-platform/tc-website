@@ -15,7 +15,8 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  */
 public class RemoveComponent extends LongBase {
     protected void dbProcessing() throws Exception {
-
+        this.sessionPrefix = "ea_";
+        
         Long componentId = getComponentParam();;
         if (componentId == null) {
             addError("actionError", "Invalid problem selected to remove");
