@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.09.07<br />9:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm369">SRM 369 - Problem Set &amp; Analysis</A></span><br /><br />
+      Competitors faced tricky problem sets in SRM 369, which ended up being cancelled due to some unfortunate technical issues. In division 1, seven coders submitted the hard problem including six who submitted all three.  However, <tc-webtag:handle coderId="10574855" context="algorithm"/> was the only person to successfully solve all three problems, with <tc-webtag:handle coderId="13351270" context="algorithm"/> and <tc-webtag:handle coderId="15881985" context="algorithm"/> rounding out the top 3.</td>
+         <td class="newsPhoto"><img src="/i/m/eleusive_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8369955" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm369">details</A> | 
+         <tc-webtag:forumLink forumID="516066" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.08.07<br />5:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -156,18 +172,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm367">details</A> | 
          <tc-webtag:forumLink forumID="516064" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />09.27.07<br />4:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=SurveyResults&sid=19628">TCO08 logo design winner</A></span><br /><br />
-        Congratulations to <tc-webtag:handle coderId="14947701" />, the winning designer for the 2008 TopCoder Open logo contest. This victory is <tc-webtag:handle coderId="14947701" />'s second TCO logo in three years (he won the <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=oldcontests&d2=tco06Finals">'06 contest</a> as well). Congratulations!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=SurveyResults&sid=19628">details</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=950&start=0">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
