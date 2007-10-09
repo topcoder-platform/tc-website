@@ -130,7 +130,7 @@ function toggleDiv(divId, state)
                     <c:otherwise>
                         <strong>Assigned problems</strong><br/>
                         <table border="1"> 
-                        <tr><td>Name</td><td>Points</td><td> </td></tr>
+                        <tr><td>Name</td><td>Points</td><td>&nbsp;</td></tr>
                         <c:forEach items="${assignment.components}" var="component">
                             <tr><td><c:out value="${component.problemName}"/></td>
                             <td><tc-webtag:textInput name="points_${component.componentId}" value="${component.points}" size="5" editable="true" /></td>
