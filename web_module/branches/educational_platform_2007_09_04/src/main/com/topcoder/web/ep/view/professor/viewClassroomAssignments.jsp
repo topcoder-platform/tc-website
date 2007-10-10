@@ -77,16 +77,13 @@
 
             <c:choose>
                 <c:when test="${not empty assignments}">
-                    <p>
-                        Assignments for this classroom:
-                    </p>
-
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                     <tbody>
+                        <tr><td class="title" colspan="7">Assignments</td></tr>
                         <tr>
-                            <td class="header">Name</td>
-                            <td class="headerC">Start date</td>
-                            <td class="headerC">Due date</td>
+                            <td class="header">Title</td>
+                            <td class="headerC">Start</td>
+                            <td class="headerC">Due</td>
                             <td class="headerC">Assigned</td>
                             <td class="headerC">Finished<br />(succeeded / failed)</td>
                             <td class="headerC">&nbsp;</td>
@@ -101,7 +98,7 @@
                                 <td class="valueC">${assignment.registered}</td>
                                 <td class="valueC">${assignment.succeeded} / ${assignment.failed}</td>
                                 <td class="valueC"><a href="/ep?module=EditAssignment&amp;asid=${assignment.id}"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
-                                <td class="valueC"><a href="/ep/professor/?module=EditAssignmentStudents&amp;asid=${assignment.id}"><img src="" alt="Register Students" /></a></td>
+                                <td class="valueC"><a href="/ep/professor/?module=EditAssignmentStudents&amp;asid=${assignment.id}"><img src="/i/ep/buttons/assignTo.png" alt="Assign to..." /></a></td>
                             </tr>
                         <%i++;%>
                         </c:forEach>

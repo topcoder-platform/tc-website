@@ -71,16 +71,16 @@
             <tc-webtag:errorIterator id="err" name="error">
                 <span class="bigRed"><%=err%></span><br />
             </tc-webtag:errorIterator>
-            Selected classroom: ${ea_assignment.classroomName}
-            <br />
-            <br />
+            <p align="center">
+                <strong>Classroom:</strong> ${ea_assignment.classroomName}
+            </p>
 
             <div align="center">
                 <table cellpadding="4" cellspacing="0">
                 <tbody>
                     <tr>
                         <td align="left">
-                            <strong>Name:</strong>
+                            <strong>Assignment title:</strong>
                         </td>
                         <td align="left">
                             <tc-webtag:textInput name="assignment_name" size="60" editable="true" />
@@ -88,7 +88,7 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            <strong>Start:</strong>
+                            <strong>Start date:</strong>
                         </td>
                         <td align="left">
                             <tc-webtag:textInput name="assignment_start" id="assignment_start" format="yyyy.MM.dd HH:mm" size="16" maxlength="16" editable="true" />
@@ -97,7 +97,7 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            <strong>Due:</strong>
+                            <strong>Due date:</strong>
                         </td>
                         <td align="left">
                             <tc-webtag:textInput name="assignment_end" id="assignment_end" format="yyyy.MM.dd HH:mm" size="16" maxlength="16" editable="true" />
@@ -106,10 +106,18 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            <strong>Coding phase length:</strong>
+                            <strong>Coding phase:</strong>
                         </td>
                         <td align="left">
-                            <tc-webtag:textInput name="assignment_coding_phase_length" size="60" editable="true" />
+                            <tc-webtag:textInput name="assignment_coding_phase_length" size="10" editable="true" /> minutes
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            &nbsp;
+                        </td>
+                        <td align="left">
+                            (Entering <strong>0</strong> will give students the entire assignment phase, from start date to due date)
                         </td>
                     </tr>
                     <tr>
