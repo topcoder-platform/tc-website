@@ -73,24 +73,23 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
-                    <dd><a href="#">TopCoder Announced TopCoder Open 2007 Sponsored by AOL. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Registration Opens for First TopCoder High School Global Programming Tournament. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    <dd><a href="#">TopCoder Announced TopCoder Open 2007 Sponsored by AOL. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Registration Opens for First TopCoder High School Global Programming Tournament. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
                     </dl>
-                    
                 </div>
                 
                 <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
@@ -111,24 +110,23 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
-                    <dd><a href="#">TopCoder Announced TopCoder Open 2007 Sponsored by AOL. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Registration Opens for First TopCoder High School Global Programming Tournament. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    <dd><a href="#">TopCoder Announced TopCoder Open 2007 Sponsored by AOL. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Registration Opens for First TopCoder High School Global Programming Tournament. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
                     </dl>
-                    
                 </div>
                 
                 <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
@@ -149,24 +147,23 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
-                    <dd><a href="#">TopCoder Announced TopCoder Open 2007 Sponsored by AOL. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Registration Opens for First TopCoder High School Global Programming Tournament. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    <dd><a href="#">TopCoder Announced TopCoder Open 2007 Sponsored by AOL. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Registration Opens for First TopCoder High School Global Programming Tournament. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
                     </dl>
-                    
                 </div>
                 
                 <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>

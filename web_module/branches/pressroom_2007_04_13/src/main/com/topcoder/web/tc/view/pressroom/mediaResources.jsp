@@ -82,7 +82,7 @@
                                 <td class="pr_video_desc">
                                     <h3><a href="#linktonews">TopCoder featured on public's radio "Open Source"</a></h3>
                                     <p>Lorem ipsum dolor sit amet conseqtetur, adispiscing ut labore et dolore magna aliqua. 
-                                    <small>Size: 6.3MB | Format: avi | Player: Windows Media Player</small></p>
+                                    <br /><small>Size: 6.3MB | Format: avi | Player: Windows Media Player</small></p>
                                     
                                     <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="#" class="button">View</a></span><span style="width:70; float:left; padding:5px;"><a href="#" class="button">Download</a></span></div>
                                 </td>
@@ -94,7 +94,7 @@
                                 <td class="pr_video_desc">
                                     <h3><a href="#linktonews">TopCoder featured on public's radio "Open Source"</a></h3>
                                     <p>Lorem ipsum dolor sit amet conseqtetur, adispiscing ut labore et dolore magna aliqua. 
-                                    <small>Size: 6.3MB | Format: avi | Player: Windows Media Player</small></p>
+                                    <br /><small>Size: 6.3MB | Format: avi | Player: Windows Media Player</small></p>
                                     
                                     <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="#" class="button">View</a></span><span style="width:70; float:left; padding:5px;"><a href="#" class="button">Download</a></span></div>
                                 </td>
@@ -110,7 +110,7 @@
                                 <div class="pr_videodesc">
                                     <h3><a href="#linktonews">TopCoder featured on public's radio "Open Source"</a></h3>
                                     <p>Lorem ipsum dolor sit amet conseqtetur, adispiscing ut labore et dolore magna aliqua. 
-                                    <small>Size: 6.3MB | Format: avi | Player: Windows Media Player</small></p>
+                                    <br /><small>Size: 6.3MB | Format: avi | Player: Windows Media Player</small></p>
                                     
                                     <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="#" class="button">View</a></span><span style="width:70; float:left; padding:5px;"><a href="#" class="button">Download</a></span></div>
                                 </div>
@@ -145,22 +145,22 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
-                    <dd><a href="#">TopCoder Announced TopCoder Open 2007 Sponsored by AOL. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Registration Opens for First TopCoder High School Global Programming Tournament. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <small>[February 20]</small></a></dd>
+                    <dd><a href="#">TopCoder Announced TopCoder Open 2007 Sponsored by AOL. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Registration Opens for First TopCoder High School Global Programming Tournament. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 22]</small></a></dd>
+                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small>[February 20]</small></a></dd>
                     </dl>
                 </div>
                 
