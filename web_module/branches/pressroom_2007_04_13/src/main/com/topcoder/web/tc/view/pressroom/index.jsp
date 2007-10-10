@@ -65,7 +65,10 @@
             <%-- .pr_featured begin --%>
             <div class="pr_featured">
                 <div class="pr_featured_main">
+                    <%-- old version
                     <span style="padding-left:125px;"><a href="#linktonews"><img src="/i/pressroom/featured_tco07.png" width="440" height="136" ></a></span>
+                    --%>
+                    <span style="padding-left:90px;"><a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=about' refer='pressroom_index' />"><img src="/i/home/tccc07.png" alt="TCCC07" /></a></span>
                 </div>
                 <%--
                 <div class="pr_featured_sub">
