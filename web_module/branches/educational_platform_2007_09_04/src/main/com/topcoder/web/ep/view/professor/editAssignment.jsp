@@ -17,12 +17,14 @@
         content="text/html;charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="../script.jsp" />
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_ep"/>
     </jsp:include>
     <%-- each school requires its own stylesheet, linked in here --%>
     <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
     <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css" />
+    <script type="text/javascript" src="/js/ep/popup.js"></script>
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
@@ -69,7 +71,9 @@
         <form name="f" action="${sessionInfo.servletPath}" method="post">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditAssignment"/>
             <tc-webtag:errorIterator id="err" name="error">
-                <span class="bigRed"><%=err%></span><br />
+            <p class="bigRed" align="center">
+                <%=err%>
+            </p>
             </tc-webtag:errorIterator>
             <p align="center">
                 <strong>Classroom:</strong> ${ea_assignment.classroomName}
@@ -154,6 +158,30 @@
                     </tr>
                 </tbody>
                 </table>
+            </div>
+
+            <div align="center">
+                <table cellpadding="0" cellspacing="0" class="stat">
+                <tbody>
+                    <tr><td class="title" colspan="7">Problem sets</td></tr>
+                    <tr>
+                        <td class="header">Problem set</td>
+                        <td class="header">Problem(s)</td>
+                        <td class="headerC">Select</td>
+                    </tr>
+                    <%int i = 0;%>
+                        <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                            <td class="value"><a href="Javascript:openWin('<link>','problemSetDescription',600,600);">Introduction to sorting</a></td>
+                            <td class="value"><a href="Javascript:openWin('<link>','problemStatement',600,600);">FarmerBrown</a></td>
+                            <td class="valueC"><input type="radio" name="probSet" value="001" /></td>
+                        </tr>
+                    <%i++;%>
+                </tbody>
+                </table>
+            </div>
+
+            <div class="popUp" id="myPopUp">
+                <div id="popUpText" style="width: 200px; white-space: normal;">&nbsp;</div>
             </div>
 
             <div align="center">
