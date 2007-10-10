@@ -70,10 +70,10 @@
             </table>
         </div>
 
-        <div style="float: right; width: 350px;">
+        <div style="float: left width: 350px;">
         <c:choose>
-            <c:when test="${not empty activeStudents}">
-                <form name="f" action="${sessionInfo.servletPath}/professor/" method="post">
+            <c:when test="${not empty students}">
+                <form name="f" action="${sessionInfo.servletPath}" method="post">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditAssignmentStudentsSubmit"/>
                     <tc-webtag:hiddenInput name="<%=Constants.ASSIGNMENT_ID%>" value="${asid}"/>
                     
@@ -90,19 +90,19 @@
                         </c:forEach>
                     </table>
                     <div>
-                        <div style="float:right;"><a href="javascript:submit()"><img src="/i/ep/buttons/activate.png" alt="Continue" /></a></div>
+                        <div style="float:right;"><a href="javascript:submit()"><img src="/i/ep/buttons/continue.png" alt="Continue" /></a></div>
                     </div>
                 </form>
             </c:when>
             <c:otherwise>
-               There are no active students in this classroom.
+               This assignment won't have registered students.
             </c:otherwise>
         </c:choose>
         </div>
 
     <br clear="all" />
     <div style="margin-top: 10px;">
-        <a href="/ep/?module=ViewClassroomAssignments&clsid=${clsid}"><img src="" alt="Cancel" /></a>
+        <a href="/ep/professor/?module=EditAssignmentStudents&asid=${asid}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>
 
     </div>

@@ -267,7 +267,7 @@ public class Round extends Base {
 
     
     public int getRegistered() {
-        return this.componentStates.size();
+        return this.roundRegistrations.size();
     }
 
     public int getSucceeded() {

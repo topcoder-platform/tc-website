@@ -80,10 +80,10 @@
             </table>
         </div>
 
-        <div style="float: right; width: 350px;">
+        <div style="float: left width: 350px;">
         <c:choose>
             <c:when test="${not empty activeStudents}">
-                <form name="f" action="${sessionInfo.servletPath}/professor/" method="post">
+                <form name="f" action="${sessionInfo.servletPath}" method="post">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditAssignmentStudents"/>
                     <tc-webtag:hiddenInput name="<%=Constants.ASSIGNMENT_ID%>" value="${asid}"/>
                     
@@ -111,7 +111,7 @@
                         </tr>
                     </table>
                     <div>
-                        <div style="float:right;"><a href="javascript:submit()"><img src="/i/ep/buttons/activate.png" alt="Continue" /></a></div>
+                        <div style="float:right;"><a href="javascript:submit()"><img src="/i/ep/buttons/continue.png" alt="Continue" /></a></div>
                     </div>
                 </form>
             </c:when>
