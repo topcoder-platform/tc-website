@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.BaseProcessor" %>
+<%@ page import="com.topcoder.web.common.model.RegistrationType" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -66,22 +67,25 @@
                 <br></tc-webtag:errorIterator></span>
 
             <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
+            <c:set value="<%=RegistrationType.TEACHER_ID%>" var="teacherType"/>
             <% int i = 0;%>
             <c:forEach items="${registrationTypeList}" var="type">
-                <c:set value="${regType}${type.id}" var="regTypeKey"/>
-                <c:choose>
-                    <c:when test="${requestScope[defaults][regTypeKey]==null}"><tc-webtag:chkBox name="${regTypeKey}"/>
-                    </c:when>
-                    <c:otherwise><img src="/i/interface/cbox_grayedout.gif" alt=""/>
-                        <tc-webtag:hiddenInput name="${regTypeKey}" value="on"/></c:otherwise>
-                </c:choose>
-                ${type.name} <br><A href="javascript:void(0)" onmouseover="popUp(this,'popUp<%=i%>')" onmouseout="popHide()">tell
-                me more...</A><br>
+                <c:if test="${type.id==teacherType && !sessionInfo.anonymous}">
+                    <c:set value="${regType}${type.id}" var="regTypeKey"/>
+                     <c:choose>
+                         <c:when test="${requestScope[defaults][regTypeKey]==null}"><tc-webtag:chkBox name="${regTypeKey}"/>
+                         </c:when>
+                         <c:otherwise><img src="/i/interface/cbox_grayedout.gif" alt=""/>
+                             <tc-webtag:hiddenInput name="${regTypeKey}" value="on"/></c:otherwise>
+                     </c:choose>
+                     ${type.name} <br><A href="javascript:void(0)" onmouseover="popUp(this,'popUp<%=i%>')" onmouseout="popHide()">tell
+                     me more...</A><br>
 
-                <div id="popUp<%=i%>" class="popUp"><div style="width: 400px; white-space: normal;">${type.description}</div></div>
+                     <div id="popUp<%=i%>" class="popUp"><div style="width: 400px; white-space: normal;">${type.description}</div></div>
 
-                <br><br>
-                <%i++;%>
+                     <br><br>
+                     <%i++;%>
+                 </c:if>
             </c:forEach>
 
             <div align="center">

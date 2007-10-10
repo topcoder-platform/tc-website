@@ -40,6 +40,9 @@ public class Main extends Base {
 
         if (!"".equals(regTypeParam)) {
             setRegUser(new User());
+            if (log.isDebugEnabled()) {
+                log.debug("got a reg type of " + regTypeParam);
+            }
         }
 
         if (getRegUser() == null) {
@@ -77,7 +80,7 @@ public class Main extends Base {
                             }
                         }
                         if (types.isEmpty()) {
-                            throw new NavigationException("Invalid request, not registratoin type specified.");
+                            throw new NavigationException("Invalid request, no registratoin type specified.");
                         } else {
                             setRequestedTypes(requestedTypes);
                         }
