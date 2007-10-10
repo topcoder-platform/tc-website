@@ -20,12 +20,13 @@ public class RegistrationType extends Base {
     private Set preferences;
     private Integer sort;
 
-    public static final Integer COMPETITION_ID = new Integer(1);
-    public static final Integer CORPORATE_ID = new Integer(2);
-    public static final Integer HIGH_SCHOOL_ID = new Integer(3);
-    public static final Integer MINIMAL_ID = new Integer(4);
-    public static final Integer SOFTWARE_ID = new Integer(5);
-    public static final Integer STUDIO_ID = new Integer(6);
+    public static final Integer COMPETITION_ID = 1;
+    public static final Integer CORPORATE_ID = 2;
+    public static final Integer HIGH_SCHOOL_ID = 3;
+    public static final Integer MINIMAL_ID = 4;
+    public static final Integer SOFTWARE_ID = 5;
+    public static final Integer STUDIO_ID = 6;
+    public static final Integer TEACHER_ID = 7;
 
     public RegistrationType() {
         this.notifications = new HashSet();
@@ -35,7 +36,7 @@ public class RegistrationType extends Base {
     public RegistrationType(Integer id) {
         this.id = id;
         this.notifications = new HashSet();
-        this.preferences = new HashSet();        
+        this.preferences = new HashSet();
     }
 
     public String getDescription() {
