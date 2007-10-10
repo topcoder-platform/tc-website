@@ -43,7 +43,7 @@
             <c:when test="${not empty ec_students}">
                 Selected Students:
                 <table border="1"> 
-                    <tr><td>Student name</td></tr>
+                    <tr><td>Student</td></tr>
                     <c:forEach items="${ec_students}" var="student">                
                         <tr>
                             <td>${student.user.lastName}, ${student.user.firstName}</td>

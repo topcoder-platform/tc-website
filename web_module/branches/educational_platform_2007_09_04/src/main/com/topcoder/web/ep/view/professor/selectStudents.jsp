@@ -43,7 +43,7 @@
             <c:when test="${not empty possible_students}">
                 Please select registered students
                 <table border="1"> 
-                    <tr><td>Student name</td><td>&nbsp;</td></tr>
+                    <tr><td>Student</td><td>&nbsp;</td></tr>
                     <c:forEach items="${possible_students}" var="student">                
                         <tr>
                             <td>${student.user.lastName}, ${student.user.firstName}</td>
