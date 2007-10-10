@@ -142,7 +142,8 @@ public class EditClassroom extends LongBase {
     
                         Set<Coder> ps = getActiveUser().getProfessor().getStudents(s);
                         
-                        if (sc.size() > 0 || ps.size() > 0) {
+                        // if editing or no student to select, we go directly to the confirmation
+                        if (c.getId() == null && (sc.size() > 0 || ps.size() > 0)) {
                             // generate checked students collection
                             Set checkedStudents = new HashSet<Long>();
                             for (Coder coder : sc) {
