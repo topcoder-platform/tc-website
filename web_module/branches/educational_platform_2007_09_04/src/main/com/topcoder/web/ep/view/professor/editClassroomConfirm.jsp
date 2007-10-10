@@ -77,23 +77,25 @@
                 <td>${ec_classroom.description}</td>
             </tr>
         </table>
-        <br />        
-        <c:choose>
-            <c:when test="${not empty ec_students}">
-                Selected Students:
-                <table border="1"> 
-                    <tr><td>Student</td></tr>
-                    <c:forEach items="${ec_students}" var="student">                
-                        <tr>
-                            <td>${student.user.lastName}, ${student.user.firstName}</td>
-                        </tr>
-                    </c:forEach>
-                </table>
-            </c:when>
-            <c:otherwise>
-                No students were selected for this classroom.
-            </c:otherwise>
-        </c:choose>
+        <c:if test="${not empty ec_classroom.id}">
+            <br />        
+            <c:choose>
+                <c:when test="${not empty ec_students}">
+                    Selected Students:
+                    <table border="1"> 
+                        <tr><td>Student</td></tr>
+                        <c:forEach items="${ec_students}" var="student">                
+                            <tr>
+                                <td>${student.user.lastName}, ${student.user.firstName}</td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </c:when>
+                <c:otherwise>
+                    No students were selected for this classroom.
+                </c:otherwise>
+            </c:choose>
+        </c:if>
         <br />
 
             <div align="center">
