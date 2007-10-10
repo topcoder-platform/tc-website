@@ -51,7 +51,7 @@
 <div class="window" align="left">
     <div class="spacer">
 
-        <h1><span class="bg"><span class="spacer">Assignments</span></span></h1>
+        <h2>Assignments</h2>
 
         <div align="center" style="margin: 40px;">
             <table cellpadding="0" cellspacing="0">

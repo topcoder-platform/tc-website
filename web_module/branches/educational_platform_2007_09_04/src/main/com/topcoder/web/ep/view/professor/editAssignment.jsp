@@ -60,12 +60,12 @@
 <div class="window" align="left">
     <div class="spacer">
 
-        <h1><span class="bg"><span class="spacer">
+        <h2>
         <c:choose>
             <c:when test="${not empty ea_assignment.roundId}">Edit Assignment</c:when>
             <c:otherwise>Add Assignment</c:otherwise>
         </c:choose>
-        </span></span></h1>
+        </h2>
         <form name="f" action="${sessionInfo.servletPath}" method="post">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditAssignment"/>
             <tc-webtag:errorIterator id="err" name="error">
