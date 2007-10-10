@@ -60,7 +60,11 @@
 
         <form name="f" action="${sessionInfo.servletPath}" method="post">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditClassroomSubmit"/>
-        Classroom Details:<br/>
+        
+        <p align="center">
+            Is everything correct?
+        </p>
+
         <table border="1">
             <tr>
                 <td>Name</td>
@@ -73,7 +77,7 @@
                 <td>${ec_classroom.description}</td>
             </tr>
         </table>
-        <br/>        
+        <br />        
         <c:choose>
             <c:when test="${not empty ec_students}">
                 Selected Students:
@@ -90,7 +94,7 @@
                 No students were selected for this classroom.
             </c:otherwise>
         </c:choose>
-        <br/>
+        <br />
 
             <div align="center">
                 <a href="javascript:submit()"><img src="/i/ep/buttons/confirm.png" alt="confirm" /></a>
