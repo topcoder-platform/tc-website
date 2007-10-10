@@ -39,49 +39,52 @@ public class EditClassroomSubmit extends LongBase {
             
             Classroom classroom = getClassroom();
             log.debug("classroom's school: " + classroom.getSchool() == null ? null : classroom.getSchool().getName());
-            Set<Coder> students = getSelectedStudents();
 
-            // four possibilities:
-            // 1 - selected student is not in the collection -> add it as active
-            // 2 - selected student is in the collection -> leave it and change its status to active only if it is inactive
-            // 3 - not selected student is in the collection (pending or active) -> leave it and change its status to inactive
-            // 4 - not selected student is not in the collection -> don't do anything
-            
-            for (Coder s : students) {
-                StudentClassroom sc = new StudentClassroom();
-                sc.getId().setClassroom(classroom);
-                sc.getId().setStudent(s);
-                sc.setStatusId(StudentClassroom.ACTIVE_STATUS);
+            boolean update = classroom.getId() != null;
+
+            // if it's a new classroom, process students
+            if (!update) {
+                Set<Coder> students = getSelectedStudents();
+                // four possibilities:
+                // 1 - selected student is not in the collection -> add it as active
+                // 2 - selected student is in the collection -> leave it and change its status to active only if it is inactive
+                // 3 - not selected student is in the collection (pending or active) -> leave it and change its status to inactive
+                // 4 - not selected student is not in the collection -> don't do anything
                 
-                StudentClassroom existing = classroom.getStudentClassroom(sc);
-                if (existing == null) {
-                    log.debug("Adding " + sc.getId().getStudent().getUser().getHandle() + " to the registered list");
-                    // 1
-                    classroom.addStudentClassroom(sc);
-                } else {
-                    // 2
-                    if (existing.getStatusId().equals(StudentClassroom.INACTIVE_STATUS)) {
-                        log.debug("Changing" + sc.getId().getStudent().getUser().getHandle() + " registration status");
-                        existing.setStatusId(StudentClassroom.ACTIVE_STATUS);
+                for (Coder s : students) {
+                    StudentClassroom sc = new StudentClassroom();
+                    sc.getId().setClassroom(classroom);
+                    sc.getId().setStudent(s);
+                    sc.setStatusId(StudentClassroom.ACTIVE_STATUS);
+                    
+                    StudentClassroom existing = classroom.getStudentClassroom(sc);
+                    if (existing == null) {
+                        log.debug("Adding " + sc.getId().getStudent().getUser().getHandle() + " to the registered list");
+                        // 1
+                        classroom.addStudentClassroom(sc);
+                    } else {
+                        // 2
+                        if (existing.getStatusId().equals(StudentClassroom.INACTIVE_STATUS)) {
+                            log.debug("Changing" + sc.getId().getStudent().getUser().getHandle() + " registration status");
+                            existing.setStatusId(StudentClassroom.ACTIVE_STATUS);
+                        }
+                    }
+                }
+                
+                // 3
+                for (Coder s : classroom.getStudents(StudentClassroom.ACTIVE_STATUS)) {
+                    if (!students.contains(s)) {
+                        log.debug("Deactivating " + s.getUser().getHandle());
+                        classroom.deactivateStudent(s);
+                    }
+                }
+                for (Coder s : classroom.getStudents(StudentClassroom.PENDING_STATUS)) {
+                    if (!students.contains(s)) {
+                        log.debug("Deactivating " + s.getUser().getHandle());
+                        classroom.deactivateStudent(s);
                     }
                 }
             }
-            
-            // 3
-            for (Coder s : classroom.getStudents(StudentClassroom.ACTIVE_STATUS)) {
-                if (!students.contains(s)) {
-                    log.debug("Deactivating " + s.getUser().getHandle());
-                    classroom.deactivateStudent(s);
-                }
-            }
-            for (Coder s : classroom.getStudents(StudentClassroom.PENDING_STATUS)) {
-                if (!students.contains(s)) {
-                    log.debug("Deactivating " + s.getUser().getHandle());
-                    classroom.deactivateStudent(s);
-                }
-            }
-
-            boolean update = classroom.getId() != null;
             
             u.getProfessor().addClassrooms(classroom);
 

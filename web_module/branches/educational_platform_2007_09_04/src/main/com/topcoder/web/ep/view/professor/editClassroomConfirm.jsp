@@ -77,7 +77,7 @@
                 <td>${ec_classroom.description}</td>
             </tr>
         </table>
-        <c:if test="${not empty ec_classroom.id}">
+        <c:if test="${empty ec_classroom.id}">
             <br />        
             <c:choose>
                 <c:when test="${not empty ec_students}">
