@@ -140,7 +140,9 @@ public class EditClassroom extends LongBase {
                         Set<Coder> sc = c.getStudents(StudentClassroom.PENDING_STATUS);
                         sc.addAll(c.getStudents(StudentClassroom.ACTIVE_STATUS));
     
-                        if (sc.size() > 0) {
+                        Set<Coder> ps = getActiveUser().getProfessor().getStudents(s);
+                        
+                        if (sc.size() > 0 || ps.size() > 0) {
                             // generate checked students collection
                             Set checkedStudents = new HashSet<Long>();
                             for (Coder coder : sc) {
@@ -148,7 +150,7 @@ public class EditClassroom extends LongBase {
                             }
                             getRequest().setAttribute("checked_students", checkedStudents);            
                             
-                            getRequest().setAttribute("possible_students", getActiveUser().getProfessor().getStudents(s));            
+                            getRequest().setAttribute("possible_students", ps);            
     
                             log.debug("classroom's school: " + c.getSchool() == null ? null : c.getSchool().getName());
     
