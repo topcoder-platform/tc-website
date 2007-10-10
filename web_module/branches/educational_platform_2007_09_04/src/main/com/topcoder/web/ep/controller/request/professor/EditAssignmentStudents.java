@@ -162,24 +162,23 @@ public class EditAssignmentStudents extends ShortBase {
     private List<Long> getStudentParam() throws TCWebException {
         String[] values = getRequest().getParameterValues(Constants.STUDENT_ID);
         
-        if (values == null) {
-            throw new TCWebException("Invalid student ids");
-        }
 
         List<Long> ids = new ArrayList<Long>();
-        for (String value : values) {
-            Long id;
-            try {
-                id = Long.parseLong(value);
-            } catch (NumberFormatException e) {
-                throw new TCWebException("Invalid student id");
+
+        if (values != null) {
+            for (String value : values) {
+                Long id;
+                try {
+                    id = Long.parseLong(value);
+                } catch (NumberFormatException e) {
+                    throw new TCWebException("Invalid student id");
+                }
+                ids.add(id);
             }
-            ids.add(id);
         }
         
         return ids;
     }
-
 
 }
 
