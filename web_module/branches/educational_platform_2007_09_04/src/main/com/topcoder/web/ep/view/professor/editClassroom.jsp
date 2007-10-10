@@ -22,14 +22,14 @@
     </jsp:include>
     <%-- each school requires its own stylesheet, linked in here --%>
     <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
-    
-        <script type="text/javascript">
-            function submit() {
-                var myForm = document.f;
-                myForm.submit();
-            }
-        </script>
-    </head>
+
+    <script type="text/javascript">
+        function submit() {
+            var myForm = document.f;
+            myForm.submit();
+        }
+    </script>
+</head>
     
     
 <body>
