@@ -1,3 +1,4 @@
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -88,76 +89,148 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
-                <%-- news item begin --%>
+                <%-- TopCoder Announces 2008 TopCoder Open begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="#linktonews"><img src="/i/pressroom/headline_tco07.png" alt="TCO07" /></a>
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_100107"><img src="/i/pressroom/tco08_logo.png" alt="TopCoder Open 2008" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="#linktonews">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</a></h3>
-                        <p>Top 80 Programmers from Around the World to Compete for $260,000 in Prizes June 27th through 29th at The Mirage, Las Vegas. 
-                        <small><a href="#linktonews">[February 22]</a></small></p>
-                                                
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_100107">TopCoder Open to Feature World's Elite Software Developers in Competitive Programming's Top Tournament</a></h3>
+                        <p>Las Vegas to Host New Software Symposium as TopCoder's Annual Computing Contest Expands;  120 to Compete for Top Honors and Share of $260,000 in Prize Money May 11-15, 2008.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_100107">[October 1]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
-                <%-- news item end --%>
+                <%-- TopCoder Announces 2008 TopCoder Open end --%>
                 
-                <%-- news item begin --%>
+                <%-- TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="#linktonews"><img src="/i/pressroom/headline_bizweek.png" alt="Business Week" /></a>
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_092407"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="#linktonews">Ideagora, a Marketplace for Minds</a></h3>
-                        <p>Companies seeking solutions to seemingly insoluble problems can tap the insights of hundreds of thousands of enterprising scientists without having to employ everybody full-time. This shift is rippling through Corporate America and changing the way companies invent and develop products and services. <small><a href="#linktonews">[February 15]</a></small></p>
-                                                
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_092407">TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit</a></h3>
+                        <p>TopCoder Chairman and Founder Jack Hughes will speak at the prestigious Business Innovation Factory's third Collaborative Innovation Summit (BIF-3), an intense, energetic, story-based conversation between America's most engaging public and private sector innovators.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_092407">[September 24]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
-                <%-- news item end --%>
+                <%-- TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit end --%>
                 
-                <%-- news item begin --%>
+                <%-- TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="#linktonews"><img src="/i/pressroom/headline_compworld.png" alt="Computer World" /></a>
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_082707"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="#linktonews">Microsoft launches 'mashup' competition for developers</a></h3>
-                        <p>Microsoft Corp. and BT Group PLC launched a competition to encourage developers to create "network mashups" that merge telecommunications features such as voice and text messaging with Web 2.0 applications like mapping and search... TopCoder Inc., which runs several competitions for programmers, will manage the Microsoft/BT event.  <small><a href="#linktonews">[February 14]</a></small></p>
-                                                
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_082707">TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America</a></h3>
+                        <p>Inc. Magazine's "Inc. 500" ranks the fastest-growing privately held companies in the United States based on year-over-year sales growth. TopCoder is ranked 45 on this year's list, thanks to sales growth of more than 2,000 percent from 2003 to 2006.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_082707">[August 27]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
-                <%-- news item end --%>
+                <%-- TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America end --%>
                 
-                <%-- news item begin --%>
+                <%-- Lilly & Deutsche Bank Announced as New Sponsors & NSA Returns as Patron of TCCC07 begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="#linktonews"><img src="/i/pressroom/headline_tchs.png" alt="TopCoder High School" /></a>
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_082407"><img src="/i/pressroom/tccc07_logo.png" alt="2007 TopCoder Collegiate Challenge" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="#linktonews">Registration Opens for First TopCoder High School Global Programming Tournament</a></h3>
-                        <p>The TopCoder High School Tournament follows in the full tradition of the company's flagship TopCoder Open and TopCoder Collegiate Challenge professional and collegiate events by providing a world class platform for high school students.  <small><a href="#linktonews">[February 13]</a></small></p>
-                                                
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_082407">Lilly &amp; Deutsche Bank Announced as New Sponsors &amp; NSA Returns as Patron of TCCC07</a></h3>
+                        <p>Lilly and Deutsche Bank Onboard with Leading Collegiate Programming Contest National Security Agency Continues Patronage of Fifth Major Event  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_082407">[August 24]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
-                <%-- news item end --%>
+                <%-- Lilly & Deutsche Bank Announced as New Sponsors & NSA Returns as Patron of TCCC07 end --%>
                 
-                <%-- news item begin --%>
+                <%-- 6 State companies among fastest growing begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="#linktonews"><img src="/i/pressroom/headline_sandbox.png" alt="MS Sandbox" /></a>
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.publicbroadcasting.net/wnpr/news.newsmain?action=article&ARTICLE_ID=1139736' refer='/pressroom_index' />"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="#linktonews">Connected Services Sandbox Launches</a></h3>
-                        <p>TopCoder has announced the launch of the Connected Services Sandbox competition series for Microsoft and BT. TopCoder will manage the competitions to help promote the development of innovative customer solutions that merge traditional telecommunications offerings. <small><a href="#linktonews">[February 12]</a></small></p>
-                                                
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.publicbroadcasting.net/wnpr/news.newsmain?action=article&ARTICLE_ID=1139736' refer='/pressroom_index' />">6 State companies among fastest growing</a></h3>
+                        <p>HARTFORD, CT - Six Connecticut companies have made the annual list of the 500 fastest growing companies in America, compiled by Inc. Magazine.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.publicbroadcasting.net/wnpr/news.newsmain?action=article&ARTICLE_ID=1139736' refer='/pressroom_index' />">[August 23]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
-                <%-- news item end --%>
+                <%-- 6 State companies among fastest growing end --%>
+                
+                <%-- Fox TV: "Top Computer Programmers Compete" begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=art_080207"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=art_080207">Fox TV: "Top Computer Programmers Compete"</a></h3>
+                        <p>The Chicago Fox TV affiliate recently ran a story on TopCoder featuring an interview with <tc-webtag:handle coderId="144400" context="algorithm"/>.  <small><a href="/tc?module=Static&d1=pressroom&d2=art_080207">[August 2]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Fox TV: "Top Computer Programmers Compete" end --%>
+                
+                <%-- TopCoder Announces New Collaboration Initiatives begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_071807"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_071807">TopCoder Announces New Collaboration Initiatives</a></h3>
+                        <p>TopCoder today announced a series of collaboration initiatives to further enhance its ability to work with its clients and community.  These plans will move forward under the direction of Ira Heffan, who was recently named General Counsel.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_071807">[July 18]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder Announces New Collaboration Initiatives end --%>
+                
+                <%-- Computerworld: Programming's Crack Competitor begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='/pdfs/press_room/computerworld_20070709.pdf' refer='pressroom_index' />"><img src="/i/pressroom/computerworld.gif" alt="ComputerWorld logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='/pdfs/press_room/computerworld_20070709.pdf' refer='pressroom_index' />">Programming's Crack Competitor</a> [PDF]</h3>
+                        <p>What kind of trophies do they give to programming champions? Jiazhi Wu would know. As an undergrad at Zhejiang University in China, Wu won a record 39 out of 45 programming contests held by TopCoder.  <small><a target="_blank" href="<tc-webtag:linkTracking link='/pdfs/press_room/computerworld_20070709.pdf' refer='pressroom_index' />">[July 11]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Computerworld: Programming's Crack Competitor end --%>
+                
+                <%-- Bill Taylor on big ideas begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />"><img src="/i/pressroom/guardian_logo.png" alt="Guardian Unlimited logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />">Programming's Crack Competitor</a> [PDF]</h3>
+                        <p>In his latest column for <em>The Guardian</em>, Mavericks at Work author Bill Taylor asked "a big question facing all of us who are serious about our work and career: <em>Just how good am I, really?</em>," citing TopCoder as the type of competition today's professionals can use to prove themselves.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />">[July 10]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Bill Taylor on big ideas end --%>
+                
+                <%-- TCO07 Live Coverage begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_062507"><img src="/i/pressroom/tco07_logo.png" alt="TCO07" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_062507">Live Coverage of 2007 TopCoder Open to Feature Broadcast Team, Interviews and Behind-the-Scenes Action</a></h3>
+                        <p>The TopCoder Open, which will be presented live by at <a href="http://dev.aol.com/">http://dev.aol.com</a> on June 29, will be hosted by sportscasting celebrity Jeremy Schaap, Google's John Dethridge, a former TopCoder champion and five time onsite finalist, and Ken Vogel, a 2002 quarter finalist and currently a director in equities IT with UBS. The webcast will also include live views of the arena, entertaining profiles and interviews.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_062507">[June 25]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TCO07 Live Coverage end --%>
+                
+                <%-- Computerworld: Outsourcing the eBay way begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com.au/index.php/id;1241090047;fp;2;fpid;1' refer='pressroom_index' />"><img src="/i/pressroom/computerworld.gif" alt="ComputerWorld logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com.au/index.php/id;1241090047;fp;2;fpid;1' refer='pressroom_index' />">Outsourcing the eBay way</a> [PDF]</h3>
+                        <p>TopCoder uses another approach to connect employers to overseas tech workers. Users of TopCoder's Web site submit development projects that are used as the basis of coding competitions between developers.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com.au/index.php/id;1241090047;fp;2;fpid;1' refer='pressroom_index' />">[June 15]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Computerworld: Outsourcing the eBay way end --%>
                 
                 <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
                 <div class="pr_clear"></div>
