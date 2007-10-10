@@ -24,7 +24,6 @@ import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.ArenaServicesFactory;
 import com.topcoder.web.ep.controller.request.ShortBase;
-import com.topcoder.web.ep.dto.RegistrationDTO;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -74,17 +73,14 @@ public class EditAssignmentStudentsSubmit extends ShortBase {
                     // TODO: validate if non selected users can be removed
 
                     // validate if the selected students are active students
-                    List<RegistrationDTO> rdtol = new ArrayList<RegistrationDTO>();
                     for (Long studentId : studentIds) {
                         Coder s = c.getStudent(studentId);
                         if (s == null) {
                             throw new TCWebException("Invalid student selected");
-                        } else {
-                            rdtol.add(new RegistrationDTO(assignmentId, studentId));
                         }
                     }
 
-                    ArenaServicesFactory.getArenaServices().addRegistration(rdtol);
+                    ArenaServicesFactory.getArenaServices().updateRoundRegistration(assignmentId, studentIds);
                     
                     getRequest().setAttribute("message", "You have successfuly updated students registration for assignment " + a.getName());                  
                     getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/ep//?module=ViewClassroomAssignments&clsid=" + c.getId());                  
