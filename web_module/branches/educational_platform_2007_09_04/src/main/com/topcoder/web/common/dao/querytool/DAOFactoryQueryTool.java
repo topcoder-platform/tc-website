@@ -225,4 +225,8 @@ public class DAOFactoryQueryTool implements DAOFactory {
     public LanguageDAO getLanguageDAO() {
         throw new RuntimeException("Not supported");
     }
+
+    public ProblemSetDAO getProblemSetDAO() {
+        throw new RuntimeException("Not supported");
+    }
 }

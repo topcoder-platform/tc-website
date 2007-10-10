@@ -11,11 +11,11 @@ public class Contest extends Base {
 
     public static final String FUTURE_STATUS = "F";
     
-    protected Long id = null;
-    protected String name = null;
-    protected Timestamp startDate = null;
-    protected Timestamp endDate = null;
-    protected String status = null;
+    private Long id = null;
+    private String name = null;
+    private Timestamp startDate = null;
+    private Timestamp endDate = null;
+    private String status = null;
 
     public Timestamp getEndDate() {
         return endDate;

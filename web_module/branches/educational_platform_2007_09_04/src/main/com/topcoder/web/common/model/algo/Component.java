@@ -17,14 +17,14 @@ import com.topcoder.web.common.model.Base;
  */
 public class Component extends Base {
 
-    protected Long id = null;
-    protected Problem problem = null;
-    protected Integer componentTypeId = null;
-    protected String componentText = null;
-    protected Integer statusId = null;
+    private Long id = null;
+    private Problem problem = null;
+    private Integer componentTypeId = null;
+    private String componentText = null;
+    private Integer statusId = null;
     private Set<RoundComponent> roundComponents;
 
-    protected Boolean admitAssignment = null;
+    private Boolean admitAssignment = null;
 
     public Component() {
         super();

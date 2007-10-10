@@ -113,4 +113,6 @@ public interface DAOFactory {
     ComponentDAO getComponentDAO();
 
     LanguageDAO getLanguageDAO();
+
+    ProblemSetDAO getProblemSetDAO();
 }

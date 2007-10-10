@@ -12,17 +12,17 @@ public class RoomResult extends Base {
 
     protected Identifier id = new Identifier();
 
-    Integer roomSeed = null;
-    Integer oldRating = null;
-    Integer newRating = null;
-    Double paid = null;
-    Integer roomPlaced = null;
-    Integer divisionPlaced = null;
-    String attended = null;
-    String advanced = null;
-    Integer overallRank = null;
-    Double pointTotal = null;
-    Integer divisionSeed = null;
+    private Integer roomSeed = null;
+    private Integer oldRating = null;
+    private Integer newRating = null;
+    private Double paid = null;
+    private Integer roomPlaced = null;
+    private Integer divisionPlaced = null;
+    private String attended = null;
+    private String advanced = null;
+    private Integer overallRank = null;
+    private Double pointTotal = null;
+    private Integer divisionSeed = null;
     
     public RoomResult() {
     }

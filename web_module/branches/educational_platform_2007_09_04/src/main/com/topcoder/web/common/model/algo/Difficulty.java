@@ -13,10 +13,10 @@ import com.topcoder.web.common.model.Base;
  */
 public class Difficulty extends Base {
 
-    protected Long id = null;
-    protected String difficultyLevel = null;
-    protected String difficultyDesc = null;
-    protected Double pointValue = null;
+    private Long id = null;
+    private String difficultyLevel = null;
+    private String difficultyDesc = null;
+    private Double pointValue = null;
 
     
     /**

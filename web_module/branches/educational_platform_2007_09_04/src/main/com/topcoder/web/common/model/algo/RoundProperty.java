@@ -20,9 +20,9 @@ public class RoundProperty extends Base {
     public static final Integer SHOW_ALL_SCORES = 3;
     public static final Integer SCORE_TYPE = 4;
     
-    protected Identifier id = new Identifier();
-    protected Long intValue;
-    protected String stringValue;
+    private Identifier id = new Identifier();
+    private Long intValue;
+    private String stringValue;
 
     public RoundProperty() {
     }

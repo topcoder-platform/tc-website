@@ -30,6 +30,7 @@ import com.topcoder.web.common.dao.PasswordRecoveryDAO;
 import com.topcoder.web.common.dao.PreferenceDAO;
 import com.topcoder.web.common.dao.PreferenceGroupDAO;
 import com.topcoder.web.common.dao.PreferenceValueDAO;
+import com.topcoder.web.common.dao.ProblemSetDAO;
 import com.topcoder.web.common.dao.ProfessorDAO;
 import com.topcoder.web.common.dao.ProjectDAO;
 import com.topcoder.web.common.dao.QuestionStyleDAO;
@@ -266,5 +267,9 @@ public class DAOFactoryHibernate implements DAOFactory {
 
     public LanguageDAO getLanguageDAO() {
         return new LanguageDAOHibernate();
+    }
+
+    public ProblemSetDAO getProblemSetDAO() {
+        return new ProblemSetDAOHibernate();
     }
 }

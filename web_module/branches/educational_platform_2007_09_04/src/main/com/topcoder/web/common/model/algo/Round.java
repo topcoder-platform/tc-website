@@ -15,16 +15,16 @@ import com.topcoder.web.common.model.Base;
 public class Round extends Base {
 
     public static final String FUTURE_STATUS = "F";
-    protected Long id = null;
-    protected Contest contest = null;
-    protected String name = null;
-    protected String shortName = null;
-    protected String status = null;
+    private Long id = null;
+    private Contest contest = null;
+    private String name = null;
+    private String shortName = null;
+    private String status = null;
 
-    protected Long registrationLimit = null;
-    protected Integer invitational = null;
-    protected RoundType type = null;
-    protected Integer rated = null;
+    private Long registrationLimit = null;
+    private Integer invitational = null;
+    private RoundType type = null;
+    private Integer rated = null;
 
     private Set<Room> rooms;
     private Set<RoundProperty> roundProperties;

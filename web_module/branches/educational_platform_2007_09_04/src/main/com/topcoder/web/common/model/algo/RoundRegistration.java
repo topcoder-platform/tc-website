@@ -11,10 +11,10 @@ import com.topcoder.web.common.model.Coder;
  */
 public class RoundRegistration extends Base {
 
-    protected Identifier id = new Identifier();
-    protected Timestamp timestamp = null;
-    protected Integer eligible = null;
-    protected Long teamId = null;
+    private Identifier id = new Identifier();
+    private Timestamp timestamp = null;
+    private Integer eligible = null;
+    private Long teamId = null;
 
     public RoundRegistration() {
     }

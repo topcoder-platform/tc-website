@@ -13,13 +13,13 @@ import com.topcoder.web.common.model.Base;
  */
 public class Problem extends Base {
 
-    protected Long id = null;
-    protected String name = null;
-    protected String problemText = null;
-    protected Integer problemTypeId = null;
-    protected Integer statusId = null;
-    protected Integer proposedDivisionId = null;
-    protected Difficulty proposedDifficulty = null;
+    private Long id = null;
+    private String name = null;
+    private String problemText = null;
+    private Integer problemTypeId = null;
+    private Integer statusId = null;
+    private Integer proposedDivisionId = null;
+    private Difficulty proposedDifficulty = null;
 
     
     /**

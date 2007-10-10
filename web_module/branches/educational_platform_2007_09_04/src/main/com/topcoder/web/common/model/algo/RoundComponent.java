@@ -9,10 +9,10 @@ import com.topcoder.web.common.model.Base;
  */
 public class RoundComponent extends Base {
 
-    protected Identifier id = new Identifier();
-    protected Integer divisionId = null;
-    protected Difficulty difficulty = null;
-    protected Double points = null;
+    private Identifier id = new Identifier();
+    private Integer divisionId = null;
+    private Difficulty difficulty = null;
+    private Double points = null;
 
     public RoundComponent() {
     }

@@ -25,13 +25,13 @@ public class ComponentState extends Base {
     public final static int SYSTEM_TEST_FAILED = 160;
     public final static int SYSTEM_TEST_SUCCEEDED = 150;
 
-    protected Long id = null;
-    protected Double points = null;
-    protected Integer statusId = null;
+    private Long id = null;
+    private Double points = null;
+    private Integer statusId = null;
 
-    protected Round round = null;
-    protected Coder coder = null;
-    protected Component component = null;
+    private Round round = null;
+    private Coder coder = null;
+    private Component component = null;
     
     public ComponentState() {
         super();

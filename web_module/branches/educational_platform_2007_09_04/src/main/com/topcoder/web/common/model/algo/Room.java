@@ -17,13 +17,13 @@ import com.topcoder.web.common.model.Base;
  */
 public class Room  extends Base {
 
-    protected Long id = null;
-    protected Round round = null;
-    protected String name = null;
-    protected Integer divisionId = null;
-    protected Integer roomTypeId = null;
-    protected Integer eligible = null;
-    protected Integer unrated = null;
+    private Long id = null;
+    private Round round = null;
+    private String name = null;
+    private Integer divisionId = null;
+    private Integer roomTypeId = null;
+    private Integer eligible = null;
+    private Integer unrated = null;
 
     private Set<RoomResult> roomResults;
 

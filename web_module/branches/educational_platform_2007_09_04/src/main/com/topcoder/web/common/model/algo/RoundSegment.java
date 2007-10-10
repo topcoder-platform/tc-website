@@ -10,10 +10,10 @@ import com.topcoder.web.common.model.Base;
 public class RoundSegment extends Base {
 
     public static final String FUTURE_STATUS = "F";
-    protected Identifier id = new Identifier();
-    protected Timestamp startTime = null;
-    protected Timestamp endTime = null;
-    protected String status;
+    private Identifier id = new Identifier();
+    private Timestamp startTime = null;
+    private Timestamp endTime = null;
+    private String status;
 
     public RoundSegment() {
     }

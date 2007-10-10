@@ -7,8 +7,8 @@ import com.topcoder.web.common.model.Base;
  */
 public class Segment extends Base {
 
-    protected Long id = null;
-    protected String description = null;
+    private Long id = null;
+    private String description = null;
 
     public Long getId() {
         return id;
