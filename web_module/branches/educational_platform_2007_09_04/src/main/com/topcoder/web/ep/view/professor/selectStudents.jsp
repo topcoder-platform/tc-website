@@ -26,7 +26,7 @@
         Classroom Details:<br/>
         <table border="1">
             <tr>
-                <td>Name</td>
+                <td>Classroom</td>
                 <td>Academic period</td>
                 <td>Description</td>
             </tr>

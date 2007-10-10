@@ -35,7 +35,6 @@
                 }
             }
         }
-        
     </script>
 </head>
     
@@ -63,16 +62,24 @@
 <div class="window" align="left">
     <div class="spacer">
 
-        <h1><span class="bg"><span class="spacer">Students</span></span></h1>
+        <h1><span class="bg"><span class="spacer">Assign to...</span></span></h1>
 
         <div align="center" style="margin: 40px;">
             <table cellpadding="0" cellspacing="0">
             <tbody>
                 <tr>
                     <td style="padding-right: 10px; font-weight: bold;" align="left">
+                        <p>School:</p>
+                        <p>Classroom:</p>
+                        <p>Academic period:</p>
+                        <p>Description:</p>
                         <p>Assignment:</p>
                     </td>
                     <td align="left">
+                        <p>classroom.school.name</p>
+                        <p>classroom.name</p>
+                        <p>classroom.academicPeriod</p>
+                        <p>classroom.description</p>
                         <p>${assignment_name}</p>
                     </td>
                 </tr>
@@ -88,7 +95,7 @@
                     <tc-webtag:hiddenInput name="<%=Constants.ASSIGNMENT_ID%>" value="${asid}"/>
                     
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
-                        <tr><td class="title" colspan="2">Select students from this list to join this assignment</td></tr>
+                        <tr><td class="title" colspan="2">Students in this classroom</td></tr>
                         <tr><td class="header">Student name</td><td class="headerC">Select</td></tr>
                         <%int i = 0;%>
                         <c:forEach items="${activeStudents}" var="student">

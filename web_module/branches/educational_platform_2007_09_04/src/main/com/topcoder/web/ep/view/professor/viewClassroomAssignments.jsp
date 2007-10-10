@@ -81,7 +81,7 @@
                     <tbody>
                         <tr><td class="title" colspan="7">Assignments</td></tr>
                         <tr>
-                            <td class="header">Title</td>
+                            <td class="header">Assignment</td>
                             <td class="headerC">Start</td>
                             <td class="headerC">Due</td>
                             <td class="headerC">Assigned</td>
