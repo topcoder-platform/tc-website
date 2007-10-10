@@ -6,6 +6,7 @@
 package com.topcoder.web.ep.controller.request.student;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -95,7 +96,7 @@ public class SelectClassroom extends LongBase {
      */
     private void setPossibleClassrooms(School s, User u) {
         // include only non-registered classrooms
-        Set<Classroom> sc = s.getClassrooms();
+        Set<Classroom> sc = new HashSet<Classroom>(s.getClassrooms());
         for (Classroom c : u.getCoder().getClassrooms()) {
             if (sc.contains(c)) {
                 sc.remove(c);
