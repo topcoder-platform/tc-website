@@ -59,6 +59,10 @@
                 </div>
                 <div class="spacer">
 
+                <jsp:include page="../nav.jsp" >
+                    <jsp:param name="node" value="home"/>
+                </jsp:include>
+
 <%-- CONTENT BEGINS --%>
 
 <div class="window" align="left">

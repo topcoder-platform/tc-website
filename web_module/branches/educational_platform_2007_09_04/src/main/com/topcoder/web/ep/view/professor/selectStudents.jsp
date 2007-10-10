@@ -54,8 +54,9 @@
 <div class="window" align="left">
     <div class="spacer">
 
-        <h2>Classroom Details:</h2>
+        <h2>Register past students</h2>
 
+<%--
         <table border="1">
             <tr>
                 <td>Classroom</td>
@@ -68,18 +69,25 @@
                 <td>${ec_classroom.description}</td>
             </tr>
         </table>
+--%>
         
         <form name="f" action="${sessionInfo.servletPath}" method="post">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditClassroomConfirm"/><br/>
         <c:choose>
             <c:when test="${not empty possible_students}">
-                Please select registered students
-                <table border="1"> 
-                    <tr><td>Student</td><td>&nbsp;</td></tr>
+                <p align="center">
+                    The students below were registered for a class with you in the past.<br />Would you like to register any of them for this class?
+                </p>
+
+                <div align="center">
+                <table cellpadding="0" cellspacing="0" class="stat">
+                <tbody>
+                    <tr><td class="header">Student</td><td class="headerC">Select</td></tr>
+                    <%int i = 0;%>
                     <c:forEach items="${possible_students}" var="student">                
-                        <tr>
-                            <td>${student.user.lastName}, ${student.user.firstName}</td>
-                            <td>
+                        <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                            <td class="value">${student.user.lastName}, ${student.user.firstName}</td>
+                            <td class="valueC">
                                 <c:choose>
                                     <c:when test="${not empty checked_students && cf:contains(checked_students, student.id)}">
                                        <input type="checkbox" name="stid" value="${student.id}" checked="checked"></c:when>
@@ -88,8 +96,10 @@
                                 </c:choose>
                            </td>
                         </tr>
+                    <%i++;%>
                     </c:forEach>
                 </table>
+                </div>
             </c:when>
             <c:otherwise>
                 You don't have students to select.
