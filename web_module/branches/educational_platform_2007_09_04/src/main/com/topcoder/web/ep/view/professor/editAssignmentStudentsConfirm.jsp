@@ -71,12 +71,12 @@
         </div>
 
         <div style="float: left width: 350px;">
-        <c:choose>
-            <c:when test="${not empty students}">
-                <form name="f" action="${sessionInfo.servletPath}" method="post">
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditAssignmentStudentsSubmit"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.ASSIGNMENT_ID%>" value="${asid}"/>
-                    
+            <form name="f" action="${sessionInfo.servletPath}" method="post">
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditAssignmentStudentsSubmit"/>
+                <tc-webtag:hiddenInput name="<%=Constants.ASSIGNMENT_ID%>" value="${asid}"/>
+                
+                <c:choose>
+                <c:when test="${not empty students}">
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tr><td class="title" colspan="2">You have selected the following students for the assignment</td></tr>
                         <tr><td class="header">Student name</td></tr>
@@ -89,15 +89,15 @@
                         <%i++;%>
                         </c:forEach>
                     </table>
-                    <div>
-                        <div style="float:right;"><a href="javascript:submit()"><img src="/i/ep/buttons/continue.png" alt="Continue" /></a></div>
-                    </div>
-                </form>
-            </c:when>
-            <c:otherwise>
-               This assignment won't have registered students.
-            </c:otherwise>
-        </c:choose>
+                </c:when>
+                <c:otherwise>
+                   This assignment won't have registered students.
+                </c:otherwise>
+                </c:choose>
+                <div>
+                    <div style="float:right;"><a href="javascript:submit()"><img src="/i/ep/buttons/continue.png" alt="Continue" /></a></div>
+                </div>
+            </form>
         </div>
 
     <br clear="all" />
