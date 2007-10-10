@@ -29,6 +29,7 @@ public class Constants implements WebConstants {
     public static final String STUDENT_ID = "stid";
     public static final String ASSIGNMENT_ID = "asid";
     public static final String ASSIGNMENT = "assignment";
+    public static final String ASSIGNMENT_STUDENTS = "assignment_students";
     public static final String LANGUAGE_ID = "lid";
     public static final String COMPONENTS = "components";
     

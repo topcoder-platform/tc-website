@@ -143,14 +143,14 @@ public class Classroom {
     }    
 
     @Transient
-    public boolean hasStudent(Long studentId) {
+    public Coder getStudent(Long studentId) {
         for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
             if (sc.getId().getStudent().getId().equals(studentId) && 
                     !sc.getStatusId().equals(StudentClassroom.INACTIVE_STATUS)) {
-                return true;
+                return sc.getId().getStudent();
             }
         }
-        return false;
+        return null;
     }
 
     @Transient

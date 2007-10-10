@@ -48,7 +48,7 @@ public class ViewClassroomDetails extends ShortHibernateProcessor {
                 getRequest().setAttribute("pendingStudents", c.getStudents(StudentClassroom.PENDING_STATUS));
 
                 setNextPage("/professor/viewClassroomDetails.jsp");
-            } else if (c.hasStudent(getUser().getId())) {
+            } else if (c.getStudent(getUser().getId()) != null) {
                 log.debug("active student");
                 // this user is an active student of the classroom
                 getRequest().setAttribute("classroom", c);

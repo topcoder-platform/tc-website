@@ -22,8 +22,8 @@
     <%-- each school requires its own stylesheet, linked in here --%>
     <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
     <script type="text/javascript">
-        function submitActive() {
-            var myForm = document.fActive;
+        function submit() {
+            var myForm = document.f;
             myForm.submit();
         }
     </script>
@@ -48,82 +48,61 @@
                 </div>
                 <div class="spacer">
 
+<%-- CONTENT BEGINS --%>
+
 <div class="window" align="left">
     <div class="spacer">
 
-        <h1><span class="bg"><span class="spacer">Assignments</span></span></h1>
+        <h1><span class="bg"><span class="spacer">Students</span></span></h1>
 
         <div align="center" style="margin: 40px;">
             <table cellpadding="0" cellspacing="0">
             <tbody>
                 <tr>
                     <td style="padding-right: 10px; font-weight: bold;" align="left">
-                        <p>School:</p>
-                        <p>Classroom:</p>
-                        <p>Academic period:</p>
-                        <p>Description:</p>
+                        <p>Assignment:</p>
                     </td>
                     <td align="left">
-                        <p>${classroom.school.name}</p>
-                        <p>${classroom.name}</p>
-                        <p>${classroom.academicPeriod}</p>
-                        <p>${classroom.description}</p>
+                        <p>${assignment_name}</p>
                     </td>
                 </tr>
             </tbody>
             </table>
         </div>
 
-
-            <c:choose>
-                <c:when test="${not empty assignments}">
-                    <p>
-                        Assignments for this classroom:
-                    </p>
-
+        <div style="float: right; width: 350px;">
+        <c:choose>
+            <c:when test="${not empty activeStudents}">
+                <form name="f" action="${sessionInfo.servletPath}/professor/" method="post">
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditAssignmentStudentsSubmit"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.ASSIGNMENT_ID%>" value="${asid}"/>
+                    
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
-                    <tbody>
-                        <tr>
-                            <td class="header">Name</td>
-                            <td class="headerC">Start date</td>
-                            <td class="headerC">Due date</td>
-                            <td class="headerC">Assigned</td>
-                            <td class="headerC">Finished<br />(succeeded / failed)</td>
-                            <td class="headerC">&nbsp;</td>
-                            <td class="headerC">&nbsp;</td>
-                        </tr>
+                        <tr><td class="title" colspan="2">You have selected the following students for the assignment</td></tr>
+                        <tr><td class="header">Student name</td></tr>
                         <%int i = 0;%>
-                        <c:forEach items="${assignments}" var="assignment">                
+                        <c:forEach items="${students}" var="student">
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                <td class="value">${assignment.name}</td>
-                                <td class="valueC"><fmt:formatDate value="${assignment.contest.startDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
-                                <td class="valueC"><fmt:formatDate value="${assignment.contest.endDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
-                                <td class="valueC">${assignment.registered}</td>
-                                <td class="valueC">${assignment.succeeded} / ${assignment.failed}</td>
-                                <td class="valueC"><a href="/ep?module=EditAssignment&amp;asid=${assignment.id}"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
-                                <td class="valueC"><a href="/ep/professor/?module=EditAssignmentStudents&amp;asid=${assignment.id}"><img src="" alt="Register Students" /></a></td>
+                                <td class="value">${student.user.lastName}, ${student.user.firstName}</td>
+                                <tc-webtag:hiddenInput name="<%=Constants.STUDENT_ID%>" value="${student.id}"/>
                             </tr>
                         <%i++;%>
                         </c:forEach>
-                    </tbody>
                     </table>
-                </c:when>
-                <c:otherwise>
-
-                <p align="center">
-                    You don't have any assignments for this classroom.  Would you like to get started?
-                </p>
-
-                </c:otherwise>
-            </c:choose>
-
-        <div align="center">
-            <a href="/ep?module=EditAssignment&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/addAssignment.png" alt="Add assignment" /></a>
+                    <div>
+                        <div style="float:right;"><a href="javascript:submit()"><img src="/i/ep/buttons/activate.png" alt="Continue" /></a></div>
+                    </div>
+                </form>
+            </c:when>
+            <c:otherwise>
+               There are no active students in this classroom.
+            </c:otherwise>
+        </c:choose>
         </div>
 
     <br clear="all" />
     <div style="margin-top: 10px;">
-        <a href="/ep/"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+        <a href="/ep/?module=ViewClassroomAssignments&clsid=${clsid}"><img src="" alt="Cancel" /></a>
     </div>
 
     </div>

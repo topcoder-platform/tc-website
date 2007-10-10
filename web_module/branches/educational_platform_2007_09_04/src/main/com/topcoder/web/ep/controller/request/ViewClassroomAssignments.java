@@ -46,7 +46,7 @@ public class ViewClassroomAssignments extends ShortHibernateProcessor {
                 getRequest().setAttribute("assignments", DAOUtil.getFactory().getClassroomDAO().getAssignments(c.getId()));
 
                 setNextPage("/professor/viewClassroomAssignments.jsp");
-            } else if (c.hasStudent(getUser().getId())) {
+            } else if (c.getStudent(getUser().getId()) != null) {
                 log.debug("active student");
                 // this user is an active student of the classroom
 

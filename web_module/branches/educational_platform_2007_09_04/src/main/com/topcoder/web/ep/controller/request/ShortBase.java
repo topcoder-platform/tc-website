@@ -18,6 +18,7 @@ import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.dto.AssignmentDTO;
+import com.topcoder.web.ep.dto.RegistrationDTO;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -212,7 +213,6 @@ public abstract class ShortBase extends ShortHibernateProcessor {
         }
         return assignment;
     }
-    
     
     protected DAOFactory getFactory() {
         if (factory  == null) {
