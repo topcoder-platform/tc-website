@@ -79,7 +79,7 @@
                 <c:when test="${not empty assignments}">
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                     <tbody>
-                        <tr><td class="title" colspan="7">Assignments</td></tr>
+                        <tr><td class="title" colspan="7">Assignments for this classroom</td></tr>
                         <tr>
                             <td class="header">Assignment</td>
                             <td class="headerC">Start</td>
