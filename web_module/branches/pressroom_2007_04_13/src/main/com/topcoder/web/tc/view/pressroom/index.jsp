@@ -388,9 +388,6 @@
                 </div>
                 <%-- TCHS07 end --%>
                 
-                <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
-                <div class="pr_clear"></div>
-                
                 <%-- MS CSF begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
