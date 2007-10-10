@@ -5,6 +5,7 @@
 */
 package com.topcoder.web.ep.controller.request.professor;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -139,20 +140,28 @@ public class EditClassroom extends LongBase {
                         Set<Coder> sc = c.getStudents(StudentClassroom.PENDING_STATUS);
                         sc.addAll(c.getStudents(StudentClassroom.ACTIVE_STATUS));
     
-                        // generate checked students collection
-                        Set checkedStudents = new HashSet<Long>();
-                        for (Coder coder : sc) {
-                            checkedStudents.add(coder.getId());
+                        if (sc.size() > 0) {
+                            // generate checked students collection
+                            Set checkedStudents = new HashSet<Long>();
+                            for (Coder coder : sc) {
+                                checkedStudents.add(coder.getId());
+                            }
+                            getRequest().setAttribute("checked_students", checkedStudents);            
+                            
+                            getRequest().setAttribute("possible_students", getActiveUser().getProfessor().getStudents(s));            
+    
+                            log.debug("classroom's school: " + c.getSchool() == null ? null : c.getSchool().getName());
+    
+                            // next step, students.
+                            setNextPage("/professor/selectStudents.jsp");
+                            setIsNextPageInContext(true);
+                        } else {
+                            // if this is their first class and there are no students to select, go directly to the confirmation
+                            setSelectedStudents(new ArrayList<Coder>());
+                            
+                            setNextPage("/professor/editClassroomConfirm.jsp");
+                            setIsNextPageInContext(true);            
                         }
-                        getRequest().setAttribute("checked_students", checkedStudents);            
-                        
-                        getRequest().setAttribute("possible_students", getActiveUser().getProfessor().getStudents(s));            
-
-                        log.debug("classroom's school: " + c.getSchool() == null ? null : c.getSchool().getName());
-
-                        // next step, students.
-                        setNextPage("/professor/selectStudents.jsp");
-                        setIsNextPageInContext(true);
                     } else {
                         setDefault("classroom_name", classroomName);
                         setDefault("classroom_academic_period", classroomAcademicPeriod);
