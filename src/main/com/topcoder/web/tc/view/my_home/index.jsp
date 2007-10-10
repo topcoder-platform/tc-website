@@ -175,7 +175,7 @@
                             </c:if>
                             <p><a href="/reg/?nrg=false">Update my profile</a></p>
                             <p>
-                                <A HREF="mailto:memberphotos@topcoder.com?subject=${regUser.activationCode}%20|%20[%20${regUser.handle}%20]%20|%20${regUser.id}%20<c:if test="${regUser.coder.memberPhoto!=null}">RE</c:if>SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT">
+                                <a href="mailto:memberphotos@topcoder.com?subject=${regUser.activationCode}%20|%20[%20${regUser.handle}%20]%20|%20${regUser.id}%20<c:if test="${regUser.coder.memberPhoto!=null}">RE</c:if>SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT">
                                     <c:choose>
                                         <c:when test="${regUser.coder.memberPhoto!=null}">
                                             Submit a photo                                        
@@ -183,7 +183,7 @@
                                         <c:otherwise>
                                             Submit a different photo
                                         </c:otherwise>
-                                    </c:choose></A>
+                                    </c:choose></a>
                             </p>
                         </td>
                         <td class="value">
