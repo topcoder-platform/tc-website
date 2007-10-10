@@ -270,12 +270,23 @@ public class Coder extends Base {
         this.studentClassrooms = studentClassrooms;
     }
 
-    public Set getRoundRegistrations() {
+    public Set<RoundRegistration> getRoundRegistrations() {
         return Collections.unmodifiableSet(roundRegistrations);
     }
 
-    public void setRoundRegistrations(Set roundRegistrations) {
+    public void setRoundRegistrations(Set<RoundRegistration> roundRegistrations) {
         this.roundRegistrations = roundRegistrations;
+    }
+
+    public void removeRegistration(RoundRegistration rr) {
+        rr.getId().setCoder(this);
+//        for (RoundRegistration rr2 : this.roundRegistrations) {
+//            if rr2.getId().equals(obj)
+//        }
+        
+        if (this.roundRegistrations.contains(rr)) {
+            this.roundRegistrations.remove(rr);
+        }
     }
 
     public Set<RoomResult> getRoomResults() {
@@ -286,6 +297,13 @@ public class Coder extends Base {
         this.roomResults = roomResults;
     }
 
+    public void removeRoomResult(RoomResult rs) {
+        rs.getId().setCoder(this);
+        if (this.roomResults.contains(rs)) {
+            this.roomResults.remove(rs);
+        }
+    }
+    
     public Image getMemberPhoto() {
         CoderImage c;
         for (Iterator it = images.iterator(); it.hasNext();) {

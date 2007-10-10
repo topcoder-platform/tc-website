@@ -185,6 +185,13 @@ public class Round extends Base {
         this.roundRegistrations.add(rr);
     }
 
+    public void removeRegistration(RoundRegistration rr) {
+        rr.getId().setRound(this);
+        if (this.roundRegistrations.contains(rr)) {
+            this.roundRegistrations.remove(rr);
+        }
+    }
+
     public void addComponent(RoundComponent rc) {
         rc.getId().setRound(this);
         this.roundComponents.add(rc);

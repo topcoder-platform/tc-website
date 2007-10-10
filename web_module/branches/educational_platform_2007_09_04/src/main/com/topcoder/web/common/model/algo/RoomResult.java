@@ -253,7 +253,7 @@ public class RoomResult extends Base {
         public int hashCode() {
             final int PRIME = 31;
             int result = 1;
-            result = PRIME * result + ((coder == null) ? 0 : coder.hashCode());
+            result = PRIME * result + ((coder == null) ? 0 : coder.getId().hashCode());
             result = PRIME * result + ((room == null) ? 0 : room.hashCode());
             result = PRIME * result + ((round == null) ? 0 : round.hashCode());
             return result;
@@ -274,7 +274,7 @@ public class RoomResult extends Base {
             if (coder == null) {
                 if (other.coder != null)
                     return false;
-            } else if (!coder.equals(other.coder))
+            } else if (!coder.getId().equals(other.coder.getId()))
                 return false;
             if (room == null) {
                 if (other.room != null)

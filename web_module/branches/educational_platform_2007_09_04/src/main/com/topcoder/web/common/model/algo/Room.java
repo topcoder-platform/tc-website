@@ -130,6 +130,13 @@ public class Room  extends Base {
         this.roomResults.add(rr);
     }
     
+    public void removeResult(RoomResult rs) {
+        rs.getId().setRoom(this);
+        if (this.roomResults.contains(rs)) {
+            this.roomResults.remove(rs);
+        }
+    }
+
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */

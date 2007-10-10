@@ -8,9 +8,7 @@ package com.topcoder.web.ep.controller.request;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -27,7 +25,6 @@ import com.topcoder.web.common.model.algo.RoundSegment;
 import com.topcoder.web.common.model.algo.RoundType;
 import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
-import com.topcoder.web.ep.dto.RegistrationDTO;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -37,20 +34,56 @@ public class ArenaHelper implements ArenaServices {
 
     private static Logger log = Logger.getLogger(ArenaHelper.class);
 
-    private Map<Long, Coder> codersMap = new HashMap<Long, Coder>(); 
-    private Map<Long, Round> roundsMap = new HashMap<Long, Round>(); 
-
-    
     /**
-     * @param rdto the registration data transfer object to add 
+     * Notes: this method assume all validations took place and that the actions can be done at this time. 
+     * 
+     * @param roundId the round id of the registration 
+     * @param coderIds the list of coderIds that are registered 
      */
-    public void addRegistration(List<RegistrationDTO> rdtol) {
-        codersMap.clear();
-        roundsMap.clear();
-        for (RegistrationDTO rdto : rdtol) {
+    public void updateRoundRegistration(Long roundId, List<Long> coderIds) {
+        Round r = DAOUtil.getFactory().getRoundDAO().find(roundId);
+
+        List<Long> existingCodersIds = new ArrayList<Long>();
+        List<Long> intersectionCodersIds = new ArrayList<Long>();
+        for (RoundRegistration rr : r.getRoundRegistrations()) {
+            existingCodersIds.add(rr.getId().getCoder().getId());
+            intersectionCodersIds.add(rr.getId().getCoder().getId());
+        }
+
+        intersectionCodersIds.retainAll(coderIds);
+        existingCodersIds.removeAll(intersectionCodersIds);
+        coderIds.removeAll(intersectionCodersIds);
+        
+        // three cases:
+        // coders in intersection : do nothing
+        // coders in coderIds : add
+        // coders in existingCodersIds : remove
+        
+        // remove
+        for (Long coderId : existingCodersIds) {
+            Coder c = DAOUtil.getFactory().getCoderDAO().find(coderId);
+            RoundRegistration rr = new RoundRegistration();
+            rr.getId().setCoder(c);
+            rr.getId().setRound(r);
+            
+            r.removeRegistration(rr);
+            c.removeRegistration(rr);
+
+            Room rm = r.getRooms().iterator().next();
+
+            RoomResult rs = new RoomResult();
+            rs.getId().setCoder(c);
+            rs.getId().setRoom(rm);
+            rs.getId().setRound(r);
+
+            c.removeRoomResult(rs);
+            rm.removeResult(rs);
+        }
+
+        // add
+        for (Long coderId : coderIds) {
             // get entities:
-            Coder c = getCoder(rdto.getCoderId());
-            Round r = getRound(rdto.getRoundId());
+            Coder c = DAOUtil.getFactory().getCoderDAO().find(coderId);
             
             RoundRegistration rr = new RoundRegistration();
             
@@ -81,9 +114,9 @@ public class ArenaHelper implements ArenaServices {
             rmr.setDivisionSeed(0);
 
             rm.addResult(rmr);
-
-            DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
         }
+
+        DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
     }    
     
     /**
@@ -142,32 +175,6 @@ public class ArenaHelper implements ArenaServices {
         DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
     }
 
-
-    /**
-     * @param coderId
-     */
-    private Coder getCoder(Long coderId) {
-        Coder result = null;
-        if (codersMap.containsKey(coderId)) {
-            result = codersMap.get(coderId);
-        } else {
-            result = DAOUtil.getFactory().getCoderDAO().find(coderId);
-        }
-        return result;
-    }
-
-    /**
-     * @param roundId
-     */
-    private Round getRound(Long roundId) {
-        Round result = null;
-        if (roundsMap.containsKey(roundId)) {
-            result = roundsMap.get(roundId);
-        } else {
-            result = DAOUtil.getFactory().getRoundDAO().find(roundId);
-        }
-        return result;
-    }
 
     /**
      * @param r

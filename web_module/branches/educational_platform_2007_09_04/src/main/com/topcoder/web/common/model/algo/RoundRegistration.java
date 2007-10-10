@@ -117,7 +117,7 @@ public class RoundRegistration extends Base {
             final int PRIME = 31;
             int result = 1;
             result = PRIME * result + ((round == null) ? 0 : round.hashCode());
-            result = PRIME * result + ((coder == null) ? 0 : coder.hashCode());
+            result = PRIME * result + ((coder == null) ? 0 : coder.getId().hashCode());
             return result;
         }
 
@@ -141,7 +141,7 @@ public class RoundRegistration extends Base {
             if (coder == null) {
                 if (other.coder != null)
                     return false;
-            } else if (!coder.equals(other.coder))
+            } else if (!coder.getId().equals(other.coder.getId()))
                 return false;
             return true;
         }
