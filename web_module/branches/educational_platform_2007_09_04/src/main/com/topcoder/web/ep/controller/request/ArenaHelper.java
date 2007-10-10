@@ -216,7 +216,8 @@ public class ArenaHelper implements ArenaServices {
 
         for (int i = 1; i < 6; i++) {
             RoundSegment rs = new RoundSegment();
-            rs.setStartTime(i == 1 ? current : startDate);
+            
+            rs.setStartTime(i == 1 ? current : ((i == 2) ? startDate : endDate));
             rs.setEndTime(i == 1 ? current : endDate);
             rs.setStatus(RoundSegment.FUTURE_STATUS);
             rs.getId().setSegmentId(new Long(i));

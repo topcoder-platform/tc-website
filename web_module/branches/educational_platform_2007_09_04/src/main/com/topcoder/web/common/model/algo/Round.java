@@ -154,11 +154,12 @@ public class Round extends Base {
         rs.getId().setRound(this);
         this.roundSegments.add(rs);
     }
-    
+
+    // TODO: move this to the arena helper
     public void updateSegmentsDates(Timestamp startDate, Timestamp endDate) {
         for (RoundSegment rs : this.roundSegments) {
-            if (!rs.getId().getSegmentId().equals(1)) {
-                rs.setStartTime(startDate);
+            if (!rs.getId().getSegmentId().equals(1l)) {
+                rs.setStartTime(rs.getId().getSegmentId().equals(2l) ? startDate : endDate);
                 rs.setEndTime(endDate);
             }
         }
