@@ -199,7 +199,7 @@
                         <a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />"><img src="/i/pressroom/guardian_logo.png" alt="Guardian Unlimited logo" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />">Programming's Crack Competitor</a> [PDF]</h3>
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />">Programming's Crack Competitor</a></h3>
                         <p>In his latest column for <em>The Guardian</em>, Mavericks at Work author Bill Taylor asked "a big question facing all of us who are serious about our work and career: <em>Just how good am I, really?</em>," citing TopCoder as the type of competition today's professionals can use to prove themselves.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />">[July 10]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
@@ -213,7 +213,7 @@
                     </div>
                     <div class="pr_headlines">
                         <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_062507">Live Coverage of 2007 TopCoder Open to Feature Broadcast Team, Interviews and Behind-the-Scenes Action</a></h3>
-                        <p>The TopCoder Open, which will be presented live by at <a href="http://dev.aol.com/">http://dev.aol.com</a> on June 29, will be hosted by sportscasting celebrity Jeremy Schaap, Google's John Dethridge, a former TopCoder champion and five time onsite finalist, and Ken Vogel, a 2002 quarter finalist and currently a director in equities IT with UBS. The webcast will also include live views of the arena, entertaining profiles and interviews.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_062507">[June 25]</a></small></p>
+                        <p>The TopCoder Open, which will be presented live by at <a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='pr_062507' />">http://dev.aol.com</a> on June 29, will be hosted by sportscasting celebrity Jeremy Schaap, Google's John Dethridge, a former TopCoder champion and five time onsite finalist, and Ken Vogel, a 2002 quarter finalist and currently a director in equities IT with UBS. The webcast will also include live views of the arena, entertaining profiles and interviews.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_062507">[June 25]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -225,12 +225,184 @@
                         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com.au/index.php/id;1241090047;fp;2;fpid;1' refer='pressroom_index' />"><img src="/i/pressroom/computerworld.gif" alt="ComputerWorld logo" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com.au/index.php/id;1241090047;fp;2;fpid;1' refer='pressroom_index' />">Outsourcing the eBay way</a> [PDF]</h3>
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com.au/index.php/id;1241090047;fp;2;fpid;1' refer='pressroom_index' />">Outsourcing the eBay way</a></h3>
                         <p>TopCoder uses another approach to connect employers to overseas tech workers. Users of TopCoder's Web site submit development projects that are used as the basis of coding competitions between developers.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com.au/index.php/id;1241090047;fp;2;fpid;1' refer='pressroom_index' />">[June 15]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
                 <%-- Computerworld: Outsourcing the eBay way end --%>
+                
+                <%-- TopCoder Community Helps Research Led by Harvard Business School Professor begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_061307"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_061307">TopCoder Community Helps Research Led by Harvard Business School Professor</a></h3>
+                        <p>TopCoder announced that its global community of members will help Professor Karim Lakhani of the Harvard Business School with his research agenda by providing access to their skills in innovative software development.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_061307">[June 13]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder Community Helps Research Led by Harvard Business School Professor end --%>
+                
+                <%-- AOL to Webcast TopCoder Open 2007 Finals Live on June 29 begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_060507"><img src="/i/pressroom/tco07_logo.png" alt="TCO07" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_060507">AOL to Webcast TopCoder Open 2007 Finals Live on June 29</a></h3>
+                        <p>TopCoder and AOL today announced that the 2007 TopCoder&#174; Open will be webcast live at the AOL&#174; Developer site (<a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='pr_060507' />">http://dev.aol.com</a>) on Friday, June 29. Coverage of the TCO07 finals from the Mirage Resort in Las Vegas begins at 21:00 GMT.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_060507">[June 7]</a></small> - <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=trailer&title=Trailer">Watch the trailer!</a></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- AOL to Webcast TopCoder Open 2007 Finals Live on June 29 end --%>
+                
+                <%-- TopCoder Announces Enhanced Focus on Financial Services Industry begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_060607"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_060607">TopCoder Announces Enhanced Focus on Financial Services Industry</a></h3>
+                        <p>TopCoder announced a strategic move to provide an enhanced response to the specific needs of the financial services industry. The company today detailed its plans to increase focus on financial services applications and software solutions through a series of initiatives under the guidance of industry veteran Dan Houlihan.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_060607">[June 6]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder Announces Enhanced Focus on Financial Services Industry end --%>
+                
+                <%-- Yodlee to Sponsor TopCoder Single Round Match Series begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_052207"><img src="/i/pressroom/yodlee_logo.png" alt="Yodlee" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_052207">Yodlee to Sponsor TopCoder Single Round Match Series</a></h3>
+                        <p>TopCoder today announced that Yodlee, a leader in online banking solutions, will sponsor a series of three SRMs beginning on May 29th and continuing on June 14th and July 12th. Each match will offer prize purses of $5,000 for a total of $15,000 in cash payouts over the three part series.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_052207">[May 23]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Yodlee to Sponsor TopCoder Single Round Match Series end --%>
+                
+                <%-- Russian and Croatian High School Programmers Win TopCoder Championship at Purdue University begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_052307"><img src="/i/pressroom/tchs07.png" alt="TCHS07" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_052307">Russian and Croatian High School Programmers Win TopCoder Championship at Purdue University</a></h3>
+                        <p>First World Championship for TopCoder High School Members Sees Eastern Europe Prevail in Individual and Team Tournaments  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_052307">[May 21]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Russian and Croatian High School Programmers Win TopCoder Championship at Purdue University end --%>
+                
+                <%-- TopCoder Appoints Russ Malz Vice President of Sales begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_040907"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_040907">TopCoder Appoints Russ Malz Vice President of Sales</a></h3>
+                        <p>TopCoder announced the appointment of Russ Malz as Vice President of Sales. In this role, Malz will be responsible for aligning TopCoder's capabilities with the growing corporate demand for high quality application development, and shaping the TopCoder competitive methodology platform to the enterprise market.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_040907">[April 9]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder Appoints Russ Malz Vice President of Sales end --%>
+                
+                <%-- TopCoder Appoints Jiazhi Wu VP of Technology for China begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_040307"><img src="/i/pressroom/china_20061027.gif" alt="TopCoder &amp; China" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_040307">TopCoder Appoints Jiazhi Wu VP of Technology for China</a></h3>
+                        <p>TopCoder announced it has hired Jiazhi Wu as Vice President of Technology for the company's operations in China. Wu, known by his handle "WishingBone", will oversee the development of systems and application development for all competitions and technologies and be responsible for introducing and training new members in China to the TopCoder software process.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_040307">[April 3]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder Appoints Jiazhi Wu VP of Technology for China end --%>
+                
+                <%-- USA Today: Why Google put a research lab in Poland begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm' refer='pressroom_index' />"><img src="/i/pressroom/usatoday_logo.gif" alt="USA Today" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm' refer='pressroom_index' />">Why Google put a research lab in Poland</a></h3>
+                        <p>"Last year's TopCoder Collegiate Challenge drew 21000 registrants from around the world, but half of the 48 finalists were from former Soviet bloc nations, including the winner, Petr Mitrichev of Russia, who also won last year's Global Code Jam."  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm' refer='pressroom_index' />">[March 13]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- USA Today: Why Google put a research lab in Poland end --%>
+                
+                <%-- TopCoder Announces TopCoder Open 2007 Sponsored by AOL begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_022207"><img src="/i/pressroom/tco07_logo.png" alt="TCO07" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_022207">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</a></h3>
+                        <p>Top 80 Programmers from Around the World to Compete for $260,000 in Prizes June 27th through 29th at The Mirage, Las Vegas.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_022207">[February 22]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder Announces TopCoder Open 2007 Sponsored by AOL end --%>
+                
+                <%-- BusinessWeek: Ideagora, a Marketplace for Minds begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm' refer='pressroom_index' />"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm' refer='pressroom_index' />">Ideagora, a Marketplace for Minds</a></h3>
+                        <p>Companies seeking solutions to seemingly insoluble problems can tap the insights of hundreds of thousands of enterprising scientists without having to employ everybody full-time. This shift is rippling through Corporate America and changing the way companies invent and develop products and services.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm' refer='pressroom_index' />">[February 15]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- BusinessWeek: Ideagora, a Marketplace for Minds end --%>
+                
+                <%-- Computerworld: Microsoft launches 'mashup' competition for developers begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic' refer='pressroom_index' />"><img src="/i/pressroom/computerworld.gif" alt="Computerworld logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic' refer='pressroom_index' />">Microsoft launches 'mashup' competition for developers</a></h3>
+                        <p>Microsoft Corp. and BT Group PLC launched a competition to encourage developers to create "network mashups" that merge telecommunications features such as voice and text messaging with Web 2.0 applications like mapping and search... TopCoder Inc., which runs several competitions for programmers, will manage the Microsoft/BT event.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic' refer='pressroom_index' />">[February 14]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Computerworld: Microsoft launches 'mashup' competition for developers end --%>
+                
+                <%-- TCHS07 begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_021307"><img src="/i/pressroom/tchs07.png" alt="TCHS07" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_021307">Registration Opens for First TopCoder High School Global Programming Tournament</a></h3>
+                        <p>The TopCoder High School Tournament follows in the full tradition of the company's flagship TopCoder Open and TopCoder Collegiate Challenge professional and collegiate events by providing a world class platform for high school students.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_021307">[February 13]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TCHS07 end --%>
+                
+                <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
+                <div class="pr_clear"></div>
+                
+                <%-- MS CSF begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_021207"><img src="/i/pressroom/csflogo.png" alt="Microsoft CSF Logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_021207">Connected Services Sandbox Launches</a></h3>
+                        <p>TopCoder has announced the launch of the Connected Services Sandbox competition series for Microsoft and BT. TopCoder will manage the competitions to help promote the development of innovative customer solutions that merge traditional telecommunications offerings.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_021207">[February 12]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- MS CSF end --%>
                 
                 <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
                 <div class="pr_clear"></div>
