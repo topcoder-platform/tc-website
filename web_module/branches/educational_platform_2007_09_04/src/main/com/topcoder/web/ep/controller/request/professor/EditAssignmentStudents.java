@@ -68,7 +68,7 @@ public class EditAssignmentStudents extends ShortBase {
                         
                 getRequest().setAttribute("activeStudents", c.getStudents(StudentClassroom.ACTIVE_STATUS));                
                 getRequest().setAttribute(Constants.ASSIGNMENT_ID, a.getId());                
-                getRequest().setAttribute(Constants.CLASSROOM_ID, c.getId());                
+                getRequest().setAttribute(Constants.CLASSROOM, c);                
                 getRequest().setAttribute("assignment_name", a.getName());                
 
                 List<Long> checkedStudents = new ArrayList<Long>();
@@ -102,7 +102,6 @@ public class EditAssignmentStudents extends ShortBase {
                     //getRequest().setAttribute("activeStudents", );                
 
                     getRequest().setAttribute(Constants.ASSIGNMENT_ID, a.getId());                
-                    getRequest().setAttribute(Constants.CLASSROOM_ID, c.getId());                
                     getRequest().setAttribute("assignment_name", a.getName());                
 
                     if (!hasErrors()) {
@@ -112,6 +111,7 @@ public class EditAssignmentStudents extends ShortBase {
                         setNextPage("/professor/editAssignmentStudentsConfirm.jsp");
                         setIsNextPageInContext(true);
                     } else {
+                        getRequest().setAttribute(Constants.CLASSROOM, c);                
                         getRequest().setAttribute("checked_students", studentIds);                
                         getRequest().setAttribute("activeStudents", c.getStudents(StudentClassroom.ACTIVE_STATUS));                
     

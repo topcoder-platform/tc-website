@@ -76,10 +76,10 @@
                         <p>Assignment:</p>
                     </td>
                     <td align="left">
-                        <p>classroom.school.name</p>
-                        <p>classroom.name</p>
-                        <p>classroom.academicPeriod</p>
-                        <p>classroom.description</p>
+                        <p>${classroom.school.name}</p>
+                        <p>${classroom.name}</p>
+                        <p>${classroom.academicPeriod}</p>
+                        <p>${classroom.description}</p>
                         <p>${assignment_name}</p>
                     </td>
                 </tr>
@@ -130,7 +130,7 @@
 
     <br clear="all" />
     <div style="margin-top: 10px;">
-        <a href="/ep/?module=ViewClassroomAssignments&clsid=${clsid}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+        <a href="/ep/?module=ViewClassroomAssignments&clsid=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>
 
     </div>
