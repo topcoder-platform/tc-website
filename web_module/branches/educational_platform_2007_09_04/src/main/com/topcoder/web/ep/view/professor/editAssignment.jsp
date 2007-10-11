@@ -173,10 +173,10 @@
                         <%int i = 0;%>
                         <c:forEach items="${problem_sets}" var="problem_set">
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                <td class="value"><a href="Javascript:openWin('${sessionInfo.servletPath}?module=ViewProblemSet&<%=Constants.PROBLEM_SET_ID%>=${problem_set.id}','problemSetDescription',600,600);">${problem_set.name}</a></td>
+                                <td class="value"><a href="Javascript:openWin('${sessionInfo.servletPath}?module=ViewProblemSet&amp;<%=Constants.PROBLEM_SET_ID%>=${problem_set.id}','problemSetDescription',600,600);">${problem_set.name}</a></td>
                                 <td class="value">
                                     <c:forEach items="${problem_set.components}" var="component">
-                                        <a href="Javascript:openWin('${sessionInfo.servletPath}?module=ViewProblem&<%=Constants.COMPONENT_ID%>=${component.id}','problemStatement',600,600);">${component.problem.name}</a>
+                                        <a href="Javascript:openWin('${sessionInfo.servletPath}?module=ViewProblem&amp;<%=Constants.COMPONENT_ID%>=${component.id}','problemStatement',600,600);">${component.problem.name}</a>
                                         <c:if test="${fn:length(problem_set.components) > 1}">
                                             <br />
                                         </c:if>
@@ -221,6 +221,7 @@
 
 </body>
 <script language="javascript" type="text/javascript">
+<!--
 Calendar.setup(
 {
     inputField  : "assignment_start",         // ID of the input field
@@ -241,5 +242,6 @@ Calendar.setup(
     cache       : true
 }
         );
+//-->
 </script>
 </html>
