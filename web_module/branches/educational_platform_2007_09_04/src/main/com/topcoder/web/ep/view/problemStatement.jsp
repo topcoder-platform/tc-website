@@ -1,3 +1,5 @@
+<%@ page import="com.topcoder.shared.problem.Problem"%>
+<%@ page import="com.topcoder.shared.language.Language"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%@ page contentType="text/html;charset=utf-8" %> 
@@ -16,6 +18,6 @@
 </head>
 
 <body>
-<tc-webtag:problemStatement problem="${problem}" language="${language}"/>
+<tc-webtag:problemStatement problem="<%=(Problem)request.getAttribute("problem")%>" language="<%=((Language)request.getAttribute("language")).getName()%>"/>
 </body>
 </html>
