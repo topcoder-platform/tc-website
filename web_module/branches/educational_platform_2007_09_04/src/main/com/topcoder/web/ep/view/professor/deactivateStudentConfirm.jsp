@@ -55,7 +55,7 @@
 
         <h2>Students</h2>
 
-        <div align="center" style="margin: 40px;">
+        <div align="center" style="margin: 20px;">
             <table cellpadding="0" cellspacing="0">
             <tbody>
                 <tr>
