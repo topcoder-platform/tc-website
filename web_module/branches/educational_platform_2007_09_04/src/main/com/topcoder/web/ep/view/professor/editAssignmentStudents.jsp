@@ -22,6 +22,7 @@
     <%-- each school requires its own stylesheet, linked in here --%>
     <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
     <script type="text/javascript">
+    <!--
         function submit() {
             var myForm = document.f;
             myForm.submit();
@@ -35,6 +36,7 @@
                 }
             }
         }
+    //-->
     </script>
 </head>
     
@@ -62,7 +64,7 @@
 <div class="window" align="left">
     <div class="spacer">
 
-        <h1><span class="bg"><span class="spacer">Assign to...</span></span></h1>
+        <h2>Assign to...</h2>
 
         <div align="center" style="margin: 40px;">
             <table cellpadding="0" cellspacing="0">
@@ -87,16 +89,18 @@
             </table>
         </div>
 
-        <div style="float: left width: 350px;">
-        <c:choose>
-            <c:when test="${not empty activeStudents}">
+<c:choose>
+    <c:when test="${not empty activeStudents}">
+        <div align="center">
+            <div style="width:350px;">
+
                 <form name="f" action="${sessionInfo.servletPath}" method="post">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditAssignmentStudents"/>
                     <tc-webtag:hiddenInput name="<%=Constants.ASSIGNMENT_ID%>" value="${asid}"/>
                     
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tr><td class="title" colspan="2">Students in this classroom</td></tr>
-                        <tr><td class="header">Student</td><td class="headerC">Select</td></tr>
+                        <tr><td class="header" width="100%">Student</td><td class="headerC">Select</td></tr>
                         <%int i = 0;%>
                         <c:forEach items="${activeStudents}" var="student">
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
@@ -113,24 +117,25 @@
                         <%i++;%>
                         </c:forEach>
                         <tr>
-                            <td width="100%">&nbsp;</td>
+                            <td>&nbsp;</td>
                             <td colspan="2" align="center" nowrap="nowrap"><a href="Javascript:checkAll(true)">Select all</a></td>
                         </tr>
                     </table>
-                    <div>
-                        <div style="float:right;"><a href="javascript:submit()"><img src="/i/ep/buttons/continue.png" alt="Continue" /></a></div>
-                    </div>
                 </form>
-            </c:when>
-            <c:otherwise>
-               There are no active students in this classroom.
-            </c:otherwise>
-        </c:choose>
+            </div>
+            <div>
+                <a href="javascript:submit()"><img src="/i/ep/buttons/continue.png" alt="Continue" /></a>
+            </div>
         </div>
+    </c:when>
+    <c:otherwise>
+       There are no active students in this classroom.
+    </c:otherwise>
+</c:choose>
 
     <br clear="all" />
     <div style="margin-top: 10px;">
-        <a href="/ep/?module=ViewClassroomAssignments&clsid=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+        <a href="/ep/?module=ViewClassroomAssignments&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>
 
     </div>

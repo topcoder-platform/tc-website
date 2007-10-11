@@ -52,37 +52,50 @@
 <div class="window" align="left">
     <div class="spacer">
 
-        <h2>Confirm this Student?</h2>
+        <h2>Students</h2>
 
-        <table border="1">
+        <div align="center" style="margin: 40px;">
+            <table cellpadding="0" cellspacing="0">
+            <tbody>
                 <tr>
-                    <td>Classroom</td>
-                    <td>Academic period</td>
-                    <td>Description</td>
+                    <td style="padding-right: 10px; font-weight: bold;" align="left">
+                        <p>School:</p>
+                        <p>Classroom:</p>
+                        <p>Academic period:</p>
+                        <p>Description:</p>
+                    </td>
+                    <td align="left">
+                        <p>${classroom.school.name}</p>
+                        <p>${classroom.name}</p>
+                        <p>${classroom.academicPeriod}</p>
+                        <p>${classroom.description}</p>
+                    </td>
                 </tr>
-                
-                <tr>
-                    <td>${classroom.name}</td>
-                    <td>${classroom.academicPeriod}</td>
-                    <td>${classroom.description}</td>
-                </tr>
-        </table>
-        <br/>        
-        Are you sure you want to confirm the following registrations?<br/>
-        <ul>
-        <c:forEach items="${student_classrooms}" var="student_classroom">
-            <li>${student_classroom.id.student.user.lastName}, ${student_classroom.id.student.user.firstName}</li>
-        </c:forEach>
-        </ul>
+            </tbody>
+            </table>
+        </div>
+
+        <p align="center">
+            Are you sure you want to register the following students for this class?
+        </p>
+
+        <p align="center">
+            <strong>
+                <c:forEach items="${student_classrooms}" var="student_classroom">
+                    ${student_classroom.id.student.user.lastName}, ${student_classroom.id.student.user.firstName}<br />
+                </c:forEach>
+            </strong>
+        </p>
+
         <form name="f" action="${sessionInfo.servletPath}" method="post">
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ActivateStudentSubmit"/>
             <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/>
             <c:forEach items="${student_classrooms}" var="student_classroom">
                 <tc-webtag:hiddenInput name="<%=Constants.STUDENT_ID%>" value="${student_classroom.id.student.id}"/>
             </c:forEach>
-            <p>
-                <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Confirm and save</a>
-            </p>
+            <div align="center">
+                <a href="javascript:submit()"><img src="/i/ep/buttons/confirm.png" alt="Confirm" /></a>
+            </div>
         </form>            
 
     <div style="margin-top: 10px;">

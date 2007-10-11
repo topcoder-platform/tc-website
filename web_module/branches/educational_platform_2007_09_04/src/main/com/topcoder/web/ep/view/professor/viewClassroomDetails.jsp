@@ -22,6 +22,7 @@
     <%-- each school requires its own stylesheet, linked in here --%>
     <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
     <script type="text/javascript">
+    <!--
         function submitActive() {
             var myForm = document.fActive;
             myForm.submit();
@@ -54,7 +55,7 @@
                 }
             }
         }
-        
+    //-->
     </script>
 </head>
     
