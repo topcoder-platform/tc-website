@@ -15,10 +15,10 @@ import com.topcoder.web.common.model.Base;
  */
 public class RoundProperty extends Base {
 
-    public static final Integer CLASSROOM_ID = 1;
-    public static final Integer CODING_PHASE_LENGTH = 2;
-    public static final Integer SHOW_ALL_SCORES = 3;
-    public static final Integer SCORE_TYPE = 4;
+    public static final int CLASSROOM_ID = 1;
+    public static final int CODING_PHASE_LENGTH = 2;
+    public static final int SHOW_ALL_SCORES = 3;
+    public static final int SCORE_TYPE = 4;
     
     private Identifier id = new Identifier();
     private Long intValue;
@@ -150,17 +150,16 @@ public class RoundProperty extends Base {
 
     public void setValue(Object propertyValue) {
         switch (id.typeId){
-        // Todo: change to constants
-            case 1:
+            case CLASSROOM_ID:
                 setIntValue((Long) propertyValue);
                 break;
-            case 2:
+            case CODING_PHASE_LENGTH:
+                setIntValue((Long) propertyValue * 60);
+                break;
+            case SHOW_ALL_SCORES:
                 setIntValue((Long) propertyValue);
                 break;
-            case 3:
-                setIntValue((Long) propertyValue);
-                break;
-            case 4:
+            case SCORE_TYPE:
                 setIntValue((Long) propertyValue);
                 break;
         }
@@ -168,14 +167,13 @@ public class RoundProperty extends Base {
 
     public Object getValue() {
         switch (id.typeId){
-        // Todo: change to constants
-            case 1:
+            case CLASSROOM_ID:
                 return getIntValue();
-            case 2:
+            case CODING_PHASE_LENGTH:
+                return (Long) (getIntValue() / 60) ;
+            case SHOW_ALL_SCORES:
                 return getIntValue();
-            case 3:
-                return getIntValue();
-            case 4:
+            case SCORE_TYPE:
                 return getIntValue();
         }
         return null;
