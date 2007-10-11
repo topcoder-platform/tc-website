@@ -33,7 +33,7 @@ public class User extends Base {
      * hoke: used getting information
      */
     private Set<DemographicResponse> demographicResponses;
-    private Set<SecurityGroup> securityGroups;
+    private Set<UserGroup> securityGroups;
     private Coder coder;
     private Contact contact;
     private Set<TermsOfUse> terms;
@@ -62,7 +62,7 @@ public class User extends Base {
         phoneNumbers = new HashSet<Phone>();
         demographicResponses = new HashSet<DemographicResponse>();
         notifications = new TreeSet<Notification>();
-        securityGroups = new HashSet<SecurityGroup>();
+        securityGroups = new HashSet<UserGroup>();
         transientResponses = new ArrayList();
         userPreferences = new HashSet<UserPreference>();
         terms = new HashSet<TermsOfUse>();
@@ -264,11 +264,11 @@ public class User extends Base {
         this.notifications.remove(notification);
     }
 
-    public Set<SecurityGroup> getSecurityGroups() {
+    public Set<UserGroup> getSecurityGroups() {
         return Collections.unmodifiableSet(securityGroups);
     }
 
-    public void setSecurityGroups(Set<SecurityGroup> securityGroups) {
+    public void setSecurityGroups(Set<UserGroup> securityGroups) {
         this.securityGroups = securityGroups;
     }
 
