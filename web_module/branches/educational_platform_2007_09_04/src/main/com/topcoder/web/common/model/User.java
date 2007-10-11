@@ -298,6 +298,7 @@ public class User extends Base {
 
     public void setCoder(Coder coder) {
         this.coder = coder;
+        coder.setUser(this);
     }
 
     public Professor getProfessor() {
@@ -306,6 +307,7 @@ public class User extends Base {
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
+        professor.setUser(this);
     }
 
     public Boolean isProfessor() {
@@ -318,6 +320,7 @@ public class User extends Base {
 
     public void setContact(Contact contact) {
         this.contact = contact;
+        contact.setUser(this);
     }
 
     public void clearDemographicResponses() {
