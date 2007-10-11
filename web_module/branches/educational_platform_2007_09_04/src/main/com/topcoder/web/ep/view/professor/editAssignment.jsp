@@ -164,7 +164,7 @@
                 <div align="center">
                     <table cellpadding="0" cellspacing="0" class="stat">
                     <tbody>
-                        <tr><td class="title" colspan="7">Problem sets</td></tr>
+                        <tr><td class="title" colspan="3">Problem sets</td></tr>
                         <tr>
                             <td class="header">Problem set</td>
                             <td class="header">Problem(s)</td>
@@ -178,7 +178,7 @@
                                     <c:forEach items="${problem_set.components}" var="component">
                                         <a href="Javascript:openWin('${sessionInfo.servletPath}?module=ViewProblem&<%=Constants.PROBLEM_ID%>=${component.problem.id}','problemStatement',600,600);">${component.problem.name}</a>
                                         <c:if test="${fn:length(problem_set.components) > 1}">
-                                            <br/>
+                                            <br />
                                         </c:if>
                                     </c:forEach>
                                 </td>
