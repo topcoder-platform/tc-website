@@ -45,6 +45,7 @@ Hello, <tc-webtag:handle coderId='${user.id}'/>, Welcoome to Educational Plattfo
             <c:forEach items="${activeClassrooms}" var="classroom">
                 <tr>
                     <td><a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a></td>
+                    <td><a href="/ep?module=ViewClassroomAssignments&amp;clsid=${classroom.id}">View assignments</a></td>
                 </tr>
             </c:forEach>
             </table>

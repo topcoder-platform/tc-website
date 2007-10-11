@@ -5,10 +5,13 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import com.topcoder.web.common.model.algo.RoomResult;
 import com.topcoder.web.common.model.algo.RoundRegistration;
 import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.common.model.educ.ClassroomComparator;
 import com.topcoder.web.common.model.educ.Professor;
 import com.topcoder.web.common.model.educ.StudentClassroom;
 
@@ -249,7 +252,7 @@ public class Coder extends Base {
     }
 
     public Set<Classroom> getClassrooms(Long statusId) {
-        Set<Classroom> cs = new HashSet<Classroom>();
+        SortedSet<Classroom> cs = new TreeSet<Classroom>(new ClassroomComparator());
         for (StudentClassroom sc : this.studentClassrooms) {
             if (sc.getStatusId().equals(statusId)) {
                 cs.add(sc.getId().getClassroom());
@@ -259,7 +262,7 @@ public class Coder extends Base {
     }
 
     public Set<Classroom> getClassrooms() {
-        Set<Classroom> cs = new HashSet<Classroom>();
+        SortedSet<Classroom> cs = new TreeSet<Classroom>(new ClassroomComparator());
         for (StudentClassroom sc : this.studentClassrooms) {
                 cs.add(sc.getId().getClassroom());
         }
@@ -280,10 +283,6 @@ public class Coder extends Base {
 
     public void removeRegistration(RoundRegistration rr) {
         rr.getId().setCoder(this);
-//        for (RoundRegistration rr2 : this.roundRegistrations) {
-//            if rr2.getId().equals(obj)
-//        }
-        
         if (this.roundRegistrations.contains(rr)) {
             this.roundRegistrations.remove(rr);
         }
