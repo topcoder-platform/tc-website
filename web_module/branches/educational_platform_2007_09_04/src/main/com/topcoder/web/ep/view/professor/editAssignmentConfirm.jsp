@@ -119,7 +119,14 @@
     </form>            
 
     <div style="margin-top: 10px;">
-        <a href=""><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+        <c:choose>
+            <c:when test="empty ea_assignment.roundId">
+                <a href="/ep/?module=EditAssignment&clsid=${ea_assignment.classroomId}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+            </c:when>
+            <c:otherwise>
+                <a href="/ep/?module=EditAssignment&asid=${ea_assignment.roundId}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+            </c:otherwise>
+        </c:choose>
     </div>
 
     </div>
