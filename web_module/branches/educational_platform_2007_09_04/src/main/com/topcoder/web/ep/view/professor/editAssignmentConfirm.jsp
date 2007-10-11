@@ -51,17 +51,21 @@
                 </td>                
             </tr>
         </table>
-        <br/>        
-        Problems:
-        <table border="1"> 
-            <tr><td>Name</td><td>Points</td></tr>
-            <c:forEach items="${ea_assignment.components}" var="component">                
-                <tr>
-                    <td>${component.problemName}</td>
-                    <td>${component.points}</td>
-                </tr>
-            </c:forEach>
-        </table>
+        <c:if test="empty ea_assignment.id">
+            <br/>        
+            Problem set: ${problem_set_name}
+            <br/>        
+            Problems:
+            <table border="1"> 
+                <tr><td>Name</td><td>Points</td></tr>
+                <c:forEach items="${ea_assignment.components}" var="component">                
+                    <tr>
+                        <td>${component.problemName}</td>
+                        <td>${component.points}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </c:if>
         <br/>
             <p>
                 <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Confirm and save</a>

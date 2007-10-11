@@ -206,7 +206,7 @@ public class EditAssignment extends ShortBase {
                         ps = getFactory().getProblemSetDAO().find(problemSetId);
                     }
                     
-                    if (ps == null) {
+                    if (problemSetId != null && ps == null) {
                         throw new TCWebException("Couldn't find problem set");
                     }
                     
@@ -236,8 +236,10 @@ public class EditAssignment extends ShortBase {
                             }
                         }
 
+                        getRequest().setAttribute("problem_set_name", ps.getName());
+
                         // next step, components.
-                        setNextPage("/professor/selectComponents.jsp");
+                        setNextPage("/professor/editAssignmentConfirm.jsp");
                         setIsNextPageInContext(true);
                     } else {
                         setDefault("assignment_name", assignmentName);
@@ -246,6 +248,7 @@ public class EditAssignment extends ShortBase {
                         setDefault("assignment_coding_phase_length", codingPhaseLengthParam);
                         setDefault("assignment_show_all_scores", "on".equals(showAllScores) ? "true" : "false");
                         setDefault("assignment_score_type", scoreType);
+                        setDefault(Constants.PROBLEM_SET_ID, getRequest().getParameter(Constants.PROBLEM_SET_ID));
     
                         
                         Set<Integer> al = new HashSet<Integer>();
@@ -259,7 +262,8 @@ public class EditAssignment extends ShortBase {
     
                         getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
                         getRequest().setAttribute("languages", DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages());
-    
+                        getRequest().setAttribute("problem_sets", DAOUtil.getFactory().getProblemSetDAO().findAll());
+
                         setNextPage("/professor/editAssignment.jsp");
                         setIsNextPageInContext(true);
                     }
