@@ -2,6 +2,7 @@ package com.topcoder.web.common.dao.hibernate;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
@@ -28,13 +29,17 @@ public class ClassroomDAOHibernate extends GenericBase<Classroom, Long> implemen
     }
     
     public List<Round> getAssignmentsForStudent(Long classroomId, Long coderId) {
-        return getSession().createCriteria(Round.class)
-            .createCriteria("roundRegistrations")
-            .add(Restrictions.eq("id.coder.id", coderId))
-            .createCriteria("roundProperties")
+        Criteria c = getSession().createCriteria(Round.class);
+
+        c.createCriteria("roundRegistrations")
+            .add(Restrictions.eq("id.coder.id", coderId));
+
+        c.createCriteria("roundProperties")
             .add(Restrictions.eq("id.typeId", RoundProperty.CLASSROOM_ID))
-            .add(Restrictions.eq("intValue", classroomId))
-            .addOrder(Order.asc("name"))
-            .list();
+            .add(Restrictions.eq("intValue", classroomId));
+        
+        c.addOrder(Order.asc("name"));
+            
+        return c.list();
     }
 }
