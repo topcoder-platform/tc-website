@@ -23,6 +23,12 @@
         </jsp:include>
         
             <div id="pageBody">
+                <div style="float: right;">
+                    <h2 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h2>
+                    <strong>
+                        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=dbChat20070926">SRM 367</A><br />
+                    </strong>
+                </div>
                 <div style="padding-bottom:10px;">
                     <a target="_blank" alt="TCCC07 Sponsored by Deutsche Bank" href="<tc-webtag:linkTracking link='http://www.db.com/' refer='TCCC07_db' />"><img alt="TCCC07 Sponsored by Deutsche Bank" src="/i/tournament/tccc07/db_logo.png" /></a>
                 </div>
