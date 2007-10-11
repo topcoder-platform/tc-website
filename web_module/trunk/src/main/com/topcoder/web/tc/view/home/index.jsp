@@ -171,13 +171,13 @@
                 <img src="/i/home/mmtco4_verisign.png" alt="TCO07 Marathon Match 4 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
                 --%>
 
-                <%-- SRM SPONSOR 
+                <%-- SRM SPONSOR --%>
                 <map name="mm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa" />
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10787" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly" />
                 </map>
-                <img src="/i/home/tccc07AlgoRd3_nsa.png" alt="TCCC07 Algo Round 3 brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
-                --%>
+                <img src="/i/home/srm371_lilly.png" alt="SRM 371 brought to you by Eli Lilly" border="0" style="display:block;" usemap="#mm"/>
+                
 
                 <%-- LICENSE ID 
                 <A href="<tc-webtag:linkTracking link='http://studio.topcoder.com/?module=ViewContestDetails&ct=2093' refer='homepage' />"><img src="/i/home/licenseIDProject.jpg" alt="License ID Project" border="0" style="display:block;"/></A>
@@ -195,9 +195,9 @@
                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep05' refer='homepage' />"><img src="/i/home/tcchannel_promo_ep5.png" alt="TC Channel: Episode 5" /></A>
                --%>
                
-               <%-- UML Tool --%>
+               <%-- UML Tool 
                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></A>
-
+                --%>
             </td>
         </tr>
     </table>
