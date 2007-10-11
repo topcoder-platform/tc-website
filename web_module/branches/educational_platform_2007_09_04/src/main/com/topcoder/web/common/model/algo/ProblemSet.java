@@ -18,6 +18,7 @@ import com.topcoder.web.common.model.Base;
 public class ProblemSet extends Base {
 
     private Integer id = null;
+    private String name = null;
     private String description = null;
 
     private Set<Component> components;
@@ -82,6 +83,20 @@ public class ProblemSet extends Base {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
     /* (non-Javadoc)

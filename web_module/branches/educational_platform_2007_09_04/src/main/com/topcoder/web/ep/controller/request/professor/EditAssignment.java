@@ -108,6 +108,7 @@ public class EditAssignment extends ShortBase {
     
                 getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
                 getRequest().setAttribute("languages", DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages());
+                getRequest().setAttribute("problem_sets", DAOUtil.getFactory().getProblemSetDAO().findAll());
                 
                 AssignmentDTO adto = new AssignmentDTO();
     

@@ -160,25 +160,36 @@
                 </table>
             </div>
 
-            <div align="center">
-                <table cellpadding="0" cellspacing="0" class="stat">
-                <tbody>
-                    <tr><td class="title" colspan="7">Problem sets</td></tr>
-                    <tr>
-                        <td class="header">Problem set</td>
-                        <td class="header">Problem(s)</td>
-                        <td class="headerC">Select</td>
-                    </tr>
-                    <%int i = 0;%>
-                        <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                            <td class="value"><a href="Javascript:openWin('<link>','problemSetDescription',600,600);">Introduction to sorting</a></td>
-                            <td class="value"><a href="Javascript:openWin('<link>','problemStatement',600,600);">FarmerBrown</a></td>
-                            <td class="valueC"><input type="radio" name="probSet" value="001" /></td>
+            <c:if test="ea_assignment.roundId">
+                <div align="center">
+                    <table cellpadding="0" cellspacing="0" class="stat">
+                    <tbody>
+                        <tr><td class="title" colspan="7">Problem sets</td></tr>
+                        <tr>
+                            <td class="header">Problem set</td>
+                            <td class="header">Problem(s)</td>
+                            <td class="headerC">Select</td>
                         </tr>
-                    <%i++;%>
-                </tbody>
-                </table>
-            </div>
+                        <%int i = 0;%>
+                        <c:forEach items="${problem_sets}" var="problem_set">
+                            <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                <td class="value"><a href="Javascript:openWin('${sessionInfo.servletPath}?module=ViewProblemSet&prs=${problem_set.id}','problemSetDescription',600,600);">${problem_set.name}</a></td>
+                                <td class="value">
+                                    <c:forEach items="${problem_set.components}" var="component">
+                                        <a href="Javascript:openWin('${sessionInfo.servletPath}?module=ViewProblem&prs=${component.problem.id}','problemStatement',600,600);">${component.problem.name}</a>
+                                        <c:if test="${fn:length(problem_set.components) > 1}">
+                                            <br/>
+                                        </c:if>
+                                    </c:forEach>
+                                </td>
+                                <td class="valueC"><input type="radio" name="probSet" value="001" /></td>
+                            </tr>
+                            <%i++;%>
+                        </c:forEach>
+                    </tbody>
+                    </table>
+                </div>
+            </c:if>
 
             <div class="popUp" id="myPopUp">
                 <div id="popUpText" style="width: 200px; white-space: normal;">&nbsp;</div>
