@@ -20,12 +20,14 @@ import com.topcoder.web.common.model.educ.Classroom;
 public class ClassroomDAOHibernate extends GenericBase<Classroom, Long> implements ClassroomDAO {
 
     public List<Round> getAssignments(Long classroomId) {
-        return getSession().createCriteria(Round.class)
-            .createCriteria("roundProperties")
+        Criteria c = getSession().createCriteria(Round.class);
+        
+        c.createCriteria("roundProperties")
             .add(Restrictions.eq("id.typeId", RoundProperty.CLASSROOM_ID_PROPERTY_ID))
-            .add(Restrictions.eq("intValue", classroomId))
-            .addOrder(Order.asc("name"))
-            .list();
+            .add(Restrictions.eq("intValue", classroomId));
+        c.addOrder(Order.asc("name"));
+        
+        return c.list();
     }
     
     public List<Round> getAssignmentsForStudent(Long classroomId, Long coderId) {
