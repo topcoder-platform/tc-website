@@ -27,4 +27,7 @@ public interface RegistrationTypeDAO {
 
     RegistrationType getStudioType();
 
+    RegistrationType getTeacherType();
+
+
 }

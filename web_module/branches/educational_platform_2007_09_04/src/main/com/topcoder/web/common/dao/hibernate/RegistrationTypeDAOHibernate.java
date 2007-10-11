@@ -65,4 +65,10 @@ public class RegistrationTypeDAOHibernate extends Base implements RegistrationTy
         return find(RegistrationType.STUDIO_ID);
     }
 
+    public RegistrationType getTeacherType() {
+        //todo perhaps we should cache this
+        return find(RegistrationType.TEACHER_ID);
+    }
+
+
 }
