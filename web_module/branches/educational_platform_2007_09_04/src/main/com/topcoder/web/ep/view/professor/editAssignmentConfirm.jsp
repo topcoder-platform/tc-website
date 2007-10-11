@@ -80,13 +80,14 @@
                         <p><fmt:formatDate value="${ea_assignment.endDate}" pattern="yyyy.MM.dd HH:mm"/></p>
                         <p>${ea_assignment.assignmentName}</p>
                         <p>${ea_assignment.coderPhaseLength}</p>
-                        <p>${ea_assignment.showAllScores}</p>
-                        <p>${ea_assignment.scoreType}</p>
                         <p>
-                            <c:forEach items="${ea_assignment.languages}" var="language">                
-                                 ${language},
-                            </c:forEach>
-                        </p>                
+                            <c:choose>
+                                <c:when test="${ea_assignment.showAllScores == 1}">Yes</c:when>
+                                <c:otherwise>No</c:otherwise>
+                            </c:choose>
+                        </p>
+                        <p>${assignment_score_type}</p>
+                        <p>${languages}</p>
                     </td>
                 </tr>
             </tbody>

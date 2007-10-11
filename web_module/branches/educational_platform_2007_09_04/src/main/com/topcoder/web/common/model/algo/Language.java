@@ -57,7 +57,6 @@ public class Language {
         final int PRIME = 31;
         int result = 1;
         result = PRIME * result + ((id == null) ? 0 : id.hashCode());
-        result = PRIME * result + ((name == null) ? 0 : name.hashCode());
         return result;
     }
 
@@ -77,11 +76,6 @@ public class Language {
             if (other.id != null)
                 return false;
         } else if (!id.equals(other.id))
-            return false;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
             return false;
         return true;
     }

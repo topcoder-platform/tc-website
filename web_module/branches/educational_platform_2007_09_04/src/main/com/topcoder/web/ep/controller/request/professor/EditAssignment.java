@@ -222,10 +222,20 @@ public class EditAssignment extends ShortBase {
                         
                         List<Integer> languageList = new ArrayList<Integer>(languages.length);
                         for (String language : languages) {
+                            if (!Language.assignmentLanguages.contains(Integer.parseInt(language))) {
+                                throw new TCWebException("Invalid language selected");
+                            }
                             languageList.add(Integer.parseInt(language));
                         }
                         adto.setLanguages(languageList);
 
+                        String languagesList = "";
+                        for (Language l : DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages()) {
+                            if (languageList.contains(l.getId())) {
+                                languagesList += l.getName() + ((languageList.size() > 1) ? ", " : "");
+                            }
+                        }
+                        
                         // only if it's a new assignment, process selected problem set
                         if (adto.getRoundId() == null) {
                             adto.clearComponents();
@@ -241,7 +251,10 @@ public class EditAssignment extends ShortBase {
                             getRequest().setAttribute("problem_set_name", ps.getName());
                         }
 
-                        // next step, components.
+                        getRequest().setAttribute("assignment_score_type", AssignmentScoreType.getUsingId(Integer.parseInt(scoreType)).getDescription());
+                        getRequest().setAttribute("languages", languagesList);
+
+                        // next step, confirmation.
                         setNextPage("/professor/editAssignmentConfirm.jsp");
                         setIsNextPageInContext(true);
                     } else {

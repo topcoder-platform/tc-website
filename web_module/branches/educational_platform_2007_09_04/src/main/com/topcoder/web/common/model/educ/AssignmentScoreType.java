@@ -21,17 +21,27 @@ public class AssignmentScoreType extends Base {
     public static final Integer SUCCESS_FAIL_SCORE_TYPE = 3;
     public static final Integer ACTIVE_STATUS = 1;
 
+    private static List<AssignmentScoreType> types = new ArrayList<AssignmentScoreType>(3);
+    
+    static {
+        types.add(new AssignmentScoreType(TC_SCORE_TYPE, "TC Score (based on time)"));
+        types.add(new AssignmentScoreType(PASSED_SCORE_TYPE, "# of passed Test Cases"));
+        types.add(new AssignmentScoreType(SUCCESS_FAIL_SCORE_TYPE, "Success / Fail"));
+    }
+    
     // TODO: create a lookup
     public static List<AssignmentScoreType> getAll() {
-        List<AssignmentScoreType> last = new ArrayList<AssignmentScoreType>(3);
-        
-        last.add(new AssignmentScoreType(TC_SCORE_TYPE, "TC Score (based on time)"));
-        last.add(new AssignmentScoreType(PASSED_SCORE_TYPE, "# of passed Test Cases"));
-        last.add(new AssignmentScoreType(SUCCESS_FAIL_SCORE_TYPE, "Success / Fail"));
-        
-        return last;
+        return types;
     }
 
+    public static AssignmentScoreType getUsingId(Integer id) {
+        for (AssignmentScoreType ast : types) {
+            if (ast.getId().equals(id)) {
+                return ast;
+            }
+        }
+        return null;
+    }
     
     private Integer id;
 
