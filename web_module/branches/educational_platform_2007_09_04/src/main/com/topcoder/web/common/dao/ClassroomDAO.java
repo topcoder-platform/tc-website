@@ -13,5 +13,7 @@ import com.topcoder.web.common.model.educ.Classroom;
 public interface ClassroomDAO extends GenericDAO<Classroom, Long> {
 
     public List<Round> getAssignments(Long classroomId);
+
+    public List<Round> getAssignmentsForStudent(Long classroomId, Long coderId);
     
 }

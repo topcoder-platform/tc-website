@@ -13,6 +13,7 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 
@@ -33,7 +34,7 @@ public class ViewClassroomAssignments extends ShortHibernateProcessor {
             
             Long classroomId = getClassroomParam();
             Classroom c = DAOUtil.getFactory().getClassroomDAO().find(classroomId);
-            
+            Coder s = c.getStudent(getUser().getId());
             if (c.getProfessor().getId().equals(getUser().getId())) {
                 log.debug("is professor");
 
@@ -46,12 +47,13 @@ public class ViewClassroomAssignments extends ShortHibernateProcessor {
                 getRequest().setAttribute("assignments", DAOUtil.getFactory().getClassroomDAO().getAssignments(c.getId()));
 
                 setNextPage("/professor/viewClassroomAssignments.jsp");
-            } else if (c.getStudent(getUser().getId()) != null) {
+            } else if (s != null) {
                 log.debug("active student");
                 // this user is an active student of the classroom
 
-                // TODO
-                
+                getRequest().setAttribute("classroom", c);
+                getRequest().setAttribute("assignments", DAOUtil.getFactory().getClassroomDAO().getAssignmentsForStudent(c.getId(), s.getId()));
+                setNextPage("/student/viewClassroomAssignments.jsp");
             } else {
                 throw new NavigationException("You don't have permission to see this page.");
             }
