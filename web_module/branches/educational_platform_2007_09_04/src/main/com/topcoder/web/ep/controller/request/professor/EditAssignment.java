@@ -237,7 +237,9 @@ public class EditAssignment extends ShortBase {
                             }
                         }
 
-                        getRequest().setAttribute("problem_set_name", ps.getName());
+                        if (ps != null) {
+                            getRequest().setAttribute("problem_set_name", ps.getName());
+                        }
 
                         // next step, components.
                         setNextPage("/professor/editAssignmentConfirm.jsp");

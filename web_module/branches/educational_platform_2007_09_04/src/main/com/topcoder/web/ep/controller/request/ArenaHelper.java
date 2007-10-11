@@ -41,6 +41,7 @@ public class ArenaHelper implements ArenaServices {
      * @param coderIds the list of coderIds that are registered 
      */
     public void updateRoundRegistration(Long roundId, List<Long> coderIds) {
+        // Todo: refactor
         Round r = DAOUtil.getFactory().getRoundDAO().find(roundId);
 
         List<Long> existingCodersIds = new ArrayList<Long>();
