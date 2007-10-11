@@ -79,7 +79,7 @@
                 <c:when test="${not empty assignments}">
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                     <tbody>
-                        <tr><td class="title" colspan="5">Assignments for this classroom</td></tr>
+                        <tr><td class="title" colspan="6">Assignments for this classroom</td></tr>
                         <tr>
                             <td class="header">Assignment</td>
                             <td class="headerC">Start</td>
@@ -88,9 +88,7 @@
                             <%-- Moved to reports
                             <td class="headerC">Finished<br />(succeeded / failed)</td>
                             --%>
-                            <%-- Removed for initial release
                             <td class="headerC">&nbsp;</td>
-                            --%>
                             <td class="headerC">&nbsp;</td>
                         </tr>
                         <%int i = 0;%>
@@ -103,9 +101,7 @@
                                 <%-- Moved to reports
                                 <td class="valueC">${assignment.succeeded} / ${assignment.failed}</td>
                                 --%>
-                                <%-- Removed for initial release
                                 <td class="valueC"><a href="/ep?module=EditAssignment&amp;asid=${assignment.id}"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
-                                --%>
                                 <td class="valueC"><a href="/ep/professor/?module=EditAssignmentStudents&amp;asid=${assignment.id}"><img src="/i/ep/buttons/assignTo.png" alt="Assign to..." /></a></td>
                             </tr>
                         <%i++;%>
