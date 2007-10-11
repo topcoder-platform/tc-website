@@ -184,6 +184,148 @@
                 
             </div></div></div>
             <%-- Yearly Container end --%>
+            
+            
+            <%-- Yearly Sub Content Container --%>
+            <div class="pr_subheader">
+                <h2><span>2004</span></h2>
+            </div>
+            
+            <%-- pr_border creation --%>
+            <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
+                <div class="pr_newsarchive">
+                    <dl>
+                    <dt>&nbsp;</dt>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_122004">TopCoder&#174; Announces Yahoo! as Title Sponsor for 2005 TopCoder Collegiate Challenge <br /><small>[December 20]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_111504">Champions Announced In 2004 TopCoder&#174; Open Sponsored by Microsoft&#174; <br /><small>[November 15]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_110104">TopCoder&#174; Announces Finalists for 2004 TopCoder Open Sponsored by Microsoft&#174; <br /><small>[November 1]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_100504">Google announces 50 Google Code Jam Finalists <br /><small>[October 5]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_092704">TopCoder Developing Web- Based Application for CRPF Spinal Cord Injury Research Group <br /><small>[September 27]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_090704">TopCoder Software Industry Expert Michael Morris to Speak at 2004 SD Best Practices Conference <br /><small>[September 7]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_090204">Yahoo! Signs On as Premier Sponsor of 2004 TopCoder Open <br /><small>[September 2]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_081804">Intel Corporation Sponsors 2004 TopCoder Open Tournament <br /><small>[August 18]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_081004">TopCoder Software Wins New Customer Contracts <br /><small>[August 10]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_080404">NVIDIA Named Premier Level Sponsor of 2004 TopCoder Open Tournament <br /><small>[August 4]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_072804">TopCoder Announces Microsoft as Title Sponsor for 2004 TopCoder Open Tournament <br /><small>[July 28]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_051204">TopCoder Announces the Ultimate Software Development Contest <br /><small>[May 12]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_050304">JavaOne Coding Challenge Powered by TopCoder <br /><small>[May 3]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_0419b04">Champions Announced In 2004 TCCC Sponsored by Yahoo!&#174; <br /><small>[April 19]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_041904">Custom Web Application Enables Online Gift Card Service <br /><small>[April 19]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_040604">TopCoder&#174; Announces 32 Semifinalists for 2004 TCCC Sponsored by Yahoo!&#174; <br /><small>[April 6]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_030804">NVIDIA Sponsors 2004 TopCoder Collegiate Challenge <br /><small>[March 8]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_030104">Columbia University Student Wins DCCC '04 <br /><small>[March 1]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_021604">TopCoder Announces Yahoo! as Title Sponsor for TCCC04 <br /><small>[February 16]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_020204">TopCoder Announces DoubleClick 2004 Coding Challenge <br /><small>[February 2]</small></a></dd>
+                    </dl>
+                </div>
+                
+                <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
+                <div class="pr_clear"></div>
+                
+            </div></div></div>
+            <%-- Yearly Container end --%>
+            
+            
+            <%-- Yearly Sub Content Container --%>
+            <div class="pr_subheader">
+                <h2><span>2003</span></h2>
+            </div>
+            
+            <%-- pr_border creation --%>
+            <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
+                <div class="pr_newsarchive">
+                    <dl>
+                    <dt>&nbsp;</dt>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_120803">Winners Announced in 2003 TopCoder Open sponsored by Intel&#174; <br /><small>[December 8]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_120103">TopCoder and AT&T Announce Winners of Charity Programming Tournament <br /><small>[December 1]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_111203">TopCoder Announces Finalists in International Programming Tournament <br /><small>[November 12]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_110603">AT&amp;T Foundation to Sponsor TopCoder Charity Tournament <br /><small>[November 6]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_110303">TopCoder Teams with Telecom Leaders in OSS through Java(TM) Initiative <br /><small>[November 3]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_101403">Talbots Licenses Component Catalog From TopCoder Software <br /><small>[October 14]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_100103">Artifact and Northface to sponsor TopCoder Open <br /><small>[October 1]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_092903">Intel is the Title Sponsor for TopCoder Open <br /><small>[September 29]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_092203">NVIDIA Signs On To Sponsor 2003 TopCoder Open <br /><small>[September 22]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_081303">TopCoder Charity Challenge <br /><small>[August 13]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_081103">High quality software applications at a low cost <br /><small>[August 11]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_072303">TopCoder has a Revelation <br /><small>[July 23]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_072203">I want my VB.NET <br /><small>[July 21]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_061703">Sweden Added to TopCoder Developer Community <br /><small>[June 16]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_061603">Come In, We're Open <br /><small>[June 16]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_052103_javaone">JavaOne Coding Challenge is Powered by TopCoder <br /><small>[May 21]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_052103">Amity clinches High School Challenge <br /><small>[May 21]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_051403">TopCoder Challenges High School Students <br /><small>[May 14]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_040703">David Arthur takes home the Collegiate Challenge crown <br /><small>[April 7]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_031303">2003 Sun Microsystems TopCoder Collegiate Challenge <br /><small>[March 13]</small></a></dd>
+                    </dl>
+                </div>
+                
+                <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
+                <div class="pr_clear"></div>
+                
+            </div></div></div>
+            <%-- Yearly Container end --%>
+            
+            
+            <%-- Yearly Sub Content Container --%>
+            <div class="pr_subheader">
+                <h2><span>2002</span></h2>
+            </div>
+            
+            <%-- pr_border creation --%>
+            <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
+                <div class="pr_newsarchive">
+                    <dl>
+                    <dt>&nbsp;</dt>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_111102">Sixteen Finalists Announced in 2002 TopCoder Invitational <br /><small>[November 11]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_103002">TopCoder Competitions Expand to High Schools <br /><small>[October 30]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_102802">Finalists Announced for 2002 TopCoder Invitational <br /><small>[October 28]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_102202">TopCoder Expands to Include Employment Services <br /><small>[October 22]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_081302">Sun Microsystems<sup>TM</sup> and TopCoder Host SunNetwork<sup>SM</sup> Coding Challenge <br /><small>[August 13]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_052802">China, New Zealand and Ireland Added to TopCoder Developer Community <br /><small>[May 28]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_032502">Sixteen Finalists Announced for $150,000 Collegiate Challenge <br /><small>[March 25]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_030502">TopCoder Reaches 10,000 Member Milestone <br /><small>[March 5]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_021902">Field Announced for 2002 Sun Microsystems and TopCoder Collegiate Challenge <br /><small>[February 19]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_012802">United Kingdom Added to TopCoder Developer Community <br /><small>[January 28]</small></a></dd>
+                    </dl>
+                </div>
+                
+                <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
+                <div class="pr_clear"></div>
+                
+            </div></div></div>
+            <%-- Yearly Container end --%>
+            
+            
+            <%-- Yearly Sub Content Container --%>
+            <div class="pr_subheader">
+                <h2><span>2001</span></h2>
+            </div>
+            
+            <%-- pr_border creation --%>
+            <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
+                <div class="pr_newsarchive">
+                    <dl>
+                    <dt>&nbsp;</dt>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_121001">Sun<sup>TM</sup> Sponsoring 2002 Collegiate Challenge <br /><small>[December 10]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_110601">Houston Native Jon McAlister Wins $250,000 TopCoder Invitational <br /><small>[November 6]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_101501">TopCoder Announces Sixteen Finalists For $250,000 Invitational Tournament <br /><small>[October 15]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_092401">Foxwoods to Host $250,000 TopCoder Invitational Tournament <br /><small>[September 24]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_060701">Jason Woolever Wins 2001 TopCoder Collegiate Challenge <br /><small>[June 7]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_052901">TopCoder Addresses Demand for Elite Programmers with Coding Competitions <br /><small>[May 29]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_052201">>Sixteen Collegiate Programmers to Compete for Coveted "TopCoder" Title <br /><small>[May 22]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_042401">TopCoder Names Jack Hughes Chairman of the Board <br /><small>[April 24]</small></a></dd>
+                    </dl>
+                </div>
+                
+                <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
+                <div class="pr_clear"></div>
+                
+            </div></div></div>
+            <%-- Yearly Container end --%>
 
             
         </div>
