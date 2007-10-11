@@ -160,7 +160,7 @@
                 </table>
             </div>
 
-            <c:if test="ea_assignment.roundId">
+            <c:if test="${empty ea_assignment.roundId}">
                 <div align="center">
                     <table cellpadding="0" cellspacing="0" class="stat">
                     <tbody>
@@ -173,16 +173,16 @@
                         <%int i = 0;%>
                         <c:forEach items="${problem_sets}" var="problem_set">
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                <td class="value"><a href="Javascript:openWin('${sessionInfo.servletPath}?module=ViewProblemSet&prs=${problem_set.id}','problemSetDescription',600,600);">${problem_set.name}</a></td>
+                                <td class="value"><a href="Javascript:openWin('${sessionInfo.servletPath}?module=ViewProblemSet&<%=Constants.PROBLEM_SET_ID%>=${problem_set.id}','problemSetDescription',600,600);">${problem_set.name}</a></td>
                                 <td class="value">
                                     <c:forEach items="${problem_set.components}" var="component">
-                                        <a href="Javascript:openWin('${sessionInfo.servletPath}?module=ViewProblem&prs=${component.problem.id}','problemStatement',600,600);">${component.problem.name}</a>
+                                        <a href="Javascript:openWin('${sessionInfo.servletPath}?module=ViewProblem&<%=Constants.PROBLEM_ID%>=${component.problem.id}','problemStatement',600,600);">${component.problem.name}</a>
                                         <c:if test="${fn:length(problem_set.components) > 1}">
                                             <br/>
                                         </c:if>
                                     </c:forEach>
                                 </td>
-                                <td class="valueC"><input type="radio" name="probSet" value="001" /></td>
+                                <td class="valueC"><tc-webtag:radioButton name="<%=Constants.PROBLEM_SET_ID%>" value="${problem_set.id}"/></td>
                             </tr>
                             <%i++;%>
                         </c:forEach>

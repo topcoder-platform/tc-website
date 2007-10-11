@@ -22,7 +22,9 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.algo.Component;
 import com.topcoder.web.common.model.algo.Language;
+import com.topcoder.web.common.model.algo.ProblemSet;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundComponent;
 import com.topcoder.web.common.model.algo.RoundProperty;
@@ -193,8 +195,23 @@ public class EditAssignment extends ShortBase {
                         addError("error", "You already have an assignment with the same name");
                     }
                     
+                    Integer problemSetId = getProblemSetParam();
+                    
+                    if (adto.getRoundId() == null && problemSetId == null) {
+                        addError("error", "You must select a problem set");
+                    }
+                    
+                    ProblemSet ps = null;
+                    if (problemSetId != null) {
+                        ps = getFactory().getProblemSetDAO().find(problemSetId);
+                    }
+                    
+                    if (ps == null) {
+                        throw new TCWebException("Couldn't find problem set");
+                    }
+                    
                     if (!hasErrors()) {
-                        // add assignment DTO to session
+                        // update assignment DTO
                         adto.setAssignmentName(assignmentName);
                         adto.setCoderPhaseLength(codingPhase);
                         adto.setShowAllScores("on".equals(showAllScores) ? 1l : 0l);
@@ -208,8 +225,17 @@ public class EditAssignment extends ShortBase {
                             languageList.add(Integer.parseInt(language));
                         }
                         adto.setLanguages(languageList);
-                        
-                        
+
+                        // only if it's a new assignment, process selected problem set
+                        if (adto.getRoundId() == null) {
+                            for (Component cm : ps.getComponents()) {
+                                adto.addComponent(new ComponentDTO(
+                                    cm.getId(),
+                                    cm.getProblem().getProposedDifficulty().getPointValue(),
+                                    cm.getProblem().getName()));
+                            }
+                        }
+
                         // next step, components.
                         setNextPage("/professor/selectComponents.jsp");
                         setIsNextPageInContext(true);
@@ -290,6 +316,23 @@ public class EditAssignment extends ShortBase {
             id = Long.parseLong(assignmentId);
         } catch (NumberFormatException e) {
             throw new TCWebException("Invalid assignment (round) id");
+        }
+        
+        return id;
+    }
+
+    private Integer getProblemSetParam() throws TCWebException {
+        String problemSetId = StringUtils.checkNull(getRequest().getParameter(Constants.PROBLEM_SET_ID));
+        
+        if (problemSetId == "") {
+            return null;
+        }
+
+        Integer id;
+        try {
+            id = Integer.parseInt(problemSetId);
+        } catch (NumberFormatException e) {
+            throw new TCWebException("Invalid problem set id");
         }
         
         return id;
