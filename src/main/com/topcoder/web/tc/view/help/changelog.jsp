@@ -50,6 +50,7 @@
         <li>Adjust development registration emai content to include TC UML tool -dok</li>
         <li>Include link to unregister from TopCoder HS on My TopCoder Page -dok</li>
         <li>Fix link to submission history on marathon match results page -dok</li>
+        <li>Adjust terms of work for component projects -dok</li>
     </ul>
 
 </p>
