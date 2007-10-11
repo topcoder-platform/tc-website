@@ -228,6 +228,7 @@ public class EditAssignment extends ShortBase {
 
                         // only if it's a new assignment, process selected problem set
                         if (adto.getRoundId() == null) {
+                            adto.clearComponents();
                             for (Component cm : ps.getComponents()) {
                                 adto.addComponent(new ComponentDTO(
                                     cm.getId(),

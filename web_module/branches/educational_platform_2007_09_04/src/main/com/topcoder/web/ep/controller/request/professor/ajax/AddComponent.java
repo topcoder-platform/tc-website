@@ -34,9 +34,9 @@ public class AddComponent extends LongBase {
 
         Component cm = DAOUtil.getFactory().getComponentDAO().find(componentId);
 
-        if (!cm.getAdmitAssignment()) {
-            addError("actionError", "This problem cannot be added");
-        }
+//        if (!cm.getAdmitAssignment()) {
+//            addError("actionError", "This problem cannot be added");
+//        }
         
         if (!hasErrors()) {
     

@@ -110,6 +110,10 @@ public class AssignmentDTO {
         this.components.remove(component);
     }
 
+    public void clearComponents() {
+        this.components.clear();
+    }
+
     /**
      * @return the endDate
      */

@@ -17,17 +17,6 @@
         <set name="roundComponents" cascade="all-delete-orphan" inverse="true" access="field">
             <key column="component_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.model.algo.RoundComponent"/>
-        </set>
-        
-        <property name="admitAssignment" access="field">
-            <formula>
-                (select nvl((select 1
-                from informixoltp:problem_set_component_xref pscx
-                where pscx.component_id = c.component_id), 0)
-                from informixoltp:component c
-                where c.component_id = component_id)
-            </formula>
-        </property>
-        
+        </set>        
     </class>
 </hibernate-mapping>

@@ -51,7 +51,7 @@
                 </td>                
             </tr>
         </table>
-        <c:if test="empty ea_assignment.id">
+        <c:if test="${empty ea_assignment.roundId}">
             <br/>        
             Problem set: ${problem_set_name}
             <br/>        
