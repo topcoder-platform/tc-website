@@ -79,14 +79,18 @@
                 <c:when test="${not empty assignments}">
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                     <tbody>
-                        <tr><td class="title" colspan="7">Assignments for this classroom</td></tr>
+                        <tr><td class="title" colspan="5">Assignments for this classroom</td></tr>
                         <tr>
                             <td class="header">Assignment</td>
                             <td class="headerC">Start</td>
                             <td class="headerC">Due</td>
                             <td class="headerC">Assigned</td>
+                            <%-- Moved to reports
                             <td class="headerC">Finished<br />(succeeded / failed)</td>
+                            --%>
+                            <%-- Removed for initial release
                             <td class="headerC">&nbsp;</td>
+                            --%>
                             <td class="headerC">&nbsp;</td>
                         </tr>
                         <%int i = 0;%>
@@ -96,8 +100,12 @@
                                 <td class="valueC"><fmt:formatDate value="${assignment.contest.startDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
                                 <td class="valueC"><fmt:formatDate value="${assignment.contest.endDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
                                 <td class="valueC">${assignment.registered}</td>
+                                <%-- Moved to reports
                                 <td class="valueC">${assignment.succeeded} / ${assignment.failed}</td>
+                                --%>
+                                <%-- Removed for initial release
                                 <td class="valueC"><a href="/ep?module=EditAssignment&amp;asid=${assignment.id}"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
+                                --%>
                                 <td class="valueC"><a href="/ep/professor/?module=EditAssignmentStudents&amp;asid=${assignment.id}"><img src="/i/ep/buttons/assignTo.png" alt="Assign to..." /></a></td>
                             </tr>
                         <%i++;%>
