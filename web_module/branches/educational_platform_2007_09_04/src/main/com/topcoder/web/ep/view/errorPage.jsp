@@ -52,15 +52,19 @@
                                 <h1><span class="bg"><span class="spacer">Error</span></span></h1>
 
                                 <div style="margin: 40px 20px;">
-                    <%=message == null ? "An error has occurred when attempting to process your request." : "<b>" + message + "</b>"%>
-                    <br /><br />
-                    You may click <a href="javascript:history.back();">here</a> to return to the last page you were
-                    viewing.
-                    <br /><br />
-                    If you have a question or comment, please email
-                    <a href="service@topcoder.com?subject=TopCoder Educational Platform Error">service@topcoder.com</a>
-                                             and be sure to include this timestamp: <%=new Date().toString()%>.
-                <%=new Date().toString()%>
+
+                                    <%=message == null ? "An error has occurred when attempting to process your request." : "<b>" + message + "</b>"%>
+                                    <p>
+                                        You may click <a href="javascript:history.back();">here</a> to return to the last page you were
+                                        viewing.
+                                    </p>
+                                    <p>
+                                        If you have a question or comment, please email
+                                        <a href="service@topcoder.com?subject=TopCoder Educational Platform Error">service@topcoder.com</a>
+                                                                 and be sure to include this timestamp: <%=new Date().toString()%>.
+                                    <%=new Date().toString()%>
+                                    </p>
+
                                 </div>
 
                             </div>
