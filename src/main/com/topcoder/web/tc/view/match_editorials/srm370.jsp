@@ -700,7 +700,7 @@ from city A. How can we compute it? Simply:
 Of course we should initialize A[0][<i>j</i>] for all <i>j</i> prior to the rest of the algorithm. The answer for the case will be the minimum over 
 all A[<i>n</i>-1][<i>j</i>] for <i>j</i> from <b>distance</b> - <i>r</i> to <b>distance</b> (as we want the <i>n</i>-1-th transmitter to be able to 
 be able to connect to city B. You can see the fastest <tc-webtag:handle coderId="19849563" context="algorithm"/>'s 
-<a href="/stat?c=problem_solution&rm=266613&rd=10786&pm=8185&cr=19849563solution">solution</a> for reference.<br></br><br></br>
+<a href="/stat?c=problem_solution&rm=266613&rd=10786&pm=8185&cr=19849563">solution</a> for reference.<br></br><br></br>
 
 Exercises:
 <ul>
