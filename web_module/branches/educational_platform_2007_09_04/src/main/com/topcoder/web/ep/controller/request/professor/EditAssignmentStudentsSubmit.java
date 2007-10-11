@@ -56,7 +56,7 @@ public class EditAssignmentStudentsSubmit extends ShortBase {
             }
 
             // check if this classroom belongs to the active user
-            Object classroomProperty = a.getProperty(RoundProperty.CLASSROOM_ID);
+            Object classroomProperty = a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID);
             if (classroomProperty == null) {
                 throw new TCWebException("The assignment has an invalid classroom id");
             }

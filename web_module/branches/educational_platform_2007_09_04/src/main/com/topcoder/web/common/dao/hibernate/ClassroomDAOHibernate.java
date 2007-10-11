@@ -22,7 +22,7 @@ public class ClassroomDAOHibernate extends GenericBase<Classroom, Long> implemen
     public List<Round> getAssignments(Long classroomId) {
         return getSession().createCriteria(Round.class)
             .createCriteria("roundProperties")
-            .add(Restrictions.eq("id.typeId", RoundProperty.CLASSROOM_ID))
+            .add(Restrictions.eq("id.typeId", RoundProperty.CLASSROOM_ID_PROPERTY_ID))
             .add(Restrictions.eq("intValue", classroomId))
             .addOrder(Order.asc("name"))
             .list();
@@ -35,7 +35,7 @@ public class ClassroomDAOHibernate extends GenericBase<Classroom, Long> implemen
             .add(Restrictions.eq("id.coder.id", coderId));
 
         c.createCriteria("roundProperties")
-            .add(Restrictions.eq("id.typeId", RoundProperty.CLASSROOM_ID))
+            .add(Restrictions.eq("id.typeId", RoundProperty.CLASSROOM_ID_PROPERTY_ID))
             .add(Restrictions.eq("intValue", classroomId));
         
         c.addOrder(Order.asc("name"));

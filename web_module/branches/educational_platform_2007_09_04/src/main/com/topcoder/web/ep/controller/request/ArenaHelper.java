@@ -234,10 +234,10 @@ public class ArenaHelper implements ArenaServices {
      * @param scoreType
      */
     private static void assignProperties(Round r, Long classroomId, Long coderPhaseLength, Long showAllScores, Long scoreType) {
-        r.addProperty(RoundProperty.CLASSROOM_ID, classroomId);
-        r.addProperty(RoundProperty.CODING_PHASE_LENGTH, coderPhaseLength);
-        r.addProperty(RoundProperty.SHOW_ALL_SCORES, showAllScores);
-        r.addProperty(RoundProperty.SCORE_TYPE, scoreType);
+        r.addProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID, classroomId);
+        r.addProperty(RoundProperty.CODING_PHASE_LENGTH_PROPERTY_ID, coderPhaseLength);
+        r.addProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID, showAllScores);
+        r.addProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID, scoreType);
     }
 
     /**
@@ -349,10 +349,10 @@ public class ArenaHelper implements ArenaServices {
      * @param r
      */
     private static void updateRoundProperties(Long classroomId, Long coderPhaseLength, Long showAllScores, Long scoreType, Round r) {
-        r.editProperty(RoundProperty.CLASSROOM_ID, classroomId);
-        r.editProperty(RoundProperty.CODING_PHASE_LENGTH, coderPhaseLength);
-        r.editProperty(RoundProperty.SHOW_ALL_SCORES, showAllScores);
-        r.editProperty(RoundProperty.SCORE_TYPE, scoreType);
+        r.editProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID, classroomId);
+        r.editProperty(RoundProperty.CODING_PHASE_LENGTH_PROPERTY_ID, coderPhaseLength);
+        r.editProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID, showAllScores);
+        r.editProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID, scoreType);
     }
 
     /**

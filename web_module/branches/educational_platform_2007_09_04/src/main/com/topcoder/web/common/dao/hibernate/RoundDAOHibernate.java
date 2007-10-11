@@ -38,7 +38,7 @@ public class RoundDAOHibernate extends Base implements RoundDAO {
         }
 
         c.createCriteria("roundProperties")
-        .add(Restrictions.eq("id.typeId", RoundProperty.CLASSROOM_ID))
+        .add(Restrictions.eq("id.typeId", RoundProperty.CLASSROOM_ID_PROPERTY_ID))
         .add(Restrictions.eq("intValue", classroomId));
 
         return c.list();

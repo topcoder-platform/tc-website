@@ -73,7 +73,7 @@ public class EditAssignment extends ShortBase {
                     // check if this assignment belongs to the active user
                     a = DAOUtil.getFactory().getRoundDAO().find(assignmentId);
     
-                    Object classroomProperty = a.getProperty(RoundProperty.CLASSROOM_ID);
+                    Object classroomProperty = a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID);
     
                     if (classroomProperty == null) {
                         throw new TCWebException("The assignment has an invalid classroom id");
@@ -84,9 +84,9 @@ public class EditAssignment extends ShortBase {
                     setDefault("assignment_name", a.getName());
                     setDefault("assignment_start", formatDate(a.getContest().getStartDate()));
                     setDefault("assignment_end", formatDate(a.getContest().getEndDate()));
-                    setDefault("assignment_coding_phase_length", (Long)a.getProperty(RoundProperty.CODING_PHASE_LENGTH));
-                    setDefault("assignment_show_all_scores", ((Long)a.getProperty(RoundProperty.SHOW_ALL_SCORES)).equals(1l) ? "true" : "false");
-                    setDefault("assignment_score_type", (Long)a.getProperty(RoundProperty.SCORE_TYPE));
+                    setDefault("assignment_coding_phase_length", (Long)a.getProperty(RoundProperty.CODING_PHASE_LENGTH_PROPERTY_ID));
+                    setDefault("assignment_show_all_scores", ((Long)a.getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID)).equals(1l) ? "true" : "false");
+                    setDefault("assignment_score_type", (Long)a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID));
     
                     Set<Integer> al = new HashSet<Integer>();
                     for (Language l : a.getLanguages()) {
