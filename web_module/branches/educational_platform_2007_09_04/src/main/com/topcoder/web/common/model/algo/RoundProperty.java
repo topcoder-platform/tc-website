@@ -20,10 +20,10 @@ public class RoundProperty extends Base {
     private static final int SHOW_ALL_SCORES = 3;
     private static final int SCORE_TYPE = 4;
 
-    public static final int CLASSROOM_ID_PROPERTY_ID = new Integer(CLASSROOM_ID);
-    public static final int CODING_PHASE_LENGTH_PROPERTY_ID = new Integer(CODING_PHASE_LENGTH);
-    public static final int SHOW_ALL_SCORES_PROPERTY_ID = new Integer(SHOW_ALL_SCORES);
-    public static final int SCORE_TYPE_PROPERTY_ID = new Integer(SCORE_TYPE);
+    public static final Integer CLASSROOM_ID_PROPERTY_ID = new Integer(CLASSROOM_ID);
+    public static final Integer CODING_PHASE_LENGTH_PROPERTY_ID = new Integer(CODING_PHASE_LENGTH);
+    public static final Integer SHOW_ALL_SCORES_PROPERTY_ID = new Integer(SHOW_ALL_SCORES);
+    public static final Integer SCORE_TYPE_PROPERTY_ID = new Integer(SCORE_TYPE);
 
     private Identifier id = new Identifier();
     private Long intValue;
