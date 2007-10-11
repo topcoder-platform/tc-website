@@ -176,7 +176,7 @@
                                 <td class="value"><a href="Javascript:openWin('${sessionInfo.servletPath}?module=ViewProblemSet&<%=Constants.PROBLEM_SET_ID%>=${problem_set.id}','problemSetDescription',600,600);">${problem_set.name}</a></td>
                                 <td class="value">
                                     <c:forEach items="${problem_set.components}" var="component">
-                                        <a href="Javascript:openWin('${sessionInfo.servletPath}?module=ViewProblem&<%=Constants.PROBLEM_ID%>=${component.problem.id}','problemStatement',600,600);">${component.problem.name}</a>
+                                        <a href="Javascript:openWin('${sessionInfo.servletPath}?module=ViewProblem&<%=Constants.COMPONENT_ID%>=${component.id}','problemStatement',600,600);">${component.problem.name}</a>
                                         <c:if test="${fn:length(problem_set.components) > 1}">
                                             <br />
                                         </c:if>
