@@ -101,8 +101,8 @@
                                 <%-- Moved to reports
                                 <td class="valueC">${assignment.succeeded} / ${assignment.failed}</td>
                                 --%>
-                                <td class="valueC"><a href="/ep?module=EditAssignment&amp;asid=${assignment.id}"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
                                 <td class="valueC"><a href="/ep/professor/?module=EditAssignmentStudents&amp;asid=${assignment.id}"><img src="/i/ep/buttons/assignTo.png" alt="Assign to..." /></a></td>
+                                <td class="valueC"><a href="/ep?module=EditAssignment&amp;asid=${assignment.id}"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
                             </tr>
                         <%i++;%>
                         </c:forEach>
