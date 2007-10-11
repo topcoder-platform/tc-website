@@ -45,6 +45,7 @@ public class EditClassroom extends LongBase {
             
             if (!"POST".equals(getRequest().getMethod())) {
                 log.debug("First pass - " + getUser().getUserName());
+                                
                 // the user has just got here
                 //set up the user object we're gonna use
                 User u = getActiveUser();

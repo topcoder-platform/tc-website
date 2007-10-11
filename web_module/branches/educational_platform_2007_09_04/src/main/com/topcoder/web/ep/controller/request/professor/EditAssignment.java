@@ -65,35 +65,46 @@ public class EditAssignment extends ShortBase {
                     throw new TCWebException("No active schools for this professor");
                 }
                 
+                // check if we already have data in the session
+                // this is possible if the user goes to confirmation and then hit the back button
+                AssignmentDTO assignmentInSession = getAssignment();
+                Boolean hasDataInSession = assignmentInSession != null;
                 // new or edit
-                Round a;
-                if (assignmentId != null) {
-                    // we are editing
+                Round a = null;
+                if (assignmentId != null || hasDataInSession) {
+                    // we are editing or inserting a new one but we already have data in session
                     
-                    // check if this assignment belongs to the active user
-                    a = DAOUtil.getFactory().getRoundDAO().find(assignmentId);
-    
-                    Object classroomProperty = a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID);
-    
-                    if (classroomProperty == null) {
-                        throw new TCWebException("The assignment has an invalid classroom id");
-                    }
-    
-                    classroomId = (Long) classroomProperty;
-    
-                    setDefault("assignment_name", a.getName());
-                    setDefault("assignment_start", formatDate(a.getContest().getStartDate()));
-                    setDefault("assignment_end", formatDate(a.getContest().getEndDate()));
-                    setDefault("assignment_coding_phase_length", (Long)a.getProperty(RoundProperty.CODING_PHASE_LENGTH_PROPERTY_ID));
-                    setDefault("assignment_show_all_scores", ((Long)a.getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID)).equals(1l) ? "true" : "false");
-                    setDefault("assignment_score_type", (Long)a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID));
-    
-                    Set<Integer> al = new HashSet<Integer>();
-                    for (Language l : a.getLanguages()) {
-                        al.add(l.getId());
+                    if (assignmentId != null) {
+                        // check if this assignment belongs to the active user
+                        a = DAOUtil.getFactory().getRoundDAO().find(assignmentId);
+        
+                        Object classroomProperty = a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID);
+        
+                        if (classroomProperty == null) {
+                            throw new TCWebException("The assignment has an invalid classroom id");
+                        }
+        
+                        classroomId = (Long) classroomProperty;
+                    } else {
+                        classroomId = assignmentInSession.getClassroomId(); 
                     }
                     
-                    getRequest().setAttribute("assignment_languages", al);
+                    setDefault("assignment_name", hasDataInSession ? assignmentInSession.getAssignmentName() : a.getName());
+                    setDefault("assignment_start", formatDate(hasDataInSession ? assignmentInSession.getStartDate() : a.getContest().getStartDate()));
+                    setDefault("assignment_end", formatDate(hasDataInSession ? assignmentInSession.getEndDate() : a.getContest().getEndDate()));
+                    setDefault("assignment_coding_phase_length", hasDataInSession ? assignmentInSession.getCoderPhaseLength() : (Long)a.getProperty(RoundProperty.CODING_PHASE_LENGTH_PROPERTY_ID));
+                    setDefault("assignment_show_all_scores", hasDataInSession ? assignmentInSession.getShowAllScores() : ((Long)a.getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID)).equals(1l) ? "true" : "false");
+                    setDefault("assignment_score_type", hasDataInSession ? assignmentInSession.getScoreType() : (Long)a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID));
+    
+                    if (hasDataInSession) {
+                        getRequest().setAttribute("assignment_languages", assignmentInSession.getLanguages());
+                    } else {
+                        Set<Integer> al = new HashSet<Integer>();
+                        for (Language l : a.getLanguages()) {
+                            al.add(l.getId());
+                        }
+                        getRequest().setAttribute("assignment_languages", al);
+                    }                    
                 } else {
                     a = new Round();
                     // this is a new assignment, we need the classroom id
@@ -106,27 +117,29 @@ public class EditAssignment extends ShortBase {
                 Classroom c = checkValidClassroom(classroomId);
     
                 // prepare stuff for the long transaction
-                clearSession();
-    
+                if (!hasDataInSession) {
+                    clearSession();
+                
+                    AssignmentDTO adto = new AssignmentDTO();
+        
+                    adto.setRoundId(a.getId());
+                    adto.setClassroomId(c.getId());
+                    adto.setClassroomName(c.getName());
+        
+                    // fill the components
+                    for (RoundComponent rc : a.getRoundComponents()) {
+                        adto.addComponent(new ComponentDTO(
+                                rc.getId().getComponent().getId(),
+                                rc.getPoints(),
+                                rc.getId().getComponent().getProblem().getName())); 
+                    }
+                    
+                    setAssignment(adto);
+                }
+                
                 getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
                 getRequest().setAttribute("languages", DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages());
                 getRequest().setAttribute("problem_sets", DAOUtil.getFactory().getProblemSetDAO().findAll());
-                
-                AssignmentDTO adto = new AssignmentDTO();
-    
-                adto.setRoundId(a.getId());
-                adto.setClassroomId(c.getId());
-                adto.setClassroomName(c.getName());
-    
-                // fill the components
-                for (RoundComponent rc : a.getRoundComponents()) {
-                    adto.addComponent(new ComponentDTO(
-                            rc.getId().getComponent().getId(),
-                            rc.getPoints(),
-                            rc.getId().getComponent().getProblem().getName())); 
-                }
-                
-                setAssignment(adto);
     
                 setNextPage("/professor/editAssignment.jsp");
                 setIsNextPageInContext(true);
