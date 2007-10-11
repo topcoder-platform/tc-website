@@ -83,7 +83,7 @@
                 <tbody>
                     <tr>
                         <td align="left">
-                            <strong>Classroom name:</strong>
+                            <strong>Classroom title:</strong>
                         </td>
                         <td align="left">
                             <tc-webtag:textInput name="classroom_name" size="60" editable="true" />

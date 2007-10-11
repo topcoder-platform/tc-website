@@ -62,21 +62,28 @@
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditClassroomSubmit"/>
         
         <p align="center">
-            Is everything correct?
+            Are you sure you want to add/update this classroom?
         </p>
 
-        <table border="1">
-            <tr>
-                <td>Name</td>
-                <td>Academic period</td>
-                <td>Description</td>
-            </tr>
-            <tr>
-                <td>${ec_classroom.name}</td>
-                <td>${ec_classroom.academicPeriod}</td>
-                <td>${ec_classroom.description}</td>
-            </tr>
-        </table>
+        <div align="center" style="margin: 20px;">
+            <table cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td style="padding-right: 10px; font-weight: bold;" align="left">
+                        <p>Title</p>
+                        <p>Academic period</p>
+                        <p>Description</p>
+                    </td>
+                    <td align="left">
+                        <p>${ec_classroom.name}</p>
+                        <p>${ec_classroom.academicPeriod}</p>
+                        <p>${ec_classroom.description}</p>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
         <c:if test="${empty ec_classroom.id}">
             <br />        
             <c:choose>
