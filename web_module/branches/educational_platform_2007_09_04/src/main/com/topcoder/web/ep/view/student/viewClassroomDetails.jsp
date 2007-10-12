@@ -20,7 +20,7 @@
                 <td>School</td>
                 <td>Professor</td>
                 <td>Classroom</td>
-                <td>Academic period</td>
+                <td>Term</td>
                 <td>Description</td>
             </tr>
             <tr>

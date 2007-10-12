@@ -97,7 +97,7 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            <strong>Academic period:</strong>
+                            <strong>Term:</strong>
                         </td>
                         <td align="left">
                             <tc-webtag:textInput name="classroom_academic_period" size="60" editable="true" />

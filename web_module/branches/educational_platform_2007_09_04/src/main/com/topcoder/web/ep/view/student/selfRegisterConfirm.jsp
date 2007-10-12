@@ -26,7 +26,7 @@
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SelfRegisterConfirm"/>
         You will be registering to the following classrooms: <br/>
         <table border="1"> 
-            <tr><td>School</td><td>Professor</td><td>Classroom</td><td>Academic period</td><td>Description</td></tr>
+            <tr><td>School</td><td>Professor</td><td>Classroom</td><td>Term</td><td>Description</td></tr>
             <c:forEach items="${classrooms}" var="classroom">                
                 <tr>
                     <td>${school.name}</td>

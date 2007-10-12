@@ -77,7 +77,7 @@
                 <tr>
                     <td style="padding-right: 10px; font-weight: bold;" align="left">
                         <p>Title</p>
-                        <p>Academic period</p>
+                        <p>Term</p>
                         <p>Description</p>
                     </td>
                     <td align="left">

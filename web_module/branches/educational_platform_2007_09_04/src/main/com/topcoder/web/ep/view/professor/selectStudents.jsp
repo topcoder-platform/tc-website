@@ -66,7 +66,7 @@
         <table border="1">
             <tr>
                 <td>Class</td>
-                <td>Academic period</td>
+                <td>Term</td>
                 <td>Description</td>
             </tr>
             <tr>

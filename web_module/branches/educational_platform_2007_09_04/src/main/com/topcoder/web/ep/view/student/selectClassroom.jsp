@@ -32,7 +32,7 @@
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SelectClassroom"/>
             Select a classroom: <br/>
             <table border="1"> 
-                <tr><td>School</td><td>Professor</td><td>Classroom</td><td>Academic period</td><td>Description</td><td>Select</td></tr>
+                <tr><td>School</td><td>Professor</td><td>Classroom</td><td>Term</td><td>Description</td><td>Select</td></tr>
                 <c:forEach items="${possible_classrooms}" var="classroom">                
                     <tr>
                         <td>${school.name}</td>
