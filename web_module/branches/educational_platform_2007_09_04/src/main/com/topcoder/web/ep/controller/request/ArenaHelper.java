@@ -128,7 +128,8 @@ public class ArenaHelper implements ArenaServices {
         DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
 
         HibernateUtils.getSession().flush();
-        HibernateUtils.commit();        
+        HibernateUtils.commit();
+        HibernateUtils.begin();
 
         RoundModifiedEvent event = new RoundModifiedEvent(r.getId().intValue());
                 
@@ -185,7 +186,8 @@ public class ArenaHelper implements ArenaServices {
         DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
         HibernateUtils.getSession().flush();
         HibernateUtils.commit();        
-        
+        HibernateUtils.begin();
+
         RoundCreatedEvent event = new RoundCreatedEvent(r.getId().intValue());
         publishEvent(event);
     }
@@ -218,6 +220,7 @@ public class ArenaHelper implements ArenaServices {
         
         HibernateUtils.getSession().flush();
         HibernateUtils.commit();        
+        HibernateUtils.begin();
 
         RoundModifiedEvent event = new RoundModifiedEvent(r.getId().intValue());
         event.addModification(new RoundModifiedEvent.ScheduleModification());
