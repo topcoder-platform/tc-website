@@ -514,7 +514,7 @@ public class User extends Base {
      */
     public UserSchool getSchool(Long schoolId) {
         for (UserSchool school : schools) {
-            if (school.getId().equals(schoolId)) {
+            if (school.getSchool().getId().equals(schoolId)) {
                 return school;
             }
         }
