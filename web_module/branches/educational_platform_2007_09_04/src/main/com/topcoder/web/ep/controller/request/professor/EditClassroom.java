@@ -93,9 +93,9 @@ public class EditClassroom extends LongBase {
                     if (schoolId == null) {
                         addError("error", "Please select a school");
                     } else {
-                        s = getActiveUser().getSchool(schoolId)!=null?getActiveUser().getSchool(schoolId).getSchool():null;
+                        s = getActiveUser().getSchool(schoolId) != null ? getActiveUser().getSchool(schoolId).getSchool() : null;
                         if (s == null) {
-                            throw new TCWebException("Invalid school id");
+                            throw new TCWebException("Invalid school id " + schoolId);
                         }
                     }
 

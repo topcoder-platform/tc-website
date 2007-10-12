@@ -514,6 +514,7 @@ public class User extends Base {
      */
     public UserSchool getSchool(Long schoolId) {
         for (UserSchool school : schools) {
+            log.debug("school " + school.getId() + " " + school.getSchool().getId());
             if (school.getSchool().getId().equals(schoolId)) {
                 return school;
             }
