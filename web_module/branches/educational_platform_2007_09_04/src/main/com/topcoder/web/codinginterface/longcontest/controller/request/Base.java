@@ -5,7 +5,6 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.BaseLanguage;
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.ServerBusyException;
@@ -218,10 +217,6 @@ public abstract class Base extends BaseProcessor {
         return new CachedDataAccess(maxAge, datasource);
     }
 
-    protected User getUser() {
-        return getAuthentication().getUser();
-    }
-
     /**
      * @param roundId
      * @return true if the coding phase is over, false otherwise
@@ -267,6 +262,7 @@ public abstract class Base extends BaseProcessor {
             return !((ResultSetContainer) getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r).get("round_exists")).isEmpty();
         }
     }
+
 
 }
 

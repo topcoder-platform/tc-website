@@ -5,9 +5,6 @@
 */
 package com.topcoder.web.ep.controller.request.professor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
@@ -24,6 +21,9 @@ import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.ArenaServicesFactory;
 import com.topcoder.web.ep.controller.request.ShortBase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -42,13 +42,14 @@ public class EditAssignmentStudentsSubmit extends ShortBase {
         if (userLoggedIn()) {
             User u = getActiveUser();
             log.debug("User identified - " + u.getHandle());
-            
+
             Long assignmentId = getAssignmentParam();
-            
-            if (u.getProfessor().getActiveSchools().size() == 0) {
+
+            //todo change this to only count professor associations, not all
+            if (u.getSchools().isEmpty()) {
                 throw new TCWebException("No active schools for this professor");
             }
-            
+
             Round a = DAOUtil.getFactory().getRoundDAO().find(assignmentId);
 
             if (a == null) {
@@ -62,34 +63,34 @@ public class EditAssignmentStudentsSubmit extends ShortBase {
             }
             Classroom c = checkValidClassroom((Long) classroomProperty);
 
-            
+
             if (!"POST".equals(getRequest().getMethod())) {
                 // user shouldn't get here with a get
                 throw new TCWebException("Invalid request");
             } else {
-                    // got a response, validate.
-                    List<Long> studentIds = getStudentParam();
+                // got a response, validate.
+                List<Long> studentIds = getStudentParam();
 
-                    // TODO: validate if non selected users can be removed
+                // TODO: validate if non selected users can be removed
 
-                    // validate if the selected students are active students
-                    for (Long studentId : studentIds) {
-                        Coder s = c.getStudent(studentId);
-                        if (s == null) {
-                            throw new TCWebException("Invalid student selected");
-                        }
+                // validate if the selected students are active students
+                for (Long studentId : studentIds) {
+                    Coder s = c.getStudent(studentId);
+                    if (s == null) {
+                        throw new TCWebException("Invalid student selected");
                     }
+                }
 
-                    ArenaServicesFactory.getArenaServices().updateRoundRegistration(assignmentId, studentIds);
-                    
-                    getRequest().setAttribute("message", "You have successfuly updated students registration for assignment " + a.getName());                  
-                    getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/ep//?module=ViewClassroomAssignments&clsid=" + c.getId());                  
-                    setNextPage("/message.jsp");
-                    setIsNextPageInContext(true);            
+                ArenaServicesFactory.getArenaServices().updateRoundRegistration(assignmentId, studentIds);
+
+                getRequest().setAttribute("message", "You have successfuly updated students registration for assignment " + a.getName());
+                getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/ep//?module=ViewClassroomAssignments&clsid=" + c.getId());
+                setNextPage("/message.jsp");
+                setIsNextPageInContext(true);
             }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        }        
+        }
     }
 
 
@@ -100,17 +101,17 @@ public class EditAssignmentStudentsSubmit extends ShortBase {
      */
     private Classroom checkValidClassroom(Long classroomId) throws NavigationException {
         Classroom c = DAOUtil.getFactory().getClassroomDAO().find(classroomId);
-        
+
         if (!c.getProfessor().getId().equals(getUser().getId())) {
             throw new NavigationException("You don't have permission to see this page.");
         }
         return c;
     }
-    
+
 
     private Long getAssignmentParam() throws TCWebException {
         String assignmentId = StringUtils.checkNull(getRequest().getParameter(Constants.ASSIGNMENT_ID));
-        
+
         if (assignmentId == "") {
             throw new TCWebException("Missing assignment (round) id");
         }
@@ -121,13 +122,13 @@ public class EditAssignmentStudentsSubmit extends ShortBase {
         } catch (NumberFormatException e) {
             throw new TCWebException("Invalid assignment (round) id");
         }
-        
+
         return id;
     }
 
     private List<Long> getStudentParam() throws TCWebException {
         String[] values = getRequest().getParameterValues(Constants.STUDENT_ID);
-        
+
 
         List<Long> ids = new ArrayList<Long>();
 
@@ -142,7 +143,7 @@ public class EditAssignmentStudentsSubmit extends ShortBase {
                 ids.add(id);
             }
         }
-        
+
         return ids;
     }
 

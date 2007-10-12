@@ -7,20 +7,21 @@
 
 package com.topcoder.web.codinginterface.longcontest.controller.request.stats;
 
-import java.util.Map;
-
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
+
+import java.util.Map;
+
 /**
  * @author Porgery, Cucu
  */
@@ -51,9 +52,9 @@ public class ViewOverview extends Base {
                 roundID = rsc.getStringItem(0, "round_id");
                 getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(rsc.getIntItem(0, "round_type_id")));
             }
-            
+
             r.setProperty(Constants.ROUND_ID, roundID);
-            
+
             Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
             ResultSetContainer rsc = result.get("long_contest_overview_coders");
 
@@ -69,19 +70,19 @@ public class ViewOverview extends Base {
             }
             int endRank = startRank + numRecords - 1;
 
-            
+
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
             rsc = new ResultSetContainer(rsc, startRank, endRank);
 
             ResultSetContainer rounds = new ResultSetContainer(result.get("long_contest_round_list"), new RoundDisplayNameCalculator("display_name"));
-            
+
             ResultSetContainer info = new ResultSetContainer(result.get("long_contest_overview_info"), new RoundDisplayNameCalculator("display_name"));
-            
+
             SortInfo s = new SortInfo();
             s.addDefault(rsc.getColumnIndex("point_total"), "desc");
             s.addDefault(rsc.getColumnIndex("system_point_total"), "desc");
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
-            
+
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
             setDefault(DataAccessConstants.START_RANK, startRank);
 
@@ -89,9 +90,9 @@ public class ViewOverview extends Base {
             request.setAttribute("categories", result.get("long_contest_round_categories"));
             request.setAttribute("competitors", rsc);
             request.setAttribute("rounds", rounds);
-            request.setAttribute("columnMap", rsc.getColumnNameMap());  
+            request.setAttribute("columnMap", rsc.getColumnNameMap());
             request.setAttribute("roundId", roundID);
-            
+
             setDefault(Constants.ROUND_ID, roundID);
             setNextPage(Constants.PAGE_VIEW_OVERVIEW);
             setIsNextPageInContext(true);
@@ -101,5 +102,5 @@ public class ViewOverview extends Base {
             throw new TCWebException(e);
         }
     }
-        
+
 }

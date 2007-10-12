@@ -1,10 +1,10 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 
-import com.topcoder.server.ejb.TestServices.TestServicesLocator;
+import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.messaging.messages.AdminSubmitRequest;
+import com.topcoder.shared.messaging.messages.LongCompileRequest;
 import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.ApplicationServer;
@@ -29,8 +29,8 @@ public class AdminForceSubmit extends Base {
         //need to have: user id, component id, round_id, contest_id, language_id
         //then lookup the code, and submit it
 
-        if (!SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        if (!SecurityHelper.hasPermission(getAuthentication().getUser(), new ClassResource(this.getClass()))) {
+            throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         } else {
             String name;
             StringBuffer buf = new StringBuffer(1000);
@@ -55,7 +55,7 @@ public class AdminForceSubmit extends Base {
                     } catch (Exception e) {
                         message = e.getMessage();
                         if (log.isDebugEnabled()) {
-                            e.printStackTrace();
+                            log.debug(e, e);
                         }
                     }
                     count++;
@@ -83,12 +83,12 @@ public class AdminForceSubmit extends Base {
 
     private LongCompileResponse submit(long coderId, long componentId, long roundId, long contestId, int languageId, String code, boolean example) throws Exception {
         log.debug("submit: " + coderId + " " + componentId + " " + roundId + " " + contestId + " " + languageId);
-        AdminSubmitRequest lcr = new AdminSubmitRequest(coderId, componentId, roundId, contestId,
+        LongCompileRequest lcr = new LongCompileRequest(coderId, componentId, roundId, contestId,
                 languageId, ApplicationServer.WEB_SERVER_ID, code, example);
         try {
             lock();
             try {
-                return TestServicesLocator.getService().adminSubmitLong(lcr);
+                return LongContestServicesLocator.getService().adminSubmitLong(lcr);
             } finally {
                 unlock();
             }

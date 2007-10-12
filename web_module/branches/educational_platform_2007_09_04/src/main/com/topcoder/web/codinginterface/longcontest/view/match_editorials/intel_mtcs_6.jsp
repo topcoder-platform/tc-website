@@ -1,21 +1,20 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
 <head>
-<title>TopCoder</title>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_stats"/>
-</jsp:include>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>TopCoder</title>
+    <jsp:include page="../script.jsp"/>
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 
 <body>
 
-<jsp:include page="/top.jsp">
+<jsp:include page="../top.jsp">
     <jsp:param name="level1" value="long"/>
 </jsp:include>
 
@@ -23,31 +22,34 @@
 <tr valign="top">
 <%-- Left Column Begins--%>
 <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="long_editorials"/>
-         </jsp:include>
+    <jsp:include page="../includes/global_left.jsp">
+        <jsp:param name="node" value="long_editorials"/>
+    </jsp:include>
 </td>
 <%-- Left Column Ends --%>
 
 <%-- Center Column Begins --%>
 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 <div align="center">
-   <div class="bodyText" style="width: 100%; text-align: left;">
+<div class="bodyText" style="width: 100%; text-align: left;">
 
-    <jsp:include page="/page_title.jsp">
-        <jsp:param name="image" value="long_comps_topcoder"/>
-        <jsp:param name="title" value="Match Editorials"/>
-    </jsp:include>
+<jsp:include page="../page_title.jsp">
+    <jsp:param name="image" value="long_comps_topcoder"/>
+    <jsp:param name="title" value="Match Editorials"/>
+</jsp:include>
 
-<div style="float: right;" align="right"><A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
-<tc-webtag:forumLink forumID="506055" message="Discuss this match" />
+<div style="float: right;" align="right"><A
+        href="/longcontest/?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <tc-webtag:forumLink forumID="506055" message="Discuss this match"/>
 </div>
 
 <span class="bodySubtitle">Intel&#174; Multi-Threading Competition 6</span><br>06.14.2006 - 06.28.2006
 <br><br>
 
 <img src="/i/m/JacoCronje_big.jpg" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/><br>
-By&#160;<tc-webtag:handle coderId="283329" /><br>
+By&#160;
+<tc-webtag:handle coderId="283329"/>
+<br>
 <span class="smallText"><em>TopCoder Member</em></span>
 
 <br><br><br>
@@ -64,7 +66,7 @@ All of this added up to create a great and exciting contest. The final results
 showed that it was a very close contest, and it certainly felt like a real marathon for
 me.<br><br>
 
-After reading the problem description, the first thing 
+After reading the problem description, the first thing
 I considered was how the scoring would work. I had to decide whether speed or
 quality was the most important. After a few calculations it was clear that the
 quality of the solutions were much more important. Speed played a roll in the
@@ -112,53 +114,57 @@ enough? A few methods were used by the coders. I'll briefly state some of them
 here:
 
 <ul>
-  <li><strong>List of empty spaces<br>
+    <li><strong>List of empty spaces<br>
     </strong>Keep track of the empty spaces available inside the box by keeping a list of
-      min/max or min/dimension coordinates of each space. I used this method and
-      stored the minimum (x, y, z) coordinate and the dimension of each space in a
-      list. To accommodate all available spaces and to ease the insertion of items,
-      these spaces may overlap. It is then very easy to verify if an item can be
-      inserted into one of the spaces by comparing the dimension of the item with the
-      dimension of the empty space. To verify if the item could fit, I checked the
-      dimensions of each orientation of the item against the space dimensions. The
-      cons of this method are that when you decide to insert an item, you need to
-      find all the spaces that intersect with the item. Each intersecting space
-      should then be split into new spaces which could result in spaces with the same
-      size in the list. After each insertion I removed all the spaces that were
-      completely inside other spaces. You only need to check the newly inserted
-      spaces for duplication. My first algorithm didn't allow the spaces to overlap
-      which made things simpler, when inserting an item I simply split the space into
-      3 new empty spaces, but the performance was not so good because the boxes
-      couldn't be filled completely. </li>
-  <li><strong>Boolean array<br>
+        min/max or min/dimension coordinates of each space. I used this method and
+        stored the minimum (x, y, z) coordinate and the dimension of each space in a
+        list. To accommodate all available spaces and to ease the insertion of items,
+        these spaces may overlap. It is then very easy to verify if an item can be
+        inserted into one of the spaces by comparing the dimension of the item with the
+        dimension of the empty space. To verify if the item could fit, I checked the
+        dimensions of each orientation of the item against the space dimensions. The
+        cons of this method are that when you decide to insert an item, you need to
+        find all the spaces that intersect with the item. Each intersecting space
+        should then be split into new spaces which could result in spaces with the same
+        size in the list. After each insertion I removed all the spaces that were
+        completely inside other spaces. You only need to check the newly inserted
+        spaces for duplication. My first algorithm didn't allow the spaces to overlap
+        which made things simpler, when inserting an item I simply split the space into
+        3 new empty spaces, but the performance was not so good because the boxes
+        couldn't be filled completely.
+    </li>
+    <li><strong>Boolean array<br>
     </strong>The idea is to store a 3D array which indicates which part of the box has been
-  filled or not. The storage can be compressed by using 1 bit for each cell and
-  packing the information for a row into a 64 bit variable. When you need to
-  check if an item can be inserted you can scan through this data structure to
-  verify that no cell is occupied where you want to place the item. Bitwise
-  operations could be used to speedup the process. </li>
-  <li><strong>Vertices of inserted items<br>
+        filled or not. The storage can be compressed by using 1 bit for each cell and
+        packing the information for a row into a 64 bit variable. When you need to
+        check if an item can be inserted you can scan through this data structure to
+        verify that no cell is occupied where you want to place the item. Bitwise
+        operations could be used to speedup the process.
+    </li>
+    <li><strong>Vertices of inserted items<br>
     </strong>A very clever method that was used by venco, you basically keep track of the
-  inserted items instead of the empty spaces. I'll quote him: "I don't track
-  empty space, but rather vertices of the box and already inserted items instead.
-  At each point I maintain 8 bits describing which of 8 solid angles is empty. If
-  some point is closed completely I remove it from scan. When adding a new item I
-  scan all available points, and try to add the item at each empty direction with
-  each of 6 possible orientations. Then I just iterate all inserted items and see
-  if the new item intersects with any of them."
-  
-</li>
-  <li><strong>Tetris style - Heightmap<br>
+        inserted items instead of the empty spaces. I'll quote him: "I don't track
+        empty space, but rather vertices of the box and already inserted items instead.
+        At each point I maintain 8 bits describing which of 8 solid angles is empty. If
+        some point is closed completely I remove it from scan. When adding a new item I
+        scan all available points, and try to add the item at each empty direction with
+        each of 6 possible orientations. Then I just iterate all inserted items and see
+        if the new item intersects with any of them."
+
+    </li>
+    <li><strong>Tetris style - Heightmap<br>
     </strong>Another interesting method is to store the contents of the box as a heightmap,
-  and then try to fill the box tetris style. Fill the box from bottom up. You
-  just need to try and not create a lot of holes as you fill the box.</li>
-  <li><strong>Combining items<br>
+        and then try to fill the box tetris style. Fill the box from bottom up. You
+        just need to try and not create a lot of holes as you fill the box.
+    </li>
+    <li><strong>Combining items<br>
     </strong>Another method is to pack each item into its own box and then combine boxes
-  that improve your score the most or those who don't waste a lot of space. Keep
-  on doing this until you can't improve your score. I experimented with this
-  method the last couple of days, but it didn't work very well. I investigated
-  this method because it looked promising to optimize the final box with a more
-  brute force method. </li>
+        that improve your score the most or those who don't waste a lot of space. Keep
+        on doing this until you can't improve your score. I experimented with this
+        method the last couple of days, but it didn't work very well. I investigated
+        this method because it looked promising to optimize the final box with a more
+        brute force method.
+    </li>
 </ul>
 <br><br>
 
@@ -187,7 +193,9 @@ it fits somewhere inside the box. I used the following heuristics to minimize
 the:
 <ol>
     <li>Cost of the new dimensions of the box after the item has been inserted.</li>
-    <li>Dimension sum of the new dimensions of the box after the item has been inserted. This method worked better than heuristic 1.</li>
+    <li>Dimension sum of the new dimensions of the box after the item has been inserted. This method worked better than
+        heuristic 1.
+    </li>
     <li>Offset of the position where the item will be inserted. (OffX+OffY+OffZ).</li>
     <li>Dimensions of the space where the item will be inserted. (SpaceDimX+SpaceDimY+SpaceDimZ).</li>
     <li>Empty space left inside the box after inserting the item.</li>
@@ -228,13 +236,13 @@ I enjoyed the contest and it was fun. Thanks to Intel and TopCoder for
 providing us with such interesting and challenging contests and encouraging us
 to learn more about duel core processors and multi-threading. Keep up the good
 work!<br><br>
-   </div>
+</div>
 </div>
 </td>
 
 <%-- Right Column Begins --%>
 <td width="170">
-    <jsp:include page="/public_right.jsp">
+    <jsp:include page="../public_right.jsp">
         <jsp:param name="level1" value="default"/>
     </jsp:include>
 </td>
@@ -244,6 +252,6 @@ work!<br><br>
 </tr>
 </table>
 
-<jsp:include page="/foot.jsp"/>
+<jsp:include page="../foot.jsp"/>
 </body>
 </html>

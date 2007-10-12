@@ -1,6 +1,6 @@
 <%@ attribute name="roundTypeId" required="true" type="java.lang.Integer" %>
-<%@ attribute name="roundName" required="true"  %>
-<%@ attribute name="contestName" required="true"  %>
+<%@ attribute name="roundName" required="true" %>
+<%@ attribute name="contestName" required="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:set var="rt" value="${roundTypeId}" scope="request"/>

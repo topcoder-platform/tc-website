@@ -7,6 +7,8 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
@@ -28,20 +30,20 @@ public class ViewProblemSolution extends Base {
             String problem = request.getParameter(Constants.PROBLEM_ID);
             String submissionNumber = request.getParameter(Constants.SUBMISSION_NUMBER);
             String example = "0";
-            if (request.getParameter(Constants.EXAMPLE_FLAG)!=null) {
+            if (request.getParameter(Constants.EXAMPLE_FLAG) != null) {
                 example = request.getParameter(Constants.EXAMPLE_FLAG);
             }
             getRequest().setAttribute(Constants.EXAMPLE_FLAG, String.valueOf("1".equals(example)));
             log.debug("coder: " + coder + " user " + getUser().getId());
             String dataSource = null;
             // they can also see any solution if it's a practice round
-            int roundType = ((Integer)getRequest().getAttribute(Constants.ROUND_TYPE_ID)).intValue();
-            if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID||roundType==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
+            int roundType = ((Integer) getRequest().getAttribute(Constants.ROUND_TYPE_ID)).intValue();
+            if (roundType == Constants.LONG_PRACTICE_ROUND_TYPE_ID || roundType == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
                 dataSource = DBMS.OLTP_DATASOURCE_NAME;
             } else {
                 //if the results aren't final, they can see their own code, but not anyone else's.
                 if (!areResultsAvailable(Long.parseLong(round))) {
-                    if (getUser().getId()==Long.parseLong(coder) || getSessionInfo().isAdmin()) {
+                    if (getUser().getId() == Long.parseLong(coder) || getSessionInfo().isAdmin()) {
                         dataSource = DBMS.OLTP_DATASOURCE_NAME;
                     } else {
                         throw new PermissionException(getUser(), new ClassResource(this.getClass()));
@@ -60,7 +62,15 @@ public class ViewProblemSolution extends Base {
             //caching this is a little sketchy cuz we could end up caching the transactional version.
             //but they shouldn't be different, so we'll roll the dice
             DataAccessInt dataAccess = getDataAccess(dataSource, true);
-            Map m = dataAccess.getData(r);
+            Map<String, ResultSetContainer> m = dataAccess.getData(r);
+
+            ResultSetContainer infoRsc = new ResultSetContainer(m.get("long_contest_submission"), new RoundDisplayNameCalculator("display_name"));
+            if (infoRsc.size() == 0) {
+                throw new NavigationException("Couldn't find round info for round " + round);
+            }
+            request.setAttribute("infoRow", infoRsc.get(0));
+
+
             request.setAttribute("resultMap", m);
             request.setAttribute("mostRecent",
                     String.valueOf(isMostRecentSubmission(round, coder, problem, submissionNumber)));
@@ -80,6 +90,6 @@ public class ViewProblemSolution extends Base {
         r.setProperty(Constants.PROBLEM_ID, problem);
         r.setProperty(Constants.ROUND_ID, round);
         r.setProperty(Constants.SUBMISSION_NUMBER, submissionNumber);
-        return !((ResultSetContainer)getDataAccess().getData(r).get("long_contest_last_submission")).isEmpty();
+        return !((ResultSetContainer) getDataAccess().getData(r).get("long_contest_last_submission")).isEmpty();
     }
 }

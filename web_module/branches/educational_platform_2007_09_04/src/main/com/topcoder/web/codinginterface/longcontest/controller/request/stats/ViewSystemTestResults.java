@@ -8,10 +8,6 @@
 
 package com.topcoder.web.codinginterface.longcontest.controller.request.stats;
 
-import java.util.HashMap;
-import java.util.ListIterator;
-import java.util.Map;
-
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -29,6 +25,10 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.MaxAge;
+
+import java.util.HashMap;
+import java.util.ListIterator;
+import java.util.Map;
 
 /**
  * @author Porgery
@@ -87,7 +87,7 @@ public class ViewSystemTestResults extends Base {
             Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
             log.debug("got cases and coders");
 
-            
+
             ResultSetContainer rsc = result.get("long_contest_test_results_coders");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
             if ("".equals(startRowStr) && "".equals(sortColStr) && request.getParameter(Constants.CODER_ID) != null) {
@@ -107,15 +107,15 @@ public class ViewSystemTestResults extends Base {
 
             String coders = createList(rsc, "coder_id");
             log.debug("coders: " + coders);
-            
+
             ResultSetContainer rscCol = result.get("long_contest_test_results_cases");
             rscCol = (ResultSetContainer) rscCol.subList(startCol - 1, endCol);
             result.put("long_contest_test_results_cases", rscCol);
 
-            String testCasesIds  = createList(rscCol, "test_case_id");
+            String testCasesIds = createList(rscCol, "test_case_id");
             log.debug("test cases: " + testCasesIds);
-            
-            
+
+
             Request rScores = new Request();
             rScores.setContentHandle("long_contest_system_test_scores");
             rScores.setProperty(Constants.ROUND_ID, request.getParameter(Constants.ROUND_ID));
@@ -235,6 +235,6 @@ public class ViewSystemTestResults extends Base {
             sb.append(row.getStringItem(colName)).append(",");
         }
         if (sb.length() == 0) return "-1";
-        return sb.substring(0, sb.length()-1);
+        return sb.substring(0, sb.length() - 1);
     }
 }

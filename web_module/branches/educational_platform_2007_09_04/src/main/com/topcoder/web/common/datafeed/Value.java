@@ -1,20 +1,19 @@
 package com.topcoder.web.common.datafeed;
 
-import javax.xml.transform.sax.TransformerHandler;
-
 import org.xml.sax.helpers.AttributesImpl;
+
+import javax.xml.transform.sax.TransformerHandler;
 
 /**
  * Represents a constant value inside a tag
- * 
- * @author Cucu
  *
+ * @author Cucu
  */
 public class Value implements DataFeed {
 
     private String tagName;
     private String value;
-    
+
     public Value(String tagName, String value) {
         this.tagName = tagName;
         this.value = value;

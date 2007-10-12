@@ -1,21 +1,20 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
 <head>
-<title>TopCoder</title>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_stats"/>
-</jsp:include>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>TopCoder</title>
+    <jsp:include page="../script.jsp"/>
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 
 <body>
 
-<jsp:include page="/top.jsp">
+<jsp:include page="../top.jsp">
     <jsp:param name="level1" value="long"/>
 </jsp:include>
 
@@ -23,31 +22,34 @@
 <tr valign="top">
 <%-- Left Column Begins--%>
 <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="long_editorials"/>
-         </jsp:include>
+    <jsp:include page="../includes/global_left.jsp">
+        <jsp:param name="node" value="long_editorials"/>
+    </jsp:include>
 </td>
 <%-- Left Column Ends --%>
 
 <%-- Center Column Begins --%>
 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 <div align="center">
-   <div class="bodyText" style="width: 100%; text-align: left;">
+<div class="bodyText" style="width: 100%; text-align: left;">
 
-    <jsp:include page="/page_title.jsp">
-        <jsp:param name="image" value="long_comps_topcoder"/>
-        <jsp:param name="title" value="Match Editorials"/>
-    </jsp:include>
+<jsp:include page="../page_title.jsp">
+    <jsp:param name="image" value="long_comps_topcoder"/>
+    <jsp:param name="title" value="Match Editorials"/>
+</jsp:include>
 
-<div style="float: right;" align="right"><A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
-<tc-webtag:forumLink forumID="506010" message="Discuss this match" />
+<div style="float: right;" align="right"><A
+        href="/longcontest/?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <tc-webtag:forumLink forumID="506010" message="Discuss this match"/>
 </div>
 
 <span class="bodySubtitle">Intel&#174; Multi-Threading Competition 5</span><br>05.17.2006 - 06.01.2006
 <br><br>
 
 <img src="/i/m/battyone_big.jpg" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/><br>
-By&#160;<tc-webtag:handle coderId="7504863" context="algorithm"/><br>
+By&#160;
+<tc-webtag:handle coderId="7504863" context="algorithm"/>
+<br>
 <span class="smallText"><em>TopCoder Member</em></span>
 
 <br><br><br>
@@ -55,50 +57,54 @@ By&#160;<tc-webtag:handle coderId="7504863" context="algorithm"/><br>
 <br><br>
 Clustering is a very common real-world data mining problem, and while the data
 for this match was artificial, many real-world graphs show strong natural
-clusters.  In fact, very similar problems have given rise to quite a few
+clusters. In fact, very similar problems have given rise to quite a few
 research papers, and with networks and graphs becoming more and more common,
 this sort of data mining is sure to be important.
 <br><br>
 <span class="subtitle">General Approach</span><br>
 <ul>
-<li>
-Due to the performance metric being optimized, it didn't seem practical to
-optimize the number_of_cuts / minimum_cluster_size ratio by allowing both
-factors to change, because a change in cluster size usually has a much bigger
-effect on that ratio than any change in the number of cuts from moving one node.
-Thus, any incremental approach would quickly lock itself in a state where the
-minimum cluster size is N/C. So instead, I fixed the minimum cluster size to one
-value at a time, starting from N/C, and tried to minimize the number of cuts
-with the only constraint being that all the clusters had at least the minimum
-size.</li>
-<li>
-Instead of trying to minimize the number of cuts between clusters, I
-worked towards maximizing the number of internal connections in each
-cluster. Obviously it is the same thing, but as the number of internal
-connections is a property of each cluster independently of the rest of
-the graph, it was easier to visualize when trying to come up with methods.</li>
-<li>
-Since the score is a function of runtime if the result is near
-optimal, and zero otherwise, the goal wasn't to create the most accurate
-algorithm, or the fastest, but the one that has the best
-probability_of_optimality * score. I assumed that at least one
-competitor would have the optimal result in all cases. So I ran my first
-working algorithm overnight to obtain likely-optimal ratios for my test
-graphs, then saved these so the testing program could calculate a score
-for all the versions of my algorithm, using the same formula
-1/(100+runtime) if optimal, 0 if not, then normalizing against a
-theoretical maximum score of 10000 to have comparable results for
-different tests.</li>
+    <li>
+        Due to the performance metric being optimized, it didn't seem practical to
+        optimize the number_of_cuts / minimum_cluster_size ratio by allowing both
+        factors to change, because a change in cluster size usually has a much bigger
+        effect on that ratio than any change in the number of cuts from moving one node.
+        Thus, any incremental approach would quickly lock itself in a state where the
+        minimum cluster size is N/C. So instead, I fixed the minimum cluster size to one
+        value at a time, starting from N/C, and tried to minimize the number of cuts
+        with the only constraint being that all the clusters had at least the minimum
+        size.
+    </li>
+    <li>
+        Instead of trying to minimize the number of cuts between clusters, I
+        worked towards maximizing the number of internal connections in each
+        cluster. Obviously it is the same thing, but as the number of internal
+        connections is a property of each cluster independently of the rest of
+        the graph, it was easier to visualize when trying to come up with methods.
+    </li>
+    <li>
+        Since the score is a function of runtime if the result is near
+        optimal, and zero otherwise, the goal wasn't to create the most accurate
+        algorithm, or the fastest, but the one that has the best
+        probability_of_optimality * score. I assumed that at least one
+        competitor would have the optimal result in all cases. So I ran my first
+        working algorithm overnight to obtain likely-optimal ratios for my test
+        graphs, then saved these so the testing program could calculate a score
+        for all the versions of my algorithm, using the same formula
+        1/(100+runtime) if optimal, 0 if not, then normalizing against a
+        theoretical maximum score of 10000 to have comparable results for
+        different tests.
+    </li>
 
-<li>
-Given how the graphs are generated with 'natural' groups, one can in
-many cases expect the optimal configuration to be close to the original
-distribution (in fact the optimal clusters were usually much better than
-the generated clusters), and random solutions to converge fast towards
-that optimal. Furthermore, the easiest test cases also tend to be the
-fastest to solve, and it's more important to focus on solving these
-fast, rather than on solving optimally the harder cases, as the score for these
-will be low anyway.</li>
+    <li>
+        Given how the graphs are generated with 'natural' groups, one can in
+        many cases expect the optimal configuration to be close to the original
+        distribution (in fact the optimal clusters were usually much better than
+        the generated clusters), and random solutions to converge fast towards
+        that optimal. Furthermore, the easiest test cases also tend to be the
+        fastest to solve, and it's more important to focus on solving these
+        fast, rather than on solving optimally the harder cases, as the score for these
+        will be low anyway.
+    </li>
 </ul>
 
 
@@ -106,12 +112,13 @@ will be low anyway.</li>
 
 My algorithm consisted of 5 parts:
 <ol>
-<li>initial greedy assignment</li>
-<li>fast optimization, just moving one node at a time</li>
-<li>finer optimization, moving/swapping multiple nodes at a time</li>
-<li> move a random number of nodes and repeat steps 2 and 3 a few times</li>
-<li> repeat steps 2 and 3 with minimum sizes lower than N/C until it is
-apparent these solutions are worse</li>
+    <li>initial greedy assignment</li>
+    <li>fast optimization, just moving one node at a time</li>
+    <li>finer optimization, moving/swapping multiple nodes at a time</li>
+    <li> move a random number of nodes and repeat steps 2 and 3 a few times</li>
+    <li> repeat steps 2 and 3 with minimum sizes lower than N/C until it is
+        apparent these solutions are worse
+    </li>
 </ol>
 <strong>Initial Assignment</strong><br>
 
@@ -198,13 +205,13 @@ when it scored a bit higher than the single-threaded one I let it stand
 as my final one. This was probably the move that helped me hold off
 starfrog's excellent solution.
 <br><br>
-   </div>
+</div>
 </div>
 </td>
 
 <%-- Right Column Begins --%>
 <td width="170">
-    <jsp:include page="/public_right.jsp">
+    <jsp:include page="../public_right.jsp">
         <jsp:param name="level1" value="default"/>
     </jsp:include>
 </td>
@@ -214,6 +221,6 @@ starfrog's excellent solution.
 </tr>
 </table>
 
-<jsp:include page="/foot.jsp"/>
+<jsp:include page="../foot.jsp"/>
 </body>
 </html>

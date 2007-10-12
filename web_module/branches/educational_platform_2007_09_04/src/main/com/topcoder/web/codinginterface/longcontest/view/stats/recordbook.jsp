@@ -3,12 +3,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statistics</title>
-<script language="JavaScript" type="text/javascript" src="/js/popup.js"></script>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-<link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
+    <title>TopCoder Statistics</title>
+    <script language="JavaScript" type="text/javascript" src="/js/popup.js"></script>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
 </head>
 
 <body>
@@ -31,10 +31,10 @@
 
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyColumn">
-        
-        <div class="fixedWidthBody">
-            <jsp:include page="${includeJsp}"/>
-         </div>
+
+            <div class="fixedWidthBody">
+                <jsp:include page="${includeJsp}"/>
+            </div>
         </td>
         <!-- Center Column Ends -->
 

@@ -1,15 +1,14 @@
 package com.topcoder.web.common.datafeed;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
-
 /**
  * Formats a date when the field value is a number of milliseconds
- * 
- * @author Cucu
  *
+ * @author Cucu
  */
 public class DateFormatter implements ItemFormatter {
 

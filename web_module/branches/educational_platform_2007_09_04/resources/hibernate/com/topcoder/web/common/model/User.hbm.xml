@@ -22,7 +22,8 @@
         <one-to-one name="coder" class="Coder" cascade="save-update" access="field" fetch="select"/>
         <one-to-one name="contact" class="Contact" cascade="save-update" access="field" fetch="select"/>
         <one-to-one name="secretQuestion" class="SecretQuestion" cascade="save-update" access="field" fetch="select"/>
-        <one-to-one name="professor" class="com.topcoder.web.common.model.educ.Professor" cascade="save-update" access="field" fetch="select"/>
+        <one-to-one name="professor" class="com.topcoder.web.common.model.educ.Professor" cascade="save-update"
+                    access="field" fetch="select"/>
 
         <set name="securityGroups" table="user_group_xref" cascade="none" inverse="true" access="field">
             <key column="login_id" not-null="true"/>
@@ -68,11 +69,12 @@
             <key column="user_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.voting.RankBallot"/>
         </set>
-        <set name="compPrizes" table="tcs_catalog:user_contest_prize" cascade="save-update" inverse="true" access="field">
+        <set name="compPrizes" table="tcs_catalog:user_contest_prize" cascade="save-update" inverse="true"
+             access="field">
             <key column="user_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.model.comp.UserContestPrize"/>
         </set>
-        <set name="schools" cascade="save-update">
+        <set name="schools" cascade="save-update" inverse="true">
             <key column="user_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.model.UserSchool"/>
         </set>

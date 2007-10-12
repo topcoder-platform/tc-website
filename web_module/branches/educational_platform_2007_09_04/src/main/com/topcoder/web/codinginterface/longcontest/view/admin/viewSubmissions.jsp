@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page
         language="java"
-        import="com.topcoder.web.codinginterface.longcontest.Constants"
+        import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"
         %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.web.codinginterface.longcontest.Constants" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
@@ -14,25 +14,25 @@
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID) == null ? Constants.LONG_ROUND_TYPE_ID : ((Integer) request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
 <% String myNode = "long_compete";
     String image = "long_comps_topcoder";
-     if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
-         myNode="long_practice";
-     } else if (roundType ==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
-         myNode="long_intelmtcs_practice";
-         image = "long_comps_intel";
-     } else if (roundType ==Constants.INTEL_LONG_ROUND_TYPE_ID) {
-         myNode="long_intelmtcs_compete";
-         image = "long_comps_intel";
-     }
+    if (roundType == Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
+        myNode = "long_practice";
+    } else if (roundType == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
+        myNode = "long_intelmtcs_practice";
+        image = "long_comps_intel";
+    } else if (roundType == Constants.INTEL_LONG_ROUND_TYPE_ID) {
+        myNode = "long_intelmtcs_compete";
+        image = "long_comps_intel";
+    }
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <title>TopCoder</title>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_stats"/>
-</jsp:include>
+    <jsp:include page="../script.jsp"/>
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <SCRIPT type="text/javascript">
         function submit(module) {
@@ -60,9 +60,9 @@
 <%-- Left Column Begins--%>
 <td width="180">
     <%-- value of level2 is 'topcoder' or 'intel_active_contests' --%>
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="<%=myNode%>"/>
-         </jsp:include>
+    <jsp:include page="../includes/global_left.jsp">
+        <jsp:param name="node" value="<%=myNode%>"/>
+    </jsp:include>
 </td>
 <%-- Left Column Ends --%>
 
@@ -79,19 +79,23 @@
     <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="adminForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE%>" value="AdminForceSubmit"/>
         <%if (!submissions.isEmpty()) { %>
-            <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>" value="<%=submissions.getStringItem(0, "round_id")%>"/>
+        <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>" value="<%=submissions.getStringItem(0, "round_id")%>"/>
         <% } %>
         <tc-webtag:hiddenInput name="<%=Constants.EXAMPLE_FLAG%>"/>
         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
 
-            <tr><td><a href="?<%=Constants.MODULE%>=AdminHome">Back to the Long Contest Admin Home</a></td></tr>
+            <tr>
+                <td><a href="?<%=Constants.MODULE%>=AdminHome">Back to the Long Contest Admin Home</a></td>
+            </tr>
 
             <tr>
                 <td>
                     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-                        <tr><td class="statLt" colspan="6"><a href="javascript:checkall(true);">check all</a> |
-                            <a href="javascript:checkall(false);">uncheck all</a> |
-                            <a href="javascript:document.adminForm.submit();">submit</a></td></tr>
+                        <tr>
+                            <td class="statLt" colspan="6"><a href="javascript:checkall(true);">check all</a> |
+                                <a href="javascript:checkall(false);">uncheck all</a> |
+                                <a href="javascript:document.adminForm.submit();">submit</a></td>
+                        </tr>
                         <tr>
                             <td class="tableHeader" width="5%"></td>
                             <td class="tableHeader" width="15%">
@@ -133,13 +137,15 @@
                                     <tc-webtag:chkBox name="<%=name.toString()%>"/>
                                 </td>
                                 <td class="<%=even?"statLt":"statDk"%>">
-                                    <tc-webtag:handle context='marathon_match' coderId='<%=resultRow.getLongItem("coder_id")%>'/>
+                                    <tc-webtag:handle context='marathon_match'
+                                                      coderId='<%=resultRow.getLongItem("coder_id")%>'/>
                                 </td>
                                 <td class="<%=even?"statLt":"statDk"%>">
                                     <rsc:item row="<%=resultRow%>" name="language_name"/>
                                 </td>
                                 <td class="<%=even?"statLt":"statDk"%>">
-                                    <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>&<%=Constants.EXAMPLE_FLAG%>=<%=example%>" class="statLink">
+                                    <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>&<%=Constants.EXAMPLE_FLAG%>=<%=example%>"
+                                       class="statLink">
                                         <rsc:item row="<%=resultRow%>" name="submission_number"/>
                                     </A>
                                 </td>
@@ -152,9 +158,11 @@
                             </tr>
                             <%even = !even;%>
                         </rsc:iterator>
-                        <tr><td class="statLt" colspan="6"><a href="javascript:checkall(true);">check all</a> |
-                            <a href="javascript:checkall(false);">uncheck all</a> |
-                            <a href="javascript:document.adminForm.submit();">submit</a></td></tr>
+                        <tr>
+                            <td class="statLt" colspan="6"><a href="javascript:checkall(true);">check all</a> |
+                                <a href="javascript:checkall(false);">uncheck all</a> |
+                                <a href="javascript:document.adminForm.submit();">submit</a></td>
+                        </tr>
 
                     </table>
                 </TD>

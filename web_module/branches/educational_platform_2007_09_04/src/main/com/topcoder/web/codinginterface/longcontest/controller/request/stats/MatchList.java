@@ -1,7 +1,5 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request.stats;
 
-import java.util.Map;
-
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -13,9 +11,11 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
 
+import java.util.Map;
+
 /**
  * Display a list of completed matches.
- * 
+ *
  * @author cucu
  */
 public class MatchList extends Base {
@@ -31,23 +31,23 @@ public class MatchList extends Base {
 
             if ("".equals(numRecords)) {
                 numRecords = "50";
-            } else if (Integer.parseInt(numRecords)>200) {
-                numRecords="200";
-            } else if (Integer.parseInt(numRecords)<=0) {
-                numRecords="50";
+            } else if (Integer.parseInt(numRecords) > 200) {
+                numRecords = "200";
+            } else if (Integer.parseInt(numRecords) <= 0) {
+                numRecords = "50";
             }
 
             if (startRank.equals("") || Integer.parseInt(startRank) <= 0) {
                 startRank = "1";
             }
 
-            int sr =  Integer.parseInt(startRank);
+            int sr = Integer.parseInt(startRank);
             int nr = Integer.parseInt(numRecords);
             int endRank = sr + nr - 1;
 
             r.setContentHandle("marathon_match_list");
 
-            Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME,true).getData(r);
+            Map<String, ResultSetContainer> result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
 
             ResultSetContainer rsc = result.get("marathon_match_list");
             rsc = new ResultSetContainer(rsc, new RoundDisplayNameCalculator("display_name"));
@@ -56,17 +56,17 @@ public class MatchList extends Base {
                 sortCol = rsc.getColumnIndex("date") + "";
                 sortDir = "desc";
             }
-            
+
             if (!sortCol.equals("")) {
                 rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
                 setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
                 setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
             }
-            
+
             rsc = new ResultSetContainer(rsc, sr, endRank);
-            
+
             SortInfo s = new SortInfo();
-            s.addDefault(rsc.getColumnIndex("num_competitors"), "desc");            
+            s.addDefault(rsc.getColumnIndex("num_competitors"), "desc");
             s.addDefault(rsc.getColumnIndex("num_submissions"), "desc");
             s.addDefault(rsc.getColumnIndex("avg_submissions"), "desc");
             s.addDefault(rsc.getColumnIndex("date"), "desc");

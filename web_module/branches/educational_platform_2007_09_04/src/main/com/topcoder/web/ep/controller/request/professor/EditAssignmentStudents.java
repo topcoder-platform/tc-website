@@ -5,9 +5,6 @@
 */
 package com.topcoder.web.ep.controller.request.professor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
@@ -24,6 +21,9 @@ import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.ShortBase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -42,13 +42,14 @@ public class EditAssignmentStudents extends ShortBase {
         if (userLoggedIn()) {
             User u = getActiveUser();
             log.debug("User identified - " + u.getHandle());
-            
+
             Long assignmentId = getAssignmentParam();
-            
-            if (u.getProfessor().getActiveSchools().size() == 0) {
+
+            //todo change this to only count professor associations, not all
+            if (u.getSchools().isEmpty()) {
                 throw new TCWebException("No active schools for this professor");
             }
-            
+
             Round a = DAOUtil.getFactory().getRoundDAO().find(assignmentId);
 
             if (a == null) {
@@ -62,27 +63,27 @@ public class EditAssignmentStudents extends ShortBase {
             }
             Classroom c = checkValidClassroom((Long) classroomProperty);
 
-            
+
             if (!"POST".equals(getRequest().getMethod())) {
                 log.debug("First pass - " + getUser().getUserName());
-                        
-                getRequest().setAttribute("activeStudents", c.getStudents(StudentClassroom.ACTIVE_STATUS));                
-                getRequest().setAttribute(Constants.ASSIGNMENT_ID, a.getId());                
-                getRequest().setAttribute(Constants.CLASSROOM, c);                
-                getRequest().setAttribute("assignment_name", a.getName());                
+
+                getRequest().setAttribute("activeStudents", c.getStudents(StudentClassroom.ACTIVE_STATUS));
+                getRequest().setAttribute(Constants.ASSIGNMENT_ID, a.getId());
+                getRequest().setAttribute(Constants.CLASSROOM, c);
+                getRequest().setAttribute("assignment_name", a.getName());
 
                 List<Long> checkedStudents = new ArrayList<Long>();
                 for (RoundRegistration rr : a.getRoundRegistrations()) {
                     checkedStudents.add(rr.getId().getCoder().getId());
                 }
 
-                getRequest().setAttribute("checked_students", checkedStudents);                
-                
+                getRequest().setAttribute("checked_students", checkedStudents);
+
                 setNextPage("/professor/editAssignmentStudents.jsp");
                 setIsNextPageInContext(true);
             } else {
                 log.debug("Second pass - " + getUser().getUserName());
-                 if (userLoggedIn()) {
+                if (userLoggedIn()) {
                     // got a response, validate.
                     List<Long> studentIds = getStudentParam();
 
@@ -98,23 +99,23 @@ public class EditAssignmentStudents extends ShortBase {
                             students.add(s);
                         }
                     }
-                    
+
                     //getRequest().setAttribute("activeStudents", );                
 
-                    getRequest().setAttribute(Constants.ASSIGNMENT_ID, a.getId());                
-                    getRequest().setAttribute("assignment_name", a.getName());                
+                    getRequest().setAttribute(Constants.ASSIGNMENT_ID, a.getId());
+                    getRequest().setAttribute("assignment_name", a.getName());
 
                     if (!hasErrors()) {
-                        getRequest().setAttribute(Constants.STUDENTS, students);                
-                        
+                        getRequest().setAttribute(Constants.STUDENTS, students);
+
                         // next step, confirmation.
                         setNextPage("/professor/editAssignmentStudentsConfirm.jsp");
                         setIsNextPageInContext(true);
                     } else {
-                        getRequest().setAttribute(Constants.CLASSROOM, c);                
-                        getRequest().setAttribute("checked_students", studentIds);                
-                        getRequest().setAttribute("activeStudents", c.getStudents(StudentClassroom.ACTIVE_STATUS));                
-    
+                        getRequest().setAttribute(Constants.CLASSROOM, c);
+                        getRequest().setAttribute("checked_students", studentIds);
+                        getRequest().setAttribute("activeStudents", c.getStudents(StudentClassroom.ACTIVE_STATUS));
+
                         setNextPage("/professor/editAssignmentStudents.jsp");
                         setIsNextPageInContext(true);
                     }
@@ -124,7 +125,7 @@ public class EditAssignmentStudents extends ShortBase {
             }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        }        
+        }
     }
 
 
@@ -135,16 +136,16 @@ public class EditAssignmentStudents extends ShortBase {
      */
     private Classroom checkValidClassroom(Long classroomId) throws NavigationException {
         Classroom c = DAOUtil.getFactory().getClassroomDAO().find(classroomId);
-        
+
         if (!c.getProfessor().getId().equals(getUser().getId())) {
             throw new NavigationException("You don't have permission to see this page.");
         }
         return c;
     }
-    
+
     private Long getAssignmentParam() throws TCWebException {
         String assignmentId = StringUtils.checkNull(getRequest().getParameter(Constants.ASSIGNMENT_ID));
-        
+
         if (assignmentId == "") {
             throw new TCWebException("Missing assignment (round) id");
         }
@@ -155,13 +156,13 @@ public class EditAssignmentStudents extends ShortBase {
         } catch (NumberFormatException e) {
             throw new TCWebException("Invalid assignment (round) id");
         }
-        
+
         return id;
     }
 
     private List<Long> getStudentParam() throws TCWebException {
         String[] values = getRequest().getParameterValues(Constants.STUDENT_ID);
-        
+
 
         List<Long> ids = new ArrayList<Long>();
 
@@ -176,7 +177,7 @@ public class EditAssignmentStudents extends ShortBase {
                 ids.add(id);
             }
         }
-        
+
         return ids;
     }
 

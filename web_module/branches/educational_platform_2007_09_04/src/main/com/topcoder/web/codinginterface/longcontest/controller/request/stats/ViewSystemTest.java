@@ -7,13 +7,13 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
+import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 
 import java.util.Map;
-import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
-import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 
 public class ViewSystemTest extends Base {
     protected static final Logger log = Logger.getLogger(ViewSystemTest.class);

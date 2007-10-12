@@ -84,26 +84,31 @@
     // -->
 </script>
 Please select a contest:<br>
-<tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=request.getParameter(Constants.ROUND_ID)%>" onChange="goTo(this)"/>
+<tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="<%=rounds%>" fieldText="name" fieldValue="round_id"
+                     selectedValue="<%=request.getParameter(Constants.ROUND_ID)%>" onChange="goTo(this)"/>
 <br><br>
 
 
-<span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/> &gt; <rsc:item name="round_name" row="<%=infoRow%>"/></span>
+<span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/> &gt; <rsc:item name="round_name"
+                                                                                                   row="<%=infoRow%>"/></span>
 <br>
 <span class="bodySubtitle">Categories:
 <% if (categories.isEmpty()) { %> None <% } %>
 <%boolean first = true;%>
 <rsc:iterator list="<%=categories%>" id="resultRow">
-    <% if (!first) { %>, <% } %><rsc:item name="problem_category_desc" row="<%=resultRow%>"/>
+    <% if (!first) { %>, <% } %>
+    <rsc:item name="problem_category_desc" row="<%=resultRow%>"/>
     <% first = false; %>
 </rsc:iterator>
 <br>
 Competitors: <rsc:item name="num_competitors" row="<%=infoRow%>"/><br>
 Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.##" ifNull="N/A"/></span><br>
-<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>" class="bcLink">Problem
+<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>"
+   class="bcLink">Problem
     Statement</A><br>
 <% if (request.getAttribute(Constants.FORUM_ID) != null) { %>
-<tc-webtag:forumLink forumID="<%=((Long)request.getAttribute(Constants.FORUM_ID)).longValue()%>" message="Discuss this contest"/>
+<tc-webtag:forumLink forumID="<%=((Long)request.getAttribute(Constants.FORUM_ID)).longValue()%>"
+                     message="Discuss this contest"/>
 <% } %>
 <div class="pagingBox">
     <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink">
@@ -142,20 +147,26 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                 <rsc:iterator list="<%=competitors%>" id="resultRow">
                     <tr>
                         <td class="<%=even?"statLt":"statDk"%>" align="right">
-                            <rsc:item name="placed" row="<%=resultRow%>"/></td>
+                            <rsc:item name="placed" row="<%=resultRow%>"/>
+                        </td>
                         <td class="<%=even?"statLt":"statDk"%>">
-                            <tc-webtag:handle context='marathon_match' coderId='<%=resultRow.getLongItem("coder_id")%>'/></td>
+                            <tc-webtag:handle context='marathon_match'
+                                              coderId='<%=resultRow.getLongItem("coder_id")%>'/>
+                        </td>
                         <td class="<%=even?"statLt":"statDk"%>" align="right">
-                            <rsc:item name="point_total" row="<%=resultRow%>" format="0.00"/></td>
+                            <rsc:item name="point_total" row="<%=resultRow%>" format="0.00"/>
+                        </td>
                         <td class="<%=even?"statLt":"statDk"%>" align="right">
-                            <rsc:item name="system_point_total" row="<%=resultRow%>" format="0.00"/></td>
+                            <rsc:item name="system_point_total" row="<%=resultRow%>" format="0.00"/>
+                        </td>
                         <td class="<%=even?"statLt":"statDk"%>" align="center">
-                            <rsc:item name="language_name" row="<%=resultRow%>"/></td>
+                            <rsc:item name="language_name" row="<%=resultRow%>"/>
+                        </td>
                         <td class="<%=even?"statLt":"statDk"%>" align="center">
                             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSystemTestResults&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">results</A>
                         </td>
                         <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
-                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">submission
+                            <A href="/longcontest/?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">submission
                                 history</A></td>
                         <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">example

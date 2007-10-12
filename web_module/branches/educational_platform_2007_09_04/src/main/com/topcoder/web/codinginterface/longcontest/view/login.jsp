@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.codinginterface.longcontest.Constants,
-                 com.topcoder.web.common.BaseServlet" %>
+                 com.topcoder.web.codinginterface.longcontest.controller.request.Login" %>
+<%@ page import="com.topcoder.web.common.BaseServlet" %>
 <%@ page import="com.topcoder.web.common.StringUtils" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -12,8 +13,8 @@
 <html>
 <head>
     <title>TopCoder</title>
-    <jsp:include page="/script.jsp"/>
-    <jsp:include page="/style.jsp">
+    <jsp:include page="script.jsp"/>
+    <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -45,7 +46,7 @@
     <tr valign="top">
         <%-- Left Column Begins--%>
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
+            <jsp:include page="includes/global_left.jsp">
                 <jsp:param name="node" value="m_long_contests"/>
             </jsp:include>
             <%-- Left Column Ends --%>
@@ -64,50 +65,66 @@
                         <img src="/i/clear.gif" alt="" width="380" height="1" border="0"/><br/>
 
                         <p><b>Forgot your password?</b><br/>
-                        If you cannot remember your password <A href="/tc?module=RecoverPassword" class="bodyText">click here</A>
-                        and we can help you restore your account.</p>
+                            If you cannot remember your password <A href="/tc?module=RecoverPassword" class="bodyText">click
+                            here</A>
+                            and we can help you restore your account.</p>
 
                         <p><b>New to TopCoder?</b><br/>
-                            <A class="bodyText" href="https://<jsp:getProperty name="sessionInfo" property="serverName"/>/reg/">Register
+                            <A class="bodyText"
+                               href="https://<jsp:getProperty name="sessionInfo" property="serverName"/>/reg/">Register
                                 now.</A>
                             After you complete the registration process, we will send your account activation code via
                             email.</p>
                     </td>
                 </tr>
                 <tr valign="middle">
-                    <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
-                        <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
+                    <form method="post" name="frmLogin"
+                          action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
+                        <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>"
+                               value="<%= StringUtils.htmlEncode(nextpage) %>">
                         <input type="hidden" name="module" value="Login">
                         <td class="bodyText" align="center">
                             <table border="0" cellpadding="3" cellspacing="0">
-                                <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0">
-                                </td></tr>
+                                <tr>
+                                    <td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0">
+                                    </td>
+                                </tr>
                                 <tr valign="top">
                                     <td class="errorText" colspan="3">
-                                        <p><%= message %></p>
+                                        <p><%= message %>
+                                        </p>
                                     </td>
                                 </tr>
 
                                 <tr valign="middle">
                                     <td nowrap class="bodyText" align="right">Handle:</td>
                                     <td colspan="2" align="left">
-                                        <input type="text" name="<%=Constants.KEY_USER_HANDLE%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                                        <input type="text" name="<%=Constants.KEY_USER_HANDLE%>" value="" maxlength="15"
+                                               size="12" onkeypress="submitEnter(event)">
                                     </td>
                                 </tr>
 
                                 <tr valign="middle">
                                     <td nowrap class="bodyText" align="right">Password:</td>
                                     <td align="left">
-                                        <input type="password" name="<%=Constants.KEY_USER_PASS%>" value="" maxlength="30" size="12" onkeypress="submitEnter(event)">
+                                        <input type="password" name="<%=Constants.KEY_USER_PASS%>" value=""
+                                               maxlength="30" size="12" onkeypress="submitEnter(event)">
                                     </td>
                                     <td nowrap class="bodyText">
                                         &#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a>
                                     </td>
                                 </tr>
 
+                                <tr valign="middle">
+                                    <td nowrap class="bodyText" colspan="3">
+                                        <input type="checkbox" name="<%=Login.REMEMBER_USER%>"> Remember Me
+                                    </td>
+                                </tr>
 
-                                <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0">
-                                </td></tr>
+                                <tr>
+                                    <td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0">
+                                    </td>
+                                </tr>
                             </table>
                             <p><br/></p>
 

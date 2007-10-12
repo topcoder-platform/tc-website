@@ -5,9 +5,13 @@ import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
 
@@ -21,6 +25,7 @@ import java.util.Arrays;
 public class Login extends Base {
 
     public static final String USER_ID = "userid";
+    public static final String REMEMBER_USER = "rem";
 
     protected void longContestProcessing() throws TCWebException {
 
@@ -28,6 +33,7 @@ public class Login extends Base {
         String username = getRequest().getParameter(Constants.KEY_USER_HANDLE);
         String password = getRequest().getParameter(Constants.KEY_USER_PASS);
         String loginStatus = StringUtils.checkNull(getRequest().getParameter(WebConstants.STATUS));
+        String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
 
         // if not null, we got here via a form submit;
         // otherwise, skip this and just draw the login form
@@ -71,11 +77,7 @@ public class Login extends Base {
                                     setIsNextPageInContext(false);
                                 }
                                 log.debug("on successful login, going to " + getNextPage());
-                                if (ApplicationServer.ENVIRONMENT==ApplicationServer.PROD) {
-                                    getAuthentication().login(new SimpleUser(0, username, password), false);
-                                } else {
-                                    getAuthentication().login(new SimpleUser(0, username, password), true);
-                                }
+                                getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
                                 return;
                             }
                         } else {
@@ -100,7 +102,7 @@ public class Login extends Base {
                 } catch (TCWebException e) {
                     throw e;
                 } catch (Exception e) {
-                    throw(new TCWebException(e));
+                    throw (new TCWebException(e));
                 }
             }
 

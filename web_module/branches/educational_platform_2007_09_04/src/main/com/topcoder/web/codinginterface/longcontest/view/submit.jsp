@@ -33,9 +33,10 @@
 
 <html>
 <head>
-    <title>Submit - <%=request.getAttribute(Constants.CLASS_NAME)%></title>
-    <jsp:include page="/script.jsp"/>
-    <jsp:include page="/style.jsp">
+    <title>Submit - <%=request.getAttribute(Constants.CLASS_NAME)%>
+    </title>
+    <jsp:include page="script.jsp"/>
+    <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -89,7 +90,7 @@
 <tr valign="top">
 <%-- Left Column Begins--%>
 <td width="180">
-    <jsp:include page="/includes/global_left.jsp">
+    <jsp:include page="includes/global_left.jsp">
         <jsp:param name="node" value="<%=myNode%>"/>
     </jsp:include>
 </td>
@@ -107,8 +108,10 @@
         <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="codingForm">
             <input type="hidden" name="<%=Constants.MODULE%>" value="<%=Constants.RP_SUBMIT%>">
             <input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getParameter(Constants.ROUND_ID)%>">
-            <input type="hidden" name="<%=Constants.CONTEST_ID%>" value="<%=request.getParameter(Constants.CONTEST_ID)%>">
-            <input type="hidden" name="<%=Constants.COMPONENT_ID%>" value="<%=request.getParameter(Constants.COMPONENT_ID)%>">
+            <input type="hidden" name="<%=Constants.CONTEST_ID%>"
+                   value="<%=request.getParameter(Constants.CONTEST_ID)%>">
+            <input type="hidden" name="<%=Constants.COMPONENT_ID%>"
+                   value="<%=request.getParameter(Constants.COMPONENT_ID)%>">
             <input type="hidden" name="<%=Constants.ACTION_KEY%>" value="">
             <input type="hidden" name="<%=Constants.EXAMPLES_ONLY%>" value="">
 
@@ -116,21 +119,28 @@
                 <tr>
                     <td valign="top">
                         <span class="bodyTitle">Coding Area</span><br>
-                        <strong>Class Name: <%=request.getAttribute(Constants.CLASS_NAME)%></strong><br>
-                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=false<%=(lang!=null?"&lid="+lang:"")%>" class="statLink">Problem
+                        <strong>Class Name: <%=request.getAttribute(Constants.CLASS_NAME)%>
+                        </strong><br>
+                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=false<%=(lang!=null?"&lid="+lang:"")%>"
+                           class="statLink">Problem
                             Statement</A>
-                        (<A href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=true<%=(lang!=null?"&lid="+lang:"")%>', 'Problem Statement');" class="statLink">new
+                        (<A href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=true<%=(lang!=null?"&lid="+lang:"")%>', 'Problem Statement');"
+                            class="statLink">new
                         window</A>)
                     </td>
                     <td align="right" valign="top">Choose your language:<br>
-                        <tc-webtag:listIterator id="language" listKey="languages" type="com.topcoder.shared.language.Language">
-                            <tc-webtag:radioButton name="<%=Constants.LANGUAGE_ID%>" value="<%=String.valueOf(language.getId())%>"/>
+                        <tc-webtag:listIterator id="language" listKey="languages"
+                                                type="com.topcoder.shared.language.Language">
+                            <tc-webtag:radioButton name="<%=Constants.LANGUAGE_ID%>"
+                                                   value="<%=String.valueOf(language.getId())%>"/>
                             &#160;
                             <jsp:getProperty name="language" property="name"/>
                             &#160;
-                        </tc-webtag:listIterator><br>
+                        </tc-webtag:listIterator>
+                        <br>
                         <% if (request.getAttribute(Constants.FORUM_ID) != null) { %>
-                        <tc-webtag:forumLink forumID="<%=((Long)request.getAttribute(Constants.FORUM_ID)).longValue()%>" message="Discuss this contest"/>
+                        <tc-webtag:forumLink forumID="<%=((Long)request.getAttribute(Constants.FORUM_ID)).longValue()%>"
+                                             message="Discuss this contest"/>
 
                         <% } %>
                     </td>
@@ -142,10 +152,10 @@
                             ArrayList returnTypes = (ArrayList) request.getAttribute(Constants.RETURN_TYPE);
                             ArrayList paramTypes = (ArrayList) request.getAttribute(Constants.ARG_TYPES);
 //formatting to the right so that these show up in the text area aligned right.
-for (int i = 0; i < methodNames.size(); i++) { %>
-Method Name: <%=methodNames.get(i)%>
-Return Type: <%=StringUtils.htmlEncode((String) returnTypes.get(i))%>
-Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
+                            for (int i = 0; i < methodNames.size(); i++) { %>
+                            Method Name: <%=methodNames.get(i)%>
+                            Return Type: <%=StringUtils.htmlEncode((String) returnTypes.get(i))%>
+                            Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
                             <% } %></textarea>
                     </td>
                 </tr>
@@ -155,7 +165,9 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
                         <%if (request.getAttribute(Constants.CODE) == null || request.getAttribute(Constants.CODE).toString().equals("")) {%>
                         <textarea cols="70" rows="20" name="code" class="codeTextArea" wrap="off"></textarea>
                         <%} else {%>
-                        <textarea cols="70" rows="20" name="code" class="codeTextArea" wrap="off"><%=StringUtils.replace((String) request.getAttribute(Constants.CODE), "&", "&amp;")%></textarea>
+                        <textarea cols="70" rows="20" name="code" class="codeTextArea" wrap="off"><%=
+                            StringUtils.replace((String) request.getAttribute(Constants.CODE), "&", "&amp;")%>
+                        </textarea>
 
                         <%}%>
                     </td>
@@ -163,26 +175,32 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
                 <tr>
                     <td colspan="2">
                         <span class="bodySubtitle">Messages</span><br>
-                        <textarea cols="70" rows="5" name="messages" class="messageTextArea" wrap="off" readonly><%=(request.getAttribute(Constants.MESSAGE) != null ? "" + request.getAttribute(Constants.MESSAGE) : "")%></textarea>
+                        <textarea cols="70" rows="5" name="messages" class="messageTextArea" wrap="off"
+                                  readonly><%=(request.getAttribute(Constants.MESSAGE) != null ? "" + request.getAttribute(Constants.MESSAGE) : "")%>
+                        </textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div style="float:left; padding: 5px 5px 0px 0px;">
-                            <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
+                            <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0"
+                                             ifNull="&#160;"/>
                         </div>
                     </td>
                     <td align="right" valign="top">
                         <div style="float:right; padding: 5px 0px 0px 5px;">
-                            <A href="javascript:submit();"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0"/></A>
+                            <A href="javascript:submit();"><img src="/i/interface/btn_submit.gif" alt="Submit"
+                                                                border="0"/></A>
                         </div>
 
                         <div style="float:right; padding: 5px 0px 0px 5px;">
-                            <A href="javascript:exampleSubmit();"><img src="/i/interface/btn_test_examples.gif" alt="Test" border="0"/></A>
+                            <A href="javascript:exampleSubmit();"><img src="/i/interface/btn_test_examples.gif"
+                                                                       alt="Test" border="0"/></A>
                         </div>
 
                         <div style="float:right; padding: 5px 0px 0px 5px;">
-                            <A href="javascript:save();"><img src="/i/interface/btn_save.gif" alt="Save" border="0"/></A>
+                            <A href="javascript:save();"><img src="/i/interface/btn_save.gif" alt="Save"
+                                                              border="0"/></A>
                         </div>
 
                     </td>
