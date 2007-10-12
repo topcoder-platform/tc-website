@@ -18,6 +18,8 @@
 </head>
 
 <body>
-<tc-webtag:problemStatement problem="<%=(Problem)request.getAttribute("problem")%>" language="<%=((Language)request.getAttribute("language")).getName()%>"/>
+    <div style="margin: 10px;">
+        <tc-webtag:problemStatement problem="<%=(Problem)request.getAttribute("problem")%>" language="<%=((Language)request.getAttribute("language")).getName()%>"/>
+    </div>
 </body>
 </html>

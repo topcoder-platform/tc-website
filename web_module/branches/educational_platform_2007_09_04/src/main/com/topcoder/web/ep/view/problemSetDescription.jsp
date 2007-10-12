@@ -14,6 +14,8 @@
 </head>
 
 <body>
-${problem_set.description}
+    <div style="margin: 10px;">
+        ${problem_set.description}
+    </div>
 </body>
 </html>
