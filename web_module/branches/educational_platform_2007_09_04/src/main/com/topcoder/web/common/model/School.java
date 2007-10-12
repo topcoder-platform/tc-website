@@ -1,12 +1,11 @@
 package com.topcoder.web.common.model;
 
+import com.topcoder.web.common.model.educ.Classroom;
+
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.ProfessorSchool;
 
 /**
  * @author dok
@@ -23,11 +22,9 @@ public class School extends Base {
     private Boolean viewable;
     private Date modifyDate;
 
-    private Set<ProfessorSchool> professorSchools;
     private Set<Classroom> classrooms;
 
     public School() {
-        this.professorSchools = new HashSet<ProfessorSchool>();
         this.classrooms = new HashSet<Classroom>();
     }
 
@@ -119,20 +116,6 @@ public class School extends Base {
     }
 
     /**
-     * @return the professorSchools
-     */
-    public Set<ProfessorSchool> getProfessorSchools() {
-        return Collections.unmodifiableSet(professorSchools);
-    }
-
-    /**
-     * @param professorSchools the professorSchools to set
-     */
-    public void setProfessorSchools(Set<ProfessorSchool> professorSchools) {
-        this.professorSchools = professorSchools;
-    }
-
-    /**
      * @return the classrooms
      */
     public Set<Classroom> getClassrooms() {
@@ -149,6 +132,7 @@ public class School extends Base {
     /**
      * @return the classrooms
      */
+    //todo get this into a dao
     public Set<Classroom> getClassroomsUsingProfessorId(Long professorId) {
         Set<Classroom> sc = new HashSet<Classroom>();
         for (Classroom c : classrooms) {
