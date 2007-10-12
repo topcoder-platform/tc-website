@@ -3,11 +3,31 @@ package com.topcoder.web.reg.controller.request;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.*;
+import com.topcoder.web.common.model.Address;
+import com.topcoder.web.common.model.CoderReferral;
+import com.topcoder.web.common.model.Company;
+import com.topcoder.web.common.model.Contact;
+import com.topcoder.web.common.model.CurrentSchool;
+import com.topcoder.web.common.model.DemographicAssignment;
+import com.topcoder.web.common.model.DemographicResponse;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.Resume;
+import com.topcoder.web.common.model.School;
+import com.topcoder.web.common.model.SchoolAssociationType;
+import com.topcoder.web.common.model.SchoolType;
+import com.topcoder.web.common.model.Team;
+import com.topcoder.web.common.model.TeamType;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.UserSchool;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author dok
@@ -32,8 +52,8 @@ public class Confirm extends Base {
 
             if (hasErrors()) {
                 Map.Entry me;
-                for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
-                    me = (Map.Entry) it.next();
+                for (Object o : params.entrySet()) {
+                    me = (Map.Entry) o;
                     setDefault((String) me.getKey(), me.getValue());
                 }
                 getRequest().setAttribute(Constants.FIELDS, fields);
@@ -79,10 +99,10 @@ public class Confirm extends Base {
                     answers = (List) params.get(Constants.DEMOG_PREFIX + da.getQuestion().getId());
                     //todo if they answer the multiple choice with a real answer, remove the decline to answer
                     if (answers != null) {
-                        for (int i = 0; i < answers.size(); i++) {
+                        for (Object answer : answers) {
                             tr = new DemographicResponse();
                             tr.setQuestion(da.getQuestion());
-                            tr.setAnswer(da.getQuestion().getAnswer(new Long((String) answers.get(i))));
+                            tr.setAnswer(da.getQuestion().getAnswer(new Long((String) answer)));
                             tr.setUser(u);
                             responses.add(tr);
                         }
@@ -113,19 +133,46 @@ public class Confirm extends Base {
 
         }
         if (fields.contains(Constants.SCHOOL_ID)) {
-            //we'll assume that the coder object exists since we're setting a school
-            CurrentSchool cs = u.getCoder().getCurrentSchool();
+
+            /*
+            for now, we're containing the student-school relationship in current school
+            and the teacher-school relationship in user school.  eventually, we'll contain
+            both relationships in user school.  so, for now, since it's only teachers, we
+            can assume that if they're registering to be a teacher, they user school record
+            is has the teacher association type.
+             */
+            Long schoolId = new Long((String) params.get(Constants.SCHOOL_ID));
+            CurrentSchool cs = null;
+            if (u.getCoder() != null) {
+                cs = u.getCoder().getCurrentSchool();
+            }
             if (cs == null) {
                 cs = new CurrentSchool();
-                cs.setCoder(u.getCoder());
                 u.getCoder().setCurrentSchool(cs);
             }
+
+            boolean isTeacher = getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getTeacherType());
+            UserSchool us = null;
+            if (isTeacher) {
+                us = u.getSchool(schoolId);
+                if (us == null) {
+                    us = new UserSchool();
+                    //setting primary now so that we only end up with one school set as primary.
+                    //the add method takes care of that logic.
+                    us.setPrimary(true);
+                    us.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.TEACHER));
+                    u.addSchool(us);
+                }
+            }
+
+            School s;
             if (hasParameter(params, Constants.SCHOOL_ID)) {
-                //find existing
-                cs.setSchool(getFactory().getSchoolDAO().find(new Long((String) params.get(Constants.SCHOOL_ID))));
+                //find school that exists in our system
+                s = getFactory().getSchoolDAO().find(schoolId);
             } else {
-                School s = new School();
-                s.setViewable(Boolean.valueOf(!Constants.HOME_SCHOOLED.equalsIgnoreCase((String) params.get(Constants.SCHOOL_NAME))));
+                //create a new school
+                s = new School();
+                s.setViewable(!Constants.HOME_SCHOOLED.equalsIgnoreCase((String) params.get(Constants.SCHOOL_NAME)));
                 s.setCoder(u.getCoder());
                 u.getCoder().setCreatedSchools(new HashSet());
                 u.getCoder().addCreatedSchool(s);
@@ -142,8 +189,12 @@ public class Confirm extends Base {
                     a.setProvince((String) params.get(Constants.SCHOOL_PROVINCE));
                 }
                 s.setAddress(a);
-                cs.setSchool(s);
             }
+            cs.setSchool(s);
+            if (us != null) {
+                us.setSchool(s);
+            }
+
             if (!RegFieldHelper.getMainFieldSet(getRequestedTypes(), u).contains(Constants.COMP_COUNTRY_CODE)) {
                 //make hs people's comp country be the country of their school
                 if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
@@ -151,22 +202,19 @@ public class Confirm extends Base {
                 }
             }
 
-            if (getFactory().getSchoolTypeDAO().find(SchoolType.HIGH_SCHOOL).equals(u.getCoder().getCurrentSchool().getSchool().getType()))
-            {
+            if (getFactory().getSchoolTypeDAO().find(SchoolType.HIGH_SCHOOL).equals(u.getCoder().getCurrentSchool().getSchool().getType())) {
                 //high school people have to show their school
                 u.getCoder().getCurrentSchool().setViewable(Boolean.TRUE);
             } else {
-                u.getCoder().getCurrentSchool().setViewable(Boolean.valueOf("show".equals(params.get(Constants.VISIBLE_SCHOOL))));
+                u.getCoder().getCurrentSchool().setViewable("show".equals(params.get(Constants.VISIBLE_SCHOOL)));
             }
 
-            if (u.getCoder().getCurrentSchool() != null && getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType()))
-            {
-
-                List teams = getFactory().getTeamDAO().getHighSchoolTeamsForSchool(u.getCoder().getCurrentSchool().getSchool());
+            if (u.getCoder().getCurrentSchool() != null &&
+                    getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
+                List teams = getFactory().getTeamDAO().getHighSchoolTeamsForSchool(s);
                 Team t;
                 if (teams.isEmpty()) {
                     t = new Team();
-                    School s = u.getCoder().getCurrentSchool().getSchool();
                     t.setName(s.getName());
                     t.setSchool(s);
                     t.setType(getFactory().getTeamTypeDAO().find(TeamType.HIGH_SCHOOL_TYPE));
@@ -186,7 +234,7 @@ public class Confirm extends Base {
             }
         }
         if (fields.contains(Constants.RESUME) && hasParameter(params, Constants.FILE)) {
-            Resume r = null;
+            Resume r;
             if (u.getCoder().getResumes().isEmpty()) {
                 r = new Resume();
                 r.setCoder(u.getCoder());

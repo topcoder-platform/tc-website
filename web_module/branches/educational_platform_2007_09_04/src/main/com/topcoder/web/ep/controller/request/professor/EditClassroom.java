@@ -5,10 +5,6 @@
 */
 package com.topcoder.web.ep.controller.request.professor;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
@@ -24,6 +20,10 @@ import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.LongBase;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
@@ -38,34 +38,35 @@ public class EditClassroom extends LongBase {
     @Override
     protected void dbProcessing() throws Exception {
         this.sessionPrefix = "ec_";
-        
+
         log.debug("Edit Classroom called...");
         if (userLoggedIn()) {
             log.debug("User identified - " + getUser().getUserName());
-            
+
             if (!"POST".equals(getRequest().getMethod())) {
                 log.debug("First pass - " + getUser().getUserName());
-                                
+
                 // the user has just got here
                 //set up the user object we're gonna use
                 User u = getActiveUser();
-    
-                if (u.getProfessor().getActiveSchools().size() == 0) {
+
+                //todo change this to only count teach associations, not all of them
+                if (u.getSchools().isEmpty()) {
                     throw new TCWebException("No active schools for this professor");
                 }
-                
+
                 // new or edit
                 Long classroomId = getClassroomParam();
-    
+
                 Classroom c;
                 if (classroomId != null) {
                     // check if this classroom belongs to the active user
                     c = DAOUtil.getFactory().getClassroomDAO().find(classroomId);
-                    
+
                     if (!c.getProfessor().getId().equals(getUser().getId())) {
                         throw new NavigationException("You don't have permission to see this page.");
                     }
-                    
+
                     setDefault(Constants.SCHOOL_ID, c.getSchool().getId());
                     setDefault("classroom_name", c.getName());
                     setDefault("classroom_academic_period", c.getAcademicPeriod());
@@ -74,12 +75,12 @@ public class EditClassroom extends LongBase {
                     c = new Classroom();
                     c.setProfessor(u.getProfessor());
                 }
-                
+
                 // prepare stuff for the long transaction
                 clearSession();
-    
+
                 setClassroom(c);
-    
+
                 setNextPage("/professor/editClassroom.jsp");
                 setIsNextPageInContext(true);
             } else {
@@ -92,12 +93,12 @@ public class EditClassroom extends LongBase {
                     if (schoolId == null) {
                         addError("error", "Please select a school");
                     } else {
-                        s = getActiveUser().getProfessor().getSchoolUsingId(schoolId);                    
+                        s = getActiveUser().getSchool(schoolId).getSchool();
                         if (s == null) {
-                            throw new TCWebException("Invalid school id");                        
+                            throw new TCWebException("Invalid school id");
                         }
                     }
-                    
+
                     String classroomName = StringUtils.checkNull(getRequest().getParameter("classroom_name"));
                     if (classroomName == "") {
                         addError("error", "Please enter a name");
@@ -113,10 +114,10 @@ public class EditClassroom extends LongBase {
                     // got a response, validate.
 
                     Classroom c = getClassroom();
-                    
+
                     // check there's no other classroom with the same name, academic period in the same school.
                     if (s != null && getActiveUser().getProfessor().hasClassroom(s,
-                            classroomName, 
+                            classroomName,
                             classroomAcademicPeriod)) {
                         // check if it's not finding the edited classroom
                         if (!(c.getId() != null && c.getName().equals(classroomName) &&
@@ -125,24 +126,24 @@ public class EditClassroom extends LongBase {
                             addError("error", "This classroom already exists");
                         }
                     }
-                    
+
                     if (!hasErrors()) {
-                        
+
                         if (c.getId() != null && !c.getProfessor().getId().equals(getUser().getId())) {
                             throw new NavigationException("You don't have permission to see this page.");
                         }
-    
+
                         c.setName(classroomName);
                         c.setAcademicPeriod(classroomAcademicPeriod);
                         c.setDescription(classroomDescription);
                         c.setStatusId(Classroom.ACTIVE);
                         c.setSchool(s);
-                        
+
                         Set<Coder> sc = c.getStudents(StudentClassroom.PENDING_STATUS);
                         sc.addAll(c.getStudents(StudentClassroom.ACTIVE_STATUS));
-    
+
                         Set<Coder> ps = getActiveUser().getProfessor().getStudents(s);
-                        
+
                         // if editing or no student to select, we go directly to the confirmation
                         if (c.getId() == null && (sc.size() > 0 || ps.size() > 0)) {
                             // generate checked students collection
@@ -150,42 +151,42 @@ public class EditClassroom extends LongBase {
                             for (Coder coder : sc) {
                                 checkedStudents.add(coder.getId());
                             }
-                            getRequest().setAttribute("checked_students", checkedStudents);            
-                            
-                            getRequest().setAttribute("possible_students", ps);            
-    
+                            getRequest().setAttribute("checked_students", checkedStudents);
+
+                            getRequest().setAttribute("possible_students", ps);
+
                             log.debug("classroom's school: " + c.getSchool() == null ? null : c.getSchool().getName());
-    
+
                             // next step, students.
                             setNextPage("/professor/selectStudents.jsp");
                             setIsNextPageInContext(true);
                         } else {
                             // if this is their first class and there are no students to select, go directly to the confirmation
                             setSelectedStudents(new ArrayList<Coder>());
-                            
+
                             setNextPage("/professor/editClassroomConfirm.jsp");
-                            setIsNextPageInContext(true);            
+                            setIsNextPageInContext(true);
                         }
                     } else {
                         setDefault("classroom_name", classroomName);
                         setDefault("classroom_academic_period", classroomAcademicPeriod);
                         setDefault("classroom_description", classroomDescription);
-    
+
                         setNextPage("/professor/editClassroom.jsp");
                         setIsNextPageInContext(true);
                     }
                 } else {
                     throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-                }        
+                }
             }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        }        
+        }
     }
-    
+
     private Long getClassroomParam() throws TCWebException {
         String classroomId = StringUtils.checkNull(getRequest().getParameter(Constants.CLASSROOM_ID));
-        
+
         if (classroomId == "") {
             return null;
         }
@@ -196,13 +197,13 @@ public class EditClassroom extends LongBase {
         } catch (NumberFormatException e) {
             throw new TCWebException("Invalid classroom id");
         }
-        
+
         return id;
     }
 
     private Long getSchoolParam() throws TCWebException {
         String schoolId = StringUtils.checkNull(getRequest().getParameter(Constants.SCHOOL_ID));
-        
+
         if (schoolId == "") {
             return null;
         }
@@ -213,7 +214,7 @@ public class EditClassroom extends LongBase {
         } catch (NumberFormatException e) {
             throw new TCWebException("Invalid school id");
         }
-        
+
         return id;
     }
 

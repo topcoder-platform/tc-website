@@ -1,59 +1,6 @@
 package com.topcoder.web.common.dao.hibernate;
 
-import com.topcoder.web.common.dao.AlgoRatingTypeDAO;
-import com.topcoder.web.common.dao.ClassroomDAO;
-import com.topcoder.web.common.dao.CoderDAO;
-import com.topcoder.web.common.dao.CoderTypeDAO;
-import com.topcoder.web.common.dao.CompContestDAO;
-import com.topcoder.web.common.dao.CompanyDAO;
-import com.topcoder.web.common.dao.ComponentDAO;
-import com.topcoder.web.common.dao.ContactDAO;
-import com.topcoder.web.common.dao.ContestDAO;
-import com.topcoder.web.common.dao.ContestPrizeDAO;
-import com.topcoder.web.common.dao.CountryDAO;
-import com.topcoder.web.common.dao.DAOFactory;
-import com.topcoder.web.common.dao.DemographicAnswerDAO;
-import com.topcoder.web.common.dao.DemographicAssignmentDAO;
-import com.topcoder.web.common.dao.DemographicQuestionDAO;
-import com.topcoder.web.common.dao.EventDAO;
-import com.topcoder.web.common.dao.EventRegistrationDAO;
-import com.topcoder.web.common.dao.EventTypeDAO;
-import com.topcoder.web.common.dao.FileTypeDAO;
-import com.topcoder.web.common.dao.ImageDAO;
-import com.topcoder.web.common.dao.IntroEventDAO;
-import com.topcoder.web.common.dao.IntroEventPropertyTypeDAO;
-import com.topcoder.web.common.dao.LanguageDAO;
-import com.topcoder.web.common.dao.MemberContactBlackListDAO;
-import com.topcoder.web.common.dao.MemberContactMessageDAO;
-import com.topcoder.web.common.dao.NotificationDAO;
-import com.topcoder.web.common.dao.PasswordRecoveryDAO;
-import com.topcoder.web.common.dao.PreferenceDAO;
-import com.topcoder.web.common.dao.PreferenceGroupDAO;
-import com.topcoder.web.common.dao.PreferenceValueDAO;
-import com.topcoder.web.common.dao.ProblemSetDAO;
-import com.topcoder.web.common.dao.ProfessorDAO;
-import com.topcoder.web.common.dao.ProjectDAO;
-import com.topcoder.web.common.dao.QuestionStyleDAO;
-import com.topcoder.web.common.dao.QuestionTypeDAO;
-import com.topcoder.web.common.dao.ReferralDAO;
-import com.topcoder.web.common.dao.RegistrationTypeDAO;
-import com.topcoder.web.common.dao.RoundDAO;
-import com.topcoder.web.common.dao.RoundTypeDAO;
-import com.topcoder.web.common.dao.SchoolDAO;
-import com.topcoder.web.common.dao.SchoolTypeDAO;
-import com.topcoder.web.common.dao.SeasonDAO;
-import com.topcoder.web.common.dao.SecurityGroupDAO;
-import com.topcoder.web.common.dao.StateDAO;
-import com.topcoder.web.common.dao.StudentClassroomDAO;
-import com.topcoder.web.common.dao.SubmissionDAO;
-import com.topcoder.web.common.dao.TeamDAO;
-import com.topcoder.web.common.dao.TeamTypeDAO;
-import com.topcoder.web.common.dao.TermsOfUseDAO;
-import com.topcoder.web.common.dao.TimeZoneDAO;
-import com.topcoder.web.common.dao.UserDAO;
-import com.topcoder.web.common.dao.UserPreferenceDAO;
-import com.topcoder.web.common.dao.VisaLetterEventDAO;
-import com.topcoder.web.common.dao.VisaLetterRequestDAO;
+import com.topcoder.web.common.dao.*;
 
 /**
  * @author dok
@@ -181,6 +128,10 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new SchoolDAOHibernate();
     }
 
+    public SchoolAssociationTypeDAO getSchoolAssociationTypeDAO() {
+        return new SchoolAssociationTypeDAOHibernate();
+    }
+
     public SchoolTypeDAO getSchoolTypeDAO() {
         return new SchoolTypeDAOHibernate();
     }
@@ -252,11 +203,11 @@ public class DAOFactoryHibernate implements DAOFactory {
     public StudentClassroomDAO getStudentClassroomDAO() {
         return new StudentClassroomDAOHibernate();
     }
-    
+
     public RoundTypeDAO getRoundTypeDAO() {
         return new RoundTypeDAOHibernate();
     }
-    
+
     public ContestDAO getContestDAO() {
         return new ContestDAOHibernate();
     }

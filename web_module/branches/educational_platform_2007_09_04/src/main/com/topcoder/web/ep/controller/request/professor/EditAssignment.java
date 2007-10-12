@@ -5,15 +5,6 @@
 */
 package com.topcoder.web.ep.controller.request.professor;
 
-import java.sql.Timestamp;
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
@@ -35,6 +26,15 @@ import com.topcoder.web.ep.controller.request.ShortBase;
 import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
 
+import java.sql.Timestamp;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
@@ -49,22 +49,23 @@ public class EditAssignment extends ShortBase {
     @Override
     protected void dbProcessing() throws Exception {
         this.sessionPrefix = "ea_";
-        
+
         log.debug("Edit assignment called...");
         if (userLoggedIn()) {
             User u = getActiveUser();
             log.debug("User identified - " + u.getHandle());
-            
+
             Long assignmentId = getAssignmentParam();
             Long classroomId = getClassroomParam();
-            
+
             if (!"POST".equals(getRequest().getMethod())) {
                 log.debug("First pass - " + getUser().getUserName());
-                
-                if (u.getProfessor().getActiveSchools().size() == 0) {
+
+                //todo change this to only count professor associations, not all
+                if (u.getSchools().isEmpty()) {
                     throw new TCWebException("No active schools for this professor");
                 }
-                
+
                 // check if we already have data in the session
                 // this is possible if the user goes to confirmation and then hit the back button
                 AssignmentDTO assignmentInSession = getAssignment();
@@ -73,29 +74,29 @@ public class EditAssignment extends ShortBase {
                 Round a = null;
                 if (assignmentId != null || hasDataInSession) {
                     // we are editing or inserting a new one but we already have data in session
-                    
+
                     if (assignmentId != null) {
                         // check if this assignment belongs to the active user
                         a = DAOUtil.getFactory().getRoundDAO().find(assignmentId);
-        
+
                         Object classroomProperty = a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID);
-        
+
                         if (classroomProperty == null) {
                             throw new TCWebException("The assignment has an invalid classroom id");
                         }
-        
+
                         classroomId = (Long) classroomProperty;
                     } else {
-                        classroomId = assignmentInSession.getClassroomId(); 
+                        classroomId = assignmentInSession.getClassroomId();
                     }
-                    
+
                     setDefault("assignment_name", hasDataInSession ? assignmentInSession.getAssignmentName() : a.getName());
                     setDefault("assignment_start", formatDate(hasDataInSession ? assignmentInSession.getStartDate() : a.getContest().getStartDate()));
                     setDefault("assignment_end", formatDate(hasDataInSession ? assignmentInSession.getEndDate() : a.getContest().getEndDate()));
-                    setDefault("assignment_coding_phase_length", hasDataInSession ? assignmentInSession.getCoderPhaseLength() : (Long)a.getProperty(RoundProperty.CODING_PHASE_LENGTH_PROPERTY_ID));
-                    setDefault("assignment_show_all_scores", hasDataInSession ? assignmentInSession.getShowAllScores() : ((Long)a.getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID)).equals(1l) ? "true" : "false");
-                    setDefault("assignment_score_type", hasDataInSession ? assignmentInSession.getScoreType() : (Long)a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID));
-    
+                    setDefault("assignment_coding_phase_length", hasDataInSession ? assignmentInSession.getCoderPhaseLength() : (Long) a.getProperty(RoundProperty.CODING_PHASE_LENGTH_PROPERTY_ID));
+                    setDefault("assignment_show_all_scores", hasDataInSession ? assignmentInSession.getShowAllScores() : ((Long) a.getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID)).equals(1l) ? "true" : "false");
+                    setDefault("assignment_score_type", hasDataInSession ? assignmentInSession.getScoreType() : (Long) a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID));
+
                     if (hasDataInSession) {
                         getRequest().setAttribute("assignment_languages", assignmentInSession.getLanguages());
                     } else {
@@ -104,7 +105,7 @@ public class EditAssignment extends ShortBase {
                             al.add(l.getId());
                         }
                         getRequest().setAttribute("assignment_languages", al);
-                    }                    
+                    }
                 } else {
                     a = new Round();
                     // this is a new assignment, we need the classroom id
@@ -112,35 +113,35 @@ public class EditAssignment extends ShortBase {
                         throw new TCWebException("Invalid classroom id");
                     }
                 }
-    
+
                 // check if this classroom belongs to the active user
                 Classroom c = checkValidClassroom(classroomId);
-    
+
                 // prepare stuff for the long transaction
                 if (!hasDataInSession) {
                     clearSession();
-                
+
                     AssignmentDTO adto = new AssignmentDTO();
-        
+
                     adto.setRoundId(a.getId());
                     adto.setClassroomId(c.getId());
                     adto.setClassroomName(c.getName());
-        
+
                     // fill the components
                     for (RoundComponent rc : a.getRoundComponents()) {
                         adto.addComponent(new ComponentDTO(
                                 rc.getId().getComponent().getId(),
                                 rc.getPoints(),
-                                rc.getId().getComponent().getProblem().getName())); 
+                                rc.getId().getComponent().getProblem().getName()));
                     }
-                    
+
                     setAssignment(adto);
                 }
-                
+
                 getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
                 getRequest().setAttribute("languages", DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages());
                 getRequest().setAttribute("problem_sets", DAOUtil.getFactory().getProblemSetDAO().findAll());
-    
+
                 setNextPage("/professor/editAssignment.jsp");
                 setIsNextPageInContext(true);
             } else {
@@ -149,12 +150,12 @@ public class EditAssignment extends ShortBase {
                     throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
                 } else if (userLoggedIn()) {
                     // got a response, validate.
-    
+
                     String assignmentName = StringUtils.checkNull(getRequest().getParameter("assignment_name"));
                     if (assignmentName == "") {
                         addError("error", "Please enter an assignment name");
                     }
-                    
+
                     String assignmentStart = StringUtils.checkNull(getRequest().getParameter("assignment_start"));
                     Timestamp assignmentStartDate = null;
                     if (assignmentStart == "") {
@@ -188,15 +189,15 @@ public class EditAssignment extends ShortBase {
                             addError("error", "Invalid coding phase length");
                         }
                     }
-    
+
                     String showAllScores = StringUtils.checkNull(getRequest().getParameter("assignment_show_all_scores"));
-    
+
                     String scoreType = StringUtils.checkNull(getRequest().getParameter("assignment_score_type"));
                     if (scoreType == "") {
                         throw new TCWebException("Invalid score type");
                     }
-    
-    
+
+
                     String[] languages = getRequest().getParameterValues(Constants.LANGUAGE_ID);
                     if (languages == null || languages.length == 0) {
                         addError("error", "You must select at least one language");
@@ -207,32 +208,32 @@ public class EditAssignment extends ShortBase {
                     if (DAOUtil.getFactory().getRoundDAO().findDuplicateName(adto.getClassroomId(), assignmentName, adto.getRoundId()).size() > 0) {
                         addError("error", "You already have an assignment with the same name");
                     }
-                    
+
                     Integer problemSetId = getProblemSetParam();
-                    
+
                     if (adto.getRoundId() == null && problemSetId == null) {
                         addError("error", "You must select a problem set");
                     }
-                    
+
                     ProblemSet ps = null;
                     if (problemSetId != null) {
                         ps = getFactory().getProblemSetDAO().find(problemSetId);
                     }
-                    
+
                     if (problemSetId != null && ps == null) {
                         throw new TCWebException("Couldn't find problem set");
                     }
-                    
+
                     if (!hasErrors()) {
                         // update assignment DTO
                         adto.setAssignmentName(assignmentName);
                         adto.setCoderPhaseLength(codingPhase);
                         adto.setShowAllScores("on".equals(showAllScores) ? 1l : 0l);
                         adto.setScoreType(Long.parseLong(scoreType));
-                        
+
                         adto.setStartDate(assignmentStartDate);
                         adto.setEndDate(assignmentEndDate);
-                        
+
                         List<Integer> languageList = new ArrayList<Integer>(languages.length);
                         for (String language : languages) {
                             if (!Language.assignmentLanguages.contains(Integer.parseInt(language))) {
@@ -248,15 +249,15 @@ public class EditAssignment extends ShortBase {
                                 languagesList += l.getName() + ((languageList.size() > 1) ? ", " : "");
                             }
                         }
-                        
+
                         // only if it's a new assignment, process selected problem set
                         if (adto.getRoundId() == null) {
                             adto.clearComponents();
                             for (Component cm : ps.getComponents()) {
                                 adto.addComponent(new ComponentDTO(
-                                    cm.getId(),
-                                    cm.getProblem().getProposedDifficulty().getPointValue(),
-                                    cm.getProblem().getName()));
+                                        cm.getId(),
+                                        cm.getProblem().getProposedDifficulty().getPointValue(),
+                                        cm.getProblem().getName()));
                             }
                         }
 
@@ -278,17 +279,17 @@ public class EditAssignment extends ShortBase {
                         setDefault("assignment_show_all_scores", "on".equals(showAllScores) ? "true" : "false");
                         setDefault("assignment_score_type", scoreType);
                         setDefault(Constants.PROBLEM_SET_ID, getRequest().getParameter(Constants.PROBLEM_SET_ID));
-    
-                        
+
+
                         Set<Integer> al = new HashSet<Integer>();
                         if (languages != null) {
                             for (String language : languages) {
                                 al.add(Integer.parseInt(language));
                             }
                         }
-                        
+
                         getRequest().setAttribute("assignment_languages", al);
-    
+
                         getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
                         getRequest().setAttribute("languages", DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages());
                         getRequest().setAttribute("problem_sets", DAOUtil.getFactory().getProblemSetDAO().findAll());
@@ -302,7 +303,7 @@ public class EditAssignment extends ShortBase {
             }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        }        
+        }
     }
 
 
@@ -313,16 +314,16 @@ public class EditAssignment extends ShortBase {
      */
     private Classroom checkValidClassroom(Long classroomId) throws NavigationException {
         Classroom c = DAOUtil.getFactory().getClassroomDAO().find(classroomId);
-        
+
         if (!c.getProfessor().getId().equals(getUser().getId())) {
             throw new NavigationException("You don't have permission to see this page.");
         }
         return c;
     }
-    
+
     private Long getClassroomParam() throws TCWebException {
         String classroomId = StringUtils.checkNull(getRequest().getParameter(Constants.CLASSROOM_ID));
-        
+
         if (classroomId == "") {
             return null;
         }
@@ -333,13 +334,13 @@ public class EditAssignment extends ShortBase {
         } catch (NumberFormatException e) {
             throw new TCWebException("Invalid classroom id");
         }
-        
+
         return id;
     }
 
     private Long getAssignmentParam() throws TCWebException {
         String assignmentId = StringUtils.checkNull(getRequest().getParameter(Constants.ASSIGNMENT_ID));
-        
+
         if (assignmentId == "") {
             return null;
         }
@@ -350,13 +351,13 @@ public class EditAssignment extends ShortBase {
         } catch (NumberFormatException e) {
             throw new TCWebException("Invalid assignment (round) id");
         }
-        
+
         return id;
     }
 
     private Integer getProblemSetParam() throws TCWebException {
         String problemSetId = StringUtils.checkNull(getRequest().getParameter(Constants.PROBLEM_SET_ID));
-        
+
         if (problemSetId == "") {
             return null;
         }
@@ -367,7 +368,7 @@ public class EditAssignment extends ShortBase {
         } catch (NumberFormatException e) {
             throw new TCWebException("Invalid problem set id");
         }
-        
+
         return id;
     }
 

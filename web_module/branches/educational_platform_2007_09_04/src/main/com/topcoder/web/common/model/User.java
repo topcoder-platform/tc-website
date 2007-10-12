@@ -5,7 +5,13 @@ import com.topcoder.web.common.model.comp.UserContestPrize;
 import com.topcoder.web.common.model.educ.Professor;
 import com.topcoder.web.common.voting.RankBallot;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * A class containing user information.
@@ -43,6 +49,7 @@ public class User extends Base {
     private Set<RankBallot> ballots;
     private Set<UserContestPrize> compPrizes;
     private Professor professor;
+    private Set<UserSchool> schools;
 
     /**
      * hoke: used for making changes
@@ -70,6 +77,7 @@ public class User extends Base {
         ballots = new HashSet<RankBallot>();
         eventRegistrations = new HashSet<EventRegistration>();
         compPrizes = new HashSet<UserContestPrize>();
+        schools = new HashSet<UserSchool>();
     }
 
     public Long getId() {
@@ -484,6 +492,53 @@ public class User extends Base {
 
     public void addBallot(RankBallot ballot) {
         ballots.add(ballot);
+    }
+
+
+    public Set<UserSchool> getSchools() {
+        //returning a modifiable list because this is the parent side of the relationship.
+        //changes to the set will be persisted.
+        return schools;
+    }
+
+    public void setSchools(Set<UserSchool> schools) {
+        this.schools = schools;
+    }
+
+    /**
+     * If this user is associated with the given school, return that
+     * association.
+     *
+     * @param schoolId the id of the school to check for
+     * @return the association betwen this user and that school
+     */
+    public UserSchool getSchool(Long schoolId) {
+        for (UserSchool school : schools) {
+            if (school.getId().equals(schoolId)) {
+                return school;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Add a school for the user.  If this school is the primary, then
+     * mark existing primary school as non-primary.  This method will
+     * also associate this user with the passed in school
+     *
+     * @param school the school that this user is being associated with.
+     */
+    public void addSchool(UserSchool school) {
+        if (school.isPrimary()) {
+            for (UserSchool s : schools) {
+                if (s.isPrimary()) {
+                    s.setPrimary(false);
+                }
+            }
+        }
+        school.setUser(this);
+        schools.add(school);
+
     }
 
     @Override

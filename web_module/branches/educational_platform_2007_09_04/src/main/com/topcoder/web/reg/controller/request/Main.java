@@ -6,7 +6,13 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.RegistrationTypeDAO;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
-import com.topcoder.web.common.model.*;
+import com.topcoder.web.common.model.Coder;
+import com.topcoder.web.common.model.CoderType;
+import com.topcoder.web.common.model.Contact;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.Season;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.educ.Professor;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 
@@ -122,7 +128,6 @@ public class Main extends Base {
                         (getRequestedTypes().contains(regTypeDAO.getCorporateType()) || getRequestedTypes().contains(regTypeDAO.getSoftwareType()))) {
                     Contact c = new Contact();
                     u.setContact(c);
-                    c.setUser(u);
                 }
                 if (u.getCoder() == null && (getRequestedTypes().contains(regTypeDAO.getCompetitionType()) ||
                         getRequestedTypes().contains(regTypeDAO.getStudioType()))) {
@@ -130,13 +135,16 @@ public class Main extends Base {
                     //we'll have competitor table rather than a coder table
                     Coder c = new Coder();
                     u.setCoder(c);
-                    c.setUser(u);
                 }
+                if (u.getCoder() == null && (getRequestedTypes().contains(regTypeDAO.getTeacherType()))) {
+                    Professor p = new Professor();
+                    u.setProfessor(p);
+                }
+
                 if (getRequestedTypes().contains(regTypeDAO.getHighSchoolType())) {
                     Coder c;
                     if (u.getCoder() == null) {
                         c = new Coder();
-                        c.setUser(u);
                         u.setCoder(c);
                     } else {
                         c = u.getCoder();

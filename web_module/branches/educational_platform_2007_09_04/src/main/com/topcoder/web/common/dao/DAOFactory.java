@@ -1,9 +1,5 @@
 package com.topcoder.web.common.dao;
 
-import com.topcoder.web.common.model.algo.Contest;
-import com.topcoder.web.common.model.algo.RoundType;
-
-
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -70,6 +66,8 @@ public interface DAOFactory {
 
     SchoolDAO getSchoolDAO();
 
+    SchoolAssociationTypeDAO getSchoolAssociationTypeDAO();
+
     SchoolTypeDAO getSchoolTypeDAO();
 
     SeasonDAO getSeasonDAO();
@@ -99,7 +97,7 @@ public interface DAOFactory {
     VisaLetterEventDAO getVisaLetterEventDAO();
 
     VisaLetterRequestDAO getVisaLetterRequestDAO();
-    
+
     ProfessorDAO getProfessorDAO();
 
     ClassroomDAO getClassroomDAO();

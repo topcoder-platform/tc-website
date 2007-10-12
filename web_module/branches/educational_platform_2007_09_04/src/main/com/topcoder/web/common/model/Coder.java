@@ -1,5 +1,12 @@
 package com.topcoder.web.common.model;
 
+import com.topcoder.web.common.model.algo.RoomResult;
+import com.topcoder.web.common.model.algo.RoundRegistration;
+import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.common.model.educ.ClassroomComparator;
+import com.topcoder.web.common.model.educ.Professor;
+import com.topcoder.web.common.model.educ.StudentClassroom;
+
 import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.HashSet;
@@ -7,13 +14,6 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-
-import com.topcoder.web.common.model.algo.RoomResult;
-import com.topcoder.web.common.model.algo.RoundRegistration;
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.ClassroomComparator;
-import com.topcoder.web.common.model.educ.Professor;
-import com.topcoder.web.common.model.educ.StudentClassroom;
 
 /**
  * A class to hold coder data.
@@ -29,10 +29,10 @@ public class Coder extends Base {
     private String quote;
     private CoderType coderType;
     private Country compCountry;
-/*
-    private HSAlgoRating hsRating;
-    private TCAlgoRating tcRating;
-*/
+    /*
+        private HSAlgoRating hsRating;
+        private TCAlgoRating tcRating;
+    */
     private CurrentSchool currentSchool;
     private CoderReferral coderReferral;
     private Set resumes;
@@ -43,7 +43,7 @@ public class Coder extends Base {
 
     private Set ratings;
 
-//    private Set professors;
+    //    private Set professors;
     private Set<StudentClassroom> studentClassrooms;
     private Set<RoundRegistration> roundRegistrations;
 
@@ -128,6 +128,7 @@ public class Coder extends Base {
 
     public void setCurrentSchool(CurrentSchool currentSchool) {
         this.currentSchool = currentSchool;
+        currentSchool.setCoder(this);
     }
 
     public User getUser() {
@@ -217,7 +218,7 @@ public class Coder extends Base {
         }
         return found;
     }
-   
+
     public Set getProfessors() {
 //        return Collections.unmodifiableSet(professors);
         Set<Professor> ps = new HashSet<Professor>();
@@ -228,13 +229,13 @@ public class Coder extends Base {
             }
         }
         return Collections.unmodifiableSet(ps);
-        
+
     }
 
 //    public void setProfessors(Set professors) {
 //        this.professors = professors;
 //    }
-    
+
     public void addClassroom(Classroom c) {
         this.studentClassrooms.add(new StudentClassroom(this, c, StudentClassroom.PENDING_STATUS));
     }
@@ -264,7 +265,7 @@ public class Coder extends Base {
     public Set<Classroom> getClassrooms() {
         SortedSet<Classroom> cs = new TreeSet<Classroom>(new ClassroomComparator());
         for (StudentClassroom sc : this.studentClassrooms) {
-                cs.add(sc.getId().getClassroom());
+            cs.add(sc.getId().getClassroom());
         }
         return Collections.unmodifiableSet(cs);
     }
@@ -302,7 +303,7 @@ public class Coder extends Base {
             this.roomResults.remove(rs);
         }
     }
-    
+
     public Image getMemberPhoto() {
         CoderImage c;
         for (Iterator it = images.iterator(); it.hasNext();) {

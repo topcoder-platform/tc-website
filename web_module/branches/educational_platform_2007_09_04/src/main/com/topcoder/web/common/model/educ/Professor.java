@@ -5,15 +5,17 @@
 */
 package com.topcoder.web.common.model.educ;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import com.topcoder.web.common.model.Base;
+import com.topcoder.web.common.model.Coder;
+import com.topcoder.web.common.model.School;
+import com.topcoder.web.common.model.User;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -22,23 +24,18 @@ import javax.persistence.OrderBy;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
-
-import com.topcoder.web.common.model.Base;
-import com.topcoder.web.common.model.Coder;
-import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.User;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
 @Entity
-@Table(name="professor")
+@Table(name = "professor")
 public class Professor extends Base {
 
     public static final Integer ACTIVE_STATUS = 1;
@@ -48,35 +45,23 @@ public class Professor extends Base {
     private User user;
     private Integer statusId;
 
-    private Set<ProfessorSchool> professorSchools;
-
     private Set<Classroom> classrooms;
 
     public Professor() {
         this.classrooms = new HashSet<Classroom>();
-        this.professorSchools = new HashSet<ProfessorSchool>();
     }
 
-    @Id @GeneratedValue(generator="generator")
-    @GenericGenerator(name="generator", strategy="foreign", 
-            parameters=@Parameter(name="property", value="user"))
-    @Column(name="user_id", nullable=false)
+    @Id
+    @GeneratedValue(generator = "generator")
+    @GenericGenerator(name = "generator", strategy = "foreign",
+            parameters = @Parameter(name = "property", value = "user"))
+    @Column(name = "user_id", nullable = false)
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="id.professor")
-    @Cascade( {CascadeType.SAVE_UPDATE} )
-    public Set<ProfessorSchool> getProfessorSchools() {
-        return Collections.unmodifiableSet(professorSchools);
-    }
-
-    public void setProfessorSchools(Set<ProfessorSchool> professorSchools) {
-        this.professorSchools = professorSchools;
     }
 
     @Column(name = "status_id", nullable = false)
@@ -88,7 +73,8 @@ public class Professor extends Base {
         this.statusId = statusId;
     }
 
-    @OneToOne @PrimaryKeyJoinColumn
+    @OneToOne
+    @PrimaryKeyJoinColumn
     public User getUser() {
         return user;
     }
@@ -97,8 +83,8 @@ public class Professor extends Base {
         this.user = user;
     }
 
-    @OneToMany(mappedBy="professor")
-    @Cascade( {CascadeType.ALL} )
+    @OneToMany(mappedBy = "professor")
+    @Cascade({CascadeType.ALL})
     @OrderBy("school, name asc")
     public Set<Classroom> getClassrooms() {
         return Collections.unmodifiableSet(classrooms);
@@ -114,11 +100,11 @@ public class Professor extends Base {
     }
 
     public void removeClassroom(Classroom classroom) {
-        if (this.classrooms.contains(classroom)){
+        if (this.classrooms.contains(classroom)) {
             this.classrooms.remove(classroom);
         }
     }
-    
+
     @Transient
     public Set<Coder> getStudents(School s) {
         SortedSet<Coder> cs = new TreeSet<Coder>(new StudentComparator());
@@ -133,29 +119,6 @@ public class Professor extends Base {
         }
         return cs;
     }
-    
-    @Transient
-    public Set<School> getActiveSchools() {
-        Set schools = new HashSet<School>();
-        for (ProfessorSchool ps : professorSchools) {
-            log.debug("Professor " + this.getUser().getHandle() + " has school " + ps.getId().getSchool().getName() + " status: " + ps.getStatusId());
-            if (ps.getStatusId().equals(ProfessorSchool.ACTIVE_STATUS)) {
-                schools.add(ps.getId().getSchool());
-            }
-        }
-        return schools;
-    }
-
-    @Transient
-    public School getSchoolUsingId(Long schoolId) {
-        for (ProfessorSchool ps : professorSchools) {
-            if (ps.getStatusId().equals(ProfessorSchool.ACTIVE_STATUS)
-                    && ps.getId().getSchool().getId().equals(schoolId)) {
-                return ps.getId().getSchool();
-            }
-        }
-        return null;
-    }
 
     @Transient
     public boolean hasClassroom(School s, String classroomName, String classroomAcademicPeriod) {
@@ -167,12 +130,6 @@ public class Professor extends Base {
             }
         }
         return false;
-    }
-
-    @Transient
-    public void addProfessorSchools(ProfessorSchool ps) {
-        ps.getId().setProfessor(this);
-        this.professorSchools.add(ps);
     }
 
     @Override
@@ -206,5 +163,5 @@ public class Professor extends Base {
         return true;
     }
 
-    
+
 }
