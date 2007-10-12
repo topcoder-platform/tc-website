@@ -7,9 +7,15 @@ package com.topcoder.web.ep.controller;
 
 import java.util.MissingResourceException;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.topcoder.shared.messagebus.BusFactory;
+import com.topcoder.shared.messagebus.jms.JMSConfigurationParser;
+import com.topcoder.shared.messagebus.jms.activemq.ActiveMQBusFactory;
+import com.topcoder.shared.round.events.RoundEventFactory;
+import com.topcoder.shared.round.events.bus.RoundEventBusFactory;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
@@ -20,6 +26,7 @@ import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.ep.controller.request.RoundEventInitializer;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -67,5 +74,12 @@ public class EPServlet extends BaseServlet {
         }
         request.setAttribute("exception", e);
         fetchRegularPage(request, response, ERROR_PAGE, true);
+    }
+    
+    
+    @Override
+    public void destroy() {
+        super.destroy();
+        RoundEventInitializer.release();
     }
 }

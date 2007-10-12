@@ -10,6 +10,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.topcoder.shared.round.events.RoundCreatedEvent;
+import com.topcoder.shared.round.events.RoundEvent;
+import com.topcoder.shared.round.events.RoundEventException;
+import com.topcoder.shared.round.events.RoundEventFactory;
+import com.topcoder.shared.round.events.RoundEventPublisher;
+import com.topcoder.shared.round.events.RoundModifiedEvent;
+import com.topcoder.shared.round.events.RoundModifiedEvent.RegistrationModification;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
@@ -118,6 +125,31 @@ public class ArenaHelper implements ArenaServices {
         }
 
         DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
+
+        RoundModifiedEvent event = new RoundModifiedEvent(r.getId().intValue());
+        
+        // coders in coderIds : add
+        // coders in existingCodersIds : remove
+
+        int[] addIds = new int[coderIds.size()];
+        int[] removeIds = new int[existingCodersIds.size()];
+        
+        int i = 0;
+        for (Long id : coderIds) {
+            addIds[i] = id.intValue();
+            i++;
+        }
+        
+        i = 0;
+        for (Long id : existingCodersIds) {
+            removeIds[i] = id.intValue();
+            i++;
+        }
+           
+        event.addModification(new RegistrationModification(addIds, removeIds));
+        event.addModification(new RoundModifiedEvent.ScheduleModification());
+        publishEvent(event);
+
     }    
     
     /**
@@ -147,9 +179,10 @@ public class ArenaHelper implements ArenaServices {
         addLanguages(r, adto.getLanguages());
 
         DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
+        RoundCreatedEvent event = new RoundCreatedEvent(r.getId().intValue());
+        publishEvent(event);
     }
 
-    
     /**
      * @param adto the assignment data transfer object to update 
      */
@@ -172,8 +205,13 @@ public class ArenaHelper implements ArenaServices {
 
         // finally update languages
         updateLanguages(adto.getLanguages(), r);
+        
 
         DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
+        
+        RoundModifiedEvent event = new RoundModifiedEvent(r.getId().intValue());
+        event.addModification(new RoundModifiedEvent.ScheduleModification());
+        publishEvent(event);
     }
 
 
@@ -369,4 +407,16 @@ public class ArenaHelper implements ArenaServices {
 
         DAOUtil.getFactory().getContestDAO().saveOrUpdate(ct);
     }
+    
+    
+    private void publishEvent(RoundEvent event) {
+        try {
+            RoundEventInitializer.ensureInitialized();
+            RoundEventPublisher pub = RoundEventFactory.getFactory().createPublisher("EDUCATION_CRUD");
+            pub.publishEvent(event);
+        } catch (RoundEventException e) {
+            log.error("Could not notify round created event",e);
+        }
+    }
+
 }
