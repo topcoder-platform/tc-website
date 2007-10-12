@@ -65,7 +65,7 @@
                 <tr>
                     <td style="padding-right: 10px; font-weight: bold;" align="left">
                         <p>School:</p>
-                        <p>Classroom:</p>
+                        <p>Class:</p>
                         <p>Academic period:</p>
                         <p>Description:</p>
                     </td>
@@ -85,7 +85,7 @@
                 <c:when test="${not empty assignments}">
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                     <tbody>
-                        <tr><td class="title" colspan="6">Assignments for this classroom</td></tr>
+                        <tr><td class="title" colspan="6">Assignments for this class</td></tr>
                         <tr>
                             <td class="header">Assignment</td>
                             <td class="headerC">Start</td>

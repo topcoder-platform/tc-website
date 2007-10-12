@@ -78,7 +78,7 @@
                 <tr>
                     <td style="padding-right: 10px; font-weight: bold;" align="left">
                         <p>School:</p>
-                        <p>Classroom:</p>
+                        <p>Class:</p>
                         <p>Academic period:</p>
                         <p>Description:</p>
                         <p>Assignment:</p>
@@ -105,7 +105,7 @@
                     <tc-webtag:hiddenInput name="<%=Constants.ASSIGNMENT_ID%>" value="${asid}"/>
                     
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
-                        <tr><td class="title" colspan="2">Students in this classroom</td></tr>
+                        <tr><td class="title" colspan="2">Students in this class</td></tr>
                         <tr><td class="header" width="100%">Student</td><td class="headerC">Select</td></tr>
                         <%int i = 0;%>
                         <c:forEach items="${activeStudents}" var="student">

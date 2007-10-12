@@ -63,8 +63,8 @@
 
         <h2>
         <c:choose>
-            <c:when test="${not empty ec_classroom.id}">Edit classroom</c:when>
-            <c:otherwise>Add classroom</c:otherwise>
+            <c:when test="${not empty ec_classroom.id}">Edit class</c:when>
+            <c:otherwise>Add class</c:otherwise>
         </c:choose>
         </h2>
 
@@ -89,7 +89,7 @@
                 <tbody>
                     <tr>
                         <td align="left">
-                            <strong>Classroom title:</strong>
+                            <strong>Class title:</strong>
                         </td>
                         <td align="left">
                             <tc-webtag:textInput name="classroom_name" size="60" editable="true" />

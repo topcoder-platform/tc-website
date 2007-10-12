@@ -97,7 +97,7 @@
                 <tr>
                     <td style="padding-right: 10px; font-weight: bold;" align="left">
                         <p>School:</p>
-                        <p>Classroom:</p>
+                        <p>Class:</p>
                         <p>Academic period:</p>
                         <p>Description:</p>
                     </td>
@@ -120,7 +120,7 @@
                     <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/>
                     
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
-                        <tr><td class="title" colspan="2">Students awaiting your approval to join this classroom</td></tr>
+                        <tr><td class="title" colspan="2">Students awaiting your approval to join this class</td></tr>
                         <tr><td class="header">Student</td><td class="headerC">Select</td></tr>
                         <%int i = 0;%>
                         <c:forEach items="${pendingStudents}" var="student">                
@@ -143,7 +143,7 @@
             </c:when>
             <c:otherwise>
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
-                        <tr><td class="title" colspan="2">Students awaiting your approval to join this classroom</td></tr>
+                        <tr><td class="title" colspan="2">Students awaiting your approval to join this class</td></tr>
                         <tr><td class="header">Student</td><td class="headerC">Select</td></tr>
                         <tr class="light"><td class="valueC" colspan="2"><div style="margin: 10px;">There are no pending students in this classroom.</div></td></tr>
                     </table>

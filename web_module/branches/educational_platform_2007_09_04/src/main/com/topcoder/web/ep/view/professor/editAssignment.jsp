@@ -82,7 +82,7 @@
             </p>
             </tc-webtag:errorIterator>
             <p align="center">
-                <strong>Classroom:</strong> ${ea_assignment.classroomName}
+                <strong>Class:</strong> ${ea_assignment.classroomName}
             </p>
 
             <div align="center">

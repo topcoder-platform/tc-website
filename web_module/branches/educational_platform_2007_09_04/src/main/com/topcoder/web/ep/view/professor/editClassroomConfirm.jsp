@@ -59,8 +59,8 @@
 
         <h2>
         <c:choose>
-            <c:when test="${not empty ec_classroom.id}">Edit classroom</c:when>
-            <c:otherwise>Add classroom</c:otherwise>
+            <c:when test="${not empty ec_classroom.id}">Edit class</c:when>
+            <c:otherwise>Add class</c:otherwise>
         </c:choose>
         </h2>
 
@@ -68,7 +68,7 @@
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditClassroomSubmit"/>
         
         <p align="center">
-            Are you sure you want to add/update this classroom?
+            Are you sure you want to add/update this class?
         </p>
 
         <div align="center" style="margin: 20px;">

@@ -65,7 +65,7 @@
 <%--
         <table border="1">
             <tr>
-                <td>Classroom</td>
+                <td>Class</td>
                 <td>Academic period</td>
                 <td>Description</td>
             </tr>

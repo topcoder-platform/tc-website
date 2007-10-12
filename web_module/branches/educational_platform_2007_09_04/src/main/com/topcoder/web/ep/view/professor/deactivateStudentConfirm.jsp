@@ -67,7 +67,7 @@
                 <tr>
                     <td style="padding-right: 10px; font-weight: bold;" align="left">
                         <p>School:</p>
-                        <p>Classroom:</p>
+                        <p>Class:</p>
                         <p>Academic period:</p>
                         <p>Description:</p>
                     </td>

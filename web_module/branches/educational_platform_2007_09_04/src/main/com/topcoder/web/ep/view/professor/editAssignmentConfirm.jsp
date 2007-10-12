@@ -71,7 +71,7 @@
             <tbody>
                 <tr>
                     <td style="padding-right: 10px; font-weight: bold;" align="left">
-                        <p>Classroom</p>
+                        <p>Class</p>
                         <p>Start</p>
                         <p>End</p>
                         <p>Assignment name</p>
