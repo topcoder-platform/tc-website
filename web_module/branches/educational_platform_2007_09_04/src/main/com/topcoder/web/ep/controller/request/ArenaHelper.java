@@ -18,6 +18,7 @@ import com.topcoder.shared.round.events.RoundEventPublisher;
 import com.topcoder.shared.round.events.RoundModifiedEvent;
 import com.topcoder.shared.round.events.RoundModifiedEvent.RegistrationModification;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.algo.Component;
@@ -126,8 +127,11 @@ public class ArenaHelper implements ArenaServices {
 
         DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
 
+        HibernateUtils.getSession().flush();
+        HibernateUtils.commit();        
+
         RoundModifiedEvent event = new RoundModifiedEvent(r.getId().intValue());
-        
+                
         // coders in coderIds : add
         // coders in existingCodersIds : remove
 
@@ -179,6 +183,9 @@ public class ArenaHelper implements ArenaServices {
         addLanguages(r, adto.getLanguages());
 
         DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
+        HibernateUtils.getSession().flush();
+        HibernateUtils.commit();        
+        
         RoundCreatedEvent event = new RoundCreatedEvent(r.getId().intValue());
         publishEvent(event);
     }
@@ -209,6 +216,9 @@ public class ArenaHelper implements ArenaServices {
 
         DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
         
+        HibernateUtils.getSession().flush();
+        HibernateUtils.commit();        
+
         RoundModifiedEvent event = new RoundModifiedEvent(r.getId().intValue());
         event.addModification(new RoundModifiedEvent.ScheduleModification());
         publishEvent(event);
