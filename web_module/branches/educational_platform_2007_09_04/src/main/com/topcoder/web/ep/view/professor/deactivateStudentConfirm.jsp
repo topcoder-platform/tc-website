@@ -16,11 +16,11 @@
         content="text/html;charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <jsp:include page="../script.jsp" />
+    <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_ep"/>
     </jsp:include>
-    <%-- each school requires its own stylesheet, linked in here --%>
+<%-- each school requires its own stylesheet, linked in here --%>
     <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
     <script type="text/javascript">
         function submit() {
