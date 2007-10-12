@@ -146,7 +146,7 @@ public class Confirm extends Base {
             if (u.getCoder() != null) {
                 cs = u.getCoder().getCurrentSchool();
             }
-            if (cs == null) {
+            if (cs == null && u.getCoder() != null) {
                 cs = new CurrentSchool();
                 u.getCoder().setCurrentSchool(cs);
             }
