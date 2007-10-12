@@ -7,6 +7,7 @@
     <property name="ejb_jars" value="${build}/ejb_jars"/>
     <property name="classes" value="${build}/classes"/>
     <property name="testclasses" value="${build}/testcases"/>
+    <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
     <property name="build.javadocs" value="${build}/javadocs"/>
     <property name="lib.dir" value="lib"/>
     <property name="jars.dir" value="${lib.dir}/jars"/>
@@ -15,6 +16,7 @@
     <property name="bin" value="lib/bin"/>
     <property name="src.dir" value="src"/>
     <property name="java" value="${src.dir}/main"/>
+    <property name="shared.build" value="${basedir}/../shared"/>
     <property name="shared" value="../shared/src/main"/>
     <property name="testjava" value="${src.dir}/testcases"/>
     <property name="resources" value="resources"/>
@@ -42,6 +44,7 @@
 
     <path id="class.path">
         <pathelement location="${classes}"/>
+	<pathelement location="${global-dist.dir}/shared.jar"/>
         <pathelement location="${testclasses}"/>
         <pathelement location="${resources}"/>
         <pathelement location="${resources}/hibernate"/>
@@ -74,7 +77,7 @@
 
         <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
         <pathelement location="${jars.dir}/object_formatter.jar"/>
-        <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+        <pathelement location="${jars.dir}/tcs/id_generator/3.0.1/id_generator.jar"/>
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <pathelement location="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
@@ -125,7 +128,9 @@
     </target>
 
     <target name="compile_shared" depends="init" unless="compile_shared_set">
-        <javac
+	<ant dir="${shared.build}" target="jar" />
+        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${global-dist.dir}/shared.jar"/>
+        <!--javac
                 srcdir="${shared}"
                 destdir="${classes}"
                 classpathref="class.path"
@@ -136,11 +141,12 @@
                 >
         </javac>
         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
-        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
+        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/-->
         <property name="compile_shared_set" value="true"/>
     </target>
 
     <target name="compile" depends="init,jar_shared" unless="compile_set">
+	<depend srcdir="${java}" destdir="${classes}" cache="${build}/cache"/>
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
