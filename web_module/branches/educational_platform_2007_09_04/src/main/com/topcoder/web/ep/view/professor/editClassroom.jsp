@@ -74,12 +74,12 @@
                 <span class="bigRed"><%=err%></span><br />
             </tc-webtag:errorIterator>
             <br />
-                <c:forEach items="${ec_classroom.professor.activeSchools}" var="school">                
+                <c:forEach items="${ec_user.schools}" var="school">
                     <c:choose>
-                        <c:when test="${fn:length(ec_classroom.professor.activeSchools) > 1}">
-                            <tc-webtag:radioButton name="<%=Constants.SCHOOL_ID%>" value="${school.id}"/>${school.name}&nbsp;&nbsp;
+                        <c:when test="${fn:length(ec_user.schools) > 1}">
+                            <tc-webtag:radioButton name="<%=Constants.SCHOOL_ID%>" value="${school.school.id}"/>${school.school.name}&nbsp;&nbsp;
                         </c:when>
-                        <c:otherwise><tc-webtag:hiddenInput name="<%=Constants.SCHOOL_ID%>" value="${school.id}"/></c:otherwise>
+                        <c:otherwise><tc-webtag:hiddenInput name="<%=Constants.SCHOOL_ID%>" value="${school.school.id}"/></c:otherwise>
                     </c:choose>
                 </c:forEach>
             <br />
