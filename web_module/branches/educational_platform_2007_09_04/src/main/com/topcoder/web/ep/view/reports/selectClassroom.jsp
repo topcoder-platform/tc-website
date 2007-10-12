@@ -55,11 +55,14 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
 
 <div class="window" align="left">
     <div class="spacer">
+            <p align="center">
+            Select a classroom:
+            </p>
             <br clear="all" />
             <h1><span class="bg"><span class="spacer">School name</span></span></h1>
             <div class="classroomListing" align="center">
                 <div class="name">
-                    <a href=""></a>
+                    <a href="">CSE 101 Tues/Thurs 9:00AM</a>
                 </div>
                 <div class="button">
                     <a href=""><img src="/i/ep/buttons/reports.png" alt="Reports" /></a>
