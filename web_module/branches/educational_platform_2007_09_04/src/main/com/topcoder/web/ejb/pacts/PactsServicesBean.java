@@ -2124,6 +2124,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             
             return ad;
+        } catch (IDGenerationException e) {
+            ejbContext.setRollbackOnly();
+            throw new EJBException(e);
         } catch (SQLException e) {
             ejbContext.setRollbackOnly();
             DBMS.printSqlException(true, e);
@@ -5148,6 +5151,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw (new EJBException("Wrong number of rows updated in 'assignment_document_template'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
+        } catch (IDGenerationException e) {
+            ejbContext.setRollbackOnly();
+            throw new EJBException(e);
         } catch (SQLException e) {
             ejbContext.setRollbackOnly();
             DBMS.printSqlException(true, e);
