@@ -542,7 +542,7 @@ public class User extends Base {
     public void addSchool(UserSchool school) {
         if (school.isPrimary()) {
             for (UserSchool s : schools) {
-                if (s.isPrimary()) {
+                if (s.isPrimary() && s.getAssociationType().equals(school.getAssociationType())) {
                     s.setPrimary(false);
                 }
             }
