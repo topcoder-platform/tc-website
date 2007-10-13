@@ -509,11 +509,13 @@ public class User extends Base {
      * If this user is associated with the given school, return that
      * association.
      *
-     * @param schoolId the id of the school to check for
+     * @param schoolId                the id of the school to check for
+     * @param schoolAssociationTypeId the association that we're looking for
      * @return the association betwen this user and that school
      */
     public UserSchool getSchool(Long schoolId, Integer schoolAssociationTypeId) {
         for (UserSchool school : schools) {
+            log.debug("schools size " + schools.size());
             //log.debug("school " + school.getId() + " " + school.getSchool().getId());
             if (school == null) log.debug("user school null");
             if (school.getSchool() == null) log.debug("school null");
