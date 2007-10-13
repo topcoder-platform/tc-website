@@ -677,7 +677,7 @@ public abstract class Base extends LongHibernateProcessor {
             if (s.getType() != null) {
                 setDefault(Constants.SCHOOL_TYPE, s.getType().getId());
             }
-            if (u.getCoder().getCurrentSchool() != null) {
+            if (u.getCoder() != null && u.getCoder().getCurrentSchool() != null) {
                 if (u.getCoder().getCurrentSchool().getViewable() != null) {
                     setDefault(Constants.VISIBLE_SCHOOL, u.getCoder().getCurrentSchool().getViewable() ? "show" : "hide");
                 }
