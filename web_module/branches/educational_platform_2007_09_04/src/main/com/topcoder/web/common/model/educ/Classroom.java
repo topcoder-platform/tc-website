@@ -91,7 +91,7 @@ public class Classroom {
         this.name = name;
     }
 
-    @ManyToOne()
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="professor_id", nullable=false)
     public Professor getProfessor() {
         return professor;

@@ -44,4 +44,13 @@ public class ClassroomDAOHibernate extends GenericBase<Classroom, Long> implemen
             
         return c.list();
     }
+    
+	public List<Classroom> getClassroomsUsingProfessorId(Long professorId) {
+		return getSession().createCriteria(Classroom.class)
+        	.add(Restrictions.eq("professor.id", professorId))
+        	.add(Restrictions.eq("statusId", Classroom.ACTIVE))
+        	.addOrder(Order.asc("school"))
+        	.addOrder(Order.asc("name"))
+            .list();
+	}
 }

@@ -15,5 +15,7 @@ public interface ClassroomDAO extends GenericDAO<Classroom, Long> {
     public List<Round> getAssignments(Long classroomId);
 
     public List<Round> getAssignmentsForStudent(Long classroomId, Long coderId);
+
+	public List<Classroom>  getClassroomsUsingProfessorId(Long professorId);
     
 }

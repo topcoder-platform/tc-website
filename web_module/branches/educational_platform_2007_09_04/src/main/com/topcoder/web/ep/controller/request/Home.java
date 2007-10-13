@@ -31,7 +31,7 @@ public class Home extends ShortHibernateProcessor {
             User u  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
             
-            // check wether student or professor
+            // check whether student or professor
             getRequest().setAttribute("user", u);
             if (u.isProfessor()) {
                 // since it's a shared processor check if he has permission
