@@ -522,6 +522,15 @@ public class User extends Base {
         return null;
     }
 
+    public UserSchool getPrimarySchool(Integer schoolAssociationTypeId) {
+        for (UserSchool school : schools) {
+            if (school.isPrimary() && school.getAssociationType().getId().equals(schoolAssociationTypeId)) {
+                return school;
+            }
+        }
+        return null;
+    }
+
     /**
      * Add a school for the user.  If this school is the primary, then
      * mark existing primary school as non-primary.  This method will
