@@ -190,9 +190,6 @@ public class Confirm extends Base {
                 }
                 s.setAddress(a);
             }
-            if (cs != null) {
-                cs.setSchool(s);
-            }
             if (us != null) {
                 us.setSchool(s);
             }
@@ -204,33 +201,37 @@ public class Confirm extends Base {
                 }
             }
 
-            if (getFactory().getSchoolTypeDAO().find(SchoolType.HIGH_SCHOOL).equals(u.getCoder().getCurrentSchool().getSchool().getType())) {
-                //high school people have to show their school
-                u.getCoder().getCurrentSchool().setViewable(Boolean.TRUE);
-            } else {
-                u.getCoder().getCurrentSchool().setViewable("show".equals(params.get(Constants.VISIBLE_SCHOOL)));
-            }
+            if (cs != null) {
+                cs.setSchool(s);
 
-            if (u.getCoder().getCurrentSchool() != null &&
-                    getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
-                List teams = getFactory().getTeamDAO().getHighSchoolTeamsForSchool(s);
-                Team t;
-                if (teams.isEmpty()) {
-                    t = new Team();
-                    t.setName(s.getName());
-                    t.setSchool(s);
-                    t.setType(getFactory().getTeamTypeDAO().find(TeamType.HIGH_SCHOOL_TYPE));
+                if (getFactory().getSchoolTypeDAO().find(SchoolType.HIGH_SCHOOL).equals(u.getCoder().getCurrentSchool().getSchool().getType())) {
+                    //high school people have to show their school
+                    u.getCoder().getCurrentSchool().setViewable(Boolean.TRUE);
                 } else {
-                    t = (Team) teams.iterator().next();
+                    u.getCoder().getCurrentSchool().setViewable("show".equals(params.get(Constants.VISIBLE_SCHOOL)));
                 }
 
-                Team userTeam = u.getCoder().getHighSchoolTeam();
-                if (userTeam == null) {
-                    u.getCoder().addTeam(t);
-                } else {
-                    if (!(userTeam.getSchool().getId() != null && userTeam.getSchool().equals(t.getSchool()))) {
-                        u.getCoder().removeTeam(userTeam);
+                if (u.getCoder().getCurrentSchool() != null &&
+                        getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
+                    List teams = getFactory().getTeamDAO().getHighSchoolTeamsForSchool(s);
+                    Team t;
+                    if (teams.isEmpty()) {
+                        t = new Team();
+                        t.setName(s.getName());
+                        t.setSchool(s);
+                        t.setType(getFactory().getTeamTypeDAO().find(TeamType.HIGH_SCHOOL_TYPE));
+                    } else {
+                        t = (Team) teams.iterator().next();
+                    }
+
+                    Team userTeam = u.getCoder().getHighSchoolTeam();
+                    if (userTeam == null) {
                         u.getCoder().addTeam(t);
+                    } else {
+                        if (!(userTeam.getSchool().getId() != null && userTeam.getSchool().equals(t.getSchool()))) {
+                            u.getCoder().removeTeam(userTeam);
+                            u.getCoder().addTeam(t);
+                        }
                     }
                 }
             }
