@@ -677,17 +677,19 @@ public abstract class Base extends LongHibernateProcessor {
             if (s.getType() != null) {
                 setDefault(Constants.SCHOOL_TYPE, s.getType().getId());
             }
-            if (u.getCoder().getCurrentSchool().getViewable() != null) {
-                setDefault(Constants.VISIBLE_SCHOOL, u.getCoder().getCurrentSchool().getViewable() ? "show" : "hide");
-            }
-            if (u.getCoder().getCurrentSchool().getGPA() != null) {
-                setDefault(Constants.GPA, u.getCoder().getCurrentSchool().getGPA().toString());
-            }
-            Float gpaScale = u.getCoder().getCurrentSchool().getGPAScale();
-            if (gpaScale != null) {
-                for (int i = 0; i < Constants.GPA_SCALES.size(); i++) {
-                    if (gpaScale.equals(new Float((String) Constants.GPA_SCALES.get(i)))) {
-                        setDefault(Constants.GPA_SCALE, Constants.GPA_SCALES.get(i));
+            if (u.getCoder().getCurrentSchool() != null) {
+                if (u.getCoder().getCurrentSchool().getViewable() != null) {
+                    setDefault(Constants.VISIBLE_SCHOOL, u.getCoder().getCurrentSchool().getViewable() ? "show" : "hide");
+                }
+                if (u.getCoder().getCurrentSchool().getGPA() != null) {
+                    setDefault(Constants.GPA, u.getCoder().getCurrentSchool().getGPA().toString());
+                }
+                Float gpaScale = u.getCoder().getCurrentSchool().getGPAScale();
+                if (gpaScale != null) {
+                    for (int i = 0; i < Constants.GPA_SCALES.size(); i++) {
+                        if (gpaScale.equals(new Float((String) Constants.GPA_SCALES.get(i)))) {
+                            setDefault(Constants.GPA_SCALE, Constants.GPA_SCALES.get(i));
+                        }
                     }
                 }
             }
