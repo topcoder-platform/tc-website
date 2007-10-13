@@ -7,7 +7,11 @@ import com.topcoder.web.common.model.CoderType;
 import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.User;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author dok
@@ -407,16 +411,16 @@ public class RegFieldHelper {
         secondaryTeacherFields.add(Constants.SCHOOL_STATE);
         secondaryTeacherFields.add(Constants.SCHOOL_COUNTRY);
         secondaryTeacherFields.add(Constants.SCHOOL_TYPE);
-        secondaryTeacherFields.add(Constants.REFERRAL);
+        /*secondaryTeacherFields.add(Constants.REFERRAL);
         secondaryTeacherFields.add(Constants.REFERRAL_CODER);
         secondaryTeacherFields.add(Constants.REFERRAL_OTHER);
-
+*/
         requiredSecondaryTeacherFields.add(Constants.SCHOOL_NAME);
         requiredSecondaryTeacherFields.add(Constants.SCHOOL_CITY);
         requiredSecondaryTeacherFields.add(Constants.SCHOOL_ID);
         requiredSecondaryTeacherFields.add(Constants.SCHOOL_COUNTRY);
         requiredSecondaryTeacherFields.add(Constants.SCHOOL_TYPE);
-        requiredSecondaryTeacherFields.add(Constants.REFERRAL);
+        //requiredSecondaryTeacherFields.add(Constants.REFERRAL);
 
     }
 
