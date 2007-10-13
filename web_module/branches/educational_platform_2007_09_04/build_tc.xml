@@ -619,11 +619,11 @@
     <target name="move-libs" depends="">
         <copy todir="${jboss_lib}">
             <fileset dir="${bin}">
-                <include name="shared.jar"/>
                 <include name="tcwebcommon.jar"/>
                 <include name="tc.jar"/>
             </fileset>
         </copy>
+        <copy todir="${jboss_lib}" file="${global-dist.dir}/shared.jar"/>
         <copy todir="${jboss_lib}">
             <fileset dir="${jars.dir}">
                 <include name="ifxjdbc.jar"/>
