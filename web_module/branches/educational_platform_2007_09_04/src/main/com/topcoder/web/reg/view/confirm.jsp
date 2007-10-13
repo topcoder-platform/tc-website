@@ -460,7 +460,7 @@
                     ${regUser.coder.currentSchool.school.name}
                 </c:when>
                 <c:otherwise>
-                    <%=((User) request.getSession().getAttribute("regUser")).getPrimarySchool(SchoolAssociationType.TEACHER)%>
+                    <%=((User) request.getSession().getAttribute("regUser")).getPrimarySchool(SchoolAssociationType.TEACHER).getSchool().getName()%>
                 </c:otherwise>
             </c:choose>
 
