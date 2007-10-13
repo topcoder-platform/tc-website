@@ -1,7 +1,37 @@
 package com.topcoder.web.reg.controller.request;
 
+import com.topcoder.servlet.request.FileDoesNotExistException;
+import com.topcoder.servlet.request.PersistenceException;
+import com.topcoder.servlet.request.UploadedFile;
+import com.topcoder.web.common.LongHibernateProcessor;
+import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.common.dao.DAOFactory;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
+import com.topcoder.web.common.model.Address;
+import com.topcoder.web.common.model.CoderType;
+import com.topcoder.web.common.model.DemographicAssignment;
+import com.topcoder.web.common.model.DemographicQuestion;
+import com.topcoder.web.common.model.DemographicResponse;
+import com.topcoder.web.common.model.Notification;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.Resume;
+import com.topcoder.web.common.model.School;
+import com.topcoder.web.common.model.SchoolAssociationType;
+import com.topcoder.web.common.model.Season;
+import com.topcoder.web.common.model.State;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.UserSchool;
+import com.topcoder.web.common.validation.ListInput;
+import com.topcoder.web.common.validation.NonEmptyValidator;
+import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.common.validation.Validator;
+import com.topcoder.web.reg.Constants;
+import com.topcoder.web.reg.RegFieldHelper;
+import com.topcoder.web.reg.validation.*;
+
 import java.io.IOException;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -11,85 +41,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import javax.ejb.CreateException;
-import javax.naming.Context;
-
-import com.topcoder.security.GeneralSecurityException;
-import com.topcoder.security.GroupPrincipal;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.servlet.request.FileDoesNotExistException;
-import com.topcoder.servlet.request.PersistenceException;
-import com.topcoder.servlet.request.UploadedFile;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.common.LongHibernateProcessor;
-import com.topcoder.web.common.MultipartRequest;
-import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.common.dao.DAOFactory;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.UserDAO;
-import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
-import com.topcoder.web.common.model.Address;
-import com.topcoder.web.common.model.CoderType;
-import com.topcoder.web.common.model.DemographicAssignment;
-import com.topcoder.web.common.model.DemographicQuestion;
-import com.topcoder.web.common.model.DemographicResponse;
-import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.model.EventRegistration;
-import com.topcoder.web.common.model.Notification;
-import com.topcoder.web.common.model.RegistrationType;
-import com.topcoder.web.common.model.Resume;
-import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.Season;
-import com.topcoder.web.common.model.State;
-import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.validation.ListInput;
-import com.topcoder.web.common.validation.NonEmptyValidator;
-import com.topcoder.web.common.validation.StringInput;
-import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.common.validation.Validator;
-import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.validation.Address1Validator;
-import com.topcoder.web.reg.validation.Address2Validator;
-import com.topcoder.web.reg.validation.Address3Validator;
-import com.topcoder.web.reg.validation.CityValidator;
-import com.topcoder.web.reg.validation.CoderTypeValidator;
-import com.topcoder.web.reg.validation.CompanyNameValidator;
-import com.topcoder.web.reg.validation.CountryValidator;
-import com.topcoder.web.reg.validation.DemogFreeFormValidator;
-import com.topcoder.web.reg.validation.DemogMultiSelectValidator;
-import com.topcoder.web.reg.validation.DemogSingleSelectValidator;
-import com.topcoder.web.reg.validation.EmailConfirmValidator;
-import com.topcoder.web.reg.validation.EmailValidator;
-import com.topcoder.web.reg.validation.GPAScaleValidator;
-import com.topcoder.web.reg.validation.GPAValidator;
-import com.topcoder.web.reg.validation.GivenNameValidator;
-import com.topcoder.web.reg.validation.MiddleNameValidator;
-import com.topcoder.web.reg.validation.NotificationValidator;
-import com.topcoder.web.reg.validation.PasswordConfirmValidator;
-import com.topcoder.web.reg.validation.PasswordValidator;
-import com.topcoder.web.reg.validation.PostalCodeValidator;
-import com.topcoder.web.reg.validation.ProvinceValidator;
-import com.topcoder.web.reg.validation.QuoteValidator;
-import com.topcoder.web.reg.validation.ReferralValidator;
-import com.topcoder.web.reg.validation.ResumeValidator;
-import com.topcoder.web.reg.validation.SchoolIdValidator;
-import com.topcoder.web.reg.validation.SchoolNameValidator;
-import com.topcoder.web.reg.validation.SchoolTypeValidator;
-import com.topcoder.web.reg.validation.SecretQuestionResponseValidator;
-import com.topcoder.web.reg.validation.SecretQuestionValidator;
-import com.topcoder.web.reg.validation.StateValidator;
-import com.topcoder.web.reg.validation.SurnameValidator;
-import com.topcoder.web.reg.validation.TermsOfUseValidator;
-import com.topcoder.web.reg.validation.TimeZoneValidator;
-import com.topcoder.web.reg.validation.TitleValidator;
-import com.topcoder.web.reg.validation.UserNameValidator;
 
 /**
  * @author dok
@@ -196,11 +147,11 @@ public abstract class Base extends LongHibernateProcessor {
 
     /**
      * Return whether the user has requested to register in the specified type.
-     * 
+     *
      * @param type the type to check
      * @return
      */
-    protected boolean hasRequestedType(int type) {       
+    protected boolean hasRequestedType(int type) {
         for (RegistrationType rt : (Set<RegistrationType>) getRequestedTypes()) {
             if (rt.getId() == type) {
                 return true;
@@ -208,24 +159,24 @@ public abstract class Base extends LongHibernateProcessor {
         }
         return false;
     }
-    
-    
+
+
     /**
      * Return whether the user is currently registered for the specified type.
-     * 
+     *
      * @param u
      * @param type
      * @return
-     */    
+     */
     protected boolean isCurrentlyRegistered(User u, int type) {
         for (RegistrationType rt : (Set<RegistrationType>) u.getRegistrationTypes()) {
             if (rt.getId() == type) {
                 return true;
             }
         }
-        return false;        
+        return false;
     }
-    
+
     /**
      * Get all the data from the request relevent to the main page of registration
      * and load it into a map.
@@ -265,7 +216,6 @@ public abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.SHOW_EARNINGS, getTrimmedParameter(Constants.SHOW_EARNINGS));
         ret.put(Constants.TERMS_OF_USE_ID, getTrimmedParameter(Constants.TERMS_OF_USE_ID));
         ret.put(Constants.HS_REG_QUESTIONS, getTrimmedParameter(Constants.HS_REG_QUESTIONS));
-
 
         //iterate through the notifications, we're essentially validating here
         //since we're only looking for valid notifications.
@@ -318,8 +268,8 @@ public abstract class Base extends LongHibernateProcessor {
         simpleValidation(CountryValidator.class, fields, params, Constants.COMP_COUNTRY_CODE);
         simpleValidation(CoderTypeValidator.class, fields, params, Constants.CODER_TYPE);
         simpleValidation(TimeZoneValidator.class, fields, params, Constants.TIMEZONE);
-        
-        
+
+
         ValidationResult termsResults = new TermsOfUseValidator(getRegUser()).validate(
                 new StringInput((String) params.get(Constants.TERMS_OF_USE_ID)));
         if (!termsResults.isValid()) {
@@ -374,16 +324,16 @@ public abstract class Base extends LongHibernateProcessor {
         }
         if (fields.contains(Constants.MEMBER_CONTACT)) {
             ValidationResult nonEmptyResult =
-                new NonEmptyValidator("Please enter your preference.").validate(
-                        new StringInput((String) params.get(Constants.MEMBER_CONTACT)));
+                    new NonEmptyValidator("Please enter your preference.").validate(
+                            new StringInput((String) params.get(Constants.MEMBER_CONTACT)));
             if (!nonEmptyResult.isValid()) {
                 addError(Constants.MEMBER_CONTACT, nonEmptyResult.getMessage());
             }
         }
         if (fields.contains(Constants.SHOW_EARNINGS)) {
             ValidationResult nonEmptyResult =
-                new NonEmptyValidator("Please enter your preference.").validate(
-                        new StringInput((String) params.get(Constants.SHOW_EARNINGS)));
+                    new NonEmptyValidator("Please enter your preference.").validate(
+                            new StringInput((String) params.get(Constants.SHOW_EARNINGS)));
             if (!nonEmptyResult.isValid()) {
                 addError(Constants.SHOW_EARNINGS, nonEmptyResult.getMessage());
             }
@@ -597,8 +547,8 @@ public abstract class Base extends LongHibernateProcessor {
 
         if (fields.contains(Constants.VISIBLE_SCHOOL)) {
             ValidationResult nonEmptyResult =
-                new NonEmptyValidator("Please enter your preference.").validate(
-                        new StringInput((String) params.get(Constants.VISIBLE_SCHOOL)));
+                    new NonEmptyValidator("Please enter your preference.").validate(
+                            new StringInput((String) params.get(Constants.VISIBLE_SCHOOL)));
             if (!nonEmptyResult.isValid()) {
                 addError(Constants.VISIBLE_SCHOOL, nonEmptyResult.getMessage());
             }
@@ -714,6 +664,10 @@ public abstract class Base extends LongHibernateProcessor {
                 u.getCoder().getCurrentSchool().getSchool() != null) {
             s = u.getCoder().getCurrentSchool().getSchool();
         }
+        UserSchool us = u.getPrimarySchool(SchoolAssociationType.TEACHER);
+        if (us != null) {
+            s = us.getSchool();
+        }
 
         if (s != null) {
             if (s.getId() != null) {
@@ -778,10 +732,10 @@ public abstract class Base extends LongHibernateProcessor {
 
 
     }
-    
+
     /**
      * Reloads the main page, setting the default values and loading drop downs.
-     * 
+     *
      * @param params
      * @param u
      * @param fields
@@ -811,12 +765,12 @@ public abstract class Base extends LongHibernateProcessor {
         if (nots != null) {
             getRequest().setAttribute("notifications", nots);
         }
-        
+
         Season season = getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON);
         if (season != null && season.getEvent() != null && season.getEvent().getSurvey() != null) {
             getRequest().setAttribute("questions", new ArrayList(season.getEvent().getSurvey().getQuestions()));
         }
-        
+
         getRequest().setAttribute(Constants.FIELDS, fields);
         getRequest().setAttribute(Constants.REQUIRED_FIELDS,
                 RegFieldHelper.getMainRequiredFieldSet(getRequestedTypes(), u));
