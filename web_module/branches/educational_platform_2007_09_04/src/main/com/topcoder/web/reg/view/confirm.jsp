@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.model.RegistrationType" %>
+<%@ page import="com.topcoder.web.common.model.SchoolAssociationType" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
-<%@ page import="com.topcoder.web.common.model.RegistrationType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -20,7 +20,8 @@
 
 <body>
 <div align="center" style="padding:6px 0px 6px; 0px;">
-    <A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0"/></A>
+    <A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder"
+                                                             border="0"/></A>
 </div>
 
 <div align="center">
@@ -314,7 +315,7 @@
             Secret Question:
         </td>
         <td class="value">
-           ${regUser.secretQuestion.question}
+                ${regUser.secretQuestion.question}
         </td>
     </tr>
 </c:if>
@@ -409,7 +410,9 @@
 
     <rt:responseIterator id="resp" collection="${regUser.transientResponses}">
         <tr>
-            <td class="name"><rt:demographicQuestionText response="${resp}"/>:
+            <td class="name">
+                <rt:demographicQuestionText response="${resp}"/>
+                :
             </td>
             <td class="value">
                 <rt:demographicAnswerText response="${resp}"/>
@@ -451,7 +454,15 @@
             School:
         </td>
         <td class="value">
-                ${regUser.coder.currentSchool.school.name}
+            <c:choose>
+                <c:when test="${regUser.coder.currentSchool!=null}">
+                    ${regUser.coder.currentSchool.school.name}
+                </c:when>
+                <c:otherwise>
+                    <%=regUser.getPrimarySchool(SchoolAssociationType.TEACHER)%>
+                </c:otherwise>
+            </c:choose>
+
         </td>
     </tr>
 </c:if>
