@@ -385,6 +385,7 @@ public class RegFieldHelper {
         mainTeacherFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainTeacherFields.add(Constants.EMAIL);
         mainTeacherFields.add(Constants.EMAIL_CONFIRM);
+        mainTeacherFields.add(Constants.NOTIFICATION);
         mainTeacherFields.add(Constants.TIMEZONE);
 
         requiredMainTeacherFields.add(Constants.GIVEN_NAME);
