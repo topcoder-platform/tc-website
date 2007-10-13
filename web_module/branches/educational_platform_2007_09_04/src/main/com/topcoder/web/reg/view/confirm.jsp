@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.model.RegistrationType" %>
 <%@ page import="com.topcoder.web.common.model.SchoolAssociationType" %>
+<%@ page import="com.topcoder.web.common.model.User" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -459,7 +460,7 @@
                     ${regUser.coder.currentSchool.school.name}
                 </c:when>
                 <c:otherwise>
-                    <%=regUser.getPrimarySchool(SchoolAssociationType.TEACHER)%>
+                    <%=((User) request.getSession().getAttribute("regUser")).getPrimarySchool(SchoolAssociationType.TEACHER)%>
                 </c:otherwise>
             </c:choose>
 
