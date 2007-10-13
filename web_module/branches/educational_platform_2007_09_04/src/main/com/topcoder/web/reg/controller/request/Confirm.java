@@ -5,6 +5,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Address;
 import com.topcoder.web.common.model.CoderReferral;
+import com.topcoder.web.common.model.CoderType;
 import com.topcoder.web.common.model.Company;
 import com.topcoder.web.common.model.Contact;
 import com.topcoder.web.common.model.CurrentSchool;
@@ -142,6 +143,7 @@ public class Confirm extends Base {
             is has the teacher association type.
              */
             Long schoolId = new Long((String) params.get(Constants.SCHOOL_ID));
+            UserSchool studentSchool = null;
             CurrentSchool cs = null;
             if (u.getCoder() != null) {
                 cs = u.getCoder().getCurrentSchool();
@@ -151,10 +153,20 @@ public class Confirm extends Base {
                 cs = new CurrentSchool();
                 u.getCoder().setCurrentSchool(cs);
             }
+            if (u.getCoder() != null && CoderType.STUDENT.equals(u.getCoder().getCoderType().getId())) {
+                studentSchool = u.getSchool(schoolId, SchoolAssociationType.STUDENT);
+                if (studentSchool == null) {
+                    studentSchool = new UserSchool();
+                    //setting primary now so that we only end up with one school set as primary.
+                    //the add method takes care of that logic.
+                    studentSchool.setPrimary(true);
+                    studentSchool.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.STUDENT));
+                    u.addSchool(studentSchool);
+                }
+            }
 
             boolean isTeacher = getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getTeacherType());
             UserSchool teacherSchool = null;
-            UserSchool studentSchool = null;
             if (isTeacher) {
                 teacherSchool = u.getSchool(schoolId, SchoolAssociationType.TEACHER);
                 if (teacherSchool == null) {
@@ -165,19 +177,7 @@ public class Confirm extends Base {
                     teacherSchool.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.TEACHER));
                     u.addSchool(teacherSchool);
                 }
-            } else {
-                studentSchool = u.getSchool(schoolId, SchoolAssociationType.STUDENT);
-                if (studentSchool == null) {
-                    studentSchool = new UserSchool();
-                    //setting primary now so that we only end up with one school set as primary.
-                    //the add method takes care of that logic.
-                    studentSchool.setPrimary(true);
-                    studentSchool.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.STUDENT));
-                    u.addSchool(studentSchool);
-                }
-
             }
-
 
             School s;
             if (hasParameter(params, Constants.SCHOOL_ID)) {
