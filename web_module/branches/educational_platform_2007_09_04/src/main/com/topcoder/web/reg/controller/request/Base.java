@@ -665,7 +665,8 @@ public abstract class Base extends LongHibernateProcessor {
             s = u.getCoder().getCurrentSchool().getSchool();
         }
         UserSchool us = u.getPrimarySchool(SchoolAssociationType.TEACHER);
-        if (us != null) {
+        if (s == null && us != null) {
+            log.debug("getting school from teacher's school");
             s = us.getSchool();
         }
 
