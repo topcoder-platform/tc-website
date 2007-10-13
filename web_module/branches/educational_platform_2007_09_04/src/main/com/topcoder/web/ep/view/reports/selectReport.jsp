@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -51,41 +52,53 @@
         </p>
 
         <div style="float: right; width: 350px;">
+            <c:choose>
+                <c:when test="${not empty assignments}">
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tr><td class="title">Assignments</td></tr>
                         <tr><td class="header">Assignment</td></tr>
                         <%int i = 0;%>
+                        <c:forEach items="${assignments}" var="assignment">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                <td class="value"><a href="">Week 1 assignment</a></td>
+                                <td class="value"><a href="/ep/professor/reports/?module=AssignmentReport&amp;asid=${assignment.id}">${assignment.name}</a></td>
                             </tr>
+                        </c:forEach>
                         <%i++;%>
                     </table>
-<%--
+                </c:when>
+                <c:otherwise>
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tr><td class="title">Assignments</td></tr>
                         <tr><td class="header">Assignment</td></tr>
                         <tr class="light"><td class="valueC"><div style="margin: 10px;">There are no assignment reports available.</div></td></tr>
                     </table>
---%>
+                </c:otherwise>
+            </c:choose>
         </div>
 
         <div style="width: 350px;">
+            <c:choose>
+                <c:when test="${not empty students}">
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tr><td class="title" colspan="2">Students</td></tr>
                         <tr><td class="header">Student</td></tr>
                         <%int i = 0;%>
+                        <c:forEach items="${students}" var="student">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                <td class="value"><a href="">lastname, firstname</a></td>
+                                <td class="value"><a href="/ep/professor/reports/?module=StudentReport&amp;stid=${student.id}">${student.user.lastName}, ${student.user.firstName}</a></td>
                             </tr>
+                        </c:forEach>
                         <%i++;%>
                     </table>
-<%--
+                </c:when>
+                <c:otherwise>
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tr><td class="title">Students</td></tr>
                         <tr><td class="header">Student</td></tr>
                         <tr class="light"><td class="valueC"><div style="margin: 10px;">There are no student reports available.</div></td></tr>
                     </table>
---%>
+                </c:otherwise>
+            </c:choose>
         </div>
 
     <br clear="all" />

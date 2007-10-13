@@ -65,7 +65,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
                 <c:forEach items="${classrooms}" var="classroom">
                     <c:if test="${classroom.school != oldSchool}">
                         <br clear="all" />
-                        <h1><span class="bg"><span class="spacer">School name</span></span></h1>
+                        <h1><span class="bg"><span class="spacer">${classroom.school.name}</span></span></h1>
                     </c:if>
                     <div class="classroomListing" align="center">
                         <div class="name">

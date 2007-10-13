@@ -39,7 +39,7 @@ public class SelectReport extends ShortHibernateProcessor {
         getRequest().setAttribute("students", c.getStudents(StudentClassroom.ACTIVE_STATUS));
         getRequest().setAttribute("assignments", DAOUtil.getFactory().getClassroomDAO().getAssignments(classroomId));
         
-        setNextPage("/reports/selectClassroom.jsp");
+        setNextPage("/reports/selectReport.jsp");
         setIsNextPageInContext(true);
     }
     
