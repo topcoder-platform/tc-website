@@ -512,10 +512,11 @@ public class User extends Base {
      * @param schoolId the id of the school to check for
      * @return the association betwen this user and that school
      */
-    public UserSchool getSchool(Long schoolId) {
+    public UserSchool getSchool(Long schoolId, Integer schoolAssociationTypeId) {
         for (UserSchool school : schools) {
             //log.debug("school " + school.getId() + " " + school.getSchool().getId());
-            if (school.getSchool().getId().equals(schoolId)) {
+            if (school.getSchool().getId().equals(schoolId) &&
+                    school.getAssociationType().getId().equals(schoolAssociationTypeId)) {
                 return school;
             }
         }

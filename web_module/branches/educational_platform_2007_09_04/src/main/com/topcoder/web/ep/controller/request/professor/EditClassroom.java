@@ -14,6 +14,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.School;
+import com.topcoder.web.common.model.SchoolAssociationType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.StudentClassroom;
@@ -93,7 +94,7 @@ public class EditClassroom extends LongBase {
                     if (schoolId == null) {
                         addError("error", "Please select a school");
                     } else {
-                        s = getActiveUser().getSchool(schoolId) != null ? getActiveUser().getSchool(schoolId).getSchool() : null;
+                        s = getActiveUser().getSchool(schoolId, SchoolAssociationType.TEACHER) != null ? getActiveUser().getSchool(schoolId, SchoolAssociationType.TEACHER).getSchool() : null;
                         if (s == null) {
                             throw new TCWebException("Invalid school id " + schoolId);
                         }
