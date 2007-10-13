@@ -515,13 +515,6 @@ public class User extends Base {
      */
     public UserSchool getSchool(Long schoolId, Integer schoolAssociationTypeId) {
         for (UserSchool school : schools) {
-            log.debug("schools size " + schools.size());
-            //log.debug("school " + school.getId() + " " + school.getSchool().getId());
-            if (school == null) log.debug("user school null");
-            if (school.getSchool() == null) log.debug("school null");
-            if (school.getSchool().getId() == null) log.debug("school id null");
-            if (schoolId == null) log.debug("param null");
-
             if (school.getSchool().getId().equals(schoolId) &&
                     school.getAssociationType().getId().equals(schoolAssociationTypeId)) {
                 return school;

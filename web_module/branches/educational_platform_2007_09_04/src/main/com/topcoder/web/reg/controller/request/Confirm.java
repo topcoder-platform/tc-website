@@ -161,7 +161,6 @@ public class Confirm extends Base {
                     //the add method takes care of that logic.
                     studentSchool.setPrimary(true);
                     studentSchool.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.STUDENT));
-                    u.addSchool(studentSchool);
                 }
             }
 
@@ -175,7 +174,6 @@ public class Confirm extends Base {
                     //the add method takes care of that logic.
                     teacherSchool.setPrimary(true);
                     teacherSchool.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.TEACHER));
-                    u.addSchool(teacherSchool);
                 }
             }
 
@@ -206,10 +204,12 @@ public class Confirm extends Base {
             }
             if (teacherSchool != null) {
                 teacherSchool.setSchool(s);
+                u.addSchool(teacherSchool);
             }
 
             if (studentSchool != null) {
                 studentSchool.setSchool(s);
+                u.addSchool(studentSchool);
             }
 
             if (!RegFieldHelper.getMainFieldSet(getRequestedTypes(), u).contains(Constants.COMP_COUNTRY_CODE)) {
