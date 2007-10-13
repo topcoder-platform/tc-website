@@ -190,7 +190,9 @@ public class Confirm extends Base {
                 }
                 s.setAddress(a);
             }
-            cs.setSchool(s);
+            if (cs != null) {
+                cs.setSchool(s);
+            }
             if (us != null) {
                 us.setSchool(s);
             }
