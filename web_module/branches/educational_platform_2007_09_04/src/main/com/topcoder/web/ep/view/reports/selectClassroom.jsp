@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -56,20 +57,34 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
 
 <div class="window" align="left">
     <div class="spacer">
-            <p align="center">
-            Select a classroom:
-            </p>
-            <br clear="all" />
-            <h1><span class="bg"><span class="spacer">School name</span></span></h1>
-            <div class="classroomListing" align="center">
-                <div class="name">
-                    <a href="">CSE 101 Tues/Thurs 9:00AM</a>
-                </div>
-                <div class="button">
-                    <a href=""><img src="/i/ep/buttons/reports.png" alt="Reports" /></a>
-                </div>
-            </div>
-        <br clear="all" />
+        <c:choose>
+            <c:when test="${not empty classrooms}">
+                <p align="center">
+                Select a classroom:
+                </p>
+                <c:forEach items="${classrooms}" var="classroom">
+                    <c:if test="${classroom.school != oldSchool}">
+                        <br clear="all" />
+                        <h1><span class="bg"><span class="spacer">School name</span></span></h1>
+                    </c:if>
+                    <div class="classroomListing" align="center">
+                        <div class="name">
+                            <a href="/ep/professor/reports/?module=SelectReport&amp;clsid=${classroom.id}">${classroom.name}</a>
+                        </div>
+                        <div class="button">
+                            <a href="/ep/professor/reports/?module=SelectReport&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/reports.png" alt="Reports" /></a>
+                        </div>
+                    </div>
+                    <c:set var="oldSchool" value="${classroom.school}"/>
+                </c:forEach>
+                <br clear="all" />
+            </c:when>
+            <c:otherwise>
+                    <p align="center">
+                    You don't have active classrooms
+                    </p>
+            </c:otherwise>
+        </c:choose>
     </div>
 </div>
 
