@@ -147,23 +147,37 @@ public class Confirm extends Base {
                 cs = u.getCoder().getCurrentSchool();
             }
             if (cs == null && u.getCoder() != null) {
+                //must be a student
                 cs = new CurrentSchool();
                 u.getCoder().setCurrentSchool(cs);
             }
 
             boolean isTeacher = getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getTeacherType());
-            UserSchool us = null;
+            UserSchool teacherSchool = null;
+            UserSchool studentSchool = null;
             if (isTeacher) {
-                us = u.getSchool(schoolId);
-                if (us == null) {
-                    us = new UserSchool();
+                teacherSchool = u.getSchool(schoolId, SchoolAssociationType.TEACHER);
+                if (teacherSchool == null) {
+                    teacherSchool = new UserSchool();
                     //setting primary now so that we only end up with one school set as primary.
                     //the add method takes care of that logic.
-                    us.setPrimary(true);
-                    us.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.TEACHER));
-                    u.addSchool(us);
+                    teacherSchool.setPrimary(true);
+                    teacherSchool.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.TEACHER));
+                    u.addSchool(teacherSchool);
                 }
+            } else {
+                studentSchool = u.getSchool(schoolId, SchoolAssociationType.STUDENT);
+                if (studentSchool == null) {
+                    studentSchool = new UserSchool();
+                    //setting primary now so that we only end up with one school set as primary.
+                    //the add method takes care of that logic.
+                    studentSchool.setPrimary(true);
+                    studentSchool.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.STUDENT));
+                    u.addSchool(studentSchool);
+                }
+
             }
+
 
             School s;
             if (hasParameter(params, Constants.SCHOOL_ID)) {
@@ -190,8 +204,12 @@ public class Confirm extends Base {
                 }
                 s.setAddress(a);
             }
-            if (us != null) {
-                us.setSchool(s);
+            if (teacherSchool != null) {
+                teacherSchool.setSchool(s);
+            }
+
+            if (studentSchool != null) {
+                studentSchool.setSchool(s);
             }
 
             if (!RegFieldHelper.getMainFieldSet(getRequestedTypes(), u).contains(Constants.COMP_COUNTRY_CODE)) {
