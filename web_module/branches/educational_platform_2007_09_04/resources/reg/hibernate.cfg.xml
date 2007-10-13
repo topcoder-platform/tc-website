@@ -146,6 +146,7 @@
         <mapping resource="com/topcoder/web/common/model/comp/UserContestPrize.hbm.xml"/>
 
         <mapping class="com.topcoder.web.common.model.educ.Professor"/>
+        <mapping class="com.topcoder.web.common.model.educ.ProfessorStatus"/>
         <mapping class="com.topcoder.web.common.model.educ.Classroom"/>
         <!--          <mapping class="com.topcoder.web.common.model.educ.StudentClassroom"/> -->
 

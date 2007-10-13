@@ -117,6 +117,10 @@ public class DAOFactoryQueryTool implements DAOFactory {
         throw new RuntimeException("Not supported");
     }
 
+    public ProfessorStatusDAO getProfessorStatusDA0() {
+        throw new RuntimeException("Not supported");
+    }
+
     public ProjectDAO getProjectDAO() {
         throw new RuntimeException("Not supported");
     }

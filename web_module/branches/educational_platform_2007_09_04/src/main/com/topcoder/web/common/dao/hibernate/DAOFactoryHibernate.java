@@ -108,6 +108,10 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new PreferenceGroupDAOHibernate();
     }
 
+    public ProfessorStatusDAO getProfessorStatusDA0() {
+        return new ProfessorStatusDAOHibernate();
+    }
+
     public ProjectDAO getProjectDAO() {
         return new ProjectDAOHibernate();
     }

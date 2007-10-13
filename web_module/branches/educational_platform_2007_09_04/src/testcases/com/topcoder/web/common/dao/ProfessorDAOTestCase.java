@@ -7,6 +7,7 @@ package com.topcoder.web.common.dao;
 
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Professor;
+import com.topcoder.web.common.model.educ.ProfessorStatus;
 import com.topcoder.web.reg.TCHibernateTestCase;
 
 /**
@@ -32,7 +33,7 @@ public class ProfessorDAOTestCase extends TCHibernateTestCase {
 
         Professor p = new Professor();
 
-        p.setStatusId(Professor.ACTIVE_STATUS);
+        p.setStatus(DAOUtil.getFactory().getProfessorStatusDA0().find(ProfessorStatus.ACTIVE));
         p.setUser(DAOUtil.getFactory().getUserDAO().find("bauna", true));
 
         DAOUtil.getFactory().getProfessorDAO().saveOrUpdate(p);
@@ -47,8 +48,8 @@ public class ProfessorDAOTestCase extends TCHibernateTestCase {
 
         assertTrue("Different attribute: getClassroom size - " + p.getClassrooms().size() + " <> getClassrooms size - " + p2.getClassrooms().size(),
                 p.getClassrooms().size() == p2.getClassrooms().size());
-        assertTrue("Different attribute: getStatusId - " + p.getStatusId() + " <> getStatusId - " + p2.getStatusId(),
-                p.getStatusId().equals(p2.getStatusId()));
+        assertTrue("Different attribute: getStatusId - " + p.getStatus().getId() + " <> getStatusId - " + p2.getStatus().getId(),
+                p.getStatus().equals(p2.getStatus()));
         assertTrue("Different attribute: getUser - " + p.getUser() + " <> getUser - " + p2.getUser(),
                 p.getUser().equals(p2.getUser()));
 

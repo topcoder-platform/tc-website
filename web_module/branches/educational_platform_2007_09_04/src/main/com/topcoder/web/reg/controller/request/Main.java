@@ -13,6 +13,7 @@ import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Professor;
+import com.topcoder.web.common.model.educ.ProfessorStatus;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 
@@ -136,8 +137,9 @@ public class Main extends Base {
                     Coder c = new Coder();
                     u.setCoder(c);
                 }
-                if (u.getCoder() == null && (getRequestedTypes().contains(regTypeDAO.getTeacherType()))) {
+                if (u.getProfessor() == null && (getRequestedTypes().contains(regTypeDAO.getTeacherType()))) {
                     Professor p = new Professor();
+                    p.setStatus(getFactory().getProfessorStatusDA0().find(ProfessorStatus.PENDING));
                     u.setProfessor(p);
                 }
 

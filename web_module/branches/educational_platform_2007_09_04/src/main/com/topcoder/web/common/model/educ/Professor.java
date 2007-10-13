@@ -18,6 +18,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.OrderBy;
@@ -43,7 +45,7 @@ public class Professor extends Base {
     private Long id;
 
     private User user;
-    private Integer statusId;
+    private ProfessorStatus status;
 
     private Set<Classroom> classrooms;
 
@@ -64,13 +66,14 @@ public class Professor extends Base {
         this.id = id;
     }
 
-    @Column(name = "status_id", nullable = false)
-    public Integer getStatusId() {
-        return statusId;
+    @ManyToOne()
+    @JoinColumn(name = "status_id", nullable = false)
+    public ProfessorStatus getStatus() {
+        return status;
     }
 
-    public void setStatusId(Integer statusId) {
-        this.statusId = statusId;
+    public void setStatus(ProfessorStatus status) {
+        this.status = status;
     }
 
     @OneToOne
