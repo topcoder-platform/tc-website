@@ -18,7 +18,7 @@ public class ComponentStateDAOHibernate extends GenericBase<ComponentState, Long
     @SuppressWarnings("unchecked")
     public List<Object> getResultsSummary(Long roundId, Long componentId) {
         Query q = getSession().createQuery(
-                "select cs.coder.user.lastName, cs.coder.user.firstName, cs.points " +
+                "select cs.coder.id, cs.coder.user.lastName, cs.coder.user.firstName, cs.points " +
                 " from ComponentState cs " +
                 " where cs.round.id = :roundId " +
                 " and cs.component.id = :componentId " +

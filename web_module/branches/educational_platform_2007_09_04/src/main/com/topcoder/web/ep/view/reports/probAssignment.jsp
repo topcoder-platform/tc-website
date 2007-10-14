@@ -125,7 +125,7 @@
             <%int i = 0;%>
             <c:forEach items="${results}" var="result">                
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                    <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;clsid=${clsid}&amp;stid=${result.studentId}">${result.student}</a></td>
+                    <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;clsid=${classroom.id}&amp;stid=${result.studentId}">${result.student}</a></td>
                     <td class="valueC">${result.score}</td>
                     <td class="valueC">ToDo</td>
                     <td class="valueC">ToDo</td>
