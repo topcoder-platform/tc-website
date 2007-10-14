@@ -81,7 +81,7 @@ public class ProblemAssignmentReport extends ShortHibernateProcessor {
         getRequest().setAttribute("classroom", c);
         getRequest().setAttribute("component", cmp);
         
-        setNextPage("/reports/assignment.jsp");
+        setNextPage("/reports/probAssignment.jsp");
         setIsNextPageInContext(true);
     }
     

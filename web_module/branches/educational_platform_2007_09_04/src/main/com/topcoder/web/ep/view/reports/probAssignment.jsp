@@ -101,12 +101,10 @@
                 --%>
                 <tr>
                     <td align="left" valign="top">
-                        <strong>Problem(s):</strong>
+                        <strong>Problem:</strong>
                     </td>
                     <td align="left">
-                        <c:forEach items="${assignment.roundComponents}" var="rc">                
-                            <div><a href="Javascript:openWin('/ep/?module=ViewProblem&amp;<%=Constants.COMPONENT_ID%>=${rc.id.component.id}','problemStatement',600,600);">${rc.id.component.problem.name}</a> (<a href="/ep/professor/reports/?module=ProblemAssignmentReport&amp;asid=${assignment.id}&amp;cd=${rc.id.component.id}">View report</a>)</div>
-                        </c:forEach>
+                        <div><a href="Javascript:openWin('/ep/?module=ViewProblem&amp;<%=Constants.COMPONENT_ID%>=${component.id}','problemStatement',600,600);">${component.problem.name}</a></div>
                     </td>
                 </tr>
             </tbody>
@@ -114,13 +112,15 @@
         </div>
 
         <table cellpadding="0" cellspacing="0" class="stat" width="100%">
-            <tr><td class="title" colspan="4">Assignment Report</td></tr>
-            <tr><td class="headerC" colspan="4">${assignment.name}</td></tr>
+            <tr><td class="title" colspan="5">Assignment Report</td></tr>
+            <tr><td class="headerC" colspan="5">${assignment.name}</td></tr>
+            <tr><td class="headerC" colspan="5">${component.problem.name}</td></tr>
             <tr>
                 <td class="header"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.STUDENT_COL.intValue()%>"/>">Student</a></td>
                 <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.SCORE_COL.intValue()%>"/>">Score</a></td>
                 <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.NUM_TESTS_COL.intValue()%>"/>">Tests Passed</a></td>
                 <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.PERCENT_TESTS_COL.intValue()%>"/>">% Tests Passed</a></td>
+                <td class="header" width="1%">&nbsp;</td>
             </tr>
             <%int i = 0;%>
             <c:forEach items="${results}" var="result">                
@@ -129,6 +129,7 @@
                     <td class="valueC">${result.score}</td>
                     <td class="valueC">ToDo</td>
                     <td class="valueC">ToDo</td>
+                    <td class="valueC"><a href=""><img src="/i/ep/buttons/viewSubmission.png" alt="View submission" /></a></td>
                 </tr>
                 <%i++;%>
             </c:forEach>
@@ -141,6 +142,7 @@
             </tr>
 --%>
         </table>
+        </form>
     <div style="margin-top: 10px;">
         <a href="${sessionInfo.servletPath}?module=SelectReport&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>
