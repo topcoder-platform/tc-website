@@ -67,7 +67,7 @@ public class ProblemAssignmentReport extends ShortHibernateProcessor {
         List<AssignmentReportRow> larr = new ArrayList<AssignmentReportRow>();
         for (Object o : l) {
             Object[] lo = (Object[]) o; 
-            larr.add(new AssignmentReportRow((String)lo[0] + ", " + (String)lo[1], (Double)lo[2], null, null));
+            larr.add(new AssignmentReportRow((Long)lo[0], (String)lo[1] + ", " + (String)lo[2], (Double)lo[3], null, null));
         }
 
         // now we need to get tests results

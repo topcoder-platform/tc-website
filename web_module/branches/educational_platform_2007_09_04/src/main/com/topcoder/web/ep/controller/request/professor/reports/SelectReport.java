@@ -36,6 +36,7 @@ public class SelectReport extends ShortHibernateProcessor {
         }
 
         // we need active students and assignments
+        getRequest().setAttribute("clsid", c.getId());
         getRequest().setAttribute("students", c.getStudents(StudentClassroom.ACTIVE_STATUS));
         getRequest().setAttribute("assignments", DAOUtil.getFactory().getClassroomDAO().getAssignments(classroomId));
         

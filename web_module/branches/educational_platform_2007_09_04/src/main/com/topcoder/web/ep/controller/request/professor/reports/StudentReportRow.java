@@ -7,10 +7,10 @@ package com.topcoder.web.ep.controller.request.professor.reports;
  * @author Pablo
  *
  */
-public class AssignmentReportRow {
+public class StudentReportRow {
 
-    private Long studentId;
-    private String student;
+    private Long assignmentId;
+    private String assignment;
     private Double score;
     private Integer numTestsPassed;
     private Double percentTestsPassed;
@@ -21,39 +21,39 @@ public class AssignmentReportRow {
      * @param numTestsPassed
      * @param percentTestsPassed
      */
-    public AssignmentReportRow(Long studentId, String student, Double score,
+    public StudentReportRow(Long assignmentId, String assignment, Double score,
             Integer numTestsPassed, Double percentTestsPassed) {
         super();
-        this.studentId = studentId;
-        this.student = student;
+        this.assignmentId = assignmentId;
+        this.assignment = assignment;
         this.score = score;
         this.numTestsPassed = numTestsPassed;
         this.percentTestsPassed = percentTestsPassed;
     }
     
     /**
-     * @return the student Id
+     * @return the assignment Id
      */
-    public Long getStudentId() {
-        return studentId;
+    public Long getAssignmentId() {
+        return assignmentId;
     }
     /**
-     * @param student the student Id to set
+     * @param assignment the assignment Id to set
      */
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
+    public void setAssignmentId(Long assignmentId) {
+        this.assignmentId = assignmentId;
     }
     /**
-     * @return the student
+     * @return the assignment
      */
-    public String getStudent() {
-        return student;
+    public String getAssignment() {
+        return assignment;
     }
     /**
-     * @param student the student to set
+     * @param assignment the assignment to set
      */
-    public void setStudent(String student) {
-        this.student = student;
+    public void setAssignment(String assignment) {
+        this.assignment = assignment;
     }
     /**
      * @return the score
@@ -106,7 +106,7 @@ public class AssignmentReportRow {
                 + ((percentTestsPassed == null) ? 0 : percentTestsPassed
                         .hashCode());
         result = prime * result + ((score == null) ? 0 : score.hashCode());
-        result = prime * result + ((student == null) ? 0 : student.hashCode());
+        result = prime * result + ((assignment == null) ? 0 : assignment.hashCode());
         return result;
     }
     /* (non-Javadoc)
@@ -120,7 +120,7 @@ public class AssignmentReportRow {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        final AssignmentReportRow other = (AssignmentReportRow) obj;
+        final StudentReportRow other = (StudentReportRow) obj;
         if (numTestsPassed == null) {
             if (other.numTestsPassed != null)
                 return false;
@@ -136,10 +136,10 @@ public class AssignmentReportRow {
                 return false;
         } else if (!score.equals(other.score))
             return false;
-        if (student == null) {
-            if (other.student != null)
+        if (assignment == null) {
+            if (other.assignment != null)
                 return false;
-        } else if (!student.equals(other.student))
+        } else if (!assignment.equals(other.assignment))
             return false;
         return true;
     }

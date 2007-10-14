@@ -60,7 +60,7 @@
                         <%int i = 0;%>
                         <c:forEach items="${assignments}" var="assignment">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                <td class="value"><a href="/ep/professor/reports/?module=AssignmentReport&amp;asid=${assignment.id}">${assignment.name}</a></td>
+                                <td class="value"><a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;asid=${assignment.id}">${assignment.name}</a></td>
                             </tr>
                         </c:forEach>
                         <%i++;%>
@@ -85,7 +85,7 @@
                         <%int i = 0;%>
                         <c:forEach items="${students}" var="student">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                <td class="value"><a href="/ep/professor/reports/?module=StudentReport&amp;stid=${student.id}">${student.user.lastName}, ${student.user.firstName}</a></td>
+                                <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;clsid=${clsid}&amp;stid=${student.id}">${student.user.lastName}, ${student.user.firstName}</a></td>
                             </tr>
                         </c:forEach>
                         <%i++;%>
@@ -103,7 +103,7 @@
 
     <br clear="all" />
     <div style="margin-top: 10px;">
-        <a href="/ep/professor/reports/"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+        <a href="${sessionInfo.servletPath}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>
 
     </div>
