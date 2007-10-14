@@ -70,7 +70,7 @@ public class StudentReport extends ShortHibernateProcessor {
             ComponentState oldCs = l.iterator().next();
             Double assignmentPoints = 0d;
             for (ComponentState cs : l) {
-                if (!oldCs.equals(cs)) {
+                if (!oldCs.getRound().getId().equals(cs.getRound().getId())) {
                     larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, null, null, lsrdr));
 
                     lsrdr = new ArrayList<StudentReportDetailRow>();
@@ -80,6 +80,7 @@ public class StudentReport extends ShortHibernateProcessor {
                 lsrdr.add(new StudentReportDetailRow(cs.getComponent().getId(), cs.getComponent().getProblem().getName(),
                         cs.getPoints(), null, null));
                 assignmentPoints += cs.getPoints(); 
+                oldCs = cs;
             }
             larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, null, null, lsrdr));
 

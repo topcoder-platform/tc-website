@@ -17,6 +17,38 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_ep"/>
     </jsp:include>
+    <style type="text/css">
+    .showText{ display: table-row }
+    .hideText{ display: none }
+    </style>
+
+    <script type="text/javascript">
+        function toggleDisplay(objectID,imageID){
+           var object = document.getElementById(objectID) 
+           if(object.className == 'dark hideText') {
+                object.className = 'dark showText'; 
+                document.images[imageID].src = '/i/interface/exp_ed_w.gif'; 
+           }else if(object.className == 'dark showText') {
+                object.className = 'dark hideText'; 
+                document.images[imageID].src = '/i/interface/exp_w.gif';
+           }else if(object.className == 'light showText') {
+                object.className = 'light hideText'; 
+                document.images[imageID].src = '/i/interface/exp_w.gif';
+           }else {
+                object.className = 'light showText';
+                document.images[imageID].src = '/i/interface/exp_ed_w.gif';
+           }
+          return;
+        }
+
+        function toggleDisplay(objectID){
+           var object = document.getElementById(objectID);
+           if(object.className == 'showText') object.className = 'hideText';
+           else object.className = 'showText';
+           return;
+        }
+    </script>
+    
 <%-- each school requires its own stylesheet, linked in here --%>
     <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
 </head>
@@ -104,11 +136,24 @@
             <%int i = 0;%>
             <c:forEach items="${results}" var="result">                
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                    <td class="value"><a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;asid=${result.assignmentId}">${result.assignment}</a></td>
-                    <td class="valueC">${result.score}</td>
+                    <td class="value">
+                    <a href="javascript:toggleDisplay('ref_<%=i%>','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/ep/buttons/exp_w.png" alt="Expand" name="switch_<%=i%>"/></a>
+                    <a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;asid=${result.assignmentId}">${result.assignment}</a>
+                    </td>
+                    <td class="valueC">${result.assignmentScore}</td>
                     <td class="valueC">ToDo</td>
                     <td class="valueC">ToDo</td>
                 </tr>
+                <c:forEach items="${result.details}" var="detail">                
+                    <tr id="ref_<%=i%>" class="<%=(i%2==0 ? "light hideText" : "dark hideText")%>">
+                        <td class="value">
+                        <a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;asid=${result.assignmentId}&amp;cd=${detail.componentId}">${detail.component}</a>
+                        </td>
+                        <td class="valueC">${detail.score}</td>
+                        <td class="valueC">ToDo</td>
+                        <td class="valueC">ToDo</td>
+                    </tr>
+                </c:forEach>
                 <%i++;%>
             </c:forEach>
 <%-- for later
