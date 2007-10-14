@@ -1,11 +1,16 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.criterion.Restrictions;
 
 import com.topcoder.web.common.dao.ComponentStateDAO;
 import com.topcoder.web.common.model.algo.ComponentState;
+import com.topcoder.web.common.model.algo.Round;
  
 
 /**
@@ -27,5 +32,18 @@ public class ComponentStateDAOHibernate extends GenericBase<ComponentState, Long
         q.setLong("componentId", componentId);
         
         return q.list();
+    }
+    
+    public List<ComponentState> getStudentResults(List<Round> lr, Long studentId) {
+        Set<Long> values = new HashSet<Long>(lr.size());
+        
+        for (Round r : lr) {
+            values.add(r.getId());
+        }
+        Criteria c = getSession().createCriteria(ComponentState.class)
+        .add(Restrictions.eq("coder.id", studentId))
+        .add(Restrictions.in("round.id", values));
+        
+        return c.list();
     }
 }

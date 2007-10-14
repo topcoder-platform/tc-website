@@ -130,7 +130,7 @@ public class AssignmentReport extends ShortHibernateProcessor {
         } else {
             Collections.sort(larr, new Comparator<AssignmentReportRow>() {
                 public int compare(AssignmentReportRow arg0, AssignmentReportRow arg1) {
-                    return arg1.getStudent().compareTo(arg0.getStudent());
+                    return arg1.getStudent().toUpperCase().compareTo(arg0.getStudent().toUpperCase());
                 }
             });
         }

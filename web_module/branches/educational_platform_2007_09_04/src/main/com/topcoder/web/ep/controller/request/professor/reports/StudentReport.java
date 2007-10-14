@@ -18,6 +18,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.SortInfo;
+import com.topcoder.web.common.model.algo.ComponentState;
 import com.topcoder.web.common.model.algo.RoomResult;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.educ.Classroom;
@@ -61,11 +62,29 @@ public class StudentReport extends ShortHibernateProcessor {
         // Iterate results and generate report
         List<Round> lr = DAOUtil.getFactory().getClassroomDAO().getAssignmentsForStudent(classroomId, s.getId());
 
-        List<RoomResult> l = DAOUtil.getFactory().getRoomResultDAO().getStudentResults(lr, s.getId());
+        List<ComponentState> l = DAOUtil.getFactory().getComponentStateDAO().getStudentResults(lr, s.getId());
 
         List<StudentReportRow> larr = new ArrayList<StudentReportRow>();
-        for (RoomResult rr : l) {
-            larr.add(new StudentReportRow(rr.getId().getRound().getId(), rr.getId().getRound().getName(), rr.getPointTotal(), null, null));
+        if (l.size() > 0) {
+            List<StudentReportDetailRow> lsrdr = new ArrayList<StudentReportDetailRow>();
+            ComponentState oldCs = l.iterator().next();
+            Double assignmentPoints = 0d;
+            for (ComponentState cs : l) {
+                if (!oldCs.equals(cs)) {
+                    larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, null, null, lsrdr));
+
+                    lsrdr = new ArrayList<StudentReportDetailRow>();
+                    assignmentPoints = 0d;
+                }
+
+                lsrdr.add(new StudentReportDetailRow(cs.getComponent().getId(), cs.getComponent().getProblem().getName(),
+                        cs.getPoints(), null, null));
+                assignmentPoints += cs.getPoints(); 
+            }
+            larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, null, null, lsrdr));
+
+            lsrdr = new ArrayList<StudentReportDetailRow>();
+            assignmentPoints = 0d;
         }
 
         // now we need to get tests results
@@ -134,25 +153,25 @@ public class StudentReport extends ShortHibernateProcessor {
         if (SCORE_COL.toString().equals(sortCol)) {
             Collections.sort(larr, new Comparator<StudentReportRow>() {
                 public int compare(StudentReportRow arg0, StudentReportRow arg1) {
-                    return arg1.getScore().compareTo(arg0.getScore());
+                    return arg1.getAssignmentScore().compareTo(arg0.getAssignmentScore());
                 }
             });
         } else if (NUM_TESTS_COL.toString().equals(sortCol)) {
             Collections.sort(larr, new Comparator<StudentReportRow>() {
                 public int compare(StudentReportRow arg0, StudentReportRow arg1) {
-                    return arg1.getNumTestsPassed().compareTo(arg0.getNumTestsPassed());
+                    return arg1.getAssignmentNumTestsPassed().compareTo(arg0.getAssignmentNumTestsPassed());
                 }
             });
         } else if (PERCENT_TESTS_COL.toString().equals(sortCol)) {
             Collections.sort(larr, new Comparator<StudentReportRow>() {
                 public int compare(StudentReportRow arg0, StudentReportRow arg1) {
-                    return arg1.getPercentTestsPassed().compareTo(arg0.getPercentTestsPassed());
+                    return arg1.getAssignmentPercentTestsPassed().compareTo(arg0.getAssignmentPercentTestsPassed());
                 }
             });
         } else {
             Collections.sort(larr, new Comparator<StudentReportRow>() {
                 public int compare(StudentReportRow arg0, StudentReportRow arg1) {
-                    return arg1.getAssignment().compareTo(arg0.getAssignment());
+                    return arg1.getAssignment().toUpperCase().compareTo(arg0.getAssignment().toUpperCase());
                 }
             });
         }

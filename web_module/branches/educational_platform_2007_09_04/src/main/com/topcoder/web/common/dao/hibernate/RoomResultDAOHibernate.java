@@ -1,16 +1,11 @@
 package com.topcoder.web.common.dao.hibernate;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import org.hibernate.Criteria;
 import org.hibernate.Query;
-import org.hibernate.criterion.Restrictions;
 
 import com.topcoder.web.common.dao.RoomResultDAO;
 import com.topcoder.web.common.model.algo.RoomResult;
-import com.topcoder.web.common.model.algo.Round;
  
 
 /**
@@ -30,19 +25,5 @@ public class RoomResultDAOHibernate extends GenericBase<RoomResult, Long> implem
         q.setLong("roomId", roomId);
         
         return q.list();
-    }
-
-    public List<RoomResult> getStudentResults(List<Round> lr, Long studentId) {
-        Set<Long> values = new HashSet<Long>(lr.size());
-        
-        for (Round r : lr) {
-            values.add(r.getId());
-        }
-        
-        Criteria c = getSession().createCriteria(RoomResult.class)
-        .add(Restrictions.eq("id.coder.id", studentId))
-        .add(Restrictions.in("id.round.id", values));
-        
-        return c.list();
     }
 }

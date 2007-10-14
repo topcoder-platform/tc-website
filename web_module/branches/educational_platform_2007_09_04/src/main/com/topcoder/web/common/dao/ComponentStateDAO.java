@@ -3,6 +3,7 @@ package com.topcoder.web.common.dao;
 import java.util.List;
 
 import com.topcoder.web.common.model.algo.ComponentState;
+import com.topcoder.web.common.model.algo.Round;
 
 
 /**
@@ -13,5 +14,7 @@ import com.topcoder.web.common.model.algo.ComponentState;
 public interface ComponentStateDAO extends GenericDAO<ComponentState, Long> {
 
     public List<Object> getResultsSummary(Long roundId, Long componentId);
+
+    public List<ComponentState> getStudentResults(List<Round> lr, Long studentId);
 
 }

@@ -15,6 +15,4 @@ public interface RoomResultDAO extends GenericDAO<RoomResult, Long> {
 
     public List<Object> getResultsSummary(Long roundId);
 
-    public List<RoomResult> getStudentResults(List<Round> lr, Long studentId);
-
 }
