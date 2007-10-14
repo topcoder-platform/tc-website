@@ -5,6 +5,9 @@
 */
 package com.topcoder.web.ep.controller.request.professor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
@@ -20,16 +23,13 @@ import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.ArenaServicesFactory;
-import com.topcoder.web.ep.controller.request.ShortBase;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.topcoder.web.ep.controller.request.LongBase;
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class EditAssignmentStudentsSubmit extends ShortBase {
+public class EditAssignmentStudentsSubmit extends LongBase {
 
     private static Logger log = Logger.getLogger(EditAssignmentStudentsSubmit.class);
 

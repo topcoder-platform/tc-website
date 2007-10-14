@@ -5,6 +5,15 @@
 */
 package com.topcoder.web.ep.controller.request.professor;
 
+import java.sql.Timestamp;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
@@ -22,24 +31,15 @@ import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.educ.AssignmentScoreType;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
-import com.topcoder.web.ep.controller.request.ShortBase;
+import com.topcoder.web.ep.controller.request.LongBase;
 import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
-
-import java.sql.Timestamp;
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class EditAssignment extends ShortBase {
+public class EditAssignment extends LongBase {
 
     private static Logger log = Logger.getLogger(EditAssignment.class);
 

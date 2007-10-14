@@ -12,7 +12,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ep.controller.request.ArenaServicesFactory;
-import com.topcoder.web.ep.controller.request.ShortBase;
+import com.topcoder.web.ep.controller.request.LongBase;
 import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
 
@@ -20,7 +20,7 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class EditAssignmentSubmit extends ShortBase {
+public class EditAssignmentSubmit extends LongBase {
 
     private static Logger log = Logger.getLogger(EditAssignmentSubmit.class);
 

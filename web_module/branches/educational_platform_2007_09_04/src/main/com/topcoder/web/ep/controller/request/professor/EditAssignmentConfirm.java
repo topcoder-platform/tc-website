@@ -14,7 +14,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.ep.controller.request.ShortBase;
+import com.topcoder.web.ep.controller.request.LongBase;
 import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
 
@@ -22,7 +22,7 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class EditAssignmentConfirm extends ShortBase {
+public class EditAssignmentConfirm extends LongBase {
 
     private static Logger log = Logger.getLogger(EditAssignmentConfirm.class);
 
