@@ -1,6 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.web.ep.Constants"%>
+<%@ page import="com.topcoder.web.ep.controller.request.professor.reports.AssignmentReport"%>
 <%@ page contentType="text/html;charset=utf-8" %> 
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -12,6 +15,7 @@
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
+    <jsp:include page="../script.jsp" />
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_ep"/>
     </jsp:include>
@@ -101,8 +105,8 @@
                         <strong>Problem(s):</strong>
                     </td>
                     <td align="left">
-                        <c:forEach items="${assignment.components}" var="component">                
-                            <div><a href="Javascript:openWin('${sessionInfo.servletPath}?module=ViewProblem&amp;<%=Constants.COMPONENT_ID%>=${component.id}','problemStatement',600,600);">${component.problem.name}</a> (<a href="/ep/professor/reports/?module=ProblemAssignmentReport&amp;asid=${assignment.id}&amp;cd=${component.id}">View report</a>)</div>
+                        <c:forEach items="${assignment.roundComponents}" var="rc">                
+                            <div><a href="Javascript:openWin('/ep/?module=ViewProblem&amp;<%=Constants.COMPONENT_ID%>=${rc.id.component.id}','problemStatement',600,600);">${rc.id.component.problem.name}</a> (<a href="/ep/professor/reports/?module=ProblemAssignmentReport&amp;asid=${assignment.id}&amp;cd=${rc.id.component.id}">View report</a>)</div>
                         </c:forEach>
                     </td>
                 </tr>
@@ -110,14 +114,19 @@
             </table>
         </div>
 
+        <form name="assignmentForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AssignmentReport"/>
+        <tc-webtag:hiddenInput name="<%=Constants.ASSIGNMENT_ID%>" value="${assignment.id}"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
         <table cellpadding="0" cellspacing="0" class="stat" width="100%">
             <tr><td class="title" colspan="4">Assignment Report</td></tr>
             <tr><td class="headerC" colspan="4">${assignment.name}</td></tr>
             <tr>
-                <td class="header"><a href="SORT">Student</a></td>
-                <td class="headerC"><a href="SORT">Score</a></td>
-                <td class="headerC"><a href="SORT">Tests Passed</a></td>
-                <td class="headerC"><a href="SORT">% Tests Passed</a></td>
+                <td class="header"><a href="/ep?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.STUDENT_COL%>"/>">Student</a></td>
+                <td class="headerC"><a href="/ep?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.SCORE_COL%>"/>">Score</a></td>
+                <td class="headerC"><a href="/ep?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.NUM_TESTS_COL%>"/>">Tests Passed</a></td>
+                <td class="headerC"><a href="/ep?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.PERCENT_TESTS_COL%>"/>">% Tests Passed</a></td>
             </tr>
             <%int i = 0;%>
             <c:forEach items="${results}" var="result">                
@@ -138,7 +147,7 @@
             </tr>
 --%>
         </table>
-
+        </form>
     <div style="margin-top: 10px;">
         <a href="/ep/professor/reports/?module=SelectReport&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>
