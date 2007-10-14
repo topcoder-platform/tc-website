@@ -204,7 +204,7 @@ public abstract class LongBase extends LongHibernateProcessor {
     protected AssignmentDTO getAssignment() {
         AssignmentDTO assignment = (AssignmentDTO) getRequest().getSession().getAttribute(sessionPrefix + Constants.ASSIGNMENT);
         if (assignment == null) {
-                throw new RuntimeException("Couldn't find assignment in the session");
+            log.debug("Couldn't find assignment in the session");
         } else {
             if (log.isDebugEnabled()) {
                 log.debug("got assignment from session");
@@ -212,7 +212,6 @@ public abstract class LongBase extends LongHibernateProcessor {
         }
         return assignment;
     }
-    
     
     protected DAOFactory getFactory() {
         if (factory  == null) {
