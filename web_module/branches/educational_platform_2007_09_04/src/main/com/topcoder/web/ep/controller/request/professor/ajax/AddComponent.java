@@ -54,7 +54,7 @@ public class AddComponent extends LongBase {
     private Long getComponentParam() throws TCWebException {
         String componentId = StringUtils.checkNull(getRequest().getParameter(Constants.COMPONENT_ID));
         
-        if (componentId == "") {
+        if (componentId.equals("")) {
             return null;
         }
 

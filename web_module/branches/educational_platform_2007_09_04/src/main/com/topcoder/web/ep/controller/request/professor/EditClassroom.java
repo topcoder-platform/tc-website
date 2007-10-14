@@ -101,15 +101,15 @@ public class EditClassroom extends LongBase {
                     }
 
                     String classroomName = StringUtils.checkNull(getRequest().getParameter("classroom_name"));
-                    if (classroomName == "") {
+                    if (classroomName.equals("")) {
                         addError("error", "Please enter a name");
                     }
                     String classroomAcademicPeriod = StringUtils.checkNull(getRequest().getParameter("classroom_academic_period"));
-                    if (classroomAcademicPeriod == "") {
+                    if (classroomAcademicPeriod.equals("")) {
                         addError("error", "Please enter a academic period");
                     }
                     String classroomDescription = StringUtils.checkNull(getRequest().getParameter("classroom_description"));
-                    if (classroomDescription == "") {
+                    if (classroomDescription.equals("")) {
                         addError("error", "Please enter a description");
                     }
                     // got a response, validate.
@@ -188,7 +188,7 @@ public class EditClassroom extends LongBase {
     private Long getClassroomParam() throws TCWebException {
         String classroomId = StringUtils.checkNull(getRequest().getParameter(Constants.CLASSROOM_ID));
 
-        if (classroomId == "") {
+        if (classroomId.equals("")) {
             return null;
         }
 
@@ -205,7 +205,7 @@ public class EditClassroom extends LongBase {
     private Long getSchoolParam() throws TCWebException {
         String schoolId = StringUtils.checkNull(getRequest().getParameter(Constants.SCHOOL_ID));
 
-        if (schoolId == "") {
+        if (schoolId.equals("")) {
             return null;
         }
 

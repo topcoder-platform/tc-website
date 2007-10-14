@@ -70,7 +70,7 @@ public abstract class StudentActivationBase extends ShortHibernateProcessor {
     private Long getClassroomParam() throws TCWebException {
         String classroomId = StringUtils.checkNull(getRequest().getParameter(Constants.CLASSROOM_ID));
         
-        if (classroomId == "") {
+        if (classroomId.equals("")) {
             throw new TCWebException("Invalid classroom id");
         }
 

@@ -108,7 +108,7 @@ public class SelectClassroom extends LongBase {
     private Long getSchoolParam() throws TCWebException {
         String schoolId = StringUtils.checkNull(getRequest().getParameter(Constants.SCHOOL_ID));
         
-        if (schoolId == "") {
+        if (schoolId.equals("")) {
             throw new TCWebException("Invalid school id");
         }
 

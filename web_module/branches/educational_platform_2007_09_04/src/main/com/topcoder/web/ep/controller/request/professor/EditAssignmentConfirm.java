@@ -88,7 +88,7 @@ public class EditAssignmentConfirm extends LongBase {
     private Double getPointsParam(Long componentId) throws TCWebException {
         String pointsStr = StringUtils.checkNull(getRequest().getParameter("points_" + componentId));
         
-        if (pointsStr == "") {
+        if (pointsStr.equals("")) {
             return null;
         }
 

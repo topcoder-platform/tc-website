@@ -51,7 +51,7 @@ public class ViewProblemSet extends ShortBase {
     private Integer getProblemSetParam() throws TCWebException {
         String problemSetId = StringUtils.checkNull(getRequest().getParameter(Constants.PROBLEM_SET_ID));
         
-        if (problemSetId == "") {
+        if (problemSetId.equals("")) {
             throw new TCWebException("Invalid problem set id");
         }
 

@@ -146,7 +146,7 @@ public class EditAssignmentStudents extends LongBase {
     private Long getAssignmentParam() throws TCWebException {
         String assignmentId = StringUtils.checkNull(getRequest().getParameter(Constants.ASSIGNMENT_ID));
 
-        if (assignmentId == "") {
+        if (assignmentId.equals("")) {
             throw new TCWebException("Missing assignment (round) id");
         }
 

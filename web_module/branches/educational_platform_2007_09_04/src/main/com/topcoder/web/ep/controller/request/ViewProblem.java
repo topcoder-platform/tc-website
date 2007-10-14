@@ -67,7 +67,7 @@ public class ViewProblem extends ShortBase {
     private Long getComponentParam() throws TCWebException {
         String componentId = StringUtils.checkNull(getRequest().getParameter(Constants.COMPONENT_ID));
         
-        if (componentId == "") {
+        if (componentId.equals("")) {
             throw new TCWebException("Invalid component id");
         }
 

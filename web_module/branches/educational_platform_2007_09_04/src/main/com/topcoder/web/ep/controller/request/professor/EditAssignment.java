@@ -152,13 +152,13 @@ public class EditAssignment extends LongBase {
                     // got a response, validate.
 
                     String assignmentName = StringUtils.checkNull(getRequest().getParameter("assignment_name"));
-                    if (assignmentName == "") {
+                    if (assignmentName.equals("")) {
                         addError("error", "Please enter an assignment name");
                     }
 
                     String assignmentStart = StringUtils.checkNull(getRequest().getParameter("assignment_start"));
                     Timestamp assignmentStartDate = null;
-                    if (assignmentStart == "") {
+                    if (assignmentStart.equals("")) {
                         addError("error", "Please enter an assignment start");
                     } else if (!isValidDate(assignmentStart)) {
                         addError("error", "Invalid assignment start date");
@@ -169,7 +169,7 @@ public class EditAssignment extends LongBase {
 
                     String assignmentEnd = StringUtils.checkNull(getRequest().getParameter("assignment_end"));
                     Timestamp assignmentEndDate = null;
-                    if (assignmentEnd == "") {
+                    if (assignmentEnd.equals("")) {
                         addError("error", "Please enter an assignment end");
                     } else if (!isValidDate(assignmentEnd)) {
                         addError("error", "Invalid assignment start date");
@@ -180,7 +180,7 @@ public class EditAssignment extends LongBase {
 
                     String codingPhaseLengthParam = StringUtils.checkNull(getRequest().getParameter("assignment_coding_phase_length"));
                     Long codingPhase = null;
-                    if (codingPhaseLengthParam == "") {
+                    if (codingPhaseLengthParam.equals("")) {
                         addError("error", "Please enter a coding phase length");
                     } else {
                         try {
@@ -193,7 +193,7 @@ public class EditAssignment extends LongBase {
                     String showAllScores = StringUtils.checkNull(getRequest().getParameter("assignment_show_all_scores"));
 
                     String scoreType = StringUtils.checkNull(getRequest().getParameter("assignment_score_type"));
-                    if (scoreType == "") {
+                    if (scoreType.equals("")) {
                         throw new TCWebException("Invalid score type");
                     }
 
@@ -324,7 +324,7 @@ public class EditAssignment extends LongBase {
     private Long getClassroomParam() throws TCWebException {
         String classroomId = StringUtils.checkNull(getRequest().getParameter(Constants.CLASSROOM_ID));
 
-        if (classroomId == "") {
+        if (classroomId.equals("")) {
             return null;
         }
 
@@ -341,7 +341,7 @@ public class EditAssignment extends LongBase {
     private Long getAssignmentParam() throws TCWebException {
         String assignmentId = StringUtils.checkNull(getRequest().getParameter(Constants.ASSIGNMENT_ID));
 
-        if (assignmentId == "") {
+        if (assignmentId.equals("")) {
             return null;
         }
 
@@ -358,7 +358,7 @@ public class EditAssignment extends LongBase {
     private Integer getProblemSetParam() throws TCWebException {
         String problemSetId = StringUtils.checkNull(getRequest().getParameter(Constants.PROBLEM_SET_ID));
 
-        if (problemSetId == "") {
+        if (problemSetId.equals("")) {
             return null;
         }
 
