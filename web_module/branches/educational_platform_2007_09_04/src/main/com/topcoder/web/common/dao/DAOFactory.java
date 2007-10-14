@@ -115,4 +115,6 @@ public interface DAOFactory {
     LanguageDAO getLanguageDAO();
 
     ProblemSetDAO getProblemSetDAO();
+
+    RoomResultDAO getRoomResultDAO();
 }

@@ -2,7 +2,6 @@ package com.topcoder.web.common.dao;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 import com.topcoder.web.common.model.algo.Round;
 

@@ -1,6 +1,7 @@
 package com.topcoder.web.common.dao.querytool;
 
 import com.topcoder.web.common.dao.*;
+import com.topcoder.web.common.dao.hibernate.RoomResultDAOHibernate;
 
 /**
  * @author pulky
@@ -232,4 +233,9 @@ public class DAOFactoryQueryTool implements DAOFactory {
     public ProblemSetDAO getProblemSetDAO() {
         throw new RuntimeException("Not supported");
     }
+
+    public RoomResultDAO getRoomResultDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
 }

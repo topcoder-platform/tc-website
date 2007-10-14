@@ -227,4 +227,9 @@ public class DAOFactoryHibernate implements DAOFactory {
     public ProblemSetDAO getProblemSetDAO() {
         return new ProblemSetDAOHibernate();
     }
+
+    public RoomResultDAO getRoomResultDAO() {
+        return new RoomResultDAOHibernate();
+    }
+
 }
