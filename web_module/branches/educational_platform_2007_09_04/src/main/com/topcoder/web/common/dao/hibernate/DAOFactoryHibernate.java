@@ -232,4 +232,8 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new RoomResultDAOHibernate();
     }
 
+    public ComponentStateDAO getComponentStateDAO() {
+        return new ComponentStateDAOHibernate();
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.topcoder.web.common.dao.querytool;
 
 import com.topcoder.web.common.dao.*;
+import com.topcoder.web.common.dao.hibernate.ComponentStateDAOHibernate;
 import com.topcoder.web.common.dao.hibernate.RoomResultDAOHibernate;
 
 /**
@@ -235,6 +236,10 @@ public class DAOFactoryQueryTool implements DAOFactory {
     }
 
     public RoomResultDAO getRoomResultDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public ComponentStateDAO getComponentStateDAO() {
         throw new RuntimeException("Not supported");
     }
 
