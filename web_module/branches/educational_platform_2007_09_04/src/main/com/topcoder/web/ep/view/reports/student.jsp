@@ -144,16 +144,22 @@
                     <td class="valueC">ToDo</td>
                     <td class="valueC">ToDo</td>
                 </tr>
-                <c:forEach items="${result.details}" var="detail">                
-                    <tr id="ref_<%=i%>" class="<%=(i%2==0 ? "light hideText" : "dark hideText")%>">
-                        <td class="value">
-                        <a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;asid=${result.assignmentId}&amp;cd=${detail.componentId}">${detail.component}</a>
-                        </td>
-                        <td class="valueC">${detail.score}</td>
-                        <td class="valueC">ToDo</td>
-                        <td class="valueC">ToDo</td>
-                    </tr>
-                </c:forEach>
+                <tr id="ref_<%=i%>" class="<%=(i%2==0 ? "light hideText" : "dark hideText")%>">
+                    <td class="value" colspan="4">
+                    <table cellpadding="0" cellspacing="0" class="stat" width="100%">
+                        <c:forEach items="${result.details}" var="detail">
+                            <tr class="<%=(i%2==0 ? "light showText" : "dark showText")%>">
+                                <td class="value">
+                                <a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;asid=${result.assignmentId}&amp;cd=${detail.componentId}">${detail.component}</a>
+                                </td>
+                                <td class="valueC">${detail.score}</td>
+                                <td class="valueC">ToDo</td>
+                                <td class="valueC">ToDo</td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                    </td>
+                </tr>
                 <%i++;%>
             </c:forEach>
 <%-- for later
