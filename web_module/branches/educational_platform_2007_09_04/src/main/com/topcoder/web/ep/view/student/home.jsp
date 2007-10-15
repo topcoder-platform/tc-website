@@ -85,7 +85,7 @@
     <c:choose>
         <c:when test="${not empty activeClassrooms || not empty pendingClassrooms}">
             <br clear="all" />
-            <h1><span class="bg"><span class="spacer">${classroom.school.name}</span></span></h1>
+            <h1><span class="bg"><span class="spacer">PUT SCHOOL NAME HERE</span></span></h1>
             <c:forEach items="${activeClassrooms}" var="classroom">
             <div class="classroomListing" align="center">
                 <div class="name">
@@ -108,30 +108,9 @@
             </c:forEach>
         </c:when>
         <c:otherwise>
-            You are not registered for any classes.
+            <div align="center"><a href=""><img src="/i/ep/buttons/addClass.png" alt="Add class" /></a></div>
         </c:otherwise>
     </c:choose>
-<%--
-    <c:choose>
-        <c:when test="${not empty pendingClassrooms}">
-            Here are your pending classrooms:
-            <c:forEach items="${pendingClassrooms}" var="classroom">
-            <div class="classroomListing" align="center">
-                <div class="name">
-                    <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a>
-                </div>
-                <div>
-                </div class="message">
-                    <span class="bigRed">PENDING</span>
-                </div>
-            </div>
-            </c:forEach>
-        </c:when>
-        <c:otherwise>
-            You don't have pending classrooms associated.
-        </c:otherwise>
-    </c:choose>
---%>
         <br clear="all" />
         <div align="center" style="border-top: 1px solid #969696; padding-top: 10px;">
             <a href="/ep?module=SelectSchool"><img src="/i/ep/buttons/registerForClass.png" alt="Register for a class" /></a>
