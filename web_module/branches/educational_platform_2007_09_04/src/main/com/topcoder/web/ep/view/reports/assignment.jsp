@@ -138,7 +138,7 @@
                         </c:otherwise>
                     </c:choose>
                 </tr>
-                <%i++;%>
+            <%i++;%>
             </c:forEach>
 <%-- for later
             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
