@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="7390467" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=101507"><strong>TCCC07 Preview: The Marathon Match competition</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Oct 15, 2007</td> 
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=100907"><strong>TopCoder @ Work: The Hacker vs. The Architect</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Oct 9, 2007</td> 
