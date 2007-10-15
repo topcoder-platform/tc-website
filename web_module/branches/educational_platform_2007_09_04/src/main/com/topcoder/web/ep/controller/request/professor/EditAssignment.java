@@ -163,8 +163,11 @@ public class EditAssignment extends LongBase {
                     } else if (!isValidDate(assignmentStart)) {
                         addError("error", "Invalid assignment start date");
                     } else {
-                        // This will change when the UI gets the calendar javascript
                         assignmentStartDate = new Timestamp(parseDate(assignmentStart).getTime());
+                    }
+
+                    if (assignmentStartDate != null && assignmentStartDate.before(new Date())) {
+                        addError("error", "Assignment start date should be in the future");
                     }
 
                     String assignmentEnd = StringUtils.checkNull(getRequest().getParameter("assignment_end"));
@@ -174,8 +177,15 @@ public class EditAssignment extends LongBase {
                     } else if (!isValidDate(assignmentEnd)) {
                         addError("error", "Invalid assignment start date");
                     } else {
-                        // This will change when the UI gets the calendar javascript
                         assignmentEndDate = new Timestamp(parseDate(assignmentEnd).getTime());
+                    }
+
+                    if (assignmentEndDate != null && assignmentEndDate.before(new Date())) {
+                        addError("error", "Assignment end date should be in the future");
+                    }
+
+                    if (assignmentEndDate != null && assignmentStartDate != null && assignmentEndDate.before(assignmentStartDate)) {
+                        addError("error", "Invalid range for Assignment start and end");
                     }
 
                     String codingPhaseLengthParam = StringUtils.checkNull(getRequest().getParameter("assignment_coding_phase_length"));
@@ -188,6 +198,10 @@ public class EditAssignment extends LongBase {
                         } catch (NumberFormatException e) {
                             addError("error", "Invalid coding phase length");
                         }
+                    }
+
+                    if (codingPhase != null && codingPhase < 0) {
+                        addError("error", "Please enter a valid coding phase");
                     }
 
                     String showAllScores = StringUtils.checkNull(getRequest().getParameter("assignment_show_all_scores"));
