@@ -197,6 +197,14 @@ public class Confirm extends Base {
                 }
                 s.setAddress(a);
             }
+            if (log.isDebugEnabled()) {
+                if (s == null) {
+                    log.debug("school is null");
+                } else {
+                    log.debug("school is " + s.getId() + " " + s.getName());
+                }
+
+            }
             if (teacherSchool != null) {
                 teacherSchool.setSchool(s);
                 u.addSchool(teacherSchool);
@@ -205,6 +213,10 @@ public class Confirm extends Base {
             if (studentSchool != null) {
                 studentSchool.setSchool(s);
                 u.addSchool(studentSchool);
+            }
+
+            if (log.isDebugEnabled()) {
+                log.debug("school count " + u.getSchools().size());
             }
 
             if (!RegFieldHelper.getMainFieldSet(getRequestedTypes(), u).contains(Constants.COMP_COUNTRY_CODE)) {
