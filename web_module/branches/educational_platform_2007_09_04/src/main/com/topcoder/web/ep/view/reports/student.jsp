@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.web.ep.controller.request.professor.reports.StudentReport"%>
@@ -141,8 +142,16 @@
                     <a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;asid=${result.assignmentId}">${result.assignment}</a>
                     </td>
                     <td class="valueC">${result.assignmentScore}</td>
-                    <td class="valueC">ToDo</td>
-                    <td class="valueC">ToDo</td>
+                    <c:choose>
+                        <c:when test="${result.assignmentNumTestsPassed == -1}">
+                            <td class="valueC">N/A</td>
+                            <td class="valueC">N/A</td>
+                        </c:when>
+                        <c:otherwise>
+                            <td class="valueC">${result.assignmentNumTestsPassed}</td>
+                            <td class="valueC">% <fmt:formatNumber value="${result.assignmentPercentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/></td>
+                        </c:otherwise>
+                    </c:choose>
                 </tr>
                 <tr id="ref_<%=i%>" class="<%=(i%2==0 ? "light hideText" : "dark hideText")%>">
                     <td class="value" colspan="4">
@@ -153,8 +162,16 @@
                                 <a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;asid=${result.assignmentId}&amp;cd=${detail.componentId}">${detail.component}</a>
                                 </td>
                                 <td class="valueC">${detail.score}</td>
-                                <td class="valueC">ToDo</td>
-                                <td class="valueC">ToDo</td>
+                                <c:choose>
+                                    <c:when test="${detail.numTestsPassed == -1}">
+                                        <td class="valueC">N/A</td>
+                                        <td class="valueC">N/A</td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <td class="valueC">${detail.numTestsPassed}</td>
+                                        <td class="valueC">% <fmt:formatNumber value="${detail.percentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/></td>
+                                    </c:otherwise>
+                                </c:choose>
                             </tr>
                         </c:forEach>
                     </table>

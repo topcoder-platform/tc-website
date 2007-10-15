@@ -8,7 +8,9 @@ package com.topcoder.web.ep.controller.request.professor.reports;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.NavigationException;
@@ -58,10 +60,37 @@ public class StudentReport extends ShortHibernateProcessor {
         if (s == null) {
             throw new TCWebException("Couldn't find student");
         }
-        
-        // Iterate results and generate report
+
+        // get all rounds for this classroom, student
         List<Round> lr = DAOUtil.getFactory().getClassroomDAO().getAssignmentsForStudent(classroomId, s.getId());
 
+        // get and prepare system test results so they are available to construct the rows
+        List<Object> systemTestResults = DAOUtil.getFactory().getSystemTestResultDAO().getSystemTestResultsByStudent(lr, s.getId());
+
+        
+        Map<Long, AssignmentTestResult> assignmentResults = new HashMap<Long, AssignmentTestResult>();
+        
+        for (Object o : systemTestResults ) {
+            Object[] lo = (Object[]) o;
+            Integer total = (Integer)lo[0];
+            Integer succeeded = (Integer)lo[1];
+            Long assignmentId = (Long)lo[2]; 
+            Long componentId = (Long)lo[3];
+
+            AssignmentTestResult atr;
+            if (assignmentResults.containsKey(assignmentId)) {
+                atr = assignmentResults.get(assignmentId);
+            } else {
+                atr = new AssignmentTestResult(assignmentId);
+                assignmentResults.put(assignmentId, atr);
+            }
+            atr.setSucceeded(atr.getSucceeded() + succeeded);
+            atr.setTotal(atr.getTotal() + total);
+            
+            atr.getComponentTestResults().put(componentId, new ComponentTestResult(componentId, total, succeeded));
+        }
+
+        // Iterate results and generate report
         List<ComponentState> l = DAOUtil.getFactory().getComponentStateDAO().getStudentResults(lr, s.getId());
 
         List<StudentReportRow> larr = new ArrayList<StudentReportRow>();
@@ -71,14 +100,36 @@ public class StudentReport extends ShortHibernateProcessor {
             Double assignmentPoints = 0d;
             for (ComponentState cs : l) {
                 if (!oldCs.getRound().getId().equals(cs.getRound().getId())) {
-                    larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, null, null, lsrdr));
+                    if (assignmentResults.containsKey(oldCs.getRound().getId())) {
+                        larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, 
+                                assignmentResults.get(oldCs.getRound().getId()).getSucceeded(), 
+                                assignmentResults.get(oldCs.getRound().getId()).getSucceeded() * 100d / assignmentResults.get(oldCs.getRound().getId()).getTotal(), 
+                                lsrdr));
+                    } else {
+                        larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, 
+                                -1, 0d, lsrdr));
+                    }
 
                     lsrdr = new ArrayList<StudentReportDetailRow>();
                     assignmentPoints = 0d;
                 }
 
-                lsrdr.add(new StudentReportDetailRow(cs.getComponent().getId(), cs.getComponent().getProblem().getName(),
-                        cs.getPoints(), null, null));
+                if (assignmentResults.containsKey(cs.getRound().getId())) {
+                    Map<Long, ComponentTestResult> componentTestResults = assignmentResults.get(cs.getRound().getId()).getComponentTestResults(); 
+                    if (componentTestResults.containsKey(cs.getComponent().getId())) {
+                        lsrdr.add(new StudentReportDetailRow(cs.getComponent().getId(), cs.getComponent().getProblem().getName(), cs.getPoints(), 
+                                componentTestResults.get(cs.getComponent().getId()).getSucceeded(), 
+                                componentTestResults.get(cs.getComponent().getId()).getSucceeded() * 100d / componentTestResults.get(cs.getComponent().getId()).getTotal()));
+                    } else {
+                        lsrdr.add(new StudentReportDetailRow(cs.getComponent().getId(), cs.getComponent().getProblem().getName(), cs.getPoints(), 
+                            -1, 0d));
+                    }
+                } else {
+                    lsrdr.add(new StudentReportDetailRow(cs.getComponent().getId(), cs.getComponent().getProblem().getName(), cs.getPoints(), 
+                        -1, 0d));
+                }
+                    
+                    
                 assignmentPoints += cs.getPoints(); 
                 oldCs = cs;
             }
@@ -88,9 +139,6 @@ public class StudentReport extends ShortHibernateProcessor {
             assignmentPoints = 0d;
         }
 
-        // now we need to get tests results
-        // TODO
-        
         // sort results
         sortResult(larr);
         
@@ -194,4 +242,180 @@ public class StudentReport extends ShortHibernateProcessor {
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
 
+    private class AssignmentTestResult {
+        private Long assignmentId;
+        private Integer total = 0;
+        private Integer succeeded = 0;
+        private Map<Long, ComponentTestResult> componentTestResults = new HashMap<Long, ComponentTestResult>();
+
+        
+        public AssignmentTestResult(Long assignmentId) {
+            super();
+            this.assignmentId = assignmentId;
+        }
+        /**
+         * @return the assignmentId
+         */
+        public Long getAssignmentId() {
+            return assignmentId;
+        }
+        /**
+         * @param assignmentId the assignmentId to set
+         */
+        public void setAssignmentId(Long assignmentId) {
+            this.assignmentId = assignmentId;
+        }
+        /**
+         * @return the total
+         */
+        public Integer getTotal() {
+            return total;
+        }
+        /**
+         * @param total the total to set
+         */
+        public void setTotal(Integer total) {
+            this.total = total;
+        }
+        /**
+         * @return the succeeded
+         */
+        public Integer getSucceeded() {
+            return succeeded;
+        }
+        /**
+         * @param succeded the succeeded to set
+         */
+        public void setSucceeded(Integer succeeded) {
+            this.succeeded = succeeded;
+        }
+        /**
+         * @return the componentTestResults
+         */
+        public Map<Long, ComponentTestResult> getComponentTestResults() {
+            return componentTestResults;
+        }
+        /**
+         * @param componentTestResults the componentTestResults to set
+         */
+        public void setComponentTestResults(
+                Map<Long, ComponentTestResult> componentTestResults) {
+            this.componentTestResults = componentTestResults;
+        }
+        /* (non-Javadoc)
+         * @see java.lang.Object#hashCode()
+         */
+        @Override
+        public int hashCode() {
+            final int prime = 31;
+            int result = 1;
+            result = prime * result
+                    + ((assignmentId == null) ? 0 : assignmentId.hashCode());
+            return result;
+        }
+        /* (non-Javadoc)
+         * @see java.lang.Object#equals(java.lang.Object)
+         */
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
+            if (getClass() != obj.getClass())
+                return false;
+            final AssignmentTestResult other = (AssignmentTestResult) obj;
+            if (assignmentId == null) {
+                if (other.assignmentId != null)
+                    return false;
+            } else if (!assignmentId.equals(other.assignmentId))
+                return false;
+            return true;
+        }
+        
+        
+    }
+
+    private class ComponentTestResult {
+        private Long componentId;
+        private Integer total;
+        private Integer succeeded;
+
+        public ComponentTestResult(Long componentId, Integer total,
+                Integer succeeded) {
+            super();
+            this.componentId = componentId;
+            this.total = total;
+            this.succeeded = succeeded;
+        }
+        /**
+         * @return the total
+         */
+        public Integer getTotal() {
+            return total;
+        }
+        /**
+         * @param total the total to set
+         */
+        public void setTotal(Integer total) {
+            this.total = total;
+        }
+        /**
+         * @return the succeeded
+         */
+        public Integer getSucceeded() {
+            return succeeded;
+        }
+        /**
+         * @param succeded the succeeded to set
+         */
+        public void setSucceeded(Integer succeeded) {
+            this.succeeded = succeeded;
+        }
+        /**
+         * @return the componentId
+         */
+        public Long getComponentId() {
+            return componentId;
+        }
+        /**
+         * @param componentId the componentId to set
+         */
+        public void setComponentId(Long componentId) {
+            this.componentId = componentId;
+        }
+        
+        /* (non-Javadoc)
+         * @see java.lang.Object#hashCode()
+         */
+        @Override
+        public int hashCode() {
+            final int prime = 31;
+            int result = 1;
+            result = prime * result
+                    + ((componentId == null) ? 0 : componentId.hashCode());
+            return result;
+        }
+        /* (non-Javadoc)
+         * @see java.lang.Object#equals(java.lang.Object)
+         */
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
+            if (getClass() != obj.getClass())
+                return false;
+            final ComponentTestResult other = (ComponentTestResult) obj;
+            if (componentId == null) {
+                if (other.componentId != null)
+                    return false;
+            } else if (!componentId.equals(other.componentId))
+                return false;
+            return true;
+        }
+        
+        
+    }
 }

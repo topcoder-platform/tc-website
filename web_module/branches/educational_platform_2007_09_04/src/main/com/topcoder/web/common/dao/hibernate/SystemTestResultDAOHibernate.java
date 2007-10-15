@@ -1,12 +1,15 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import com.topcoder.web.common.dao.SystemTestResultDAO;
+import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.SystemTestResult;
  
 
@@ -39,6 +42,27 @@ public class SystemTestResultDAOHibernate extends GenericBase<SystemTestResult, 
                 .add( Projections.rowCount() )
                 .add( Projections.sum("succeeded") )
                 .add( Projections.groupProperty("id.coder.id") )
+                );        
+        
+        return c.list();
+    }    
+
+    @SuppressWarnings("unchecked")
+    public List<Object> getSystemTestResultsByStudent(List<Round> lr, Long coderId) {
+        Set<Long> values = new HashSet<Long>(lr.size());
+        
+        for (Round r : lr) {
+            values.add(r.getId());
+        }
+
+        Criteria c = getSession().createCriteria(SystemTestResult.class)
+            .add(Restrictions.eq("id.coder.id", coderId))
+            .add(Restrictions.in("id.round.id", values))
+            .setProjection( Projections.projectionList()
+                .add( Projections.rowCount() )
+                .add( Projections.sum("succeeded") )
+                .add( Projections.groupProperty("id.round.id") )
+                .add( Projections.groupProperty("id.component.id") )
                 );        
         
         return c.list();
