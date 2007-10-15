@@ -46,7 +46,7 @@
 
 <div class="window" align="left">
     <div class="spacer">
-        <h2>Students</h2>
+        <h2>Reports</h2>
         <p align="center">
         Select a report:
         </p>
