@@ -21,10 +21,12 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.LightAuthentication;
@@ -73,6 +75,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                         if (Arrays.binarySearch(WebConstants.ACTIVE_STATI, getStatus(sub.getUserId())) >= 0) {
                             //confluence likes to work with lower case user names
                             com.atlassian.user.User cUser = checkAndAddUser(userName);
+                            checkAndAddEmail(cUser, authentication.getActiveUser().getId());
 
                             boolean isTCAdmin = isAdmin(userName);
                             boolean isConfluenceAdmin = hasGroup(cUser, GROUP_TOPCODER_STAFF);
@@ -222,9 +225,37 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         if (cUser == null) {
             cUser = getUserAccessor().addUser(userName.toLowerCase(), "", "", userName, groups);
         }
+
+
         return cUser;
 
     }
+
+    private String getEmail(long userId) throws Exception {
+        DataAccess dai = new CachedDataAccess(MaxAge.HALF_HOUR, DBMS.OLTP_DATASOURCE_NAME);
+        Request dataRequest = new Request();
+        dataRequest.setProperty(DataAccessConstants.COMMAND, "user_email");
+        dataRequest.setProperty("uid", String.valueOf(userId));
+        return dai.getData(dataRequest).get("user_email").getStringItem(0, "address");
+
+    }
+    private void checkAndAddEmail(com.atlassian.user.User user, long tcUserId) throws Exception {
+        long start = System.currentTimeMillis();
+        if (user.getEmail()==null) {
+            user.setEmail(getEmail(tcUserId));
+            getUserAccessor().saveUser(user);
+        } else {
+            String email = getEmail(tcUserId);
+            if (!email.equals(user.getEmail())) {
+                user.setEmail(getEmail(tcUserId));
+                getUserAccessor().saveUser(user);
+            }
+        }
+        if (log.isDebugEnabled()) {
+            log.debug("email processing took " + (start-System.currentTimeMillis()) + " ms");
+        }
+    }
+
     public Principal getUser(HttpServletRequest request, HttpServletResponse response) {
         //log.debug("XXX getUser(request, response) called");
         try {
@@ -232,7 +263,9 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             if (authentication.getActiveUser().isAnonymous()) {
                 return null;
             } else {
-                return checkAndAddUser(authentication.getActiveUser().getUserName());
+                com.atlassian.user.User user = checkAndAddUser(authentication.getActiveUser().getUserName());
+                checkAndAddEmail(user, authentication.getActiveUser().getId());
+                return user;
             }
 
         } catch (Exception e) {
