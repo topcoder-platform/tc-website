@@ -56,9 +56,8 @@ public class AssignmentReport extends ShortHibernateProcessor {
         // get the room
         Room rm = a.getRooms().iterator().next();
         
-        // get system test results so they are available to construct the rows
-        
-        List<Object> systemTestResults = DAOUtil.getFactory().getSystemTestResultDAO().getSystemTestResultsSummary(5869l);
+        // get and prepare system test results so they are available to construct the rows
+        List<Object> systemTestResults = DAOUtil.getFactory().getSystemTestResultDAO().getSystemTestResultsSummary(a.getId());
         Map<Long, Integer> total = new HashMap<Long, Integer>();
         Map<Long, Integer> succeeded = new HashMap<Long, Integer>();
         
@@ -74,6 +73,7 @@ public class AssignmentReport extends ShortHibernateProcessor {
         List<AssignmentReportRow> larr = new ArrayList<AssignmentReportRow>();
         for (Object o : l) {
             Object[] lo = (Object[]) o; 
+            // get system test results, if available
             if (total.containsKey((Long)lo[0])) {
                 larr.add(new AssignmentReportRow((Long)lo[0], (String)lo[1] + ", " + (String)lo[2], (Double)lo[3], 
                         succeeded.get((Long)lo[0]), (succeeded.get((Long)lo[0]) * 100d) / total.get((Long)lo[0])));
