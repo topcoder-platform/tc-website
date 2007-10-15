@@ -1,5 +1,6 @@
 package com.topcoder.web.reg.controller.request;
 
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -20,6 +21,7 @@ import java.util.Set;
  *          Create Date: May 8, 2006
  */
 public class Confirm extends Base {
+    private static final Logger log = Logger.getLogger(Confirm.class);
 
     protected void registrationProcessing() throws Exception {
 
@@ -159,6 +161,9 @@ public class Confirm extends Base {
                 log.debug("teacher, setting them up");
                 teacherSchool = u.getSchool(schoolId, SchoolAssociationType.TEACHER);
                 if (teacherSchool == null) {
+                    if (log.isDebugEnabled()) {
+                        log.debug("teacher school was null, create new one");
+                    }
                     teacherSchool = new UserSchool();
                     //setting primary now so that we only end up with one school set as primary.
                     //the add method takes care of that logic.
