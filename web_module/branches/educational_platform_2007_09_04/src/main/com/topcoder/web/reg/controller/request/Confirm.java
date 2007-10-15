@@ -3,23 +3,7 @@ package com.topcoder.web.reg.controller.request;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.Address;
-import com.topcoder.web.common.model.CoderReferral;
-import com.topcoder.web.common.model.CoderType;
-import com.topcoder.web.common.model.Company;
-import com.topcoder.web.common.model.Contact;
-import com.topcoder.web.common.model.CurrentSchool;
-import com.topcoder.web.common.model.DemographicAssignment;
-import com.topcoder.web.common.model.DemographicResponse;
-import com.topcoder.web.common.model.RegistrationType;
-import com.topcoder.web.common.model.Resume;
-import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.SchoolAssociationType;
-import com.topcoder.web.common.model.SchoolType;
-import com.topcoder.web.common.model.Team;
-import com.topcoder.web.common.model.TeamType;
-import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.UserSchool;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 
@@ -135,25 +119,30 @@ public class Confirm extends Base {
         }
         if (fields.contains(Constants.SCHOOL_ID)) {
 
-            /*
-            for now, we're containing the student-school relationship in current school
-            and the teacher-school relationship in user school.  eventually, we'll contain
-            both relationships in user school.  so, for now, since it's only teachers, we
-            can assume that if they're registering to be a teacher, they user school record
-            is has the teacher association type.
-             */
             Long schoolId = new Long((String) params.get(Constants.SCHOOL_ID));
+            if (log.isDebugEnabled()) {
+                log.debug("got school " + schoolId);
+            }
             UserSchool studentSchool = null;
             CurrentSchool cs = null;
             if (u.getCoder() != null) {
+                if (log.isDebugEnabled()) {
+                    log.debug("coder was not null");
+                }
                 cs = u.getCoder().getCurrentSchool();
             }
             if (cs == null && u.getCoder() != null) {
                 //must be a student
                 cs = new CurrentSchool();
                 u.getCoder().setCurrentSchool(cs);
+                if (log.isDebugEnabled()) {
+                    log.debug("set the current school");
+                }
             }
             if (u.getCoder() != null && CoderType.STUDENT.equals(u.getCoder().getCoderType().getId())) {
+                if (log.isDebugEnabled()) {
+                    log.debug("student, setting them up");
+                }
                 studentSchool = u.getSchool(schoolId, SchoolAssociationType.STUDENT);
                 if (studentSchool == null) {
                     studentSchool = new UserSchool();
@@ -167,6 +156,7 @@ public class Confirm extends Base {
             boolean isTeacher = getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getTeacherType());
             UserSchool teacherSchool = null;
             if (isTeacher) {
+                log.debug("teacher, setting them up");
                 teacherSchool = u.getSchool(schoolId, SchoolAssociationType.TEACHER);
                 if (teacherSchool == null) {
                     teacherSchool = new UserSchool();
