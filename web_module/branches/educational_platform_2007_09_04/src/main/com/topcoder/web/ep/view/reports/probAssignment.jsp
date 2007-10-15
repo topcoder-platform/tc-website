@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.web.ep.Constants"%>
@@ -127,8 +128,16 @@
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                     <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;clsid=${classroom.id}&amp;stid=${result.studentId}">${result.student}</a></td>
                     <td class="valueC">${result.score}</td>
-                    <td class="valueC">ToDo</td>
-                    <td class="valueC">ToDo</td>
+                    <c:choose>
+                        <c:when test="${result.numTestsPassed == -1}">
+                            <td class="valueC">N/A</td>
+                            <td class="valueC">N/A</td>
+                        </c:when>
+                        <c:otherwise>
+                            <td class="valueC">${result.numTestsPassed}</td>
+                            <td class="valueC">% <fmt:formatNumber value="${result.percentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/></td>
+                        </c:otherwise>
+                    </c:choose>
                     <td class="valueC"><a href=""><img src="/i/ep/buttons/viewSubmission.png" alt="View submission" /></a></td>
                 </tr>
                 <%i++;%>

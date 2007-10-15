@@ -8,7 +8,9 @@ package com.topcoder.web.ep.controller.request.professor.reports;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.NavigationException;
@@ -59,6 +61,17 @@ public class ProblemAssignmentReport extends ShortHibernateProcessor {
             throw new NavigationException("You don't have permission to see this page.");
         }
 
+        // get and prepare system test results so they are available to construct the rows
+        List<Object> systemTestResults = DAOUtil.getFactory().getSystemTestResultDAO().getSystemTestResultsByComponent(a.getId(), cmp.getId());
+        Map<Long, Integer> total = new HashMap<Long, Integer>();
+        Map<Long, Integer> succeeded = new HashMap<Long, Integer>();
+        
+        for (Object o : systemTestResults ) {
+            Object[] lo = (Object[]) o; 
+            total.put((Long)lo[2], (Integer)lo[0]);
+            succeeded.put((Long)lo[2], (Integer)lo[1]);
+        }
+
         // we need assignment and component results (problem score, #tests passed, %tests passed)
         // get the room
         // Iterate results and generate report
@@ -67,11 +80,15 @@ public class ProblemAssignmentReport extends ShortHibernateProcessor {
         List<AssignmentReportRow> larr = new ArrayList<AssignmentReportRow>();
         for (Object o : l) {
             Object[] lo = (Object[]) o; 
-            larr.add(new AssignmentReportRow((Long)lo[0], (String)lo[1] + ", " + (String)lo[2], (Double)lo[3], null, null));
-        }
 
-        // now we need to get tests results
-        // TODO
+            if (total.containsKey((Long)lo[0])) {
+                larr.add(new AssignmentReportRow((Long)lo[0], (String)lo[1] + ", " + (String)lo[2], (Double)lo[3], 
+                        succeeded.get((Long)lo[0]), (succeeded.get((Long)lo[0]) * 100d) / total.get((Long)lo[0])));
+            } else {
+                larr.add(new AssignmentReportRow((Long)lo[0], (String)lo[1] + ", " + (String)lo[2], (Double)lo[3], 
+                        -1, 0d));
+            }   
+        }
         
         // sort results
         sortResult(larr);

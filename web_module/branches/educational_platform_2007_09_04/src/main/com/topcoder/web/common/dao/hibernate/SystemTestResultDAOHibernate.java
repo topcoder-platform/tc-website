@@ -28,14 +28,19 @@ public class SystemTestResultDAOHibernate extends GenericBase<SystemTestResult, 
                 );        
         
         return c.list();
+    }    
 
-//        Query q = getSession().createQuery(
-//                "select rr.id.coder.id, rr.id.coder.user.lastName, rr.id.coder.user.firstName, rr.pointTotal " +
-//                " from RoomResult rr " +
-//                " where rr.id.room.id = :roomId " +
-//                " order by rr.id.coder.user.lastName, rr.id.coder.user.firstName");      
-//        q.setLong("roomId", roomId);
-//        
-//        return q.list();
+    @SuppressWarnings("unchecked")
+    public List<Object> getSystemTestResultsByComponent(Long roundId, Long componentId) {
+        Criteria c = getSession().createCriteria(SystemTestResult.class)
+            .add(Restrictions.eq("id.round.id", roundId))
+            .add(Restrictions.eq("id.component.id", componentId))
+            .setProjection( Projections.projectionList()
+                .add( Projections.rowCount() )
+                .add( Projections.sum("succeeded") )
+                .add( Projections.groupProperty("id.coder.id") )
+                );        
+        
+        return c.list();
     }    
 }

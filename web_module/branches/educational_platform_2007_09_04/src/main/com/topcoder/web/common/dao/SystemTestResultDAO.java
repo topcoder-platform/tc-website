@@ -14,4 +14,6 @@ public interface SystemTestResultDAO extends GenericDAO<SystemTestResult, Long> 
 
     public List<Object> getSystemTestResultsSummary(Long roundId);
 
+    public List<Object> getSystemTestResultsByComponent(Long roundId, Long componentId);
+
 }
