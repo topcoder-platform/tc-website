@@ -115,9 +115,11 @@ public class TCSAuthentication implements WebAuthentication {
     }
 
     private void markKnownUser() {
-        Cookie c = new Cookie(KNOWN_USER, String.valueOf(true));
-        c.setMaxAge(Integer.MAX_VALUE);
-        response.addCookie(c);
+        if (!isKnownUser()) {
+            Cookie c = new Cookie(KNOWN_USER, String.valueOf(true));
+            c.setMaxAge(Integer.MAX_VALUE);
+            response.addCookie(c);
+        }
         knownUser = true;
     }
 
