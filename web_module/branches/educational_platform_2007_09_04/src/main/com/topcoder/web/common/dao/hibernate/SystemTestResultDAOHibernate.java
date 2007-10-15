@@ -9,6 +9,7 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import com.topcoder.web.common.dao.SystemTestResultDAO;
+import com.topcoder.web.common.model.algo.Component;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.SystemTestResult;
  
@@ -48,7 +49,7 @@ public class SystemTestResultDAOHibernate extends GenericBase<SystemTestResult, 
     }    
 
     @SuppressWarnings("unchecked")
-    public List<Object> getSystemTestResultsByStudent(List<Round> lr, Long coderId) {
+    public List<Object> getSystemTestResultsByStudent(List<Round> lr, Long studentId) {
         Set<Long> values = new HashSet<Long>(lr.size());
         
         for (Round r : lr) {
@@ -56,7 +57,7 @@ public class SystemTestResultDAOHibernate extends GenericBase<SystemTestResult, 
         }
 
         Criteria c = getSession().createCriteria(SystemTestResult.class)
-            .add(Restrictions.eq("id.coder.id", coderId))
+            .add(Restrictions.eq("id.coder.id", studentId))
             .add(Restrictions.in("id.round.id", values))
             .setProjection( Projections.projectionList()
                 .add( Projections.rowCount() )
@@ -66,5 +67,22 @@ public class SystemTestResultDAOHibernate extends GenericBase<SystemTestResult, 
                 );        
         
         return c.list();
+    }    
+
+    @SuppressWarnings("unchecked")
+    public Object getSystemTestResultsByStudentComponent(Round r, Component cmp, Long studentId) {
+        Criteria c = getSession().createCriteria(SystemTestResult.class)
+            .add(Restrictions.eq("id.coder.id", studentId))
+            .add(Restrictions.eq("id.round.id", r.getId()))
+            .add(Restrictions.eq("id.component.id", cmp.getId()))
+            .setProjection( Projections.projectionList()
+                .add( Projections.rowCount() )
+                .add( Projections.sum("succeeded") )
+                .add( Projections.groupProperty("id.coder.id") )
+                .add( Projections.groupProperty("id.round.id") )
+                .add( Projections.groupProperty("id.component.id") )
+                );        
+        
+        return (Object) c.uniqueResult();
     }    
 }

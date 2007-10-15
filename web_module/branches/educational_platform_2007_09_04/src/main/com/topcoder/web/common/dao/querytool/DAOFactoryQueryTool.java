@@ -1,6 +1,7 @@
 package com.topcoder.web.common.dao.querytool;
 
 import com.topcoder.web.common.dao.*;
+import com.topcoder.web.common.dao.hibernate.AlgoSubmissionDAOHibernate;
 import com.topcoder.web.common.dao.hibernate.ComponentStateDAOHibernate;
 import com.topcoder.web.common.dao.hibernate.RoomResultDAOHibernate;
 import com.topcoder.web.common.dao.hibernate.SystemTestResultDAOHibernate;
@@ -248,4 +249,7 @@ public class DAOFactoryQueryTool implements DAOFactory {
         throw new RuntimeException("Not supported");
     }
 
+    public AlgoSubmissionDAO getAlgoSubmissionDAO() {
+        throw new RuntimeException("Not supported");
+    }
 }

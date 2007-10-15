@@ -239,5 +239,9 @@ public class DAOFactoryHibernate implements DAOFactory {
     public SystemTestResultDAO getSystemTestResultDAO() {
         return new SystemTestResultDAOHibernate();
     }
+
+    public AlgoSubmissionDAO getAlgoSubmissionDAO() {
+        return new AlgoSubmissionDAOHibernate();
+    }
     
 }

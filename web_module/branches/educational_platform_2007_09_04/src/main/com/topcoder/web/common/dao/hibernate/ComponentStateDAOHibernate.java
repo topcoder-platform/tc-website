@@ -9,6 +9,7 @@ import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 
 import com.topcoder.web.common.dao.ComponentStateDAO;
+import com.topcoder.web.common.model.algo.Component;
 import com.topcoder.web.common.model.algo.ComponentState;
 import com.topcoder.web.common.model.algo.Round;
  
@@ -45,5 +46,14 @@ public class ComponentStateDAOHibernate extends GenericBase<ComponentState, Long
         .add(Restrictions.in("round.id", values));
         
         return c.list();
+    }
+
+    public ComponentState getStudentResultsByComponent(Round r, Component cmp, Long studentId) {
+        Criteria c = getSession().createCriteria(ComponentState.class)
+        .add(Restrictions.eq("coder.id", studentId))
+        .add(Restrictions.eq("round.id", r.getId()))
+        .add(Restrictions.eq("component.id", cmp.getId()));
+        
+        return (ComponentState) c.uniqueResult();
     }
 }

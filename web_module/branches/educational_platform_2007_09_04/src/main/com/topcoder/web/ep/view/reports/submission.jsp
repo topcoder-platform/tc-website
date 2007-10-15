@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -26,7 +27,7 @@
                     <strong>Name</strong>
                 </td>
                 <td align="left">
-                    Summers, Mark
+                    ${student.lastName}, ${student.firstName}
                 </td>
             </tr>
             <tr>
@@ -34,7 +35,15 @@
                     <strong>Assignment</strong>
                 </td>
                 <td align="left">
-                    Week 1 assignment
+                    ${assignment.name}
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <strong>Problem</strong>
+                </td>
+                <td align="left">
+                    ${component.problem.name}
                 </td>
             </tr>
             <tr>
@@ -42,7 +51,7 @@
                     <strong>TC Score</strong>
                 </td>
                 <td align="left">
-                    123
+                    ${score}
                 </td>
             </tr>
             <tr>
@@ -50,7 +59,7 @@
                     <strong>Tests Passed</strong>
                 </td>
                 <td align="left">
-                    10
+                    ${numTestPassed}
                 </td>
             </tr>
             <tr>
@@ -58,7 +67,7 @@
                     <strong>% Tests Passed</strong>
                 </td>
                 <td align="left">
-                    80%
+                    ${percentTestPassed}%
                 </td>
             </tr>
             <tr>
@@ -66,7 +75,7 @@
                     <strong>Time</strong>
                 </td>
                 <td align="left">
-                    00:12:34
+                    ${time}
                 </td>
             </tr>
             <tr>
@@ -75,13 +84,13 @@
                 </td>
                 <td align="left">
                     <%-- only include the <span> below if the status is "Finished" --%>
-                    <span class="bigGreen">Finished</span>
+                    <span class="bigGreen">${status}</span>
                 </td>
             </tr>
         </tbody>
         </table>
 
-        Submission goes here.
+        <c:out value="${submission}"/>
     </div>
 </body>
 </html>

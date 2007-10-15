@@ -28,6 +28,7 @@ public class ComponentState extends Base {
     private Long id = null;
     private Double points = null;
     private Integer statusId = null;
+    private Integer submissionNumber = null;
 
     private Round round = null;
     private Coder coder = null;
@@ -121,6 +122,20 @@ public class ComponentState extends Base {
         this.statusId = statusId;
     }
 
+    /**
+     * @return the submissionNumber
+     */
+    public Integer getSubmissionNumber() {
+        return submissionNumber;
+    }
+
+    /**
+     * @param submissionNumber the submissionNumber to set
+     */
+    public void setSubmissionNumber(Integer submissionNumber) {
+        this.submissionNumber = submissionNumber;
+    }
+
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */
@@ -152,5 +167,29 @@ public class ComponentState extends Base {
         return true;
     }
     
-    
+    public static String getStatusDescription(int statusId) {
+        switch (statusId) {
+        case NOT_OPENED:
+            return "Not opened";
+        case REASSIGNED:
+            return "Reassigned";
+        case LOOKED_AT:
+            return "Looked at";
+        case COMPILED_UNSUBMITTED:
+            return "Compiled";
+        case PASSED:
+            return "Passed";
+        case NOT_CHALLENGED:
+            return "Not challenged";
+        case CHALLENGE_FAILED:
+            return "Challenge failed";
+        case CHALLENGE_SUCCEEDED:
+            return "Challenge succeeded";
+        case SYSTEM_TEST_FAILED:
+            return "Failed";
+        case SYSTEM_TEST_SUCCEEDED:
+            return "Succeeded";
+        }
+        return "Unknown";
+    }
 }

@@ -121,4 +121,6 @@ public interface DAOFactory {
     ComponentStateDAO getComponentStateDAO();
 
     SystemTestResultDAO getSystemTestResultDAO();
+
+    AlgoSubmissionDAO getAlgoSubmissionDAO();
 }
