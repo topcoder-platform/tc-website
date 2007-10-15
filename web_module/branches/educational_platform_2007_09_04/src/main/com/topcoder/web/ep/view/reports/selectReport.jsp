@@ -62,8 +62,8 @@
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value"><a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;asid=${assignment.id}">${assignment.name}</a></td>
                             </tr>
-                        </c:forEach>
                         <%i++;%>
+                        </c:forEach>
                     </table>
                 </c:when>
                 <c:otherwise>
@@ -87,8 +87,8 @@
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;clsid=${clsid}&amp;stid=${student.id}">${student.user.lastName}, ${student.user.firstName}</a></td>
                             </tr>
-                        </c:forEach>
                         <%i++;%>
+                        </c:forEach>
                     </table>
                 </c:when>
                 <c:otherwise>
