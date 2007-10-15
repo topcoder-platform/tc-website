@@ -535,16 +535,19 @@ public class User extends Base {
     /**
      * Add a school for the user.  If this school is the primary, then
      * mark existing primary school as non-primary.  This method will
-     * also associate this user with the passed in school
+     * also associate this user with the passed in school.  If the
+     * the user already has a record for this school, then update it.
      *
      * @param school the school that this user is being associated with.
      */
     public void addSchool(UserSchool school) {
         if (school.isPrimary()) {
             for (UserSchool s : schools) {
-                if (s.isPrimary() && s.getAssociationType().equals(school.getAssociationType())) {
+                if (s.isPrimary() && s.getAssociationType().equals(school.getAssociationType())
+                        && !school.getSchool().equals(s.getSchool())) {
                     s.setPrimary(false);
                 }
+
             }
         }
         school.setUser(this);
