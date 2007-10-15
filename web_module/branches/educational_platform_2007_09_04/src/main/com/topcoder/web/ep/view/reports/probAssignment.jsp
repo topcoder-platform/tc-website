@@ -135,7 +135,7 @@
                         </c:when>
                         <c:otherwise>
                             <td class="valueC">${result.numTestsPassed}</td>
-                            <td class="valueC">% <fmt:formatNumber value="${result.percentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/></td>
+                            <td class="valueC"><fmt:formatNumber value="${result.percentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/> %</td>
                         </c:otherwise>
                     </c:choose>
                     <td class="valueC"><a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;asid=${assignment.id}&amp;cd=${component.id}&amp;stid=${result.studentId}"><img src="/i/ep/buttons/viewSubmission.png" alt="View submission" /></a></td>

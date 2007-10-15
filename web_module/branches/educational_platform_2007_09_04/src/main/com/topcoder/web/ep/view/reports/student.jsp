@@ -149,7 +149,7 @@
                         </c:when>
                         <c:otherwise>
                             <td class="valueC">${result.assignmentNumTestsPassed}</td>
-                            <td class="valueC">% <fmt:formatNumber value="${result.assignmentPercentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/></td>
+                            <td class="valueC"><fmt:formatNumber value="${result.assignmentPercentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/> %</td>
                         </c:otherwise>
                     </c:choose>
                 </tr>
