@@ -213,16 +213,22 @@ public class BasicAuthentication implements WebAuthentication {
 
     }
 
+
+    private Boolean loggedOut =null;
     private boolean isLoggedOut() {
-        Cookie[] ca = request.getCookies();
-        for (int i = 0; ca != null && i < ca.length; i++) {
-            if (ca[i].getName().equals(LOGGED_OUT + "_" + ApplicationServer.ENVIRONMENT)) {
-                if (String.valueOf(true).equals(ca[i].getValue())) {
-                    return true;
+        final String LOGOUT_KEY = LOGGED_OUT + "_" + ApplicationServer.ENVIRONMENT;
+        if (loggedOut==null) {
+            Cookie[] ca = request.getCookies();
+            for (int i = 0; ca != null && i < ca.length; i++) {
+                if (ca[i].getName().equals(LOGOUT_KEY)) {
+                    if (String.valueOf(true).equals(ca[i].getValue())) {
+                        loggedOut = true;
+                    }
                 }
             }
+            loggedOut = false;
         }
-        return false;
+        return loggedOut;
 
     }
 
@@ -242,38 +248,43 @@ public class BasicAuthentication implements WebAuthentication {
          * requests in the persistor.  if they're not in the cookie either, then
          * they're anonymous
          */
-        User u = getUser();
-        if (u == null || u.getId() == guest.getId()) {
-            //given the way tomcat/apache handles sessions in a cluster, we can't do this
-            //because the session id is different on the two nodes.  potentially we could
-            //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
-            //it breaks the idea of a pluggable persistor, but we never use that anyway.
-//            u = (User) persistor.getObject(request.getSession().getId() + USER_COOKIE_NAME);
-            u = (User) persistor.getObject(USER_COOKIE_NAME);
-            if (u == null) {
-                u = checkCookie();
-                if (u == null) {
-                    u = guest;
-                    //log.debug("*** made up a guest ***");
-                } else {
-                    //log.debug("*** " + u.getUserName() + " was in cookie ***");
-                }
+        if (isLoggedOut()) {
+            log.debug("user logged out previously");
+            return guest;
+        } else {
+            User u = getUser();
+            if (u == null || u.getId() == guest.getId()) {
                 //given the way tomcat/apache handles sessions in a cluster, we can't do this
                 //because the session id is different on the two nodes.  potentially we could
                 //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
                 //it breaks the idea of a pluggable persistor, but we never use that anyway.
+//            u = (User) persistor.getObject(request.getSession().getId() + USER_COOKIE_NAME);
+                u = (User) persistor.getObject(USER_COOKIE_NAME);
+                if (u == null) {
+                    u = checkCookie();
+                    if (u == null) {
+                        u = guest;
+                        //log.debug("*** made up a guest ***");
+                    } else {
+                        //log.debug("*** " + u.getUserName() + " was in cookie ***");
+                    }
+                    //given the way tomcat/apache handles sessions in a cluster, we can't do this
+                    //because the session id is different on the two nodes.  potentially we could
+                    //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
+                    //it breaks the idea of a pluggable persistor, but we never use that anyway.
 //                persistor.setObject(request.getSession().getId() + USER_COOKIE_NAME, u);
-                persistor.setObject(USER_COOKIE_NAME, u);
+                    persistor.setObject(USER_COOKIE_NAME, u);
+                } else {
+                    //log.debug("*** " + u.getUserName() + " was stale ***");
+                }
             } else {
-                //log.debug("*** " + u.getUserName() + " was stale ***");
+                //log.debug("*** " + u.getUserName() + " was live***");
             }
-        } else {
-            //log.debug("*** " + u.getUserName() + " was live***");
+            if (!u.isAnonymous() && !readOnly) {
+                markKnownUser();
+            }
+            return u;
         }
-        if (!u.isAnonymous() && !readOnly) {
-            markKnownUser();
-        }
-        return u;
     }
 
     /**
@@ -282,6 +293,7 @@ public class BasicAuthentication implements WebAuthentication {
      */
     public User getUser() {
         if (isLoggedOut()) {
+            log.debug("user logged out previously");
             return guest;
         } else {
             User u = getUserFromPersistor();
@@ -290,9 +302,13 @@ public class BasicAuthentication implements WebAuthentication {
                 if (u == null) {
                     //log.debug("didn't find user via sso");
                     u = guest;
+                } else {
+                    log.debug("user was in the sso cookie");
                 }
                 //essentially, cache it in the session so that we don't have to go to the cookie again
                 setUserInPersistor(u);
+            } else {
+                log.debug("user was in session");
             }
             if (!u.isAnonymous() && !readOnly) {
                 markKnownUser();
