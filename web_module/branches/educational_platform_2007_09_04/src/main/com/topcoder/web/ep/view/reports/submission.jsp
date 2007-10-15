@@ -68,7 +68,7 @@
                     <strong>% Tests Passed</strong>
                 </td>
                 <td align="left">
-                    <td class="valueC"><fmt:formatNumber value="${percentTestPassed}"  minFractionDigits="0" maxFractionDigits="0"/> %</td>
+                    <fmt:formatNumber value="${percentTestPassed}"  minFractionDigits="0" maxFractionDigits="0"/> %
                 </td>
             </tr>
             <tr>
