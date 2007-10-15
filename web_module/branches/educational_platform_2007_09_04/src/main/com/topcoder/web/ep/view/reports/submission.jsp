@@ -86,8 +86,9 @@
                 <td align="left">
                     <%-- only include the <span> below if the status is "Finished" --%>
                     <c:choose>
-                        <c:when test="${status == 'Succeeded'}"></c:when>
+                        <c:when test="${status == 'Succeeded'}">
                             <span class="bigGreen">${status}</span>
+                        </c:when>
                         <c:otherwise>
                             ${status}
                         </c:otherwise>
