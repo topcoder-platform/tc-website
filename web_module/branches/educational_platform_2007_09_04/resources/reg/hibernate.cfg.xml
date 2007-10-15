@@ -137,6 +137,7 @@
         <mapping resource="com/topcoder/web/common/model/algo/RoundSegment.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/RoundType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/Segment.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/SystemTestResult.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/comp/Contest.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ContestPrize.hbm.xml"/>

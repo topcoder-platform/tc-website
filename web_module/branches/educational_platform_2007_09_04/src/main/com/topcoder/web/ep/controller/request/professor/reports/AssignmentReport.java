@@ -60,12 +60,9 @@ public class AssignmentReport extends ShortHibernateProcessor {
         List<AssignmentReportRow> larr = new ArrayList<AssignmentReportRow>();
         for (Object o : l) {
             Object[] lo = (Object[]) o; 
-            larr.add(new AssignmentReportRow((Long)lo[0], (String)lo[1] + ", " + (String)lo[2], (Double)lo[3], null, null));
+            larr.add(new AssignmentReportRow((Long)lo[0], (String)lo[1] + ", " + (String)lo[2], (Double)lo[3], (Integer)lo[4], (Double)lo[5] * 100 / (Integer)lo[4]));
         }
 
-        // now we need to get tests results
-        // TODO
-        
         // sort results
         sortResult(larr);
         
