@@ -9,7 +9,9 @@
                 <a href="/ep" id="logo">&nbsp;</a>
                 <div class="schoolName">
                     TopCoder College Platform<br />
-                    <a href="/ep">University of TopCoder</a>
+                    <% if (!schoolname.equals("")) { %>
+                        <a href="/ep"><%=schoolname%></a>
+                    <%}%>
                 </div>
                 <div class="login">
                     <span>

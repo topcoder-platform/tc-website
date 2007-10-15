@@ -1,5 +1,7 @@
 package com.topcoder.web.common.dao;
 
+import java.util.List;
+
 import com.topcoder.web.common.model.educ.Professor;
 
 /**
@@ -8,4 +10,8 @@ import com.topcoder.web.common.model.educ.Professor;
  *          Create Date: Jan 18, 2007
  */
 public interface ProfessorDAO extends GenericDAO<Professor, Long> {
+
+    public List<Professor> getProfessorsUsingStudentId(Long studentId);
+
+    public Boolean hasActiveProfessors(Long studentId);
 }

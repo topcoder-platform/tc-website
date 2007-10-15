@@ -85,11 +85,18 @@
                 </td>
                 <td align="left">
                     <%-- only include the <span> below if the status is "Finished" --%>
-                    <span class="bigGreen">${status}</span>
+                    <c:choose>
+                        <c:when test="${status == 'Succeeded'}"></c:when>
+                            <span class="bigGreen">${status}</span>
+                        <c:otherwise>
+                            ${status}
+                        </c:otherwise>
+                    </c:choose>
                 </td>
             </tr>
         </tbody>
         </table>
+        
         ${submission}
     </div>
 </body>

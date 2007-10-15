@@ -30,21 +30,18 @@ public class Home extends ShortHibernateProcessor {
         if (userIdentified()) {
             User u  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
-            
             // check whether student or professor
-            getRequest().setAttribute("user", u);
             if (u.isProfessor()) {
                 // since it's a shared processor check if he has permission
                 if (!Helper.hasProfessorPermission(getLoggedInUser())) {
                     throw new PermissionException(getUser(), new ClassResource(this.getClass()));
                 }
-                log.debug(u.getHandle() + " is a professor");
                 getRequest().setAttribute("classrooms", u.getProfessor().getClassrooms());
+
+                
                 setNextPage("/professor/home.jsp");
                 setIsNextPageInContext(true);
             } else {
-                log.debug(u.getHandle() + " is a student");
-
                 // since it's a shared processor check if he has permission
                 if (!Helper.hasStudentPermission(getLoggedInUser())) {
                     throw new PermissionException(getUser(), new ClassResource(this.getClass()));
@@ -55,7 +52,8 @@ public class Home extends ShortHibernateProcessor {
                     throw new TCWebException("Could not get user information");
                 }
                 
-                if (u.getCoder().getProfessors().size() > 0) {
+                
+                if (DAOUtil.getFactory().getProfessorDAO().hasActiveProfessors(u.getId())) {
                     log.debug("student with registration");
                     // user already registered
                     getRequest().setAttribute("activeClassrooms", u.getCoder().getClassrooms(StudentClassroom.ACTIVE_STATUS));                
