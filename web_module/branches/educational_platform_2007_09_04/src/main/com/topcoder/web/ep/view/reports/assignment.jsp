@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.web.ep.Constants"%>
@@ -134,7 +135,7 @@
                         </c:when>
                         <c:otherwise>
                             <td class="valueC">${result.numTestsPassed}</td>
-                            <td class="valueC">% ${result.percentTestsPassed}</td>
+                            <td class="valueC">% <fmt:formatNumber value="${result.percentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/></td>
                         </c:otherwise>
                     </c:choose>
                 </tr>
