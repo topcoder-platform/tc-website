@@ -7,6 +7,7 @@ package com.topcoder.web.ep.controller.request.professor.reports;
 
 import java.sql.Time;
 import java.text.SimpleDateFormat;
+import java.util.StringTokenizer;
 import java.util.TimeZone;
 
 import com.topcoder.web.common.NavigationException;
@@ -91,10 +92,43 @@ public class ViewSubmission extends ShortHibernateProcessor {
         getRequest().setAttribute("percentTestPassed", succeeded * 100d / total);
         getRequest().setAttribute("status", ComponentState.getStatusDescription(cs.getStatusId()));
         getRequest().setAttribute("time", sdfTime.format(new Time(sub.getSubmitTime() - sub.getOpenTime())));
-        getRequest().setAttribute("submission", sub.getSubmissionText());
+        
+        getRequest().setAttribute("submission", addSpace(sub.getSubmissionText()));
         
         setNextPage("/reports/submission.jsp");
         setIsNextPageInContext(true);
+    }
+    
+    private String addSpace(String text) {
+        int i = -1;
+        text = StringUtils.htmlEncode(text);
+        while ((i = text.indexOf("\n\n")) >= 0) {
+            text = text.substring(0, i + 1) + "&#160;" + text.substring(i + 1);
+
+        }
+
+        StringTokenizer strtok = new StringTokenizer(text, "\n");
+        StringBuffer stBuffer = new StringBuffer(text.length());
+        String sTemp = "";
+        while (strtok.hasMoreTokens()) {
+            sTemp = strtok.nextToken();
+            boolean inTag = false;
+            for (i = 0; i < sTemp.length(); i++) {
+                if (!inTag && sTemp.charAt(i) == '<') {
+                    inTag = true;
+                }
+                if (inTag && sTemp.charAt(i) == '>') {
+                    inTag = false;
+                }
+                if (!inTag && sTemp.charAt(i) == ' ') {
+                    stBuffer.append("&#160;");
+                } else {
+                    stBuffer.append(sTemp.charAt(i));
+                }
+            }
+            stBuffer.append("<br />");
+        }
+        return stBuffer.toString();
     }
     
     private Long getAssignmentParam() throws TCWebException {

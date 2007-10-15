@@ -90,7 +90,7 @@
             </tr>
         </tbody>
         </table>
-
+        ${submission}
         <c:out value="${submission}"/>
     </div>
 </body>
