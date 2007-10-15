@@ -127,8 +127,16 @@
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                     <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;clsid=${classroom.id}&amp;stid=${result.studentId}">${result.student}</a></td>
                     <td class="valueC">${result.score}</td>
-                    <td class="valueC">ToDo</td>
-                    <td class="valueC">ToDo</td>
+                    <c:choose>
+                        <c:when test="${result.numTestsPassed == -1}">
+                            <td class="valueC">N/A</td>
+                            <td class="valueC">N/A</td>
+                        </c:when>
+                        <c:otherwise>
+                            <td class="valueC">${result.numTestsPassed}</td>
+                            <td class="valueC">% ${result.percentTestsPassed}</td>
+                        </c:otherwise>
+                    </c:choose>
                 </tr>
                 <%i++;%>
             </c:forEach>

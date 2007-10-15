@@ -18,16 +18,12 @@ public class RoomResultDAOHibernate extends GenericBase<RoomResult, Long> implem
     @SuppressWarnings("unchecked")
     public List<Object> getResultsSummary(Long roomId) {
         Query q = getSession().createQuery(
-                "select rr.id.coder.id, rr.id.coder.user.lastName, rr.id.coder.user.firstName, rr.pointTotal, count(*), sum(str.succeeded) " +
-                " from RoomResult rr, SystemTestResult str " +
+                "select rr.id.coder.id, rr.id.coder.user.lastName, rr.id.coder.user.firstName, rr.pointTotal " +
+                " from RoomResult rr " +
                 " where rr.id.room.id = :roomId " +
-                " and rr.id.round.id = str.id.round.id " +
-                " and rr.id.coder.id = str.id.coder.id " +
-                " group by rr.id.coder.id, rr.id.coder.user.lastName, rr.id.coder.user.firstName, rr.pointTotal " +
                 " order by rr.id.coder.user.lastName, rr.id.coder.user.firstName");      
-
         q.setLong("roomId", roomId);
         
         return q.list();
-    }
+    }    
 }
