@@ -27,7 +27,7 @@
                     <strong>Name</strong>
                 </td>
                 <td align="left">
-                    ${student.lastName}, ${student.firstName}
+                    ${student.user.lastName}, ${student.user.firstName}
                 </td>
             </tr>
             <tr>
