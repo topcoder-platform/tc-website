@@ -119,4 +119,6 @@ public interface DAOFactory {
     RoomResultDAO getRoomResultDAO();
 
     ComponentStateDAO getComponentStateDAO();
+
+    SystemTestResultDAO getSystemTestResultDAO();
 }

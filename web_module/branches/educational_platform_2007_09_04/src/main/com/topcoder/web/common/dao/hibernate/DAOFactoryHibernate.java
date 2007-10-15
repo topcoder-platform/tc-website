@@ -236,4 +236,8 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new ComponentStateDAOHibernate();
     }
 
+    public SystemTestResultDAO getSystemTestResultDAO() {
+        return new SystemTestResultDAOHibernate();
+    }
+    
 }

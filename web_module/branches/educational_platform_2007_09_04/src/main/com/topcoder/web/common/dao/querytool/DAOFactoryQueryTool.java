@@ -3,6 +3,7 @@ package com.topcoder.web.common.dao.querytool;
 import com.topcoder.web.common.dao.*;
 import com.topcoder.web.common.dao.hibernate.ComponentStateDAOHibernate;
 import com.topcoder.web.common.dao.hibernate.RoomResultDAOHibernate;
+import com.topcoder.web.common.dao.hibernate.SystemTestResultDAOHibernate;
 
 /**
  * @author pulky
@@ -240,6 +241,10 @@ public class DAOFactoryQueryTool implements DAOFactory {
     }
 
     public ComponentStateDAO getComponentStateDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public SystemTestResultDAO getSystemTestResultDAO() {
         throw new RuntimeException("Not supported");
     }
 
