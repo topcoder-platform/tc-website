@@ -36,7 +36,7 @@
 
 
 <body>
-Hello, <tc-webtag:handle coderId='${user.id}'/>, Welcoome to Educational Plattform!
+Hello, <tc-webtag:handle coderId='${sessionInfo.userId}'/>, Welcoome to Educational Plattform!
 </br></br>
     <c:choose>
         <c:when test="${not empty activeClassrooms}">
