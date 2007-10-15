@@ -45,7 +45,7 @@
         </table>
         <strong>Password Recovery</strong><br>
         Have you forgotten your password? No longer have access to the email account you used when you registered?
-        Enter your information below, and we will help you get TopCoding again!
+        Enter your information below, and we will help you get back in the game!
         <br><br>
 
         <form method="post" name="frm" action="/tc">
