@@ -21,7 +21,6 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.common.model.algo.ComponentState;
-import com.topcoder.web.common.model.algo.RoomResult;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
@@ -133,7 +132,15 @@ public class StudentReport extends ShortHibernateProcessor {
                 assignmentPoints += cs.getPoints(); 
                 oldCs = cs;
             }
-            larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, null, null, lsrdr));
+            if (assignmentResults.containsKey(oldCs.getRound().getId())) {
+                larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, 
+                        assignmentResults.get(oldCs.getRound().getId()).getSucceeded(), 
+                        assignmentResults.get(oldCs.getRound().getId()).getSucceeded() * 100d / assignmentResults.get(oldCs.getRound().getId()).getTotal(), 
+                        lsrdr));
+            } else {
+                larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, 
+                        -1, 0d, lsrdr));
+            }
 
             lsrdr = new ArrayList<StudentReportDetailRow>();
             assignmentPoints = 0d;
