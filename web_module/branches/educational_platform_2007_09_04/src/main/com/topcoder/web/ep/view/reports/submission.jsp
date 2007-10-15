@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -67,7 +68,7 @@
                     <strong>% Tests Passed</strong>
                 </td>
                 <td align="left">
-                    ${percentTestPassed}%
+                    <td class="valueC"><fmt:formatNumber value="${percentTestPassed}"  minFractionDigits="0" maxFractionDigits="0"/> %</td>
                 </td>
             </tr>
             <tr>
