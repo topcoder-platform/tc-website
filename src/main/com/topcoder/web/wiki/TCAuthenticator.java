@@ -67,7 +67,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
             Principal user = getUser(userName);
             WebAuthentication authentication = getAuth(request, response);
-                    
+
             if (user != null) {
                 try {
                     TCSubject sub = authenticate(userName, password);
@@ -216,8 +216,9 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     /**
      * check to see if a particular user exists in confluence yet, if not, add it.
      * returns the confluence user.
+     *
      * @param userName the user name, this should be in the normal case of the username.  this method
-     * will deal with confluence's case issues.
+     *                 will deal with confluence's case issues.
      * @return the user that was either created, or retrieved
      */
     private com.atlassian.user.User checkAndAddUser(final String userName) {
@@ -239,9 +240,9 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         return dai.getData(dataRequest).get("user_email").getStringItem(0, "address");
 
     }
+
     private void checkAndAddEmail(com.atlassian.user.User user, long tcUserId) throws Exception {
-        long start = System.currentTimeMillis();
-        if (user.getEmail()==null) {
+        if (user.getEmail() == null) {
             user.setEmail(getEmail(tcUserId));
             getUserAccessor().saveUser(user);
         } else {
@@ -250,9 +251,6 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                 user.setEmail(getEmail(tcUserId));
                 getUserAccessor().saveUser(user);
             }
-        }
-        if (log.isDebugEnabled()) {
-            log.debug("email processing took " + (start-System.currentTimeMillis()) + " ms");
         }
     }
 
@@ -277,8 +275,8 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     private WebAuthentication getAuth(HttpServletRequest request, HttpServletResponse response) throws Exception {
         TCRequest tcRequest = HttpObjectFactory.createSimpleRequest(request);
         TCResponse tcResponse = response == null ? null : HttpObjectFactory.createResponse(response);
-            return new LightAuthentication(new SessionPersistor(request.getSession()),
-                            tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
+        return new LightAuthentication(new SessionPersistor(request.getSession()),
+                tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
     }
 
 }
