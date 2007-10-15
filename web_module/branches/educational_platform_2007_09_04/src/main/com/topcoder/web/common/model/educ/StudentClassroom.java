@@ -26,8 +26,8 @@ import com.topcoder.web.common.model.Coder;
 //@Table(name="student_classroom_xref")
 public class StudentClassroom extends Base {
 
-    public static final Long PENDING_STATUS = 1l;
-    public static final Long ACTIVE_STATUS = 2l;
+    public static final Long ACTIVE_STATUS = 1l;
+    public static final Long PENDING_STATUS = 2l;
     public static final Long INACTIVE_STATUS = 3l;
     
     private Identifier id = new Identifier();
