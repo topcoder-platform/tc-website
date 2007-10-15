@@ -216,7 +216,10 @@ public class Confirm extends Base {
             }
 
             if (log.isDebugEnabled()) {
-                log.debug("school count " + u.getSchools().size());
+                for (UserSchool ch : u.getSchools()) {
+                    log.debug(ch.getId() + " " + ch.getAssociationType().getDescription() + " " + ch.isPrimary() + " " + ch.getSchool().getName());
+                }
+
             }
 
             if (!RegFieldHelper.getMainFieldSet(getRequestedTypes(), u).contains(Constants.COMP_COUNTRY_CODE)) {
