@@ -96,7 +96,7 @@
                             <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.classroomId}">${classroom.classroomName}</a>
                         </div>
                         <c:choose>
-                            <c:when test="classroom.active">
+                            <c:when test="${classroom.active}">
                                 <div class="button">
                                     <a href="/ep?module=ViewClassroomAssignments&amp;clsid=${classroom.classroomId}"><img src="/i/ep/buttons/assignments.png" alt="Assignments" /></a>
                                 </div>
