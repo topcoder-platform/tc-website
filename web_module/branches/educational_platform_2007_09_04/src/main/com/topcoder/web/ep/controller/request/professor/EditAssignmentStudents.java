@@ -98,7 +98,9 @@ public class EditAssignmentStudents extends LongBase {
                     if ((new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
                         // cannot remove students
                         for (RoundRegistration rr : a.getRoundRegistrations()) {
+                            log.debug("checking coder: " + rr.getId().getCoder().getId());
                             if (!studentIds.contains(rr.getId().getCoder().getId())) {
+                                log.debug("not in the list");
                                 // this means the professor took someone out, add error
                                 addError("error", "The assignment is about to start or has already started and therefore students cannot be removed");
                                 break;
@@ -186,6 +188,7 @@ public class EditAssignmentStudents extends LongBase {
                 Long id;
                 try {
                     id = Long.parseLong(value);
+                    log.debug("value: " + id);
                 } catch (NumberFormatException e) {
                     throw new TCWebException("Invalid student id");
                 }
