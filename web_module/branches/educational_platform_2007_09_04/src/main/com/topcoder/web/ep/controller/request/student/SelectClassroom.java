@@ -52,13 +52,16 @@ public class SelectClassroom extends LongBase {
                 setSchool(s);
     
                 // set possible classrooms
-                setPossibleClassrooms(s, u);            
+                getRequest().setAttribute("possible_classrooms", getPossibleClassrooms(s, u));
                 
                 setNextPage("/student/selectClassroom.jsp");
             } else {
                 log.debug("Second pass - " + getUser().getUserName());
                 // get selection
                 String[] values = getRequest().getParameterValues(Constants.CLASSROOM_ID);
+
+                School s = getSchool();
+                Set<Classroom> possibleClassrooms = getPossibleClassrooms(s, u);
                 
                 // add selected classrooms to the session
                 List<Classroom> selectedClassrooms = new ArrayList<Classroom>();
@@ -66,11 +69,18 @@ public class SelectClassroom extends LongBase {
                     for (String value : values) {
                         Classroom c = null;
                         if (value != null) {
+                            Long classroomId = null;
                             try {
-                                c = getFactory().getClassroomDAO().find(Long.parseLong(value));
+                                classroomId = Long.parseLong(value);
                             } catch (NumberFormatException e) {
                                 // just drop this selection
                             }
+                            
+                            if (!possibleClassrooms.contains(classroomId)) {
+                                throw new TCWebException("Invalid classroom selected");
+                            }
+                            
+                            c = getFactory().getClassroomDAO().find(classroomId);
                             selectedClassrooms.add(c);
                         }
                     }
@@ -82,7 +92,7 @@ public class SelectClassroom extends LongBase {
                 }
 
                 if (hasErrors()) {
-                    setPossibleClassrooms(getSchool(), u);            
+                    getRequest().setAttribute("possible_classrooms", possibleClassrooms);
                     setNextPage("/student/selectClassroom.jsp");
                 } else {
                     setNextPage("/student/selfRegisterConfirm.jsp");
@@ -94,7 +104,7 @@ public class SelectClassroom extends LongBase {
     /**
      * @param s
      */
-    private void setPossibleClassrooms(School s, User u) {
+    private Set<Classroom> getPossibleClassrooms(School s, User u) {
         // include only non-registered classrooms
         Set<Classroom> sc = new HashSet<Classroom>(s.getClassrooms());
         for (Classroom c : u.getCoder().getClassrooms()) {
@@ -102,7 +112,7 @@ public class SelectClassroom extends LongBase {
                 sc.remove(c);
             }
         }
-        getRequest().setAttribute("possible_classrooms", sc);
+        return sc;
     }
 
     private Long getSchoolParam() throws TCWebException {

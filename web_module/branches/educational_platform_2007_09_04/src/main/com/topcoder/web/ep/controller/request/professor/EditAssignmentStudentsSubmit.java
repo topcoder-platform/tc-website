@@ -65,6 +65,7 @@ public class EditAssignmentStudentsSubmit extends LongBase {
             }
             Classroom c = checkValidClassroom((Long) classroomProperty);
 
+            // if the assignment ended registrations cannot be updated 
             if ((new Date()).after(a.getContest().getEndDate())) {
                 throw new TCWebException("The assignment has ended, cannot assign students at this time");
             }

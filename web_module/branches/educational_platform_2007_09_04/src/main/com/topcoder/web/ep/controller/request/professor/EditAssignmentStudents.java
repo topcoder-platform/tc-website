@@ -57,12 +57,6 @@ public class EditAssignmentStudents extends LongBase {
                 throw new TCWebException("Couldn't find assignment");
             }
 
-//            // Todo: only permit adding users
-//            // check if the assignment can be edited 
-//            if ((new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
-//                throw new NavigationException("The assignment is about to start or has already started and therefore cannot be edited");
-//            }
-
             // check if this classroom belongs to the active user
             Object classroomProperty = a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID);
             if (classroomProperty == null) {
@@ -70,6 +64,7 @@ public class EditAssignmentStudents extends LongBase {
             }
             Classroom c = checkValidClassroom((Long) classroomProperty);
 
+            // if the assignment ended registrations cannot be updated 
             if ((new Date()).after(a.getContest().getEndDate())) {
                 throw new NavigationException("The assignment has ended, you cannot assign students at this time");
             }
