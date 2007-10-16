@@ -188,6 +188,10 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new UserPreferenceDAOHibernate();
     }
 
+    public UserSchoolDAO getUserSchoolDAO() {
+        return new UserSchoolDAOHibernate();
+    }
+
     public VisaLetterRequestDAO getVisaLetterRequestDAO() {
         return new VisaLetterRequestDAOHibernate();
     }
@@ -243,5 +247,5 @@ public class DAOFactoryHibernate implements DAOFactory {
     public AlgoSubmissionDAO getAlgoSubmissionDAO() {
         return new AlgoSubmissionDAOHibernate();
     }
-    
+
 }

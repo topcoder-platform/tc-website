@@ -70,19 +70,18 @@ public class Submit extends Base {
             }
 
 
-
             if (log.isDebugEnabled()) {
                 for (UserSchool sc : u.getSchools()) {
-                    if (sc.getSchool()==null) {
+                    if (sc.getSchool() == null) {
                         log.debug("school null");
                     }
-                    if (sc.getUser()==null) {
+                    if (sc.getUser() == null) {
                         log.debug("user null");
                     }
-                    if (sc.getAssociationType()==null) {
+                    if (sc.getAssociationType() == null) {
                         log.debug("ass null");
                     }
-                    if (sc.isPrimary()==null) {
+                    if (sc.isPrimary() == null) {
                         log.debug("primary null");
                     }
                 }

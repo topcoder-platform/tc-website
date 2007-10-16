@@ -96,6 +96,8 @@ public interface DAOFactory {
 
     UserPreferenceDAO getUserPreferenceDAO();
 
+    UserSchoolDAO getUserSchoolDAO();
+
     VisaLetterEventDAO getVisaLetterEventDAO();
 
     VisaLetterRequestDAO getVisaLetterRequestDAO();
