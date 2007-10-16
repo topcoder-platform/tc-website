@@ -82,6 +82,9 @@
 
 <div class="window" align="left">
     <div class="spacer">
+
+        <h2>Your classes</h2>
+
     <c:choose>
         <c:when test="${not empty activeClassrooms || not empty pendingClassrooms}">
             <br clear="all" />
