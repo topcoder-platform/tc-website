@@ -2,6 +2,7 @@ package com.topcoder.web.common.dao;
 
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.SchoolType;
+import com.topcoder.web.common.model.educ.Classroom;
 
 import java.util.Date;
 import java.util.List;
@@ -20,5 +21,7 @@ public interface SchoolDAO {
     List searchByNameAndType(String name, SchoolType type, int maxResults);
     
     List search(SchoolType type, String name, Date creationAfter, String countryCode,  boolean orderByCountry);
-    
+
+    Classroom findClassroomUsingNameAndPeriod(Long schoolId, String name, String period);
+
 }

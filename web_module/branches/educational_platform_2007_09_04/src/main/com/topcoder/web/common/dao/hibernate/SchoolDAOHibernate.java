@@ -3,12 +3,17 @@ package com.topcoder.web.common.dao.hibernate;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 
 import com.topcoder.web.common.dao.SchoolDAO;
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.SchoolType;
+import com.topcoder.web.common.model.algo.RoundProperty;
+import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.reg.Constants;
 
 /**
@@ -116,5 +121,13 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
         return q.list();
     }
 
+    public Classroom findClassroomUsingNameAndPeriod(Long schoolId, String name, String period) {
+        Criteria c = session.createCriteria(Classroom.class)
+            .add(Restrictions.eq("school.id", schoolId))
+            .add(Restrictions.eq("name", name))
+            .add(Restrictions.eq("academicPeriod", period));
+        
+        return (Classroom) c.uniqueResult();
+    }
 }
 

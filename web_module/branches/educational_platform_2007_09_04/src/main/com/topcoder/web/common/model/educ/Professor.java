@@ -124,17 +124,17 @@ public class Professor extends Base {
         return cs;
     }
 
-    @Transient
-    public boolean hasClassroom(School s, String classroomName, String classroomAcademicPeriod) {
-        for (Classroom c : classrooms) {
-            if (c.getName().equals(classroomName) &&
-                    c.getAcademicPeriod().equals(classroomAcademicPeriod) &&
-                    c.getSchool().equals(s)) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    @Transient
+//    public boolean hasClassroom(School s, String classroomName, String classroomAcademicPeriod) {
+//        for (Classroom c : classrooms) {
+//            if (c.getName().equals(classroomName) &&
+//                    c.getAcademicPeriod().equals(classroomAcademicPeriod) &&
+//                    c.getSchool().equals(s)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
     @Override
     public int hashCode() {
