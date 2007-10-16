@@ -117,7 +117,7 @@
     </c:choose>
         <br clear="all" />
         <div align="center" style="border-top: 1px solid #969696; padding-top: 10px;">
-            <a href="${sessionInfo.servletPath}?module=SelectSchool"><img src="/i/ep/buttons/registerForClass.png" alt="Register for a class" /></a>
+            <a href="${sessionInfo.servletPath}student/?module=SelectSchool"><img src="/i/ep/buttons/registerForClass.png" alt="Register for a class" /></a>
         </div>
 
     </div>

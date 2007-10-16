@@ -38,7 +38,7 @@
                             Registrants: <c:out value="${result[o]}"/><br/>
                             <c:set value="\"" var="quote"/>
                             <c:set value="\\\"" var="escapedQuote"/>
-                            <A class="small" href="${sessionInfo.servletPath}?module=SelectClassroom&amp;<%=Constants.SCHOOL_ID%>=${result[1].id}">Select</A>
+                            <A class="small" href="${sessionInfo.servletPath}student/?module=SelectClassroom&amp;<%=Constants.SCHOOL_ID%>=${result[1].id}">Select</A>
                             <br/><br/>
                         </c:forEach>
                     </span>
