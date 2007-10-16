@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.16.07<br />4:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm371">SRM 371 - Problem Set &amp; Analysis</A></span><br /><br />
+      SRM 371 had a record turnout, hitting the maximum of 1500 registrants well before the end of registration. <tc-webtag:handle coderId="10574855" context="algorithm"/> won the match, with <tc-webtag:handle coderId="7442498" context="algorithm"/> and <tc-webtag:handle coderId="11829284" context="algorithm"/> coming second and third respectively.</td>
+         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm371">details</A> | 
+         <tc-webtag:forumLink forumID="516068" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.16.07<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA chat before SRM 372</A></span><br /><br />
@@ -158,19 +174,6 @@
    <tr><td class="newsLinksCell">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />">details</a> | 
         <a href="http://forums.topcoder.com/?module=Category&categoryID=2479">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />10.04.07<br />1:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=stage1Winners">2007.5 Digital Run: Stage 1 Winners</A></span><br /><br />
-        Stage 1 of the 2007.5 Digital Run has been finalized.  Congratulations to <tc-webtag:handle coderId="21926605" context="design"/>, <tc-webtag:handle coderId="15046749" context="development"/>, and <tc-webtag:handle coderId="11790647" context="development"/> for winning the <a href="/tc?module=LeaderBoard&ph=112&sc=&sd=&staid=5&nr=50&sr=">Design</a>, <a href="/tc?module=LeaderBoard&ph=113&sc=&sd=&staid=5&nr=50&sr=">Development</a>, and <a href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=asmLeaderboardS1">Assembly</a> Cup series, respectively.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=stage1Winners">details</a> | 
-        <tc-webtag:forumLink forumID="517702" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
    
