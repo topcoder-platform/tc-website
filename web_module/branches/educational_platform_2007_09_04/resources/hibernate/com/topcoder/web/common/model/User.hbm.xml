@@ -53,7 +53,7 @@
             <key column="user_id" not-null="true"/>
             <one-to-many class="DemographicResponse"/>
         </set>
-        <set name="terms" table="user_terms_of_use_xref" cascade="save-update" access="field">
+        <set name="terms" table="user_terms_of_use_xref" cascade="none" access="field">
             <key column="user_id" not-null="true"/>
             <many-to-many column="terms_of_use_id" class="TermsOfUse"/>
         </set>
@@ -74,7 +74,7 @@
             <key column="user_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.model.comp.UserContestPrize"/>
         </set>
-        <set name="schools" cascade="save-update" inverse="true"">
+        <set name="schools" cascade="save-update" inverse="true">
             <key column="user_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.model.UserSchool"/>
         </set>
