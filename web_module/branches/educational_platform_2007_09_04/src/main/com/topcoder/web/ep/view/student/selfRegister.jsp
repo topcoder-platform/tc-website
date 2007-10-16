@@ -1,17 +1,25 @@
 <%@ page import="com.topcoder.web.common.BaseServlet" %>
-<%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<html>
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+    <title>TopCoder :: Education Platform</title>
+    <meta http-equiv="content-type" 
+        content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Self registration</title>
-
+    <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="tc_ep"/>
+    </jsp:include>
+<%-- each school requires its own stylesheet, linked in here --%>
+    <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
     <script type="text/javascript">
         function submitEnter(e) {
             var keycode;
@@ -35,17 +43,73 @@
 
 
 <body>
-Hello,
-<tc-webtag:handle coderId='${sessionInfo.userId}'/>
-, Welcoome to Educational Plattform!
-</br>
-Now you should complete your self-registration first.
-</br>
-</br>
-Please follow the direction below:
-</br>
-1 Select your professor 2 Enter your information 3 End self registration
-</br></br>
-<a href="${sessionInfo.servletPath}student/?module=SelectSchool">Start now</a>
+
+<div align="center">
+    <div id="widther">
+        <img src="/i/ep/widtherN.png" alt="" style="display:block;" />
+        <div id="pageFrame">
+
+            <jsp:include page="../header.jsp">
+                <jsp:param name="schoolname" value="University of TopCoder"/>
+            </jsp:include>
+
+            <div id="pageContent" align="left">
+                <div class="N">
+                    <img src="/i/ep/contentNW.png" alt="" class="NW" />
+                    <img src="/i/ep/contentNE.png" alt="" class="NE" />
+                </div>
+                <div class="spacer">
+
+                <jsp:include page="../nav.jsp" >
+                    <jsp:param name="user" value="student"/>
+                    <jsp:param name="node" value="home"/>
+                </jsp:include>
+
+<%-- CONTENT BEGINS --%>
+
+<div class="window" align="left">
+    <div class="spacer">
+
+        <h2>Welcome to the TopCoder Educational Platform</h2>
+
+        <p align="center">
+            You'll need to register yourself for class(es)<br />before you can start working on assignments,<br />but registering for a class is a simple process:
+        </p>
+
+        <div align="center" style="margin: 40px;">
+            <p align="left" style="width: 200px;">
+                <strong>1.</strong> Select your school
+                <br /><strong>2.</strong> Select your class & professor
+                <br /><strong>3.</strong> Enter your information
+            </p>
+        </div>
+
+        <p align="center">
+            Ready to get started?
+        </p>
+
+        <div align="center">
+            <a href="${sessionInfo.servletPath}student/?module=SelectSchool"><img src="/i/ep/buttons/register.png" alt="Register" /></a>
+        </div>
+
+    </div>
+</div>
+
+<%-- CONTENT ENDS --%>
+
+                </div>
+                <div class="S">
+                    <img src="/i/ep/contentSW.png" alt="" class="SW" />
+                    <img src="/i/ep/contentSE.png" alt="" class="SE" />
+                </div>
+            </div>
+
+            <jsp:include page="../footer.jsp"/>
+
+        </div>
+        <img src="/i/ep/widtherS.png" alt="" style="display:block;" />
+    </div>
+</div>
+
 </body>
 </html>
