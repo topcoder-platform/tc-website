@@ -41,6 +41,7 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  */
 public class EditAssignment extends LongBase {
 
+    private static final int TIME_BEFORE_EDIT = 1000;
     private static Logger log = Logger.getLogger(EditAssignment.class);
 
     /* (non-Javadoc)
@@ -88,6 +89,11 @@ public class EditAssignment extends LongBase {
                         classroomId = (Long) classroomProperty;
                     } else {
                         classroomId = assignmentInSession.getClassroomId();
+                    }
+
+                    // check if the assignment can be edited 
+                    if ((new Date((new Date()).getTime() + TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
+                        throw new TCWebException("The assignment is about to start and cannot be edited");
                     }
 
                     setDefault("assignment_name", hasDataInSession ? assignmentInSession.getAssignmentName() : a.getName());
