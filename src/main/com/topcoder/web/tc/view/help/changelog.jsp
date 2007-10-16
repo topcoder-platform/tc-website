@@ -51,6 +51,7 @@
         <li>Include link to unregister from TopCoder HS on My TopCoder Page -dok</li>
         <li>Fix link to submission history on marathon match results page -dok</li>
         <li>Adjust terms of work for component projects -dok</li>
+        <li>Adjust PACTS to be less possessive of connections (shorter wait) -dok</li>
     </ul>
 
 </p>
