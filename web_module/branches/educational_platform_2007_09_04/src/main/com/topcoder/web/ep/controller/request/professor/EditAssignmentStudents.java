@@ -57,11 +57,11 @@ public class EditAssignmentStudents extends LongBase {
                 throw new TCWebException("Couldn't find assignment");
             }
 
-            // Todo: only permit adding users
-            // check if the assignment can be edited 
-            if ((new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
-                throw new NavigationException("The assignment is about to start or has already started and therefore cannot be edited");
-            }
+//            // Todo: only permit adding users
+//            // check if the assignment can be edited 
+//            if ((new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
+//                throw new NavigationException("The assignment is about to start or has already started and therefore cannot be edited");
+//            }
 
             // check if this classroom belongs to the active user
             Object classroomProperty = a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID);
@@ -94,7 +94,17 @@ public class EditAssignmentStudents extends LongBase {
                     // got a response, validate.
                     List<Long> studentIds = getStudentParam();
 
-                    // TODO: validate if non selected users can be removed
+                    // if the assignment has started or about to start validate if non selected users can be removed
+                    if ((new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
+                        // cannot remove students
+                        for (RoundRegistration rr : a.getRoundRegistrations()) {
+                            if (!studentIds.contains(rr.getId().getCoder().getId())) {
+                                // this means the professor took someone out, add error
+                                addError("error", "The assignment is about to start or has already started and therefore students cannot be removed");
+                                break;
+                            }
+                        }
+                    }
 
                     // validate if the selected students are active students
                     List<Coder> students = new ArrayList<Coder>();
@@ -106,8 +116,6 @@ public class EditAssignmentStudents extends LongBase {
                             students.add(s);
                         }
                     }
-
-                    //getRequest().setAttribute("activeStudents", );                
 
                     getRequest().setAttribute(Constants.ASSIGNMENT_ID, a.getId());
                     getRequest().setAttribute("assignment_name", a.getName());
