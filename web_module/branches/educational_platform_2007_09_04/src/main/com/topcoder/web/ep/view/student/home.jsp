@@ -86,28 +86,29 @@
         <h2>Your classes</h2>
 
     <c:choose>
-        <c:when test="${not empty activeClassrooms || not empty pendingClassrooms}">
-            <br clear="all" />
-            <h1><span class="bg"><span class="spacer">PUT SCHOOL NAME HERE</span></span></h1>
-            <c:forEach items="${activeClassrooms}" var="classroom">
-            <div class="classroomListing" align="center">
-                <div class="name">
-                    <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a>
-                </div>
-                <div class="button">
-                    <a href="/ep?module=ViewClassroomAssignments&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/assignments.png" alt="Assignments" /></a>
-                </div>
-            </div>
-            </c:forEach>
-            <c:forEach items="${pendingClassrooms}" var="classroom">
-            <div class="classroomListing" align="center">
-                <div class="name">
-                    <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a>
-                </div>
-                <div class="message">
-                    <span class="bigRed">AWAITING APPROVAL</span>
-                </div>
-            </div>
+        <c:when test="${not empty schools}">
+            <c:forEach items="${schools}" var="school">
+                <br clear="all" />
+                <h1><span class="bg"><span class="spacer">${school.schoolName}</span></span></h1>
+                <c:forEach items="${school.details}" var="classroom">
+                    <div class="classroomListing" align="center">
+                        <div class="name">
+                            <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.classroomId}">${classroom.classroomName}</a>
+                        </div>
+                        <c:choose>
+                            <c:when test="classroom.active">
+                                <div class="button">
+                                    <a href="/ep?module=ViewClassroomAssignments&amp;clsid=${classroom.classroomId}"><img src="/i/ep/buttons/assignments.png" alt="Assignments" /></a>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="message">
+                                    <span class="bigRed">AWAITING APPROVAL</span>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
+                </c:forEach>
             </c:forEach>
         </c:when>
         <c:otherwise>
