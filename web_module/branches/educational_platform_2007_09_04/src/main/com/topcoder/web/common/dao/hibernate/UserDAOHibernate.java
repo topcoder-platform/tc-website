@@ -1,7 +1,6 @@
 package com.topcoder.web.common.dao.hibernate;
 
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.SchoolDAO;
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.dao.UserSchoolDAO;
 import com.topcoder.web.common.model.DemographicQuestion;
@@ -102,10 +101,6 @@ public class UserDAOHibernate extends Base implements UserDAO {
             temp.setUser(u);
         }
 */
-        SchoolDAO sdao = DAOUtil.getFactory().getSchoolDAO();
-        for (UserSchool us : u.getSchools()) {
-            sdao.saveOrUpdate(us.getSchool());
-        }
 
         if (u.getId() == null) {
             log.debug("newbie");
