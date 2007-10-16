@@ -41,7 +41,6 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  */
 public class EditAssignment extends LongBase {
 
-    private static final int TIME_BEFORE_EDIT = 1000;
     private static Logger log = Logger.getLogger(EditAssignment.class);
 
     /* (non-Javadoc)
@@ -92,7 +91,7 @@ public class EditAssignment extends LongBase {
                     }
 
                     // check if the assignment can be edited 
-                    if ((new Date((new Date()).getTime() + TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
+                    if ((new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
                         throw new NavigationException("The assignment is about to start or has already started and therefore cannot be edited");
                     }
 

@@ -6,6 +6,7 @@
 package com.topcoder.web.ep.controller.request.professor;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.topcoder.shared.security.ClassResource;
@@ -54,6 +55,12 @@ public class EditAssignmentStudents extends LongBase {
 
             if (a == null) {
                 throw new TCWebException("Couldn't find assignment");
+            }
+
+            // Todo: only permit adding users
+            // check if the assignment can be edited 
+            if ((new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
+                throw new NavigationException("The assignment is about to start or has already started and therefore cannot be edited");
             }
 
             // check if this classroom belongs to the active user
