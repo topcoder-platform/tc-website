@@ -27,6 +27,7 @@ import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.UserSchool;
 import com.topcoder.web.reg.Constants;
 
 import javax.ejb.CreateException;
@@ -66,6 +67,25 @@ public class Submit extends Base {
 
             if (getRequest().getSession().getAttribute(Constants.INACTIVATE_HS) != null) {
                 rh.inactivateUser(u);
+            }
+
+
+
+            if (log.isDebugEnabled()) {
+                for (UserSchool sc : u.getSchools()) {
+                    if (sc.getSchool()==null) {
+                        log.debug("school null");
+                    }
+                    if (sc.getUser()==null) {
+                        log.debug("user null");
+                    }
+                    if (sc.getAssociationType()==null) {
+                        log.debug("ass null");
+                    }
+                    if (sc.isPrimary()==null) {
+                        log.debug("primary null");
+                    }
+                }
             }
 
             markForCommit();
