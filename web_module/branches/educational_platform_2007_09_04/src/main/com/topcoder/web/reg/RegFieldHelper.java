@@ -473,7 +473,7 @@ public class RegFieldHelper {
         Set<String> ret = new HashSet<String>();
 
         Set currentTypes;
-        if (user == null || user.isNew()) {
+        if (user == null || user.getId() == null) {
             currentTypes = Collections.EMPTY_SET;
         } else {
             currentTypes = user.getRegistrationTypes();
@@ -789,7 +789,7 @@ public class RegFieldHelper {
                 ret.remove(Constants.VISIBLE_SCHOOL);
             }
         }
-        if (!user.isNew()) {
+        if (user.getId() != null) {
             ret.remove(Constants.REFERRAL);
             ret.remove(Constants.REFERRAL_CODER);
             ret.remove(Constants.REFERRAL_OTHER);
