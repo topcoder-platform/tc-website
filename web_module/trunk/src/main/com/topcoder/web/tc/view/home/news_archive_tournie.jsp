@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">10.16.07 12:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA chat before SRM 372</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.12.07 12:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly">Eli Lilly chat before SRM 371</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.11.07 11:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=dbChat20070926">Deutsche Bank SRM 367 chat transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.09.07 12:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=bracket">TCCC07 Algorithm bracket</A></td></tr>

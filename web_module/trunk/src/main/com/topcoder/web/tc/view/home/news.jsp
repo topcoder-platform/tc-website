@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.16.07<br />12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA chat before SRM 372</A></span><br /><br />
+        SRM 372 is brought to you by NSA.  Be sure to check in to the arena an hour before the match starts to chat with NSA representatives.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">details</a> | 
+        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />10.15.07<br />4:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -159,18 +172,5 @@
         <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=stage1Winners">details</a> | 
         <tc-webtag:forumLink forumID="517702" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.04.07<br />10:15 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">Round 2 of the TCCC07 CDDC Finals</A></span><br /><br />
-        Today marks the start of the second round of the 2007 TopCoder Collegiate Challenge Component Design and Development Competition finals.  Finalists and alternates will be introduced to their projects, and will have a week to design (or develop) them.  After a round of reviews, they will need to wait until the onsite competition to learn their review results and file any relevant appeals. This week's final round components include <a href="https://software.topcoder.com/catalog/c_component.jsp?comp=26965489&ver=1">AJAX Scrollable Data Bound Control</a> and <a href="https://software.topcoder.com/catalog/c_component.jsp?comp=26965587&ver=1">AJAX Scrollable JSF Data Bound Table</a> for design, and <a href="https://software.topcoder.com/catalog/c_component.jsp?comp=26945120&ver=1">NAnt Dependency Versions</a> and <a href="https://software.topcoder.com/catalog/c_component.jsp?comp=26945110&ver=1">Ant Dependency Versions</a> for development.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">details</a> | 
-        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
