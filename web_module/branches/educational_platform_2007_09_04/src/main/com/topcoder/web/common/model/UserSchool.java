@@ -72,8 +72,6 @@ public class UserSchool extends Base {
         this.user = user;
     }
 
-    //we're making user school persist this relationship.  including the hibernate
-    // annotation as well because we're not really using JPA right now
     @ManyToOne(cascade = CascadeType.PERSIST)
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinColumn(name = "school_id", nullable = false)
