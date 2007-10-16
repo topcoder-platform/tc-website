@@ -41,7 +41,7 @@ public class UserSchool extends Base {
         this.id = id;
     }
 
-    @Column(name = "primary_ind")
+    @Column(name = "primary_ind", nullable = false)
     public Boolean isPrimary() {
         return primary;
     }
