@@ -7,14 +7,23 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<html>
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+    <title>TopCoder :: Education Platform</title>
+    <meta http-equiv="content-type" 
+        content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Select school</title>
-
+    <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="tc_ep"/>
+    </jsp:include>
+<%-- each school requires its own stylesheet, linked in here --%>
+    <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript" src="/js/taconite-parser.js"></script>
 <script type="text/javascript">
@@ -72,24 +81,77 @@ function postRequest()
  
  </script>
 </head>
-<body onLoad="initialize()" >
-    <div >
-        <span class="subtitle">School Search</span>
-        <br><br>
+<body onload="initialize()" >
 
-        <strong>School Name:</strong><br>
-        <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
-        <tc-webtag:errorIterator id="err" name="${schoolName}"><%=err%><br></tc-webtag:errorIterator>
-        <tc-webtag:textInput onKeyPress="submitEnter(event)" name="${schoolName}" size="50" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
-        <A href="javascript:doSearch();">Search</A>
-        <br>
-        Use * for a wildcard character
-        <div id="searching">
-        <p>
-        <b><font color="#FF0000" size="+1">Searching...</font></b>
-        </p>
+<div align="center">
+    <div id="widther">
+        <img src="/i/ep/widtherN.png" alt="" style="display:block;" />
+        <div id="pageFrame">
+
+            <jsp:include page="../header.jsp">
+                <jsp:param name="schoolname" value="University of TopCoder"/>
+            </jsp:include>
+
+            <div id="pageContent" align="left">
+                <div class="N">
+                    <img src="/i/ep/contentNW.png" alt="" class="NW" />
+                    <img src="/i/ep/contentNE.png" alt="" class="NE" />
+                </div>
+                <div class="spacer">
+
+                <jsp:include page="../nav.jsp" >
+                    <jsp:param name="user" value="student"/>
+                    <jsp:param name="node" value="home"/>
+                </jsp:include>
+
+<%-- CONTENT BEGINS --%>
+
+<div class="window" align="left">
+    <div class="spacer">
+
+        <h2>What school do you go to?</h2>
+
+        <div>
+            <p>
+                <strong>School Name:</strong>
+            </p>
+            <div>
+                <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
+                <tc-webtag:errorIterator id="err" name="${schoolName}"><%=err%><br /></tc-webtag:errorIterator>
+                <tc-webtag:textInput onKeyPress="submitEnter(event)" name="${schoolName}" size="50" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
+            </div>
+            <p>
+                Use * for a wildcard character
+            </p>
+            <div style="margin-bottom: 10px;">
+                <a href="javascript:doSearch();"><img src="/i/ep/buttons/search.png" alt="Search" /></a>
+            </div>
+            <div id="searching">
+                <p class="bigRed">
+                    Searching...
+                </p>
+            </div>
         </div>
+        <div id="results">&nbsp;</div>
+
     </div>
-    <div id="results">&nbsp;</div>
+</div>
+
+<%-- CONTENT ENDS --%>
+
+                </div>
+                <div class="S">
+                    <img src="/i/ep/contentSW.png" alt="" class="SW" />
+                    <img src="/i/ep/contentSE.png" alt="" class="SE" />
+                </div>
+            </div>
+
+            <jsp:include page="../footer.jsp"/>
+
+        </div>
+        <img src="/i/ep/widtherS.png" alt="" style="display:block;" />
+    </div>
+</div>
+
 </body>
 </html>
