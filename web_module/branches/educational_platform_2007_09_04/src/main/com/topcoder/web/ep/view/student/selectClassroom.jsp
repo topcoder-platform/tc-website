@@ -52,7 +52,7 @@
     <c:otherwise>
         There are no classrooms available for the selected school.
         <br/>
-        <a href="/ep/?module=SelectSchool">Back</a>
+        <a href="${sessionInfo.servletPath}?module=SelectSchool">Back</a>
     </c:otherwise>
 </c:choose>
 </body>

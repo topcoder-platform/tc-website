@@ -46,6 +46,6 @@ Please follow the direction below:
 </br>
 1 Select your professor 2 Enter your information 3 End self registration
 </br></br>
-<a href="/ep?module=SelectSchool">Start now</a>
+<a href="${sessionInfo.servletPath}?module=SelectSchool">Start now</a>
 </body>
 </html>
