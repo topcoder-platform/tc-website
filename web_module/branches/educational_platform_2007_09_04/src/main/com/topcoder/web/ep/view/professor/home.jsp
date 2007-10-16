@@ -103,18 +103,18 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
                     <a href="${sessionInfo.servletPath}?module=ViewClassroomAssignments&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/assignments.png" alt="Assignments" /></a>
                 </div>
                 <div class="button">
-                    <a href="${sessionInfo.servletPath}?module=EditClassroom&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/edit.png" alt="Edit class" /></a>
+                    <a href="${sessionInfo.servletPath}professor/?module=EditClassroom&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/edit.png" alt="Edit class" /></a>
                 </div>
             </div>
             <c:set var="oldSchool" value="${classroom.school}"/>
         </c:forEach>
         <br clear="all" />
         <div align="center" style="border-top: 1px solid #969696; padding-top: 10px;">
-            <a href="${sessionInfo.servletPath}?module=EditClassroom"><img src="/i/ep/buttons/addClass.png" alt="Add class" /></a>
+            <a href="${sessionInfo.servletPath}professor/?module=EditClassroom"><img src="/i/ep/buttons/addClass.png" alt="Add class" /></a>
         </div>
     </c:when>
     <c:otherwise>
-        <div align="center"><a href="${sessionInfo.servletPath}?module=EditClassroom"><img src="/i/ep/buttons/addClass.png" alt="Add class" /></a></div>
+        <div align="center"><a href="${sessionInfo.servletPath}professor/?module=EditClassroom"><img src="/i/ep/buttons/addClass.png" alt="Add class" /></a></div>
     </c:otherwise>
 </c:choose>
     </div>

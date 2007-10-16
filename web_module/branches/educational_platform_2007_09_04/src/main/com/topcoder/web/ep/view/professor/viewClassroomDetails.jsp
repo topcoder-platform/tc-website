@@ -115,7 +115,7 @@
         <div style="float: right; width: 350px;">
         <c:choose>
             <c:when test="${not empty pendingStudents}">
-                <form name="f" action="${sessionInfo.servletPath}" method="post">
+                <form name="f" action="${sessionInfo.servletPath}professor/" method="post">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value=""/>
                     <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/>
                     
@@ -154,7 +154,7 @@
         <div style="width: 350px;">
         <c:choose>
             <c:when test="${not empty activeStudents}">
-                <form name="fActive" action="${sessionInfo.servletPath}" method="post">
+                <form name="fActive" action="${sessionInfo.servletPath}professor/" method="post">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="DeactivateStudent"/>
                     <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/>
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
