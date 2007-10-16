@@ -8,6 +8,7 @@ package com.topcoder.web.ep.controller.request.student;
 import java.util.Set;
 
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.model.User;
@@ -37,10 +38,9 @@ public class SelfRegisterConfirm extends LongBase {
             getFactory().getUserDAO().saveOrUpdate(u);
             markForCommit();
             
-            getRequest().setAttribute("activeClassrooms", u.getCoder().getClassrooms(StudentClassroom.ACTIVE_STATUS));                
-            getRequest().setAttribute("pendingClassrooms", u.getCoder().getClassrooms(StudentClassroom.PENDING_STATUS));                
-            getRequest().setAttribute("user", u);
-            setNextPage("/student/home.jsp");
+            getRequest().setAttribute("message", "You have successfuly self registered to the selected classrooms.");                  
+            getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/ep/");                  
+            setNextPage("/message.jsp");
             setIsNextPageInContext(true);            
         }        
     }
