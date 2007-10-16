@@ -74,13 +74,14 @@
             <key column="user_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.model.comp.UserContestPrize"/>
         </set>
-        <set name="schools" cascade="save-update" inverse="true">
+        <!--can't figure out how to get this relationship to be persisted automatically, so, it'll have to be done in the code-->
+        <set name="schools" cascade="none" inverse="true">
             <key column="user_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.model.UserSchool"/>
         </set>
         <set name="createdSchools" cascade="save-update" inverse="true">
             <key column="user_id" not-null="true"/>
-            <one-to-many class="School"/>
+            <one-to-many class="com.topcoder.web.common.model.School"/>
         </set>
         
     </class>
