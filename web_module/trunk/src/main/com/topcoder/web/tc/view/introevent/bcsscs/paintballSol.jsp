@@ -40,7 +40,7 @@
             <div align="left" style="margin-bottom: 20px;">
                 <img src="/i/introevent/bcsLogo.png" alt="" />
             </div>
-            <h2>Problem Statement for SumOfSelectedCells</h2>
+            <h2>Problem Statement for Paintball</h2>
 
             <div>
             <strong>
