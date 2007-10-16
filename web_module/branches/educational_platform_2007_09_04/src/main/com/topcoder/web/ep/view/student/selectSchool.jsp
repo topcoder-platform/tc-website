@@ -109,11 +109,11 @@ function postRequest()
 <div class="window" align="left">
     <div class="spacer">
 
-        <h2>What school do you go to?</h2>
+        <h2>Select a school</h2>
 
         <div>
             <p>
-                <strong>School Name:</strong>
+                Please the search below to select a school:
             </p>
             <div>
                 <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
