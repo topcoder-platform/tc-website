@@ -1,7 +1,7 @@
 /**
  * Constants that are used throughout the PACTS system.
  *
- * @author  Dave Pecora
+ * @author Dave Pecora
  * @version 1.00, 03/06/2002
  */
 package com.topcoder.web.tc.controller.legacy.pacts.common;
@@ -50,10 +50,10 @@ public interface PactsConstants extends Constants {
 
     // Types of payment that pay to referrals
     public static final int[] PAY_REFFERAL_TYPES = {ALGORITHM_CONTEST_PAYMENT, CHARITY_PAYMENT, COMPONENT_PAYMENT, REVIEW_BOARD_PAYMENT,
-        ASSEMBLY_PAYMENT, TESTING_PAYMENT, LOGO_CONTEST_PAYMENT, TC_STUDIO_PAYMENT, CCIP_PAYMENT, DIGITAL_RUN_PRIZE_PAYMENT,
-        DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT, COMPONENT_TOURNAMENT_BONUS_PAYMENT, MARATHON_MATCH_PAYMENT, ALGORITHM_TOURNAMENT_PRIZE_PAYMENT,
-        RELIABILITY_BONUS_PAYMENT, DIGITAL_RUN_TOP_THIRD_PAYMENT, MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT, TC_STUDIO_TOURNAMENT_PRIZE_PAYMENT,
-        HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT, STUDIO_REVIEW_BOARD_PAYMENT};
+            ASSEMBLY_PAYMENT, TESTING_PAYMENT, LOGO_CONTEST_PAYMENT, TC_STUDIO_PAYMENT, CCIP_PAYMENT, DIGITAL_RUN_PRIZE_PAYMENT,
+            DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT, COMPONENT_TOURNAMENT_BONUS_PAYMENT, MARATHON_MATCH_PAYMENT, ALGORITHM_TOURNAMENT_PRIZE_PAYMENT,
+            RELIABILITY_BONUS_PAYMENT, DIGITAL_RUN_TOP_THIRD_PAYMENT, MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT, TC_STUDIO_TOURNAMENT_PRIZE_PAYMENT,
+            HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT, STUDIO_REVIEW_BOARD_PAYMENT};
 
     // Contract type codes
     public static final int DEVELOPMENT_CONTRACT = 1;
@@ -77,21 +77,11 @@ public interface PactsConstants extends Constants {
     // How long before a contest payment expires after the due date, in days
     public static final int PAYMENT_EXPIRE_TIME = 60;
 
-//  How long before a component payment comes due, in days
+    //  How long before a component payment comes due, in days
     public static final int COMPONENT_DUE_DATE_INTERVAL = 14;
 
     // Status of active coder in the user table
     public static final String ACTIVE_CODER_STATUS = "A";
-
-    // How long database queries wait for a table lock to clear, in seconds
-    // dpecora - This needs to be > than time to do a print payments, batch
-    // review, batch mark paid, and generate round payments.  In stress tests
-    // the first three tasks took 17, 11, and 20 seconds for 3000 payments,
-    // while payment generation for a contest with 75 rooms took 24 seconds.
-    // At the same time, this needs to be < than browser timeouts (when I tried,
-    // Netscape died at 1 minute, IE at 2 minutes).  This value seems to be
-    // a good compromise.
-    public static final int LOCK_TIMEOUT_VALUE = 50;
 
     // Account names
     public static final String CONTEST_ACCOUNT = "Prize Money";
@@ -187,7 +177,7 @@ public interface PactsConstants extends Constants {
     public static final String PAYMENT = "payment";
     public static final String USER = "user";
     public static final String CONTRACT = "contract";
-    
+
     // Miscellaneous
     public static final String TEXT = "text";
     public static final String ROUND_LIST = "round_list";
@@ -207,7 +197,7 @@ public interface PactsConstants extends Constants {
     public static final int STRING = 5;
 
     public static final int[] ALGORITHM_CONTEST_ROUND_TYPES = {1, 17};
-    public static final int[] MARATHON_MATCH_ROUND_TYPES= {13, 15, 19};
+    public static final int[] MARATHON_MATCH_ROUND_TYPES = {13, 15, 19};
     public static final int[] ALGORITHM_TOURNAMENT_ROUND_TYPES = {2};
     public static final int[] HIGH_SCHOOL_TOURNAMENT_ROUND_TYPES = {18};
     public static final int[] PROBLEM_TESTING_ROUND_TYPES = {1, 2, 10, 13, 15, 17, 18};
@@ -312,7 +302,7 @@ public interface PactsConstants extends Constants {
     public static final String AFFIDAVIT_TYPE_ID = "aftid";
     public static final String AFFIDAVIT_TEXT = "atxt";
     public static final String ASSIGNMENT_DOCUMENT_TEMPLATE_TEXT = "adtxt";
-    
+
     public static final String PROJECT_TERMINATION_STATUS = "projts";
 
     // affidavit member jsps
@@ -519,7 +509,7 @@ public interface PactsConstants extends Constants {
     public static final int PAYMENT_HISTORY_PAGE_SIZE = 20;
     public static final int AFFIDAVIT_HISTORY_PAGE_SIZE = 20;
     public static final int ASSIGNMENT_DOCUMENT_HISTORY_PAGE_SIZE = 20;
-    
+
     // Minimum points in order to win a prize
     public static final int INTRO_EVENT_MIN_POINTS = 5;
 }
