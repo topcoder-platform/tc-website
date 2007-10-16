@@ -121,59 +121,23 @@ public class Confirm extends Base {
         }
         if (fields.contains(Constants.SCHOOL_ID)) {
 
-            Long schoolId = new Long((String) params.get(Constants.SCHOOL_ID));
-            if (log.isDebugEnabled()) {
-                log.debug("got school " + schoolId);
-            }
-            UserSchool studentSchool = null;
             CurrentSchool cs = null;
             if (u.getCoder() != null) {
-                if (log.isDebugEnabled()) {
-                    log.debug("coder was not null");
-                }
                 cs = u.getCoder().getCurrentSchool();
             }
             if (cs == null && u.getCoder() != null) {
                 //must be a student
                 cs = new CurrentSchool();
                 u.getCoder().setCurrentSchool(cs);
-                if (log.isDebugEnabled()) {
-                    log.debug("set the current school");
-                }
-            }
-            if (u.getCoder() != null && CoderType.STUDENT.equals(u.getCoder().getCoderType().getId())) {
-                if (log.isDebugEnabled()) {
-                    log.debug("student, setting them up");
-                }
-                studentSchool = u.getSchool(schoolId, SchoolAssociationType.STUDENT);
-                if (studentSchool == null) {
-                    studentSchool = new UserSchool();
-                    //setting primary now so that we only end up with one school set as primary.
-                    //the add method takes care of that logic.
-                    studentSchool.setPrimary(true);
-                    studentSchool.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.STUDENT));
-                }
-            }
-
-            boolean isTeacher = getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getTeacherType());
-            UserSchool teacherSchool = null;
-            if (isTeacher) {
-                log.debug("teacher, setting them up");
-                teacherSchool = u.getSchool(schoolId, SchoolAssociationType.TEACHER);
-                if (teacherSchool == null) {
-                    if (log.isDebugEnabled()) {
-                        log.debug("teacher school was null, create new one");
-                    }
-                    teacherSchool = new UserSchool();
-                    //setting primary now so that we only end up with one school set as primary.
-                    //the add method takes care of that logic.
-                    teacherSchool.setPrimary(true);
-                    teacherSchool.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.TEACHER));
-                }
             }
 
             School s;
+            Long schoolId = null;
             if (hasParameter(params, Constants.SCHOOL_ID)) {
+                schoolId = new Long((String) params.get(Constants.SCHOOL_ID));
+                if (log.isDebugEnabled()) {
+                    log.debug("got school " + schoolId);
+                }
                 //find school that exists in our system
                 s = getFactory().getSchoolDAO().find(schoolId);
             } else {
@@ -205,12 +169,43 @@ public class Confirm extends Base {
                 }
 
             }
-            if (teacherSchool != null) {
+
+
+            if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getTeacherType())) {
+                log.debug("teacher, setting them up");
+                UserSchool teacherSchool = null;
+                if (hasParameter(params, Constants.SCHOOL_ID)) {
+                    teacherSchool = u.getSchool(schoolId, SchoolAssociationType.TEACHER);
+                }
+                if (teacherSchool == null) {
+                    if (log.isDebugEnabled()) {
+                        log.debug("teacher school was null, create new one");
+                    }
+                    teacherSchool = new UserSchool();
+                    //setting primary now so that we only end up with one school set as primary.
+                    //the add method takes care of that logic.
+                    teacherSchool.setPrimary(true);
+                    teacherSchool.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.TEACHER));
+                }
                 teacherSchool.setSchool(s);
                 u.addSchool(teacherSchool);
             }
 
-            if (studentSchool != null) {
+
+            if (u.getCoder() != null && CoderType.STUDENT.equals(u.getCoder().getCoderType().getId())) {
+                UserSchool studentSchool = null;
+
+                if (hasParameter(params, Constants.SCHOOL_ID)) {
+                    studentSchool = u.getSchool(schoolId, SchoolAssociationType.STUDENT);
+                }
+
+                if (studentSchool == null) {
+                    studentSchool = new UserSchool();
+                    //setting primary now so that we only end up with one school set as primary.
+                    //the add method takes care of that logic.
+                    studentSchool.setPrimary(true);
+                    studentSchool.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.STUDENT));
+                }
                 studentSchool.setSchool(s);
                 u.addSchool(studentSchool);
             }
