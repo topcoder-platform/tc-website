@@ -57,7 +57,10 @@ public class EditAssignmentSubmit extends LongBase {
                     }
 //                    no need for this, we are in a short transaction
 //                    markForCommit();
-                    
+
+                    // clear objects in session
+                    clearSession();
+
                     getRequest().setAttribute("message", "You have successfuly " + (update ? "updated" : "added") + " assignment " + adto.getAssignmentName());                  
                     getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/ep//?module=ViewClassroomAssignments&clsid=" + adto.getClassroomId());                  
                     setNextPage("/message.jsp");

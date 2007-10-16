@@ -83,7 +83,7 @@ public class EditAssignment extends LongBase {
                         Object classroomProperty = a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID);
 
                         if (classroomProperty == null) {
-                            throw new TCWebException("The assignment has an invalid classroom id");
+                            throw new NavigationException("The assignment has an invalid classroom id");
                         }
 
                         classroomId = (Long) classroomProperty;
@@ -93,7 +93,7 @@ public class EditAssignment extends LongBase {
 
                     // check if the assignment can be edited 
                     if ((new Date((new Date()).getTime() + TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
-                        throw new TCWebException("The assignment is about to start and cannot be edited");
+                        throw new TCWebException("The assignment is about to start or has already started and therefore cannot be edited");
                     }
 
                     setDefault("assignment_name", hasDataInSession ? assignmentInSession.getAssignmentName() : a.getName());
