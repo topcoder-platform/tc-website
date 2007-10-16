@@ -1,39 +1,23 @@
 package com.topcoder.web.common.dao.hibernate;
 
-import java.util.Date;
-import java.util.List;
-
-import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
-
 import com.topcoder.web.common.dao.SchoolDAO;
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.SchoolType;
-import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.reg.Constants;
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.criterion.Restrictions;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 12, 2006
  */
-public class SchoolDAOHibernate extends Base implements SchoolDAO {
-    public SchoolDAOHibernate() {
-        super();
-    }
-
-    public SchoolDAOHibernate(Session session) {
-        super(session);
-    }
-
-    public School find(Long id) {
-        return (School) find(School.class, id);
-    }
-
+public class SchoolDAOHibernate extends GenericBase<School, Long> implements SchoolDAO {
 
     public List searchByName(String name, int maxResults) {
         StringBuffer query = new StringBuffer(100);
@@ -44,7 +28,7 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
         query.append(" AND s.viewable=1");
         query.append("ORDER BY 1 DESC ");
 
-        Query q = session.createQuery(query.toString());
+        Query q = getSession().createQuery(query.toString());
         q.setString(0, String.valueOf(Constants.ACTIVE_STATI[1]));
         q.setString(1, name);
         q.setMaxResults(maxResults);
@@ -63,7 +47,7 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
         query.append(" AND s.viewable=1");
         query.append("ORDER BY 1 DESC ");
 
-        Query q = session.createQuery(query.toString());
+        Query q = getSession().createQuery(query.toString());
         q.setString(0, String.valueOf(Constants.ACTIVE_STATI[1]));
         q.setString(1, name);
         q.setInteger(2, type.getId().intValue());
@@ -72,6 +56,7 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
         return q.list();
 
     }
+
     public List search(SchoolType type, String name, Date creationAfter, String countryCode, boolean orderByCountry) {
         StringBuffer query = new StringBuffer(100);
 
@@ -99,9 +84,9 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
             query.append(" AND lower(s.name) like lower(?)");
         }
         query.append(" AND s.viewable=1");
-        query.append(" ORDER BY " + (orderByCountry? " s.address.country.name, s.name" : " s.name"));
+        query.append(" ORDER BY " + (orderByCountry ? " s.address.country.name, s.name" : " s.name"));
 
-        Query q = session.createQuery(query.toString());
+        Query q = getSession().createQuery(query.toString());
         int idx = 0;
 
         if (type != null) {
@@ -122,11 +107,11 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
     }
 
     public Classroom findClassroomUsingNameAndPeriod(Long schoolId, String name, String period) {
-        Criteria c = session.createCriteria(Classroom.class)
-            .add(Restrictions.eq("school.id", schoolId))
-            .add(Restrictions.eq("name", name))
-            .add(Restrictions.eq("academicPeriod", period));
-        
+        Criteria c = getSession().createCriteria(Classroom.class)
+                .add(Restrictions.eq("school.id", schoolId))
+                .add(Restrictions.eq("name", name))
+                .add(Restrictions.eq("academicPeriod", period));
+
         return (Classroom) c.uniqueResult();
     }
 }
