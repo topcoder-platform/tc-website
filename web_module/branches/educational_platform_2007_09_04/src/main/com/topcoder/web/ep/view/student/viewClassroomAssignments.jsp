@@ -43,12 +43,19 @@
                 </div>
                 <div class="spacer">
 
+                <jsp:include page="../nav.jsp" >
+                    <jsp:param name="user" value="student"/>
+                    <jsp:param name="node" value="home"/>
+                </jsp:include>
+
+<%-- CONTENT BEGINS --%>
+
 <div class="window" align="left">
     <div class="spacer">
 
         <h2>Assignments</h2>
 
-        <div align="center" style="margin: 40px;">
+        <div align="center" style="margin: 20px;">
             <table cellpadding="0" cellspacing="0">
             <tbody>
                 <tr>

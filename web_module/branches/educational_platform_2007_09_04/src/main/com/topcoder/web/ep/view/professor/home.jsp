@@ -83,6 +83,9 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
     <div class="spacer">
 <c:choose>
     <c:when test="${not empty classrooms}">
+        <p align="center">
+            Your classes:
+        </p>
 
         <c:forEach items="${classrooms}" var="classroom">
             <c:if test="${classroom.school != oldSchool}">

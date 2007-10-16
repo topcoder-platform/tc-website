@@ -13,9 +13,22 @@
               <li>|</li>
               <li><a href="/ep/professor/reports/?module=Home"<% if (node.equals("reports")) {%> class="on"<% } %>><span>Reports</span></a></li>
               <li>|</li>
-              <li><a href="#"<% if (node.equals("")) {%> class="on"<% } %>><span>Help</span></a></li>
+              <li><a href="#"<% if (node.equals("help")) {%> class="on"<% } %>><span>Help</span></a></li>
          </ul>
     </div>
 </div>
 <% } else { %>
+<div id="navigation">
+    <div>
+         <ul>
+              <li><a href="javascript:arena();"<% if (node.equals("arena")) {%> class="on"<% } %>><span>Launch arena</span></a></li>
+              <li>|</li>
+              <li><a href="/ep/"<% if (node.equals("home")) {%> class="on"<% } %>><span>Classes</span></a></li>
+              <li>|</li>
+              <li><a href="/ep/professor/reports/?module=Home"<% if (node.equals("reports")) {%> class="on"<% } %>><span>Reports</span></a></li>
+              <li>|</li>
+              <li><a href="#"<% if (node.equals("help")) {%> class="on"<% } %>><span>Help</span></a></li>
+         </ul>
+    </div>
+</div>
 <% } %>

@@ -42,7 +42,7 @@
                 <div class="spacer">
 
                 <jsp:include page="../nav.jsp" >
-                    <jsp:param name="user" value="professor"/>
+                    <jsp:param name="user" value="student"/>
                     <jsp:param name="node" value="home"/>
                 </jsp:include>
 
