@@ -173,10 +173,10 @@
 
                 <%-- SRM SPONSOR --%>
                 <map name="mm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10787" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly" />
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10789" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa" />
                 </map>
-                <img src="/i/home/srm371_lilly.png" alt="SRM 371 brought to you by Eli Lilly" border="0" style="display:block;" usemap="#mm"/>
+                <img src="/i/home/srm372_nsa.png" alt="SRM 372 brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
                 
 
                 <%-- LICENSE ID 
