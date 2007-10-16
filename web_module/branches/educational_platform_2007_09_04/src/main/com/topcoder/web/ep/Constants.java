@@ -50,6 +50,8 @@ public class Constants implements WebConstants {
     public static final long STUDENT_ROLE_ID = 2060;
     public static final long PROFESSOR_ROLE_ID = 2061;
 
+    public static final int TIME_BEFORE_EDIT = 1000;
+
     public static String JS_DATE_FORMAT;
     public static String JAVA_DATE_FORMAT;
 
