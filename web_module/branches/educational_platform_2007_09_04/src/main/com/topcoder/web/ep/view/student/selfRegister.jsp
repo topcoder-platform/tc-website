@@ -1,4 +1,3 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.BaseServlet" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -36,14 +35,17 @@
 
 
 <body>
-Hello, <tc-webtag:handle coderId='${user.id}'/>, Welcoome to Educational Plattform!
+Hello,
+<tc-webtag:handle coderId='${sessionInfo.userId}'/>
+, Welcoome to Educational Plattform!
 </br>
 Now you should complete your self-registration first.
-</br></br>
+</br>
+</br>
 Please follow the direction below:
 </br>
 1 Select your professor 2 Enter your information 3 End self registration
 </br></br>
-    <a href="/ep?module=SelectSchool">Start now</a>
+<a href="/ep?module=SelectSchool">Start now</a>
 </body>
 </html>
