@@ -9,23 +9,35 @@
         <div id="results">
             <c:choose>
                 <c:when test="${fn:length(results)==0}">
-                    <span class="bigRed">Your search returned no records.</span><br/><br/>
+                    <p class="bigRed">
+                        Your search returned no records.
+                    </p>
                 </c:when>
                 <c:otherwise>
-                    <strong>Results</strong><br/>
-                    Lists includes only up to the first <strong><%=Constants.MAX_SCHOOL_RESULTS%></strong> schools. If
-                    you see a
-                    duplicate, <strong>please choose the school with the greatest number of registrants</strong>.
-                    <br/><br/>
-                    If any information about your school is missing or incorrect and you'd like to send us the correct
-                    information, <A href="mailto:service@topcoder.com?subject=School%20Information%20Correction">click
-                    here</A>.
-                    <br/><br/>
-                    Please <strong>select</strong> your school from list below.<br />
-                    <span id="submitMessage"></span><br/>
-                    <span class="small">
+                    <p>
+                        <strong>Results</strong>
+                    </p>
+
+                    <p>
+                        Lists includes only up to the first <strong><%=Constants.MAX_SCHOOL_RESULTS%></strong> schools. If
+                        you see a
+                        duplicate, <strong>please choose the school with the greatest number of registrants</strong>.
+                    </p>
+
+                    <p>
+                        If any information about your school is missing or incorrect and you'd like to send us the correct
+                        information, <a href="mailto:service@topcoder.com?subject=School%20Information%20Correction">click
+                        here</a>.
+                    </p>
+
+                    <p>
+                        Please <strong>select</strong> your school from list below.
+                    </p>
+
+                    <span id="submitMessage"></span><br />
                         <c:forEach items="${results}" var="result">
-                            <c:out value="${result[1].name}"/><br/>
+                        <div class="small" style="margin-bottom: 4px;">
+                            <c:out value="${result[1].name}"/><br />
                             <c:if test="${result[1].address.city!=null||result[1].address.state!=null||result[1].address.postalCode!=null||result[1].address.province!=null||result[1].address.country!=null}">
                                 <c:if test="${result[1].address.city!=null}"><c:out value="${result[1].address.city}"/>,</c:if>
                                 <c:if test="${result[1].address.state!=null}"><c:out value="${result[1].address.state.code}"/>,</c:if>
@@ -33,15 +45,16 @@
                                     ,</c:if>
                                 <c:if test="${result[1].address.province!=null}"><c:out value="${result[1].address.province}"/>,</c:if>
                                 <c:if test="${result[1].address.country!=null}"><c:out value="${result[1].address.country.name}"/></c:if>
-                                <br/>
+                                <br />
                             </c:if>
-                            Registrants: <c:out value="${result[o]}"/><br/>
+                            Registrants: <c:out value="${result[o]}"/><br />
                             <c:set value="\"" var="quote"/>
                             <c:set value="\\\"" var="escapedQuote"/>
-                            <A class="small" href="${sessionInfo.servletPath}student/?module=SelectClassroom&amp;<%=Constants.SCHOOL_ID%>=${result[1].id}">Select</A>
-                            <br/><br/>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <a href="${sessionInfo.servletPath}student/?module=SelectClassroom&amp;<%=Constants.SCHOOL_ID%>=${result[1].id}"><img src="/i/ep/buttons/select.png" alt="Select" /></a>
+                        </div>
                         </c:forEach>
-                    </span>
                 </c:otherwise>
             </c:choose>
         </div>
