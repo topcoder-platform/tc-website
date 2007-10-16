@@ -80,6 +80,7 @@ public class User extends Base {
         eventRegistrations = new HashSet<EventRegistration>();
         compPrizes = new HashSet<UserContestPrize>();
         schools = new HashSet<UserSchool>();
+        createdSchools = new HashSet<School>();
     }
 
     public Long getId() {
@@ -567,7 +568,7 @@ public class User extends Base {
     public void setCreatedSchools(Set<School> createdSchools) {
         this.createdSchools = createdSchools;
     }
-    
+
     public void addCreatedSchool(School s) {
         this.createdSchools.add(s);
         s.setUser(this);
