@@ -120,9 +120,15 @@ public class EditClassroom extends LongBase {
                     if (s != null) {
                         Classroom other = DAOUtil.getFactory().getSchoolDAO().findClassroomUsingNameAndPeriod(s.getId(), classroomName, classroomAcademicPeriod);
                         // check if it's not finding the edited classroom
-                        if (other != null && !c.getId().equals(other.getId())) {
-                            addError("error", "This classroom already exists");
-                        }
+                        if (other != null) { 
+                            if (c == null) {
+                                addError("error", "This classroom / academic period already exists");
+                            } else {
+                                if (!c.getId().equals(other.getId())) {
+                                    addError("error", "This classroom already exists");
+                                }
+                            }
+                        }     
                     }
 
                     if (!hasErrors()) {
