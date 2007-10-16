@@ -1,5 +1,6 @@
 package com.topcoder.web.common.model;
 
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
@@ -71,8 +72,10 @@ public class UserSchool extends Base {
         this.user = user;
     }
 
-    //we're making user school persist this relationship
+    //we're making user school persist this relationship.  including the hibernate
+    // annotation as well because we're not really using JPA right now
     @ManyToOne(cascade = CascadeType.PERSIST)
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinColumn(name = "school_id", nullable = false)
     public School getSchool() {
         return school;
