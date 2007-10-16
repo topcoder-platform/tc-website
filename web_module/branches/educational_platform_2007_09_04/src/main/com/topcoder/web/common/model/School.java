@@ -15,12 +15,12 @@ import java.util.Set;
 public class School extends Base {
     private Long id;
     private Address address;
-    private Coder coder;
     private String name;
     private String shortName;
     private SchoolType type;
     private Boolean viewable;
     private Date modifyDate;
+    private User user;
 
     private Set<Classroom> classrooms;
 
@@ -42,14 +42,6 @@ public class School extends Base {
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public Coder getCoder() {
-        return coder;
-    }
-
-    public void setCoder(Coder coder) {
-        this.coder = coder;
     }
 
     public String getName() {
@@ -127,6 +119,15 @@ public class School extends Base {
      */
     public void setClassrooms(Set<Classroom> classrooms) {
         this.classrooms = classrooms;
+    }
+
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     /**

@@ -36,7 +36,7 @@ public class SchoolDAOTestCase extends TCHibernateTestCase {
 
     public void testCreateCoderLoaded() {
         School mit = DAOUtil.getFactory().getSchoolDAO().find(new Long(1719));
-        assertFalse("coder not loaded", mit.getCoder() == null);
+        assertFalse("coder not loaded", mit.getUser() == null);
     }
 
 

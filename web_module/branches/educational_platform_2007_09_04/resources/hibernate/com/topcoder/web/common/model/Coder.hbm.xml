@@ -23,10 +23,6 @@
             <key column="coder_id" not-null="true"/>
             <one-to-many class="Resume"/>
         </set>
-        <set name="createdSchools" cascade="save-update" inverse="true" access="field">
-            <key column="user_id" not-null="true"/>
-            <one-to-many class="School"/>
-        </set>
         <set name="teams" table="team_coder_xref" cascade="save-update" access="field">
             <key column="coder_id" not-null="true"/>
             <many-to-many column="team_id" class="Team"/>

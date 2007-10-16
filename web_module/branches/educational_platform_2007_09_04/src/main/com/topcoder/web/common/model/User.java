@@ -50,6 +50,8 @@ public class User extends Base {
     private Set<UserContestPrize> compPrizes;
     private Professor professor;
     private Set<UserSchool> schools;
+    private Set<School> createdSchools;
+
 
     /**
      * hoke: used for making changes
@@ -553,6 +555,22 @@ public class User extends Base {
         school.setUser(this);
         schools.add(school);
 
+    }
+
+
+    public Set<School> getCreatedSchools() {
+        //returning a modifiable list because this is the parent side of the relationship.
+        //changes to the set will be persisted.
+        return createdSchools;
+    }
+
+    public void setCreatedSchools(Set<School> createdSchools) {
+        this.createdSchools = createdSchools;
+    }
+    
+    public void addCreatedSchool(School s) {
+        this.createdSchools.add(s);
+        s.setUser(this);
     }
 
     @Override

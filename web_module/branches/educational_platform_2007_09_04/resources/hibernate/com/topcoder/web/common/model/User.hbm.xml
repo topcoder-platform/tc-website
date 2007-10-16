@@ -78,6 +78,11 @@
             <key column="user_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.model.UserSchool"/>
         </set>
+        <set name="createdSchools" cascade="save-update" inverse="true">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="School"/>
+        </set>
+        
     </class>
 
 

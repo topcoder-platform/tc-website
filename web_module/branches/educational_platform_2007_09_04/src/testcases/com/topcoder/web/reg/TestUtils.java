@@ -23,16 +23,12 @@ public class TestUtils {
         ret.setMemberSince(new Timestamp(System.currentTimeMillis()));
         ret.setCoderType(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
 
-/*
-        School s = Util.getFactory().getSchoolDAO().find(new Long(775));//MIT
-*/
+
         School s = new School();
-        s.setCoder(ret);
         s.setName("some school");
         s.setShortName("ss");
         s.setType(DAOUtil.getFactory().getSchoolTypeDAO().find(SchoolType.COLLEGE));
 
-        //todo add address
         Address a = new Address();
         a.setCity("mycity");
         a.setCountry(DAOUtil.getFactory().getCountryDAO().find("840"));
@@ -40,7 +36,6 @@ public class TestUtils {
         a.setProvince("myprovince");
         s.setAddress(a);
 
-        ret.addCreatedSchool(s);
 
         CurrentSchool cs = new CurrentSchool();
         cs.setCoder(ret);
@@ -92,6 +87,8 @@ public class TestUtils {
         Coder c = makeCoder();
         c.setUser(ret);
         ret.setCoder(c);
+
+        ret.addCreatedSchool(c.getCurrentSchool().getSchool());
 
         Address a = new Address();
         a.setAddress1("address1");

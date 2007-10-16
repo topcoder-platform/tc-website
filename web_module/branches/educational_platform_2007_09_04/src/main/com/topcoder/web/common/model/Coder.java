@@ -4,7 +4,6 @@ import com.topcoder.web.common.model.algo.RoomResult;
 import com.topcoder.web.common.model.algo.RoundRegistration;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.ClassroomComparator;
-import com.topcoder.web.common.model.educ.Professor;
 import com.topcoder.web.common.model.educ.StudentClassroom;
 
 import java.sql.Timestamp;
@@ -37,7 +36,6 @@ public class Coder extends Base {
     private CoderReferral coderReferral;
     private Set resumes;
     private User user;
-    private Set createdSchools;
     private Set teams;
     private Set images;
 
@@ -52,7 +50,6 @@ public class Coder extends Base {
         this.resumes = new HashSet();
         this.teams = new HashSet();
         this.images = new HashSet();
-        this.createdSchools = new HashSet();
         this.ratings = new HashSet();
         this.studentClassrooms = new HashSet<StudentClassroom>();
         this.roundRegistrations = new HashSet<RoundRegistration>();
@@ -147,18 +144,6 @@ public class Coder extends Base {
 
     public void addResume(Resume resume) {
         this.resumes.add(resume);
-    }
-
-    public Set getCreatedSchools() {
-        return Collections.unmodifiableSet(createdSchools);
-    }
-
-    public void setCreatedSchools(Set createdSchools) {
-        this.createdSchools = createdSchools;
-    }
-
-    public void addCreatedSchool(School s) {
-        this.createdSchools.add(s);
     }
 
     public Set getTeams() {
