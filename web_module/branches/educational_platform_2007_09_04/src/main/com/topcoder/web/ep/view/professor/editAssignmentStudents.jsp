@@ -101,6 +101,11 @@
             <div style="width:350px;">
 
                 <form name="f" action="${sessionInfo.servletPath}" method="post">
+                    <tc-webtag:errorIterator id="err" name="error">
+                    <p class="bigRed" align="center">
+                        <%=err%>
+                    </p>
+                    </tc-webtag:errorIterator>
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditAssignmentStudents"/>
                     <tc-webtag:hiddenInput name="<%=Constants.ASSIGNMENT_ID%>" value="${asid}"/>
                     

@@ -70,6 +70,9 @@ public class EditAssignmentStudents extends LongBase {
             }
             Classroom c = checkValidClassroom((Long) classroomProperty);
 
+            if ((new Date()).after(a.getContest().getEndDate())) {
+                throw new NavigationException("The assignment has ended, you cannot assign students at this time");
+            }
 
             if (!"POST".equals(getRequest().getMethod())) {
                 log.debug("First pass - " + getUser().getUserName());

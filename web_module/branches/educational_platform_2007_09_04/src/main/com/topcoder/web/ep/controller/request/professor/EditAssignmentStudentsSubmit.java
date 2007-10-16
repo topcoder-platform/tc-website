@@ -6,6 +6,7 @@
 package com.topcoder.web.ep.controller.request.professor;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.topcoder.shared.security.ClassResource;
@@ -20,6 +21,7 @@ import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundProperty;
+import com.topcoder.web.common.model.algo.RoundRegistration;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.ArenaServicesFactory;
@@ -63,7 +65,10 @@ public class EditAssignmentStudentsSubmit extends LongBase {
             }
             Classroom c = checkValidClassroom((Long) classroomProperty);
 
-
+            if ((new Date()).after(a.getContest().getEndDate())) {
+                throw new TCWebException("The assignment has ended, cannot assign students at this time");
+            }
+            
             if (!"POST".equals(getRequest().getMethod())) {
                 // user shouldn't get here with a get
                 throw new TCWebException("Invalid request");
@@ -71,7 +76,16 @@ public class EditAssignmentStudentsSubmit extends LongBase {
                 // got a response, validate.
                 List<Long> studentIds = getStudentParam();
 
-                // TODO: validate if non selected users can be removed
+                // if the assignment has started or about to start validate if non selected users can be removed
+                if ((new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
+                    // cannot remove students
+                    for (RoundRegistration rr : a.getRoundRegistrations()) {
+                        if (!studentIds.contains(rr.getId().getCoder().getId())) {
+                            // this means the professor took someone out, add error
+                            throw new TCWebException("Cannot remove students, the assignment is underway");
+                        }
+                    }
+                }
 
                 // validate if the selected students are active students
                 for (Long studentId : studentIds) {

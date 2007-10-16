@@ -104,8 +104,15 @@
                                 <td class="valueC"><fmt:formatDate value="${assignment.contest.startDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
                                 <td class="valueC"><fmt:formatDate value="${assignment.contest.endDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
                                 <td class="valueC">${assignment.registered}</td>
-                                <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignmentStudents&amp;asid=${assignment.id}"><img src="/i/ep/buttons/assignTo.png" alt="Assign to..." /></a></td>
                                 <jsp:useBean id="now" class="java.util.Date"/>
+                                <c:choose>
+                                    <c:when test="${assignment.contest.endDate > now}">
+                                        <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignmentStudents&amp;asid=${assignment.id}"><img src="/i/ep/buttons/assignTo.png" alt="Assign to..." /></a></td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <td class="valueC">&nbsp;</td>
+                                    </c:otherwise>
+                                </c:choose>
                                 <c:choose>
                                     <c:when test="${assignment.contest.startDate > now}">
                                         <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;asid=${assignment.id}"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
