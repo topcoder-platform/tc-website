@@ -31,22 +31,12 @@ public class Main extends Base {
 
     protected void registrationProcessing() throws Exception {
 
-        if (log.isDebugEnabled()) {
-            if (getRegUser() == null) {
-                log.debug("user is null");
-            } else if (getRegUser().isNew()) {
-                log.debug("user is new");
-            } else {
-                log.debug("handle : " + getRegUser().getHandle());
-                log.debug("name: " + getRegUser().getFirstName() + " " + getRegUser().getLastName());
-            }
-        }
-
-        //if someone is registering for just one thing, they might include that type in the request.  
+        //if someone is registering for just one thing, they might include that type in the request.
         String regTypeParam = StringUtils.checkNull(getRequest().getParameter(Constants.REGISTRATION_TYPE));
 
         if (!"".equals(regTypeParam)) {
             setRegUser(new User());
+            setNewRegistration(true);
             if (log.isDebugEnabled()) {
                 log.debug("got a reg type of " + regTypeParam);
             }
@@ -54,7 +44,7 @@ public class Main extends Base {
 
         if (getRegUser() == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
-        } else if (getRegUser().isNew() || userLoggedIn()) {
+        } else if (isNewRegistration() || userLoggedIn()) {
             User u = getRegUser();
             RegistrationTypeDAO regTypeDAO = getFactory().getRegistrationTypeDAO();
             //if it's a post, they're coming from the selection page, and they should have selected
@@ -102,7 +92,7 @@ public class Main extends Base {
             //todo give them a message saying they are not eligible to register for highschool
             //todo those that are ineligable: big age demographic question,
             //people whose current school is a college (questionable),
-            if (!u.isNew() && getRequestedTypes().contains(regTypeDAO.getHighSchoolType())) {
+            if (!isNewRegistration() && getRequestedTypes().contains(regTypeDAO.getHighSchoolType())) {
                 if (getFactory().getSecurityGroupDAO().hasInactiveHSGroup(u)) {
                     addError(Constants.REGISTRATION_TYPE, "Sorry, you are not eligible for High School Competitions");
                 } else if (u.getCoder() != null && CoderType.PROFESSIONAL.equals(u.getCoder().getCoderType().getId())) {

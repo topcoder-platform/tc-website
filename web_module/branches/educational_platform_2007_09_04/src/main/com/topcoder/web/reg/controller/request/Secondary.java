@@ -1,32 +1,20 @@
 package com.topcoder.web.reg.controller.request;
 
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.HSRegistrationHelper;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.*;
+import com.topcoder.web.reg.Constants;
+import com.topcoder.web.reg.RegFieldHelper;
+
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.HSRegistrationHelper;
-import com.topcoder.web.common.model.Address;
-import com.topcoder.web.common.model.AlgoRating;
-import com.topcoder.web.common.model.AlgoRatingType;
-import com.topcoder.web.common.model.CoderType;
-import com.topcoder.web.common.model.Company;
-import com.topcoder.web.common.model.Email;
-import com.topcoder.web.common.model.Phone;
-import com.topcoder.web.common.model.Preference;
-import com.topcoder.web.common.model.RegistrationType;
-import com.topcoder.web.common.model.SecretQuestion;
-import com.topcoder.web.common.model.TimeZone;
-import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.UserPreference;
-import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.RegFieldHelper;
 
 /**
  * @author dok
@@ -43,14 +31,14 @@ public class Secondary extends Base {
 
             Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
             if ("POST".equals(getRequest().getMethod())) {
-                if (u.isNew() || userLoggedIn()) {
+                if (isNewRegistration() || userLoggedIn()) {
                     Map params = getMainUserInput();
                     checkMainFields(params);
-                    
+
                     HSRegistrationHelper rh = new HSRegistrationHelper(getRequest());
-  
+
                     boolean registeringHS = hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID);
-                    
+
                     if (registeringHS) {
                         checkHSRegistrationQuestions(rh);
                     }
@@ -66,26 +54,26 @@ public class Secondary extends Base {
                             getRequest().getSession().setAttribute(Constants.HS_RESPONSES, rh.getResponsesMap());
 
                             if (!rh.isEligibleHS()) {
-                                log.info("user " + u.getId()+  " is not eligible. ");
-                                
-                                if (u.isNew()) {
+                                log.info("user " + u.getId() + " is not eligible. ");
+
+                                if (isNewRegistration()) {
                                     // setup in session so that the user is inactivated for hs when submitting.
                                     getRequest().getSession().setAttribute(Constants.INACTIVATE_HS, Boolean.TRUE);
                                 } else {
                                     rh.inactivateUser(u);
                                     markForCommit();
                                 }
-                                
+
                                 getRequest().getSession().setAttribute("params", params);
-                                getRequest().setAttribute("registeredComp" ,isCurrentlyRegistered(u, RegistrationType.COMPETITION_ID));
-                                getRequest().setAttribute("requestedComp" ,hasRequestedType(RegistrationType.COMPETITION_ID));
+                                getRequest().setAttribute("registeredComp", isCurrentlyRegistered(u, RegistrationType.COMPETITION_ID));
+                                getRequest().setAttribute("requestedComp", hasRequestedType(RegistrationType.COMPETITION_ID));
 
                                 setNextPage("/hsIneligible.jsp");
                                 setIsNextPageInContext(true);
                                 return;
                             }
                         }
-                        
+
                         loadFieldsIntoUserObject(fields, params);
                         Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
                         log.debug("we have " + secondaryFields.size() + " secondary fields");
@@ -139,16 +127,15 @@ public class Secondary extends Base {
         List<Object[]> defaults = rh.getDefaults();
         for (Object[] d : defaults) {
             setDefault((String) d[0], d[1]);
-        }                
+        }
     }
 
-    private void checkHSRegistrationQuestions(HSRegistrationHelper rh) {            
+    private void checkHSRegistrationQuestions(HSRegistrationHelper rh) {
         List<String[]> valResults = rh.validateQuestions();
         for (String[] result : valResults) {
             addError(result[0], result[1]);
         }
     }
-    
 
 
     private void loadFieldsIntoUserObject(Set fields, Map params) throws TCWebException {
@@ -271,7 +258,7 @@ public class Secondary extends Base {
         }
 
         //we don't allow updates, so no need to set it here.
-        if (u.isNew()) {
+        if (isNewRegistration()) {
             if (fields.contains(Constants.HANDLE)) {
                 //yeah...100% chance they'll contain it, but i'll be consistent with the code anyway
                 u.setHandle((String) params.get(Constants.HANDLE));

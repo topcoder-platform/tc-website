@@ -28,7 +28,7 @@ public class Confirm extends Base {
         User u = getRegUser();
         if (getRegUser() == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
-        } else if (u.isNew() || userLoggedIn()) {
+        } else if (isNewRegistration() || userLoggedIn()) {
 
             Map params = getSecondaryUserInput();
 
@@ -298,23 +298,11 @@ public class Confirm extends Base {
         }
         if (fields.contains(Constants.COMPANY_NAME)) {
             String name = (String) params.get(Constants.COMPANY_NAME);
-            if (u.getContact().isNew()) {
+            if (u.getContact().getCompany() == null || !u.getContact().getCompany().getName().equals(name)) {
                 Company c = new Company();
                 c.setName(name);
                 c.setPrimaryContact(u.getContact());
                 u.getContact().setCompany(c);
-            } else {
-                if (u.getContact().getCompany() == null) {
-                    throw new TCWebException("Invalid state, user " + u.getId() + " missing company");
-                } else {
-                    //if they're changing their company, create a new company record
-                    if (!u.getContact().getCompany().getName().equals(name)) {
-                        Company c = new Company();
-                        c.setName(name);
-                        c.setPrimaryContact(u.getContact());
-                        u.getContact().setCompany(c);
-                    }
-                }
             }
         }
 

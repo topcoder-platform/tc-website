@@ -8,20 +8,7 @@ import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
-import com.topcoder.web.common.model.Address;
-import com.topcoder.web.common.model.CoderType;
-import com.topcoder.web.common.model.DemographicAssignment;
-import com.topcoder.web.common.model.DemographicQuestion;
-import com.topcoder.web.common.model.DemographicResponse;
-import com.topcoder.web.common.model.Notification;
-import com.topcoder.web.common.model.RegistrationType;
-import com.topcoder.web.common.model.Resume;
-import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.SchoolAssociationType;
-import com.topcoder.web.common.model.Season;
-import com.topcoder.web.common.model.State;
-import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.UserSchool;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.NonEmptyValidator;
 import com.topcoder.web.common.validation.StringInput;
@@ -54,8 +41,17 @@ public abstract class Base extends LongHibernateProcessor {
 
     protected void dbProcessing() throws Exception {
         registrationProcessing();
+        getRequest().setAttribute(Constants.NEW_REG_FLAG, isNewRegistration());
     }
 
+    protected boolean isNewRegistration() {
+        Boolean ret = (Boolean) getRequest().getSession().getAttribute(Constants.NEW_REG_FLAG);
+        return ret == null ? Boolean.FALSE : ret;
+    }
+
+    protected void setNewRegistration(boolean newReg) {
+        getRequest().getSession().setAttribute(Constants.NEW_REG_FLAG, newReg);
+    }
 
     /**
      * Retrieve the user that is involved in the current registration process.
@@ -295,7 +291,7 @@ public abstract class Base extends LongHibernateProcessor {
         }
 
         //grandfather in existing accounts
-        if (getRegUser().isNew()) {
+        if (isNewRegistration()) {
             if (fields.contains(Constants.HANDLE)) {
                 ValidationResult userNameResult = new UserNameValidator(getRegUser()).validate(
                         new StringInput((String) params.get(Constants.HANDLE)));
@@ -716,7 +712,7 @@ public abstract class Base extends LongHibernateProcessor {
             setDefault(Constants.FILE_NAME, ((Resume) it.next()).getFileName());
         }
 
-        if (u.isNew() && u.getCoder() != null &&
+        if (isNewRegistration() && u.getCoder() != null &&
                 u.getCoder().getCoderReferral() != null &&
                 u.getCoder().getCoderReferral().getReferral() != null) {
             setDefault(Constants.REFERRAL, u.getCoder().getCoderReferral().getReferral().getId());
@@ -761,7 +757,7 @@ public abstract class Base extends LongHibernateProcessor {
 
         setDefault(Constants.SHOW_EARNINGS, String.valueOf(params.get(Constants.SHOW_EARNINGS)));
 
-        if (!u.isNew()) {
+        if (!isNewRegistration()) {
             setDefault(Constants.HANDLE, u.getHandle());
         }
         List nots = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());

@@ -1,16 +1,5 @@
 package com.topcoder.web.reg.controller.request;
 
-import java.rmi.RemoteException;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import javax.ejb.CreateException;
-import javax.naming.Context;
-
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.TCSubject;
@@ -40,6 +29,16 @@ import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.Constants;
 
+import javax.ejb.CreateException;
+import javax.naming.Context;
+import java.rmi.RemoteException;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -51,19 +50,18 @@ public class Submit extends Base {
         User u = getRegUser();
         if (getRegUser() == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
-        } else if (u.isNew() || userLoggedIn()) {
+        } else if (isNewRegistration() || userLoggedIn()) {
             //todo check if the handle is taken again
-            boolean newUser = u.isNew();
             getFactory().getUserDAO().saveOrUpdate(u);
 
-            HSRegistrationHelper rh = new HSRegistrationHelper(getRequest(), (Map<String,Response>) getRequest().getSession().getAttribute(Constants.HS_RESPONSES));
+            HSRegistrationHelper rh = new HSRegistrationHelper(getRequest(), (Map<String, Response>) getRequest().getSession().getAttribute(Constants.HS_RESPONSES));
 
-            if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && 
+            if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) &&
                     !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID)) {
                 rh.registerForSeason(u);
             }
-                
-            securityStuff(newUser, u);
+
+            securityStuff(isNewRegistration(), u);
 
 
             if (getRequest().getSession().getAttribute(Constants.INACTIVATE_HS) != null) {
@@ -73,7 +71,7 @@ public class Submit extends Base {
             markForCommit();
             closeConversation();
             beginCommunication();
-            if (newUser) {
+            if (isNewRegistration()) {
                 try {
                     Long newUserId = u.getId();
                     //have to wrap up the last stuff, and get into new stuff.  we don't want
@@ -127,9 +125,6 @@ public class Submit extends Base {
 
             //set these in the request for the success page, cuz we're about to kill the session
             getRequest().setAttribute(Constants.REG_TYPES, h);
-            //kind of a hack.  the final page needs to know if they're new or not.  but by adding
-            //them to the db, they're not "new" anymore as far as hibernate is concerned.
-            u.setNew(newUser);
             getRequest().setAttribute(Constants.USER, u);
             getRequest().getSession().invalidate();
 
@@ -140,7 +135,7 @@ public class Submit extends Base {
                 s.add("user_preference_all");
                 CacheClearer.removelike(s);
             }
-            
+
             setNextPage("/success.jsp");
             setIsNextPageInContext(true);
         } else {
@@ -153,14 +148,14 @@ public class Submit extends Base {
     private void registerHsSeason(User u) {
         UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
         Event event = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON).getEvent();
-        
+
         log.debug("User " + u.getId() + " registered for HS season in event " + event.getId());
         if (event != null) {
             u.addEventRegistration(event, null, true);
             userDAO.saveOrUpdate(u);
             markForCommit();
         }
-        
+
     }
 
     private void securityStuff(boolean newUser, User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {

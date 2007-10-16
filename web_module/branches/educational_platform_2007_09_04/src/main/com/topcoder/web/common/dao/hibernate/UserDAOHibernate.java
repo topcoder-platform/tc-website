@@ -11,7 +11,11 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author dok
@@ -95,7 +99,7 @@ public class UserDAOHibernate extends Base implements UserDAO {
         }
 */
 
-        if (u.isNew()) {
+        if (u.getId() == null) {
             log.debug("newbie");
             DemographicResponse tr;
             DemographicResponse dr;

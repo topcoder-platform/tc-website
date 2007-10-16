@@ -1,8 +1,6 @@
 package com.topcoder.web.common;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-
+import com.topcoder.shared.util.logging.Logger;
 import org.hibernate.EmptyInterceptor;
 import org.hibernate.Interceptor;
 import org.hibernate.Session;
@@ -12,8 +10,8 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.model.TCInterceptor;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 /**
  * @author dok
@@ -24,7 +22,7 @@ public class HibernateUtils {
     protected static Logger log = Logger.getLogger(HibernateUtils.class);
     //private static final ThreadLocal tSession = new ThreadLocal();
     //private static final ThreadLocal tTransaction = new ThreadLocal();
-    private static final String INTERCEPTOR_CLASS = "hibernate.util.interceptor_class"; 
+    private static final String INTERCEPTOR_CLASS = "hibernate.util.interceptor_class";
 
     private static Configuration configuration;
     private static SessionFactory sessionFactory;
@@ -38,7 +36,11 @@ public class HibernateUtils {
             configuration.configure();
 
             // Set global interceptor from configuration
-            setInterceptor(configuration, new TCInterceptor());
+            //the logic doesn't work.  we're using onSave to figure out if it's new, but
+            //if the save fails, it'll be set as not new, because we're setting it as not
+            //new before we flush to the db.
+            //setInterceptor(configuration, new TCInterceptor());
+
 
             if (configuration.getProperty(Environment.SESSION_FACTORY_NAME) != null) {
                 // Let Hibernate bind the factory to JNDI
