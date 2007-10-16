@@ -108,10 +108,16 @@
                                 <td class="valueC">${assignment.succeeded} / ${assignment.failed}</td>
                                 --%>
                                 <jsp:useBean id="now" class="java.util.Date"/>
-                                <c:if test="${assignment.contest.startDate > now}">
-                                    <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignmentStudents&amp;asid=${assignment.id}"><img src="/i/ep/buttons/assignTo.png" alt="Assign to..." /></a></td>
-                                    <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;asid=${assignment.id}"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
-                                </c:if>
+                                <c:choose>
+                                    <c:when test="${assignment.contest.startDate > now}">
+                                        <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignmentStudents&amp;asid=${assignment.id}"><img src="/i/ep/buttons/assignTo.png" alt="Assign to..." /></a></td>
+                                        <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;asid=${assignment.id}"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <td class="valueC">&nbsp;</td>
+                                        <td class="valueC">&nbsp;</td>
+                                    </c:otherwise>
+                                </c:choose>
                             </tr>
                         <%i++;%>
                         </c:forEach>
