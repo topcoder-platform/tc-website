@@ -49,7 +49,6 @@ public class ArenaHelper implements ArenaServices {
      * @param coderIds the list of coderIds that are registered 
      */
     public void updateRoundRegistration(Long roundId, List<Long> coderIds) {
-        // Todo: refactor
         Round r = DAOUtil.getFactory().getRoundDAO().find(roundId);
 
         List<Long> existingCodersIds = new ArrayList<Long>();
@@ -69,61 +68,10 @@ public class ArenaHelper implements ArenaServices {
         // coders in existingCodersIds : remove
         
         // remove
-        for (Long coderId : existingCodersIds) {
-            Coder c = DAOUtil.getFactory().getCoderDAO().find(coderId);
-            RoundRegistration rr = new RoundRegistration();
-            rr.getId().setCoder(c);
-            rr.getId().setRound(r);
-            
-            r.removeRegistration(rr);
-            c.removeRegistration(rr);
-
-            Room rm = r.getRooms().iterator().next();
-
-            RoomResult rs = new RoomResult();
-            rs.getId().setCoder(c);
-            rs.getId().setRoom(rm);
-            rs.getId().setRound(r);
-
-            c.removeRoomResult(rs);
-            rm.removeResult(rs);
-        }
+        removeRegistrations(r, existingCodersIds);
 
         // add
-        for (Long coderId : coderIds) {
-            // get entities:
-            Coder c = DAOUtil.getFactory().getCoderDAO().find(coderId);
-            
-            RoundRegistration rr = new RoundRegistration();
-            
-            rr.getId().setCoder(c);
-            rr.setTimestamp(new Timestamp((new Date()).getTime()));
-            rr.setEligible(1);
-            rr.setTeamId(null);
-            
-            r.addRegistration(rr);
-            
-            RoomResult rmr = new RoomResult();
-            rmr.getId().setCoder(c);
-            rmr.getId().setRound(r);
-
-            // there's only one room in this kind of round
-            Room rm = r.getRooms().iterator().next();
-            
-            rmr.setRoomSeed(0);
-            rmr.setOldRating(0);
-            rmr.setNewRating(0);
-            rmr.setPaid(0d);
-            rmr.setRoomPlaced(0);
-            rmr.setDivisionPlaced(0);
-            rmr.setAttended("N");
-            rmr.setAdvanced("N");
-            rmr.setOverallRank(0);
-            rmr.setPointTotal(0d);
-            rmr.setDivisionSeed(0);
-
-            rm.addResult(rmr);
-        }
+        addRegistrations(r, coderIds);
 
         DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
 
@@ -131,32 +79,12 @@ public class ArenaHelper implements ArenaServices {
         HibernateUtils.commit();
         HibernateUtils.begin();
 
-        RoundModifiedEvent event = new RoundModifiedEvent(r.getId().intValue());
-                
-        // coders in coderIds : add
-        // coders in existingCodersIds : remove
-
-        int[] addIds = new int[coderIds.size()];
-        int[] removeIds = new int[existingCodersIds.size()];
-        
-        int i = 0;
-        for (Long id : coderIds) {
-            addIds[i] = id.intValue();
-            i++;
-        }
-        
-        i = 0;
-        for (Long id : existingCodersIds) {
-            removeIds[i] = id.intValue();
-            i++;
-        }
-           
-        event.addModification(new RegistrationModification(addIds, removeIds));
-        event.addModification(new RoundModifiedEvent.ScheduleModification());
+        RoundModifiedEvent event = createRegistrationUpdateEvent(r, coderIds,
+                existingCodersIds);
         publishEvent(event);
 
-    }    
-    
+    }
+
     /**
      * @param adto the assignment data transfer object to add 
      */
@@ -432,4 +360,89 @@ public class ArenaHelper implements ArenaServices {
         }
     }
 
+    private RoundModifiedEvent createRegistrationUpdateEvent(Round r,
+            List<Long> coderIds, List<Long> existingCodersIds) {
+        RoundModifiedEvent event = new RoundModifiedEvent(r.getId().intValue());
+                
+        // coders in coderIds : add
+        // coders in existingCodersIds : remove
+
+        int[] addIds = new int[coderIds.size()];
+        int[] removeIds = new int[existingCodersIds.size()];
+        
+        int i = 0;
+        for (Long id : coderIds) {
+            addIds[i] = id.intValue();
+            i++;
+        }
+        
+        i = 0;
+        for (Long id : existingCodersIds) {
+            removeIds[i] = id.intValue();
+            i++;
+        }
+           
+        event.addModification(new RegistrationModification(addIds, removeIds));
+        event.addModification(new RoundModifiedEvent.ScheduleModification());
+        return event;
+    }    
+
+    private void addRegistrations(Round r, List<Long> coderIds) {
+        for (Long coderId : coderIds) {
+            // get entities:
+            Coder c = DAOUtil.getFactory().getCoderDAO().find(coderId);
+            
+            RoundRegistration rr = new RoundRegistration();
+            
+            rr.getId().setCoder(c);
+            rr.setTimestamp(new Timestamp((new Date()).getTime()));
+            rr.setEligible(1);
+            rr.setTeamId(null);
+            
+            r.addRegistration(rr);
+            
+            RoomResult rmr = new RoomResult();
+            rmr.getId().setCoder(c);
+            rmr.getId().setRound(r);
+
+            // there's only one room in this kind of round
+            Room rm = r.getRooms().iterator().next();
+            
+            rmr.setRoomSeed(0);
+            rmr.setOldRating(0);
+            rmr.setNewRating(0);
+            rmr.setPaid(0d);
+            rmr.setRoomPlaced(0);
+            rmr.setDivisionPlaced(0);
+            rmr.setAttended("N");
+            rmr.setAdvanced("N");
+            rmr.setOverallRank(0);
+            rmr.setPointTotal(0d);
+            rmr.setDivisionSeed(0);
+
+            rm.addResult(rmr);
+        }
+    }
+
+    private void removeRegistrations(Round r, List<Long> existingCodersIds) {
+        for (Long coderId : existingCodersIds) {
+            Coder c = DAOUtil.getFactory().getCoderDAO().find(coderId);
+            RoundRegistration rr = new RoundRegistration();
+            rr.getId().setCoder(c);
+            rr.getId().setRound(r);
+            
+            r.removeRegistration(rr);
+            c.removeRegistration(rr);
+
+            Room rm = r.getRooms().iterator().next();
+
+            RoomResult rs = new RoomResult();
+            rs.getId().setCoder(c);
+            rs.getId().setRoom(rm);
+            rs.getId().setRound(r);
+
+            c.removeRoomResult(rs);
+            rm.removeResult(rs);
+        }
+    }
 }

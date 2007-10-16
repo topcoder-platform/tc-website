@@ -91,7 +91,7 @@ public class EditAssignment extends LongBase {
                     }
 
                     // check if the assignment can be edited 
-                    if ((new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
+                    if (a != null && (new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
                         throw new NavigationException("The assignment is about to start or has already started and therefore cannot be edited");
                     }
 
