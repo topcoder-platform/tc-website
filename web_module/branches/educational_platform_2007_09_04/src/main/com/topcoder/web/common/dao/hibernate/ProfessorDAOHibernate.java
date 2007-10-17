@@ -10,6 +10,7 @@ import org.hibernate.criterion.Restrictions;
 
 import com.topcoder.web.common.dao.ProfessorDAO;
 import com.topcoder.web.common.model.educ.Professor;
+import com.topcoder.web.common.model.educ.ProfessorStatus;
 import com.topcoder.web.common.model.educ.StudentClassroom;
  
 
@@ -52,4 +53,17 @@ public class ProfessorDAOHibernate extends GenericBase<Professor, Long> implemen
                 
         return ((Integer) c.uniqueResult()) > 0;
     }
+    
+    public Boolean isActiveProfessor(Long professorId) {
+        Criteria c = getSession().createCriteria(Professor.class);
+        c.setProjection( Projections.projectionList()
+                .add(Projections.rowCount())
+                );        
+
+        c.add(Restrictions.eq("id", professorId));
+        c.add(Restrictions.eq("status", ProfessorStatus.ACTIVE));
+                
+        return ((Integer) c.uniqueResult()) > 0;
+    }
+
 }

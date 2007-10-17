@@ -1,11 +1,11 @@
 package com.topcoder.web.common.model.educ;
 
-import com.topcoder.web.common.model.Base;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.topcoder.web.common.model.Base;
 
 /*
 * @author dok

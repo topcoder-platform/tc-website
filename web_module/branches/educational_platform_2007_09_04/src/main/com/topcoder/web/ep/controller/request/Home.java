@@ -28,8 +28,8 @@ public class Home extends SharedBaseProcessor {
      * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
      */
     @Override
-    protected void professorProcessing(User u) throws Exception {
-        getRequest().setAttribute("classrooms", u.getProfessor().getClassrooms());
+    protected void professorProcessing() throws Exception {
+        getRequest().setAttribute("classrooms", DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingProfessorId(new Long(getUser().getId())));
 
         setNextPage("/professor/home.jsp");
         setIsNextPageInContext(true);
@@ -37,7 +37,8 @@ public class Home extends SharedBaseProcessor {
     }
 
     @Override
-    protected void studentProcessing(User u) throws Exception {
+    protected void studentProcessing() throws Exception {
+        User u  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
         // add active classrooms
         Map<Long, StudentHomeRow> schools = new HashMap<Long, StudentHomeRow>(); 
         for (Classroom c : u.getCoder().getClassrooms(StudentClassroom.ACTIVE_STATUS)) {
@@ -57,7 +58,7 @@ public class Home extends SharedBaseProcessor {
             schools.get(schoolId).getDetails().add(new StudentHomeDetailRow(c.getId(), c.getName(), Boolean.FALSE));
         }
 
-        if (DAOUtil.getFactory().getProfessorDAO().hasActiveProfessors(u.getId())) {
+        if (DAOUtil.getFactory().getProfessorDAO().hasActiveProfessors(getUser().getId())) {
             log.debug("student with registration");
             // user already registered
             getRequest().setAttribute("schools", schools.values());                

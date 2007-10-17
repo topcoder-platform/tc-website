@@ -10,7 +10,6 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
@@ -24,7 +23,7 @@ public class ViewClassroomDetails extends SharedBaseProcessor {
     private static Logger log = Logger.getLogger(ViewClassroomDetails.class);
 
     @Override
-    protected void professorProcessing(User u) throws Exception {
+    protected void professorProcessing() throws Exception {
         Classroom c = getClassroom();
         log.debug("is professor");
         
@@ -38,7 +37,7 @@ public class ViewClassroomDetails extends SharedBaseProcessor {
     }
 
     @Override
-    protected void studentProcessing(User u) throws Exception {
+    protected void studentProcessing() throws Exception {
         Classroom c = getClassroom();
         if (c.getStudent(getUser().getId()) != null) {
             log.debug("active student");

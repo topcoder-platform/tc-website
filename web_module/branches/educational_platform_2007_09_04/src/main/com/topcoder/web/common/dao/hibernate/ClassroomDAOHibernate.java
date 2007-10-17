@@ -46,7 +46,7 @@ public class ClassroomDAOHibernate extends GenericBase<Classroom, Long> implemen
     }
     
 	public List<Classroom> getClassroomsUsingProfessorId(Long professorId) {
-		return getSession().createCriteria(Classroom.class)
+		return (List<Classroom>) getSession().createCriteria(Classroom.class)
         	.add(Restrictions.eq("professor.id", professorId))
         	.add(Restrictions.eq("statusId", Classroom.ACTIVE))
         	.addOrder(Order.asc("school"))

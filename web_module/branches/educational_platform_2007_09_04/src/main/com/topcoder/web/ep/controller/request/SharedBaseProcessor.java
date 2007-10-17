@@ -9,9 +9,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.User;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -21,8 +19,8 @@ public abstract class SharedBaseProcessor extends ShortHibernateProcessor {
 
     private static Logger log = Logger.getLogger(SharedBaseProcessor.class);
 
-    protected abstract void professorProcessing(User u) throws Exception;
-    protected abstract void studentProcessing(User u) throws Exception;
+    protected abstract void professorProcessing() throws Exception;
+    protected abstract void studentProcessing() throws Exception;
     
     /* (non-Javadoc)
      * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
@@ -30,28 +28,25 @@ public abstract class SharedBaseProcessor extends ShortHibernateProcessor {
     @Override
     protected void dbProcessing() throws Exception {
         if (userIdentified()) {
-            User u  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-
             // check whether student or professor
-            if (u.isProfessor()) {
+            if (DAOUtil.getFactory().getProfessorDAO().isActiveProfessor(getUser().getId())) {
                 // since it's a shared processor check if he has permission
                 if (!Helper.hasProfessorPermission(getLoggedInUser())) {
                     throw new PermissionException(getUser(), new ClassResource(this.getClass()));
                 }
 
-                professorProcessing(u);
+                log.debug(getUser().getUserName() + " logging in as professor");
+                
+                professorProcessing();
             } else {
                 // since it's a shared processor check if he has permission
                 if (!Helper.hasStudentPermission(getLoggedInUser())) {
                     throw new PermissionException(getUser(), new ClassResource(this.getClass()));
                 }
 
-                // look for student's details
-                if (u.getCoder() == null) {
-                    throw new TCWebException("Could not get user information");
-                }
-                
-                studentProcessing(u);
+                log.debug(getUser().getUserName() + " logging in as student");
+
+                studentProcessing();
             }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));

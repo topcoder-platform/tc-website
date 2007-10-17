@@ -5,17 +5,26 @@
 */
 package com.topcoder.web.ep.controller.request.reports;
 
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class Home extends ShortHibernateProcessor {
+public class Home extends SharedBaseProcessor {
     @Override
-    protected void dbProcessing() throws Exception {
+    protected void professorProcessing() throws Exception {
         getRequest().setAttribute("classrooms", DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingProfessorId(new Long(getUser().getId())));
+        setNextPage("/reports/selectClassroom.jsp");
+        setIsNextPageInContext(true);
+        
+    }
+
+    @Override
+    protected void studentProcessing() throws Exception {
+//        getRequest().setAttribute("classrooms", DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(new Long(getUser().getId())));
         setNextPage("/reports/selectClassroom.jsp");
         setIsNextPageInContext(true);
     }
