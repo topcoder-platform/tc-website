@@ -134,11 +134,11 @@ public class EditAssignment extends LongBase {
                     adto.setClassroomName(c.getName());
 
                     if (a.getId() != null) {
-                        setDefault("assignment_start", formatDate(a.getContest().getStartDate()));
-                        setDefault("assignment_end", formatDate(a.getContest().getEndDate()));
-                        setDefault("assignment_coding_phase_length", (Long) a.getProperty(RoundProperty.CODING_PHASE_LENGTH_PROPERTY_ID));
-                        setDefault("assignment_show_all_scores", ((Long) a.getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID)).equals(1l) ? "true" : "false");
-                        setDefault("assignment_score_type", (Long) a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID));
+                        adto.setStartDate(a.getContest().getStartDate());
+                        adto.setEndDate(a.getContest().getEndDate());
+                        adto.setCoderPhaseLength((Long) a.getProperty(RoundProperty.CODING_PHASE_LENGTH_PROPERTY_ID));
+                        adto.setShowAllScores(((Long) a.getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID));
+                        adto.setScoreType((Long) a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID));
                     }
                     
                     // fill the components
