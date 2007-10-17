@@ -54,7 +54,7 @@ public class SelectClassroom extends LongBase {
                 setSchool(s);
     
                 // set possible classrooms
-                getRequest().setAttribute("possible_classrooms", getPossibleClassrooms(s, u));
+                getRequest().setAttribute("possible_classrooms", getPossibleClassrooms(s, getUser().getId()));
                 
                 setNextPage("/student/selectClassroom.jsp");
             } else {
@@ -63,7 +63,7 @@ public class SelectClassroom extends LongBase {
                 String[] values = getRequest().getParameterValues(Constants.CLASSROOM_ID);
 
                 School s = getSchool();
-                Set<Classroom> possibleClassrooms = getPossibleClassrooms(s, u);
+                Set<Classroom> possibleClassrooms = getPossibleClassrooms(s, getUser().getId());
                 
                 // add selected classrooms to the session
                 List<Classroom> selectedClassrooms = new ArrayList<Classroom>();
@@ -106,15 +106,15 @@ public class SelectClassroom extends LongBase {
     /**
      * @param s
      */
-    private Set<Classroom> getPossibleClassrooms(School s, User u) {
+    private Set<Classroom> getPossibleClassrooms(School s, Long userId) {
         // include only non-registered classrooms
         Set<Classroom> sc = new HashSet<Classroom>(s.getClassrooms());
-        for (Classroom c : DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(14810373l, StudentClassroom.ACTIVE_STATUS)) {
+        for (Classroom c : DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(userId, StudentClassroom.ACTIVE_STATUS)) {
             if (sc.contains(c)) {
                 sc.remove(c);
             }
         }
-        for (Classroom c : DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(14810373l, StudentClassroom.PENDING_STATUS)) {
+        for (Classroom c : DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(userId, StudentClassroom.PENDING_STATUS)) {
             if (sc.contains(c)) {
                 sc.remove(c);
             }

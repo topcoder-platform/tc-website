@@ -10,7 +10,6 @@ import java.util.Map;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.controller.request.student.StudentHomeDetailRow;
@@ -38,10 +37,9 @@ public class Home extends SharedBaseProcessor {
 
     @Override
     protected void studentProcessing() throws Exception {
-        User u  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
         // add active classrooms
         Map<Long, StudentHomeRow> schools = new HashMap<Long, StudentHomeRow>(); 
-        for (Classroom c : DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(14810373l, StudentClassroom.ACTIVE_STATUS)) {
+        for (Classroom c : DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(getUser().getId(), StudentClassroom.ACTIVE_STATUS)) {
             Long schoolId = c.getSchool().getId();
             if (!schools.containsKey(schoolId)) {
                 schools.put(schoolId, new StudentHomeRow(schoolId, c.getSchool().getName()));
@@ -50,7 +48,7 @@ public class Home extends SharedBaseProcessor {
         }
 
         // add pending classrooms
-        for (Classroom c : DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(14810373l, StudentClassroom.PENDING_STATUS)) {
+        for (Classroom c : DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(getUser().getId(), StudentClassroom.PENDING_STATUS)) {
             Long schoolId = c.getSchool().getId();
             if (!schools.containsKey(schoolId)) {
                 schools.put(schoolId, new StudentHomeRow(schoolId, c.getSchool().getName()));
