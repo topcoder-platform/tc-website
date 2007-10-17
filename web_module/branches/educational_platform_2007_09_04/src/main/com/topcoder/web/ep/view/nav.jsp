@@ -11,7 +11,7 @@
               <li>|</li>
               <li><a href="/ep/"<% if (node.equals("home")) {%> class="on"<% } %>><span>Setup</span></a></li>
               <li>|</li>
-              <li><a href="/ep/professor/reports/?module=Home"<% if (node.equals("reports")) {%> class="on"<% } %>><span>Reports</span></a></li>
+              <li><a href="/ep/reports/?module=Home"<% if (node.equals("reports")) {%> class="on"<% } %>><span>Reports</span></a></li>
               <li>|</li>
               <li><a href="#"<% if (node.equals("help")) {%> class="on"<% } %>><span>Help</span></a></li>
          </ul>
@@ -25,7 +25,7 @@
               <li>|</li>
               <li><a href="/ep/"<% if (node.equals("home")) {%> class="on"<% } %>><span>Classes</span></a></li>
               <li>|</li>
-              <li><a href=""<% if (node.equals("reports")) {%> class="on"<% } %>><span>Reports</span></a></li>
+              <li><a href="/ep/reports/?module=Home"<% if (node.equals("reports")) {%> class="on"<% } %>><span>Reports</span></a></li>
               <li>|</li>
               <li><a href="#"<% if (node.equals("help")) {%> class="on"<% } %>><span>Help</span></a></li>
          </ul>

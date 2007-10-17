@@ -67,7 +67,7 @@
     </servlet>
 
     <servlet>
-        <servlet-name>epservletProfessorReports</servlet-name>
+        <servlet-name>epservletReports</servlet-name>
         <servlet-class>com.topcoder.web.ep.controller.EPServlet</servlet-class>
         <init-param>
             <param-name>module_key</param-name>
@@ -136,8 +136,8 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>epservletProfessorReports</servlet-name>
-        <url-pattern>/professor/reports/</url-pattern>
+        <servlet-name>epservletReports</servlet-name>
+        <url-pattern>/reports/</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
@@ -155,10 +155,3 @@
     </error-page>
 
 </web-app>
-
-
-
-
-
-
-

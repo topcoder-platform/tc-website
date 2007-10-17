@@ -69,10 +69,10 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
                     </c:if>
                     <div class="classroomListing" align="center">
                         <div class="name">
-                            <a href="/ep/professor/reports/?module=SelectReport&amp;clsid=${classroom.id}">${classroom.name}</a>
+                            <a href="${sessionInfo.servletPath}?module=SelectReport&amp;clsid=${classroom.id}">${classroom.name}</a>
                         </div>
                         <div class="button">
-                            <a href="/ep/professor/reports/?module=SelectReport&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/reports.png" alt="Reports" /></a>
+                            <a href="${sessionInfo.servletPath}?module=SelectReport&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/reports.png" alt="Reports" /></a>
                         </div>
                     </div>
                     <c:set var="oldSchool" value="${classroom.school}"/>

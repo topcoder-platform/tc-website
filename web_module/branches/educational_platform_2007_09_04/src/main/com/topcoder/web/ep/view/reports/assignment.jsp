@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.web.ep.Constants"%>
-<%@ page import="com.topcoder.web.ep.controller.request.professor.reports.AssignmentReport"%>
+<%@ page import="com.topcoder.web.ep.controller.request.reports.AssignmentReport"%>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -106,7 +106,7 @@
                     </td>
                     <td align="left">
                         <c:forEach items="${assignment.roundComponents}" var="rc">                
-                            <div><a href="Javascript:openWin('/ep/?module=ViewProblem&amp;<%=Constants.COMPONENT_ID%>=${rc.id.component.id}','problemStatement',600,600);">${rc.id.component.problem.name}</a> (<a href="/ep/professor/reports/?module=ProblemAssignmentReport&amp;asid=${assignment.id}&amp;cd=${rc.id.component.id}">View report</a>)</div>
+                            <div><a href="Javascript:openWin('/ep/?module=ViewProblem&amp;<%=Constants.COMPONENT_ID%>=${rc.id.component.id}','problemStatement',600,600);">${rc.id.component.problem.name}</a> (<a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;asid=${assignment.id}&amp;cd=${rc.id.component.id}">View report</a>)</div>
                         </c:forEach>
                     </td>
                 </tr>
