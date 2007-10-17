@@ -104,9 +104,12 @@
         </div>
     </c:when>
     <c:otherwise>
-        There are no classrooms available for the selected school.
-        <br/>
-        <a href="${sessionInfo.servletPath}?module=SelectSchool"><img src="/i/ep/buttons/back.png" class="Back" /></a>
+        <p align="center">
+            Sorry, there are currently no classes associated with that school.
+        </p>
+        <div align="center" style="margin-bottom: 10px;">
+            <a href="${sessionInfo.servletPath}?module=SelectSchool"><img src="/i/ep/buttons/back.png" class="Back" /></a>
+        </div>
     </c:otherwise>
 </c:choose>
     </div>
