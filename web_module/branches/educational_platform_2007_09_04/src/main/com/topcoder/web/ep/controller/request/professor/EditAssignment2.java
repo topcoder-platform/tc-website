@@ -8,8 +8,10 @@ package com.topcoder.web.ep.controller.request.professor;
 import java.sql.Timestamp;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.topcoder.shared.security.ClassResource;
@@ -211,33 +213,53 @@ public class EditAssignment2 extends LongBase {
                         throw new TCWebException("Couldn't find problem set");
                     }
 
-                    setDefault("assignment_name", assignmentName);
-                    setDefault("assignment_start", assignmentStart);
-                    setDefault("assignment_end", assignmentEnd);
-                    setDefault("assignment_coding_phase_length", codingPhaseLengthParam);
-                    setDefault("assignment_show_all_scores", "on".equals(showAllScores) ? "true" : "false");
-                    setDefault("assignment_score_type", scoreType);
-                    setDefault(Constants.PROBLEM_SET_ID, getRequest().getParameter(Constants.PROBLEM_SET_ID));
 
 
                     Set<Integer> al = new HashSet<Integer>();
                     if (languages != null) {
                         for (String language : languages) {
+                            if (!Language.assignmentLanguages.contains(Integer.parseInt(language))) {
+                                throw new TCWebException("Invalid language selected");
+                            }
                             al.add(Integer.parseInt(language));
                         }
                     }
 
+                    String languagesList = "";
+                    for (Language l : DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages()) {
+                        if (al.contains(l.getId())) {
+                            languagesList += l.getName() + ((al.size() > 1) ? ", " : "");
+                        }
+                    }
+
                     getRequest().setAttribute("assignment_languages", al);
+                    getRequest().setAttribute("assignment_id", a.getId());
+                    getRequest().setAttribute("classroom_id", c.getId());
+                    getRequest().setAttribute("classroom_name", c.getName());
 
 
                     if (!hasErrors()) {
+                        getRequest().setAttribute("assignment_name", assignmentName);
+                        getRequest().setAttribute("assignment_start", assignmentStart);
+                        getRequest().setAttribute("assignment_end", assignmentEnd);
+                        getRequest().setAttribute("assignment_coding_phase_length", codingPhaseLengthParam);
+                        getRequest().setAttribute("assignment_show_all_scores", "on".equals(showAllScores) ? "true" : "false");
+                        getRequest().setAttribute("assignment_score_type", AssignmentScoreType.getUsingId(Integer.parseInt(scoreType)).getDescription());
+                        getRequest().setAttribute("languages", languagesList);
+                        getRequest().setAttribute(Constants.PROBLEM_SET_ID, getRequest().getParameter(Constants.PROBLEM_SET_ID));
+
                         // next step, confirmation.
                         setNextPage("/professor/editAssignmentConfirm2.jsp");
                         setIsNextPageInContext(true);
                     } else {
-                        getRequest().setAttribute("assignment_id", a.getId());
-                        getRequest().setAttribute("classroom_id", c.getId());
-                        getRequest().setAttribute("classroom_name", c.getName());
+                        setDefault("assignment_name", assignmentName);
+                        setDefault("assignment_start", assignmentStart);
+                        setDefault("assignment_end", assignmentEnd);
+                        setDefault("assignment_coding_phase_length", codingPhaseLengthParam);
+                        setDefault("assignment_show_all_scores", "on".equals(showAllScores) ? "true" : "false");
+                        setDefault("assignment_score_type", scoreType);
+                        setDefault(Constants.PROBLEM_SET_ID, getRequest().getParameter(Constants.PROBLEM_SET_ID));
+
                         getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
                         getRequest().setAttribute("languages", DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages());
                         getRequest().setAttribute("problem_sets", DAOUtil.getFactory().getProblemSetDAO().findAll());
