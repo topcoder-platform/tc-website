@@ -43,6 +43,9 @@ public class SimpleSearch extends Base {
 
     protected void setDefaults(MemberSearch m) {
         setDefault(Constants.HANDLE, m.getHandle() == null ? "" : m.getHandle());
+        setDefault(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+        setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+
     }
 
 
