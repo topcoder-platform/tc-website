@@ -14,7 +14,6 @@ import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -22,51 +21,71 @@ import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.common.model.algo.ComponentState;
 import com.topcoder.web.common.model.algo.Round;
+import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
+import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class StudentReport extends ShortHibernateProcessor {
+public class StudentReport extends SharedBaseProcessor {
     public static final Integer ASSIGNMENT_COL = 1;
     public static final Integer SCORE_COL = 2;
     public static final Integer NUM_TESTS_COL = 3;
     public static final Integer PERCENT_TESTS_COL = 4;
     
     @Override
-    protected void dbProcessing() throws Exception {
-        // get classroom parameter
-        Long classroomId = getClassroomParam();
-        
-        // check if it's a valid classroom
-        Classroom c = DAOUtil.getFactory().getClassroomDAO().find(classroomId);
-        if (c == null) {
-            throw new TCWebException("Couldn't find classroom");
-        }
-        
+    protected void professorProcessing() throws Exception {
+        Classroom c = validateClassroom();
+        Coder s = validateStudent(c);
+
         // check if this classroom belongs to the logged professor
         if (!c.getProfessor().getId().equals(getUser().getId())) {
             throw new NavigationException("You don't have permission to see this page.");
         }
 
-        // get student parameter
-        Long studentId = getStudentParam();
-        
-        // check if it's a valid student
-        Coder s = c.getStudent(studentId);
-        if (s == null) {
-            throw new TCWebException("Couldn't find student");
+        List<StudentReportRow> larr = processReport(c, s);
+
+        getRequest().setAttribute("results", larr);
+        getRequest().setAttribute("isStudent", Boolean.FALSE);
+    }
+
+    @Override
+    protected void studentProcessing() throws Exception {
+        Classroom c = validateClassroom();
+        Coder s = validateStudent(c);
+
+        // check if the logged student belongs to this classroom 
+        if (c.getStudent(getUser().getId()) == null) {
+            throw new NavigationException("You don't have permission to see this page.");
         }
 
+        List<StudentReportRow> larr = processReport(c, s);
+        // if the student is seeing his report, do nothing, otherwise remove rows that cannot be shown
+        if (!s.getId().equals(getUser().getId())) {
+            List<StudentReportRow> remove = new ArrayList<StudentReportRow>();
+            for (StudentReportRow srr : larr) {
+                if (!srr.getShowAllCoders().equals(1)) {
+                    remove.add(srr);
+                }
+            }
+            larr.removeAll(remove);
+        }
+        
+        getRequest().setAttribute("results", larr);
+        getRequest().setAttribute("isStudent", Boolean.TRUE);
+    }
+    
+    protected List<StudentReportRow> processReport(Classroom c, Coder s) throws Exception {
+
         // get all rounds for this classroom, student
-        List<Round> lr = DAOUtil.getFactory().getClassroomDAO().getAssignmentsForStudent(classroomId, s.getId());
+        List<Round> lr = DAOUtil.getFactory().getClassroomDAO().getAssignmentsForStudent(c.getId(), s.getId());
 
         // get and prepare system test results so they are available to construct the rows
         List<Object> systemTestResults = DAOUtil.getFactory().getSystemTestResultDAO().getSystemTestResultsByStudent(lr, s.getId());
 
-        
         Map<Long, AssignmentTestResult> assignmentResults = new HashMap<Long, AssignmentTestResult>();
         
         for (Object o : systemTestResults ) {
@@ -102,11 +121,16 @@ public class StudentReport extends ShortHibernateProcessor {
                     if (assignmentResults.containsKey(oldCs.getRound().getId())) {
                         larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, 
                                 assignmentResults.get(oldCs.getRound().getId()).getSucceeded(), 
-                                assignmentResults.get(oldCs.getRound().getId()).getSucceeded() * 100d / assignmentResults.get(oldCs.getRound().getId()).getTotal(), 
+                                assignmentResults.get(oldCs.getRound().getId()).getSucceeded() * 100d / assignmentResults.get(oldCs.getRound().getId()).getTotal(),
+                                (Long)oldCs.getRound().getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID),
+                                (Long)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
                                 lsrdr));
                     } else {
                         larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, 
-                                -1, 0d, lsrdr));
+                                -1, 0d, 
+                                (Long)oldCs.getRound().getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID),
+                                (Long)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
+                                lsrdr));
                     }
 
                     lsrdr = new ArrayList<StudentReportDetailRow>();
@@ -136,10 +160,15 @@ public class StudentReport extends ShortHibernateProcessor {
                 larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, 
                         assignmentResults.get(oldCs.getRound().getId()).getSucceeded(), 
                         assignmentResults.get(oldCs.getRound().getId()).getSucceeded() * 100d / assignmentResults.get(oldCs.getRound().getId()).getTotal(), 
+                        (Long)oldCs.getRound().getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID),
+                        (Long)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
                         lsrdr));
             } else {
                 larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, 
-                        -1, 0d, lsrdr));
+                        -1, 0d, 
+                        (Long)oldCs.getRound().getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID),
+                        (Long)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
+                        lsrdr));
             }
 
             lsrdr = new ArrayList<StudentReportDetailRow>();
@@ -149,12 +178,30 @@ public class StudentReport extends ShortHibernateProcessor {
         // sort results
         sortResult(larr);
         
-        getRequest().setAttribute("results", larr);
         getRequest().setAttribute("student", s);
         getRequest().setAttribute("classroom", c);
         
         setNextPage("/reports/student.jsp");
         setIsNextPageInContext(true);
+        
+        return larr;
+    }
+
+    private Coder validateStudent(Classroom c) throws TCWebException {
+        Coder s = c.getStudent(getStudentParam());
+        if (s == null) {
+            throw new TCWebException("Couldn't find student");
+        }
+        return s;
+    }
+
+    private Classroom validateClassroom() throws TCWebException {
+        // check if it's a valid classroom
+        Classroom c = DAOUtil.getFactory().getClassroomDAO().find(getClassroomParam());
+        if (c == null) {
+            throw new TCWebException("Couldn't find classroom");
+        }
+        return c;
     }
 
     private Long getClassroomParam() throws TCWebException {

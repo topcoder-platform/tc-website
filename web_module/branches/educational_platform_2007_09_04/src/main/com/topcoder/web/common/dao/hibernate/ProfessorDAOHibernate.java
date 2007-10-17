@@ -66,4 +66,15 @@ public class ProfessorDAOHibernate extends GenericBase<Professor, Long> implemen
         return ((Integer) c.uniqueResult()) > 0;
     }
 
+    public Boolean isProfessor(Long professorId) {
+        Criteria c = getSession().createCriteria(Professor.class);
+        c.setProjection( Projections.projectionList()
+                .add(Projections.rowCount())
+                );        
+
+        c.add(Restrictions.eq("id", professorId));
+                
+        return ((Integer) c.uniqueResult()) > 0;
+    }
+
 }

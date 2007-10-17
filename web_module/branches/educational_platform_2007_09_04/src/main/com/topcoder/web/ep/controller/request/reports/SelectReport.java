@@ -36,7 +36,7 @@ public class SelectReport extends SharedBaseProcessor {
     protected void studentProcessing() throws Exception {
         Classroom c = validateClassroom();
         
-        // check if this classroom belongs to the logged student
+        // check if the logged student belongs to this classroom 
         if (c.getStudent(getUser().getId()) == null) {
             throw new NavigationException("You don't have permission to see this page.");
         }

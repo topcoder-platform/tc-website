@@ -17,4 +17,6 @@ public interface ProfessorDAO extends GenericDAO<Professor, Long> {
     
     public Boolean isActiveProfessor(Long professorId);
 
+    public Boolean isProfessor(Long professorId);
+
 }
