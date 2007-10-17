@@ -261,7 +261,7 @@ public class EditAssignment2 extends LongBase {
                         getRequest().setAttribute("assignment_end", assignmentEnd);
                         getRequest().setAttribute("assignment_coding_phase_length", codingPhaseLengthParam);
                         getRequest().setAttribute("assignment_show_all_scores", "on".equals(showAllScores) ? 1 : 0);
-                        getRequest().setAttribute("assignment_score_type", AssignmentScoreType.getUsingId(Integer.parseInt(scoreType)).getDescription());
+                        getRequest().setAttribute("assignment_score_type", AssignmentScoreType.getUsingId(Long.parseLong(scoreType)).getDescription());
                         getRequest().setAttribute("languages", languagesList);
                         getRequest().setAttribute(Constants.PROBLEM_SET_ID, getRequest().getParameter(Constants.PROBLEM_SET_ID));
 

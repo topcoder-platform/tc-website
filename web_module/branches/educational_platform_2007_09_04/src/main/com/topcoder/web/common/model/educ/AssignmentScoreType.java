@@ -16,9 +16,9 @@ import com.topcoder.web.common.model.Base;
  */
 public class AssignmentScoreType extends Base {
 
-    public static final Integer TC_SCORE_TYPE = 1;
-    public static final Integer PASSED_SCORE_TYPE = 2;
-    public static final Integer SUCCESS_FAIL_SCORE_TYPE = 3;
+    public static final Long TC_SCORE_TYPE = 1l;
+    public static final Long PASSED_SCORE_TYPE = 2l;
+    public static final Long SUCCESS_FAIL_SCORE_TYPE = 3l;
     public static final Integer ACTIVE_STATUS = 1;
 
     private static List<AssignmentScoreType> types = new ArrayList<AssignmentScoreType>(3);
@@ -34,7 +34,7 @@ public class AssignmentScoreType extends Base {
         return types;
     }
 
-    public static AssignmentScoreType getUsingId(Integer id) {
+    public static AssignmentScoreType getUsingId(Long id) {
         for (AssignmentScoreType ast : types) {
             if (ast.getId().equals(id)) {
                 return ast;
@@ -43,7 +43,7 @@ public class AssignmentScoreType extends Base {
         return null;
     }
     
-    private Integer id;
+    private Long id;
 
     private String description;
 
@@ -64,14 +64,14 @@ public class AssignmentScoreType extends Base {
     /**
      * @return the id
      */
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -112,7 +112,7 @@ public class AssignmentScoreType extends Base {
         return true;
     }
 
-    public AssignmentScoreType(Integer id, String description) {
+    public AssignmentScoreType(Long id, String description) {
         super();
         this.id = id;
         this.description = description;

@@ -158,13 +158,13 @@ public class StudentReport extends SharedBaseProcessor {
                                 assignmentResults.get(oldCs.getRound().getId()).getSucceeded(), 
                                 assignmentResults.get(oldCs.getRound().getId()).getSucceeded() * 100d / assignmentResults.get(oldCs.getRound().getId()).getTotal(),
                                 (Long)oldCs.getRound().getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID),
-                                (Integer)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
+                                (Long)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
                                 lsrdr));
                     } else {
                         larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, 
                                 -1, 0d, 
                                 (Long)oldCs.getRound().getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID),
-                                (Integer)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
+                                (Long)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
                                 lsrdr));
                     }
 
@@ -196,13 +196,13 @@ public class StudentReport extends SharedBaseProcessor {
                         assignmentResults.get(oldCs.getRound().getId()).getSucceeded(), 
                         assignmentResults.get(oldCs.getRound().getId()).getSucceeded() * 100d / assignmentResults.get(oldCs.getRound().getId()).getTotal(), 
                         (Long)oldCs.getRound().getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID),
-                        (Integer)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
+                        (Long)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
                         lsrdr));
             } else {
                 larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, 
                         -1, 0d, 
                         (Long)oldCs.getRound().getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID),
-                        (Integer)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
+                        (Long)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
                         lsrdr));
             }
 

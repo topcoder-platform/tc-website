@@ -311,7 +311,7 @@ public class EditAssignment extends LongBase {
                             getRequest().setAttribute("problem_set_name", ps.getName());
                         }
 
-                        getRequest().setAttribute("assignment_score_type", AssignmentScoreType.getUsingId(Integer.parseInt(scoreType)).getDescription());
+                        getRequest().setAttribute("assignment_score_type", AssignmentScoreType.getUsingId(Long.parseLong(scoreType)).getDescription());
                         getRequest().setAttribute("languages", languagesList);
 
                         // next step, confirmation.
