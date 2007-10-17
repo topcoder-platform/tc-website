@@ -76,7 +76,14 @@
         </c:forEach>
 
         <p align="center">
-            Are you sure you want to add/update this assignment?
+            <c:choose>
+                <c:when test="${empty assignment_id}">
+                    Are you sure you want to add this assignment?
+                </c:when>
+                <c:otherwise>
+                    Are you sure you want to update this assignment?
+                </c:otherwise>
+            </c:choose>
         </p>
 
         <div align="center" style="margin: 20px;">
@@ -95,8 +102,8 @@
                     </td>
                     <td align="left">
                         <p>${classroom_name}</p>
-                        <p>${assignment_start}"/></p>
-                        <p>${assignment_end}"/></p>
+                        <p>${assignment_start}"</p>
+                        <p>${assignment_end}"</p>
                         <p>${assignment_name}</p>
                         <p>${assignment_coding_phase_length}</p>
                         <p>
@@ -113,7 +120,7 @@
             </table>
         </div>
 
-    <c:if test="${assignment_id}">
+    <c:if test="${empty assignment_id}">
         <div align="center">
             <div style="width:350px;">
 
@@ -139,7 +146,7 @@
 
     <div style="margin-top: 10px;">
         <c:choose>
-            <c:when test="empty assignment_id">
+            <c:when test="${empty assignment_id}">
                 <a href="${sessionInfo.servletPath}?module=EditAssignment&clsid=${classroom_id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
             </c:when>
             <c:otherwise>

@@ -70,6 +70,11 @@
     <div class="spacer">
 
         <h2>
+            <c:if test="${has_data_in_session}">
+                <p class="bigRed" align="center">
+                    We're showing you your work in progress, you can click here to clear out and start over
+                </p>
+            </c:if>
         <c:choose>
             <c:when test="${not empty ea_assignment.roundId}">Edit Assignment</c:when>
             <c:otherwise>Add Assignment</c:otherwise>

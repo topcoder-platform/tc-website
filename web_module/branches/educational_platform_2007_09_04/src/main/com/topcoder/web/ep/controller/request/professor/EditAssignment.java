@@ -70,6 +70,13 @@ public class EditAssignment extends LongBase {
                 // this is possible if the user goes to confirmation and then hit the back button
                 AssignmentDTO assignmentInSession = getAssignment();
                 Boolean hasDataInSession = assignmentInSession != null;
+                
+                //check if the data in the session is for a different assignment
+                if (assignmentId != null && !assignmentId.equals(assignmentInSession.getRoundId())) {
+                    assignmentInSession = null;
+                    hasDataInSession = Boolean.FALSE;
+                }
+                
                 // new or edit
                 Round a = null;
                 if (assignmentId != null || hasDataInSession) {
@@ -102,6 +109,8 @@ public class EditAssignment extends LongBase {
                     setDefault("assignment_show_all_scores", hasDataInSession ? assignmentInSession.getShowAllScores() : ((Long) a.getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID)).equals(1l) ? "true" : "false");
                     setDefault("assignment_score_type", hasDataInSession ? assignmentInSession.getScoreType() : (Long) a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID));
 
+                    getRequest().setAttribute("has_data_in_session", hasDataInSession);
+                    
                     if (hasDataInSession) {
                         // we have data in the session, use it.
                         getRequest().setAttribute("assignment_languages", assignmentInSession.getLanguages());

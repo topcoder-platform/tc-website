@@ -38,42 +38,10 @@ public class EditAssignmentConfirm2 extends LongBase {
             if (!"POST".equals(getRequest().getMethod())) {
                 throw new TCWebException("Cannot get here via get");
             } else {
-//                if (getActiveUser() == null) {
-//                    throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
-//                } else 
+
                 if (userLoggedIn()) {
-                    // got a response, validate. 
-//                    AssignmentDTO adto = getAssignment();
-
-//                    if (adto.getComponents().size() == 0) {
-//                        addError("actionError", "You must add at least one component");
-//                    }
-                    
-                    // check points
-//                    Map<Long, Double> points = new HashMap<Long, Double>(adto.getComponents().size());
-//                    for (ComponentDTO cdto : adto.getComponents()) {
-//                        Double pointsParam = getPointsParam(cdto.getComponentId()); 
-//                        if (pointsParam == null || pointsParam != -1d) {
-//                            points.put(cdto.getComponentId(), pointsParam);
-//                        } else {
-//                            addError("actionError", "Invalid points entered");
-//                            break;
-//                        }
-//                    }
-
                     if (hasErrors()) {
-//                        setNextPage("/professor/selectComponents.jsp");
-//                        setIsNextPageInContext(true);
                     } else {
-                        // update points
-//                        for (ComponentDTO cdto : adto.getComponents()) {
-//                            if (points.containsKey(cdto.getComponentId())) {
-//                                cdto.setPoints(points.get(cdto.getComponentId()));
-//                            } else {
-//                                throw new TCWebException("Error: missing component points");
-//                            }
-//                        }
-//                    
                         setNextPage("/professor/editAssignmentConfirm2.jsp");
                         setIsNextPageInContext(true);
                     }
