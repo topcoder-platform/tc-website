@@ -103,6 +103,7 @@ public class EditAssignment extends LongBase {
                     setDefault("assignment_score_type", hasDataInSession ? assignmentInSession.getScoreType() : (Long) a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID));
 
                     if (hasDataInSession) {
+                        // we have data in the session, use it.
                         getRequest().setAttribute("assignment_languages", assignmentInSession.getLanguages());
                     } else {
                         Set<Integer> al = new HashSet<Integer>();
@@ -132,6 +133,14 @@ public class EditAssignment extends LongBase {
                     adto.setClassroomId(c.getId());
                     adto.setClassroomName(c.getName());
 
+                    if (a.getId() != null) {
+                        setDefault("assignment_start", formatDate(a.getContest().getStartDate()));
+                        setDefault("assignment_end", formatDate(a.getContest().getEndDate()));
+                        setDefault("assignment_coding_phase_length", (Long) a.getProperty(RoundProperty.CODING_PHASE_LENGTH_PROPERTY_ID));
+                        setDefault("assignment_show_all_scores", ((Long) a.getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID)).equals(1l) ? "true" : "false");
+                        setDefault("assignment_score_type", (Long) a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID));
+                    }
+                    
                     // fill the components
                     for (RoundComponent rc : a.getRoundComponents()) {
                         adto.addComponent(new ComponentDTO(
