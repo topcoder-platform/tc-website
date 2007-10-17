@@ -61,7 +61,7 @@ public class ProfessorDAOHibernate extends GenericBase<Professor, Long> implemen
                 );        
 
         c.add(Restrictions.eq("id", professorId));
-        c.add(Restrictions.eq("status", ProfessorStatus.ACTIVE));
+        c.add(Restrictions.eq("status.id", ProfessorStatus.ACTIVE));
                 
         return ((Integer) c.uniqueResult()) > 0;
     }
