@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.17.07<br />2:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">Round 3 of the TCCC07 CDDC Finals</A></span><br /><br />
+        Tomorrow marks the launch of the third and last week of the 2007 TopCoder Collegiate Challenge Component Design and Development finals. The design finalists will compete in the Faceted Classification projects, and the development finalists will compete in Subversion Path-Based Authorization Web Interface.  Good luck!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">details</a> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.17.07<br />11:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -160,22 +173,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=match_editorials&d2=srm369">details</A> | 
          <tc-webtag:forumLink forumID="516066" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.08.07<br />5:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm368">SRM 368 - Problem Set &amp; Analysis</A></span><br /><br />
-      After my previous sets of rather hard Division 2 problems I decided to try sharing a problem as the Div1 easy and Div2 hard. The experiment proved to be quite successful and led to a reasonably hard Division 2 problem set. Twenty-two coders were able to finish all three problems, and between them speed and successful challenges mattered.</td>
-         <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm368">details</A> | 
-         <tc-webtag:forumLink forumID="516065" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
