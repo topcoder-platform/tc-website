@@ -9,7 +9,7 @@
          <ul>
               <li><a href="javascript:arena();"<% if (node.equals("arena")) {%> class="on"<% } %>><span>Launch Arena</span></a></li>
               <li>|</li>
-              <li><a href="/ep/"<% if (node.equals("home")) {%> class="on"<% } %>><span>Setup</span></a></li>
+              <li><a href="/ep/"<% if (node.equals("home")) {%> class="on"<% } %>><span>Manage classes</span></a></li>
               <li>|</li>
               <li><a href="/ep/reports/?module=Home"<% if (node.equals("reports")) {%> class="on"<% } %>><span>Reports</span></a></li>
               <li>|</li>
@@ -23,9 +23,9 @@
          <ul>
               <li><a href="javascript:arena();"<% if (node.equals("arena")) {%> class="on"<% } %>><span>Launch Arena</span></a></li>
               <li>|</li>
-              <li><a href="/ep/"<% if (node.equals("home")) {%> class="on"<% } %>><span>Classes</span></a></li>
+              <li><a href="/ep/"<% if (node.equals("home")) {%> class="on"<% } %>><span>Manage classes</span></a></li>
               <li>|</li>
-              <li><a href="/ep/reports/?module=Home"<% if (node.equals("reports")) {%> class="on"<% } %>><span>Reports</span></a></li>
+              <li><a href="/ep/reports/?module=Home"<% if (node.equals("reports")) {%> class="on"<% } %>><span>Status & Scores</span></a></li>
               <li>|</li>
               <li><a href="#"<% if (node.equals("help")) {%> class="on"<% } %>><span>Help</span></a></li>
          </ul>
