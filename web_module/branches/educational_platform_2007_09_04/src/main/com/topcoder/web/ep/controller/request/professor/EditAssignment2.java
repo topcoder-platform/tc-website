@@ -80,6 +80,12 @@ public class EditAssignment2 extends LongBase {
                 if (a != null && (new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
                     throw new NavigationException("The assignment is about to start or has already started and therefore cannot be edited");
                 }
+            } else {
+                a = new Round();
+                // this is a new assignment, we need the classroom id
+                if (classroomId == null) {
+                    throw new TCWebException("Invalid classroom id");
+                }
             }
 
             // check if this classroom belongs to the active user
@@ -102,12 +108,6 @@ public class EditAssignment2 extends LongBase {
                         al.add(l.getId());
                     }
                     getRequest().setAttribute("assignment_languages", al);
-                } else {
-                    a = new Round();
-                    // this is a new assignment, we need the classroom id
-                    if (classroomId == null) {
-                        throw new TCWebException("Invalid classroom id");
-                    }
                 }
 
                 getRequest().setAttribute("assignment_id", a.getId());
@@ -236,7 +236,7 @@ public class EditAssignment2 extends LongBase {
                         setIsNextPageInContext(true);
                     } else {
                         getRequest().setAttribute("assignment_id", a.getId());
-                        getRequest().setAttribute("classroom_id", a.getId());
+                        getRequest().setAttribute("classroom_id", c.getId());
                         getRequest().setAttribute("classroom_name", c.getName());
                         getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
                         getRequest().setAttribute("languages", DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages());
