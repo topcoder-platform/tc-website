@@ -77,6 +77,8 @@
         </h2>
         <form name="f" action="${sessionInfo.servletPath}" method="post">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditAssignment2"/>
+        <tc-webtag:hiddenInput name="<%=Constants.ASSIGNMENT_ID%>" value="${assignment_id}"/>
+        <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom_id}"/>
             <tc-webtag:errorIterator id="err" name="error">
             <p class="bigRed" align="center">
                 <%=err%>

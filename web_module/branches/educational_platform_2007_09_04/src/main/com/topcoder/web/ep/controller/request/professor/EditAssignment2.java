@@ -86,6 +86,8 @@ public class EditAssignment2 extends LongBase {
 
                 if (assignmentId != null) {
 
+                    setDefault("classroom_id", classroomId);
+                    setDefault("assignment_id", assignmentId);
                     setDefault("assignment_name", a.getName());
                     setDefault("assignment_start", a.getContest().getStartDate());
                     setDefault("assignment_end", a.getContest().getEndDate());
