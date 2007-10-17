@@ -74,7 +74,7 @@
         <h2>Welcome to the TopCoder Educational Platform</h2>
 
         <p>
-            The Education Platform extends the TopCoder Algorithm Arena to aid you in learning programming concepts that you are being taught in class.  :
+            The Education Platform extends the TopCoder Algoritm Arena to aid you in learning programming concepts that you are being taught in class.
         </p>
 
     </div>

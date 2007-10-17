@@ -72,8 +72,8 @@
 
         <h2>Welcome to the TopCoder Educational Platform</h2>
 
-        <p align="center">
-            You'll need to register yourself for class(es)<br />before you can start working on assignments,<br />but registering for a class is a simple process:
+        <p>
+            The Education Platform extends the TopCoder Algorithm Arena to aid you in learning programming concepts that you are being taught in class.  Before you can start working on assignments that have been designated by your professor(s), you'll need to register for classes by following this simple process:
         </p>
 
         <div align="center" style="margin: 40px;">
@@ -85,7 +85,7 @@
         </div>
 
         <p align="center">
-            Ready to get started?
+            <strong>Ready to get started?</strong>
         </p>
 
         <div align="center">
