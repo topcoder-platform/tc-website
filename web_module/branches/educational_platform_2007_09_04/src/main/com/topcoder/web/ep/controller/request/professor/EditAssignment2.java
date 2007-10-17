@@ -111,7 +111,7 @@ public class EditAssignment2 extends LongBase {
                 }
 
                 getRequest().setAttribute("assignment_id", a.getId());
-                getRequest().setAttribute("classroom_id", a.getId());
+                getRequest().setAttribute("classroom_id", c.getId());
                 getRequest().setAttribute("classroom_name", c.getName());
                 getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
                 getRequest().setAttribute("languages", DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages());
