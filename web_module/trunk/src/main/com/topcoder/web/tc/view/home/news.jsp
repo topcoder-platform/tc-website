@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.17.07<br />11:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm41">TCHS SRM 41 - Problem Set &amp; Analysis</A></span><br /><br />
+      The match attracted 102 registrants, 37 of them newcomers, and had a rather high success rate, with 11 people getting all three problems correct. <tc-webtag:handle coderId="22653715" context="hs_algorithm"/> won the match with impressive 6 successfull challenges. <tc-webtag:handle coderId="22659963" context="hs_algorithm"/> took the second place due to the fastest submission on Hard, and a newcomer <tc-webtag:handle coderId="22675110" context="hs_algorithm"/> finished third.</td>
+         <td class="newsPhoto"><img src="/i/m/Nickolas_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="15635590" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm41">details</A> | 
+         <tc-webtag:forumLink forumID="516567" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.16.07<br />4:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -161,19 +177,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm368">details</A> | 
          <tc-webtag:forumLink forumID="516065" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />10.04.07<br />4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />">How Do You Like the UML Tool?</A></span><br /><br />
-        The TopCoder UML Tool has been available for component design competitions for two weeks now, and a competition has already been won using it!  We would like to collect your thoughts on the tool at this point in time.  Do you use it for our competitions?  If not, have you tried it?  Are there any missing features you consider essential before you will use the tool in a competition?  Do you have any other feedback on it?
-        <br /><br />We plan to make our tool mandatory by the end of November, so if there are any bugs or features you need us to address before you use it, now is the time to let us know!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />">details</a> | 
-        <a href="http://forums.topcoder.com/?module=Category&categoryID=2479">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
    
