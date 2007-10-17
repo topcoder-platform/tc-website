@@ -52,6 +52,10 @@ public class EditAssignment2 extends LongBase {
             Long assignmentId = getAssignmentParam();
             Long classroomId = getClassroomParam();
 
+            log.debug("assignmentId - " + assignmentId);
+            log.debug("classroomId - " + classroomId);
+            
+            
             //todo change this to only count professor associations, not all
             if (u.getSchools().isEmpty()) {
                 throw new TCWebException("No active schools for this professor");
@@ -86,8 +90,6 @@ public class EditAssignment2 extends LongBase {
 
                 if (assignmentId != null) {
 
-                    setDefault("classroom_id", classroomId);
-                    setDefault("assignment_id", assignmentId);
                     setDefault("assignment_name", a.getName());
                     setDefault("assignment_start", a.getContest().getStartDate());
                     setDefault("assignment_end", a.getContest().getEndDate());
@@ -109,6 +111,7 @@ public class EditAssignment2 extends LongBase {
                 }
 
                 getRequest().setAttribute("assignment_id", a.getId());
+                getRequest().setAttribute("classroom_id", a.getId());
                 getRequest().setAttribute("classroom_name", c.getName());
                 getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
                 getRequest().setAttribute("languages", DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages());
@@ -226,15 +229,19 @@ public class EditAssignment2 extends LongBase {
 
                     getRequest().setAttribute("assignment_languages", al);
 
-                    getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
-                    getRequest().setAttribute("languages", DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages());
-                    getRequest().setAttribute("problem_sets", DAOUtil.getFactory().getProblemSetDAO().findAll());
 
                     if (!hasErrors()) {
                         // next step, confirmation.
                         setNextPage("/professor/editAssignmentConfirm2.jsp");
                         setIsNextPageInContext(true);
                     } else {
+                        getRequest().setAttribute("assignment_id", a.getId());
+                        getRequest().setAttribute("classroom_id", a.getId());
+                        getRequest().setAttribute("classroom_name", c.getName());
+                        getRequest().setAttribute("assignment_score_types", AssignmentScoreType.getAll());
+                        getRequest().setAttribute("languages", DAOUtil.getFactory().getLanguageDAO().findAssignmentLanguages());
+                        getRequest().setAttribute("problem_sets", DAOUtil.getFactory().getProblemSetDAO().findAll());
+
                         setNextPage("/professor/editAssignment2.jsp");
                         setIsNextPageInContext(true);
                     }
