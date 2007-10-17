@@ -44,7 +44,7 @@
 
 
 <p>
-    5.12.5 - 2007.10.xx
+    5.12.5 - 2007.10.16
     <ul>
         <li>Fix bug in search results where if you sorted, and scrolled, it would lose your sort -dok</li>
         <li>Adjust development registration email content to include TC UML tool -dok</li>
