@@ -58,6 +58,8 @@ public class EditAssignment extends LongBase {
             Long assignmentId = getAssignmentParam();
             Long classroomId = getClassroomParam();
 
+            Boolean freshStart = StringUtils.checkNull(getRequest().getParameter(Constants.FRESH_ID)).equals("true");
+            
             if (!"POST".equals(getRequest().getMethod())) {
                 log.debug("First pass - " + getUser().getUserName());
 
@@ -72,7 +74,7 @@ public class EditAssignment extends LongBase {
                 Boolean hasDataInSession = assignmentInSession != null;
                 
                 //check if the data in the session is for a different assignment
-                if (assignmentId != null && assignmentInSession != null && !assignmentId.equals(assignmentInSession.getRoundId())) {
+                if (freshStart || (assignmentId != null && assignmentInSession != null && !assignmentId.equals(assignmentInSession.getRoundId()))) {
                     assignmentInSession = null;
                     hasDataInSession = Boolean.FALSE;
                 }
@@ -106,7 +108,8 @@ public class EditAssignment extends LongBase {
                     setDefault("assignment_start", formatDate(hasDataInSession ? assignmentInSession.getStartDate() : a.getContest().getStartDate()));
                     setDefault("assignment_end", formatDate(hasDataInSession ? assignmentInSession.getEndDate() : a.getContest().getEndDate()));
                     setDefault("assignment_coding_phase_length", hasDataInSession ? assignmentInSession.getCoderPhaseLength() : (Long) a.getProperty(RoundProperty.CODING_PHASE_LENGTH_PROPERTY_ID));
-                    setDefault("assignment_show_all_scores", hasDataInSession ? assignmentInSession.getShowAllScores() : ((Long) a.getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID)).equals(1l) ? "true" : "false");
+                    setDefault("assignment_show_all_scores", hasDataInSession ? ((assignmentInSession.getShowAllScores()).equals(1l) ? "true" : "false") : 
+                        ((Long) a.getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID)).equals(1l) ? "true" : "false");
                     setDefault("assignment_score_type", hasDataInSession ? assignmentInSession.getScoreType() : (Long) a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID));
 
                     getRequest().setAttribute("has_data_in_session", hasDataInSession);
