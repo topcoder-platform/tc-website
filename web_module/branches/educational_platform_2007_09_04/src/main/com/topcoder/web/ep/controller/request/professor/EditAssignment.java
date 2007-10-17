@@ -143,6 +143,7 @@ public class EditAssignment extends LongBase {
                     adto.setClassroomName(c.getName());
 
                     if (a.getId() != null) {
+                        adto.setAssignmentName(a.getName());
                         adto.setStartDate(a.getContest().getStartDate());
                         adto.setEndDate(a.getContest().getEndDate());
                         adto.setCoderPhaseLength((Long) a.getProperty(RoundProperty.CODING_PHASE_LENGTH_PROPERTY_ID));
@@ -157,6 +158,13 @@ public class EditAssignment extends LongBase {
                                 rc.getPoints(),
                                 rc.getId().getComponent().getProblem().getName()));
                     }
+
+                    // fill the languages
+                    List<Integer> languageList = new ArrayList<Integer>();
+                    for (Language l : a.getLanguages()) {
+                        languageList.add(l.getId());
+                    }
+                    adto.setLanguages(languageList);
 
                     setAssignment(adto);
                 }
