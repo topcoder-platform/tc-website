@@ -6,6 +6,8 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request"/>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
 <% ResultSetContainer results = memberSearch.getResults();%>
 
 <html>
@@ -64,6 +66,8 @@
                 <input type="hidden" name="module" value="SimpleSearch"/>
                 <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
                 <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
+                <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+                <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>                
                 <input type="hidden" name="<%=Constants.HANDLE%>" value="<c:out value="${memberSearch.handle}" escapeXml="true"/>"/>
                 <jsp:include page="results.jsp"/>
             </form>
