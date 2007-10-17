@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -25,6 +26,7 @@ import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
+import com.topcoder.web.ep.controller.request.professor.EditAssignment;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -35,7 +37,10 @@ public class StudentReport extends SharedBaseProcessor {
     public static final Integer SCORE_COL = 2;
     public static final Integer NUM_TESTS_COL = 3;
     public static final Integer PERCENT_TESTS_COL = 4;
-    
+
+
+    private static Logger log = Logger.getLogger(StudentReport.class);
+
     @Override
     protected void professorProcessing() throws Exception {
         Classroom c = validateClassroom();
@@ -67,6 +72,7 @@ public class StudentReport extends SharedBaseProcessor {
         if (!s.getId().equals(getUser().getId())) {
             List<StudentReportRow> remove = new ArrayList<StudentReportRow>();
             for (StudentReportRow srr : larr) {
+                log.debug(srr.getAssignmentId() + " - " + srr.getAssignment() + " : " + srr.getShowAllCoders())
                 if (!srr.getShowAllCoders().equals(1)) {
                     remove.add(srr);
                 }
