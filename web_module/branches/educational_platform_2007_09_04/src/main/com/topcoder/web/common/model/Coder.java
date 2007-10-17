@@ -1,18 +1,15 @@
 package com.topcoder.web.common.model;
 
-import com.topcoder.web.common.model.algo.RoomResult;
-import com.topcoder.web.common.model.algo.RoundRegistration;
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.ClassroomComparator;
-import com.topcoder.web.common.model.educ.StudentClassroom;
-
 import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
+
+import com.topcoder.web.common.model.algo.RoomResult;
+import com.topcoder.web.common.model.algo.RoundRegistration;
+import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.common.model.educ.StudentClassroom;
 
 /**
  * A class to hold coder data.
