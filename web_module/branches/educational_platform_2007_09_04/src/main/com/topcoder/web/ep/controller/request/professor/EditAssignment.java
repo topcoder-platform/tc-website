@@ -72,7 +72,7 @@ public class EditAssignment extends LongBase {
                 Boolean hasDataInSession = assignmentInSession != null;
                 
                 //check if the data in the session is for a different assignment
-                if (assignmentId != null && !assignmentId.equals(assignmentInSession.getRoundId())) {
+                if (assignmentId != null && assignmentInSession != null && !assignmentId.equals(assignmentInSession.getRoundId())) {
                     assignmentInSession = null;
                     hasDataInSession = Boolean.FALSE;
                 }
