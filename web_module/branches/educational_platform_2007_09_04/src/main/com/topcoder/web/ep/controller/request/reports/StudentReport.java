@@ -282,25 +282,25 @@ public class StudentReport extends SharedBaseProcessor {
         if (SCORE_COL.toString().equals(sortCol)) {
             Collections.sort(larr, new Comparator<StudentReportRow>() {
                 public int compare(StudentReportRow arg0, StudentReportRow arg1) {
-                    return arg1.getAssignmentScore().compareTo(arg0.getAssignmentScore());
+                    return arg0.getAssignmentScore() == null ? -1 : arg1.getAssignmentScore().compareTo(arg0.getAssignmentScore());
                 }
             });
         } else if (NUM_TESTS_COL.toString().equals(sortCol)) {
             Collections.sort(larr, new Comparator<StudentReportRow>() {
                 public int compare(StudentReportRow arg0, StudentReportRow arg1) {
-                    return arg1.getAssignmentNumTestsPassed().compareTo(arg0.getAssignmentNumTestsPassed());
+                    return arg0.getAssignmentNumTestsPassed() == null ? -1 : arg1.getAssignmentNumTestsPassed().compareTo(arg0.getAssignmentNumTestsPassed());
                 }
             });
         } else if (PERCENT_TESTS_COL.toString().equals(sortCol)) {
             Collections.sort(larr, new Comparator<StudentReportRow>() {
                 public int compare(StudentReportRow arg0, StudentReportRow arg1) {
-                    return arg1.getAssignmentPercentTestsPassed().compareTo(arg0.getAssignmentPercentTestsPassed());
+                    return arg0.getAssignmentPercentTestsPassed() == null ? -1 : arg1.getAssignmentPercentTestsPassed().compareTo(arg0.getAssignmentPercentTestsPassed());
                 }
             });
         } else {
             Collections.sort(larr, new Comparator<StudentReportRow>() {
                 public int compare(StudentReportRow arg0, StudentReportRow arg1) {
-                    return arg1.getAssignment().toUpperCase().compareTo(arg0.getAssignment().toUpperCase());
+                    return arg0.getAssignment() == null ? -1 : arg1.getAssignment().toUpperCase().compareTo(arg0.getAssignment().toUpperCase());
                 }
             });
         }
