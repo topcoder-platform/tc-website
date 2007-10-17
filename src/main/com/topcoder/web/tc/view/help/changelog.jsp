@@ -42,6 +42,13 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+<p>
+    5.12.6 - 2007.10.xx
+    <ul>
+        <li>Fix bug in simple search results where if you sorted and scrolled, it would lose your sort -dok</li>
+    </ul>
+
+</p>
 
 <p>
     5.12.5 - 2007.10.16
