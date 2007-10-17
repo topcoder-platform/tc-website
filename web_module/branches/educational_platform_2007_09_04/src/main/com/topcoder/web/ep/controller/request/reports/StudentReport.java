@@ -73,8 +73,9 @@ public class StudentReport extends SharedBaseProcessor {
             List<StudentReportRow> remove = new ArrayList<StudentReportRow>();
             for (StudentReportRow srr : larr) {
                 log.debug(srr.getAssignmentId() + " - " + srr.getAssignment() + " : " + srr.getShowAllCoders());
-                if (!srr.getShowAllCoders().equals(1)) {
+                if (!srr.getShowAllCoders().equals(1l)) {
                     remove.add(srr);
+                    log.debug("removed");
                 }
             }
             larr.removeAll(remove);
