@@ -23,10 +23,10 @@ import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.common.model.algo.ComponentState;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundProperty;
+import com.topcoder.web.common.model.educ.AssignmentScoreType;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
-import com.topcoder.web.ep.controller.request.professor.EditAssignment;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -53,8 +53,17 @@ public class StudentReport extends SharedBaseProcessor {
 
         List<StudentReportRow> larr = processReport(c, s);
 
+
+        // sort results
+        sortResult(larr);
+        
         getRequest().setAttribute("results", larr);
         getRequest().setAttribute("isStudent", Boolean.FALSE);
+        getRequest().setAttribute("student", s);
+        getRequest().setAttribute("classroom", c);
+        
+        setNextPage("/reports/student.jsp");
+        setIsNextPageInContext(true);
     }
 
     @Override
@@ -72,17 +81,36 @@ public class StudentReport extends SharedBaseProcessor {
         if (!s.getId().equals(getUser().getId())) {
             List<StudentReportRow> remove = new ArrayList<StudentReportRow>();
             for (StudentReportRow srr : larr) {
-                log.debug(srr.getAssignmentId() + " - " + srr.getAssignment() + " : " + srr.getShowAllCoders());
                 if (!srr.getShowAllCoders().equals(1l)) {
                     remove.add(srr);
-                    log.debug("removed");
                 }
             }
             larr.removeAll(remove);
         }
+
+        for (StudentReportRow srr : larr) {
+           if (srr.getScoreType().equals(AssignmentScoreType.TC_SCORE_TYPE)) {
+               srr.setAssignmentNumTestsPassed(null);
+               srr.setAssignmentPercentTestsPassed(null);
+           } else if (srr.getScoreType().equals(AssignmentScoreType.PASSED_SCORE_TYPE)) {
+               srr.setAssignmentScore(null);
+               srr.setAssignmentPercentTestsPassed(null);
+           } else if (srr.getScoreType().equals(AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE)) {
+               srr.setAssignmentScore(null);
+               srr.setAssignmentNumTestsPassed(null);
+           }  
+        }
+
+        // sort results
+        sortResult(larr);
         
         getRequest().setAttribute("results", larr);
         getRequest().setAttribute("isStudent", Boolean.TRUE);
+        getRequest().setAttribute("student", s);
+        getRequest().setAttribute("classroom", c);
+        
+        setNextPage("/reports/student.jsp");
+        setIsNextPageInContext(true);
     }
     
     protected List<StudentReportRow> processReport(Classroom c, Coder s) throws Exception {
@@ -181,15 +209,6 @@ public class StudentReport extends SharedBaseProcessor {
             lsrdr = new ArrayList<StudentReportDetailRow>();
             assignmentPoints = 0d;
         }
-
-        // sort results
-        sortResult(larr);
-        
-        getRequest().setAttribute("student", s);
-        getRequest().setAttribute("classroom", c);
-        
-        setNextPage("/reports/student.jsp");
-        setIsNextPageInContext(true);
         
         return larr;
     }
