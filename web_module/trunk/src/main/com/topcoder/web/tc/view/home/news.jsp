@@ -8,7 +8,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm41">TCHS SRM 41 - Problem Set &amp; Analysis</A></span><br /><br />
-      The match attracted 102 registrants, 37 of them newcomers, and had a rather high success rate, with 11 people getting all three problems correct. <tc-webtag:handle coderId="22653715" context="hs_algorithm"/> won the match with impressive 6 successfull challenges. <tc-webtag:handle coderId="22659963" context="hs_algorithm"/> took the second place due to the fastest submission on Hard, and a newcomer <tc-webtag:handle coderId="22675110" context="hs_algorithm"/> finished third.</td>
+      The match attracted 102 registrants, 37 of them newcomers, and had a rather high success rate, with 11 people getting all three problems correct. <tc-webtag:handle coderId="22653715" context="hs_algorithm"/> won the match with impressive 6 successful challenges. <tc-webtag:handle coderId="22659963" context="hs_algorithm"/> took the second place due to the fastest submission on Hard, and a newcomer <tc-webtag:handle coderId="22675110" context="hs_algorithm"/> finished third.</td>
          <td class="newsPhoto"><img src="/i/m/Nickolas_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="15635590" context="algorithm"/></td></tr></table>
       </td>
    </tr>

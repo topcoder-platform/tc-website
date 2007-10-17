@@ -60,7 +60,7 @@ The match attracted 102 registrants, 37 of them newcomers, and had a rather high
 with 11 people getting all three problems correct.
 <br />
 <tc-webtag:handle coderId="22653715" context="hs_algorithm"/>
- won the match with impressive 6 successfull challenges. 
+ won the match with impressive 6 successful challenges. 
 <tc-webtag:handle coderId="22659963" context="hs_algorithm"/>
  took the second place due to the fastest submission on Hard, and a newcomer 
 <tc-webtag:handle coderId="22675110" context="hs_algorithm"/>
