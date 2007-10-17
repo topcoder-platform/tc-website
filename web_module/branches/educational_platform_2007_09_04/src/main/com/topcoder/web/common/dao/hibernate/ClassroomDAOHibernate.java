@@ -19,6 +19,7 @@ import com.topcoder.web.common.model.educ.Classroom;
  */
 public class ClassroomDAOHibernate extends GenericBase<Classroom, Long> implements ClassroomDAO {
 
+    @SuppressWarnings("unchecked")
     public List<Round> getAssignments(Long classroomId) {
         Criteria c = getSession().createCriteria(Round.class);
         
@@ -27,9 +28,10 @@ public class ClassroomDAOHibernate extends GenericBase<Classroom, Long> implemen
             .add(Restrictions.eq("intValue", classroomId));
         c.addOrder(Order.asc("name"));
         
-        return c.list();
+        return (List<Round>) c.list();
     }
     
+    @SuppressWarnings("unchecked")
     public List<Round> getAssignmentsForStudent(Long classroomId, Long coderId) {
         Criteria c = getSession().createCriteria(Round.class);
 
@@ -42,9 +44,10 @@ public class ClassroomDAOHibernate extends GenericBase<Classroom, Long> implemen
         
         c.addOrder(Order.asc("name"));
             
-        return c.list();
+        return (List<Round>) c.list();
     }
     
+    @SuppressWarnings("unchecked")
 	public List<Classroom> getClassroomsUsingProfessorId(Long professorId) {
 		return (List<Classroom>) getSession().createCriteria(Classroom.class)
         	.add(Restrictions.eq("professor.id", professorId))
@@ -53,4 +56,19 @@ public class ClassroomDAOHibernate extends GenericBase<Classroom, Long> implemen
         	.addOrder(Order.asc("name"))
             .list();
 	}
+
+    @SuppressWarnings("unchecked")
+    public List<Classroom> getClassroomsUsingStudentId(Long studentId, Long statusId) {
+        Criteria c = getSession().createCriteria(Classroom.class);
+        
+        c.add(Restrictions.eq("statusId", Classroom.ACTIVE))
+            .addOrder(Order.asc("school"))
+            .addOrder(Order.asc("name"));
+        
+        c.createCriteria("studentClassrooms")
+            .add(Restrictions.eq("statusId", statusId))
+            .add(Restrictions.eq("id.student.id", studentId));
+            
+        return (List<Classroom>) c.list();
+    }
 }

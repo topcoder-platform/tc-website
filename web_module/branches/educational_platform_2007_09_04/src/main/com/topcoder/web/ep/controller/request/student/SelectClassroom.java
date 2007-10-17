@@ -16,9 +16,11 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.LongBase;
 
@@ -107,7 +109,12 @@ public class SelectClassroom extends LongBase {
     private Set<Classroom> getPossibleClassrooms(School s, User u) {
         // include only non-registered classrooms
         Set<Classroom> sc = new HashSet<Classroom>(s.getClassrooms());
-        for (Classroom c : u.getCoder().getClassrooms()) {
+        for (Classroom c : DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(14810373l, StudentClassroom.ACTIVE_STATUS)) {
+            if (sc.contains(c)) {
+                sc.remove(c);
+            }
+        }
+        for (Classroom c : DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(14810373l, StudentClassroom.PENDING_STATUS)) {
             if (sc.contains(c)) {
                 sc.remove(c);
             }

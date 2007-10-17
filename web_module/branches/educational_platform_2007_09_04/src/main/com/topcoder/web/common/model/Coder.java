@@ -218,23 +218,23 @@ public class Coder extends Base {
         return Collections.unmodifiableSet(studentClassrooms);
     }
 
-    public Set<Classroom> getClassrooms(Long statusId) {
-        SortedSet<Classroom> cs = new TreeSet<Classroom>(new ClassroomComparator());
-        for (StudentClassroom sc : this.studentClassrooms) {
-            if (sc.getStatusId().equals(statusId)) {
-                cs.add(sc.getId().getClassroom());
-            }
-        }
-        return Collections.unmodifiableSet(cs);
-    }
+//    public Set<Classroom> getClassrooms(Long statusId) {
+//        SortedSet<Classroom> cs = new TreeSet<Classroom>(new ClassroomComparator());
+//        for (StudentClassroom sc : this.studentClassrooms) {
+//            if (sc.getStatusId().equals(statusId)) {
+//                cs.add(sc.getId().getClassroom());
+//            }
+//        }
+//        return Collections.unmodifiableSet(cs);
+//    }
 
-    public Set<Classroom> getClassrooms() {
-        SortedSet<Classroom> cs = new TreeSet<Classroom>(new ClassroomComparator());
-        for (StudentClassroom sc : this.studentClassrooms) {
-            cs.add(sc.getId().getClassroom());
-        }
-        return Collections.unmodifiableSet(cs);
-    }
+//    public Set<Classroom> getClassrooms() {
+//        Set<Classroom> cs = new HashSet<Classroom>();
+//        for (StudentClassroom sc : this.studentClassrooms) {
+//            cs.add(sc.getId().getClassroom());
+//        }
+//        return Collections.unmodifiableSet(cs);
+//    }
 
     public void setStudentClassrooms(Set studentClassrooms) {
         this.studentClassrooms = studentClassrooms;

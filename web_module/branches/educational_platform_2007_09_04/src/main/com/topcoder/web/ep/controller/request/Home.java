@@ -41,7 +41,7 @@ public class Home extends SharedBaseProcessor {
         User u  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
         // add active classrooms
         Map<Long, StudentHomeRow> schools = new HashMap<Long, StudentHomeRow>(); 
-        for (Classroom c : u.getCoder().getClassrooms(StudentClassroom.ACTIVE_STATUS)) {
+        for (Classroom c : DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(14810373l, StudentClassroom.ACTIVE_STATUS)) {
             Long schoolId = c.getSchool().getId();
             if (!schools.containsKey(schoolId)) {
                 schools.put(schoolId, new StudentHomeRow(schoolId, c.getSchool().getName()));
@@ -50,7 +50,7 @@ public class Home extends SharedBaseProcessor {
         }
 
         // add pending classrooms
-        for (Classroom c : u.getCoder().getClassrooms(StudentClassroom.PENDING_STATUS)) {
+        for (Classroom c : DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(14810373l, StudentClassroom.PENDING_STATUS)) {
             Long schoolId = c.getSchool().getId();
             if (!schools.containsKey(schoolId)) {
                 schools.put(schoolId, new StudentHomeRow(schoolId, c.getSchool().getName()));
