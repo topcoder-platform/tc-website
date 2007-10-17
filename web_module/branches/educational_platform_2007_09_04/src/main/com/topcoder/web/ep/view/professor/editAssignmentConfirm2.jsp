@@ -63,6 +63,17 @@
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditAssignmentSubmit"/>
         <tc-webtag:hiddenInput name="<%=Constants.ASSIGNMENT_ID%>" value="${assignment_id}"/>
         <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom_id}"/>
+        <tc-webtag:hiddenInput name="assignment_name"/>
+        <tc-webtag:hiddenInput name="assignment_start"/>
+        <tc-webtag:hiddenInput name="assignment_end"/>
+        <tc-webtag:hiddenInput name="assignment_coding_phase_length"/>
+        <tc-webtag:hiddenInput name="assignment_show_all_scores"/>
+        <tc-webtag:hiddenInput name="assignment_score_type"/>
+        <tc-webtag:hiddenInput name="<%=Constants.PROBLEM_SET_ID%>"/>
+
+        <c:forEach items="${assignment_languages}" var="language">
+            <tc-webtag:hiddenInput name="lid" value="${language}"/>
+        </c:forEach>
 
         <p align="center">
             Are you sure you want to add/update this assignment?
@@ -84,8 +95,8 @@
                     </td>
                     <td align="left">
                         <p>${classroom_name}</p>
-                        <p><fmt:formatDate value="${assignment_start}" pattern="yyyy.MM.dd HH:mm"/></p>
-                        <p><fmt:formatDate value="${assignment_end}" pattern="yyyy.MM.dd HH:mm"/></p>
+                        <p>${assignment_start}"/></p>
+                        <p>${assignment_end}"/></p>
                         <p>${assignment_name}</p>
                         <p>${assignment_coding_phase_length}</p>
                         <p>
@@ -102,18 +113,17 @@
             </table>
         </div>
 
-    <c:if test="${empty ea_assignment.roundId}">
+    <c:if test="${assignment_id}">
         <div align="center">
             <div style="width:350px;">
 
                 <table cellpadding="0" cellspacing="0" class="stat">
-                    <tr><td class="title" colspan="2">Problem set: ${problem_set_name}</td></tr>
-                    <tr><td class="header" width="100%">Problem</td><td class="headerR">Points</td></tr>
+                    <tr><td class="title">Problem set: ${problem_set_name}</td></tr>
+                    <tr><td class="header" width="100%">Problem</td></tr>
                     <%int i = 0;%>
-                    <c:forEach items="${ea_assignment.components}" var="component">                
+                    <c:forEach items="${problems}" var="problem">                
                         <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                            <td class="value">${component.problemName}</td>
-                            <td class="valueR">${component.points}</td>
+                            <td class="value">${problem}</td>
                         </tr>
                     <%i++;%>
                     </c:forEach>
@@ -129,11 +139,11 @@
 
     <div style="margin-top: 10px;">
         <c:choose>
-            <c:when test="empty ea_assignment.roundId">
-                <a href="${sessionInfo.servletPath}?module=EditAssignment&clsid=${ea_assignment.classroomId}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+            <c:when test="empty assignment_id">
+                <a href="${sessionInfo.servletPath}?module=EditAssignment&clsid=${classroom_id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
             </c:when>
             <c:otherwise>
-                <a href="${sessionInfo.servletPath}?module=EditAssignment&asid=${ea_assignment.roundId}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+                <a href="${sessionInfo.servletPath}?module=EditAssignment&asid=${assignment_id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
             </c:otherwise>
         </c:choose>
     </div>
