@@ -73,7 +73,7 @@
         <h2>Welcome to the TopCoder Educational Platform</h2>
 
 <p>
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce suscipit velit eu ipsum. Nulla euismod eros at quam. Nullam ut nisl eget ante consequat tincidunt. Donec ultricies, neque pretium malesuada consectetuer, diam nibh congue nibh, imperdiet vulputate augue lectus ac dui. Vestibulum lorem ligula, rhoncus in, interdum quis, rhoncus vel, ligula. Duis in metus non metus ultricies tempus. Integer sit amet risus sit amet velit aliquam consectetuer. Aenean magna. Proin luctus, dolor ac luctus eleifend, neque ante adipiscing nunc, sed tincidunt nisi orci nec magna. Nullam ultrices accumsan dolor. Integer ante orci, lacinia sit amet, imperdiet vitae, aliquam at, orci. Integer in eros.
+The Education Platform extends the TopCoder Algorithm Arena to aid you in teaching computer science and programming at your university.  You can assign problems for your students to complete that will help reinforce the concepts that you are teaching in the classroom.  Additionally, you will be able to see your students' results, including the actual code written.  We at TopCoder hope you find this tool useful and informative.
 </p>
 
     </div>
@@ -83,9 +83,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
     <div class="spacer">
 <c:choose>
     <c:when test="${not empty classrooms}">
-        <p align="center">
-            Your classes:
-        </p>
+        <h2>Your classes</h2>
 
         <c:forEach items="${classrooms}" var="classroom">
             <c:if test="${classroom.school != oldSchool}">
@@ -114,6 +112,9 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sapien. Fusce su
         </div>
     </c:when>
     <c:otherwise>
+        <p align="center">
+            <strong>Ready to get started?</strong>
+        </p>
         <div align="center"><a href="${sessionInfo.servletPath}professor/?module=EditClassroom"><img src="/i/ep/buttons/addClass.png" alt="Add class" /></a></div>
     </c:otherwise>
 </c:choose>
