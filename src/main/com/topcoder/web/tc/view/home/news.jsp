@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.17.07<br />6:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=ViewSurvey&sid=19850">Vote for the TCO08 website</A></span><br /><br />
+        As you may have heard, the TCO is bigger and better in 2008, as we fly in the Top 120 finalists to compete for more than a quarter of a million dollars in prizes. We needed a sharp-looking web site to handle all the tournament info, and our Studio members really outdid themselves this time. Now we need you to determine the best look &amp; feel of the biggest TopCoder event to date. Vote now for the best TCO08 Tournament web site design! Hurry - voting ends at 5:00 pm EDT on Friday, October 19.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=ViewSurvey&sid=19850">vote</a> | 
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2133">contest details</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=991&start=0&mc=1#3799">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.17.07<br />2:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">Round 3 of the TCCC07 CDDC Finals</A></span><br /><br />
@@ -158,21 +172,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=bracket">details</a> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.09.07<br />9:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm369">SRM 369 - Problem Set &amp; Analysis</A></span><br /><br />
-      Competitors faced tricky problem sets in SRM 369, which ended up being unrated due to some unfortunate technical issues. In division 1, seven coders submitted the hard problem including six who submitted all three.  However, <tc-webtag:handle coderId="10574855" context="algorithm"/> was the only person to successfully solve all three problems, with <tc-webtag:handle coderId="13351270" context="algorithm"/> and <tc-webtag:handle coderId="15881985" context="algorithm"/> rounding out the top 3.</td>
-         <td class="newsPhoto"><img src="/i/m/eleusive_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8369955" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm369">details</A> | 
-         <tc-webtag:forumLink forumID="516066" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
