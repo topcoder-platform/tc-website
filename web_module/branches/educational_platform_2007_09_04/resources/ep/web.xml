@@ -87,7 +87,7 @@
         </init-param>
         <init-param>
             <param-name>processor_path</param-name>
-            <param-value>com.topcoder.web.ep.controller.request.professor.reports</param-value>
+            <param-value>com.topcoder.web.ep.controller.request.reports</param-value>
         </init-param>
         <init-param>
             <param-name>error_page</param-name>
