@@ -153,13 +153,13 @@
                     <a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;asid=${result.assignmentId}">${result.assignment}</a>
                     </td>
 
-                    <c:choose><c:when test="${empty result.assignmentScore}">
+                    <c:choose><c:when test="${isStudent && result.scoreType != tc_score_type}">
                         <td class="valueC">&nbsp;</td>
                     </c:when><c:otherwise>
                         <td class="valueC">${result.assignmentScore}</td>
                     </c:otherwise></c:choose>
 
-                    <c:choose><c:when test="${empty result.assignmentNumTestsPassed}">
+                    <c:choose><c:when test="${isStudent && result.scoreType != passed_score_type}">
                         <td class="valueC">&nbsp;</td>
                     </c:when><c:otherwise>
                         <c:choose>
@@ -172,7 +172,7 @@
                         </c:choose>
                     </c:otherwise></c:choose>
 
-                    <c:choose><c:when test="${empty result.assignmentPercentTestsPassed}">
+                    <c:choose><c:when test="${isStudent && result.scoreType != success_fail_score_type}">
                         <td class="valueC">&nbsp;</td>
                     </c:when><c:otherwise>
                         <td class="valueC">

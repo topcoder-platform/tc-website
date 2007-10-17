@@ -16,7 +16,7 @@ public class StudentReportRow {
     private Integer assignmentNumTestsPassed;
     private Double assignmentPercentTestsPassed;
     private Long showAllCoders;
-    private Long scoreType;
+    private Integer scoreType;
     
 
     private List<StudentReportDetailRow> details;
@@ -25,7 +25,7 @@ public class StudentReportRow {
             Double assignmentScore, Integer assignmentNumTestsPassed,
             Double assignmentPercentTestsPassed,
             Long showAllCoders,
-            Long scoreType,
+            Integer scoreType,
             List<StudentReportDetailRow> details) {
         super();
         this.assignmentId = assignmentId;
@@ -46,11 +46,11 @@ public class StudentReportRow {
         this.showAllCoders = showAllCoders;
     }
 
-    public Long getScoreType() {
+    public Integer getScoreType() {
         return scoreType;
     }
 
-    public void setScoreType(Long scoreType) {
+    public void setScoreType(Integer scoreType) {
         this.scoreType = scoreType;
     }
 
