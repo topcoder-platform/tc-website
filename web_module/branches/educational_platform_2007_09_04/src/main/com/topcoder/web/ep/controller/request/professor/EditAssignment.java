@@ -112,8 +112,6 @@ public class EditAssignment extends LongBase {
                         ((Long) a.getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID)).equals(1l) ? "true" : "false");
                     setDefault("assignment_score_type", hasDataInSession ? assignmentInSession.getScoreType() : (Long) a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID));
 
-//                    getRequest().setAttribute("has_data_in_session", hasDataInSession);
-                    
                     if (hasDataInSession) {
                         // we have data in the session, use it.
                         getRequest().setAttribute("assignment_languages", assignmentInSession.getLanguages());
