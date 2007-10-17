@@ -115,7 +115,7 @@
                                 </c:choose>
                                 <c:choose>
                                     <c:when test="${assignment.contest.startDate > now}">
-                                        <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;asid=${assignment.id}"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
+                                        <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;asid=${assignment.id}&amp;fr=true"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
                                     </c:when>
                                     <c:otherwise>
                                         <td class="valueC">&nbsp;</td>
@@ -137,7 +137,7 @@
             </c:choose>
 
         <div align="center">
-            <a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/addAssignment.png" alt="Add assignment" /></a>
+            <a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;clsid=${classroom.id}&amp;fr=true"><img src="/i/ep/buttons/addAssignment.png" alt="Add assignment" /></a>
         </div>
 
     <br clear="all" />
