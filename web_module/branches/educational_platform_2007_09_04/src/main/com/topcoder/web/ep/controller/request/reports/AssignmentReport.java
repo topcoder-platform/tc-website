@@ -88,7 +88,7 @@ public class AssignmentReport extends SharedBaseProcessor {
         List<AssignmentReportRow> larr = new ArrayList<AssignmentReportRow>();
         
         for (ResultSetRow rsr : rsc) {
-            if (rsr.getItem("total").getResultData() != null) {  
+            if (rsr.getItem("succeeded").getResultData() != null) {  
                 larr.add(new AssignmentReportRow(
                     rsr.getLongItem("coder_id"), 
                     rsr.getStringItem("last_name") + ", " + rsr.getStringItem("first_name"),
