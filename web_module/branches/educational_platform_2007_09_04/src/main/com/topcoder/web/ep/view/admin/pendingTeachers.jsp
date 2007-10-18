@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.ep.Constants" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%@ page contentType="text/html;charset=utf-8" %>
