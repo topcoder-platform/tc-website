@@ -49,7 +49,9 @@ public class StudentReport extends SharedBaseProcessor {
 
         List<StudentReportRow> larr = processReport(c, s);
 
+        getRequest().setAttribute("is_student", Boolean.FALSE);
         commonPostProcessing(c, s, larr);
+        
     }
 
     @Override
@@ -66,6 +68,7 @@ public class StudentReport extends SharedBaseProcessor {
 
         applyStudentRestrictions(s, larr);
 
+        getRequest().setAttribute("is_student", Boolean.TRUE);
         commonPostProcessing(c, s, larr);
     }
 
@@ -252,7 +255,6 @@ public class StudentReport extends SharedBaseProcessor {
         sortResult(larr);
         
         getRequest().setAttribute("results", larr);
-        getRequest().setAttribute("isStudent", Boolean.FALSE);
         getRequest().setAttribute("student", s);
         getRequest().setAttribute("classroom", c);
         
