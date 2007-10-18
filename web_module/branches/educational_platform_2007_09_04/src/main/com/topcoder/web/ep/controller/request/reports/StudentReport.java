@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -38,9 +37,6 @@ public class StudentReport extends SharedBaseProcessor {
     public static final Integer NUM_TESTS_COL = 3;
     public static final Integer PERCENT_TESTS_COL = 4;
 
-
-    private static Logger log = Logger.getLogger(StudentReport.class);
-
     @Override
     protected void professorProcessing() throws Exception {
         Classroom c = validateClassroom();
@@ -53,17 +49,7 @@ public class StudentReport extends SharedBaseProcessor {
 
         List<StudentReportRow> larr = processReport(c, s);
 
-
-        // sort results
-        sortResult(larr);
-        
-        getRequest().setAttribute("results", larr);
-        getRequest().setAttribute("isStudent", Boolean.FALSE);
-        getRequest().setAttribute("student", s);
-        getRequest().setAttribute("classroom", c);
-        
-        setNextPage("/reports/student.jsp");
-        setIsNextPageInContext(true);
+        commonPostProcessing(c, s, larr);
     }
 
     @Override
@@ -77,42 +63,12 @@ public class StudentReport extends SharedBaseProcessor {
         }
 
         List<StudentReportRow> larr = processReport(c, s);
-        // if the student is seeing his report, do nothing, otherwise remove rows that cannot be shown
-        if (!s.getId().equals(getUser().getId())) {
-            List<StudentReportRow> remove = new ArrayList<StudentReportRow>();
-            for (StudentReportRow srr : larr) {
-                if (!srr.getShowAllCoders().equals(1l)) {
-                    remove.add(srr);
-                }
-            }
-            larr.removeAll(remove);
-        }
 
-        for (StudentReportRow srr : larr) {
-           if (srr.getScoreType().equals(AssignmentScoreType.TC_SCORE_TYPE)) {
-               srr.setAssignmentNumTestsPassed(-999);
-               srr.setAssignmentPercentTestsPassed(-999d);
-           } else if (srr.getScoreType().equals(AssignmentScoreType.PASSED_SCORE_TYPE)) {
-               srr.setAssignmentScore(-999d);
-               srr.setAssignmentPercentTestsPassed(-999d);
-           } else if (srr.getScoreType().equals(AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE)) {
-               srr.setAssignmentScore(-999d);
-               srr.setAssignmentNumTestsPassed(-999);
-           }  
-        }
+        applyStudentRestrictions(s, larr);
 
-        // sort results
-        sortResult(larr);
-        
-        getRequest().setAttribute("results", larr);
-        getRequest().setAttribute("isStudent", Boolean.TRUE);
-        getRequest().setAttribute("student", s);
-        getRequest().setAttribute("classroom", c);
-        
-        setNextPage("/reports/student.jsp");
-        setIsNextPageInContext(true);
+        commonPostProcessing(c, s, larr);
     }
-    
+
     protected List<StudentReportRow> processReport(Classroom c, Coder s) throws Exception {
 
         // get all rounds for this classroom, student
@@ -263,7 +219,47 @@ public class StudentReport extends SharedBaseProcessor {
 
         return id;
     }
-    
+
+    private void applyStudentRestrictions(Coder s, List<StudentReportRow> larr) {
+        // if the student is seeing his report, do nothing, otherwise remove rows that cannot be shown
+        if (!s.getId().equals(getUser().getId())) {
+            List<StudentReportRow> remove = new ArrayList<StudentReportRow>();
+            for (StudentReportRow srr : larr) {
+                if (!srr.getShowAllCoders().equals(1l)) {
+                    remove.add(srr);
+                }
+            }
+            larr.removeAll(remove);
+        }
+
+        for (StudentReportRow srr : larr) {
+           if (srr.getScoreType().equals(AssignmentScoreType.TC_SCORE_TYPE)) {
+               srr.setAssignmentNumTestsPassed(-999);
+               srr.setAssignmentPercentTestsPassed(-999d);
+           } else if (srr.getScoreType().equals(AssignmentScoreType.PASSED_SCORE_TYPE)) {
+               srr.setAssignmentScore(-999d);
+               srr.setAssignmentPercentTestsPassed(-999d);
+           } else if (srr.getScoreType().equals(AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE)) {
+               srr.setAssignmentScore(-999d);
+               srr.setAssignmentNumTestsPassed(-999);
+           }  
+        }
+    }
+
+    private void commonPostProcessing(Classroom c, Coder s,
+            List<StudentReportRow> larr) {
+        // sort results
+        sortResult(larr);
+        
+        getRequest().setAttribute("results", larr);
+        getRequest().setAttribute("isStudent", Boolean.FALSE);
+        getRequest().setAttribute("student", s);
+        getRequest().setAttribute("classroom", c);
+        
+        setNextPage("/reports/student.jsp");
+        setIsNextPageInContext(true);
+    }
+
     private void sortResult(List<StudentReportRow> larr) {
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
