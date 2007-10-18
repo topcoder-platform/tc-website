@@ -39,7 +39,7 @@ public class ViewClassroomDetails extends SharedBaseProcessor {
     @Override
     protected void studentProcessing() throws Exception {
         Classroom c = getClassroom();
-        if (c.getStudent(getUser().getId()) != null) {
+        if (c.getActiveStudent(getUser().getId()) != null) {
             log.debug("active student");
             // this user is an active student of the classroom
             getRequest().setAttribute("classroom", c);

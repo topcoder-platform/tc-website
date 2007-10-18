@@ -72,7 +72,7 @@ public class StudentReport extends SharedBaseProcessor {
         Coder s = validateStudent(c);
 
         // check if the logged student belongs to this classroom 
-        if (c.getStudent(getUser().getId()) == null) {
+        if (c.getActiveStudent(getUser().getId()) == null) {
             throw new NavigationException("You don't have permission to see this page.");
         }
 
@@ -90,14 +90,14 @@ public class StudentReport extends SharedBaseProcessor {
 
         for (StudentReportRow srr : larr) {
            if (srr.getScoreType().equals(AssignmentScoreType.TC_SCORE_TYPE)) {
-               srr.setAssignmentNumTestsPassed(null);
-               srr.setAssignmentPercentTestsPassed(null);
+               srr.setAssignmentNumTestsPassed(-999);
+               srr.setAssignmentPercentTestsPassed(-999d);
            } else if (srr.getScoreType().equals(AssignmentScoreType.PASSED_SCORE_TYPE)) {
-               srr.setAssignmentScore(null);
-               srr.setAssignmentPercentTestsPassed(null);
+               srr.setAssignmentScore(-999d);
+               srr.setAssignmentPercentTestsPassed(-999d);
            } else if (srr.getScoreType().equals(AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE)) {
-               srr.setAssignmentScore(null);
-               srr.setAssignmentNumTestsPassed(null);
+               srr.setAssignmentScore(-999d);
+               srr.setAssignmentNumTestsPassed(-999);
            }  
         }
 
@@ -282,25 +282,25 @@ public class StudentReport extends SharedBaseProcessor {
         if (SCORE_COL.toString().equals(sortCol)) {
             Collections.sort(larr, new Comparator<StudentReportRow>() {
                 public int compare(StudentReportRow arg0, StudentReportRow arg1) {
-                    return arg1.getAssignmentScore() == null ? -1 : arg1.getAssignmentScore().compareTo(arg0.getAssignmentScore());
+                    return arg1.getAssignmentScore().compareTo(arg0.getAssignmentScore());
                 }
             });
         } else if (NUM_TESTS_COL.toString().equals(sortCol)) {
             Collections.sort(larr, new Comparator<StudentReportRow>() {
                 public int compare(StudentReportRow arg0, StudentReportRow arg1) {
-                    return arg1.getAssignmentNumTestsPassed() == null ? -1 : arg1.getAssignmentNumTestsPassed().compareTo(arg0.getAssignmentNumTestsPassed());
+                    return arg1.getAssignmentNumTestsPassed().compareTo(arg0.getAssignmentNumTestsPassed());
                 }
             });
         } else if (PERCENT_TESTS_COL.toString().equals(sortCol)) {
             Collections.sort(larr, new Comparator<StudentReportRow>() {
                 public int compare(StudentReportRow arg0, StudentReportRow arg1) {
-                    return arg1.getAssignmentPercentTestsPassed() == null ? -1 : arg1.getAssignmentPercentTestsPassed().compareTo(arg0.getAssignmentPercentTestsPassed());
+                    return arg1.getAssignmentPercentTestsPassed().compareTo(arg0.getAssignmentPercentTestsPassed());
                 }
             });
         } else {
             Collections.sort(larr, new Comparator<StudentReportRow>() {
                 public int compare(StudentReportRow arg0, StudentReportRow arg1) {
-                    return arg1.getAssignment() == null ? -1 : arg1.getAssignment().toUpperCase().compareTo(arg0.getAssignment().toUpperCase());
+                    return arg1.getAssignment().toUpperCase().compareTo(arg0.getAssignment().toUpperCase());
                 }
             });
         }

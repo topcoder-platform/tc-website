@@ -41,7 +41,7 @@ public class ViewClassroomAssignments extends SharedBaseProcessor {
     @Override
     protected void studentProcessing() throws Exception {
         Classroom c = getClassroom();
-        Coder s = c.getStudent(getUser().getId());
+        Coder s = c.getActiveStudent(getUser().getId());
         if (s != null) {
             log.debug("active student");
 

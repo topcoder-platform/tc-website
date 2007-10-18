@@ -143,10 +143,20 @@ public class Classroom {
     }    
 
     @Transient
-    public Coder getStudent(Long studentId) {
+    public Coder getActiveStudent(Long studentId) {
         for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
             if (sc.getId().getStudent().getId().equals(studentId) && 
                     !sc.getStatusId().equals(StudentClassroom.INACTIVE_STATUS)) {
+                return sc.getId().getStudent();
+            }
+        }
+        return null;
+    }
+
+    @Transient
+    public Coder getStudent(Long studentId) {
+        for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
+            if (sc.getId().getStudent().getId().equals(studentId)) {
                 return sc.getId().getStudent();
             }
         }
