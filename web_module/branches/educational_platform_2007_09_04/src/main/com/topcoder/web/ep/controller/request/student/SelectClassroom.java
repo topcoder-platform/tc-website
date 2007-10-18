@@ -78,11 +78,10 @@ public class SelectClassroom extends LongBase {
                                 // just drop this selection
                             }
                             
-                            if (!possibleClassrooms.contains(classroomId)) {
+                            c = getFactory().getClassroomDAO().find(classroomId);
+                            if (!possibleClassrooms.contains(c)) {
                                 throw new TCWebException("Invalid classroom selected");
                             }
-                            
-                            c = getFactory().getClassroomDAO().find(classroomId);
                             selectedClassrooms.add(c);
                         }
                     }
