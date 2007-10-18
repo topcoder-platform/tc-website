@@ -99,7 +99,7 @@ public class StudentReport extends SharedBaseProcessor {
             Long showAll = rsr.getLongItem("show_all");
             Long scoreType = rsr.getLongItem("score_type");
             
-            if (oldAssignment != assignmentId) {
+            if (!oldAssignment.equals(assignmentId)) {
                 log.debug("different! " + oldAssignment + "-" + assignmentId); 
                 if (!firstTime) {
                     log.debug("not first time"); 
@@ -141,6 +141,7 @@ public class StudentReport extends SharedBaseProcessor {
             srr.setAssignmentNumTestsPassed(totalNumPassed);
             srr.setAssignmentPercentTestsPassed(totalNumPassed * 100d / totalTests);
             srr.setDetails(lsrdr);
+            larr.add(srr);
         }
 
         return larr;
