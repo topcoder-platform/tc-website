@@ -17,6 +17,7 @@ import com.topcoder.web.common.model.educ.StudentClassroom;
 public class ActivateStudent extends StudentActivationBase {
     protected void process(Classroom c, List<StudentClassroom> lsc) {
         getRequest().setAttribute("classroom", c);
+        getRequest().setAttribute("schoolName", c.getSchool().getName());                
         getRequest().setAttribute("student_classrooms", lsc);
         setNextPage("/professor/activateStudentConfirm.jsp");
     }

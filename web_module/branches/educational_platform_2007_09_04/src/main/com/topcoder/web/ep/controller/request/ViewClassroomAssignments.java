@@ -25,6 +25,7 @@ public class ViewClassroomAssignments extends SharedBaseProcessor {
     @Override
     protected void professorProcessing() throws Exception {
         Classroom c = getClassroom();
+        getRequest().setAttribute("schoolName", c.getSchool().getName());                
         if (c.getProfessor().getId().equals(getUser().getId())) {
             log.debug("is professor");
 
@@ -41,6 +42,7 @@ public class ViewClassroomAssignments extends SharedBaseProcessor {
     @Override
     protected void studentProcessing() throws Exception {
         Classroom c = getClassroom();
+        getRequest().setAttribute("schoolName", c.getSchool().getName());                
         Coder s = c.getActiveStudent(getUser().getId());
         if (s != null) {
             log.debug("active student");

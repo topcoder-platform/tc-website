@@ -28,6 +28,7 @@ public class ViewClassroomDetails extends SharedBaseProcessor {
         log.debug("is professor");
         
         // this user is the classroom's professor
+        getRequest().setAttribute("schoolName", c.getSchool().getName());                
         getRequest().setAttribute("classroom", c);
         getRequest().setAttribute("activeStudents", c.getStudents(StudentClassroom.ACTIVE_STATUS));                
         getRequest().setAttribute("pendingStudents", c.getStudents(StudentClassroom.PENDING_STATUS));
@@ -42,6 +43,7 @@ public class ViewClassroomDetails extends SharedBaseProcessor {
         if (c.getActiveStudent(getUser().getId()) != null) {
             log.debug("active student");
             // this user is an active student of the classroom
+            getRequest().setAttribute("schoolName", c.getSchool().getName());                
             getRequest().setAttribute("classroom", c);
             setNextPage("/student/viewClassroomDetails.jsp");
             setIsNextPageInContext(true);
