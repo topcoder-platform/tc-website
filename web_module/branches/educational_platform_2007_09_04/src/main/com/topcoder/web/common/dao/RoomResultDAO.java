@@ -3,7 +3,6 @@ package com.topcoder.web.common.dao;
 import java.util.List;
 
 import com.topcoder.web.common.model.algo.RoomResult;
-import com.topcoder.web.common.model.algo.Round;
 
 
 /**
@@ -13,6 +12,6 @@ import com.topcoder.web.common.model.algo.Round;
  */
 public interface RoomResultDAO extends GenericDAO<RoomResult, Long> {
 
-    public List<Object> getResultsSummary(Long roundId);
+    public List<Object> getResultsSummary(Long roomId, Long studentId);
 
 }

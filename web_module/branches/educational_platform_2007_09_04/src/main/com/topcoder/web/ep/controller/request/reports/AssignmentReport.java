@@ -14,44 +14,72 @@ import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.common.model.algo.Room;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundProperty;
+import com.topcoder.web.common.model.educ.AssignmentScoreType;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
+import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class AssignmentReport extends ShortHibernateProcessor {
+public class AssignmentReport extends SharedBaseProcessor {
     public static final Integer STUDENT_COL = 1;
     public static final Integer SCORE_COL = 2;
     public static final Integer NUM_TESTS_COL = 3;
     public static final Integer PERCENT_TESTS_COL = 4;
     
     @Override
-    protected void dbProcessing() throws Exception {
-        // get classroom parameter
-        Long assignmentId = getAssignmentParam();
-        
-        // check if it's a valid assignment
-        Round a = DAOUtil.getFactory().getRoundDAO().find(assignmentId);
-        if (a == null) {
-            throw new TCWebException("Couldn't find assignment");
-        }
+    protected void professorProcessing() throws Exception {
+        Round a = validateAssignment();
         
         // check if this assignment belongs to the logged professor
         Classroom c = DAOUtil.getFactory().getClassroomDAO().find((Long) a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID));
         if (!c.getProfessor().getId().equals(getUser().getId())) {
             throw new NavigationException("You don't have permission to see this page.");
         }
+        
+        List<AssignmentReportRow> larr = processReport(a, c, null);
+        commonPostProcessing(larr, a, c);
+    }
 
+    @Override
+    protected void studentProcessing() throws Exception {
+        Round a = validateAssignment();
+        
+        // check if this student belongs to the class
+        Classroom c = DAOUtil.getFactory().getClassroomDAO().find((Long) a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID));
+        Coder s = c.getActiveStudent(getUser().getId());
+        if (s == null) {
+            throw new NavigationException("You don't have permission to see this page.");
+        }
+
+        Long showAllCoders = (Long) a.getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID);
+
+        Long studentId = null;
+        if (!showAllCoders.equals(1l)) {
+            // If show all is off, he can only see his results
+            studentId = s.getId();
+        }
+        List<AssignmentReportRow> larr = processReport(a, c, studentId);
+
+        Long scoreType = (Long) a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID);
+        applyStudentRestrictions(larr, scoreType);
+
+        getRequest().setAttribute("score_type", scoreType);
+        
+        commonPostProcessing(larr, a, c);
+    }
+
+    protected List<AssignmentReportRow> processReport(Round a, Classroom c, Long studentId) throws Exception {
         // we need assignment and results (problem score, #tests passed, %tests passed)
         // get the room
         Room rm = a.getRooms().iterator().next();
@@ -68,7 +96,7 @@ public class AssignmentReport extends ShortHibernateProcessor {
         }
 
         // Iterate results and generate report
-        List<Object> l = DAOUtil.getFactory().getRoomResultDAO().getResultsSummary(rm.getId());
+        List<Object> l = DAOUtil.getFactory().getRoomResultDAO().getResultsSummary(rm.getId(), studentId);
 
         List<AssignmentReportRow> larr = new ArrayList<AssignmentReportRow>();
         for (Object o : l) {
@@ -83,6 +111,10 @@ public class AssignmentReport extends ShortHibernateProcessor {
             }   
         }
 
+        return larr;
+    }
+
+    private void commonPostProcessing(List<AssignmentReportRow> larr, Round a, Classroom c) {
         // sort results
         sortResult(larr);
         
@@ -92,6 +124,30 @@ public class AssignmentReport extends ShortHibernateProcessor {
         
         setNextPage("/reports/assignment.jsp");
         setIsNextPageInContext(true);
+    }
+    
+    private void applyStudentRestrictions(List<AssignmentReportRow> larr, Long scoreType) {
+        for (AssignmentReportRow srr : larr) {
+           if (scoreType.equals(AssignmentScoreType.TC_SCORE_TYPE)) {
+               srr.setNumTestsPassed(-999);
+               srr.setPercentTestsPassed(-999d);
+           } else if (scoreType.equals(AssignmentScoreType.PASSED_SCORE_TYPE)) {
+               srr.setScore(-999d);
+               srr.setPercentTestsPassed(-999d);
+           } else if (scoreType.equals(AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE)) {
+               srr.setScore(-999d);
+               srr.setNumTestsPassed(-999);
+           }  
+        }
+    }
+
+    private Round validateAssignment() throws TCWebException {
+        // check if it's a valid assignment
+        Round a = DAOUtil.getFactory().getRoundDAO().find(getAssignmentParam());
+        if (a == null) {
+            throw new TCWebException("Couldn't find assignment");
+        }
+        return a;
     }
     
     private Long getAssignmentParam() throws TCWebException {
