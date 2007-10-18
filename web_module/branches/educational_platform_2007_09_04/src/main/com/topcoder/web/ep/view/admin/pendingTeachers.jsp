@@ -65,7 +65,7 @@
                                         <td>${teacher.map['last_name']}</td>
                                         <td>${teacher.map['school_name']}</td>
                                         <td>
-                                            <button name="submit" value="submit" type="submit" onclick="enable(${resultRow.map['user_id']})">
+                                            <button name="submit" value="submit" type="submit" onclick="enable(${teacher.map['user_id']})">
                                                 Enable
                                             </button>
                                     </tr>
