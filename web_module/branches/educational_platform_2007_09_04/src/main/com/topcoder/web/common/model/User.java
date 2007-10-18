@@ -526,13 +526,21 @@ public class User extends Base {
         return null;
     }
 
-    public UserSchool getPrimarySchool(Integer schoolAssociationTypeId) {
+    private UserSchool getPrimarySchool(Integer schoolAssociationTypeId) {
         for (UserSchool school : schools) {
             if (school.isPrimary() && school.getAssociationType().getId().equals(schoolAssociationTypeId)) {
                 return school;
             }
         }
         return null;
+    }
+
+    public UserSchool getPrimaryTeachingSchool() {
+        return getPrimarySchool(SchoolAssociationType.TEACHER);
+    }
+
+    public UserSchool getPrimaryStudentSchool() {
+        return getPrimarySchool(SchoolAssociationType.STUDENT);
     }
 
     /**
