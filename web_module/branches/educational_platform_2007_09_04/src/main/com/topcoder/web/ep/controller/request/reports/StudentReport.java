@@ -16,6 +16,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -26,6 +27,7 @@ import com.topcoder.web.common.model.educ.AssignmentScoreType;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
+import com.topcoder.web.ep.controller.request.ViewClassroomAssignments;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -36,6 +38,8 @@ public class StudentReport extends SharedBaseProcessor {
     public static final Integer SCORE_COL = 2;
     public static final Integer NUM_TESTS_COL = 3;
     public static final Integer PERCENT_TESTS_COL = 4;
+
+    private static Logger log = Logger.getLogger(StudentReport.class);
 
     @Override
     protected void professorProcessing() throws Exception {
@@ -74,6 +78,8 @@ public class StudentReport extends SharedBaseProcessor {
 
     protected List<StudentReportRow> processReport(Classroom c, Coder s) throws Exception {
         ResultSetContainer rsc = getData(c.getId(), s.getId());
+        log.debug("rsc.size(): " + rsc.size()); 
+        
         StudentReportRow srr = null;
         List<StudentReportRow> larr = new ArrayList<StudentReportRow>();
         List<StudentReportDetailRow> lsrdr = new ArrayList<StudentReportDetailRow>();
@@ -94,7 +100,9 @@ public class StudentReport extends SharedBaseProcessor {
             Long scoreType = rsr.getLongItem("score_type");
             
             if (oldAssignment != assignmentId) {
+                log.debug("different! " + oldAssignment + "-" + assignmentId); 
                 if (!firstTime) {
+                    log.debug("first time"); 
                     srr.setAssignmentScore(totalScore);
                     srr.setAssignmentNumTestsPassed(totalNumPassed);
                     srr.setAssignmentPercentTestsPassed(totalNumPassed * 100d / totalTests);
@@ -125,6 +133,7 @@ public class StudentReport extends SharedBaseProcessor {
             totalScore += points;
 
             oldAssignment = assignmentId;
+            firstTime = false;
         }
         if (rsc.size() > 0) {
             srr.setAssignmentScore(totalScore);
