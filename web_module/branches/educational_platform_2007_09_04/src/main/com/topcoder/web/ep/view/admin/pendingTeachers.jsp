@@ -43,7 +43,7 @@
 
                     <%-- CONTENT BEGINS --%>
                         <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="subForm">
-                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EnableProfessor"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EnableTeacher"/>
                         <tc-webtag:hiddenInput name="<%=Constants.PROFESSOR_ID%>"/>
 
                     <div align="center">
