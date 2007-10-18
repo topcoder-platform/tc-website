@@ -1,9 +1,10 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-<html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -15,25 +16,29 @@
 </head>
 
 <body>
-
-<div align="center">
-    <div id="contentOut" class="contentOut">
-        <jsp:include page="../top.jsp"/>
-        <jsp:include page="../topNav.jsp">
-            <jsp:param name="node" value="support"/>
-        </jsp:include>
-        <div id="contentIn" class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="../top.jsp"/>
+            <jsp:include page="../topNav.jsp">
+                <jsp:param name="node" value="support"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
                 <div class="linkBox"><studio:forumLink forumID="3"/></div>
 
                 <h1>Competition FAQs</h1>
                 
                 <div style="float: right; text-align: left; margin-left: 10px;">
-                    <a href="/?module=Static&d1=support&d2=getStarted">Getting Started</a>
-                    <br /><a href="/?module=Static&d1=support&d2=generalFaq">General FAQs</a>
+                    <a href="/?module=Static&amp;d1=support&amp;d2=getStarted">Getting Started</a>
+                    <br /><a href="/?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
                     <br />Competition FAQs
                 </div>
 
@@ -109,116 +114,134 @@
                 <br /><br />
                 
                 <div align="center">
-                <table class="stat" border="0" cellpadding="0" cellspacing="0" width="400">
-                <tbody>
-                    <tr>
-                
-                        <td class="NW">&nbsp;</td>
-                        <td class="title" colspan="2">
-                        2007 Payment Schedule
-                        </td>
-                        <td class="NE">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="headerW"><div>&nbsp;</div></td>
-                        <td class="header" width="50%"><strong>Earned</strong></td>
-                
-                        <td class="header" width="50%"><strong>Paid **</strong></td>
-                        <td class="headerE"><div>&nbsp;</div></td>
-                    </tr>
-                    <tr class="light">
-                        <td class="valueW"><div>&nbsp;</div></td>
-                        <td class="value">January 1-30</td>
-                        <td class="value">February 15, 2007</td>
-                
-                        <td class="valueE"><div>&nbsp;</div></td>
-                    </tr>
-                    <tr class="light">
-                        <td class="valueW"><div>&nbsp;</div></td>
-                        <td class="value">February 1-28</td>
-                        <td class="value">March 15, 2007</td>
-                        <td class="valueE"><div>&nbsp;</div></td>
-                    </tr>
-                
-                    <tr class="light">
-                        <td class="valueW"><div>&nbsp;</div></td>
-                        <td class="value">March 1-31</td>
-                        <td class="value">April 16, 2007</td>
-                        <td class="valueE"><div>&nbsp;</div></td>
-                    </tr>
-                    <tr class="light">
-                        <td class="valueW"><div>&nbsp;</div></td>
-                
-                        <td class="value">April 1-30</td>
-                        <td class="value">May 15, 2007</td>
-                        <td class="valueE"><div>&nbsp;</div></td>
-                    </tr>
-                    <tr class="light">
-                        <td class="valueW"><div>&nbsp;</div></td>
-                        <td class="value">May 1-31</td>
-                
-                        <td class="value">June 15, 2007</td>
-                        <td class="valueE"><div>&nbsp;</div></td>
-                    </tr>
-                    <tr class="light">
-                        <td class="valueW"><div>&nbsp;</div></td>
-                        <td class="value">June 1-30</td>
-                        <td class="value">July 16, 2007</td>
-                
-                        <td class="valueE"><div>&nbsp;</div></td>
-                    </tr>
-                    <tr class="light">
-                        <td class="valueW"><div>&nbsp;</div></td>
-                        <td class="value">July 1-31</td>
-                        <td class="value">August 15, 2007</td>
-                        <td class="valueE"><div>&nbsp;</div></td>
-                    </tr>
-                
-                    <tr class="light">
-                        <td class="valueW"><div>&nbsp;</div></td>
-                        <td class="value">August 1-31</td>
-                        <td class="value">September 14, 2007</td>
-                        <td class="valueE"><div>&nbsp;</div></td>
-                    </tr>
-                    <tr class="light">
-                        <td class="valueW"><div>&nbsp;</div></td>
-                
-                        <td class="value">September 1-30</td>
-                        <td class="value">October 15, 2007</td>
-                        <td class="valueE"><div>&nbsp;</div></td>
-                    </tr>
-                    <tr class="light">
-                        <td class="valueW"><div>&nbsp;</div></td>
-                        <td class="value">October 1-31</td>
-                
-                        <td class="value">November 15, 2007</td>
-                        <td class="valueE"><div>&nbsp;</div></td>
-                    </tr>
-                    <tr class="light">
-                        <td class="valueW"><div>&nbsp;</div></td>
-                        <td class="value">November 1-30</td>
-                        <td class="value">December 14, 2007</td>
-                
-                        <td class="valueE"><div>&nbsp;</div></td>
-                    </tr>
-                    <tr class="light">
-                        <td class="valueW"><div>&nbsp;</div></td>
-                        <td class="value">December 1-31</td>
-                        <td class="value">January 15, 2008</td>
-                        <td class="valueE"><div>&nbsp;</div></td>
-                    </tr>
-                
-                    <tr class="light">
-                        <td class="valueW"><div>&nbsp;</div></td>
-                        <td class="value" colspan="2">** Note: The date when you actually receive your payment will depend on the payment method you select.</td>
-                        <td class="valueE"><div>&nbsp;</div></td>
-                    </tr>
-                    <tr>
-                        <td class="SW" colspan="3">&nbsp;</td>
-                        <td class="SE">&nbsp;</td>
-                
-                    </tr>
-                 </table>
+                    <div class="statHolder" style="width: 400px;">
+                        <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+                        <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+                            <table class="stat" cellpadding="0" cellspacing="0">
+                            <tbody>
+                                <tr><td class="title" colspan="2">2007 Payment Schedule</td></tr>
+                                <tr>
+                                    <td class="headerW"><div>&nbsp;</div></td>
+                                    <td class="header" width="50%"><strong>Earned</strong></td>
+                                    <td class="header" width="50%"><strong>Paid **</strong></td>
+                                    <td class="headerE"><div>&nbsp;</div></td>
+                                </tr>
+                                <%int i = 0;%>
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">January 1-30</td>
+                                    <td class="value">February 15, 2007</td>
+                            
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                <%i++;%>
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">February 1-28</td>
+                                    <td class="value">March 15, 2007</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                <%i++;%>
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">March 1-31</td>
+                                    <td class="value">April 16, 2007</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                <%i++;%>
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                            
+                                    <td class="value">April 1-30</td>
+                                    <td class="value">May 15, 2007</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                <%i++;%>
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">May 1-31</td>
+                            
+                                    <td class="value">June 15, 2007</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                <%i++;%>
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">June 1-30</td>
+                                    <td class="value">July 16, 2007</td>
+                            
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                <%i++;%>
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">July 1-31</td>
+                                    <td class="value">August 15, 2007</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                <%i++;%>
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">August 1-31</td>
+                                    <td class="value">September 14, 2007</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                <%i++;%>
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                            
+                                    <td class="value">September 1-30</td>
+                                    <td class="value">October 15, 2007</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                <%i++;%>
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">October 1-31</td>
+                            
+                                    <td class="value">November 15, 2007</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                <%i++;%>
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">November 1-30</td>
+                                    <td class="value">December 14, 2007</td>
+                            
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                <%i++;%>
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">December 1-31</td>
+                                    <td class="value">January 15, 2008</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                <%i++;%>
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value" colspan="2">** Note: The date when you actually receive your payment will depend on the payment method you select.</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                <%i++;%>
+                            </tbody>
+                            </table>
+                        <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+                        <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+                    </div>
                 </div>
                 <br /><br />
                 
@@ -228,13 +251,14 @@
                         details page.</li>
                     <li> Complete and sign an Assignment Document. You will only need to complete and sign this document once; after TopCoder has received it, you will confirm/ratify the document each time you win a contest by clicking a checkbox when you upload your final files.</li>
                     <li>Complete and sign an IRS tax form - either W-9 or W-8BEN, depending on where you live and 
-                        your U.S. resident status. Members will only be required to submit this document once.</li>
+                        your U.S. resident status. Members will only be required to submit this document once.
                     <ul>
-                        <li><a href="/pdfs/forms/fw9.pdf">W-9 Form</a></a></li>
+                        <li><a href="/pdfs/forms/fw9.pdf">W-9 Form</a></li>
                         <li><a href="/pdfs/forms/iw9.pdf">W-9 Instructions</a></li>
                         <li><a href="/pdfs/forms/fw8ben.pdf">W-8BEN Form</a></li>
                         <li><a href="/pdfs/forms/iw8ben.pdf">W-8BEN Instructions</a></li>
                     </ul>
+                    </li>
                 </ol>
                 Once these requirements are satisfied, payment will be sent. You have the option of choosing to receive
                 payment either via check using the U.S. Postal Service to the address in your profile, via PayPal or via
@@ -244,17 +268,16 @@
                 
                 <h3>More questions?</h3>
                 If you have more questions, please send them to <a href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</a>.
-                <br /><br />
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
         </div>
-        <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
+
+        <jsp:include page="../foot.jsp"/>
+
     </div>
-
-    <jsp:include page="../foot.jsp"/>
-
-    <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
-
 </body>
 </html>
