@@ -18,7 +18,7 @@
     <%-- each school requires its own stylesheet, linked in here --%>
     <link type="text/css" rel="stylesheet" href="/css/ep/default.css"/>
     <script type="text/javascript"><!--
-    function sendToReview(id) {
+    function enable(id) {
         document.subForm.<%=Constants.PROFESSOR_ID%>.value = id;
         document.subForm.submit();
     }
