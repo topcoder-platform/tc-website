@@ -128,9 +128,7 @@
                     <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
                     <table cellpadding="0" cellspacing="0" class="stat" style="width:100%;">
                         <tbody>
-                            <tr>
-                              <td class="title" colspan="6">Recent Winners</td>
-                            </tr>
+                            <tr><td class="title" colspan="6">Recent Winners</td></tr>
                             <tr class="header">
                                 <td class="headerW"><div>&nbsp;</div></td>
                                 <td class="header" width="20%" colspan="2">
