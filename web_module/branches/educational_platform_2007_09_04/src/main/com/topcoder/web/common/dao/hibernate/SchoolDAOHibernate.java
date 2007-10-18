@@ -1,16 +1,21 @@
 package com.topcoder.web.common.dao.hibernate;
 
-import com.topcoder.web.common.dao.SchoolDAO;
-import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.SchoolType;
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.reg.Constants;
-import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.criterion.Restrictions;
-
 import java.util.Date;
 import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.criterion.CriteriaSpecification;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
+
+import com.topcoder.web.common.dao.SchoolDAO;
+import com.topcoder.web.common.model.School;
+import com.topcoder.web.common.model.SchoolAssociationType;
+import com.topcoder.web.common.model.SchoolType;
+import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.common.model.educ.StudentClassroom;
+import com.topcoder.web.reg.Constants;
 
 /**
  * @author dok
@@ -113,6 +118,30 @@ public class SchoolDAOHibernate extends GenericBase<School, Long> implements Sch
                 .add(Restrictions.eq("academicPeriod", period));
 
         return (Classroom) c.uniqueResult();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<School> findSchoolsUsingProfessorId(Long professorId) {
+        Criteria c = getSession().createCriteria(School.class);
+        c.addOrder(Order.asc("name"));
+        c.createCriteria("userSchools")
+            .add(Restrictions.eq("user.id", professorId))
+            .add(Restrictions.eq("associationType.id", SchoolAssociationType.TEACHER));
+        
+        return (List<School>) c.list();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<School> findSchoolsUsingStudentId(Long studentId) {
+        Criteria c = getSession().createCriteria(School.class);
+        c.addOrder(Order.asc("name"));
+        c.createCriteria("classrooms")
+            .add(Restrictions.eq("statusId", Classroom.ACTIVE))
+            .createCriteria("studentClassrooms")
+                .add(Restrictions.eq("statusId", StudentClassroom.ACTIVE_STATUS))
+                .add(Restrictions.eq("id.student.id", studentId));
+
+        return c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY).list();
     }
 }
 

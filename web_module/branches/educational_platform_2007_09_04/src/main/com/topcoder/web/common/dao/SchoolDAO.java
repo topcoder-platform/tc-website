@@ -24,4 +24,8 @@ public interface SchoolDAO extends GenericDAO<School, Long> {
 
     Classroom findClassroomUsingNameAndPeriod(Long schoolId, String name, String period);
 
+    List<School> findSchoolsUsingProfessorId(Long professorId);
+
+    List<School> findSchoolsUsingStudentId(Long studentId);
+
 }

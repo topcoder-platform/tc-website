@@ -26,5 +26,10 @@
             <one-to-many class="com.topcoder.web.common.model.educ.Classroom"/>
         </set>
 
+        <set name="userSchools" cascade="none" inverse="true">
+            <key column="school_id" not-null="true"/>
+            <one-to-many class="com.topcoder.web.common.model.UserSchool"/>
+        </set>
+
     </class>
 </hibernate-mapping>

@@ -23,9 +23,11 @@ public class School extends Base {
     private User user;
 
     private Set<Classroom> classrooms;
+    private Set<UserSchool> userSchools;
 
     public School() {
         this.classrooms = new HashSet<Classroom>();
+        this.userSchools = new HashSet<UserSchool>();
     }
 
     public Long getId() {
@@ -119,6 +121,20 @@ public class School extends Base {
      */
     public void setClassrooms(Set<Classroom> classrooms) {
         this.classrooms = classrooms;
+    }
+
+    /**
+     * @return the UserSchool
+     */
+    public Set<UserSchool> getUserSchools() {
+        return Collections.unmodifiableSet(userSchools);
+    }
+
+    /**
+     * @param UserSchool the UserSchool to set
+     */
+    public void setUserSchools(Set<UserSchool> userSchools) {
+        this.userSchools = userSchools;
     }
 
 
