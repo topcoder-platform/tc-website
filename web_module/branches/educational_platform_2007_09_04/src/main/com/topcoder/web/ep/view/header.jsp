@@ -9,9 +9,9 @@
                 <a href="/ep" id="logo">&nbsp;</a>
                 <div class="schoolName">
                     TopCoder College Platform<br />
-                    <% if (!schoolname.equals("")) { %>
-                        <a href="/ep"><%=schoolname%></a>
-                    <%}%>
+                    <c:if test="${not empty schoolName}">
+                        <a href="/ep">${schoolName}</a>
+                    </c:if>
                 </div>
                 <div class="login">
                     <span>

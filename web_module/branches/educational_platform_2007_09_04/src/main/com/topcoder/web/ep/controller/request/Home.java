@@ -6,10 +6,12 @@
 package com.topcoder.web.ep.controller.request;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.controller.request.student.StudentHomeDetailRow;
@@ -30,6 +32,12 @@ public class Home extends SharedBaseProcessor {
     protected void professorProcessing() throws Exception {
         getRequest().setAttribute("classrooms", DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingProfessorId(new Long(getUser().getId())));
 
+        List<School> ls = DAOUtil.getFactory().getSchoolDAO().findSchoolsUsingProfessorId(getUser().getId());
+        // show school in header only in case the professor has just one
+        if (ls.size() == 1) {
+            getRequest().setAttribute("schoolName", ls.iterator().next().getName());                
+        }
+        
         setNextPage("/professor/home.jsp");
         setIsNextPageInContext(true);
 
@@ -54,6 +62,11 @@ public class Home extends SharedBaseProcessor {
                 schools.put(schoolId, new StudentHomeRow(schoolId, c.getSchool().getName()));
             }
             schools.get(schoolId).getDetails().add(new StudentHomeDetailRow(c.getId(), c.getName(), Boolean.FALSE));
+        }
+
+        // show school in header only in case the student has just one
+        if (schools.size() == 1) {
+            getRequest().setAttribute("schoolName", schools.values().iterator().next().getSchoolName());                
         }
 
         if (DAOUtil.getFactory().getProfessorDAO().hasActiveProfessors(getUser().getId())) {
