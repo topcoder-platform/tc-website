@@ -49,7 +49,7 @@
 
 </head>
 
-<body id="page">
+<body>
     <!-- wrapper -->
     <div id="wrapper">
         <!-- header -->
@@ -64,7 +64,7 @@
             <!-- content -->
             <div id="content">
                 <div class="contentTop">
-                <div class="contentMiddle">
+                    <div class="contentMiddle">
 
 
 
@@ -124,12 +124,12 @@
                 <br /><br />
 
                 <div class="statHolder">
-                    <div class="NE"><img src="/i/v2/stat_tableNE.png" /></div>
-                    <div class="NW"><img src="/i/v2/stat_tableNW.png" /></div>
+                    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+                    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
                     <table cellpadding="0" cellspacing="0" class="stat" style="width:100%;">
                         <tbody>
                             <tr>
-                              <td class="title" colspan="6">Table Title</td>
+                              <td class="title" colspan="6">Recent Winners</td>
                             </tr>
                             <tr class="header">
                                 <td class="headerW"><div>&nbsp;</div></td>
@@ -183,8 +183,8 @@
                                 </tr>
                         </tbody>
                     </table>
-                    <div class="SE"><img src="/i/v2/stat_tableSE.png" /></div>
-                    <div class="SW"><img src="/i/v2/stat_tableSW.png" /></div>
+                    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+                    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
                 </div>
 
             </td>
@@ -195,8 +195,9 @@
 
 
 
-                </div>                
-                <div class="contentBottom"></div>
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
                 </div>
             </div>
         </div>
