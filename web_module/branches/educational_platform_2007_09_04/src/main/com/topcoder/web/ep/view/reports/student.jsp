@@ -138,7 +138,7 @@
                 <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=StudentReport.SCORE_COL.intValue()%>"/>">Score</a></td>
                 <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=StudentReport.NUM_TESTS_COL.intValue()%>"/>">Tests Passed</a></td>
                 <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=StudentReport.PERCENT_TESTS_COL.intValue()%>"/>">
-                <c:choose><c:when test="${isStudent}">
+                <c:choose><c:when test="${is_student}">
                 Pass / Fail
                 </c:when><c:otherwise>
                 % Tests Passed
@@ -153,13 +153,13 @@
                     <a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;asid=${result.assignmentId}">${result.assignment}</a>
                     </td>
 
-                    <c:choose><c:when test="${isStudent && result.scoreType != tc_score_type}">
+                    <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
                         <td class="valueC">&nbsp;</td>
                     </c:when><c:otherwise>
                         <td class="valueC">${result.assignmentScore}</td>
                     </c:otherwise></c:choose>
 
-                    <c:choose><c:when test="${isStudent && result.scoreType != passed_score_type}">
+                    <c:choose><c:when test="${is_student && result.scoreType != passed_score_type}">
                         <td class="valueC">&nbsp;</td>
                     </c:when><c:otherwise>
                         <c:choose>
@@ -172,7 +172,7 @@
                         </c:choose>
                     </c:otherwise></c:choose>
 
-                    <c:choose><c:when test="${isStudent && result.scoreType != success_fail_score_type}">
+                    <c:choose><c:when test="${is_student && result.scoreType != success_fail_score_type}">
                         <td class="valueC">&nbsp;</td>
                     </c:when><c:otherwise>
                         <td class="valueC">
@@ -181,7 +181,7 @@
                                 N/A
                             </c:when>
                             <c:otherwise>
-                                <c:choose><c:when test="${isStudent}">
+                                <c:choose><c:when test="${is_student}">
                                     <c:choose><c:when test="${result.assignmentPercentTestsPassed == 100}">
                                         Pass
                                     </c:when><c:otherwise>
@@ -203,12 +203,12 @@
                                 <td class="value">
                                 <a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;asid=${result.assignmentId}&amp;cd=${detail.componentId}">${detail.component}</a>
                                 </td>
-                                <c:choose><c:when test="${isStudent && result.scoreType != tc_score_type}">
+                                <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
                                     <td class="valueC">&nbsp;</td>
                                 </c:when><c:otherwise>
                                     <td class="valueC">${detail.score}</td>
                                 </c:otherwise></c:choose>
-                                <c:choose><c:when test="${isStudent && result.scoreType != passed_score_type}">
+                                <c:choose><c:when test="${is_student && result.scoreType != passed_score_type}">
                                     <td class="valueC">&nbsp;</td>
                                 </c:when><c:otherwise>
                                     <c:choose>
@@ -220,7 +220,7 @@
                                         </c:otherwise>
                                     </c:choose>
                                 </c:otherwise></c:choose>
-                                <c:choose><c:when test="${isStudent && result.scoreType != success_fail_score_type}">
+                                <c:choose><c:when test="${is_student && result.scoreType != success_fail_score_type}">
                                     <td class="valueC">&nbsp;</td>
                                 </c:when><c:otherwise>
                                     <c:choose>
@@ -229,7 +229,7 @@
                                         </c:when>
                                         <c:otherwise>
                                             <td class="valueC">
-                                                <c:choose><c:when test="${isStudent}">
+                                                <c:choose><c:when test="${is_student}">
                                                     <c:choose><c:when test="${result.assignmentPercentTestsPassed == 100}">
                                                         Pass
                                                     </c:when><c:otherwise>

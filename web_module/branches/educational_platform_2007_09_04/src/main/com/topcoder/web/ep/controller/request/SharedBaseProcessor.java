@@ -5,8 +5,12 @@
 */
 package com.topcoder.web.ep.controller.request;
 
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -52,4 +56,23 @@ public abstract class SharedBaseProcessor extends ShortHibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
     }
+    
+    public DataAccessInt getDataAccess() throws Exception {
+        return getDataAccess(DBMS.OLTP_DATASOURCE_NAME, false);
+    }
+
+    public DataAccessInt getDataAccess(boolean cached) throws Exception {
+        return getDataAccess(DBMS.OLTP_DATASOURCE_NAME, cached);
+    }
+
+    public DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
+        if (datasource == null) return null;
+        DataAccessInt dAccess = null;
+        if (cached)
+            dAccess = new CachedDataAccess(datasource);
+        else
+            dAccess = new DataAccess(datasource);
+        return dAccess;
+    }
+
 }
