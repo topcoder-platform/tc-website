@@ -36,7 +36,6 @@ public class TestUtils {
         a.setProvince("myprovince");
         s.setAddress(a);
 
-
         CurrentSchool cs = new CurrentSchool();
         cs.setCoder(ret);
         cs.setGPA(new Float(3));
@@ -120,6 +119,13 @@ public class TestUtils {
         }
 
         ret.setTimeZone(DAOUtil.getFactory().getTimeZoneDAO().find(java.util.TimeZone.getDefault()));
+
+
+        UserSchool us = new UserSchool();
+        us.setSchool(c.getCurrentSchool().getSchool());
+        us.setPrimary(true);
+        us.setAssociationType(DAOUtil.getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.STUDENT));
+        ret.addSchool(us);
 
 
         HashSet regTypes = new HashSet();

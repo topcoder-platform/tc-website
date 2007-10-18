@@ -1,21 +1,7 @@
 package com.topcoder.web.common.dao;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.model.Answer;
-import com.topcoder.web.common.model.Coder;
-import com.topcoder.web.common.model.CoderType;
-import com.topcoder.web.common.model.Contact;
-import com.topcoder.web.common.model.DemographicAnswer;
-import com.topcoder.web.common.model.DemographicAssignment;
-import com.topcoder.web.common.model.DemographicResponse;
-import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.model.EventRegistration;
-import com.topcoder.web.common.model.Question;
-import com.topcoder.web.common.model.Response;
-import com.topcoder.web.common.model.SchoolAssociationType;
-import com.topcoder.web.common.model.TermsOfUse;
-import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.UserSchool;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.reg.TCHibernateTestCase;
 import com.topcoder.web.reg.TestUtils;
 
@@ -170,8 +156,12 @@ public class UserDAOTestCase extends TCHibernateTestCase {
         u.setCoder(c);
         c.setUser(u);
         DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
+        tearDown();
+        setUp();
         User u1 = DAOUtil.getFactory().getUserDAO().find(u.getId());
         assertTrue("new coder does not exist", u1 != null);
+
+        assertFalse("new user schools not persisted", u1.getSchools().isEmpty());
     }
 
 

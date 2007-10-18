@@ -83,7 +83,7 @@
             <key column="user_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.model.School"/>
         </set>
-        
+
     </class>
 
 

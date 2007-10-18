@@ -102,13 +102,13 @@ public class UserDAOHibernate extends Base implements UserDAO {
         }
 */
 
+        UserSchoolDAO usd = DAOUtil.getFactory().getUserSchoolDAO();
         if (u.getId() == null) {
             log.debug("newbie");
             DemographicResponse tr;
             DemographicResponse dr;
             for (Iterator it = u.getTransientResponses().iterator(); it.hasNext();) {
                 tr = (DemographicResponse) it.next();
-                log.debug("adding response:" + tr.getQuestion().getId() + " " + tr.getAnswer().getId() + " " + tr.getResponse());
                 dr = new DemographicResponse();
                 dr.setAnswer(tr.getAnswer());
                 dr.setQuestion(tr.getQuestion());
@@ -121,8 +121,14 @@ public class UserDAOHibernate extends Base implements UserDAO {
                 //super.saveOrUpdate(dr);
             }
             super.saveOrUpdate(u);
+            //can't figure out how to map this so that the changes get propegated through user, so doing it explicitly
+            for (UserSchool us : u.getSchools()) {
+                usd.saveOrUpdate(us);
+            }
+
 
         } else {
+            log.debug("update user");
             //todo consider putting all this logic in the POJO instead of here.
 
             //don't need to worry about anything that is already in the db.
@@ -144,39 +150,39 @@ public class UserDAOHibernate extends Base implements UserDAO {
             DemographicResponse goodResponse;
             for (Iterator it = u.getTransientResponses().iterator(); it.hasNext();) {
                 dr = (DemographicResponse) it.next();
-                log.debug("process:" + dr.getQuestion().getId() + " " + dr.getAnswer().getId() + " " + dr.getResponse());
+                //log.debug("process:" + dr.getQuestion().getId() + " " + dr.getAnswer().getId() + " " + dr.getResponse());
                 if (dr.getQuestion().isSingleSelect()) {
-                    log.debug("single: " + dr.getQuestion().getId());
+                    //log.debug("single: " + dr.getQuestion().getId());
                     badResponse = findResponse(u.getDemographicResponses(), dr.getQuestion());
                     if (badResponse != null) {
-                        log.debug("remove " + badResponse.getQuestion().getId() + " " + badResponse.getAnswer().getId() + " size:" + u.getDemographicResponses().size());
+                        //log.debug("remove " + badResponse.getQuestion().getId() + " " + badResponse.getAnswer().getId() + " size:" + u.getDemographicResponses().size());
                         u.removeDemographicResponse(badResponse);
-                        log.debug("size after remove " + u.getDemographicResponses().size());
+                        //log.debug("size after remove " + u.getDemographicResponses().size());
                         badResponse.setUser(null);
                     }
                     dr.setUser(u);
                     dr.getId().setUser(u);
                     dr.getId().setQuestion(dr.getQuestion());
                     dr.getId().setAnswer(dr.getAnswer());
-                    log.debug("adding response:" + dr.getQuestion().getId() + " " + dr.getAnswer().getId() + " " + dr.getResponse());
+                    //log.debug("adding response:" + dr.getQuestion().getId() + " " + dr.getAnswer().getId() + " " + dr.getResponse());
                     u.addDemographicResponse(dr);
 
                 } else if (dr.getQuestion().isFreeForm()) {
-                    log.debug("free form: " + dr.getQuestion().getId());
+                    //log.debug("free form: " + dr.getQuestion().getId());
                     badResponse = findResponse(u.getDemographicResponses(), dr.getQuestion());
                     if (badResponse == null) {
-                        log.debug("add " + dr.getQuestion().getId() + " " + dr.getAnswer().getId() + " " + dr.getResponse());
+                        //log.debug("add " + dr.getQuestion().getId() + " " + dr.getAnswer().getId() + " " + dr.getResponse());
                         dr.setUser(u);
                         dr.getId().setUser(u);
                         dr.getId().setQuestion(dr.getQuestion());
                         dr.getId().setAnswer(dr.getAnswer());
                         u.addDemographicResponse(dr);
                     } else {
-                        log.debug("set " + badResponse.getQuestion().getId() + " " + badResponse.getAnswer().getId() + " to " + dr.getResponse());
+                        //log.debug("set " + badResponse.getQuestion().getId() + " " + badResponse.getAnswer().getId() + " to " + dr.getResponse());
                         badResponse.setResponse(dr.getResponse());
                     }
                 } else if (!processedQuestions.contains(dr.getQuestion())) {
-                    log.debug("multiple");
+                    //log.debug("multiple");
 
                     Set currResponses = findResponses(u.getDemographicResponses(), dr.getQuestion());
                     Set newResponses = findResponses(u.getTransientResponses(), dr.getQuestion());
@@ -203,8 +209,7 @@ public class UserDAOHibernate extends Base implements UserDAO {
                 }
             }
             super.saveOrUpdate(u);
-            UserSchoolDAO usd = DAOUtil.getFactory().getUserSchoolDAO();
-
+            //can't figure out how to map this so that the changes get propegated through user, so doing it explicitly
             for (UserSchool us : u.getSchools()) {
                 usd.saveOrUpdate(us);
             }
