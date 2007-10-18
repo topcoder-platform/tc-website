@@ -145,7 +145,8 @@ public class ProblemAssignmentReport extends SharedBaseProcessor {
         getRequest().setAttribute("assignment", a);
         getRequest().setAttribute("classroom", c);
         getRequest().setAttribute("component", cmp);
-        
+        getRequest().setAttribute("schoolName", c.getSchool().getName());                
+
         setNextPage("/reports/probAssignment.jsp");
         setIsNextPageInContext(true);
     }

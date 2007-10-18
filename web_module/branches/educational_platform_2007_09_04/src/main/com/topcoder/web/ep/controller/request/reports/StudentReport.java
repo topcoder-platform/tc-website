@@ -251,7 +251,8 @@ public class StudentReport extends SharedBaseProcessor {
         getRequest().setAttribute("results", larr);
         getRequest().setAttribute("student", s);
         getRequest().setAttribute("classroom", c);
-        
+        getRequest().setAttribute("schoolName", c.getSchool().getName());                
+
         setNextPage("/reports/student.jsp");
         setIsNextPageInContext(true);
     }

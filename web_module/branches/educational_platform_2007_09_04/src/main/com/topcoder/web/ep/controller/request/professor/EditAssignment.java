@@ -132,6 +132,7 @@ public class EditAssignment extends LongBase {
 
                 // check if this classroom belongs to the active user
                 Classroom c = checkValidClassroom(classroomId);
+                getRequest().setAttribute("schoolName", c.getSchool().getName());                
 
                 // prepare stuff for the long transaction
                 if (!hasDataInSession) {

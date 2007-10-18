@@ -138,7 +138,8 @@ public class AssignmentReport extends SharedBaseProcessor {
         getRequest().setAttribute("results", larr);
         getRequest().setAttribute("assignment", a);
         getRequest().setAttribute("classroom", c);
-        
+        getRequest().setAttribute("schoolName", c.getSchool().getName());                
+
         setNextPage("/reports/assignment.jsp");
         setIsNextPageInContext(true);
     }

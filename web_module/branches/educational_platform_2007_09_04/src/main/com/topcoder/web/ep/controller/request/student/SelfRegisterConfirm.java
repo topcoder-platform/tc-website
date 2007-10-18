@@ -11,6 +11,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.controller.request.LongBase;
@@ -32,6 +33,8 @@ public class SelfRegisterConfirm extends LongBase {
         } else if (u.isProfessor()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
+            getRequest().setAttribute("schoolName", getSchool().getName());                
+
             Set<Classroom> classrooms = getSelectedClassrooms();
             u.getCoder().addClassrooms(classrooms);
             getFactory().getUserDAO().saveOrUpdate(u);

@@ -52,7 +52,8 @@ public class SelectClassroom extends LongBase {
                 // add selected school to the session
                 School s  = getFactory().getSchoolDAO().find(schoolId);
                 setSchool(s);
-    
+                getRequest().setAttribute("schoolName", s.getName());                
+
                 // set possible classrooms
                 getRequest().setAttribute("possible_classrooms", getPossibleClassrooms(s, getUser().getId()));
                 
@@ -64,7 +65,9 @@ public class SelectClassroom extends LongBase {
 
                 School s = getSchool();
                 Set<Classroom> possibleClassrooms = getPossibleClassrooms(s, getUser().getId());
-                
+
+                getRequest().setAttribute("schoolName", s.getName());                
+
                 // add selected classrooms to the session
                 List<Classroom> selectedClassrooms = new ArrayList<Classroom>();
                 if (values != null) {

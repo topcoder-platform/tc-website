@@ -22,6 +22,8 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  */
 public class EditAssignmentSubmit extends LongBase {
 
+    // todo: school name
+
     private static Logger log = Logger.getLogger(EditAssignmentSubmit.class);
 
     /* (non-Javadoc)

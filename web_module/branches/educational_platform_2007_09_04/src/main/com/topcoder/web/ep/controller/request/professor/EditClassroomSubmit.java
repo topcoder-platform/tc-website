@@ -40,6 +40,8 @@ public class EditClassroomSubmit extends LongBase {
             Classroom classroom = getClassroom();
             log.debug("classroom's school: " + classroom.getSchool() == null ? null : classroom.getSchool().getName());
 
+            getRequest().setAttribute("schoolName", classroom.getSchool().getName());                
+
             boolean update = classroom.getId() != null;
 
             // if it's a new classroom, process students

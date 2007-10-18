@@ -64,6 +64,8 @@ public class EditAssignmentStudents extends LongBase {
             }
             Classroom c = checkValidClassroom((Long) classroomProperty);
 
+            getRequest().setAttribute("schoolName", c.getSchool().getName());                
+
             // if the assignment ended registrations cannot be updated 
             if ((new Date()).after(a.getContest().getEndDate())) {
                 throw new NavigationException("The assignment has ended, you cannot assign students at this time");

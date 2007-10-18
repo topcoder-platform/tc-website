@@ -64,6 +64,7 @@ public class EditAssignmentStudentsSubmit extends LongBase {
                 throw new TCWebException("The assignment has an invalid classroom id");
             }
             Classroom c = checkValidClassroom((Long) classroomProperty);
+            getRequest().setAttribute("schoolName", c.getSchool().getName());                
 
             // if the assignment ended registrations cannot be updated 
             if ((new Date()).after(a.getContest().getEndDate())) {

@@ -63,6 +63,7 @@ public class EditClassroom extends LongBase {
                 if (classroomId != null) {
                     // check if this classroom belongs to the active user
                     c = DAOUtil.getFactory().getClassroomDAO().find(classroomId);
+                    getRequest().setAttribute("schoolName", c.getSchool().getName());                
 
                     if (!c.getProfessor().getId().equals(getUser().getId())) {
                         throw new NavigationException("You don't have permission to see this page.");
