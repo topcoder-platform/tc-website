@@ -5,13 +5,13 @@
 */
 package com.topcoder.web.ep;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.MissingResourceException;
-
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.WebConstants;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.MissingResourceException;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -27,7 +27,7 @@ public class Constants implements WebConstants {
     public static final String ASSIGNMENT = "assignment";
     public static final String ASSIGNMENT_STUDENTS = "assignment_students";
     public static final String COMPONENTS = "components";
-    
+
     public static String SCHOOL_NAME;
     public static String COMPONENT_NAME;
 
@@ -48,6 +48,8 @@ public class Constants implements WebConstants {
 
     public static String JS_DATE_FORMAT;
     public static String JAVA_DATE_FORMAT;
+
+    public static final String PROFESSOR_ID = "profId";
 
     private Constants() {
 
