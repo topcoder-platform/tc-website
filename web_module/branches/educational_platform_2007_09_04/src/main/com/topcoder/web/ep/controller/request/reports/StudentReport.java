@@ -102,11 +102,12 @@ public class StudentReport extends SharedBaseProcessor {
             if (oldAssignment != assignmentId) {
                 log.debug("different! " + oldAssignment + "-" + assignmentId); 
                 if (!firstTime) {
-                    log.debug("first time"); 
+                    log.debug("not first time"); 
                     srr.setAssignmentScore(totalScore);
                     srr.setAssignmentNumTestsPassed(totalNumPassed);
                     srr.setAssignmentPercentTestsPassed(totalNumPassed * 100d / totalTests);
                     srr.setDetails(lsrdr);
+                    larr.add(srr);
                 }
                 
                 srr = new StudentReportRow(assignmentId,assignmentName,0d,0,0d,showAll,scoreType,null);
