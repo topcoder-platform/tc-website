@@ -53,7 +53,7 @@ public class ProblemAssignmentReport extends SharedBaseProcessor {
         }
         
         List<AssignmentReportRow> larr = processReport(a, c, cmp, null);
-        commonPostProcessing(larr, a, c);
+        commonPostProcessing(larr, a, c, cmp);
     }
 
     @Override
@@ -83,7 +83,7 @@ public class ProblemAssignmentReport extends SharedBaseProcessor {
 
         getRequest().setAttribute("score_type", scoreType);
         
-        commonPostProcessing(larr, a, c);
+        commonPostProcessing(larr, a, c, cmp);
     }
 
     protected List<AssignmentReportRow> processReport(Round a, Classroom c, Component cmp, Long studentId) throws Exception {
@@ -137,13 +137,14 @@ public class ProblemAssignmentReport extends SharedBaseProcessor {
         }
     }
 
-    private void commonPostProcessing(List<AssignmentReportRow> larr, Round a, Classroom c) {
+    private void commonPostProcessing(List<AssignmentReportRow> larr, Round a, Classroom c, Component cmp) {
         // sort results
         sortResult(larr);
         
         getRequest().setAttribute("results", larr);
         getRequest().setAttribute("assignment", a);
         getRequest().setAttribute("classroom", c);
+        getRequest().setAttribute("component", cmp);
         
         setNextPage("/reports/probAssignment.jsp");
         setIsNextPageInContext(true);
