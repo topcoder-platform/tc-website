@@ -47,14 +47,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${professors}" var="professor">
+                                <c:forEach items="${teachers}" var="teacher">
                                     <tr>
-                                        <td>${professor.user.handle}</td>
-                                        <td>${professor.user.firstName}</td>
-                                        <td>${professor.user.lastName}</td>
-                                        <td>${professor.user.primaryTeachingSchool.school.name}</td>
-                                        <td>${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>
-                                            =EnableProfessor&amp;<%=Constants.PROFESSOR_ID%>=${professor.user.id}</td>
+                                        <td>${teacher.user.handle}</td>
+                                        <td>${teacher.user.firstName}</td>
+                                        <td>${teacher.user.lastName}</td>
+                                        <td>${teacher.user.primaryTeachingSchool.school.name}</td>
+                                        <td>${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=EnableProfessor&amp;<%=Constants.PROFESSOR_ID%>=${teacher.user.id}</td>
                                     </tr>
                                 </c:forEach>
 
