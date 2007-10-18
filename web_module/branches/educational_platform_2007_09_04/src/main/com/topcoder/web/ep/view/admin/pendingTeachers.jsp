@@ -53,7 +53,7 @@
                                         <td>${teacher.map['first_name']}</td>
                                         <td>${teacher.map['last_name']}</td>
                                         <td>${teacher.map['school_name']}</td>
-                                        <td>${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=EnableProfessor&amp;<%=Constants.PROFESSOR_ID%>=${teacher.map['user_id']}</td>
+                                        <td><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=EnableProfessor&amp;<%=Constants.PROFESSOR_ID%>=${teacher.map['user_id']}">activate</a></td>
                                     </tr>
                                 </c:forEach>
 
