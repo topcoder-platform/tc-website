@@ -142,7 +142,7 @@
                     <c:choose><c:when test="${not empty score_type && score_type != tc_score_type}">
                         <td class="valueC">&nbsp;</td>
                     </c:when><c:otherwise>
-                        <td class="valueC">${result.score}</td>
+                        <td class="valueC"><fmt:formatNumber value="${result.score}"  minFractionDigits="2" maxFractionDigits="2"/></td>
                     </c:otherwise></c:choose>
 
                     <c:choose><c:when test="${not empty score_type && score_type != passed_score_type}">
