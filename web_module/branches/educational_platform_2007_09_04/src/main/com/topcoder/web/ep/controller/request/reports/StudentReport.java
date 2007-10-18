@@ -8,20 +8,20 @@ package com.topcoder.web.ep.controller.request.reports;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.web.common.model.algo.ComponentState;
-import com.topcoder.web.common.model.algo.Round;
-import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.educ.AssignmentScoreType;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
@@ -73,103 +73,86 @@ public class StudentReport extends SharedBaseProcessor {
     }
 
     protected List<StudentReportRow> processReport(Classroom c, Coder s) throws Exception {
-
-        // get all rounds for this classroom, student
-        List<Round> lr = DAOUtil.getFactory().getClassroomDAO().getAssignmentsForStudent(c.getId(), s.getId());
-
-        // get and prepare system test results so they are available to construct the rows
-        List<Object> systemTestResults = DAOUtil.getFactory().getSystemTestResultDAO().getSystemTestResultsByStudent(lr, s.getId());
-
-        Map<Long, AssignmentTestResult> assignmentResults = new HashMap<Long, AssignmentTestResult>();
-        
-        for (Object o : systemTestResults ) {
-            Object[] lo = (Object[]) o;
-            Integer total = (Integer)lo[0];
-            Integer succeeded = (Integer)lo[1];
-            Long assignmentId = (Long)lo[2]; 
-            Long componentId = (Long)lo[3];
-
-            AssignmentTestResult atr;
-            if (assignmentResults.containsKey(assignmentId)) {
-                atr = assignmentResults.get(assignmentId);
-            } else {
-                atr = new AssignmentTestResult(assignmentId);
-                assignmentResults.put(assignmentId, atr);
-            }
-            atr.setSucceeded(atr.getSucceeded() + succeeded);
-            atr.setTotal(atr.getTotal() + total);
-            
-            atr.getComponentTestResults().put(componentId, new ComponentTestResult(componentId, total, succeeded));
-        }
-
-        // Iterate results and generate report
-        List<ComponentState> l = DAOUtil.getFactory().getComponentStateDAO().getStudentResults(lr, s.getId());
-
+        ResultSetContainer rsc = getData(c.getId(), s.getId());
+        StudentReportRow srr = null;
         List<StudentReportRow> larr = new ArrayList<StudentReportRow>();
-        if (l.size() > 0) {
-            List<StudentReportDetailRow> lsrdr = new ArrayList<StudentReportDetailRow>();
-            ComponentState oldCs = l.iterator().next();
-            Double assignmentPoints = 0d;
-            for (ComponentState cs : l) {
-                if (!oldCs.getRound().getId().equals(cs.getRound().getId())) {
-                    if (assignmentResults.containsKey(oldCs.getRound().getId())) {
-                        larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, 
-                                assignmentResults.get(oldCs.getRound().getId()).getSucceeded(), 
-                                assignmentResults.get(oldCs.getRound().getId()).getSucceeded() * 100d / assignmentResults.get(oldCs.getRound().getId()).getTotal(),
-                                (Long)oldCs.getRound().getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID),
-                                (Long)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
-                                lsrdr));
-                    } else {
-                        larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, 
-                                -1, 0d, 
-                                (Long)oldCs.getRound().getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID),
-                                (Long)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
-                                lsrdr));
-                    }
-
-                    lsrdr = new ArrayList<StudentReportDetailRow>();
-                    assignmentPoints = 0d;
+        List<StudentReportDetailRow> lsrdr = new ArrayList<StudentReportDetailRow>();
+        Long oldAssignment = -1l;
+        Double totalScore = 0d;
+        Integer totalTests = 0;
+        Integer totalNumPassed = -1;
+        boolean firstTime = true;
+        for (ResultSetRow rsr : rsc) {
+            Long assignmentId = rsr.getLongItem("round_id");
+            String assignmentName = rsr.getStringItem("round_name");
+            Long componentId = rsr.getLongItem("component_id");
+            String problemName = rsr.getStringItem("problem_name");
+            Double points = rsr.getDoubleItem("points");
+            Integer total = rsr.getIntItem("total");
+            Integer succeeded = (Integer) rsr.getItem("succeeded").getResultData();
+            Long showAll = rsr.getLongItem("show_all");
+            Long scoreType = rsr.getLongItem("score_type");
+            
+            if (oldAssignment != assignmentId) {
+                if (!firstTime) {
+                    srr.setAssignmentScore(totalScore);
+                    srr.setAssignmentNumTestsPassed(totalNumPassed);
+                    srr.setAssignmentPercentTestsPassed(totalNumPassed * 100d / totalTests);
+                    srr.setDetails(lsrdr);
                 }
+                
+                srr = new StudentReportRow(assignmentId,assignmentName,0d,0,0d,showAll,scoreType,null);
+                    
+                totalScore = 0d;
+                totalNumPassed = -1;
+                totalTests = 0;
+                
+                lsrdr = new ArrayList<StudentReportDetailRow>();
+            }
 
-                if (assignmentResults.containsKey(cs.getRound().getId())) {
-                    Map<Long, ComponentTestResult> componentTestResults = assignmentResults.get(cs.getRound().getId()).getComponentTestResults(); 
-                    if (componentTestResults.containsKey(cs.getComponent().getId())) {
-                        lsrdr.add(new StudentReportDetailRow(cs.getComponent().getId(), cs.getComponent().getProblem().getName(), cs.getPoints(), 
-                                componentTestResults.get(cs.getComponent().getId()).getSucceeded(), 
-                                componentTestResults.get(cs.getComponent().getId()).getSucceeded() * 100d / componentTestResults.get(cs.getComponent().getId()).getTotal()));
-                    } else {
-                        lsrdr.add(new StudentReportDetailRow(cs.getComponent().getId(), cs.getComponent().getProblem().getName(), cs.getPoints(), 
-                            -1, 0d));
-                    }
+            if (succeeded != null) {
+                lsrdr.add(new StudentReportDetailRow(componentId,problemName,points,succeeded,succeeded * 100d / total));
+                if (totalNumPassed.equals(-1)) {
+                    totalNumPassed = succeeded;
                 } else {
-                    lsrdr.add(new StudentReportDetailRow(cs.getComponent().getId(), cs.getComponent().getProblem().getName(), cs.getPoints(), 
-                        -1, 0d));
+                    totalNumPassed += succeeded;
                 }
-                    
-                    
-                assignmentPoints += cs.getPoints(); 
-                oldCs = cs;
-            }
-            if (assignmentResults.containsKey(oldCs.getRound().getId())) {
-                larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, 
-                        assignmentResults.get(oldCs.getRound().getId()).getSucceeded(), 
-                        assignmentResults.get(oldCs.getRound().getId()).getSucceeded() * 100d / assignmentResults.get(oldCs.getRound().getId()).getTotal(), 
-                        (Long)oldCs.getRound().getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID),
-                        (Long)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
-                        lsrdr));
             } else {
-                larr.add(new StudentReportRow(oldCs.getRound().getId(), oldCs.getRound().getName(), assignmentPoints, 
-                        -1, 0d, 
-                        (Long)oldCs.getRound().getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID),
-                        (Long)oldCs.getRound().getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID),
-                        lsrdr));
+                lsrdr.add(new StudentReportDetailRow(componentId,problemName,points,-1,0d));
             }
 
-            lsrdr = new ArrayList<StudentReportDetailRow>();
-            assignmentPoints = 0d;
+            totalTests += total;
+            totalScore += points;
+
+            oldAssignment = assignmentId;
         }
-        
+        if (rsc.size() > 0) {
+            srr.setAssignmentScore(totalScore);
+            srr.setAssignmentNumTestsPassed(totalNumPassed);
+            srr.setAssignmentPercentTestsPassed(totalNumPassed * 100d / totalTests);
+            srr.setDetails(lsrdr);
+        }
+
         return larr;
+    }
+
+    private ResultSetContainer getData(Long classroomId, Long coderId) throws TCWebException {
+        try {
+            Request r = new Request();
+            String queryName = "student_results_all";
+
+            r.setContentHandle(queryName);
+            r.setProperty("clsid", classroomId.toString());
+            r.setProperty("cr", coderId.toString());
+
+            DataAccessInt dai = getDataAccess();
+            Map result = dai.getData(r);
+            ResultSetContainer rsc = (ResultSetContainer) result.get(queryName);
+
+            return rsc;
+        } catch (Exception e) {
+            throw new TCWebException("Could not get data from DB", e);
+        }
     }
 
     private Coder validateStudent(Classroom c) throws TCWebException {
@@ -320,180 +303,4 @@ public class StudentReport extends SharedBaseProcessor {
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
 
-    private class AssignmentTestResult {
-        private Long assignmentId;
-        private Integer total = 0;
-        private Integer succeeded = 0;
-        private Map<Long, ComponentTestResult> componentTestResults = new HashMap<Long, ComponentTestResult>();
-
-        
-        public AssignmentTestResult(Long assignmentId) {
-            super();
-            this.assignmentId = assignmentId;
-        }
-        /**
-         * @return the assignmentId
-         */
-        public Long getAssignmentId() {
-            return assignmentId;
-        }
-        /**
-         * @param assignmentId the assignmentId to set
-         */
-        public void setAssignmentId(Long assignmentId) {
-            this.assignmentId = assignmentId;
-        }
-        /**
-         * @return the total
-         */
-        public Integer getTotal() {
-            return total;
-        }
-        /**
-         * @param total the total to set
-         */
-        public void setTotal(Integer total) {
-            this.total = total;
-        }
-        /**
-         * @return the succeeded
-         */
-        public Integer getSucceeded() {
-            return succeeded;
-        }
-        /**
-         * @param succeded the succeeded to set
-         */
-        public void setSucceeded(Integer succeeded) {
-            this.succeeded = succeeded;
-        }
-        /**
-         * @return the componentTestResults
-         */
-        public Map<Long, ComponentTestResult> getComponentTestResults() {
-            return componentTestResults;
-        }
-        /**
-         * @param componentTestResults the componentTestResults to set
-         */
-        public void setComponentTestResults(
-                Map<Long, ComponentTestResult> componentTestResults) {
-            this.componentTestResults = componentTestResults;
-        }
-        /* (non-Javadoc)
-         * @see java.lang.Object#hashCode()
-         */
-        @Override
-        public int hashCode() {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result
-                    + ((assignmentId == null) ? 0 : assignmentId.hashCode());
-            return result;
-        }
-        /* (non-Javadoc)
-         * @see java.lang.Object#equals(java.lang.Object)
-         */
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj)
-                return true;
-            if (obj == null)
-                return false;
-            if (getClass() != obj.getClass())
-                return false;
-            final AssignmentTestResult other = (AssignmentTestResult) obj;
-            if (assignmentId == null) {
-                if (other.assignmentId != null)
-                    return false;
-            } else if (!assignmentId.equals(other.assignmentId))
-                return false;
-            return true;
-        }
-        
-        
-    }
-
-    private class ComponentTestResult {
-        private Long componentId;
-        private Integer total;
-        private Integer succeeded;
-
-        public ComponentTestResult(Long componentId, Integer total,
-                Integer succeeded) {
-            super();
-            this.componentId = componentId;
-            this.total = total;
-            this.succeeded = succeeded;
-        }
-        /**
-         * @return the total
-         */
-        public Integer getTotal() {
-            return total;
-        }
-        /**
-         * @param total the total to set
-         */
-        public void setTotal(Integer total) {
-            this.total = total;
-        }
-        /**
-         * @return the succeeded
-         */
-        public Integer getSucceeded() {
-            return succeeded;
-        }
-        /**
-         * @param succeded the succeeded to set
-         */
-        public void setSucceeded(Integer succeeded) {
-            this.succeeded = succeeded;
-        }
-        /**
-         * @return the componentId
-         */
-        public Long getComponentId() {
-            return componentId;
-        }
-        /**
-         * @param componentId the componentId to set
-         */
-        public void setComponentId(Long componentId) {
-            this.componentId = componentId;
-        }
-        
-        /* (non-Javadoc)
-         * @see java.lang.Object#hashCode()
-         */
-        @Override
-        public int hashCode() {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result
-                    + ((componentId == null) ? 0 : componentId.hashCode());
-            return result;
-        }
-        /* (non-Javadoc)
-         * @see java.lang.Object#equals(java.lang.Object)
-         */
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj)
-                return true;
-            if (obj == null)
-                return false;
-            if (getClass() != obj.getClass())
-                return false;
-            final ComponentTestResult other = (ComponentTestResult) obj;
-            if (componentId == null) {
-                if (other.componentId != null)
-                    return false;
-            } else if (!componentId.equals(other.componentId))
-                return false;
-            return true;
-        }
-        
-        
-    }
 }

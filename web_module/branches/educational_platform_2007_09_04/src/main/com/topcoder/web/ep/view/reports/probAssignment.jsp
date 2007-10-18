@@ -181,7 +181,13 @@
                         </c:choose>
                     </c:otherwise></c:choose>
                     </td>
-                    <td class="valueC"><a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;asid=${assignment.id}&amp;cd=${component.id}&amp;stid=${result.studentId}"><img src="/i/ep/buttons/viewSubmission.png" alt="View submission" /></a></td>
+                    <td class="valueC">
+                        <c:choose><c:when test="${not empty score_type && sessionInfo.userId != result.studentId}">
+                            &nbsp;
+                        </c:when><c:otherwise>
+                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;asid=${assignment.id}&amp;cd=${component.id}&amp;stid=${result.studentId}"><img src="/i/ep/buttons/viewSubmission.png" alt="View submission" /></a>
+                        </c:otherwise></c:choose>
+                    </td>
                 </tr>
                 <%i++;%>
             </c:forEach>
