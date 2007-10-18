@@ -58,6 +58,9 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <c:if test="${fn:length(teachers)==0}">
+                                    There are no pending teachers.
+                                </c:if>
                                 <c:forEach items="${teachers}" var="teacher">
                                     <tr>
                                         <td>${teacher.map['handle']}</td>
