@@ -55,9 +55,9 @@ ${submission.originalFileName}
 <div id="pop${submission.id}" class="popUp">
 <div>View submission</div>
 </div>
-<A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
+<a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
 <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()"/>
-</A>
+</a>
 </td>
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <tc-webtag:format object="${submission.createDate}" format="EEEE, MMMM d, yyyy '<br />' HH:mm z" timeZone="${sessionInfo.timezone}"/>
@@ -101,9 +101,9 @@ Pending
 <img src="/i/layout/btnMoveUpNA.png" alt="Move up"/>
 </c:when>
 <c:otherwise>
-<A href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
+<a href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
 <img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/>
-</A>
+</a>
 </c:otherwise>
 </c:choose>
 </div>
@@ -113,9 +113,9 @@ Pending
 <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
 </c:when>
 <c:otherwise>
-<A href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
+<a href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
 <img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/>
-</A>
+</a>
 </c:otherwise>
 </c:choose>
 </div>
@@ -127,18 +127,18 @@ Pending
 <img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>
 </c:when>
 <c:otherwise>
-<A href="#" onclick="changeRank(1, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
+<a href="#" onclick="changeRank(1, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
 <img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/>
-</A>
+</a>
 </c:otherwise>
 </c:choose>
 </div>
 </td>
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div align="center">
-<A href="#" onclick="remove(${submission.id});return false;" onfocus="this.blur();" style="display: block;">
+<a href="#" onclick="remove(${submission.id});return false;" onfocus="this.blur();" style="display: block;">
 <img src="/i/layout/btnRemove.png" alt="Remove" onmouseover="this.src = '/i/layout/btnRemoveOn.png';" onmouseout="this.src = '/i/layout/btnRemove.png';"/>
-</A>
+</a>
 </div>
 </td>
 </c:otherwise>

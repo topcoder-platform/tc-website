@@ -36,7 +36,7 @@
 
 <h2 align="right">Need help? Learn how to
     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get
-        started</a>.<br>
+        started</a>.<br />
     Got <a href="/?module=Static&amp;d1=support&amp;d2=generalFaq">questions</a>?
 </h2>
 
@@ -114,10 +114,10 @@
                     </div>
                 </td>
                 <td class="valueC">
-                    <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                    <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                 </td>
                 <td class="valueC">
-                    <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                    <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                 </td>
                 <td class="valueR">
                     <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>

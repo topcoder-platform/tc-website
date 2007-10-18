@@ -33,7 +33,7 @@
 <h1>TCCC06 Logo Contest</h1>
 
 <div align="left" style="padding-bottom: 10px;">
-<A href="/?module=Static&d1=oldcontests&d2=tccc06Submissions0">View Submissions</A>
+<a href="/?module=Static&d1=oldcontests&d2=tccc06Submissions0">View Submissions</a>
  | Finals
 </div>
 
@@ -50,7 +50,7 @@
 </td>
 
 <td align="left" valign="top">
-<studio:handle coderId="14947661"/><br>
+<studio:handle coderId="14947661"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0449.gif" alt="" />
 
 
@@ -64,7 +64,7 @@
 </td>
 
 <td align="left" valign="top">
-<studio:handle coderId="22503298"/><br>
+<studio:handle coderId="22503298"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0227.gif" alt="" />
 
 
@@ -79,7 +79,7 @@
 
 <td align="left" valign="top">
 
-<studio:handle coderId="22540263"/><br>
+<studio:handle coderId="22540263"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0571.gif" alt="" />
 
 
@@ -93,7 +93,7 @@
 
 <td align="left" valign="top">
 
-<studio:handle coderId="22432924"/><br>
+<studio:handle coderId="22432924"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0377.gif" alt="" />
 
 
@@ -107,7 +107,7 @@
 
 
 <td align="left" valign="top">
-<studio:handle coderId="22383231"/><br>
+<studio:handle coderId="22383231"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0379.gif" alt="" />
 
 
@@ -121,7 +121,7 @@
 
 
 <td align="left" valign="top">
-<studio:handle coderId="22626796"/><br>
+<studio:handle coderId="22626796"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0404.gif" alt="" />
 
 
@@ -135,7 +135,7 @@
 
 
 <td align="left" valign="top">
-<studio:handle coderId="15140959"/><br>
+<studio:handle coderId="15140959"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0462.gif" alt="" />
 
 
@@ -149,7 +149,7 @@
 
 
 <td align="left" valign="top">
-<studio:handle coderId="8361901"/><br>
+<studio:handle coderId="8361901"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0224.gif" alt="" />
 
 
@@ -163,7 +163,7 @@
 
 
 <td align="left" valign="top">
-<studio:handle coderId="14925029"/><br>
+<studio:handle coderId="14925029"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0045.gif" alt="" />
 
 
@@ -177,7 +177,7 @@
 
 
 <td align="left" valign="top">
-<studio:handle coderId="10651364"/><br>
+<studio:handle coderId="10651364"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0433.gif" alt="" />
 
 

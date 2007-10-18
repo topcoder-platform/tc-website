@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="breadcrumb">
-                    <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A>
+                    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a>
                     &gt; ${contest.name}
                 </div>
 
@@ -74,9 +74,9 @@
                 <div align="center">
                     <div align="left" style="width:500px; margin-top: 20px;">
                         Your Submission Has Been Uploaded
-                        <br><br>
+                        <br /><br />
                         <div align="center">
-                        <A href="${sessionInfo.servletPath}?module=ViewFinalSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onfocus="this.blur();"><img src="/i/layout/btnSubmitAnother.png" alt="submit another" onmouseover="this.src = '/i/layout/btnSubmitAnotherOn.png';" onmouseout="this.src = '/i/layout/btnSubmitAnother.png';"/></A>
+                        <a href="${sessionInfo.servletPath}?module=ViewFinalSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onfocus="this.blur();"><img src="/i/layout/btnSubmitAnother.png" alt="submit another" onmouseover="this.src = '/i/layout/btnSubmitAnotherOn.png';" onmouseout="this.src = '/i/layout/btnSubmitAnother.png';"/></a>
                         </div>
                     </div>
                 </div>

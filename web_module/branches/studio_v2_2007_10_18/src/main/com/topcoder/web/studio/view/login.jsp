@@ -59,18 +59,18 @@
                     <div align="left" style="width:500px;">
                         <p><b>Forgot your password?</b><br/>
                             If you cannot remember your password
-                            <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click
-                                here</A>
+                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click
+                                here</a>
                             and we can help you restore your account.</p>
 
-                        <br><br>
-                        <strong>New to TopCoder Studio?</strong><br>
-                        <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now</A>. After you complete
+                        <br /><br />
+                        <strong>New to TopCoder Studio?</strong><br />
+                        <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now</a>. After you complete
                         the
                         registration process,
                         we
                         will send your account activation code via email.
-                        <br><br>
+                        <br /><br />
 
                         <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}">
                             <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
@@ -109,7 +109,7 @@
                                     </tr>
                                 </table>
 
-                                <br><br>
+                                <br /><br />
 
                                 <script type="text/javascript">
                                     document.frmLogin.<%=Login.USER_NAME%>.focus();

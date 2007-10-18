@@ -2,14 +2,16 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="java.util.Map" %>
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <% ResultSetContainer recentWinners = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("recent_winners");%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<html>
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -47,18 +49,77 @@
 
 </head>
 
-<body>
+<body id="page">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="home"/>
+            </jsp:include>
+        </div>
 
-<div align="center">
-<div id="contentOut" class="contentOut">
-<jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="home"/>
-</jsp:include>
-<div id="contentIn" class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+<%--
+            <!-- header_data -->
+            <div id="header_data">
+                <!-- loginBox -->
+                <div class="loginBox">
+                    <table class="login" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>Handle:</td>
+                        <td><input class="textBox" type="text" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input class="textBox" type="text" value="" /></td>
+                    </tr>
+                    </table>
+                    <table cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td><input type="checkbox" /> Remember me</td>
+                        <td class="valueC"><a href="#"><img src="/i/v2/btn_go.png" alt="GO" /></a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><span><a href="#" title="Register">Register</a> | <a href="#" title="Forgot your password?">Forgot your password?</a></span></td>
+                    </tr>
+                    </table>
+                </div>
+                <!-- logoBox -->
+                <div class="logoBox">
+                    <a href="#"><img src="/i/v2/studio_logo.png" alt="TopCoder Studio" /></a>
+                </div>
+            </div>
+            <!-- menubar -->
+            <div id="menubar">
+                <div id="nav">
+                    <ul>
+                        <li class="active"><a href="#" title="Home">Home</a></li>
+                        <li><a href="#" title="Contests">Contests</a></li>
+                        <li><a href="#" title="Forums">Forums</a></li>
+                        <li><a href="#" title="Support">Support</a></li>
+                        <li class="nobar" title="Contact Us"><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+--%>
+        
 
-<div class="contentSpacer">
+
+
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                <div class="contentMiddle">
+
+
+
+
+
+
+
 
 <table cellpadding="0" cellspacing="0" style="width:740px;">
     <tbody>
@@ -67,23 +128,23 @@
 
 <%-- AIM --%>
                 <div>
-                    <a href="<tc-webtag:linkTracking link="http://studio.topcoder.com/?module=ViewContestDetails&ct=2136" refer="studio_homepage" />"><img src="/i/home/aim_iconography.png" alt="AIM Iconography Contest"/></A>
+                    <a href="<tc-webtag:linkTracking link="http://studio.topcoder.com/?module=ViewContestDetails&ct=2136" refer="studio_homepage" />"><img src="/i/home/aim_iconography.png" alt="AIM Iconography Contest"/></a>
                 </div>
 
 <%--   REGISTER NOW 
                 <div>
-                     <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
+                     <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></a>
                 </div>
 --%>
 
 <%-- POST A PROJECT --%>
                 <div>
-                    <A href="/?module=Static&amp;d1=contactUs"><img src="/i/home/post_project.gif" alt="Post a project"/></A>
+                    <a href="/?module=Static&amp;d1=contactUs"><img src="/i/home/post_project.gif" alt="Post a project"/></a>
                 </div>
 
 <%-- NEED HELP? --%>
                 <div>
-                    <A href="/?module=Static&amp;d1=support&amp;d2=getStarted"><img src="/i/home/need_help.gif" alt="Need help?"/></A>
+                    <a href="/?module=Static&amp;d1=support&amp;d2=getStarted"><img src="/i/home/need_help.gif" alt="Need help?"/></a>
                 </div>
 
 
@@ -94,26 +155,26 @@
                 <h1>Welcome to TopCoder Studio</h1>
 <%-- 
                  <div style="float:right; margin: 0px 0px 10px 10px;">
-                     <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
+                     <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></a>
                  </div>
 --%>
                 <jsp:include page="message.jsp"/>
 
                 Welcome to TopCoder Studio - the best place on the web for showing off your creative
                 skills in a competitive environment and getting paid for being the best!
-                <br><br>
+                <br /><br />
                 At the Studio, clients post their projects with definitive timelines, deliverables and
                 payouts, and you decide which ones pique your interest. There are even advancement
                 opportunities available into the Review Board, where a select group of competing members
                 will evaluate all submissions before they are passed on to the client.
-                <br><br>
+                <br /><br />
                 So, poke around, ask questions and, above all, compete and have fun!
-                <br><br>
+                <br /><br />
 
-                <h2><A href="/?module=ViewActiveContests">Check out some Studio contests!</A></h2>
-                <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</A> as a Studio
+                <h2><a href="/?module=ViewActiveContests">Check out some Studio contests!</a></h2>
+                <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a> as a Studio
                 member so you can receive emails when new contests arrive.
-                <br><br>
+                <br /><br />
                 <table cellpadding="0" cellspacing="0" class="stat" style="width:485px;">
                     <tbody>
                         <tr>
@@ -148,9 +209,9 @@
                                     <c:choose>
                                         <c:when test="${resultRow.map['show_submissions']}">
                                             <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-                                            <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                                            <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
                                                 <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()" />
-                                            </A>
+                                            </a>
                                         </c:when>
                                         <c:otherwise>
                                             <img src="/i/layout/magnifyFade.png" alt="" />
@@ -158,8 +219,8 @@
                                     </c:choose>
                                 </td>
                                 <td class="value">
-                                    <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-                                        <rsc:item name="name" row="<%=resultRow%>"/></A>
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
+                                        <rsc:item name="name" row="<%=resultRow%>"/></a>
                                 </td>
                                 <td class="valueR">
                                     <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
@@ -172,28 +233,39 @@
                         <tr>
                             <td class="SW">&nbsp;</td>
                             <td class="title" colspan="4">
-                                <A href="/?module=ViewPastContests" class="small">...more</A>
+                                <a href="/?module=ViewPastContests" class="small">...more</a>
                             </td>
                             <td class="SE">&nbsp;</td>
                         </tr>
                     </tbody>
                 </table>
-
-
             </td>
         </tr>
     </tbody>
 </table>
 
-</div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-<jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
 
-<%-- required by crazyegg site, ask Nick about it --%>
-<script type="text/javascript" src="http://cetrk.com/pages/scripts/0004/0536.js"> </script>
+
+
+
+
+
+                </div>                
+                <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- footer -->
+        <div id="footer">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">About TopCoder</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li class="nobar"><a href="#">Terms</a></li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>

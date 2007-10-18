@@ -48,7 +48,7 @@
 </div>
 
 <div class="breadcrumb">
-    <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
+    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt;
     ${contest.name}
 </div>
 
@@ -72,7 +72,7 @@
                         </p>
                         <p>
                         <tc-webtag:errorIterator id="err" name="<%=Constants.ACCEPT_AD_ERROR%>"><span class="bigRed">${err}</span>
-                        <br></tc-webtag:errorIterator>
+                        <br /></tc-webtag:errorIterator>
                         <tc-webtag:chkBox name="<%=Constants.ACCEPT_AD%>"/> I accept
                         </p>                
                     </c:when>
@@ -95,7 +95,7 @@
                 <p>
                     <b>My design:</b><br/>
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
-                                        <br></tc-webtag:errorIterator>
+                                        <br /></tc-webtag:errorIterator>
                     <input type="file" name="<%=Constants.SUBMISSION%>">
                 </p>
                 <p id="submitButton">

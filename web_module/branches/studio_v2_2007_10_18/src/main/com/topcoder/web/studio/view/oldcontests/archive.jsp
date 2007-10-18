@@ -32,23 +32,23 @@
 <h1>Old Contests</h1>
 
 <div align="center">
-In the past, TopCoder has held contests to design logos for our online programming competitions.<br>These are the winning submissions. Click the logos for more details.
-<br><br>
+In the past, TopCoder has held contests to design logos for our online programming competitions.<br />These are the winning submissions. Click the logos for more details.
+<br /><br />
 <table cellpadding="0" cellspacing="0">
 <tbody>
     <tr>
         <td align="center">
-        <A href="/?module=Static&d1=oldcontests&d2=tccc06Finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0449.gif" alt="" /></A>
+        <a href="/?module=Static&d1=oldcontests&d2=tccc06Finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0449.gif" alt="" /></a>
         </td>
     </tr>
     <tr>
         <td align="center" style="padding-bottom: 100px;">
-        <A href="/?module=Static&d1=oldcontests&d2=tco06Finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/logo_submissions/0056.jpg" alt="" /></A>
+        <a href="/?module=Static&d1=oldcontests&d2=tco06Finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/logo_submissions/0056.jpg" alt="" /></a>
         </td>
     </tr>
     <tr>
         <td align="center">
-        <A href="/?module=Static&d1=oldcontests&d2=tco05Finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/085.gif" alt=""  /></A>
+        <a href="/?module=Static&d1=oldcontests&d2=tco05Finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/085.gif" alt=""  /></a>
         </td>
     </tr>
 </tbody>

@@ -59,7 +59,7 @@
         </div>
         <strong>TopCoder Studio posts project as a new contest</strong>:
         Once the project documentation has been completed by the client and formatted appropriately by
-        TopCoder Studio, it is posted on the <A href="/?module=ViewActiveContests">Contests page</A>.
+        TopCoder Studio, it is posted on the <a href="/?module=ViewActiveContests">Contests page</a>.
         All TopCoder Studio members will be alerted via email when new contests are posted.
         <br /><br />
         
@@ -70,7 +70,7 @@
         Anyone interested in participating in TopCoder Studio can read through the Contests page - no
         prior registration is necessary. If there is a contest that you think a friend, co-worker or
         fellow creative type might be interested in, send them a link to the
-        <A href="/?module=ViewActiveContests">Contests page</A>.
+        <a href="/?module=ViewActiveContests">Contests page</a>.
         <br /><br />
         
         <div style="float:left; margin: 0px 6px 4px 0px;">
@@ -81,7 +81,7 @@
         :
         In order to participate in Studio contests, you must be a registered TopCoder
         Studio member. Registration is free and easy and can be completed
-        <A href="https://www.topcoder.com/reg/">here</A>. Registered Studio members can then register for individual contests on the corresponding Contest Details pages. Contest registration gives members access to download the files associated with the contest, including the Spec Doc.
+        <a href="https://www.topcoder.com/reg/">here</a>. Registered Studio members can then register for individual contests on the corresponding Contest Details pages. Contest registration gives members access to download the files associated with the contest, including the Spec Doc.
         <br /><br />
         
         <div style="float:left; margin: 0px 6px 4px 0px;">
@@ -129,10 +129,10 @@
         Details.
         <br /><br />
         
-        Get started now by checking out the current <A href="/?module=ViewActiveContests">Contests</A>!
+        Get started now by checking out the current <a href="/?module=ViewActiveContests">Contests</a>!
         
         <br /><br />
-        Questions about the process can be directed to <A href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</A>.
+        Questions about the process can be directed to <a href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</a>.
 
     </div>
     <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>

@@ -33,7 +33,7 @@
 <h1>TCO06 Logo Contest</h1>
 
 <div align="left" style="padding-bottom: 10px;">
-<A href="/?module=Static&d1=oldcontests&d2=tco05Submissions0">View Submissions</A>
+<a href="/?module=Static&d1=oldcontests&d2=tco05Submissions0">View Submissions</a>
  | Finals
 </div>
 
@@ -50,7 +50,7 @@
 </td>
 
 <td align="left" valign="top">
-<studio:handle coderId="14947661"/><br>
+<studio:handle coderId="14947661"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/085.gif" alt="" />
 
 
@@ -64,7 +64,7 @@
 </td>
 
 <td align="left" valign="top">
-<studio:handle coderId="14947701"/><br>
+<studio:handle coderId="14947701"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/090.gif" alt="" />
 
 
@@ -79,7 +79,7 @@
 
 <td align="left" valign="top">
 
-<studio:handle coderId="15047259"/><br>
+<studio:handle coderId="15047259"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/437.gif" alt="" />
 
 
@@ -93,7 +93,7 @@
 
 <td align="left" valign="top">
 
-<studio:handle coderId="13372886"/><br>
+<studio:handle coderId="13372886"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/498.gif" alt="" />
 
 
@@ -107,7 +107,7 @@
 
 
 <td align="left" valign="top">
-<studio:handle coderId="14946338"/><br>
+<studio:handle coderId="14946338"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/089.gif" alt="" />
 
 

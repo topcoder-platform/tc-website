@@ -33,12 +33,12 @@
 
 <div align="left" style="padding-bottom: 10px;">
 View Submissions
- | <A href="/?module=Static&d1=oldcontests&d2=tco05Finals">Finals</A>
+ | <a href="/?module=Static&d1=oldcontests&d2=tco05Finals">Finals</a>
 </div>
 
 <div class="pagingBox">
-<A href="/?module=Static&d1=oldcontests&d2=tco05Submissions3"><< prev</A>
- | <A href="/?module=Static&d1=oldcontests&d2=tco05Submissions5">next >></A>
+<a href="/?module=Static&d1=oldcontests&d2=tco05Submissions3"><< prev</a>
+ | <a href="/?module=Static&d1=oldcontests&d2=tco05Submissions5">next >></a>
 </div>
 
 <table cellpadding="0" cellspacing="0" class="stat" style="width:740px;">
@@ -51,7 +51,7 @@ View Submissions
     <% boolean even = true;%>
 <script language=javascript type="text/javascript">
 for(i = 499; i >= 400; i--)
-document.writeln( '<tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>&nbsp;</div></td><td class="valueC">'+i+'<br><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/'+i+'.gif" alt="'+i+'" /></td><td class="valueE"><div>&nbsp;</div></td></tr><% even = !even;%>' )
+document.writeln( '<tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>&nbsp;</div></td><td class="valueC">'+i+'<br /><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/'+i+'.gif" alt="'+i+'" /></td><td class="valueE"><div>&nbsp;</div></td></tr><% even = !even;%>' )
 </script>
             <tr>
                 <td class="SW" colspan="2">&nbsp;</td>
@@ -60,8 +60,8 @@ document.writeln( '<tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>
 </tbody>
 </table>
 <div class="pagingBox">
-<A href="/?module=Static&d1=oldcontests&d2=tco05Submissions3"><< prev</A>
- | <A href="/?module=Static&d1=oldcontests&d2=tco05Submissions5">next >></A>
+<a href="/?module=Static&d1=oldcontests&d2=tco05Submissions3"><< prev</a>
+ | <a href="/?module=Static&d1=oldcontests&d2=tco05Submissions5">next >></a>
 </div>
 
 

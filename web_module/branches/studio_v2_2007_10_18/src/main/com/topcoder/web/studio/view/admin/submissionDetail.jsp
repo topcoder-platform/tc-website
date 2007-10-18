@@ -89,22 +89,22 @@
 
 
                     <c:if test="${submissionReview.reviewer!=null}">
-                        Reviewer: ${submissionReview.reviewer.handle}<br>
+                        Reviewer: ${submissionReview.reviewer.handle}<br />
                     </c:if>
                     <c:if test="${submission.rank!=null}">
-                        Submitter Rank: ${submission.rank}<br>
+                        Submitter Rank: ${submission.rank}<br />
                     </c:if>
                     Status:
                     <tc-webtag:objectSelect name="<%=Constants.REVIEW_STATUS_ID%>" list="${reviewStatuses}" valueField="id" textField="description" onChange="choose()"/>
-                    <br><br>
-                    Dear ${submission.submitter.handle},<br><br>
+                    <br /><br />
+                    Dear ${submission.submitter.handle},<br /><br />
                     This email is in regards to your submission ${submission.originalFileName} at &lt;time&gt;
-                    <br><br>
+                    <br /><br />
                     <tc-webtag:textArea name="<%=Constants.SUBMISSION_REVIEW_TEXT%>" rows="10" cols="80"/>
-                    <br><br>
-                    Sincerely,<br>
-                    ${currentUser.firstName} ${currentUser.lastName}<br>
-                    TopCoder Studio<br>
+                    <br /><br />
+                    Sincerely,<br />
+                    ${currentUser.firstName} ${currentUser.lastName}<br />
+                    TopCoder Studio<br />
                     <button name="submit" value="submit" type="submit">Submit</button>
                 </form>
 
@@ -130,9 +130,9 @@
                                         <button onClick="document.prizeRemoveForm.<%=Constants.PRIZE_ID%>.value ='${prize.id}'">
                                         Remove
                                         </button>
-                                        <br>
+                                        <br />
                                     </div>
-                                    <strong>${prize.type.description}:</strong><br>
+                                    <strong>${prize.type.description}:</strong><br />
                                 </c:when>
                                 <c:otherwise>
                                     <div style="float: right; clear: right; text-align: right;">
@@ -140,9 +140,9 @@
                                         <button onClick="document.prizeRemoveForm.<%=Constants.PRIZE_ID%>.value ='${prize.id}'">
                                         Remove
                                         </button>
-                                        <br>
+                                        <br />
                                     </div>
-                                    <strong>Prize ${prize.place}:</strong><br>
+                                    <strong>Prize ${prize.place}:</strong><br />
                                 </c:otherwise>
                             </c:choose>
                         </c:forEach>

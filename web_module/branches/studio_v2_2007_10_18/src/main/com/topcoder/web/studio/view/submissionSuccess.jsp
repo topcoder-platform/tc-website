@@ -75,7 +75,7 @@
         </div>
 
         <div class="breadcrumb">
-            <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A>
+            <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a>
             &gt; ${contest.name}
         </div>
 
@@ -88,7 +88,7 @@
         <div align="center">
             <div align="left" style="width:500px; margin-top: 20px;">
                 Your Submission Has Been Uploaded
-                <br><br>
+                <br /><br />
                         <c:choose>
             <c:when test="${contest.startTime > bigStart}">
                 Your submission will be screened after the Submission Phase has ended. If your submission does not pass
@@ -101,12 +101,12 @@
 
                 </c:otherwise>
                 </c:choose>
-                <br><br>
+                <br /><br />
                 Thank you.
-                <br><br>
+                <br /><br />
 
                 <div align="center">
-                    <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onfocus="this.blur();"><img src="/i/layout/btnSubmitAnother.png" alt="submit another" onmouseover="this.src = '/i/layout/btnSubmitAnotherOn.png';" onmouseout="this.src = '/i/layout/btnSubmitAnother.png';"/></A>
+                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onfocus="this.blur();"><img src="/i/layout/btnSubmitAnother.png" alt="submit another" onmouseover="this.src = '/i/layout/btnSubmitAnotherOn.png';" onmouseout="this.src = '/i/layout/btnSubmitAnother.png';"/></a>
                 </div>
             </div>
         </div>
@@ -117,7 +117,7 @@
                 <c:choose>
                      <c:when test="${contest.startTime > bigStart}">
                          <div align="center">
-                             <strong>In the table below</strong> you can rank your submissions. <br>
+                             <strong>In the table below</strong> you can rank your submissions. <br />
 
                              <c:choose>
                                  <c:when test="${not empty contest.maxSubmissions.value}">
@@ -139,17 +139,17 @@
                      <c:otherwise>
                          <div align="center">
                              <strong>In the table below</strong> you can rank your submissions.
-                             <br><span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for
+                             <br /><span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for
                              this contest.
-                             <br>Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
+                             <br />Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
                              to the bottom of the page.
-                             <br>If one of your preferred submissions fails after the submission phase, the next passing submission will
+                             <br />If one of your preferred submissions fails after the submission phase, the next passing submission will
                              take its place.
                          </div>
                      </c:otherwise>
                  </c:choose>
 
-                <br><br>
+                <br /><br />
                 <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
                     <thead>
                         <tr>
@@ -164,7 +164,7 @@
                             <td class="headerC">
                                 Ranking
                                 <div>
-                                    <A href="#" onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
+                                    <a href="#" onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></a>
                                 </div>
                             </td>
                             <td class="header" colspan="2" width="33%">
@@ -177,10 +177,10 @@
                                 Passed / Failed
                             </td>
                             <td class="headerC" nowrap>
-                                Move Up /<br>Move Down
+                                Move Up /<br />Move Down
                             </td>
                             <td class="headerC" nowrap>
-                                Move to<br>Top
+                                Move to<br />Top
                             </td>
                             <td class="headerC">
                                 Remove
@@ -201,7 +201,7 @@
                     </tfoot>
                 </table>
             </form>
-            <br><br>
+            <br /><br />
             <strong>NOTE:</strong> green rows indicate submissions that you have selected to be considered for
             this contest
         </div>

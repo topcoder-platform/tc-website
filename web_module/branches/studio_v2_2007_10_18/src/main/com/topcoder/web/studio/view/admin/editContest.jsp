@@ -40,7 +40,7 @@
 <div class="contentSpacer">
 
 <div class="linkBox"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">back to
-    Contests</A></div>
+    Contests</a></div>
 
 
 <c:if test="${!contest.new}">
@@ -164,7 +164,7 @@
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="${projectId}"><span class="bigRed">${err}</span>
-            <br></tc-webtag:errorIterator>
+            <br /></tc-webtag:errorIterator>
     </td>
 </tr>
 

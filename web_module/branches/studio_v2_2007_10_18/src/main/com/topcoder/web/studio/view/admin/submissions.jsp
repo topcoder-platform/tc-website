@@ -70,7 +70,7 @@
 <div class="contentSpacer">
 
 <div class="linkBox"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">back to
-    Contests</A></div>
+    Contests</a></div>
 
 <div class="breadcrumb">
     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">Contests</a>

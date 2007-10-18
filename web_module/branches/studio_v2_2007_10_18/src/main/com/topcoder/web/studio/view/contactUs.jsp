@@ -35,33 +35,33 @@
                         <tbody>
                             <tr>
                                 <td colspan="2">
-                                    <strong>Corporate Address</strong><br>
-                                    TopCoder, Inc.<br>
-                                    703 Hebron Avenue<br>
-                                    Glastonbury, CT 06033 U.S.A.<br>
-                                    tel: 860.633.5540<br>
+                                    <strong>Corporate Address</strong><br />
+                                    TopCoder, Inc.<br />
+                                    703 Hebron Avenue<br />
+                                    Glastonbury, CT 06033 U.S.A.<br />
+                                    tel: 860.633.5540<br />
                                     fax: 860.657.4276
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <strong>Membership</strong><br>
-                                    Email: <A href="mailto:service@topcoder.com?subject=TopCoder%20Studio%20Membership">service@topcoder.com</A>
+                                    <strong>Membership</strong><br />
+                                    Email: <a href="mailto:service@topcoder.com?subject=TopCoder%20Studio%20Membership">service@topcoder.com</a>
                                 </td>
                                 <td>
-                                    <strong>Competition Support</strong><br>
-                                    Email: <A href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</A>
+                                    <strong>Competition Support</strong><br />
+                                    Email: <a href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <strong>General questions</strong><br>
+                                    <strong>General questions</strong><br />
                                     Email:
-                                    <A href="mailto:service@topcoder.com?subject=TopCoder%20Studio%20General%20Questions">service@topcoder.com</A>
+                                    <a href="mailto:service@topcoder.com?subject=TopCoder%20Studio%20General%20Questions">service@topcoder.com</a>
                                 </td>
                                 <td>
-                                    <strong>Sales</strong><br>
-                                    Email: <A href="mailto:studiosales@topcoder.com">studiosales@topcoder.com</A>
+                                    <strong>Sales</strong><br />
+                                    Email: <a href="mailto:studiosales@topcoder.com">studiosales@topcoder.com</a>
                                 </td>
                             </tr>
                         </tbody>

@@ -8,12 +8,58 @@
     String section = request.getParameter("section") == null ? "" : request.getParameter("section");
 %>
 
+<!-- header_data -->
+<div id="header_data">
+    <c:choose>
+        <c:when test="${sessionInfo.anonymous}">
+            <!-- loginBox -->
+            <div class="loginBox">
+                <%--have to use the constant because this page can be used with multiple servlets --%>
+                <form method="post" name="frmLogin" action="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
+                    <input type="hidden" name="module" value="Login">
+                        <table class="login" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>Handle:</td>
+                            <td><input name="<%=Login.USER_NAME%>" size="8" maxlength="15" type="text" value=""/></td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td>
+                            <td><input name="<%=Login.PASSWORD%>" size="8" maxlength="30" type="password" value=""/></td>
+                        </tr>
+                        </table>
+                        <table cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td><input type="checkbox" id="remember" name="<%=Login.REMEMBER_USER%>"/> Remember me</td>
+                            <td class="valueC"><input type="image" src="/i/v2/btn_go.png"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><span><a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register">Register</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" title="Forgot your password?">Forgot your password?</a></span></td>
+                        </tr>
+                        </table>
+                </form>
+            </div>
+        </c:when>
+        <c:otherwise>
+            <strong>Hello, <studio:handle coderId="${sessionInfo.userId}"/></strong><br />
+            <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Logout</a>
+            | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update my profile</a>
+        </c:otherwise>
+    </c:choose>
+    <!-- logoBox -->
+    <div class="logoBox">
+        <a href="#"><img src="/i/v2/studio_logo.png" alt="TopCoder Studio" /></a>
+    </div>
+</div>
+
+
+
+<%--
 <div class="topBox">
     <div class="logoBox">
     <% if (section.equals("admin")) {%>
-        <A href="/"><img src="/i/studio_admin_logo.png" alt="This is an admin page" /></A>
+        <a href="/"><img src="/i/studio_admin_logo.png" alt="This is an admin page" /></a>
     <% } else { %>
-        <A href="/"><img src="/i/studio_logo.png" alt="TopCoder Studio"/></A>
+        <a href="/"><img src="/i/studio_logo.png" alt="TopCoder Studio"/></a>
     <% } %>
     </div>
 
@@ -29,11 +75,10 @@
                     <c:when test="${sessionInfo.anonymous}">
 
                         <div style="float:right;" class="small">
-                            <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now!</A>
+                            <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now!</a>
                         </div>
-                        <strong>Member Login:</strong><br>
+                        <strong>Member Login:</strong><br />
 
-                        <%--have to use the constant because this page can be used with multiple servlets --%>
                         <form method="post" name="frmLogin" action="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
                             <input type="hidden" name="module" value="Login">
                             <table cellpadding="1" cellspacing="0">
@@ -50,15 +95,15 @@
                                             <input name="<%=Login.PASSWORD%>" size="8" maxlength="30" type="password" value=""/>
                                         </td>
                                         <td>
-                                            <input type="image" src="/i/layout/btn_login.gif" onmouseover="this.src='/i/layout/btn_login_on.gif'" onmouseout="this.src='/i/layout/btn_login.gif'">
+                                            <input type="image" src="/i/layout/btn_login.gif">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="3">
                                             <span class="small">
                                             <input type="checkbox" id="remember" name="<%=Login.REMEMBER_USER%>"/>Remember me
-                                            &nbsp;&nbsp;&nbsp;<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword">Forgot
-                                                your password?</A>
+                                            &nbsp;&nbsp;&nbsp;<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword">Forgot
+                                                your password?</a>
                                             </span>
                                         </td>
                                     </tr>
@@ -70,9 +115,9 @@
                     </c:when>
                     <c:otherwise>
                         <div align="center">
-                            <strong>Hello, <studio:handle coderId="${sessionInfo.userId}"/></strong><br>
-                            <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Logout</A>
-                            | <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update my profile</A>
+                            <strong>Hello, <studio:handle coderId="${sessionInfo.userId}"/></strong><br />
+                            <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Logout</a>
+                            | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update my profile</a>
                         </div>
                     </c:otherwise>
                 </c:choose>
@@ -82,3 +127,4 @@
     </div>
     <% } %>
 </div>
+--%>

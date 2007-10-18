@@ -33,7 +33,7 @@
 <h1>TCO06 Logo Contest</h1>
 
 <div align="left" style="padding-bottom: 10px;">
-<A href="/?module=Static&d1=oldcontests&d2=tco06Submissions0">View Submissions</A>
+<a href="/?module=Static&d1=oldcontests&d2=tco06Submissions0">View Submissions</a>
  | Finals
 </div>
 
@@ -50,7 +50,7 @@
 </td>
 
 <td align="left" valign="top">
-<studio:handle coderId="14947701"/><br>
+<studio:handle coderId="14947701"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/finalists/0056.jpg" alt="" />
 
 
@@ -64,7 +64,7 @@
 </td>
 
 <td align="left" valign="top">
-<studio:handle coderId="20022453"/><br>
+<studio:handle coderId="20022453"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/finalists/0346.jpg" alt="" />
 
 
@@ -79,7 +79,7 @@
 
 <td align="left" valign="top">
 
-<studio:handle coderId="14978261"/><br>
+<studio:handle coderId="14978261"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/finalists/0532.jpg" alt="" />
 
 
@@ -93,7 +93,7 @@
 
 <td align="left" valign="top">
 
-<studio:handle coderId="19831854"/><br>
+<studio:handle coderId="19831854"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/finalists/0246.jpg" alt="" />
 
 
@@ -107,7 +107,7 @@
 
 
 <td align="left" valign="top">
-<studio:handle coderId="8503625"/><br>
+<studio:handle coderId="8503625"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/finalists/0341.jpg" alt="" />
 
 
@@ -121,7 +121,7 @@
 
 
 <td align="left" valign="top">
-<studio:handle coderId="19831854"/><br>
+<studio:handle coderId="19831854"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/finalists/0247.jpg" alt="" />
 
 
@@ -135,7 +135,7 @@
 
 
 <td align="left" valign="top">
-<studio:handle coderId="15023758"/><br>
+<studio:handle coderId="15023758"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/finalists/0529.jpg" alt="" />
 
 
@@ -149,7 +149,7 @@
 
 
 <td align="left" valign="top">
-<studio:handle coderId="20023387"/><br>
+<studio:handle coderId="20023387"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/finalists/0607.jpg" alt="" />
 
 
@@ -163,7 +163,7 @@
 
 
 <td align="left" valign="top">
-<studio:handle coderId="20023566"/><br>
+<studio:handle coderId="20023566"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/finalists/0293.jpg" alt="" />
 
 
@@ -177,7 +177,7 @@
 
 
 <td align="left" valign="top">
-<studio:handle coderId="19960165"/><br>
+<studio:handle coderId="19960165"/><br />
 <img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/finalists/0308.jpg" alt="" />
 
 

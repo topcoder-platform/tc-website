@@ -23,18 +23,18 @@
     <div id="contentOut" class="contentOut">
         <div class="topBox">
             <div class="logoBox">
-                <A href="/"><img src="/i/studio_logo.gif" alt="TopCoder Studio"/></A>
+                <a href="/"><img src="/i/studio_logo.gif" alt="TopCoder Studio"/></a>
             </div>
         </div>
 
 
         <div id="topNav">
 
-            <A href="/">Home</A>
-            <A href="/?module=ViewActiveContests">Contests</A>
-            <A href="/forums">Forums</A>
-            <A href="/?module=Static&d1=support&d2=getStarted">Support</A>
-            <A href="/?module=Static&d1=contactUs">Contact Us</A>
+            <a href="/">Home</a>
+            <a href="/?module=ViewActiveContests">Contests</a>
+            <a href="/forums">Forums</a>
+            <a href="/?module=Static&d1=support&d2=getStarted">Support</a>
+            <a href="/?module=Static&d1=contactUs">Contact Us</a>
         </div>
 
         <div id="contentIn" class="contentIn">
@@ -47,12 +47,12 @@
                 <div align="center">
                     <div style="width:500px; padding: 50px 0px 100px 0px;">
                         <%=message == null ? "An error has occurred when attempting to process your request." : "<b>" + message + "</b>"%>
-                        <br><br>
+                        <br /><br />
                         You may click <a href="javascript:history.back();">here</a> to return to the last page you were
                         viewing.
-                        <br><br>
+                        <br /><br />
                         If you have a question or comment, please email
-                        <A href="service@topcoder.com?subject=TopCoder Studio Error">service@topcoder.com</A>
+                        <a href="service@topcoder.com?subject=TopCoder Studio Error">service@topcoder.com</a>
                                                  and be sure to include this timestamp: <%=new Date().toString()%>.
                     </div>
                     <%=new Date().toString()%>

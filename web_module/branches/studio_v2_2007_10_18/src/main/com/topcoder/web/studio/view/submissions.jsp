@@ -72,10 +72,10 @@
 <div class="breadcrumb">
     <c:choose>
         <c:when test="${isOver}">
-            <A href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</A> &gt;
+            <a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a> &gt;
         </c:when>
         <c:otherwise>
-            <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
+            <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt;
         </c:otherwise>
     </c:choose>
     ${contest.name}
@@ -162,7 +162,7 @@
             <rsc:item name="submission_id" row="<%=resultRow%>"/>
         </td>
         <td class="valueC" nowrap="nowrap">
-            <rsc:item name="create_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+            <rsc:item name="create_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
         </td>
 
 
@@ -190,9 +190,9 @@
                         </c:when>
                         <c:otherwise>
                             <div align="center">
-                                <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                                <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
                                     <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()" />
-                                </A>
+                                </a>
                             </div>
                         </c:otherwise>
                     </c:choose>

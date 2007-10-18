@@ -41,72 +41,72 @@
                 
                 No. Studio is independent of TopCoder ratings and statistics. Winning Studio contests will not improve
                 your TopCoder standings.
-                <br><br>
+                <br /><br />
                 
                 <h3>Why can't I see the Contest Specifications?</h3>
                 There are two steps you must take before you can see a contest's specification document. 
                 <ol>
                 <li> <strong>You must be a registered Studio member.</strong> You can register with
-                Studio by clicking any of the <A href="https://www.topcoder.com/reg/">Register Now</A>
-                links on this site. If you already have a TopCoder handle, you may <A href="http://www.topcoder.com/reg/?nrg=false">login</A> update your profile by opting in for Studio membership.</li>
+                Studio by clicking any of the <a href="https://www.topcoder.com/reg/">Register Now</a>
+                links on this site. If you already have a TopCoder handle, you may <a href="http://www.topcoder.com/reg/?nrg=false">login</a> update your profile by opting in for Studio membership.</li>
                 <li> <strong>You must register for the contest you wish to enter.</strong> Each contest has it's own registration. Once you've registered for a contest, the documentation and other files associated with the contest will become accessible to you.</li>
                 </ol>
                 
                 <h3>What if I don't understand something in the Spec Doc?</h3>
                 If you are confused about a required element in the Spec Doc, please post your question in the forums so that everyone may benefit from the answer. The Studio Contest Administrator and your fellow Studio members will help clarify things.
-                <br><br>
+                <br /><br />
                 
                 <h3>How many submissions can I upload to a contest?</h3>
                 
                 You may upload as many submissions as you like.
-                <br><br>
+                <br /><br />
                 
                 <h3>How many of my submissions will be considered for a contest?</h3>
                 
                 Each contest's Specification Document will outline how many of each member's submissions will be eligible to be considered for prizes. Most contests will limit the number of submissions that will be considered from each member. However, some contests will have no such limit. It is very important to note how many of your submissions are eligible when you read the Spec Doc.
-                <br><br>
+                <br /><br />
                 
                 <h3>How many of my submissions will be screened after the submission phase is over?</h3>
                 Only the allowed number of submissions specified in the Spec Doc will be screened. For example, if a contest will only allow 2 submissions per member, and you upload 4 submissions, only the 2 submissions ranked the highest (by you) will be screened.
                 
-                <br><br>
+                <br /><br />
                 
                 <h3>Will my lower-ranking submissions be eligible if my highest-ranking submissions fail screening?</h3>
                 No. Once the contest submission phase is over, only the number of submissions allowed for the contest will be eligible to be screened. No other submissions will take their place if they fail screening.
                 
-                <br><br>
+                <br /><br />
                 
                 <h3>When can I rank my submissions?</h3>
                 You have the opportunity to rank your submissions when you upload them. You can change the rank of your submissions at any time before the submission phase ends. 
-                <br><br>
+                <br /><br />
                 
                 <h3>What happens if I don't rank my submissions?</h3>
-                By default, your submissions will be ranked in reverse of the order in which they were uploaded.  So, your most recent submission is assumed to be your most preferred. <br><br>
+                By default, your submissions will be ranked in reverse of the order in which they were uploaded.  So, your most recent submission is assumed to be your most preferred. <br /><br />
                 
                 <h3>I made changes to a submission I've already uploaded. Can I replace the old submission with my new submission?</h3>
                 Yes. When you upload your new submission, you will be able to view all of your previous submissions. Just remove the old submission and rank your new submission accordingly.
                 
-                <br><br>
+                <br /><br />
                 
                 <h3>I submitted to a contest a few days ago and my submission still hasn't been screened. Why?</h3>
                 In the past, the Contest Administrator screened submissions during the submission phase. The new screening process now happens after the submission phase is over. 
-                <br><br>
+                <br /><br />
                 
                 <h3>Can I fix my submission if it fails screening?</h3>
                 No. A failed submission cannot be revised and reconsidered for a contest. All screening decisions are final. The screening process is in place to ensure that all submissions that move into Online Review meet the specification's minimum requirements. In order to pass screening, it is important to double-check your submissions against the Required Elements in the Spec Doc.
-                <br><br>
+                <br /><br />
                 
                 
                 <h3>How do I get paid if I win?</h3>
                 At the conclusion of each contest, after the passing submissions have been scored and after a client has made selections, the Contest Administrator will notify winners via email with instructions on how to get paid. TopCoder begins the payment process for Studio contests one business day after the final files for the contest have been delivered by the winner(s).  
-                <br><br>
+                <br /><br />
                 
-                <strong>Timing</strong><br>
+                <strong>Timing</strong><br />
                 Payments of $25.00 or more are distributed on or before the 15th day of the following month. For example: payments earned between November 1 and November 30 will be sent out on or before December 15.
-                <br><br>
+                <br /><br />
                 
                 Payments will be issued on the following dates for 2007:
-                <br><br>
+                <br /><br />
                 
                 <div align="center">
                 <table class="stat" border="0" cellpadding="0" cellspacing="0" width="400">
@@ -220,7 +220,7 @@
                     </tr>
                  </table>
                 </div>
-                <br><br>
+                <br /><br />
                 
                 There are three steps to getting paid:
                 <ol>
@@ -230,21 +230,21 @@
                     <li>Complete and sign an IRS tax form - either W-9 or W-8BEN, depending on where you live and 
                         your U.S. resident status. Members will only be required to submit this document once.</li>
                     <ul>
-                        <li><A href="/pdfs/forms/fw9.pdf">W-9 Form</A></A></li>
-                        <li><A href="/pdfs/forms/iw9.pdf">W-9 Instructions</A></li>
-                        <li><A href="/pdfs/forms/fw8ben.pdf">W-8BEN Form</A></li>
-                        <li><A href="/pdfs/forms/iw8ben.pdf">W-8BEN Instructions</A></li>
+                        <li><a href="/pdfs/forms/fw9.pdf">W-9 Form</a></a></li>
+                        <li><a href="/pdfs/forms/iw9.pdf">W-9 Instructions</a></li>
+                        <li><a href="/pdfs/forms/fw8ben.pdf">W-8BEN Form</a></li>
+                        <li><a href="/pdfs/forms/iw8ben.pdf">W-8BEN Instructions</a></li>
                     </ul>
                 </ol>
                 Once these requirements are satisfied, payment will be sent. You have the option of choosing to receive
                 payment either via check using the U.S. Postal Service to the address in your profile, via PayPal or via
                 wire transfer. Any questions regarding prize payments and requests for payment type should be directed to
-                <A href="mailto:payments@topcoder.com">payments@topcoder.com</A>.
-                <br><br>
+                <a href="mailto:payments@topcoder.com">payments@topcoder.com</a>.
+                <br /><br />
                 
                 <h3>More questions?</h3>
-                If you have more questions, please send them to <A href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</A>.
-                <br><br>
+                If you have more questions, please send them to <a href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</a>.
+                <br /><br />
 
         </div>
         <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>

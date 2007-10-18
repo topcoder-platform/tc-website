@@ -69,17 +69,17 @@
 <table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
     <tr>
         <c:if test="${full_list}" >
-            <td width="50%"><A href="/?module=AssignmentDocumentHistory&full_list=true" class="statTabLinkOn"><span>View all</span></A>
+            <td width="50%"><a href="/?module=AssignmentDocumentHistory&full_list=true" class="statTabLinkOn"><span>View all</span></a>
             </td>
             <td width="50%">
-                <A href="/?module=AssignmentDocumentHistory&full_list=false" class="statTabLinkOff"><span>View pending</span></A>
+                <a href="/?module=AssignmentDocumentHistory&full_list=false" class="statTabLinkOff"><span>View pending</span></a>
             </td>
         </c:if>
         <c:if test="${not full_list}" >
-            <td width="50%"><A href="/?module=AssignmentDocumentHistory&full_list=true" class="statTabLinkOff"><span>View all</span></A>
+            <td width="50%"><a href="/?module=AssignmentDocumentHistory&full_list=true" class="statTabLinkOff"><span>View all</span></a>
             </td>
             <td width="50%">
-                <A href="/?module=AssignmentDocumentHistory&full_list=false" class="statTabLinkOn"><span>View pending</span></A>
+                <a href="/?module=AssignmentDocumentHistory&full_list=false" class="statTabLinkOn"><span>View pending</span></a>
             </td>
         </c:if>
     </tr>
@@ -151,7 +151,7 @@
                         <c:when test="${ad.status.id == AFFIRMED_STATUS_ID}">
                             <td class="valueC">
                                 <a href="/?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
-                                    Affirmed on<br><fmt:formatDate value="${ad.affirmedDate}" pattern="MM.dd.yyyy"/>
+                                    Affirmed on<br /><fmt:formatDate value="${ad.affirmedDate}" pattern="MM.dd.yyyy"/>
                                 </a>                
                             </td>
                             <td class="valueC">&nbsp;</td>

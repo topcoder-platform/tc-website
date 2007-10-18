@@ -82,7 +82,7 @@
 </div>
 
 <div class="breadcrumb">
-    <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
+    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt;
     ${contest.name}
 </div>
 
@@ -111,13 +111,13 @@
                 <p>
                     <b>My design:</b><br/>
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
-                        <br></tc-webtag:errorIterator>
+                        <br /></tc-webtag:errorIterator>
                     <input type="file" name="<%=Constants.SUBMISSION%>">
                 </p>
 
                 <p>
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_RANK%>"><span class="bigRed">${err}</span>
-                        <br></tc-webtag:errorIterator>
+                        <br /></tc-webtag:errorIterator>
                     as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="2"/>
                 </p>
 
@@ -147,7 +147,7 @@
         <c:choose>
             <c:when test="${contest.startTime > bigStart}">
                 <div align="center">
-                    <strong>In the table below</strong> you can rank your submissions. <br>
+                    <strong>In the table below</strong> you can rank your submissions. <br />
 
                              <c:choose>
                                  <c:when test="${not empty contest.maxSubmissions.value}">
@@ -168,11 +168,11 @@
             <c:otherwise>
                 <div align="center">
                     <strong>In the table below</strong> you can rank your submissions.
-                    <br><span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for
+                    <br /><span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for
                     this contest.
-                    <br>Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
+                    <br />Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
                     to the bottom of the page.
-                    <br>If one of your preferred submissions fails after the submission phase, the next passing submission will
+                    <br />If one of your preferred submissions fails after the submission phase, the next passing submission will
                     take its place.
                 </div>
             </c:otherwise>
@@ -180,7 +180,7 @@
 
 
 
-        <br><br>
+        <br /><br />
         <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
             <thead>
                 <tr>
@@ -195,7 +195,7 @@
                     <td class="headerC">
                         Ranking
                         <div>
-                            <A href="#" onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
+                            <a href="#" onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></a>
                         </div>
                     </td>
                     <td class="header" colspan="2" width="33%">
@@ -208,10 +208,10 @@
                         Passed / Failed
                     </td>
                     <td class="headerC" nowrap>
-                        Move Up /<br>Move Down
+                        Move Up /<br />Move Down
                     </td>
                     <td class="headerC" nowrap>
-                        Move to<br>Top
+                        Move to<br />Top
                     </td>
                     <td class="headerC">
                         Remove

@@ -32,13 +32,13 @@
                 <h3>Documentation:</h3>
 
                 <p>
-                    <A href="/?module=AssignmentDocumentHistory">Assignment Documents</A>
+                    <a href="/?module=AssignmentDocumentHistory">Assignment Documents</a>
                 </p>
 
                 <h3>Tools</h3>
 
                 <p>
-                    <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Online Review</A>
+                    <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Online Review</a>
                 </p>
 
 

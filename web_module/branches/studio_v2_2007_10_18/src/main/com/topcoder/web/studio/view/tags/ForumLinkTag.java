@@ -25,7 +25,7 @@ public class ForumLinkTag extends TagSupport {
     public int doStartTag() throws JspException {
         StringBuffer ret = new StringBuffer(150);
 
-        ret.append("<A");
+        ret.append("<a");
         StringBuffer url = new StringBuffer();
         url.append("http://").append(ApplicationServer.STUDIO_SERVER_NAME).append("/forums");
         url.append("?module=ThreadList&amp;").append(WebConstants.FORUM_ID).append("=").append(forumID);
@@ -34,7 +34,7 @@ public class ForumLinkTag extends TagSupport {
 
         ret.append(this.message);
 
-        ret.append("</A>");
+        ret.append("</a>");
 
         try {
             pageContext.getOut().print(ret.toString());

@@ -56,7 +56,7 @@
                         <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
                         <input type="submit" value="Affirm"/>
                     </form>
-                    <p>If the personal information in this document is incorrect,<br>please <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">update your profile</A> before affirming.</p>
+                    <p>If the personal information in this document is incorrect,<br />please <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">update your profile</a> before affirming.</p>
                     <c:choose>
                         <c:when test="${has_hard_copy}">
                             <p>

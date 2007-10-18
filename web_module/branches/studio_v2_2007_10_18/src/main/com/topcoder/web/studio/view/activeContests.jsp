@@ -37,17 +37,17 @@
 <h1>Active Contests</h1>
 
 <h2 align="right">Need help? Learn how to
-    <A href="/?module=Static&amp;d1=support&amp;d2=getStarted">get
-        started</A>.<br>
-    Got <A href="/?module=Static&amp;d1=support&amp;d2=generalFaq">questions</A>?
+    <a href="/?module=Static&amp;d1=support&amp;d2=getStarted">get
+        started</a>.<br />
+    Got <a href="/?module=Static&amp;d1=support&amp;d2=generalFaq">questions</a>?
 </h2>
 
 <table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
     <tr>
-        <td width="50%"><A href="/?module=ViewActiveContests" class="statTabLinkOn"><span>Active Contests</span></A>
+        <td width="50%"><a href="/?module=ViewActiveContests" class="statTabLinkOn"><span>Active Contests</span></a>
         </td>
         <td width="50%">
-            <A href="/?module=ViewPastContests" class="statTabLinkOff"><span>Past Contests</span></A>
+            <a href="/?module=ViewPastContests" class="statTabLinkOff"><span>Past Contests</span></a>
         </td>
     </tr>
 </table>
@@ -111,22 +111,22 @@
                         <div>&nbsp;</div>
                     </td>
                     <td class="value">
-                        <A href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
+                        <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
                             <rsc:item name="name" row="<%=resultRow%>"/>
-                        </A>
+                        </a>
                     </td>
                     <td class="value">
                         <% if ("3004".equals(resultRow.getStringItem("event_id"))) { %>
-                        <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=studio&amp;d4=description"><img src="/i/tournament/tccc07/emblem.png" alt="" onmouseover="popUp(this,'popTCCC07')" onmouseout="popHide()" style="display: block; margin: 4px;"></A>
+                        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=studio&amp;d4=description"><img src="/i/tournament/tccc07/emblem.png" alt="" onmouseover="popUp(this,'popTCCC07')" onmouseout="popHide()" style="display: block; margin: 4px;"></a>
                         <% } else { %>
                         &nbsp;
                         <% } %>
                     </td>
                     <td class="valueC">
-                        <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                        <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                     </td>
                     <td class="valueC">
-                        <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                        <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                     </td>
                     <td class="valueR">
                         <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
@@ -140,9 +140,9 @@
 
                     <td class="valueC" nowrap="nowrap">
                         <% if (resultRow.getIntItem("is_user_registered") == 1) { %>
-                        <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/layout/btnSubmitOrganize.png" alt="Submit &amp; Organize" onmouseover="this.src = '/i/layout/btnSubmitOrganizeOn.png';" onmouseout="this.src = '/i/layout/btnSubmitOrganize.png';" style="margin: 6px 0px 6px 0px;"/></A>
+                        <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/layout/btnSubmitOrganize.png" alt="Submit &amp; Organize" onmouseover="this.src = '/i/layout/btnSubmitOrganizeOn.png';" onmouseout="this.src = '/i/layout/btnSubmitOrganize.png';" style="margin: 6px 0px 6px 0px;"/></a>
                         <% } else { %>
-                        <A href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/layout/btnRegister.png" alt="Register" onmouseover="this.src = '/i/layout/btnRegisterOn.png';" onmouseout="this.src = '/i/layout/btnRegister.png';" style="margin: 6px 0px 6px 0px;"/></A>
+                        <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/layout/btnRegister.png" alt="Register" onmouseover="this.src = '/i/layout/btnRegisterOn.png';" onmouseout="this.src = '/i/layout/btnRegister.png';" style="margin: 6px 0px 6px 0px;"/></a>
                         <% } %>
 
                     </td>

@@ -44,10 +44,10 @@
 <div class="breadcrumb">
     <c:choose>
         <c:when test="${currentTime>contest.endTime}">
-            <A href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</A> &gt;
+            <a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a> &gt;
         </c:when>
         <c:otherwise>
-            <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
+            <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt;
         </c:otherwise>
     </c:choose>
     ${contest.name}
@@ -70,11 +70,11 @@
                                     <c:forEach items="${contest.prizes}" var="prize">
                                         <div style="float: right; text-align: right;">
                                             <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
-                                            <br>
+                                            <br />
                                             <tc-webtag:format object="${contest.endTime}" format="MM.dd.yyyy" timeZone="${sessionInfo.timezone}"/>
                                         </div>
                                         <strong>
-                                            Winner:<br>
+                                            Winner:<br />
                                             Due date:
                                         </strong>
                                     </c:forEach>
@@ -85,16 +85,16 @@
                                             <c:when test="${clientPrize==prize.type.id}">
                                                 <div style="float: right; clear: right; text-align: right;">
                                                     <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
-                                                    <br>
+                                                    <br />
                                                 </div>
-                                                <strong>${prize.type.description}:</strong><br>
+                                                <strong>${prize.type.description}:</strong><br />
                                             </c:when>
                                             <c:otherwise>
                                                 <div style="float: right; clear: right; text-align: right;">
                                                     <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
-                                                    <br>
+                                                    <br />
                                                 </div>
-                                                <strong>Prize ${prize.place}:</strong><br>
+                                                <strong>Prize ${prize.place}:</strong><br />
                                             </c:otherwise>
                                         </c:choose>
                                     </c:forEach>
@@ -112,12 +112,12 @@
                         <img src="/i/layout/btnRegisterNA.png" alt="Register" />
                     </td>
                     <td style="padding: 10px 0px 10px 5px;" align="right">
-                        <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/layout/btnSubmit.png" alt="Submit" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'" /></A>
+                        <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/layout/btnSubmit.png" alt="Submit" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'" /></a>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="3" style="padding-top: 10px;" align="center">
-                        You are registered for this project.<br>
+                        You are registered for this project.<br />
                     </td>
                     </c:when>
                     <c:otherwise>
@@ -130,7 +130,7 @@
                 </tr>
                 <tr>
                     <td colspan="3" style="padding-top: 10px;" align="center">
-                        Register to get info necessary to submit your design.<br>
+                        Register to get info necessary to submit your design.<br />
                     </td>
                     </c:otherwise>
                     </c:choose>
@@ -142,30 +142,30 @@
 
 <div class="header">Project Overview</div>
 ${contest.overview.value}
-<br><br>
+<br /><br />
 
 <c:if test="${registered || currentTime>contest.endTime}">
     <c:if test="${fn:length(contest.documents)>0}">
-        <strong>Documentation</strong><br>
+        <strong>Documentation</strong><br />
         <%--
             To view this project's documentation, you must be a registered TopCoder Studio member. If you are <strong>
             already a registered TopCoder member</strong> you still need to add TopCoder Studio to your registration by
-            <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">updating your profile</A>.
-            <br><br>
+            <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">updating your profile</a>.
+            <br /><br />
         --%>
         <c:forEach items="${contest.documents}" var="document">
             ${document.type.description}:
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
                     ${document.originalFileName}</a> <br/>
         </c:forEach>
-        <br><br>
+        <br /><br />
     </c:if>
 </c:if>
 
 
 <div class="header">Payment</div>
 ${contest.prizeDescription.value}
-<br><br>
+<br /><br />
 
 <c:choose>
     <c:when test="${fn:length(contest.prizes)==1}">
@@ -174,7 +174,7 @@ ${contest.prizeDescription.value}
                 <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
             </strong>
         </c:forEach>
-        <br><br>
+        <br /><br />
     </c:when>
     <c:otherwise>
         <c:forEach items="${contest.prizes}" var="prize">
@@ -183,16 +183,16 @@ ${contest.prizeDescription.value}
                     <strong>${prize.type.description}:
                         <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
                     </strong>
-                    <br>
+                    <br />
                 </c:when>
                 <c:otherwise>
                     <strong>Prize ${prize.place}:
                         <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
-                    </strong><br>
+                    </strong><br />
                 </c:otherwise>
             </c:choose>
         </c:forEach>
-        <br><br>
+        <br /><br />
     </c:otherwise>
 </c:choose>
 
@@ -224,11 +224,11 @@ ${contest.prizeDescription.value}
 </ul>
 
 
-<br><br>
+<br /><br />
 
 <div class="header">Timeline</div>
 All submissions are required to be submitted by the End Date.
-<br><br>
+<br /><br />
 
 
 <div align="center">
@@ -250,16 +250,16 @@ All submissions are required to be submitted by the End Date.
     </table>
 </div>
 
-<br><br>
+<br /><br />
 <!-- 
 <c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
     <div class="header">Upload Your Submission</div>
     If you are ready to submit your design for this contest, click the button below.
-    <br><br>
+    <br /><br />
 
     <div align="center">
-        <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="btn_submit">
-            &nbsp;</A>
+        <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="btn_submit">
+            &nbsp;</a>
     </div>
 </c:if>
  -->
