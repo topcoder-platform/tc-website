@@ -89,7 +89,8 @@ public class StudentReport extends SharedBaseProcessor {
             String problemName = rsr.getStringItem("problem_name");
             Double points = rsr.getDoubleItem("points");
             Integer total = rsr.getIntItem("total");
-            Integer succeeded = (rsr.getItem("succeeded").getResultData() == null) ? null : ((Long) rsr.getItem("succeeded").getResultData()).intValue(); 
+            Long temp = (Long) (rsr.getItem("succeeded").getResultData());
+            Integer succeeded = (temp == null) ? null : temp.intValue(); 
             Long showAll = rsr.getLongItem("show_all");
             Long scoreType = rsr.getLongItem("score_type");
             
