@@ -10,13 +10,13 @@ import com.topcoder.web.common.model.educ.ProfessorStatus;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Oct 18, 2007
  */
-public class ViewPendingProfessors extends ShortHibernateProcessor {
+public class ViewPendingTeachers extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
         //load up the professors and put them in the request
         DAOFactory fact = DAOUtil.getFactory();
-        getRequest().setAttribute("professors",
+        getRequest().setAttribute("teachers",
                 fact.getProfessorDAO().getProfessors(fact.getProfessorStatusDA0().find(ProfessorStatus.PENDING)));
-        setNextPage("/admin/pendinProfessors.jsp");
+        setNextPage("/admin/pendingTeachers.jsp");
         setIsNextPageInContext(true);
     }
 }
