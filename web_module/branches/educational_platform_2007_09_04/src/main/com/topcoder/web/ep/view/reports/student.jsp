@@ -156,7 +156,7 @@
                     <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
                         <td class="valueC">&nbsp;</td>
                     </c:when><c:otherwise>
-                        <td class="valueC">${result.assignmentScore}</td>
+                        <td class="valueC"><fmt:formatNumber value="${result.assignmentScore}"  minFractionDigits="2" maxFractionDigits="2"/></td>
                     </c:otherwise></c:choose>
 
                     <c:choose><c:when test="${is_student && result.scoreType != passed_score_type}">
@@ -206,7 +206,7 @@
                                 <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
                                     <td class="valueC">&nbsp;</td>
                                 </c:when><c:otherwise>
-                                    <td class="valueC">${detail.score}</td>
+                                    <td class="valueC"><fmt:formatNumber value="${detail.score}"  minFractionDigits="2" maxFractionDigits="2"/></td>
                                 </c:otherwise></c:choose>
                                 <c:choose><c:when test="${is_student && result.scoreType != passed_score_type}">
                                     <td class="valueC">&nbsp;</td>
