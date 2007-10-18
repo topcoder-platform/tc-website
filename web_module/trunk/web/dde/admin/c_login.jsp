@@ -1,13 +1,8 @@
-<%@ page import="javax.naming.*,
-                 com.topcoder.dde.util.Cookies"
+<%@ page import="com.topcoder.dde.user.UserNotActivatedException,
+                 com.topcoder.security.GeneralSecurityException"
  %>
-<%@ page import="javax.ejb.CreateException" %>
-<%@ page import="java.io.*" %>
-<%@ page import="java.rmi.*" %>
-<%@ page import="javax.rmi.*" %>
-<%@ page import="java.util.*" %>
-<%@ page import="java.sql.*" %>
-<%@ page import="java.lang.reflect.*" %>
+<%@ page import="com.topcoder.security.TCSubject" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="session.jsp" %>
@@ -99,16 +94,15 @@
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml1-transitional.dtd">
-<%@page import="com.topcoder.shared.util.ApplicationServer"%>
+"http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>TopCoder Software</title>
+    <title>TopCoder Software</title>
 
-<link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
+    <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css"/>
 
-<script language="JavaScript" type="text/javascript" src="/scripts/javascriptAdmin.js">
-</script>
+    <script language="JavaScript" type="text/javascript" src="/scripts/javascriptAdmin.js">
+    </script>
 </head>
 
 <body class="body" onLoad="frmLogin.txtHandle.focus()">
@@ -178,7 +172,7 @@
 							<tr valign="middle">
 								<td width="5"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
 								<td class="adminLabel" nowrap="nowrap">Password</td>
-								<td class="adminText"><input class="registerForm" type="password" name="txtPassword" value ="" size="30" maxlength="15" /></td>
+								<td class="adminText"><input class="registerForm" type="password" name="txtPassword" value ="" size="30" maxlength="30" /></td>
 								<td width="5"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 						</table>
