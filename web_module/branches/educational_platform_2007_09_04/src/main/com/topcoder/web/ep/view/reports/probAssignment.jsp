@@ -3,6 +3,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.web.ep.Constants"%>
 <%@ page import="com.topcoder.web.ep.controller.request.reports.AssignmentReport"%>
+<%@ page import="com.topcoder.web.common.model.educ.AssignmentScoreType"%>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -24,6 +25,10 @@
 </head>
 
 <body>
+
+<c:set value="<%=AssignmentScoreType.TC_SCORE_TYPE%>" var="tc_score_type"/>
+<c:set value="<%=AssignmentScoreType.PASSED_SCORE_TYPE%>" var="passed_score_type"/>
+<c:set value="<%=AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE%>" var="success_fail_score_type"/>
 
 <div align="center">
     <div id="widther">
@@ -120,24 +125,62 @@
                 <td class="header"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.STUDENT_COL.intValue()%>"/>">Student</a></td>
                 <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.SCORE_COL.intValue()%>"/>">Score</a></td>
                 <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.NUM_TESTS_COL.intValue()%>"/>">Tests Passed</a></td>
-                <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.PERCENT_TESTS_COL.intValue()%>"/>">% Tests Passed</a></td>
+                <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.PERCENT_TESTS_COL.intValue()%>"/>">
+                <c:choose><c:when test="${not empty score_type}">
+                Pass / Fail
+                </c:when><c:otherwise>
+                % Tests Passed
+                </c:otherwise></c:choose>
+                </a></td>
                 <td class="header" width="1%">&nbsp;</td>
             </tr>
             <%int i = 0;%>
             <c:forEach items="${results}" var="result">                
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                     <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;clsid=${classroom.id}&amp;stid=${result.studentId}">${result.student}</a></td>
-                    <td class="valueC">${result.score}</td>
-                    <c:choose>
-                        <c:when test="${result.numTestsPassed == -1}">
-                            <td class="valueC">N/A</td>
-                            <td class="valueC">N/A</td>
-                        </c:when>
-                        <c:otherwise>
-                            <td class="valueC">${result.numTestsPassed}</td>
-                            <td class="valueC"><fmt:formatNumber value="${result.percentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/> %</td>
-                        </c:otherwise>
-                    </c:choose>
+                    <td class="valueC">
+                    <c:choose><c:when test="${not empty score_type && score_type != tc_score_type}">
+                        &nbsp;
+                    </c:when><c:otherwise>
+                        <fmt:formatNumber value="${result.score}"  minFractionDigits="2" maxFractionDigits="2"/>
+                    </c:otherwise></c:choose>
+                    </td>
+                    <td class="valueC">
+                    <c:choose><c:when test="${not empty score_type && score_type != passed_score_type}">
+                        &nbsp;
+                    </c:when><c:otherwise>
+                        <c:choose>
+                            <c:when test="${result.numTestsPassed == -1}">
+                                N/A
+                            </c:when>
+                            <c:otherwise>
+                                ${result.numTestsPassed}
+                            </c:otherwise>
+                        </c:choose>
+                    </c:otherwise></c:choose>
+                    </td>
+                    <td class="valueC">
+                    <c:choose><c:when test="${not empty score_type && score_type != success_fail_score_type}">
+                        &nbsp;
+                    </c:when><c:otherwise>
+                        <c:choose>
+                            <c:when test="${result.numTestsPassed == -1}">
+                                N/A
+                            </c:when>
+                            <c:otherwise>
+                                <c:choose><c:when test="${not empty score_type}">
+                                    <c:choose><c:when test="${result.percentTestsPassed == 100}">
+                                        Pass
+                                    </c:when><c:otherwise>
+                                        Fail
+                                    </c:otherwise></c:choose>
+                                </c:when><c:otherwise>
+                                    <fmt:formatNumber value="${result.percentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/> %
+                                </c:otherwise></c:choose>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:otherwise></c:choose>
+                    </td>
                     <td class="valueC"><a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;asid=${assignment.id}&amp;cd=${component.id}&amp;stid=${result.studentId}"><img src="/i/ep/buttons/viewSubmission.png" alt="View submission" /></a></td>
                 </tr>
                 <%i++;%>
@@ -151,7 +194,6 @@
             </tr>
 --%>
         </table>
-        </form>
     <div style="margin-top: 10px;">
         <a href="${sessionInfo.servletPath}?module=SelectReport&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>
