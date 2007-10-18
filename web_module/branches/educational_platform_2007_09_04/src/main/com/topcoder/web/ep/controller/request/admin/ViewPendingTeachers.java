@@ -1,9 +1,8 @@
 package com.topcoder.web.ep.controller.request.admin;
 
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.dao.DAOFactory;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.educ.ProfessorStatus;
 
 /**
  * @author dok
@@ -13,10 +12,11 @@ import com.topcoder.web.common.model.educ.ProfessorStatus;
 public class ViewPendingTeachers extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
         //load up the professors and put them in the request
-        DAOFactory fact = DAOUtil.getFactory();
-        getRequest().setAttribute("teachers",
-                fact.getProfessorDAO().getProfessors(fact.getProfessorStatusDA0().find(ProfessorStatus.PENDING)));
+        Request r = new Request();
+        r.setContentHandle("pending_teachers");
+        getRequest().setAttribute("teachers", new DataAccess().getData(r).get("pending_teachers"));
         setNextPage("/admin/pendingTeachers.jsp");
         setIsNextPageInContext(true);
     }
 }
+
