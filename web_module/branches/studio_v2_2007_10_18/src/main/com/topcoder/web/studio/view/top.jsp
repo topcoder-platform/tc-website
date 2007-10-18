@@ -40,9 +40,15 @@
             </div>
         </c:when>
         <c:otherwise>
-            <strong>Hello, <studio:handle coderId="${sessionInfo.userId}"/></strong><br />
-            <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Logout</a>
-            | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update my profile</a>
+            <div class="loginBox">
+                <div class="loggedIn">
+                    <div class="handleE">Hello, <studio:handle coderId="${sessionInfo.userId}"/></div>
+                    <div class="handleW">&nbsp;</div>
+                    <br clear="all"/>
+                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Logout</a>
+                    | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update my profile</a>
+                </div>
+            </div>
         </c:otherwise>
     </c:choose>
     <!-- logoBox -->
@@ -50,81 +56,3 @@
         <a href="#"><img src="/i/v2/studio_logo.png" alt="TopCoder Studio" /></a>
     </div>
 </div>
-
-
-
-<%--
-<div class="topBox">
-    <div class="logoBox">
-    <% if (section.equals("admin")) {%>
-        <a href="/"><img src="/i/studio_admin_logo.png" alt="This is an admin page" /></a>
-    <% } else { %>
-        <a href="/"><img src="/i/studio_logo.png" alt="TopCoder Studio"/></a>
-    <% } %>
-    </div>
-
-
-    <% if (section.equals("")||section.equals("admin")) {%>
-    <div class="loginBox" align="center">
-        <img src="/i/layout/loginBoxN.gif" alt="" style="display:block;"/>
-
-        <div style="width:250px; background: #E7E5BC;" align="left">
-            <div style="padding: 0px 10px 0px 10px;">
-
-                <c:choose>
-                    <c:when test="${sessionInfo.anonymous}">
-
-                        <div style="float:right;" class="small">
-                            <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now!</a>
-                        </div>
-                        <strong>Member Login:</strong><br />
-
-                        <form method="post" name="frmLogin" action="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
-                            <input type="hidden" name="module" value="Login">
-                            <table cellpadding="1" cellspacing="0">
-                                <tbody>
-                                    <tr>
-                                        <td class="small">Handle:</td>
-                                        <td class="small" colspan="2">Password:</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input name="<%=Login.USER_NAME%>" size="8" maxlength="15" type="text" value=""/>
-                                        </td>
-                                        <td>
-                                            <input name="<%=Login.PASSWORD%>" size="8" maxlength="30" type="password" value=""/>
-                                        </td>
-                                        <td>
-                                            <input type="image" src="/i/layout/btn_login.gif">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3">
-                                            <span class="small">
-                                            <input type="checkbox" id="remember" name="<%=Login.REMEMBER_USER%>"/>Remember me
-                                            &nbsp;&nbsp;&nbsp;<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword">Forgot
-                                                your password?</a>
-                                            </span>
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </form>
-
-                    </c:when>
-                    <c:otherwise>
-                        <div align="center">
-                            <strong>Hello, <studio:handle coderId="${sessionInfo.userId}"/></strong><br />
-                            <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Logout</a>
-                            | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update my profile</a>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
-            </div>
-        </div>
-        <img src="/i/layout/loginBoxS.gif" alt="" style="display:block;"/>
-    </div>
-    <% } %>
-</div>
---%>
