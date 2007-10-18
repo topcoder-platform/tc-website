@@ -23,7 +23,6 @@ public class ProfessorDAOTestCase extends TCHibernateTestCase {
         User u = DAOUtil.getFactory().getUserDAO().find("bauna", true);
         if (u.getProfessor() != null) {
             DAOUtil.getFactory().getProfessorDAO().delete(u.getProfessor());
-            u.setProfessor(null);
         }
 
         tearDown();
