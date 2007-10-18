@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.ep.Constants" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -16,6 +17,13 @@
     </jsp:include>
     <%-- each school requires its own stylesheet, linked in here --%>
     <link type="text/css" rel="stylesheet" href="/css/ep/default.css"/>
+    <script type="text/javascript"><!--
+    function sendToReview(id) {
+        document.subForm.<%=Constants.PROFESSOR_ID%>.value = id;
+        document.subForm.submit();
+    }
+    //--></script>
+
 </head>
 
 <body>
@@ -34,6 +42,9 @@
                 <div class="spacer">
 
                     <%-- CONTENT BEGINS --%>
+                        <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="subForm">
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EnableProfessor"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.PROFESSOR_ID%>"/>
 
                     <div align="center">
                         <table>
@@ -53,13 +64,17 @@
                                         <td>${teacher.map['first_name']}</td>
                                         <td>${teacher.map['last_name']}</td>
                                         <td>${teacher.map['school_name']}</td>
-                                        <td><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=EnableProfessor&amp;<%=Constants.PROFESSOR_ID%>=${teacher.map['user_id']}">activate</a></td>
+                                        <td>
+                                            <button name="submit" value="submit" type="submit" onclick="enable(${resultRow.map['user_id']})">
+                                                Enable
+                                            </button>
                                     </tr>
                                 </c:forEach>
 
                             </tbody>
                         </table>
                     </div>
+                            </form>
 
                     <%-- CONTENT ENDS --%>
 
