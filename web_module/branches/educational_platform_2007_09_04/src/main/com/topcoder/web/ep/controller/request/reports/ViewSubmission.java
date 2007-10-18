@@ -11,7 +11,6 @@ import java.util.StringTokenizer;
 import java.util.TimeZone;
 
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -23,57 +22,78 @@ import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.algo.Submission;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
+import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class ViewSubmission extends ShortHibernateProcessor {
+public class ViewSubmission extends SharedBaseProcessor {
     public static final Integer STUDENT_COL = 1;
     public static final Integer SCORE_COL = 2;
     public static final Integer NUM_TESTS_COL = 3;
     public static final Integer PERCENT_TESTS_COL = 4;
     
     @Override
-    protected void dbProcessing() throws Exception {
-        // get classroom parameter
-        Long assignmentId = getAssignmentParam();
-
-        // get component parameter
-        Long componentId = getComponentParam();
-
-        // get student parameter
-        Long studentId = getStudentParam();
-
+    protected void professorProcessing() throws Exception {
         // check if it's a valid assignment
-        Round a = DAOUtil.getFactory().getRoundDAO().find(assignmentId);
-        if (a == null) {
-            throw new TCWebException("Couldn't find assignment");
-        }
-        
-        // check if it's a valid component
-        Component cmp = DAOUtil.getFactory().getComponentDAO().find(componentId);
-        if (cmp == null) {
-            throw new TCWebException("Couldn't find component");
-        }
-        
-        // check if this assignment belongs to the logged professor
+        Round a = validateAssignment();
+
+        // check if this assignment belongs to the logged student
         Classroom c = DAOUtil.getFactory().getClassroomDAO().find((Long) a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID));
         if (!c.getProfessor().getId().equals(getUser().getId())) {
             throw new NavigationException("You don't have permission to see this page.");
         }
 
         // check if it's a valid student
-        Coder s = c.getStudent(studentId);
+        Coder s = c.getStudent(getStudentParam());
         if (s == null) {
             throw new TCWebException("Couldn't find student");
         }
 
+        commonProcessing(a, c, s);
+    }
+
+    @Override
+    protected void studentProcessing() throws Exception {
+        // check if it's a valid assignment
+        Round a = validateAssignment();
+
+        // check if this assignment belongs to the logged student
+        Classroom c = DAOUtil.getFactory().getClassroomDAO().find((Long) a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID));
+        if (c.getActiveStudent(getUser().getId()) == null) {
+            throw new NavigationException("You don't have permission to see this page.");
+        }
+
+        // check if it's a valid student
+        Coder s = c.getStudent(getStudentParam());
+        if (s == null) {
+            throw new TCWebException("Couldn't find student");
+        }
+        
+        if (!s.getId().equals(new Long(getUser().getId()))) {
+            throw new NavigationException("You don't have permission to see this page.");
+        }
+        
+        commonProcessing(a, c, s);
+    }
+
+    protected void commonProcessing(Round a, Classroom c, Coder s) throws Exception {
+
+        // get component parameter
+        Long componentId = getComponentParam();
+
+        // check if it's a valid component
+        Component cmp = DAOUtil.getFactory().getComponentDAO().find(componentId);
+        if (cmp == null) {
+            throw new TCWebException("Couldn't find component");
+        }
+        
         // get component state
-        ComponentState cs = DAOUtil.getFactory().getComponentStateDAO().getStudentResultsByComponent(a, cmp, studentId);
+        ComponentState cs = DAOUtil.getFactory().getComponentStateDAO().getStudentResultsByComponent(a, cmp, s.getId());
 
         // get tests results
-        Object systemTestResults = DAOUtil.getFactory().getSystemTestResultDAO().getSystemTestResultsByStudentComponent(a, cmp, studentId);
+        Object systemTestResults = DAOUtil.getFactory().getSystemTestResultDAO().getSystemTestResultsByStudentComponent(a, cmp, s.getId());
         Object[] lo = (Object[]) systemTestResults;
         Integer total = (Integer)lo[0];
         Integer succeeded = (Integer)lo[1];
@@ -97,6 +117,14 @@ public class ViewSubmission extends ShortHibernateProcessor {
         
         setNextPage("/reports/submission.jsp");
         setIsNextPageInContext(true);
+    }
+
+    private Round validateAssignment() throws TCWebException {
+        Round a = DAOUtil.getFactory().getRoundDAO().find(getAssignmentParam());
+        if (a == null) {
+            throw new TCWebException("Couldn't find assignment");
+        }
+        return a;
     }
     
     private String addSpace(String text) {
