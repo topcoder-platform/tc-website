@@ -53,6 +53,6 @@
     </c:choose>
     <!-- logoBox -->
     <div class="logoBox">
-        <a href="#"><img src="/i/v2/studio_logo.png" alt="TopCoder Studio" /></a>
+        <a href="/"><img src="/i/v2/studio_logo.png" alt="TopCoder Studio" /></a>
     </div>
 </div>
