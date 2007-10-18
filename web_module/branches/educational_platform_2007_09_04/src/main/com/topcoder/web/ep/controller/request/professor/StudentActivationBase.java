@@ -41,6 +41,8 @@ public abstract class StudentActivationBase extends ShortHibernateProcessor {
             Classroom c = DAOUtil.getFactory().getClassroomDAO().find(classroomId);
 
             if (c != null && c.getProfessor().getId().equals(getUser().getId())) {
+                getRequest().setAttribute("schoolName", c.getSchool().getName());                
+
                 log.debug("is professor");
                 // this user is the classroom's professor
 
