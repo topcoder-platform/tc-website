@@ -99,7 +99,7 @@
                     <input type="file" name="<%=Constants.SUBMISSION%>">
                 </p>
                 <p id="submitButton">
-                    <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
+                    <input type="image" src="/i/v2/interface/btnSubmit.png" onmouseover="this.src='/i/v2/interface/btnSubmitOn.png'" onmouseout="this.src='/i/v2/interface/btnSubmit.png'">
                 </p>
             </div>
         </form>

@@ -104,7 +104,7 @@
 
                                     <tr>
                                         <td colspan="2" align="center">
-                                            <input type="image" src="/i/layout/btn_login.gif" onmouseover="this.src='/i/layout/btn_login_on.gif'" onmouseout="this.src='/i/layout/btn_login.gif'">
+                                            <input type="image" src="/i/v2/interface/btn_login.gif" onmouseover="this.src='/i/v2/interface/btn_login_on.gif'" onmouseout="this.src='/i/v2/interface/btn_login.gif'">
                                         </td>
                                     </tr>
                                 </table>

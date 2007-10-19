@@ -76,7 +76,7 @@
                         Your Submission Has Been Uploaded
                         <br /><br />
                         <div align="center">
-                        <a href="${sessionInfo.servletPath}?module=ViewFinalSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onfocus="this.blur();"><img src="/i/layout/btnSubmitAnother.png" alt="submit another" onmouseover="this.src = '/i/layout/btnSubmitAnotherOn.png';" onmouseout="this.src = '/i/layout/btnSubmitAnother.png';"/></a>
+                        <a href="${sessionInfo.servletPath}?module=ViewFinalSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onfocus="this.blur();"><img src="/i/v2/interface/btnSubmitAnother.png" alt="submit another" onmouseover="this.src = '/i/v2/interface/btnSubmitAnotherOn.png';" onmouseout="this.src = '/i/v2/interface/btnSubmitAnother.png';"/></a>
                         </div>
                     </div>
                 </div>

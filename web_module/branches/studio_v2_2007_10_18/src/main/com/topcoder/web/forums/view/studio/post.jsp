@@ -239,7 +239,7 @@
                                 } else if (thread != null) {
                                     cancelLink = "?module=Thread&"+ForumConstants.THREAD_ID+"="+thread.getID();
                                 } %>
-                            <a href="<%=cancelLink%>"><img src="/i/layout/btnCancel.png" alt="Cancel"/></a>
+                            <a href="<%=cancelLink%>"><img src="/i/v2/interface/btnCancel.png" alt="Cancel"/></a>
                         </td></tr>
                     </form>
                 </table>

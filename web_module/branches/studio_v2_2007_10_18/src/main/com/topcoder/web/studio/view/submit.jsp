@@ -127,7 +127,7 @@
                 </p>
 
                 <p id="submitButton">
-                    <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
+                    <input type="image" src="/i/v2/interface/btnSubmit.png" onmouseover="this.src='/i/v2/interface/btnSubmitOn.png'" onmouseout="this.src='/i/v2/interface/btnSubmit.png'">
                 </p>
             </form>
         </div>
@@ -200,7 +200,7 @@
                     <td class="headerC">
                         Ranking
                         <div>
-                            <a href="#" onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></a>
+                            <a href="#" onclick="batchUpdate();return false;"><img src="/i/v2/interface/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/v2/interface/btnUpdateDkOn.png';" onmouseout="this.src = '/i/v2/interface/btnUpdateDk.png';"/></a>
                         </div>
                     </td>
                     <td class="header" colspan="2" width="33%">

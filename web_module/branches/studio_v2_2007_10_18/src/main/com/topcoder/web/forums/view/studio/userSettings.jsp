@@ -68,7 +68,7 @@ function toggleTabs(anchor,id) {
 -->
 </style>
 
-<body onload="toggleTabs('','gen')">
+<body onLoad="toggleTabs('','gen')">
 
     <!-- wrapper -->
     <div id="wrapper">
@@ -110,9 +110,9 @@ function toggleTabs(anchor,id) {
 <tc-webtag:errorIterator id="errSettings" name="<%=ForumConstants.STATUS%>"><%=errSettings%></tc-webtag:errorIterator><br /><br />
 <%  } %>
 
-<div class="tableTabOff" id="tabGen"><a href="javascript:void(0)" onclick="toggleTabs(this,'gen')" class="tableTabOff">General Settings</a></div>
-<div class="tableTabOff" id="tabWatch"><a href="javascript:void(0)" onclick="toggleTabs(this,'watch')" class="tableTabOff">Watch Preferences</a></div>
-<div class="tableTabOff" id="tabRate"><a href="javascript:void(0)" onclick="toggleTabs(this,'rate')" class="tableTabOff">Rating Preferences</a></div>
+<div class="tableTabOff" id="tabGen"><a href="javascript:void(0)" onClick="toggleTabs(this,'gen')" class="tableTabOff">General Settings</a></div>
+<div class="tableTabOff" id="tabWatch"><a href="javascript:void(0)" onClick="toggleTabs(this,'watch')" class="tableTabOff">Watch Preferences</a></div>
+<div class="tableTabOff" id="tabRate"><a href="javascript:void(0)" onClick="toggleTabs(this,'rate')" class="tableTabOff">Rating Preferences</a></div>
 <br  clear="all"/>
 
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
@@ -457,7 +457,7 @@ function toggleTabs(anchor,id) {
 
 <div>
    <div style="float:right;">
-   <input type="image" src="/i/layout/btn_save.gif" onmouseover="this.src='/i/layout/btn_save_on.gif'" onmouseout="this.src='/i/layout/btn_save.gif'">
+   <input type="image" src="/i/v2/interface/btn_save.gif"/>
    </div>
 </div>
 </form>

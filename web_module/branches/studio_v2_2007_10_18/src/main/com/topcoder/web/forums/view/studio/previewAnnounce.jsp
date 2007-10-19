@@ -180,7 +180,7 @@ function AllowTabCharacter() {
 				} else if (forumCategory != null) {
 					cancelLink = "?module=Category&"+ForumConstants.CATEGORY_ID+"="+forumCategory.getID();
 				} %>
-			<a href="<%=cancelLink%>"><img src="/i/layout/btnCancel.png" alt="Cancel"/></a>
+			<a href="<%=cancelLink%>"><img src="/i/v2/interface/btnCancel.png" alt="Cancel"/></a>
 		</td>
 	</tr>
 </form>
