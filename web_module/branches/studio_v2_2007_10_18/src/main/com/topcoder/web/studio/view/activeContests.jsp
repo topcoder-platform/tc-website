@@ -41,15 +41,14 @@
 
 <h1>Active Contests</h1>
 
-<h2 align="right">Need help? Learn how to
-    <a href="/?module=Static&amp;d1=support&amp;d2=getStarted">get
+<div align="right"><strong>Need help? Learn how to
+    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get
         started</a>.<br />
-    Got <a href="/?module=Static&amp;d1=support&amp;d2=generalFaq">questions</a>?
-</h2>
+    Got <a href="/?module=Static&amp;d1=support&amp;d2=generalFaq">questions</a>?</strong>
+</div>
 
-<br  clear="all"/>
-<div class="tableTabOn" style="margin-left: 20px;"><a href="/?module=ViewActiveContests" class="statTabLinkOn">Active Contests</a></div>
-<div class="tableTabOff"><a href="/?module=ViewPastContests" class="statTabLinkOff">Past Contests</a></div>
+<div class="tableTabOn" style="margin-left: 20px;"><a href="/?module=ViewActiveContests">Active Contests</a></div>
+<div class="tableTabOff"><a href="/?module=ViewPastContests">Past Contests</a></div>
 <br  clear="all"/>
 
 <div class="statHolder">
