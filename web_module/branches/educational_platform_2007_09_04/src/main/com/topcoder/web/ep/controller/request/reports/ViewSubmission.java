@@ -46,7 +46,7 @@ public class ViewSubmission extends SharedBaseProcessor {
         }
 
         // check if it's a valid student
-        Coder s = c.getStudent(getStudentParam());
+        Coder s = DAOUtil.getFactory().getCoderDAO().getStudentUsingClassroomId(getStudentParam(), c.getId()); 
         if (s == null) {
             throw new TCWebException("Couldn't find student");
         }
@@ -61,12 +61,12 @@ public class ViewSubmission extends SharedBaseProcessor {
 
         // check if this assignment belongs to the logged student
         Classroom c = DAOUtil.getFactory().getClassroomDAO().find((Long) a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID));
-        if (c.getActiveStudent(getUser().getId()) == null) {
+        if (DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(getUser().getId(), c.getId()) == null) {
             throw new NavigationException("You don't have permission to see this page.");
         }
 
         // check if it's a valid student
-        Coder s = c.getStudent(getStudentParam());
+        Coder s = DAOUtil.getFactory().getCoderDAO().getStudentUsingClassroomId(getStudentParam(), c.getId()); 
         if (s == null) {
             throw new TCWebException("Couldn't find student");
         }

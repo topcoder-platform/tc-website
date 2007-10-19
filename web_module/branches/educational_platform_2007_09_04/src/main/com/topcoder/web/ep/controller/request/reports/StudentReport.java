@@ -64,7 +64,7 @@ public class StudentReport extends SharedBaseProcessor {
         Coder s = validateStudent(c);
 
         // check if the logged student belongs to this classroom 
-        if (c.getActiveStudent(getUser().getId()) == null) {
+        if (DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(getUser().getId(), c.getId()) == null) {
             throw new NavigationException("You don't have permission to see this page.");
         }
 
@@ -167,7 +167,7 @@ public class StudentReport extends SharedBaseProcessor {
     }
 
     private Coder validateStudent(Classroom c) throws TCWebException {
-        Coder s = c.getStudent(getStudentParam());
+        Coder s = DAOUtil.getFactory().getCoderDAO().getStudentUsingClassroomId(getStudentParam(), c.getId()); 
         if (s == null) {
             throw new TCWebException("Couldn't find student");
         }

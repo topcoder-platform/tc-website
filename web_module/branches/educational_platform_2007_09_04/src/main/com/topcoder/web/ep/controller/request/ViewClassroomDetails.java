@@ -40,7 +40,7 @@ public class ViewClassroomDetails extends SharedBaseProcessor {
     @Override
     protected void studentProcessing() throws Exception {
         Classroom c = getClassroom();
-        if (c.getActiveStudent(getUser().getId()) != null) {
+        if (DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(getUser().getId(), c.getId()) != null) {
             log.debug("active student");
             // this user is an active student of the classroom
             getRequest().setAttribute("schoolName", c.getSchool().getName());                

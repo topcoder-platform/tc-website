@@ -90,7 +90,7 @@ public class EditAssignmentStudentsSubmit extends LongBase {
 
                 // validate if the selected students are active students
                 for (Long studentId : studentIds) {
-                    Coder s = c.getActiveStudent(studentId);
+                    Coder s = DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(studentId, c.getId());
                     if (s == null) {
                         throw new TCWebException("Invalid student selected");
                     }

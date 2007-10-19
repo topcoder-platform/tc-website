@@ -64,7 +64,7 @@ public class ProblemAssignmentReport extends SharedBaseProcessor {
 
         // check if this student belongs to the class
         Classroom c = DAOUtil.getFactory().getClassroomDAO().find((Long) a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID));
-        Coder s = c.getActiveStudent(getUser().getId());
+        Coder s = DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(getUser().getId(), c.getId());
         if (s == null) {
             throw new NavigationException("You don't have permission to see this page.");
         }

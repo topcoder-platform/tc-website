@@ -19,6 +19,9 @@ public class StudentComparator implements Comparator<Coder> {
         if (cmp == 0) {
             cmp = o1.getUser().getFirstName().compareTo(o2.getUser().getFirstName());
         }
+        if (cmp == 0) {
+            cmp = o1.getUser().getHandle().compareTo(o2.getUser().getHandle());
+        }
         return cmp;
     }
 }

@@ -43,7 +43,7 @@ public class ViewClassroomAssignments extends SharedBaseProcessor {
     protected void studentProcessing() throws Exception {
         Classroom c = getClassroom();
         getRequest().setAttribute("schoolName", c.getSchool().getName());                
-        Coder s = c.getActiveStudent(getUser().getId());
+        Coder s = DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(getUser().getId(), c.getId());
         if (s != null) {
             log.debug("active student");
 
