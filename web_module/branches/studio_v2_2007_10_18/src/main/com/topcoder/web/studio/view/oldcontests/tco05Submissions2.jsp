@@ -44,30 +44,33 @@ View Submissions
  | <a href="/?module=Static&amp;d1=oldcontests&amp;d2=tco05Submissions3">next >></a>
 </div>
 
-<table cellpadding="0" cellspacing="0" class="stat" style="width:740px;">
+<div class="statHolder">
+    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+    <div class="container">
+        <table class="stat" cellpadding="0" cellspacing="0" width="100%">
 <tbody>
-    <tr>
-        <td class="NW">&nbsp;</td>
-        <td class="title">Submissions</td>
-        <td class="NE">&nbsp;</td>
-    </tr>
+    <tr><td class="title" colspan="3">Submissions</td></tr>
     <% boolean even = true;%>
 <script language=javascript type="text/javascript">
 for(i = 299; i >= 234; i--)
-document.writeln( '<tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>&nbsp;</div></td><td class="valueC">'+i+'<br /><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/'+i+'.gif" alt="'+i+'" /></td><td class="valueE"><div>&nbsp;</div></td></tr><% even = !even;%>' )
+document.writeln( '<tr><td class="space" colspan="3">&nbsp;</td></tr>
+<tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>&nbsp;</div></td><td class="valueC">'+i+'<br /><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/'+i+'.gif" alt="'+i+'" /></td><td class="valueE"><div>&nbsp;</div></td></tr><% even = !even;%>' )
 </script>
+<tr><td class="space" colspan="3">&nbsp;</td></tr>
 <tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>&nbsp;</div></td><td class="valueC">233<br /><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/233.jpg" alt="" /></td><td class="valueE"><div>&nbsp;</div></td></tr><% even = !even;%>
 
 <script language=javascript type="text/javascript">
 for(i = 232; i >= 200; i--)
-document.writeln( '<tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>&nbsp;</div></td><td class="valueC">'+i+'<br /><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/'+i+'.gif" alt="'+i+'" /></td><td class="valueE"><div>&nbsp;</div></td></tr><% even = !even;%>' )
+document.writeln( '<tr><td class="space" colspan="3">&nbsp;</td></tr>
+<tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>&nbsp;</div></td><td class="valueC">'+i+'<br /><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/'+i+'.gif" alt="'+i+'" /></td><td class="valueE"><div>&nbsp;</div></td></tr><% even = !even;%>' )
 </script>
-            <tr>
-                <td class="SW" colspan="2">&nbsp;</td>
-                <td class="SE">&nbsp;</td>
-            </tr>
-</tbody>
-</table>
+        </tbody>
+        </table>
+    </div>
+    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+</div>
 <div class="pagingBox">
 <a href="/?module=Static&amp;d1=oldcontests&amp;d2=tco05Submissions1"><< prev</a>
  | <a href="/?module=Static&amp;d1=oldcontests&amp;d2=tco05Submissions3">next >></a>

@@ -54,8 +54,12 @@ In the past, TopCoder has held contests to design logos for our online programmi
         <a href="/?module=Static&amp;d1=oldcontests&amp;d2=tco05Finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/085.gif" alt=""  /></a>
         </td>
     </tr>
-</tbody>
-</table>
+        </tbody>
+        </table>
+    </div>
+    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+</div>
 </div>
                         <br clear="all"/>
                     </div>                

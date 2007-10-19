@@ -44,28 +44,36 @@ View Submissions
  | next >>
 </div>
 
-<table cellpadding="0" cellspacing="0" class="stat" style="width:740px;">
+<div class="statHolder">
+    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+    <div class="container">
+        <table class="stat" cellpadding="0" cellspacing="0" width="100%">
 <tbody>
-    <tr>
-        <td class="NW">&nbsp;</td>
-        <td class="title">Submissions</td>
-        <td class="NE">&nbsp;</td>
-    </tr>
+    <tr><td class="title" colspan="3">Submissions</td></tr>
     <% boolean even = true;%>
+<tr><td class="space" colspan="3">&nbsp;</td></tr>
 <tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>&nbsp;</div></td><td class="valueC">0607<br /><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/logo_submissions/0607.jpg" alt="" /></td><td class="valueE"><div>&nbsp;</div></td></tr><% even = !even;%>   <%--20023387--%>
+<tr><td class="space" colspan="3">&nbsp;</td></tr>
 <tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>&nbsp;</div></td><td class="valueC">0606<br /><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/logo_submissions/0606.gif" alt="" /></td><td class="valueE"><div>&nbsp;</div></td></tr><% even = !even;%>   <%--154825--%>
+<tr><td class="space" colspan="3">&nbsp;</td></tr>
 <tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>&nbsp;</div></td><td class="valueC">0605<br /><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/logo_submissions/0605.gif" alt="" /></td><td class="valueE"><div>&nbsp;</div></td></tr><% even = !even;%>   <%--154825--%>
+<tr><td class="space" colspan="3">&nbsp;</td></tr>
 <tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>&nbsp;</div></td><td class="valueC">0604<br /><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/logo_submissions/0604.gif" alt="" /></td><td class="valueE"><div>&nbsp;</div></td></tr><% even = !even;%>   <%--7371063--%>
+<tr><td class="space" colspan="3">&nbsp;</td></tr>
 <tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>&nbsp;</div></td><td class="valueC">0603<br /><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/logo_submissions/0603.gif" alt="" /></td><td class="valueE"><div>&nbsp;</div></td></tr><% even = !even;%>   <%--8584656--%>
+<tr><td class="space" colspan="3">&nbsp;</td></tr>
 <tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>&nbsp;</div></td><td class="valueC">0602<br /><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/logo_submissions/0602.gif" alt="" /></td><td class="valueE"><div>&nbsp;</div></td></tr><% even = !even;%>   <%--10416197--%>
+<tr><td class="space" colspan="3">&nbsp;</td></tr>
 <tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>&nbsp;</div></td><td class="valueC">0601<br /><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/logo_submissions/0601.gif" alt="" /></td><td class="valueE"><div>&nbsp;</div></td></tr><% even = !even;%>   <%--10416197--%>
+<tr><td class="space" colspan="3">&nbsp;</td></tr>
 <tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>&nbsp;</div></td><td class="valueC">0600<br /><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/logo_submissions/0600.gif" alt="" /></td><td class="valueE"><div>&nbsp;</div></td></tr><% even = !even;%>   <%--10465538--%>
-            <tr>
-                <td class="SW" colspan="2">&nbsp;</td>
-                <td class="SE">&nbsp;</td>
-            </tr>
-</tbody>
-</table>
+        </tbody>
+        </table>
+    </div>
+    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+</div>
 <div class="pagingBox">
 <a href="/?module=Static&amp;d1=oldcontests&amp;d2=tco06Submissions4"><< prev</a>
  | next >>

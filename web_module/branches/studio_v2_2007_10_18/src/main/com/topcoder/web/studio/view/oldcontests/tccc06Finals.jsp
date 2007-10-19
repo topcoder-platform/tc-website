@@ -187,8 +187,12 @@
 </td>
 </tr>
 
-</tbody>
-</table>
+        </tbody>
+        </table>
+    </div>
+    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+</div>
 
                         <br clear="all"/>
                     </div>                
