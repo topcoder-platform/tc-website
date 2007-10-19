@@ -16,7 +16,6 @@ crappy looking to save space on the transmission
     <taconite-root xml:space="preserve">
     <taconite-replace-children contextNodeID="submissions" parseInBrowser="true">
 </c:if>
-
 <% boolean even = true;%>
 <c:set value="<%=ReviewStatus.FAILED%>" var="failed"/>
 <c:set value="<%=ReviewStatus.PASSED%>" var="passed"/>
@@ -87,7 +86,7 @@ Pending
 <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
 </div>
 </td>
-<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
+<td colspan="2" class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div align="center">
 <img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>
 </div>
