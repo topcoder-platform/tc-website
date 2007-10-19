@@ -47,7 +47,7 @@
                                 <c:if test="${result[1].address.country!=null}"><c:out value="${result[1].address.country.name}"/></c:if>
                                 <br />
                             </c:if>
-                            Registrants: <c:out value="${result[o]}"/><br />
+                            Registrants: ${result[0]}<br/>
                             <c:set value="\"" var="quote"/>
                             <c:set value="\\\"" var="escapedQuote"/>
                         </div>
