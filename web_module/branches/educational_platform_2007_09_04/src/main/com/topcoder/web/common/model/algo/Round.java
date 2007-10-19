@@ -155,7 +155,7 @@ public class Round extends Base {
         this.roundSegments.add(rs);
     }
 
-    // TODO: move this to the arena helper
+    // TODO: move this to the arena helper, maybe make roundSegments collection modifiable.
     public void updateSegmentsDates(Timestamp startDate, Timestamp endDate) {
         for (RoundSegment rs : this.roundSegments) {
             if (!rs.getId().getSegmentId().equals(1l)) {

@@ -146,18 +146,4 @@ public class School extends Base {
         this.user = user;
     }
 
-    /**
-     * @return the classrooms
-     */
-    //todo get this into a dao
-    public Set<Classroom> getClassroomsUsingProfessorId(Long professorId) {
-        Set<Classroom> sc = new HashSet<Classroom>();
-        for (Classroom c : classrooms) {
-            if (c.getProfessor().getId().equals(professorId)) {
-                sc.add(c);
-            }
-        }
-        return sc;
-    }
-
 }
