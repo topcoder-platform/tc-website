@@ -14,8 +14,6 @@ import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.LongBase;
 
-// todo: school name
-
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
@@ -56,7 +54,9 @@ public class EditClassroomConfirm extends LongBase {
                 selectedStudents = new ArrayList<Coder>();
             }
             setSelectedStudents(selectedStudents);
-            
+
+            getRequest().setAttribute("schoolName", getClassroom().getSchool().getName());                
+
             setNextPage("/professor/editClassroomConfirm.jsp");
             setIsNextPageInContext(true);            
         }        
