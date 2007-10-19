@@ -85,7 +85,6 @@ public class EditAssignment extends ShortBase {
                     // we are editing or inserting a new one but we already have data in session
 
                     if (assignmentId != null) {
-                        // check if this assignment belongs to the active user
                         a = DAOUtil.getFactory().getRoundDAO().find(assignmentId);
 
                         Object classroomProperty = a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID);
