@@ -21,7 +21,6 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.algo.Component;
 import com.topcoder.web.common.model.algo.Language;
 import com.topcoder.web.common.model.algo.ProblemSet;
@@ -31,7 +30,7 @@ import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.educ.AssignmentScoreType;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
-import com.topcoder.web.ep.controller.request.LongBase;
+import com.topcoder.web.ep.controller.request.ShortBase;
 import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
 
@@ -39,7 +38,7 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class EditAssignment extends LongBase {
+public class EditAssignment extends ShortBase {
 
     private static Logger log = Logger.getLogger(EditAssignment.class);
 
@@ -52,8 +51,8 @@ public class EditAssignment extends LongBase {
 
         log.debug("Edit assignment called...");
         if (userLoggedIn()) {
-            User u = getActiveUser();
-            log.debug("User identified - " + u.getHandle());
+//            User u = getActiveUser();
+//            log.debug("User identified - " + u.getHandle());
 
             Long assignmentId = getAssignmentParam();
             Long classroomId = getClassroomParam();
@@ -64,7 +63,8 @@ public class EditAssignment extends LongBase {
                 log.debug("First pass - " + getUser().getUserName());
 
                 //todo change this to only count professor associations, not all
-                if (u.getSchools().isEmpty()) {
+                
+                if (DAOUtil.getFactory().getSchoolDAO().findSchoolsUsingProfessorId(getUser().getId()).isEmpty()) {
                     throw new TCWebException("No active schools for this professor");
                 }
 

@@ -12,7 +12,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ep.controller.request.ArenaServicesFactory;
-import com.topcoder.web.ep.controller.request.LongBase;
+import com.topcoder.web.ep.controller.request.ShortBase;
 import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
 
@@ -20,7 +20,7 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class EditAssignmentSubmit extends LongBase {
+public class EditAssignmentSubmit extends ShortBase {
 
     private static Logger log = Logger.getLogger(EditAssignmentSubmit.class);
 
@@ -37,10 +37,10 @@ public class EditAssignmentSubmit extends LongBase {
             if (!"POST".equals(getRequest().getMethod())) {
                 throw new TCWebException("Cannot get here via get");
             } else {
-                if (getActiveUser() == null) {
+                AssignmentDTO adto = getAssignment();
+                if (adto == null) {
                     throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
                 } else if (userLoggedIn()) {
-                    AssignmentDTO adto = getAssignment();
                     getRequest().setAttribute("schoolName", adto.getSchoolName());                
                     Boolean update = adto.getRoundId() != null; 
                     if (update) {
@@ -56,8 +56,6 @@ public class EditAssignmentSubmit extends LongBase {
                         // new
                         ArenaServicesFactory.getArenaServices().addNewAssignment(adto);
                     }
-//                    no need for this, we are in a short transaction
-//                    markForCommit();
 
                     // clear objects in session
                     clearSession();
