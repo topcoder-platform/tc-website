@@ -29,26 +29,26 @@
            var object = document.getElementById(objectID) 
            if(object.className == 'dark hideText') {
                 object.className = 'dark showText'; 
-                document.images[imageID].src = '/i/interface/exp_ed_w.gif'; 
+                document.images[imageID].src = '/i/ep/buttons/exp_ed_w.png'; 
            }else if(object.className == 'dark showText') {
                 object.className = 'dark hideText'; 
-                document.images[imageID].src = '/i/interface/exp_w.gif';
+                document.images[imageID].src = '/i/ep/buttons/exp_w.png';
            }else if(object.className == 'light showText') {
                 object.className = 'light hideText'; 
-                document.images[imageID].src = '/i/interface/exp_w.gif';
+                document.images[imageID].src = '/i/ep/buttons/exp_w.png';
            }else {
                 object.className = 'light showText';
-                document.images[imageID].src = '/i/interface/exp_ed_w.gif';
+                document.images[imageID].src = '/i/ep/buttons/exp_ed_w.png';
            }
           return;
         }
 
-        function toggleDisplay(objectID){
-           var object = document.getElementById(objectID);
-           if(object.className == 'showText') object.className = 'hideText';
-           else object.className = 'showText';
-           return;
-        }
+//        function toggleDisplay(objectID){
+//           var object = document.getElementById(objectID);
+//           if(object.className == 'showText') object.className = 'hideText';
+//           else object.className = 'showText';
+//           return;
+//        }
     </script>
     
 <%-- each school requires its own stylesheet, linked in here --%>
