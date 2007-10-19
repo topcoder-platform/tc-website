@@ -51,8 +51,7 @@ public class EditClassroom extends LongBase {
                 //set up the user object we're gonna use
                 User u = getActiveUser();
 
-                //todo change this to only count teach associations, not all of them
-                if (u.getSchools().isEmpty()) {
+                if (DAOUtil.getFactory().getSchoolDAO().findSchoolsUsingProfessorId(getUser().getId()).isEmpty()) {
                     throw new TCWebException("No active schools for this professor");
                 }
 

@@ -51,9 +51,6 @@ public class EditAssignment extends ShortBase {
 
         log.debug("Edit assignment called...");
         if (userLoggedIn()) {
-//            User u = getActiveUser();
-//            log.debug("User identified - " + u.getHandle());
-
             Long assignmentId = getAssignmentParam();
             Long classroomId = getClassroomParam();
 
@@ -62,8 +59,6 @@ public class EditAssignment extends ShortBase {
             if (!"POST".equals(getRequest().getMethod())) {
                 log.debug("First pass - " + getUser().getUserName());
 
-                //todo change this to only count professor associations, not all
-                
                 if (DAOUtil.getFactory().getSchoolDAO().findSchoolsUsingProfessorId(getUser().getId()).isEmpty()) {
                     throw new TCWebException("No active schools for this professor");
                 }

@@ -47,8 +47,7 @@ public class EditAssignmentStudentsSubmit extends LongBase {
 
             Long assignmentId = getAssignmentParam();
 
-            //todo change this to only count professor associations, not all
-            if (u.getSchools().isEmpty()) {
+            if (DAOUtil.getFactory().getSchoolDAO().findSchoolsUsingProfessorId(getUser().getId()).isEmpty()) {
                 throw new TCWebException("No active schools for this professor");
             }
 
