@@ -154,6 +154,8 @@
          Las Vegas, NV, USA<br />
          <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=about">Details</A>
          <br />
+         <A target="_blank" href="/pdfs/tournaments/tco06_program.pdf">Program [PDF]</A>
+         <br />
          <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=logo_overview">Logo Contest</A>
          </td>
       </tr>
@@ -173,6 +175,8 @@
          Santa Clara, CA, USA<br />
          <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about">Details</A>
          <br />
+         <A target="_blank" href="/pdfs/tournaments/tco05_program.pdf">Program [PDF]</A>
+         <br />
          <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=logo_overview">Logo Contest</A>
          </td>
       </tr>
@@ -191,6 +195,8 @@
          Santa Clara Marriott<br/>
          Santa Clara, CA, USA<br />
          <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=about">Details</A>
+         <br />
+         <A target="_blank" href="/i/tournament/tccc05/TCCC05_Program.pdf">Program [PDF]</A>
          </td>
       </tr>
    </table>
