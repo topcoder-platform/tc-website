@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">10.19.07 12:30 PM - </td><td width="100%"><A href="/pdfs/tournaments/TCCC07_Program_View.pdf">TCCC07 Program now available</A> [PDF - 3mb]</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.17.07 6:15 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=19850">Vote for the TCO08 website</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.17.07 2:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">Round 3 of the TCCC07 CDDC Finals</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.16.07 12:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA chat before SRM 372</A></td></tr>
