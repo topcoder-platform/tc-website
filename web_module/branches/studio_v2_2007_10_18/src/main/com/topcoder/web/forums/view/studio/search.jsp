@@ -57,20 +57,21 @@ function noenter(e)
 </head>
 
 <body>
-
-<div align="center">
-   <div class="contentOut">
-   
-
-      <jsp:include page="top.jsp" />
-
-
-   <jsp:include page="topNav.jsp">
-       <jsp:param name="node" value="forums"/>
-   </jsp:include>
-      <div class="contentIn">
-         <img src="/i/layout/contentInN.gif" alt="" style="display:block;" />
-         <div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="forums"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
@@ -78,7 +79,7 @@ function noenter(e)
 		<jsp:include page="categoriesHeader.jsp" />
 	</td>
 	<td align="right" nowrap="nowrap" width="100%" valign="top">   
-		<A href="?module=History" class="rtbcLink">My Post History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | <A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+		<a href="?module=History" class="rtbcLink">My Post History</a> | <a href="?module=Watches" class="rtbcLink">My Watches</a> | <a href="?module=Settings" class="rtbcLink">User Settings</a><br />
 	</td>
 </tr>
 <tr>
@@ -101,7 +102,7 @@ function noenter(e)
          <input name="<%=ForumConstants.SEARCH_QUERY%>" size="50" maxlength="100" value="<%if (query != null) {%><%=StringUtils.escapeHTMLTags(query.getQueryString())%><%}%>" id="<%=ForumConstants.SEARCH_QUERY%>" type="text">
          <input name="Search" value="Search" type="submit" alt="Search" onclick="">
          &#160;<a href="#" onclick="openWin('searchTips.jsp','st',600,400);" class="rtLinkOld">Search Tips</a>
-         <% if (errors.get(ForumConstants.SEARCH_QUERY) != null) { %><br/><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_QUERY%>"><%=err%></tc-webtag:errorIterator></span><% } %>
+         <% if (errors.get(ForumConstants.SEARCH_QUERY) != null) { %><br /><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_QUERY%>"><%=err%></tc-webtag:errorIterator></span><% } %>
       </td>
    </tr>
 
@@ -168,7 +169,7 @@ function noenter(e)
       <td class="rtTextCell100">
          <input name="<%=ForumConstants.SEARCH_HANDLE%>" size="20" maxlength="50" id="<%=ForumConstants.SEARCH_HANDLE%>" value="<%if (query != null && query.getFilteredUser() != null){%><%=query.getFilteredUser().getUsername()%><%}%>" type="text"/>&#160;
          (Leave field blank to search all users)
-         <% if (errors.get(ForumConstants.SEARCH_HANDLE) != null) { %><br/><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_HANDLE%>"><%=err%></tc-webtag:errorIterator></span><% } %>
+         <% if (errors.get(ForumConstants.SEARCH_HANDLE) != null) { %><br /><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_HANDLE%>"><%=err%></tc-webtag:errorIterator></span><% } %>
       </td>
    </tr>
    <tr>
@@ -190,18 +191,21 @@ function noenter(e)
    </tr>
 </form>
 </table>
-<br>
+<br />
 <% if ("search".equals(status)) { %>
     <jsp:include page="searchResults.jsp"/>
 <% } %>
 
-         </div>
-         <img src="/i/layout/contentInS.gif" alt="" style="display:block;" />
-      </div>
-      <jsp:include page="foot.jsp"/>
-      <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-   </div>
-</div>
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
+
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>

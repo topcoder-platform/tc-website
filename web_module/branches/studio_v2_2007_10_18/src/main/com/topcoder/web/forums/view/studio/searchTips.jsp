@@ -95,7 +95,7 @@ This will search for documents containing the words <tt>black</tt>, <tt>cat</tt>
 or <tt>adoption</tt>.
 </p>
 
-<br>
+<br />
 
 <!-- ======================================================================= -->
     
@@ -111,7 +111,7 @@ to find results about different colors of cats, try the following:
 <p>For more explanation on the <tt>OR</tt> and <tt>AND</tt> operators
 see below in the "Boolean operators" section.</p>
     
-<br>
+<br />
 
 <!-- ======================================================================= -->
 
@@ -135,7 +135,7 @@ example, to search for <tt>test</tt>, <tt>tests</tt> or <tt>tester</tt>, you can
 
 <p>Note: You cannot use a <tt>*</tt> or <tt>?</tt> symbol as the first character of a search.</p>
 
-<br>
+<br />
 
 <!-- ======================================================================= -->
 
@@ -150,7 +150,7 @@ is similar to <tt>foam</tt> add a tilde (<tt>~</tt>) to your search term:
     
 <p>This search will match terms like <tt>foam</tt> and <tt>roams</tt>.</p>
 
-<br>
+<br />
 
 <!-- ======================================================================= -->
 
@@ -164,7 +164,7 @@ example, if you know the word "<tt>new</tt>" and "<tt>car</tt>" are within
 
     <blockquote><tt>"new car"~5</tt></blockquote>
     
-<br>
+<br />
 
 <!-- ======================================================================= -->
 
@@ -193,7 +193,7 @@ results, consider increasing the boost value:
     
     <blockquote><tt>"black cat"^6 adopt</tt></blockquote>
     
-<br>
+<br />
 
 <!-- ======================================================================= -->
 
@@ -281,7 +281,7 @@ To search for documents that contain "black cat" but not "cat adoption" use the 
 
     <blockquote><tt>"black cat" -"cat adoption"</tt></blockquote>
 
-<br>
+<br />
 
 <!-- ======================================================================= -->
 
@@ -297,7 +297,7 @@ search for <tt>(1+1):2</tt> use the query:</p>
 
     <blockquote><tt>\(1\+1\)\:2</tt></blockquote>
     
-<br>
+<br />
 
 </body>
 </html>

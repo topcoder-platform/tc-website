@@ -85,21 +85,21 @@
 </head>
 
 <body>
-
-<div align="center">
-<div class="contentOut">
-
-
-<jsp:include page="top.jsp"/>
-
-
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="forums"/>
-</jsp:include>
-<div class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-<div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="forums"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
@@ -110,10 +110,10 @@
             <jsp:include page="searchHeader.jsp"/>
         </td>
         <td align="right" valign="top" nowrap="nowrap">
-            <A href="?module=History" class="rtbcLink">My Post
-                History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> |
-            <A href="?module=Settings" class="rtbcLink">User
-                Settings</A><br/>
+            <a href="?module=History" class="rtbcLink">My Post
+                History</a> | <a href="?module=Watches" class="rtbcLink">My Watches</a> |
+            <a href="?module=Settings" class="rtbcLink">User
+                Settings</a><br />
         </td>
     </tr>
     <tr><td colspan="3" style="padding-bottom:3px;"><b>
@@ -121,8 +121,8 @@
         <% if (paginator.getNumPages() > 1) { %>
         <div style="float:right;" class="rtbc"><b>
             <% if (paginator.getPreviousPage()) { %>
-            <A href="<%=prevLink%>" class="rtbcLink">
-                << PREV</A>&#160;&#160;&#160;
+            <a href="<%=prevLink%>" class="rtbcLink">
+                << PREV</a>&#160;&#160;&#160;
             <% } %> [
             <% pages = paginator.getPages(5);
                 for (int i = 0; i < pages.length; i++) {
@@ -130,22 +130,22 @@
             <% if (pages[i].getNumber() == paginator.getPageIndex() + 1) { %>
             <span class="currentPage"><%= pages[i].getNumber() %></span>
             <% } else { %>
-            <A href="<%=link%><%=pages[i].getStart()%>" class="rtbcLink">
-                <%= pages[i].getNumber() %></A>
+            <a href="<%=link%><%=pages[i].getStart()%>" class="rtbcLink">
+                <%= pages[i].getNumber() %></a>
             <% } %>
             <% } else { %> ... <% } %>
             <% } %> ]
             <% if (paginator.getNextPage()) { %>
-            &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT >></A>
+            &#160;&#160;&#160;<a href="<%=nextLink%>" class="rtbcLink">NEXT >></a>
             <% } %>
         </b>
         </div>
         <% } %>
         <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
             <% if (category.getID() != forumCategory.getID()) { %>
-            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
+            <a href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
                 <%=category.getName()%>
-            </A> >
+            </a> >
             <% } else { %>
             <%=category.getName()%>
             <% } %>
@@ -155,7 +155,7 @@
 </table>
 
 <% if (forumCategory.getForumCount() > 0) { %>
-<table cellpadding="0" cellspacing="0" class="rtTable" style="width:740px;">
+<table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
         <td class="rtHeader" width="80%"><a href="<%=forumLink%>" class="rtbcLink">Forum</a></td>
         <td class="rtHeader" width="20%">T./M.</td>
@@ -168,15 +168,15 @@
         <tr>
             <td class="rtThreadCellWrap">
                 <% if (user == null) { %>
-                <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=forum.getMessageCount()%>" class="rtLinkNew">
+                <a href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=forum.getMessageCount()%>" class="rtLinkNew">
                     <%=forum.getName()%>
-                </A>
+                </a>
                 <% } else { %>
-                <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="<%=trackerClass%>">
+                <a href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="<%=trackerClass%>">
                     <%=forum.getName()%>
-                </A>
+                </a>
                 <% } %>
-                <% if (forum.getDescription() != null) { %><br/>
+                <% if (forum.getDescription() != null) { %><br />
 
                 <div class="rtDescIndent">
                     <%=forum.getDescription()%>
@@ -206,7 +206,7 @@
 <% } %>
 
 <% if (forumCategory.getCategoryCount() > 0) { %>
-<% if (forumCategory.getForumCount() > 0) { %><br><% } %>
+<% if (forumCategory.getForumCount() > 0) { %><br /><% } %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
         <td class="rtHeader" width="80%">Category</td>
@@ -224,15 +224,15 @@
         <tr>
             <td class="rtThreadCellWrap">
                 <% if (user == null) { %>
-                <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=category.getMessageCount()%>" class="rtLinkNew">
+                <a href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=category.getMessageCount()%>" class="rtLinkNew">
                     <%=category.getName()%>
-                </A>
+                </a>
                 <% } else { %>
-                <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="<%=trackerClass%>">
+                <a href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="<%=trackerClass%>">
                     <%=category.getName()%>
-                </A>
+                </a>
                 <% } %>
-                <% if (category.getDescription() != null) { %><br/>
+                <% if (category.getDescription() != null) { %><br />
 
                 <div class="rtDescIndent">
                     <%=category.getDescription()%>
@@ -268,21 +268,25 @@
 <span class="small">
 <% if (forumCategory.getID() != 1) { %>
 A forum with a <b>bold
-    title</b> indicates it either has a new thread or has a thread with new postings. <%if (user != null) {%><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
-    all as read)</A><%}%>
+    title</b> indicates it either has a new thread or has a thread with new postings. <%if (user != null) {%><a href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
+    all as read)</a><%}%>
 <% } else { %>
 A category with a <b>bold title</b> in the left navigation indicates it has a forum with new postings.
 <% } %>
 </span>
 </div>
 
-</div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-<jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
 
+
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
+
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>

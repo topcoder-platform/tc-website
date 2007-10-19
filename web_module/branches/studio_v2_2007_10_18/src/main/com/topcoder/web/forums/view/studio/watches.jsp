@@ -30,23 +30,23 @@
 </head>
 
 <body>
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="forums"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
-<div align="center">
-    <div class="contentOut">
-
-
-        <jsp:include page="top.jsp"/>
-
-
-        <jsp:include page="topNav.jsp">
-            <jsp:param name="node" value="forums"/>
-        </jsp:include>
-        <div class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
-
-                <table cellpadding="0" cellspacing="0" class="rtbcTable">
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
                     <tr>
                         <td class="categoriesBox" style="padding-right: 20px;">
                             <jsp:include page="categoriesHeader.jsp"/>
@@ -55,17 +55,17 @@
                             <jsp:include page="searchHeader.jsp"/>
                         </td>
                         <td align="right" nowrap="nowrap" valign="top">
-                            <A href="?module=History" class="rtbcLink">My Post
-                                History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My
-                            Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User
-                            Settings</A><br/>
+                            <a href="?module=History" class="rtbcLink">My Post
+                                History</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Watches" class="rtbcLink">My
+                            Watches</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Settings" class="rtbcLink">User
+                            Settings</a><br />
                         </td>
                     </tr>
                 </table>
 
-                <b><A href="?module=Main" class="rtbcLink">Forums</A> > My Watches
+                <b><a href="?module=Main" class="rtbcLink">Forums</a> > My Watches
                     (<%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%> threads)</b>
-                <br><span class="small">All watch updates will be emailed to your email address: <b>
+                <br /><span class="small">All watch updates will be emailed to your email address: <b>
                 <%=user.getEmail()%>
             </b>.
 Watches on content that hasn't been updated for more than 90 days will be automatically removed from your list.
@@ -121,13 +121,16 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
 
                 </form>
 
-            </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-        </div>
-        <jsp:include page="foot.jsp"/>
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-    </div>
-</div>
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
+
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>

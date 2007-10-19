@@ -23,20 +23,21 @@
 </head>
 
 <body>
-
-<div align="center">
-   <div class="contentOut">
-   
-
-      <jsp:include page="top.jsp" />
-
-
-   <jsp:include page="topNav.jsp">
-       <jsp:param name="node" value="forums"/>
-   </jsp:include>
-      <div class="contentIn">
-         <img src="/i/layout/contentInN.gif" alt="" style="display:block;" />
-         <div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="forums"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
    <tr>
@@ -47,7 +48,7 @@
          <jsp:include page="searchHeader.jsp" />
        </td>
        <td align="right" nowrap="nowrap" valign="top">
-           <A href="?module=History" class="rtbcLink">My Post History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
+           <a href="?module=History" class="rtbcLink">My Post History</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Watches" class="rtbcLink">My Watches</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Settings" class="rtbcLink">User Settings</a><br />
        </td>
    </tr>
    <tr>
@@ -91,13 +92,16 @@
 <input type="image" src="/i/forums/update.gif" alt="Update" />
 </div></form>
             
-         </div>
-         <img src="/i/layout/contentInS.gif" alt="" style="display:block;" />
-      </div>
-      <jsp:include page="foot.jsp"/>
-      <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-   </div>
-</div>
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
+
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>

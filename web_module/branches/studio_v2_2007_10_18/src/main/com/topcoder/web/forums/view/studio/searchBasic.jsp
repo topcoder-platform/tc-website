@@ -49,21 +49,22 @@ function noenter(e)
 </head>
 
 <body>
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="forums"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
-<div align="center">
-   <div class="contentOut">
-   
-
-      <jsp:include page="top.jsp" />
-
-
-   <jsp:include page="topNav.jsp">
-       <jsp:param name="node" value="forums"/>
-   </jsp:include>
-      <div class="contentIn">
-         <img src="/i/layout/contentInN.gif" alt="" style="display:block;" />
-         <div class="contentSpacer">
-   
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
 	<td class="categoriesBox" style="padding-right: 20px;">
@@ -75,23 +76,26 @@ function noenter(e)
        </jsp:include>
 	</td>
 	<td align="right" nowrap="nowrap" valign="top">   
-       <A href="?module=History" class="rtbcLink">My Post History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | <A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+       <a href="?module=History" class="rtbcLink">My Post History</a> | <a href="?module=Watches" class="rtbcLink">My Watches</a> | <a href="?module=Settings" class="rtbcLink">User Settings</a><br />
 	</td>
 </tr>
 </table>
-<b><a href="?module=Main" class="rtbcLink">Forums</a> > Search</b><br><br>
+<b><a href="?module=Main" class="rtbcLink">Forums</a> > Search</b><br /><br />
 
 <% if ("search".equals(status)) { %>
     <jsp:include page="searchResults.jsp"/>
 <% } %>
 
-         </div>
-         <img src="/i/layout/contentInS.gif" alt="" style="display:block;" />
-      </div>
-      <jsp:include page="foot.jsp"/>
-      <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-   </div>
-</div>
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
+
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>

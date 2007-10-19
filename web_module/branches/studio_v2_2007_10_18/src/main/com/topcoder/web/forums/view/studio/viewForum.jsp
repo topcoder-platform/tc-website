@@ -88,22 +88,21 @@
 </head>
 
 <body>
-
-<div align="center">
-<div class="contentOut">
-
-
-<jsp:include page="top.jsp"/>
-
-
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="forums"/>
-</jsp:include>
-<div class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-<div class="contentSpacer">
-
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="forums"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
@@ -114,14 +113,14 @@
             <jsp:include page="searchHeader.jsp"/>
         </td>
         <td align="right" nowrap="nowrap" valign="top">
-            <A href="?module=History" class="rtbcLink">My Post History</A> | <A href="?module=Watches" class="rtbcLink">My
-            Watches</A> | <A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+            <a href="?module=History" class="rtbcLink">My Post History</a> | <a href="?module=Watches" class="rtbcLink">My
+            Watches</a> | <a href="?module=Settings" class="rtbcLink">User Settings</a><br />
             <% if (ForumsUtil.canAnnounce(forum)) { %>
-            <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="rtbcLink">Post
-                Announcement</A> |
+            <a href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="rtbcLink">Post
+                Announcement</a> |
             <% } %>
-            <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="rtbcLink">Post
-                New Thread</A><br>
+            <a href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="rtbcLink">Post
+                New Thread</a><br />
         </td>
     </tr>
     <tr><td colspan="3" style="padding-bottom:3px;"><b>
@@ -129,8 +128,8 @@
         <% if (paginator.getNumPages() > 1) { %>
         <div style="float:right;" class="rtbc"><b>
             <% if (paginator.getPreviousPage()) { %>
-            <A href="<%=link%>&<%=ForumConstants.START_IDX%>=${paginator.previousPageStart}" class="rtbcLink">
-                << PREV</A>&#160;&#160;&#160;
+            <a href="<%=link%>&<%=ForumConstants.START_IDX%>=${paginator.previousPageStart}" class="rtbcLink">
+                << PREV</a>&#160;&#160;&#160;
             <% } %> [
             <% pages = paginator.getPages(5);
                 for (int i = 0; i < pages.length; i++) {
@@ -138,23 +137,23 @@
             <% if (pages[i].getNumber() == paginator.getPageIndex() + 1) { %>
             <span class="currentPage"><%= pages[i].getNumber() %></span>
             <% } else { %>
-            <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
-                <%= pages[i].getNumber() %></A>
+            <a href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+                <%= pages[i].getNumber() %></a>
             <% } %>
             <% } else { %> ... <% } %>
             <% } %> ]
             <% if (paginator.getNextPage()) { %>
-            &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=${paginator.nextPageStart}" class="rtbcLink">NEXT
-            ></A>
+            &#160;&#160;&#160;<a href="<%=link%>&<%=ForumConstants.START_IDX%>=${paginator.nextPageStart}" class="rtbcLink">NEXT
+            ></a>
             <% } %>
         </b>
         </div>
         <% } %>
         <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory"
                             iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
+        <a href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
             <%=category.getName()%>
-        </A> >
+        </a> >
         </tc-webtag:iterator>
         <%=forum.getName()%>
         <%
@@ -182,15 +181,15 @@
         <tr>
             <td class="rtThreadCellWrap">
                 <div>
-                    <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkBold"><img src="/i/forums/announcement.gif" alt="" border="0"/> <%=announcement.getSubject()%>
-                    </A></div>
+                    <a href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkBold"><img src="/i/forums/announcement.gif" alt="" border="0"/> <%=announcement.getSubject()%>
+                    </a></div>
             </td>
             <td class="rtThreadCell"><studio:handle coderId="<%=announcement.getUser().getID()%>"/></td>
             <td class="rtThreadCell">&nbsp;</td>
             <td class="rtThreadCell">&nbsp;</td>
             <td class="rtThreadCell">
-                <b><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkNew">
-                    <tc-webtag:format object="${announcement.startDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></A></b>
+                <b><a href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkNew">
+                    <tc-webtag:format object="${announcement.startDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a></b>
             </td>
             <td class="rtThreadCell"><studio:handle coderId="<%=announcement.getUser().getID()%>"/></td>
         </tr>
@@ -205,9 +204,9 @@
             <td class="rtThreadCellWrap">
                 <% if (((authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) || user.getProperty("jiveThreadMode").equals("flat")) { %>
                 <% if (!authToken.isAnonymous()) { %>
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&<%=ForumConstants.START_IDX%>=0" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
+                <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&<%=ForumConstants.START_IDX%>=0" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></a>
                 <% } else { %>
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=thread.getMessageCount()%>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
+                <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=thread.getMessageCount()%>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></a>
                 <% } %>
                 <% Paginator threadPaginator;
                     ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
@@ -227,21 +226,21 @@
                 <% pages = threadPaginator.getPages(4);
                     for (int i = 0; i < pages.length; i++) {
                 %>  <% if (pages[i] != null) { %>
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtLinkOld">
-                    <%= pages[i].getNumber() %></A>
+                <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtLinkOld">
+                    <%= pages[i].getNumber() %></a>
                 <% } %>
                 <% } %>
                 <% if (threadPaginator.getNumPages() > 4) { %>
                 <% if (threadPaginator.getNumPages() - 4 > 1) { %> ... <% } %>
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&<%=ForumConstants.START_IDX%>=<%=(threadPaginator.getNumPages()-1)*threadPaginator.getRange()%>" class="rtLinkOld">
-                    <%= threadPaginator.getNumPages() %></A>
+                <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&<%=ForumConstants.START_IDX%>=<%=(threadPaginator.getNumPages()-1)*threadPaginator.getRange()%>" class="rtLinkOld">
+                    <%= threadPaginator.getNumPages() %></a>
                 <% } %> ]
                 <% } %>
                 <% } else { %>
                 <% if (!authToken.isAnonymous()) { %>
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
+                <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></a>
                 <% } else { %>
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
+                <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></a>
                 <% } %>
                 <% } %></td>
             <% if (thread.getRootMessage().getUser() != null) { %>
@@ -252,8 +251,8 @@
             <td class="rtThreadCell" align="right"><%=thread.getMessageCount() - 1%></td>
             <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>
             <td class="rtThreadCell">
-                <b><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=lastPost.getID()%>" class="rtLinkNew">
-                    <tc-webtag:format object="${thread.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></A></b>
+                <b><a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=lastPost.getID()%>" class="rtLinkNew">
+                    <tc-webtag:format object="${thread.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a></b>
             </td>
             <% if (lastPost.getUser() != null) { %>
             <td class="rtThreadCell"><studio:handle coderId="<%=lastPost.getUser().getID()%>"/></td>
@@ -268,22 +267,26 @@
     <div style="float:right;">
         <a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>"><img alt="RSS" border="none" src="/i/forums/btn_rss.gif"/></a>
     </div>
-    <span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user != null) {%><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
-        all as read)</A><% } %></span>
+    <span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user != null) {%><a href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
+        all as read)</a><% } %></span>
 </div>
 <% } else { %>
-<span class="bigRed"><A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="bigRed">Be
-    the first to post in this forum!</A></span>
+<span class="bigRed"><a href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="bigRed">Be
+    the first to post in this forum!</a></span>
 <% } %>
 
 
-</div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-<jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
 
+
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
+
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>
