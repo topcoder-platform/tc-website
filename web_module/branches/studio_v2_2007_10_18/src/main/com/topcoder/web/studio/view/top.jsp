@@ -18,14 +18,16 @@
                 <form method="post" name="frmLogin" action="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
                     <input type="hidden" name="module" value="Login" />
                         <table class="login" cellspacing="0" cellpadding="0">
+                        <tbody>
                         <tr>
-                            <td>Handle:</td>
+                            <td width="100%">Handle:</td>
                             <td><input name="<%=Login.USER_NAME%>" size="8" maxlength="15" type="text" value=""/></td>
                         </tr>
                         <tr>
                             <td>Password:</td>
-                            <td><input name="<%=Login.PASSWORD%>" size="8" maxlength="30" type="password" value=""/></td>
+                            <td width="0%"><input name="<%=Login.PASSWORD%>" size="8" maxlength="30" type="password" value=""/></td>
                         </tr>
+                        </tbody>
                         </table>
                         <table cellspacing="0" cellpadding="0">
                         <tr>

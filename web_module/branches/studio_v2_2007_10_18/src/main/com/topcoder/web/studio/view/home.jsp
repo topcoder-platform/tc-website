@@ -68,7 +68,7 @@
 
 
 
-<table cellpadding="0" cellspacing="0" style="width:740px;">
+<table cellpadding="0" cellspacing="0">
     <tbody>
         <tr>
             <td style="padding: 0px 10px 0px 0px; background: transparent url(/i/v2/dotLineV.png) top right repeat-y;">
@@ -107,16 +107,19 @@
 --%>
                 <jsp:include page="message.jsp"/>
 
-                Welcome to TopCoder Studio - the best place on the web for showing off your creative
-                skills in a competitive environment and getting paid for being the best!
-                <br /><br />
-                At the Studio, clients post their projects with definitive timelines, deliverables and
-                payouts, and you decide which ones pique your interest. There are even advancement
-                opportunities available into the Review Board, where a select group of competing members
-                will evaluate all submissions before they are passed on to the client.
-                <br /><br />
-                So, poke around, ask questions and, above all, compete and have fun!
-                <br /><br />
+                <p>
+                    Welcome to TopCoder Studio - the best place on the web for showing off your creative
+                    skills in a competitive environment and getting paid for being the best!
+                </p>
+                <p>
+                    At the Studio, clients post their projects with definitive timelines, deliverables and
+                    payouts, and you decide which ones pique your interest. There are even advancement
+                    opportunities available into the Review Board, where a select group of competing members
+                    will evaluate all submissions before they are passed on to the client.
+                </p>
+                <p>
+                    So, poke around, ask questions and, above all, compete and have fun!
+                </p>
 
                 <h2><a href="/?module=ViewActiveContests">Check out some Studio contests!</a></h2>
                 <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a> as a Studio
@@ -126,61 +129,63 @@
                 <div class="statHolder">
                     <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
                     <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
-                    <table cellpadding="0" cellspacing="0" class="stat" style="width:100%;">
-                        <tbody>
-                            <tr><td class="title" colspan="6">Recent Winners</td></tr>
-                            <tr class="header">
-                                <td class="headerW"><div>&nbsp;</div></td>
-                                <td class="header" width="20%" colspan="2">
-                                    Winner
-                                </td>
-                                <td class="header" width="60%">
-                                    Contest
-                                </td>
-                                <td class="headerR" width="20%">
-                                    Prize
-                                </td>
-                                <td class="headerE"><div>&nbsp;</div></td>
-                            </tr>
-                            <% boolean even = true;
-                                int i = 0; %>
-                            <rsc:iterator list="<%=recentWinners%>" id="resultRow">
-                                <tr><td class="space" colspan="6">&nbsp;</td></tr>
-                                <tr class="<%=even?"light":"dark"%>">
-                                    <td class="valueW"><div>&nbsp;</div></td>
-                                    <td class="value">
-                                        <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
+                    <div class="container">
+                        <table cellpadding="0" cellspacing="0" class="stat" width="100%">
+                            <tbody>
+                                <tr><td class="title" colspan="6">Recent Winners</td></tr>
+                                <tr class="header">
+                                    <td class="headerW"><div>&nbsp;</div></td>
+                                    <td class="header" width="20%" colspan="2">
+                                        Winner
                                     </td>
-                                    <td class="valueR">
-                                        <c:choose>
-                                            <c:when test="${resultRow.map['show_submissions']}">
-                                                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-                                                <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                                    <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()" />
-                                                </a>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <img src="/i/layout/magnifyFade.png" alt="" />
-                                            </c:otherwise>
-                                        </c:choose>
+                                    <td class="header" width="60%">
+                                        Contest
                                     </td>
-                                    <td class="value">
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-                                            <rsc:item name="name" row="<%=resultRow%>"/></a>
+                                    <td class="headerR" width="20%">
+                                        Prize
                                     </td>
-                                    <td class="valueR">
-                                        <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
-                                    </td>
-                                    <td class="valueE"><div>&nbsp;</div></td>
+                                    <td class="headerE"><div>&nbsp;</div></td>
                                 </tr>
-                                <% even = !even;
-                                    i++; %>
-                            </rsc:iterator>
-                                <tr>
-                                    <td class="btnRight" colspan="6"><div><a href="/?module=ViewPastContests"><img src="/i/v2/btn_more.png" alt="More..." /></a></div></td>
-                                </tr>
-                        </tbody>
-                    </table>
+                                <% boolean even = true;
+                                    int i = 0; %>
+                                <rsc:iterator list="<%=recentWinners%>" id="resultRow">
+                                    <tr><td class="space" colspan="6">&nbsp;</td></tr>
+                                    <tr class="<%=even?"light":"dark"%>">
+                                        <td class="valueW"><div>&nbsp;</div></td>
+                                        <td class="value">
+                                            <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
+                                        </td>
+                                        <td class="valueR">
+                                            <c:choose>
+                                                <c:when test="${resultRow.map['show_submissions']}">
+                                                    <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
+                                                    <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                                                        <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()" />
+                                                    </a>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <img src="/i/layout/magnifyFade.png" alt="" />
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </td>
+                                        <td class="value">
+                                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
+                                                <rsc:item name="name" row="<%=resultRow%>"/></a>
+                                        </td>
+                                        <td class="valueR">
+                                            <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
+                                        </td>
+                                        <td class="valueE"><div>&nbsp;</div></td>
+                                    </tr>
+                                    <% even = !even;
+                                        i++; %>
+                                </rsc:iterator>
+                                    <tr>
+                                        <td class="btnRight" colspan="6"><div><a href="/?module=ViewPastContests"><img src="/i/v2/btn_more.png" alt="More..." /></a></div></td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
                     <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
                 </div>
