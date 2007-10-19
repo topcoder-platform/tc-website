@@ -69,6 +69,8 @@
          Orlando, FL, USA<br />
          <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about">Details</A>
          <br />
+         <A target="_blank" href="/pdfs/tournaments/TCCC07_Program_View.pdf">Program [PDF]</A>
+         <br />
          <A href="http://studio.topcoder.com/?module=ViewSubmissions&ct=2104">Logo Contest</A>
          </td>
       </tr>
@@ -87,6 +89,8 @@
          The Mirage <br />
          Las Vegas, NV, USA<br />
          <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about">Details</A>
+         <br />
+         <A target="_blank" href="/pdfs/tournaments/TCO07_Program_View.pdf">Program [PDF]</A>
          <br />
          <A href="http://studio.topcoder.com/?module=ViewSubmissions&ct=2047">Logo Contest</A>
          </td>
@@ -108,6 +112,8 @@
          West Lafayette, IN, USA<br />
          <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">Details</A>
          <br />
+         <A target="_blank" href="/pdfs/tournaments/tchs07_webprogram.pdf">Program [PDF]</A>
+         <br />
          <A href="http://studio.topcoder.com/?module=ViewContestResults&ct=2030">Logo Contest</A>
          </td>
       </tr>
@@ -126,6 +132,8 @@
          San Diego Marriott Mission Valley<br />
          San Diego, CA, USA<br />
          <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=about">Details</A>
+         <br />
+         <A target="_blank" href="/i/tournament/tccc06/pdfs/tccc06_program.pdf">Program [PDF]</A>
          <br />
          <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=logo_overview">Logo Contest</A>
          </td>
