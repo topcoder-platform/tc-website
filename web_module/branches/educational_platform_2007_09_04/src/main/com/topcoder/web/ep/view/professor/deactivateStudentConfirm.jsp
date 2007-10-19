@@ -38,9 +38,7 @@
         <img src="/i/ep/widtherN.png" alt="" style="display:block;" />
         <div id="pageFrame">
 
-            <jsp:include page="../header.jsp">
-                <jsp:param name="schoolname" value="University of TopCoder"/>
-            </jsp:include>
+            <jsp:include page="../header.jsp" />
 
             <div id="pageContent" align="left">
                 <div class="N">
