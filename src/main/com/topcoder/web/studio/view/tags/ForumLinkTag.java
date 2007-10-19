@@ -25,16 +25,16 @@ public class ForumLinkTag extends TagSupport {
     public int doStartTag() throws JspException {
         StringBuffer ret = new StringBuffer(150);
 
-        ret.append("<A");
+        ret.append("<a");
         StringBuffer url = new StringBuffer();
         url.append("http://").append(ApplicationServer.STUDIO_SERVER_NAME).append("/forums");
         url.append("?module=ThreadList&amp;").append(WebConstants.FORUM_ID).append("=").append(forumID);
-        ret.append(" HREF=\"").append(url).append("\"");
+        ret.append(" href=\"").append(url).append("\"");
         ret.append(">");
 
         ret.append(this.message);
 
-        ret.append("</A>");
+        ret.append("</a>");
 
         try {
             pageContext.getOut().print(ret.toString());
