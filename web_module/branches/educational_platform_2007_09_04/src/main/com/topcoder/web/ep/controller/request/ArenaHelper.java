@@ -383,7 +383,6 @@ public class ArenaHelper implements ArenaServices {
         }
            
         event.addModification(new RegistrationModification(addIds, removeIds));
-        event.addModification(new RoundModifiedEvent.ScheduleModification());
         return event;
     }    
 

@@ -178,8 +178,10 @@ public class EditAssignment extends ShortBase {
                 setNextPage("/professor/editAssignment.jsp");
                 setIsNextPageInContext(true);
             } else {
+                AssignmentDTO adto = getAssignment();
+                getRequest().setAttribute("schoolName", adto.getSchoolName());                
                 log.debug("Second pass - " + getUser().getUserName());
-                if (getActiveUser() == null) {
+                if (adto == null) {
                     throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
                 } else if (userLoggedIn()) {
                     // got a response, validate.
@@ -249,8 +251,6 @@ public class EditAssignment extends ShortBase {
                     if (languages == null || languages.length == 0) {
                         addError("error", "You must select at least one language");
                     }
-
-                    AssignmentDTO adto = getAssignment();
 
                     if (DAOUtil.getFactory().getRoundDAO().findDuplicateName(adto.getClassroomId(), assignmentName, adto.getRoundId()).size() > 0) {
                         addError("error", "You already have an assignment with the same name");
