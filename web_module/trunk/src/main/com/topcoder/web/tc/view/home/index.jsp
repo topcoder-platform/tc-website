@@ -83,7 +83,11 @@
         --%>
         
         <%-- TCCC07 --%>
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=about' refer='homepage' />"><img src="/i/home/tccc07.png" alt="TCCC07" /></A>
+        <map name="tccc07">
+        <area shape="rect" alt="" coords="1,1,500,116" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about" />
+        <area shape="rect" alt="" coords="1,118,500,150" target="_blank" href="/pdfs/tournaments/TCCC07_Program_View.pdf" />
+        </map>
+        <img src="/i/home/tccc07ProgramPDF.png" alt="TCCC07" usemap="#tccc07" style="display: block;" />
         
         
         <%-- TCCC07 Prestigious Professor Program 

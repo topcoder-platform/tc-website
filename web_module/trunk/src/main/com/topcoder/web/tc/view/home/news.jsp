@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.19.07<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/pdfs/tournaments/TCCC07_Program_View.pdf">TCCC07 Program now available</A> [PDF - 3mb]</span><br /><br />
+        The 2007 TCCC Program is now available!  Check out all the finalists, the stats and more information about the event.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/pdfs/tournaments/TCCC07_Program_View.pdf">details</a> | 
+        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.17.07<br />6:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=ViewSurvey&sid=19850">Vote for the TCO08 website</A></span><br /><br />
@@ -159,18 +172,5 @@
          <A href="/tc?module=Static&d1=features&d2=100907">details</A> | 
          <tc-webtag:forumLink forumID="517765" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.09.07<br />12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=bracket">TCCC07 Algorithm bracket</A></span><br /><br />
-        The 2007 TopCoder Collegiate Challenge Algorithm bracket is now available.  Be sure to also check out the updated <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desBracket">Design</a>, <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devBracket">Development</a>, <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=bracket">Marathon</a>, and <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=bracket">Studio</a> brackets.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=bracket">details</a> | 
-        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
