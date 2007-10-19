@@ -1,9 +1,10 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -15,17 +16,21 @@
 </head>
 
 <body>
-
-<div align="center">
-    <div id="contentOut" class="contentOut">
-        <jsp:include page="../top.jsp"/>
-        <jsp:include page="../topNav.jsp">
-            <jsp:param name="node" value=""/>
-        </jsp:include>
-        <div id="contentIn" class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="../top.jsp"/>
+            <jsp:include page="../topNav.jsp">
+                <jsp:param name="node" value=""/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
                 <h1>About TopCoder</h1>
 
@@ -75,15 +80,15 @@
                         and <a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournaments.</a></li>
                     </ul>
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
         </div>
-        <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
+
+        <jsp:include page="../foot.jsp"/>
+
     </div>
-
-    <jsp:include page="../foot.jsp"/>
-
-    <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
-
 </body>
 </html>

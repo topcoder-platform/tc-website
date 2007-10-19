@@ -15,17 +15,21 @@
 </head>
 
 <body>
-
-<div align="center">
-    <div id="contentOut" class="contentOut">
-        <jsp:include page="../top.jsp"/>
-        <jsp:include page="../topNav.jsp">
-            <jsp:param name="node" value=""/>
-        </jsp:include>
-        <div id="contentIn" class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="../top.jsp"/>
+            <jsp:include page="../topNav.jsp">
+                <jsp:param name="node" value=""/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
                 <h1>Privacy Policy of TopCoder</h1>
                 Our privacy policy, updated as of February 23, 2006, describes the information we collect and how we use it.
@@ -81,15 +85,16 @@
                 This privacy policy is effective as of February 23, 2006.
                 <br /><br />
                 Thank you for visiting our site.  We'll keep working hard to earn your loyalty.
+
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
         </div>
-        <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
+
+        <jsp:include page="../foot.jsp"/>
+
     </div>
-
-    <jsp:include page="../foot.jsp"/>
-
-    <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
-
 </body>
 </html>

@@ -15,17 +15,21 @@
 </head>
 
 <body>
-
-<div align="center">
-    <div id="contentOut" class="contentOut">
-        <jsp:include page="../top.jsp"/>
-        <jsp:include page="../topNav.jsp">
-            <jsp:param name="node" value=""/>
-        </jsp:include>
-        <div id="contentIn" class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="../top.jsp"/>
+            <jsp:include page="../topNav.jsp">
+                <jsp:param name="node" value=""/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
                 <h1>Terms & Conditions of Use at TopCoder</h1>
                 <h2>Acceptance of Terms and Conditions</h2>
@@ -146,15 +150,15 @@
                 <br /><br />
                 If you have any questions regarding these Terms of Use, contact us at <a href="mailto:service@topcoder.com">service@topcoder.com</a>.
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
         </div>
-        <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
+
+        <jsp:include page="../foot.jsp"/>
+
     </div>
-
-    <jsp:include page="../foot.jsp"/>
-
-    <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
-
 </body>
 </html>
