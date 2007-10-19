@@ -101,7 +101,7 @@ Pending
 </c:when>
 <c:otherwise>
 <a href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/v2/interface/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/v2/interface/btnMoveUpOn.png';" onmouseout="this.src = '/i/v2/interface/btnMoveUp.png';"/>
+<img src="/i/v2/interface/btnMoveUp.png" alt="Move up" />
 </a>
 </c:otherwise>
 </c:choose>
@@ -113,7 +113,7 @@ Pending
 </c:when>
 <c:otherwise>
 <a href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/v2/interface/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/v2/interface/btnMoveDownOn.png';" onmouseout="this.src = '/i/v2/interface/btnMoveDown.png';"/>
+<img src="/i/v2/interface/btnMoveDown.png" alt="Move down" />
 </a>
 </c:otherwise>
 </c:choose>
@@ -127,7 +127,7 @@ Pending
 </c:when>
 <c:otherwise>
 <a href="#" onclick="changeRank(1, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/v2/interface/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/v2/interface/btnMoveToTopOn.png';" onmouseout="this.src = '/i/v2/interface/btnMoveToTop.png';"/>
+<img src="/i/v2/interface/btnMoveToTop.png" alt="Move to top" />
 </a>
 </c:otherwise>
 </c:choose>
@@ -136,7 +136,7 @@ Pending
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div align="center">
 <a href="#" onclick="remove(${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/v2/interface/btnRemove.png" alt="Remove" onmouseover="this.src = '/i/v2/interface/btnRemoveOn.png';" onmouseout="this.src = '/i/v2/interface/btnRemove.png';"/>
+<img src="/i/v2/interface/btnRemove.png" alt="Remove" />
 </a>
 </div>
 </td>

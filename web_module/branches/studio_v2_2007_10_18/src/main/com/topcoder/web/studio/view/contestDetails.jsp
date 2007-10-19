@@ -114,7 +114,7 @@
                         <img src="/i/v2/interface/btnRegisterNA.png" alt="Register" />
                     </td>
                     <td style="padding: 10px 0px 10px 5px;" align="right">
-                        <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/v2/interface/btnSubmit.png" alt="Submit" onmouseover="this.src='/i/v2/interface/btnSubmitOn.png'" onmouseout="this.src='/i/v2/interface/btnSubmit.png'" /></a>
+                        <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/v2/interface/btnSubmit.png" alt="Submit" /></a>
                     </td>
                 </tr>
                 <tr>
@@ -124,7 +124,7 @@
                     </c:when>
                     <c:otherwise>
                     <td style="padding: 10px 5px 10px 20px;" align="right">
-                        <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/v2/interface/btnRegister.png" alt="Register" onmouseover="this.src = '/i/v2/interface/btnRegisterOn.png';" onmouseout="this.src = '/i/v2/interface/btnRegister.png';" /></a>
+                        <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/v2/interface/btnRegister.png" alt="Register" /></a>
                     </td>
                     <td style="padding: 10px 0px 10px 5px;" align="right">
                         <img src="/i/v2/interface/btnSubmitNA.png" alt="Submit" />

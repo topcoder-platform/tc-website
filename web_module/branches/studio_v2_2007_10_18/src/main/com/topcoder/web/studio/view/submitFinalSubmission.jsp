@@ -56,7 +56,7 @@
 
 <div align="center">
     <div align="left" style="width:500px; margin-top: 20px;">
-        <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onsubmit="showProcessing()">
+        <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onSubmit="showProcessing()">
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitFinalSubmission"/>
             <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
@@ -99,7 +99,7 @@
                     <input type="file" name="<%=Constants.SUBMISSION%>">
                 </p>
                 <p id="submitButton">
-                    <input type="image" src="/i/v2/interface/btnSubmit.png" onmouseover="this.src='/i/v2/interface/btnSubmitOn.png'" onmouseout="this.src='/i/v2/interface/btnSubmit.png'">
+                    <input type="image" src="/i/v2/interface/btnSubmit.png" />
                 </p>
             </div>
         </form>

@@ -106,7 +106,7 @@
                 <br /><br />
 
                 <div align="center">
-                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onfocus="this.blur();"><img src="/i/v2/interface/btnSubmitAnother.png" alt="submit another" onmouseover="this.src = '/i/v2/interface/btnSubmitAnotherOn.png';" onmouseout="this.src = '/i/v2/interface/btnSubmitAnother.png';"/></a>
+                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onFocus="this.blur();"><img src="/i/v2/interface/btnSubmitAnother.png" alt="submit another" /></a>
                 </div>
             </div>
         </div>
@@ -164,7 +164,7 @@
                             <td class="headerC">
                                 Ranking
                                 <div>
-                                    <a href="#" onclick="batchUpdate();return false;"><img src="/i/v2/interface/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/v2/interface/btnUpdateDkOn.png';" onmouseout="this.src = '/i/v2/interface/btnUpdateDk.png';"/></a>
+                                    <a href="#" onClick="batchUpdate();return false;"><img src="/i/v2/interface/btnUpdateDk.png" alt="Update ranking" /></a>
                                 </div>
                             </td>
                             <td class="header" colspan="2" width="33%">

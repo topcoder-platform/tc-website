@@ -58,7 +58,7 @@
                     <br/></tc-webtag:errorIterator></span>
                         <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>"/>I agree
                         <br /><br />
-                        <input type="image" src="/i/v2/interface/btnSubmit.png" onmouseover="this.src='/i/v2/interface/btnSubmitOn.png'" onmouseout="this.src='/i/v2/interface/btnSubmit.png'">
+                        <input type="image" src="/i/v2/interface/btnSubmit.png" />
                         <br /><br />
 
 
