@@ -24,8 +24,6 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  */
 public class EditAssignmentConfirm extends LongBase {
 
-    // todo: school name
-    
     private static Logger log = Logger.getLogger(EditAssignmentConfirm.class);
 
     /* (non-Javadoc)
@@ -45,6 +43,7 @@ public class EditAssignmentConfirm extends LongBase {
                 } else if (userLoggedIn()) {
                     // got a response, validate. 
                     AssignmentDTO adto = getAssignment();
+                    getRequest().setAttribute("schoolName", adto.getSchoolName());                
 
                     if (adto.getComponents().size() == 0) {
                         addError("actionError", "You must add at least one component");

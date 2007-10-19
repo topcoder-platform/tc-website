@@ -143,6 +143,7 @@ public class EditAssignment extends LongBase {
                     adto.setRoundId(a.getId());
                     adto.setClassroomId(c.getId());
                     adto.setClassroomName(c.getName());
+                    adto.setSchoolName(c.getSchool().getName());
 
                     if (a.getId() != null) {
                         adto.setAssignmentName(a.getName());

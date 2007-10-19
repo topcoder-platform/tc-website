@@ -8,6 +8,7 @@ public class AssignmentDTO {
     private Long roundId = null;
     private Long classroomId = null;
     private String classroomName = null;
+    private String schoolName = null;
     
     private List<ComponentDTO> components = null;
 
@@ -24,21 +25,6 @@ public class AssignmentDTO {
         super();
         this.components = new ArrayList<ComponentDTO>();
         this.languages = new ArrayList<Integer>();
-    }
-    
-    public AssignmentDTO(Long roundId, Long classroomId, String classroomName, List<ComponentDTO> components, Timestamp startDate, Timestamp endDate, String assignmentName, Long coderPhaseLength, Long showAllScores, Long scoreType, List<Integer> languages) {
-        super();
-        this.roundId = roundId;
-        this.classroomId = classroomId;
-        this.classroomName = classroomName;
-        this.components = components;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.assignmentName = assignmentName;
-        this.coderPhaseLength = coderPhaseLength;
-        this.showAllScores = showAllScores;
-        this.scoreType = scoreType;
-        this.languages = languages;
     }
     
     /**
@@ -186,6 +172,14 @@ public class AssignmentDTO {
     public void setStartDate(Timestamp startDate) {
         this.startDate = startDate;
     }
+
+    public String getSchoolName() {
+        return schoolName;
+
+    }
     
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;        
+    }
     
 }

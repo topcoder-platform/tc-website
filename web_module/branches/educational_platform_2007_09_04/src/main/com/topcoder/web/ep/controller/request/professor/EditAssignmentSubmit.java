@@ -22,8 +22,6 @@ import com.topcoder.web.ep.dto.ComponentDTO;
  */
 public class EditAssignmentSubmit extends LongBase {
 
-    // todo: school name
-
     private static Logger log = Logger.getLogger(EditAssignmentSubmit.class);
 
     /* (non-Javadoc)
@@ -43,6 +41,7 @@ public class EditAssignmentSubmit extends LongBase {
                     throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
                 } else if (userLoggedIn()) {
                     AssignmentDTO adto = getAssignment();
+                    getRequest().setAttribute("schoolName", adto.getSchoolName());                
                     Boolean update = adto.getRoundId() != null; 
                     if (update) {
                         // update
