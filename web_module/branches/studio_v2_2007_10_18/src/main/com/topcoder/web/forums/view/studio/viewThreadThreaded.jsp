@@ -343,7 +343,7 @@
         <% } %>
     </td>
         <td width=1% align="right" valign="top">
-            <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/forums/btn_rss.gif"/></a>
+            <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/v2/interface/btnRSS.png"/></a>
         </td>
 </table>
 

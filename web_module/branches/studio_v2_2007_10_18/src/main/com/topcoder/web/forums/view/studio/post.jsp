@@ -188,7 +188,7 @@
                                             <a href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></a>
                                             <a href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></a> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)
                                             <%    if (!postMode.equals("Edit")) { %>
-                                                    [<a href="javascript:void(0)" onclick="form1.module.value='RemoveAttachment';form1.<%=ForumConstants.ATTACHMENT_ID%>.value='<%=attachment.getID()%>';form1.submit();" class="rtbcLink">remove</a>]
+                                                    [<a href="javascript:void(0)" onClick="form1.module.value='RemoveAttachment';form1.<%=ForumConstants.ATTACHMENT_ID%>.value='<%=attachment.getID()%>';form1.submit();" class="rtbcLink">remove</a>]
                                             <%    } %>
                                             &nbsp;
                                     <%     } %>
@@ -224,13 +224,13 @@
                             </td>
                         </tr>
                         <tr><td class="rtFooter">
-                            <input type="image" src="/i/forums/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
-                            <input type="image" src="/i/forums/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
+                            <input type="image" src="/i/v2/interface/btnPost.png" class="rtButton" alt="Post" onClick="form1.module.value='PostMessage'"/>
+                            <input type="image" src="/i/v2/interface/btnPreview.png" class="rtButton" alt="Preview" onClick="form1.module.value='PreviewMessage'"/>
                             <%    if (forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) { %>
                                 <%    if (postMode.equals("Edit")) { %>
-                                    <input type="image" src="/i/forums/attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='EditAttachments'"/>
+                                    <input type="image" src="/i/v2/interface/btnAttachFiles.png" class="rtButton" alt="Attach Files" onClick="form1.module.value='EditAttachments'"/>
                                 <%    } else { %>
-                                    <input type="image" src="/i/forums/attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
+                                    <input type="image" src="/i/v2/interface/btnAttachFiles.png" class="rtButton" alt="Attach Files" onClick="form1.module.value='AttachFiles'"/>
                                 <%    } %>
                             <%    } %>
                             <%    String cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID(); 

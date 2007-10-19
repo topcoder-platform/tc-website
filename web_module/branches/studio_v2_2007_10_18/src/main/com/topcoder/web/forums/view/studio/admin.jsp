@@ -89,7 +89,7 @@
    --%>
 </table>
 <div align="right">
-<input type="image" src="/i/forums/update.gif" alt="Update" />
+<input type="image" src="/i/v2/interface/btnUpdate.png" alt="Update" />
 </div></form>
             
 

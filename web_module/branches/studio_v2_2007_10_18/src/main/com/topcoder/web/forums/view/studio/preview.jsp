@@ -235,11 +235,11 @@
                             </td>
                         </tr>
                         <tr><td class="rtFooter">
-                            <input type="image" src="/i/forums/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
-                            <input type="image" src="/i/forums/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
+                            <input type="image" src="/i/v2/interface/btnPost.png" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
+                            <input type="image" src="/i/v2/interface/btnPreview.png" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
                         	<%	if (forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) { %>
 	                        	<%	if (!postMode.equals("Edit")) { %>
-									<input type="image" src="/i/forums/attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
+									<input type="image" src="/i/v2/interface/btnAttachFiles.png" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
 								<%	} %>
 							<%	} %>
 							<%	String cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID(); 

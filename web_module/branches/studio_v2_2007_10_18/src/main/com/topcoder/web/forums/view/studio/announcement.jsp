@@ -92,7 +92,7 @@
                         <a href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></a>
                         >
                         <%  } %>
-                        <img src="/i/forums/announcement.gif" alt="" border="0"/> <%=announcement.getSubject()%>
+                        <img src="/i/v2/interface/btnAnnouncement.png" alt="" border="0"/> <%=announcement.getSubject()%>
                     </td>
                     </tr>
                 </table>

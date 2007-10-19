@@ -168,8 +168,8 @@ function AllowTabCharacter() {
 	</tr>
 	<tr>
 		<td class="rtFooter">
-			<input type="image" src="/i/forums/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostAnnouncement'"/>
-			<input type="image" src="/i/forums/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewAnnouncement'"/>
+			<input type="image" src="/i/v2/interface/btnPost.png" class="rtButton" alt="Post" onclick="form1.module.value='PostAnnouncement'"/>
+			<input type="image" src="/i/v2/interface/btnPreview.png" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewAnnouncement'"/>
 			<%	String cancelLink = "?module=Main"; 
 			if (forum != null) {
 				cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID();

@@ -125,7 +125,7 @@
 					        <td>File <%=i++%>: </td>
 					        <td>
 					        	<a href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></a>
-					        	<a href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></a> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>) [<a href="javascript:void(0)" onclick="form1.module.value='<%=removeProcessor%>';form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_DELETE%>';form1.<%=ForumConstants.ATTACHMENT_ID%>.value='<%=attachment.getID()%>';form1.submit();" class="rtbcLink">remove</a>]
+					        	<a href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></a> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>) [<a href="javascript:void(0)" onClick="form1.module.value='<%=removeProcessor%>';form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_DELETE%>';form1.<%=ForumConstants.ATTACHMENT_ID%>.value='<%=attachment.getID()%>';form1.submit();" class="rtbcLink">remove</a>]
 					        </td>
 				    	</tr>
 				<%  } %>
@@ -142,14 +142,14 @@
 				<br />
 				
 				<%-- Attach Files & Post Message --%>
-				<input type="image" src="/i/forums/attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='Attach'"/>
+				<input type="image" src="/i/v2/interface/btnAttachFiles.png" class="rtButton" alt="Attach Files" onClick="form1.module.value='Attach'"/>
 				
 				<%-- Cancel --%>
 				<%	if (postMode.equals("Edit")) {
 						String urlNext = sessionInfo.getServletPath() + "?module=Message&" + ForumConstants.MESSAGE_ID + "=" + message.getID(); %> 
-						<a href="<%=urlNext%>"><img src="/i/forums/cancel.gif" class="rtButton" alt="Cancel"/></a>
+						<a href="<%=urlNext%>"><img src="/i/v2/interface/btnCancel.png" class="rtButton" alt="Cancel"/></a>
 				<%	} else { %>
-						<input type="image" src="/i/forums/cancel.gif" class="rtButton" alt="Cancel" onclick="form1.module.value='Post'"/>
+						<input type="image" src="/i/v2/interface/btnCancel.png" class="rtButton" alt="Cancel" onClick="form1.module.value='Post'"/>
 				<%	} %>
 				
 				</form>
