@@ -14,82 +14,27 @@ import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
-import com.topcoder.web.ep.dto.AssignmentDTO;
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
 public abstract class LongBase extends LongHibernateProcessor {
-
-    private User user = null;
     private DAOFactory factory = null;
-    
     public String sessionPrefix = ""; 
     
-    /**
-     * Retrieve the user that is involved in the current registration process.
-     * First see if it's cached in this request processor, then try the session
-     * and finally load it from the db.
-     *
-     * @return the user, we'll return null if the user does not currently have an
-     *         account or if <code>setRegUser</code> has not yet been called.
-     */
-    protected User getActiveUser() {
-        if (user == null) {
-            user = (User) getRequest().getSession().getAttribute(sessionPrefix + Constants.USER);
-            if (user == null) {
-                if (userLoggedIn()) {
-                    log.debug("get user from the dao");
-                    user = getFactory().getUserDAO().find(new Long(getUser().getId()));
-                    if (user != null) {
-                        setActiveUser(user);
-                    } else {
-                        throw new RuntimeException("Couldn't find user " + getUser().getId() + " in the database");
-                    }
-                } else {
-                    log.debug("not logged in and user is null");
-                }
-            } else {
-                if (log.isDebugEnabled()) {
-                    log.debug("got id: " + user.getId() + " handle: " + user.getHandle() + " user from session");
-                }
-            }
-        } else {
-            if (log.isDebugEnabled()) {
-                log.debug("got id: " + user.getId() + " handle: " + user.getHandle() + " user from processor");
-            }
-        }
-        return user;
-    }
-
     protected void clearSession() {
         getRequest().getSession().setAttribute(sessionPrefix + Constants.USER, null);
         getRequest().getSession().setAttribute(sessionPrefix + Constants.SCHOOL, null);
         getRequest().getSession().setAttribute(sessionPrefix + Constants.CLASSROOMS, null);
         getRequest().getSession().setAttribute(sessionPrefix + Constants.STUDENTS, null);
         getRequest().getSession().setAttribute(sessionPrefix + Constants.CLASSROOM, null);
-        getRequest().getSession().setAttribute(sessionPrefix + Constants.ASSIGNMENT, null);
         
         log.debug("Cleaning, sessionPrefix: " + sessionPrefix);
     }
 
-    /**
-     * Set the  user in the current request processor.  This is generally
-     * only necessary if it's a new user istering.  Existing users can be loaded
-     * by <code>getUser</code>
-     *
-     * @param u
-     */
-    protected void setActiveUser(User u) {
-        this.user = u;
-        log.debug("setting user in session : " + user.getHandle() + " sessionPrefix: " + sessionPrefix);
-        getRequest().getSession().setAttribute(sessionPrefix + Constants.USER, user);
-    }
-    
     /**
      * Set the school in the current request processor.  
      *
@@ -188,31 +133,6 @@ public abstract class LongBase extends LongHibernateProcessor {
         return classroom;
     }
 
-    /**
-     * Set the assignment in the current request processor.  
-     *
-     * @param assignment the assignment to set
-     */
-    protected void setAssignment(AssignmentDTO assignment) {
-        log.debug("set assignment in session");
-        getRequest().getSession().setAttribute(sessionPrefix + Constants.ASSIGNMENT, assignment);
-    }
-    
-    /**
-     * Get the assignment in the current request processor. 
-     */
-    protected AssignmentDTO getAssignment() {
-        AssignmentDTO assignment = (AssignmentDTO) getRequest().getSession().getAttribute(sessionPrefix + Constants.ASSIGNMENT);
-        if (assignment == null) {
-            log.debug("Couldn't find assignment in the session");
-        } else {
-            if (log.isDebugEnabled()) {
-                log.debug("got assignment from session");
-            }
-        }
-        return assignment;
-    }
-    
     protected DAOFactory getFactory() {
         if (factory  == null) {
             factory = DAOUtil.getFactory();

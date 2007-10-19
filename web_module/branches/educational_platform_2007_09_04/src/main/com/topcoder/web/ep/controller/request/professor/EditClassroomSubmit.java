@@ -10,9 +10,10 @@ import java.util.Set;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.common.model.educ.Professor;
 import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.controller.request.LongBase;
 
@@ -31,15 +32,10 @@ public class EditClassroomSubmit extends LongBase {
     protected void dbProcessing() throws Exception {
         this.sessionPrefix = "ec_";
 
-        if (getActiveUser() == null) {
+        Classroom classroom = getClassroom();
+        if (classroom == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
         } else {
-            
-            User u = getActiveUser();
-            
-            Classroom classroom = getClassroom();
-            log.debug("classroom's school: " + classroom.getSchool() == null ? null : classroom.getSchool().getName());
-
             getRequest().setAttribute("schoolName", classroom.getSchool().getName());                
 
             boolean update = classroom.getId() != null;
@@ -88,11 +84,9 @@ public class EditClassroomSubmit extends LongBase {
                 }
             }
             
-            u.getProfessor().addClassrooms(classroom);
-
-            log.debug("(2)classroom's school: " + classroom.getSchool() == null ? null : classroom.getSchool().getName());
-
-            getFactory().getUserDAO().saveOrUpdate(u);
+            Professor p = DAOUtil.getFactory().getProfessorDAO().find(getUser().getId());
+            p.addClassrooms(classroom);
+            getFactory().getProfessorDAO().saveOrUpdate(p);
 
             markForCommit();
             

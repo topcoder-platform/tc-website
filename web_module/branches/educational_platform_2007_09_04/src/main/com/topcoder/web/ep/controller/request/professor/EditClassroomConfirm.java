@@ -11,6 +11,7 @@ import java.util.List;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.model.Coder;
+import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.LongBase;
 
@@ -28,8 +29,8 @@ public class EditClassroomConfirm extends LongBase {
     @Override
     protected void dbProcessing() throws Exception {
         this.sessionPrefix = "ec_";
-
-        if (getActiveUser() == null) {
+        Classroom c = getClassroom();
+        if (c == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
         } else {            
             // get selection
@@ -55,7 +56,7 @@ public class EditClassroomConfirm extends LongBase {
             }
             setSelectedStudents(selectedStudents);
 
-            getRequest().setAttribute("schoolName", getClassroom().getSchool().getName());                
+            getRequest().setAttribute("schoolName", c.getSchool().getName());                
 
             setNextPage("/professor/editClassroomConfirm.jsp");
             setIsNextPageInContext(true);            

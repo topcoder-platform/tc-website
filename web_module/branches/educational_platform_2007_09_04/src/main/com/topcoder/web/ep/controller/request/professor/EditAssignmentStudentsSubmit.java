@@ -14,24 +14,23 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.algo.RoundRegistration;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.ArenaServicesFactory;
-import com.topcoder.web.ep.controller.request.LongBase;
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class EditAssignmentStudentsSubmit extends LongBase {
+public class EditAssignmentStudentsSubmit extends ShortHibernateProcessor {
 
     private static Logger log = Logger.getLogger(EditAssignmentStudentsSubmit.class);
 
@@ -42,9 +41,6 @@ public class EditAssignmentStudentsSubmit extends LongBase {
     protected void dbProcessing() throws Exception {
         log.debug("Edit assignment students submit called...");
         if (userLoggedIn()) {
-            User u = getActiveUser();
-            log.debug("User identified - " + u.getHandle());
-
             Long assignmentId = getAssignmentParam();
 
             if (DAOUtil.getFactory().getSchoolDAO().findSchoolsUsingProfessorId(getUser().getId()).isEmpty()) {

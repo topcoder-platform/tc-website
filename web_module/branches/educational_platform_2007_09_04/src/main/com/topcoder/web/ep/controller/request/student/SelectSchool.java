@@ -26,13 +26,6 @@ public class SelectSchool extends LongBase {
         if (userLoggedIn()) {
             log.debug("User identified - " + getUser().getUserName());
     
-            // prepare stuff for the long transaction
-            clearSession();
-    
-            if (getActiveUser().isProfessor()) {
-                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-            }
-            
             setNextPage("/student/selectSchool.jsp");
             setIsNextPageInContext(true);
         } else {

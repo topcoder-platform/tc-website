@@ -5,6 +5,11 @@
 */
 package com.topcoder.web.ep.controller.request.professor;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
@@ -14,16 +19,10 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.SchoolAssociationType;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.LongBase;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -46,10 +45,6 @@ public class EditClassroom extends LongBase {
 
             if (!"POST".equals(getRequest().getMethod())) {
                 log.debug("First pass - " + getUser().getUserName());
-
-                // the user has just got here
-                //set up the user object we're gonna use
-                User u = getActiveUser();
 
                 if (DAOUtil.getFactory().getSchoolDAO().findSchoolsUsingProfessorId(getUser().getId()).isEmpty()) {
                     throw new TCWebException("No active schools for this professor");
@@ -74,7 +69,7 @@ public class EditClassroom extends LongBase {
                     setDefault("classroom_description", c.getDescription());
                 } else {
                     c = new Classroom();
-                    c.setProfessor(u.getProfessor());
+                    c.setProfessor(DAOUtil.getFactory().getProfessorDAO().find(getUser().getId()));
                 }
 
                 // prepare stuff for the long transaction
@@ -86,7 +81,9 @@ public class EditClassroom extends LongBase {
                 setIsNextPageInContext(true);
             } else {
                 log.debug("Second pass - " + getUser().getUserName());
-                if (getActiveUser() == null) {
+                Classroom c = getClassroom();
+
+                if (c == null) {
                     throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
                 } else if (userLoggedIn()) {
                     Long schoolId = getSchoolParam();
@@ -94,7 +91,7 @@ public class EditClassroom extends LongBase {
                     if (schoolId == null) {
                         addError("error", "Please select a school");
                     } else {
-                        s = getActiveUser().getSchool(schoolId, SchoolAssociationType.TEACHER) != null ? getActiveUser().getSchool(schoolId, SchoolAssociationType.TEACHER).getSchool() : null;
+                        s = findProfessorSchool(schoolId);
                         if (s == null) {
                             throw new TCWebException("Invalid school id " + schoolId);
                         }
@@ -113,8 +110,6 @@ public class EditClassroom extends LongBase {
                         addError("error", "Please enter a description");
                     }
                     // got a response, validate.
-
-                    Classroom c = getClassroom();
 
                     // check there's no other classroom with the same name, academic period in the same school.
                     if (s != null) {
@@ -146,12 +141,12 @@ public class EditClassroom extends LongBase {
                         Set<Coder> sc = c.getStudents(StudentClassroom.PENDING_STATUS);
                         sc.addAll(c.getStudents(StudentClassroom.ACTIVE_STATUS));
 
-                        Set<Coder> ps = getActiveUser().getProfessor().getStudents(s);
+                        Set<Coder> ps = c.getProfessor().getStudents(s);
 
                         // if editing or no student to select, we go directly to the confirmation
                         if (c.getId() == null && (sc.size() > 0 || ps.size() > 0)) {
                             // generate checked students collection
-                            Set checkedStudents = new HashSet<Long>();
+                            Set<Long> checkedStudents = new HashSet<Long>();
                             for (Coder coder : sc) {
                                 checkedStudents.add(coder.getId());
                             }
@@ -186,6 +181,17 @@ public class EditClassroom extends LongBase {
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
+    }
+
+    private School findProfessorSchool(Long schoolId) {
+        School s = null;
+        List<School> ls = DAOUtil.getFactory().getSchoolDAO().findSchoolsUsingProfessorId(getUser().getId());
+        for (School sc : ls) {
+            if (sc.getId().equals(schoolId)) {
+                s = sc;
+            }
+        }
+        return s;
     }
 
     private Long getClassroomParam() throws TCWebException {

@@ -10,15 +10,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
@@ -37,72 +34,72 @@ public class SelectClassroom extends LongBase {
      */
     @Override
     protected void dbProcessing() throws Exception {
-        User u = getActiveUser(); 
-        if (u == null) {
-            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
-        } else if (u.isProfessor()) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        } else {
+        if (!"POST".equals(getRequest().getMethod())) {
+            log.debug("First pass - " + getUser().getUserName());
+            // get school parameter
+            Long schoolId = getSchoolParam();
+
+            // prepare stuff for the long transaction
+            clearSession();
+            
+            // add selected school to the session
+            School s  = getFactory().getSchoolDAO().find(schoolId);
+            setSchool(s);
+            getRequest().setAttribute("schoolName", s.getName());                
+
+            // set possible classrooms
+            getRequest().setAttribute("possible_classrooms", getPossibleClassrooms(s, getUser().getId()));
+            
+            setNextPage("/student/selectClassroom.jsp");
             setIsNextPageInContext(true);
-            if (!"POST".equals(getRequest().getMethod())) {
-                log.debug("First pass - " + getUser().getUserName());
-                // get school parameter
-                Long schoolId = getSchoolParam();
-                
-                // add selected school to the session
-                School s  = getFactory().getSchoolDAO().find(schoolId);
-                setSchool(s);
-                getRequest().setAttribute("schoolName", s.getName());                
+        } else {
+            School s = getSchool();
+            if (s == null) {
+                throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
+            }
+            log.debug("Second pass - " + getUser().getUserName());
+            // get selection
+            String[] values = getRequest().getParameterValues(Constants.CLASSROOM_ID);
 
-                // set possible classrooms
-                getRequest().setAttribute("possible_classrooms", getPossibleClassrooms(s, getUser().getId()));
-                
-                setNextPage("/student/selectClassroom.jsp");
-            } else {
-                log.debug("Second pass - " + getUser().getUserName());
-                // get selection
-                String[] values = getRequest().getParameterValues(Constants.CLASSROOM_ID);
+            Set<Classroom> possibleClassrooms = getPossibleClassrooms(s, getUser().getId());
 
-                School s = getSchool();
-                Set<Classroom> possibleClassrooms = getPossibleClassrooms(s, getUser().getId());
+            getRequest().setAttribute("schoolName", s.getName());                
 
-                getRequest().setAttribute("schoolName", s.getName());                
-
-                // add selected classrooms to the session
-                List<Classroom> selectedClassrooms = new ArrayList<Classroom>();
-                if (values != null) {
-                    for (String value : values) {
-                        Classroom c = null;
-                        if (value != null) {
-                            Long classroomId = null;
-                            try {
-                                classroomId = Long.parseLong(value);
-                            } catch (NumberFormatException e) {
-                                // just drop this selection
-                            }
-                            
-                            c = getFactory().getClassroomDAO().find(classroomId);
-                            if (!possibleClassrooms.contains(c)) {
-                                throw new TCWebException("Invalid classroom selected");
-                            }
-                            selectedClassrooms.add(c);
+            // add selected classrooms to the session
+            List<Classroom> selectedClassrooms = new ArrayList<Classroom>();
+            if (values != null) {
+                for (String value : values) {
+                    Classroom c = null;
+                    if (value != null) {
+                        Long classroomId = null;
+                        try {
+                            classroomId = Long.parseLong(value);
+                        } catch (NumberFormatException e) {
+                            // just drop this selection
                         }
+                        
+                        c = getFactory().getClassroomDAO().find(classroomId);
+                        if (!possibleClassrooms.contains(c)) {
+                            throw new TCWebException("Invalid classroom selected");
+                        }
+                        selectedClassrooms.add(c);
                     }
                 }
-                if (selectedClassrooms.size() == 0) {
-                    addError("error", "You must select at least one classroom");
-                } else {
-                    setSelectedClassrooms(selectedClassrooms);
-                }
-
-                if (hasErrors()) {
-                    getRequest().setAttribute("possible_classrooms", possibleClassrooms);
-                    setNextPage("/student/selectClassroom.jsp");
-                } else {
-                    setNextPage("/student/selfRegisterConfirm.jsp");
-                }
             }
-        }        
+            if (selectedClassrooms.size() == 0) {
+                addError("error", "You must select at least one classroom");
+            } else {
+                setSelectedClassrooms(selectedClassrooms);
+            }
+
+            if (hasErrors()) {
+                getRequest().setAttribute("possible_classrooms", possibleClassrooms);
+                setNextPage("/student/selectClassroom.jsp");
+            } else {
+                setNextPage("/student/selfRegisterConfirm.jsp");
+            }
+            setIsNextPageInContext(true);
+        }
     }
 
     /**
