@@ -16,7 +16,7 @@
             <div class="loginBox">
                 <%--have to use the constant because this page can be used with multiple servlets --%>
                 <form method="post" name="frmLogin" action="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
-                    <input type="hidden" name="module" value="Login">
+                    <input type="hidden" name="module" value="Login" />
                         <table class="login" cellspacing="0" cellpadding="0">
                         <tr>
                             <td>Handle:</td>
@@ -30,7 +30,7 @@
                         <table cellspacing="0" cellpadding="0">
                         <tr>
                             <td><input type="checkbox" id="remember" name="<%=Login.REMEMBER_USER%>"/> Remember me</td>
-                            <td class="valueC"><input type="image" src="/i/v2/btn_go.png"></td>
+                            <td class="valueC"><input type="image" src="/i/v2/btn_go.png"/></td>
                         </tr>
                         <tr>
                             <td colspan="2"><span><a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register">Register</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" title="Forgot your password?">Forgot your password?</a></span></td>
