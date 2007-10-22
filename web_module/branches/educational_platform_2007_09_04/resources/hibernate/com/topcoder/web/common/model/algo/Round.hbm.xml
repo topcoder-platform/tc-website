@@ -34,7 +34,7 @@
             </formula>
         </property>
 
-        <property name="finished" access="field">
+        <property name="finished" access="field" not-null="false">
             <formula>
                 (select count(*) -
                 sum(nvl((select 1 from round_component rc, component_state cs
