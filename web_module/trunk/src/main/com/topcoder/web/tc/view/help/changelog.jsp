@@ -46,6 +46,7 @@
     5.12.6 - 2007.10.xx
     <ul>
         <li>Fix bug in simple search results where if you sorted and scrolled, it would lose your sort -dok</li>
+        <li>Adjust the press room look and feel and add an info request form - dok</li>
     </ul>
 
 </p>

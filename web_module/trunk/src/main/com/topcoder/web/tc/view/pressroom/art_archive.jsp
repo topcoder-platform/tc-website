@@ -1,23 +1,29 @@
-<%@  page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
-<title>TopCoder Press Room</title>
-<jsp:include page="../script.jsp" />
-<jsp:include page="../style.jsp">
-  <jsp:param name="key" value="tc_main"/>
-</jsp:include>
+    <title>TopCoder Press Room</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <jsp:include page="../script.jsp" />
+    <jsp:include page="../style.jsp">
+    <jsp:param name="key" value="tc_pressroom"/>
+    </jsp:include>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 </head>
 <body>
+
 <jsp:include page="../top.jsp" >
-    <jsp:param name="level1" value=""/>
+<jsp:param name="level1" value=""/>
 </jsp:include>
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
-<!-- Left Column Begins-->
+<tbody>
+    <tr valign="top">
+<%-- Left Column Begins--%>
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="press_room"/>
             </jsp:include>
         </td>
@@ -36,7 +42,7 @@
                 <tr><td class="bodyText"><div align="right"><A href="/tc?module=Static&d1=pressroom&d2=index">Current News</A>&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=pressroom&d2=pr_archive">Press Releases Archive</A>&#160;&#160;|&#160;&#160;<strong>Articles Archive</strong></div></td></tr>
             </table>
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
-<!-- 2007  --> 
+<!-- 2007  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2007</font></td></tr>
 <tr><td class="newsText"><a target="_blank" href="<tc-webtag:linkTracking link='http://www.publicbroadcasting.net/wnpr/news.newsmain?action=article&ARTICLE_ID=1139736' refer='/art_archive' />">6 State companies among fastest growing</a> [August 23 - WNPR]<br/></td></tr>
 <tr><td class="newsText"><a target="_blank" href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=misc3x2&clip=foxchicago_20070802&title=Fox%20TV:%20Top%20Computer%20Programmers%20Compete' refer='/art_archive' />">Fox TV: "Top Computer Programmers Compete"</a> [August 2 - Fox TV Chicago]<br/></td></tr>
@@ -47,7 +53,7 @@
 <tr><td class="newsText"><A target="_blank" href="http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm">Ideagora, a Marketplace for Minds</A> [February 15 - BusinessWeek]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic">Microsoft launches 'mashup' competition for developers</A> [February 14 - Computerworld]<br/></td></tr>
 <tr><td ><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
-<!-- 2006  --> 
+<!-- 2006  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
 <tr><td class="newsText"><A href="<tc-webtag:linkTracking link="/pdfs/press_room/hre_article_20061213.pdf"/>" refer="art_archive"/>And the Winner Is&#8230;</A> [PDF] [December 13 - Human Resource Executive Magazine]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm">Undergraduate VP of multinational company</A> [December 8 - China Daily]<br/></td></tr>
@@ -239,19 +245,20 @@
          </tr>
       </table>
         </td>
-<!-- Center Column Ends -->
-<!-- Right Column Begins -->
-         <td width="170">
+<%-- Center Column Ends --%>
+        
+<%-- Right Column Begins --%>
+        <td width="170">
             <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+                <jsp:param name="level1" value="default"/>
             </jsp:include>
-         </td>
-<!-- Right Column Ends -->
-<!-- Gutter -->
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<!-- Gutter Ends -->
+        </td>
+<%-- Right Column Ends --%>
+        
     </tr>
+    </tbody>
 </table>
+
 <jsp:include page="../foot.jsp" />
 </body>
 </html>
