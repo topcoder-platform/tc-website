@@ -20,26 +20,34 @@
         <jsp:param name="key" value="tc_ep"/>
     </jsp:include>
     <style type="text/css">
-    .showText{ display: table-row }
+    .showText{ display: table-row-group }
     .hideText{ display: none }
     </style>
 
     <script type="text/javascript">
         function toggleDisplay(objectID,imageID){
            var object = document.getElementById(objectID) 
-           if(object.className == 'dark hideText') {
-                object.className = 'dark showText'; 
+           if(object.className == 'hideText') {
+                object.className = 'showText'; 
                 document.images[imageID].src = '/i/ep/buttons/exp_ed_w.png'; 
-           }else if(object.className == 'dark showText') {
-                object.className = 'dark hideText'; 
-                document.images[imageID].src = '/i/ep/buttons/exp_w.png';
-           }else if(object.className == 'light showText') {
-                object.className = 'light hideText'; 
-                document.images[imageID].src = '/i/ep/buttons/exp_w.png';
-           }else {
-                object.className = 'light showText';
-                document.images[imageID].src = '/i/ep/buttons/exp_ed_w.png';
+           }else{
+                object.className = 'hideText'; 
+                document.images[imageID].src = '/i/ep/buttons/exp_w.png'; 
            }
+
+//           if(object.className == 'dark hideText') {
+//                object.className = 'dark showText'; 
+//                document.images[imageID].src = '/i/ep/buttons/exp_ed_w.png'; 
+//           }else if(object.className == 'dark showText') {
+//                object.className = 'dark hideText'; 
+//                document.images[imageID].src = '/i/ep/buttons/exp_w.png';
+//           }else if(object.className == 'light showText') {
+//                object.className = 'light hideText'; 
+//                document.images[imageID].src = '/i/ep/buttons/exp_w.png';
+//           }else {
+//                object.className = 'light showText';
+//                document.images[imageID].src = '/i/ep/buttons/exp_ed_w.png';
+//           }
           return;
         }
 
@@ -113,6 +121,7 @@
         </div>
 
         <table cellpadding="0" cellspacing="0" class="stat" width="100%">
+        <thead>
             <tr><td class="title" colspan="4">Student Report</td></tr>
             <tr><td class="headerC" colspan="4">${student.user.lastName}, ${student.user.firstName}</td></tr>
             <tr>
@@ -127,8 +136,10 @@
                 </c:otherwise></c:choose>
                 </a></td>
             </tr>
+        </thead>
+        <tbody>
             <%int i = 0;%>
-            <c:forEach items="${results}" var="result">                
+            <c:forEach items="${results}" var="result">
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                     <td class="value">
                     <a href="javascript:toggleDisplay('ref_<%=i%>','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/ep/buttons/exp_w.png" alt="Expand" name="switch_<%=i%>"/></a>
@@ -177,13 +188,17 @@
                         </td>
                     </c:otherwise></c:choose>
                 </tr>
+            </tbody>
+            <tbody id="ref_<%=i%>" class="hideText">
+<%--
                 <tr id="ref_<%=i%>" class="<%=(i%2==0 ? "light hideText" : "dark hideText")%>">
                     <td class="value" colspan="4">
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
+--%>
                         <c:forEach items="${result.details}" var="detail">
-                            <tr class="<%=(i%2==0 ? "light showText" : "dark showText")%>">
+                            <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value">
-                                <a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;asid=${result.assignmentId}&amp;cd=${detail.componentId}">${detail.component}</a>
+                                <div style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;asid=${result.assignmentId}&amp;cd=${detail.componentId}">${detail.component}</a></div>
                                 </td>
                                 <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
                                     <td class="valueC">&nbsp;</td>
@@ -226,9 +241,13 @@
                                 </c:otherwise></c:choose>
                             </tr>
                         </c:forEach>
+            </tbody>
+<%--
                     </table>
                     </td>
                 </tr>
+--%>
+
                 <%i++;%>
             </c:forEach>
 <%-- for later

@@ -119,7 +119,7 @@
             <%int i = 0;%>
             <c:forEach items="${results}" var="result">                
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                    <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;clsid=${classroom.id}&amp;stid=${result.studentId}">${result.student} (<tc-webtag:handle coderId='${result.studentId}'/>)</a></td>
+                    <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;clsid=${classroom.id}&amp;stid=${result.studentId}">${result.student}</a> (<tc-webtag:handle coderId='${result.studentId}'/>)</td>
 
                     <td class="valueC">
                     <c:choose><c:when test="${not empty score_type && score_type != tc_score_type}">

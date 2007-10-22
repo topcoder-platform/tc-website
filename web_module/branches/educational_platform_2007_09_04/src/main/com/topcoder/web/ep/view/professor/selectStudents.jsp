@@ -86,7 +86,7 @@
                 <div align="center">
                 <table cellpadding="0" cellspacing="0" class="stat">
                 <tbody>
-                    <tr><td class="header">Student</td><td class="headerC">Select</td></tr>
+                    <tr><td class="header">Student (Handle)</td><td class="headerC">Select</td></tr>
                     <%int i = 0;%>
                     <c:forEach items="${possible_students}" var="student">                
                         <tr class="<%=(i%2==0 ? "light" : "dark")%>">
