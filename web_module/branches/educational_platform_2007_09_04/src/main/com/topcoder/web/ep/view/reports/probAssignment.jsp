@@ -31,6 +31,8 @@
 <c:set value="<%=AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE%>" var="success_fail_score_type"/>
 <c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
 <c:set value="<%=Constants.ASSIGNMENT_ID%>" var="ASSIGNMENT_ID"/>
+<c:set value="<%=Constants.COMPONENT_ID%>" var="COMPONENT_ID"/>
+<c:set value="<%=Constants.STUDENT_ID%>" var="STUDENT_ID"/>
 
 <div align="center">
     <div id="widther">
@@ -121,7 +123,7 @@
             <%int i = 0;%>
             <c:forEach items="${results}" var="result">                
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                    <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;${CLASSROOM_ID}=${classroom.id}&amp;stid=${result.studentId}">${result.student}</a> (<tc-webtag:handle coderId='${result.studentId}'/>)</td>
+                    <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;${CLASSROOM_ID}=${classroom.id}&amp;${STUDENT_ID}=${result.studentId}">${result.student}</a> (<tc-webtag:handle coderId='${result.studentId}'/>)</td>
                     <td class="valueC">
                     <c:choose><c:when test="${not empty score_type && score_type != tc_score_type}">
                         &nbsp;
@@ -169,7 +171,7 @@
                         <c:choose><c:when test="${not empty score_type && sessionInfo.userId != result.studentId}">
                             &nbsp;
                         </c:when><c:otherwise>
-                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;${ASSIGNMENT_ID}=${assignment.id}&amp;cd=${component.id}&amp;stid=${result.studentId}"><img src="/i/ep/buttons/viewSubmission.png" alt="View submission" /></a>
+                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;${ASSIGNMENT_ID}=${assignment.id}&amp;${COMPONENT_ID}=${component.id}&amp;${STUDENT_ID}=${result.studentId}"><img src="/i/ep/buttons/viewSubmission.png" alt="View submission" /></a>
                         </c:otherwise></c:choose>
                     </td>
                 </tr>

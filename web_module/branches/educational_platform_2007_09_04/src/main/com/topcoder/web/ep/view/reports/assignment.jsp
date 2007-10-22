@@ -31,6 +31,8 @@
 <c:set value="<%=AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE%>" var="success_fail_score_type"/>
 <c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
 <c:set value="<%=Constants.ASSIGNMENT_ID%>" var="ASSIGNMENT_ID"/>
+<c:set value="<%=Constants.COMPONENT_ID%>" var="COMPONENT_ID"/>
+<c:set value="<%=Constants.STUDENT_ID%>" var="STUDENT_ID"/>
 
 <div align="center">
     <div id="widther">
@@ -95,7 +97,7 @@
                     </td>
                     <td align="left">
                         <c:forEach items="${assignment.roundComponents}" var="rc">                
-                            <div><a href="Javascript:openWin('/ep/?module=ViewProblem&amp;<%=Constants.COMPONENT_ID%>=${rc.id.component.id}','problemStatement',600,600);">${rc.id.component.problem.name}</a> (<a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;${ASSIGNMENT_ID}=${assignment.id}&amp;cd=${rc.id.component.id}">View report</a>)</div>
+                            <div><a href="Javascript:openWin('/ep/?module=ViewProblem&amp;<%=Constants.COMPONENT_ID%>=${rc.id.component.id}','problemStatement',600,600);">${rc.id.component.problem.name}</a> (<a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;${ASSIGNMENT_ID}=${assignment.id}&amp;${COMPONENT_ID}=${rc.id.component.id}">View report</a>)</div>
                         </c:forEach>
                     </td>
                 </tr>
@@ -121,7 +123,7 @@
             <%int i = 0;%>
             <c:forEach items="${results}" var="result">                
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                    <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;${CLASSROOM_ID}=${classroom.id}&amp;stid=${result.studentId}">${result.student}</a> (<tc-webtag:handle coderId='${result.studentId}'/>)</td>
+                    <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;${CLASSROOM_ID}=${classroom.id}&amp;${STUDENT_ID}=${result.studentId}">${result.student}</a> (<tc-webtag:handle coderId='${result.studentId}'/>)</td>
 
                     <td class="valueC">
                     <c:choose><c:when test="${not empty score_type && score_type != tc_score_type}">
