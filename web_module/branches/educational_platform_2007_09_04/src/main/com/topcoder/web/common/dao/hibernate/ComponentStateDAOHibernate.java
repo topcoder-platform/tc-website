@@ -7,12 +7,14 @@ import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import com.topcoder.web.common.dao.ComponentStateDAO;
 import com.topcoder.web.common.model.algo.Component;
 import com.topcoder.web.common.model.algo.ComponentState;
 import com.topcoder.web.common.model.algo.Round;
+import com.topcoder.web.common.model.algo.SystemTestResult;
  
 
 /**
@@ -61,4 +63,16 @@ public class ComponentStateDAOHibernate extends GenericBase<ComponentState, Long
         
         return (ComponentState) c.uniqueResult();
     }
+    
+    public Integer countUsingRoundAndStatuses(Long roundId, List<Integer> statusIds) {
+        Criteria c = getSession().createCriteria(ComponentState.class)
+        .add(Restrictions.eq("round.id", roundId))
+        .add(Restrictions.in("statusId", statusIds))
+        .setProjection( Projections.projectionList()
+            .add(Projections.rowCount())
+            );        
+
+        return (Integer) c.uniqueResult();
+    }
+
 }

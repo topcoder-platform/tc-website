@@ -65,9 +65,9 @@
                         <c:forEach items="${assignments}" var="assignment">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value"><a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;asid=${assignment.id}">${assignment.name}</a></td>
-                                <td class="valueC">18</td>
-                                <td class="valueC">18</td>
-                                <td class="valueC">16 / 2</td>
+                                <td class="valueC">${assignment.registered}</td>
+                                <td class="valueC">${assignment.opened}</td>
+                                <td class="valueC">${assignment.succeeded} / ${assignment.failed}</td>
                             </tr>
                         <%i++;%>
                         </c:forEach>

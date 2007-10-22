@@ -26,6 +26,10 @@ public class Round extends Base {
     private RoundType type = null;
     private Integer rated = null;
 
+    private Integer succeeded = null;
+    private Integer failed = null;
+    private Integer opened = null;
+    
     private Set<Room> rooms;
     private Set<RoundProperty> roundProperties;
     private Set<RoundSegment> roundSegments;
@@ -46,6 +50,30 @@ public class Round extends Base {
         this.roundRegistrations = new HashSet<RoundRegistration>();
     }
     
+    public Integer getSucceeded() {
+        return succeeded;
+    }
+
+    public void setSucceeded(Integer succeeded) {
+        this.succeeded = succeeded;
+    }
+
+    public Integer getFailed() {
+        return failed;
+    }
+
+    public void setFailed(Integer failed) {
+        this.failed = failed;
+    }
+
+    public Integer getOpened() {
+        return opened;
+    }
+
+    public void setOpened(Integer opened) {
+        this.opened = opened;
+    }
+
     public Contest getContest() {
         return contest;
     }
@@ -260,39 +288,10 @@ public class Round extends Base {
         return Collections.unmodifiableSet(componentStates);
     }
 
-    /**
-     * @return the componentStates using statusIds
-     */
-    public Set<ComponentState> getComponentStatesUsingStatusIds(List<Long> statusIds) {
-        Set<ComponentState> scs = new HashSet<ComponentState>();
-        for (ComponentState cs : componentStates) {
-            if (statusIds.contains(cs.getStatusId())) {
-                scs.add(cs);
-            }
-        }
-        return Collections.unmodifiableSet(scs);
-    }
-
-    
     public int getRegistered() {
         return this.roundRegistrations.size();
     }
 
-    public int getSucceeded() {
-        List ids = new ArrayList(1);
-        ids.add(ComponentState.SYSTEM_TEST_SUCCEEDED);
-
-        return this.getComponentStatesUsingStatusIds(ids).size();
-    }
-
-    public int getFailed() {
-        List ids = new ArrayList(2);
-        ids.add(ComponentState.CHALLENGE_SUCCEEDED);
-        ids.add(ComponentState.SYSTEM_TEST_FAILED);
-
-        return this.getComponentStatesUsingStatusIds(ids).size();
-    }
-    
     /**
      * @param componentStates the componentStates to set
      */

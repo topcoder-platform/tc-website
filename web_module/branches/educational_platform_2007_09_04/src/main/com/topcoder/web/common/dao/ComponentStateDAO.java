@@ -20,4 +20,6 @@ public interface ComponentStateDAO extends GenericDAO<ComponentState, Long> {
 
     public ComponentState getStudentResultsByComponent(Round r, Component cmp, Long studentId);
 
+    public Integer countUsingRoundAndStatuses(Long roundId, List<Integer> statusIds);
+
 }
