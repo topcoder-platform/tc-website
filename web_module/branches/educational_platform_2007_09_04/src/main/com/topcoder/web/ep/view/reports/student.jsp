@@ -118,7 +118,7 @@
                         <strong>Student:</strong>
                     </td>
                     <td align="left">
-                        <div>${student.user.lastName}, ${student.user.firstName}</div>
+                        <div>${student.user.lastName}, ${student.user.firstName} (<tc-webtag:handle coderId='${student.id}'/>)</div>
                         <%-- for later
                         <div>(<a href="">View average for this class</a>)</div>
                         --%>

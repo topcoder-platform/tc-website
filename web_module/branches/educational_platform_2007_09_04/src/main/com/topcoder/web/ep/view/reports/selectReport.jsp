@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -83,7 +84,7 @@
                         <%int i = 0;%>
                         <c:forEach items="${students}" var="student">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;clsid=${clsid}&amp;stid=${student.id}">${student.user.lastName}, ${student.user.firstName}</a></td>
+                                <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;clsid=${clsid}&amp;stid=${student.id}">${student.user.lastName}, ${student.user.firstName} (<tc-webtag:handle coderId='${student.id}'/>)</a></td>
                             </tr>
                         <%i++;%>
                         </c:forEach>
