@@ -4,6 +4,38 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.22.07<br />2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm372">SRM 372 - Problem Set &amp; Analysis</A></span><br /><br />
+      SRM 372 was the scene for fierce TopCoder programming action, as 1450 competitors showed up to do battle in the penultimate warmup to the TCCC '07 finals.</td>
+         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="7296000" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm372">details</A> | 
+         <tc-webtag:forumLink forumID="516069" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.22.07<br />2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm42">TCHS SRM 42 - Problem Set &amp; Analysis</A></span><br /><br />
+      With 102 registrants, 13 of them were newcomers, the TopCoder High School Single Round Match 42 started, and 91 contestants competed.</td>
+         <td class="newsPhoto"><img src="/i/m/mohamedafattah_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="15917161" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm42">details</A> | 
+         <tc-webtag:forumLink forumID="516568" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.22.07<br />12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank chat before SRM 373</A></span><br /><br />
@@ -140,34 +172,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly">details</a> | 
         <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.11.07<br />11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=dbChat20070926">Deutsche Bank SRM 367 chat transcript</A></span><br /><br />
-        Deutsche Bank recently chatted in the Competition Arena before SRM 367.  Be sure to check it out if you missed it!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=dbChat20070926">details</a> | 
-        <tc-webtag:forumLink forumID="517145" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.10.07<br />3:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm370">SRM 370 - Problem Set &amp; Analysis</A></span><br /><br />
-      During SRM 370, division one coders were presented with a rather easy problem set, while division two, after fast submissions on easy and medium couldn't get through the hard. The success rates for division one proved that the problems were well chosen, while 0% accuracy on division two hard was a bit surprising, as the problem was rather standard.</td>
-         <td class="newsPhoto"><img src="/i/m/mateuszek_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="11801002" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm370">details</A> | 
-         <tc-webtag:forumLink forumID="516067" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
