@@ -66,6 +66,7 @@
 
 <body>
 <c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
+<c:set value="<%=Constants.ASSIGNMENT_ID%>" var="ASSIGNMENT_ID"/>
 <c:set value="<%=AssignmentScoreType.TC_SCORE_TYPE%>" var="tc_score_type"/>
 <c:set value="<%=AssignmentScoreType.PASSED_SCORE_TYPE%>" var="passed_score_type"/>
 <c:set value="<%=AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE%>" var="success_fail_score_type"/>
@@ -144,7 +145,7 @@
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                     <td class="value">
                     <a href="javascript:toggleDisplay('ref_<%=i%>','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/ep/buttons/exp_w.png" alt="Expand" name="switch_<%=i%>"/></a>
-                    <a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;asid=${result.assignmentId}">${result.assignment}</a>
+                    <a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;${ASSIGNMENT_ID}=${result.assignmentId}">${result.assignment}</a>
                     </td>
 
                     <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
@@ -199,7 +200,7 @@
                         <c:forEach items="${result.details}" var="detail">
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value">
-                                <div style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;asid=${result.assignmentId}&amp;cd=${detail.componentId}">${detail.component}</a></div>
+                                <div style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;${ASSIGNMENT_ID}=${result.assignmentId}&amp;cd=${detail.componentId}">${detail.component}</a></div>
                                 </td>
                                 <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
                                     <td class="valueC">&nbsp;</td>

@@ -44,6 +44,8 @@
     
 <body>
 <c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
+<c:set value="<%=Constants.ASSIGNMENT_ID%>" var="ASSIGNMENT_ID"/>
+
 <div align="center">
     <div id="widther">
         <img src="/i/ep/widtherN.png" alt="" style="display:block;" />
@@ -99,7 +101,7 @@
                     </p>
                     </tc-webtag:errorIterator>
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditAssignmentStudents"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.ASSIGNMENT_ID%>" value="${asid}"/>
+                    <tc-webtag:hiddenInput name="${ASSIGNMENT_ID}" value="${asid}"/>
                     
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tr><td class="title" colspan="2">Students in this class</td></tr>

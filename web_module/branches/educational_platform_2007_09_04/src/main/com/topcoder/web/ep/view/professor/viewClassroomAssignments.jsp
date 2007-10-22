@@ -33,6 +33,8 @@
     
 <body>
 <c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
+<c:set value="<%=Constants.ASSIGNMENT_ID%>" var="ASSIGNMENT_ID"/>
+
 <div align="center">
     <div id="widther">
         <img src="/i/ep/widtherN.png" alt="" style="display:block;" />
@@ -100,7 +102,7 @@
                                 <c:if test="${show_assign_to}">
                                     <c:choose>
                                         <c:when test="${assignment.contest.endDate > now}">
-                                            <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignmentStudents&amp;asid=${assignment.id}"><img src="/i/ep/buttons/assignTo.png" alt="Assign to..." /></a></td>
+                                            <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignmentStudents&amp;${ASSIGNMENT_ID}=${assignment.id}"><img src="/i/ep/buttons/assignTo.png" alt="Assign to..." /></a></td>
                                         </c:when>
                                         <c:otherwise>
                                             <td class="valueC">&nbsp;</td>
@@ -110,7 +112,7 @@
                                 <c:if test="${show_edit}">
                                     <c:choose>
                                         <c:when test="${assignment.contest.startDate > now}">
-                                            <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;asid=${assignment.id}&amp;fr=true"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
+                                            <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;${ASSIGNMENT_ID}=${assignment.id}&amp;fr=true"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
                                         </c:when>
                                         <c:otherwise>
                                             <td class="valueC">&nbsp;</td>

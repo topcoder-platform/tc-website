@@ -23,6 +23,7 @@
 
 <body>
 <c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
+<c:set value="<%=Constants.ASSIGNMENT_ID%>" var="ASSIGNMENT_ID"/>
 
 <div align="center">
     <div id="widther">
@@ -66,7 +67,7 @@
                         <%int i = 0;%>
                         <c:forEach items="${assignments}" var="assignment">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                <td class="value"><a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;asid=${assignment.id}">${assignment.name}</a></td>
+                                <td class="value"><a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;${ASSIGNMENT_ID}=${assignment.id}">${assignment.name}</a></td>
                                 <td class="valueC">${assignment.assigned}</td>
                                 <td class="valueC">${assignment.opened}</td>
                                 <td class="valueC">${assignment.finished}</td>

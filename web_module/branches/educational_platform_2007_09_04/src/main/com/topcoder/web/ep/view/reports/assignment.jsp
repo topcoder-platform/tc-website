@@ -30,6 +30,7 @@
 <c:set value="<%=AssignmentScoreType.PASSED_SCORE_TYPE%>" var="passed_score_type"/>
 <c:set value="<%=AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE%>" var="success_fail_score_type"/>
 <c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
+<c:set value="<%=Constants.ASSIGNMENT_ID%>" var="ASSIGNMENT_ID"/>
 
 <div align="center">
     <div id="widther">
@@ -94,7 +95,7 @@
                     </td>
                     <td align="left">
                         <c:forEach items="${assignment.roundComponents}" var="rc">                
-                            <div><a href="Javascript:openWin('/ep/?module=ViewProblem&amp;<%=Constants.COMPONENT_ID%>=${rc.id.component.id}','problemStatement',600,600);">${rc.id.component.problem.name}</a> (<a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;asid=${assignment.id}&amp;cd=${rc.id.component.id}">View report</a>)</div>
+                            <div><a href="Javascript:openWin('/ep/?module=ViewProblem&amp;<%=Constants.COMPONENT_ID%>=${rc.id.component.id}','problemStatement',600,600);">${rc.id.component.problem.name}</a> (<a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;${ASSIGNMENT_ID}=${assignment.id}&amp;cd=${rc.id.component.id}">View report</a>)</div>
                         </c:forEach>
                     </td>
                 </tr>

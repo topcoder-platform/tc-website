@@ -30,6 +30,7 @@
 <c:set value="<%=AssignmentScoreType.PASSED_SCORE_TYPE%>" var="passed_score_type"/>
 <c:set value="<%=AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE%>" var="success_fail_score_type"/>
 <c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
+<c:set value="<%=Constants.ASSIGNMENT_ID%>" var="ASSIGNMENT_ID"/>
 
 <div align="center">
     <div id="widther">
@@ -168,7 +169,7 @@
                         <c:choose><c:when test="${not empty score_type && sessionInfo.userId != result.studentId}">
                             &nbsp;
                         </c:when><c:otherwise>
-                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;asid=${assignment.id}&amp;cd=${component.id}&amp;stid=${result.studentId}"><img src="/i/ep/buttons/viewSubmission.png" alt="View submission" /></a>
+                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;${ASSIGNMENT_ID}=${assignment.id}&amp;cd=${component.id}&amp;stid=${result.studentId}"><img src="/i/ep/buttons/viewSubmission.png" alt="View submission" /></a>
                         </c:otherwise></c:choose>
                     </td>
                 </tr>

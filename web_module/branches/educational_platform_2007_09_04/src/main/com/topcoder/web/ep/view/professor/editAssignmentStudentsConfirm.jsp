@@ -32,6 +32,7 @@
     
     
 <body>
+<c:set value="<%=Constants.ASSIGNMENT_ID%>" var="ASSIGNMENT_ID"/>
 
 <div align="center">
     <div id="widther">
@@ -77,7 +78,7 @@
         <div style="float: left width: 350px;">
             <form name="f" action="${sessionInfo.servletPath}" method="post">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditAssignmentStudentsSubmit"/>
-                <tc-webtag:hiddenInput name="<%=Constants.ASSIGNMENT_ID%>" value="${asid}"/>
+                <tc-webtag:hiddenInput name="${ASSIGNMENT_ID}" value="${asid}"/>
                 
                 <c:choose>
                 <c:when test="${not empty students}">
@@ -106,7 +107,7 @@
 
     <br clear="all" />
     <div style="margin-top: 10px;">
-        <a href="${sessionInfo.servletPath}?module=EditAssignmentStudents&asid=${asid}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+        <a href="${sessionInfo.servletPath}?module=EditAssignmentStudents&${ASSIGNMENT_ID}=${asid}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>
 
     </div>
