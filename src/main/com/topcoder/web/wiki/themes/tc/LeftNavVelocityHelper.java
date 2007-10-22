@@ -47,10 +47,12 @@ public class LeftNavVelocityHelper {
                 if (node == null) {
                     //check if a parent page has something
                     Page p = pageManager.getPage(spaceKey, pageTitle);
-                    Page parent = p.getParent();
-                    while (parent != null && node == null) {
-                        node = settings.getNavKey(parent.getTitle());
-                        parent = parent.getParent();
+                    if (p != null) {
+                        Page parent = p.getParent();
+                        while (parent != null && node == null) {
+                            node = settings.getNavKey(parent.getTitle());
+                            parent = parent.getParent();
+                        }
                     }
                 }
             }
