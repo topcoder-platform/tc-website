@@ -65,7 +65,7 @@
                         <c:forEach items="${assignments}" var="assignment">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value"><a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;asid=${assignment.id}">${assignment.name}</a></td>
-                                <td class="valueC">${assignment.registered}</td>
+                                <td class="valueC">${assignment.assigned}</td>
                                 <td class="valueC">${assignment.opened}</td>
                                 <td class="valueC">${assignment.finished}</td>
                             </tr>

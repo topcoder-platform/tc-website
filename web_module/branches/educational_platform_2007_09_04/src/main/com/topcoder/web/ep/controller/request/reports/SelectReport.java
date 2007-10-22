@@ -5,6 +5,14 @@
 */
 package com.topcoder.web.ep.controller.request.reports;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -48,11 +56,25 @@ public class SelectReport extends SharedBaseProcessor {
         // we need active students and assignments
         getRequest().setAttribute("clsid", c.getId());
         getRequest().setAttribute("students", c.getStudents(StudentClassroom.ACTIVE_STATUS));
-        getRequest().setAttribute("assignments", DAOUtil.getFactory().getClassroomDAO().getAssignments(c.getId()));
+        getRequest().setAttribute("assignments", generateAssignmentsRows(c.getId()));
         getRequest().setAttribute("schoolName", c.getSchool().getName());                
 
         setNextPage("/reports/selectReport.jsp");
         setIsNextPageInContext(true);
+    }
+
+    private List<AssignmentOverviewRow> generateAssignmentsRows(Long classroomId) throws TCWebException {
+        List<AssignmentOverviewRow> laor = new ArrayList<AssignmentOverviewRow>();
+        for (ResultSetRow rsr : getData(classroomId)) {
+            laor.add(new AssignmentOverviewRow(
+                    rsr.getLongItem("round_id"),
+                    rsr.getStringItem("name"),
+                    rsr.getIntItem("assigned"),
+                    rsr.getIntItem("opened"),
+                    rsr.getIntItem("finished")                    
+                    ));
+        }
+        return laor;
     }
 
     private Classroom validateClassroom() throws TCWebException {
@@ -80,4 +102,22 @@ public class SelectReport extends SharedBaseProcessor {
 
         return id;
     }
+
+    private ResultSetContainer getData(Long classroomId) throws TCWebException {
+        try {
+            Request r = new Request();
+            String queryName = "classroom_assignments_overview";
+            r.setProperty("clsid", classroomId.toString());
+            r.setContentHandle(queryName);
+
+            DataAccessInt dai = getDataAccess();
+            Map result = dai.getData(r);
+            ResultSetContainer rsc = (ResultSetContainer) result.get(queryName);
+
+            return rsc;
+        } catch (Exception e) {
+            throw new TCWebException("Could not get data from DB", e);
+        }
+    }
+
 }
