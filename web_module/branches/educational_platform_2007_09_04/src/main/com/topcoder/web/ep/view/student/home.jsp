@@ -43,6 +43,8 @@
 
 <body>
 
+<c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
+
 <div align="center">
     <div id="widther">
         <img src="/i/ep/widtherN.png" alt="" style="display:block;" />
@@ -89,12 +91,12 @@
                 <c:forEach items="${school.details}" var="classroom">
                     <div class="classroomListing" align="center">
                         <div class="name">
-                            <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.classroomId}">${classroom.classroomName}</a>
+                            <a href="/ep?module=ViewClassroomDetails&amp;${CLASSROOM_ID}=${classroom.classroomId}">${classroom.classroomName}</a>
                         </div>
                         <c:choose>
                             <c:when test="${classroom.active}">
                                 <div class="button">
-                                    <a href="/ep?module=ViewClassroomAssignments&amp;clsid=${classroom.classroomId}"><img src="/i/ep/buttons/assignments.png" alt="Assignments" /></a>
+                                    <a href="/ep?module=ViewClassroomAssignments&amp;${CLASSROOM_ID}=${classroom.classroomId}"><img src="/i/ep/buttons/assignments.png" alt="Assignments" /></a>
                                 </div>
                             </c:when>
                             <c:otherwise>

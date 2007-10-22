@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.ep.Constants"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -64,7 +65,7 @@
 </head>
 
 <body>
-
+<c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
 <c:set value="<%=AssignmentScoreType.TC_SCORE_TYPE%>" var="tc_score_type"/>
 <c:set value="<%=AssignmentScoreType.PASSED_SCORE_TYPE%>" var="passed_score_type"/>
 <c:set value="<%=AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE%>" var="success_fail_score_type"/>
@@ -260,7 +261,7 @@
 --%>
         </table>
     <div style="margin-top: 10px;">
-        <a href="${sessionInfo.servletPath}?module=SelectReport&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+        <a href="${sessionInfo.servletPath}?module=SelectReport&amp;${CLASSROOM_ID}=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>
 
     </div>

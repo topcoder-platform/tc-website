@@ -32,7 +32,7 @@
     
     
 <body>
-
+<c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
 <div align="center">
     <div id="widther">
         <img src="/i/ep/widtherN.png" alt="" style="display:block;" />
@@ -97,7 +97,7 @@
             </div>
         </form>            
     <div style="margin-top: 10px;">
-        <a href="/ep?module=ViewClassroomDetails&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+        <a href="/ep?module=ViewClassroomDetails&amp;${CLASSROOM_ID}=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>
 
     </div>

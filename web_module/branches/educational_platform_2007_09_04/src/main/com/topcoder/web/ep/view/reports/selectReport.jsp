@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.ep.Constants"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
@@ -21,6 +22,7 @@
 </head>
 
 <body>
+<c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
 
 <div align="center">
     <div id="widther">
@@ -97,7 +99,7 @@
                         <%int i = 0;%>
                         <c:forEach items="${students}" var="student">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;clsid=${clsid}&amp;stid=${student.id}">${student.user.lastName}, ${student.user.firstName}</a> (<tc-webtag:handle coderId='${student.id}'/>)</td>
+                                <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;${CLASSROOM_ID}=${clsid}&amp;stid=${student.id}">${student.user.lastName}, ${student.user.firstName}</a> (<tc-webtag:handle coderId='${student.id}'/>)</td>
                             </tr>
                         <%i++;%>
                         </c:forEach>

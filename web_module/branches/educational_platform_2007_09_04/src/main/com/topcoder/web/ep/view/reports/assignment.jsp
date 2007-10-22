@@ -29,6 +29,7 @@
 <c:set value="<%=AssignmentScoreType.TC_SCORE_TYPE%>" var="tc_score_type"/>
 <c:set value="<%=AssignmentScoreType.PASSED_SCORE_TYPE%>" var="passed_score_type"/>
 <c:set value="<%=AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE%>" var="success_fail_score_type"/>
+<c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
 
 <div align="center">
     <div id="widther">
@@ -119,7 +120,7 @@
             <%int i = 0;%>
             <c:forEach items="${results}" var="result">                
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                    <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;clsid=${classroom.id}&amp;stid=${result.studentId}">${result.student}</a> (<tc-webtag:handle coderId='${result.studentId}'/>)</td>
+                    <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;${CLASSROOM_ID}=${classroom.id}&amp;stid=${result.studentId}">${result.student}</a> (<tc-webtag:handle coderId='${result.studentId}'/>)</td>
 
                     <td class="valueC">
                     <c:choose><c:when test="${not empty score_type && score_type != tc_score_type}">
@@ -177,7 +178,7 @@
 --%>
         </table>
     <div style="margin-top: 10px;">
-        <a href="${sessionInfo.servletPath}?module=SelectReport&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+        <a href="${sessionInfo.servletPath}?module=SelectReport&amp;${CLASSROOM_ID}=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>
 
     </div>

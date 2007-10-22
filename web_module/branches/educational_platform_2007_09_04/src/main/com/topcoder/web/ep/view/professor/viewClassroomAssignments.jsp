@@ -32,7 +32,7 @@
     
     
 <body>
-
+<c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
 <div align="center">
     <div id="widther">
         <img src="/i/ep/widtherN.png" alt="" style="display:block;" />
@@ -133,7 +133,7 @@
             </c:choose>
 
         <div align="center">
-            <a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;clsid=${classroom.id}&amp;fr=true"><img src="/i/ep/buttons/addAssignment.png" alt="Add assignment" /></a>
+            <a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;${CLASSROOM_ID}=${classroom.id}&amp;fr=true"><img src="/i/ep/buttons/addAssignment.png" alt="Add assignment" /></a>
         </div>
 
     <br clear="all" />

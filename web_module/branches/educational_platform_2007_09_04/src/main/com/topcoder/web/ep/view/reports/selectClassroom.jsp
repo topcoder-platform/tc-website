@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.ep.Constants"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -19,6 +20,7 @@
 </head>
 
 <body>
+<c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
 
 <div align="center">
     <div id="widther">
@@ -65,10 +67,10 @@ Reporting is an integral part of the Educational Platform.  Below you can select
                     </c:if>
                     <div class="classroomListing" align="center">
                         <div class="name">
-                            <a href="${sessionInfo.servletPath}?module=SelectReport&amp;clsid=${classroom.id}">${classroom.name}</a>
+                            <a href="${sessionInfo.servletPath}?module=SelectReport&amp;${CLASSROOM_ID}=${classroom.id}">${classroom.name}</a>
                         </div>
                         <div class="button">
-                            <a href="${sessionInfo.servletPath}?module=SelectReport&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/reports.png" alt="Reports" /></a>
+                            <a href="${sessionInfo.servletPath}?module=SelectReport&amp;${CLASSROOM_ID}=${classroom.id}"><img src="/i/ep/buttons/reports.png" alt="Reports" /></a>
                         </div>
                     </div>
                     <c:set var="oldSchool" value="${classroom.school}"/>
