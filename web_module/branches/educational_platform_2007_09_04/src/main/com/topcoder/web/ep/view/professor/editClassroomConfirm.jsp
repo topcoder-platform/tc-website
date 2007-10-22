@@ -97,7 +97,7 @@
                         <tr><td>Student</td></tr>
                         <c:forEach items="${ec_students}" var="student">                
                             <tr>
-                                <td>${student.user.lastName}, ${student.user.firstName}</td>
+                                <td>${student.user.lastName}, ${student.user.firstName} (<tc-webtag:handle coderId='${student.id}'/>)</td>
                             </tr>
                         </c:forEach>
                     </table>
