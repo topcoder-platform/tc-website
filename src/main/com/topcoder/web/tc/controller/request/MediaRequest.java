@@ -19,10 +19,22 @@ public class MediaRequest extends BaseProcessor {
     public static final String ON_ASSIGNMENT = "onass";
     public static final String COMMENTS = "cmmts";
 
-    private String[] requiredFields = {Constants.FIRST_NAME, Constants.LAST_NAME, Constants.EMAIL,
-            Constants.PHONE_NUMBER, MEDIA_TYPE, MEDIA_OUTLET};
+    private static final String[] requiredFields = {Constants.FIRST_NAME, Constants.LAST_NAME, Constants.EMAIL,
+            Constants.PHONE_NUMBER, MEDIA_TYPE, MEDIA_OUTLET, ON_ASSIGNMENT};
+
+    private static final String[] optionalFields = {FAX_NUMBER, Constants.TITLE, COMMENTS};
+
+    private static final String[] allFields = new String[requiredFields.length + optionalFields.length];
+
+    static {
+        System.arraycopy(requiredFields, 0, allFields, 0, requiredFields.length);
+        System.arraycopy(optionalFields, 0, allFields, requiredFields.length, optionalFields.length);
+    }
+
 
     protected void businessProcessing() throws Exception {
+
+
         String givenName = StringUtils.checkNull(getRequest().getParameter(Constants.FIRST_NAME));
         String surname = StringUtils.checkNull(getRequest().getParameter(Constants.LAST_NAME));
         String email = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL));
@@ -42,6 +54,13 @@ public class MediaRequest extends BaseProcessor {
         }
 
         if (hasErrors()) {
+            String val;
+            for (String param : allFields) {
+                val = getRequest().getParameter(param);
+                if (val != null) {
+                    setDefault(param, getRequest().getParameter(param));
+                }
+            }
             setNextPage("/pressroom/mediaRequestForm.jsp");
             setIsNextPageInContext(true);
         } else {
