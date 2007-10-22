@@ -120,7 +120,7 @@ public class ViewSubmission extends SharedBaseProcessor {
             lstr.add(new SystemTestRow(
                 StringUtils.htmlEncode(rsr.getItem("args").toString()),
                 StringUtils.htmlEncode(rsr.getItem("expected").toString()),
-                rsr.getLongItem("coder_id") == 1
+                rsr.getLongItem("succeeded") == 1
                 ));
         }
         
