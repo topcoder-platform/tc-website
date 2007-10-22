@@ -34,6 +34,7 @@
 <body>
 <c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
 <c:set value="<%=Constants.ASSIGNMENT_ID%>" var="ASSIGNMENT_ID"/>
+<c:set value="<%=Constants.FRESH_ID%>" var="FRESH_ID"/>
 
 <div align="center">
     <div id="widther">
@@ -112,7 +113,7 @@
                                 <c:if test="${show_edit}">
                                     <c:choose>
                                         <c:when test="${assignment.contest.startDate > now}">
-                                            <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;${ASSIGNMENT_ID}=${assignment.id}&amp;fr=true"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
+                                            <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;${ASSIGNMENT_ID}=${assignment.id}&amp;${FRESH_ID}=true"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
                                         </c:when>
                                         <c:otherwise>
                                             <td class="valueC">&nbsp;</td>
@@ -135,7 +136,7 @@
             </c:choose>
 
         <div align="center">
-            <a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;${CLASSROOM_ID}=${classroom.id}&amp;fr=true"><img src="/i/ep/buttons/addAssignment.png" alt="Add assignment" /></a>
+            <a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;${CLASSROOM_ID}=${classroom.id}&amp;${FRESH_ID}=true"><img src="/i/ep/buttons/addAssignment.png" alt="Add assignment" /></a>
         </div>
 
     <br clear="all" />

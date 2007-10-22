@@ -5,18 +5,13 @@
 */
 package com.topcoder.web.ep.controller.request.professor;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ep.controller.request.ShortBase;
 import com.topcoder.web.ep.dto.AssignmentDTO;
-import com.topcoder.web.ep.dto.ComponentDTO;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -46,39 +41,7 @@ public class EditAssignmentConfirm extends ShortBase {
                     
                     log.debug("school name: " + adto.getSchoolName());
                     getRequest().setAttribute("schoolName", adto.getSchoolName());                
-
-//                    if (adto.getComponents().size() == 0) {
-//                        addError("actionError", "You must add at least one component");
-//                    }
-                    
-                    // check points - this was taken out
-//                    Map<Long, Double> points = new HashMap<Long, Double>(adto.getComponents().size());
-//                    for (ComponentDTO cdto : adto.getComponents()) {
-//                        Double pointsParam = getPointsParam(cdto.getComponentId()); 
-//                        if (pointsParam == null || pointsParam != -1d) {
-//                            points.put(cdto.getComponentId(), pointsParam);
-//                        } else {
-//                            addError("actionError", "Invalid points entered");
-//                            break;
-//                        }
-//                    }
-
-//                    if (hasErrors()) {
-//                        setNextPage("/professor/selectComponents.jsp");
-//                        setIsNextPageInContext(true);
-//                    } else {
-//                        // update points
-//                        for (ComponentDTO cdto : adto.getComponents()) {
-//                            if (points.containsKey(cdto.getComponentId())) {
-//                                cdto.setPoints(points.get(cdto.getComponentId()));
-//                            } else {
-//                                throw new TCWebException("Error: missing component points");
-//                            }
-//                        }
-                    
                         setNextPage("/professor/editAssignmentConfirm.jsp");
-//                        setIsNextPageInContext(true);
-//                    }
                 } else {
                     throw new PermissionException(getUser(), new ClassResource(this.getClass()));
                 }
@@ -87,22 +50,4 @@ public class EditAssignmentConfirm extends ShortBase {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }        
     }
-    
-//    private Double getPointsParam(Long componentId) throws TCWebException {
-//        String pointsStr = StringUtils.checkNull(getRequest().getParameter("points_" + componentId));
-//        
-//        if (pointsStr.equals("")) {
-//            return null;
-//        }
-//
-//        Double points;
-//        try {
-//            points = Double.parseDouble(pointsStr);
-//        } catch (NumberFormatException e) {
-//            return -1d;
-//        }
-//        
-//        return points;
-//    }
-
 }

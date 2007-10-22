@@ -1,10 +1,8 @@
 package com.topcoder.web.common.model.algo;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.topcoder.web.common.model.Base;
@@ -25,9 +23,6 @@ public class Round extends Base {
     private Integer invitational = null;
     private RoundType type = null;
     private Integer rated = null;
-
-    private Integer opened = null;
-    private Integer finished = null;
     
     private Set<Room> rooms;
     private Set<RoundProperty> roundProperties;
@@ -49,23 +44,6 @@ public class Round extends Base {
         this.roundRegistrations = new HashSet<RoundRegistration>();
     }
     
-
-    public Integer getFinished() {
-        return finished;
-    }
-
-    public void setFinished(Integer finished) {
-        this.finished = finished;
-    }
-
-    public Integer getOpened() {
-        return opened;
-    }
-
-    public void setOpened(Integer opened) {
-        this.opened = opened;
-    }
-
     public Contest getContest() {
         return contest;
     }
@@ -278,10 +256,6 @@ public class Round extends Base {
      */
     public Set<ComponentState> getComponentStates() {
         return Collections.unmodifiableSet(componentStates);
-    }
-
-    public int getRegistered() {
-        return this.roundRegistrations.size();
     }
 
     /**

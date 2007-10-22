@@ -42,6 +42,8 @@
     
     
 <body>
+<c:set value="<%=Constants.COMPONENT_ID%>" var="COMPONENT_ID"/>
+<c:set value="<%=Constants.PROBLEM_SET_ID%>" var="PROBLEM_SET_ID"/>
 
 <div align="center">
     <div id="widther">
@@ -178,16 +180,16 @@
                         <%int i = 0;%>
                         <c:forEach items="${problem_sets}" var="problem_set">
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                <td class="value"><a href="Javascript:openWin('/ep/?module=ViewProblemSet&amp;<%=Constants.PROBLEM_SET_ID%>=${problem_set.id}','problemSetDescription',600,600);">${problem_set.name}</a></td>
+                                <td class="value"><a href="Javascript:openWin('/ep/?module=ViewProblemSet&amp;${PROBLEM_SET_ID}=${problem_set.id}','problemSetDescription',600,600);">${problem_set.name}</a></td>
                                 <td class="value">
                                     <c:forEach items="${problem_set.components}" var="component">
-                                        <a href="Javascript:openWin('/ep/?module=ViewProblem&amp;<%=Constants.COMPONENT_ID%>=${component.id}','problemStatement',600,600);">${component.problem.name}</a>
+                                        <a href="Javascript:openWin('/ep/?module=ViewProblem&amp;${COMPONENT_ID}=${component.id}','problemStatement',600,600);">${component.problem.name}</a>
                                         <c:if test="${fn:length(problem_set.components) > 1}">
                                             <br />
                                         </c:if>
                                     </c:forEach>
                                 </td>
-                                <td class="valueC"><tc-webtag:radioButton name="<%=Constants.PROBLEM_SET_ID%>" value="${problem_set.id}"/></td>
+                                <td class="valueC"><tc-webtag:radioButton name="${PROBLEM_SET_ID}" value="${problem_set.id}"/></td>
                             </tr>
                             <%i++;%>
                         </c:forEach>

@@ -96,7 +96,7 @@
                         <strong>Problem:</strong>
                     </td>
                     <td align="left">
-                        <div><a href="Javascript:openWin('/ep/?module=ViewProblem&amp;<%=Constants.COMPONENT_ID%>=${component.id}','problemStatement',600,600);">${component.problem.name}</a></div>
+                        <div><a href="Javascript:openWin('/ep/?module=ViewProblem&amp;${COMPONENT_ID}=${component.id}','problemStatement',600,600);">${component.problem.name}</a></div>
                     </td>
                 </tr>
             </tbody>

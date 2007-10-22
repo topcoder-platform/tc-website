@@ -54,7 +54,7 @@ public class SelectReport extends SharedBaseProcessor {
     
     protected void processReport(Classroom c) throws Exception {
         // we need active students and assignments
-        getRequest().setAttribute("clsid", c.getId());
+        getRequest().setAttribute(Constants.CLASSROOM_ID, c.getId());
         getRequest().setAttribute("students", c.getStudents(StudentClassroom.ACTIVE_STATUS));
         getRequest().setAttribute("assignments", generateAssignmentsRows(c.getId()));
         getRequest().setAttribute("schoolName", c.getSchool().getName());                

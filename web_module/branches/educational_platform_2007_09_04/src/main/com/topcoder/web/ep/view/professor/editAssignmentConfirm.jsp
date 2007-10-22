@@ -34,6 +34,7 @@
 <body>
 <c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
 <c:set value="<%=Constants.ASSIGNMENT_ID%>" var="ASSIGNMENT_ID"/>
+<c:set value="<%=Constants.COMPONENT_ID%>" var="COMPONENT_ID"/>
 <c:set value="<%=AssignmentScoreType.TC_SCORE_TYPE%>" var="tc_score_type"/>
 
 <div align="center">
@@ -118,7 +119,7 @@
                     <c:forEach items="${ea_assignment.components}" var="component">                
                         <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                             <td class="value">
-                                <a href="Javascript:openWin('/ep/?module=ViewProblem&amp;<%=Constants.COMPONENT_ID%>=${component.componentId}','problemStatement',600,600);">${component.problemName}</a>
+                                <a href="Javascript:openWin('/ep/?module=ViewProblem&amp;${COMPONENT_ID}=${component.componentId}','problemStatement',600,600);">${component.problemName}</a>
                             </td>
                             <c:if test="${ea_assignment.scoreType == tc_score_type}">
                                 <td class="valueR">${component.points}</td>
