@@ -4,7 +4,6 @@
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ page import="com.topcoder.web.common.model.educ.AssignmentScoreType"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"

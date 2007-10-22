@@ -1,10 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
-<%
-    String schoolname = request.getParameter("schoolname") == null ? "" : request.getParameter("schoolname");
-%>
-
             <div id="pageHeader">
                 <a href="/ep" id="logo">&nbsp;</a>
                 <div class="schoolName">

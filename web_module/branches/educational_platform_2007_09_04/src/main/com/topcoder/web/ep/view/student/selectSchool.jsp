@@ -1,12 +1,9 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page import="com.topcoder.web.common.BaseServlet" %>
 <%@ page import="com.topcoder.web.ep.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
