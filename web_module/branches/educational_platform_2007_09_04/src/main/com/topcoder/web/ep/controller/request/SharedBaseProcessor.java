@@ -41,6 +41,8 @@ public abstract class SharedBaseProcessor extends ShortHibernateProcessor {
 
                 log.debug(getUser().getUserName() + " logging in as professor");
                 
+                getRequest().setAttribute("user_type", "professor");
+                
                 professorProcessing();
             } else {
                 // since it's a shared processor check if he has permission
@@ -49,6 +51,8 @@ public abstract class SharedBaseProcessor extends ShortHibernateProcessor {
                 }
 
                 log.debug(getUser().getUserName() + " logging in as student");
+
+                getRequest().setAttribute("user_type", "student");
 
                 studentProcessing();
             }
