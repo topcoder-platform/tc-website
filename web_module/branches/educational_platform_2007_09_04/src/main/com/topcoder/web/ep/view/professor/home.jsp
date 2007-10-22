@@ -77,7 +77,6 @@ The Education Platform extends the TopCoder Algorithm Arena to aid you in teachi
 <c:choose>
     <c:when test="${not empty classrooms}">
         <h2>Your classes</h2>
-
         <c:forEach items="${classrooms}" var="classroom">
             <c:if test="${classroom.school != oldSchool}">
             <br clear="all" />
