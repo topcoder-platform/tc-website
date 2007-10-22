@@ -65,7 +65,7 @@
 
                                 <h1><span class="bg"><span class="spacer">Log in</span></span></h1>
 
-                                <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
+                                <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}">
                                     <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>" />
                                     <input type="hidden" name="module" value="Login" />
 
