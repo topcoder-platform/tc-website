@@ -27,6 +27,7 @@ public interface WebConstants {
     public static final String PASSWORD_CONFIRM = "pac";
     public static final String EMAIL = "em";
     public static final String EMAIL_CONFIRM = "emc";
+    public static final String TITLE = "ttl";
     public static final String GIVEN_NAME = "fn";
     public static final String MIDDLE_NAME = "mn";
     public static final String SURNAME = "ln";
