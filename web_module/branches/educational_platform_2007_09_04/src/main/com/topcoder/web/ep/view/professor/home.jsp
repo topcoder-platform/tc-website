@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.ep.Constants"%>
 <%@ page import="com.topcoder.web.common.BaseServlet" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -34,13 +35,9 @@
     </script>
 </head>
 
-<%
-    String nextpage = (String) request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
-    String message = (String) request.getAttribute("message");
-    if (message == null) message = "";
-%>
-
 <body>
+
+<c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
 
 <div align="center">
     <div id="widther">
@@ -88,16 +85,16 @@ The Education Platform extends the TopCoder Algorithm Arena to aid you in teachi
             </c:if>
             <div class="classroomListing" align="center">
                 <div class="name">
-                    <a href="${sessionInfo.servletPath}?module=ViewClassroomDetails&amp;clsid=${classroom.id}">${classroom.name}</a>
+                    <a href="${sessionInfo.servletPath}?module=ViewClassroomDetails&amp;${CLASSROOM_ID}=${classroom.id}">${classroom.name}</a>
                 </div>
                 <div class="button">
-                    <a href="${sessionInfo.servletPath}?module=ViewClassroomDetails&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/students.png" alt="Students" /></a>
+                    <a href="${sessionInfo.servletPath}?module=ViewClassroomDetails&amp;${CLASSROOM_ID}=${classroom.id}"><img src="/i/ep/buttons/students.png" alt="Students" /></a>
                 </div>
                 <div class="button">
-                    <a href="${sessionInfo.servletPath}?module=ViewClassroomAssignments&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/assignments.png" alt="Assignments" /></a>
+                    <a href="${sessionInfo.servletPath}?module=ViewClassroomAssignments&amp;${CLASSROOM_ID}=${classroom.id}"><img src="/i/ep/buttons/assignments.png" alt="Assignments" /></a>
                 </div>
                 <div class="button">
-                    <a href="${sessionInfo.servletPath}professor/?module=EditClassroom&amp;clsid=${classroom.id}"><img src="/i/ep/buttons/edit.png" alt="Edit class" /></a>
+                    <a href="${sessionInfo.servletPath}professor/?module=EditClassroom&amp;${CLASSROOM_ID}=${classroom.id}"><img src="/i/ep/buttons/edit.png" alt="Edit class" /></a>
                 </div>
             </div>
             <c:set var="oldSchool" value="${classroom.school}"/>
