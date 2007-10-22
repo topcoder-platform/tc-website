@@ -87,7 +87,7 @@
                         <%int i = 0;%>
                         <c:forEach items="${students}" var="student">
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                <td class="value">${student.user.lastName}, ${student.user.firstName}</td>
+                                <td class="value">${student.user.lastName}, ${student.user.firstName} (<tc-webtag:handle coderId='${student.id}'/>)</td>
                                 <tc-webtag:hiddenInput name="<%=Constants.STUDENT_ID%>" value="${student.id}"/>
                             </tr>
                         <%i++;%>
