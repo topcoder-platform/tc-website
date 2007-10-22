@@ -75,7 +75,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                         if (Arrays.binarySearch(WebConstants.ACTIVE_STATI, getStatus(sub.getUserId())) >= 0) {
                             //confluence likes to work with lower case user names
                             com.atlassian.user.User cUser = checkAndAddUser(userName);
-                            checkAndAddEmail(cUser, authentication.getActiveUser().getId());
+                            checkAndAddEmail(cUser, sub.getUserId());
 
                             boolean isTCAdmin = isAdmin(userName);
                             boolean isConfluenceAdmin = hasGroup(cUser, GROUP_TOPCODER_STAFF);
