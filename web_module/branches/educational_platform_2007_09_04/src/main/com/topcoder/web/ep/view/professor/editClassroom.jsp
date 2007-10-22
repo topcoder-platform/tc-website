@@ -24,6 +24,7 @@
 <%-- each school requires its own stylesheet, linked in here --%>
     <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
 
+    <script type="text/javascript" src="/js/ep/popup.js"></script>
     <script type="text/javascript">
         function submit() {
             var myForm = document.f;
@@ -87,7 +88,7 @@
                 <tbody>
                     <tr>
                         <td align="left">
-                            <strong>Class title:</strong>
+                            <div class="popper" onmouseover="postPopUpText('Please be specific and unique in naming your class, so that students can find it easily.'); popUp(this,'myPopUp')" onmouseout="popHide()"><strong>Class title:</strong></div>
                         </td>
                         <td align="left">
                             <tc-webtag:textInput name="classroom_name" size="60" editable="true" />
@@ -95,7 +96,7 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            <strong>Term:</strong>
+                            <div class="popper" onmouseover="postPopUpText('When is this class?  Season, semester/trimester, however your school designates class sessions.'); popUp(this,'myPopUp')" onmouseout="popHide()"><strong>Term:</strong></div>
                         </td>
                         <td align="left">
                             <tc-webtag:textInput name="classroom_academic_period" size="60" editable="true" />
@@ -111,6 +112,10 @@
                     </tr>
                 </tbody>
                 </table>
+            </div>
+
+            <div class="popUp" id="myPopUp">
+                <div id="popUpText" style="width: 300px; white-space: normal;">&nbsp;</div>
             </div>
 
             <div align="center">
