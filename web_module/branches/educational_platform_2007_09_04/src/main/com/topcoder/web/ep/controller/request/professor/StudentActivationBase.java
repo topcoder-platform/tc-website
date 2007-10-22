@@ -50,7 +50,12 @@ public abstract class StudentActivationBase extends ShortHibernateProcessor {
                 
                 List<StudentClassroom> lsc = new ArrayList<StudentClassroom>();
                 for (Long studentId : studentIds) {
-                    lsc.add(c.getStudentClassroom(studentId));
+                    StudentClassroom sc = c.getStudentClassroom(studentId);
+                    if (sc != null) {
+                        lsc.add(sc);
+                    } else {
+                        log.warn("The user is trying to activate/deactivate " + studentId + " but there is no such registration in the classroom");
+                    }
                 }
                 
                 if (lsc.size() > 0) {
