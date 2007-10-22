@@ -131,7 +131,7 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            <strong>Show all coders:</strong>
+                            <div onmouseover="popUp(this,'myPopUp')" onmouseout="popHide()"><strong>Show all coders:</strong></div>
                         </td>
                         <td align="left">
                             <tc-webtag:chkBox name="assignment_show_all_scores"/>
@@ -197,7 +197,7 @@
             </c:if>
 
             <div class="popUp" id="myPopUp">
-                <div id="popUpText" style="width: 200px; white-space: normal;">&nbsp;</div>
+                <div id="popUpText" style="width: 200px; white-space: normal;">Check this box if you'd like students to have access to the status and scores of the other students in the class.</div>
             </div>
 
             <div align="center">

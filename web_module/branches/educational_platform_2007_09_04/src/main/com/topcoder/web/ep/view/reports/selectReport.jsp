@@ -54,12 +54,20 @@
             <c:choose>
                 <c:when test="${not empty assignments}">
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
-                        <tr><td class="title">Assignments</td></tr>
-                        <tr><td class="header">Assignment</td></tr>
+                        <tr><td class="title" colspan="4">Assignments</td></tr>
+                        <tr>
+                            <td class="header">Assignment</td>
+                            <td class="headerC">Assigned</td>
+                            <td class="headerC">Opened</td>
+                            <td class="headerC">Finished<br />(Pass/Fail)</td>
+                        </tr>
                         <%int i = 0;%>
                         <c:forEach items="${assignments}" var="assignment">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value"><a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;asid=${assignment.id}">${assignment.name}</a></td>
+                                <td class="valueC">18</td>
+                                <td class="valueC">18</td>
+                                <td class="valueC">16 / 2</td>
                             </tr>
                         <%i++;%>
                         </c:forEach>
@@ -67,9 +75,14 @@
                 </c:when>
                 <c:otherwise>
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
-                        <tr><td class="title">Assignments</td></tr>
-                        <tr><td class="header">Assignment</td></tr>
-                        <tr class="light"><td class="valueC"><div style="margin: 10px;">There are no assignment reports available.</div></td></tr>
+                        <tr><td class="title" colspan="4">Assignments</td></tr>
+                        <tr>
+                            <td class="header">Assignment</td>
+                            <td class="headerC">Assigned</td>
+                            <td class="headerC">Opened</td>
+                            <td class="headerC">Finished<br />(Pass/Fail)</td>
+                        </tr>
+                        <tr class="light"><td class="valueC" colspan="4"><div style="margin: 10px;">There are no assignment reports available.</div></td></tr>
                     </table>
                 </c:otherwise>
             </c:choose>
