@@ -139,7 +139,7 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            <div class="popper" onmouseover="postPopUpText('description'); popUp(this,'myPopUp')" onmouseout="popHide()"><strong>Score type:</strong></div>
+                            <div class="popper" onmouseover="postPopUpText('You can select one of several scoring criteria for this assignment.  Your reports will show you the resulting scores for all the types of scoring, but students will only see the results for the selected type.'); popUp(this,'myPopUp')" onmouseout="popHide()"><strong>Score type:</strong></div>
                         </td>
                         <td align="left">
                             <tc-webtag:objectSelect name="assignment_score_type" useTopValue="false" list="${assignment_score_types}" valueField="id" textField="description"/>
