@@ -81,7 +81,7 @@
                         <tr>
                             <td class="header">Assignment</td>
                             <td class="headerC">Start</td>
-                            <td class="headerC">Due</td>
+                            <td class="headerC">End</td>
                             <td class="headerC">Assigned</td>
                             <%-- Moved to reports
                             <td class="headerC">Finished<br />(succeeded / failed)</td>

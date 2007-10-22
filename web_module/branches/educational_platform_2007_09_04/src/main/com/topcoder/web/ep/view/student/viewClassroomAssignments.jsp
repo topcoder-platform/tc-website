@@ -77,7 +77,7 @@
                         <tr>
                             <td class="header">Assignment</td>
                             <td class="headerC">Start</td>
-                            <td class="headerC">Due</td>
+                            <td class="headerC">End</td>
                         </tr>
                         <%int i = 0;%>
                         <c:forEach items="${assignments}" var="assignment">                

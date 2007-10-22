@@ -73,14 +73,14 @@
             <tbody>
                 <tr>
                     <td style="padding-right: 10px; font-weight: bold;" align="left">
-                        <p>Class</p>
-                        <p>Start</p>
-                        <p>End</p>
-                        <p>Assignment name</p>
-                        <p>Coder phase length</p>
-                        <p>Show all scores</p>
-                        <p>scoreType</p>
-                        <p>Languages</p>
+                        <p>Class:</p>
+                        <p>Start:</p>
+                        <p>End:</p>
+                        <p>Assignment title:</p>
+                        <p>Coder phase duration:</p>
+                        <p>Share status & scores:</p>
+                        <p>Score type:</p>
+                        <p>Available languages:</p>
                     </td>
                     <td align="left">
                         <p>${ea_assignment.classroomName}</p>

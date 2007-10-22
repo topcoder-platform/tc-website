@@ -57,9 +57,7 @@ Reporting is an integral part of the Educational Platform.  Below you can select
     <div class="spacer">
         <c:choose>
             <c:when test="${not empty classrooms}">
-                <p align="center">
-                Select a classroom:
-                </p>
+                <h2>Select a class</h2>
                 <c:forEach items="${classrooms}" var="classroom">
                     <c:if test="${classroom.school != oldSchool}">
                         <br clear="all" />

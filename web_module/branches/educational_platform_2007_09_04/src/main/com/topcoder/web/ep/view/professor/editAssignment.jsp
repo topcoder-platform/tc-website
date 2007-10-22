@@ -106,7 +106,7 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            <strong>Due date:</strong>
+                            <strong>End date:</strong>
                         </td>
                         <td align="left">
                             <tc-webtag:textInput name="assignment_end" id="assignment_end" format="yyyy.MM.dd HH:mm" size="16" maxlength="16" editable="true" />
@@ -115,23 +115,23 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            <strong>Coding phase:</strong>
+                            <div class="popper" onmouseover="postPopUpText('This designates how long students have to complete the assignment, starting when they open it in the Arena. Entering <strong>0</strong> will give students the entire assignment phase, from start date to end date.'); popUp(this,'myPopUp')" onmouseout="popHide()"><strong>Coding phase duration:</strong></div>
                         </td>
                         <td align="left">
                             <tc-webtag:textInput name="assignment_coding_phase_length" size="10" editable="true" /> minutes
                         </td>
                     </tr>
                     <tr>
-                        <td align="left">
-                            &nbsp;
+                        <td align="left">&nbsp;
+                            
                         </td>
                         <td align="left">
-                            (Entering <strong>0</strong> will give students the entire assignment phase, from start date to due date)
+                            (Entering <strong>0</strong> will give students the entire assignment phase, from start date to end date.)
                         </td>
                     </tr>
                     <tr>
                         <td align="left">
-                            <div onmouseover="popUp(this,'myPopUp')" onmouseout="popHide()"><strong>Show all coders:</strong></div>
+                            <div class="popper" onmouseover="postPopUpText('Check this box if you would like students to be able to see the status and scores of the rest of the class.'); popUp(this,'myPopUp')" onmouseout="popHide()"><strong>Share status & scores:</strong></div>
                         </td>
                         <td align="left">
                             <tc-webtag:chkBox name="assignment_show_all_scores"/>
@@ -139,7 +139,7 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            <strong>Score type:</strong>
+                            <div class="popper" onmouseover="postPopUpText('description'); popUp(this,'myPopUp')" onmouseout="popHide()"><strong>Score type:</strong></div>
                         </td>
                         <td align="left">
                             <tc-webtag:objectSelect name="assignment_score_type" useTopValue="false" list="${assignment_score_types}" valueField="id" textField="description"/>
@@ -147,7 +147,7 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            <strong>Languages:</strong>
+                            <strong>Available languages:</strong>
                         </td>
                         <td align="left">
                             <c:forEach items="${languages}" var="language">
@@ -197,7 +197,7 @@
             </c:if>
 
             <div class="popUp" id="myPopUp">
-                <div id="popUpText" style="width: 200px; white-space: normal;">Check this box if you'd like students to have access to the status and scores of the other students in the class.</div>
+                <div id="popUpText" style="width: 300px; white-space: normal;">&nbsp;</div>
             </div>
 
             <div align="center">
