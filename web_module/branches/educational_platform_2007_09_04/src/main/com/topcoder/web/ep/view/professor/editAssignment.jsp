@@ -101,7 +101,7 @@
                         </td>
                         <td align="left">
                             <tc-webtag:textInput name="assignment_start" id="assignment_start" format="yyyy.MM.dd HH:mm" size="16" maxlength="16" editable="true" />
-                            <button id="trigger_assignment_start">Set</button>
+                            <button id="trigger_assignment_start">Select</button>
                         </td>
                     </tr>
                     <tr>
@@ -110,7 +110,7 @@
                         </td>
                         <td align="left">
                             <tc-webtag:textInput name="assignment_end" id="assignment_end" format="yyyy.MM.dd HH:mm" size="16" maxlength="16" editable="true" />
-                            <button id="trigger_assignment_end">Set</button>
+                            <button id="trigger_assignment_end">Select</button>
                         </td>
                     </tr>
                     <tr>

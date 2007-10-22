@@ -104,6 +104,14 @@
                     </tr>
                     <tr>
                         <td align="left">
+                            &nbsp;
+                        </td>
+                        <td align="left">
+                            (Example: "Spring 2007")
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
                             <strong>Description:</strong>
                         </td>
                         <td align="left">
