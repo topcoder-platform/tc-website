@@ -86,8 +86,8 @@
                             <%-- Moved to reports
                             <td class="headerC">Finished<br />(succeeded / failed)</td>
                             --%>
-                            <td class="headerC">&nbsp;</td>
-                            <td class="headerC">&nbsp;</td>
+                            <c:if test="show_assign_to"><td class="headerC">&nbsp;</td></c:if>
+                            <c:if test="show_edit"><td class="headerC">&nbsp;</td></c:if>
                         </tr>
                         <%int i = 0;%>
                         <c:forEach items="${assignments}" var="assignment">                
@@ -97,22 +97,26 @@
                                 <td class="valueC"><fmt:formatDate value="${assignment.contest.endDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
                                 <td class="valueC">${assignment.registered}</td>
                                 <jsp:useBean id="now" class="java.util.Date"/>
-                                <c:choose>
-                                    <c:when test="${assignment.contest.endDate > now}">
-                                        <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignmentStudents&amp;asid=${assignment.id}"><img src="/i/ep/buttons/assignTo.png" alt="Assign to..." /></a></td>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <td class="valueC">&nbsp;</td>
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${assignment.contest.startDate > now}">
-                                        <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;asid=${assignment.id}&amp;fr=true"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <td class="valueC">&nbsp;</td>
-                                    </c:otherwise>
-                                </c:choose>
+                                <c:if test="show_assign_to">
+                                    <c:choose>
+                                        <c:when test="${assignment.contest.endDate > now}">
+                                            <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignmentStudents&amp;asid=${assignment.id}"><img src="/i/ep/buttons/assignTo.png" alt="Assign to..." /></a></td>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <td class="valueC">&nbsp;</td>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:if>
+                                <c:if test="show_edit">
+                                    <c:choose>
+                                        <c:when test="${assignment.contest.startDate > now}">
+                                            <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;asid=${assignment.id}&amp;fr=true"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <td class="valueC">&nbsp;</td>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:if>
                             </tr>
                         <%i++;%>
                         </c:forEach>
