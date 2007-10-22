@@ -5,12 +5,17 @@
  */
 package com.topcoder.web.ep.controller.request;
 
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
+
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
+import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 
@@ -29,9 +34,27 @@ public class ViewClassroomAssignments extends SharedBaseProcessor {
         if (c.getProfessor().getId().equals(getUser().getId())) {
             log.debug("is professor");
 
+            
+            List<Round> lr = DAOUtil.getFactory().getClassroomDAO().getAssignments(c.getId());
+            
+            // we need to tell the UI whether to show or not the edit and assign to columns            
+            Boolean showEdit = false;
+            Boolean showAssignTo = false;
+            Timestamp now = new Timestamp((new Date()).getTime());
+            for (Round r : lr) {
+                if (r.getContest().getEndDate().after(now)) {
+                    showAssignTo = true;
+                }
+                if (r.getContest().getStartDate().after(now)) {
+                    showEdit = true;
+                }
+            }
+            
             // this user is the classroom's professor
+            getRequest().setAttribute("show_edit", showEdit);
+            getRequest().setAttribute("show_assign_to", showAssignTo);
             getRequest().setAttribute("classroom", c);
-            getRequest().setAttribute("assignments", DAOUtil.getFactory().getClassroomDAO().getAssignments(c.getId()));
+            getRequest().setAttribute("assignments", lr);
 
             setNextPage("/professor/viewClassroomAssignments.jsp");
             setIsNextPageInContext(true);
