@@ -84,9 +84,9 @@
                                 <td class="pr_video_desc">
                                     <h3><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies">2007 TopCoder Open webcast</a></h3>
                                     <p>View the entire TCO07 in 3 separate parts.  Also featuring a Tournament trailer, an interview with AOL CTO Balan Nair, and a handheld camera montage.  Requires Flash 7 or higher. 
-                                    <br /><small style="margin-left:10px;">Ch 1 time: 01:03:55 | Format: swf | Player: Adobe Flash</small></p>
+                                    <br /><small style="margin-left:10px;">Ch 1 time: 01:03:55 | Format: Flash</small></p>
                                     
-                                    <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies" class="button">View</a></span><span style="width:70; float:left; padding:5px;"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast1&title=Webcast%20Part%201" class="button">Download</a></span></div>
+                                    <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies" class="button">View</a></span></div>
                                 </td>
                             </tr>
                             
@@ -96,9 +96,9 @@
                                 <td class="pr_video_desc">
                                     <h3><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies">2006 TopCoder Collegiate Challenge webcast</a></h3>
                                     <p>View the entire TCCC06 in 8 separate parts.  Requires Flash 7 or higher. 
-                                    <br /><small style="margin-left:10px;">Ch 1 time: 00:26:27 | Format: swf | Player: Adobe Flash</small></p>
+                                    <br /><small style="margin-left:10px;">Ch 1 time: 00:26:27 | Format: Flash</small></p>
                                     
-                                    <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies" class="button">View</a></span><span style="width:70; float:left; padding:5px;"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movieStream&clip=1" class="button">Download</a></span></div>
+                                    <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies" class="button">View</a></span></div>
                                 </td>
                             </tr>
                             </table>
@@ -112,11 +112,7 @@
                 <div class="pr_featured_sub">
                     <a href="/tc?module=Static&d1=media&d2=tcchannel" title="TC Channel"><img src="/i/pressroom/tcchannelPR.png" width="223" height="145"></a><br />
                     <br />
-                    <%-- not using the Media Kit nor the Media Request Form page
-                    <a href="#" title="Media Kit"><img src="/i/pressroom/featured_mediakit.png" width="223" height="145"></a><br />
-                    <br />
-                    <a href="/tc?module=Static&d1=pressroom&d2=mediaRequestForm" title="Public Relations"><img src="/i/pressroom/featured_requestform.png"></a>
-                    --%>
+                    <a href="mailto:media@topcoder.com?subject=Media Request" title="Public Relations"><img src="/i/pressroom/featured_requestform.png"></a>
                 </div>
                 
             </div>
