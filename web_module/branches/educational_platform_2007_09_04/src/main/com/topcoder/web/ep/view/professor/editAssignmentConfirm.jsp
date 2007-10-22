@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
+<%@ page import="com.topcoder.web.common.model.educ.AssignmentScoreType"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
@@ -30,6 +31,8 @@
 </head>
 
 <body>
+
+<c:set value="<%=AssignmentScoreType.TC_SCORE_TYPE%>" var="tc_score_type"/>
 
 <div align="center">
     <div id="widther">
@@ -103,13 +106,19 @@
             <div style="width:350px;">
 
                 <table cellpadding="0" cellspacing="0" class="stat">
-                    <tr><td class="title" colspan="2">Problem set: ${problem_set_name}</td></tr>
-                    <tr><td class="header" width="100%">Problem</td><td class="headerR">Points</td></tr>
+                    <tr><td class="title" colspan="${ea_assignment.scoreType == tc_score_type ? 1 : 2}">Problem set: ${problem_set_name}</td></tr>
+                    <tr><td class="header" width="100%">Problem</td>
+                    <c:if test="${ea_assignment.scoreType == tc_score_type}">
+                    <td class="headerR">Points</td>
+                    </c:if>
+                    </tr>
                     <%int i = 0;%>
                     <c:forEach items="${ea_assignment.components}" var="component">                
                         <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                             <td class="value">${component.problemName}</td>
-                            <td class="valueR">${component.points}</td>
+                            <c:if test="${ea_assignment.scoreType == tc_score_type}">
+                                <td class="valueR">${component.points}</td>
+                            </c:if>
                         </tr>
                     <%i++;%>
                     </c:forEach>
