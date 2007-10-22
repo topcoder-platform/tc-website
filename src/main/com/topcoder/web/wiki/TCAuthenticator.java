@@ -237,7 +237,9 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         Request dataRequest = new Request();
         dataRequest.setProperty(DataAccessConstants.COMMAND, "user_email");
         dataRequest.setProperty("uid", String.valueOf(userId));
-        return dai.getData(dataRequest).get("user_email").getStringItem(0, "address");
+        ResultSetContainer rsc = dai.getData(dataRequest).get("user_email");
+        log.debug("email for user " + userId + " " + rsc.toString());
+        return rsc.getStringItem(0, "address");
 
     }
 
