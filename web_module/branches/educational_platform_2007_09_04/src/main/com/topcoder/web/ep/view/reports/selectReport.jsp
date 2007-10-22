@@ -59,7 +59,7 @@
                             <td class="header">Assignment</td>
                             <td class="headerC">Assigned</td>
                             <td class="headerC">Opened</td>
-                            <td class="headerC">Finished<br />(Pass/Fail)</td>
+                            <td class="headerC">Finished</td>
                         </tr>
                         <%int i = 0;%>
                         <c:forEach items="${assignments}" var="assignment">                
@@ -67,7 +67,7 @@
                                 <td class="value"><a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;asid=${assignment.id}">${assignment.name}</a></td>
                                 <td class="valueC">${assignment.registered}</td>
                                 <td class="valueC">${assignment.opened}</td>
-                                <td class="valueC">${assignment.succeeded} / ${assignment.failed}</td>
+                                <td class="valueC">${assignment.finished}</td>
                             </tr>
                         <%i++;%>
                         </c:forEach>

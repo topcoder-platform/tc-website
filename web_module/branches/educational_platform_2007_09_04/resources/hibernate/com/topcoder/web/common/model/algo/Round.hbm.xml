@@ -24,27 +24,27 @@
 
         <property name="opened" access="field">
             <formula>
-                (select count(*)
-                from informixoltp:component_state cs
-                where cs.round_id = round_id
-                and cs.status_id in (120, 121, 122))
+                (select 
+                sum(nvl((select 1 from component_state cs
+                where cs.round_id = rr.round_id
+                and cs.coder_id = rr.coder_id
+                and cs.status_id in (120, 121, 122)),0))
+                from round_registration rr
+                where rr.round_id = round_id)
             </formula>
         </property>
 
-        <property name="failed" access="field">
+        <property name="finished" access="field">
             <formula>
-                (select count(*)
-                from informixoltp:component_state cs
-                where cs.round_id = round_id
-                and cs.status_id in (140, 160))
-            </formula>
-        </property>
-        <property name="succeeded" access="field">
-            <formula>
-                (select count(*)
-                from informixoltp:component_state cs
-                where cs.round_id = round_id
-                and cs.status_id = 150)
+                (select count(*) -
+                sum(nvl((select 1 from round_component rc, component_state cs
+                where rc.round_id = rr.round_id
+                and cs.coder_id = rr.coder_id
+                and cs.component_id = rc.component_id
+                and cs.round_id = rr.round_id
+                and cs.status_id not in (140, 150, 160)),0))
+                from round_registration rr
+                where rr.round_id = round_id)
             </formula>
         </property>
         

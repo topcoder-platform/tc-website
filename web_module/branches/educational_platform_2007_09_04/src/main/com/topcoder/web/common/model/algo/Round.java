@@ -26,9 +26,8 @@ public class Round extends Base {
     private RoundType type = null;
     private Integer rated = null;
 
-    private Integer succeeded = null;
-    private Integer failed = null;
     private Integer opened = null;
+    private Integer finished = null;
     
     private Set<Room> rooms;
     private Set<RoundProperty> roundProperties;
@@ -50,20 +49,13 @@ public class Round extends Base {
         this.roundRegistrations = new HashSet<RoundRegistration>();
     }
     
-    public Integer getSucceeded() {
-        return succeeded;
+
+    public Integer getFinished() {
+        return finished;
     }
 
-    public void setSucceeded(Integer succeeded) {
-        this.succeeded = succeeded;
-    }
-
-    public Integer getFailed() {
-        return failed;
-    }
-
-    public void setFailed(Integer failed) {
-        this.failed = failed;
+    public void setFinished(Integer finished) {
+        this.finished = finished;
     }
 
     public Integer getOpened() {
