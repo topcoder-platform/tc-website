@@ -100,6 +100,37 @@
         </table>
         
         ${submission}
+
+        <c:choose>
+            <c:when test="${not empty system_tests}">
+                <table border="1">
+                    <tr>
+                        <td>Test arguments</td>
+                        <td>Expected results</td>
+                        <td>Success</td>
+                    </tr>
+                    <c:forEach items="${system_tests}" var="test">
+                        <tr>
+                            <td>${test.args}</td>
+                            <td>${test.expected}</td>
+                            <td>
+                            <c:choose>
+                                <c:when test="${test.succeeded}">
+                                    <span class="bigGreen">Passed</span>
+                                </c:when>
+                                <c:otherwise>
+                                    Failed
+                                </c:otherwise>
+                            </c:choose>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>                
+            </c:when>
+            <c:otherwise>
+                There are no system tests results to show.
+            </c:otherwise>
+        </c:choose>
     </div>
 </body>
 </html>

@@ -17,6 +17,7 @@
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
+    <jsp:include page="../script.jsp" />
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_ep"/>
     </jsp:include>
@@ -115,7 +116,9 @@
                     <%int i = 0;%>
                     <c:forEach items="${ea_assignment.components}" var="component">                
                         <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                            <td class="value">${component.problemName}</td>
+                            <td class="value">
+                                <a href="Javascript:openWin('/ep/?module=ViewProblem&amp;<%=Constants.COMPONENT_ID%>=${component.componentId}','problemStatement',600,600);">${component.problemName}</a>
+                            </td>
                             <c:if test="${ea_assignment.scoreType == tc_score_type}">
                                 <td class="valueR">${component.points}</td>
                             </c:if>

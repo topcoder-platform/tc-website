@@ -7,9 +7,17 @@ package com.topcoder.web.ep.controller.request.reports;
 
 import java.sql.Time;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.TimeZone;
 
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -92,7 +100,7 @@ public class ViewSubmission extends SharedBaseProcessor {
         // get component state
         ComponentState cs = DAOUtil.getFactory().getComponentStateDAO().getStudentResultsByComponent(a, cmp, s.getId());
 
-        // get tests results
+        // get results
         Object systemTestResults = DAOUtil.getFactory().getSystemTestResultDAO().getSystemTestResultsByStudentComponent(a, cmp, s.getId());
         Object[] lo = (Object[]) systemTestResults;
         Integer total = (Integer)lo[0];
@@ -104,6 +112,19 @@ public class ViewSubmission extends SharedBaseProcessor {
         SimpleDateFormat sdfTime = new SimpleDateFormat("H:mm:ss.SSS");
         sdfTime.setTimeZone(TimeZone.getTimeZone("GMT"));
 
+        // get system tests
+        ResultSetContainer rsc = getData(a.getId(), cmp.getId(), s.getId());
+
+        List<SystemTestRow> lstr = new ArrayList<SystemTestRow>(); 
+        for (ResultSetRow rsr : rsc) {
+            lstr.add(new SystemTestRow(
+                StringUtils.htmlEncode(rsr.getItem("args").toString()),
+                StringUtils.htmlEncode(rsr.getItem("expected").toString()),
+                rsr.getLongItem("coder_id") == 1
+                ));
+        }
+        
+        
         getRequest().setAttribute("assignment", a);
         getRequest().setAttribute("component", cmp);
         getRequest().setAttribute("student", s);
@@ -112,6 +133,7 @@ public class ViewSubmission extends SharedBaseProcessor {
         getRequest().setAttribute("percentTestPassed", succeeded * 100d / total);
         getRequest().setAttribute("status", ComponentState.getStatusDescription(cs.getStatusId()));
         getRequest().setAttribute("time", sdfTime.format(new Time(sub.getSubmitTime() - sub.getOpenTime())));
+        getRequest().setAttribute("system_tests", lstr);
         
         getRequest().setAttribute("submission", addSpace(sub.getSubmissionText()));
         
@@ -209,4 +231,24 @@ public class ViewSubmission extends SharedBaseProcessor {
 
         return id;
     }
+    
+    private ResultSetContainer getData(Long roundId, Long componentId, Long coderId) throws TCWebException {
+        try {
+            Request r = new Request();
+            String queryName = "submission_system_tests";
+            r.setProperty("cr", coderId.toString());
+            r.setProperty("rd", roundId.toString());
+            r.setProperty("compid", componentId.toString());
+            r.setContentHandle(queryName);
+
+            DataAccessInt dai = getDataAccess();
+            Map result = dai.getData(r);
+            ResultSetContainer rsc = (ResultSetContainer) result.get(queryName);
+
+            return rsc;
+        } catch (Exception e) {
+            throw new TCWebException("Could not get data from DB", e);
+        }
+    }
+
 }
