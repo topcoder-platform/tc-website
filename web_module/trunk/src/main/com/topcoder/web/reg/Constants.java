@@ -26,7 +26,6 @@ public class Constants implements WebConstants {
     public static final String QUOTE = "qu";
     public static final String NOTIFICATION = "not_";
     public static final String COMPANY_NAME = "cpnm";
-    public static final String TITLE = "ttl";
     public static final String GPA = "gpa";
     public static final String GPA_SCALE = "gpas";
     public static final String VISIBLE_SCHOOL = "vschl";
@@ -67,7 +66,7 @@ public class Constants implements WebConstants {
     public static final String HOME_SCHOOLED = "Home School";
     public static final String MEMBER_CONTACT = "pref_24";
     public static final String SHOW_EARNINGS = "pref_100";
-    
+
     public static final String INACTIVATE_HS = "inhs";
     public static final String HS_RESPONSES = "hsr";
 
