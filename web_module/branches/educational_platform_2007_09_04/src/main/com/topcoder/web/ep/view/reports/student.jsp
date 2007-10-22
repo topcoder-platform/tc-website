@@ -91,26 +91,10 @@
             <tbody>
                 <tr>
                     <td align="left">
-                        <strong>School:</strong>
-                    </td>
-                    <td align="left">
-                        ${classroom.school.name}
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left">
                         <strong>Class:</strong>
                     </td>
                     <td align="left">
                         ${classroom.name}
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left">
-                        <strong>Term:</strong>
-                    </td>
-                    <td align="left">
-                        ${classroom.academicPeriod}
                     </td>
                 </tr>
                 <tr>

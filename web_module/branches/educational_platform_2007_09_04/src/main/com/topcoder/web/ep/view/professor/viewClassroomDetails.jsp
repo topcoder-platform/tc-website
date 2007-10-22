@@ -94,16 +94,10 @@
             <tbody>
                 <tr>
                     <td style="padding-right: 10px; font-weight: bold;" align="left">
-                        <p>School:</p>
                         <p>Class:</p>
-                        <p>Term:</p>
-                        <p>Description:</p>
                     </td>
                     <td align="left">
-                        <p>${classroom.school.name}</p>
                         <p>${classroom.name}</p>
-                        <p>${classroom.academicPeriod}</p>
-                        <p>${classroom.description}</p>
                     </td>
                 </tr>
             </tbody>
@@ -135,7 +129,7 @@
                     </table>
                     <div>
                         <div style="float:right; margin-left: 10px;"><a href="javascript:submit('deactivate')"><img src="/i/ep/buttons/reject.png" alt="Reject" /></a></div>
-                        <div style="float:right;"><a href="javascript:submit('activate')"><img src="/i/ep/buttons/activate.png" alt="Activate" /></a></div>
+                        <div style="float:right;"><a href="javascript:submit('activate')"><img src="/i/ep/buttons/accept.png" alt="Accept" /></a></div>
                     </div>
                 </form>
             </c:when>
@@ -172,7 +166,7 @@
                             </tr>
                     </table>
                     <div align="right">
-                        <a href="javascript:submitActive()"><img src="/i/ep/buttons/deactivate.png" alt="Deactivate" /></a>
+                        <a href="javascript:submitActive()"><img src="/i/ep/buttons/remove.png" alt="Remove" /></a>
                     </div>
                 </form>
             </c:when>

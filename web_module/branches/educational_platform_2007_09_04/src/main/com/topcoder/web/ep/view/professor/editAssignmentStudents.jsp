@@ -75,17 +75,11 @@
             <tbody>
                 <tr>
                     <td style="padding-right: 10px; font-weight: bold;" align="left">
-                        <p>School:</p>
                         <p>Class:</p>
-                        <p>Term:</p>
-                        <p>Description:</p>
                         <p>Assignment:</p>
                     </td>
                     <td align="left">
-                        <p>${classroom.school.name}</p>
                         <p>${classroom.name}</p>
-                        <p>${classroom.academicPeriod}</p>
-                        <p>${classroom.description}</p>
                         <p>${assignment_name}</p>
                     </td>
                 </tr>
