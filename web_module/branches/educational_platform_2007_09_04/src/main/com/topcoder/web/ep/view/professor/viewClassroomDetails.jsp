@@ -123,7 +123,7 @@
                         <%int i = 0;%>
                         <c:forEach items="${pendingStudents}" var="student">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                <td class="value">${student.user.lastName}, ${student.user.firstName}</td>
+                                <td class="value">${student.user.lastName}, ${student.user.firstName} (<tc-webtag:handle coderId='${student.id}'/>)</td>
                                 <td class="valueC"><input type="checkbox" name="stid" value="${student.id}" /></td>
                             </tr>
                         <%i++;%>
@@ -161,7 +161,7 @@
                         <%int i = 0;%>
                         <c:forEach items="${activeStudents}" var="student">
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                <td class="value">${student.user.lastName}, ${student.user.firstName}</td>
+                                <td class="value">${student.user.lastName}, ${student.user.firstName} (<tc-webtag:handle coderId='${student.id}'/>)</td>
                                 <td class="valueC"><input type="checkbox" name="stid" value="${student.id}" /></td>
                             </tr>
                         <%i++;%>

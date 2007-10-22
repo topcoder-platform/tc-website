@@ -86,7 +86,7 @@
         <p align="center">
             <strong>
                 <c:forEach items="${student_classrooms}" var="student_classroom">
-                    ${student_classroom.id.student.user.lastName}, ${student_classroom.id.student.user.firstName}<br />
+                    ${student_classroom.id.student.user.lastName}, ${student_classroom.id.student.user.firstName} (<tc-webtag:handle coderId='${student_classroom.id.student.id}'/>)<br />
                 </c:forEach>
             </strong>
         </p>
