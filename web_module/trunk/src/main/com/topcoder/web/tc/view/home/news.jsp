@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.22.07<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank chat before SRM 373</A></span><br /><br />
+        SRM 373 is sponsored by Deutsche Bank.  Be sure to check in to the arena an hour before the match starts to chat with Deutsche Bank representatives.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">details</a> | 
+        <tc-webtag:forumLink forumID="517145" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.22.07<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=SurveyResults&sid=19850">TCO08 website winner</A></span><br /><br />
@@ -156,18 +169,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm370">details</A> | 
          <tc-webtag:forumLink forumID="516067" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.09.07<br />4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=MatchDetails&rd=10930">Prizes Added to Marathon Match 24</A></span><br /><br />
-        As part of Marathon Match 24 we will be presenting a real world problem and use the solution in the development of a system for one of our clients.  We will be giving away $15,000 to the top competitors in the match.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=MatchDetails&rd=10930">details</a> | 
-        <a href="http://forums.topcoder.com/?module=Thread&threadID=589917">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
    
