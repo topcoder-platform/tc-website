@@ -21,6 +21,32 @@
         <property name="invitational" column="invitational" access="field"/>
         <many-to-one name="type" column="round_type_id" class="RoundType" access="field" fetch="join"/>
         <property name="rated" column="rated_ind" access="field"/>
+
+        <property name="opened" access="field">
+            <formula>
+                (select count(*)
+                from informixoltp:component_state cs
+                where cs.round_id = round_id
+                and cs.status_id in (120, 121, 122))
+            </formula>
+        </property>
+
+        <property name="failed" access="field">
+            <formula>
+                (select count(*)
+                from informixoltp:component_state cs
+                where cs.round_id = round_id
+                and cs.status_id in (140, 160))
+            </formula>
+        </property>
+        <property name="succeeded" access="field">
+            <formula>
+                (select count(*)
+                from informixoltp:component_state cs
+                where cs.round_id = round_id
+                and cs.status_id = 150)
+            </formula>
+        </property>
         
         <set name="rooms" cascade="save-update" inverse="true" access="field">
             <key column="round_id" not-null="true"/>
