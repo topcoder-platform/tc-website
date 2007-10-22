@@ -74,7 +74,7 @@ public class MediaRequest extends BaseProcessor {
             EmailEngine.send(mail);
 
             setNextPage(getSessionInfo().getServletPath() + "?" +
-                    Constants.MODULE_KEY + "=Static&d1=pressroom&d2=");
+                    Constants.MODULE_KEY + "=Static&d1=pressroom&d2=mediaRequestFormSuccess");
             setIsNextPageInContext(false);
 
 
