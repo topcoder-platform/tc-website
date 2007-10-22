@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.22.07<br />10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=SurveyResults&sid=19850">TCO08 website winner</A></span><br /><br />
+        Check out the slick new design for the TCO08! Congratulations goes to <tc-webtag:handle coderId="10481546" />, who won both the highest score in online review and the community vote.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=SurveyResults&sid=19850">details</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=995&start=0">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.19.07<br />12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/pdfs/tournaments/TCCC07_Program_View.pdf">TCCC07 Program now available</A> [PDF - 3mb]</span><br /><br />
@@ -156,21 +169,5 @@
         <A href="/tc?module=MatchDetails&rd=10930">details</a> | 
         <a href="http://forums.topcoder.com/?module=Thread&threadID=589917">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />10.09.07<br />3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=100907">TopCoder @ Work: The Hacker vs. The Architect</A></span><br /><br />
-      In an IT world where the names of the hottest new design patterns and development methodologies are thrown around like umbrellas caught in tornadoes, a competent application architect commands a certain position of power and admiration. Yet amidst all of this, an important team member of yesterday is now all but forgotten: the hacker.</td>
-         <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="Author" width="55" height="61" />&nbsp;<img src="/i/m/rhudson_big.jpg" alt="Author" width="55" height="61" /><br />by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=100907">details</A> | 
-         <tc-webtag:forumLink forumID="517765" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
