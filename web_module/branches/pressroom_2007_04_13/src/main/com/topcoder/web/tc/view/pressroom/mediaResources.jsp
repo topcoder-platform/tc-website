@@ -79,46 +79,29 @@
                             <%-- because of floating problem, this data presented using table --%>
                             <table cellpadding="0" cellspacing="0">
                             <tr>
-                                <td class="pr_video_img"><a href="#linktonews"><img src="/i/pressroom/video_1.jpg" alt="Video Item" /></a></td>
+                                <td class="pr_video_img"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies"><img src="/i/pressroom/tco07webcast.png" alt="TCO07 webcast" /></a></td>
                                 <td class="pr_video_space">&nbsp;</td>
                                 <td class="pr_video_desc">
-                                    <h3><a href="#linktonews">TopCoder featured on public's radio "Open Source"</a></h3>
-                                    <p>Lorem ipsum dolor sit amet conseqtetur, adispiscing ut labore et dolore magna aliqua. 
-                                    <br /><small style="margin-left:10px;">Size: 6.3MB | Format: avi | Player: Windows Media Player</small></p>
+                                    <h3><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies">2007 TopCoder Open webcast</a></h3>
+                                    <p>View the entire TCO07 in 3 separate parts.  Also featuring a Tournament trailer, an interview with AOL CTO Balan Nair, and a handheld camera montage.  Requires Flash 7 or higher. 
+                                    <br /><small style="margin-left:10px;">Ch 1 time: 01:03:55 | Format: swf | Player: Adobe Flash</small></p>
                                     
-                                    <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="#" class="button">View</a></span><span style="width:70; float:left; padding:5px;"><a href="#" class="button">Download</a></span></div>
+                                    <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies" class="button">View</a></span><span style="width:70; float:left; padding:5px;"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast1&title=Webcast%20Part%201" class="button">Download</a></span></div>
                                 </td>
                             </tr>
                             
                             <tr>
-                                <td class="pr_video_img"><a href="#linktonews"><img src="/i/pressroom/video_1.jpg" alt="Video Item" /></a></td>
+                                <td class="pr_video_img"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies"><img src="/i/pressroom/video_1.jpg" alt="TCCC06 webcast" /></a></td>
                                 <td class="pr_video_space">&nbsp;</td>
                                 <td class="pr_video_desc">
-                                    <h3><a href="#linktonews">TopCoder featured on public's radio "Open Source"</a></h3>
-                                    <p>Lorem ipsum dolor sit amet conseqtetur, adispiscing ut labore et dolore magna aliqua. 
-                                    <br /><small style="margin-left:10px;">Size: 6.3MB | Format: avi | Player: Windows Media Player</small></p>
+                                    <h3><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies">2006 TopCoder Collegiate Challenge webcast</a></h3>
+                                    <p>View the entire TCCC06 in 8 separate parts.  Requires Flash 7 or higher. 
+                                    <br /><small style="margin-left:10px;">Ch 1 time: 00:26:27 | Format: swf | Player: Adobe Flash</small></p>
                                     
-                                    <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="#" class="button">View</a></span><span style="width:70; float:left; padding:5px;"><a href="#" class="button">Download</a></span></div>
+                                    <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies" class="button">View</a></span><span style="width:70; float:left; padding:5px;"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movieStream&clip=1" class="button">Download</a></span></div>
                                 </td>
                             </tr>
-                            </table>                        
-                            
-                            <%-- video item begin --%>
-                            <%--
-                            <div class="pr_videoitem">
-                                <div class="pr_video">
-                                    <a href="#linktonews"><img src="/i/pressroom/video_1.jpg" alt="Video Item" /></a>
-                                </div>
-                                <div class="pr_videodesc">
-                                    <h3><a href="#linktonews">TopCoder featured on public's radio "Open Source"</a></h3>
-                                    <p>Lorem ipsum dolor sit amet conseqtetur, adispiscing ut labore et dolore magna aliqua. 
-                                    <br /><small style="margin-left:10px;">Size: 6.3MB | Format: avi | Player: Windows Media Player</small></p>
-                                    
-                                    <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="#" class="button">View</a></span><span style="width:70; float:left; padding:5px;"><a href="#" class="button">Download</a></span></div>
-                                </div>
-                            </div>
-                            --%>
-                            <%-- video item end --%>
+                            </table>
                             
                         </div>
                         
@@ -127,9 +110,13 @@
                 </div>
                 
                 <div class="pr_featured_sub">
-                    <a href="#" title="Media Kit"><img src="/i/pressroom/featured_mediakit.png" width="223" height="145"></a><br>
-                    <br>
-                    <a href="mediaRequestForm.html" title="Public Relations"><img src="/i/pressroom/featured_requestform.png"></a>
+                    <a href="/tc?module=Static&d1=media&d2=tcchannel" title="TC Channel"><img src="/i/pressroom/tcchannelPR.png" width="223" height="145"></a><br />
+                    <br />
+                    <%-- not using the Media Kit nor the Media Request Form page
+                    <a href="#" title="Media Kit"><img src="/i/pressroom/featured_mediakit.png" width="223" height="145"></a><br />
+                    <br />
+                    <a href="/tc?module=Static&d1=pressroom&d2=mediaRequestForm" title="Public Relations"><img src="/i/pressroom/featured_requestform.png"></a>
+                    --%>
                 </div>
                 
             </div>
@@ -147,22 +134,48 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
-                    <dd><a href="#">TopCoder Announced TopCoder Open 2007 Sponsored by AOL. <br /><small style="margin-left:10px;">[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small style="margin-left:10px;">[February 20]</small></a></dd>
-                    <dd><a href="#">Registration Opens for First TopCoder High School Global Programming Tournament. <br /><small style="margin-left:10px;">[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small style="margin-left:10px;">[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small style="margin-left:10px;">[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small style="margin-left:10px;">[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small style="margin-left:10px;">[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small style="margin-left:10px;">[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small style="margin-left:10px;">[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small style="margin-left:10px;">[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small style="margin-left:10px;">[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small style="margin-left:10px;">[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small style="margin-left:10px;">[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small style="margin-left:10px;">[February 20]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small style="margin-left:10px;">[February 22]</small></a></dd>
-                    <dd><a href="#">Lorem ipsum dolor sit amet, consectetur adispicing ut labore dolore magna aliqua. <br /><small style="margin-left:10px;">[February 20]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep05">TC Channel: Episode 5 <br /><small style="margin-left:10px;">[September 25]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep04">TC Channel: Episode 4 <br /><small style="margin-left:10px;">[August 27]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies">2007 TopCoder Open webcast <br /><small style="margin-left:10px;">[August 3]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=media&d2=misc3x2&clip=foxchicago_20070802&title=Fox%20TV:%20Top%20Computer%20Programmers%20Compete">Fox TV: "Top Computer Programmers Compete" <br /><small style="margin-left:10px;">[August 2]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep03">TC Channel: Episode 3 <br /><small style="margin-left:10px;">[July 25]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=montage&title=Handheld%20camera%20montage">TCO07 highlights video now available <br /><small style="margin-left:10px;">[July 3]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=aolCTO&title=Interview%20with%20AOL%20CTO,%20Balan%20Nair">TCO Preview: An Interview with AOL's Balan Nair <br /><small style="margin-left:10px;">[June 26]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep02">TC Channel: Episode 2 <br /><small style="margin-left:10px;">[June 20]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=movieStream">TCHS07 Photos &amp; Video now available <br /><small style="margin-left:10px;">[May 23]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep01">Introducing the new TC Channel! <br /><small style="margin-left:10px;">[May 16]</small></a></dd>
+                    <dd><a target="_blank" href="/movies/promotional/TopCoder_software_01.31.07.mov">Building Software through Competition <br /><small style="margin-left:10px;">[January 31]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies">Watch the full TCCC06 Webcast <br /><small style="margin-left:10px;">[January 8]</small></a></dd>
+                    </dl>
+                </div>
+                
+                <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
+                <div class="pr_clear"></div>
+                
+            </div></div></div>
+            <%-- Yearly Container end --%>
+            
+            <%-- Yearly Sub Content Container --%>
+            <div class="pr_subheader">
+                <h2><span>2006</span></h2>
+            </div>
+            
+            <%-- pr_border creation --%>
+            <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
+                <div class="pr_newsarchive">
+                    <dl>
+                    <dt>&nbsp;</dt>
+                    <dd><a target="_blank" href="/movies/tournament/tccc06/final_webcast_preview.mov">TCCC06 Webcast Highlights <br /><small style="margin-left:10px;">[December 8]</small></a></dd>
+                    <dd><a target="_blank" href="/audio/open_source_060928_48kb.mp3">TopCoder featured on public radio's "Open Source" <br /><small style="margin-left:10px;">[October 4]</small></a></dd>
+                    <dd><a target="_blank" href="http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3">Java Posse - Interviews from TopCoder and Java One <br /><small style="margin-left:10px;">[July 5]</small></a></dd>
+                    <dd><a target="_blank" href="/movies/press/cnbc_051506.mov">CNBC's Jane's Addiction and Squawk Box at the TCO06 <br /><small style="margin-left:10px;">[May 15]</small></a></dd>
+                    <dd><a target="_blank" href="http://media41b.libsyn.com/andueJx1nXycfJd1Z3lvpGqtZXqZ/podcasts/dickwall/JavaPosse053.mp3">Java Posse - Listener Feedback and TopCoder Interviews <br /><small style="margin-left:10px;">[May 15]</small></a></dd>
+                    <dd><a target="_blank" href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3">Java Posse - Live at the TopCoder Open <br /><small style="margin-left:10px;">[May 11]</small></a></dd>
+                    <dd><a target="_blank" href="http://media41b.libsyn.com/mHdxeJp1cXvHfZd5anptq26sZXGb/podcasts/dickwall/JavaPosse052.mp3">Java Posse - Jack Hughes interview <br /><small style="margin-left:10px;">[May 5]</small></a></dd>
+                    <dd><a target="_blank" href="/audio/Pat_Conley_03_10_06.mp3">Exclusive: Interview with Pat Conley, VP VeriSign O&amp;I and TopCoder Member <br /><small style="margin-left:10px;">[March 10]</small></a></dd>
+                    <dd><a href="http://software.topcoder.com/about/explanationMovie.jsp">How engineering meets manufacturing at TopCoder Software <br /><small style="margin-left:10px;">[February 9]</small></a></dd>
+                    <dd><a target="_blank" href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3">Java Posse - Bill Goggin interview <br /><small style="margin-left:10px;">[January 20]</small></a></dd>
                     </dl>
                 </div>
                 
