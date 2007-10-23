@@ -154,14 +154,18 @@ public class ProblemAssignmentReport extends SharedBaseProcessor {
     private void applyStudentRestrictions(List<AssignmentReportRow> larr, Long scoreType) {
         for (AssignmentReportRow srr : larr) {
            if (scoreType.equals(AssignmentScoreType.TC_SCORE_TYPE)) {
-               srr.setNumTestsPassed(-999);
+               if (!srr.getNumTestsPassed().equals(-1)) {
+                   srr.setNumTestsPassed(-999);
+               }
                srr.setPercentTestsPassed(-999d);
            } else if (scoreType.equals(AssignmentScoreType.PASSED_SCORE_TYPE)) {
                srr.setScore(-999d);
                srr.setPercentTestsPassed(-999d);
            } else if (scoreType.equals(AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE)) {
                srr.setScore(-999d);
-               srr.setNumTestsPassed(-999);
+               if (!srr.getNumTestsPassed().equals(-1)) {
+                   srr.setNumTestsPassed(-999);
+               }
            }  
         }
     }
