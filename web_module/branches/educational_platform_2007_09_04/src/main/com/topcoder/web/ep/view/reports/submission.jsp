@@ -14,14 +14,18 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
     <jsp:include page="../style.jsp">
-        <jsp:param name="key" value="tc_stats"/>
+        <jsp:param name="key" value="tc_ep"/>
     </jsp:include>
 <%-- each school requires its own stylesheet, linked in here --%>
     <link type="text/css" rel="stylesheet" href="/css/ep/default.css" />
 </head>
 
 <body>
-    <div style="margin: 10px;">
+    <div class="submissionContainer">
+        <div style="float:right;">
+            <a href=""><img src="/i/ep/buttons/back.png" /></a>
+        </div>
+
         <table cellpadding="4" cellspacing="0">
         <tbody>
             <tr>
@@ -69,7 +73,7 @@
                     <strong>% Tests Passed</strong>
                 </td>
                 <td align="left">
-                    <fmt:formatNumber value="${percentTestPassed}"  minFractionDigits="0" maxFractionDigits="0"/> %
+                    <fmt:formatNumber value="${percentTestPassed}"  minFractionDigits="0" maxFractionDigits="0"/>%
                 </td>
             </tr>
             <tr>
@@ -99,32 +103,37 @@
         </tbody>
         </table>
         
-        ${submission}
+<pre>
+${submission}
+</pre>
 
         <c:choose>
             <c:when test="${not empty system_tests}">
-                <table border="1">
+                <table cellpadding="0" cellspacing="0" class="stat" width="100%">
+                <tbody>
                     <tr>
-                        <td>Test arguments</td>
-                        <td>Expected results</td>
-                        <td>Success</td>
+                        <td class="header">Test arguments</td>
+                        <td class="header R">Expected results</td>
+                        <td class="header C">Success</td>
                     </tr>
+                    <%int i = 0;%>
                     <c:forEach items="${system_tests}" var="test">
-                        <tr>
-                            <td>${test.args}</td>
-                            <td>${test.expected}</td>
-                            <td>
+                        <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                            <td class="value">${test.args}</td>
+                            <td class="value R">${test.expected}</td>
+                            <td class="value C">
                             <c:choose>
                                 <c:when test="${test.succeeded}">
                                     <span class="bigGreen">Passed</span>
                                 </c:when>
                                 <c:otherwise>
-                                    Failed
+                                    <span class="bigRed">Failed</span>
                                 </c:otherwise>
                             </c:choose>
                             </td>
                         </tr>
                     </c:forEach>
+                </tbody>
                 </table>                
             </c:when>
             <c:otherwise>

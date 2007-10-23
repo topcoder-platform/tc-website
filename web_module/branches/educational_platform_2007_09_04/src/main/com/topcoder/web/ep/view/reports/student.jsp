@@ -184,7 +184,7 @@
                                         Fail
                                     </c:otherwise></c:choose>
                                 </c:when><c:otherwise>
-                                    <fmt:formatNumber value="${result.assignmentPercentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/> %
+                                    <fmt:formatNumber value="${result.assignmentPercentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/>%
                                 </c:otherwise></c:choose>
                             </c:otherwise>
                         </c:choose>
@@ -193,11 +193,6 @@
                 </tr>
             </tbody>
             <tbody id="ref_<%=i%>" class="hideText">
-<%--
-                <tr id="ref_<%=i%>" class="<%=(i%2==0 ? "light hideText" : "dark hideText")%>">
-                    <td class="value" colspan="4">
-                    <table cellpadding="0" cellspacing="0" class="stat" width="100%">
---%>
                         <c:forEach items="${result.details}" var="detail">
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value">
@@ -236,7 +231,7 @@
                                                         Fail
                                                     </c:otherwise></c:choose>
                                                 </c:when><c:otherwise>
-                                                    % <fmt:formatNumber value="${detail.percentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/>
+                                                    <fmt:formatNumber value="${detail.percentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/>%
                                                 </c:otherwise></c:choose>
                                             </td>
                                         </c:otherwise>
@@ -245,11 +240,6 @@
                             </tr>
                         </c:forEach>
             </tbody>
-<%--
-                    </table>
-                    </td>
-                </tr>
---%>
 
                 <%i++;%>
             </c:forEach>
