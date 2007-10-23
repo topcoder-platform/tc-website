@@ -110,18 +110,35 @@
                 </a></td>
                 <td class="header" width="1%">&nbsp;</td>
             </tr>
+            
+            <c:set value="value C" var="score_column_class"/>
+            <c:set value="value C" var="num_tests_column_class"/>
+            <c:set value="value C" var="percent_test_column_class"/>
+            
+            <c:choose>
+                <c:when test="${not empty selected_score_type && selected_score_type == tc_score_type}">
+                    <c:set value="highlight C" var="score_column_class"/>
+                </c:when>
+                <c:when test="${not empty selected_score_type && selected_score_type == passed_score_type}">
+                    <c:set value="highlight C" var="num_tests_column_class"/>
+                </c:when>
+                <c:when test="${not empty selected_score_type && selected_score_type == success_fail_score_type}">
+                    <c:set value="highlight C" var="percent_test_column_class"/>
+                </c:when>
+            </c:choose>
+            
             <%int i = 0;%>
             <c:forEach items="${results}" var="result">                
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                     <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;${CLASSROOM_ID}=${classroom.id}&amp;${STUDENT_ID}=${result.studentId}">${result.student}</a> (<tc-webtag:handle coderId='${result.studentId}'/>)</td>
-                    <td class="value C">
+                    <td class="${score_column_class}">
                     <c:choose><c:when test="${not empty score_type && score_type != tc_score_type}">
                         &nbsp;
                     </c:when><c:otherwise>
                         <fmt:formatNumber value="${result.score}"  minFractionDigits="2" maxFractionDigits="2"/>
                     </c:otherwise></c:choose>
                     </td>
-                    <td class="value C">
+                    <td class="${num_tests_column_class}">
                     <c:choose><c:when test="${not empty score_type && score_type != passed_score_type}">
                         &nbsp;
                     </c:when><c:otherwise>
@@ -135,7 +152,7 @@
                         </c:choose>
                     </c:otherwise></c:choose>
                     </td>
-                    <td class="value C">
+                    <td class="${percent_test_column_class}">
                     <c:choose><c:when test="${not empty score_type && score_type != success_fail_score_type}">
                         &nbsp;
                     </c:when><c:otherwise>

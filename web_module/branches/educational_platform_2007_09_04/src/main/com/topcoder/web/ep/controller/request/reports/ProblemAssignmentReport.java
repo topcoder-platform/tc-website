@@ -52,6 +52,8 @@ public class ProblemAssignmentReport extends SharedBaseProcessor {
             throw new NavigationException("You don't have permission to see this page.");
         }
         
+        getRequest().setAttribute("selected_score_type", (Long) a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID));
+        
         List<AssignmentReportRow> larr = processReport(a, c, cmp, null);
         commonPostProcessing(larr, a, c, cmp);
     }
