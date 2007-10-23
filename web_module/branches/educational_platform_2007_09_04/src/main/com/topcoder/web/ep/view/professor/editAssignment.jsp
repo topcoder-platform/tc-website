@@ -174,7 +174,7 @@
                         <tr>
                             <td class="header">Problem set</td>
                             <td class="header">Problem(s)</td>
-                            <td class="headerC">Select</td>
+                            <td class="header C">Select</td>
                         </tr>
                         <%int i = 0;%>
                         <c:forEach items="${problem_sets}" var="problem_set">
@@ -188,7 +188,7 @@
                                         </c:if>
                                     </c:forEach>
                                 </td>
-                                <td class="valueC"><tc-webtag:radioButton name="${PROBLEM_SET_ID}" value="${problem_set.id}"/></td>
+                                <td class="value C"><tc-webtag:radioButton name="${PROBLEM_SET_ID}" value="${problem_set.id}"/></td>
                             </tr>
                             <%i++;%>
                         </c:forEach>

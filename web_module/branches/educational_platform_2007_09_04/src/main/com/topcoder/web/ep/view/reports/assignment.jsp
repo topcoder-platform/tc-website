@@ -80,6 +80,7 @@
                         <div>(<a href="">View average for this class</a>)</div>
                         --%>
                     </td>
+                </tr>
                 <%-- cannot be show
                 </tr>
                     <tr>
@@ -106,13 +107,19 @@
         </div>
 
         <table cellpadding="0" cellspacing="0" class="stat" width="100%">
+            <colgroup span="4">
+                <col></col>
+                <col class="highlight"></col>
+                <col></col>
+                <col></col>
+            </colgroup>
             <tr><td class="title" colspan="4">Assignment Report</td></tr>
-            <tr><td class="headerC" colspan="4">${assignment.name}</td></tr>
+            <tr><td class="header C" colspan="4">${assignment.name}</td></tr>
             <tr>
                 <td class="header"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.STUDENT_COL.intValue()%>"/>">Student</a></td>
-                <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.SCORE_COL.intValue()%>"/>">Score</a></td>
-                <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.NUM_TESTS_COL.intValue()%>"/>">Tests Passed</a></td>
-                <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.PERCENT_TESTS_COL.intValue()%>"/>">
+                <td class="header C"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.SCORE_COL.intValue()%>"/>">Score</a></td>
+                <td class="header C"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.NUM_TESTS_COL.intValue()%>"/>">Tests Passed</a></td>
+                <td class="header C"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.PERCENT_TESTS_COL.intValue()%>"/>">
                 <c:choose><c:when test="${not empty score_type}">
                 Pass / Fail
                 </c:when><c:otherwise>
@@ -125,14 +132,14 @@
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                     <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;${CLASSROOM_ID}=${classroom.id}&amp;${STUDENT_ID}=${result.studentId}">${result.student}</a> (<tc-webtag:handle coderId='${result.studentId}'/>)</td>
 
-                    <td class="valueC">
+                    <td class="highlight">
                     <c:choose><c:when test="${not empty score_type && score_type != tc_score_type}">
                         &nbsp;
                     </c:when><c:otherwise>
                         <fmt:formatNumber value="${result.score}"  minFractionDigits="2" maxFractionDigits="2"/>
                     </c:otherwise></c:choose>
                     </td>
-                    <td class="valueC">
+                    <td class="value C">
                     <c:choose><c:when test="${not empty score_type && score_type != passed_score_type}">
                         &nbsp;
                     </c:when><c:otherwise>
@@ -146,7 +153,7 @@
                         </c:choose>
                     </c:otherwise></c:choose>
                     </td>
-                    <td class="valueC">
+                    <td class="value C">
                     <c:choose><c:when test="${not empty score_type && score_type != success_fail_score_type}">
                         &nbsp;
                     </c:when><c:otherwise>
@@ -174,9 +181,9 @@
 <%-- for later
             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                 <td class="value">Avg</td>
-                <td class="valueC">210</td>
-                <td class="valueC">10</td>
-                <td class="valueC">80%</td>
+                <td class="value C">210</td>
+                <td class="value C">10</td>
+                <td class="value C">80%</td>
             </tr>
 --%>
         </table>

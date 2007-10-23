@@ -126,12 +126,12 @@
         <table cellpadding="0" cellspacing="0" class="stat" width="100%">
         <thead>
             <tr><td class="title" colspan="4">Student Report</td></tr>
-            <tr><td class="headerC" colspan="4">${student.user.lastName}, ${student.user.firstName}</td></tr>
+            <tr><td class="header C" colspan="4">${student.user.lastName}, ${student.user.firstName}</td></tr>
             <tr>
                 <td class="header"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=StudentReport.ASSIGNMENT_COL.intValue()%>"/>">Assignment</a></td>
-                <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=StudentReport.SCORE_COL.intValue()%>"/>">Score</a></td>
-                <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=StudentReport.NUM_TESTS_COL.intValue()%>"/>">Tests Passed</a></td>
-                <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=StudentReport.PERCENT_TESTS_COL.intValue()%>"/>">
+                <td class="header C"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=StudentReport.SCORE_COL.intValue()%>"/>">Score</a></td>
+                <td class="header C"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=StudentReport.NUM_TESTS_COL.intValue()%>"/>">Tests Passed</a></td>
+                <td class="header C"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=StudentReport.PERCENT_TESTS_COL.intValue()%>"/>">
                 <c:choose><c:when test="${is_student}">
                 Pass / Fail
                 </c:when><c:otherwise>
@@ -150,28 +150,28 @@
                     </td>
 
                     <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
-                        <td class="valueC">&nbsp;</td>
+                        <td class="value C">&nbsp;</td>
                     </c:when><c:otherwise>
-                        <td class="valueC"><fmt:formatNumber value="${result.assignmentScore}"  minFractionDigits="2" maxFractionDigits="2"/></td>
+                        <td class="value C"><fmt:formatNumber value="${result.assignmentScore}"  minFractionDigits="2" maxFractionDigits="2"/></td>
                     </c:otherwise></c:choose>
 
                     <c:choose><c:when test="${is_student && result.scoreType != passed_score_type}">
-                        <td class="valueC">&nbsp;</td>
+                        <td class="value C">&nbsp;</td>
                     </c:when><c:otherwise>
                         <c:choose>
                             <c:when test="${result.assignmentNumTestsPassed == -1}">
-                                <td class="valueC">N/A</td>
+                                <td class="value C">N/A</td>
                             </c:when>
                             <c:otherwise>
-                                <td class="valueC">${result.assignmentNumTestsPassed}</td>
+                                <td class="value C">${result.assignmentNumTestsPassed}</td>
                             </c:otherwise>
                         </c:choose>
                     </c:otherwise></c:choose>
 
                     <c:choose><c:when test="${is_student && result.scoreType != success_fail_score_type}">
-                        <td class="valueC">&nbsp;</td>
+                        <td class="value C">&nbsp;</td>
                     </c:when><c:otherwise>
-                        <td class="valueC">
+                        <td class="value C">
                         <c:choose>
                             <c:when test="${result.assignmentNumTestsPassed == -1}">
                                 N/A
@@ -204,31 +204,31 @@
                                 <div style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;${ASSIGNMENT_ID}=${result.assignmentId}&amp;${COMPONENT_ID}=${detail.componentId}">${detail.component}</a></div>
                                 </td>
                                 <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
-                                    <td class="valueC">&nbsp;</td>
+                                    <td class="value C">&nbsp;</td>
                                 </c:when><c:otherwise>
-                                    <td class="valueC"><fmt:formatNumber value="${detail.score}"  minFractionDigits="2" maxFractionDigits="2"/></td>
+                                    <td class="value C"><fmt:formatNumber value="${detail.score}"  minFractionDigits="2" maxFractionDigits="2"/></td>
                                 </c:otherwise></c:choose>
                                 <c:choose><c:when test="${is_student && result.scoreType != passed_score_type}">
-                                    <td class="valueC">&nbsp;</td>
+                                    <td class="value C">&nbsp;</td>
                                 </c:when><c:otherwise>
                                     <c:choose>
                                         <c:when test="${detail.numTestsPassed == -1}">
-                                            <td class="valueC">N/A</td>
+                                            <td class="value C">N/A</td>
                                         </c:when>
                                         <c:otherwise>
-                                            <td class="valueC">${detail.numTestsPassed}</td>
+                                            <td class="value C">${detail.numTestsPassed}</td>
                                         </c:otherwise>
                                     </c:choose>
                                 </c:otherwise></c:choose>
                                 <c:choose><c:when test="${is_student && result.scoreType != success_fail_score_type}">
-                                    <td class="valueC">&nbsp;</td>
+                                    <td class="value C">&nbsp;</td>
                                 </c:when><c:otherwise>
                                     <c:choose>
                                         <c:when test="${detail.numTestsPassed == -1}">
-                                            <td class="valueC">N/A</td>
+                                            <td class="value C">N/A</td>
                                         </c:when>
                                         <c:otherwise>
-                                            <td class="valueC">
+                                            <td class="value C">
                                                 <c:choose><c:when test="${is_student}">
                                                     <c:choose><c:when test="${result.assignmentPercentTestsPassed == 100}">
                                                         Pass
@@ -256,9 +256,9 @@
 <%-- for later
             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                 <td class="value">Avg</td>
-                <td class="valueC">210</td>
-                <td class="valueC">10</td>
-                <td class="valueC">80%</td>
+                <td class="value C">210</td>
+                <td class="value C">10</td>
+                <td class="value C">80%</td>
             </tr>
 --%>
         </table>

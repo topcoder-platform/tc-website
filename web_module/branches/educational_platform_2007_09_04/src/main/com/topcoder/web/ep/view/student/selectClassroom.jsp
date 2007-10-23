@@ -74,7 +74,7 @@
                     <td class="header">Professor</td>
                     <td class="header">Term</td>
                     <td class="header">Description</td>
-                    <td class="headerC">Select</td>
+                    <td class="header C">Select</td>
                 </tr>
                 <%int i = 0;%>
                 <c:forEach items="${possible_classrooms}" var="classroom">
@@ -86,7 +86,7 @@
                         <td class="value">${classroom.professor.user.lastName}, ${classroom.professor.user.firstName}</td>
                         <td class="value">${classroom.academicPeriod}</td>
                         <td class="value">${classroom.description}</td>
-                        <td class="valueC"><input type="checkbox" name="clsid" value="${classroom.id}" /></td>
+                        <td class="value C"><input type="checkbox" name="clsid" value="${classroom.id}" /></td>
                     </tr>
                 <%i++;%>
                 </c:forEach>

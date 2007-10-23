@@ -61,17 +61,17 @@
                         <tr><td class="title" colspan="4">Assignments</td></tr>
                         <tr>
                             <td class="header">Assignment</td>
-                            <td class="headerC">Assigned</td>
-                            <td class="headerC">Opened</td>
-                            <td class="headerC">Finished</td>
+                            <td class="header C">Assigned</td>
+                            <td class="header C">Opened</td>
+                            <td class="header C">Finished</td>
                         </tr>
                         <%int i = 0;%>
                         <c:forEach items="${assignments}" var="assignment">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value"><a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;${ASSIGNMENT_ID}=${assignment.id}">${assignment.name}</a></td>
-                                <td class="valueC">${assignment.assigned}</td>
-                                <td class="valueC">${assignment.opened}</td>
-                                <td class="valueC">${assignment.finished}</td>
+                                <td class="value C">${assignment.assigned}</td>
+                                <td class="value C">${assignment.opened}</td>
+                                <td class="value C">${assignment.finished}</td>
                             </tr>
                         <%i++;%>
                         </c:forEach>
@@ -82,11 +82,11 @@
                         <tr><td class="title" colspan="4">Assignments</td></tr>
                         <tr>
                             <td class="header">Assignment</td>
-                            <td class="headerC">Assigned</td>
-                            <td class="headerC">Opened</td>
-                            <td class="headerC">Finished<br />(Pass/Fail)</td>
+                            <td class="header C">Assigned</td>
+                            <td class="header C">Opened</td>
+                            <td class="header C">Finished<br />(Pass/Fail)</td>
                         </tr>
-                        <tr class="light"><td class="valueC" colspan="4"><div style="margin: 10px;">There are no assignment reports available.</div></td></tr>
+                        <tr class="light"><td class="value C" colspan="4"><div style="margin: 10px;">There are no assignment reports available.</div></td></tr>
                     </table>
                 </c:otherwise>
             </c:choose>
@@ -111,7 +111,7 @@
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tr><td class="title">Students</td></tr>
                         <tr><td class="header">Student (Handle)</td></tr>
-                        <tr class="light"><td class="valueC"><div style="margin: 10px;">There are no student reports available.</div></td></tr>
+                        <tr class="light"><td class="value C"><div style="margin: 10px;">There are no student reports available.</div></td></tr>
                     </table>
                 </c:otherwise>
             </c:choose>

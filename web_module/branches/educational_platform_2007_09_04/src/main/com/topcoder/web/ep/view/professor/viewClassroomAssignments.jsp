@@ -82,40 +82,40 @@
                         <tr><td class="title" colspan="6">Assignments for this class</td></tr>
                         <tr>
                             <td class="header">Assignment</td>
-                            <td class="headerC">Start</td>
-                            <td class="headerC">End</td>
-                            <td class="headerC">Assigned</td>
+                            <td class="header C">Start</td>
+                            <td class="header C">End</td>
+                            <td class="header C">Assigned</td>
                             <%-- Moved to reports
-                            <td class="headerC">Finished<br />(succeeded / failed)</td>
+                            <td class="header C">Finished<br />(succeeded / failed)</td>
                             --%>
-                            <c:if test="${show_assign_to}"><td class="headerC">&nbsp;</td></c:if>
-                            <c:if test="${show_edit}"><td class="headerC">&nbsp;</td></c:if>
+                            <c:if test="${show_assign_to}"><td class="header C">&nbsp;</td></c:if>
+                            <c:if test="${show_edit}"><td class="header C">&nbsp;</td></c:if>
                         </tr>
                         <%int i = 0;%>
                         <c:forEach items="${assignments}" var="assignment">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value">${assignment.name}</td>
-                                <td class="valueC"><fmt:formatDate value="${assignment.contest.startDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
-                                <td class="valueC"><fmt:formatDate value="${assignment.contest.endDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
-                                <td class="valueC">${assignment.registered}</td>
+                                <td class="value C"><fmt:formatDate value="${assignment.contest.startDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
+                                <td class="value C"><fmt:formatDate value="${assignment.contest.endDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
+                                <td class="value C">${assignment.registered}</td>
                                 <jsp:useBean id="now" class="java.util.Date"/>
                                 <c:if test="${show_assign_to}">
                                     <c:choose>
                                         <c:when test="${assignment.contest.endDate > now}">
-                                            <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignmentStudents&amp;${ASSIGNMENT_ID}=${assignment.id}"><img src="/i/ep/buttons/assignTo.png" alt="Assign to..." /></a></td>
+                                            <td class="value C"><a href="${sessionInfo.servletPath}professor/?module=EditAssignmentStudents&amp;${ASSIGNMENT_ID}=${assignment.id}"><img src="/i/ep/buttons/assignTo.png" alt="Assign to..." /></a></td>
                                         </c:when>
                                         <c:otherwise>
-                                            <td class="valueC">&nbsp;</td>
+                                            <td class="value C">&nbsp;</td>
                                         </c:otherwise>
                                     </c:choose>
                                 </c:if>
                                 <c:if test="${show_edit}">
                                     <c:choose>
                                         <c:when test="${assignment.contest.startDate > now}">
-                                            <td class="valueC"><a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;${ASSIGNMENT_ID}=${assignment.id}&amp;${FRESH_ID}=true"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
+                                            <td class="value C"><a href="${sessionInfo.servletPath}professor/?module=EditAssignment&amp;${ASSIGNMENT_ID}=${assignment.id}&amp;${FRESH_ID}=true"><img src="/i/ep/buttons/edit.png" alt="Edit" /></a></td>
                                         </c:when>
                                         <c:otherwise>
-                                            <td class="valueC">&nbsp;</td>
+                                            <td class="value C">&nbsp;</td>
                                         </c:otherwise>
                                     </c:choose>
                                 </c:if>

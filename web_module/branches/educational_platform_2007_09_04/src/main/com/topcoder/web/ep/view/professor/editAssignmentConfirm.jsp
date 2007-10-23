@@ -111,7 +111,7 @@
                     <tr><td class="title" colspan="${ea_assignment.scoreType == tc_score_type ? 1 : 2}">Problem set: ${problem_set_name}</td></tr>
                     <tr><td class="header" width="100%">Problem</td>
                     <c:if test="${ea_assignment.scoreType == tc_score_type}">
-                    <td class="headerR">Points</td>
+                    <td class="header R">Points</td>
                     </c:if>
                     </tr>
                     <%int i = 0;%>
@@ -121,7 +121,7 @@
                                 <a href="Javascript:openWin('/ep/?module=ViewProblem&amp;${COMPONENT_ID}=${component.componentId}','problemStatement',600,600);">${component.problemName}</a>
                             </td>
                             <c:if test="${ea_assignment.scoreType == tc_score_type}">
-                                <td class="valueR">${component.points}</td>
+                                <td class="value R">${component.points}</td>
                             </c:if>
                         </tr>
                     <%i++;%>

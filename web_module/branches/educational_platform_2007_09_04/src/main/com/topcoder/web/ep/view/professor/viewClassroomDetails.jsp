@@ -112,12 +112,12 @@
                     
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tr><td class="title" colspan="2">Students awaiting your approval to join this class</td></tr>
-                        <tr><td class="header">Student (Handle)</td><td class="headerC">Select</td></tr>
+                        <tr><td class="header">Student (Handle)</td><td class="header C">Select</td></tr>
                         <%int i = 0;%>
                         <c:forEach items="${pendingStudents}" var="student">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value">${student.user.lastName}, ${student.user.firstName} (<tc-webtag:handle coderId='${student.id}'/>)</td>
-                                <td class="valueC"><input type="checkbox" name="stid" value="${student.id}" /></td>
+                                <td class="value C"><input type="checkbox" name="stid" value="${student.id}" /></td>
                             </tr>
                         <%i++;%>
                         </c:forEach>
@@ -135,8 +135,8 @@
             <c:otherwise>
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tr><td class="title" colspan="2">Students awaiting your approval to join this class</td></tr>
-                        <tr><td class="header">Student (Handle)</td><td class="headerC">Select</td></tr>
-                        <tr class="light"><td class="valueC" colspan="2"><div style="margin: 10px;">There are no pending students in this classroom.</div></td></tr>
+                        <tr><td class="header">Student (Handle)</td><td class="header C">Select</td></tr>
+                        <tr class="light"><td class="value C" colspan="2"><div style="margin: 10px;">There are no pending students in this classroom.</div></td></tr>
                     </table>
             </c:otherwise>
         </c:choose>
@@ -150,12 +150,12 @@
                     <tc-webtag:hiddenInput name="<%=Constants.CLASSROOM_ID%>" value="${classroom.id}"/>
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tr><td class="title" colspan="2">Active Students</td></tr>
-                        <tr><td class="header">Student (Handle)</td><td class="headerC">Select</td></tr>
+                        <tr><td class="header">Student (Handle)</td><td class="header C">Select</td></tr>
                         <%int i = 0;%>
                         <c:forEach items="${activeStudents}" var="student">
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value">${student.user.lastName}, ${student.user.firstName} (<tc-webtag:handle coderId='${student.id}'/>)</td>
-                                <td class="valueC"><input type="checkbox" name="stid" value="${student.id}" /></td>
+                                <td class="value C"><input type="checkbox" name="stid" value="${student.id}" /></td>
                             </tr>
                         <%i++;%>
                         </c:forEach>
@@ -172,8 +172,8 @@
             <c:otherwise>
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tr><td class="title" colspan="2">Active Students</td></tr>
-                        <tr><td class="header">Student (Handle)</td><td class="headerC">Select</td></tr>
-                        <tr class="light"><td class="valueC" colspan="2"><div style="margin: 10px;">There are no active students in this classroom.</div></td></tr>
+                        <tr><td class="header">Student (Handle)</td><td class="header C">Select</td></tr>
+                        <tr class="light"><td class="value C" colspan="2"><div style="margin: 10px;">There are no active students in this classroom.</div></td></tr>
                     </table>
             </c:otherwise>
         </c:choose>

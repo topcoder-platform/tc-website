@@ -74,15 +74,15 @@
                         <tr><td class="title" colspan="3">Assignments for this classroom</td></tr>
                         <tr>
                             <td class="header">Assignment</td>
-                            <td class="headerC">Start</td>
-                            <td class="headerC">End</td>
+                            <td class="header C">Start</td>
+                            <td class="header C">End</td>
                         </tr>
                         <%int i = 0;%>
                         <c:forEach items="${assignments}" var="assignment">                
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value">${assignment.name}</td>
-                                <td class="valueC"><fmt:formatDate value="${assignment.contest.startDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
-                                <td class="valueC"><fmt:formatDate value="${assignment.contest.endDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
+                                <td class="value C"><fmt:formatDate value="${assignment.contest.startDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
+                                <td class="value C"><fmt:formatDate value="${assignment.contest.endDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
                             </tr>
                         <%i++;%>
                         </c:forEach>

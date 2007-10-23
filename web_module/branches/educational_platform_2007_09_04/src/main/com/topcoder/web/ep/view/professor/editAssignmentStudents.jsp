@@ -104,12 +104,12 @@
                     
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tr><td class="title" colspan="2">Students in this class</td></tr>
-                        <tr><td class="header" width="100%">Student</td><td class="headerC">Select</td></tr>
+                        <tr><td class="header" width="100%">Student</td><td class="header C">Select</td></tr>
                         <%int i = 0;%>
                         <c:forEach items="${activeStudents}" var="student">
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value">${student.user.lastName}, ${student.user.firstName} (<tc-webtag:handle coderId='${student.id}'/>)</td>
-                                <td class="valueC">
+                                <td class="value C">
                                 <c:choose>
                                     <c:when test="${not empty checked_students && cf:contains(checked_students, student.id)}">
                                        <input type="checkbox" name="stid" value="${student.id}" checked="checked"/></c:when>
