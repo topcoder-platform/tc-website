@@ -127,6 +127,7 @@ public class ArenaHelper implements ArenaServices {
         Round r = DAOUtil.getFactory().getRoundDAO().find(adto.getRoundId());
         
         r.setName(adto.getAssignmentName());
+        r.setShortName(adto.getAssignmentName());
 
         // update contest dates and name
         updateContest(adto.getClassroomName(), adto.getStartDate(), adto.getEndDate(), r);
@@ -243,6 +244,7 @@ public class ArenaHelper implements ArenaServices {
         Round r = new Round();
         r.setContest(ct);
         r.setName(assignmentName);
+        r.setShortName(assignmentName);
         r.setStatus(Round.FUTURE_STATUS);
         r.setRegistrationLimit(1024l);
         r.setInvitational(0);

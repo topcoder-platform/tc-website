@@ -128,6 +128,7 @@ public class ViewSubmission extends SharedBaseProcessor {
         }
         
         
+        getRequest().setAttribute("classroom", c);
         getRequest().setAttribute("assignment", a);
         getRequest().setAttribute("component", cmp);
         getRequest().setAttribute("student", s);

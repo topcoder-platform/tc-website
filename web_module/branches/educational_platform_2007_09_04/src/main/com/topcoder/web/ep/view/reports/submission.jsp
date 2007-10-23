@@ -21,9 +21,13 @@
 </head>
 
 <body>
+<c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
+<c:set value="<%=Constants.ASSIGNMENT_ID%>" var="ASSIGNMENT_ID"/>
+<c:set value="<%=Constants.STUDENT_ID%>" var="STUDENT_ID"/>
+
     <div class="submissionContainer">
         <div style="float:right;">
-            <a href="/ep/reports/?module=Home"><img src="/i/ep/buttons/back.png" alt="Back"/></a>
+            <a href="${sessionInfo.servletPath}?module=SelectReport&amp;${CLASSROOM_ID}=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back"/></a>
         </div>
 
         <h2>Submission</h2>
@@ -35,7 +39,7 @@
                     <strong>Name</strong>
                 </td>
                 <td align="left">
-                    <a href="">${student.user.lastName}, ${student.user.firstName}</a> (<tc-webtag:handle coderId='${student.id}'/>)
+                    <a href="${sessionInfo.servletPath}?module=StudentReport&amp;${CLASSROOM_ID}=${classroom.id}&amp;${STUDENT_ID}=${student.id}">${student.user.lastName}, ${student.user.firstName}</a> (<tc-webtag:handle coderId='${student.id}'/>)
                 </td>
             </tr>
             <tr>
@@ -43,7 +47,7 @@
                     <strong>Assignment</strong>
                 </td>
                 <td align="left">
-                    <a href="">${assignment.name}</a>
+                    <a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;${ASSIGNMENT_ID}=${assignment.id}">${assignment.name}</a>
                 </td>
             </tr>
             <tr>
