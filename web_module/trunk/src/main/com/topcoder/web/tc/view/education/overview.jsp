@@ -39,12 +39,12 @@
 <br /><br />
 <span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=102307"><strong>Meet the September Coders of the Month</strong></a><br />
+We caught up with two of September's "coders of the month," to learn a little bit more about them, their proudest TopCoder moments, and more...</li>
 <li><a href="/tc?module=Static&d1=features&d2=101507"><strong>TCCC07 Preview: The Marathon Match competition</strong></a>, by <tc-webtag:handle coderId="7390467" /><br />
 With the TCCC finals around the corner, now is a good time to look back at the three exciting online rounds, as well as look forward to the Championship round on October 31.</li>
 <li><a href="/tc?module=Static&d1=features&d2=100907"><strong>TopCoder @ Work: The Hacker vs. The Architect</strong></a>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br />
 In an IT world where the names of the hottest new design patterns and development methodologies are thrown around like umbrellas caught in tornadoes, a competent application architect commands a certain position of power and admiration. Yet amidst all of this, an important team member of yesterday is now all but forgotten: the hacker.</li>
-<li><a href="/tc?module=Static&d1=features&d2=100207"><strong>TCCC07: By the numbers</strong></a><br />
-With the addition of four alternates to the Component Design and Development finals, this year's TopCoder Collegiate Challenge gives us that many more numbers to play with. A total of 3,426 competitors registered for this year's TCCC, a slight up-tick from last year's 3,317. Here's how the TCCC07 crop of competitors breaks down, based on some different comparisons.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br />
 <ul>

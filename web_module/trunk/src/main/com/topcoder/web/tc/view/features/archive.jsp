@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText">&nbsp;</td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=102307"><strong>Meet the September Coders of the Month</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Oct 23, 2007</td> 
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="7390467" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=101507"><strong>TCCC07 Preview: The Marathon Match competition</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Oct 15, 2007</td> 

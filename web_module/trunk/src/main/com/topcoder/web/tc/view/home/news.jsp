@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />10.23.07<br />5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=features&d2=102307">Meet the September Coders of the Month</A></span><br /><br />
+        We caught up with two of September's "coders of the month," to learn a little bit more about them, their proudest TopCoder moments, and more...</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=102307">details</a> | 
+        <A href="/tc?module=COMHistory&achtid=5">algorithm</a> | 
+        <A href="/tc?module=COMHistory&achtid=6">design</a> | 
+        <A href="/tc?module=COMHistory&achtid=7">development</a> | 
+        <tc-webtag:forumLink forumID="517934" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+   <%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br />10.23.07<br />3:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20Trailer">TC Channel Reports from TCCC07</A></span><br /><br />
@@ -156,21 +172,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">details</a> | 
         <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />10.15.07<br />4:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=101507">TCCC07 Preview: The Marathon Match competition</A></span><br /><br />
-      With the TCCC finals around the corner, now is a good time to look back at the three exciting online rounds, as well as look forward to the Championship round on October 31.</td>
-         <td class="newsPhoto"><img src="/i/m/lovro_big3.jpg" alt="Author" width="55" height="61" /><br />by <tc-webtag:handle coderId="7390467" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=101507">details</A> | 
-         <tc-webtag:forumLink forumID="517840" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
