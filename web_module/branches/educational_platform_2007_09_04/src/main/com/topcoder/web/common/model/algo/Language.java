@@ -21,7 +21,7 @@ public class Language {
 
     public static Set<Integer> assignmentLanguages = new HashSet<Integer>(4);
     
-    // Todo: add an attribute to language table to see what we can 
+    // Todo: add an attribute to language table to see what we can use in assignments 
     static {
         assignmentLanguages.add(JAVA_LANGUAGE);
         assignmentLanguages.add(CPP_LANGUAGE);

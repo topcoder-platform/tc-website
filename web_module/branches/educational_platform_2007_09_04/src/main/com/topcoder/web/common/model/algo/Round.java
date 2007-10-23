@@ -277,8 +277,6 @@ public class Round extends Base {
         final int PRIME = 31;
         int result = 1;
         result = PRIME * result + ((contest == null) ? 0 : contest.hashCode());
-        result = PRIME * result + ((id == null) ? 0 : id.hashCode());
-        result = PRIME * result + ((invitational == null) ? 0 : invitational.hashCode());
         result = PRIME * result + ((name == null) ? 0 : name.hashCode());
         return result;
     }
@@ -298,16 +296,6 @@ public class Round extends Base {
             if (other.contest != null)
                 return false;
         } else if (!contest.equals(other.contest))
-            return false;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        if (invitational == null) {
-            if (other.invitational != null)
-                return false;
-        } else if (!invitational.equals(other.invitational))
             return false;
         if (name == null) {
             if (other.name != null)

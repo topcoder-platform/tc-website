@@ -75,7 +75,6 @@ public class Difficulty extends Base {
         final int PRIME = 31;
         int result = 1;
         result = PRIME * result + ((difficultyDesc == null) ? 0 : difficultyDesc.hashCode());
-        result = PRIME * result + ((id == null) ? 0 : id.hashCode());
         return result;
     }
     /* (non-Javadoc)
@@ -95,13 +94,6 @@ public class Difficulty extends Base {
                 return false;
         } else if (!difficultyDesc.equals(other.difficultyDesc))
             return false;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
         return true;
     }
-
-
 }

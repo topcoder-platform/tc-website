@@ -167,6 +167,7 @@ public class ComponentState extends Base {
         return true;
     }
     
+    // todo: there's no lookup currently 
     public static String getStatusDescription(int statusId) {
         switch (statusId) {
         case NOT_OPENED:

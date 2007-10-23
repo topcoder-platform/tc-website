@@ -321,10 +321,6 @@ public class User extends Base {
         professor.setUser(this);
     }
 
-    public Boolean isProfessor() {
-        return this.professor != null;
-    }
-
     public Contact getContact() {
         return contact;
     }

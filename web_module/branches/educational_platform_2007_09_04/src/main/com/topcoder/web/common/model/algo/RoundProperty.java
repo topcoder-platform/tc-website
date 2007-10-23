@@ -123,8 +123,6 @@ public class RoundProperty extends Base {
 
     }
 
-
-
     /**
      * @return the intValue
      */

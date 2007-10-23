@@ -90,17 +90,16 @@ public class Component extends Base {
         this.statusId = statusId;
     }
     
-    public Set getRoundComponents() {
+    public Set<RoundComponent> getRoundComponents() {
         return Collections.unmodifiableSet(roundComponents);
     }
 
-    public void setRoundComponents(Set roundComponents) {
+    public void setRoundComponents(Set<RoundComponent> roundComponents) {
         this.roundComponents = roundComponents;
     }
 
     public void removeRoundComponent(RoundComponent rc) {
         if  (this.roundComponents.contains(rc)) {
-            log.debug("contains rc2!");
             this.roundComponents.remove(rc);
         }
     }
