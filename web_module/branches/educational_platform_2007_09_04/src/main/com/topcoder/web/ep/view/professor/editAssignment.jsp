@@ -148,7 +148,7 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            <strong>Available languages:</strong>
+                            <div class="popper" onmouseover="postPopUpText('Check off all the programming languages that students are allowed to use for their submission.'); popUp(this,'myPopUp')" onmouseout="popHide()"><strong>Available languages:</strong></div>
                         </td>
                         <td align="left">
                             <c:forEach items="${languages}" var="language">
