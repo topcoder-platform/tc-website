@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.ep.Constants"%>
 <%@ page import="com.topcoder.web.common.BaseServlet" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
