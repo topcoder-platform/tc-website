@@ -23,7 +23,7 @@
 <body>
     <div class="submissionContainer">
         <div style="float:right;">
-            <a href=""><img src="/i/ep/buttons/back.png" /></a>
+            <a href=""><img src="/i/ep/buttons/back.png" alt="Back"/></a>
         </div>
 
         <table cellpadding="4" cellspacing="0">

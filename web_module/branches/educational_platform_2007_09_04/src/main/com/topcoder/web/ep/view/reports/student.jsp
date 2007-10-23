@@ -125,10 +125,10 @@
 
         <table cellpadding="0" cellspacing="0" class="stat" width="100%">
         <thead>
-            <tr><td class="title" colspan="4">Student Report</td></tr>
-            <tr><td class="header C" colspan="4">${student.user.lastName}, ${student.user.firstName}</td></tr>
+            <tr><td class="title" colspan="5">Student Report</td></tr>
+            <tr><td class="header C" colspan="5">${student.user.lastName}, ${student.user.firstName}</td></tr>
             <tr>
-                <td class="header"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=StudentReport.ASSIGNMENT_COL.intValue()%>"/>">Assignment</a></td>
+                <td class="header" colspan="2"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=StudentReport.ASSIGNMENT_COL.intValue()%>"/>">Assignment</a></td>
                 <td class="header C"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=StudentReport.SCORE_COL.intValue()%>"/>">TC Score</a></td>
                 <td class="header C"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=StudentReport.NUM_TESTS_COL.intValue()%>"/>">Tests Passed</a></td>
                 <td class="header C"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=StudentReport.PERCENT_TESTS_COL.intValue()%>"/>">
@@ -144,7 +144,7 @@
             <%int i = 0;%>
             <c:forEach items="${results}" var="result">
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                    <td class="value">
+                    <td class="value" colspan="2">
                     <a href="javascript:toggleDisplay('ref_<%=i%>','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/ep/buttons/exp_w.png" alt="Expand" name="switch_<%=i%>"/></a>
                     <a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;${ASSIGNMENT_ID}=${result.assignmentId}">${result.assignment}</a>
                     </td>
@@ -196,7 +196,10 @@
                         <c:forEach items="${result.details}" var="detail">
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value">
-                                <div style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;${ASSIGNMENT_ID}=${result.assignmentId}&amp;${COMPONENT_ID}=${detail.componentId}">${detail.component}</a></div>
+                                    <div style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;${ASSIGNMENT_ID}=${result.assignmentId}&amp;${COMPONENT_ID}=${detail.componentId}">${detail.component}</a></div>
+                                </td>
+                                <td class="value C" width="1%">
+                                    <a href=""><img src="/i/ep/buttons/viewSubmission.png" alt="View Submission" /></a>
                                 </td>
                                 <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
                                     <td class="value C">&nbsp;</td>
