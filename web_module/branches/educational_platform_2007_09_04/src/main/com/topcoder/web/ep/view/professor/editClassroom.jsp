@@ -111,7 +111,7 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            <strong>Description:</strong>
+                            <div class="popper" onmouseover="postPopUpText('Describe this class.'); popUp(this,'myPopUp')" onmouseout="popHide()"><strong>Description:</strong></div>
                         </td>
                         <td align="left">
                             <tc-webtag:textInput name="classroom_description" size="60" editable="true" />
