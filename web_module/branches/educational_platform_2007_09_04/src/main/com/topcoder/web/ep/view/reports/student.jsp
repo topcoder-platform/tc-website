@@ -68,6 +68,7 @@
 <c:set value="<%=Constants.CLASSROOM_ID%>" var="CLASSROOM_ID"/>
 <c:set value="<%=Constants.ASSIGNMENT_ID%>" var="ASSIGNMENT_ID"/>
 <c:set value="<%=Constants.COMPONENT_ID%>" var="COMPONENT_ID"/>
+<c:set value="<%=Constants.STUDENT_ID%>" var="STUDENT_ID"/>
 <c:set value="<%=AssignmentScoreType.TC_SCORE_TYPE%>" var="tc_score_type"/>
 <c:set value="<%=AssignmentScoreType.PASSED_SCORE_TYPE%>" var="passed_score_type"/>
 <c:set value="<%=AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE%>" var="success_fail_score_type"/>
@@ -199,7 +200,7 @@
                                     <div style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;${ASSIGNMENT_ID}=${result.assignmentId}&amp;${COMPONENT_ID}=${detail.componentId}">${detail.component}</a></div>
                                 </td>
                                 <td class="value C" width="1%">
-                                    <a href=""><img src="/i/ep/buttons/viewSubmission.png" alt="View Submission" /></a>
+                                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;${ASSIGNMENT_ID}=${result.assignmentId}&amp;${COMPONENT_ID}=${detail.componentId}&amp;${STUDENT_ID}=${student.id}"><img src="/i/ep/buttons/viewSubmission.png" alt="View Submission" /></a>
                                 </td>
                                 <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
                                     <td class="value C">&nbsp;</td>
