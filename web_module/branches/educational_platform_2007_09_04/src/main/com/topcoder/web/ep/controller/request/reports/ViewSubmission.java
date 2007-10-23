@@ -99,6 +99,10 @@ public class ViewSubmission extends SharedBaseProcessor {
         // get component state
         ComponentState cs = DAOUtil.getFactory().getComponentStateDAO().getStudentResultsByComponent(a, cmp, s.getId());
 
+        if (cs.getSubmissionNumber().equals(0)) {
+            throw new TCWebException("There are no submissions");
+        }
+        
         // get results
         Object systemTestResults = DAOUtil.getFactory().getSystemTestResultDAO().getSystemTestResultsByStudentComponent(a, cmp, s.getId());
         Object[] lo = (Object[]) systemTestResults;
