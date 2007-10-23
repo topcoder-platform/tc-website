@@ -191,6 +191,10 @@ public class Round extends Base {
         }
     }
 
+    public int getRegistered() {
+        return this.roundRegistrations.size();
+    }
+
     public void addComponent(RoundComponent rc) {
         rc.getId().setRound(this);
         this.roundComponents.add(rc);
