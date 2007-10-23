@@ -37,6 +37,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">10.23.07 3:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20Trailer">TC Channel Reports from TCCC07</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.25.07 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep05">TC Channel: Episode 5</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.27.07 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep04">TC Channel: Episode 4</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.03.07 4:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies">2007 TopCoder Open webcast</A></td></tr>
