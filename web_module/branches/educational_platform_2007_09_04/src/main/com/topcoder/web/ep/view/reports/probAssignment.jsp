@@ -169,7 +169,7 @@
                     </td>
                     <td class="value C">
                         <c:choose><c:when test="${not empty score_type && sessionInfo.userId != result.studentId}">
-                            &nbsp;
+                            <img src="/i/ep/buttons/viewSubmissionNA.png" alt="View Submission" />
                         </c:when><c:otherwise>
                             <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;${ASSIGNMENT_ID}=${assignment.id}&amp;${COMPONENT_ID}=${component.id}&amp;${STUDENT_ID}=${result.studentId}"><img src="/i/ep/buttons/viewSubmission.png" alt="View submission" /></a>
                         </c:otherwise></c:choose>

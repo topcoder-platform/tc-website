@@ -205,7 +205,7 @@
                                     </td>
                                 </c:when><c:otherwise>
                                     <td class="value C" width="1%">
-                                        &nbsp;
+                                        <img src="/i/ep/buttons/viewSubmissionNA.png" alt="View Submission" />
                                     </td>
                                 </c:otherwise></c:choose>
                                 <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
