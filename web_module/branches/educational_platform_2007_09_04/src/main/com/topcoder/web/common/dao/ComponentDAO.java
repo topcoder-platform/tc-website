@@ -1,7 +1,5 @@
 package com.topcoder.web.common.dao;
 
-import java.util.List;
-
 import com.topcoder.web.common.model.algo.Component;
 
 /**
@@ -10,9 +8,4 @@ import com.topcoder.web.common.model.algo.Component;
  *          Create Date: Jan 18, 2007
  */
 public interface ComponentDAO extends GenericDAO<Component, Long> {
-
-    public List searchByProblemName(String name, int maxResults);
-
-    public List searchAssignmentProblemsByProblemName(String name, int maxResults);
-
 }

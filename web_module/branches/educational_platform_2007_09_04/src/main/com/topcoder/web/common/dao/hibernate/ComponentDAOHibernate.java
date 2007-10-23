@@ -1,10 +1,5 @@
 package com.topcoder.web.common.dao.hibernate;
 
-import java.util.List;
-
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
-
 import com.topcoder.web.common.dao.ComponentDAO;
 import com.topcoder.web.common.model.algo.Component;
  
@@ -15,23 +10,4 @@ import com.topcoder.web.common.model.algo.Component;
  *          Create Date: Jan 18, 2007
  */
 public class ComponentDAOHibernate extends GenericBase<Component, Long> implements ComponentDAO {
-
-    public List searchByProblemName(String name, int maxResults) {
-        return getSession().createCriteria(Component.class)
-        .createCriteria("problem")
-        .add(Restrictions.like("name", name))
-        .addOrder(Order.asc("name"))
-        .setMaxResults(maxResults)
-        .list();
-    }
-
-    public List searchAssignmentProblemsByProblemName(String name, int maxResults) {
-        return getSession().createCriteria(Component.class)
-        .add(Restrictions.eq("admitAssignment", Boolean.TRUE))
-        .createCriteria("problem")
-        .add(Restrictions.like("name", name))
-        .addOrder(Order.asc("name"))
-        .setMaxResults(maxResults)
-        .list();
-    }
 }

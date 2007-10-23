@@ -1,9 +1,6 @@
 package com.topcoder.web.common.dao;
 
 import com.topcoder.web.common.model.educ.Professor;
-import com.topcoder.web.common.model.educ.ProfessorStatus;
-
-import java.util.List;
 
 /**
  * @author pulky
@@ -12,13 +9,7 @@ import java.util.List;
  */
 public interface ProfessorDAO extends GenericDAO<Professor, Long> {
 
-    public List<Professor> getProfessorsUsingStudentId(Long studentId);
-
-    public List<Professor> getProfessors(ProfessorStatus status);
-
     public Boolean hasActiveProfessors(Long studentId);
-
-    public Boolean isActiveProfessor(Long professorId);
 
     public Boolean isProfessor(Long professorId);
 

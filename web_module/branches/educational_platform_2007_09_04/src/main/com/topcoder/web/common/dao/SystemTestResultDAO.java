@@ -1,7 +1,5 @@
 package com.topcoder.web.common.dao;
 
-import java.util.List;
-
 import com.topcoder.web.common.model.algo.Component;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.SystemTestResult;
@@ -13,12 +11,6 @@ import com.topcoder.web.common.model.algo.SystemTestResult;
  *          Create Date: Mar 22, 2007
  */
 public interface SystemTestResultDAO extends GenericDAO<SystemTestResult, Long> {
-
-    public List<Object> getSystemTestResultsSummary(Long roundId);
-
-    public List<Object> getSystemTestResultsByComponent(Long roundId, Long componentId);
-
-    public List<Object> getSystemTestResultsByStudent(List<Round> lr, Long coderId);
 
     public Object getSystemTestResultsByStudentComponent(Round r, Component cmp, Long studentId);
 
