@@ -143,6 +143,21 @@
         </thead>
             <%int i = 0;%>
             <c:forEach items="${results}" var="result">
+            <c:set value="value C" var="score_column_class"/>
+            <c:set value="value C" var="num_tests_column_class"/>
+            <c:set value="value C" var="percent_test_column_class"/>
+            
+            <c:choose>
+                <c:when test="${not is_student && result.scoreType == tc_score_type}">
+                    <c:set value="highlight C" var="score_column_class"/>
+                </c:when>
+                <c:when test="${not is_student && result.scoreType == passed_score_type}">
+                    <c:set value="highlight C" var="num_tests_column_class"/>
+                </c:when>
+                <c:when test="${not is_student && result.scoreType == success_fail_score_type}">
+                    <c:set value="highlight C" var="percent_test_column_class"/>
+                </c:when>
+            </c:choose>
             <tbody>
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                     <td class="value" colspan="2">
@@ -150,51 +165,56 @@
                     <a href="${sessionInfo.servletPath}?module=AssignmentReport&amp;${ASSIGNMENT_ID}=${result.assignmentId}">${result.assignment}</a>
                     </td>
 
-                    <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
-                        <td class="value C">&nbsp;</td>
-                    </c:when><c:otherwise>
-                        <td class="value C"><fmt:formatNumber value="${result.assignmentScore}"  minFractionDigits="2" maxFractionDigits="2"/></td>
-                    </c:otherwise></c:choose>
-
-                    <c:choose><c:when test="${is_student && result.scoreType != passed_score_type}">
-                        <td class="value C">&nbsp;</td>
-                    </c:when><c:otherwise>
-                        <c:choose>
-                            <c:when test="${result.assignmentNumTestsPassed == -1}">
-                                <td class="value C">N/A</td>
-                            </c:when>
-                            <c:otherwise>
-                                <td class="value C">${result.assignmentNumTestsPassed}</td>
-                            </c:otherwise>
-                        </c:choose>
-                    </c:otherwise></c:choose>
-
-                    <c:choose><c:when test="${is_student && result.scoreType != success_fail_score_type}">
-                        <td class="value C">&nbsp;</td>
-                    </c:when><c:otherwise>
-                        <td class="value C">
-                        <c:choose>
-                            <c:when test="${result.assignmentNumTestsPassed == -1}">
-                                N/A
-                            </c:when>
-                            <c:otherwise>
-                                <c:choose><c:when test="${is_student}">
-                                    <c:choose><c:when test="${result.assignmentPercentTestsPassed == 100}">
-                                        Pass
+                    <td class="${score_column_class}">
+                        <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
+                            &nbsp;
+                        </c:when><c:otherwise>
+                            <fmt:formatNumber value="${result.assignmentScore}"  minFractionDigits="2" maxFractionDigits="2"/>
+                        </c:otherwise></c:choose>
+                    </td>
+                    
+                    <td class="${num_tests_column_class}">
+                        <c:choose><c:when test="${is_student && result.scoreType != passed_score_type}">
+                            &nbsp;
+                        </c:when><c:otherwise>
+                            <c:choose>
+                                <c:when test="${result.assignmentNumTestsPassed == -1}">
+                                    N/A
+                                </c:when>
+                                <c:otherwise>
+                                    ${result.assignmentNumTestsPassed}
+                                </c:otherwise>
+                            </c:choose>
+                        </c:otherwise></c:choose>
+                    </td>
+                    
+                    <td class="${percent_test_column_class}">
+                        <c:choose><c:when test="${is_student && result.scoreType != success_fail_score_type}">
+                            &nbsp;
+                        </c:when><c:otherwise>
+                            <c:choose>
+                                <c:when test="${result.assignmentNumTestsPassed == -1}">
+                                    N/A
+                                </c:when>
+                                <c:otherwise>
+                                    <c:choose><c:when test="${is_student}">
+                                        <c:choose><c:when test="${result.assignmentPercentTestsPassed == 100}">
+                                            Pass
+                                        </c:when><c:otherwise>
+                                            Fail
+                                        </c:otherwise></c:choose>
                                     </c:when><c:otherwise>
-                                        Fail
+                                        <fmt:formatNumber value="${result.assignmentPercentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/>%
                                     </c:otherwise></c:choose>
-                                </c:when><c:otherwise>
-                                    <fmt:formatNumber value="${result.assignmentPercentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/>%
-                                </c:otherwise></c:choose>
-                            </c:otherwise>
-                        </c:choose>
-                        </td>
-                    </c:otherwise></c:choose>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:otherwise></c:choose>
+                    </td>
                 </tr>
             </tbody>
             <tbody id="ref_<%=i%>" class="hideText">
                         <c:forEach items="${result.details}" var="detail">
+                            
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value">
                                     <div style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;${ASSIGNMENT_ID}=${result.assignmentId}&amp;${COMPONENT_ID}=${detail.componentId}">${detail.component}</a></div>
@@ -208,45 +228,49 @@
                                         <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;${ASSIGNMENT_ID}=${result.assignmentId}&amp;${COMPONENT_ID}=${detail.componentId}&amp;${STUDENT_ID}=${student.id}"><img src="/i/ep/buttons/viewSubmission.png" alt="View Submission" /></a>
                                     </td>
                                 </c:otherwise></c:choose>
-                                <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
-                                    <td class="value C">&nbsp;</td>
-                                </c:when><c:otherwise>
-                                    <td class="value C"><fmt:formatNumber value="${detail.score}"  minFractionDigits="2" maxFractionDigits="2"/></td>
-                                </c:otherwise></c:choose>
-                                <c:choose><c:when test="${is_student && result.scoreType != passed_score_type}">
-                                    <td class="value C">&nbsp;</td>
-                                </c:when><c:otherwise>
-                                    <c:choose>
-                                        <c:when test="${detail.numTestsPassed == -1}">
-                                            <td class="value C">N/A</td>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <td class="value C">${detail.numTestsPassed}</td>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </c:otherwise></c:choose>
-                                <c:choose><c:when test="${is_student && result.scoreType != success_fail_score_type}">
-                                    <td class="value C">&nbsp;</td>
-                                </c:when><c:otherwise>
-                                    <c:choose>
-                                        <c:when test="${detail.numTestsPassed == -1}">
-                                            <td class="value C">N/A</td>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <td class="value C">
-                                                <c:choose><c:when test="${is_student}">
-                                                    <c:choose><c:when test="${result.assignmentPercentTestsPassed == 100}">
-                                                        Pass
+                                <td class="${score_column_class}">
+                                    <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">
+                                        &nbsp;
+                                    </c:when><c:otherwise>
+                                        <fmt:formatNumber value="${detail.score}"  minFractionDigits="2" maxFractionDigits="2"/>
+                                    </c:otherwise></c:choose>
+                                </td>
+                                <td class="${num_tests_column_class}">
+                                    <c:choose><c:when test="${is_student && result.scoreType != passed_score_type}">
+                                        &nbsp;
+                                    </c:when><c:otherwise>
+                                        <c:choose>
+                                            <c:when test="${detail.numTestsPassed == -1}">
+                                                N/A
+                                            </c:when>
+                                            <c:otherwise>
+                                                ${detail.numTestsPassed}
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:otherwise></c:choose>
+                                </td>
+                                <td class="${percent_test_column_class}">
+                                    <c:choose><c:when test="${is_student && result.scoreType != success_fail_score_type}">
+                                        &nbsp;
+                                    </c:when><c:otherwise>
+                                        <c:choose>
+                                            <c:when test="${detail.numTestsPassed == -1}">
+                                                N/A
+                                            </c:when>
+                                            <c:otherwise>
+                                                    <c:choose><c:when test="${is_student}">
+                                                        <c:choose><c:when test="${result.assignmentPercentTestsPassed == 100}">
+                                                            Pass
+                                                        </c:when><c:otherwise>
+                                                            Fail
+                                                        </c:otherwise></c:choose>
                                                     </c:when><c:otherwise>
-                                                        Fail
+                                                        <fmt:formatNumber value="${detail.percentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/>%
                                                     </c:otherwise></c:choose>
-                                                </c:when><c:otherwise>
-                                                    <fmt:formatNumber value="${detail.percentTestsPassed}"  minFractionDigits="0" maxFractionDigits="0"/>%
-                                                </c:otherwise></c:choose>
-                                            </td>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </c:otherwise></c:choose>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:otherwise></c:choose>
+                                </td>
                             </tr>
                         </c:forEach>
             </tbody>

@@ -231,14 +231,18 @@ public class StudentReport extends SharedBaseProcessor {
 
         for (StudentReportRow srr : larr) {
            if (srr.getScoreType().equals(AssignmentScoreType.TC_SCORE_TYPE)) {
-               srr.setAssignmentNumTestsPassed(-999);
+               if (!srr.getAssignmentNumTestsPassed().equals(-1)) {
+                   srr.setAssignmentNumTestsPassed(-999);
+               }
                srr.setAssignmentPercentTestsPassed(-999d);
            } else if (srr.getScoreType().equals(AssignmentScoreType.PASSED_SCORE_TYPE)) {
                srr.setAssignmentScore(-999d);
                srr.setAssignmentPercentTestsPassed(-999d);
            } else if (srr.getScoreType().equals(AssignmentScoreType.SUCCESS_FAIL_SCORE_TYPE)) {
                srr.setAssignmentScore(-999d);
-               srr.setAssignmentNumTestsPassed(-999);
+               if (!srr.getAssignmentNumTestsPassed().equals(-1)) {
+                   srr.setAssignmentNumTestsPassed(-999);
+               }
            }  
         }
     }
