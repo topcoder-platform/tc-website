@@ -102,7 +102,7 @@
 
                     <tc-webtag:errorIterator id="err" name="<%=MediaRequest.MEDIA_TYPE%>"><span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
                     <dt><label for="<%=MediaRequest.MEDIA_TYPE%>">Type of Media</label></dt>
-                    <dd><tc-webtag:listSelect name="<%=MediaRequest.MEDIA_TYPE%>" useTopValue="false" list="<%=mediaTypes%>"/></dd>
+                    <dd><tc-webtag:listSelect name="<%=MediaRequest.MEDIA_TYPE%>" list="<%=mediaTypes%>"/></dd>
                     
                     <tc-webtag:errorIterator id="err" name="<%=MediaRequest.MEDIA_OUTLET%>"><span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
                     <dt><label for="<%=MediaRequest.MEDIA_OUTLET%>">Media Outlet</label></dt>
