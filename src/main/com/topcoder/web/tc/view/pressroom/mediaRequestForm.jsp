@@ -1,6 +1,18 @@
+<%@ page import="com.topcoder.web.common.tag.ListSelectTag" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.tc.controller.request.MediaRequest" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page contentType="text/html;charset=utf-8" %> 
+<%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<%
+    ArrayList<ListSelectTag.Option> mediaTypes = new ArrayList<ListSelectTag.Option>(3);
+    mediaTypes.add(new ListSelectTag.Option("Newspaper", "Newspaper"));
+    mediaTypes.add(new ListSelectTag.Option("Magazine", "Magazine"));
+    mediaTypes.add(new ListSelectTag.Option("Online", "Online"));
+%>
 
 <html>
 <head>
@@ -65,46 +77,53 @@
             <div id="pr_requestform">
                 <p>Please use the following form to request information from our Public Relations department.</p>
                 
-                <form action="#formtarget">
+                <form action="${sessionInfo.servletPath}" method="post">
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="MediaRequest"/>
                 <dl>
-                    <dt><label for="firstname">First Name</label></dt>
-                    <dd><input type="text" name="firstname" size="25" id="firstname"></dd>
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
+                    <dt><label for="<%=Constants.FIRST_NAME%>">Given Name</label></dt>
+                    <dd><tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="25"/></dd>
+
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
+                    <dt><label for="<%=Constants.LAST_NAME%>">Surname</label></dt>
+                    <dd><tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="25"/></dd>
+
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
+                    <dt><label for="<%=Constants.EMAIL%>">Email Address</label></dt>
+                    <dd><tc-webtag:textInput name="<%=Constants.EMAIL%>" size="25"/></dd>
+
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.PHONE_NUMBER%>"><span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
+                    <dt><label for="<%=Constants.PHONE_NUMBER%>">Phone Number</label></dt>
+                    <dd><tc-webtag:textInput name="<%=Constants.PHONE_NUMBER%>" size="25"/></dd>
+
+                    <tc-webtag:errorIterator id="err" name="<%=MediaRequest.FAX_NUMBER%>"><span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
+                    <dt><label for="<%=MediaRequest.FAX_NUMBER%>">Fax Number</label></dt>
+                    <dd><tc-webtag:textInput name="<%=MediaRequest.FAX_NUMBER%>" size="25"/></dd>
+
+                    <tc-webtag:errorIterator id="err" name="<%=MediaRequest.MEDIA_TYPE%>"><span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
+                    <dt><label for="<%=MediaRequest.MEDIA_TYPE%>">Type of Media</label></dt>
+                    <dd><tc-webtag:listSelect name="<%=MediaRequest.MEDIA_TYPE%>" useTopValue="false" list="<%=mediaTypes%>"/></dd>
                     
-                    <dt><label for="lastname">Last Name</label></dt>
-                    <dd><input type="text" name="lastname" size="25" id="lastname"></dd>
+                    <tc-webtag:errorIterator id="err" name="<%=MediaRequest.MEDIA_OUTLET%>"><span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
+                    <dt><label for="<%=MediaRequest.MEDIA_OUTLET%>">Media Outlet</label></dt>
+                    <dd><tc-webtag:textInput name="<%=MediaRequest.MEDIA_OUTLET%>" size="25"/></dd>
                     
-                    <dt><label for="lastname">Email Address</label></dt>
-                    <dd><input type="text" name="lastname" size="25" id="lastname"></dd>
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.TITLE%>"><span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
+                    <dt><label for="<%=Constants.TITLE%>">Your Title</label></dt>
+                    <dd><tc-webtag:textInput name="<%=Constants.TITLE%>" size="25"/></dd>
                     
-                    <dt><label for="lastname">Phone Number</label></dt>
-                    <dd><input type="text" name="lastname" size="25" id="lastname"></dd>
-                    
-                    <dt><label for="lastname">Fax Number</label></dt>
-                    <dd><input type="text" name="lastname" size="25" id="lastname"></dd>
-                    
-                    <dt><label for="lastname">Type of Media</label></dt>
+                    <tc-webtag:errorIterator id="err" name="<%=MediaRequest.ON_ASSIGNMENT%>"><span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
+                    <dt><label for="<%=MediaRequest.ON_ASSIGNMENT%>">Are you on assignment?</label></dt>
                     <dd>
-                        <select name="mediatype">
-                        <option value="paper">Newspaper</option>
-                        <option value="mag">Magazine</option>
-                        <option value="online">Online</option>
-                        </select>
-                    </dd>
+                        <tc-webtag:radioButton name="<%=MediaRequest.ON_ASSIGNMENT%>" value="Yes"/><label for="<%=MediaRequest.ON_ASSIGNMENT%>Yes">&nbsp;Yes</label>
+                        <tc-webtag:radioButton name="<%=MediaRequest.ON_ASSIGNMENT%>" value="No"/><label for="<%=MediaRequest.ON_ASSIGNMENT%>No">&nbsp;No</label></dd>
                     
-                    <dt><label for="lastname">Media Outlet</label></dt>
-                    <dd><input type="text" name="lastname" size="25" id="lastname"></dd>
-                    
-                    <dt><label for="lastname">Your Title</label></dt>
-                    <dd><input type="text" name="lastname" size="25" id="lastname"></dd>
-                    
-                    <dt><label for="lastname">Are you on assignment?</label></dt>
-                    <dd><input type="radio" name="assign" size="25" id="assignYes" value="Yes" checked="checked"><label for="assignYes">&nbsp;Yes</label>&nbsp;<input type="radio" name="assign" size="25" id="assignNo" value="No"><label for="assignNo">&nbsp;No</label></dd>
-                    
-                    <dt><label for="lastname">Comments or Questions</label></dt>
-                    <dd><textarea cols="50" rows="15" name="comment"></textarea></dd>
+                    <tc-webtag:errorIterator id="err" name="<%=MediaRequest.COMMENTS%>"><span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
+                    <dt><label for="<%=MediaRequest.COMMENTS%>">Comments or Questions</label></dt>
+                    <dd><tc-webtag:textArea name="<%=MediaRequest.COMMENTS%>" rows="15" cols="50"/></dd>
                     
                     <dt>&nbsp;</dt>
-                    <dd><a href="#" class="button" style="width:50; height:15px;">Submit</a></dd>
+                    <dd><button name="submit" value="submit" type="submit">Submit</button></dd>
                 </dl>
                 </form>
             </div>
