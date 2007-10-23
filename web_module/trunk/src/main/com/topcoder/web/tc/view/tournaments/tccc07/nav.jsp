@@ -79,9 +79,7 @@
                     | <a target="_blank" href="/pdfs/tournaments/TCCC07_Program_View.pdf">Program [PDF]</a>
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule"<% if (tabLev2.equals("joinus")) {%> class="on"<% } %>>Join us onsite</a>
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=roundTable"<% if (tabLev2.equals("roundtable")) {%> class="on"<% } %>>Roundtable Discussion</a>
-                <%--
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movies"<% if (tabLev2.equals("onsiteevents")) {%> class="on"<% } %>>Onsite events</a>
-                --%>
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly"<% if (tabLev2.equals("sponsors")) {%> class="on"<% } %>>Sponsors</a>
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa"<% if (tabLev2.equals("eventpatrons")) {%> class="on"<% } %>>Event Patrons</a>
                 </p>
@@ -159,8 +157,10 @@
                 <% } else if (tabLev2.equals("onsiteevents")) { %>
                     <p id="tertiaryNav">
                         <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movies"<% if (tabLev3.equals("movies")) {%> class="on"<% } %>>Movies</a>
+<%--
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=photos"<% if (tabLev3.equals("photos")) {%> class="on"<% } %>>Photos</a>
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=blogs&d4=overview"<% if (tabLev3.equals("blogs")) {%> class="on"<% } %>>Blogs</a>
+--%>
                     </p>
                 <% } else if (tabLev2.equals("sponsors")) { %>
                     <p id="tertiaryNav">
