@@ -82,8 +82,7 @@
                     </td>
                 </tr>
                 <%-- cannot be show
-                </tr>
-                    <tr>
+				<tr>
                     <td align="left">
                         <strong>Problem set:</strong>
                     </td>

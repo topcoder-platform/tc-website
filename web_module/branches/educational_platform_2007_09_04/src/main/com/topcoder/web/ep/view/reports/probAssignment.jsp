@@ -80,9 +80,9 @@
                         <div>(<a href="">View average for this class</a>)</div>
                         --%>
                     </td>
-                <%-- cannot be show
                 </tr>
-                    <tr>
+                <%-- cannot be show
+                <tr>
                     <td align="left">
                         <strong>Problem set:</strong>
                     </td>
