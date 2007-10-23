@@ -199,13 +199,13 @@
                                 <td class="value">
                                     <div style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;${ASSIGNMENT_ID}=${result.assignmentId}&amp;${COMPONENT_ID}=${detail.componentId}">${detail.component}</a></div>
                                 </td>
-                                <c:choose><c:when test="${detail.numTestsPassed != -1}">
+                                <c:choose><c:when test="${detail.numTestsPassed == -1 || is_student && student.id != sessionInfo.userId}">
                                     <td class="value C" width="1%">
-                                        <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;${ASSIGNMENT_ID}=${result.assignmentId}&amp;${COMPONENT_ID}=${detail.componentId}&amp;${STUDENT_ID}=${student.id}"><img src="/i/ep/buttons/viewSubmission.png" alt="View Submission" /></a>
+                                        <img src="/i/ep/buttons/viewSubmissionNA.png" alt="View Submission" />
                                     </td>
                                 </c:when><c:otherwise>
                                     <td class="value C" width="1%">
-                                        <img src="/i/ep/buttons/viewSubmissionNA.png" alt="View Submission" />
+                                        <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;${ASSIGNMENT_ID}=${result.assignmentId}&amp;${COMPONENT_ID}=${detail.componentId}&amp;${STUDENT_ID}=${student.id}"><img src="/i/ep/buttons/viewSubmission.png" alt="View Submission" /></a>
                                     </td>
                                 </c:otherwise></c:choose>
                                 <c:choose><c:when test="${is_student && result.scoreType != tc_score_type}">

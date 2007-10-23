@@ -81,16 +81,6 @@
                         --%>
                     </td>
                 </tr>
-                <%-- cannot be show
-                <tr>
-                    <td align="left">
-                        <strong>Problem set:</strong>
-                    </td>
-                    <td align="left">
-                        <a href="javascript:openWin('','problemSetDescription',600,600);">Set 1</a>
-                    </td>
-                </tr>
-                --%>
                 <tr>
                     <td align="left" valign="top">
                         <strong>Problem:</strong>
@@ -168,7 +158,7 @@
                     </c:otherwise></c:choose>
                     </td>
                     <td class="value C">
-                        <c:choose><c:when test="${not empty score_type && sessionInfo.userId != result.studentId}">
+                        <c:choose><c:when test="${result.numTestsPassed == -1 || not empty score_type && sessionInfo.userId != result.studentId}">
                             <img src="/i/ep/buttons/viewSubmissionNA.png" alt="View Submission" />
                         </c:when><c:otherwise>
                             <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;${ASSIGNMENT_ID}=${assignment.id}&amp;${COMPONENT_ID}=${component.id}&amp;${STUDENT_ID}=${result.studentId}"><img src="/i/ep/buttons/viewSubmission.png" alt="View submission" /></a>
