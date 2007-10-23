@@ -23,8 +23,10 @@
 <body>
     <div class="submissionContainer">
         <div style="float:right;">
-            <a href=""><img src="/i/ep/buttons/back.png" alt="Back"/></a>
+            <a href="/ep/reports/?module=Home"><img src="/i/ep/buttons/back.png" alt="Back"/></a>
         </div>
+
+        <h2>Submission</h2>
 
         <table cellpadding="4" cellspacing="0">
         <tbody>
@@ -33,7 +35,7 @@
                     <strong>Name</strong>
                 </td>
                 <td align="left">
-                    ${student.user.lastName}, ${student.user.firstName} (<tc-webtag:handle coderId='${student.id}'/>)
+                    <a href="">${student.user.lastName}, ${student.user.firstName}</a> (<tc-webtag:handle coderId='${student.id}'/>)
                 </td>
             </tr>
             <tr>
@@ -41,7 +43,7 @@
                     <strong>Assignment</strong>
                 </td>
                 <td align="left">
-                    ${assignment.name}
+                    <a href="">${assignment.name}</a>
                 </td>
             </tr>
             <tr>
