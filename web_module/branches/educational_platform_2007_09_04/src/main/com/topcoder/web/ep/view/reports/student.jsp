@@ -140,9 +140,9 @@
                 </a></td>
             </tr>
         </thead>
-        <tbody>
             <%int i = 0;%>
             <c:forEach items="${results}" var="result">
+            <tbody>
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                     <td class="value" colspan="2">
                     <a href="javascript:toggleDisplay('ref_<%=i%>','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/ep/buttons/exp_w.png" alt="Expand" name="switch_<%=i%>"/></a>
