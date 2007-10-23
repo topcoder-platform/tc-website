@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.12.6 - 2007.10.xx
+    5.12.6 - 2007.10.23
     <ul>
         <li>Fix bug in simple search results where if you sorted and scrolled, it would lose your sort -dok</li>
         <li>Adjust the press room look and feel and add an info request form - dok</li>
