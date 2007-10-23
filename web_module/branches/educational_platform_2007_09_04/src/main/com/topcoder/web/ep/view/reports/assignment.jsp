@@ -117,7 +117,7 @@
             <tr><td class="header C" colspan="4">${assignment.name}</td></tr>
             <tr>
                 <td class="header"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.STUDENT_COL.intValue()%>"/>">Student</a></td>
-                <td class="header C"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.SCORE_COL.intValue()%>"/>">Score</a></td>
+                <td class="header C"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.SCORE_COL.intValue()%>"/>">TC Score</a></td>
                 <td class="header C"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.NUM_TESTS_COL.intValue()%>"/>">Tests Passed</a></td>
                 <td class="header C"><a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="<%=AssignmentReport.PERCENT_TESTS_COL.intValue()%>"/>">
                 <c:choose><c:when test="${not empty score_type}">
@@ -132,7 +132,7 @@
                 <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                     <td class="value"><a href="${sessionInfo.servletPath}?module=StudentReport&amp;${CLASSROOM_ID}=${classroom.id}&amp;${STUDENT_ID}=${result.studentId}">${result.student}</a> (<tc-webtag:handle coderId='${result.studentId}'/>)</td>
 
-                    <td class="highlight">
+                    <td class="highlight C">
                     <c:choose><c:when test="${not empty score_type && score_type != tc_score_type}">
                         &nbsp;
                     </c:when><c:otherwise>
