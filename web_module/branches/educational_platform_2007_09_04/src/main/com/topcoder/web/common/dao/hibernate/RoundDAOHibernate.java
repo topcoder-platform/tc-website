@@ -19,7 +19,7 @@ public class RoundDAOHibernate extends Base implements RoundDAO {
     public List<Round> getRoundsAfter(Date date) {
         Query q = session.createQuery(
                 " select r from Round r, RoundSegment rs " +
-                        " where rs.id.roundId = r.id " +
+                        " where rs.id.round.id = r.id " +
                         " and rs.id.segmentId = 1 " +
                         " and rs.startTime > :start");
 
