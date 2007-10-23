@@ -107,12 +107,6 @@
         </div>
 
         <table cellpadding="0" cellspacing="0" class="stat" width="100%">
-            <colgroup span="4">
-                <col></col>
-                <col class="highlight"></col>
-                <col></col>
-                <col></col>
-            </colgroup>
             <tr><td class="title" colspan="4">Assignment Report</td></tr>
             <tr><td class="header C" colspan="4">${assignment.name}</td></tr>
             <tr>
