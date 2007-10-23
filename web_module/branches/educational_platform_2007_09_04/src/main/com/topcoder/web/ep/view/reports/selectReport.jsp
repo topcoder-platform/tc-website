@@ -96,7 +96,7 @@
             <c:choose>
                 <c:when test="${not empty students}">
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
-                        <tr><td class="title" colspan="2">Students</td></tr>
+                        <tr><td class="title">Students</td></tr>
                         <tr><td class="header">Student (Handle)</td></tr>
                         <%int i = 0;%>
                         <c:forEach items="${students}" var="student">                
