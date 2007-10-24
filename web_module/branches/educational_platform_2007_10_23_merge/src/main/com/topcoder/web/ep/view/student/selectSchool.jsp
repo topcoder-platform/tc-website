@@ -37,7 +37,7 @@ function submitEnter(e) {
 }
 
 function doSearch() {
-    var ajaxRequest = new AjaxRequest('/ep?module=SchoolSearch');
+    var ajaxRequest = new AjaxRequest('/education?module=SchoolSearch');
     
     ajaxRequest.addNamedFormElements("sn");
     

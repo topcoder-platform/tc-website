@@ -139,7 +139,7 @@
 
     <br clear="all" />
     <div style="margin-top: 10px;">
-        <a href="/ep/?module=ViewClassroomAssignments&amp;${CLASSROOM_ID}=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+        <a href="/education/?module=ViewClassroomAssignments&amp;${CLASSROOM_ID}=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>
 
     </div>

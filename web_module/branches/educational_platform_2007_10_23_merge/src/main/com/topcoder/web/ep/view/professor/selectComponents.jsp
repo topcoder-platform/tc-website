@@ -29,7 +29,7 @@ function submitEnter(e) {
 }
 
 function addComponent(componentId) {
-    var ajaxRequest = new AjaxRequest('/ep?module=AddComponent&cd=' + componentId);
+    var ajaxRequest = new AjaxRequest('/education?module=AddComponent&cd=' + componentId);
     
     ajaxRequest.setPreRequest(preAddRequest);    
     ajaxRequest.setPostRequest(postAddRequest);
@@ -37,7 +37,7 @@ function addComponent(componentId) {
 }
 
 function removeComponent(componentId) {
-    var ajaxRequest = new AjaxRequest('/ep?module=RemoveComponent&cd=' + componentId);
+    var ajaxRequest = new AjaxRequest('/education?module=RemoveComponent&cd=' + componentId);
     
     ajaxRequest.setPreRequest(preRemRequest);    
     ajaxRequest.setPostRequest(postRemRequest);
@@ -45,7 +45,7 @@ function removeComponent(componentId) {
 }
 
 function doSearch() {
-    var ajaxRequest = new AjaxRequest('/ep?module=ComponentSearch');
+    var ajaxRequest = new AjaxRequest('/education?module=ComponentSearch');
     
     ajaxRequest.addNamedFormElements("cn");
     

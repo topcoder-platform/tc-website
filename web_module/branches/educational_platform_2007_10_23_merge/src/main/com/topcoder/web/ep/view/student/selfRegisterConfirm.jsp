@@ -93,7 +93,7 @@
         </div>
 
         <div style="margin-top: 10px;">
-            <a href="/ep" class="button"><img src="/i/ep/buttons/cancel.png" alt="Cancel" /></a>
+            <a href="/education" class="button"><img src="/i/ep/buttons/cancel.png" alt="Cancel" /></a>
         </div>
 
     </div>

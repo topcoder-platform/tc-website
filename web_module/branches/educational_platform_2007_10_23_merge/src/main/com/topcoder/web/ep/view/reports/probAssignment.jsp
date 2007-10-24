@@ -87,7 +87,7 @@
                     </td>
                     <td align="left">
                         <div>
-                            <a href="Javascript:openWin('/ep/?module=ViewProblem&amp;${COMPONENT_ID}=${component.id}','problemStatement',600,600);">
+                            <a href="Javascript:openWin('/education/?module=ViewProblem&amp;${COMPONENT_ID}=${component.id}','problemStatement',600,600);">
                                 ${component.problem.name}
                             </a>
                             <c:if test="${empty score_type || score_type == tc_score_type}">

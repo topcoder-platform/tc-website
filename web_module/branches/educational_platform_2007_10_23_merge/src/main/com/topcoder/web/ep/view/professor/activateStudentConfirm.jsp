@@ -96,7 +96,7 @@
         </form>            
 
     <div style="margin-top: 10px;">
-        <a href="/ep?module=ViewClassroomDetails&amp;${CLASSROOM_ID}=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+        <a href="/education?module=ViewClassroomDetails&amp;${CLASSROOM_ID}=${classroom.id}"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>
 
     </div>

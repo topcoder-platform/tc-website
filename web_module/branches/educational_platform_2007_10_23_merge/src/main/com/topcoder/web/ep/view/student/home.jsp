@@ -92,12 +92,12 @@
                 <c:forEach items="${school.details}" var="classroom">
                     <div class="classroomListing" align="center">
                         <div class="name">
-                            <a href="/ep?module=ViewClassroomDetails&amp;${CLASSROOM_ID}=${classroom.classroomId}">${classroom.classroomName}</a>
+                            <a href="/education?module=ViewClassroomDetails&amp;${CLASSROOM_ID}=${classroom.classroomId}">${classroom.classroomName}</a>
                         </div>
                         <c:choose>
                             <c:when test="${classroom.active}">
                                 <div class="button">
-                                    <a href="/ep?module=ViewClassroomAssignments&amp;${CLASSROOM_ID}=${classroom.classroomId}"><img src="/i/ep/buttons/assignments.png" alt="Assignments" /></a>
+                                    <a href="/education?module=ViewClassroomAssignments&amp;${CLASSROOM_ID}=${classroom.classroomId}"><img src="/i/ep/buttons/assignments.png" alt="Assignments" /></a>
                                 </div>
                             </c:when>
                             <c:otherwise>

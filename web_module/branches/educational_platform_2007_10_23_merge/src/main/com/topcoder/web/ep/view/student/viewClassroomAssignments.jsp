@@ -100,7 +100,7 @@
 
     <br clear="all" />
     <div style="margin-top: 10px;">
-        <a href="/ep/"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
+        <a href="/education/"><img src="/i/ep/buttons/back.png" alt="Back" /></a>
     </div>
 
     </div>
