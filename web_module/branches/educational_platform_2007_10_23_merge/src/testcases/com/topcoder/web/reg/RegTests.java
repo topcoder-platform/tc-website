@@ -1,7 +1,6 @@
 package com.topcoder.web.reg;
 
 import com.topcoder.web.common.dao.UserDAOTestCase;
-import com.topcoder.web.reg.validation.TermsOfUseValidatorTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -84,8 +83,8 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(ReferralDAOTestCase.class));
         suite.addTest(new TestSuite(ReferralValidatorTestCase.class));
         suite.addTest(new TestSuite(TermsOfUseValidatorTestCase.class));
-*/
         suite.addTest(new TestSuite(TermsOfUseValidatorTestCase.class));
+*/
 
 //        suite.addTest(new TestSuite(DetachedTestCase.class));
 

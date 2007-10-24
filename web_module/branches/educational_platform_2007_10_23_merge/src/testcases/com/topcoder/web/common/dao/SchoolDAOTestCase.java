@@ -26,7 +26,7 @@ public class SchoolDAOTestCase extends TCHibernateTestCase {
         for (Iterator it = l.iterator(); it.hasNext();) {
             o = (Object[]) it.next();
             s = (School) o[1];
-            Integer count = (Integer) o[0];
+            Long count = (Long) o[0];
             if (!s.getName().toLowerCase().startsWith("mass")) {
                 ok = false;
             }
@@ -36,7 +36,7 @@ public class SchoolDAOTestCase extends TCHibernateTestCase {
 
     public void testCreateCoderLoaded() {
         School mit = DAOUtil.getFactory().getSchoolDAO().find(new Long(1719));
-        assertFalse("coder not loaded", mit.getCoder() == null);
+        assertFalse("coder not loaded", mit.getUser() == null);
     }
 
 

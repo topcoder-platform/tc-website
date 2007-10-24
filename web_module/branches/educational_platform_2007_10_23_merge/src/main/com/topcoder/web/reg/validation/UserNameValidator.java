@@ -4,7 +4,12 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.validation.*;
+import com.topcoder.web.common.validation.BasicResult;
+import com.topcoder.web.common.validation.NonEmptyValidator;
+import com.topcoder.web.common.validation.SizeValidator;
+import com.topcoder.web.common.validation.ValidationInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.common.validation.Validator;
 import com.topcoder.web.reg.Constants;
 
 /**
@@ -31,7 +36,7 @@ public class UserNameValidator implements Validator {
                 String handle = (String) input.getInput();
                 //if they're new, or if they are changing their user name
                 ValidationResult hret = null;
-                if (u.isNew() || (!u.isNew() && !u.getHandle().equals(input.getInput()))) {
+                if (u.getId() == null || (u.getId() != null && !u.getHandle().equals(input.getInput()))) {
                     //log.debug("in here");
                     hret = new BasicResult(DAOUtil.getFactory().getUserDAO().find(handle, true) == null, "Please choose another user name.");
                 }

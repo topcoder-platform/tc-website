@@ -33,6 +33,9 @@ public abstract class GenericBase<T, ID extends Serializable> implements Generic
         this.session = session;
     }
 
+    public void delete(T entity) {
+        session.delete(entity);
+    }
 
     public void saveOrUpdate(T entity) {
         session.saveOrUpdate(entity);

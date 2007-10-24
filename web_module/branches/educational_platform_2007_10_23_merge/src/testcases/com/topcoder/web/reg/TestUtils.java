@@ -23,24 +23,18 @@ public class TestUtils {
         ret.setMemberSince(new Timestamp(System.currentTimeMillis()));
         ret.setCoderType(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
 
-/*
-        School s = Util.getFactory().getSchoolDAO().find(new Long(775));//MIT
-*/
+
         School s = new School();
-        s.setCoder(ret);
         s.setName("some school");
         s.setShortName("ss");
         s.setType(DAOUtil.getFactory().getSchoolTypeDAO().find(SchoolType.COLLEGE));
 
-        //todo add address
         Address a = new Address();
         a.setCity("mycity");
         a.setCountry(DAOUtil.getFactory().getCountryDAO().find("840"));
         a.setState(DAOUtil.getFactory().getStateDAO().find("CO"));
         a.setProvince("myprovince");
         s.setAddress(a);
-
-        ret.addCreatedSchool(s);
 
         CurrentSchool cs = new CurrentSchool();
         cs.setCoder(ret);
@@ -93,6 +87,8 @@ public class TestUtils {
         c.setUser(ret);
         ret.setCoder(c);
 
+        ret.addCreatedSchool(c.getCurrentSchool().getSchool());
+
         Address a = new Address();
         a.setAddress1("address1");
         a.setAddress2("address2");
@@ -118,11 +114,18 @@ public class TestUtils {
         p.setPrimary(Boolean.TRUE);
         ret.addPhoneNumber(p);
 
-        for (Iterator it = DAOUtil.getFactory().getNotificationDAO().getNotifications().iterator(); it.hasNext();) {
+        for (Iterator it = DAOUtil.getFactory().getNotificationDAO().findAll().iterator(); it.hasNext();) {
             ret.addNotification((Notification) it.next());
         }
 
         ret.setTimeZone(DAOUtil.getFactory().getTimeZoneDAO().find(java.util.TimeZone.getDefault()));
+
+
+        UserSchool us = new UserSchool();
+        us.setSchool(c.getCurrentSchool().getSchool());
+        us.setPrimary(true);
+        us.setAssociationType(DAOUtil.getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.STUDENT));
+        ret.addSchool(us);
 
 
         HashSet regTypes = new HashSet();
