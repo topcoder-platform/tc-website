@@ -220,7 +220,7 @@
                                     <div style="margin-left: 20px;">
                                     <a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;${ASSIGNMENT_ID}=${result.assignmentId}&amp;${COMPONENT_ID}=${detail.componentId}">${detail.component}</a>
                                     <c:if test="${not is_student || result.scoreType == tc_score_type}">
-                                        ${detail.possiblePoints}
+                                        - ${detail.possiblePoints}
                                     </c:if>
                                     </div>
                                 </td>
