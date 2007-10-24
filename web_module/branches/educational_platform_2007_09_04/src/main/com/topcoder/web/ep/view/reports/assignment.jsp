@@ -97,7 +97,15 @@
                     </td>
                     <td align="left">
                         <c:forEach items="${assignment.roundComponents}" var="rc">                
-                            <div><a href="Javascript:openWin('/ep/?module=ViewProblem&amp;${COMPONENT_ID}=${rc.id.component.id}','problemStatement',600,600);">${rc.id.component.problem.name}</a> (<a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;${ASSIGNMENT_ID}=${assignment.id}&amp;${COMPONENT_ID}=${rc.id.component.id}">View report</a>)</div>
+                            <div>
+                                <a href="Javascript:openWin('/ep/?module=ViewProblem&amp;${COMPONENT_ID}=${rc.id.component.id}','problemStatement',600,600);">
+                                    ${rc.id.component.problem.name}
+                                </a>
+                                <c:if test="${empty score_type || score_type == tc_score_type}">
+                                    - ${rc.id.component.problem.proposedDifficulty.pointValue} 
+                                </c:if>
+                                (<a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;${ASSIGNMENT_ID}=${assignment.id}&amp;${COMPONENT_ID}=${rc.id.component.id}">View report</a>)
+                            </div>
                         </c:forEach>
                     </td>
                 </tr>

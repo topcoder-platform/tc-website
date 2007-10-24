@@ -86,7 +86,14 @@
                         <strong>Problem:</strong>
                     </td>
                     <td align="left">
-                        <div><a href="Javascript:openWin('/ep/?module=ViewProblem&amp;${COMPONENT_ID}=${component.id}','problemStatement',600,600);">${component.problem.name}</a></div>
+                        <div>
+                            <a href="Javascript:openWin('/ep/?module=ViewProblem&amp;${COMPONENT_ID}=${component.id}','problemStatement',600,600);">
+                                ${component.problem.name}
+                            </a>
+                            <c:if test="${empty score_type || score_type == tc_score_type}">
+                                - ${component.problem.proposedDifficulty.pointValue} 
+                            </c:if>
+                        </div>
                     </td>
                 </tr>
             </tbody>
