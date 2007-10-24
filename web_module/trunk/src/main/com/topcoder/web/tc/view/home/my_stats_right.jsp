@@ -104,7 +104,7 @@
 </table>
 
 <% } else { %>
-<table cellpadding="0" cellspacing="0" class="stat" style="width: 180px;">
+<table cellpadding="0" cellspacing="0" class="rightNav" style="width: 180px;">
 <tbody>
     <tr>
         <td class="title">Coder: 
