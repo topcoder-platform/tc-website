@@ -1,13 +1,14 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="java.util.GregorianCalendar" %>
 <%@ page import="java.util.Calendar" %>
-<%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -59,16 +60,22 @@
 </head>
 
 <body>
-<div align="center">
-<div id="contentOut" class="contentOut">
-<jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="contests"/>
-</jsp:include>
-<div id="contentIn" class="contentIn">
-    <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="contests"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
-    <div class="contentSpacer">
 
         <div class="linkBox">
             <studio:forumLink forumID="${contest.forumId}"/>
@@ -150,56 +157,54 @@
                  </c:choose>
 
                 <br /><br />
-                <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
-                    <thead>
-                        <tr>
-                            <td class="NW">&nbsp;</td>
-                            <td class="title" colspan="8">My Favorites</td>
-                            <td class="NE">&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="headerW">
-                                <div>&nbsp;</div>
-                            </td>
-                            <td class="headerC">
-                                Ranking
-                                <div>
-                                    <a href="#" onClick="batchUpdate();return false;"><img src="/i/v2/interface/btnUpdateDk.png" alt="Update ranking" /></a>
-                                </div>
-                            </td>
-                            <td class="header" colspan="2" width="33%">
-                                Submission
-                            </td>
-                            <td class="headerC" width="33%">
-                                Date Submitted
-                            </td>
-                            <td class="headerC" width="33%">
-                                Passed / Failed
-                            </td>
-                            <td class="headerC" nowrap>
-                                Move Up /<br />Move Down
-                            </td>
-                            <td class="headerC" nowrap>
-                                Move to<br />Top
-                            </td>
-                            <td class="headerC">
-                                Remove
-                            </td>
-                            <td class="headerE">
-                                <div>&nbsp;</div>
-                            </td>
-                        </tr>
-                    </thead>
-                    <tbody id="submissions">
-                        <jsp:include page="submitTableBody.jsp"/>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td class="SW" colspan="9">&nbsp;</td>
-                            <td class="SE">&nbsp;</td>
-                        </tr>
-                    </tfoot>
-                </table>
+                <div class="statHolder">
+                    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+                    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+                    <div class="container">
+                        <table class="stat" cellpadding="0" cellspacing="0">
+                            <thead>
+                                <tr><td class="title" colspan="10">My Favorites</td></tr>
+                                <tr>
+                                    <td class="headerW">
+                                        <div>&nbsp;</div>
+                                    </td>
+                                    <td class="headerC">
+                                        Ranking
+                                        <div>
+                                            <a href="#" onClick="batchUpdate();return false;"><img src="/i/v2/interface/btnUpdateRanking.png" alt="Update ranking" /></a>
+                                        </div>
+                                    </td>
+                                    <td class="header" colspan="2" width="33%">
+                                        Submission
+                                    </td>
+                                    <td class="headerC" width="33%">
+                                        Date Submitted
+                                    </td>
+                                    <td class="headerC" width="33%">
+                                        Passed / Failed
+                                    </td>
+                                    <td class="headerC" nowrap>
+                                        Move Up /<br />Move Down
+                                    </td>
+                                    <td class="headerC" nowrap>
+                                        Move to<br />Top
+                                    </td>
+                                    <td class="headerC">
+                                        Remove
+                                    </td>
+                                    <td class="headerE">
+                                        <div>&nbsp;</div>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody id="submissions">
+                                <jsp:include page="submitTableBody.jsp"/>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+                    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+                </div>
             </form>
             <br /><br />
             <strong>NOTE:</strong> green rows indicate submissions that you have selected to be considered for
@@ -207,13 +212,15 @@
         </div>
 
 
-    </div>
-    <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-<jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
 
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>
