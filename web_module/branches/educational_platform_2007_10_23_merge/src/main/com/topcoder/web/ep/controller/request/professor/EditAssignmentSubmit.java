@@ -39,7 +39,7 @@ public class EditAssignmentSubmit extends ShortBase {
             } else {
                 AssignmentDTO adto = getAssignment();
                 if (adto == null) {
-                    throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
+                    throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/education");
                 } else if (userLoggedIn()) {
                     getRequest().setAttribute("schoolName", adto.getSchoolName());                
                     Boolean update = adto.getRoundId() != null; 
@@ -61,7 +61,7 @@ public class EditAssignmentSubmit extends ShortBase {
                     clearSession();
 
                     getRequest().setAttribute("message", "You have successfuly " + (update ? "updated" : "added") + " assignment " + adto.getAssignmentName());                  
-                    getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/ep//?module=ViewClassroomAssignments&clsid=" + adto.getClassroomId());                  
+                    getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/education/?module=ViewClassroomAssignments&clsid=" + adto.getClassroomId());                  
                     setNextPage("/message.jsp");
                     setIsNextPageInContext(true);            
                 } else {

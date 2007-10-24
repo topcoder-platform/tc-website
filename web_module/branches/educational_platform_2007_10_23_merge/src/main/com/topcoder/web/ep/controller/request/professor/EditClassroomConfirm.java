@@ -31,7 +31,7 @@ public class EditClassroomConfirm extends LongBase {
         this.sessionPrefix = "ec_";
         Classroom c = getClassroom();
         if (c == null) {
-            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/education");
         } else {            
             // get selection
             String[] values = getRequest().getParameterValues(Constants.STUDENT_ID);

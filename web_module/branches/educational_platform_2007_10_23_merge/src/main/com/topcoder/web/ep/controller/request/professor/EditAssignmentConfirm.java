@@ -35,7 +35,7 @@ public class EditAssignmentConfirm extends ShortBase {
             } else {
                 AssignmentDTO adto = getAssignment();
                 if (adto == null) {
-                    throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
+                    throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/education");
                 } else if (userLoggedIn()) {
                     // got a response, validate. 
                     

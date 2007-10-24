@@ -55,7 +55,7 @@ public class SelectClassroom extends LongBase {
         } else {
             School s = getSchool();
             if (s == null) {
-                throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
+                throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/education");
             }
             log.debug("Second pass - " + getUser().getUserName());
             // get selection

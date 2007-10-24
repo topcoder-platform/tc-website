@@ -40,7 +40,7 @@ public class ActivateStudentSubmit extends StudentActivationBase {
                 message +
                 " for classroom " + c.getName());                  
         getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, 
-                "/ep?module=ViewClassroomDetails&" + Constants.CLASSROOM_ID + "=" + c.getId());                  
+                "/education?module=ViewClassroomDetails&" + Constants.CLASSROOM_ID + "=" + c.getId());                  
         setNextPage("/message.jsp");
     }
 }

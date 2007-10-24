@@ -27,7 +27,7 @@ public class SelfRegisterConfirm extends LongBase {
     protected void dbProcessing() throws Exception {
         Set<Classroom> classrooms = getSelectedClassrooms();
         if (classrooms == null) {
-            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/education");
         } else {
             getRequest().setAttribute("schoolName", getSchool().getName());                
 
@@ -37,7 +37,7 @@ public class SelfRegisterConfirm extends LongBase {
             markForCommit();
             
             getRequest().setAttribute("message", "You have successfuly self registered to the selected classrooms.");                  
-            getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/ep/");                  
+            getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/education/");                  
             setNextPage("/message.jsp");
             setIsNextPageInContext(true);            
         }        

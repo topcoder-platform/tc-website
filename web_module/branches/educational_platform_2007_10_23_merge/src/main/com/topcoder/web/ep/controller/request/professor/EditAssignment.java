@@ -177,7 +177,7 @@ public class EditAssignment extends ShortBase {
                 getRequest().setAttribute("schoolName", adto.getSchoolName());                
                 log.debug("Second pass - " + getUser().getUserName());
                 if (adto == null) {
-                    throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
+                    throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/education");
                 } else if (userLoggedIn()) {
                     // got a response, validate.
 

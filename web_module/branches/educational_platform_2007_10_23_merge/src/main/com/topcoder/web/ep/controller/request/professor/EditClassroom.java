@@ -84,7 +84,7 @@ public class EditClassroom extends LongBase {
                 Classroom c = getClassroom();
 
                 if (c == null) {
-                    throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
+                    throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/education");
                 } else if (userLoggedIn()) {
                     Long schoolId = getSchoolParam();
                     School s = null;

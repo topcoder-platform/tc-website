@@ -34,7 +34,7 @@ public class EditClassroomSubmit extends LongBase {
 
         Classroom classroom = getClassroom();
         if (classroom == null) {
-            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/ep");
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/education");
         } else {
             getRequest().setAttribute("schoolName", classroom.getSchool().getName());                
 
@@ -91,7 +91,7 @@ public class EditClassroomSubmit extends LongBase {
             markForCommit();
             
             getRequest().setAttribute("message", "You have successfuly " + (update ? "updated" : "added") + " classroom " + classroom.getName());                  
-            getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/ep/");                  
+            getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/education/");                  
             setNextPage("/message.jsp");
             setIsNextPageInContext(true);            
         }        

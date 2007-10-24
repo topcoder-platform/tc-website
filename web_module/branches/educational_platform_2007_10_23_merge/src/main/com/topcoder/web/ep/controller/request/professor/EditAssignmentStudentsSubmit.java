@@ -95,7 +95,7 @@ public class EditAssignmentStudentsSubmit extends ShortHibernateProcessor {
                 ArenaServicesFactory.getArenaServices().updateRoundRegistration(assignmentId, studentIds);
 
                 getRequest().setAttribute("message", "You have successfuly updated students registration for assignment " + a.getName());
-                getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/ep//?module=ViewClassroomAssignments&clsid=" + c.getId());
+                getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/education/?module=ViewClassroomAssignments&clsid=" + c.getId());
                 setNextPage("/message.jsp");
                 setIsNextPageInContext(true);
             }
