@@ -109,7 +109,7 @@
       <td class="value">6
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10793">SRM 374</A></strong><br>
-         <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=XXX">XXX</A><br>--%>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank</A><br>
          11:00 AM
          </div>
       </td>
