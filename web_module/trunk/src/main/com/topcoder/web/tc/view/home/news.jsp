@@ -38,11 +38,11 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br />10.23.07<br />3:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20Trailer">TC Channel Reports from TCCC07</A></span><br /><br />
-        Markus, Dean and Sarah Ramkissoon will be in Disney all next week, bringing you nightly TC Channel reports for all three days of the TCCC. Click <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20Trailer">here</a> to view the promo.</td>
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20is%20Going%20to%20Disney%20World">TC Channel Reports from TCCC07</A></span><br /><br />
+        Markus, Dean and Sarah Ramkissoon will be in Disney all next week, bringing you nightly TC Channel reports for all three days of the TCCC. Click <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20is%20Going%20to%20Disney%20World">here</a> to view the promo.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20Trailer">details</a> | 
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20is%20Going%20to%20Disney%20World">details</a> | 
         <tc-webtag:forumLink forumID="517933" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
