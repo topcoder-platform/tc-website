@@ -35,6 +35,13 @@
     <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
+<c:if test="${!sessionInfo.loggedIn}">
+    <div align="center" class="small" style="padding-bottom: 6px;">
+        (<A href="/reg/?nrg=false">Click here</A> if you're already a registered member and would like to update
+        your profile.)
+    </div>
+</c:if>
+
 <div id="regBcContainer">
     <div class="regBc">
         <div class="title">
