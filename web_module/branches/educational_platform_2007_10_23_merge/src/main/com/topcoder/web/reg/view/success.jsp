@@ -187,6 +187,24 @@
     <br><br>
 </c:if>
 
+
+<c:set value="<%=RegistrationType.TEACHER_ID%>" var="teacher"/>
+<c:if test="${cf:contains(requestScope[regTypes], teacher)}">
+    <div class="regHead">As a Registered Professor</div>
+    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
+        <tr>
+            <td class="image">
+                <A href="LINK TO EP LANDING"><img src="/i/registration/professor.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
+            </td>
+            <td class="text" width="100%">
+                <a href="LINK TO EP LANDING">Read more</a> about how to use the Educational Platform.
+            </td>
+        </tr>
+    </table>
+
+    <br><br>
+</c:if>
+
 <div class="regHead">As a Registered TopCoder Member</div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
     <tr>
