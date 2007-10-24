@@ -92,12 +92,16 @@
                                         <div style="border: 1px solid #cccccc; background: #eeeeee; padding: 10px;" align="left">
                                             <div style="margin-bottom: 10px;">
                                                 <strong>Forgot your password?</strong>
-                                                <br />If you cannot remember your password <a href="/tc?module=RecoverPassword">click here</a> and we can help you restore your account.
+                                                <br />If you <a href="/tc?module=RecoverPassword">forgot your password</a>, we can help you restore your account.
                                             </div>
     
                                             <div>
-                                                <strong>New to TopCoder?</strong>
-                                                <br /><a href="/reg/">Register now</a>. After you complete the registration process, we will send your account activation code via email.
+                                                <p><strong>New to TopCoder?</strong></p>
+                                                <p align="center">
+                                                <a href="/reg/">Register as a student</a>
+                                                | <a href="/reg/?module=Main&amp;rt=7">Register as a professor</a>
+                                                </p>
+                                                After you complete the registration process, we will send your account activation code via email.
                                             </div>
                                         </div>
                                     </div>
