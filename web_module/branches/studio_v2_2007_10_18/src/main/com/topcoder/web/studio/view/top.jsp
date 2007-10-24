@@ -8,11 +8,18 @@
     String section = request.getParameter("section") == null ? "" : request.getParameter("section");
 %>
 
+<% if (section.equals("home")) {%>
+<!-- logoBox -->
+<div id="header_data">
+    <div class="logoBox">
+        <a href="/"><img src="/i/v2/studio_logo.png" alt="TopCoder Studio" /></a>
+    </div>
+</div>
+<% } else { %>
 <!-- header_data -->
 <div id="header_data">
     <c:choose>
         <c:when test="${sessionInfo.anonymous}">
-            <!-- loginBox -->
             <div class="loginBox">
                 <%--have to use the constant because this page can be used with multiple servlets --%>
                 <form method="post" name="frmLogin" action="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
@@ -25,7 +32,7 @@
                         </tr>
                         <tr>
                             <td>Password:</td>
-                            <td width="0%"><input name="<%=Login.PASSWORD%>" size="8" maxlength="30" type="password" value=""/></td>
+                            <td><input name="<%=Login.PASSWORD%>" size="8" maxlength="30" type="password" value=""/></td>
                         </tr>
                         </tbody>
                         </table>
@@ -58,3 +65,4 @@
         <a href="/"><img src="/i/v2/studio_logo.png" alt="TopCoder Studio" /></a>
     </div>
 </div>
+<% } %>

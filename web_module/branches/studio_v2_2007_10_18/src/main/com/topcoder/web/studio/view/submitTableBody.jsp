@@ -55,7 +55,7 @@ ${submission.originalFileName}
 <div>View submission</div>
 </div>
 <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
-<img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()"/>
+<img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()"/>
 </a>
 </td>
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>

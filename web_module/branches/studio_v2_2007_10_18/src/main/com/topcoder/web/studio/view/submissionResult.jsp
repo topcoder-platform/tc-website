@@ -20,7 +20,7 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <script type="text/javascript" src="/js/popup.js"></script>
+    <script type="text/javascript" src="/js/v2/popup.js"></script>
 </head>
 
 <body>
@@ -67,13 +67,13 @@
                     <c:otherwise>
                         <div id="popIt" class="popUp"><div>View submission</div></div>
                         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
-                            <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'popIt')" onmouseout="popHide()"/>
+                            <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'popIt')" onmouseout="popHide()"/>
                         </a>
                     </c:otherwise>
                 </c:choose>
             </c:when>
             <c:otherwise>
-                <img src="/i/layout/magnifyFade.png" alt="" />
+                <img src="/i/v2/interface/magnifyFade.png" alt="" />
             </c:otherwise>
         </c:choose>
 

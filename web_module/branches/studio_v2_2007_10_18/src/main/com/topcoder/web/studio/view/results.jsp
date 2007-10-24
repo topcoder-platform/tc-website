@@ -19,7 +19,7 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <script type="text/javascript" src="/js/popup.js"></script>
+    <script type="text/javascript" src="/js/v2/popup.js"></script>
 </head>
 
 <body>
@@ -149,14 +149,14 @@
                                 </div>
                                 <br />
                                 <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                    <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
+                                    <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
                                 </a>
                             </div>
                         </c:otherwise>
                     </c:choose>
                 </c:when>
                 <c:otherwise>
-                    <img src="/i/layout/magnifyFade.png" alt="" />
+                    <img src="/i/v2/interface/magnifyFade.png" alt="" />
                 </c:otherwise>
             </c:choose>
         </td>
