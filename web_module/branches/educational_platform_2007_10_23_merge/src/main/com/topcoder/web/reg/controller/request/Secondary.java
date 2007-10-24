@@ -26,19 +26,19 @@ public class Secondary extends Base {
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
         if (u == null) {
-            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg/?"+Constants.NEW_REG+"="+String.valueOf(true));
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg/?" + Constants.NEW_REG + "=" + String.valueOf(true));
         } else {
 
             Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
             if ("POST".equals(getRequest().getMethod())) {
-                if (u.isNew() || userLoggedIn()) {
+                if (isNewRegistration() || userLoggedIn()) {
                     Map params = getMainUserInput();
                     checkMainFields(params);
-                    
+
                     HSRegistrationHelper rh = new HSRegistrationHelper(getRequest());
-  
+
                     boolean registeringHS = hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID);
-                    
+
                     if (registeringHS) {
                         checkHSRegistrationQuestions(rh);
                     }
@@ -54,26 +54,26 @@ public class Secondary extends Base {
                             getRequest().getSession().setAttribute(Constants.HS_RESPONSES, rh.getResponsesMap());
 
                             if (!rh.isEligibleHS()) {
-                                log.info("user " + u.getId()+  " is not eligible. ");
-                                
-                                if (u.isNew()) {
+                                log.info("user " + u.getId() + " is not eligible. ");
+
+                                if (isNewRegistration()) {
                                     // setup in session so that the user is inactivated for hs when submitting.
                                     getRequest().getSession().setAttribute(Constants.INACTIVATE_HS, Boolean.TRUE);
                                 } else {
                                     rh.inactivateUser(u);
                                     markForCommit();
                                 }
-                                
+
                                 getRequest().getSession().setAttribute("params", params);
-                                getRequest().setAttribute("registeredComp" ,isCurrentlyRegistered(u, RegistrationType.COMPETITION_ID));
-                                getRequest().setAttribute("requestedComp" ,hasRequestedType(RegistrationType.COMPETITION_ID));
+                                getRequest().setAttribute("registeredComp", isCurrentlyRegistered(u, RegistrationType.COMPETITION_ID));
+                                getRequest().setAttribute("requestedComp", hasRequestedType(RegistrationType.COMPETITION_ID));
 
                                 setNextPage("/hsIneligible.jsp");
                                 setIsNextPageInContext(true);
                                 return;
                             }
                         }
-                        
+
                         loadFieldsIntoUserObject(fields, params);
                         Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
                         log.debug("we have " + secondaryFields.size() + " secondary fields");
@@ -127,16 +127,15 @@ public class Secondary extends Base {
         List<Object[]> defaults = rh.getDefaults();
         for (Object[] d : defaults) {
             setDefault((String) d[0], d[1]);
-        }                
+        }
     }
 
-    private void checkHSRegistrationQuestions(HSRegistrationHelper rh) {            
+    private void checkHSRegistrationQuestions(HSRegistrationHelper rh) {
         List<String[]> valResults = rh.validateQuestions();
         for (String[] result : valResults) {
             addError(result[0], result[1]);
         }
     }
-    
 
 
     private void loadFieldsIntoUserObject(Set fields, Map params) throws TCWebException {
@@ -259,7 +258,7 @@ public class Secondary extends Base {
         }
 
         //we don't allow updates, so no need to set it here.
-        if (u.isNew()) {
+        if (isNewRegistration()) {
             if (fields.contains(Constants.HANDLE)) {
                 //yeah...100% chance they'll contain it, but i'll be consistent with the code anyway
                 u.setHandle((String) params.get(Constants.HANDLE));

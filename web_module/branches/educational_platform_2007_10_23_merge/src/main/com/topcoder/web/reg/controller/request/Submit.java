@@ -7,19 +7,38 @@ import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.dwload.CacheClearer;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.HSRegistrationHelper;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.RegistrationTypeDAO;
 import com.topcoder.web.common.dao.UserDAO;
-import com.topcoder.web.common.model.*;
+import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.Response;
+import com.topcoder.web.common.model.Season;
+import com.topcoder.web.common.model.SecurityGroup;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.UserSchool;
 import com.topcoder.web.reg.Constants;
 
 import javax.ejb.CreateException;
 import javax.naming.Context;
 import java.rmi.RemoteException;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author dok
@@ -31,10 +50,9 @@ public class Submit extends Base {
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
         if (getRegUser() == null) {
-            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg/?" + Constants.NEW_REG + "=" + String.valueOf(true));
-        } else if (u.isNew() || userLoggedIn()) {
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
+        } else if (isNewRegistration() || userLoggedIn()) {
             //todo check if the handle is taken again
-            boolean newUser = u.isNew();
             getFactory().getUserDAO().saveOrUpdate(u);
 
             HSRegistrationHelper rh = new HSRegistrationHelper(getRequest(), (Map<String, Response>) getRequest().getSession().getAttribute(Constants.HS_RESPONSES));
@@ -44,17 +62,34 @@ public class Submit extends Base {
                 rh.registerForSeason(u);
             }
 
-            securityStuff(newUser, u);
-
+            securityStuff(isNewRegistration(), u);
 
             if (getRequest().getSession().getAttribute(Constants.INACTIVATE_HS) != null) {
                 rh.inactivateUser(u);
             }
 
+
+            if (log.isDebugEnabled()) {
+                for (UserSchool sc : u.getSchools()) {
+                    if (sc.getSchool() == null) {
+                        log.debug("school null");
+                    }
+                    if (sc.getUser() == null) {
+                        log.debug("user null");
+                    }
+                    if (sc.getAssociationType() == null) {
+                        log.debug("ass null");
+                    }
+                    if (sc.isPrimary() == null) {
+                        log.debug("primary null");
+                    }
+                }
+            }
+
             markForCommit();
             closeConversation();
             beginCommunication();
-            if (newUser) {
+            if (isNewRegistration()) {
                 try {
                     Long newUserId = u.getId();
                     //have to wrap up the last stuff, and get into new stuff.  we don't want
@@ -108,9 +143,6 @@ public class Submit extends Base {
 
             //set these in the request for the success page, cuz we're about to kill the session
             getRequest().setAttribute(Constants.REG_TYPES, h);
-            //kind of a hack.  the final page needs to know if they're new or not.  but by adding
-            //them to the db, they're not "new" anymore as far as hibernate is concerned.
-            u.setNew(newUser);
             getRequest().setAttribute(Constants.USER, u);
             getRequest().getSession().invalidate();
 
