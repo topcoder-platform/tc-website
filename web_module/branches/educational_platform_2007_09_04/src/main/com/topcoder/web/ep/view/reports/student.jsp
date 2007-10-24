@@ -217,7 +217,12 @@
                             
                             <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                 <td class="value">
-                                    <div style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;${ASSIGNMENT_ID}=${result.assignmentId}&amp;${COMPONENT_ID}=${detail.componentId}">${detail.component}</a></div>
+                                    <div style="margin-left: 20px;">
+                                    <a href="${sessionInfo.servletPath}?module=ProblemAssignmentReport&amp;${ASSIGNMENT_ID}=${result.assignmentId}&amp;${COMPONENT_ID}=${detail.componentId}">${detail.component}</a>
+                                    <c:if test="${not is_student || result.scoreType == tc_score_type}">
+                                        ${detail.possiblePoints}
+                                    </c:if>
+                                    </div>
                                 </td>
                                 <c:choose><c:when test="${detail.numTestsPassed == -1 || is_student && student.id != sessionInfo.userId}">
                                     <td class="value C" width="1%">

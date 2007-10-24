@@ -11,19 +11,29 @@ public class StudentReportDetailRow {
     private Long componentId;
     private String component;
     private Double score;
+    private Double possiblePoints;
     private Integer numTestsPassed;
     private Double percentTestsPassed;
 
     public StudentReportDetailRow(Long componentId, String component,
-            Double score, Integer numTestsPassed, Double percentTestsPassed) {
+            Double score, Double possiblePoints, Integer numTestsPassed, Double percentTestsPassed) {
         super();
         this.componentId = componentId;
         this.component = component;
         this.score = score;
+        this.possiblePoints = possiblePoints;
         this.numTestsPassed = numTestsPassed;
         this.percentTestsPassed = percentTestsPassed;
     }
     
+    public Double getPossiblePoints() {
+        return possiblePoints;
+    }
+
+    public void setPossiblePoints(Double possiblePoints) {
+        this.possiblePoints = possiblePoints;
+    }
+
     public Long getComponentId() {
         return componentId;
     }

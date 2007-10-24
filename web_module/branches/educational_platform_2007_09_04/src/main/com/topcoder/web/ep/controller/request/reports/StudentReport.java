@@ -94,6 +94,7 @@ public class StudentReport extends SharedBaseProcessor {
             Long componentId = rsr.getLongItem("component_id");
             String problemName = rsr.getStringItem("problem_name");
             Double points = rsr.getDoubleItem("points");
+            Double possiblePoints = rsr.getDoubleItem("possible_points");
             Integer total = rsr.getIntItem("total");
             Integer succeeded = (rsr.getItem("succeeded").getResultData() == null) ? null : rsr.getIntItem("succeeded"); 
             Long showAll = rsr.getLongItem("show_all");
@@ -120,14 +121,14 @@ public class StudentReport extends SharedBaseProcessor {
             }
 
             if (succeeded != null) {
-                lsrdr.add(new StudentReportDetailRow(componentId,problemName,points,succeeded,succeeded * 100d / total));
+                lsrdr.add(new StudentReportDetailRow(componentId,problemName,points,possiblePoints,succeeded,succeeded * 100d / total));
                 if (totalNumPassed.equals(-1)) {
                     totalNumPassed = succeeded;
                 } else {
                     totalNumPassed += succeeded;
                 }
             } else {
-                lsrdr.add(new StudentReportDetailRow(componentId,problemName,points,-1,0d));
+                lsrdr.add(new StudentReportDetailRow(componentId,problemName,points,possiblePoints,-1,0d));
             }
 
             totalTests += total;
