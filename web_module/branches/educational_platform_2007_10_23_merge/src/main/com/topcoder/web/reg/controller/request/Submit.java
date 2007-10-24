@@ -303,7 +303,7 @@ public class Submit extends Base {
             msgText.append("TOPCODER EDUCATIONAL PLATFORM\n\n");
             msgText.append("Computer Science and programming professors at universities and colleges around the world have expressed their desire for an academic version of the TopCoder Algorithm arena customized for the classroom.\n\n");
             msgText.append("Our answer to that request is the Educational Platform.  Professors have access to on-demand practice rooms and virtual classrooms, and can able to select, configure and assign problems and view reports.\n\n");
-            msgText.append("You MUST have your account approved by a TopCoder administrator before you will be granted access to the Educational Platform.  Please email service@topcoder.com with your information (name, school and handle) so that your account can be fully activated.\n\n");
+            msgText.append("You MUST have your account approved by a TopCoder administrator before you will be granted access to the Educational Platform.  Please email education@topcoder.com with your information (name, school and user name) so that your account can be fully activated.\n\n");
             msgText.append("If you have any questions about how to use the Educational Platform, please email them to service@topcoder.com.\n\n");
         }
 
