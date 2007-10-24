@@ -2,22 +2,21 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%--------------------------- YouTube clip
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br />10.23.07<br />3:15 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br />10.24.07<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        Psyho wins the xxx Marathon Match</span><br /><br />
-        Congratulations to <tc-webtag:handle coderId="10597114" context="marathon_match"/> for winning the xxx marathon match. We couldn't let this moment pass without giving everyone another opportunity to see the great video profile of him put together by <tc-webtag:handle coderId="15006955" context="marathon_match"/> for the TCCC blogging contest.<br /><br />
+        Psyho-Analysis</span><br /><br />
+        After two grueling weeks, <tc-webtag:handle coderId="10597114" context="marathon_match"/> stands among the leaders of Marathon Match 24 as it enters the system test phase. For us, this was enough excuse to bring back the great video profile of him produced by <tc-webtag:handle coderId="15006955" /> for the TCCC blogging contest.  If you missed it the first time, it's definitely worth clicking now.<br /><br />
         Enjoy, and remember you can always send your videos to <a href="mailto:TCChannel@topcoder.com">TCChannel@topcoder.com</a>.
         <br /><br />
-        <object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/ehcFi59klfg&rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/ehcFi59klfg&rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object></td>
+        <center><object width="300" height="251"><param name="movie" value="http://www.youtube.com/v/ehcFi59klfg&rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/ehcFi59klfg&rel=1" type="application/x-shockwave-flash" wmode="transparent" width="300" height="251"></embed></object></center></td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20Trailer">details</a> | 
-        <tc-webtag:forumLink forumID="517933" message="discuss this" /> | 
+        <tc-webtag:forumLink forumID="517935" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
-   -----------------------------%>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />10.23.07<br />5:30 PM</td>
@@ -175,18 +174,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm371">details</A> | 
          <tc-webtag:forumLink forumID="516068" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.16.07<br />12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">NSA chat before SRM 372</A></span><br /><br />
-        SRM 372 is brought to you by NSA.  Be sure to check in to the arena an hour before the match starts to chat with NSA representatives.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa">details</a> | 
-        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
