@@ -12,9 +12,7 @@
             <br />09:07 Show Us Your Station
             <br />12:14 Edu-tainment
             <br />20:42 TC Trivia
-<%--
             <br /><a href="/movies/tcchannel/ep05.mov">Low-bandwidth version</a>
---%>
         </div>
     </c:when>
     <c:otherwise>
