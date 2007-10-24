@@ -194,10 +194,11 @@
     <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
         <tr>
             <td class="image">
-                <A href="LINK TO EP LANDING"><img src="/i/registration/professor.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
+                <A href="/education/?module=Static&amp;d1=introduction"><img src="/i/registration/professor.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
             </td>
             <td class="text" width="100%">
-                <a href="LINK TO EP LANDING">Read more</a> about how to use the Educational Platform.
+                <a href="/education/?module=Static&amp;d1=introduction">Read more</a> about how to use the Educational
+                Platform.
             </td>
         </tr>
     </table>
