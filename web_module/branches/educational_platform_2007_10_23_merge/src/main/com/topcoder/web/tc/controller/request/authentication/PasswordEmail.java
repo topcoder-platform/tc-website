@@ -46,7 +46,7 @@ public class PasswordEmail extends Base {
                     mail.setSubject("TopCoder Password Information");
                     StringBuffer msgText = new StringBuffer(1000);
                     msgText.append("Your TopCoder login credentials are:\n\n");
-                    msgText.append("Handle:  ");
+                    msgText.append("User Name:  ");
                     msgText.append(rsc.getStringItem(0, "handle"));
                     msgText.append("\nPassword:  ");
                     msgText.append(getPassword(rsc.getLongItem(0, "user_id")));
