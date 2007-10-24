@@ -2,6 +2,22 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%--------------------------- YouTube clip
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br />10.23.07<br />3:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        Psyho wins the xxx Marathon Match</span><br /><br />
+        Congratulations to <tc-webtag:handle coderId="10597114" context="marathon_match"/> for winning the xxx marathon match. We couldn't let this moment pass without giving everyone another opportunity to see the great video profile of him put together by <tc-webtag:handle coderId="15006955" context="marathon_match"/> for the TCCC blogging contest.<br /><br />
+        Enjoy, and remember you can always send your videos to <a href="mailto:TCChannel@topcoder.com">TCChannel@topcoder.com</a>.
+        <br /><br />
+        <object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/ehcFi59klfg&rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/ehcFi59klfg&rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object></td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20Trailer">details</a> | 
+        <tc-webtag:forumLink forumID="517933" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+   -----------------------------%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />10.23.07<br />5:30 PM</td>
@@ -18,12 +34,12 @@
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
-   <%--------------------------------------------------------%>
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br />10.23.07<br />3:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20Trailer">TC Channel Reports from TCCC07</A></span><br /><br />
-        Markus, Dean and Sarah Ramikissoon will be in Disney all next week, bringing you nightly TC Channel reports for all three days of the TCCC. Click <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20Trailer">here</a> to view the promo.</td>
+        Markus, Dean and Sarah Ramkissoon will be in Disney all next week, bringing you nightly TC Channel reports for all three days of the TCCC. Click <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20Trailer">here</a> to view the promo.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20Trailer">details</a> | 
