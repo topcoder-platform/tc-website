@@ -27,20 +27,25 @@
 
                 <h1><span>Movies - <c:out value="${param['title']}" default="" escapeXml="true"/></span></h1>
 
-                <div style="padding: 10px; background: transparent" align="center">
+                <div align="center" style="float: right; padding: 30px 100px 0 0;">
+                    <a href="/tcchannel"><img src="/i/tournament/tccc07/tcchannel.png" alt="TC Channel" /></a>
+                </div>
+
+                <div style="padding: 10px; background: transparent" align="left">
                 <script language="JavaScript">
-                var s='<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="640" height="560" id="webcast" align="middle">'
+                var s='<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="320" height="280" id="webcast" align="middle">'
                 + '<param name="allowScriptAccess" value="always" />'
                 + '<param name="movie" value="/flash/media/video_4x3.swf?app=tcchannel&clip=<c:out value="${param['clip']}" default="ep06_trailer" escapeXml="true"/>" />'
                 + '<param name="quality" value="high" />'
                 + '<param name="bgcolor" value="#000000" />'
                 + '<param name="allowFullScreen" value="true" />'
-                + '<embed src="/flash/media/video_4x3.swf?app=tcchannel&clip=<c:out value="${param['clip']}" default="ep06_trailer" escapeXml="true"/>" quality="high" bgcolor="#000000" allowFullScreen="true" width="640" height="560" name="webcast" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />'
+                + '<embed src="/flash/media/video_4x3.swf?app=tcchannel&clip=<c:out value="${param['clip']}" default="ep06_trailer" escapeXml="true"/>" quality="high" bgcolor="#000000" allowFullScreen="true" width="320" height="280" name="webcast" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />'
                 + '</object>';
                 doWrite(s);
                 </script>
                 </div>
                 
+
             </div>
     </div>
     <jsp:include page="footer.jsp" />

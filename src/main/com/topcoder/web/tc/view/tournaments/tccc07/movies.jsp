@@ -24,10 +24,18 @@
 
             <div id="pageBody" style="padding-bottom: 400px;">
 
-                <h1><span>Movies</span></h1>
+                <div align="center" style="margin-bottom: 20px;">
+                    <a href="/tcchannel"><img src="/i/tournament/tccc07/tcchannel_wide.png" alt="TC Channel" /></a>
+                </div>
 
-                <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20is%20Going%20to%20Disney%20World">TC Channel is Going to Disney World</A>
+                <p>
+                    <strong>Movies</strong>
+                </p>
+                <p>
+                    <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20is%20Going%20to%20Disney%20World">TC Channel is Going to Disney World</A>
+                </p>
                 
+
             </div>
     </div>
     <jsp:include page="footer.jsp" />
