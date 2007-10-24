@@ -2,22 +2,22 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
             <div id="pageHeader">
-                <a href="/ep" id="logo">&nbsp;</a>
+                <a href="${sessionInfo.servletPath}" id="logo">&nbsp;</a>
                 <div class="schoolName">
                     TopCoder College Platform<br />
                     <c:if test="${not empty schoolName}">
-                        <a href="/ep">${schoolName}</a>
+                        <a href="${sessionInfo.servletPath}">${schoolName}</a>
                     </c:if>
                 </div>
                 <div class="login">
                     <span>
                 <c:choose>
                     <c:when test="${sessionInfo.anonymous}">
-                        <strong><a href="/ep/tc?module=Login">Log in</a></strong>
+                        <strong><a href="${sessionInfo.servletPath}tc?module=Login">Log in</a></strong>
                     </c:when>
                     <c:otherwise>
                         Hello, <tc-webtag:handle coderId='${sessionInfo.userId}'/>.
-                        <strong><a href="/ep/?module=Logout">Log out</a></strong>
+                        <strong><a href="${sessionInfo.servletPath}?module=Logout">Log out</a></strong>
                     </c:otherwise>
                 </c:choose>
                     </span>

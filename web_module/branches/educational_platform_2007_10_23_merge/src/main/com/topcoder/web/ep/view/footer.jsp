@@ -1,6 +1,6 @@
             <div id="pageFooter">
                 <div class="spacer">
-                    <a href="/ep/">Home</a>
+                    <a href="${sessionInfo.servletPath}">Home</a>
 <%--
                     &nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">About EP</a>
 --%>
