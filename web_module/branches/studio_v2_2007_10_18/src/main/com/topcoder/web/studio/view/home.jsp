@@ -104,8 +104,8 @@
                                     </tr>
                                     <tr>
                                         <td align="center">
-                                            <div style="float: left; margin-left: 35px;"><input type="image" src="/i/v2/interface/btnGo.png"/></div>
-                                            <div style="float: right; margin-right: 35px;"><a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register"><img src="/i/v2/interface/btnRegister.png" alt="Register" /></a></div>
+                                            <div style="float: left; padding-left: 45px;"><input type="image" src="/i/v2/interface/btnGo.png"/></div>
+                                            <div style="float: right; padding-right: 45px;"><a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register"><img src="/i/v2/interface/btnRegister.png" alt="Register" /></a></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -134,10 +134,12 @@
                         </div>
                     </div>
                     
-                    <!-- login box -->
+                    <!-- DOTM box -->
                     <div id="homeDOTMBox">
-                        <div class="spacer">
-                            <img src="http://www.dev.topcoder.com/i/m/ntrefz_big.jpg" alt="" style="width:55px; height:61px;" />
+                        <img src="http://www.dev.topcoder.com/i/m/ntrefz_big.jpg" alt="" style="position: absolute; top: 20px; left: 5px; width: 55px; height: 61px; border: 1px solid #bebebe;" />
+                        <div style="text-align: center; padding: 30px 10px 0 71px; margin: 0;">
+                            <strong>October 2007</strong>
+                            <br /><studio:handle coderId="15974719"/>
                         </div>
                     </div>
 
@@ -198,9 +200,8 @@
                                         <td class="valueR">
                                             <c:choose>
                                                 <c:when test="${resultRow.map['show_submissions']}">
-                                                    <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
                                                     <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                                        <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()" />
+                                                        <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'myPopup')" onmouseout="popHide()" />
                                                     </a>
                                                 </c:when>
                                                 <c:otherwise>
@@ -220,9 +221,9 @@
                                     <% even = !even;
                                         i++; %>
                                 </rsc:iterator>
-                                    <tr>
-                                        <td class="btnRight" colspan="6"><div><a href="/?module=ViewPastContests"><img src="/i/v2/btn_more.png" alt="More..." /></a></div></td>
-                                    </tr>
+                                <tr>
+                                    <td class="btnRight" colspan="6"><div><a href="/?module=ViewPastContests"><img src="/i/v2/btn_more.png" alt="More..." /></a></div></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -230,6 +231,8 @@
                     <div class="SW"><img src="/i/v2/statDk_tableSW.png" alt="" /></div>
                 </div>
             </div>
+
+            <div id="myPopup" class="popUp"><div>View submission</div></div>
 
             </div>
         </div>

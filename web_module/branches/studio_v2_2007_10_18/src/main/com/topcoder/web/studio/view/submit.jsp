@@ -200,7 +200,7 @@
                     <td class="headerC">
                         Ranking
                         <div>
-                            <a href="#" onclick="batchUpdate();return false;"><img src="/i/v2/interface/btnUpdateDk.png" alt="Update ranking" /></a>
+                            <a href="#" onclick="batchUpdate();return false;"><img src="/i/v2/interface/btnUpdateRanking.png" alt="Update ranking" /></a>
                         </div>
                     </td>
                     <td class="header" colspan="2" width="33%">
