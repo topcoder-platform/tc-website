@@ -1,25 +1,33 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
+<%
+    String section = request.getParameter("section") == null ? "" : request.getParameter("section");
+%>
+
             <div id="pageHeader">
                 <a href="${sessionInfo.servletPath}" id="logo">&nbsp;</a>
                 <div class="schoolName">
                     TopCoder College Platform<br />
-                    <c:if test="${not empty schoolName}">
-                        <a href="${sessionInfo.servletPath}">${schoolName}</a>
-                    </c:if>
+                    <% if (!"introduction".equals(section)) {%>
+                        <c:if test="${not empty schoolName}">
+                            <a href="${sessionInfo.servletPath}">${schoolName}</a>
+                        </c:if>
+                    <% } %>
                 </div>
-                <div class="login">
-                    <span>
-                <c:choose>
-                    <c:when test="${sessionInfo.anonymous}">
-                        <strong><a href="${sessionInfo.servletPath}tc?module=Login">Log in</a></strong>
-                    </c:when>
-                    <c:otherwise>
-                        Hello, <tc-webtag:handle coderId='${sessionInfo.userId}'/>.
-                        <strong><a href="${sessionInfo.servletPath}?module=Logout">Log out</a></strong>
-                    </c:otherwise>
-                </c:choose>
-                    </span>
-                </div>
+                <% if (!"introduction".equals(section)) {%>
+                    <div class="login">
+                        <span>
+                    <c:choose>
+                        <c:when test="${sessionInfo.anonymous}">
+                            <strong><a href="${sessionInfo.servletPath}tc?module=Login">Log in</a></strong>
+                        </c:when>
+                        <c:otherwise>
+                            Hello, <tc-webtag:handle coderId='${sessionInfo.userId}'/>.
+                            <strong><a href="${sessionInfo.servletPath}?module=Logout">Log out</a></strong>
+                        </c:otherwise>
+                    </c:choose>
+                        </span>
+                    </div>
+                <% } %>
             </div>
