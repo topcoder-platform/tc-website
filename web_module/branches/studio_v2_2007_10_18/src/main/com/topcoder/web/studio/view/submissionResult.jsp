@@ -2,8 +2,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="java.util.Map" %>
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -12,7 +10,10 @@
 
 <% ResultSetContainer reviews = (ResultSetContainer) ((Map) request.getAttribute("submission_results")).get("reviews");%>
 
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -24,20 +25,21 @@
 </head>
 
 <body>
-
-<div align="center">
-    <div id="contentOut" class="contentOut">
-
-        <jsp:include page="top.jsp"/>
-        <jsp:include page="topNav.jsp">
-            <jsp:param name="node" value="contests"/>
-        </jsp:include>
-
-        <div id="contentIn" class="contentIn">
-
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="contests"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
                 <div class="linkBox"><studio:forumLink forumID="${submission.contest.forumId}"/></div>
                 
@@ -119,15 +121,15 @@
     <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review"><img src="/i/tcorLogo.png" alt="TopCoder Online Review" style="display: block; margin: 3px;" /></a>
 </div>
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
             </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
 
         <jsp:include page="foot.jsp"/>
 
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
     </div>
-</div>
-
 </body>
 </html>
