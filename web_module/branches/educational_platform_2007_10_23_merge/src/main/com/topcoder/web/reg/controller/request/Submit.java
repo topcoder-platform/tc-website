@@ -109,11 +109,11 @@ public class Submit extends Base {
                     RegistrationType corp = dao.getCorporateType();
                     RegistrationType min = dao.getMinimalType();
                     RegistrationType studio = dao.getStudioType();
-
+                    RegistrationType teacher = dao.getTeacherType();
 
                     closeConversation();
                     try {
-                        sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min, studio);
+                        sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min, studio, teacher);
                     } catch (Exception e) {
                         //we don't want whatever happened to affect the registration.
                         e.printStackTrace();
@@ -228,7 +228,7 @@ public class Submit extends Base {
 
     private void sendEmail(String activationCode, String email, Set regTypes, RegistrationType comp,
                            RegistrationType tcs, RegistrationType hs, RegistrationType corp,
-                           RegistrationType min, RegistrationType studio) throws Exception {
+                           RegistrationType min, RegistrationType studio, RegistrationType teacher) throws Exception {
 
 
         TCSEmailMessage mail = new TCSEmailMessage();
@@ -298,6 +298,15 @@ public class Submit extends Base {
             msgText.append("You can download and run the TopCoder Marathon Match Competition Arena Applet from here: http://www.topcoder.com/longcontest/?module=ViewPractice&rt=14\n\n");
             msgText.append("You can download and run the TopCoder Algorithm Competition Arena Applet from here: http://www.topcoder.com/tc?module=Static&d1=help&d2=pracArena\n\n");
         }
+
+        if (regTypes.contains(teacher)) {
+            msgText.append("TOPCODER EDUCATIONAL PLATFORM\n\n");
+            msgText.append("Computer Science and programming professors at universities and colleges around the world have expressed their desire for an academic version of the TopCoder Algorithm arena customized for the classroom.\n\n");
+            msgText.append("Our answer to that request is the Educational Platform.  Professors have access to on-demand practice rooms and virtual classrooms, and can able to select, configure and assign problems and view reports.\n\n");
+            msgText.append("You MUST have your account approved by a TopCoder administrator before you will be granted access to the Educational Platform.  Please email service@topcoder.com with your information (name, school and handle) so that your account can be fully activated.\n\n");
+            msgText.append("If you have any questions about how to use the Educational Platform, please email them to service@topcoder.com.\n\n");
+        }
+
 
         msgText.append("If you have any questions about how to participate, please email them to service@topcoder.com.\n\n");
         if (regTypes.contains(hs) || regTypes.contains(comp)) {
