@@ -214,10 +214,11 @@ public class BasicAuthentication implements WebAuthentication {
     }
 
 
-    private Boolean loggedOut =null;
+    private Boolean loggedOut = null;
+
     private boolean isLoggedOut() {
         final String LOGOUT_KEY = LOGGED_OUT + "_" + ApplicationServer.ENVIRONMENT;
-        if (loggedOut==null) {
+        if (loggedOut == null) {
             Cookie[] ca = request.getCookies();
             for (int i = 0; ca != null && i < ca.length; i++) {
                 if (ca[i].getName().equals(LOGOUT_KEY)) {
@@ -227,6 +228,9 @@ public class BasicAuthentication implements WebAuthentication {
                 }
             }
             loggedOut = false;
+        }
+        if (log.isDebugEnabled()) {
+            log.debug("logged out is " + loggedOut);
         }
         return loggedOut;
 
@@ -537,6 +541,7 @@ public class BasicAuthentication implements WebAuthentication {
             Cookie c = new Cookie(KNOWN_USER, String.valueOf(true));
             c.setMaxAge(Integer.MAX_VALUE);
             response.addCookie(c);
+            log.debug("add known user cookie");
         }
         knownUser = true;
     }
