@@ -58,7 +58,7 @@
 <p>
 
 This match gathered 81 coders, 15 of them were newcomers.
-The contestants faced a fairly straightforward easy problem, although it's success rate rather far from 100%.
+The contestants faced a fairly straightforward easy problem, although its success rate rather far from 100%.
 The medium and hard problems were somewhat harder and as an effect of this, the most of submissions of them were successfully challenged or failed system tests.
 <br /><br />
 <tc-webtag:handle coderId="11972352" context="algorithm"/> took the lead due to his very solid performance on all the problems and 6 successful challenges. <tc-webtag:handle coderId="20812309" context="algorithm"/> got the second place with all three problems solved and being boosted up by 5 successful challenges. Having "only" 3 successful and 2 unsuccessful challenges, the would-be winner <tc-webtag:handle coderId="22663117" context="algorithm"/> finished third.
