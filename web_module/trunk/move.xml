@@ -38,6 +38,11 @@
             <arg line="update -dP"/>
         </exec>
 
+        <exec dir="../external-artifacts" executable="cvs">
+            <arg line="update -dP"/>
+        </exec>
+
+
         <ant antfile="build_tc.xml" target="deploy"/>
 
 
@@ -131,6 +136,10 @@
         <exec dir="../shared" executable="cvs">
             <arg line="update -dP"/>
         </exec>
+        <exec dir="../external-artifacts" executable="cvs">
+            <arg line="update -dP"/>
+        </exec>
+
         <ant antfile="build.xml" target="clean"/>
         <ant antfile="build_tcs.xml" target="build-site"/>
         <!--remove with new OR
@@ -194,6 +203,10 @@
             <arg line="update -dP"/>
         </exec>
 
+        <exec dir="../external-artifacts" executable="cvs">
+            <arg line="update -dP"/>
+        </exec>
+
 
         <ant antfile="build_forums.xml" target="build-forums"/>
 
@@ -235,6 +248,11 @@
             <arg line="update -dP"/>
         </exec>
 
+        <exec dir="../external-artifacts" executable="cvs">
+            <arg line="update -dP"/>
+        </exec>
+
+
         <ant antfile="build_studio.xml" target="deploy-studio"/>
         <ant antfile="build_studio.xml" target="build-security"/>
 
@@ -268,6 +286,11 @@
         <exec dir="../shared" executable="cvs">
             <arg line="update -dP"/>
         </exec>
+
+        <exec dir="../external-artifacts" executable="cvs">
+            <arg line="update -dP"/>
+        </exec>
+
 
         <ant antfile="build_csf.xml" target="deploy-csf"/>
         <ant antfile="build_csf.xml" target="build-security"/>
@@ -349,6 +372,11 @@
         <exec dir="../shared" executable="cvs">
             <arg line="update -dP"/>
         </exec>
+
+            <exec dir="../external-artifacts" executable="cvs">
+                <arg line="update -dP"/>
+            </exec>
+            
 
         <ant antfile="build_oracle.xml" target="deploy-oracle"/>
 
