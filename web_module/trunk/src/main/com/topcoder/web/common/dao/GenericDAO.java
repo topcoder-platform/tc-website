@@ -12,6 +12,8 @@ public interface GenericDAO<T, ID extends Serializable> {
 
     void saveOrUpdate(T entity);
 
+    void delete(T entity);
+
     T find(ID id);
 
     List<T> findAll();

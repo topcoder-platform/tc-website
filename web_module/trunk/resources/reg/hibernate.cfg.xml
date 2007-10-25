@@ -7,19 +7,19 @@
 
 
     <session-factory name="java:comp/env/hibernate/SessionFactory">
-
         <property name="connection.datasource">java:/JTS_OLTP</property>
         <!--
-    <session-factory>
-        <property name="connection.username">coder</property>
-        <property name="connection.password">altec</property>
-        <property name="connection.url">jdbc:informix-sqli://63.118.154.190:1526/informixoltp:INFORMIXSERVER=devinformix10_shm</property>
-        <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
-
+            <session-factory>
+                <property name="connection.username">coder</property>
+                <property name="connection.password">2xjVJhm5</property>
+                <property name="connection.url">jdbc:informix-sqli://63.118.154.190:1526/informixoltp:INFORMIXSERVER=devinformix10_shm</property>
+                <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
         -->
+
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
-        <property name="current_session_context_class">com.topcoder.web.common.ExtendedThreadLocalSessionContext</property>
+        <property name="current_session_context_class">com.topcoder.web.common.ExtendedThreadLocalSessionContext
+        </property>
 
 
         <!--   using jdbc transactions right now cuz i can't get jta to work right.  it could be jboss, or it could be something else...not sure
@@ -29,10 +29,8 @@
 
 
         <!-- Echo all executed SQL to stdout -->
-<!--
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
--->
         <property name="hibernate.query.substitutions">true 1, false 0</property>
 
         <mapping resource="com/topcoder/web/common/model/Address.hbm.xml"/>
@@ -91,6 +89,7 @@
         <mapping resource="com/topcoder/web/common/model/Resume.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/SecretQuestion.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/School.hbm.xml"/>
+        <mapping class="com.topcoder.web.common.model.SchoolAssociationType"/>
         <mapping resource="com/topcoder/web/common/model/SchoolType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Season.hbm.xml"/>
 
@@ -106,6 +105,7 @@
         <mapping resource="com/topcoder/web/common/model/User.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserGroup.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserPreference.hbm.xml"/>
+        <mapping class="com.topcoder.web.common.model.UserSchool"/>
         <mapping resource="com/topcoder/web/common/model/VisaLetterEvent.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/VisaLetterRequest.hbm.xml"/>
 
@@ -121,9 +121,24 @@
         <mapping resource="com/topcoder/web/common/voting/Vote.hbm.xml"/>
 
 
-        <mapping resource="com/topcoder/web/common/model/algo/RoundSegment.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/Component.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/ComponentState.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/Contest.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/Difficulty.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/Language.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/Problem.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/ProblemSet.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/Room.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/algo/Round.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/RoomResult.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/RoundComponent.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/RoundProperty.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/RoundRegistration.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/RoundSegment.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/RoundType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/Segment.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/Submission.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/algo/SystemTestResult.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/comp/Contest.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ContestPrize.hbm.xml"/>
@@ -131,6 +146,17 @@
         <mapping resource="com/topcoder/web/common/model/comp/ProjectInfo.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ProjectPhase.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/UserContestPrize.hbm.xml"/>
+
+        <mapping class="com.topcoder.web.common.model.educ.Professor"/>
+        <mapping class="com.topcoder.web.common.model.educ.ProfessorStatus"/>
+        <mapping class="com.topcoder.web.common.model.educ.Classroom"/>
+        <!--          <mapping class="com.topcoder.web.common.model.educ.StudentClassroom"/> -->
+
+
+        <!--        <mapping resource="com/topcoder/web/common/model/educ/Professor.hbm.xml"/>
+       <mapping resource="com/topcoder/web/common/model/educ/Classroom.hbm.xml"/>-->
+
+        <mapping resource="com/topcoder/web/common/model/educ/StudentClassroom.hbm.xml"/>
 
         <!-- this is really just here so that we can run the oracle on the tc site -->
         <!--

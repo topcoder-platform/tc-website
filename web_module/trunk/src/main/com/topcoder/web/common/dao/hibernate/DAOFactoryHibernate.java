@@ -108,6 +108,10 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new PreferenceGroupDAOHibernate();
     }
 
+    public ProfessorStatusDAO getProfessorStatusDA0() {
+        return new ProfessorStatusDAOHibernate();
+    }
+
     public ProjectDAO getProjectDAO() {
         return new ProjectDAOHibernate();
     }
@@ -126,6 +130,10 @@ public class DAOFactoryHibernate implements DAOFactory {
 
     public SchoolDAO getSchoolDAO() {
         return new SchoolDAOHibernate();
+    }
+
+    public SchoolAssociationTypeDAO getSchoolAssociationTypeDAO() {
+        return new SchoolAssociationTypeDAOHibernate();
     }
 
     public SchoolTypeDAO getSchoolTypeDAO() {
@@ -180,12 +188,64 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new UserPreferenceDAOHibernate();
     }
 
+    public UserSchoolDAO getUserSchoolDAO() {
+        return new UserSchoolDAOHibernate();
+    }
+
     public VisaLetterRequestDAO getVisaLetterRequestDAO() {
         return new VisaLetterRequestDAOHibernate();
     }
 
     public VisaLetterEventDAO getVisaLetterEventDAO() {
         return new VisaLetterEventDAOHibernate();
+    }
+
+    public ProfessorDAO getProfessorDAO() {
+        return new ProfessorDAOHibernate();
+    }
+
+    public ClassroomDAO getClassroomDAO() {
+        return new ClassroomDAOHibernate();
+    }
+
+    public StudentClassroomDAO getStudentClassroomDAO() {
+        return new StudentClassroomDAOHibernate();
+    }
+
+    public RoundTypeDAO getRoundTypeDAO() {
+        return new RoundTypeDAOHibernate();
+    }
+
+    public ContestDAO getContestDAO() {
+        return new ContestDAOHibernate();
+    }
+
+    public ComponentDAO getComponentDAO() {
+        return new ComponentDAOHibernate();
+    }
+
+    public LanguageDAO getLanguageDAO() {
+        return new LanguageDAOHibernate();
+    }
+
+    public ProblemSetDAO getProblemSetDAO() {
+        return new ProblemSetDAOHibernate();
+    }
+
+    public RoomResultDAO getRoomResultDAO() {
+        return new RoomResultDAOHibernate();
+    }
+
+    public ComponentStateDAO getComponentStateDAO() {
+        return new ComponentStateDAOHibernate();
+    }
+
+    public SystemTestResultDAO getSystemTestResultDAO() {
+        return new SystemTestResultDAOHibernate();
+    }
+
+    public AlgoSubmissionDAO getAlgoSubmissionDAO() {
+        return new AlgoSubmissionDAOHibernate();
     }
 
 }

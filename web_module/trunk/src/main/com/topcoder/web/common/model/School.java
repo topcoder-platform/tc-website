@@ -1,6 +1,11 @@
 package com.topcoder.web.common.model;
 
+import com.topcoder.web.common.model.educ.Classroom;
+
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author dok
@@ -10,14 +15,19 @@ import java.util.Date;
 public class School extends Base {
     private Long id;
     private Address address;
-    private Coder coder;
     private String name;
     private String shortName;
     private SchoolType type;
     private Boolean viewable;
     private Date modifyDate;
+    private User user;
+
+    private Set<Classroom> classrooms;
+    private Set<UserSchool> userSchools;
 
     public School() {
+        this.classrooms = new HashSet<Classroom>();
+        this.userSchools = new HashSet<UserSchool>();
     }
 
     public Long getId() {
@@ -34,14 +44,6 @@ public class School extends Base {
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public Coder getCoder() {
-        return coder;
-    }
-
-    public void setCoder(Coder coder) {
-        this.coder = coder;
     }
 
     public String getName() {
@@ -105,6 +107,43 @@ public class School extends Base {
 
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
+    }
+
+    /**
+     * @return the classrooms
+     */
+    public Set<Classroom> getClassrooms() {
+        return Collections.unmodifiableSet(classrooms);
+    }
+
+    /**
+     * @param classrooms the classrooms to set
+     */
+    public void setClassrooms(Set<Classroom> classrooms) {
+        this.classrooms = classrooms;
+    }
+
+    /**
+     * @return the UserSchool
+     */
+    public Set<UserSchool> getUserSchools() {
+        return Collections.unmodifiableSet(userSchools);
+    }
+
+    /**
+     * @param UserSchool the UserSchool to set
+     */
+    public void setUserSchools(Set<UserSchool> userSchools) {
+        this.userSchools = userSchools;
+    }
+
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }

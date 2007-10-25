@@ -13,11 +13,18 @@ import com.topcoder.web.common.model.algo.Round;
  */
 public interface RoundDAO {
 
-    Round find(Integer id);
+    Round find(Long id);
 
     List<Round> getRoundsAfter(Date date);
     
     void saveOrUpdate(Round r);
 
+    void delete(Round r);
+
+    List<Round> findDuplicateName(Long classroomId, String assignmentName, Long roundId);
+
+    List<Round> getAssignments(Long classroomId);
+
+    List<Round> getAssignmentsForStudent(Long classroomId, Long coderId);
 
 }

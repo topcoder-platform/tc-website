@@ -22,6 +22,7 @@ public class Selection extends Base {
         if (!userLoggedIn() && getRequest().getParameter(Constants.NEW_REG) != null) {
             newReg = String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.NEW_REG));
         }
+        setNewRegistration(newReg);
 
         //set up the user object we're gonna use
         User u = getRegUser();

@@ -1,8 +1,12 @@
 package com.topcoder.web.common;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.model.TCInterceptor;
-import org.hibernate.*;
+import org.hibernate.EmptyInterceptor;
+import org.hibernate.Interceptor;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 
@@ -26,13 +30,17 @@ public class HibernateUtils {
     static {
         // Create the initial SessionFactory from the default configuration files
         try {
-            configuration = new Configuration();
+            configuration = new AnnotationConfiguration();
 
             // Read not only hibernate.properties, but also hibernate.cfg.xml
             configuration.configure();
 
             // Set global interceptor from configuration
-            setInterceptor(configuration, new TCInterceptor());
+            //the logic doesn't work.  we're using onSave to figure out if it's new, but
+            //if the save fails, it'll be set as not new, because we're setting it as not
+            //new before we flush to the db.
+            //setInterceptor(configuration, new TCInterceptor());
+
 
             if (configuration.getProperty(Environment.SESSION_FACTORY_NAME) != null) {
                 // Let Hibernate bind the factory to JNDI

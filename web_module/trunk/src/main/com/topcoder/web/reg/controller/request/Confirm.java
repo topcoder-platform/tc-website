@@ -1,12 +1,5 @@
 package com.topcoder.web.reg.controller.request;
 
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.*;
-import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.RegFieldHelper;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -14,19 +7,44 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.Address;
+import com.topcoder.web.common.model.CoderReferral;
+import com.topcoder.web.common.model.CoderType;
+import com.topcoder.web.common.model.Company;
+import com.topcoder.web.common.model.Contact;
+import com.topcoder.web.common.model.CurrentSchool;
+import com.topcoder.web.common.model.DemographicAssignment;
+import com.topcoder.web.common.model.DemographicResponse;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.Resume;
+import com.topcoder.web.common.model.School;
+import com.topcoder.web.common.model.SchoolAssociationType;
+import com.topcoder.web.common.model.SchoolType;
+import com.topcoder.web.common.model.Team;
+import com.topcoder.web.common.model.TeamType;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.UserSchool;
+import com.topcoder.web.reg.Constants;
+import com.topcoder.web.reg.RegFieldHelper;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: May 8, 2006
  */
 public class Confirm extends Base {
+    private static final Logger log = Logger.getLogger(Confirm.class);
 
     protected void registrationProcessing() throws Exception {
 
         User u = getRegUser();
         if (getRegUser() == null) {
-            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg/?"+Constants.NEW_REG+"="+String.valueOf(true));
-        } else if (u.isNew() || userLoggedIn()) {
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
+        } else if (isNewRegistration() || userLoggedIn()) {
 
             Map params = getSecondaryUserInput();
 
@@ -37,8 +55,8 @@ public class Confirm extends Base {
 
             if (hasErrors()) {
                 Map.Entry me;
-                for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
-                    me = (Map.Entry) it.next();
+                for (Object o : params.entrySet()) {
+                    me = (Map.Entry) o;
                     setDefault((String) me.getKey(), me.getValue());
                 }
                 getRequest().setAttribute(Constants.FIELDS, fields);
@@ -84,10 +102,10 @@ public class Confirm extends Base {
                     answers = (List) params.get(Constants.DEMOG_PREFIX + da.getQuestion().getId());
                     //todo if they answer the multiple choice with a real answer, remove the decline to answer
                     if (answers != null) {
-                        for (int i = 0; i < answers.size(); i++) {
+                        for (Object answer : answers) {
                             tr = new DemographicResponse();
                             tr.setQuestion(da.getQuestion());
-                            tr.setAnswer(da.getQuestion().getAnswer(new Long((String) answers.get(i))));
+                            tr.setAnswer(da.getQuestion().getAnswer(new Long((String) answer)));
                             tr.setUser(u);
                             responses.add(tr);
                         }
@@ -118,22 +136,31 @@ public class Confirm extends Base {
 
         }
         if (fields.contains(Constants.SCHOOL_ID)) {
-            //we'll assume that the coder object exists since we're setting a school
-            CurrentSchool cs = u.getCoder().getCurrentSchool();
-            if (cs == null) {
+
+            CurrentSchool cs = null;
+            if (u.getCoder() != null) {
+                cs = u.getCoder().getCurrentSchool();
+            }
+            if (cs == null && u.getCoder() != null) {
+                //must be a student
                 cs = new CurrentSchool();
-                cs.setCoder(u.getCoder());
                 u.getCoder().setCurrentSchool(cs);
             }
+
+            School s;
+            Long schoolId = null;
             if (hasParameter(params, Constants.SCHOOL_ID)) {
-                //find existing
-                cs.setSchool(getFactory().getSchoolDAO().find(new Long((String) params.get(Constants.SCHOOL_ID))));
+                schoolId = new Long((String) params.get(Constants.SCHOOL_ID));
+                if (log.isDebugEnabled()) {
+                    log.debug("got school " + schoolId);
+                }
+                //find school that exists in our system
+                s = getFactory().getSchoolDAO().find(schoolId);
             } else {
-                School s = new School();
-                s.setViewable(Boolean.valueOf(!Constants.HOME_SCHOOLED.equalsIgnoreCase((String) params.get(Constants.SCHOOL_NAME))));
-                s.setCoder(u.getCoder());
-                u.getCoder().setCreatedSchools(new HashSet());
-                u.getCoder().addCreatedSchool(s);
+                //create a new school
+                s = new School();
+                s.setViewable(!Constants.HOME_SCHOOLED.equalsIgnoreCase((String) params.get(Constants.SCHOOL_NAME)));
+                u.addCreatedSchool(s);
                 s.setName((String) params.get(Constants.SCHOOL_NAME));
                 s.setType(getFactory().getSchoolTypeDAO().find(new Integer((String) params.get(Constants.SCHOOL_TYPE))));
                 Address a = new Address();
@@ -147,8 +174,63 @@ public class Confirm extends Base {
                     a.setProvince((String) params.get(Constants.SCHOOL_PROVINCE));
                 }
                 s.setAddress(a);
-                cs.setSchool(s);
             }
+            if (log.isDebugEnabled()) {
+                if (s == null) {
+                    log.debug("school is null");
+                } else {
+                    log.debug("school is " + s.getId() + " " + s.getName());
+                }
+
+            }
+
+
+            if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getTeacherType())) {
+                log.debug("teacher, setting them up");
+                UserSchool teacherSchool = null;
+                if (hasParameter(params, Constants.SCHOOL_ID)) {
+                    teacherSchool = u.getSchool(schoolId, SchoolAssociationType.TEACHER);
+                }
+                if (teacherSchool == null) {
+                    if (log.isDebugEnabled()) {
+                        log.debug("teacher school was null, create new one");
+                    }
+                    teacherSchool = new UserSchool();
+                    //setting primary now so that we only end up with one school set as primary.
+                    //the add method takes care of that logic.
+                    teacherSchool.setPrimary(true);
+                    teacherSchool.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.TEACHER));
+                }
+                teacherSchool.setSchool(s);
+                u.addSchool(teacherSchool);
+            }
+
+
+            if (u.getCoder() != null && CoderType.STUDENT.equals(u.getCoder().getCoderType().getId())) {
+                UserSchool studentSchool = null;
+
+                if (hasParameter(params, Constants.SCHOOL_ID)) {
+                    studentSchool = u.getSchool(schoolId, SchoolAssociationType.STUDENT);
+                }
+
+                if (studentSchool == null) {
+                    studentSchool = new UserSchool();
+                    //setting primary now so that we only end up with one school set as primary.
+                    //the add method takes care of that logic.
+                    studentSchool.setPrimary(true);
+                    studentSchool.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.STUDENT));
+                }
+                studentSchool.setSchool(s);
+                u.addSchool(studentSchool);
+            }
+
+            if (log.isDebugEnabled()) {
+                for (UserSchool ch : u.getSchools()) {
+                    log.debug(ch.getId() + " " + ch.getAssociationType().getDescription() + " " + ch.isPrimary() + " " + ch.getSchool().getName());
+                }
+
+            }
+
             if (!RegFieldHelper.getMainFieldSet(getRequestedTypes(), u).contains(Constants.COMP_COUNTRY_CODE)) {
                 //make hs people's comp country be the country of their school
                 if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
@@ -156,42 +238,43 @@ public class Confirm extends Base {
                 }
             }
 
-            if (getFactory().getSchoolTypeDAO().find(SchoolType.HIGH_SCHOOL).equals(u.getCoder().getCurrentSchool().getSchool().getType()))
-            {
-                //high school people have to show their school
-                u.getCoder().getCurrentSchool().setViewable(Boolean.TRUE);
-            } else {
-                u.getCoder().getCurrentSchool().setViewable(Boolean.valueOf("show".equals(params.get(Constants.VISIBLE_SCHOOL))));
-            }
+            if (cs != null) {
+                cs.setSchool(s);
 
-            if (u.getCoder().getCurrentSchool() != null && getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType()))
-            {
-
-                List teams = getFactory().getTeamDAO().getHighSchoolTeamsForSchool(u.getCoder().getCurrentSchool().getSchool());
-                Team t;
-                if (teams.isEmpty()) {
-                    t = new Team();
-                    School s = u.getCoder().getCurrentSchool().getSchool();
-                    t.setName(s.getName());
-                    t.setSchool(s);
-                    t.setType(getFactory().getTeamTypeDAO().find(TeamType.HIGH_SCHOOL_TYPE));
+                if (getFactory().getSchoolTypeDAO().find(SchoolType.HIGH_SCHOOL).equals(u.getCoder().getCurrentSchool().getSchool().getType())) {
+                    //high school people have to show their school
+                    u.getCoder().getCurrentSchool().setViewable(Boolean.TRUE);
                 } else {
-                    t = (Team) teams.iterator().next();
+                    u.getCoder().getCurrentSchool().setViewable("show".equals(params.get(Constants.VISIBLE_SCHOOL)));
                 }
 
-                Team userTeam = u.getCoder().getHighSchoolTeam();
-                if (userTeam == null) {
-                    u.getCoder().addTeam(t);
-                } else {
-                    if (!(userTeam.getSchool().getId() != null && userTeam.getSchool().equals(t.getSchool()))) {
-                        u.getCoder().removeTeam(userTeam);
+                if (u.getCoder().getCurrentSchool() != null &&
+                        getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
+                    List teams = getFactory().getTeamDAO().getHighSchoolTeamsForSchool(s);
+                    Team t;
+                    if (teams.isEmpty()) {
+                        t = new Team();
+                        t.setName(s.getName());
+                        t.setSchool(s);
+                        t.setType(getFactory().getTeamTypeDAO().find(TeamType.HIGH_SCHOOL_TYPE));
+                    } else {
+                        t = (Team) teams.iterator().next();
+                    }
+
+                    Team userTeam = u.getCoder().getHighSchoolTeam();
+                    if (userTeam == null) {
                         u.getCoder().addTeam(t);
+                    } else {
+                        if (!(userTeam.getSchool().getId() != null && userTeam.getSchool().equals(t.getSchool()))) {
+                            u.getCoder().removeTeam(userTeam);
+                            u.getCoder().addTeam(t);
+                        }
                     }
                 }
             }
         }
         if (fields.contains(Constants.RESUME) && hasParameter(params, Constants.FILE)) {
-            Resume r = null;
+            Resume r;
             if (u.getCoder().getResumes().isEmpty()) {
                 r = new Resume();
                 r.setCoder(u.getCoder());
@@ -231,23 +314,11 @@ public class Confirm extends Base {
         }
         if (fields.contains(Constants.COMPANY_NAME)) {
             String name = (String) params.get(Constants.COMPANY_NAME);
-            if (u.getContact().isNew()) {
+            if (u.getContact().getCompany() == null || !u.getContact().getCompany().getName().equals(name)) {
                 Company c = new Company();
                 c.setName(name);
                 c.setPrimaryContact(u.getContact());
                 u.getContact().setCompany(c);
-            } else {
-                if (u.getContact().getCompany() == null) {
-                    throw new TCWebException("Invalid state, user " + u.getId() + " missing company");
-                } else {
-                    //if they're changing their company, create a new company record
-                    if (!u.getContact().getCompany().getName().equals(name)) {
-                        Company c = new Company();
-                        c.setName(name);
-                        c.setPrimaryContact(u.getContact());
-                        u.getContact().setCompany(c);
-                    }
-                }
             }
         }
 
