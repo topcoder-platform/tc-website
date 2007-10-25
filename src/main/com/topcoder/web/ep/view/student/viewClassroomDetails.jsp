@@ -55,14 +55,12 @@
             <tbody>
                 <tr>
                     <td style="padding-right: 10px; font-weight: bold;" align="left">
-                        <p>School</p>
                         <p>Professor</p>
                         <p>Classroom</p>
                         <p>Term</p>
                         <p>Description</p>
                     </td>
                     <td align="left">
-                        <p>${classroom.school.name}</p>
                         <p>${classroom.professor.user.lastName}, ${classroom.professor.user.firstName}</p>
                         <p>${classroom.name}</p>
                         <p>${classroom.academicPeriod}</p>
