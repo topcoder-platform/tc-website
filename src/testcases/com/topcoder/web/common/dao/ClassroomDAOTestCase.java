@@ -5,6 +5,7 @@
 */
 package com.topcoder.web.common.dao;
 
+import java.util.HashSet;
 import java.util.List;
 
 import com.topcoder.web.common.model.Coder;
@@ -33,11 +34,15 @@ public class ClassroomDAOTestCase extends TCHibernateTestCase {
             p.setStatus(DAOUtil.getFactory().getProfessorStatusDA0().find(ProfessorStatus.ACTIVE));
             p.setUser(u);
             u.setProfessor(p);
-            DAOUtil.getFactory().getProfessorDAO().saveOrUpdate(p);
-
-            tearDown();
-            setUp();
+        } else {
+            //remove professor's classrooms
+            p.setClassrooms(new HashSet<Classroom>());
         }
+
+        DAOUtil.getFactory().getProfessorDAO().saveOrUpdate(p);
+
+        tearDown();
+        setUp();
 
         Coder s = DAOUtil.getFactory().getCoderDAO().find(119676l);
 
