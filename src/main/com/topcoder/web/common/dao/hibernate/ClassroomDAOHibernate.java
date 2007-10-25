@@ -43,6 +43,20 @@ public class ClassroomDAOHibernate extends GenericBase<Classroom, Long> implemen
     }
     
     @SuppressWarnings("unchecked")
+    public List<Classroom> getClassroomsUsingStudentId(Long studentId) {
+        Criteria c = getSession().createCriteria(Classroom.class);
+        
+        c.add(Restrictions.eq("statusId", Classroom.ACTIVE))
+            .addOrder(Order.asc("school"))
+            .addOrder(Order.asc("name"));
+        
+        c.createCriteria("studentClassrooms")
+            .add(Restrictions.eq("id.student.id", studentId));
+        
+        return (List<Classroom>) c.list();
+    }
+    
+    @SuppressWarnings("unchecked")
     public List<Classroom> findClassroomUsingNameAndPeriod(Long schoolId, String name, String period) {
         Criteria c = getSession().createCriteria(Classroom.class)
                 .add(Restrictions.eq("school.id", schoolId))
