@@ -129,7 +129,7 @@
     <target name="package-software" depends="">
         <cvs command="update -Pd"/>
         <exec dir="../shared" executable="cvs">
-            <arg line="update -dP src"/>
+            <arg line="update -dP"/>
         </exec>
         <ant antfile="build.xml" target="clean"/>
         <ant antfile="build_tcs.xml" target="build-site"/>
@@ -191,7 +191,7 @@
         <cvs command="update -Pd" package="build_forums.xml"/>
 
         <exec dir="../shared" executable="cvs">
-            <arg line="update -dP src"/>
+            <arg line="update -dP"/>
         </exec>
 
 
@@ -232,7 +232,7 @@
         <cvs command="update -Pd" package="build_tc.xml"/>
 
         <exec dir="../shared" executable="cvs">
-            <arg line="update -dP src"/>
+            <arg line="update -dP"/>
         </exec>
 
         <ant antfile="build_studio.xml" target="deploy-studio"/>
@@ -266,7 +266,7 @@
         <cvs command="update -Pd" package="build_csf.xml"/>
 
         <exec dir="../shared" executable="cvs">
-            <arg line="update -dP src"/>
+            <arg line="update -dP"/>
         </exec>
 
         <ant antfile="build_csf.xml" target="deploy-csf"/>
@@ -347,7 +347,7 @@
         <cvs command="update -Pd" package="build_oracle.xml"/>
 
         <exec dir="../shared" executable="cvs">
-            <arg line="update -dP src"/>
+            <arg line="update -dP"/>
         </exec>
 
         <ant antfile="build_oracle.xml" target="deploy-oracle"/>
