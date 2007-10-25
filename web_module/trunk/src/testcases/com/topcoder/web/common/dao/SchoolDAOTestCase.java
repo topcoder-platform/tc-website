@@ -1,10 +1,18 @@
 package com.topcoder.web.common.dao;
 
-import com.topcoder.web.common.model.School;
-import com.topcoder.web.reg.TCHibernateTestCase;
-
 import java.util.Iterator;
 import java.util.List;
+
+import com.topcoder.web.common.model.Coder;
+import com.topcoder.web.common.model.School;
+import com.topcoder.web.common.model.SchoolAssociationType;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.UserSchool;
+import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.common.model.educ.Professor;
+import com.topcoder.web.common.model.educ.ProfessorStatus;
+import com.topcoder.web.common.model.educ.StudentClassroom;
+import com.topcoder.web.reg.TCHibernateTestCase;
 
 /**
  * @author dok
@@ -37,6 +45,90 @@ public class SchoolDAOTestCase extends TCHibernateTestCase {
     public void testCreateCoderLoaded() {
         School mit = DAOUtil.getFactory().getSchoolDAO().find(new Long(1719));
         assertFalse("coder not loaded", mit.getUser() == null);
+    }
+
+    
+    public void testfindSchoolsEducation() {
+        User u = DAOUtil.getFactory().getUserDAO().find("bauna", true);
+        Professor delete = u.getProfessor(); 
+        if (delete != null) {
+            for (Classroom c : delete.getClassrooms()) {
+                System.out.println(c.getName());
+            }
+            
+            u.setProfessor(null);
+            DAOUtil.getFactory().getProfessorDAO().delete(delete);
+        }
+
+        tearDown();
+        setUp();
+
+        // add p
+
+        Professor p = new Professor();
+
+        p.setStatus(DAOUtil.getFactory().getProfessorStatusDA0().find(ProfessorStatus.ACTIVE));
+        User user = DAOUtil.getFactory().getUserDAO().find("bauna", true);
+        p.setUser(user);
+
+        Coder s = DAOUtil.getFactory().getCoderDAO().find(119676l);
+        School school = DAOUtil.getFactory().getSchoolDAO().find(22l);
+        Classroom c = new Classroom();
+        c.setName("test");
+        c.setProfessor(p);
+        c.setAcademicPeriod("test");
+        c.setDescription("test");
+        c.setSchool(school);
+        c.setStatusId(Classroom.ACTIVE);
+        
+        StudentClassroom sc = new StudentClassroom();
+        sc.setStatusId(StudentClassroom.ACTIVE_STATUS);
+        sc.getId().setClassroom(c);
+        sc.getId().setStudent(s);
+        c.addStudentClassroom(sc);
+        
+        p.addClassrooms(c);
+        
+        UserSchool us = new UserSchool();
+        us.setAssociationType(DAOUtil.getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.TEACHER));
+        us.setSchool(school);
+        us.setUser(user);
+        us.setPrimary(Boolean.FALSE);
+        user.addSchool(us);
+        
+        DAOUtil.getFactory().getProfessorDAO().saveOrUpdate(p);
+        DAOUtil.getFactory().getUserDAO().saveOrUpdate(user);
+
+        tearDown();
+        setUp();
+
+        // look for p
+        // look for c using student
+        List<School> ls = DAOUtil.getFactory().getSchoolDAO().findSchoolsUsingProfessorId(p.getId());
+        boolean found = false;
+        for (School sch : ls) {
+            if (sch.getId().equals(22l)) {
+                found = true;
+            }
+        }
+        assertTrue("Could not found school using professor " + s.getId(), found);
+        
+        ls = DAOUtil.getFactory().getSchoolDAO().findSchoolsUsingStudentId(s.getId());
+        found = false;
+        for (School sch : ls) {
+            if (sch.getId().equals(22l)) {
+                found = true;
+            }
+        }
+        assertTrue("Could not found school using student " + s.getId(), found);
+        
+        tearDown();
+        setUp();
+
+        Professor p2 = DAOUtil.getFactory().getProfessorDAO().find(p.getId());
+        p2.getUser().setProfessor(null);
+        
+        DAOUtil.getFactory().getProfessorDAO().delete(p2);
     }
 
 
