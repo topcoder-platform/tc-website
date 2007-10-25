@@ -6,12 +6,12 @@
 %>
 
             <div id="pageHeader">
-                <a href="${sessionInfo.servletPath}" id="logo">&nbsp;</a>
+                <a href="/education/" id="logo">&nbsp;</a>
                 <div class="schoolName">
                     TopCoder College Platform<br />
                     <% if (!"introduction".equals(section)) {%>
                         <c:if test="${not empty schoolName}">
-                            <a href="${sessionInfo.servletPath}">${schoolName}</a>
+                            <a href="/education/">${schoolName}</a>
                         </c:if>
                     <% } %>
                 </div>
@@ -20,11 +20,11 @@
                         <span>
                     <c:choose>
                         <c:when test="${sessionInfo.anonymous}">
-                            <strong><a href="${sessionInfo.servletPath}tc?module=Login">Log in</a></strong>
+                            <strong><a href="/education/?module=Login">Log in</a></strong>
                         </c:when>
                         <c:otherwise>
                             Hello, <tc-webtag:handle coderId='${sessionInfo.userId}'/>.
-                            <strong><a href="${sessionInfo.servletPath}?module=Logout">Log out</a></strong>
+                            <strong><a href="/education/?module=Logout">Log out</a></strong>
                         </c:otherwise>
                     </c:choose>
                         </span>
