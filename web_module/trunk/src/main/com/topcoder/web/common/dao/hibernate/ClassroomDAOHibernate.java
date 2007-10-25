@@ -36,9 +36,12 @@ public class ClassroomDAOHibernate extends GenericBase<Classroom, Long> implemen
             .addOrder(Order.asc("name"));
         
         c.createCriteria("studentClassrooms")
-            .add(Restrictions.eq("statusId", statusId))
             .add(Restrictions.eq("id.student.id", studentId));
-            
+
+        if (statusId != null) {
+            c.add(Restrictions.eq("statusId", statusId));
+        }
+        
         return (List<Classroom>) c.list();
     }
     
