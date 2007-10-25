@@ -22,7 +22,7 @@ public class RegistrationTypeDAOHibernate extends Base implements RegistrationTy
         super(session);
     }
 
-    public List getRegistrationTypes() {
+    public List<RegistrationType> getRegistrationTypes() {
         StringBuffer query = new StringBuffer(100);
         query.append(" from RegistrationType t ");
         query.append(" where t.active = 1");
@@ -64,5 +64,11 @@ public class RegistrationTypeDAOHibernate extends Base implements RegistrationTy
         //todo perhaps we should cache this
         return find(RegistrationType.STUDIO_ID);
     }
+
+    public RegistrationType getTeacherType() {
+        //todo perhaps we should cache this
+        return find(RegistrationType.TEACHER_ID);
+    }
+
 
 }

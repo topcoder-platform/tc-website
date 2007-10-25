@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page import="com.topcoder.web.reg.Constants,
-				com.topcoder.web.common.HSRegistrationHelper,
-                 com.topcoder.web.common.tag.AnswerInput" %>
+<%@ page import="com.topcoder.web.common.HSRegistrationHelper,
+                 com.topcoder.web.common.tag.AnswerInput,
+                 com.topcoder.web.reg.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -35,6 +35,13 @@
     <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
+<c:if test="${!sessionInfo.loggedIn}">
+    <div align="center" class="small" style="padding-bottom: 6px;">
+        (<A href="/reg/?nrg=false">Click here</A> if you're already a registered member and would like to update
+        your profile.)
+    </div>
+</c:if>
+
 <div id="regBcContainer">
     <div class="regBc">
         <div class="title">
@@ -44,7 +51,7 @@
             </c:if>
             Step <strong>2</strong> of
             <c:choose>
-                <c:when test="${regUser.new}">
+                <c:when test="${isNewReg}">
                     <strong>6</strong>
                 </c:when>
                 <c:otherwise>
@@ -62,7 +69,7 @@
         <div class="off">Confirm</div>
 
         <div class="off">Success</div>
-        <c:if test="${regUser.new}">
+        <c:if test="${isNewReg}">
             <div class="off">Activation</div>
         </c:if>
     </div>
@@ -83,7 +90,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, givenName)}">*</c:if> Given Name:
+            <c:if test="${cf:contains(reqFields, givenName)}">*</c:if>
+            Given Name:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.GIVEN_NAME%>" size="15" maxlength="<%=Constants.MAX_GIVEN_NAME_LENGTH%>" editable="true"/>
@@ -100,7 +108,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, surname)}">*</c:if> Surname:
+            <c:if test="${cf:contains(reqFields, surname)}">*</c:if>
+            Surname:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.SURNAME%>" size="15" maxlength="<%=Constants.MAX_SURNAME_LENGTH%>" editable="true"/>
@@ -117,7 +126,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, title)}">*</c:if> Job Title:
+            <c:if test="${cf:contains(reqFields, title)}">*</c:if>
+            Job Title:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.TITLE%>" size="15" maxlength="<%=Constants.MAX_TITLE_LENGTH%>" editable="true"/>
@@ -135,7 +145,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, companyName)}">*</c:if> Company:
+            <c:if test="${cf:contains(reqFields, companyName)}">*</c:if>
+            Company:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.COMPANY_NAME%>" size="15" maxlength="<%=Constants.MAX_COMPANY_NAME_LENGTH%>" editable="true"/>
@@ -152,7 +163,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, address1)}">*</c:if> Address1:
+            <c:if test="${cf:contains(reqFields, address1)}">*</c:if>
+            Address1:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.ADDRESS1%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
@@ -169,7 +181,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, address2)}">*</c:if> Address2:
+            <c:if test="${cf:contains(reqFields, address2)}">*</c:if>
+            Address2:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.ADDRESS2%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
@@ -186,7 +199,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, address3)}">*</c:if> Address3:
+            <c:if test="${cf:contains(reqFields, address3)}">*</c:if>
+            Address3:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.ADDRESS3%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
@@ -204,7 +218,8 @@
     <tr>
 
         <td class="name">
-            <c:if test="${cf:contains(reqFields, city)}">*</c:if> City:
+            <c:if test="${cf:contains(reqFields, city)}">*</c:if>
+            City:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.CITY%>" size="15" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/>
@@ -221,7 +236,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, stateCode)}">*</c:if> State (US Only):
+            <c:if test="${cf:contains(reqFields, stateCode)}">*</c:if>
+            State (US Only):
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.STATE_CODE%>" size="2" maxlength="2" editable="true"/>
@@ -239,7 +255,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, postalCode)}">*</c:if> Postal Code:
+            <c:if test="${cf:contains(reqFields, postalCode)}">*</c:if>
+            Postal Code:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.POSTAL_CODE%>" size="15" maxlength="<%=Constants.MAX_POSTAL_CODE_LENGTH%>" editable="true"/>
@@ -256,7 +273,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, province)}">*</c:if> Province:
+            <c:if test="${cf:contains(reqFields, province)}">*</c:if>
+            Province:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.PROVINCE%>" size="15" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/>
@@ -274,7 +292,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, countryCode)}">*</c:if> Country:
+            <c:if test="${cf:contains(reqFields, countryCode)}">*</c:if>
+            Country:
         </td>
         <td class="value">
             <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
@@ -292,7 +311,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, compCountryCode)}">*</c:if> Country to represent:
+            <c:if test="${cf:contains(reqFields, compCountryCode)}">*</c:if>
+            Country to represent:
         </td>
         <td class="value">
             <tc-webtag:objectSelect name="${compCountryCode}" list="${countries}" valueField="code" textField="name"/>
@@ -309,7 +329,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, timeZone)}">*</c:if> Timezone:
+            <c:if test="${cf:contains(reqFields, timeZone)}">*</c:if>
+            Timezone:
         </td>
         <td class="value">
             <tc-webtag:objectSelect name="${timeZone}" list="${timeZones}" valueField="id" textField="description"/>
@@ -327,7 +348,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, phoneNumber)}">*</c:if> Phone Number:
+            <c:if test="${cf:contains(reqFields, phoneNumber)}">*</c:if>
+            Phone Number:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.PHONE_NUMBER%>" size="15" maxlength="<%=Constants.MAX_PHONE_LENGTH%>" editable="true"/>
@@ -344,7 +366,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, email)}">*</c:if> Email Address:
+            <c:if test="${cf:contains(reqFields, email)}">*</c:if>
+            Email Address:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
@@ -362,7 +385,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, emailConfirm)}">*</c:if> Confirm Email Address:
+            <c:if test="${cf:contains(reqFields, emailConfirm)}">*</c:if>
+            Confirm Email Address:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
@@ -380,11 +404,14 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, notification)}">*</c:if> Email Notifications:
+            <c:if test="${cf:contains(reqFields, notification)}">*</c:if>
+            Email Notifications:
         </td>
         <td class="value">
             <c:forEach items="${notifications}" var="notif">
-                <tc-webtag:chkBox name="${notification}${notif.id}"/> <c:out value="${notif.name}"/><br>
+                <tc-webtag:chkBox name="${notification}${notif.id}"/>
+                <c:out value="${notif.name}"/>
+                <br>
             </c:forEach>
         </td>
     </tr>
@@ -400,14 +427,19 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, memberContact)}">*</c:if> Enable Member Contact:
+            <c:if test="${cf:contains(reqFields, memberContact)}">*</c:if>
+            Enable Member Contact:
         </td>
         <td class="value">
-            <tc-webtag:radioButton name="<%=Constants.MEMBER_CONTACT%>" value="yes"/> Yes
-            <br/><tc-webtag:radioButton name="<%=Constants.MEMBER_CONTACT%>" value="no"/> No
+            <tc-webtag:radioButton name="<%=Constants.MEMBER_CONTACT%>" value="yes"/>
+            Yes
+            <br/>
+            <tc-webtag:radioButton name="<%=Constants.MEMBER_CONTACT%>" value="no"/>
+            No
             <br>
-            <c:if test="${not regUser.new}">            
-	            To block specific TopCoder members from contacting you, go to the <a target="blackListWindow" href='/tc?module=BlackList'>black list</a> page.
+            <c:if test="${not isNewReg}">
+                To block specific TopCoder members from contacting you, go to the
+                <a target="blackListWindow" href='/tc?module=BlackList'>black list</a> page.
             </c:if>
         </td>
     </tr>
@@ -423,11 +455,15 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, memberContact)}">*</c:if> Show / hide earnings:
+            <c:if test="${cf:contains(reqFields, memberContact)}">*</c:if>
+            Show / hide earnings:
         </td>
         <td class="value">
-            <tc-webtag:radioButton name="<%=Constants.SHOW_EARNINGS%>" value="show"/> Show
-            <br/><tc-webtag:radioButton name="<%=Constants.SHOW_EARNINGS%>" value="hide"/> Hide
+            <tc-webtag:radioButton name="<%=Constants.SHOW_EARNINGS%>" value="show"/>
+            Show
+            <br/>
+            <tc-webtag:radioButton name="<%=Constants.SHOW_EARNINGS%>" value="hide"/>
+            Hide
         </td>
     </tr>
 </c:if>
@@ -435,46 +471,41 @@
 
 <c:set value="<%=Constants.HS_REG_QUESTIONS%>" var="hsRegQuestions"/>
 <c:if test="${cf:contains(fields, hsRegQuestions)}">
-	  <c:set var="ansPrefix" value="<%=AnswerInput.PREFIX%>" />
-	  <c:set var="kwdAge" value="<%=HSRegistrationHelper.AGE%>" />
-	  <c:set var="kwdAgeEndSeason" value="<%=HSRegistrationHelper.AGE_END_SEASON%>" />
-      <tc:questionIterator list="${questions}" id="question">
-		  <c:set var="fieldName" value="${ansPrefix}${question.id}" />
-		   <tr>
-		       <td colspan="2"><span class="bigRed">
+    <c:set var="ansPrefix" value="<%=AnswerInput.PREFIX%>"/>
+    <c:set var="kwdAge" value="<%=HSRegistrationHelper.AGE%>"/>
+    <c:set var="kwdAgeEndSeason" value="<%=HSRegistrationHelper.AGE_END_SEASON%>"/>
+    <tc:questionIterator list="${questions}" id="question">
+        <c:set var="fieldName" value="${ansPrefix}${question.id}"/>
+        <tr>
+            <td colspan="2"><span class="bigRed">
 		       <tc-webtag:errorIterator id="err" name="${fieldName}"><%=err%><br>
-		       </tc-webtag:errorIterator></span>
-		       </td>
-		   </tr>
-		    <tr>
-		        <td class="name">
-		            * ${question.text }
-		        </td>
-		        <td class="value">
-		        	<c:choose>
-		        		<c:when test="${question.keyword == kwdAge || question.keyword == kwdAgeEndSeason }">
-			        		<tc-webtag:textInput size="3" maxlength="3" name="${fieldName}" id="answerInput"  editable="true"/>
-		        		</c:when>
-		        		<c:otherwise>		        
-		                  <tc:answerInput id="answerInput" question="${question}">
-		                         ${answerInput}
-		                         <%=answerText%>
-		                         &nbsp;&nbsp;&nbsp;
-		                  </tc:answerInput>		            
-		        		</c:otherwise>
-		        	</c:choose>       
-		        </td>
-		    </tr>
+               </tc-webtag:errorIterator></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="name">
+                * ${question.text }
+            </td>
+            <td class="value">
+                <c:choose>
+                    <c:when test="${question.keyword == kwdAge || question.keyword == kwdAgeEndSeason }">
+                        <tc-webtag:textInput size="3" maxlength="3" name="${fieldName}" id="answerInput" editable="true"/>
+                    </c:when>
+                    <c:otherwise>
+                        <tc:answerInput id="answerInput" question="${question}">
+                            ${answerInput}
+                            <%=answerText%>
+                            &nbsp;&nbsp;&nbsp;
+                        </tc:answerInput>
+                    </c:otherwise>
+                </c:choose>
+            </td>
+        </tr>
 
 
-      </tc:questionIterator>
-    
+    </tc:questionIterator>
+
 </c:if>
-
-
-
-
-
 
 
 <c:set value="<%=Constants.HANDLE%>" var="handle"/>
@@ -486,10 +517,11 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, handle)}">*</c:if> User Name:
+            <c:if test="${cf:contains(reqFields, handle)}">*</c:if>
+            User Name:
         </td>
         <td class="value">
-            <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="${regUser.new}"/>
+            <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="${isNewReg}"/>
         </td>
     </tr>
 </c:if>
@@ -503,7 +535,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, password)}">*</c:if> Password:
+            <c:if test="${cf:contains(reqFields, password)}">*</c:if>
+            Password:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.PASSWORD%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
@@ -520,7 +553,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, passwordConfirm)}">*</c:if> Confirm Password:
+            <c:if test="${cf:contains(reqFields, passwordConfirm)}">*</c:if>
+            Confirm Password:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
@@ -532,16 +566,18 @@
 <c:if test="${cf:contains(fields, secretQuestion)}">
     <tr>
         <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION%>"><%=err%><br></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION%>"><%=err%><br>
+        </tc-webtag:errorIterator></span>
         </td>
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, secretQuestion)}">*</c:if> Secret Question:
+            <c:if test="${cf:contains(reqFields, secretQuestion)}">*</c:if>
+            Secret Question:
         </td>
         <td class="value">
-            <tc-webtag:textInput name="<%=Constants.SECRET_QUESTION%>" size="30"  editable="true"/>
-            <br />
+            <tc-webtag:textInput name="<%=Constants.SECRET_QUESTION%>" size="30" editable="true"/>
+            <br/>
          <span class="small">If you ever forget your password and you do not have access to the email address in our system,
              you will be asked to answer this question in order to reset your password.</span>
         </td>
@@ -552,15 +588,17 @@
 <c:if test="${cf:contains(fields, secretQuestionResponse)}">
     <tr>
         <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION_RESPONSE%>"><%=err%><br></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION_RESPONSE%>"><%=err%><br>
+        </tc-webtag:errorIterator></span>
         </td>
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, secretQuestionResponse)}">*</c:if> Secret Question Response:
+            <c:if test="${cf:contains(reqFields, secretQuestionResponse)}">*</c:if>
+            Secret Question Response:
         </td>
         <td class="value">
-            <tc-webtag:textInput name="<%=Constants.SECRET_QUESTION_RESPONSE%>" size="15"  editable="true"/>
+            <tc-webtag:textInput name="<%=Constants.SECRET_QUESTION_RESPONSE%>" size="15" editable="true"/>
         </td>
     </tr>
 </c:if>
@@ -574,7 +612,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, quote)}">*</c:if> Quote:
+            <c:if test="${cf:contains(reqFields, quote)}">*</c:if>
+            Quote:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.QUOTE%>" size="50" maxlength="<%=Constants.MAX_QUOTE_LENGTH%>" editable="true"/>
@@ -586,11 +625,14 @@
 <c:if test="${cf:contains(fields, photo)}">
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, photo)}">*</c:if> Member Photo:
+            <c:if test="${cf:contains(reqFields, photo)}">*</c:if>
+            Member Photo:
         </td>
         <td class="value">
             <A HREF="mailto:memberphotos@topcoder.com?subject=${regUser.activationCode}%20|%20[%20${sessionInfo.handle}%20]%20|%20${sessionInfo.userId}%20<c:if test="${regUser.coder.memberPhoto!=null}">RE</c:if>SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT">
-                Click here to <c:if test="${regUser.coder.memberPhoto!=null}">re</c:if>submit your photo</A>
+                Click here to
+                <c:if test="${regUser.coder.memberPhoto!=null}">re</c:if>
+                submit your photo</A>
             <br>
          <span class="small">Let other TopCoder Members know what you look like. Send us a head shot that is at least 200 pixels (3 inches) across.
          <a href="JavaScript:void window.open('/tc?module=Static&d1=member_photos&d2=index','Photo_Info','top=2,left=2,resizable=yes,width=600,height=700,status=0');" class="statTextBig">Click
@@ -611,7 +653,8 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, coderType)}">*</c:if> Coder Type:
+            <c:if test="${cf:contains(reqFields, coderType)}">*</c:if>
+            Coder Type:
         </td>
         <td class="value">
             <tc-webtag:objectSelect name="${coderType}" list="${coderTypes}" valueField="id" textField="description"/>

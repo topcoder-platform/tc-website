@@ -60,8 +60,10 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         // End or continue the long-running conversation?
         try {
             if (String.valueOf(true).equals(getRequest().getAttribute(END_OF_CONVERSATION_FLAG))) {
+                log.debug("closing conversation");
                 closeConversation();
             } else {
+                log.debug("ending communication");
                 endCommunication();
             }
         } catch (Throwable e) {

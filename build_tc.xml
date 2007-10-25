@@ -7,6 +7,7 @@
     <property name="ejb_jars" value="${build}/ejb_jars"/>
     <property name="classes" value="${build}/classes"/>
     <property name="testclasses" value="${build}/testcases"/>
+    <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
     <property name="build.javadocs" value="${build}/javadocs"/>
     <property name="lib.dir" value="lib"/>
     <property name="jars.dir" value="${lib.dir}/jars"/>
@@ -15,6 +16,7 @@
     <property name="bin" value="lib/bin"/>
     <property name="src.dir" value="src"/>
     <property name="java" value="${src.dir}/main"/>
+    <property name="shared.build" value="${basedir}/../shared"/>
     <property name="shared" value="../shared/src/main"/>
     <property name="testjava" value="${src.dir}/testcases"/>
     <property name="resources" value="resources"/>
@@ -42,6 +44,7 @@
 
     <path id="class.path">
         <pathelement location="${classes}"/>
+        <pathelement location="${global-dist.dir}/shared.jar"/>
         <pathelement location="${testclasses}"/>
         <pathelement location="${resources}"/>
         <pathelement location="${resources}/hibernate"/>
@@ -72,8 +75,6 @@
         <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
         <pathelement location="${jars.dir}/object_formatter.jar"/>
         <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
-        <!-- need this still cuz the new version doesn't work for everything we need -->
-        <pathelement location="${jars.dir}/idgenerator.jar"/>
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <pathelement location="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
@@ -93,14 +94,17 @@
         <pathelement location="${jars.dir}/itext-1.1.jar"/>
 
         <!-- hibernate files -->
-        <pathelement location="${jars.dir}/hibernate-3.1/hibernate3.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/commons-logging-1.0.4.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/ehcache-1.2.2.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/hibernate3.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/commons-logging-1.0.4.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/ehcache-1.2.3.jar"/>
         <pathelement location="${jive.dir}/velocity-dep.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/cglib-2.1.3.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/asm.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/ant-antlr-1.6.5.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/antlr-2.7.6rc1.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/cglib-2.1.3.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/asm.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/ant-antlr-1.6.5.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/antlr-2.7.6.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-commons-annotations.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
 
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/asyncservices.jar"/>
@@ -121,7 +125,9 @@
     </target>
 
     <target name="compile_shared" depends="init" unless="compile_shared_set">
-        <javac
+        <ant dir="${shared.build}" target="jar"/>
+        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${global-dist.dir}/shared.jar"/>
+        <!--javac
                 srcdir="${shared}"
                 destdir="${classes}"
                 classpathref="class.path"
@@ -132,11 +138,12 @@
                 >
         </javac>
         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
-        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
-	<property name="compile_shared_set" value="true"/>
+        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/-->
+        <property name="compile_shared_set" value="true"/>
     </target>
 
     <target name="compile" depends="init,jar_shared" unless="compile_set">
+        <depend srcdir="${java}" destdir="${classes}" cache="${build}/cache"/>
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -187,7 +194,7 @@
                 <include name="com/topcoder/shared/**/*.class"/>
             </fileset>
         </jar>
-	<property name="jar_shared_set" value="true"/>
+        <property name="jar_shared_set" value="true"/>
     </target>
 
     <target name="jar_common" depends="">
@@ -254,7 +261,8 @@
     <target name="package-EJB-PactsClientServicesBean" depends="compile">
         <jar jarfile="${ejb_jars}/PactsClientServices.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*Payment*.class"/>
-			<zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/DeleteAffirmedAssignmentDocumentException.class"/>
+            <zipfileset dir="${classes}"
+                        includes="com/topcoder/web/ejb/pacts/DeleteAffirmedAssignmentDocumentException.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/Constants.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/PactsClient*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/payments/*.class"/>
@@ -517,6 +525,7 @@
         <antcall target="deploy-privatelabel"/>
         <antcall target="deploy-longcontest"/>
         <antcall target="deploy-reg"/>
+        <antcall target="deploy-ep"/>
 
         <antcall target="move-libs"/>
         <antcall target="move-conf"/>
@@ -534,6 +543,7 @@
         <antcall target="expand-privatelabel"/>
         <antcall target="expand-longcontest"/>
         <antcall target="expand-reg"/>
+        <antcall target="expand-ep"/>
 
         <antcall target="move-libs"/>
         <antcall target="move-conf"/>
@@ -557,6 +567,7 @@
                 <include name="ProblemParser.properties"/>
                 <include name="Resume.properties"/>
                 <include name="Registration.properties"/>
+                <include name="EP.properties"/>
                 <include name="TC.properties"/>
                 <include name="PactsInternalServlet.properties"/>
                 <include name="cache.properties"/>
@@ -597,11 +608,11 @@
     <target name="move-libs" depends="">
         <copy todir="${jboss_lib}">
             <fileset dir="${bin}">
-                <include name="shared.jar"/>
                 <include name="tcwebcommon.jar"/>
                 <include name="tc.jar"/>
             </fileset>
         </copy>
+        <copy todir="${jboss_lib}" file="${global-dist.dir}/shared.jar"/>
         <copy todir="${jboss_lib}">
             <fileset dir="${jars.dir}">
                 <include name="ifxjdbc.jar"/>
@@ -609,7 +620,6 @@
                 <include name="object_formatter.jar"/>
                 <include name="tcsUtil.jar"/>
                 <include name="fileconvert.jar"/>
-                <include name="idgenerator.jar"/>
                 <include name="httpunit.jar"/>
                 <include name="itext-1.1.jar"/>
 
@@ -898,6 +908,69 @@
         <delete file="${jboss_deploy}/reg.war"/>
         <unwar src="${war.dir}/reg.war" dest="${jboss_deploy}/reg.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/reg.war/META-INF"/>
+    </target>
+
+    <target name="compile-ep" depends="jar_shared,jar_common,init">
+        <javac
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.5"
+                target="1.5"
+                >
+            <include name="com/topcoder/web/ep/**"/>
+        </javac>
+    </target>
+
+    <target name="war-ep" depends="compile-ep">
+        <war warfile="${war.dir}/ep.war" webxml="${resources}/ep/web.xml">
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/ep/**/*.class"/>
+                <!--
+                <include name="com/topcoder/web/oracle/model/**/*.class"/>
+				-->
+            </classes>
+            <webinf dir="${resources}/taglib">
+                <include name="tc-webtags.tld"/>
+                <include name="taconite.tld"/>
+                <include name="common-functions.tld"/>
+                <!--
+                <include name="tc.tld"/>
+                <include name="reg-tags.tld"/>
+				-->
+            </webinf>
+            <fileset dir="${java}/com/topcoder/web/ep/view">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <fileset dir="${java}/com/topcoder/web/jsp">
+                <include name="errorPage.jsp"/>
+                <include name="date_time.jsp"/>
+                <include name="script.jsp"/>
+                <include name="style.jsp"/>
+                <include name="menu.jsp"/>
+                <include name="page_title.jsp"/>
+            </fileset>
+            <webinf dir="${resources}/ep">
+                <include name="jboss-web.xml"/>
+            </webinf>
+            <lib dir="${jars.dir}">
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
+            </lib>
+
+        </war>
+    </target>
+
+    <target name="deploy-ep" depends="war-ep,move-libs">
+        <antcall target="expand-ep"/>
+    </target>
+
+    <target name="expand-ep" depends="">
+        <delete file="${jboss_deploy}/ep.war"/>
+        <unwar src="${war.dir}/ep.war" dest="${jboss_deploy}/ep.war/" overwrite="yes"/>
+        <delete dir="${jboss_deploy}/ep.war/META-INF"/>
     </target>
 
     <target name="compile_tests" depends="compile">

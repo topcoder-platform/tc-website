@@ -17,7 +17,7 @@ public class NotificationDAOTestCase extends TCHibernateTestCase {
 
 
     public void testGetNotificiations() {
-        List l = DAOUtil.getFactory().getNotificationDAO().getNotifications();
+        List l = DAOUtil.getFactory().getNotificationDAO().findAll();
         assertTrue("we found no notifications", l != null && !l.isEmpty());
     }
 

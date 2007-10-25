@@ -7,7 +7,11 @@ import com.topcoder.web.common.model.CoderType;
 import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.User;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author dok
@@ -17,37 +21,41 @@ import java.util.*;
 public class RegFieldHelper {
 
     protected static Logger log = Logger.getLogger(RegFieldHelper.class);
-    private static Set mainHSFields = new HashSet();
-    private static Set mainCompFields = new HashSet();
-    private static Set mainCorpFields = new HashSet();
-    private static Set mainMinFields = new HashSet();
-    private static Set mainSoftwareFields = new HashSet();
-    private static Set mainStudioFields = new HashSet();
+    private static Set<String> mainHSFields = new HashSet<String>();
+    private static Set<String> mainCompFields = new HashSet<String>();
+    private static Set<String> mainCorpFields = new HashSet<String>();
+    private static Set<String> mainMinFields = new HashSet<String>();
+    private static Set<String> mainSoftwareFields = new HashSet<String>();
+    private static Set<String> mainStudioFields = new HashSet<String>();
+    private static Set<String> mainTeacherFields = new HashSet<String>();
 
-    private static Set secondaryHSFields = new HashSet();
-    private static Set secondaryCompStudentFields = new HashSet();
-    private static Set secondaryCompProFields = new HashSet();
-    private static Set secondaryCorpFields = new HashSet();
-    private static Set secondaryMinFields = new HashSet();
-    private static Set secondarySoftwareFields = new HashSet();
-    private static Set secondaryStudioStudentFields = new HashSet();
-    private static Set secondaryStudioProFields = new HashSet();
+    private static Set<String> secondaryHSFields = new HashSet<String>();
+    private static Set<String> secondaryCompStudentFields = new HashSet<String>();
+    private static Set<String> secondaryCompProFields = new HashSet<String>();
+    private static Set<String> secondaryCorpFields = new HashSet<String>();
+    private static Set<String> secondaryMinFields = new HashSet<String>();
+    private static Set<String> secondarySoftwareFields = new HashSet<String>();
+    private static Set<String> secondaryStudioStudentFields = new HashSet<String>();
+    private static Set<String> secondaryStudioProFields = new HashSet<String>();
+    private static Set<String> secondaryTeacherFields = new HashSet<String>();
 
-    private static Set requiredMainHSFields = new HashSet();
-    private static Set requiredMainCompFields = new HashSet();
-    private static Set requiredMainCorpFields = new HashSet();
-    private static Set requiredMainMinFields = new HashSet();
-    private static Set requiredMainSoftwareFields = new HashSet();
-    private static Set requiredMainStudioFields = new HashSet();
+    private static Set<String> requiredMainHSFields = new HashSet<String>();
+    private static Set<String> requiredMainCompFields = new HashSet<String>();
+    private static Set<String> requiredMainCorpFields = new HashSet<String>();
+    private static Set<String> requiredMainMinFields = new HashSet<String>();
+    private static Set<String> requiredMainSoftwareFields = new HashSet<String>();
+    private static Set<String> requiredMainStudioFields = new HashSet<String>();
+    private static Set<String> requiredMainTeacherFields = new HashSet<String>();
 
-    private static Set requiredSecondaryHSFields = new HashSet();
-    private static Set requiredSecondaryCompStudentFields = new HashSet();
-    private static Set requiredSecondaryCompProFields = new HashSet();
-    private static Set requiredSecondaryCorpFields = new HashSet();
-    private static Set requiredSecondaryMinFields = new HashSet();
-    private static Set requiredSecondarySoftwareFields = new HashSet();
-    private static Set requiredSecondaryStudioStudentFields = new HashSet();
-    private static Set requiredSecondaryStudioProFields = new HashSet();
+    private static Set<String> requiredSecondaryHSFields = new HashSet<String>();
+    private static Set<String> requiredSecondaryCompStudentFields = new HashSet<String>();
+    private static Set<String> requiredSecondaryCompProFields = new HashSet<String>();
+    private static Set<String> requiredSecondaryCorpFields = new HashSet<String>();
+    private static Set<String> requiredSecondaryMinFields = new HashSet<String>();
+    private static Set<String> requiredSecondarySoftwareFields = new HashSet<String>();
+    private static Set<String> requiredSecondaryStudioStudentFields = new HashSet<String>();
+    private static Set<String> requiredSecondaryStudioProFields = new HashSet<String>();
+    private static Set<String> requiredSecondaryTeacherFields = new HashSet<String>();
 
 
     static {
@@ -357,6 +365,67 @@ public class RegFieldHelper {
 
     }
 
+
+    static {
+        mainTeacherFields.add(Constants.GIVEN_NAME);
+        mainTeacherFields.add(Constants.SURNAME);
+        mainTeacherFields.add(Constants.ADDRESS1);
+        mainTeacherFields.add(Constants.ADDRESS2);
+        mainTeacherFields.add(Constants.ADDRESS3);
+        mainTeacherFields.add(Constants.CITY);
+        mainTeacherFields.add(Constants.STATE_CODE);
+        mainTeacherFields.add(Constants.POSTAL_CODE);
+        mainTeacherFields.add(Constants.PROVINCE);
+        mainTeacherFields.add(Constants.COUNTRY_CODE);
+        mainTeacherFields.add(Constants.PHONE_NUMBER);
+        mainTeacherFields.add(Constants.HANDLE);
+        mainTeacherFields.add(Constants.PASSWORD);
+        mainTeacherFields.add(Constants.PASSWORD_CONFIRM);
+        mainTeacherFields.add(Constants.SECRET_QUESTION);
+        mainTeacherFields.add(Constants.SECRET_QUESTION_RESPONSE);
+        mainTeacherFields.add(Constants.EMAIL);
+        mainTeacherFields.add(Constants.EMAIL_CONFIRM);
+        mainTeacherFields.add(Constants.NOTIFICATION);
+        mainTeacherFields.add(Constants.TIMEZONE);
+
+        requiredMainTeacherFields.add(Constants.GIVEN_NAME);
+        requiredMainTeacherFields.add(Constants.SURNAME);
+        requiredMainTeacherFields.add(Constants.ADDRESS1);
+        requiredMainTeacherFields.add(Constants.CITY);
+        requiredMainTeacherFields.add(Constants.COUNTRY_CODE);
+        requiredMainTeacherFields.add(Constants.PHONE_NUMBER);
+        requiredMainTeacherFields.add(Constants.HANDLE);
+        requiredMainTeacherFields.add(Constants.PASSWORD);
+        requiredMainTeacherFields.add(Constants.PASSWORD_CONFIRM);
+        requiredMainTeacherFields.add(Constants.SECRET_QUESTION);
+        requiredMainTeacherFields.add(Constants.SECRET_QUESTION_RESPONSE);
+        requiredMainTeacherFields.add(Constants.EMAIL);
+        requiredMainTeacherFields.add(Constants.EMAIL_CONFIRM);
+        requiredMainTeacherFields.add(Constants.TIMEZONE);
+
+
+        secondaryTeacherFields.add(Constants.DEMOG_PREFIX);
+        secondaryTeacherFields.add(Constants.SCHOOL_NAME);
+        secondaryTeacherFields.add(Constants.SCHOOL_CITY);
+        secondaryTeacherFields.add(Constants.SCHOOL_ID);
+        secondaryTeacherFields.add(Constants.SCHOOL_PROVINCE);
+        secondaryTeacherFields.add(Constants.SCHOOL_STATE);
+        secondaryTeacherFields.add(Constants.SCHOOL_COUNTRY);
+        secondaryTeacherFields.add(Constants.SCHOOL_TYPE);
+        /*secondaryTeacherFields.add(Constants.REFERRAL);
+        secondaryTeacherFields.add(Constants.REFERRAL_CODER);
+        secondaryTeacherFields.add(Constants.REFERRAL_OTHER);
+*/
+        requiredSecondaryTeacherFields.add(Constants.SCHOOL_NAME);
+        requiredSecondaryTeacherFields.add(Constants.SCHOOL_CITY);
+        requiredSecondaryTeacherFields.add(Constants.SCHOOL_ID);
+        requiredSecondaryTeacherFields.add(Constants.SCHOOL_COUNTRY);
+        requiredSecondaryTeacherFields.add(Constants.SCHOOL_TYPE);
+        //requiredSecondaryTeacherFields.add(Constants.REFERRAL);
+
+    }
+
+
     /**
      * Figure out what registration fields are relevant for the given set of registration types
      * and whether or not they're updating information, or creating it.
@@ -401,10 +470,10 @@ public class RegFieldHelper {
      */
     private static Set getMainFieldSet(Set regTypes, User user, boolean required) {
         log.debug("getMainFieldSet called with required: " + required);
-        Set ret = new HashSet();
+        Set<String> ret = new HashSet<String>();
 
         Set currentTypes;
-        if (user == null || user.isNew()) {
+        if (user == null || user.getId() == null) {
             currentTypes = Collections.EMPTY_SET;
         } else {
             currentTypes = user.getRegistrationTypes();
@@ -412,10 +481,8 @@ public class RegFieldHelper {
 
         RegistrationTypeDAO dao = DAOUtil.getFactory().getRegistrationTypeDAO();
 
-        List allRegTypes = dao.getRegistrationTypes();
-        RegistrationType curr;
-        for (Iterator it = allRegTypes.iterator(); it.hasNext();) {
-            curr = (RegistrationType) it.next();
+        List<RegistrationType> allRegTypes = dao.getRegistrationTypes();
+        for (RegistrationType curr : allRegTypes) {
             log.debug("working on type: " + curr.getName());
             if (regTypes.contains(curr) && currentTypes.contains(curr)) {
                 //must be an update
@@ -457,6 +524,13 @@ public class RegFieldHelper {
                         ret.addAll(mainStudioFields);
                         ret.add(Constants.PHOTO);
                     }
+                } else if (curr.getId().equals(RegistrationType.TEACHER_ID)) {
+                    if (required) {
+                        ret.addAll(requiredMainTeacherFields);
+                    } else {
+                        ret.addAll(mainTeacherFields);
+                        //ret.add(Constants.PHOTO);
+                    }
                 }
             } else if (regTypes.contains(curr) && !currentTypes.contains(curr)) {
                 //the user creating a registration for the specified type
@@ -497,6 +571,12 @@ public class RegFieldHelper {
                     } else {
                         ret.addAll(mainStudioFields);
                     }
+                } else if (curr.getId().equals(RegistrationType.TEACHER_ID)) {
+                    if (required) {
+                        ret.addAll(requiredMainTeacherFields);
+                    } else {
+                        ret.addAll(mainTeacherFields);
+                    }
                 }
             }
         }
@@ -516,8 +596,8 @@ public class RegFieldHelper {
      * @param required whether or not the caller wants to return the list of required fields or the list of all fields
      * @return the fields
      */
-    private static Set getSecondaryFieldSet(Set regTypes, User user, boolean required) {
-        Set ret = new HashSet();
+    private static Set<String> getSecondaryFieldSet(Set regTypes, User user, boolean required) {
+        Set<String> ret = new HashSet<String>();
         Set currentTypes = user.getRegistrationTypes();
 
         RegistrationTypeDAO dao = DAOUtil.getFactory().getRegistrationTypeDAO();
@@ -603,6 +683,12 @@ public class RegFieldHelper {
                     } else {
                         throw new RuntimeException("Invalid coder type " + user.getCoder().getCoderType().getId());
                     }
+                } else if (curr.getId().equals(RegistrationType.TEACHER_ID)) {
+                    if (required) {
+                        ret.addAll(requiredSecondaryTeacherFields);
+                    } else {
+                        ret.addAll(secondaryTeacherFields);
+                    }
                 }
 
             } else if (regTypes.contains(curr) && !currentTypes.contains(curr)) {
@@ -686,8 +772,15 @@ public class RegFieldHelper {
                         }
                     }
 
+                } else if (curr.getId().equals(RegistrationType.TEACHER_ID)) {
+                    if (required) {
+                        ret.addAll(requiredSecondaryTeacherFields);
+                    } else {
+                        ret.addAll(secondaryTeacherFields);
+                    }
                 }
             }
+
         }
         if (!required) {
             RegistrationType hs = dao.getHighSchoolType();
@@ -696,7 +789,7 @@ public class RegFieldHelper {
                 ret.remove(Constants.VISIBLE_SCHOOL);
             }
         }
-        if (!user.isNew()) {
+        if (user.getId() != null) {
             ret.remove(Constants.REFERRAL);
             ret.remove(Constants.REFERRAL_CODER);
             ret.remove(Constants.REFERRAL_OTHER);

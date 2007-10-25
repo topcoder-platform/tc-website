@@ -50,6 +50,7 @@ public class BasicAuthentication implements WebAuthentication {
     public static final Resource CORP_SITE = new SimpleResource("corp");
     public static final Resource MAIN_SITE = new SimpleResource("main");
     public static final Resource REG_SITE = new SimpleResource("reg");
+    public static final Resource EP_SITE = new SimpleResource("ep");
     public static final Resource HS_SITE = new SimpleResource("hs");
     public static final Resource PRIVATE_LABEL_SITE = new SimpleResource("pl");
     public static final Resource TECH_ASSESS_SITE = new SimpleResource("techassess");

@@ -56,4 +56,7 @@
 <link type="text/css" rel="stylesheet" href="/css/tcStyles.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <link type="text/css" rel="stylesheet" href="/css/pressroomRemix.css" />
+<% } else if (key.equals("tc_ep")) { %>
+<link type="text/css" rel="stylesheet" href="/css/ep/main.css" />
+<link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <% } %>

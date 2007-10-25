@@ -5,8 +5,12 @@
 
 <hibernate-mapping package="com.topcoder.web.common.model.algo" auto-import="false">
 
-    <class name="Contest" table="contest" mutable="false">
-        <id name="id" column="contest_id" access="field" />
+    <class name="Contest" table="contest">
+        <id name="id" column="contest_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">CONTEST_SEQ</param>
+            </generator>
+        </id>
    
         <property name="name" column="name" access="field"/>
         <property name="startDate" column="start_date" access="field"/>

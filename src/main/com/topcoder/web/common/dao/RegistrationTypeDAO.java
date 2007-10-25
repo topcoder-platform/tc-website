@@ -10,7 +10,7 @@ import java.util.List;
  *          Create Date: May 11, 2006
  */
 public interface RegistrationTypeDAO {
-    List getRegistrationTypes();
+    List<RegistrationType> getRegistrationTypes();
 
     RegistrationType find(Integer id);
 
@@ -26,5 +26,8 @@ public interface RegistrationTypeDAO {
     RegistrationType getSoftwareType();
 
     RegistrationType getStudioType();
+
+    RegistrationType getTeacherType();
+
 
 }

@@ -12,13 +12,24 @@
             </generator>
         </id>
         <many-to-one name="address" column="address_id" class="Address" cascade="save-update" access="field"/>
-        <many-to-one name="coder" class="Coder" column="user_id" access="field"/>
+        <many-to-one name="user" class="User" column="user_id"/>
         <property name="name" access="field"/>
         <property name="shortName" column="short_name" access="field"/>
         <many-to-one name="type" column="school_type_id" class="SchoolType" access="field"/>
         <property name="viewable" type="boolean" access="field"/>
-        
+
         <!-- This field is just read and never written, since insert and update are set to false -->
-        <property name="modifyDate" column="modify_date" access="field" update="false" insert="false" />
+        <property name="modifyDate" column="modify_date" access="field" update="false" insert="false"/>
+
+        <set name="classrooms" cascade="save-update" inverse="true" access="field">
+            <key column="school_id" not-null="true"/>
+            <one-to-many class="com.topcoder.web.common.model.educ.Classroom"/>
+        </set>
+
+        <set name="userSchools" cascade="none" inverse="true">
+            <key column="school_id" not-null="true"/>
+            <one-to-many class="com.topcoder.web.common.model.UserSchool"/>
+        </set>
+
     </class>
 </hibernate-mapping>

@@ -1,11 +1,5 @@
 package com.topcoder.web.tc.controller.request.authentication;
 
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Set;
-
-import javax.naming.Context;
-
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
@@ -24,6 +18,10 @@ import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.reg.validation.PasswordValidator;
 import com.topcoder.web.tc.Constants;
+
+import javax.naming.Context;
+import java.util.Date;
+import java.util.Set;
 
 
 /**
@@ -81,7 +79,6 @@ public class ResetPassword extends ShortHibernateProcessor {
             }
 
 
-
             if (passwordRecovery.isUsed()) {
                 addError("error", "The password was already changed.");
             }
@@ -114,14 +111,13 @@ public class ResetPassword extends ShortHibernateProcessor {
             TCSubject tcs = new TCSubject(132456);
             PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemote pmr = pmrh.create();
-            UserPrincipal myPrincipal = new UserPrincipal("", u.getId().longValue());
+            UserPrincipal myPrincipal = new UserPrincipal("", u.getId());
             pmr.editPassword(myPrincipal, u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
 
             // if the user has changed email address, set it as his new primary address
             if (!u.getPrimaryEmailAddress().equals(passwordRecovery.getRecoveryAddress())) {
-                Set s = u.getEmailAddresses();
-                for (Iterator it = s.iterator(); it.hasNext(); ) {
-                    Email e = (Email) it.next();
+                Set<Email> s = u.getEmailAddresses();
+                for (Email e : s) {
                     if (e.isPrimary()) {
                         e.setAddress(passwordRecovery.getRecoveryAddress());
                         break;

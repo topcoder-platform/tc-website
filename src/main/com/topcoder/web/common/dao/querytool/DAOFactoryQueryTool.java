@@ -14,13 +14,13 @@ public class DAOFactoryQueryTool implements DAOFactory {
     public UserPreferenceDAO getUserPreferenceDAO() {
         return new UserPreferenceDAOQueryTool();
     }
-    
+
     // The rest of the DAOs are not supported
-    
+
     public AlgoRatingTypeDAO getAlgoRatingTypeDAO() {
         throw new RuntimeException("Not supported");
     }
-    
+
     public CoderDAO getCoderDAO() {
         throw new RuntimeException("Not supported");
     }
@@ -36,11 +36,11 @@ public class DAOFactoryQueryTool implements DAOFactory {
     public CompContestDAO getCompContestDAO() {
         throw new RuntimeException("Not supported");
     }
-    
+
     public ContactDAO getContactDAO() {
         throw new RuntimeException("Not supported");
     }
-    
+
     public ContestPrizeDAO getContestPrizeDAO() {
         throw new RuntimeException("Not supported");
     }
@@ -68,7 +68,8 @@ public class DAOFactoryQueryTool implements DAOFactory {
     public IntroEventDAO getIntroEventDAO() {
         throw new RuntimeException("Not supported");
     }
-    public IntroEventPropertyTypeDAO getIntroEventPropertyTypeDAO(){
+
+    public IntroEventPropertyTypeDAO getIntroEventPropertyTypeDAO() {
         throw new RuntimeException("Not supported");
     }
 
@@ -116,6 +117,10 @@ public class DAOFactoryQueryTool implements DAOFactory {
         throw new RuntimeException("Not supported");
     }
 
+    public ProfessorStatusDAO getProfessorStatusDA0() {
+        throw new RuntimeException("Not supported");
+    }
+
     public ProjectDAO getProjectDAO() {
         throw new RuntimeException("Not supported");
     }
@@ -133,6 +138,10 @@ public class DAOFactoryQueryTool implements DAOFactory {
     }
 
     public SchoolDAO getSchoolDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public SchoolAssociationTypeDAO getSchoolAssociationTypeDAO() {
         throw new RuntimeException("Not supported");
     }
 
@@ -191,4 +200,57 @@ public class DAOFactoryQueryTool implements DAOFactory {
     public SubmissionDAO getSubmissionDAO() {
         throw new RuntimeException("Not supported");
     }
+
+    public ProfessorDAO getProfessorDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public ClassroomDAO getClassroomDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public StudentClassroomDAO getStudentClassroomDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public RoundTypeDAO getRoundTypeDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public ContestDAO getContestDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public ComponentDAO getComponentDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public LanguageDAO getLanguageDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public ProblemSetDAO getProblemSetDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public RoomResultDAO getRoomResultDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public ComponentStateDAO getComponentStateDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public SystemTestResultDAO getSystemTestResultDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public AlgoSubmissionDAO getAlgoSubmissionDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public UserSchoolDAO getUserSchoolDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
 }

@@ -32,7 +32,7 @@
         <div class="title">
             Step <strong>5</strong> of
             <c:choose>
-                <c:when test="${regUser.new}">
+                <c:when test="${isNewReg}">
                     <strong>6</strong>
                 </c:when>
                 <c:otherwise>
@@ -50,7 +50,7 @@
         <div class="off">Confirm</div>
 
         <div class="on">Success</div>
-        <c:if test="${regUser.new}">
+        <c:if test="${isNewReg}">
             <div class="off">Activation</div>
         </c:if>
     </div>
@@ -58,7 +58,7 @@
 
 <div style="width:400px; margin-right: 200px;">
     <c:choose>
-        <c:when test="${regUser.new}">
+        <c:when test="${isNewReg}">
             <strong>Registration successful!</strong>
             <br><br>
             <span class="bigRed">Please check your email. You <u>MUST</u> activate your account to complete registration.</span>
@@ -173,10 +173,32 @@
     <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
         <tr>
             <td class="image">
-                  <A href="http://studio.topcoder.com/?module=ViewActiveContests"><img src="/i/registration/studio.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
+                <A href="http://studio.topcoder.com/?module=ViewActiveContests"><img src="/i/registration/studio.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
             </td>
             <td class="text" width="100%">
-                As a TopCoder Studio member you now have access to submit creative work for any of the <A href="http://studio.topcoder.com/?module=ViewActiveContests">active contests</A>.  Don't forget that you can also browse around the <A href="http://studio.topcoder.com/forums">TopCoder Studio forums</a> for interesting and helpful info from the community.
+                As a TopCoder Studio member you now have access to submit creative work for any of the
+                <A href="http://studio.topcoder.com/?module=ViewActiveContests">active contests</A>. Don't forget that
+                you can also browse around the <A href="http://studio.topcoder.com/forums">TopCoder Studio forums</a>
+                for interesting and helpful info from the community.
+            </td>
+        </tr>
+    </table>
+
+    <br><br>
+</c:if>
+
+
+<c:set value="<%=RegistrationType.TEACHER_ID%>" var="teacher"/>
+<c:if test="${cf:contains(requestScope[regTypes], teacher)}">
+    <div class="regHead">As a Registered Professor</div>
+    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
+        <tr>
+            <td class="image">
+                <A href="/education/?module=Static&amp;d1=introduction"><img src="/i/registration/professor.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
+            </td>
+            <td class="text" width="100%">
+                <a href="/education/?module=Static&amp;d1=introduction">Read more</a> about how to use the Educational
+                Platform.
             </td>
         </tr>
     </table>

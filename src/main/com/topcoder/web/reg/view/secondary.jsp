@@ -80,7 +80,9 @@
 
 </head>
 
-<body <c:if test="${cf:contains(fields, referral)}">onLoad="referralSelection()"</c:if>>
+<body
+        <c:if test="${cf:contains(fields, referral)}">onLoad="referralSelection()"</c:if>
+        >
 
 <div align="center" style="padding:6px 0px 6px; 0px;">
     <A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder"
@@ -104,7 +106,7 @@
             </c:if>
             Step <strong>3</strong> of
             <c:choose>
-                <c:when test="${regUser.new}">
+                <c:when test="${isNewReg}">
                     <strong>6</strong>
                 </c:when>
                 <c:otherwise>
@@ -122,7 +124,7 @@
         <div class="off">Confirm</div>
 
         <div class="off">Success</div>
-        <c:if test="${regUser.new}">
+        <c:if test="${isNewReg}">
             <div class="off">Activation</div>
         </c:if>
     </div>
@@ -196,16 +198,17 @@
     <tr>
         <td colspan="2"><span class="bigRed">
         <tc-webtag:errorIterator id="err" name="${schoolName}">${err}<br></tc-webtag:errorIterator>
-        <tc-webtag:errorIterator id="err" name="${schoolCity}">${err}<br></tc-webtag:errorIterator>
-        <tc-webtag:errorIterator id="err" name="${schoolProvince}">${err}<br></tc-webtag:errorIterator>
-        <tc-webtag:errorIterator id="err" name="${schoolCountry}">${err}<br></tc-webtag:errorIterator>
-        <tc-webtag:errorIterator id="err" name="${schoolState}">${err}<br></tc-webtag:errorIterator>
-        <tc-webtag:errorIterator id="err" name="${schoolId}">${err}<br></tc-webtag:errorIterator>
+            <tc-webtag:errorIterator id="err" name="${schoolCity}">${err}<br></tc-webtag:errorIterator>
+            <tc-webtag:errorIterator id="err" name="${schoolProvince}">${err}<br></tc-webtag:errorIterator>
+            <tc-webtag:errorIterator id="err" name="${schoolCountry}">${err}<br></tc-webtag:errorIterator>
+            <tc-webtag:errorIterator id="err" name="${schoolState}">${err}<br></tc-webtag:errorIterator>
+            <tc-webtag:errorIterator id="err" name="${schoolId}">${err}<br></tc-webtag:errorIterator>
         </td>
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, schoolName)}">*</c:if> School:
+            <c:if test="${cf:contains(reqFields, schoolName)}">*</c:if>
+            School:
         </td>
         <td class="value">
             <span id="schoolName"><tc-webtag:textInput name="${schoolName}" size="36"
@@ -226,11 +229,15 @@
         </tr>
         <tr>
             <td class="name">
-                <c:if test="${cf:contains(reqFields, visibleSchool)}">*</c:if> Show / hide my school:
+                <c:if test="${cf:contains(reqFields, visibleSchool)}">*</c:if>
+                Show / hide my school:
             </td>
             <td class="value">
-                <tc-webtag:radioButton name="${visibleSchool}" value="show"/> Show
-                <br/><tc-webtag:radioButton name="${visibleSchool}" value="hide"/> Hide
+                <tc-webtag:radioButton name="${visibleSchool}" value="show"/>
+                Show
+                <br/>
+                <tc-webtag:radioButton name="${visibleSchool}" value="hide"/>
+                Hide
             </td>
         </tr>
     </c:if>
@@ -248,7 +255,8 @@
 </tr>
 <tr>
 <td class="name">
-    <c:if test="${cf:contains(reqFields, gpa)}">*</c:if> GPA:
+    <c:if test="${cf:contains(reqFields, gpa)}">*</c:if>
+    GPA:
 </td>
 <td class="value">
     <tc-webtag:textInput name="<%=Constants.GPA%>" size="4" maxlength="<%=Constants.MAX_GPA_LENGTH%>" editable="true"/>
@@ -265,7 +273,8 @@
 </tr>
 <tr>
     <td class="name">
-        <c:if test="${cf:contains(reqFields, gpaScale)}">*</c:if> GPA Scale:
+        <c:if test="${cf:contains(reqFields, gpaScale)}">*</c:if>
+        GPA Scale:
     </td>
     <td class="value">
         <c:set value="<%=Constants.GPA_SCALES%>" var="scales"/>
@@ -284,7 +293,8 @@
 </tr>
 <tr>
     <td class="name">
-        <c:if test="${cf:contains(reqFields, title)}">*</c:if> Title:
+        <c:if test="${cf:contains(reqFields, title)}">*</c:if>
+        Title:
     </td>
     <td class="value">
         <tc-webtag:textInput name="${title}" size="15" maxlength="<%=Constants.MAX_TITLE_LENGTH%>" editable="true"/>
@@ -302,7 +312,8 @@
 </tr>
 <tr>
     <td class="name">
-        <c:if test="${cf:contains(reqFields, companyName)}">*</c:if> Company:
+        <c:if test="${cf:contains(reqFields, companyName)}">*</c:if>
+        Company:
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.COMPANY_NAME%>" size="15" maxlength="<%=Constants.MAX_COMPANY_NAME_LENGTH%>" editable="true"/>
@@ -323,7 +334,8 @@
 </tr>
 <tr>
     <td class="name">
-        <c:if test="${cf:contains(reqFields, resume)}">*</c:if> Resume:
+        <c:if test="${cf:contains(reqFields, resume)}">*</c:if>
+        Resume:
     </td>
     <td class="value">
             <%--there should be only one--%>
@@ -344,7 +356,8 @@
 </tr>
 <tr>
     <td class="name">
-        <c:if test="${cf:contains(reqFields, referral)}">*</c:if> How did you hear<br>about TopCoder?:
+        <c:if test="${cf:contains(reqFields, referral)}">*</c:if>
+        How did you hear<br>about TopCoder?:
     </td>
     <td class="value">
         <tc-webtag:objectSelect name="${referral}" list="${referrals}" valueField="id" textField="description" onChange="referralSelection()"/>

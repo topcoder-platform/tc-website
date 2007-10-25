@@ -1,7 +1,5 @@
 package com.topcoder.web.tc.controller.request.authentication;
 
-import java.util.GregorianCalendar;
-
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
@@ -16,6 +14,8 @@ import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.reg.validation.EmailValidator;
 import com.topcoder.web.tc.Constants;
 
+import java.util.GregorianCalendar;
+
 /**
  * Send an email to an user with an url to reset his password.
  * If the email needs to be sent to a different address than the registered, then
@@ -25,7 +25,7 @@ import com.topcoder.web.tc.Constants;
  */
 public class RecoverEmail extends ShortHibernateProcessor {
 
-    public static final String SECRET_QUESTION_RESPONSE ="sqr";
+    public static final String SECRET_QUESTION_RESPONSE = "sqr";
 
     protected void dbProcessing() throws TCWebException {
         String userId = StringUtils.checkNull(getRequest().getParameter(Constants.CODER_ID));
@@ -75,7 +75,7 @@ public class RecoverEmail extends ShortHibernateProcessor {
             msgText.append("http://");
             msgText.append(ApplicationServer.SERVER_NAME);
             msgText.append("/tc?module=ResetPassword&pr=" + pr.getId() + "&hc=" + pr.hash());
-            msgText.append("\n\nYour handle is: " + u.getHandle() + ". Please remember that handles are case-sensitive.");
+            msgText.append("\n\nYour user name is: " + u.getHandle() + ". Please remember that user names are case-sensitive.");
 
             TCSEmailMessage mail = new TCSEmailMessage();
             mail.setSubject("TopCoder Password Recovery");

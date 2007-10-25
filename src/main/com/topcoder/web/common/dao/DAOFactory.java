@@ -56,6 +56,8 @@ public interface DAOFactory {
 
     PreferenceGroupDAO getPreferenceGroupDAO();
 
+    ProfessorStatusDAO getProfessorStatusDA0();
+
     ProjectDAO getProjectDAO();
 
     RegistrationTypeDAO getRegistrationTypeDAO();
@@ -65,6 +67,8 @@ public interface DAOFactory {
     RoundDAO getRoundDAO();
 
     SchoolDAO getSchoolDAO();
+
+    SchoolAssociationTypeDAO getSchoolAssociationTypeDAO();
 
     SchoolTypeDAO getSchoolTypeDAO();
 
@@ -92,7 +96,33 @@ public interface DAOFactory {
 
     UserPreferenceDAO getUserPreferenceDAO();
 
+    UserSchoolDAO getUserSchoolDAO();
+
     VisaLetterEventDAO getVisaLetterEventDAO();
 
     VisaLetterRequestDAO getVisaLetterRequestDAO();
+
+    ProfessorDAO getProfessorDAO();
+
+    ClassroomDAO getClassroomDAO();
+
+    StudentClassroomDAO getStudentClassroomDAO();
+
+    RoundTypeDAO getRoundTypeDAO();
+
+    ContestDAO getContestDAO();
+
+    ComponentDAO getComponentDAO();
+
+    LanguageDAO getLanguageDAO();
+
+    ProblemSetDAO getProblemSetDAO();
+
+    RoomResultDAO getRoomResultDAO();
+
+    ComponentStateDAO getComponentStateDAO();
+
+    SystemTestResultDAO getSystemTestResultDAO();
+
+    AlgoSubmissionDAO getAlgoSubmissionDAO();
 }
