@@ -23,4 +23,8 @@ public interface RoundDAO {
 
     List<Round> findDuplicateName(Long classroomId, String assignmentName, Long roundId);
 
+    List<Round> getAssignments(Long classroomId);
+
+    List<Round> getAssignmentsForStudent(Long classroomId, Long coderId);
+
 }

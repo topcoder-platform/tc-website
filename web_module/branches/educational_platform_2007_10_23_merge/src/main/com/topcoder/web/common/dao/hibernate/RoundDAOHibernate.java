@@ -1,14 +1,16 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import java.util.Date;
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
+
 import com.topcoder.web.common.dao.RoundDAO;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundProperty;
-import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.criterion.Restrictions;
-
-import java.util.Date;
-import java.util.List;
 
 /**
  * @author cucu
@@ -53,5 +55,34 @@ public class RoundDAOHibernate extends Base implements RoundDAO {
     public void delete(Round r) {
         super.delete(r);
     }
+
+    @SuppressWarnings("unchecked")
+    public List<Round> getAssignments(Long classroomId) {
+        Criteria c = session.createCriteria(Round.class);
+        
+        c.createCriteria("roundProperties")
+            .add(Restrictions.eq("id.typeId", RoundProperty.CLASSROOM_ID_PROPERTY_ID))
+            .add(Restrictions.eq("intValue", classroomId));
+        c.addOrder(Order.asc("name"));
+        
+        return (List<Round>) c.list();
+    }
+    
+    @SuppressWarnings("unchecked")
+    public List<Round> getAssignmentsForStudent(Long classroomId, Long coderId) {
+        Criteria c = session.createCriteria(Round.class);
+
+        c.createCriteria("roundRegistrations")
+            .add(Restrictions.eq("id.coder.id", coderId));
+
+        c.createCriteria("roundProperties")
+            .add(Restrictions.eq("id.typeId", RoundProperty.CLASSROOM_ID_PROPERTY_ID))
+            .add(Restrictions.eq("intValue", classroomId));
+        
+        c.addOrder(Order.asc("name"));
+            
+        return (List<Round>) c.list();
+    }
+    
 
 }

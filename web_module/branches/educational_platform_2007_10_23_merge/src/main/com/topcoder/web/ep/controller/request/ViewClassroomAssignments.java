@@ -35,7 +35,7 @@ public class ViewClassroomAssignments extends SharedBaseProcessor {
             log.debug("is professor");
 
             
-            List<Round> lr = DAOUtil.getFactory().getClassroomDAO().getAssignments(c.getId());
+            List<Round> lr = DAOUtil.getFactory().getRoundDAO().getAssignments(c.getId());
             
             // we need to tell the UI whether to show or not the edit and assign to columns            
             Boolean showEdit = false;
@@ -71,7 +71,7 @@ public class ViewClassroomAssignments extends SharedBaseProcessor {
             log.debug("active student");
 
             getRequest().setAttribute("classroom", c);
-            getRequest().setAttribute("assignments", DAOUtil.getFactory().getClassroomDAO().getAssignmentsForStudent(c.getId(), s.getId()));
+            getRequest().setAttribute("assignments", DAOUtil.getFactory().getRoundDAO().getAssignmentsForStudent(c.getId(), s.getId()));
             setNextPage("/student/viewClassroomAssignments.jsp");
             setIsNextPageInContext(true);
         } else {
