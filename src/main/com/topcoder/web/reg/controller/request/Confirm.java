@@ -1,35 +1,19 @@
 package com.topcoder.web.reg.controller.request;
 
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.*;
+import com.topcoder.web.reg.Constants;
+import com.topcoder.web.reg.RegFieldHelper;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.Address;
-import com.topcoder.web.common.model.CoderReferral;
-import com.topcoder.web.common.model.CoderType;
-import com.topcoder.web.common.model.Company;
-import com.topcoder.web.common.model.Contact;
-import com.topcoder.web.common.model.CurrentSchool;
-import com.topcoder.web.common.model.DemographicAssignment;
-import com.topcoder.web.common.model.DemographicResponse;
-import com.topcoder.web.common.model.RegistrationType;
-import com.topcoder.web.common.model.Resume;
-import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.SchoolAssociationType;
-import com.topcoder.web.common.model.SchoolType;
-import com.topcoder.web.common.model.Team;
-import com.topcoder.web.common.model.TeamType;
-import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.UserSchool;
-import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.RegFieldHelper;
 
 /**
  * @author dok
@@ -234,7 +218,15 @@ public class Confirm extends Base {
             if (!RegFieldHelper.getMainFieldSet(getRequestedTypes(), u).contains(Constants.COMP_COUNTRY_CODE)) {
                 //make hs people's comp country be the country of their school
                 if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
-                    u.getCoder().setCompCountry(cs.getSchool().getAddress().getCountry());
+                    if (log.isDebugEnabled()) {
+                        if (u.getCoder() == null) {
+                            log.debug("coder is null");
+                        }
+                        if (s == null) {
+                            log.debug("school is null");
+                        }
+                    }
+                    u.getCoder().setCompCountry(s.getAddress().getCountry());
                 }
             }
 
