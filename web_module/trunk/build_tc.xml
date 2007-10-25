@@ -126,7 +126,7 @@
 
     <target name="compile_shared" depends="init" unless="compile_shared_set">
         <ant dir="${shared.build}" target="jar"/>
-        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${global-dist.dir}/shared.jar"/>
+        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
         <!--javac
                 srcdir="${shared}"
                 destdir="${classes}"
@@ -612,7 +612,7 @@
                 <include name="tc.jar"/>
             </fileset>
         </copy>
-        <copy todir="${jboss_lib}" file="${global-dist.dir}/shared.jar"/>
+        <copy todir="${jboss_lib}" file="${shared.jar}"/>
         <copy todir="${jboss_lib}">
             <fileset dir="${jars.dir}">
                 <include name="ifxjdbc.jar"/>
