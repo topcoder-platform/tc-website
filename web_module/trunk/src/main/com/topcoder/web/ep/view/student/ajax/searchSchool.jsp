@@ -4,8 +4,11 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.topcoder.web.ep.Constants" %>
-<tac:taconiteRoot>
-    <tac:replaceChildren contextNodeID="results" parseOnServer="true">
+
+<taconite-root>
+
+ <taconite-replace-children contextNodeID="results" parseInBrowser="true">     
+ 
         <div id="results">
             <c:choose>
                 <c:when test="${fn:length(results)==0}">
@@ -58,5 +61,5 @@
                 </c:otherwise>
             </c:choose>
         </div>
-    </tac:replaceChildren>
-</tac:taconiteRoot>
+</taconite-replace-children>      
+ </taconite-root>
