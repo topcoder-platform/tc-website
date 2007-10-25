@@ -91,6 +91,8 @@ public class RoundDAOTestCase extends TCHibernateTestCase {
     }
 
     public void testFindDuplicateName() {
+        // todo: create test data rather than use existing data from the db
+        
         assertTrue("Should've found the round", DAOUtil.getFactory().getRoundDAO().findDuplicateName(1160l, "Test Integ 2", null).size() > 0);
 
         assertTrue("Shouldn't have found the round", DAOUtil.getFactory().getRoundDAO().findDuplicateName(1160l, "Test Integ 2", 21102l).size() == 0);
@@ -98,12 +100,16 @@ public class RoundDAOTestCase extends TCHibernateTestCase {
     }
 
     public void testGetAssignments() {
+        // todo: create test data rather than use existing data from the db
+
         assertTrue("There are no assignments for the classroom", DAOUtil.getFactory().getRoundDAO().getAssignments(999l).size() == 0);
 
         assertTrue("There are assignments for the classroom", DAOUtil.getFactory().getRoundDAO().getAssignments(1160l).size() > 0);
     }
 
     public void testGetAssignmentsForStudent() {
+        // todo: create test data rather than use existing data from the db
+
         assertTrue("There are no assignments for the classroom", DAOUtil.getFactory().getRoundDAO().getAssignmentsForStudent(999l, 8416646l).size() == 0);
 
         assertTrue("There are no assignments for the student", DAOUtil.getFactory().getRoundDAO().getAssignmentsForStudent(1160l, 999l).size() == 0);
