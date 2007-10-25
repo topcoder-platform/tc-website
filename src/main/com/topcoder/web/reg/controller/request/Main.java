@@ -127,12 +127,6 @@ public class Main extends Base {
                     Coder c = new Coder();
                     u.setCoder(c);
                 }
-                if (u.getProfessor() == null && (getRequestedTypes().contains(regTypeDAO.getTeacherType()))) {
-                    Professor p = new Professor();
-                    p.setStatus(getFactory().getProfessorStatusDA0().find(ProfessorStatus.PENDING));
-                    u.setProfessor(p);
-                }
-
                 if (getRequestedTypes().contains(regTypeDAO.getHighSchoolType())) {
                     Coder c;
                     if (u.getCoder() == null) {
@@ -143,6 +137,13 @@ public class Main extends Base {
                     }
                     c.setCoderType(getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
                 }
+
+                if (u.getProfessor() == null && (getRequestedTypes().contains(regTypeDAO.getTeacherType()))) {
+                    Professor p = new Professor();
+                    p.setStatus(getFactory().getProfessorStatusDA0().find(ProfessorStatus.PENDING));
+                    u.setProfessor(p);
+                }
+
 
                 setRegUser(u);
 
