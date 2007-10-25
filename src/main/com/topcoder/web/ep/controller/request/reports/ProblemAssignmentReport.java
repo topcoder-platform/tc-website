@@ -243,25 +243,25 @@ public class ProblemAssignmentReport extends SharedBaseProcessor {
         if (SCORE_COL.toString().equals(sortCol)) {
             Collections.sort(larr, new Comparator<AssignmentReportRow>() {
                 public int compare(AssignmentReportRow arg0, AssignmentReportRow arg1) {
-                    return arg1.getScore().compareTo(arg0.getScore());
+                    return arg0.getScore().compareTo(arg1.getScore());
                 }
             });
         } else if (NUM_TESTS_COL.toString().equals(sortCol)) {
             Collections.sort(larr, new Comparator<AssignmentReportRow>() {
                 public int compare(AssignmentReportRow arg0, AssignmentReportRow arg1) {
-                    return arg1.getNumTestsPassed().compareTo(arg0.getNumTestsPassed());
+                    return arg0.getNumTestsPassed().compareTo(arg1.getNumTestsPassed());
                 }
             });
         } else if (PERCENT_TESTS_COL.toString().equals(sortCol)) {
             Collections.sort(larr, new Comparator<AssignmentReportRow>() {
                 public int compare(AssignmentReportRow arg0, AssignmentReportRow arg1) {
-                    return arg1.getPercentTestsPassed().compareTo(arg0.getPercentTestsPassed());
+                    return arg0.getPercentTestsPassed().compareTo(arg1.getPercentTestsPassed());
                 }
             });
         } else {
             Collections.sort(larr, new Comparator<AssignmentReportRow>() {
                 public int compare(AssignmentReportRow arg0, AssignmentReportRow arg1) {
-                    return arg1.getStudent().toUpperCase().compareTo(arg0.getStudent().toUpperCase());
+                    return arg0.getStudent().toUpperCase().compareTo(arg1.getStudent().toUpperCase());
                 }
             });
         }
