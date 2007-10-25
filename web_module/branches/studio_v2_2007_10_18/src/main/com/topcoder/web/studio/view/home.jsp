@@ -138,7 +138,7 @@
                     <div id="homeDOTMBox">
                         <img src="http://www.dev.topcoder.com/i/m/ntrefz_big.jpg" alt="" style="position: absolute; top: 20px; left: 5px; width: 55px; height: 61px; border: 1px solid #bebebe;" />
                         <div style="text-align: center; padding: 30px 10px 0 71px; margin: 0;">
-                            <strong>October 2007</strong>
+                            <strong><a href="forum thread about winner">October 2007</a></strong>
                             <br /><studio:handle coderId="15974719"/>
                         </div>
                     </div>
@@ -158,6 +158,18 @@
 
                 <!-- news box -->
                 <div style="width: 525px; height: 170px; margin-bottom: 20px; background: transparent url(/i/v2/home_news.png) center center no-repeat;">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <td width="50%" align="left"><a href="/?module=ViewActiveContests"><img src="/i/v2/home_icon_contests.png" alt="Active Contests" /></a></td>
+                            <td width="50%" align="left"><a href="/?module=Static&amp;d1=contactUs"><img src="/i/v2/home_icon_projects.png" alt="Help" /></a></td>
+                            <td><a href="/?module=Static&amp;d1=support&amp;d2=getStarted"><img src="/i/v2/home_icon_help.png" alt="Help" /></a></td>
+                        </tr>
+                    </tbody>
+                    </table>                            
                 </div>
 
                 <!-- recent winners title -->
