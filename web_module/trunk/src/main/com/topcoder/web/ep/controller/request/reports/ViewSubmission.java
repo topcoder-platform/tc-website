@@ -126,8 +126,8 @@ public class ViewSubmission extends SharedBaseProcessor {
         List<SystemTestRow> lstr = new ArrayList<SystemTestRow>(); 
         for (ResultSetRow rsr2 : rsc) {
             lstr.add(new SystemTestRow(
-                StringUtils.htmlEncode(rsr.getItem("args").toString()),
-                StringUtils.htmlEncode(rsr.getItem("expected").toString()),
+                StringUtils.htmlEncode(rsr2.getItem("args").toString()),
+                StringUtils.htmlEncode(rsr2.getItem("expected").toString()),
                 rsr2.getLongItem("succeeded") == 1
                 ));
         }
