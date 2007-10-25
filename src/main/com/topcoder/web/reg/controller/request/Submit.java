@@ -49,9 +49,10 @@ public class Submit extends Base {
 
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
+        boolean newReg = isNewRegistration();
         if (getRegUser() == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
-        } else if (isNewRegistration() || userLoggedIn()) {
+        } else if (newReg || userLoggedIn()) {
             //todo check if the handle is taken again
             getFactory().getUserDAO().saveOrUpdate(u);
 
@@ -62,7 +63,7 @@ public class Submit extends Base {
                 rh.registerForSeason(u);
             }
 
-            securityStuff(isNewRegistration(), u);
+            securityStuff(newReg, u);
 
             if (getRequest().getSession().getAttribute(Constants.INACTIVATE_HS) != null) {
                 rh.inactivateUser(u);
@@ -89,7 +90,7 @@ public class Submit extends Base {
             markForCommit();
             closeConversation();
             beginCommunication();
-            if (isNewRegistration()) {
+            if (newReg) {
                 try {
                     Long newUserId = u.getId();
                     //have to wrap up the last stuff, and get into new stuff.  we don't want
@@ -144,7 +145,9 @@ public class Submit extends Base {
             //set these in the request for the success page, cuz we're about to kill the session
             getRequest().setAttribute(Constants.REG_TYPES, h);
             getRequest().setAttribute(Constants.USER, u);
+            getRequest().setAttribute(Constants.NEW_REG_FLAG, newReg);
             getRequest().getSession().invalidate();
+
 
             if (DAOUtil.useQueryToolFactory) {
                 // clear preferences from cache
