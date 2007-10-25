@@ -653,12 +653,6 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
 
     	<copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/hibernate3.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/commons-logging-1.0.4.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/ehcache-1.2.3.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/cglib-2.1.3.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/asm.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/ant-antlr-1.6.5.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/antlr-2.7.6.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-commons-annotations.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
