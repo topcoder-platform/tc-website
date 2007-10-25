@@ -73,7 +73,7 @@
                     <!-- login title -->
                     <div style="width: 200px; height: 25px; margin-bottom: 10px; background: transparent url(/i/v2/home_bg_right_title.png) center center no-repeat;">
                         <div style="font-weight: bold; padding: 2px 0px 0px 10px; ">
-                            Login
+                            Log in
                         </div>
                     </div>
                     
@@ -117,10 +117,10 @@
                             </c:when>
                             <c:otherwise>
                                 <div style="margin-top: 20px;">Hello</div>
-                                <div style="font-size: 18px;"><studio:handle coderId="15974719"/></div>
+                                <div style="font-size: 18px;"><studio:handle coderId="${sessionInfo.userId}"/></div>
                                 <div>
-                                <div style="float: left; margin-left: 0px;"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout"><img src="/i/v2/interface/btnLogout.png" alt="Log out" /></a></div>
-                                <div style="float: right; margin-right: 0px;"><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false"><img src="/i/v2/interface/btnUpdateMyProfile.png" alt="Log out" /></a></div>
+                                <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Log out</a>
+                                | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update my profile</a>
                                 </div>
                             </c:otherwise>
                         </c:choose>
@@ -157,8 +157,7 @@
                 </div>
 
                 <!-- news box -->
-                <div>
-                    <img src="/i/v2/home_news.png" alt="News" />
+                <div style="width: 525px; height: 170px; margin-bottom: 20px; background: transparent url(/i/v2/home_news.png) center center no-repeat;">
                 </div>
 
                 <!-- recent winners title -->
