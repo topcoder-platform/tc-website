@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.25.07<br />12:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm43">TCHS SRM 43 - Problem Set &amp; Analysis</A></span><br /><br />
+      This match gathered 81 coders, 15 of them were newcomers. The contestants faced a fairly straightforward easy problem, although it’s success rate rather far from 100%. The medium and hard problems were somewhat harder, as an effect of this the most of submissions of them were successfully challenged or failed system tests.</td>
+         <td class="newsPhoto"><img src="/i/m/it4DOTkp_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20635869" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm43">details</A> | 
+         <tc-webtag:forumLink forumID="516569" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br />10.24.07<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         Psyho-Analysis</span><br /><br />
@@ -158,21 +174,5 @@
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm41">details</A> | 
          <tc-webtag:forumLink forumID="516567" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.16.07<br />4:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm371">SRM 371 - Problem Set &amp; Analysis</A></span><br /><br />
-      SRM 371 had a record turnout, hitting the maximum of 1500 registrants well before the end of registration. <tc-webtag:handle coderId="10574855" context="algorithm"/> won the match, with <tc-webtag:handle coderId="7442498" context="algorithm"/> and <tc-webtag:handle coderId="11829284" context="algorithm"/> coming second and third respectively.</td>
-         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm371">details</A> | 
-         <tc-webtag:forumLink forumID="516068" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
