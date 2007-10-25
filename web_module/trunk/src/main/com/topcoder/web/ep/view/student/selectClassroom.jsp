@@ -67,9 +67,6 @@
             </p>
             <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                 <tr>
-                    <%-- the school name isn't really necessary
-                    <td class="header">School</td>
-                    --%>
                     <td class="header">Classroom</td>
                     <td class="header">Professor</td>
                     <td class="header">Term</td>
@@ -79,9 +76,6 @@
                 <%int i = 0;%>
                 <c:forEach items="${possible_classrooms}" var="classroom">
                     <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                        <%--
-                        <td class="value">${school.name}</td>
-                        --%>
                         <td class="value">${classroom.name}</td>
                         <td class="value">${classroom.professor.user.lastName}, ${classroom.professor.user.firstName}</td>
                         <td class="value">${classroom.academicPeriod}</td>
