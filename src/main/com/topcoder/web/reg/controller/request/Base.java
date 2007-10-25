@@ -40,8 +40,9 @@ public abstract class Base extends LongHibernateProcessor {
     private DAOFactory factory = null;
 
     protected void dbProcessing() throws Exception {
-        registrationProcessing();
         getRequest().setAttribute(Constants.NEW_REG_FLAG, isNewRegistration());
+        registrationProcessing();
+
     }
 
     protected boolean isNewRegistration() {
@@ -50,6 +51,7 @@ public abstract class Base extends LongHibernateProcessor {
     }
 
     protected void setNewRegistration(boolean newReg) {
+        getRequest().setAttribute(Constants.NEW_REG_FLAG, newReg);
         getRequest().getSession().setAttribute(Constants.NEW_REG_FLAG, newReg);
     }
 
