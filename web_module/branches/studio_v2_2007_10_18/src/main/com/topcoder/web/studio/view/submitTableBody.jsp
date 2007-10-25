@@ -23,16 +23,8 @@ crappy looking to save space on the transmission
 
 <c:forEach items="${submissions}" var="submission">
 <% int col = 0;%>
-<c:choose>
-<c:when test="${submission.rank == null || submission.rank>contest.maxSubmissions.value}">
-<c:set value="<%=even ? "light" : "dark"%>" var="cssClass"/>
-</c:when>
-<c:otherwise>
-<c:set value="<%=even ? "highlightLt" : "highlightDk"%>" var="cssClass"/>
-</c:otherwise>
-</c:choose>
 <tc-webtag:errorIterator id="err" name="${submissionId}${submission.id}"><tr class="${cssClass}"><td class="value" colspan="9"><span class="bigRed">${err}</span></td></tr></tc-webtag:errorIterator>
-<tr class="${cssClass}">
+<tr class="<%=even?"light":"dark"%>">
 <td class="valueW"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div>&#160;</div>
 </td>
@@ -48,7 +40,14 @@ crappy looking to save space on the transmission
 </c:choose>
 </td>
 <td class="value"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
+<c:choose>
+<c:when test="${submission.rank == null || submission.rank>contest.maxSubmissions.value}">
 ${submission.originalFileName}
+</c:when>
+<c:otherwise>
+<nobr><img src="/i/v2/selection.png" alt="Selection" /> ${submission.originalFileName}</nobr>
+</c:otherwise>
+</c:choose>
 </td>
 <td class="value"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div id="pop${submission.id}" class="popUp">

@@ -130,7 +130,7 @@
                                  <c:when test="${not empty contest.maxSubmissions.value}">
                                      Up to ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
                                      will count for this contest.  They will be indicated
-                                     by <span style="background: #a2d0a2;">Green rows</span>.  Those that are not green will <b>NOT</b> count and
+                                     <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr>.  Those that are not green will <b>NOT</b> count and
                                      they will neither be screened nor reviewed.
                                      If you make more than ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
                                      for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.
@@ -146,7 +146,7 @@
                      <c:otherwise>
                          <div align="center">
                              <strong>In the table below</strong> you can rank your submissions.
-                             <br /><span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for
+                             <br /><nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
                              this contest.
                              <br />Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
                              to the bottom of the page.
