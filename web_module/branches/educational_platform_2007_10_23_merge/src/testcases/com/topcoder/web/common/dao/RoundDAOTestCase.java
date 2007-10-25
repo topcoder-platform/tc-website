@@ -89,4 +89,14 @@ public class RoundDAOTestCase extends TCHibernateTestCase {
         DAOUtil.getFactory().getRoundDAO().delete(r2);
     }
 
+    /**
+     * Test method for {@link com.topcoder.web.common.dao.hibernate.RoundDAOHibernate#findDuplicateName(java.lang.Integer)}.
+     */
+    public void testFindDuplicateName() {
+        
+        assertTrue("Could not found round 2000", DAOUtil.getFactory().getRoundDAO().find(2000l) != null);
+        
+        assertTrue("There is no round -100", DAOUtil.getFactory().getRoundDAO().find(-100l) == null);
+    }
+
 }

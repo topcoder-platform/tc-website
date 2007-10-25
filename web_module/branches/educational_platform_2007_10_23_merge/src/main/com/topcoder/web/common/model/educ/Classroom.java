@@ -111,7 +111,7 @@ public class Classroom {
     }
 
     @OneToMany(fetch=FetchType.LAZY, mappedBy="id.classroom")
-    @Cascade( {CascadeType.SAVE_UPDATE} )
+    @Cascade( {CascadeType.ALL} )
     public Set<StudentClassroom> getStudentClassrooms() {
         return Collections.unmodifiableSet(studentClassrooms);
     }

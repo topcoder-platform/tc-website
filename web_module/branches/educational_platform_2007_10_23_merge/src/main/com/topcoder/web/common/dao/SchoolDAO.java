@@ -22,7 +22,7 @@ public interface SchoolDAO extends GenericDAO<School, Long> {
 
     List search(SchoolType type, String name, Date creationAfter, String countryCode, boolean orderByCountry);
 
-    Classroom findClassroomUsingNameAndPeriod(Long schoolId, String name, String period);
+    List<Classroom> findClassroomUsingNameAndPeriod(Long schoolId, String name, String period);
 
     List<School> findSchoolsUsingProfessorId(Long professorId);
 

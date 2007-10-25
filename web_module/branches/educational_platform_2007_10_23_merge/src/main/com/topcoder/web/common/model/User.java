@@ -318,7 +318,9 @@ public class User extends Base {
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
-        professor.setUser(this);
+        if (professor != null) {
+            professor.setUser(this);
+        }
     }
 
     public Contact getContact() {
