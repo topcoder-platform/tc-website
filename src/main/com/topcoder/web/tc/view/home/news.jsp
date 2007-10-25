@@ -8,7 +8,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm43">TCHS SRM 43 - Problem Set &amp; Analysis</A></span><br /><br />
-      This match gathered 81 coders, 15 of them were newcomers. The contestants faced a fairly straightforward easy problem, although it’s success rate rather far from 100%. The medium and hard problems were somewhat harder, as an effect of this the most of submissions of them were successfully challenged or failed system tests.</td>
+      This match gathered 81 coders, 15 of them were newcomers. The contestants faced a fairly straightforward easy problem, although it's success rate rather far from 100%. The medium and hard problems were somewhat harder and as an effect of this, the most of submissions of them were successfully challenged or failed system tests.</td>
          <td class="newsPhoto"><img src="/i/m/it4DOTkp_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20635869" context="algorithm"/></td></tr></table>
       </td>
    </tr>

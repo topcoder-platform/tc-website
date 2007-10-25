@@ -58,8 +58,8 @@
 <p>
 
 This match gathered 81 coders, 15 of them were newcomers.
-The contestants faced a fairly straightforward easy problem, although it’s success rate rather far from 100%.
-The medium and hard problems were somewhat harder, as an effect of this the most of submissions of them were successfully challenged or failed system tests.
+The contestants faced a fairly straightforward easy problem, although it's success rate rather far from 100%.
+The medium and hard problems were somewhat harder and as an effect of this, the most of submissions of them were successfully challenged or failed system tests.
 <br /><br />
 <tc-webtag:handle coderId="11972352" context="algorithm"/> took the lead due to his very solid performance on all the problems and 6 successful challenges. <tc-webtag:handle coderId="20812309" context="algorithm"/> got the second place with all three problems solved and being boosted up by 5 successful challenges. Having "only" 3 successful and 2 unsuccessful challenges, the would-be winner <tc-webtag:handle coderId="22663117" context="algorithm"/> finished third.
 
@@ -176,7 +176,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
 
 Because of the rather low constraints, this problem can be solved using brute force. Just do what the problem statement asks you to do. Please, check <a href="/tc?module=HSProblemSolution&cr=22378820&rd=10792&pm=6692">this solution</a> of <tc-webtag:handle coderId="22378820" context="algorithm"/> for a clean implementation.
 
-One interesting thing about this problem is during each step of the transformation process, you can safely choose <b>any</b> pair with the minimal difference and result will never differ from the one where you always choose the pair with the minimal sum. I won’t go deeper into the details saying that this can be proved by induction.
+One interesting thing about this problem is during each step of the transformation process, you can safely choose <b>any</b> pair with the minimal difference and result will never differ from the one where you always choose the pair with the minimal sum. I won't go deeper into the details saying that this can be proved by induction.
 
 
 </p>
@@ -279,7 +279,7 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
 
 <p>
 
-Let’s notice that we never need to take more than four items. So, if we have <b>n</b> items then the total number of variants we need to consider in the worst case is <b>C(n,1) + C(n,2) + C(n,3) + C(n,4)</b>. Which is only 251175 for n = 50. Here <b>C(n.k)</b> is a binomial coefficient (n choose k). So, we can iterate through all these variants and choose the best weight. For a reference, see <tc-webtag:handle coderId="11972352" context="algorithm"/>’s <a href="/tc?module=HSProblemSolution&cr=11972352&rd=10792&pm=8260">solution</a>.
+Let's notice that we never need to take more than four items. So, if we have <b>n</b> items then the total number of variants we need to consider in the worst case is <b>C(n,1) + C(n,2) + C(n,3) + C(n,4)</b>. Which is only 251175 for n = 50. Here <b>C(n.k)</b> is a binomial coefficient (n choose k). So, we can iterate through all these variants and choose the best weight. For a reference, see <tc-webtag:handle coderId="11972352" context="algorithm"/>'s <a href="/tc?module=HSProblemSolution&cr=11972352&rd=10792&pm=8260">solution</a>.
 
 </p>
 
@@ -385,13 +385,13 @@ In this problem you were given a set of integers {a<sub>1</sub>, a<sub>2</sub>, 
 <br /><br />
 Since the total number of subsets in the worst case is 2^36 = 68719476736, simple iterating through all of them will easily timeout. But we can use a well-known technique to speed up this approach.
 <br /><br />
-Let’s partition our set into two subsets A1 = { a<sub>1</sub>,…, a<sub>n/2</sub>} and A2 = { a<sub>n/2+1</sub>,…, a<sub>n</sub>}. Now each subset contains not more than 2^18 = 262144 elements. Iterate through all subsets of A1 and for each subset calculate two values: a number of its elements <b>k</b> and a sum of its elements <b>s</b>. Add each <b>s</b> to the list <b>halfSums[k]</b>. After that, sort all lists <b>halfSums[i]</b>, for all i from 0 to n/2.
+Let's partition our set into two subsets A1 = { a<sub>1</sub>,…, a<sub>n/2</sub>} and A2 = { a<sub>n/2+1</sub>,…, a<sub>n</sub>}. Now each subset contains not more than 2^18 = 262144 elements. Iterate through all subsets of A1 and for each subset calculate two values: a number of its elements <b>k</b> and a sum of its elements <b>s</b>. Add each <b>s</b> to the list <b>halfSums[k]</b>. After that, sort all lists <b>halfSums[i]</b>, for all i from 0 to n/2.
 <br /><br />
-Why have we done that? Because now, if someone asks us how many subsets in A1 with exactly <b>k</b> elements have sum less than or equal to <b>s</b>, we can easily answer in O(log(2^(n/2))) = O(n) time, using binary search. Let’s denote this query as <b>count(k,s)</b>.
+Why have we done that? Because now, if someone asks us how many subsets in A1 with exactly <b>k</b> elements have sum less than or equal to <b>s</b>, we can easily answer in O(log(2^(n/2))) = O(n) time, using binary search. Let's denote this query as <b>count(k,s)</b>.
 <br /><br />
 All pre-calculations are done, and we can move straight to the getting the answer to the main problem.
 <br /><br />
-Iterate through all subsets of A2 just like we did with A1. For each subset with <b>k</b> elements and sum <b>s</b> we iterate through the number of elements in subset in A1 <b>t</b> and add the value of <b>count(t,H*(t+k) - s) - count(t,L*(t+k) – s-1) </b> to the answer. All of the correct submissions are based on the similar idea. See <tc-webtag:handle coderId="22663117" context="algorithm"/>’s <a href="/tc?module=HSProblemSolution&cr=22663117&rd=10792&pm=8221">solution</a> as an example of very clean implementation. It's really amazing that it's also the fastest submission of the hard problem.
+Iterate through all subsets of A2 just like we did with A1. For each subset with <b>k</b> elements and sum <b>s</b> we iterate through the number of elements in subset in A1 <b>t</b> and add the value of <b>count(t,H*(t+k) - s) - count(t,L*(t+k) – s-1) </b> to the answer. All of the correct submissions are based on the similar idea. See <tc-webtag:handle coderId="22663117" context="algorithm"/>'s <a href="/tc?module=HSProblemSolution&cr=22663117&rd=10792&pm=8221">solution</a> as an example of very clean implementation. It's really amazing that it's also the fastest submission of the hard problem.
 
 
 </p>
