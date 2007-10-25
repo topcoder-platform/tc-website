@@ -10,6 +10,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.topcoder.web.common.model.algo.Round;
+import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.algo.RoundType;
 import com.topcoder.web.reg.TCHibernateTestCase;
 
@@ -85,18 +86,29 @@ public class RoundDAOTestCase extends TCHibernateTestCase {
                 r.getShortName().equals(r2.getShortName()));
         assertTrue("Different attribute: getStatus - " + r.getStatus() + " <> getStatus - " + r2.getStatus(), 
                 r.getStatus().equals(r2.getStatus()));
-        
+                
         DAOUtil.getFactory().getRoundDAO().delete(r2);
     }
 
-    /**
-     * Test method for {@link com.topcoder.web.common.dao.hibernate.RoundDAOHibernate#findDuplicateName(java.lang.Integer)}.
-     */
     public void testFindDuplicateName() {
-        
-        assertTrue("Could not found round 2000", DAOUtil.getFactory().getRoundDAO().find(2000l) != null);
-        
-        assertTrue("There is no round -100", DAOUtil.getFactory().getRoundDAO().find(-100l) == null);
+        assertTrue("Should've found the round", DAOUtil.getFactory().getRoundDAO().findDuplicateName(1160l, "Test Integ 2", null).size() > 0);
+
+        assertTrue("Shouldn't have found the round", DAOUtil.getFactory().getRoundDAO().findDuplicateName(1160l, "Test Integ 2", 21102l).size() == 0);
+
     }
 
+    public void testGetAssignments() {
+        assertTrue("There are no assignments for the classroom", DAOUtil.getFactory().getRoundDAO().getAssignments(999l).size() == 0);
+
+        assertTrue("There are assignments for the classroom", DAOUtil.getFactory().getRoundDAO().getAssignments(1160l).size() > 0);
+    }
+
+    public void testGetAssignmentsForStudent() {
+        assertTrue("There are no assignments for the classroom", DAOUtil.getFactory().getRoundDAO().getAssignmentsForStudent(999l, 8416646l).size() == 0);
+
+        assertTrue("There are no assignments for the student", DAOUtil.getFactory().getRoundDAO().getAssignmentsForStudent(1160l, 999l).size() == 0);
+
+        assertTrue("There are assignments for the student", DAOUtil.getFactory().getRoundDAO().getAssignmentsForStudent(1160l, 8416646l).size() > 0);
+
+    }
 }
