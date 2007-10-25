@@ -4,11 +4,27 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.25.07<br />1:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm373">SRM 373 - Problem Set &amp; Analysis</A></span><br /><br />
+      The problem set in division 1 was well balanced. The easy problem was really easy and had a high success rate. The medium turned out to be more tricky than many expected, and system tests took their toll. In my opinion the hard problem from this set was pretty easy both to solve and to implement.</td>
+         <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm373">details</A> | 
+         <tc-webtag:forumLink forumID="516070" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.25.07<br />12:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm43">TCHS SRM 43 - Problem Set &amp; Analysis</A></span><br /><br />
-      This match gathered 81 coders, 15 of them were newcomers. The contestants faced a fairly straightforward easy problem, although it's success rate rather far from 100%. The medium and hard problems were somewhat harder and as an effect of this, the most of submissions of them were successfully challenged or failed system tests.</td>
+      This match gathered 81 coders, 15 of them were newcomers. The contestants faced a fairly straightforward easy problem, although its success rate rather far from 100%. The medium and hard problems were somewhat harder and as an effect of this, the most of submissions of them were successfully challenged or failed system tests.</td>
          <td class="newsPhoto"><img src="/i/m/it4DOTkp_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20635869" context="algorithm"/></td></tr></table>
       </td>
    </tr>
@@ -158,21 +174,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule">details</a> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.17.07<br />11:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm41">TCHS SRM 41 - Problem Set &amp; Analysis</A></span><br /><br />
-      The match attracted 102 registrants, 37 of them newcomers, and had a rather high success rate, with 11 people getting all three problems correct. <tc-webtag:handle coderId="22653715" context="hs_algorithm"/> won the match with impressive 6 successful challenges. <tc-webtag:handle coderId="22659963" context="hs_algorithm"/> took the second place due to the fastest submission on Hard, and a newcomer <tc-webtag:handle coderId="22675110" context="hs_algorithm"/> finished third.</td>
-         <td class="newsPhoto"><img src="/i/m/Nickolas_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="15635590" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm41">details</A> | 
-         <tc-webtag:forumLink forumID="516567" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
    
