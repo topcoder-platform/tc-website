@@ -96,21 +96,26 @@ public class ViewSubmission extends SharedBaseProcessor {
             throw new TCWebException("Couldn't find component");
         }
         
-        // get component state
-        ComponentState cs = DAOUtil.getFactory().getComponentStateDAO().getStudentResultsByComponent(a, cmp, s.getId());
+        // get results
+        ResultSetContainer rscResults = getResults(a.getId(), cmp.getId(), s.getId());
+        if (rscResults == null || rscResults.size() == 0) {
+            throw new TCWebException("Could not retrieve results");
+        }
+        
+        ResultSetRow rsr = rscResults.iterator().next();
 
-        if (cs.getSubmissionNumber().equals(0)) {
+        if (rsr.getIntItem("submission_number") ==0) {
             throw new TCWebException("There are no submissions");
         }
         
-        // get results
-        Object systemTestResults = DAOUtil.getFactory().getSystemTestResultDAO().getSystemTestResultsByStudentComponent(a, cmp, s.getId());
-        Object[] lo = (Object[]) systemTestResults;
-        Integer total = (Integer)lo[0];
-        Integer succeeded = (Integer)lo[1];
+        Integer total = rsr.getIntItem("total");
+        Integer succeeded = (rsr.getItem("succeeded").getResultData() == null) ? 0 : rsr.getIntItem("succeeded");
 
         // get submission
-        Submission sub = DAOUtil.getFactory().getAlgoSubmissionDAO().find(new Submission.Identifier(cs, cs.getSubmissionNumber()));
+        Submission sub = DAOUtil.getFactory().getAlgoSubmissionDAO().find(
+                new Submission.Identifier(
+                        DAOUtil.getFactory().getComponentStateDAO().find(rsr.getLongItem("component_state_id")), 
+                        rsr.getIntItem("submission_number")));
 
         SimpleDateFormat sdfTime = new SimpleDateFormat("H:mm:ss.SSS");
         sdfTime.setTimeZone(TimeZone.getTimeZone("GMT"));
@@ -119,11 +124,11 @@ public class ViewSubmission extends SharedBaseProcessor {
         ResultSetContainer rsc = getData(a.getId(), cmp.getId(), s.getId());
 
         List<SystemTestRow> lstr = new ArrayList<SystemTestRow>(); 
-        for (ResultSetRow rsr : rsc) {
+        for (ResultSetRow rsr2 : rsc) {
             lstr.add(new SystemTestRow(
                 StringUtils.htmlEncode(rsr.getItem("args").toString()),
                 StringUtils.htmlEncode(rsr.getItem("expected").toString()),
-                rsr.getLongItem("succeeded") == 1
+                rsr2.getLongItem("succeeded") == 1
                 ));
         }
         
@@ -132,10 +137,10 @@ public class ViewSubmission extends SharedBaseProcessor {
         getRequest().setAttribute("assignment", a);
         getRequest().setAttribute("component", cmp);
         getRequest().setAttribute("student", s);
-        getRequest().setAttribute("score", cs.getPoints());
+        getRequest().setAttribute("score", rsr.getDoubleItem("points"));
         getRequest().setAttribute("numTestPassed", succeeded);
         getRequest().setAttribute("percentTestPassed", succeeded * 100d / total);
-        getRequest().setAttribute("status", ComponentState.getStatusDescription(cs.getStatusId()));
+        getRequest().setAttribute("status", ComponentState.getStatusDescription(rsr.getIntItem("status_id")));
         getRequest().setAttribute("time", sdfTime.format(new Time(sub.getSubmitTime() - sub.getOpenTime())));
         getRequest().setAttribute("system_tests", lstr);
         
@@ -236,6 +241,25 @@ public class ViewSubmission extends SharedBaseProcessor {
         return id;
     }
     
+    private ResultSetContainer getResults(Long roundId, Long componentId, Long coderId) throws TCWebException {
+        try {
+            Request r = new Request();
+            String queryName = "assignment_problem_results_student";
+            r.setProperty("cr", coderId.toString());
+            r.setProperty("rd", roundId.toString());
+            r.setProperty("compid", componentId.toString());
+            r.setContentHandle(queryName);
+
+            DataAccessInt dai = getDataAccess();
+            Map result = dai.getData(r);
+            ResultSetContainer rsc = (ResultSetContainer) result.get(queryName);
+
+            return rsc;
+        } catch (Exception e) {
+            throw new TCWebException("Could not get data from DB", e);
+        }
+    }
+
     private ResultSetContainer getData(Long roundId, Long componentId, Long coderId) throws TCWebException {
         try {
             Request r = new Request();
