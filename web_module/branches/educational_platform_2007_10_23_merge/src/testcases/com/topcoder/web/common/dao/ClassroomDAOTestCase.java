@@ -106,7 +106,7 @@ public class ClassroomDAOTestCase extends TCHibernateTestCase {
         assertTrue("There should not be classrooms for an invalid student ", lc.size() == 0);
 
         // look for classroom using name and period
-        lc =  DAOUtil.getFactory().getSchoolDAO().findClassroomUsingNameAndPeriod(c.getSchool().getId(), c.getName(), c.getAcademicPeriod());
+        lc =  DAOUtil.getFactory().getClassroomDAO().findClassroomUsingNameAndPeriod(c.getSchool().getId(), c.getName(), c.getAcademicPeriod());
         assertTrue("Could not found classroom using name and period " + c.getId(), lc.size() > 0);
 
         c2.getProfessor().removeClassroom(c2);

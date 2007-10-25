@@ -1,11 +1,10 @@
 package com.topcoder.web.common.dao;
 
-import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.SchoolType;
-import com.topcoder.web.common.model.educ.Classroom;
-
 import java.util.Date;
 import java.util.List;
+
+import com.topcoder.web.common.model.School;
+import com.topcoder.web.common.model.SchoolType;
 
 /**
  * @author dok
@@ -21,8 +20,6 @@ public interface SchoolDAO extends GenericDAO<School, Long> {
     List searchByNameAndType(String name, SchoolType type, int maxResults);
 
     List search(SchoolType type, String name, Date creationAfter, String countryCode, boolean orderByCountry);
-
-    List<Classroom> findClassroomUsingNameAndPeriod(Long schoolId, String name, String period);
 
     List<School> findSchoolsUsingProfessorId(Long professorId);
 

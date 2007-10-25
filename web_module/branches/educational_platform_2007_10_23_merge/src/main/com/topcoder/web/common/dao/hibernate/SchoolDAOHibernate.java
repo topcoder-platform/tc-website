@@ -111,15 +111,6 @@ public class SchoolDAOHibernate extends GenericBase<School, Long> implements Sch
         return q.list();
     }
 
-    public List<Classroom> findClassroomUsingNameAndPeriod(Long schoolId, String name, String period) {
-        Criteria c = getSession().createCriteria(Classroom.class)
-                .add(Restrictions.eq("school.id", schoolId))
-                .add(Restrictions.eq("name", name))
-                .add(Restrictions.eq("academicPeriod", period));
-
-        return (List<Classroom>) c.list();
-    }
-
     @SuppressWarnings("unchecked")
     public List<School> findSchoolsUsingProfessorId(Long professorId) {
         Criteria c = getSession().createCriteria(School.class);
