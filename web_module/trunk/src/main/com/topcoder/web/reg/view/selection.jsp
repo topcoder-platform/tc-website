@@ -71,7 +71,7 @@
             <c:set value="<%=RegistrationType.TEACHER_ID%>" var="teacherType"/>
             <% int i = 0;%>
             <c:forEach items="${registrationTypeList}" var="type">
-                <c:if test="${(type.id==teacherType && !sessionInfo.anonymous) || type.id!=teacherType}">
+                <c:if test="${(type.id==teacherType && !isNewReg) || type.id!=teacherType}">
                     <c:set value="${regType}${type.id}" var="regTypeKey"/>
                     <c:choose>
                         <c:when test="${requestScope[defaults][regTypeKey]==null}">
