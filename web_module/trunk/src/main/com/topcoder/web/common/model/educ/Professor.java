@@ -5,14 +5,10 @@
 */
 package com.topcoder.web.common.model.educ;
 
-import com.topcoder.web.common.model.Base;
-import com.topcoder.web.common.model.Coder;
-import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.User;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,11 +23,16 @@ import javax.persistence.OrderBy;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import com.topcoder.web.common.model.Base;
+import com.topcoder.web.common.model.Coder;
+import com.topcoder.web.common.model.School;
+import com.topcoder.web.common.model.User;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -87,11 +88,11 @@ public class Professor extends Base {
         this.user = user;
     }
 
-    @OneToMany(mappedBy = "professor")
+    @OneToMany(fetch=FetchType.LAZY, mappedBy = "professor")
     @Cascade({CascadeType.ALL})
     @OrderBy("school, name asc")
     public Set<Classroom> getClassrooms() {
-        return Collections.unmodifiableSet(classrooms);
+        return classrooms;
     }
 
     public void setClassrooms(Set<Classroom> classrooms) {
