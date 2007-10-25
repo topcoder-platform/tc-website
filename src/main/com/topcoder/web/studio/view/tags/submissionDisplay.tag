@@ -21,20 +21,20 @@
 <c:choose>
     <c:when test="${width<=300}">
         <c:if test="${actuallyIncludeLink}">
-            <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=${processor}&amp;<%=Constants.SUBMISSION_ID%>=${submissionId}">
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=${processor}&amp;<%=Constants.SUBMISSION_ID%>=${submissionId}">
         </c:if>
         <img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=${processor}&amp;<%=Constants.SUBMISSION_ID%>=${submissionId}" alt="${submissionId}" style="display: block;" width="${width}" height="<fmt:formatNumber value="${height}" maxFractionDigits="0"/>"/>
         <c:if test="${actuallyIncludeLink}">
-            </A>
+            </a>
         </c:if>
     </c:when>
     <c:otherwise>
         <c:if test="${actuallyIncludeLink}">
-            <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=${processor}&amp;<%=Constants.SUBMISSION_ID%>=${submissionId}">
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=${processor}&amp;<%=Constants.SUBMISSION_ID%>=${submissionId}">
         </c:if>
         <img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=${processor}&amp;<%=Constants.SUBMISSION_ID%>=${submissionId}" alt="${submissionId}" style="display: block;" width="${300}" height="<fmt:formatNumber value="${height*300/width}" maxFractionDigits="0"/>"/>
         <c:if test="${actuallyIncludeLink}">
-            </A>
+            </a>
         </c:if>
     </c:otherwise>
 
