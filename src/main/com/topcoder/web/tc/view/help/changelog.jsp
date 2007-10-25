@@ -43,6 +43,16 @@
 </jsp:include>
 
 <p>
+    5.13.0 - 2007.10.25
+    <ul>
+        <li>Add Educational Platform -pulky</li>
+        <li>Adjust registration process to allow professor registration -dok</li>
+        <li>Bug fix for the case when the db insert of a new user fails, it would damage the session data - dok</li>
+    </ul>
+
+</p>
+
+<p>
     5.12.6 - 2007.10.23
     <ul>
         <li>Fix bug in simple search results where if you sorted and scrolled, it would lose your sort -dok</li>
