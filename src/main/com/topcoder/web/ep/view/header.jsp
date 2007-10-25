@@ -8,7 +8,7 @@
             <div id="pageHeader">
                 <a href="/education/" id="logo">&nbsp;</a>
                 <div class="schoolName">
-                    TopCoder College Platform<br />
+                    TopCoder Educational Platform<br />
                     <% if (!"introduction".equals(section)) {%>
                         <c:if test="${not empty schoolName}">
                             <a href="/education/">${schoolName}</a>
