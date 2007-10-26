@@ -4,10 +4,8 @@
                  com.topcoder.web.forums.ForumConstants,
                  java.util.Iterator"
         %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
-<%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
@@ -17,7 +15,10 @@
 
 <% ReadTracker readTracker = forumFactory.getReadTracker(); %>
 
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -29,23 +30,23 @@
 </head>
 
 <body>
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="forums"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
-<div align="center">
-    <div class="contentOut">
-
-
-        <jsp:include page="top.jsp"/>
-
-
-        <jsp:include page="topNav.jsp">
-            <jsp:param name="node" value="forums"/>
-        </jsp:include>
-        <div class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
-
-                <table cellpadding="0" cellspacing="0" class="rtbcTable">
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
                     <tr>
                         <td class="categoriesBox" style="padding-right: 20px;">
                             <jsp:include page="categoriesHeader.jsp"/>
@@ -54,17 +55,17 @@
                             <jsp:include page="searchHeader.jsp"/>
                         </td>
                         <td align="right" nowrap="nowrap" valign="top">
-                            <A href="?module=History" class="rtbcLink">My Post
-                                History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My
-                            Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User
-                            Settings</A><br/>
+                            <a href="?module=History" class="rtbcLink">My Post
+                                History</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Watches" class="rtbcLink">My
+                            Watches</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Settings" class="rtbcLink">User
+                            Settings</a><br />
                         </td>
                     </tr>
                 </table>
 
-                <b><A href="?module=Main" class="rtbcLink">Forums</A> > My Watches
+                <b><a href="?module=Main" class="rtbcLink">Forums</a> > My Watches
                     (<%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%> threads)</b>
-                <br><span class="small">All watch updates will be emailed to your email address: <b>
+                <br /><span class="small">All watch updates will be emailed to your email address: <b>
                 <%=user.getEmail()%>
             </b>.
 Watches on content that hasn't been updated for more than 90 days will be automatically removed from your list.
@@ -115,18 +116,21 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
                     </table>
 
                     <div align="right">
-                        <input type="image" src="/i/forums/update.gif" alt="Update" onclick="form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_UPDATE%>'"/>
+                        <input type="image" src="/i/v2/interface/btnUpdate.png" alt="Update" onclick="form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_UPDATE%>'"/>
                     </div>
 
                 </form>
 
-            </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-        </div>
-        <jsp:include page="foot.jsp"/>
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-    </div>
-</div>
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
+
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>

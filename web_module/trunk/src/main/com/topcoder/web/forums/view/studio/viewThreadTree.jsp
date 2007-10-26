@@ -17,10 +17,8 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.Hashtable" %>
 <%@ page import="java.util.Iterator" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
-<%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -121,7 +119,10 @@
     -->
 </style>
 
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -133,23 +134,23 @@
 </head>
 
 <body>
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="forums"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
-<div align="center">
-<div class="contentOut">
-
-
-      <jsp:include page="top.jsp" />
-
-
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="forums"/>
-</jsp:include>
-<div class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-<div class="contentSpacer">
-
-    <table cellpadding="0" cellspacing="0" class="rtbcTable">
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
         <tr>
             <td class="categoriesBox" style="padding-right: 20px;">
                 <jsp:include page="categoriesHeader.jsp"/>
@@ -158,33 +159,33 @@
                 <jsp:include page="searchHeader.jsp"/>
             </td>
             <td align="right" nowrap="nowrap" valign="top">
-                <A href="?module=History" class="rtbcLink">My
-                Post History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | <A href="?module=Settings" class="rtbcLink">User
-                Settings</A><br>
+                <a href="?module=History" class="rtbcLink">My
+                Post History</a> | <a href="?module=Watches" class="rtbcLink">My Watches</a> | <a href="?module=Settings" class="rtbcLink">User
+                Settings</a><br />
                 View:
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>&<%=ForumConstants.THREAD_VIEW%>=<%=flatMode%>" class="rtbcLink">Flat</A>&#160;&#160;|
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>&<%=ForumConstants.THREAD_VIEW%>=threaded" class="rtbcLink">Threaded</A>&#160;&#160;|
+                <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>&<%=ForumConstants.THREAD_VIEW%>=<%=flatMode%>" class="rtbcLink">Flat</a>&#160;&#160;|
+                <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>&<%=ForumConstants.THREAD_VIEW%>=threaded" class="rtbcLink">Threaded</a>&#160;&#160;|
                 <span class="currentPage">Tree</span>
-                <br>
-                <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.THREAD%>&<%=ForumConstants.WATCH_ID%>=<%=thread.getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>"
-                class="rtbcLink"><%=watchMessage%></A>
-                <% if (errors.get(ForumConstants.WATCH_THREAD) != null) { %><br><font color="red">
+                <br />
+                <a href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.THREAD%>&<%=ForumConstants.WATCH_ID%>=<%=thread.getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>"
+                class="rtbcLink"><%=watchMessage%></a>
+                <% if (errors.get(ForumConstants.WATCH_THREAD) != null) { %><br /><font color="red">
                 <tc-webtag:errorIterator id="err" name="<%=ForumConstants.WATCH_THREAD%>"><%=err%>
                 </tc-webtag:errorIterator></font><% } %>
-                <% if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
+                <% if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br />
                 <% if (prevThread != null) { %>
                 <% prevPost = ForumsUtil.getLatestMessage(prevThread);
                     prevTrackerClass = (user == null || readTracker.getReadStatus(user, prevPost) == ReadTracker.READ) ? "rtbcLink" : "rtLinkBold"; %>
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=prevThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=prevThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=prevTrackerClass%>">Previous
-                    Thread</A>
+                <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=prevThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=prevThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=prevTrackerClass%>">Previous
+                    Thread</a>
                 <% } else { %>
                 Previous Thread
                 <% } %>&#160;|&#160;
                 <% if (nextThread != null) { %>
                 <% nextPost = ForumsUtil.getLatestMessage(nextThread);
                     nextTrackerClass = (user == null || readTracker.getReadStatus(user, nextPost) == ReadTracker.READ) ? "rtbcLink" : "rtLinkBold"; %>
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=nextThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=nextThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=nextTrackerClass%>">Next
-                    Thread</A>
+                <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=nextThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=nextThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=nextTrackerClass%>">Next
+                    Thread</a>
                 <% } else { %>
                 Next Thread
                 <% } %>
@@ -194,13 +195,13 @@
 
         <tr><td colspan="3" style="padding-bottom:3px;"><b>
             <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-                <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
+                <a href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
                     <%=category.getName()%>
-                </A> >
+                </a> >
             </tc-webtag:iterator>
-            <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink">
+            <a href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink">
                 <%=forum.getName()%>
-            </A>
+            </a>
             <%	String linkStr = ForumsUtil.createLinkString(forum);
 		   		if (!linkStr.equals("")) { %>
 		   			<%=linkStr%>
@@ -234,7 +235,7 @@
                 </a>
                 <% if (activeMessage.getParentMessage() != null) { %>
                 (response to
-                <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (activeMessage.getParentMessage().getUser() != null) {%>
+                <a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</a><%if (activeMessage.getParentMessage().getUser() != null) {%>
                 by <studio:handle coderId="<%=activeMessage.getParentMessage().getUser().getID()%>"/><%}%>)
                 <% } %>
                 <% if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) {
@@ -247,10 +248,10 @@
                 <a href="javascript:void(0)" onclick="rate('<%=activeMessage.getID()%>','1')" class="rtbcLink">[-]</a>
                 <% } %>
                 |
-                <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getID()%>" class="rtbcLink">Reply</A>
+                <a href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getID()%>" class="rtbcLink">Reply</a>
                 <% if (activeMessage.getUser() != null && activeMessage.getUser().equals(user)) { %>
                 |
-                <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getID()%>" class="rtbcLink">Edit</A>
+                <a href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getID()%>" class="rtbcLink">Edit</a>
                 <% } %>
             </td>
         </tr>
@@ -261,8 +262,8 @@
 				<%	Iterator attachments = activeMessage.getAttachments();
 					while(attachments.hasNext()) {
 						Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
-						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></A>
-						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+						<a href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></a>
+						<a href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></a> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
 				<% 	} %>
 			</td>
 	 	</tr>
@@ -272,10 +273,10 @@
                 <div class="rtPosterSpacer">
                     <% if (ForumsUtil.displayMemberPhoto(user, activeMessage.getUser())) { %>
                     <img src="<%=activeMessage.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
-                    <br>
+                    <br />
                     <% } %>
                     <span class="bodyText"><%if (activeMessage.getUser() != null) {%><studio:handle coderId="<%=activeMessage.getUser().getID()%>"/><%}%></span>
-                    <br><%if (activeMessage.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(activeMessage.getUser()), "post")%></A><%}%>
+                    <br /><%if (activeMessage.getUser() != null) {%><a href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(activeMessage.getUser()), "post")%></a><%}%>
                 </div>
             </td>
             <% double pct = ratingCount <= 0 ? 0 : 100 * (double) (posRatings) / (double) (ratingCount); %>
@@ -309,13 +310,13 @@
                 int width = Math.min(depth * 10, 400);
                 if (depth > 0) { %><img src="/i/clear.gif" width="<%=width%>" height="1"/><% } %>
             <% if (active) { %>
-            <b><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">
+            <b><a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">
                 <%=message.getSubject()%>
-            </A></b></td>
+            </a></b></td>
         <% } else { %>
-        <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">
+        <a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">
             <%=message.getSubject()%>
-        </A></td>
+        </a></td>
     <% } %>
     <td class="rtThreadCell"><%if (message.getUser() != null) {%>
         <studio:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
@@ -329,50 +330,54 @@
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr><td><b>
         <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&mc=<%=category.getMessageCount()%>" class="rtbcLink">
+            <a href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&mc=<%=category.getMessageCount()%>" class="rtbcLink">
                 <%=category.getName()%>
-            </A> >
+            </a> >
         </tc-webtag:iterator>
-        <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink">
+        <a href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink">
             <%=forum.getName()%>
-        </A>
+        </a>
         <%	linkStr = ForumsUtil.createLinkString(forum);
    		if (!linkStr.equals("")) { %>
    			<%=linkStr%>
    		<% 	} %> 
         > <%=thread.getName()%>
     </b>
-        <% if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
+        <% if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br />
         <% if (prevThread != null) { %>
         <% prevPost = ForumsUtil.getLatestMessage(prevThread);
             prevTrackerClass = (user == null || readTracker.getReadStatus(user, prevPost) == ReadTracker.READ) ? "rtbcLink" : "rtLinkBold"; %>
-        <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=prevThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=prevThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=prevTrackerClass%>">Previous
-            Thread</A>
+        <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=prevThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=prevThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=prevTrackerClass%>">Previous
+            Thread</a>
         <% } else { %>
         Previous Thread
         <% } %>&#160;|&#160;
         <% if (nextThread != null) { %>
         <% nextPost = ForumsUtil.getLatestMessage(nextThread);
             nextTrackerClass = (user == null || readTracker.getReadStatus(user, nextPost) == ReadTracker.READ) ? "rtbcLink" : "rtLinkBold"; %>
-        <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=nextThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=nextThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=nextTrackerClass%>">Next
-            Thread</A>
+        <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=nextThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=nextThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=nextTrackerClass%>">Next
+            Thread</a>
         <% } else { %>
         Next Thread
         <% } %>
         <% } %>
     </td>
         <td width=1% align="right" valign="top">
-            <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/forums/btn_rss.gif"/></a>
+            <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/v2/interface/btnRSS.png"/></a>
         </td>
 </table>
 
-</div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-<jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
 
+
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
+
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>
