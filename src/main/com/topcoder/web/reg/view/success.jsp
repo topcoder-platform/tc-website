@@ -197,8 +197,7 @@
                 <A href="/education/?module=Static&amp;d1=introduction"><img src="/i/registration/professor.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
             </td>
             <td class="text" width="100%">
-                <a href="/education/?module=Static&amp;d1=introduction">Read more</a> about how to use the Educational
-                Platform.
+                After you become an autorized professor by <a href="/education/?module=Static&amp;d1=introduction">contacting a TopCoder rep</a>, you can immediately start using the Educational Platform in all your classes.
             </td>
         </tr>
     </table>
