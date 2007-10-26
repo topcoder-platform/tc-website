@@ -35,7 +35,7 @@ public abstract class StudentActivationBase extends ShortHibernateProcessor {
      */
     @Override
     protected void dbProcessing() throws Exception {
-        if (userIdentified()) {
+        if (userLoggedIn()) {
             
             Long classroomId = getClassroomParam();
             Classroom c = DAOUtil.getFactory().getClassroomDAO().find(classroomId);

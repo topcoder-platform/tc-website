@@ -23,7 +23,7 @@ public class SelectSchool extends LongBase {
      */
     @Override
     protected void dbProcessing() throws Exception {
-        if (userLoggedIn()) {
+        if (userIdentified()) {
             log.debug("User identified - " + getUser().getUserName());
     
             setNextPage("/student/selectSchool.jsp");
