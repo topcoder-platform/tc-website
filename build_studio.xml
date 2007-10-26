@@ -77,14 +77,17 @@
 
 
         <!-- hibernate files -->
-        <pathelement location="${jars.dir}/hibernate-3.1/hibernate3.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/commons-logging-1.0.4.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/ehcache-1.2.2.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/hibernate3.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/commons-logging-1.0.4.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/ehcache-1.2.3.jar"/>
         <pathelement location="${jive.dir}/velocity-dep.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/cglib-2.1.3.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/asm.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/ant-antlr-1.6.5.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/antlr-2.7.6rc1.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/cglib-2.1.3.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/asm.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/ant-antlr-1.6.5.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/antlr-2.7.6.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-commons-annotations.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
 
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
