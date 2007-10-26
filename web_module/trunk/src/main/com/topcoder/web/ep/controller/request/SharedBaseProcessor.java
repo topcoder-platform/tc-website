@@ -35,7 +35,7 @@ public abstract class SharedBaseProcessor extends ShortHibernateProcessor {
             // check whether student or professor
             if (DAOUtil.getFactory().getProfessorDAO().isProfessor(getUser().getId())) {
                 // since it's a shared processor check if he has permission
-                if (!Helper.hasProfessorPermission(getLoggedInUser())) {
+                if (!Helper.hasProfessorPermission(getUser())) {
                     throw new PermissionException(getUser(), new ClassResource(this.getClass()));
                 }
 
@@ -46,7 +46,7 @@ public abstract class SharedBaseProcessor extends ShortHibernateProcessor {
                 professorProcessing();
             } else {
                 // since it's a shared processor check if he has permission
-                if (!Helper.hasStudentPermission(getLoggedInUser())) {
+                if (!Helper.hasStudentPermission(getUser())) {
                     throw new PermissionException(getUser(), new ClassResource(this.getClass()));
                 }
 
