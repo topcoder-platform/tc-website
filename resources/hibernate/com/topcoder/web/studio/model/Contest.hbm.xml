@@ -34,7 +34,7 @@
         </set>
         <set name="submissions" inverse="true">
             <key column="contest_id" not-null="true"/>
-            <one-to-many class="Submission"/>
+            <one-to-many class="com.topcoder.web.studio.model.Submission"/>
         </set>
         <set name="results" cascade="all" inverse="true" sort="natural">
             <key column="contest_id" not-null="true"/>

@@ -11,7 +11,7 @@
                 <param name="property">submission</param>
             </generator>
         </id>
-        <one-to-one name="submission" class="Submission" constrained="true"/>
+        <one-to-one name="submission" class="com.topcoder.web.studio.model.Submission" constrained="true"/>
         <many-to-one name="reviewer" column="reviewer_id" class="com.topcoder.web.common.model.User" />
         <property name="text" />
         <many-to-one name="status" column="review_status_id" class="ReviewStatus" />

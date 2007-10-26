@@ -12,7 +12,7 @@
             </generator>
         </id>
 
-        <one-to-one name="submission" class="Submission" constrained="true"/>
+        <one-to-one name="submission" class="com.topcoder.web.studio.model.Submission" constrained="true"/>
         <many-to-one name="contest" column="contest_id" class="Contest"/>
         <property name="finalScore" column="final_score"/>
         <property name="placed"/>
