@@ -127,6 +127,8 @@
         <mapping resource="com/topcoder/web/common/voting/RankBallot.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/Vote.hbm.xml"/>
 
+        <mapping resource="com/topcoder/web/common/model/educ/StudentClassroom.hbm.xml"/>
+
     </session-factory>
 
 </hibernate-configuration>
