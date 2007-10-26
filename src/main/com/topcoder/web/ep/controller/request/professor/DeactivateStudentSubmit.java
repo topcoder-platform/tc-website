@@ -33,7 +33,7 @@ public class DeactivateStudentSubmit extends StudentActivationBase {
             DAOUtil.getFactory().getStudentClassroomDAO().saveOrUpdate(sc);
             
             message += sc.getId().getStudent().getUser().getLastName() + ", " +
-                sc.getId().getStudent().getUser().getLastName() + " (" +
+                sc.getId().getStudent().getUser().getFirstName() + " (" +
                 sc.getId().getStudent().getUser().getHandle() + ")<br/>";
         }
         getRequest().setAttribute("message", "You have successfuly deactivated the following students:<br/> " + 
