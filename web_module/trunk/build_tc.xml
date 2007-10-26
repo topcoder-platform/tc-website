@@ -186,6 +186,7 @@
         <!-- kill the entire build dir -->
         <delete dir="${build}"/>
         <delete dir="${bin}"/>
+        <ant dir="${shared.build}" target="clean"/>
     </target>
 
     <target name="jar_shared" depends="compile_shared" unless="jar_shared_set">
