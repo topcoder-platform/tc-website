@@ -72,7 +72,13 @@ public class Main extends Base {
                         List<RegistrationType> types = regTypeDAO.getRegistrationTypes();
                         HashSet<RegistrationType> requestedTypes = new HashSet<RegistrationType>();
                         for (RegistrationType rt : types) {
+                            if (log.isDebugEnabled()) {
+                                log.debug("check " + rt.getDescription());
+                            }
                             if (rt.getId().equals(new Integer(regTypeParam))) {
+                                if (log.isDebugEnabled()) {
+                                    log.debug("found, it's " + rt.getDescription());
+                                }
                                 requestedTypes.add(rt);
                             }
                         }
