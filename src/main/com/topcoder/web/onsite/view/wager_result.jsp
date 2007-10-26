@@ -18,6 +18,7 @@
 <head>
 <title>2007 TopCoder Open - Computer Programming Tournament</title>
 <link type="image/x-icon" rel="shortcut icon" href="http://<%=ApplicationServer.SERVER_NAME%>/i/favicon.ico"/>
+<%--
 <style TYPE="text/css">
 html{ 
 margin:0px;
@@ -63,22 +64,27 @@ background: #FFFFFF;
 border: 4px solid #cc6600;
 }
 </style>
+--%>
+<link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SERVER_NAME%>/css/tournaments/tccc07.css"/>
 <link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SERVER_NAME%>/css/coders.css"/>
 </head>
 
 <body>
-
+<%--
 <div align="center" style="background: transparent;">
     <div id="content">
         <div style="margin: 20px;" align="left">
-
+--%>
+<div align="center" style="background: transparent;">
+    <div id="containAll">
+    <div id="content">
 
 <div style="float:right;">
-<a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco07/topcoderlogo.png" border=0/></a>
+<a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img style="margin-right:30px;" src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc07/topcoderlogo.png" border=0/></a>
 </div>
-<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco07/wagerLogo.png" border=0/></A>
+<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tccc07&d3=about"><img style="margin-left:40px;" src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc07/tourneyLogo.png" border=0/></A>
 
-    <div style="float:right;">
+    <div style="float:right; margin-right:40;">
         <% if (sessionInfo.isAnonymous()) { %>
             <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Login&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Login</a>
         <% } else { %>
@@ -87,7 +93,7 @@ border: 4px solid #cc6600;
         <% } %>
     </div>
 
-      <h1>Component Competition Wager System</h1>
+      <h1 style="margin:80px 0px 0px 40px; padding:20px 0px 0px 20px;">Component Competition Wager System</h1>
 
     <div align="center" style="margin: 40px 0px 80px 0px;">
       <strong>Wager result:</strong><br>
@@ -95,6 +101,7 @@ border: 4px solid #cc6600;
       <br><br>
       <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewCompetitions">Back to Competitions<a/>
     </div>
+    <div style="height:20px;">&nbsp;</div>
 
         </div>
     </div>
