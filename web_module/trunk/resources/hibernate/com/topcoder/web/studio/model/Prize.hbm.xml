@@ -17,7 +17,7 @@
         </set>
         <set name="submissions" table="submission_prize_xref" inverse="true">
             <key column="prize_id"/>
-            <many-to-many column="submission_id" class="Submission"/>
+            <many-to-many column="submission_id" class="com.topcoder.web.studio.model.Submission"/>
         </set>
         <property name="place"/>
         <property name="amount"/>
