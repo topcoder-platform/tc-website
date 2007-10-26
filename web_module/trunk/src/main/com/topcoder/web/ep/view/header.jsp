@@ -15,7 +15,7 @@
                         </c:if>
                     <% } %>
                 </div>
-                <% if (!"introduction".equals(section)) {%>
+                <% if (!"no_login".equals(section)) {%>
                     <div class="login">
                         <span>
                     <c:choose>

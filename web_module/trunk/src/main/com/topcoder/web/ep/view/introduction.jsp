@@ -24,7 +24,7 @@
         <div id="pageFrame">
 
             <jsp:include page="header.jsp">
-                <jsp:param name="section" value="introduction"/>
+                <jsp:param name="section" value="no_login"/>
             </jsp:include>
 
             <div id="pageContent" align="left">
@@ -36,7 +36,45 @@
 
 <%-- CONTENT BEGINS --%>
 
-                Landing page.
+<div class="window" align="left">
+    <div class="spacer">
+
+        <div align="center" style="margin-bottom: 20px;">
+            <img src="/i/ep/banner.jpg" alt="TopCoder Educational Platform" />
+        </div>
+    
+        <p align="justify">
+            The Education Platform extends the TopCoder Algorithm Arena to aid you in teaching computer science and programming at your university.  You can assign problems for your students to complete that will help reinforce the concepts that you are teaching in the classroom.  Additionally, you will be able to see your students' results, including the actual code written.  We at TopCoder hope you find this tool useful and informative.
+        </p>
+
+        <div style="float: left; width: 350px; margin: 20px 0;">
+            <p align="center">
+                <strong>Ready to get started?</strong>
+            </p>
+            <p align="center" class="small">
+                First thing you need to do is register<br />with TopCoder as a professor.
+            </p>
+            <div align="center">
+                <a href="/reg/?module=Main&amp;rt=7"><img src="/i/ep/buttons/registerProf.png" alt="Register as a professor" /></a>
+            </div>
+        </div>
+
+        <div style="float: right; width: 350px; margin: 20px 0;">
+            <p align="center">
+                <strong>Done with professor registration?</strong>
+            </p>
+            <p align="center" class="small">
+                Now you just need to email TopCoder to get<br />authorization to use the Educational Platform.
+            </p>
+            <div align="center">
+                <a href="mailto:education@topcoder.com?subject=Educational%20Platform%20Authorization"><img src="/i/ep/buttons/talkTCRep.png" alt="Talk to a TopCoder rep" /></a>
+            </div>
+        </div>
+
+        <br clear="all"/>
+
+    </div>
+</div>
 
 <%-- CONTENT ENDS --%>
 

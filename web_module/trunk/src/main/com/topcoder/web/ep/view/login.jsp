@@ -48,7 +48,9 @@
         <img src="/i/ep/widtherN.png" alt="" style="display:block;" />
         <div id="pageFrame">
 
-            <jsp:include page="header.jsp" />
+            <jsp:include page="header.jsp">
+                <jsp:param name="section" value="no_login"/>
+            </jsp:include>
 
             <div id="pageContent" align="left">
                 <div class="N">
