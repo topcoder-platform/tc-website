@@ -1,9 +1,10 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -14,22 +15,26 @@
 </head>
 
 <body>
-
-<div align="center">
-    <div id="contentOut" class="contentOut">
-        <jsp:include page="top.jsp"/>
-        <jsp:include page="topNav.jsp">
-            <jsp:param name="node" value="contests"/>
-        </jsp:include>
-        <div id="contentIn" class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="contests"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
                 <div class="linkBox"><studio:forumLink forumID="${contest.forumId}"/></div>
 
                 <div class="breadcrumb">
-                    <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A>
+                    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a>
                     &gt; ${contest.name}
                 </div>
 
@@ -37,7 +42,7 @@
 
                 <div align="center">
                     Please read through the following terms and then click <strong>"I Agree"</strong> when you're done.
-                    <br><br>
+                    <br /><br />
 
                     <form name="terms" method="POST" action="${sessionInfo.servletPath}">
                         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Register"/>
@@ -46,27 +51,29 @@
 
                         <iframe width="590" height="300" marginWidth="5" src="${sessionInfo.servletPath}?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.CONTEST_TERMS_OF_USE_ID%>"></iframe>
 
-                        <br><br>
+                        <br /><br />
                         <!-- could also use <input>'s button <button> gives you more display freedom and is documented on w3c -->
                         <!-- resulting page from click has value at the end of the URL, which is pointless.  Feel free to use any html/js element/method but i want the nice looking button -->
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
                     <br/></tc-webtag:errorIterator></span>
                         <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>"/>I agree
-                        <br><br>
-                        <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
-                        <br><br>
+                        <br /><br />
+                        <input type="image" src="/i/v2/interface/btnSubmit.png" />
+                        <br /><br />
 
 
                     </form>
                 </div>
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
             </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
-        <jsp:include page="foot.jsp"/>
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-    </div>
-</div>
 
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>

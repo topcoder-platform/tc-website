@@ -1,14 +1,16 @@
-<%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
-<html>
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -19,32 +21,31 @@
 </head>
 
 <body>
-
-<div align="center">
-    <div id="contentOut" class="contentOut">
-        <jsp:include page="../top.jsp">
-            <jsp:param name="section" value="admin"/>
-        </jsp:include>
-        <jsp:include page="../topNav.jsp">
-            <jsp:param name="node" value="contests"/>
-        </jsp:include>
-        <div id="contentIn" class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="../top.jsp"/>
+            <jsp:include page="../topNav.jsp">
+                <jsp:param name="node" value="contests"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
                 <h1>Contests</h1>
 
-                <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
+<div class="statHolder">
+    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+    <div class="container">
+        <table class="stat" cellpadding="0" cellspacing="0" width="100%">
                     <tbody>
-                        <tr>
-                            <td class="NW">&nbsp;</td>
-                            <td class="title" colspan="4">Contests</td>
-                            <td class="titleR" colspan="2">
-                                <h2><a href="${sessionInfo.servletPath}?module=AdminViewContest">add contest</a></h2>
-                            </td>
-                            <td class="NE">&nbsp;</td>
-                        </tr>
+                        <tr><td class="title" colspan="8">Contests</td></tr>
                         <tr>
                             <td class="headerW"><div>&nbsp;</div></td>
                             <td class="header" width="100%">
@@ -59,15 +60,16 @@
                         </tr>
                         <% boolean even = true;%>
                         <rsc:iterator list="<%=contests%>" id="resultRow">
+                            <tr><td class="space" colspan="8">&nbsp;</td></tr>
                             <tr class="<%=even?"light":"dark"%>">
                                 <td class="valueW"><div>&nbsp;</div></td>
-                                <td class="value"><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">${resultRow.map['name']}</A></td>
+                                <td class="value"><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">${resultRow.map['name']}</a></td>
                                 <td class="value" nowrap="nowrap">${resultRow.map['contest_status_desc']}</td>
                                 <td class="valueC" nowrap="nowrap">
-                                    <tc-webtag:format object="${resultRow.map['start_time']}" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                    <tc-webtag:format object="${resultRow.map['start_time']}" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                                 </td>
                                 <td class="valueC" nowrap="nowrap">
-                                    <tc-webtag:format object="${resultRow.map['end_time']}" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                    <tc-webtag:format object="${resultRow.map['end_time']}" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                                 </td>
                                 <td class="valueC">
                                     <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">${resultRow.map['submission_count']}</a>
@@ -79,21 +81,22 @@
                             </tr>
                             <% even = !even;%>
                         </rsc:iterator>
-                        <tr>
-                            <td class="SW" colspan="9">&nbsp;</td>
-                            <td class="SE">&nbsp;</td>
-                        </tr>
-
                     </tbody>
-                </table>
-
-            </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-        </div>
-        <jsp:include page="../foot.jsp"/>
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
+        </table>
     </div>
+    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
 </div>
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
+
+        <jsp:include page="../foot.jsp"/>
+
+    </div>
 </body>
 </html>

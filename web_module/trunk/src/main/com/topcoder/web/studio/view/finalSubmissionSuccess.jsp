@@ -12,7 +12,7 @@
     <script type="text/javascript" src="/js/taconite-client.js"></script>
     <script type="text/javascript" src="/js/taconite-parser.js"></script>
     <script type="text/javascript" src="/js/fat.js"></script>
-    <script type="text/javascript" src="/js/popup.js"></script>
+    <script type="text/javascript" src="/js/v2/popup.js"></script>
 
     <title>TopCoder Studio</title>
     <jsp:include page="style.jsp">
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="breadcrumb">
-                    <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A>
+                    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a>
                     &gt; ${contest.name}
                 </div>
 
@@ -74,9 +74,9 @@
                 <div align="center">
                     <div align="left" style="width:500px; margin-top: 20px;">
                         Your Submission Has Been Uploaded
-                        <br><br>
+                        <br /><br />
                         <div align="center">
-                        <A href="${sessionInfo.servletPath}?module=ViewFinalSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onfocus="this.blur();"><img src="/i/layout/btnSubmitAnother.png" alt="submit another" onmouseover="this.src = '/i/layout/btnSubmitAnotherOn.png';" onmouseout="this.src = '/i/layout/btnSubmitAnother.png';"/></A>
+                        <a href="${sessionInfo.servletPath}?module=ViewFinalSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onFocus="this.blur();"><img src="/i/v2/interface/btnSubmitAnother.png" alt="submit another" /></a>
                         </div>
                     </div>
                 </div>

@@ -1,14 +1,14 @@
 <%@ page import="com.topcoder.web.studio.Constants, com.topcoder.web.studio.model.SubmissionType" %>
-<%@ page import="java.util.Date" %>
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.GregorianCalendar" %>
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -20,7 +20,7 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <script type="text/javascript" src="/js/popup.js"></script>
+    <script type="text/javascript" src="/js/v2/popup.js"></script>
     <script language="javascript" type="text/javascript">
         <!--
         function changeRank(newRank, submissionId) {
@@ -64,17 +64,21 @@
 </head>
 
 <body>
-
-<div align="center">
-<div id="contentOut" class="contentOut">
-<jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="contests"/>
-</jsp:include>
-<div id="contentIn" class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-<div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="contests"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
 
 <div class="linkBox">
@@ -82,7 +86,7 @@
 </div>
 
 <div class="breadcrumb">
-    <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
+    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt;
     ${contest.name}
 </div>
 
@@ -111,18 +115,18 @@
                 <p>
                     <b>My design:</b><br/>
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
-                        <br></tc-webtag:errorIterator>
+                        <br /></tc-webtag:errorIterator>
                     <input type="file" name="<%=Constants.SUBMISSION%>">
                 </p>
 
                 <p>
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_RANK%>"><span class="bigRed">${err}</span>
-                        <br></tc-webtag:errorIterator>
+                        <br /></tc-webtag:errorIterator>
                     as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="2"/>
                 </p>
 
                 <p id="submitButton">
-                    <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
+                    <input type="image" src="/i/v2/interface/btnSubmit.png" />
                 </p>
             </form>
         </div>
@@ -147,13 +151,13 @@
         <c:choose>
             <c:when test="${contest.startTime > bigStart}">
                 <div align="center">
-                    <strong>In the table below</strong> you can rank your submissions. <br>
+                    <strong>In the table below</strong> you can rank your submissions. <br />
 
                              <c:choose>
                                  <c:when test="${not empty contest.maxSubmissions.value}">
                                      Up to ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
                                      will count for this contest.  They will be indicated
-                                     by <span style="background: #a2d0a2;">Green rows</span>.  Those that are not green will <b>NOT</b> count and
+                                     by <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr>.  Those that are not green will <b>NOT</b> count and
                                      they will neither be screened nor reviewed.
                                      If you make more than ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
                                      for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.
@@ -168,11 +172,11 @@
             <c:otherwise>
                 <div align="center">
                     <strong>In the table below</strong> you can rank your submissions.
-                    <br><span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for
+                    <br /><nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
                     this contest.
-                    <br>Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
+                    <br />Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
                     to the bottom of the page.
-                    <br>If one of your preferred submissions fails after the submission phase, the next passing submission will
+                    <br />If one of your preferred submissions fails after the submission phase, the next passing submission will
                     take its place.
                 </div>
             </c:otherwise>
@@ -180,14 +184,14 @@
 
 
 
-        <br><br>
-        <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
+        <br /><br />
+<div class="statHolder">
+    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+    <div class="container">
+        <table class="stat" cellpadding="0" cellspacing="0">
             <thead>
-                <tr>
-                    <td class="NW">&nbsp;</td>
-                    <td class="title" colspan="8">My Favorites</td>
-                    <td class="NE">&nbsp;</td>
-                </tr>
+                <tr><td class="title" colspan="10">My Favorites</td></tr>
                 <tr>
                     <td class="headerW">
                         <div>&nbsp;</div>
@@ -195,7 +199,7 @@
                     <td class="headerC">
                         Ranking
                         <div>
-                            <A href="#" onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
+                            <a href="#" onclick="batchUpdate();return false;"><img src="/i/v2/interface/btnUpdateRanking.png" alt="Update ranking" /></a>
                         </div>
                     </td>
                     <td class="header" colspan="2" width="33%">
@@ -208,10 +212,10 @@
                         Passed / Failed
                     </td>
                     <td class="headerC" nowrap>
-                        Move Up /<br>Move Down
+                        Move Up /<br />Move Down
                     </td>
                     <td class="headerC" nowrap>
-                        Move to<br>Top
+                        Move to<br />Top
                     </td>
                     <td class="headerC">
                         Remove
@@ -224,23 +228,24 @@
             <tbody id="submissions">
                 <jsp:include page="submitTableBody.jsp"/>
             </tbody>
-            <tfoot>
-                <tr>
-                    <td class="SW" colspan="9">&nbsp;</td>
-                    <td class="SE">&nbsp;</td>
-                </tr>
-            </tfoot>
         </table>
+    </div>
+    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+</div>
+
     </form>
 </div>
 
-</div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-<jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
 
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>

@@ -1,11 +1,16 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<div class="foot">
-    <a href="/">home</a>
-    | <a href="/?module=Static&amp;d1=contactUs">contact us</a>
-    | <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=index">about TopCoder</a>
-<%--
-    | <a href="/?module=Static&amp;d1=about&amp;d2=overview">about TopCoder</a>
---%>
-    | <a href="/?module=Static&amp;d1=about&amp;d2=privacy">privacy</a>
-    | <a href="/?module=Static&amp;d1=about&amp;d2=terms">terms</a>
+<%
+    String section = request.getParameter("section") == null ? "" : request.getParameter("section");
+%>
+
+<% if (section.equals("home")) {%>
+<div id="home_footer">
+<% } else { %>
+<div id="footer">
+<% } %>
+    <div>
+        <a href="/">Home</a>
+        | <a href="/?module=Static&amp;d1=contactUs">Contact Us</a>
+        | <a href="/?module=Static&amp;d1=about&amp;d2=privacy">Privacy</a>
+        | <a href="/?module=Static&amp;d1=about&amp;d2=terms">Terms</a>
+    </div>
 </div>

@@ -1,6 +1,5 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
-<%@ page import="com.topcoder.web.studio.model.SubmissionType" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/xml" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -16,7 +15,6 @@ crappy looking to save space on the transmission
     <taconite-root xml:space="preserve">
     <taconite-replace-children contextNodeID="submissions" parseInBrowser="true">
 </c:if>
-
 <% boolean even = true;%>
 <c:set value="<%=ReviewStatus.FAILED%>" var="failed"/>
 <c:set value="<%=ReviewStatus.PASSED%>" var="passed"/>
@@ -24,16 +22,8 @@ crappy looking to save space on the transmission
 
 <c:forEach items="${submissions}" var="submission">
 <% int col = 0;%>
-<c:choose>
-<c:when test="${submission.rank == null || submission.rank>contest.maxSubmissions.value}">
-<c:set value="<%=even ? "light" : "dark"%>" var="cssClass"/>
-</c:when>
-<c:otherwise>
-<c:set value="<%=even ? "highlightLt" : "highlightDk"%>" var="cssClass"/>
-</c:otherwise>
-</c:choose>
 <tc-webtag:errorIterator id="err" name="${submissionId}${submission.id}"><tr class="${cssClass}"><td class="value" colspan="9"><span class="bigRed">${err}</span></td></tr></tc-webtag:errorIterator>
-<tr class="${cssClass}">
+<tr class="<%=even?"light":"dark"%>">
 <td class="valueW"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div>&#160;</div>
 </td>
@@ -49,15 +39,22 @@ crappy looking to save space on the transmission
 </c:choose>
 </td>
 <td class="value"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
+<c:choose>
+<c:when test="${submission.rank == null || submission.rank>contest.maxSubmissions.value}">
 ${submission.originalFileName}
+</c:when>
+<c:otherwise>
+<nobr><img src="/i/v2/selection.png" alt="Selection" /> ${submission.originalFileName}</nobr>
+</c:otherwise>
+</c:choose>
 </td>
 <td class="value"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div id="pop${submission.id}" class="popUp">
 <div>View submission</div>
 </div>
-<A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
-<img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()"/>
-</A>
+<a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
+<img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()"/>
+</a>
 </td>
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <tc-webtag:format object="${submission.createDate}" format="EEEE, MMMM d, yyyy '<br />' HH:mm z" timeZone="${sessionInfo.timezone}"/>
@@ -81,15 +78,15 @@ Pending
 <c:when test="${submission.review.status.id==failed}">
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div align="center" style="margin: 2px;">
-<img src="/i/layout/btnMoveUpNA.png" alt="Move up"/>
+<img src="/i/v2/interface/btnMoveUpNA.png" alt="Move up"/>
 </div>
 <div align="center" style="margin: 2px;">
-<img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
+<img src="/i/v2/interface/btnMoveDownNA.png" alt="Move down"/>
 </div>
 </td>
-<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
+<td colspan="2" class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div align="center">
-<img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>
+<img src="/i/v2/interface/btnMoveToTopNA.png" alt="Move to top"/>
 </div>
 </td>
 </c:when>
@@ -98,24 +95,24 @@ Pending
 <div align="center" style="margin: 2px;">
 <c:choose>
 <c:when test="${submission.rank==1}">
-<img src="/i/layout/btnMoveUpNA.png" alt="Move up"/>
+<img src="/i/v2/interface/btnMoveUpNA.png" alt="Move up"/>
 </c:when>
 <c:otherwise>
-<A href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/>
-</A>
+<a href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
+<img src="/i/v2/interface/btnMoveUp.png" alt="Move up" />
+</a>
 </c:otherwise>
 </c:choose>
 </div>
 <div align="center" style="margin: 2px;">
 <c:choose>
 <c:when test="${submission.rank==maxRank}">
-<img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
+<img src="/i/v2/interface/btnMoveDownNA.png" alt="Move down"/>
 </c:when>
 <c:otherwise>
-<A href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/>
-</A>
+<a href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
+<img src="/i/v2/interface/btnMoveDown.png" alt="Move down" />
+</a>
 </c:otherwise>
 </c:choose>
 </div>
@@ -124,21 +121,21 @@ Pending
 <div align="center">
 <c:choose>
 <c:when test="${submission.rank==1}">
-<img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>
+<img src="/i/v2/interface/btnMoveToTopNA.png" alt="Move to top"/>
 </c:when>
 <c:otherwise>
-<A href="#" onclick="changeRank(1, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/>
-</A>
+<a href="#" onclick="changeRank(1, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
+<img src="/i/v2/interface/btnMoveToTop.png" alt="Move to top" />
+</a>
 </c:otherwise>
 </c:choose>
 </div>
 </td>
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div align="center">
-<A href="#" onclick="remove(${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/layout/btnRemove.png" alt="Remove" onmouseover="this.src = '/i/layout/btnRemoveOn.png';" onmouseout="this.src = '/i/layout/btnRemove.png';"/>
-</A>
+<a href="#" onclick="remove(${submission.id});return false;" onfocus="this.blur();" style="display: block;">
+<img src="/i/v2/interface/btnRemove.png" alt="Remove" />
+</a>
 </div>
 </td>
 </c:otherwise>

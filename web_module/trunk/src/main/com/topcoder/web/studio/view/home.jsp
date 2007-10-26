@@ -1,15 +1,18 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.studio.controller.request.Login" %>
 <%@ page import="java.util.Map" %>
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <% ResultSetContainer recentWinners = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("recent_winners");%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<html>
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -21,7 +24,7 @@
 
     <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
     <script type="text/javascript"> _uacct = "UA-321688-2"; urchinTracker(); </script>
-    <script type="text/javascript" src="/js/popup.js"></script>
+    <script type="text/javascript" src="/js/v2/popup.js"></script>
 
     <style type="text/css">
     #message {
@@ -48,152 +51,207 @@
 </head>
 
 <body>
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div style=" width: 800px; height: 161px; background: #4DC6FD url(/i/v2/bg_header_home.png) no-repeat left top;">
+            <jsp:include page="top.jsp">
+                <jsp:param name="section" value="home"/>
+            </jsp:include>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="home"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="home_container">
+            <!-- content -->
+            <div style="background: transparent url(/i/v2/home_bg_content_bottom.png) left bottom no-repeat; padding: 0px;">
 
-<div align="center">
-<div id="contentOut" class="contentOut">
-<jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="home"/>
-</jsp:include>
-<div id="contentIn" class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+            <div id="homeRightCol">
+                <div class="spacer">
 
-<div class="contentSpacer">
+                    <!-- login title -->
+                    <div style="width: 200px; height: 25px; margin-bottom: 10px; background: transparent url(/i/v2/home_bg_right_title.png) center center no-repeat;">
+                        <div style="font-weight: bold; padding: 2px 0px 0px 10px; ">
+                            Log in
+                        </div>
+                    </div>
+                    
+                    <!-- login box -->
+                    <div id="homeLoginBox">
+                        <div class="spacer">
+                        <c:choose>
+                            <c:when test="${sessionInfo.anonymous}">
+                            <%--have to use the constant because this page can be used with multiple servlets --%>
+                            <form method="post" name="frmLogin" action="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
+                                <input type="hidden" name="module" value="Login" />
+                                    <table cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                    <tr>
+                                        <td width="50%" align="right">Handle:</td>
+                                        <td><input name="<%=Login.USER_NAME%>" size="8" maxlength="15" type="text" value=""/></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">Password:</td>
+                                        <td><input name="<%=Login.PASSWORD%>" size="8" maxlength="30" type="password" value=""/></td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                                    <table cellspacing="0" cellpadding="0" width="100%">
+                                    <tbody>
+                                    <tr>
+                                        <td align="center"><input type="checkbox" id="remember" name="<%=Login.REMEMBER_USER%>"/> Remember me</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <div style="float: left; padding-left: 45px;"><input type="image" src="/i/v2/interface/btnGo.png"/></div>
+                                            <div style="float: right; padding-right: 45px;"><a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register"><img src="/i/v2/interface/btnRegister.png" alt="Register" /></a></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" title="Forgot your password?">Forgot your password?</a></td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                            </form>
+                            </c:when>
+                            <c:otherwise>
+                                <div style="margin-top: 20px;">Hello</div>
+                                <div style="font-size: 18px;"><studio:handle coderId="${sessionInfo.userId}"/></div>
+                                <div>
+                                <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Log out</a>
+                                | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update my profile</a>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
+                        </div>
+                    </div>
 
-<table cellpadding="0" cellspacing="0" style="width:740px;">
-    <tbody>
-        <tr>
-            <td style="padding: 0px 10px 0px 0px; border-right: 1px dashed #999999;">
+                    <!-- DOTM title -->
+                    <div style="width: 200px; height: 25px; margin-bottom: 10px; background: transparent url(/i/v2/home_bg_right_title.png) center center no-repeat;">
+                        <div style="font-weight: bold; padding: 2px 0px 0px 10px; ">
+                            Designer of the Month
+                        </div>
+                    </div>
+                    
+                    <!-- DOTM box -->
+                    <div id="homeDOTMBox">
+                        <img src="http://www.dev.topcoder.com/i/m/ntrefz_big.jpg" alt="" style="position: absolute; top: 20px; left: 5px; width: 55px; height: 61px; border: 1px solid #bebebe;" />
+                        <div style="text-align: center; padding: 30px 10px 0 71px; margin: 0;">
+                            <strong><a href="forum thread about winner">October 2007</a></strong>
+                            <br /><studio:handle coderId="15974719"/>
+                        </div>
+                    </div>
 
-<%-- AIM --%>
-                <div>
-                    <a href="<tc-webtag:linkTracking link="http://studio.topcoder.com/?module=ViewContestDetails&ct=2136" refer="studio_homepage" />"><img src="/i/home/aim_iconography.png" alt="AIM Iconography Contest"/></A>
+
+                </div>
+            </div>
+
+            <div style="width: 525px; margin: 0px 15px; padding: 20px 0px;">
+
+                <!-- news title -->
+                <div style="width: 525px; height: 25px; margin-bottom: 10px; background: transparent url(/i/v2/home_bg_title.png) center center no-repeat;">
+                    <div style="font-weight: bold; padding: 2px 0px 0px 10px; ">
+                        News
+                    </div>
                 </div>
 
-<%--   REGISTER NOW 
-                <div>
-                     <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
-                </div>
---%>
-
-<%-- POST A PROJECT --%>
-                <div>
-                    <A href="/?module=Static&amp;d1=contactUs"><img src="/i/home/post_project.gif" alt="Post a project"/></A>
+                <!-- news box -->
+                <div style="width: 525px; height: 170px; margin-bottom: 20px; background: transparent url(/i/v2/home_news.png) center center no-repeat;">
                 </div>
 
-<%-- NEED HELP? --%>
-                <div>
-                    <A href="/?module=Static&amp;d1=support&amp;d2=getStarted"><img src="/i/home/need_help.gif" alt="Need help?"/></A>
-                </div>
-
-
-
-            </td>
-            <td valign="top" style="padding-left: 10px;">
-
-                <h1>Welcome to TopCoder Studio</h1>
-<%-- 
-                 <div style="float:right; margin: 0px 0px 10px 10px;">
-                     <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
-                 </div>
---%>
-                <jsp:include page="message.jsp"/>
-
-                Welcome to TopCoder Studio - the best place on the web for showing off your creative
-                skills in a competitive environment and getting paid for being the best!
-                <br><br>
-                At the Studio, clients post their projects with definitive timelines, deliverables and
-                payouts, and you decide which ones pique your interest. There are even advancement
-                opportunities available into the Review Board, where a select group of competing members
-                will evaluate all submissions before they are passed on to the client.
-                <br><br>
-                So, poke around, ask questions and, above all, compete and have fun!
-                <br><br>
-
-                <h2><A href="/?module=ViewActiveContests">Check out some Studio contests!</A></h2>
-                <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</A> as a Studio
-                member so you can receive emails when new contests arrive.
-                <br><br>
-                <table cellpadding="0" cellspacing="0" class="stat" style="width:485px;">
+                <div style="margin-bottom: 20px;">
+                    <table cellpadding="0" cellspacing="0" width="100%">
                     <tbody>
                         <tr>
-                            <td class="NW">&nbsp;</td>
-                            <td class="title" colspan="4">
-                                Recent Winners
-                            </td>
-                            <td class="NE">&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="headerW"><div>&nbsp;</div></td>
-                            <td class="header" width="20%" colspan="2">
-                                Winner
-                            </td>
-                            <td class="header" width="60%">
-                                Contest
-                            </td>
-                            <td class="headerR" width="20%">
-                                Prize
-                            </td>
-                            <td class="headerE"><div>&nbsp;</div></td>
-                        </tr>
-                        <% boolean even = true;
-                            int i = 0; %>
-                        <rsc:iterator list="<%=recentWinners%>" id="resultRow">
-                            <tr class="<%=even?"light":"dark"%>">
-                                <td class="valueW"><div>&nbsp;</div></td>
-                                <td class="value">
-                                    <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
-                                </td>
-                                <td class="valueR">
-                                    <c:choose>
-                                        <c:when test="${resultRow.map['show_submissions']}">
-                                            <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-                                            <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                                <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()" />
-                                            </A>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <img src="/i/layout/magnifyFade.png" alt="" />
-                                        </c:otherwise>
-                                    </c:choose>
-                                </td>
-                                <td class="value">
-                                    <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-                                        <rsc:item name="name" row="<%=resultRow%>"/></A>
-                                </td>
-                                <td class="valueR">
-                                    <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
-                                </td>
-                                <td class="valueE"><div>&nbsp;</div></td>
-                            </tr>
-                            <% even = !even;
-                                i++; %>
-                        </rsc:iterator>
-                        <tr>
-                            <td class="SW">&nbsp;</td>
-                            <td class="title" colspan="4">
-                                <A href="/?module=ViewPastContests" class="small">...more</A>
-                            </td>
-                            <td class="SE">&nbsp;</td>
+                            <td width="50%" align="left"><a href="/?module=ViewActiveContests"><img src="/i/v2/home_icon_contests.png" alt="Active Contests" /></a></td>
+                            <td width="50%" align="left"><a href="/?module=Static&amp;d1=contactUs"><img src="/i/v2/home_icon_projects.png" alt="Help" /></a></td>
+                            <td><a href="/?module=Static&amp;d1=support&amp;d2=getStarted"><img src="/i/v2/home_icon_help.png" alt="Help" /></a></td>
                         </tr>
                     </tbody>
-                </table>
+                    </table>                            
+                </div>
 
+                <!-- recent winners title -->
+                <div style="width: 525px; height: 25px; margin-bottom: 10px; background: transparent url(/i/v2/home_bg_title.png) center center no-repeat;">
+                    <div style="font-weight: bold; padding: 2px 0px 0px 10px; ">
+                        Recent Winners
+                    </div>
+                </div>
 
-            </td>
-        </tr>
-    </tbody>
-</table>
+                <!-- recent winners table -->
+                <div class="statHolder">
+                    <div class="NE"><img src="/i/v2/statDk_tableNE.png" alt="" /></div>
+                    <div class="NW"><img src="/i/v2/statDk_tableNW.png" alt="" /></div>
+                    <div class="container">
+                        <table cellpadding="0" cellspacing="0" class="stat" width="100%">
+                            <tbody>
+                                <tr class="header">
+                                    <td class="headerW"><div>&nbsp;</div></td>
+                                    <td class="header" width="20%" colspan="2">
+                                        Winner
+                                    </td>
+                                    <td class="header" width="60%">
+                                        Contest
+                                    </td>
+                                    <td class="headerR" width="20%">
+                                        Prize
+                                    </td>
+                                    <td class="headerE"><div>&nbsp;</div></td>
+                                </tr>
+                                <% boolean even = true;
+                                    int i = 0; %>
+                                <rsc:iterator list="<%=recentWinners%>" id="resultRow">
+                                    <tr><td class="space" colspan="6">&nbsp;</td></tr>
+                                    <tr class="<%=even?"light":"dark"%>">
+                                        <td class="valueW"><div>&nbsp;</div></td>
+                                        <td class="value">
+                                            <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
+                                        </td>
+                                        <td class="valueR">
+                                            <c:choose>
+                                                <c:when test="${resultRow.map['show_submissions']}">
+                                                    <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                                                        <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'myPopup')" onmouseout="popHide()" />
+                                                    </a>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <img src="/i/v2/interface/magnifyFade.png" alt="" />
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </td>
+                                        <td class="value">
+                                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
+                                                <rsc:item name="name" row="<%=resultRow%>"/></a>
+                                        </td>
+                                        <td class="valueR">
+                                            <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
+                                        </td>
+                                        <td class="valueE"><div>&nbsp;</div></td>
+                                    </tr>
+                                    <% even = !even;
+                                        i++; %>
+                                </rsc:iterator>
+                                <tr>
+                                    <td class="btnRight" colspan="6"><div><a href="/?module=ViewPastContests"><img src="/i/v2/btn_more.png" alt="More..." /></a></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="SE"><img src="/i/v2/statDk_tableSE.png" alt="" /></div>
+                    <div class="SW"><img src="/i/v2/statDk_tableSW.png" alt="" /></div>
+                </div>
+            </div>
 
-</div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-<jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
+            <div id="myPopup" class="popUp"><div>View submission</div></div>
 
-<%-- required by crazyegg site, ask Nick about it --%>
-<script type="text/javascript" src="http://cetrk.com/pages/scripts/0004/0536.js"> </script>
+            </div>
+        </div>
+
+        <jsp:include page="foot.jsp">
+            <jsp:param name="section" value="home"/>
+        </jsp:include>
+
+    </div>
 </body>
 </html>

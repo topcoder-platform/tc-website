@@ -1,20 +1,21 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="java.util.GregorianCalendar" %>
 <%@ page import="java.util.Calendar" %>
-<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page import="java.util.GregorianCalendar" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <script type="text/javascript" src="/js/taconite-client.js"></script>
     <script type="text/javascript" src="/js/taconite-parser.js"></script>
     <script type="text/javascript" src="/js/fat.js"></script>
-    <script type="text/javascript" src="/js/popup.js"></script>
+    <script type="text/javascript" src="/js/v2/popup.js"></script>
 
     <title>TopCoder Studio</title>
     <jsp:include page="style.jsp">
@@ -59,23 +60,29 @@
 </head>
 
 <body>
-<div align="center">
-<div id="contentOut" class="contentOut">
-<jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="contests"/>
-</jsp:include>
-<div id="contentIn" class="contentIn">
-    <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="contests"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
-    <div class="contentSpacer">
 
         <div class="linkBox">
             <studio:forumLink forumID="${contest.forumId}"/>
         </div>
 
         <div class="breadcrumb">
-            <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A>
+            <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a>
             &gt; ${contest.name}
         </div>
 
@@ -88,7 +95,7 @@
         <div align="center">
             <div align="left" style="width:500px; margin-top: 20px;">
                 Your Submission Has Been Uploaded
-                <br><br>
+                <br /><br />
                         <c:choose>
             <c:when test="${contest.startTime > bigStart}">
                 Your submission will be screened after the Submission Phase has ended. If your submission does not pass
@@ -101,12 +108,12 @@
 
                 </c:otherwise>
                 </c:choose>
-                <br><br>
+                <br /><br />
                 Thank you.
-                <br><br>
+                <br /><br />
 
                 <div align="center">
-                    <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onfocus="this.blur();"><img src="/i/layout/btnSubmitAnother.png" alt="submit another" onmouseover="this.src = '/i/layout/btnSubmitAnotherOn.png';" onmouseout="this.src = '/i/layout/btnSubmitAnother.png';"/></A>
+                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onFocus="this.blur();"><img src="/i/v2/interface/btnSubmitAnother.png" alt="submit another" /></a>
                 </div>
             </div>
         </div>
@@ -117,13 +124,13 @@
                 <c:choose>
                      <c:when test="${contest.startTime > bigStart}">
                          <div align="center">
-                             <strong>In the table below</strong> you can rank your submissions. <br>
+                             <strong>In the table below</strong> you can rank your submissions. <br />
 
                              <c:choose>
                                  <c:when test="${not empty contest.maxSubmissions.value}">
                                      Up to ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
                                      will count for this contest.  They will be indicated
-                                     by <span style="background: #a2d0a2;">Green rows</span>.  Those that are not green will <b>NOT</b> count and
+                                     <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr>.  Those that are not green will <b>NOT</b> count and
                                      they will neither be screened nor reviewed.
                                      If you make more than ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
                                      for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.
@@ -139,81 +146,81 @@
                      <c:otherwise>
                          <div align="center">
                              <strong>In the table below</strong> you can rank your submissions.
-                             <br><span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for
+                             <br /><nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
                              this contest.
-                             <br>Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
+                             <br />Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
                              to the bottom of the page.
-                             <br>If one of your preferred submissions fails after the submission phase, the next passing submission will
+                             <br />If one of your preferred submissions fails after the submission phase, the next passing submission will
                              take its place.
                          </div>
                      </c:otherwise>
                  </c:choose>
 
-                <br><br>
-                <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
-                    <thead>
-                        <tr>
-                            <td class="NW">&nbsp;</td>
-                            <td class="title" colspan="8">My Favorites</td>
-                            <td class="NE">&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="headerW">
-                                <div>&nbsp;</div>
-                            </td>
-                            <td class="headerC">
-                                Ranking
-                                <div>
-                                    <A href="#" onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
-                                </div>
-                            </td>
-                            <td class="header" colspan="2" width="33%">
-                                Submission
-                            </td>
-                            <td class="headerC" width="33%">
-                                Date Submitted
-                            </td>
-                            <td class="headerC" width="33%">
-                                Passed / Failed
-                            </td>
-                            <td class="headerC" nowrap>
-                                Move Up /<br>Move Down
-                            </td>
-                            <td class="headerC" nowrap>
-                                Move to<br>Top
-                            </td>
-                            <td class="headerC">
-                                Remove
-                            </td>
-                            <td class="headerE">
-                                <div>&nbsp;</div>
-                            </td>
-                        </tr>
-                    </thead>
-                    <tbody id="submissions">
-                        <jsp:include page="submitTableBody.jsp"/>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td class="SW" colspan="9">&nbsp;</td>
-                            <td class="SE">&nbsp;</td>
-                        </tr>
-                    </tfoot>
-                </table>
+                <br /><br />
+                <div class="statHolder">
+                    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+                    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+                    <div class="container">
+                        <table class="stat" cellpadding="0" cellspacing="0">
+                            <thead>
+                                <tr><td class="title" colspan="10">My Favorites</td></tr>
+                                <tr>
+                                    <td class="headerW">
+                                        <div>&nbsp;</div>
+                                    </td>
+                                    <td class="headerC">
+                                        Ranking
+                                        <div>
+                                            <a href="#" onClick="batchUpdate();return false;"><img src="/i/v2/interface/btnUpdateRanking.png" alt="Update ranking" /></a>
+                                        </div>
+                                    </td>
+                                    <td class="header" colspan="2" width="33%">
+                                        Submission
+                                    </td>
+                                    <td class="headerC" width="33%">
+                                        Date Submitted
+                                    </td>
+                                    <td class="headerC" width="33%">
+                                        Passed / Failed
+                                    </td>
+                                    <td class="headerC" nowrap>
+                                        Move Up /<br />Move Down
+                                    </td>
+                                    <td class="headerC" nowrap>
+                                        Move to<br />Top
+                                    </td>
+                                    <td class="headerC">
+                                        Remove
+                                    </td>
+                                    <td class="headerE">
+                                        <div>&nbsp;</div>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody id="submissions">
+                                <jsp:include page="submitTableBody.jsp"/>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+                    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+                </div>
             </form>
-            <br><br>
+            <br /><br />
             <strong>NOTE:</strong> green rows indicate submissions that you have selected to be considered for
             this contest
         </div>
 
 
-    </div>
-    <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-<jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
 
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>

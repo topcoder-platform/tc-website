@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="breadcrumb">
-                    <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A>
+                    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a>
                     &gt; ${contest.name}
                 </div>
 
@@ -41,12 +41,12 @@
 
 
                     <strong>Are you sure you want to register for this contest?</strong>
-                    <br><br>
+                    <br /><br />
                     Please be aware that you are NOT REGISTERED for the tournament that this contest is part of.
                     Registering for this contest will not register you for the tournament.
                     If you don't register for the tournament prior to registering for this contest,
                     it will not count in the tournament standings even if you sign up at a later date.
-                    <br><br>
+                    <br /><br />
 
                     <form name="terms" method="POST" action="${sessionInfo.servletPath}">
                         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Register"/>
@@ -55,7 +55,7 @@
                         <tc-webtag:hiddenInput name="<%=Constants.TERMS_AGREE%>" value="on"/>
 
 
-                        <br><br>
+                        <br /><br />
                         <a href="#" onclick="document.terms.submit()">Yes, register for this contest anyway</a>
 
                     </form>
