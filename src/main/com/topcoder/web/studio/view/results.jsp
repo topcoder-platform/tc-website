@@ -1,8 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -11,7 +9,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <% ResultSetContainer results = (ResultSetContainer) request.getAttribute("results");%>
-<html>
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -19,21 +21,25 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <script type="text/javascript" src="/js/popup.js"></script>
+    <script type="text/javascript" src="/js/v2/popup.js"></script>
 </head>
 
 <body>
-
-<div align="center">
-<div id="contentOut" class="contentOut">
-<jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="contests"/>
-</jsp:include>
-<div id="contentIn" class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-<div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="contests"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
 <div class="linkBox">
     <studio:forumLink forumID="${contest.forumId}"/>
@@ -46,14 +52,13 @@
 
 <h1>Winners</h1>
 
-<table class="stat" cellpadding="0" cellspacing="0" style="width:740px">
+<div class="statHolder">
+    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+    <div class="container">
+        <table class="stat" cellpadding="0" cellspacing="0" width="100%">
 <tbody>
-<tr>
-    <td class="NW">&nbsp;</td>
-    <td class="title" colspan="7">Winners</td>
-    <td class="NE">&nbsp;</td>
-</tr>
-<tr>
+<tr><td class="title" colspan="9">Winners</td></tr><tr>
     <td class="headerW">
         <div>&nbsp;</div>
     </td>
@@ -90,6 +95,7 @@
 
 <c:set var="bonusPrize" value="<%=PrizeType.BONUS%>"/>
 <rsc:iterator list="<%=results%>" id="resultRow">
+    <tr><td class="space" colspan="9">&nbsp;</td></tr>
     <tr class="<%=even?"light":"dark"%>">
         <td class="valueW">
             <div>&nbsp;</div>
@@ -149,14 +155,14 @@
                                 </div>
                                 <br />
                                 <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                    <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
+                                    <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
                                 </a>
                             </div>
                         </c:otherwise>
                     </c:choose>
                 </c:when>
                 <c:otherwise>
-                    <img src="/i/layout/magnifyFade.png" alt="" />
+                    <img src="/i/v2/interface/magnifyFade.png" alt="" />
                 </c:otherwise>
             </c:choose>
         </td>
@@ -167,25 +173,27 @@
     <% even = !even;
         i++; %>
 </rsc:iterator>
-
 <tr>
-    <td class="SW">&nbsp;</td>
-    <td class="title" colspan="7">
-        <a href="/?<%=Constants.MODULE_KEY%>=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="small">...view all submissions</a>
-    </td>
-    <td class="SE">&nbsp;</td>
+    <td class="btnRight" colspan="9"><div><a href="/?<%=Constants.MODULE_KEY%>=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="small">...view all submissions</a></div></td>
 </tr>
+
 </tbody>
 </table>
-
-
-</div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-<jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
+    </div>
+    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
 </div>
 
+
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
+
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>

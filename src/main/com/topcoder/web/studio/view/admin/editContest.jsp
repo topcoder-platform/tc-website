@@ -8,7 +8,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -25,22 +28,24 @@
 </head>
 
 <body>
-
-<div align="center">
-<div id="contentOut" class="contentOut">
-<jsp:include page="../top.jsp">
-    <jsp:param name="section" value="admin"/>
-</jsp:include>
-<jsp:include page="../topNav.jsp">
-    <jsp:param name="node" value="contests"/>
-</jsp:include>
-<div id="contentIn" class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-<div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="../top.jsp"/>
+            <jsp:include page="../topNav.jsp">
+                <jsp:param name="node" value="contests"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
 <div class="linkBox"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">back to
-    Contests</A></div>
+    Contests</a></div>
 
 
 <c:if test="${!contest.new}">
@@ -164,7 +169,7 @@
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="${projectId}"><span class="bigRed">${err}</span>
-            <br></tc-webtag:errorIterator>
+            <br /></tc-webtag:errorIterator>
     </td>
 </tr>
 
@@ -559,13 +564,15 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 </c:if>
 
 
-</div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-<jsp:include page="../foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
 
+        <jsp:include page="../foot.jsp"/>
+
+    </div>
 </body>
 </html>

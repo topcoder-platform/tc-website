@@ -9,7 +9,10 @@
 <c:set var="PENDING_STATUS_ID" value="<%= AssignmentDocumentStatus.PENDING_STATUS_ID + "" %>" />
 <c:set var="ASSIGNMENT_DOCUMENT_ID" value="assignment_document_id" />
 
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -21,7 +24,7 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <script type="text/javascript" src="/js/popup.js"></script>
+    <script type="text/javascript" src="/js/v2/popup.js"></script>
     <script language="javascript" type="text/javascript">
         function showProcessing() {
             document.getElementById("submitButton").innerHTML='<img src="/i/layout/processing.gif" alt=""/>';
@@ -30,17 +33,21 @@
 </head>
 
 <body>
-
-<div align="center">
-<div id="contentOut" class="contentOut">
-<jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="contests"/>
-</jsp:include>
-<div id="contentIn" class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-<div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="contests"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
 
 <div class="linkBox">
@@ -48,7 +55,7 @@
 </div>
 
 <div class="breadcrumb">
-    <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
+    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt;
     ${contest.name}
 </div>
 
@@ -56,7 +63,7 @@
 
 <div align="center">
     <div align="left" style="width:500px; margin-top: 20px;">
-        <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onsubmit="showProcessing()">
+        <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onSubmit="showProcessing()">
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitFinalSubmission"/>
             <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
@@ -72,7 +79,7 @@
                         </p>
                         <p>
                         <tc-webtag:errorIterator id="err" name="<%=Constants.ACCEPT_AD_ERROR%>"><span class="bigRed">${err}</span>
-                        <br></tc-webtag:errorIterator>
+                        <br /></tc-webtag:errorIterator>
                         <tc-webtag:chkBox name="<%=Constants.ACCEPT_AD%>"/> I accept
                         </p>                
                     </c:when>
@@ -95,11 +102,11 @@
                 <p>
                     <b>My design:</b><br/>
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
-                                        <br></tc-webtag:errorIterator>
+                                        <br /></tc-webtag:errorIterator>
                     <input type="file" name="<%=Constants.SUBMISSION%>">
                 </p>
                 <p id="submitButton">
-                    <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
+                    <input type="image" src="/i/v2/interface/btnSubmit.png" />
                 </p>
             </div>
         </form>
@@ -108,13 +115,15 @@
 
 
 
-</div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-<jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
 
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>

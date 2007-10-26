@@ -4,8 +4,6 @@
 <%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
 <%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
@@ -17,7 +15,11 @@
 
 <c:set value="<%=ContestProperty.VIEWABLE_SUBMITTERS%>" var="viewSubmitters"/>
 
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -25,7 +27,7 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <script type="text/javascript" src="/js/popup.js"></script>
+    <script type="text/javascript" src="/js/v2/popup.js"></script>
     <script type="text/javascript"><!--
     function next() {
     <%--we're using sublist on the back end, so we need to work with 0 based indexes rather than 1 --%>
@@ -54,17 +56,22 @@
 </head>
 
 <body>
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="contests"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
-<div align="center">
-<div id="contentOut" class="contentOut">
-<jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="contests"/>
-</jsp:include>
-<div id="contentIn" class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-<div class="contentSpacer">
 <div class="linkBox">
     <studio:forumLink forumID="${contest.forumId}"/>
 </div>
@@ -72,10 +79,10 @@
 <div class="breadcrumb">
     <c:choose>
         <c:when test="${isOver}">
-            <A href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</A> &gt;
+            <a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a> &gt;
         </c:when>
         <c:otherwise>
-            <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
+            <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt;
         </c:otherwise>
     </c:choose>
     ${contest.name}
@@ -101,20 +108,21 @@
     <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
     | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
 </div>
-<table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
+
+<div class="statHolder">
+    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+    <div class="container">
+        <table class="stat" cellpadding="0" cellspacing="0" width="100%">
 <tbody>
-<tr>
-    <td class="NW">&nbsp;</td>
     <c:choose>
         <c:when test="${contest.configMap[viewSubmitters]}">
-            <td class="title" colspan="5">Submissions</td>
+            <tr><td class="title" colspan="7">Submissions</td></tr>
         </c:when>
         <c:otherwise>
-            <td class="title" colspan="4">Submissions</td>
+            <tr><td class="title" colspan="6">Submissions</td></tr>
         </c:otherwise>
     </c:choose>
-    <td class="NE">&nbsp;</td>
-</tr>
 <tr>
     <td class="headerW">
         <div>&nbsp;</div>
@@ -149,6 +157,14 @@
 <% boolean even = true;
     int i = 0; %>
 <rsc:iterator list="<%=submissions%>" id="resultRow">
+    <c:choose>
+        <c:when test="${contest.configMap[viewSubmitters]}">
+            <tr><td class="space" colspan="7">&nbsp;</td></tr>
+        </c:when>
+        <c:otherwise>
+            <tr><td class="space" colspan="6">&nbsp;</td></tr>
+        </c:otherwise>
+    </c:choose>
     <tr class="<%=even?"light":"dark"%>">
         <td class="valueW">
             <div>&nbsp;</div>
@@ -162,7 +178,7 @@
             <rsc:item name="submission_id" row="<%=resultRow%>"/>
         </td>
         <td class="valueC" nowrap="nowrap">
-            <rsc:item name="create_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+            <rsc:item name="create_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
         </td>
 
 
@@ -190,9 +206,9 @@
                         </c:when>
                         <c:otherwise>
                             <div align="center">
-                                <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                    <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()" />
-                                </A>
+                                <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                                    <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()" />
+                                </a>
                             </div>
                         </c:otherwise>
                     </c:choose>
@@ -217,22 +233,12 @@
     <% even = !even;
         i++; %>
 </rsc:iterator>
-<tr>
-    <c:choose>
-        <c:when test="${contest.configMap[viewSubmitters]}">
-            <td class="SW" colspan="6">&nbsp;</td>
-        </c:when>
-        <c:otherwise>
-            <td class="SW" colspan="5">&nbsp;</td>
-        </c:otherwise>
-    </c:choose>
-
-
-    <td class="SE">&nbsp;</td>
-</tr>
-
 </tbody>
 </table>
+    </div>
+    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+</div>
 
 <div id="popView" class="popUp">
     <div>View submission</div>
@@ -248,13 +254,16 @@
 
 
 </form>
-</div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-<jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
+
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>

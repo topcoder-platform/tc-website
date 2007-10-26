@@ -1,9 +1,10 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -15,17 +16,21 @@
 </head>
 
 <body>
-
-<div align="center">
-    <div id="contentOut" class="contentOut">
-        <jsp:include page="../top.jsp"/>
-        <jsp:include page="../topNav.jsp">
-            <jsp:param name="node" value=""/>
-        </jsp:include>
-        <div id="contentIn" class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="../top.jsp"/>
+            <jsp:include page="../topNav.jsp">
+                <jsp:param name="node" value=""/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
                 <h1>About TopCoder</h1>
 
@@ -41,13 +46,13 @@
                     <h2>How Members Benefit</h2>
 
                     <ul>
-                        <li><A href="/tc?module=Static&d1=about&d2=whyjoin"><strong>Competition</strong></A><br />
+                        <li><a href="/tc?module=Static&d1=about&d2=whyjoin"><strong>Competition</strong></a><br />
                         Each Single Round Match offers a fun, time-based, and challenging set of problems that put a developer's skills to the test. This, coupled
-                        with Divisions,</A> offer a more level
+                        with Divisions,</a> offer a more level
                         field of competition for newer members in order to build ratings and move into potential
-                        <A href="/tc?module=Static&d1=tournaments&d2=home">Tournament</A> opportunities.</li><br />
+                        <a href="/tc?module=Static&d1=tournaments&d2=home">Tournament</a> opportunities.</li><br />
 
-                        <li><A href="/tc?module=ViewActiveContests&ph=112"><strong>Design</strong></A> and <A href="/tc?module=ViewActiveContests&ph=113"><strong>Development</strong></A><br />
+                        <li><a href="/tc?module=ViewActiveContests&ph=112"><strong>Design</strong></a> and <a href="/tc?module=ViewActiveContests&ph=113"><strong>Development</strong></a><br />
                         Rated TopCoder members are eligible to participate in TopCoder Component Development. Members submit design and development solutions
                         for these challenging and potentially lucrative projects. Winning solutions are rewarded with cash payouts and royalties. For every
                         commercial sale, TopCoder will pay the members who designed and developed the component a percentage of the sale. </li><br />
@@ -57,33 +62,33 @@
                     <h2>How Companies Benefit</h2>
 
                     <ul>
-                        <li><A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=tces_home"><strong>Employment Services</strong></A><br />
+                        <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=tces_home"><strong>Employment Services</strong></a><br />
                         The market for developers is either feast or famine. Regardless of how many developers there are or how many are available,
                         the issue remains the same&#151;how to determine which candidate is best suited to the needs of your organization. While
                         certification has offered some credibility, competitions that test a developer's skills in real-world challenges goes much
                         further to differentiating one candidate from another.</li>
 
-                        <li><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/index.jsp"><strong>Software</strong></A><br />
-                        The best way to drive down the cost of software development is through re-use. The <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/components/index.jsp">Component Catalog</A>
+                        <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/index.jsp"><strong>Software</strong></a><br />
+                        The best way to drive down the cost of software development is through re-use. The <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/components/index.jsp">Component Catalog</a>
                         is a tool for increasing re-use and developer productivity within an organization. The component catalog continues to grow on a weekly basis as component
                         requirements are generated through requests from catalog customers, research from TopCoder Product Managers and from application development.</li>
 
-                        <li><A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=index"><strong>Sponsorship</strong></A><br />
+                        <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=index"><strong>Sponsorship</strong></a><br />
                         Reaching the developer community is a difficult task at best. Marketing budgets are limited and with the advent of the Internet,
                         the expectation for measuring results has only grown. TopCoder offers companies a means of targeting this desired community
                         through the targeted sponsorship of Single Round Matches
-                        and <A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournaments.</A></li>
+                        and <a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournaments.</a></li>
                     </ul>
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
         </div>
-        <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
+
+        <jsp:include page="../foot.jsp"/>
+
     </div>
-
-    <jsp:include page="../foot.jsp"/>
-
-    <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
-
 </body>
 </html>

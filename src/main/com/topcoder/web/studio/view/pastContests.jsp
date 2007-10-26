@@ -1,14 +1,15 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
 
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -16,48 +17,45 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <script type="text/javascript" src="/js/popup.js"></script>
+    <script type="text/javascript" src="/js/v2/popup.js"></script>
 </head>
 
 <body>
-
-<div align="center">
-<div id="contentOut" class="contentOut">
-<jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="contests"/>
-</jsp:include>
-<div id="contentIn" class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-<div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="contests"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
 <h1>Past Contests</h1>
 
-<h2 align="right">Need help? Learn how to
+<div align="right"><strong>Need help? Learn how to
     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get
-        started</a>.<br>
-    Got <a href="/?module=Static&amp;d1=support&amp;d2=generalFaq">questions</a>?
-</h2>
+        started</a>.<br />
+    Got <a href="/?module=Static&amp;d1=support&amp;d2=generalFaq">questions</a>?</strong>
+</div>
 
-<table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
-    <tr>
-        <td width="50%">
-            <a href="/?module=ViewActiveContests" class="statTabLinkOff"><span>Active Contests</span></a>
-        </td>
-        <td width="50%">
-            <a href="/?module=ViewPastContests" class="statTabLinkOn"><span>Past Contests</span></a>
-        </td>
-    </tr>
-</table>
+<div class="tableTabOff" style="margin-left: 20px;"><a href="/?module=ViewActiveContests">Active Contests</a></div>
+<div class="tableTabOn"><a href="/?module=ViewPastContests">Past Contests</a></div>
+<br  clear="all"/>
 
-<table class="stat" cellpadding="0" cellspacing="0" style="width:740px">
+<div class="statHolder">
+    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+    <div class="container">
+<table class="stat" cellpadding="0" cellspacing="0">
     <tbody>
-        <tr>
-            <td class="NW">&nbsp;</td>
-            <td class="title" colspan="7">Past Contests</td>
-            <td class="NE">&nbsp;</td>
-        </tr>
+        <tr><td class="title" colspan="11">Past Contests</td></tr>
         <tr>
             <td class="headerW"><div>&nbsp;</div></td>
             <td class="header" width="100%">
@@ -94,6 +92,7 @@
         <% boolean even = true;
             int i = 0; %>
         <rsc:iterator list="<%=contests%>" id="resultRow">
+            <tr><td class="space" colspan="11">&nbsp;</td></tr>
             <tr class="<%=even?"light":"dark"%>">
                 <td class="valueW">
                     <div>&nbsp;</div>
@@ -114,10 +113,10 @@
                     </div>
                 </td>
                 <td class="valueC">
-                    <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                    <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                 </td>
                 <td class="valueC">
-                    <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                    <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                 </td>
                 <td class="valueR">
                     <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
@@ -159,22 +158,24 @@
             </tr>
             <% even = !even; i++; %>
         </rsc:iterator>
-        <tr>
-            <td class="SW" colspan="8">&nbsp;</td>
-            <td class="SE">&nbsp;</td>
-        </tr>
     </tbody>
 </table>
+    </div>
+    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+</div>
 
 <div align="right" style="padding-top: 10px;"><strong>Would you like to see some of our <a href="/?module=Static&amp;d1=oldcontests&amp;d2=archive">older logo design contests</a>?</strong></div>
 
-</div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-<jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
 
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>

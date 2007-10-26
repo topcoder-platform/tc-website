@@ -1,8 +1,6 @@
-<%@ page import="com.topcoder.web.studio.controller.request.mystudio.AssignmentDocumentHistory" %>
-<%@ page import="com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentStatus" %>
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<%@ page import="com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentStatus" %>
+<%@ page import="com.topcoder.web.studio.controller.request.mystudio.AssignmentDocumentHistory" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -16,7 +14,10 @@
 <c:set var="PENDING_STATUS_ID" value="<%= AssignmentDocumentStatus.PENDING_STATUS_ID + "" %>" />
 <c:set var="AFFIRMED_STATUS_ID" value="<%= AssignmentDocumentStatus.AFFIRMED_STATUS_ID + "" %>" />
 
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -46,19 +47,23 @@
 </head>
 
 <body>
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="../top.jsp"/>
+            <jsp:include page="../topNav.jsp">
+                <jsp:param name="node" value="support"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
-<div align="center">
-<div id="contentOut" class="contentOut">
-<jsp:include page="../top.jsp"/>
-<jsp:include page="../topNav.jsp">
-    <jsp:param name="node" value="myStudio"/>
-</jsp:include>
-<div id="contentIn" class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-<div class="contentSpacer" style="padding-bottom:100px;">
-
-<h1>Assignment Documents FAQ</h1>
+                <h1>Assignment Documents FAQ</h1>
 
                 <div>
                     <p><strong>What is the Assignment?</strong></p>
@@ -86,7 +91,7 @@
                 </div>
                 <div>
                     <p><strong>How much time do I have to return the Assignment?</strong></p>
-                    <p>You have 30 days from the date on which you were notified that you won to sign and return the Assignment.  We must <span style:"text-decoration:underline;">receive</span> the signed Assignment before the expiration of 30 days.  Simply putting the Assignment in the mail is not sufficient.</p>
+                    <p>You have 30 days from the date on which you were notified that you won to sign and return the Assignment.  We must <span style="text-decoration:underline;">receive</span> the signed Assignment before the expiration of 30 days.  Simply putting the Assignment in the mail is not sufficient.</p>
                 </div>
                 <div>
                     <p><strong>Why does the Assignment cover all of my past winning entries?</strong></p>
@@ -109,13 +114,15 @@
                     <p>No.  At this time, we are only requiring members who win competitions which start after June 18, 2007 to sign the Assignment.</p>
                 </div>
 
-</div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-<jsp:include page="../foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
 
+        <jsp:include page="../foot.jsp"/>
+
+    </div>
 </body>
 </html>

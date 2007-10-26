@@ -1,7 +1,7 @@
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -13,71 +13,71 @@
 </head>
 
 <body>
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="contactUs"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
+    
+                        <h1>Contact Us</h1>
 
-<div align="center">
-    <div id="contentOut" class="contentOut">
+                        <div align="center" style="margin-bottom:20px;">
+                            <table cellpadding="10" cellspacing="0">
+                                <tbody>
+                                    <tr>
+                                        <td align="left" colspan="2">
+                                            <strong>Corporate Address</strong><br />
+                                            TopCoder, Inc.<br />
+                                            703 Hebron Avenue<br />
+                                            Glastonbury, CT 06033 U.S.A.<br />
+                                            tel: 860.633.5540<br />
+                                            fax: 860.657.4276
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <strong>Membership</strong><br />
+                                            Email: <a href="mailto:service@topcoder.com?subject=TopCoder%20Studio%20Membership">service@topcoder.com</a>
+                                        </td>
+                                        <td align="left">
+                                            <strong>Competition Support</strong><br />
+                                            Email: <a href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <strong>General questions</strong><br />
+                                            Email:
+                                            <a href="mailto:service@topcoder.com?subject=TopCoder%20Studio%20General%20Questions">service@topcoder.com</a>
+                                        </td>
+                                        <td align="left">
+                                            <strong>Sales</strong><br />
+                                            Email: <a href="mailto:studiosales@topcoder.com">studiosales@topcoder.com</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-        <jsp:include page="top.jsp"/>
-        <jsp:include page="topNav.jsp">
-            <jsp:param name="node" value="contactUs"/>
-        </jsp:include>
-
-        <div id="contentIn" class="contentIn">
-
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
-
-                <h1>Contact Us</h1>
-
-                <div align="center" style="margin-bottom:20px;">
-                    <table cellpadding="10" cellspacing="0">
-                        <tbody>
-                            <tr>
-                                <td colspan="2">
-                                    <strong>Corporate Address</strong><br>
-                                    TopCoder, Inc.<br>
-                                    703 Hebron Avenue<br>
-                                    Glastonbury, CT 06033 U.S.A.<br>
-                                    tel: 860.633.5540<br>
-                                    fax: 860.657.4276
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>Membership</strong><br>
-                                    Email: <A href="mailto:service@topcoder.com?subject=TopCoder%20Studio%20Membership">service@topcoder.com</A>
-                                </td>
-                                <td>
-                                    <strong>Competition Support</strong><br>
-                                    Email: <A href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</A>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>General questions</strong><br>
-                                    Email:
-                                    <A href="mailto:service@topcoder.com?subject=TopCoder%20Studio%20General%20Questions">service@topcoder.com</A>
-                                </td>
-                                <td>
-                                    <strong>Sales</strong><br>
-                                    Email: <A href="mailto:studiosales@topcoder.com">studiosales@topcoder.com</A>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
                 </div>
-
-
             </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
 
         <jsp:include page="foot.jsp"/>
 
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
     </div>
-</div>
-
 </body>
 </html>
