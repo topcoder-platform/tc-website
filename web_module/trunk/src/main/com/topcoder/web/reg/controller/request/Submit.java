@@ -149,7 +149,7 @@ public class Submit extends Base {
             getRequest().getSession().invalidate();
 
 
-            if (DAOUtil.useQueryToolFactory) {
+            if (DAOUtil.useQueryToolFactory && !newReg) {
                 // clear preferences from cache
                 HashSet<String> s = new HashSet<String>();
                 s.add("user_preference");
