@@ -9,10 +9,8 @@
                  java.util.HashMap"
 %>
 <%@ page import="java.util.Iterator" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
-<%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
@@ -21,11 +19,11 @@
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
-<% 	ForumMessage message = (ForumMessage) request.getAttribute("message");
-	ForumMessage tempMessage = (ForumMessage)request.getAttribute("tempMessage");
-	if (postMode.equals("Edit")) {
-		tempMessage = message;
-	}
+<%     ForumMessage message = (ForumMessage) request.getAttribute("message");
+    ForumMessage tempMessage = (ForumMessage)request.getAttribute("tempMessage");
+    if (postMode.equals("Edit")) {
+        tempMessage = message;
+    }
     ForumThread thread = (ForumThread) request.getAttribute("thread");
     HashMap errors = (HashMap) request.getAttribute(BaseProcessor.ERRORS_KEY);
 
@@ -51,6 +49,19 @@
         postDesc = "Edit message";
     } %>
 
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>TopCoder Studio</title>
+
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_studio_forums"/>
+    </jsp:include>
 <script type="text/javascript">
     function noenter(e)
     {
@@ -89,36 +100,26 @@
         }
     }
 </script>
-
-<html>
-<head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Studio</title>
-
-    <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_studio_forums"/>
-    </jsp:include>
 </head>
 
 <body>
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="forums"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
-<div align="center">
-    <div class="contentOut">
-        
-
-      <jsp:include page="top.jsp" />
-
-
-        <jsp:include page="topNav.jsp">
-            <jsp:param name="node" value="none"/>
-        </jsp:include>
-        <div class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
-
-                <table cellpadding="0" cellspacing="0" class="rtbcTable">
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
                     <tr>
                         <td class="categoriesBox" style="padding-right: 20px;">
                             <jsp:include page="categoriesHeader.jsp"/>
@@ -127,27 +128,27 @@
                             <jsp:include page="searchHeader.jsp"/>
                         </td>
                         <td align="right" nowrap="nowrap" valign="top">
-                            <A href="?module=History" class="rtbcLink">My Post
-                                History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My
-                            Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User
-                            Settings</A><br/>
+                            <a href="?module=History" class="rtbcLink">My Post
+                                History</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Watches" class="rtbcLink">My
+                            Watches</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Settings" class="rtbcLink">User
+                            Settings</a><br />
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" style="padding-bottom:3px;"><b>
                             <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-                                <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
+                                <a href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
                                     <%=category.getName()%>
-                                </A> >
+                                </a> >
                             </tc-webtag:iterator>
-                            <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink">
+                            <a href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink">
                                 <%=forum.getName()%>
-                            </A>
+                            </a>
                             <% if (thread != null) { %>
                             >
-                            <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>" class="rtbcLink">
+                            <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>" class="rtbcLink">
                                 <%=thread.getName()%>
-                            </A>
+                            </a>
                             <% } %>
                             > <%=postHeading%></b>
                         </td>
@@ -155,90 +156,90 @@
                     </tr>
                 </table>
 
-                <br>
+                <br />
 
                 <div id="Options"><span class="small">Allowed tags: <%=ForumsUtil.getAllowedTagsDisplay()%>. Allowed attributes: <%=ForumsUtil.getAllowedAttributesDisplay()%>. <!--Usernames within [handle][/handle] blocks are converted into color-coded links.--></span>
-                </div><br>
+                </div><br />
                 <table cellpadding="0" cellspacing="0" class="rtTable">
                     <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
-						<tc-webtag:hiddenInput name="module"/>
-						<tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
-						<tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_ID%>"/>
-						<tc-webtag:hiddenInput name="<%=ForumConstants.TEMP_MESSAGE_ID%>"/>
-						<tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
-						<tc-webtag:hiddenInput name="<%=ForumConstants.ATTACHMENT_ID%>"/>
+                        <tc-webtag:hiddenInput name="module"/>
+                        <tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
+                        <tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_ID%>"/>
+                        <tc-webtag:hiddenInput name="<%=ForumConstants.TEMP_MESSAGE_ID%>"/>
+                        <tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
+                        <tc-webtag:hiddenInput name="<%=ForumConstants.ATTACHMENT_ID%>"/>
 
                         <tr>
-							<td class="rtHeader" colspan="2">
-								<%	if (tempMessage == null || tempMessage.getSubject().trim().equals("")) { %>
-									<%=postHeading%>
-								<%	} else { %>
-									<%=tempMessage.getSubject().trim()%>
-								<%	} %>
-							</td>
-						</tr>
-                        <% 	if (tempMessage != null && tempMessage.getAttachmentCount() > 0) { %>
-							<tr valign="middle">
-								<td class="rtHeader" colspan="2">
-									Attachments:
-									<%	Iterator attachments = tempMessage.getAttachments();
-										while(attachments.hasNext()) {
-											Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
-											<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></A>
-											<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)
-											<%	if (!postMode.equals("Edit")) { %>
-													[<A href="javascript:void(0)" onclick="form1.module.value='RemoveAttachment';form1.<%=ForumConstants.ATTACHMENT_ID%>.value='<%=attachment.getID()%>';form1.submit();" class="rtbcLink">remove</A>]
-											<%	} %>
-											&nbsp;
-									<% 	} %>
-								</td>
-							</tr>
-						<% 	} %>
+                            <td class="rtHeader" colspan="2">
+                                <%    if (tempMessage == null || tempMessage.getSubject().trim().equals("")) { %>
+                                    <%=postHeading%>
+                                <%    } else { %>
+                                    <%=tempMessage.getSubject().trim()%>
+                                <%    } %>
+                            </td>
+                        </tr>
+                        <%     if (tempMessage != null && tempMessage.getAttachmentCount() > 0) { %>
+                            <tr valign="middle">
+                                <td class="rtHeader" colspan="2">
+                                    Attachments:
+                                    <%    Iterator attachments = tempMessage.getAttachments();
+                                        while(attachments.hasNext()) {
+                                            Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
+                                            <a href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></a>
+                                            <a href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></a> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)
+                                            <%    if (!postMode.equals("Edit")) { %>
+                                                    [<a href="javascript:void(0)" onClick="form1.module.value='RemoveAttachment';form1.<%=ForumConstants.ATTACHMENT_ID%>.value='<%=attachment.getID()%>';form1.submit();" class="rtbcLink">remove</a>]
+                                            <%    } %>
+                                            &nbsp;
+                                    <%     } %>
+                                </td>
+                            </tr>
+                        <%     } %>
                         <tr>
                             <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
                                 <% if (ForumsUtil.displayMemberPhoto(user, user)) { %>
                                 <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
-                                <br/>
+                                <br />
                                 <% } %>
-                                <span class="bodyText"><studio:handle coderId="<%=user.getID()%>"/></span><br/>
-                                <A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A>
+                                <span class="bodyText"><studio:handle coderId="<%=user.getID()%>"/></span><br />
+                                <a href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></a>
                             </div></td>
                             <td class="rtTextCell100">
-                            	<%  if (errors.get(ForumConstants.ATTACHMENT_ERROR) != null) { %>
-									<span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.ATTACHMENT_ERROR%>"><%=err%><br/></tc-webtag:errorIterator></span>
-								<% 	} %>
-                                <% 	if (errors.get(ForumConstants.MESSAGE_SUBJECT) != null) { %>
-                                	<span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%><br/></tc-webtag:errorIterator></span>
-                                <% 	} %>
-                                <b>Subject:</b><br/>
+                                <%  if (errors.get(ForumConstants.ATTACHMENT_ERROR) != null) { %>
+                                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.ATTACHMENT_ERROR%>"><%=err%><br /></tc-webtag:errorIterator></span>
+                                <%     } %>
+                                <%     if (errors.get(ForumConstants.MESSAGE_SUBJECT) != null) { %>
+                                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%><br /></tc-webtag:errorIterator></span>
+                                <%     } %>
+                                <b>Subject:</b><br />
                                 <tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>" escapeHtml="false" onKeyPress="return noenter(event)"/>
-                                <br/><br/>
-                                <% 	if (errors.get(ForumConstants.MESSAGE_BODY) != null) { %>
-                                	<span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%><br/></tc-webtag:errorIterator></span>
-                                <% 	} %>
+                                <br /><br />
+                                <%     if (errors.get(ForumConstants.MESSAGE_BODY) != null) { %>
+                                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%><br /></tc-webtag:errorIterator></span>
+                                <%     } %>
                                 <b>Body:</b><font color="red">
-                                <span align="left" id="Warning" style="display: none"><br/>Warning: one or more &lt;pre&gt; tags is not closed.</span>
-                            	</font><br/>
-                                <tc-webtag:textArea id="tcPostArea" rows="15" cols="72" name="<%=ForumConstants.MESSAGE_BODY%>" onKeyDown="AllowTabCharacter()"/>
+                                <span align="left" id="Warning" style="display: none"><br />Warning: one or more &lt;pre&gt; tags is not closed.</span>
+                                </font><br />
+                                <tc-webtag:textArea id="tcPostArea" rows="15" cols="60" name="<%=ForumConstants.MESSAGE_BODY%>" onKeyDown="AllowTabCharacter()"/>
                             </td>
                         </tr>
                         <tr><td class="rtFooter">
-                            <input type="image" src="/i/forums/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
-                            <input type="image" src="/i/forums/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
-                        	<%	if (forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) { %>
-	                        	<%	if (postMode.equals("Edit")) { %>
-									<input type="image" src="/i/forums/attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='EditAttachments'"/>
-								<%	} else { %>
-									<input type="image" src="/i/forums/attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
-								<%	} %>
-							<%	} %>
-							<%	String cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID(); 
-								if (message != null) {
-									cancelLink = "?module=Message&"+ForumConstants.MESSAGE_ID+"="+message.getID();
-								} else if (thread != null) {
-									cancelLink = "?module=Thread&"+ForumConstants.THREAD_ID+"="+thread.getID();
-								} %>
-							<a href="<%=cancelLink%>"><img src="/i/layout/btnCancel.png" alt="Cancel"/></a>
+                            <input type="image" src="/i/v2/interface/btnPost.png" class="rtButton" alt="Post" onClick="form1.module.value='PostMessage'"/>
+                            <input type="image" src="/i/v2/interface/btnPreview.png" class="rtButton" alt="Preview" onClick="form1.module.value='PreviewMessage'"/>
+                            <%    if (forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) { %>
+                                <%    if (postMode.equals("Edit")) { %>
+                                    <input type="image" src="/i/v2/interface/btnAttachFiles.png" class="rtButton" alt="Attach Files" onClick="form1.module.value='EditAttachments'"/>
+                                <%    } else { %>
+                                    <input type="image" src="/i/v2/interface/btnAttachFiles.png" class="rtButton" alt="Attach Files" onClick="form1.module.value='AttachFiles'"/>
+                                <%    } %>
+                            <%    } %>
+                            <%    String cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID(); 
+                                if (message != null) {
+                                    cancelLink = "?module=Message&"+ForumConstants.MESSAGE_ID+"="+message.getID();
+                                } else if (thread != null) {
+                                    cancelLink = "?module=Thread&"+ForumConstants.THREAD_ID+"="+thread.getID();
+                                } %>
+                            <a href="<%=cancelLink%>"><img src="/i/v2/interface/btnCancel.png" alt="Cancel"/></a>
                         </td></tr>
                     </form>
                 </table>
@@ -252,31 +253,31 @@
                         <%=message.getSubject()%>
                         <% if (message.getParentMessage() != null) { %>
                         (response to
-                        <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A>
+                        <a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</a>
                         by <studio:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>)
                         <% } %>
                     </a></td></tr>
-                    <% 	if (message.getAttachmentCount() > 0) { %>
-						<tr>
-							<td class="rtHeader" colspan="2">
-								Attachments:
-								<%	Iterator attachments = message.getAttachments();
-									while(attachments.hasNext()) {
-										Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
-										<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></A>
-										<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
-								<% 	} %>
-							</td>
-						</tr>
-			       	<% } %>
+                    <%     if (message.getAttachmentCount() > 0) { %>
+                        <tr>
+                            <td class="rtHeader" colspan="2">
+                                Attachments:
+                                <%    Iterator attachments = message.getAttachments();
+                                    while(attachments.hasNext()) {
+                                        Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
+                                        <a href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></a>
+                                        <a href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></a> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+                                <%     } %>
+                            </td>
+                        </tr>
+                       <% } %>
                     <tr>
                         <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
                             <% if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
                             <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
-                            <br/>
+                            <br />
                             <% } %>
-                            <span class="bodyText"><studio:handle coderId="<%=message.getUser().getID()%>"/></span><br/>
-                            <A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A>
+                            <span class="bodyText"><studio:handle coderId="<%=message.getUser().getID()%>"/></span><br />
+                            <a href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></a>
                         </div></td>
                         <td class="rtTextCell100">
                             <%=message.getBody()%>
@@ -287,13 +288,16 @@
                 <font color="red"><div align="left" id="Warning" style="display: none">Warning: one or more &lt;pre&gt;
                     tags is not closed.</div></font>
 
-            </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-        </div>
-        <jsp:include page="foot.jsp"/>
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-    </div>
-</div>
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
+
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>

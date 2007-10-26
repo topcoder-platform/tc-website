@@ -7,10 +7,8 @@
                  java.util.Calendar,
                  java.util.Iterator"
         %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
-<%@ page contentType="text/html;charset=utf-8" %>
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="categories" name="categories" type="java.util.ArrayList" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
@@ -21,7 +19,10 @@
     WatchManager watchManager = forumFactory.getWatchManager();
     String trackerClass = ""; %>
 
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -33,17 +34,21 @@
 </head>
 
 <body>
-
-<div align="center">
-<div class="contentOut">
-<jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="forums"/>
-</jsp:include>
-<div class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-<div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="forums"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
@@ -55,9 +60,9 @@
             <jsp:include page="searchHeader.jsp"/>
         </td>
         <td align="right" nowrap="nowrap" valign="top">
-            <A href="?module=History" class="rtbcLink">My Post
-                History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User
-            Settings</A><br/>
+            <a href="?module=History" class="rtbcLink">My Post
+                History</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Watches" class="rtbcLink">My Watches</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Settings" class="rtbcLink">User
+            Settings</a><br />
         </td>
     </tr>
 </table>
@@ -73,13 +78,13 @@
             Iterator itForums = (Iterator)request.getAttribute("forumsIterator_"+category.getID());
             long numActiveForums = ((Long)request.getAttribute("numActiveForums_"+category.getID())).longValue();
             if (numActiveForums > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
-    <br>
+    <br />
     <table cellpadding="0" cellspacing="0" class="rtTable">
         <tr>
             <td class="rtHeader" width="100%">
-                <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
+                <a href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
                     <%=category.getName()%>
-                </A>
+                </a>
             </td>
             <td class="rtHeader"><div style="width:80px;">T./M.</div></td>
             <td class="rtHeader" align="center" colspan="2"><div style="width:300px;">Last Post</div></td>
@@ -91,15 +96,15 @@
             <tr>
                 <td class="rtThreadCellWrap">
                     <% if (user == null) { %>
-                    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=forum.getMessageCount()%>" class="rtLinkNew">
+                    <a href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=forum.getMessageCount()%>" class="rtLinkNew">
                         <%=forum.getName()%>
-                    </A>
+                    </a>
                     <% } else { %>
-                    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="<%=trackerClass%>">
+                    <a href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="<%=trackerClass%>">
                         <%=forum.getName()%>
-                    </A>
+                    </a>
                     <% } %>
-                    <% if (forum.getDescription() != null) { %><br/>
+                    <% if (forum.getDescription() != null) { %><br />
 
                     <div class="rtDescIndent">
                         <%=forum.getDescription()%>
@@ -135,7 +140,7 @@
             }
             if (category.getForumCount() >= limitCNT) { %>
         <tr><td class="rtThreadCell" colspan="4">
-            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtLinkNew">...more</A>
+            <a href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtLinkNew">...more</a>
         </td></tr>
         <% } %>
         <% } %>
@@ -146,20 +151,21 @@
 <% } %>
 
 <div style="float:right;">
-    <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img alt="RSS" border="none" src="/i/forums/btn_rss.gif"/></a>
+    <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img alt="RSS" border="none" src="/i/v2/interface/btnRSS.png"/></a>
 </div>
-<span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.<br>
+<span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.<br />
 The five most recent forums are displayed for each category other than Round Tables. Click a category's name to view its complete forum list.</span>
 
-</div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-<jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-</div>
-</div>
 
-<%-- required by crazyegg site, ask Nick about it --%>
-<script type="text/javascript" src="http://cetrk.com/pages/scripts/0004/0536.js"> </script>
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
+
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>

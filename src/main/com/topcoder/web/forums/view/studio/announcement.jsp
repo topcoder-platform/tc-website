@@ -6,10 +6,8 @@
         %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.TimeZone" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
-<%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forumCategory" name="forumCategory" type="com.jivesoftware.forum.ForumCategory" toScope="request"/>
@@ -24,7 +22,10 @@
         level2val = forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME);
     } %>
 
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -36,23 +37,23 @@
 </head>
 
 <body>
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="forums"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
-<div align="center">
-    <div class="contentOut">
-        
-
-      <jsp:include page="top.jsp" />
-
-
-        <jsp:include page="topNav.jsp">
-            <jsp:param name="node" value="forums"/>
-        </jsp:include>
-        <div class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
-
-                <table cellpadding="0" cellspacing="0" class="rtbcTable">
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
                     <tr>
                         <td class="categoriesBox" style="padding-right: 20px;">
                             <jsp:include page="categoriesHeader.jsp"/>
@@ -61,10 +62,10 @@
                             <jsp:include page="searchHeader.jsp"/>
                         </td>
                         <td align="right" nowrap="nowrap" valign="top">
-                            <A href="?module=History" class="rtbcLink">My Post
-                                History</A> | <A href="?module=Watches" class="rtbcLink">My
-                            Watches</A> | <A href="?module=Settings" class="rtbcLink">User
-                            Settings</A><br>
+                            <a href="?module=History" class="rtbcLink">My Post
+                                History</a> | <a href="?module=Watches" class="rtbcLink">My
+                            Watches</a> | <a href="?module=Settings" class="rtbcLink">User
+                            Settings</a><br />
                         </td>
                     </tr>
                     <tr><td colspan="3" style="padding-bottom:3px;"><b>
@@ -72,26 +73,26 @@
                         <div style="float:right; white-space: nowrap;">
                             <% Date now = Calendar.getInstance(TimeZone.getTimeZone("EST")).getTime();
                                 if (announcement.getEndDate() == null || announcement.getEndDate().after(now)) { %>
-                            <br><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Expire" class="rtbcLink">Expire</A>&#160;
+                            <br /><a href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Expire" class="rtbcLink">Expire</a>&#160;
                             |
                             <% } else { %>
-                            <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Activate" class="rtbcLink">Activate</A>&#160;
+                            <a href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Activate" class="rtbcLink">Activate</a>&#160;
                             |
                             <% } %>
-                            &#160;<A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Delete" class="rtbcLink">Delete</A>
+                            &#160;<a href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Delete" class="rtbcLink">Delete</a>
                         </div>
                         <%   } %>
                         <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory"
                                             iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
-                        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
+                        <a href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
                             <%=category.getName()%>
-                        </A> >
+                        </a> >
                         </tc-webtag:iterator>
                         <%  if (forum != null) { %>
-                        <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
+                        <a href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></a>
                         >
                         <%  } %>
-                        <img src="/i/forums/announcement.gif" alt="" border="0"/> <%=announcement.getSubject()%>
+                        <img src="/i/v2/interface/btnAnnouncement.png" alt="" border="0"/> <%=announcement.getSubject()%>
                     </td>
                     </tr>
                 </table>
@@ -107,7 +108,7 @@
                         </a>
                         <% if (announcement.getUser() != null && announcement.getUser().equals(user)) { %>
                         |
-                        <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtbcLink">Edit</A>
+                        <a href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtbcLink">Edit</a>
                         <% } %>
                     </td>
                 </tr>
@@ -116,10 +117,10 @@
                         <div class="rtPosterSpacer">
                             <% if (ForumsUtil.displayMemberPhoto(user, announcement.getUser())) { %>
                             <img src="<%=announcement.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
-                            <br/>
+                            <br />
                             <% } %>
                             <span class="bodyText"><%if (announcement.getUser() != null) {%><studio:handle coderId="<%=announcement.getUser().getID()%>"/><%}%></span>
-                            <br/><%if (announcement.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=announcement.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(announcement.getUser()), "post")%></A><%}%>
+                            <br /><%if (announcement.getUser() != null) {%><a href="?module=History&<%=ForumConstants.USER_ID%>=<%=announcement.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(announcement.getUser()), "post")%></a><%}%>
                         </div>
                     </td>
                     <td class="rtTextCell" width="100%">

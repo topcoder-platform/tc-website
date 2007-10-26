@@ -59,8 +59,8 @@
     <% if (paginator.getNumPages() > 1) { %>
     <div style="float:right;"><b>
         <% if (paginator.getPreviousPage()) { %>
-        <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getPreviousPageStart()%>" class="rtbcLink">
-            << PREV</A>&#160;&#160;&#160;
+        <a href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getPreviousPageStart()%>" class="rtbcLink">
+            << PREV</a>&#160;&#160;&#160;
         <% } %> [
         <% pages = paginator.getPages(5);
             for (int i = 0; i < pages.length; i++) {
@@ -68,14 +68,14 @@
         <% if (pages[i].getNumber() == paginator.getPageIndex() + 1) { %>
         <span class="currentPage"><%= pages[i].getNumber() %></span>
         <% } else { %>
-        <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
-            <%= pages[i].getNumber() %></A>
+        <a href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+            <%= pages[i].getNumber() %></a>
         <% } %>
         <% } else { %> ... <% } %>
         <% } %> ]
         <% if (paginator.getNextPage()) { %>
-        &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getNextPageStart()%>" class="rtbcLink">NEXT
-        ></A>
+        &#160;&#160;&#160;<a href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getNextPageStart()%>" class="rtbcLink">NEXT
+        ></a>
         <% } %>
     </b></div>
     <% } %>
@@ -97,7 +97,7 @@
         <tr>
             <td class="rtThreadCellWrap">
                 <a href="?module=Message&messageID=<%=message.getID()%>" class="rtbcLink"><%=ForumsUtil.getMessageSubjectPreview(message, query.getQueryString())%></a>
-                <br>
+                <br />
 
                 <div class="rtDescIndent"><%=ForumsUtil.getMessageBodyPreview(message, query.getQueryString())%>
                     <a href="?module=Thread&threadID=<%=message.getForumThread().getID()%>" class="rtbcLink">(view
@@ -116,8 +116,8 @@
 <div class="rtbc" style="padding-bottom:3px;">
     <div style="float:right;"><b>
         <% if (paginator.getPreviousPage()) { %>
-        <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getPreviousPageStart()%>" class="rtbcLink">
-            << PREV</A>&#160;&#160;&#160;
+        <a href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getPreviousPageStart()%>" class="rtbcLink">
+            << PREV</a>&#160;&#160;&#160;
         <% } %> [
         <% pages = paginator.getPages(5);
             for (int i = 0; i < pages.length; i++) {
@@ -125,14 +125,14 @@
         <% if (pages[i].getNumber() == paginator.getPageIndex() + 1) { %>
         <span class="currentPage"><%= pages[i].getNumber() %></span>
         <% } else { %>
-        <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
-            <%= pages[i].getNumber() %></A>
+        <a href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+            <%= pages[i].getNumber() %></a>
         <% } %>
         <% } else { %> ... <% } %>
         <% } %> ]
         <% if (paginator.getNextPage()) { %>
-        &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getNextPageStart()%>" class="rtbcLink">NEXT
-        ></A>
+        &#160;&#160;&#160;<a href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getNextPageStart()%>" class="rtbcLink">NEXT
+        ></a>
         <% } %>
     </b>
     </div>

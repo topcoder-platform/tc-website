@@ -4,9 +4,7 @@
                  com.topcoder.web.forums.controller.request.Settings"
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="status" name="status" type="java.lang.String" toScope="request"/>
@@ -17,7 +15,10 @@
 <%  String section = (String)request.getParameter(ForumConstants.SETTINGS_SECTION);    
     if (section == null) { section = "gen"; } %>
 
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -35,17 +36,17 @@ function toggleTabs(anchor,id) {
    var rateStyle = (id=="rate")?'':'none';
    if(anchor.blur)anchor.blur();
    if(id=='gen'){
-      document.getElementById('tabGen').className = 'tabLinkOn';
-      document.getElementById('tabWatch').className = 'tabLinkOff';
-      document.getElementById('tabRate').className = 'tabLinkOff';
+      document.getElementById('tabGen').className = 'tableTabOn';
+      document.getElementById('tabWatch').className = 'tableTabOff';
+      document.getElementById('tabRate').className = 'tableTabOff';
    }else if(id=='watch'){
-      document.getElementById('tabGen').className = 'tabLinkOff';
-      document.getElementById('tabWatch').className = 'tabLinkOn';
-      document.getElementById('tabRate').className = 'tabLinkOff';
+      document.getElementById('tabGen').className = 'tableTabOff';
+      document.getElementById('tabWatch').className = 'tableTabOn';
+      document.getElementById('tabRate').className = 'tableTabOff';
    }else if(id=='rate'){
-      document.getElementById('tabGen').className = 'tabLinkOff';
-      document.getElementById('tabWatch').className = 'tabLinkOff';
-      document.getElementById('tabRate').className = 'tabLinkOn';
+      document.getElementById('tabGen').className = 'tableTabOff';
+      document.getElementById('tabWatch').className = 'tableTabOff';
+      document.getElementById('tabRate').className = 'tableTabOn';
    }
    for (i=1; i<=11; i++) {
       document.getElementById('bodyGen'+i).style.display = genStyle;
@@ -67,21 +68,23 @@ function toggleTabs(anchor,id) {
 -->
 </style>
 
-<body onload="toggleTabs('','gen')">
+<body onLoad="toggleTabs('','gen')">
 
-<div align="center">
-   <div class="contentOut">
-   
-
-      <jsp:include page="top.jsp" />
-
-
-   <jsp:include page="topNav.jsp">
-       <jsp:param name="node" value="forums"/>
-   </jsp:include>
-      <div class="contentIn">
-         <img src="/i/layout/contentInN.gif" alt="" style="display:block;" />
-         <div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="forums"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
@@ -92,29 +95,26 @@ function toggleTabs(anchor,id) {
       <jsp:include page="searchHeader.jsp" />
     </td>
     <td align="right" nowrap="nowrap" valign="top">
-        <A href="?module=History" class="rtbcLink">My Post History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;User Settings<br/>
+        <a href="?module=History" class="rtbcLink">My Post History</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Watches" class="rtbcLink">My Watches</a>&nbsp;&nbsp;|&nbsp;&nbsp;User Settings<br />
     </td>
 </tr>
 <tr>
 	<td colspan="2" style="padding-bottom:3px;">
-		<b><A href="?module=Main" class="rtbcLink">Forums</A> > User Settings</b>
+		<b><a href="?module=Main" class="rtbcLink">Forums</a> > User Settings</b>
 	</td>
 </tr>
 </table>
 
 <%   if (status.equals("error")) { %>
-<br><br><span class="rtHeader"><span class="bigRed">Settings updated with errors:</span></span>
-<tc-webtag:errorIterator id="errSettings" name="<%=ForumConstants.STATUS%>"><%=errSettings%></tc-webtag:errorIterator><br/><br/>
+<br /><br /><span class="rtHeader"><span class="bigRed">Settings updated with errors:</span></span>
+<tc-webtag:errorIterator id="errSettings" name="<%=ForumConstants.STATUS%>"><%=errSettings%></tc-webtag:errorIterator><br /><br />
 <%  } %>
 
-<table cellpadding="0" cellspacing="0" border="0" class="tabTable" style="clear:both;">
-  <tr>
-      <td width="20%"><A id="tabGen" href="javascript:void(0)" onclick="toggleTabs(this,'gen')" class="tabLinkOff"><span>General Settings</span></A></td>
-      <td width="20%"><A id="tabWatch" href="javascript:void(0)" onclick="toggleTabs(this,'watch')" class="tabLinkOff"><span>Watch Preferences</span></A></td>
-      <td width="20%"><A id="tabRate" href="javascript:void(0)" onclick="toggleTabs(this,'rate')" class="tabLinkOff"><span>Rating Preferences</span></A></td>
-      <td width="40%"></td>
-  </tr>
-</table>
+<div class="tableTabOff" id="tabGen"><a href="javascript:void(0)" onClick="toggleTabs(this,'gen')" class="tableTabOff">General Settings</a></div>
+<div class="tableTabOff" id="tabWatch"><a href="javascript:void(0)" onClick="toggleTabs(this,'watch')" class="tableTabOff">Watch Preferences</a></div>
+<div class="tableTabOff" id="tabRate"><a href="javascript:void(0)" onClick="toggleTabs(this,'rate')" class="tableTabOff">Rating Preferences</a></div>
+<br  clear="all"/>
+
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module" value="Settings"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_SECTION%>" value="gen"/>
@@ -457,18 +457,21 @@ function toggleTabs(anchor,id) {
 
 <div>
    <div style="float:right;">
-   <input type="image" src="/i/layout/btn_save.gif" onmouseover="this.src='/i/layout/btn_save_on.gif'" onmouseout="this.src='/i/layout/btn_save.gif'">
+   <input type="image" src="/i/v2/interface/btnSave.png"/>
    </div>
 </div>
 </form>
-<br><br><br>
-         </div>
-         <img src="/i/layout/contentInS.gif" alt="" style="display:block;" />
-      </div>
-      <jsp:include page="foot.jsp"/>
-      <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-   </div>
-</div>
+<br /><br /><br />
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
+            </div>
+        </div>
+
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>
