@@ -13,6 +13,8 @@
     <property name="jars.dir" value="${lib.dir}/jars"/>
     <property name="jive.dir" value="lib/jars/jive"/>
     <property name="src.dir" value="src"/>
+    <property name="shared.build" value="${basedir}/../shared"/>
+    <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
     <property name="java" value="${src.dir}/main"/>
     <property name="shared.jar" value="${bin}/shared.jar"/>
     <property name="jboss_home" value="../jboss-4.0.4.GA"/>
@@ -37,6 +39,7 @@
         <pathelement location="${testclasses}"/>
         <pathelement location="${resources}"/>
         <pathelement location="${resources}/hibernate"/>
+        <pathelement location="${shared.jar}"/>
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${jars.dir}/activation.jar"/>
@@ -97,20 +100,11 @@
     </target>
 
     <target name="compile_shared" depends="init" unless="compile_shared_set">
-        <javac
-                srcdir="${shared}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.5"
-                target="1.5"
-                >
-        </javac>
-        <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
-        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
+        <ant dir="${shared.build}" target="jar"/>
+        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
         <property name="compile_shared_set" value="true"/>
     </target>
+
 
 
     <target name="compile" depends="init,jar_shared" unless="compile_set">
