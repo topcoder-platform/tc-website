@@ -70,6 +70,14 @@
             <div id="homeRightCol">
                 <div class="spacer">
 
+<%--
+                    <!-- message title -->
+                    <div style="width: 200px; height: 25px; margin-bottom: 10px; background: transparent url(/i/v2/home_bg_right_title.png) center center no-repeat;">
+                        <div style="font-weight: bold; padding: 2px 0px 0px 10px; ">
+                            Message
+                        </div>
+                    </div>
+--%>                    
                     <!-- login title -->
                     <div style="width: 200px; height: 25px; margin-bottom: 10px; background: transparent url(/i/v2/home_bg_right_title.png) center center no-repeat;">
                         <div style="font-weight: bold; padding: 2px 0px 0px 10px; ">
@@ -136,10 +144,10 @@
                     
                     <!-- DOTM box -->
                     <div id="homeDOTMBox">
-                        <img src="http://www.dev.topcoder.com/i/m/ntrefz_big.jpg" alt="" style="position: absolute; top: 20px; left: 5px; width: 55px; height: 61px; border: 1px solid #bebebe;" />
-                        <div style="text-align: center; padding: 30px 10px 0 71px; margin: 0;">
+                        <img src="/i/m/maxsense_big3.jpg" alt="" style="position: absolute; top: 20px; left: 5px; width: 55px; height: 61px; border: 1px solid #bebebe;" />
+                        <div style="text-align: center; padding: 15px 10px 0 71px; margin: 0;">
                             <strong><a href="forum thread about winner">October 2007</a></strong>
-                            <br /><studio:handle coderId="15974719"/>
+                            <br /><studio:handle coderId="22018496"/>: Won $3,750 in three different categories
                         </div>
                     </div>
 
@@ -158,6 +166,7 @@
 
                 <!-- news box -->
                 <div style="width: 525px; height: 170px; margin-bottom: 20px; background: transparent url(/i/v2/home_news.png) center center no-repeat;">
+                    <a href="/?module=ViewContestDetails&amp;ct=2136"><img src="/i/v2/home/aim_20071028.png" alt="AIM Metaphor Icon Set Design Contest" /></a>
                 </div>
 
                 <div style="margin-bottom: 20px;">
