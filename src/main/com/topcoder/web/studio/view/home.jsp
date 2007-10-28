@@ -146,7 +146,7 @@
                     <div id="homeDOTMBox">
                         <img src="/i/m/maxsense_big3.jpg" alt="" style="position: absolute; top: 20px; left: 5px; width: 55px; height: 61px; border: 1px solid #bebebe;" />
                         <div style="text-align: center; padding: 15px 10px 0 71px; margin: 0;">
-                            <strong><a href="forum thread about winner">October 2007</a></strong>
+                            <strong>October 2007</strong>
                             <br /><studio:handle coderId="22018496"/>: Won $3,750 in three different categories
                         </div>
                     </div>
