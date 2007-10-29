@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.29.07<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=SurveyResults&sid=20540">TCHS08 logo design winner</A></span><br /><br />
+        The vote is over and it's time to unveil the new TCHS08 logo! Congratulations goes to <tc-webtag:handle coderId="22693439" /> for the great new logo design.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=SurveyResults&sid=20540">vote results</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2138">contest details</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=1020&start=0">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.26.07<br />11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=ViewSurvey&sid=20540">Vote for the TCHS08 logo</A></span><br /><br />
@@ -160,20 +174,6 @@
    <tr><td class="newsLinksCell">
         <A href="/pdfs/tournaments/TCCC07_Program_View.pdf">details</a> | 
         <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.17.07<br />6:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=19850">Vote for the TCO08 website</A></span><br /><br />
-        As you may have heard, the TCO is bigger and better in 2008, as we fly in the Top 120 finalists to compete for more than a quarter of a million dollars in prizes. We needed a sharp-looking web site to handle all the tournament info, and our Studio members really outdid themselves this time. Now we need you to determine the best look &amp; feel of the biggest TopCoder event to date. Vote now for the best TCO08 Tournament web site design! Hurry - voting ends at 5:00 pm EDT on Friday, October 19.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=19850">vote</a> | 
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2133">contest details</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=991&start=0&mc=1#3799">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
