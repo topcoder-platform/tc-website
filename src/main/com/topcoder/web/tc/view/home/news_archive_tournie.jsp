@@ -39,7 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">10.29.07 1:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=20540">Vote for the TCHS08 logo</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.29.07 1:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=20540">TCHS08 logo design winner</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.26.07 11:00 AM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=20540">Vote for the TCHS08 logo</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.22.07 12:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank chat before SRM 373</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.22.07 10:00 AM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=19850">TCO08 website winner</A></td></tr>
