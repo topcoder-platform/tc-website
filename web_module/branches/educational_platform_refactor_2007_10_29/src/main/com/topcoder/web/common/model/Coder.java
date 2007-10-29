@@ -33,19 +33,11 @@ public class Coder extends Base {
 
     private Set ratings;
 
-//    private Set<StudentClassroom> studentClassrooms;
-//    private Set<RoundRegistration> roundRegistrations;
-
-//    private Set<RoomResult> roomResults;
-
     public Coder() {
         this.resumes = new HashSet();
         this.teams = new HashSet();
         this.images = new HashSet();
         this.ratings = new HashSet();
-//        this.studentClassrooms = new HashSet<StudentClassroom>();
-//        this.roundRegistrations = new HashSet<RoundRegistration>();
-//        this.roomResults = new HashSet<RoomResult>();
     }
 
 
@@ -193,57 +185,6 @@ public class Coder extends Base {
         }
         return found;
     }
-
-//    public void addClassroom(Classroom c) {
-//        this.studentClassrooms.add(new StudentClassroom(this, c, StudentClassroom.PENDING_STATUS));
-//    }
-
-//    public void addClassrooms(Set<Classroom> classrooms) {
-//        Set<StudentClassroom> sc = new HashSet<StudentClassroom>();
-//        for (Classroom c : classrooms) {
-//            sc.add(new StudentClassroom(this, c, StudentClassroom.PENDING_STATUS));
-//        }
-//        this.studentClassrooms.addAll(sc);
-//    }
-//
-//    public Set<StudentClassroom> getStudentClassrooms() {
-//        return Collections.unmodifiableSet(studentClassrooms);
-//    }
-//
-//    
-//    public void setStudentClassrooms(Set<StudentClassroom> studentClassrooms) {
-//        this.studentClassrooms = studentClassrooms;
-//    }
-
-//    public Set<RoundRegistration> getRoundRegistrations() {
-//        return Collections.unmodifiableSet(roundRegistrations);
-//    }
-//
-//    public void setRoundRegistrations(Set<RoundRegistration> roundRegistrations) {
-//        this.roundRegistrations = roundRegistrations;
-//    }
-//
-//    public void removeRegistration(RoundRegistration rr) {
-//        rr.getId().setCoder(this);
-//        if (this.roundRegistrations.contains(rr)) {
-//            this.roundRegistrations.remove(rr);
-//        }
-//    }
-
-//    public Set<RoomResult> getRoomResults() {
-//        return Collections.unmodifiableSet(roomResults);
-//    }
-//
-//    public void setRoomResults(Set<RoomResult> roomResults) {
-//        this.roomResults = roomResults;
-//    }
-//
-//    public void removeRoomResult(RoomResult rs) {
-//        rs.getId().setCoder(this);
-//        if (this.roomResults.contains(rs)) {
-//            this.roomResults.remove(rs);
-//        }
-//    }
 
     public Image getMemberPhoto() {
         CoderImage c;
