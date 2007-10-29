@@ -41,7 +41,7 @@
             <one-to-many class="com.topcoder.web.common.model.educ.StudentClassroom"/>
         </set>
         
-        <set name="roundRegistrations" cascade="all-delete-orphan" inverse="true" access="field">
+<!--         <set name="roundRegistrations" cascade="all-delete-orphan" inverse="true" access="field">
             <key column="coder_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.model.algo.RoundRegistration"/>
         </set>
@@ -49,7 +49,7 @@
         <set name="roomResults" cascade="all-delete-orphan" inverse="true" access="field">
             <key column="coder_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.model.algo.RoomResult"/>
-        </set>
+        </set> -->
         
     </class>
 </hibernate-mapping>
