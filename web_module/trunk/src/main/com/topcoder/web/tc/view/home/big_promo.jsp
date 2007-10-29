@@ -32,11 +32,12 @@
 --%>
 
 <%-- TCCC07 --%>
-<map name="tccc07">
-<area shape="rect" alt="" coords="1,1,500,116" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about" />
-<area shape="rect" alt="" coords="1,118,500,150" target="_blank" href="/pdfs/tournaments/TCCC07_Program_View.pdf" />
-</map>
-<img src="/i/home/tccc07ProgramPDF.png" alt="TCCC07" usemap="#tccc07" style="display: block;" />
+        <map name="tccc07">
+        <area shape="rect" alt="" coords="1,1,500,110" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about" />
+        <area shape="rect" alt="" coords="1,115,280,150" target="_blank" href="/pdfs/tournaments/TCCC07_Program_View.pdf" />
+        <area shape="rect" alt="" coords="340,115,500,150" target="_blank" href="http://www.topcoder.com/wiki/pages/viewrecentblogposts.action?key=tccc07" />
+        </map>
+        <img src="/i/home/tccc07PDFAndBlogs.png" alt="TCCC07" usemap="#tccc07" style="display: block;" />
 
 
 <%-- TCCC07 Prestigious Professor Program 
