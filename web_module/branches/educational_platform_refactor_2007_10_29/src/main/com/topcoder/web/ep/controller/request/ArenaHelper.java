@@ -433,7 +433,7 @@ public class ArenaHelper implements ArenaServices {
             rr.getId().setRound(r);
             
             r.removeRegistration(rr);
-            c.removeRegistration(rr);
+//            c.removeRegistration(rr);   ----------> TODO: test!!!!!
 
             Room rm = r.getRooms().iterator().next();
 
@@ -442,7 +442,7 @@ public class ArenaHelper implements ArenaServices {
             rs.getId().setRoom(rm);
             rs.getId().setRound(r);
 
-            c.removeRoomResult(rs);
+//            c.removeRoomResult(rs);   ----------> TODO: test!!!!!
             rm.removeResult(rs);
         }
     }
