@@ -98,7 +98,7 @@
 Showing <strong>${count}</strong> Submissions for <strong>${contest.name}</strong>
 <br /><br />
 Show submissions by (Enter Handle):
-<tc-webtag:textInput name="<%=Constants.HANDLE%>"/>  <button name="submit" value="submi" type="submit">Submit</button>
+<tc-webtag:textInput name="<%=Constants.HANDLE%>"/>  <button name="submit" value="submit" type="submit">Submit</button>
 <br /><br />
 <c:forEach items="${reviewStatuses}" var="reviewStatus">
     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=${reviewStatus.id}&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Only
@@ -290,7 +290,7 @@ Show submissions by (Enter Handle):
             <td class="valueC">
                 <c:choose>
                     <c:when test="${resultRow.map['review_status_id']==passed}">
-                            <button name="submit${resultRow.map['submission_id']}" value="submi${resultRow.map['submission_id']}t" type="submit" onclick="sendToReview(${resultRow.map['submission_id']})">
+                            <button name="submit${resultRow.map['submission_id']}" value="submit" type="submit" onclick="sendToReview(${resultRow.map['submission_id']})">
                                 <c:choose>
                                     <c:when test="${empty resultRow.map['or_submission_id']}">
                                         Send To OR
