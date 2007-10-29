@@ -1,3 +1,4 @@
+<%@page contentType="text/xml"%>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -5,7 +6,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.topcoder.web.ep.Constants" %>
 
-<taconite-root>
+<taconite-root xml:space="preserve">
 
  <taconite-replace-children contextNodeID="results" parseInBrowser="true">     
  
