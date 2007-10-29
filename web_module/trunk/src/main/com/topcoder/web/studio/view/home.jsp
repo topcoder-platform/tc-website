@@ -165,8 +165,8 @@
                 </div>
 
                 <!-- news box -->
-                <div style="width: 525px; height: 170px; margin-bottom: 20px; background: transparent url(/i/v2/home_news.png) center center no-repeat;">
-                    <a href="/?module=ViewContestDetails&amp;ct=2136"><img src="/i/v2/home/aim_20071028.png" alt="AIM Metaphor Icon Set Design Contest" /></a>
+                <div style="width: 525px; height: 150px; margin-bottom: 20px; background: transparent;">
+                    <a href="/?module=ViewContestDetails&amp;ct=2136"><img src="/i/v2/home/aim_20071029.png" alt="AIM Metaphor Icon Set Design Contest" /></a>
                 </div>
 
                 <div style="margin-bottom: 20px;">
