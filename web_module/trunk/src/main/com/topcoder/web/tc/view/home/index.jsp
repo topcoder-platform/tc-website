@@ -66,6 +66,7 @@
         <A href="/"><img src="/i/home/topcoder.png" alt="TopCoder" style="display: block;" /></A>
     </td>
     <td align="center" style="padding: 10px 10px 10px 10px">
+        <div align="center" style="margin-bottom: 5px;"><a href="/tc?module=Static&d1=about&d2=contactus"><img src="/i/home/contactus.png" alt="Contact us" /></a></div>
         <%-- TCO07  fri 
         <map name="tco07">
         <area shape="rect" alt="" coords="313,36,343,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoFinals" />
