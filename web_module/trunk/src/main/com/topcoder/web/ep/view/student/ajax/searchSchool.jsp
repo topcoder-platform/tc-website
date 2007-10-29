@@ -23,15 +23,11 @@
                     </p>
 
                     <p>
-                        Lists includes only up to the first <strong><%=Constants.MAX_SCHOOL_RESULTS%></strong> schools. If
-                        you see a
-                        duplicate, <strong>please choose the school with the greatest number of registrants</strong>.
+                        Lists includes only up to the first <strong><%=Constants.MAX_SCHOOL_RESULTS%></strong> schools. If you see a duplicate, <strong>please choose the school with the greatest number of registrants</strong>.
                     </p>
 
                     <p>
-                        If any information about your school is missing or incorrect and you'd like to send us the correct
-                        information, <a href="mailto:service@topcoder.com?subject=School%20Information%20Correction">click
-                        here</a>.
+                        If any information about your school is missing or incorrect and you'd like to send us the correct information, <a href="mailto:service@topcoder.com?subject=School%20Information%20Correction">click here</a>.
                     </p>
 
                     <p>
@@ -43,12 +39,7 @@
                         <div class="small" style="margin-bottom: 4px;">
                             <c:out value="${result[1].name}"/><br />
                             <c:if test="${result[1].address.city!=null||result[1].address.state!=null||result[1].address.postalCode!=null||result[1].address.province!=null||result[1].address.country!=null}">
-                                <c:if test="${result[1].address.city!=null}"><c:out value="${result[1].address.city}"/>,</c:if>
-                                <c:if test="${result[1].address.state!=null}"><c:out value="${result[1].address.state.code}"/>,</c:if>
-                                <c:if test="${result[1].address.postalCode!=null}"><c:out value="${result[1].address.postalCode}"/>
-                                    ,</c:if>
-                                <c:if test="${result[1].address.province!=null}"><c:out value="${result[1].address.province}"/>,</c:if>
-                                <c:if test="${result[1].address.country!=null}"><c:out value="${result[1].address.country.name}"/></c:if>
+                                <c:if test="${result[1].address.city!=null}"><c:out value="${result[1].address.city}"/>,</c:if> <c:if test="${result[1].address.state!=null}"><c:out value="${result[1].address.state.code}"/>,</c:if> <c:if test="${result[1].address.postalCode!=null}"><c:out value="${result[1].address.postalCode}"/>,</c:if> <c:if test="${result[1].address.province!=null}"><c:out value="${result[1].address.province}"/>,</c:if> <c:if test="${result[1].address.country!=null}"><c:out value="${result[1].address.country.name}"/></c:if>
                                 <br />
                             </c:if>
                             Registrants: ${result[0]}<br/>
