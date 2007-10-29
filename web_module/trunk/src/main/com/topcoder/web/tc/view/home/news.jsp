@@ -4,6 +4,34 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.29.07<br />5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://www.topcoder.com/wiki/pages/viewrecentblogposts.action?key=tccc07">TCCC07: Meet the Bloggers</A></span><br /><br />
+        Collegiate Challenge week is here, and so the coverage begins from <tc-webtag:handle coderId="2057853" /> and <tc-webtag:handle coderId="8510917" />, the winners of the 2007 TCCC blogging contest. Check out their introductory blogs, post comments in the story pages, and be sure to check in all week long for live-blogging from Walt Disney World!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://www.topcoder.com/wiki/pages/viewrecentblogposts.action?key=tccc07">details</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />10.29.07<br />5:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=102607">TCCC07 Preview: The Studio competition</A></span><br /><br />
+      For the very first time in TopCoder Collegiate Challenge history, a competitor will compete to become a Studio Design Champion. The Studio Design competition was already a part of TCO07 and turned out to be a big success. Studio Design, along with Marathon Matches, are brand new tracks for TCCC this year.</td>
+         <td class="newsPhoto"><img src="/i/m/ali_raza_shaikh_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20641048" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=102607">details</A> | 
+         <tc-webtag:forumLink forumID="518008" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.29.07<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=SurveyResults&sid=20540">TCHS08 logo design winner</A></span><br /><br />
@@ -148,32 +176,6 @@
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">details</a> | 
         <tc-webtag:forumLink forumID="517145" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.22.07<br />10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=SurveyResults&sid=19850">TCO08 website winner</A></span><br /><br />
-        Check out the slick new design for the TCO08! Congratulations goes to <tc-webtag:handle coderId="10481546" />, who won both the highest score in online review and the community vote.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=SurveyResults&sid=19850">details</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=995&start=0">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.19.07<br />12:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/pdfs/tournaments/TCCC07_Program_View.pdf">TCCC07 Program now available</A> [PDF - 3mb]</span><br /><br />
-        The 2007 TCCC Program is now available!  Check out all the finalists, the stats and more information about the event.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/pdfs/tournaments/TCCC07_Program_View.pdf">details</a> | 
-        <tc-webtag:forumLink forumID="516685" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
