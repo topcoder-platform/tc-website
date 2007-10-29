@@ -15,7 +15,7 @@
         content="text/html;charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/js/ep/arena.js"></script>
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_ep"/>
     </jsp:include>
