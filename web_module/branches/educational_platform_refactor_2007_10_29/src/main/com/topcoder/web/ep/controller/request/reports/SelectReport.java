@@ -45,7 +45,7 @@ public class SelectReport extends SharedBaseProcessor {
         Classroom c = validateClassroom();
         
         // check if the logged student belongs to this classroom 
-        if (DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(getUser().getId(), c.getId()) == null) {
+        if (DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(getUser().getId(), c.getId()) == null) {
             throw new NavigationException("You don't have permission to see this page.");
         }
 

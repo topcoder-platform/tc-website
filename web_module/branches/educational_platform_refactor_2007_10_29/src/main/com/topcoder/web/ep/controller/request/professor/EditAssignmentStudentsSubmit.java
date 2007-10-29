@@ -23,6 +23,7 @@ import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.algo.RoundRegistration;
 import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.ArenaServicesFactory;
 
@@ -86,7 +87,8 @@ public class EditAssignmentStudentsSubmit extends ShortHibernateProcessor {
 
                 // validate if the selected students are active students
                 for (Long studentId : studentIds) {
-                    Coder s = DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(studentId, c.getId());
+                    StudentClassroom sc = DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(studentId, c.getId());
+                    Coder s = (sc != null) ? sc.getId().getStudent() : null;
                     if (s == null) {
                         throw new TCWebException("Invalid student selected");
                     }

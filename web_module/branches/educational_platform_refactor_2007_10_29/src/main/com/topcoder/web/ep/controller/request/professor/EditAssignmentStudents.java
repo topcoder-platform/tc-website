@@ -117,7 +117,8 @@ public class EditAssignmentStudents extends ShortHibernateProcessor {
                     // validate if the selected students are active students
                     List<Coder> students = new ArrayList<Coder>();
                     for (Long studentId : studentIds) {
-                        Coder s = DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(studentId, c.getId());
+                        StudentClassroom sc = DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(studentId, c.getId());
+                        Coder s = (sc != null) ? sc.getId().getStudent() : null;
                         if (s == null) {
                             throw new TCWebException("Invalid student selected");
                         } else {

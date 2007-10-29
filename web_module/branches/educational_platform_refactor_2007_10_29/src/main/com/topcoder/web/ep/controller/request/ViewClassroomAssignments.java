@@ -17,6 +17,7 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
 
 /**
@@ -66,7 +67,8 @@ public class ViewClassroomAssignments extends SharedBaseProcessor {
     protected void studentProcessing() throws Exception {
         Classroom c = getClassroom();
         getRequest().setAttribute("schoolName", c.getSchool().getName());                
-        Coder s = DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(getUser().getId(), c.getId());
+        StudentClassroom sc = DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(getUser().getId(), c.getId());
+        Coder s = (sc != null) ? sc.getId().getStudent() : null;
         if (s != null) {
             log.debug("active student");
 

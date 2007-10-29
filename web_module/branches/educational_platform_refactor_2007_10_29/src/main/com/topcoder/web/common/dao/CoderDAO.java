@@ -12,8 +12,8 @@ public interface CoderDAO {
 
     void saveOrUpdate(Coder u);
 
-    Coder getActiveStudentUsingClassroomId(Long studentId, Long classroomId);
+//    Coder getActiveStudentUsingClassroomId(Long studentId, Long classroomId);
 
-    Coder getStudentUsingClassroomId(Long studentId, Long classroomId);
+//    Coder getStudentUsingClassroomId(Long studentId, Long classroomId);
 
 }

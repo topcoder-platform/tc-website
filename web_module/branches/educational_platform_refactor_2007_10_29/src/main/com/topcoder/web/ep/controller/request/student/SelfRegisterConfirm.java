@@ -12,6 +12,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.controller.request.LongBase;
 
 /**
@@ -32,8 +33,13 @@ public class SelfRegisterConfirm extends LongBase {
             getRequest().setAttribute("schoolName", getSchool().getName());                
 
             Coder c = DAOUtil.getFactory().getCoderDAO().find(getUser().getId());
-            c.addClassrooms(classrooms);
-            getFactory().getCoderDAO().saveOrUpdate(c);
+            for (Classroom classroom : classrooms) {
+                classroom.addStudentClassroom(new StudentClassroom(c, classroom, StudentClassroom.PENDING_STATUS));
+            }
+            
+//            Coder c = DAOUtil.getFactory().getCoderDAO().find(getUser().getId());
+//            c.addClassrooms(classrooms);
+//            getFactory().getCoderDAO().saveOrUpdate(c);
             markForCommit();
             
             getRequest().setAttribute("message", "You have successfuly self registered to the selected classrooms.");                  

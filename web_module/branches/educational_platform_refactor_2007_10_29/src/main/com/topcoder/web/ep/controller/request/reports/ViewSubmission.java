@@ -28,6 +28,7 @@ import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.algo.Submission;
 import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
 
@@ -53,7 +54,9 @@ public class ViewSubmission extends SharedBaseProcessor {
         }
 
         // check if it's a valid student
-        Coder s = DAOUtil.getFactory().getCoderDAO().getStudentUsingClassroomId(getStudentParam(), c.getId()); 
+        StudentClassroom sc = DAOUtil.getFactory().getStudentClassroomDAO().findUsingStudentIdClassroomId(getStudentParam(), c.getId());
+        Coder s = (sc != null) ? sc.getId().getStudent() : null;
+
         if (s == null) {
             throw new TCWebException("Couldn't find student");
         }
@@ -68,12 +71,13 @@ public class ViewSubmission extends SharedBaseProcessor {
 
         // check if this assignment belongs to the logged student
         Classroom c = DAOUtil.getFactory().getClassroomDAO().find((Long) a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID));
-        if (DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(getUser().getId(), c.getId()) == null) {
+        if (DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(getUser().getId(), c.getId()) == null) {
             throw new NavigationException("You don't have permission to see this page.");
         }
 
         // check if it's a valid student
-        Coder s = DAOUtil.getFactory().getCoderDAO().getStudentUsingClassroomId(getStudentParam(), c.getId()); 
+        StudentClassroom sc = DAOUtil.getFactory().getStudentClassroomDAO().findUsingStudentIdClassroomId(getStudentParam(), c.getId());
+        Coder s = (sc != null) ? sc.getId().getStudent() : null;
         if (s == null) {
             throw new TCWebException("Couldn't find student");
         }

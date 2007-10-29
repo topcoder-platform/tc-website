@@ -1,7 +1,6 @@
 package com.topcoder.web.common.dao;
 
 import java.util.HashSet;
-import java.util.List;
 
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.User;
@@ -105,11 +104,11 @@ public class CoderDAOTestCase extends TCHibernateTestCase {
 
         // 
 
-        assertTrue("The student " + s.getId() + " is active in that classroom", DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(s.getId(), c.getId()) != null);
-        assertTrue("The student " + s.getId() + " is in that classroom", DAOUtil.getFactory().getCoderDAO().getStudentUsingClassroomId(s.getId(), c.getId()) != null);
+        assertTrue("The student " + s.getId() + " is active in that classroom", DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(s.getId(), c.getId()) != null);
+        assertTrue("The student " + s.getId() + " is in that classroom", DAOUtil.getFactory().getStudentClassroomDAO().findUsingStudentIdClassroomId(s.getId(), c.getId()) != null);
 
-        assertTrue("The student " + s2.getId() + " is not active in that classroom", DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(s2.getId(), c.getId()) == null);
-        assertTrue("The student " + s2.getId() + " is in that classroom", DAOUtil.getFactory().getCoderDAO().getStudentUsingClassroomId(s2.getId(), c.getId()) != null);
+        assertTrue("The student " + s2.getId() + " is not active in that classroom", DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(s2.getId(), c.getId()) == null);
+        assertTrue("The student " + s2.getId() + " is in that classroom", DAOUtil.getFactory().getStudentClassroomDAO().findUsingStudentIdClassroomId(s2.getId(), c.getId()) != null);
 
         Classroom c2 = DAOUtil.getFactory().getClassroomDAO().find(c.getId());
 

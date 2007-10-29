@@ -25,9 +25,9 @@ import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.common.model.educ.AssignmentScoreType;
 import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
-import com.topcoder.web.ep.controller.request.ViewClassroomAssignments;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -64,7 +64,7 @@ public class StudentReport extends SharedBaseProcessor {
         Coder s = validateStudent(c);
 
         // check if the logged student belongs to this classroom 
-        if (DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(getUser().getId(), c.getId()) == null) {
+        if (DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(getUser().getId(), c.getId()) == null) {
             throw new NavigationException("You don't have permission to see this page.");
         }
 
@@ -168,7 +168,8 @@ public class StudentReport extends SharedBaseProcessor {
     }
 
     private Coder validateStudent(Classroom c) throws TCWebException {
-        Coder s = DAOUtil.getFactory().getCoderDAO().getStudentUsingClassroomId(getStudentParam(), c.getId()); 
+        StudentClassroom sc = DAOUtil.getFactory().getStudentClassroomDAO().findUsingStudentIdClassroomId(getStudentParam(), c.getId());
+        Coder s = (sc != null) ? sc.getId().getStudent() : null;
         if (s == null) {
             throw new TCWebException("Couldn't find student");
         }
