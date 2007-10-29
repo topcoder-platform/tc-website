@@ -5,6 +5,7 @@
 */
 package com.topcoder.web.ep.controller.request.professor;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -90,7 +91,17 @@ public class EditAssignmentStudents extends ShortHibernateProcessor {
                     List<Long> studentIds = getStudentParam();
 
                     // if the assignment has started or about to start validate if non selected users can be removed
-                    if ((new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
+                    
+                    log.debug("a.getContest().getStartDate() " + a.getContest().getStartDate());
+                    log.debug("new Date() " + new Date());
+                    
+                    log.debug("new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)" + new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT));
+                    log.debug("new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT).after(a.getContest().getStartDate() " + (new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate()));
+                    
+                    log.debug("new Timestamp((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)" + new Timestamp((new Date()).getTime() + Constants.TIME_BEFORE_EDIT));
+                    log.debug("new Timestamp((new Date()).getTime() + Constants.TIME_BEFORE_EDIT).after(a.getContest().getStartDate() " + (new Timestamp((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate()));
+
+                    if ((new Timestamp((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
                         // cannot remove students
                         for (RoundRegistration rr : a.getRoundRegistrations()) {
                             log.debug("checking coder: " + rr.getId().getCoder().getId());
