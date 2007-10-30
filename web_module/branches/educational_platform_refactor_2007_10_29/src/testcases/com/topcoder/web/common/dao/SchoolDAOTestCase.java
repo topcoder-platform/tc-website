@@ -90,8 +90,6 @@ public class SchoolDAOTestCase extends TCHibernateTestCase {
         sc.getId().setStudent(s);
         c.addStudentClassroom(sc);
         
-//        p.addClassrooms(c);
-        
         UserSchool us = new UserSchool();
         us.setAssociationType(DAOUtil.getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.TEACHER));
         us.setSchool(school);
@@ -106,7 +104,6 @@ public class SchoolDAOTestCase extends TCHibernateTestCase {
         tearDown();
         setUp();
 
-        // look for p
         // look for c using student
         List<School> ls = DAOUtil.getFactory().getSchoolDAO().findSchoolsUsingProfessorId(p.getId());
         boolean found = false;

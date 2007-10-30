@@ -138,13 +138,9 @@ public class EditClassroom extends LongBase {
                         c.setStatusId(Classroom.ACTIVE);
                         c.setSchool(s);
 
-//                        Set<Coder> sc = c.getStudents(StudentClassroom.PENDING_STATUS);
-//                        sc.addAll(c.getStudents(StudentClassroom.ACTIVE_STATUS));
-
                         List<Coder> sc = DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.PENDING_STATUS);
                         sc.addAll(DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.ACTIVE_STATUS));
                         
-//                        Set<Coder> ps = c.getProfessor().getStudents(s);
                         List<Coder> ps = DAOUtil.getFactory().getStudentClassroomDAO().findUsingProfessorIdSchoolId(c.getProfessor().getId(), s.getId());
 
                         // if editing or no student to select, we go directly to the confirmation

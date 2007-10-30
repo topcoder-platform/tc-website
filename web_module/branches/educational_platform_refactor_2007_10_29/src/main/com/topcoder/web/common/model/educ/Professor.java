@@ -37,10 +37,7 @@ public class Professor extends Base {
     private User user;
     private ProfessorStatus status;
 
-//    private Set<Classroom> classrooms;
-
     public Professor() {
-//        this.classrooms = new HashSet<Classroom>();
     }
 
     @Id
@@ -75,43 +72,6 @@ public class Professor extends Base {
     public void setUser(User user) {
         this.user = user;
     }
-
-//    @OneToMany(fetch=FetchType.LAZY, mappedBy = "professor")
-//    @Cascade({CascadeType.ALL})
-//    @OrderBy("school, name asc")
-//    public Set<Classroom> getClassrooms() {
-//        return classrooms;
-//    }
-//
-//    public void setClassrooms(Set<Classroom> classrooms) {
-//        this.classrooms = classrooms;
-//    }
-//
-//    public void addClassrooms(Classroom classroom) {
-//        classroom.setProfessor(this);
-//        this.classrooms.add(classroom);
-//    }
-
-//    public void removeClassroom(Classroom classroom) {
-//        if (this.classrooms.contains(classroom)) {
-//            this.classrooms.remove(classroom);
-//        }
-//    }
-
-//    @Transient
-//    public Set<Coder> getStudents(School s) {
-//        SortedSet<Coder> cs = new TreeSet<Coder>(new StudentComparator());
-//        for (Classroom c : this.classrooms) {
-//            if (c.getSchool().equals(s)) {
-//                for (StudentClassroom sc : c.getStudentClassrooms()) {
-//                    if (!cs.contains(sc.getId().getStudent())) {
-//                        cs.add(sc.getId().getStudent());
-//                    }
-//                }
-//            }
-//        }
-//        return cs;
-//    }
 
     @Override
     public int hashCode() {

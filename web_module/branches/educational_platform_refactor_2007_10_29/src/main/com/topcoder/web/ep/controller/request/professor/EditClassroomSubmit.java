@@ -12,7 +12,6 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
-import com.topcoder.web.common.model.educ.Professor;
 import com.topcoder.web.ep.controller.request.LongBase;
 import com.topcoder.web.ep.model.Classroom;
 import com.topcoder.web.ep.model.StudentClassroom;
@@ -84,9 +83,6 @@ public class EditClassroomSubmit extends LongBase {
                 }
             }
             
-//            Professor p = DAOUtil.getFactory().getProfessorDAO().find(getUser().getId());
-//            p.addClassrooms(classroom);
-//            getFactory().getProfessorDAO().saveOrUpdate(p);
             DAOUtil.getFactory().getClassroomDAO().saveOrUpdate(classroom);
 
             markForCommit();

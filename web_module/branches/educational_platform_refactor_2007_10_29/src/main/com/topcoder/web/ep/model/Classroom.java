@@ -129,18 +129,6 @@ public class Classroom {
         this.school = school;
     }
 
-
-//    @Transient
-//    public Set<Coder> getStudents(Long statusId) {
-//        SortedSet<Coder> cs = new TreeSet<Coder>(new StudentComparator());
-//        for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
-//            if (sc.getStatusId().equals(statusId)) {
-//                cs.add(sc.getId().getStudent());
-//            }
-//        }
-//        return cs;
-//    }    
-
     @Transient
     public StudentClassroom getStudentClassroom(StudentClassroom orig) {
         for (StudentClassroom sc : this.studentClassrooms) {

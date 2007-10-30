@@ -63,8 +63,6 @@ public class ClassroomDAOTestCase extends TCHibernateTestCase {
         sc.getId().setStudent(s);
         c.addStudentClassroom(sc);
         
-//        p.addClassrooms(c);
-
         DAOUtil.getFactory().getClassroomDAO().saveOrUpdate(c);
 
         tearDown();
@@ -127,7 +125,6 @@ public class ClassroomDAOTestCase extends TCHibernateTestCase {
         lc =  DAOUtil.getFactory().getClassroomDAO().findClassroomUsingNameAndPeriod(c.getSchool().getId(), c.getName(), c.getAcademicPeriod());
         assertTrue("Could not found classroom using name and period " + c.getId(), lc.size() > 0);
 
-//        c2.getProfessor().removeClassroom(c2);
         DAOUtil.getFactory().getClassroomDAO().delete(c2);
     }
 

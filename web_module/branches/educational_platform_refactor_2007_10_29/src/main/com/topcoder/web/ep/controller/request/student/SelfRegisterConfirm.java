@@ -37,9 +37,6 @@ public class SelfRegisterConfirm extends LongBase {
                 classroom.addStudentClassroom(new StudentClassroom(c, classroom, StudentClassroom.PENDING_STATUS));
             }
             
-//            Coder c = DAOUtil.getFactory().getCoderDAO().find(getUser().getId());
-//            c.addClassrooms(classrooms);
-//            getFactory().getCoderDAO().saveOrUpdate(c);
             markForCommit();
             
             getRequest().setAttribute("message", "You have successfuly self registered to the selected classrooms.");                  
