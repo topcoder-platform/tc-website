@@ -4,6 +4,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.30.07<br />6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://csf.topcoder.com/forums?module=Thread&threadID=123&start=0' refer='/tc' />">CSF Mashup Assembly $40,000.00 Series Prize Purse Winners</A></span><br /><br />
+        British Telecom &amp; Microsoft, in association with TopCoder, are excited to announce the winners of the <a target="_blank" href="<tc-webtag:linkTracking link='http://csf.topcoder.com/' refer='/tc' />">Connected Services Framework</a> Creative Mashup Assembly Competitions Series Prize Purse. <a target="_blank" href="<tc-webtag:linkTracking link='http://csf.topcoder.com/forums?module=Thread&threadID=123&start=0' refer='/tc' />">Click here to view the leader board</a> and see who won part of the $40,000 USD prize purse.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://csf.topcoder.com/forums?module=Thread&threadID=123&start=0' refer='/tc' />">details</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.29.07<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://www.topcoder.com/wiki/pages/viewrecentblogposts.action?key=tccc07">TCCC07: Meet the Bloggers</A></span><br /><br />
@@ -164,18 +176,5 @@
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm42">details</A> | 
          <tc-webtag:forumLink forumID="516568" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.22.07<br />12:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">Deutsche Bank chat before SRM 373</A></span><br /><br />
-        SRM 373 is sponsored by Deutsche Bank.  Be sure to check in to the arena an hour before the match starts to chat with Deutsche Bank representatives.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">details</a> | 
-        <tc-webtag:forumLink forumID="517145" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
