@@ -10,10 +10,10 @@ import java.util.List;
 
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.Professor;
 import com.topcoder.web.common.model.educ.ProfessorStatus;
-import com.topcoder.web.common.model.educ.StudentClassroom;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 import com.topcoder.web.reg.TCHibernateTestCase;
 
 /**
@@ -36,7 +36,8 @@ public class ClassroomDAOTestCase extends TCHibernateTestCase {
             u.setProfessor(p);
         } else {
             //remove professor's classrooms
-            p.setClassrooms(new HashSet<Classroom>());
+            //TODO: needs work 
+//            p.setClassrooms(new HashSet<Classroom>());
         }
 
         DAOUtil.getFactory().getProfessorDAO().saveOrUpdate(p);
@@ -60,7 +61,7 @@ public class ClassroomDAOTestCase extends TCHibernateTestCase {
         sc.getId().setStudent(s);
         c.addStudentClassroom(sc);
         
-        p.addClassrooms(c);
+//        p.addClassrooms(c);
 
         DAOUtil.getFactory().getClassroomDAO().saveOrUpdate(c);
 
@@ -114,7 +115,7 @@ public class ClassroomDAOTestCase extends TCHibernateTestCase {
         lc =  DAOUtil.getFactory().getClassroomDAO().findClassroomUsingNameAndPeriod(c.getSchool().getId(), c.getName(), c.getAcademicPeriod());
         assertTrue("Could not found classroom using name and period " + c.getId(), lc.size() > 0);
 
-        c2.getProfessor().removeClassroom(c2);
+//        c2.getProfessor().removeClassroom(c2);
         DAOUtil.getFactory().getClassroomDAO().delete(c2);
     }
 

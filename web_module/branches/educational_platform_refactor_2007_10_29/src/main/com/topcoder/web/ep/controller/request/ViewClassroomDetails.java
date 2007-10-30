@@ -10,9 +10,9 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -30,8 +30,8 @@ public class ViewClassroomDetails extends SharedBaseProcessor {
         // this user is the classroom's professor
         getRequest().setAttribute("schoolName", c.getSchool().getName());                
         getRequest().setAttribute("classroom", c);
-        getRequest().setAttribute("activeStudents", c.getStudents(StudentClassroom.ACTIVE_STATUS));                
-        getRequest().setAttribute("pendingStudents", c.getStudents(StudentClassroom.PENDING_STATUS));
+        getRequest().setAttribute("activeStudents", DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.ACTIVE_STATUS));                
+        getRequest().setAttribute("pendingStudents", DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.PENDING_STATUS));
         
         setNextPage("/professor/viewClassroomDetails.jsp");
         setIsNextPageInContext(true);

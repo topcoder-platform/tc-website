@@ -8,10 +8,10 @@ import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.SchoolAssociationType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.UserSchool;
-import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.Professor;
 import com.topcoder.web.common.model.educ.ProfessorStatus;
-import com.topcoder.web.common.model.educ.StudentClassroom;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 import com.topcoder.web.reg.TCHibernateTestCase;
 
 /**
@@ -52,9 +52,9 @@ public class SchoolDAOTestCase extends TCHibernateTestCase {
         User u = DAOUtil.getFactory().getUserDAO().find("bauna", true);
         Professor delete = u.getProfessor(); 
         if (delete != null) {
-            for (Classroom c : delete.getClassrooms()) {
-                System.out.println(c.getName());
-            }
+//            for (Classroom c : delete.getClassrooms()) {
+//                System.out.println(c.getName());
+//            }
             
             u.setProfessor(null);
             DAOUtil.getFactory().getProfessorDAO().delete(delete);
@@ -87,7 +87,7 @@ public class SchoolDAOTestCase extends TCHibernateTestCase {
         sc.getId().setStudent(s);
         c.addStudentClassroom(sc);
         
-        p.addClassrooms(c);
+//        p.addClassrooms(c);
         
         UserSchool us = new UserSchool();
         us.setAssociationType(DAOUtil.getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.TEACHER));
@@ -98,6 +98,7 @@ public class SchoolDAOTestCase extends TCHibernateTestCase {
         
         DAOUtil.getFactory().getProfessorDAO().saveOrUpdate(p);
         DAOUtil.getFactory().getUserDAO().saveOrUpdate(user);
+        DAOUtil.getFactory().getClassroomDAO().saveOrUpdate(c);
 
         tearDown();
         setUp();

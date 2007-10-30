@@ -22,9 +22,9 @@ import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.algo.RoundRegistration;
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -70,7 +70,7 @@ public class EditAssignmentStudents extends ShortHibernateProcessor {
             if (!"POST".equals(getRequest().getMethod())) {
                 log.debug("First pass - " + getUser().getUserName());
 
-                getRequest().setAttribute("activeStudents", c.getStudents(StudentClassroom.ACTIVE_STATUS));
+                getRequest().setAttribute("activeStudents", DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.ACTIVE_STATUS));
                 getRequest().setAttribute(Constants.ASSIGNMENT_ID, a.getId());
                 getRequest().setAttribute(Constants.CLASSROOM, c);
                 getRequest().setAttribute("assignment_name", a.getName());
@@ -138,7 +138,7 @@ public class EditAssignmentStudents extends ShortHibernateProcessor {
                     } else {
                         getRequest().setAttribute(Constants.CLASSROOM, c);
                         getRequest().setAttribute("checked_students", studentIds);
-                        getRequest().setAttribute("activeStudents", c.getStudents(StudentClassroom.ACTIVE_STATUS));
+                        getRequest().setAttribute("activeStudents", DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.ACTIVE_STATUS));
 
                         setNextPage("/professor/editAssignmentStudents.jsp");
                         setIsNextPageInContext(true);

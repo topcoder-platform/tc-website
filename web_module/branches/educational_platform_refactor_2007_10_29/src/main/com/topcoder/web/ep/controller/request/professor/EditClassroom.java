@@ -19,10 +19,10 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.LongBase;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -138,10 +138,14 @@ public class EditClassroom extends LongBase {
                         c.setStatusId(Classroom.ACTIVE);
                         c.setSchool(s);
 
-                        Set<Coder> sc = c.getStudents(StudentClassroom.PENDING_STATUS);
-                        sc.addAll(c.getStudents(StudentClassroom.ACTIVE_STATUS));
+//                        Set<Coder> sc = c.getStudents(StudentClassroom.PENDING_STATUS);
+//                        sc.addAll(c.getStudents(StudentClassroom.ACTIVE_STATUS));
 
-                        Set<Coder> ps = c.getProfessor().getStudents(s);
+                        List<Coder> sc = DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.PENDING_STATUS);
+                        sc.addAll(DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.ACTIVE_STATUS));
+                        
+//                        Set<Coder> ps = c.getProfessor().getStudents(s);
+                        List<Coder> ps = DAOUtil.getFactory().getStudentClassroomDAO().findUsingProfessorIdSchoolId(c.getProfessor().getId(), s.getId());
 
                         // if editing or no student to select, we go directly to the confirmation
                         if (c.getId() == null && (sc.size() > 0 || ps.size() > 0)) {

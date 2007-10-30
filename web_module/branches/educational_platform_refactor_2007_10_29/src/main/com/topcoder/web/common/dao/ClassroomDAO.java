@@ -2,7 +2,7 @@ package com.topcoder.web.common.dao;
 
 import java.util.List;
 
-import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.ep.model.Classroom;
 
 /**
  * @author pulky

@@ -12,10 +12,10 @@ import java.util.Map;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.controller.request.student.StudentHomeDetailRow;
 import com.topcoder.web.ep.controller.request.student.StudentHomeRow;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 
 /**
  * @author Pablo Wolfus (pulky)

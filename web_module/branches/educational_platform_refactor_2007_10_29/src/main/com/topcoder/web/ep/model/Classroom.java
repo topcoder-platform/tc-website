@@ -3,13 +3,11 @@
 *
 * Created Sep 10, 2007
 */
-package com.topcoder.web.common.model.educ;
+package com.topcoder.web.ep.model;
 
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,6 +27,7 @@ import org.hibernate.annotations.Parameter;
 
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.School;
+import com.topcoder.web.common.model.educ.Professor;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -131,16 +130,16 @@ public class Classroom {
     }
 
 
-    @Transient
-    public Set<Coder> getStudents(Long statusId) {
-        SortedSet<Coder> cs = new TreeSet<Coder>(new StudentComparator());
-        for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
-            if (sc.getStatusId().equals(statusId)) {
-                cs.add(sc.getId().getStudent());
-            }
-        }
-        return cs;
-    }    
+//    @Transient
+//    public Set<Coder> getStudents(Long statusId) {
+//        SortedSet<Coder> cs = new TreeSet<Coder>(new StudentComparator());
+//        for (StudentClassroom sc : (Set<StudentClassroom>) this.studentClassrooms) {
+//            if (sc.getStatusId().equals(statusId)) {
+//                cs.add(sc.getId().getStudent());
+//            }
+//        }
+//        return cs;
+//    }    
 
     @Transient
     public StudentClassroom getStudentClassroom(StudentClassroom orig) {

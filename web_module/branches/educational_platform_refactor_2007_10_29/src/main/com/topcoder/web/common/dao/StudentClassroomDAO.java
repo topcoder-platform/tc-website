@@ -1,6 +1,9 @@
 package com.topcoder.web.common.dao;
 
-import com.topcoder.web.common.model.educ.StudentClassroom;
+import java.util.List;
+
+import com.topcoder.web.common.model.Coder;
+import com.topcoder.web.ep.model.StudentClassroom;
 
 /**
  * @author pulky
@@ -12,5 +15,9 @@ public interface StudentClassroomDAO extends GenericDAO<StudentClassroom, Studen
     public StudentClassroom findUsingStudentIdClassroomId(Long studentId, Long classroomId);
     
     public StudentClassroom findActiveUsingStudentIdClassroomId(Long studentId, Long classroomId);
+
+    public List<Coder> findUsingProfessorIdSchoolId(Long professorId, Long schoolId);
+
+    public List<Coder> findUsingClassroomIdStatusId(Long classroomId, Long statusId);
 
 }

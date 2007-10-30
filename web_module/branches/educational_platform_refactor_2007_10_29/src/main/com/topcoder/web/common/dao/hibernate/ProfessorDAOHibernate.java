@@ -6,7 +6,7 @@ import org.hibernate.criterion.Restrictions;
 
 import com.topcoder.web.common.dao.ProfessorDAO;
 import com.topcoder.web.common.model.educ.Professor;
-import com.topcoder.web.common.model.educ.StudentClassroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 
 
 /**

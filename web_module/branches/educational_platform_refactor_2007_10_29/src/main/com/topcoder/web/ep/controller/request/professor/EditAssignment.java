@@ -27,12 +27,12 @@ import com.topcoder.web.common.model.algo.ProblemSet;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundComponent;
 import com.topcoder.web.common.model.algo.RoundProperty;
-import com.topcoder.web.common.model.educ.AssignmentScoreType;
-import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.ShortBase;
 import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
+import com.topcoder.web.ep.model.AssignmentScoreType;
+import com.topcoder.web.ep.model.Classroom;
 
 /**
  * @author Pablo Wolfus (pulky)
