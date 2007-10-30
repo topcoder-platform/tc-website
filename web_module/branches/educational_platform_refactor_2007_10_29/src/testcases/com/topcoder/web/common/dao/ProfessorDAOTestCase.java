@@ -83,11 +83,11 @@ public class ProfessorDAOTestCase extends TCHibernateTestCase {
         b = DAOUtil.getFactory().getProfessorDAO().isProfessor(9999l);
         assertFalse("Should not be a professor ", b);
         
-        b = DAOUtil.getFactory().getProfessorDAO().hasActiveProfessors(119676l);
-        assertTrue("Should have active professor", b);
-        
-        b = DAOUtil.getFactory().getProfessorDAO().hasActiveProfessors(9999l);
-        assertFalse("Should not have active professor", b);
+//        b = DAOUtil.getFactory().getProfessorDAO().hasActiveProfessors(119676l);
+//        assertTrue("Should have active professor", b);
+//        
+//        b = DAOUtil.getFactory().getProfessorDAO().hasActiveProfessors(9999l);
+//        assertFalse("Should not have active professor", b);
         
         
         p2.getUser().setProfessor(null);

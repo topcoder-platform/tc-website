@@ -69,7 +69,7 @@ public class Home extends SharedBaseProcessor {
             getRequest().setAttribute("schoolName", schools.values().iterator().next().getSchoolName());                
         }
 
-        if (DAOUtil.getFactory().getProfessorDAO().hasActiveProfessors(getUser().getId())) {
+        if (schools.size() > 0) {
             log.debug("student with registration");
             // user already registered
             getRequest().setAttribute("schools", schools.values());                
