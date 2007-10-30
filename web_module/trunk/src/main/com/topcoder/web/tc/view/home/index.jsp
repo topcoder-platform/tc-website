@@ -145,9 +145,9 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN 
+                <%-- DIGITAL RUN --%>
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-                --%>
+                
                 
                 <%-- DIGITAL RUN ASSEMBLY CUP 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></A>
@@ -189,9 +189,9 @@
                 <A href="<tc-webtag:linkTracking link='http://studio.topcoder.com/?module=ViewContestDetails&ct=2093' refer='homepage' />"><img src="/i/home/licenseIDProject.jpg" alt="License ID Project" border="0" style="display:block;"/></A>
                 --%>
                 
-                <%-- CSF --%>
+                <%-- CSF 
                 <A href="<tc-webtag:linkTracking link='http://csf.topcoder.com/forums?module=Thread&threadID=123&start=0' refer='tc_Index'/>"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF Powered by TopCoder" style="display:block;" /></A>
-                
+                --%>
                 
                <%-- TCCC07 
                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=about' refer='homepage' />"><img src="/i/home/tccc07_promo.png" alt="2007 TopCoder Collegiate Challenge" /></A>
