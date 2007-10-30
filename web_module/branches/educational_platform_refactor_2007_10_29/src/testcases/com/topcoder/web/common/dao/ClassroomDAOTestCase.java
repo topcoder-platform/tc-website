@@ -5,7 +5,6 @@
 */
 package com.topcoder.web.common.dao;
 
-import java.util.HashSet;
 import java.util.List;
 
 import com.topcoder.web.common.model.Coder;
@@ -35,9 +34,12 @@ public class ClassroomDAOTestCase extends TCHibernateTestCase {
             p.setUser(u);
             u.setProfessor(p);
         } else {
-            //remove professor's classrooms
-            //TODO: needs work 
-//            p.setClassrooms(new HashSet<Classroom>());
+            // delete all professor's classrooms
+            List<Classroom> lc = DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingProfessorId(p.getId());
+
+            for (Classroom cls : lc) {
+                DAOUtil.getFactory().getClassroomDAO().delete(cls);
+            }
         }
 
         DAOUtil.getFactory().getProfessorDAO().saveOrUpdate(p);
@@ -98,7 +100,7 @@ public class ClassroomDAOTestCase extends TCHibernateTestCase {
         assertTrue("Could not found classroom using professor " + c.getId(), found);
         
 
-        // look for c using student
+        // look for c using student, status
         lc = DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(s.getId(), StudentClassroom.ACTIVE_STATUS);
         found = false;
         for (Classroom cls : lc) {
@@ -108,6 +110,16 @@ public class ClassroomDAOTestCase extends TCHibernateTestCase {
         }
         assertTrue("Could not found classroom using student " + c.getId(), found);
         
+        // look for c using student
+        lc = DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(s.getId());
+        found = false;
+        for (Classroom cls : lc) {
+            if (cls.equals(c)) {
+                found = true;
+            }
+        }
+        assertTrue("Could not found classroom using student " + c.getId(), found);
+
         lc = DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(99999l, StudentClassroom.ACTIVE_STATUS);
         assertTrue("There should not be classrooms for an invalid student ", lc.size() == 0);
 

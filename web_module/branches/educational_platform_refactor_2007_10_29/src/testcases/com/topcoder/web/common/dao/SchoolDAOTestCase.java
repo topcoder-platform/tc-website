@@ -52,10 +52,13 @@ public class SchoolDAOTestCase extends TCHibernateTestCase {
         User u = DAOUtil.getFactory().getUserDAO().find("bauna", true);
         Professor delete = u.getProfessor(); 
         if (delete != null) {
-//            for (Classroom c : delete.getClassrooms()) {
-//                System.out.println(c.getName());
-//            }
-            
+            // delete all professor's classrooms
+            List<Classroom> lc = DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingProfessorId(delete.getId());
+
+            for (Classroom cls : lc) {
+                DAOUtil.getFactory().getClassroomDAO().delete(cls);
+            }
+
             u.setProfessor(null);
             DAOUtil.getFactory().getProfessorDAO().delete(delete);
         }
@@ -128,7 +131,14 @@ public class SchoolDAOTestCase extends TCHibernateTestCase {
 
         Professor p2 = DAOUtil.getFactory().getProfessorDAO().find(p.getId());
         p2.getUser().setProfessor(null);
-        
+
+        // delete all professor's classrooms
+        List<Classroom> lc = DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingProfessorId(p2.getId());
+
+        for (Classroom cls : lc) {
+            DAOUtil.getFactory().getClassroomDAO().delete(cls);
+        }
+
         DAOUtil.getFactory().getProfessorDAO().delete(p2);
     }
 
