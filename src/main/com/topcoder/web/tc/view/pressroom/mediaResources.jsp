@@ -128,6 +128,8 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd><a target="_blank" href="http://www.youtube.com/watch?v=NadhzzMoMus">Psyho-Analysis <br /><small style="margin-left:10px;">[October 24]</small></a></dd>
+                    <dd><a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20is%20Going%20to%20Disney%20World">TC Channel Reports from TCCC07 <br /><small style="margin-left:10px;">[October 23]</small></a></dd>
                     <dd><a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep05">TC Channel: Episode 5 <br /><small style="margin-left:10px;">[September 25]</small></a></dd>
                     <dd><a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep04">TC Channel: Episode 4 <br /><small style="margin-left:10px;">[August 27]</small></a></dd>
                     <dd><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies">2007 TopCoder Open webcast <br /><small style="margin-left:10px;">[August 3]</small></a></dd>
