@@ -5,6 +5,7 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrLocal;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.educ.Professor;
@@ -32,6 +33,8 @@ public class EnableTeacher extends ShortHibernateProcessor {
                 UserPrincipal up = pm.getUser(professorId);
                 RolePrincipal rp = pm.getRole(Constants.PROFESSOR_ROLE_ID);
                 pm.assignRole(up, rp, new TCSubject(100129));
+                //remove any cached stuff for the teacher
+                SecurityHelper.getUserSubject(teacher.getId(), true);
             } else {
                 throw new NavigationException("invalid status for teacher, can't activate " + teacher.getStatus().getId());
             }
