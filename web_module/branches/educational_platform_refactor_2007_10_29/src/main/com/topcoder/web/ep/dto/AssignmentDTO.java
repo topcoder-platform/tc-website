@@ -1,10 +1,13 @@
 package com.topcoder.web.ep.dto;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AssignmentDTO {
+public class AssignmentDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
+    
     private Long roundId = null;
     private Long classroomId = null;
     private String classroomName = null;

@@ -19,12 +19,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
+import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.educ.Professor;
@@ -35,7 +38,7 @@ import com.topcoder.web.common.model.educ.Professor;
  */
 @Entity
 @Table(name="classroom")
-public class Classroom {
+public class Classroom extends Base implements HttpSessionBindingListener {
 
     public static final Integer ACTIVE = 1;
     private Long id;
@@ -209,6 +212,12 @@ public class Classroom {
             return false;
         return true;
     }
-    
-    
+
+    public void valueBound(HttpSessionBindingEvent arg0) {
+        log.debug("Bounding classroom : " + ((this.name != null) ? this.name : "unk"));
+    }
+
+    public void valueUnbound(HttpSessionBindingEvent arg0) {
+        log.debug("Unbounding classroom : " + ((this.name != null) ? this.name : "unk"));
+    }
 }

@@ -14,6 +14,7 @@ import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.ep.util.Helper;
 
 /**
  * @author Pablo Wolfus (pulky)

@@ -28,6 +28,8 @@ import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
 import com.topcoder.web.ep.model.AssignmentScoreType;
 import com.topcoder.web.ep.model.Classroom;
 import com.topcoder.web.ep.model.StudentClassroom;
+import com.topcoder.web.ep.util.StudentReportDetailRow;
+import com.topcoder.web.ep.util.StudentReportRow;
 
 /**
  * @author Pablo Wolfus (pulky)

@@ -23,7 +23,7 @@ import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.algo.RoundRegistration;
 import com.topcoder.web.ep.Constants;
-import com.topcoder.web.ep.controller.request.ArenaServicesFactory;
+import com.topcoder.web.ep.arena.ArenaServicesFactory;
 import com.topcoder.web.ep.model.Classroom;
 import com.topcoder.web.ep.model.StudentClassroom;
 

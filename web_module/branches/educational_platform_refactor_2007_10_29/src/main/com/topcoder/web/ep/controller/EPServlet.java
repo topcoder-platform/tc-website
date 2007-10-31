@@ -10,7 +10,7 @@ import java.util.MissingResourceException;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.ep.controller.request.RoundEventInitializer;
+import com.topcoder.web.ep.arena.RoundEventInitializer;
 
 /**
  * @author Pablo Wolfus (pulky)

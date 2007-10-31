@@ -3,7 +3,7 @@
 *
 * Created Oct 2, 2007
 */
-package com.topcoder.web.ep.controller.request;
+package com.topcoder.web.ep.arena;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;

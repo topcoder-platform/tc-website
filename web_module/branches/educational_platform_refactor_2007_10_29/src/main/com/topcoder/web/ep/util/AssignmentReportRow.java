@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.topcoder.web.ep.controller.request.reports;
+package com.topcoder.web.ep.util;
 
 /**
  * @author Pablo

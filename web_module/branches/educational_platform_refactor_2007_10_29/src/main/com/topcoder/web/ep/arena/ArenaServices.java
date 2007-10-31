@@ -1,4 +1,4 @@
-package com.topcoder.web.ep.controller.request;
+package com.topcoder.web.ep.arena;
 
 import java.util.List;
 
