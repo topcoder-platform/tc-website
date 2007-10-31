@@ -20,6 +20,15 @@
         <%--
         <a style="position: absolute; top: 60px; left: 460px;" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=registerNow"><img src="/i/tournament/tccc07/registerNow.png" alt="REGISTER NOW!" /></a>
         --%>
+        <div style="position: absolute; top: 45px; left: 365px;">
+            <map name="tccc07headerLinks">
+            <area shape="rect" alt="" coords="1,75,107,150" target="_blank" href="/pdfs/tournaments/TCCC07_Program_View.pdf" />
+            <area shape="rect" alt="" coords="125,75,208,106" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movies" />
+            <area shape="rect" alt="" coords="225,75,305,106" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=photos" />
+            <area shape="rect" alt="" coords="323,75,400,106" target="_blank" href="http://www.topcoder.com/wiki/pages/viewrecentblogposts.action?key=tccc07" />
+            </map>
+            <img src="/i/tournament/tccc07/headerLinks.png" alt="TCCC07 Header Links" usemap="#tccc07headerLinks" style="display: block;" />
+        </div>
     </div>
     
     <div style="margin-top:0px;">
