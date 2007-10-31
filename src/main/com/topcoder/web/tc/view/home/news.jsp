@@ -18,11 +18,11 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.29.07<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://www.topcoder.com/wiki/pages/viewrecentblogposts.action?key=tccc07">TCCC07: Meet the Bloggers</A></span><br /><br />
+        <A href="http://www.topcoder.com/wiki/display/tccc07/2007/10/29/Meet+the+TCCC+Bloggers">TCCC07: Meet the Bloggers</A></span><br /><br />
         Collegiate Challenge week is here, and so the coverage begins from <tc-webtag:handle coderId="2057853" /> and <tc-webtag:handle coderId="8510917" />, the winners of the 2007 TCCC blogging contest. Check out their introductory blogs, post comments in the story pages, and be sure to check in all week long for live-blogging from Walt Disney World!</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="http://www.topcoder.com/wiki/pages/viewrecentblogposts.action?key=tccc07">details</a> | 
+        <A href="http://www.topcoder.com/wiki/display/tccc07/2007/10/29/Meet+the+TCCC+Bloggers">details</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
