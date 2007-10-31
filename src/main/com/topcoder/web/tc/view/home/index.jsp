@@ -86,9 +86,10 @@
         <%-- TCCC07 --%>
         <map name="tccc07">
         <area shape="rect" alt="" coords="1,1,260,150" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about" />
-        <area shape="rect" alt="" coords="280,20,490,40" target="_blank" href="/pdfs/tournaments/TCCC07_Program_View.pdf" />
-        <area shape="rect" alt="" coords="280,60,490,80" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=photos" />
-        <area shape="rect" alt="" coords="280,100,490,120" target="_blank" href="http://www.topcoder.com/wiki/pages/viewrecentblogposts.action?key=tccc07" />
+        <area shape="rect" alt="" coords="280,9,480,30" target="_blank" href="/pdfs/tournaments/TCCC07_Program_View.pdf" />
+        <area shape="rect" alt="" coords="280,47,480,65" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movies" />
+        <area shape="rect" alt="" coords="280,85,480,100" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=photos" />
+        <area shape="rect" alt="" coords="280,118,480,135" target="_blank" href="http://www.topcoder.com/wiki/pages/viewrecentblogposts.action?key=tccc07" />
         </map>
         <img src="/i/home/tccc07PDFphotosBlogs.png" alt="TCCC07" usemap="#tccc07" style="display: block;" />
         
