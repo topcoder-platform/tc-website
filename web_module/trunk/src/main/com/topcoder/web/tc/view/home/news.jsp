@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.31.07<br />7:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">Development</A> Finals: Round 1</span><br /><br />
+      Round 1 for the Component Design and Development Finals has completed.  Be sure to check out the analysis from the review board!</td>
+         <td class="newsPhoto">&nbsp;</td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">design</A> | 
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">development</A> | 
+         <tc-webtag:forumLink forumID="518024" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.31.07<br />5:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -163,18 +180,5 @@
         <A href="/tc?module=COMHistory&achtid=7">development</a> | 
         <tc-webtag:forumLink forumID="517934" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br />10.23.07<br />3:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20is%20Going%20to%20Disney%20World">TC Channel Reports from TCCC07</A></span><br /><br />
-        Markus, Dean and Sarah Ramkissoon will be in Disney all next week, bringing you nightly TC Channel reports for all three days of the TCCC. Click <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20is%20Going%20to%20Disney%20World">here</a> to view the promo.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20is%20Going%20to%20Disney%20World">details</a> | 
-        <tc-webtag:forumLink forumID="517933" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
    
