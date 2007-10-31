@@ -93,9 +93,7 @@
                 --%>
                     | <a href="/tc?module=TCCC07ViewRegistrants&et=<%=EventType.ALGORITHM_TOURNAMENT_ID%>"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a>
                     | <a href="/tc?module=TCCC07AlgorithmAdvancers"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a>
-                <%--
-                    | <a href=""<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a>
-                --%>
+                    | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi01"<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a>
                 </p>
             <% } else if (tabLev1.equals(EventType.COMPONENT_TOURNAMENT_ID.toString())) { %>
                 <p id="secondaryNav">
@@ -183,10 +181,12 @@
                 <% } else if (tabLev2.equals("summary")) { %>
                     <p id="tertiaryNav">
                         <a href=""<% if (tabLev3.equals("room1")) {%> class="on"<% } %>>Room 1</a>
+                        <%--
                         | <a href=""<% if (tabLev3.equals("room2")) {%> class="on"<% } %>>Room 2</a>
                         | <a href=""<% if (tabLev3.equals("room3")) {%> class="on"<% } %>>Room 3</a>
                         | <a href=""<% if (tabLev3.equals("wildcard")) {%> class="on"<% } %>>Wildcard</a>
                         | <a href=""<% if (tabLev3.equals("finals")) {%> class="on"<% } %>>Finals</a>
+                        --%>
                     </p>
                 <% } %>
             <% } else if (tabLev1.equals(EventType.COMPONENT_TOURNAMENT_ID.toString())) { %>
