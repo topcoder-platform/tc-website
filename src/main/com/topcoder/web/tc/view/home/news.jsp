@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.31.07<br />12:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi01">TCCC07 Room 1 - Problem Set &amp; Analysis</A></span><br /><br />
+      <tc-webtag:handle coderId="10574855" context="algorithm"/>, the top seed of TCCC-2007 and the reigning champion, started his title defence with an overwhelming win in Semi 1. He needed only 40 minutes to submit 3 correct solutions for almost 1600 points and advance to the Championship round. "The only Dutch coder without a tournament win", <tc-webtag:handle coderId="9906197" context="algorithm"/>, advanced to the Finals too, as he was the only other coder with correct submissions for all 3 problems. Croatian fellows <tc-webtag:handle coderId="310333" context="algorithm"/> and <tc-webtag:handle coderId="7390467" context="algorithm"/> will go to the WildCard, as well as <tc-webtag:handle coderId="22652597" context="algorithm"/> and <tc-webtag:handle coderId="8472826" context="algorithm"/>.</td>
+         <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi01">details</A> | 
+         <tc-webtag:forumLink forumID="518014" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.30.07<br />5:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A target="_blank" href="<tc-webtag:linkTracking link='http://csf.topcoder.com/forums?module=Thread&threadID=123&start=0' refer='/tc' />">CSF Mashup Assembly $40,000.00 Series Prize Purse Winners</A></span><br /><br />
@@ -160,21 +176,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm372">details</A> | 
          <tc-webtag:forumLink forumID="516069" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.22.07<br />2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm42">TCHS SRM 42 - Problem Set &amp; Analysis</A></span><br /><br />
-      With 102 registrants, 13 of them were newcomers, the TopCoder High School Single Round Match 42 started, and 91 contestants competed.</td>
-         <td class="newsPhoto"><img src="/i/m/mohamedafattah_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="15917161" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm42">details</A> | 
-         <tc-webtag:forumLink forumID="516568" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
    
