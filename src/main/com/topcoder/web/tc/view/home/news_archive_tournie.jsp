@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">10.31.07 7:30 PM - </td><td width="100%">Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">Development</A> Finals: Round 1</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.31.07 5:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi02">ACRush wins Room 2!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.31.07 12:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi01">Petr wins Room 1!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.29.07 5:00 PM - </td><td width="100%"><A href="http://www.topcoder.com/wiki/display/tccc07/2007/10/29/Meet+the+TCCC+Bloggers">TCCC07: Meet the Bloggers</A></td></tr>
