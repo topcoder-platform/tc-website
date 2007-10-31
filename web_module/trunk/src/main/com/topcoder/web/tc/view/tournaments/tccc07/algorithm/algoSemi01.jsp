@@ -24,7 +24,7 @@
         </jsp:include>
         
         <div id="pageBody">
-            <h1><span>Petr wins Room 1</span></h1>
+            <h1><span>Petr wins Room 1!</span></h1>
             <p><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
             <A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=518014">Discuss this match</A><br />Wednesday, October 31, 2007<br />Introduction by <tc-webtag:handle coderId="303644" context="algorithm"/></p>
             
