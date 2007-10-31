@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.31.07<br />5:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi02">TCCC07 Room 2 - Problem Set &amp; Analysis</A></span><br /><br />
+      The highest rated TopCoder member <tc-webtag:handle coderId="19849563" context="algorithm"/> had plenty of strong opponents in Semi 2 - <tc-webtag:handle coderId="309982" context="algorithm"/> and <tc-webtag:handle coderId="7390224" context="algorithm"/> (two former 3000+ coders), <tc-webtag:handle coderId="21971539" context="algorithm"/> and <tc-webtag:handle coderId="7421158" context="algorithm"/> (both at the top of their form) and the third highest rated coder <tc-webtag:handle coderId="7442498" context="algorithm"/> (he is also the highest rated polish coder, the title worth many others). Nevertheless, the rating favorite cruised through the packed field with correct solutions for all 3 problems and an impressive win.</td>
+         <td class="newsPhoto"><img src="/i/m/ivan_metelsky_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="10481120" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi02">details</A> | 
+         <tc-webtag:forumLink forumID="518015" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.31.07<br />12:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -160,21 +176,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20is%20Going%20to%20Disney%20World">details</a> | 
         <tc-webtag:forumLink forumID="517933" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.22.07<br />2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm372">SRM 372 - Problem Set &amp; Analysis</A></span><br /><br />
-      SRM 372 was the scene for fierce TopCoder programming action, as 1450 competitors showed up to do battle in the penultimate warmup to the TCCC '07 finals.</td>
-         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="7296000" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm372">details</A> | 
-         <tc-webtag:forumLink forumID="516069" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
