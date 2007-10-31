@@ -447,7 +447,7 @@
             <strong>10.31</strong> - TCCC Algo Room 1 - 8:30 AM<br /><br />
             <strong>10.31</strong> - TCCC Marathon Match Finals - 9 AM<br /><br />
             <strong>10.31</strong> - TCCC CDDC 1 - 1 PM<br /><br />
-            <strong>10.31</strong> - TCCC Algo Room 2 - 4 PM<br /><br />
+            <strong>10.31</strong> - TCCC Algo Room 2 - 2 PM<br /><br />
             <%--<strong>01.13</strong> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br /><br />--%>
         </td>
     </tr>

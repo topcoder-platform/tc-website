@@ -220,7 +220,7 @@
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule">Algo Room 2</A></strong><br>
-         4:00 PM 
+         2:00 PM 
          </div>
       </td>
       <td class="empty">&#160;<br><br><br><br><br></td>
