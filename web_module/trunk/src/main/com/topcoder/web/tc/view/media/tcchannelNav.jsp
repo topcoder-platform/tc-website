@@ -2,8 +2,26 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <c:choose>
-    <c:when test="${param['clip']=='ep05' || param['clip']==null}">
-        <strong>Episode 5</strong>
+    <c:when test="${param['clip']=='ep06_part1' || param['clip']==null}">
+        <strong>TC Channel at the TCCC07 Part 1</strong>
+        (<tc-webtag:forumLink forumID="517933" message="discuss" />)
+    </c:when>
+    <c:otherwise>
+        <a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep06_part1">TC Channel at the TCCC07 Part 1</a>
+    </c:otherwise>
+</c:choose>
+<c:choose>
+    <c:when test="${param['clip']=='ep06_trailer'}">
+        <br /><strong>TC Channel is Going to Disney World</strong>
+        (<tc-webtag:forumLink forumID="517933" message="discuss" />)
+    </c:when>
+    <c:otherwise>
+        <br /><a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep06_trailer">TC Channel is Going to Disney World</a>
+    </c:otherwise>
+</c:choose>
+<c:choose>
+    <c:when test="${param['clip']=='ep05'}">
+        <br /><strong>Episode 5</strong>
         (<tc-webtag:forumLink forumID="517575" message="discuss" />)
         <div style="margin-left: 10px;">
             00:00 Introduction
@@ -16,7 +34,7 @@
         </div>
     </c:when>
     <c:otherwise>
-        <a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep05">Episode 5</a>
+        <br /><a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep05">Episode 5</a>
     </c:otherwise>
 </c:choose>
 <c:choose>
