@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />11.01.07<br />2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi03">Vitaliy wins Room 3!</A></span><br /><br />
+      One of our two bloggers, <tc-webtag:handle coderId="2057853" context="algorithm"/>, has provided an excellent <a target="_blank" href="http://www.topcoder.com/wiki/display/tccc07/2007/11/01/Algorithm+SemiFinal+Room+3">synopsis</a> of Room 3.  Be sure to check out the action.</td>
+         <td class="newsPhoto"><img src="/i/m/ivan_metelsky_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="10481120" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi03">details</A> | 
+         <tc-webtag:forumLink forumID="518016" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.01.07<br />11:15 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A target="_blank" href="<tc-webtag:linkTracking link='http://www.nytimes.com/idg/IDG_002570DE00740E1800257384005A2F1F.html?ref=technology' refer='/tc' />">College Coders Vie for Cash in Contest</A></span><br /><br />
@@ -157,20 +173,6 @@
         <A href="/tc?module=SurveyResults&sid=20540">vote results</a> | 
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2138">contest details</a> | 
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=1020&start=0">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.26.07<br />11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=20540">Vote for the TCHS08 logo</A></span><br /><br />
-        The TCHS (TopCoder High School tournament) brings together some of the most talented high school students in a heated battle for bragging rights and scholarships. Vote now for the logo that will represent the TopCoder High School tournament!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=20540">vote</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2138">contest details</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=1015&start=0&mc=1#3952">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
