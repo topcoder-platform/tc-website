@@ -66,7 +66,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.31.07<br />5:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi02">TCCC07 Room 2 - Problem Set &amp; Analysis</A></span><br /><br />
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi02">ACRush wins Room 2!</A></span><br /><br />
       The highest rated TopCoder member <tc-webtag:handle coderId="19849563" context="algorithm"/> had plenty of strong opponents in Semi 2 - <tc-webtag:handle coderId="309982" context="algorithm"/> and <tc-webtag:handle coderId="7390224" context="algorithm"/> (two former 3000+ coders), <tc-webtag:handle coderId="21971539" context="algorithm"/> and <tc-webtag:handle coderId="7421158" context="algorithm"/> (both at the top of their form) and the third highest rated coder <tc-webtag:handle coderId="7442498" context="algorithm"/> (he is also the highest rated polish coder, the title worth many others). Nevertheless, the rating favorite cruised through the packed field with correct solutions for all 3 problems and an impressive win.</td>
          <td class="newsPhoto"><img src="/i/m/ivan_metelsky_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="10481120" context="algorithm"/></td></tr></table>
       </td>
@@ -82,7 +82,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.31.07<br />12:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi01">TCCC07 Room 1 - Problem Set &amp; Analysis</A></span><br /><br />
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi01">Petr wins Room 1!</A></span><br /><br />
       <tc-webtag:handle coderId="10574855" context="algorithm"/>, the top seed of TCCC-2007 and the reigning champion, started his title defence with an overwhelming win in Semi 1. He needed only 40 minutes to submit 3 correct solutions for almost 1600 points and advance to the Championship round. "The only Dutch coder without a tournament win", <tc-webtag:handle coderId="9906197" context="algorithm"/>, advanced to the Finals too, as he was the only other coder with correct submissions for all 3 problems. Croatian fellows <tc-webtag:handle coderId="310333" context="algorithm"/> and <tc-webtag:handle coderId="7390467" context="algorithm"/> will go to the WildCard, as well as <tc-webtag:handle coderId="22652597" context="algorithm"/> and <tc-webtag:handle coderId="8472826" context="algorithm"/>.</td>
          <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
       </td>
