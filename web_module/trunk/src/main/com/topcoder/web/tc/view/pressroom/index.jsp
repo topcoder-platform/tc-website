@@ -102,6 +102,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- Orlando Sentinel begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/business/orl-bk-topcoder110107,0,3810238.story?coll=orl_tab01_layout' refer='pr_index' />"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/business/orl-bk-topcoder110107,0,3810238.story?coll=orl_tab01_layout' refer='pr_index' />">Local eliminated, but TopCoder Collegiate Challenge continues</a></h3>
+                        <p>Inside the Contemporary Hotel at Walt Disney World this week, 48 competitors are vying for $25,000 in the algorithm competition of the TopCoder Collegiate Challenge.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/business/orl-bk-topcoder110107,0,3810238.story?coll=orl_tab01_layout' refer='pr_index' />">[November 1]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Orlando Sentinel end --%>
+                
                 <%-- The New York Times begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
