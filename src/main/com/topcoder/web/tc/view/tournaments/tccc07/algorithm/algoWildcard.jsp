@@ -24,7 +24,7 @@
         </jsp:include>
         
         <div id="pageBody">
-            <h1><span>cyfra wins the Wildcard!</span></h1>
+            <h1><span>cyfra wins the Wildcard round!</span></h1>
             <p><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
             <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=518017">Discuss this match</A><br />Thursday, November 1, 2007<br />Introduction by <tc-webtag:handle coderId="303644" context="algorithm"/></p>
             <p style="float:right; width:200px; 350px; margin-left:10px;"><img src="/i/tournament/tccc07/shotR4.jpg"></p>

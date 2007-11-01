@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />11.01.07<br />5:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoWildcard">cyfra wins the Wildcard round!</A></span><br /><br />
+      <tc-webtag:handle coderId="2057853" context="algorithm"/> has provided yet another excellent <a target="_blank" href="http://www.topcoder.com/wiki/display/tccc07/2007/11/01/Algorithm+Wild+Card">play-by-play</a>.  Be sure to check out the action from the Wildcard round.</td>
+         <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoWildcard">details</A> | 
+         <tc-webtag:forumLink forumID="518017" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />11.01.07<br />5:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -162,17 +178,5 @@
    <tr><td class="newsLinksCell">
         <A target="_blank" href="<tc-webtag:linkTracking link='http://csf.topcoder.com/forums?module=Thread&threadID=123&start=0' refer='/tc' />">details</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.29.07<br />5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://www.topcoder.com/wiki/display/tccc07/2007/10/29/Meet+the+TCCC+Bloggers">TCCC07: Meet the Bloggers</A></span><br /><br />
-        Collegiate Challenge week is here, and so the coverage begins from <tc-webtag:handle coderId="2057853" /> and <tc-webtag:handle coderId="8510917" />, the winners of the 2007 TCCC blogging contest. Check out their introductory blogs, post comments in the story pages, and be sure to check in all week long for live-blogging from Walt Disney World!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://www.topcoder.com/wiki/display/tccc07/2007/10/29/Meet+the+TCCC+Bloggers">details</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
