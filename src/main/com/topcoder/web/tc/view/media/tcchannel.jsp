@@ -44,17 +44,19 @@
                     <script language="JavaScript">
                     var s='<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="320" height="280" id="webcast" align="middle">'
                     + '<param name="allowScriptAccess" value="always" />'
-                    + '<param name="movie" value="/flash/media/video_4x3.swf?app=tcchannel&clip=<c:out value="${param['clip']}" default="ep05" escapeXml="true"/>" />'
+                    + '<param name="movie" value="/flash/media/video_4x3.swf?app=tcchannel&clip=<c:out value="${param['clip']}" default="ep06_part1" escapeXml="true"/>" />'
                     + '<param name="quality" value="high" />'
                     + '<param name="bgcolor" value="#000000" />'
                     + '<param name="allowFullScreen" value="true" />'
-                    + '<embed src="/flash/media/video_4x3.swf?app=tcchannel&clip=<c:out value="${param['clip']}" default="ep05" escapeXml="true"/>" quality="high" bgcolor="#000000" allowFullScreen="true" width="320" height="280" name="webcast" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />'
+                    + '<embed src="/flash/media/video_4x3.swf?app=tcchannel&clip=<c:out value="${param['clip']}" default="ep06_part1" escapeXml="true"/>" quality="high" bgcolor="#000000" allowFullScreen="true" width="320" height="280" name="webcast" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />'
                     + '</object>';
                     doWrite(s);
                     </script>
                 </div>
 
-                <jsp:include page="tcchannelNav.jsp" />
+                <div style="margin-top: 10px;">
+                    <jsp:include page="tcchannelNav.jsp" />
+                </div>
 
                 <p style="margin-top: 30px;">
                     Comments? Ideas? Have a video clip you'd like to share? We want your feedback so drop us an email at <A href="mailto:tcchannel@topcoder.com">tcchannel@topcoder.com</A>.
