@@ -17,7 +17,7 @@
         }
         var imageNum = 1;
                 
-        var count = 148;
+        var count = 147;
         var images = new Array(count);
         for (var i=0; i<count; i++) {
             images[i]= "/i/tournament/tccc07/onsitePhotos/"+lpad(i+1)+".jpg";
