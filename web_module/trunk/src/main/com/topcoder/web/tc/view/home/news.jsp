@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />11.01.07<br />5:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">Development</A> Finals: Round 2</span><br /><br />
+      Round 2 of the Component Design and Development Finals has completed.  Be sure to check out the analysis from the review board!</td>
+         <td class="newsPhoto">&nbsp;</td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">design</A> | 
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">development</A> | 
+         <tc-webtag:forumLink forumID="518024" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.01.07<br />4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/business/orl-bk-topcoder110107,0,3810238.story?coll=orl_tab01_layout' refer='/tc' />">Local eliminated, but TopCoder Collegiate Challenge continues</A></span><br /><br />
@@ -92,7 +109,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle">Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">Development</A> Finals: Round 1</span><br /><br />
-      Round 1 for the Component Design and Development Finals has completed.  Be sure to check out the analysis from the review board!</td>
+      Round 1 of the Component Design and Development Finals has completed.  Be sure to check out the analysis from the review board!</td>
          <td class="newsPhoto">&nbsp;</td></tr></table>
       </td>
    </tr>
@@ -157,21 +174,5 @@
    <tr><td class="newsLinksCell">
         <A href="http://www.topcoder.com/wiki/display/tccc07/2007/10/29/Meet+the+TCCC+Bloggers">details</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />10.29.07<br />5:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=102607">TCCC07 Preview: The Studio competition</A></span><br /><br />
-      For the very first time in TopCoder Collegiate Challenge history, a competitor will compete to become a Studio Design Champion. The Studio Design competition was already a part of TCO07 and turned out to be a big success. Studio Design, along with Marathon Matches, are brand new tracks for TCCC this year.</td>
-         <td class="newsPhoto"><img src="/i/m/ali_raza_shaikh_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20641048" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=102607">details</A> | 
-         <tc-webtag:forumLink forumID="518008" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
