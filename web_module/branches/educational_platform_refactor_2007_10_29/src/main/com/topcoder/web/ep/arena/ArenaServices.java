@@ -12,4 +12,8 @@ public interface ArenaServices {
 
     public void updateRoundRegistration(Long roundId, List<Long> coderIds);
 
+    public boolean isSendEvent();
+    
+    public void setSendEvent(boolean sendEvent);
+    
 }
