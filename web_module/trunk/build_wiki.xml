@@ -38,6 +38,7 @@
         <pathelement location="${classes}"/>
         <pathelement location="${testclasses}"/>
         <pathelement location="${resources}"/>
+        <pathelement location="${shared.jar}"/>
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
 
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
