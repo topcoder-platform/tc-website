@@ -426,27 +426,28 @@
     </tr>
     <tr>
         <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">October Events:</A></td>
+        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">November Events:</A></td>
     </tr>
     <tr>
         <td class="homeArrow">&#160; </td>
         <td class="homeText"><br />
-            <strong>10.02</strong> - SRM 368 - 7 AM<br /><br />
-            <strong>10.04</strong> - TCCC CDDC Round 2 Projects Posted - 9 AM<br /><br />
-            <strong>10.04</strong> - SRM 369 - 7 AM<br /><br />
-            <strong>10.09</strong> - SRM 370 - 7 AM<br /><br />
-            <strong>10.10</strong> - Marathon Match 24 -  12 NOON<br /><br />
-            <strong>10.13</strong> - SRM 371 - 12 NOON<br /><br />
-            <strong>10.13</strong> - TCHS SRM 41 - 12 NOON<br /><br />
-            <strong>10.17</strong> - SRM 372 - 11 AM<br /><br />
-            <strong>10.17</strong> - TCHS SRM 42 - 11 AM<br /><br />
-            <strong>10.18</strong> - TCCC CDDC Round 3 Projects Posted - 9 AM<br /><br />
-            <strong>10.23</strong> - SRM 373 - 9 PM<br /><br />
-            <strong>10.23</strong> - TCHS SRM 43  - 9 PM<br /><br />
-            <strong>10.31</strong> - TCCC Algo Room 1 - 8:30 AM<br /><br />
-            <strong>10.31</strong> - TCCC Marathon Match Finals - 9 AM<br /><br />
-            <strong>10.31</strong> - TCCC CDDC 1 - 1 PM<br /><br />
-            <strong>10.31</strong> - TCCC Algo Room 2 - 2 PM<br /><br />
+            <strong>11.01</strong> - TCCC Algo Room 3 - 8:30 AM<br /><br />
+            <strong>11.01</strong> - TCCC Studio Finals - 9 AM<br /><br />
+            <strong>11.01</strong> - TCCC CDDC 2 - 1 PM<br /><br />
+            <strong>11.01</strong> - TCCC Wildcard - 4 PM<br /><br />
+            <strong>11.02</strong> - TCCC CDDC Finals - 9 AM<br /><br />
+            <strong>11.02</strong> - TCCC Algo Finals - 1:30 PM<br /><br />
+            <strong>11.06</strong> - SRM 374 - 11 AM<br /><br />
+            <strong>11.07</strong> - MM 25 - 12 NOON - 2 weeks<br /><br />
+            <strong>11.10</strong> - SRM 375 - 12 NOON<br /><br />
+            <strong>11.10</strong> - TCHS SRM 44 - 12 NOON<br /><br />
+            <strong>11.14</strong> - SRM 376 - 9 PM<br /><br />
+            <strong>11.17</strong> - SRM 377 - 12 NOON<br /><br />
+            <strong>11.20</strong> - SRM 378 - 11 AM<br /><br />
+            <strong>11.20</strong> - TCHS SRM 45 - 11 AM<br /><br />
+            <strong>11.28</strong> - MM 26 - 12 NOON - 1 week<br /><br />
+            <strong>11.28</strong> - SRM 379 - 9 PM<br /><br />
+            <strong>11.28</strong> - TCHS SRM 46 - 9 PM<br /><br />
             <%--<strong>01.13</strong> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br /><br />--%>
         </td>
     </tr>

@@ -89,7 +89,7 @@
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule">CDDC Finals</A></strong><br>
-         9:00 AM PDT 
+         9:00 AM 
          </div>
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
@@ -131,11 +131,11 @@
       <td class="value">10
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10794">SRM 375</A></strong><br>
-         12:00 Noon
+         12:00 NOON
          </div>
          <div class="hs">
          <strong><A href="/tc?module=MatchDetails&rd=10795">TCHS SRM 44</A></strong><br>
-         12:00 Noon
+         12:00 NOON
          </div>
       </td>
    </tr>
@@ -165,7 +165,7 @@
       <td class="value">17
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10797">SRM 377</A></strong><br>
-         12:00 Noon
+         12:00 NOON
          </div>
       </td>
    </tr>
