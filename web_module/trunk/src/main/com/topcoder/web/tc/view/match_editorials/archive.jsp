@@ -42,6 +42,12 @@
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2">
+   <strong>November</strong>
+   </td></tr>
+   <tr><td class="bodyText">11.01.07</td><td class="bodyText" nowrap="0" width="100%">TCCC07 Room 3 - <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi03">Problem Set &amp; Analysis</a></td></tr>
+   
+   <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+   <tr><td valign="middle" class="bodyText" colspan="2">
    <strong>October</strong>
    </td></tr>
    <tr><td class="bodyText">10.31.07</td><td class="bodyText" nowrap="0" width="100%">TCCC07 Room 2 - <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi02">Problem Set &amp; Analysis</a></td></tr>
