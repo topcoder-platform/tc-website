@@ -73,6 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.nytimes.com/idg/IDG_002570DE00740E1800257384005A2F1F.html?ref=technology' refer='art_archive' />">College Coders Vie for Cash in Contest <br /><small style="margin-left:10px;">[November 1 - The New York Times]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='art_archive' />">TopCoder Finds Tech Top Guns <br /><small style="margin-left:10px;">[October 31 - Investor's Business Daily]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=coder31m&date=20071031&query=michael+skinner' refer='art_archive' />">Whose mouse is mightiest? UW code whiz hopes it's his <br /><small style="margin-left:10px;">[October 31 - The Seattle Times]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.publicbroadcasting.net/wnpr/news.newsmain?action=article&ARTICLE_ID=1139736' refer='art_archive' />">6 State companies among fastest growing <br /><small style="margin-left:10px;">[August 23 - WNPR]</small></a></dd>
