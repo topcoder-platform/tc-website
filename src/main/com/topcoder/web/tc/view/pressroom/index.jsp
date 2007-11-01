@@ -102,6 +102,32 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- Investor's Business Daily begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='/pr_index' />"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='/pr_index' />">TopCoder Finds Tech Top Guns</a></h3>
+                        <p>When 120 student software programmers descend on Walt Disney World in Florida on Tuesday, they won't meet Mickey Mouse.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='/pr_index' />">[October 31]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Investor's Business Daily end --%>
+                
+                <%-- The Seattle Times begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=coder31m&date=20071031&query=michael+skinner' refer='/pr_index' />"><img src="/i/pressroom/seattleTimes_logo.png" alt="The Seattle Times" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=coder31m&date=20071031&query=michael+skinner' refer='/pr_index' />">Whose mouse is mightiest? UW code whiz hopes it's his</a></h3>
+                        <p>Michael Skinner (<tc-webtag:handle coderId="7454301" context="marathon_match" />), a UW senior, is one of just two U.S. students among the 120 finalists in the 2007 TopCoder Collegiate Challenge.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=coder31m&date=20071031&query=michael+skinner' refer='/pr_index' />">[October 31]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- The Seattle Times end --%>
+                
                 <%-- TopCoder Announces 2008 TopCoder Open begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
