@@ -27,8 +27,9 @@
             <h1><span>ACRush wins Room 2!</span></h1>
             <p><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
             <A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=518015">Discuss this match</A><br />Wednesday, October 31, 2007<br />Introduction by <tc-webtag:handle coderId="303644" context="algorithm"/></p>
+            <p style="float:right; width:200px; 350px; margin-left:10px;"><img src="/i/tournament/tccc07/shotR2.jpg"></p>
+            <br /><br />
             
-            <br />
             <p><strong>The highest rated TopCoder member <tc-webtag:handle coderId="19849563" context="algorithm"/> had plenty of strong opponents in Semi 2 - <tc-webtag:handle coderId="309982" context="algorithm"/> and <tc-webtag:handle coderId="7390224" context="algorithm"/> (two former 3000+ coders), <tc-webtag:handle coderId="21971539" context="algorithm"/> and <tc-webtag:handle coderId="7421158" context="algorithm"/> (both at the top of their form) and the third highest rated coder <tc-webtag:handle coderId="7442498" context="algorithm"/> (he is also the highest rated polish coder, the title worth many others). Nevertheless, the rating favorite cruised through the packed field with correct solutions for all 3 problems and an impressive win. <tc-webtag:handle coderId="7390224" context="algorithm"/> came second with only a slight lead over third-placed <tc-webtag:handle coderId="7421158" context="algorithm"/>. <tc-webtag:handle coderId="7442498" context="algorithm"/>, <tc-webtag:handle coderId="309982" context="algorithm"/> and <tc-webtag:handle coderId="7563318" context="algorithm"/> rounded the top 6 and extended their title campaign for at least one more day. Good luck to all advancers and hope they'll succeed in the Incredible Race as well!</strong></p>
 
 
