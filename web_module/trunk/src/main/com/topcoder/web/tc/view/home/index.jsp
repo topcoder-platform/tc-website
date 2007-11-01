@@ -402,6 +402,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            College Coders Vie for Cash in Contest
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nytimes.com/idg/IDG_002570DE00740E1800257384005A2F1F.html?ref=technology' refer='homepage_index' />">...more</a><br />[November 1]<br /><br />
+            
             TopCoder Finds Tech Top Guns
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='homepage_index' />">...more</a><br />[October 31]<br /><br />
             
@@ -416,9 +419,6 @@
             
             TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America
             <A href="/tc?module=Static&d1=pressroom&d2=pr_082707">...more</a><br />[August 27]<br /><br />
-            
-            Lilly &amp; Deutsche Bank Announced as New Sponsors &amp; NSA Returns as Patron of TCCC07
-            <A href="/tc?module=Static&d1=pressroom&d2=pr_082407">...more</a><br />[August 24]<br /><br />
             
 
 
