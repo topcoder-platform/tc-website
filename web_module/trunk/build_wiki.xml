@@ -23,6 +23,8 @@
     <property name="jboss_conf" value="${jboss_home}/server/wiki/conf"/>
     <property name="confluence_home" value="../confluence-2.6.0"/>
     <property name="confluence_war_name" value="atlassian-confluence-2.6.0.war"/>
+    <property name="shared.build" value="${basedir}/../shared"/>
+    <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
     <property environment="env"/>
 
     <property name="deprecation" value="true"/>
@@ -56,8 +58,13 @@
         <mkdir dir="${bin}"/>
     </target>
 
-    <target name="compile" depends="init" unless="compile_set">
-        <ant antfile="build_tc.xml" target="jar_shared"/>
+    <target name="compile_shared" depends="init" unless="compile_shared_set">
+        <ant dir="${shared.build}" target="jar"/>
+        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
+        <property name="compile_shared_set" value="true"/>
+    </target>
+
+    <target name="compile" depends="init, compile_shared" unless="compile_set">
         <ant antfile="build_tc.xml" target="compile"/>
         <ant antfile="build_tc.xml" target="jar_common"/>
         <ant antfile="build_tc.xml" target="build-security"/>
