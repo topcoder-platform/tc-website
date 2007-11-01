@@ -42,7 +42,7 @@
                         <td align="center" valign="top">
                             <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_part1&title=TC%20Channel%20at%20the%20TCCC07%20Part%201' refer='tccc07 site' />"><img src="/i/tournament/tccc07/tcchannelThumb1.png" alt="TC Channel Part 1" /></a>
                             <br /><A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_part1&title=TC%20Channel%20at%20the%20TCCC07%20Part%201' refer='tccc07 site' />">TC Channel at the TCCC07 Part 1</A>
-                            <%--<br /><a href="/movies/tcchannel/ep06_part1.mov">Low-bandwidth version</A> (19.1 MB)--%>
+                            <br /><a href="/movies/tcchannel/ep06_part1.mov">Low-bandwidth version</A> (2.1 MB)
                             <br />(07:03)
                         </td>
                         <td align="center" valign="top">
