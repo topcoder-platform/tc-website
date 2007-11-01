@@ -29,7 +29,7 @@
                         <A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=518024">Discuss this</A><br />
                     </div>
 
-                    <p>Wednesday, October 31, 2007<br />
+                    <p>Thursday, November 1, 2007<br />
                     by <span><strong>the Design Review Board</strong></span><br />
                     <span><em>TopCoder Members</em></span></p>
 
@@ -43,6 +43,16 @@
                     <p>It seems to be an exciting component for designers - the designer should not know some specific IT technology (such as ASP.NET, servlets, JSP, etc.) and maximum freedom for creativity is given to implement the requirements. Many requirements make the design really untrivial - the designers should have good knowledge of various design patterns to implement the required functionality and make usage of this component really easy.  Competitors had to find the golden mean between simplicity of API and the component flexibility.</p>
                     <p>Probably the most challenging parts of the component were the ability to find out what kind of graph a Graph object is (directed, undirected, acyclic, multigraph, etc.) in an efficient way and making such property settable.  The designer has to implement flexible validation support for invalid operations and powerful transformation mechanisms from one kind of graph to another one.</p> 
                     <p>Another non-trivial task was to make the graph really independent from its representation but make easy extending of both graph operations and graph representation possible. Some designers implement Bridge Design pattern to solve this task effectively.</p>
+                    <br />
+                    
+                    <%-- Round 2 --%>
+                    <p>Thursday, November 1, 2007<br />
+                    <span style="font-size:14px;"><strong>Round 2</strong></span><br />
+                    by <tc-webtag:handle coderId="152342" context="design" darkBG="true" /></p>
+                    
+                    <p>The Scrollable Data Bound Table component is a custom table component with a scrollbar. It uses AJAX to pass the data when it becomes necessary as the user slides the scroll bar up and down, and caches it on the client side to keep the network traffic down to the minimum required.</p>
+                    <p>Building a design for this component was relatively straightforward, as the web technologies that must be used place strict boundaries for the design. Understanding these technologies was crucial to submitting a working design, though. This proved too challenging for the majority of the competitors: the component got only three submissions that passed the review.</p>
+                    <p>When the requirements call for a compact design like this, the designers get fewer chances to forget a requirement, miss a relationship on a diagram, or make a mistake in an algorithm description. They also get more time to document their classes and methods well. As the result, the submitters are forced to compete on fine points of understanding the TopCoder Design Methodology and showcasing their submissions to the users (and of course to the Review Board). The winning submissions in both Java and .NET were high-quality designs with great documentation for developers, earning their authors impressive scores in the upper nineties.</p>
 
 
             </div>
