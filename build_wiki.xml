@@ -64,7 +64,7 @@
         <property name="compile_shared_set" value="true"/>
     </target>
 
-    <target name="compile" depends="init, compile_shared" unless="compile_set">
+    <target name="compile" depends="init" unless="compile_set">
         <ant antfile="build_tc.xml" target="compile"/>
         <ant antfile="build_tc.xml" target="jar_common"/>
         <ant antfile="build_tc.xml" target="build-security"/>
