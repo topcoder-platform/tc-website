@@ -402,6 +402,12 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            TopCoder Finds Tech Top Guns
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='homepage_index' />">...more</a><br />[October 31]<br /><br />
+            
+            Whose mouse is mightiest? UW code whiz hopes it's his
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=coder31m&date=20071031&query=michael+skinner' refer='homepage_index' />">...more</a><br />[October 31]<br /><br />
+            
             TopCoder Open to Feature World's Elite Software Developers
             <a href="/tc?module=Static&d1=pressroom&d2=pr_100107">...more</a><br />[October 1]<br /><br />
             
@@ -413,15 +419,6 @@
             
             Lilly &amp; Deutsche Bank Announced as New Sponsors &amp; NSA Returns as Patron of TCCC07
             <A href="/tc?module=Static&d1=pressroom&d2=pr_082407">...more</a><br />[August 24]<br /><br />
-            
-            <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/topcoder_logo.png" width="67" height="30" alt="TopCoder" border="0" />
-            </div>
-            6 State companies among fastest growing
-            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.publicbroadcasting.net/wnpr/news.newsmain?action=article&ARTICLE_ID=1139736' refer='/homepage_index' />">...more</a><br />[August 23]<br /><br />
-            
-            Introducing the TopCoder UML Tool
-            <A href="/tc?module=Static&d1=dev&d2=umltool&d3=description">...more</a><br />[August 9]<br /><br />
             
 
 

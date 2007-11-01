@@ -4,6 +4,32 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />10.31.07<br />9:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='/tc' />">TopCoder Finds Tech Top Guns</A></span><br /><br />
+        When 120 student software programmers descend on Walt Disney World in Florida on Tuesday, they won't meet Mickey Mouse.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="518026" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />10.31.07<br />9:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=coder31m&date=20071031&query=michael+skinner' refer='/tc' />">Whose mouse is mightiest? UW code whiz hopes it's his</A></span><br /><br />
+        Michael Skinner (<tc-webtag:handle coderId="7454301" context="marathon_match" />), a UW senior, is one of just two U.S. students among the 120 finalists in the 2007 TopCoder Collegiate Challenge.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=coder31m&date=20071031&query=michael+skinner' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="518025" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.31.07<br />7:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -149,36 +175,5 @@
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm43">details</A> | 
          <tc-webtag:forumLink forumID="516569" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br />10.24.07<br />12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        Psyho-Analysis</span><br /><br />
-        After two grueling weeks, <tc-webtag:handle coderId="10597114" context="marathon_match"/> stands among the leaders of Marathon Match 24 as it enters the system test phase. For us, this was enough excuse to bring back the great video profile of him produced by <tc-webtag:handle coderId="15006955" /> for the TCCC blogging contest.  If you missed it the first time, it's definitely worth clicking now.<br /><br />
-        Enjoy, and remember you can always send your videos to <a href="mailto:TCChannel@topcoder.com">TCChannel@topcoder.com</a>.
-        <br /><br />
-        <center><object width="300" height="251"><param name="movie" value="http://www.youtube.com/v/ehcFi59klfg&rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/ehcFi59klfg&rel=1" type="application/x-shockwave-flash" wmode="transparent" width="300" height="251"></embed></object></center></td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <tc-webtag:forumLink forumID="517935" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />10.23.07<br />5:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=features&d2=102307">Meet the September Coders of the Month</A></span><br /><br />
-        We caught up with two of September's "coders of the month," to learn a little bit more about them, their proudest TopCoder moments, and more...</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=102307">details</a> | 
-        <A href="/tc?module=COMHistory&achtid=5">algorithm</a> | 
-        <A href="/tc?module=COMHistory&achtid=6">design</a> | 
-        <A href="/tc?module=COMHistory&achtid=7">development</a> | 
-        <tc-webtag:forumLink forumID="517934" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
