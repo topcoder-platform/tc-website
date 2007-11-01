@@ -192,8 +192,8 @@
                         <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi01"<% if (tabLev3.equals("room1")) {%> class="on"<% } %>>Room 1</a>
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi02"<% if (tabLev3.equals("room2")) {%> class="on"<% } %>>Room 2</a>
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi03"<% if (tabLev3.equals("room3")) {%> class="on"<% } %>>Room 3</a>
+                        | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoWildcard"<% if (tabLev3.equals("wildcard")) {%> class="on"<% } %>>Wildcard</a>
                         <%--
-                        | <a href=""<% if (tabLev3.equals("wildcard")) {%> class="on"<% } %>>Wildcard</a>
                         | <a href=""<% if (tabLev3.equals("finals")) {%> class="on"<% } %>>Finals</a>
                         --%>
                     </p>
