@@ -402,6 +402,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            Local eliminated, but TopCoder Collegiate Challenge continues
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/business/orl-bk-topcoder110107,0,3810238.story?coll=orl_tab01_layout' refer='homepage_index' />">...more</a><br />[November 1]<br /><br />
+            
             College Coders Vie for Cash in Contest
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nytimes.com/idg/IDG_002570DE00740E1800257384005A2F1F.html?ref=technology' refer='homepage_index' />">...more</a><br />[November 1]<br /><br />
             
@@ -416,9 +419,6 @@
             
             TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit
             <A href="/tc?module=Static&d1=pressroom&d2=pr_092407">...more</a><br />[September 24]<br /><br />
-            
-            TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America
-            <A href="/tc?module=Static&d1=pressroom&d2=pr_082707">...more</a><br />[August 27]<br /><br />
             
 
 
