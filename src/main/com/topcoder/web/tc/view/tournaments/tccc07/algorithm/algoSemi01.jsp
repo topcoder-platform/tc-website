@@ -27,8 +27,9 @@
             <h1><span>Petr wins Room 1!</span></h1>
             <p><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
             <A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=518014">Discuss this match</A><br />Wednesday, October 31, 2007<br />Introduction by <tc-webtag:handle coderId="303644" context="algorithm"/></p>
+            <p style="float:right; width:200px; 350px; margin-left:10px;"><img src="/i/tournament/tccc07/shotR1.jpg"></p>
+            <br /><br />
             
-            <br />
             <p><strong><tc-webtag:handle coderId="10574855" context="algorithm"/>, the top seed of TCCC-2007 and the reigning champion, started his title defence with an overwhelming win in Semi 1. He needed only 40 minutes to submit 3 correct solutions for almost 1600 points and advance to the Championship round. "The only Dutch coder without a tournament win", <tc-webtag:handle coderId="9906197" context="algorithm"/>, advanced to the Finals too, as he was the only other coder with correct submissions for all 3 problems. Croatian fellows <tc-webtag:handle coderId="310333" context="algorithm"/> and <tc-webtag:handle coderId="7390467" context="algorithm"/> will go to the WildCard, as well as <tc-webtag:handle coderId="22652597" context="algorithm"/> and <tc-webtag:handle coderId="8472826" context="algorithm"/>.</strong></p>
             
             <br /><br />
