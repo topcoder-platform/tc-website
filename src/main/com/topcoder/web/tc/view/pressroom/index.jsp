@@ -102,6 +102,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- The New York Times begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nytimes.com/idg/IDG_002570DE00740E1800257384005A2F1F.html?ref=technology' refer='pr_index' />"><img src="/i/pressroom/nytimes_logo.png" alt="The New York Times" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.nytimes.com/idg/IDG_002570DE00740E1800257384005A2F1F.html?ref=technology' refer='pr_index' />">College Coders Vie for Cash in Contest</a></h3>
+                        <p>It would go nicely with the $60000 in cash he won in other <strong>topcoder</strong> events. But the soft-spoken Mitrichev (<tc-webtag:handle coderId="10574855" context="algorithm" />), 22, said he didn't come to the event purely for ...  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.nytimes.com/idg/IDG_002570DE00740E1800257384005A2F1F.html?ref=technology' refer='pr_index' />">[November 1]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- The New York Times end --%>
+                
                 <%-- Investor's Business Daily begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
