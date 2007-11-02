@@ -33,7 +33,7 @@
                           <td align="right"><img src="/i/tournament/tccc07/bracket_NW.png" alt="" border="0" /></td>
                           <td rowspan="3" style="background-color: #ffffff;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
                           <td rowspan="3" valign="middle"><img src="/i/tournament/tccc07/bracket_R.png" alt="" border="0" /></td>
-                          <td rowspan="3" valign="middle" align="center"><img src="/i/tournament/tccc07/bracket_champion.png" alt="" border="0" /><span class="bigTitle">&nbsp;</span></td>
+                          <td rowspan="3" valign="middle" align="center"><img src="/i/tournament/tccc07/bracket_champion.png" alt="" border="0" /><span class="bigTitle"><br /><tc-webtag:handle coderId="7454301" darkBG="true" context="marathon_match" /></span></td>
                        </tr>
                        <tr>
                           <td style="padding: 15px" valign="middle" align="center">
