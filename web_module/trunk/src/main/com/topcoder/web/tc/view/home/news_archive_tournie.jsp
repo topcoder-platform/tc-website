@@ -39,6 +39,11 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">11.02.07 7:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoFinals">Petr is the new Algorithm Champion!</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.02.07 7:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">nicka81 is the new Component Design Champion!</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.02.07 7:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">PE is the new Component Development Champion!</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.02.07 7:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=summary">paranoia is the new Marathon Match Champion!</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.02.07 7:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=summary">abedavera is the new Studio Champion!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.01.07 5:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoWildcard">cyfra wins the Wildcard round!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.01.07 5:00 PM - </td><td width="100%">Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">Development</A> Finals: Round 2</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.01.07 2:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi03">Vitaliy wins Room 3!</A></td></tr>
