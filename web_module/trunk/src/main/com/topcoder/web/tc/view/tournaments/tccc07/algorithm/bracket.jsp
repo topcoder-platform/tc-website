@@ -67,25 +67,23 @@
                             </td>
                             <td valign="middle"><img src="/i/tournament/tccc07/bracket_bar.png" alt="" border="0" /></td>
                             <td style="padding: 15px 15px 15px 0px" valign="middle" align="center">
-                                <%-- WILDCARD ROOM
-                                <tc-webtag:handle coderId="10157606" context="algorithm" darkBG="true" /><br />
-                                <tc-webtag:handle coderId="7433858" context="algorithm" darkBG="true" /><br />
-                                <tc-webtag:handle coderId="7446789" context="algorithm" darkBG="true" /><br />
+                                <%-- WILDCARD ROOM --%>
+                                <tc-webtag:handle coderId="310333" context="algorithm" darkBG="true" /><br />
                                 <tc-webtag:handle coderId="7390467" context="algorithm" darkBG="true" /><br />
-                                 --%>
+                                <tc-webtag:handle coderId="22652597" context="algorithm" darkBG="true" /><br />
+                                <tc-webtag:handle coderId="8472826" context="algorithm" darkBG="true" /><br />
                             </td>
                             <td valign="middle">&#160;</td>
                             <td rowspan="9" style="padding: 15px" valign="middle" align="center">
-                                <%-- FINALS
-                                <tc-webtag:handle coderId="309453" context="algorithm" darkBG="true" /><br />
-                                <tc-webtag:handle coderId="8355516" context="algorithm" darkBG="true" /><br />
+                                <%-- FINALS --%>
+                                <tc-webtag:handle coderId="10574855" context="algorithm" darkBG="true" /><br />
+                                <tc-webtag:handle coderId="9906197" context="algorithm" darkBG="true" /><br />
+                                <tc-webtag:handle coderId="19849563" context="algorithm" darkBG="true" /><br />
+                                <tc-webtag:handle coderId="7390224" context="algorithm" darkBG="true" /><br />
                                 <tc-webtag:handle coderId="21822659" context="algorithm" darkBG="true" /><br />
-                                <tc-webtag:handle coderId="14886245" context="algorithm" darkBG="true" /><br />
-                                <tc-webtag:handle coderId="251074" context="algorithm" darkBG="true" /><br />
-                                <tc-webtag:handle coderId="21971539" context="algorithm" darkBG="true" /><br />
-                                <tc-webtag:handle coderId="7446789" context="algorithm" darkBG="true" /><br />
-                                <tc-webtag:handle coderId="144400" context="algorithm" darkBG="true" /><br />
-                                 --%>
+                                <tc-webtag:handle coderId="8362207" context="algorithm" darkBG="true" /><br />
+                                <tc-webtag:handle coderId="309982" context="algorithm" darkBG="true" /><br />
+                                <tc-webtag:handle coderId="22652597" context="algorithm" darkBG="true" /><br />
                             </td>
                         </tr>
                         <tr>
@@ -125,12 +123,11 @@
                             <td rowspan="2" style="background-color: #ffffff;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
                             <td valign="middle"><img src="/i/tournament/tccc07/bracket_bar.png" alt="" border="0" /></td>
                             <td style="padding: 15px 15px 15px 0px" valign="middle" align="center">
-                                <%-- WILDCARD ROOM
-                                <tc-webtag:handle coderId="144400" context="algorithm" darkBG="true" /><br />
-                                <tc-webtag:handle coderId="7390224" context="algorithm" darkBG="true" /><br />
-                                <tc-webtag:handle coderId="311170" context="algorithm" darkBG="true" /><br />
+                                <%-- WILDCARD ROOM --%>
                                 <tc-webtag:handle coderId="7442498" context="algorithm" darkBG="true" /><br />
-                                 --%>
+                                <tc-webtag:handle coderId="309982" context="algorithm" darkBG="true" /><br />
+                                <tc-webtag:handle coderId="7421158" context="algorithm" darkBG="true" /><br />
+                                <tc-webtag:handle coderId="7563318" context="algorithm" darkBG="true" /><br />
                             </td>
                             <td rowspan="2" style="background-color: #ffffff;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
                             <td valign="middle"><img src="/i/tournament/tccc07/bracket_bar.png" alt="" border="0" /></td>
@@ -180,12 +177,11 @@
                             <td rowspan="2" style="background-color: #ffffff;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
                             <td valign="middle"><img src="/i/tournament/tccc07/bracket_bar.png" alt="" border="0" /></td>
                             <td style="padding: 15px 15px 15px 0px" valign="middle" align="center">
-                                <%-- WILDCARD ROOM
-                                <tc-webtag:handle coderId="7462740" context="algorithm" darkBG="true" /><br />
-                                <tc-webtag:handle coderId="9927526" context="algorithm" darkBG="true" /><br />
-                                <tc-webtag:handle coderId="293874" context="algorithm" darkBG="true" /><br />
-                                <tc-webtag:handle coderId="272072" context="algorithm" darkBG="true" /><br />
-                                 --%>
+                                <%-- WILDCARD ROOM --%>
+                                <tc-webtag:handle coderId="14970299" context="algorithm" darkBG="true" /><br />
+                                <tc-webtag:handle coderId="347569" context="algorithm" darkBG="true" /><br />
+                                <tc-webtag:handle coderId="7581406" context="algorithm" darkBG="true" /><br />
+                                <tc-webtag:handle coderId="15868491" context="algorithm" darkBG="true" /><br />
                             </td>
                             <td rowspan="2" style="background-color: #ffffff;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
                         </tr>
