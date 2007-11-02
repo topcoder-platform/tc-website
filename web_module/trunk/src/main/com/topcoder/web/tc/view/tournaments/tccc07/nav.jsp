@@ -193,9 +193,7 @@
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi02"<% if (tabLev3.equals("room2")) {%> class="on"<% } %>>Room 2</a>
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi03"<% if (tabLev3.equals("room3")) {%> class="on"<% } %>>Room 3</a>
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoWildcard"<% if (tabLev3.equals("wildcard")) {%> class="on"<% } %>>Wildcard</a>
-                        <%--
-                        | <a href=""<% if (tabLev3.equals("finals")) {%> class="on"<% } %>>Finals</a>
-                        --%>
+                        | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoFinals"<% if (tabLev3.equals("finals")) {%> class="on"<% } %>>Finals</a>
                     </p>
                 <% } %>
             <% } else if (tabLev1.equals(EventType.COMPONENT_TOURNAMENT_ID.toString())) { %>
@@ -217,6 +215,7 @@
                     <p id="tertiaryNav">
                         <a href="/tc?module=TCCC07MarathonAdvancers"<% if (tabLev3.equals("overview")) {%> class="on"<% } %>>Overview</a>
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=bracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a>
+                        | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=summary"<% if (tabLev3.equals("summary")) {%> class="on"<% } %>>Summary</a>
                     </p>
                 <% } %>
             <% } else if (tabLev1.equals(EventType.STUDIO_TOURNAMENT_ID.toString())) { %>
@@ -224,6 +223,7 @@
                     <p id="tertiaryNav">
                         <a href="/tc?module=TCCC07StudioLeaderboard&eid=3004"<% if (tabLev3.equals("leaderboard")) {%> class="on"<% } %>>Leaderboard</a>
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=bracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a>
+                        | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=summary"<% if (tabLev3.equals("summary")) {%> class="on"<% } %>>Summary</a>
                     </p>
                 <% } %>
             <% } %>
