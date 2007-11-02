@@ -402,6 +402,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            Computer coders vie for $260,000 in prize money (with video)
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/community/news/lakebuenavista/orl-topcoder0207nov02,0,4540773.story' refer='homepage_index' />">...more</a><br />[November 2]<br /><br />
+            
             Local eliminated, but TopCoder Collegiate Challenge continues
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/business/orl-bk-topcoder110107,0,3810238.story?coll=orl_tab01_layout' refer='homepage_index' />">...more</a><br />[November 1]<br /><br />
             
@@ -416,9 +419,6 @@
             
             TopCoder Open to Feature World's Elite Software Developers
             <a href="/tc?module=Static&d1=pressroom&d2=pr_100107">...more</a><br />[October 1]<br /><br />
-            
-            TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit
-            <A href="/tc?module=Static&d1=pressroom&d2=pr_092407">...more</a><br />[September 24]<br /><br />
             
 
 
