@@ -1,12 +1,10 @@
-/**
- * 
- */
 package com.topcoder.web.ep.util;
 
 
 /**
+ * Simple representation of the report's row
+ * 
  * @author Pablo
- *
  */
 public class AssignmentOverviewRow {
     private Long id;

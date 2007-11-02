@@ -35,6 +35,8 @@ import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
 
 /**
+ * This is the hibernate implementation for the Arena services provider
+ *  
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
@@ -45,14 +47,22 @@ public class ArenaHelper implements ArenaServices {
     boolean sendEvent = true;
     
     /**
-     * Notes: this method assume all validations took place and that the actions can be done at this time. 
+     * This method will update the assignment registrations to what specified adding or removing existing registrations when corresponds.
+     * 
+     * Notes: this method assume all validations took place and that the actions can be done at this time.
+     * These validations include:
+     * - The round is not started or finished for registration remove
+     * - The round is not finished for registrations addition
+     * - The performer of the action is authorized
      * 
      * @param roundId the round id of the registration 
      * @param coderIds the list of coderIds that are registered 
      */
     public void updateRoundRegistration(Long roundId, List<Long> coderIds) {
+        List<Long> tempIds = new ArrayList<Long>(coderIds);
         Round r = DAOUtil.getFactory().getRoundDAO().find(roundId);
 
+        // first we want to get the intersection of the new coders collection and the one in the DB
         List<Long> existingCodersIds = new ArrayList<Long>();
         List<Long> intersectionCodersIds = new ArrayList<Long>();
         for (RoundRegistration rr : r.getRoundRegistrations()) {
@@ -60,20 +70,20 @@ public class ArenaHelper implements ArenaServices {
             intersectionCodersIds.add(rr.getId().getCoder().getId());
         }
 
-        intersectionCodersIds.retainAll(coderIds);
+        intersectionCodersIds.retainAll(tempIds);
         existingCodersIds.removeAll(intersectionCodersIds);
-        coderIds.removeAll(intersectionCodersIds);
+        tempIds.removeAll(intersectionCodersIds);
         
         // three cases:
         // coders in intersection : do nothing
-        // coders in coderIds : add
+        // coders in tempIds : add
         // coders in existingCodersIds : remove
         
         // remove
         removeRegistrations(r, existingCodersIds);
 
         // add
-        addRegistrations(r, coderIds);
+        addRegistrations(r, tempIds);
 
         DAOUtil.getFactory().getRoundDAO().saveOrUpdate(r);
 
@@ -81,13 +91,17 @@ public class ArenaHelper implements ArenaServices {
         HibernateUtils.commit();
         HibernateUtils.begin();
 
-        RoundModifiedEvent event = createRegistrationUpdateEvent(r, coderIds,
+        // notify arena
+        RoundModifiedEvent event = createRegistrationUpdateEvent(r, tempIds,
                 existingCodersIds);
         publishEvent(event);
 
     }
 
     /**
+     * This method will create all Arena related objects as specified to 
+     * emulate the education platform assignment
+     * 
      * @param adto the assignment data transfer object to add 
      */
     public void addNewAssignment(AssignmentDTO adto) {
@@ -120,11 +134,20 @@ public class ArenaHelper implements ArenaServices {
 
         adto.setRoundId(r.getId());
         
+        // notify arena
         RoundCreatedEvent event = new RoundCreatedEvent(r.getId().intValue());
         publishEvent(event);
     }
 
     /**
+     * This method will update all Arena related objects as specified to 
+     * emulate the education platform assignment
+     *
+     * Notes: this method assume all validations took place and that the actions can be done at this time.
+     * These validations include:
+     * - The round is not started.
+     * - The performer of the action is authorized
+     * 
      * @param adto the assignment data transfer object to update 
      */
     public void editAssignment(AssignmentDTO adto) {
@@ -155,27 +178,19 @@ public class ArenaHelper implements ArenaServices {
         HibernateUtils.commit();        
         HibernateUtils.begin();
 
+        // notify arena
         RoundModifiedEvent event = new RoundModifiedEvent(r.getId().intValue());
         event.addModification(new RoundModifiedEvent.ScheduleModification());
         publishEvent(event);
     }
 
 
-    /**
-     * @param r
-     * @param languages
-     */
     private void addLanguages(Round r, List<Integer> languages) {
         for (Integer i : languages) {
             r.addLanguage(DAOUtil.getFactory().getLanguageDAO().find(i));
         }
     }
 
-    /**
-     * @param r
-     * @param components
-     * @param points
-     */
     private void addComponents(Round r, List<ComponentDTO> components) {
         int j = 0;
         for (ComponentDTO cdto : components) {
@@ -190,12 +205,6 @@ public class ArenaHelper implements ArenaServices {
         }
     }
 
-    /**
-     * @param r
-     * @param startDate
-     * @param endDate
-     * @param current
-     */
     private void assignSegments(Round r, Timestamp startDate, Timestamp endDate) {
         Timestamp current = new Timestamp((new Date()).getTime());
 
@@ -210,13 +219,6 @@ public class ArenaHelper implements ArenaServices {
         }
     }
 
-    /**
-     * @param r
-     * @param c
-     * @param coderPhaseLength
-     * @param showAllScores
-     * @param scoreType
-     */
     private void assignProperties(Round r, Long classroomId, Long coderPhaseLength, Long showAllScores, Long scoreType) {
         r.addProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID, classroomId);
         r.addProperty(RoundProperty.CODING_PHASE_LENGTH_PROPERTY_ID, coderPhaseLength);
@@ -224,9 +226,6 @@ public class ArenaHelper implements ArenaServices {
         r.addProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID, scoreType);
     }
 
-    /**
-     * @param r
-     */
     private void addRoom(Round r) {
         Room rm = new Room();
         rm.setRound(r);
@@ -239,11 +238,6 @@ public class ArenaHelper implements ArenaServices {
         r.addRoom(rm);
     }
 
-    /**
-     * @param assignmentName
-     * @param ct
-     * @return
-     */
     private Round createRound(String assignmentName, Contest ct) {
         Round r = new Round();
         r.setContest(ct);
@@ -257,12 +251,6 @@ public class ArenaHelper implements ArenaServices {
         return r;
     }
 
-    /**
-     * @param c
-     * @param startDate
-     * @param endDate
-     * @return
-     */
     private Contest createContest(String classroomName, Timestamp startDate, Timestamp endDate) {
         Contest ct = new Contest();
         ct.setName(classroomName);
@@ -274,26 +262,17 @@ public class ArenaHelper implements ArenaServices {
         return ct;
     }
 
-    /**
-     * @param languages
-     * @param r
-     */
     private void updateLanguages(List<Integer> languages, Round r) {
         r.clearLanguages();
         addLanguages(r, languages);
     }
 
-    /**
-     * @param lc
-     * @param points
-     * @param r
-     */
     private void updateRoundComponents(List<ComponentDTO> components, Round r) {
         List<RoundComponent> removeList = new ArrayList<RoundComponent>();
         // first remove deleted components
         for (RoundComponent rc : r.getRoundComponents()) {
             if (!components.contains(new ComponentDTO(rc.getId().getComponent().getId()))) {
-                // removeit
+                // remove it
                 removeList.add(rc);
             } else {
                 ComponentDTO cdto = components.get(components.indexOf(new ComponentDTO(rc.getId().getComponent().getId()))); 
@@ -326,13 +305,6 @@ public class ArenaHelper implements ArenaServices {
         }
     }
 
-    /**
-     * @param c
-     * @param coderPhaseLength
-     * @param showAllScores
-     * @param scoreType
-     * @param r
-     */
     private void updateRoundProperties(Long classroomId, Long coderPhaseLength, Long showAllScores, Long scoreType, Round r) {
         r.editProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID, classroomId);
         r.editProperty(RoundProperty.CODING_PHASE_LENGTH_PROPERTY_ID, coderPhaseLength);
@@ -340,12 +312,6 @@ public class ArenaHelper implements ArenaServices {
         r.editProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID, scoreType);
     }
 
-    /**
-     * @param c
-     * @param startDate
-     * @param endDate
-     * @param r
-     */
     private void updateContest(String classroomName, Timestamp startDate, Timestamp endDate, Round r) {
         Contest ct = r.getContest();
         ct.setName(classroomName);

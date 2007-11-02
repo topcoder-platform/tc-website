@@ -53,6 +53,7 @@ public class StudentReport extends SharedBaseProcessor {
             throw new NavigationException("You don't have permission to see this page.");
         }
 
+        // generate report lines
         List<StudentReportRow> larr = processReport(c, s);
 
         getRequest().setAttribute("is_student", Boolean.FALSE);
@@ -70,8 +71,10 @@ public class StudentReport extends SharedBaseProcessor {
             throw new NavigationException("You don't have permission to see this page.");
         }
 
+        // generate report lines
         List<StudentReportRow> larr = processReport(c, s);
 
+        // apply viewing restrictions for students
         applyStudentRestrictions(s, larr);
 
         getRequest().setAttribute("is_student", Boolean.TRUE);
@@ -80,7 +83,6 @@ public class StudentReport extends SharedBaseProcessor {
 
     protected List<StudentReportRow> processReport(Classroom c, Coder s) throws Exception {
         ResultSetContainer rsc = getData(c.getId(), s.getId());
-        log.debug("rsc.size(): " + rsc.size()); 
         
         StudentReportRow srr = null;
         List<StudentReportRow> larr = new ArrayList<StudentReportRow>();
@@ -103,9 +105,7 @@ public class StudentReport extends SharedBaseProcessor {
             Long scoreType = rsr.getLongItem("score_type");
             
             if (!oldAssignment.equals(assignmentId)) {
-                log.debug("different! " + oldAssignment + "-" + assignmentId); 
                 if (!firstTime) {
-                    log.debug("not first time"); 
                     srr.setAssignmentScore(totalScore);
                     srr.setAssignmentNumTestsPassed(totalNumPassed);
                     srr.setAssignmentPercentTestsPassed(totalNumPassed * 100d / totalTests);
@@ -233,6 +233,7 @@ public class StudentReport extends SharedBaseProcessor {
             larr.removeAll(remove);
         }
 
+        // we put a -999 there for sorting purpose, UI will take care of filtering that data
         for (StudentReportRow srr : larr) {
            if (srr.getScoreType().equals(AssignmentScoreType.TC_SCORE_TYPE)) {
                if (!srr.getAssignmentNumTestsPassed().equals(-1)) {
@@ -251,8 +252,7 @@ public class StudentReport extends SharedBaseProcessor {
         }
     }
 
-    private void commonPostProcessing(Classroom c, Coder s,
-            List<StudentReportRow> larr) {
+    private void commonPostProcessing(Classroom c, Coder s, List<StudentReportRow> larr) {
         // sort results
         sortResult(larr);
         

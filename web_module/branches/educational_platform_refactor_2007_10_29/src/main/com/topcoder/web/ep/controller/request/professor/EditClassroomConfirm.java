@@ -24,7 +24,7 @@ public class EditClassroomConfirm extends LongBase {
     private static Logger log = Logger.getLogger(EditClassroomConfirm.class);
 
     /* (non-Javadoc)
-     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     * @see com.topcoder.web.common.LongBase#dbProcessing()
      */
     @Override
     protected void dbProcessing() throws Exception {

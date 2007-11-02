@@ -33,7 +33,7 @@ public class EditClassroom extends LongBase {
     private static Logger log = Logger.getLogger(EditClassroom.class);
 
     /* (non-Javadoc)
-     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     * @see com.topcoder.web.common.LongBase#dbProcessing()
      */
     @Override
     protected void dbProcessing() throws Exception {
@@ -74,7 +74,6 @@ public class EditClassroom extends LongBase {
 
                 // prepare stuff for the long transaction
                 clearSession();
-
                 setClassroom(c);
 
                 setNextPage("/professor/editClassroom.jsp");
@@ -85,7 +84,7 @@ public class EditClassroom extends LongBase {
 
                 if (c == null) {
                     throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/education");
-                } else if (userLoggedIn()) {
+                } else {
                     Long schoolId = getSchoolParam();
                     School s = null;
                     if (schoolId == null) {
@@ -174,8 +173,6 @@ public class EditClassroom extends LongBase {
                         setNextPage("/professor/editClassroom.jsp");
                         setIsNextPageInContext(true);
                     }
-                } else {
-                    throw new PermissionException(getUser(), new ClassResource(this.getClass()));
                 }
             }
         } else {

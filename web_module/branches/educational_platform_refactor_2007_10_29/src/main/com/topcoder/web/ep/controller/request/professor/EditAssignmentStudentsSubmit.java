@@ -36,7 +36,7 @@ public class EditAssignmentStudentsSubmit extends ShortHibernateProcessor {
     private static Logger log = Logger.getLogger(EditAssignmentStudentsSubmit.class);
 
     /* (non-Javadoc)
-     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     * @see com.topcoder.web.common.ShortHibernateProcessor#dbProcessing()
      */
     @Override
     protected void dbProcessing() throws Exception {
@@ -106,12 +106,6 @@ public class EditAssignmentStudentsSubmit extends ShortHibernateProcessor {
         }
     }
 
-
-    /**
-     * @param classroomId
-     * @return
-     * @throws NavigationException
-     */
     private Classroom checkValidClassroom(Long classroomId) throws NavigationException {
         Classroom c = DAOUtil.getFactory().getClassroomDAO().find(classroomId);
 

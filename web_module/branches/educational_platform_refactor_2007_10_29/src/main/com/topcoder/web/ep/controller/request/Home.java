@@ -33,7 +33,7 @@ public class Home extends SharedBaseProcessor {
         getRequest().setAttribute("classrooms", DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingProfessorId(new Long(getUser().getId())));
 
         List<School> ls = DAOUtil.getFactory().getSchoolDAO().findSchoolsUsingProfessorId(getUser().getId());
-        // show school in header only in case the professor has just one
+        // show school in header only in case the professor has just one school
         if (ls.size() == 1) {
             getRequest().setAttribute("schoolName", ls.iterator().next().getName());                
         }

@@ -137,7 +137,6 @@ public class ViewSubmission extends SharedBaseProcessor {
                 ));
         }
         
-        
         getRequest().setAttribute("classroom", c);
         getRequest().setAttribute("assignment", a);
         getRequest().setAttribute("component", cmp);
@@ -168,7 +167,6 @@ public class ViewSubmission extends SharedBaseProcessor {
         text = StringUtils.htmlEncode(text);
         while ((i = text.indexOf("\n\n")) >= 0) {
             text = text.substring(0, i + 1) + "&#160;" + text.substring(i + 1);
-
         }
 
         StringTokenizer strtok = new StringTokenizer(text, "\n");

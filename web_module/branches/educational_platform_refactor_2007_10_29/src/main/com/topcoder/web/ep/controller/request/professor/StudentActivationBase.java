@@ -31,7 +31,7 @@ public abstract class StudentActivationBase extends ShortHibernateProcessor {
     protected abstract void process(Classroom c, List<StudentClassroom> lsc);
 
     /* (non-Javadoc)
-     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     * @see com.topcoder.web.common.ShortHibernateProcessor#dbProcessing()
      */
     @Override
     protected void dbProcessing() throws Exception {

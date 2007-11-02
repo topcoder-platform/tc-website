@@ -28,17 +28,17 @@ public class DeactivateStudentSubmit extends StudentActivationBase {
             log.debug("dectivating " + sc.getId().getStudent().getUser().getHandle() + 
                     " for classroom " + c.getName());
             
+            // deactivate
             sc.setStatusId(StudentClassroom.INACTIVE_STATUS);
-            
             DAOUtil.getFactory().getStudentClassroomDAO().saveOrUpdate(sc);
-            
+
+            // build message to show
             message += sc.getId().getStudent().getUser().getLastName() + ", " +
                 sc.getId().getStudent().getUser().getFirstName() + " (" +
                 sc.getId().getStudent().getUser().getHandle() + ")<br/>";
         }
         getRequest().setAttribute("message", "You have successfuly deactivated the following students:<br/> " + 
-                message +
-                " for classroom " + c.getName());                  
+                message + " for classroom " + c.getName());                  
         getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, 
                 "/education?module=ViewClassroomDetails&" + Constants.CLASSROOM_ID + "=" + c.getId());                  
         setNextPage("/message.jsp");

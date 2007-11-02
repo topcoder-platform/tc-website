@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.topcoder.web.ep.dto.AssignmentDTO;
 
+/**
+ * Interface for the Arena services provider
+ * 
+ * @author Pablo
+ * @version $Id: 
+*/
 public interface ArenaServices {
 
     public void addNewAssignment(AssignmentDTO adto);

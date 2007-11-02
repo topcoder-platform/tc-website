@@ -23,8 +23,16 @@ import com.topcoder.web.ep.model.Classroom;
  */
 public abstract class LongBase extends LongHibernateProcessor {
     private DAOFactory factory = null;
+
+    /**
+     * This prefix is to help distinguish different objects in the same session but for different
+     * wizards. 
+     */
     public String sessionPrefix = ""; 
     
+    /**
+     * Clears session objects
+     */
     protected void clearSession() {
         getRequest().getSession().setAttribute(sessionPrefix + Constants.USER, null);
         getRequest().getSession().setAttribute(sessionPrefix + Constants.SCHOOL, null);

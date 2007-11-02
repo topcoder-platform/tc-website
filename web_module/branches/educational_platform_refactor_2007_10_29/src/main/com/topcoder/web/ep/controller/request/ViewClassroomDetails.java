@@ -27,19 +27,26 @@ public class ViewClassroomDetails extends SharedBaseProcessor {
         Classroom c = getClassroom();
         log.debug("is professor");
         
-        // this user is the classroom's professor
-        getRequest().setAttribute("schoolName", c.getSchool().getName());                
-        getRequest().setAttribute("classroom", c);
-        getRequest().setAttribute("activeStudents", DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.ACTIVE_STATUS));                
-        getRequest().setAttribute("pendingStudents", DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.PENDING_STATUS));
-        
-        setNextPage("/professor/viewClassroomDetails.jsp");
-        setIsNextPageInContext(true);
+        // check if the user is seeing his own classroom details
+        if (c.getProfessor().getId().equals(getUser().getId())) {
+            // this user is the classroom's professor
+            getRequest().setAttribute("schoolName", c.getSchool().getName());                
+            getRequest().setAttribute("classroom", c);
+            getRequest().setAttribute("activeStudents", DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.ACTIVE_STATUS));                
+            getRequest().setAttribute("pendingStudents", DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.PENDING_STATUS));
+            
+            setNextPage("/professor/viewClassroomDetails.jsp");
+            setIsNextPageInContext(true);
+        } else {
+            throw new NavigationException("You don't have permission to see this page.");
+        }
     }
 
     @Override
     protected void studentProcessing() throws Exception {
         Classroom c = getClassroom();
+
+        // check if this user is an active student of the classroom
         if (DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(getUser().getId(), c.getId()) != null) {
             log.debug("active student");
             // this user is an active student of the classroom

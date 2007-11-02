@@ -6,6 +6,8 @@
 package com.topcoder.web.ep.arena;
 
 /**
+ * Factory for the arena services provider
+ * 
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
