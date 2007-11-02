@@ -134,9 +134,7 @@
                             <td valign="middle"><img src="/i/tournament/tccc07/bracket_R.png" alt="" border="0" /></td>
                             <td valign="middle" align="center">
                                 <img src="/i/tournament/tccc07/bracket_champion.png" alt="" border="0" />
-                                <%--
-                                <br /><span class="bigTitle">&nbsp;<tc-webtag:handle coderId="309453" context="algorithm" darkBG="true" /></span>
-                                --%>
+                                <br /><span class="bigTitle">&nbsp;<tc-webtag:handle coderId="10574855" context="algorithm" darkBG="true" /></span>
                             </td>
                         </tr>
                         <tr>
