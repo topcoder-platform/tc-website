@@ -61,7 +61,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=summary&d4=marathon">details</A> | 
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=summary">details</A> | 
          <tc-webtag:forumLink forumID="518065" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
