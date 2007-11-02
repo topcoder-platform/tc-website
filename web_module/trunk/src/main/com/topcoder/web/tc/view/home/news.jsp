@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.02.07<br />6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/community/news/lakebuenavista/orl-topcoder0207nov02,0,4540773.story' refer='/tc' />">Computer coders vie for $260,000 in prize money (with video)</A></span><br /><br />
+        Having left the obscurity of their bedrooms, some of the world's top college computer coders are vying today for a combined $260,000 in prize money and worldwide bragging rights.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/community/news/lakebuenavista/orl-topcoder0207nov02,0,4540773.story' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="518067" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tcchannel.png" alt="Tournament News" border="0" /><br />11.01.07<br />12:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -165,22 +178,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi02">details</A> | 
          <tc-webtag:forumLink forumID="518015" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />10.31.07<br />12:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi01">Petr wins Room 1!</A></span><br /><br />
-      <tc-webtag:handle coderId="10574855" context="algorithm"/>, the top seed of TCCC-2007 and the reigning champion, started his title defence with an overwhelming win in Semi 1. He needed only 40 minutes to submit 3 correct solutions for almost 1600 points and advance to the Championship round. "The only Dutch coder without a tournament win", <tc-webtag:handle coderId="9906197" context="algorithm"/>, advanced to the Finals too, as he was the only other coder with correct submissions for all 3 problems. Croatian fellows <tc-webtag:handle coderId="310333" context="algorithm"/> and <tc-webtag:handle coderId="7390467" context="algorithm"/> will go to the WildCard, as well as <tc-webtag:handle coderId="22652597" context="algorithm"/> and <tc-webtag:handle coderId="8472826" context="algorithm"/>.</td>
-         <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi01">details</A> | 
-         <tc-webtag:forumLink forumID="518014" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
