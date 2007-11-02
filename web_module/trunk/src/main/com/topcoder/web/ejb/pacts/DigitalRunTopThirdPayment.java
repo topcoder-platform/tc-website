@@ -69,7 +69,7 @@ public class DigitalRunTopThirdPayment extends DigitalRunStageReferencePayment {
         public String lookupDescription(BasePayment payment) throws SQLException {
             DigitalRunStageReferencePayment p = (DigitalRunStageReferencePayment) payment;
 
-            return getStageName(p.getStageId()) + " Top Third, " + getOrdinal(p.getPlaced());
+            return getStageName(p.getStageId()) + " Top Performers, " + getOrdinal(p.getPlaced());
         }
 
     }
