@@ -31,6 +31,7 @@
                 <p>
                     <strong>Movies</strong>
                 </p>
+                <p align="right"><a href="http://forums.topcoder.com/?module=ThreadList&forumID=517933">Discuss this</a></p>
                 <p>
                     <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_trailer&title=TC%20Channel%20is%20Going%20to%20Disney%20World">TC Channel is Going to Disney World: Preview</A>
                 </p>
