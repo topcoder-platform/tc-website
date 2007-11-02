@@ -73,6 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/community/news/lakebuenavista/orl-topcoder0207nov02,0,4540773.story' refer='art_archive' />">Computer coders vie for $260,000 in prize money (with video) <br /><small style="margin-left:10px;">[November 2 - Orlando Sentinel]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/business/orl-bk-topcoder110107,0,3810238.story?coll=orl_tab01_layout' refer='art_archive' />">Local eliminated, but TopCoder Collegiate Challenge continues <br /><small style="margin-left:10px;">[November 1 - Orlando Sentinel]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.nytimes.com/idg/IDG_002570DE00740E1800257384005A2F1F.html?ref=technology' refer='art_archive' />">College Coders Vie for Cash in Contest <br /><small style="margin-left:10px;">[November 1 - The New York Times]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='art_archive' />">TopCoder Finds Tech Top Guns <br /><small style="margin-left:10px;">[October 31 - Investor's Business Daily]</small></a></dd>
