@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tcchannel.png" alt="Tournament News" border="0" /><br />11.02.07<br />9:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_part3&title=TC%20Channel%20at%20the%20TCCC07%20Part%203' refer='/tc' />">TC Channel at the TCCC07 Part 3</A></span><br /><br />
+      Check out the TC Channel's coverage of the last day of the TCCC07, including winner announcements.  Thanks for a great tournament, everybody.</td>
+         <td class="newsPhoto">&nbsp;</td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_part3&title=TC%20Channel%20at%20the%20TCCC07%20Part%203' refer='/tc' />">watch now</A> | 
+         <tc-webtag:forumLink forumID="517933" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />11.02.07<br />7:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -171,18 +187,5 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoSemi03">details</A> | 
          <tc-webtag:forumLink forumID="518016" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.01.07<br />11:15 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.nytimes.com/idg/IDG_002570DE00740E1800257384005A2F1F.html?ref=technology' refer='/tc' />">College Coders Vie for Cash in Contest</A></span><br /><br />
-        It would go nicely with the $60000 in cash he won in other TopCoder events. But the soft-spoken Mitrichev (<tc-webtag:handle coderId="10574855" context="algorithm" />), 22, said he didn't come to the event purely for ...</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.nytimes.com/idg/IDG_002570DE00740E1800257384005A2F1F.html?ref=technology' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="518055" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
    
