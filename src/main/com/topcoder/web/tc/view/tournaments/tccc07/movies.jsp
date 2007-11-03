@@ -53,8 +53,10 @@
                             <br />(10:07)
                         </td>
                         <td align="center" valign="top">
-                            <img src="/i/tournament/tccc07/tcchannelThumb3Soon.png" alt="TC Channel Part 3" />
-                            <br />COMING SOON
+                            <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_part3&title=TC%20Channel%20at%20the%20TCCC07%20Part%203' refer='tccc07 site' />"><img src="/i/tournament/tccc07/tcchannelThumb3.jpg" alt="TC Channel Part 3" /></a>
+                            <br /><A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_part2&title=TC%20Channel%20at%20the%20TCCC07%20Part%202' refer='tccc07 site' />">TC Channel at the TCCC07 Part 3</A>
+                            <br /><a href="/movies/tcchannel/ep06_part2.mov">Low-bandwidth version</A> (2.9 MB)
+                            <br />(9:30)
                         </td>
                     </tr>
                 </tbody>
