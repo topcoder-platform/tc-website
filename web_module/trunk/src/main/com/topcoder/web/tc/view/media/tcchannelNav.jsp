@@ -2,7 +2,16 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <c:choose>
-    <c:when test="${param['clip']=='ep06_part2' || param['clip']==null}">
+    <c:when test="${param['clip']=='ep06_part3' || param['clip']==null}">
+        <br /><strong>TC Channel at the TCCC07 Part 3</strong>
+        (<tc-webtag:forumLink forumID="517933" message="discuss" />)
+    </c:when>
+    <c:otherwise>
+        <br /><a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep06_part3">TC Channel at the TCCC07 Part 3</a>
+    </c:otherwise>
+</c:choose>
+<c:choose>
+    <c:when test="${param['clip']=='ep06_part2'}">
         <br /><strong>TC Channel at the TCCC07 Part 2</strong>
         (<tc-webtag:forumLink forumID="517933" message="discuss" />)
     </c:when>
