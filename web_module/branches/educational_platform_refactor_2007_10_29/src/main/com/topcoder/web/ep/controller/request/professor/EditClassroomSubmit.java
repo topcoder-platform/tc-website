@@ -69,16 +69,18 @@ public class EditClassroomSubmit extends LongBase {
                 }
                 
                 // 3
-                for (Coder s : DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(classroom.getId(), StudentClassroom.ACTIVE_STATUS)) {
-                    if (!students.contains(s)) {
-                        log.debug("Deactivating " + s.getUser().getHandle());
-                        classroom.deactivateStudent(s);
+                if (classroom.getId() != null) {
+                    for (Coder s : DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(classroom.getId(), StudentClassroom.ACTIVE_STATUS)) {
+                        if (!students.contains(s)) {
+                            log.debug("Deactivating " + s.getUser().getHandle());
+                            classroom.deactivateStudent(s);
+                        }
                     }
-                }
-                for (Coder s : DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(classroom.getId(), StudentClassroom.PENDING_STATUS)) {
-                    if (!students.contains(s)) {
-                        log.debug("Deactivating " + s.getUser().getHandle());
-                        classroom.deactivateStudent(s);
+                    for (Coder s : DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(classroom.getId(), StudentClassroom.PENDING_STATUS)) {
+                        if (!students.contains(s)) {
+                            log.debug("Deactivating " + s.getUser().getHandle());
+                            classroom.deactivateStudent(s);
+                        }
                     }
                 }
             }
