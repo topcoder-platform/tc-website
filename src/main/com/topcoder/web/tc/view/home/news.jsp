@@ -72,7 +72,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=summary">paranoia is the new Marathon Match Champion!</A></span><br /><br />
-      After the dust settled, <tc-webtag:handle coderId="7454301" context="marathon_match" /> emerged as the winner of the 2007 TopCoder Collegiate Challenge Marathon Match competition, taking home the top prize of $15,000. <tc-webtag:handle coderId="7394165" context="marathon_match" /> came in second, and <tc-webtag:handle coderId="10600282" context="marathon_match" /> took home the third.</td>
+      After the dust settled, <tc-webtag:handle coderId="7454301" context="marathon_match" /> emerged as the winner of the 2007 TopCoder Collegiate Challenge Marathon Match competition, taking home the top prize of $15,000. <tc-webtag:handle coderId="10600282" context="marathon_match" /> came in second, and <tc-webtag:handle coderId="7394165" context="marathon_match" /> took home the third.</td>
          <td class="newsPhoto">&nbsp;</td></tr></table>
       </td>
    </tr>

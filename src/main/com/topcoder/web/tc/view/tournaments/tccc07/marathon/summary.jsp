@@ -30,7 +30,7 @@
                 <p style="float:right; width:200px; 350px; margin-left:10px;"><img src="/i/tournament/tccc07/marathon.jpg"></p>
                 <br /><br />
                 
-                <p>After the dust settled, <tc-webtag:handle coderId="7454301" context="marathon_match" darkBG="true" /> emerged as the winner of the 2007 TopCoder Collegiate Challenge Marathon Match competition, taking home the top prize of $15,000. <tc-webtag:handle coderId="7394165" context="marathon_match" darkBG="true" /> came in second, and <tc-webtag:handle coderId="10600282" context="marathon_match" darkBG="true" /> took home the third.</p>
+                <p>After the dust settled, <tc-webtag:handle coderId="7454301" context="marathon_match" darkBG="true" /> emerged as the winner of the 2007 TopCoder Collegiate Challenge Marathon Match competition, taking home the top prize of $15,000. <tc-webtag:handle coderId="10600282" context="marathon_match" darkBG="true" /> came in second, and <tc-webtag:handle coderId="7394165" context="marathon_match" darkBG="true" /> took home the third.</p>
                 
                 <p style="font-size:14px; font-weight:bold;">Marathon Match Final Scores</p>
                     <table cellspacing="0" cellpadding="0" class="stat" style="width: 60%">
