@@ -66,7 +66,9 @@
         <A href="/"><img src="/i/home/topcoder.png" alt="TopCoder" style="display: block;" /></A>
     </td>
     <td align="center" style="padding: 10px 10px 10px 10px">
+        <%--
         <div align="center" style="margin-bottom: 5px;"><a href="/tc?module=Static&d1=about&d2=contactus"><img src="/i/home/contactus.png" alt="Contact us" /></a></div>
+        --%>
         <%-- TCO07  fri 
         <map name="tco07">
         <area shape="rect" alt="" coords="313,36,343,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoFinals" />
@@ -147,13 +149,13 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN --%>
+                <%-- DIGITAL RUN 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-                
-                
-                <%-- DIGITAL RUN ASSEMBLY CUP 
-                <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></A>
                 --%>
+                
+                <%-- DIGITAL RUN ASSEMBLY CUP --%>
+                <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></A>
+                
                 
                 <%-- DIGITAL RUN DESIGN CUP 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunDesCup.png" alt="The Digital Run Design Cup" border="0" style="display:block;"/></A>
@@ -275,7 +277,7 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/home/tcs_client_ubs.png" alt="TopCoder &amp; UBS" border="0" style="display:block;"/></A>
+                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/home/tcs_client_ims.png" alt="TopCoder &amp; IMS Health" border="0" style="display:block;"/></A>
             </td>
         </tr>
     </table>
