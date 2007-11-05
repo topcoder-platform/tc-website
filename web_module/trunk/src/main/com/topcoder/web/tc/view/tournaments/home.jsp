@@ -36,8 +36,8 @@
         <jsp:param name="title" value="TopCoder Tournaments"/>
     </jsp:include>
 
-<%--
---%>
+
+
    <div class="sectionHeader">Upcoming Tournaments</div>
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
@@ -56,6 +56,7 @@
       </tr>
    </table>
 
+<%--
    <div class="sectionHeader">Current Tournaments</div>
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
@@ -75,9 +76,30 @@
          </td>
       </tr>
    </table>
-
+--%>
 
    <div class="sectionHeader" width="100%">Past Tournaments</div>
+   <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
+      <tr valign="top">
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about"><img src="/i/tournament/photo_tccc07.jpg" alt="2007 TopCoder Collegiate Challenge" border="0" /></A><br /></td>
+         <td width="100%">
+         <span class="bodySubtitle">2007 TopCoder&#174; Collegiate Challenge</span>
+         <br /><br />
+         <div style="float: right;"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about"><img src="/i/pressroom/tccc07_logo.png" alt="" border="0" /></A></div>
+         Oct 30 - Nov 2<br />
+         Disney World Contemporary Resort<br />
+         Orlando, FL, USA<br />
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about">Details</A>
+         <br />
+         <A target="_blank" href="/pdfs/tournaments/TCCC07_Program_View.pdf">Program [PDF]</A>
+         <br />
+         <A href="http://studio.topcoder.com/?module=ViewSubmissions&ct=2104">Logo Contest</A>
+         </td>
+      </tr>
+   </table>
+   
+   <hr width="100%" size="1" noshade="noshade" />
+   
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
          <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/tournament/photo_tco07.jpg" alt="2007 TopCoder Open" border="0" /></A><br /></td>
