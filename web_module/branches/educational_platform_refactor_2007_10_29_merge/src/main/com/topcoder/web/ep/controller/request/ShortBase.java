@@ -18,9 +18,15 @@ import com.topcoder.web.ep.dto.AssignmentDTO;
 public abstract class ShortBase extends ShortHibernateProcessor {
     private DAOFactory factory = null;
     
+    /**
+     * This prefix is to help distinguish different objects in the same session but for different
+     * wizards. 
+     */
     public String sessionPrefix = "";
 
-
+    /**
+     * Clears session objects
+     */
     protected void clearSession() {
         getRequest().getSession().setAttribute(sessionPrefix + Constants.ASSIGNMENT, null);
 

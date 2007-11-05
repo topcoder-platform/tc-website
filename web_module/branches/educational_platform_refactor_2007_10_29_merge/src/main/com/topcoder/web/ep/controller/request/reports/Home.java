@@ -9,8 +9,8 @@ import java.util.List;
 
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
+import com.topcoder.web.ep.model.StudentClassroom;
 
 /**
  * @author Pablo Wolfus (pulky)

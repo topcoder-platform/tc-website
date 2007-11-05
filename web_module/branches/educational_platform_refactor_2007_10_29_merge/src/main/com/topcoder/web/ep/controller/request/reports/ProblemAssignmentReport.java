@@ -25,10 +25,12 @@ import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.common.model.algo.Component;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundProperty;
-import com.topcoder.web.common.model.educ.AssignmentScoreType;
-import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
+import com.topcoder.web.ep.model.AssignmentScoreType;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
+import com.topcoder.web.ep.util.AssignmentReportRow;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -43,7 +45,6 @@ public class ProblemAssignmentReport extends SharedBaseProcessor {
     @Override
     protected void professorProcessing() throws Exception {
         Round a = validateAssignment();
-
         Component cmp = validateComponent();
         
         // check if this assignment belongs to the logged professor
@@ -54,6 +55,7 @@ public class ProblemAssignmentReport extends SharedBaseProcessor {
         
         getRequest().setAttribute("selected_score_type", (Long) a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID));
         
+        // generate report lines
         List<AssignmentReportRow> larr = processReport(a, c, cmp, null);
         commonPostProcessing(larr, a, c, cmp);
     }
@@ -66,32 +68,33 @@ public class ProblemAssignmentReport extends SharedBaseProcessor {
 
         // check if this student belongs to the class
         Classroom c = DAOUtil.getFactory().getClassroomDAO().find((Long) a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID));
-        Coder s = DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(getUser().getId(), c.getId());
+        StudentClassroom sc = DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(getUser().getId(), c.getId());
+        Coder s = (sc != null) ? sc.getId().getStudent() : null;
         if (s == null) {
             throw new NavigationException("You don't have permission to see this page.");
         }
 
+        // check viewing restrictions
         Long showAllCoders = (Long) a.getProperty(RoundProperty.SHOW_ALL_SCORES_PROPERTY_ID);
-
         Long studentId = null;
         if (!showAllCoders.equals(1l)) {
             // If show all is off, he can only see his results
             studentId = s.getId();
         }
+
+        // generate report lines
         List<AssignmentReportRow> larr = processReport(a, c, cmp, studentId);
 
+        // apply restrictions for students
         Long scoreType = (Long) a.getProperty(RoundProperty.SCORE_TYPE_PROPERTY_ID);
         applyStudentRestrictions(larr, scoreType);
 
         getRequest().setAttribute("score_type", scoreType);
-        
         commonPostProcessing(larr, a, c, cmp);
     }
 
     protected List<AssignmentReportRow> processReport(Round a, Classroom c, Component cmp, Long studentId) throws Exception {
-
         ResultSetContainer rsc = getData(a.getId(), studentId, cmp.getId());
-
         List<AssignmentReportRow> larr = new ArrayList<AssignmentReportRow>();
         
         for (ResultSetRow rsr : rsc) {
@@ -154,6 +157,8 @@ public class ProblemAssignmentReport extends SharedBaseProcessor {
     }
     
     private void applyStudentRestrictions(List<AssignmentReportRow> larr, Long scoreType) {
+        // we put a -999 there for sorting purpose, UI will take care of filtering that data
+
         for (AssignmentReportRow srr : larr) {
            if (scoreType.equals(AssignmentScoreType.TC_SCORE_TYPE)) {
                if (!srr.getNumTestsPassed().equals(-1)) {

@@ -36,14 +36,12 @@ public class EditAssignmentConfirm extends ShortBase {
                 AssignmentDTO adto = getAssignment();
                 if (adto == null) {
                     throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/education");
-                } else if (userLoggedIn()) {
+                } else {
                     // got a response, validate. 
                     
                     log.debug("school name: " + adto.getSchoolName());
                     getRequest().setAttribute("schoolName", adto.getSchoolName());                
-                        setNextPage("/professor/editAssignmentConfirm.jsp");
-                } else {
-                    throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+                    setNextPage("/professor/editAssignmentConfirm.jsp");
                 }
             }
         } else {

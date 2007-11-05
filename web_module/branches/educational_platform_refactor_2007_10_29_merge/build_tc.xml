@@ -897,6 +897,7 @@
                 <include name="com/topcoder/web/common/**/*.xml"/>
                 <include name="com/topcoder/web/oracle/model/**/*.xml"/>
                 <include name="com/topcoder/web/tc/model/**/*.xml"/>
+                <include name="com/topcoder/web/ep/model/**/*.xml"/>
             </classes>
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
@@ -934,18 +935,11 @@
         <war warfile="${war.dir}/ep.war" webxml="${resources}/ep/web.xml">
             <classes dir="${classes}">
                 <include name="com/topcoder/web/ep/**/*.class"/>
-                <!--
-                <include name="com/topcoder/web/oracle/model/**/*.class"/>
-				-->
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
                 <include name="taconite.tld"/>
                 <include name="common-functions.tld"/>
-                <!--
-                <include name="tc.tld"/>
-                <include name="reg-tags.tld"/>
-				-->
             </webinf>
             <fileset dir="${java}/com/topcoder/web/ep/view">
                 <include name="**/*.jsp"/>

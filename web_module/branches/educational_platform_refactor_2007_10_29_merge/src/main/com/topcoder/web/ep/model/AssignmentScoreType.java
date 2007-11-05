@@ -3,7 +3,7 @@
 *
 * Created Sep 10, 2007
 */
-package com.topcoder.web.common.model.educ;
+package com.topcoder.web.ep.model;
 
 import java.util.ArrayList;
 import java.util.List;

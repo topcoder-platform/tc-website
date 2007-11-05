@@ -19,10 +19,10 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.LongBase;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -33,7 +33,7 @@ public class EditClassroom extends LongBase {
     private static Logger log = Logger.getLogger(EditClassroom.class);
 
     /* (non-Javadoc)
-     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     * @see com.topcoder.web.common.LongBase#dbProcessing()
      */
     @Override
     protected void dbProcessing() throws Exception {
@@ -74,7 +74,6 @@ public class EditClassroom extends LongBase {
 
                 // prepare stuff for the long transaction
                 clearSession();
-
                 setClassroom(c);
 
                 setNextPage("/professor/editClassroom.jsp");
@@ -85,7 +84,7 @@ public class EditClassroom extends LongBase {
 
                 if (c == null) {
                     throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/education");
-                } else if (userLoggedIn()) {
+                } else {
                     Long schoolId = getSchoolParam();
                     School s = null;
                     if (schoolId == null) {
@@ -138,10 +137,13 @@ public class EditClassroom extends LongBase {
                         c.setStatusId(Classroom.ACTIVE);
                         c.setSchool(s);
 
-                        Set<Coder> sc = c.getStudents(StudentClassroom.PENDING_STATUS);
-                        sc.addAll(c.getStudents(StudentClassroom.ACTIVE_STATUS));
-
-                        Set<Coder> ps = c.getProfessor().getStudents(s);
+                        List<Coder> sc = new ArrayList<Coder>();
+                        if (c.getId() != null) {
+                            sc = DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.PENDING_STATUS);
+                            sc.addAll(DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.ACTIVE_STATUS));
+                        }
+                        
+                        List<Coder> ps = DAOUtil.getFactory().getStudentClassroomDAO().findUsingProfessorIdSchoolId(c.getProfessor().getId(), s.getId());
 
                         // if editing or no student to select, we go directly to the confirmation
                         if (c.getId() == null && (sc.size() > 0 || ps.size() > 0)) {
@@ -174,8 +176,6 @@ public class EditClassroom extends LongBase {
                         setNextPage("/professor/editClassroom.jsp");
                         setIsNextPageInContext(true);
                     }
-                } else {
-                    throw new PermissionException(getUser(), new ClassResource(this.getClass()));
                 }
             }
         } else {

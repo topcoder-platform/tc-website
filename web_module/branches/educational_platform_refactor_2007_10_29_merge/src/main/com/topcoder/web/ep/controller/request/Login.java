@@ -136,21 +136,12 @@ public class Login extends ShortHibernateProcessor {
         return nextPage;
     }
 
-    /**
-     * shouldn't use ejb slooooooooow
-     *
-     * @param userId
-     * @return
-     * @throws Exception if user doesn't exist or some other ejb problem
-     */
     private char getStatus(long userId) throws Exception {
         return new UserDAOHibernate().find(new Long(userId)).getStatus().charValue();
-
     }
 
     private int getEmailStatus(long userId) throws Exception {
         return new UserDAOHibernate().find(new Long(userId)).getPrimaryEmailAddress().getStatusId().intValue();
     }
-
 
 }

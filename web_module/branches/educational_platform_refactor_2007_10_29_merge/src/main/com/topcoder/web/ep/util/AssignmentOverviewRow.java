@@ -1,12 +1,10 @@
+package com.topcoder.web.ep.util;
+
+
 /**
+ * Simple representation of the report's row
  * 
- */
-package com.topcoder.web.ep.controller.request.reports;
-
-
-/**
  * @author Pablo
- *
  */
 public class AssignmentOverviewRow {
     private Long id;
