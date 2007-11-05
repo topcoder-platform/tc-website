@@ -23,11 +23,13 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.web.common.model.educ.AssignmentScoreType;
-import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
-import com.topcoder.web.ep.controller.request.ViewClassroomAssignments;
+import com.topcoder.web.ep.model.AssignmentScoreType;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
+import com.topcoder.web.ep.util.StudentReportDetailRow;
+import com.topcoder.web.ep.util.StudentReportRow;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -51,6 +53,7 @@ public class StudentReport extends SharedBaseProcessor {
             throw new NavigationException("You don't have permission to see this page.");
         }
 
+        // generate report lines
         List<StudentReportRow> larr = processReport(c, s);
 
         getRequest().setAttribute("is_student", Boolean.FALSE);
@@ -64,12 +67,14 @@ public class StudentReport extends SharedBaseProcessor {
         Coder s = validateStudent(c);
 
         // check if the logged student belongs to this classroom 
-        if (DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(getUser().getId(), c.getId()) == null) {
+        if (DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(getUser().getId(), c.getId()) == null) {
             throw new NavigationException("You don't have permission to see this page.");
         }
 
+        // generate report lines
         List<StudentReportRow> larr = processReport(c, s);
 
+        // apply viewing restrictions for students
         applyStudentRestrictions(s, larr);
 
         getRequest().setAttribute("is_student", Boolean.TRUE);
@@ -78,7 +83,6 @@ public class StudentReport extends SharedBaseProcessor {
 
     protected List<StudentReportRow> processReport(Classroom c, Coder s) throws Exception {
         ResultSetContainer rsc = getData(c.getId(), s.getId());
-        log.debug("rsc.size(): " + rsc.size()); 
         
         StudentReportRow srr = null;
         List<StudentReportRow> larr = new ArrayList<StudentReportRow>();
@@ -101,9 +105,7 @@ public class StudentReport extends SharedBaseProcessor {
             Long scoreType = rsr.getLongItem("score_type");
             
             if (!oldAssignment.equals(assignmentId)) {
-                log.debug("different! " + oldAssignment + "-" + assignmentId); 
                 if (!firstTime) {
-                    log.debug("not first time"); 
                     srr.setAssignmentScore(totalScore);
                     srr.setAssignmentNumTestsPassed(totalNumPassed);
                     srr.setAssignmentPercentTestsPassed(totalNumPassed * 100d / totalTests);
@@ -168,7 +170,8 @@ public class StudentReport extends SharedBaseProcessor {
     }
 
     private Coder validateStudent(Classroom c) throws TCWebException {
-        Coder s = DAOUtil.getFactory().getCoderDAO().getStudentUsingClassroomId(getStudentParam(), c.getId()); 
+        StudentClassroom sc = DAOUtil.getFactory().getStudentClassroomDAO().findUsingStudentIdClassroomId(getStudentParam(), c.getId());
+        Coder s = (sc != null) ? sc.getId().getStudent() : null;
         if (s == null) {
             throw new TCWebException("Couldn't find student");
         }
@@ -230,6 +233,7 @@ public class StudentReport extends SharedBaseProcessor {
             larr.removeAll(remove);
         }
 
+        // we put a -999 there for sorting purpose, UI will take care of filtering that data
         for (StudentReportRow srr : larr) {
            if (srr.getScoreType().equals(AssignmentScoreType.TC_SCORE_TYPE)) {
                if (!srr.getAssignmentNumTestsPassed().equals(-1)) {
@@ -248,8 +252,7 @@ public class StudentReport extends SharedBaseProcessor {
         }
     }
 
-    private void commonPostProcessing(Classroom c, Coder s,
-            List<StudentReportRow> larr) {
+    private void commonPostProcessing(Classroom c, Coder s, List<StudentReportRow> larr) {
         // sort results
         sortResult(larr);
         

@@ -16,10 +16,9 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.LongBase;
+import com.topcoder.web.ep.model.Classroom;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -30,7 +29,7 @@ public class SelectClassroom extends LongBase {
     private static Logger log = Logger.getLogger(SelectClassroom.class);
 
     /* (non-Javadoc)
-     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     * @see com.topcoder.web.common.LongBase#dbProcessing()
      */
     @Override
     protected void dbProcessing() throws Exception {
@@ -78,6 +77,7 @@ public class SelectClassroom extends LongBase {
                             // just drop this selection
                         }
                         
+                        // we don't need to store the classroom object, maybe some reduced set of information
                         c = getFactory().getClassroomDAO().find(classroomId);
                         if (!possibleClassrooms.contains(c)) {
                             throw new TCWebException("Invalid classroom selected");
@@ -86,6 +86,7 @@ public class SelectClassroom extends LongBase {
                     }
                 }
             }
+            
             if (selectedClassrooms.size() == 0) {
                 addError("error", "You must select at least one classroom");
             } else {
@@ -102,9 +103,6 @@ public class SelectClassroom extends LongBase {
         }
     }
 
-    /**
-     * @param s
-     */
     private Set<Classroom> getPossibleClassrooms(School s, Long userId) {
         // include only non-registered classrooms
         Set<Classroom> sc = new HashSet<Classroom>(s.getClassrooms());

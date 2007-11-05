@@ -5,9 +5,7 @@
 */
 package com.topcoder.web.ep.controller.request.student;
 
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.ep.controller.request.LongBase;
 
 /**
@@ -19,17 +17,13 @@ public class SelectSchool extends LongBase {
     private static Logger log = Logger.getLogger(SelectSchool.class);
 
     /* (non-Javadoc)
-     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     * @see com.topcoder.web.common.LongBase#dbProcessing()
      */
     @Override
     protected void dbProcessing() throws Exception {
-        if (userIdentified()) {
-            log.debug("User identified - " + getUser().getUserName());
-    
-            setNextPage("/student/selectSchool.jsp");
-            setIsNextPageInContext(true);
-        } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        }        
+        log.debug("User identified - " + getUser().getUserName());
+
+        setNextPage("/student/selectSchool.jsp");
+        setIsNextPageInContext(true);
     }
 }

@@ -17,10 +17,11 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
+import com.topcoder.web.ep.util.AssignmentOverviewRow;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -45,7 +46,7 @@ public class SelectReport extends SharedBaseProcessor {
         Classroom c = validateClassroom();
         
         // check if the logged student belongs to this classroom 
-        if (DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(getUser().getId(), c.getId()) == null) {
+        if (DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(getUser().getId(), c.getId()) == null) {
             throw new NavigationException("You don't have permission to see this page.");
         }
 
@@ -55,7 +56,7 @@ public class SelectReport extends SharedBaseProcessor {
     protected void processReport(Classroom c) throws Exception {
         // we need active students and assignments
         getRequest().setAttribute(Constants.CLASSROOM_ID, c.getId());
-        getRequest().setAttribute("students", c.getStudents(StudentClassroom.ACTIVE_STATUS));
+        getRequest().setAttribute("students", DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.ACTIVE_STATUS));
         getRequest().setAttribute("assignments", generateAssignmentsRows(c.getId()));
         getRequest().setAttribute("schoolName", c.getSchool().getName());                
 

@@ -127,40 +127,8 @@
         <mapping resource="com/topcoder/web/common/voting/RankBallot.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/Vote.hbm.xml"/>
 
-        <!-- don't really want this stuff there, it's studio -->
-        <mapping resource="com/topcoder/web/common/model/educ/StudentClassroom.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/Component.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/ComponentState.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/Contest.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/Difficulty.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/Language.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/Problem.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/ProblemSet.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/Room.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/Round.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/RoomResult.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/RoundComponent.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/RoundProperty.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/RoundRegistration.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/RoundSegment.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/RoundType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/Segment.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/Submission.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/algo/SystemTestResult.hbm.xml"/>
-
-        <mapping resource="com/topcoder/web/common/model/comp/Contest.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/ContestPrize.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/Project.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/ProjectInfo.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/ProjectPhase.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/UserContestPrize.hbm.xml"/>
-
         <mapping class="com.topcoder.web.common.model.educ.Professor"/>
         <mapping class="com.topcoder.web.common.model.educ.ProfessorStatus"/>
-        <mapping class="com.topcoder.web.common.model.educ.Classroom"/>
-
-
-
 
     </session-factory>
 

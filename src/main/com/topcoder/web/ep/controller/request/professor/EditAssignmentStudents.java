@@ -5,6 +5,7 @@
 */
 package com.topcoder.web.ep.controller.request.professor;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,9 +22,9 @@ import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.algo.RoundRegistration;
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -34,7 +35,7 @@ public class EditAssignmentStudents extends ShortHibernateProcessor {
     private static Logger log = Logger.getLogger(EditAssignmentStudents.class);
 
     /* (non-Javadoc)
-     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     * @see com.topcoder.web.common.ShortHibernateProcessor#dbProcessing()
      */
     @Override
     protected void dbProcessing() throws Exception {
@@ -61,7 +62,7 @@ public class EditAssignmentStudents extends ShortHibernateProcessor {
 
             getRequest().setAttribute("schoolName", c.getSchool().getName());                
 
-            // if the assignment ended registrations cannot be updated 
+            // if the assignment ended, registrations cannot be updated 
             if ((new Date()).after(a.getContest().getEndDate())) {
                 throw new NavigationException("The assignment has ended, you cannot assign students at this time");
             }
@@ -69,7 +70,7 @@ public class EditAssignmentStudents extends ShortHibernateProcessor {
             if (!"POST".equals(getRequest().getMethod())) {
                 log.debug("First pass - " + getUser().getUserName());
 
-                getRequest().setAttribute("activeStudents", c.getStudents(StudentClassroom.ACTIVE_STATUS));
+                getRequest().setAttribute("activeStudents", DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.ACTIVE_STATUS));
                 getRequest().setAttribute(Constants.ASSIGNMENT_ID, a.getId());
                 getRequest().setAttribute(Constants.CLASSROOM, c);
                 getRequest().setAttribute("assignment_name", a.getName());
@@ -89,13 +90,11 @@ public class EditAssignmentStudents extends ShortHibernateProcessor {
                     // got a response, validate.
                     List<Long> studentIds = getStudentParam();
 
-                    // if the assignment has started or about to start validate if non selected users can be removed
-                    if ((new Date((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
-                        // cannot remove students
+                    // if the assignment has started or about to start validate if non selected users can be removed                    
+                    if ((new Timestamp((new Date()).getTime() + Constants.TIME_BEFORE_EDIT)).after(a.getContest().getStartDate())) {
+                        // cannot remove students, check if there's any to remove
                         for (RoundRegistration rr : a.getRoundRegistrations()) {
-                            log.debug("checking coder: " + rr.getId().getCoder().getId());
                             if (!studentIds.contains(rr.getId().getCoder().getId())) {
-                                log.debug("not in the list");
                                 // this means the professor took someone out, add error
                                 addError("error", "The assignment is about to start or has already started and therefore students cannot be removed");
                                 break;
@@ -106,7 +105,8 @@ public class EditAssignmentStudents extends ShortHibernateProcessor {
                     // validate if the selected students are active students
                     List<Coder> students = new ArrayList<Coder>();
                     for (Long studentId : studentIds) {
-                        Coder s = DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(studentId, c.getId());
+                        StudentClassroom sc = DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(studentId, c.getId());
+                        Coder s = (sc != null) ? sc.getId().getStudent() : null;
                         if (s == null) {
                             throw new TCWebException("Invalid student selected");
                         } else {
@@ -126,7 +126,7 @@ public class EditAssignmentStudents extends ShortHibernateProcessor {
                     } else {
                         getRequest().setAttribute(Constants.CLASSROOM, c);
                         getRequest().setAttribute("checked_students", studentIds);
-                        getRequest().setAttribute("activeStudents", c.getStudents(StudentClassroom.ACTIVE_STATUS));
+                        getRequest().setAttribute("activeStudents", DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.ACTIVE_STATUS));
 
                         setNextPage("/professor/editAssignmentStudents.jsp");
                         setIsNextPageInContext(true);
@@ -140,12 +140,6 @@ public class EditAssignmentStudents extends ShortHibernateProcessor {
         }
     }
 
-
-    /**
-     * @param classroomId
-     * @return
-     * @throws NavigationException
-     */
     private Classroom checkValidClassroom(Long classroomId) throws NavigationException {
         Classroom c = DAOUtil.getFactory().getClassroomDAO().find(classroomId);
 
@@ -174,8 +168,6 @@ public class EditAssignmentStudents extends ShortHibernateProcessor {
 
     private List<Long> getStudentParam() throws TCWebException {
         String[] values = getRequest().getParameterValues(Constants.STUDENT_ID);
-
-
         List<Long> ids = new ArrayList<Long>();
 
         if (values != null) {

@@ -14,8 +14,12 @@ import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.ep.util.Helper;
 
 /**
+ * This is a processor for the shared pages. It will identify the user and his role and
+ * delegate the process accordingly.
+ * 
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
@@ -23,7 +27,19 @@ public abstract class SharedBaseProcessor extends ShortHibernateProcessor {
 
     private static Logger log = Logger.getLogger(SharedBaseProcessor.class);
 
+    /**
+     * Processor implementation for professors
+     * 
+     * @throws Exception
+     */
     protected abstract void professorProcessing() throws Exception;
+    
+    
+    /**
+     * Processor implementation for students
+     * 
+     * @throws Exception
+     */
     protected abstract void studentProcessing() throws Exception;
     
     /* (non-Javadoc)
@@ -45,7 +61,6 @@ public abstract class SharedBaseProcessor extends ShortHibernateProcessor {
                 
                 professorProcessing();
             } else {
-                // since it's a shared processor check if he has permission
                 if (!Helper.hasStudentPermission(getUser())) {
                     throw new PermissionException(getUser(), new ClassResource(this.getClass()));
                 }

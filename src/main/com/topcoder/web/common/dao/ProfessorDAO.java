@@ -9,8 +9,6 @@ import com.topcoder.web.common.model.educ.Professor;
  */
 public interface ProfessorDAO extends GenericDAO<Professor, Long> {
 
-    public Boolean hasActiveProfessors(Long studentId);
-
     public Boolean isProfessor(Long professorId);
 
 }

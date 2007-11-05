@@ -5,11 +5,6 @@
 */
 package com.topcoder.web.common.model.educ;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,21 +12,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.OrderBy;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import com.topcoder.web.common.model.Base;
-import com.topcoder.web.common.model.Coder;
-import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.User;
 
 /**
@@ -49,10 +37,7 @@ public class Professor extends Base {
     private User user;
     private ProfessorStatus status;
 
-    private Set<Classroom> classrooms;
-
     public Professor() {
-        this.classrooms = new HashSet<Classroom>();
     }
 
     @Id
@@ -86,43 +71,6 @@ public class Professor extends Base {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    @OneToMany(fetch=FetchType.LAZY, mappedBy = "professor")
-    @Cascade({CascadeType.ALL})
-    @OrderBy("school, name asc")
-    public Set<Classroom> getClassrooms() {
-        return classrooms;
-    }
-
-    public void setClassrooms(Set<Classroom> classrooms) {
-        this.classrooms = classrooms;
-    }
-
-    public void addClassrooms(Classroom classroom) {
-        classroom.setProfessor(this);
-        this.classrooms.add(classroom);
-    }
-
-    public void removeClassroom(Classroom classroom) {
-        if (this.classrooms.contains(classroom)) {
-            this.classrooms.remove(classroom);
-        }
-    }
-
-    @Transient
-    public Set<Coder> getStudents(School s) {
-        SortedSet<Coder> cs = new TreeSet<Coder>(new StudentComparator());
-        for (Classroom c : this.classrooms) {
-            if (c.getSchool().equals(s)) {
-                for (StudentClassroom sc : c.getStudentClassrooms()) {
-                    if (!cs.contains(sc.getId().getStudent())) {
-                        cs.add(sc.getId().getStudent());
-                    }
-                }
-            }
-        }
-        return cs;
     }
 
     @Override

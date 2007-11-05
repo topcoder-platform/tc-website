@@ -23,12 +23,12 @@
 
         <set name="classrooms" cascade="save-update" inverse="true" access="field">
             <key column="school_id" not-null="true"/>
-            <one-to-many class="com.topcoder.web.common.model.educ.Classroom"/>
+            <one-to-many class="com.topcoder.web.ep.model.Classroom"/>
         </set>
 
         <set name="userSchools" cascade="none" inverse="true">
             <key column="school_id" not-null="true"/>
-            <one-to-many class="com.topcoder.web.common.model.UserSchool"/>
+            <one-to-many class="UserSchool"/>
         </set>
 
     </class>

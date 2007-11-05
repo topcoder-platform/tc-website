@@ -5,12 +5,14 @@
 */
 package com.topcoder.web.common.dao;
 
+import java.util.List;
+
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.common.model.educ.Professor;
 import com.topcoder.web.common.model.educ.ProfessorStatus;
-import com.topcoder.web.common.model.educ.StudentClassroom;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 import com.topcoder.web.reg.TCHibernateTestCase;
 
 /**
@@ -27,6 +29,14 @@ public class ProfessorDAOTestCase extends TCHibernateTestCase {
         Professor delete = u.getProfessor(); 
         if (delete != null) {
             u.setProfessor(null);
+            
+            // delete all professor's classrooms
+            List<Classroom> lc = DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingProfessorId(delete.getId());
+
+            for (Classroom c : lc) {
+                DAOUtil.getFactory().getClassroomDAO().delete(c);
+            }
+            
             DAOUtil.getFactory().getProfessorDAO().delete(delete);
         }
 
@@ -56,9 +66,8 @@ public class ProfessorDAOTestCase extends TCHibernateTestCase {
         sc.getId().setStudent(s);
         c.addStudentClassroom(sc);
         
-        p.addClassrooms(c);
-        
         DAOUtil.getFactory().getProfessorDAO().saveOrUpdate(p);
+        DAOUtil.getFactory().getClassroomDAO().saveOrUpdate(c);
 
         tearDown();
         setUp();
@@ -68,8 +77,6 @@ public class ProfessorDAOTestCase extends TCHibernateTestCase {
         Professor p2 = DAOUtil.getFactory().getProfessorDAO().find(p.getId());
         assertTrue("Could not found professor " + p.getId(), p2 != null);
 
-        assertTrue("Different attribute: getClassroom size - " + p.getClassrooms().size() + " <> getClassrooms size - " + p2.getClassrooms().size(),
-                p.getClassrooms().size() == p2.getClassrooms().size());
         assertTrue("Different attribute: getStatusId - " + p.getStatus().getId() + " <> getStatusId - " + p2.getStatus().getId(),
                 p.getStatus().getId().equals(p2.getStatus().getId()));
         assertTrue("Different attribute: getUser - " + p.getUser() + " <> getUser - " + p2.getUser(),
@@ -82,15 +89,15 @@ public class ProfessorDAOTestCase extends TCHibernateTestCase {
         b = DAOUtil.getFactory().getProfessorDAO().isProfessor(9999l);
         assertFalse("Should not be a professor ", b);
         
-        b = DAOUtil.getFactory().getProfessorDAO().hasActiveProfessors(119676l);
-        assertTrue("Should have active professor", b);
-        
-        b = DAOUtil.getFactory().getProfessorDAO().hasActiveProfessors(9999l);
-        assertFalse("Should not have active professor", b);
-        
-        
         p2.getUser().setProfessor(null);
-        
+
+        // delete all professor's classrooms
+        List<Classroom> lc = DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingProfessorId(p2.getId());
+
+        for (Classroom cls : lc) {
+            DAOUtil.getFactory().getClassroomDAO().delete(cls);
+        }
+
         DAOUtil.getFactory().getProfessorDAO().delete(p2);
     }
 

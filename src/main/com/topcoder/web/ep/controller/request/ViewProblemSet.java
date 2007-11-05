@@ -5,9 +5,7 @@
 */
 package com.topcoder.web.ep.controller.request;
 
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.algo.ProblemSet;
@@ -26,26 +24,21 @@ public class ViewProblemSet extends ShortBase {
      */
     @Override
     protected void dbProcessing() throws Exception {
-        if (userIdentified()) {
-            
-            Integer problemSetId = getProblemSetParam();
+        Integer problemSetId = getProblemSetParam();
 
-            ProblemSet ps = null;
-            if (problemSetId != null) {
-                ps = getFactory().getProblemSetDAO().find(problemSetId);
-            }
-            
-            if (ps == null) {
-                throw new TCWebException("Couldn't find problem set");
-            }
-            
-            getRequest().setAttribute("problem_set", ps);
-            
-            setNextPage("/problemSetDescription.jsp");
-            setIsNextPageInContext(true);
-        } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        ProblemSet ps = null;
+        if (problemSetId != null) {
+            ps = getFactory().getProblemSetDAO().find(problemSetId);
         }
+        
+        if (ps == null) {
+            throw new TCWebException("Couldn't find problem set");
+        }
+        
+        getRequest().setAttribute("problem_set", ps);
+        
+        setNextPage("/problemSetDescription.jsp");
+        setIsNextPageInContext(true);
     }
     
     private Integer getProblemSetParam() throws TCWebException {

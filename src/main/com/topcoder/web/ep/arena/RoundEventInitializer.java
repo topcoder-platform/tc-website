@@ -3,7 +3,7 @@
  * 
  * Created Oct 12, 2007
  */
-package com.topcoder.web.ep.controller.request;
+package com.topcoder.web.ep.arena;
 
 import com.topcoder.shared.messagebus.BusFactory;
 import com.topcoder.shared.messagebus.jms.JMSConfigurationParser;

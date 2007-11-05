@@ -11,9 +11,4 @@ public interface CoderDAO {
     Coder find(Long id);
 
     void saveOrUpdate(Coder u);
-
-    Coder getActiveStudentUsingClassroomId(Long studentId, Long classroomId);
-
-    Coder getStudentUsingClassroomId(Long studentId, Long classroomId);
-
 }

@@ -12,10 +12,9 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.Professor;
-import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.controller.request.LongBase;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -70,23 +69,23 @@ public class EditClassroomSubmit extends LongBase {
                 }
                 
                 // 3
-                for (Coder s : classroom.getStudents(StudentClassroom.ACTIVE_STATUS)) {
-                    if (!students.contains(s)) {
-                        log.debug("Deactivating " + s.getUser().getHandle());
-                        classroom.deactivateStudent(s);
+                if (classroom.getId() != null) {
+                    for (Coder s : DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(classroom.getId(), StudentClassroom.ACTIVE_STATUS)) {
+                        if (!students.contains(s)) {
+                            log.debug("Deactivating " + s.getUser().getHandle());
+                            classroom.deactivateStudent(s);
+                        }
                     }
-                }
-                for (Coder s : classroom.getStudents(StudentClassroom.PENDING_STATUS)) {
-                    if (!students.contains(s)) {
-                        log.debug("Deactivating " + s.getUser().getHandle());
-                        classroom.deactivateStudent(s);
+                    for (Coder s : DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(classroom.getId(), StudentClassroom.PENDING_STATUS)) {
+                        if (!students.contains(s)) {
+                            log.debug("Deactivating " + s.getUser().getHandle());
+                            classroom.deactivateStudent(s);
+                        }
                     }
                 }
             }
             
-            Professor p = DAOUtil.getFactory().getProfessorDAO().find(getUser().getId());
-            p.addClassrooms(classroom);
-            getFactory().getProfessorDAO().saveOrUpdate(p);
+            DAOUtil.getFactory().getClassroomDAO().saveOrUpdate(classroom);
 
             markForCommit();
             

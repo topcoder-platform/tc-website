@@ -5,12 +5,15 @@
 */
 package com.topcoder.web.ep.dto;
 
+import java.io.Serializable;
+
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class ComponentDTO {
+public class ComponentDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private Long componentId = null;
     private Double points = null;

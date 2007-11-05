@@ -1,12 +1,9 @@
+package com.topcoder.web.ep.util;
+
 /**
+ * Simple representation of the report's row
  * 
- */
-package com.topcoder.web.ep.controller.request.reports;
-
-
-/**
  * @author Pablo
- *
  */
 public class SystemTestRow {
     private String args;
@@ -43,6 +40,4 @@ public class SystemTestRow {
     public void setSucceeded(Boolean succeeded) {
         this.succeeded = succeeded;
     }
-
-    
 }

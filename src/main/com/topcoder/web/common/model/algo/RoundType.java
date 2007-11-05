@@ -1,11 +1,13 @@
 package com.topcoder.web.common.model.algo;
 
+import com.topcoder.web.common.model.Base;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jun 4, 2007
  */
-public class RoundType {
+public class RoundType extends Base {
     public static final Integer HS_SRM = 17;
     public static final Integer SRM = 1;
     public static final Integer MARATHON = 13;

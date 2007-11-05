@@ -3,7 +3,7 @@
 *
 * Created Oct 2, 2007
 */
-package com.topcoder.web.ep.controller.request;
+package com.topcoder.web.ep.util;
 
 import java.util.Iterator;
 

@@ -1,13 +1,11 @@
-/**
- * 
- */
-package com.topcoder.web.ep.controller.request.reports;
+package com.topcoder.web.ep.util;
 
 import java.util.List;
 
 /**
+ * Simple representation of the report's row
+ * 
  * @author Pablo
- *
  */
 public class StudentReportRow {
     private Long assignmentId;

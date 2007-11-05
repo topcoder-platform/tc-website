@@ -16,8 +16,9 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.algo.Round;
-import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -31,13 +32,14 @@ public class ViewClassroomAssignments extends SharedBaseProcessor {
     protected void professorProcessing() throws Exception {
         Classroom c = getClassroom();
         getRequest().setAttribute("schoolName", c.getSchool().getName());                
-        if (c.getProfessor().getId().equals(getUser().getId())) {
-            log.debug("is professor");
 
-            
+        // check if the user is seeing his own classroom details
+        if (c.getProfessor().getId().equals(getUser().getId())) {
             List<Round> lr = DAOUtil.getFactory().getRoundDAO().getAssignments(c.getId());
             
-            // we need to tell the UI whether to show or not the edit and assign to columns            
+            // we need to tell the UI whether to show or not the edit and assign to columns
+            // showAssignTo - only if the assignment has not finished yet
+            // showEdit - only if the assignment has not started yet
             Boolean showEdit = false;
             Boolean showAssignTo = false;
             Timestamp now = new Timestamp((new Date()).getTime());
@@ -58,6 +60,8 @@ public class ViewClassroomAssignments extends SharedBaseProcessor {
 
             setNextPage("/professor/viewClassroomAssignments.jsp");
             setIsNextPageInContext(true);
+        } else {
+            throw new NavigationException("You don't have permission to see this page.");
         }
     }
 
@@ -66,10 +70,11 @@ public class ViewClassroomAssignments extends SharedBaseProcessor {
     protected void studentProcessing() throws Exception {
         Classroom c = getClassroom();
         getRequest().setAttribute("schoolName", c.getSchool().getName());                
-        Coder s = DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(getUser().getId(), c.getId());
-        if (s != null) {
-            log.debug("active student");
 
+        // check if this user is an active student of the classroom
+        StudentClassroom sc = DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(getUser().getId(), c.getId());
+        Coder s = (sc != null) ? sc.getId().getStudent() : null;
+        if (s != null) {
             getRequest().setAttribute("classroom", c);
             getRequest().setAttribute("assignments", DAOUtil.getFactory().getRoundDAO().getAssignmentsForStudent(c.getId(), s.getId()));
             setNextPage("/student/viewClassroomAssignments.jsp");

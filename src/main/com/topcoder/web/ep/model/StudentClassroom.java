@@ -1,4 +1,4 @@
-package com.topcoder.web.common.model.educ;
+package com.topcoder.web.ep.model;
 
 import java.io.Serializable;
 //

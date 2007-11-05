@@ -11,7 +11,7 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.ep.controller.request.ArenaServicesFactory;
+import com.topcoder.web.ep.arena.ArenaServicesFactory;
 import com.topcoder.web.ep.controller.request.ShortBase;
 import com.topcoder.web.ep.dto.AssignmentDTO;
 import com.topcoder.web.ep.dto.ComponentDTO;
@@ -40,7 +40,7 @@ public class EditAssignmentSubmit extends ShortBase {
                 AssignmentDTO adto = getAssignment();
                 if (adto == null) {
                     throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/education");
-                } else if (userLoggedIn()) {
+                } else {
                     getRequest().setAttribute("schoolName", adto.getSchoolName());                
                     Boolean update = adto.getRoundId() != null; 
                     if (update) {
@@ -64,8 +64,6 @@ public class EditAssignmentSubmit extends ShortBase {
                     getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, "/education/?module=ViewClassroomAssignments&clsid=" + adto.getClassroomId());                  
                     setNextPage("/message.jsp");
                     setIsNextPageInContext(true);            
-                } else {
-                    throw new PermissionException(getUser(), new ClassResource(this.getClass()));
                 }
             }
         } else {

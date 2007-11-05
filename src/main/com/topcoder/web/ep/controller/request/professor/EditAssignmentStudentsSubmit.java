@@ -22,9 +22,10 @@ import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.algo.RoundRegistration;
-import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
-import com.topcoder.web.ep.controller.request.ArenaServicesFactory;
+import com.topcoder.web.ep.arena.ArenaServicesFactory;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -35,7 +36,7 @@ public class EditAssignmentStudentsSubmit extends ShortHibernateProcessor {
     private static Logger log = Logger.getLogger(EditAssignmentStudentsSubmit.class);
 
     /* (non-Javadoc)
-     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     * @see com.topcoder.web.common.ShortHibernateProcessor#dbProcessing()
      */
     @Override
     protected void dbProcessing() throws Exception {
@@ -86,7 +87,8 @@ public class EditAssignmentStudentsSubmit extends ShortHibernateProcessor {
 
                 // validate if the selected students are active students
                 for (Long studentId : studentIds) {
-                    Coder s = DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(studentId, c.getId());
+                    StudentClassroom sc = DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(studentId, c.getId());
+                    Coder s = (sc != null) ? sc.getId().getStudent() : null;
                     if (s == null) {
                         throw new TCWebException("Invalid student selected");
                     }
@@ -104,12 +106,6 @@ public class EditAssignmentStudentsSubmit extends ShortHibernateProcessor {
         }
     }
 
-
-    /**
-     * @param classroomId
-     * @return
-     * @throws NavigationException
-     */
     private Classroom checkValidClassroom(Long classroomId) throws NavigationException {
         Classroom c = DAOUtil.getFactory().getClassroomDAO().find(classroomId);
 

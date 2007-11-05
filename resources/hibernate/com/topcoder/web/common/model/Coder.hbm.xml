@@ -35,21 +35,5 @@
             <key column="coder_id" not-null="true"/>
             <one-to-many class="AlgoRating"/>
         </set>
-
-        <set name="studentClassrooms" cascade="save-update" inverse="true" access="field">
-            <key column="student_id" not-null="true"/>
-            <one-to-many class="com.topcoder.web.common.model.educ.StudentClassroom"/>
-        </set>
-        
-        <set name="roundRegistrations" cascade="all-delete-orphan" inverse="true" access="field">
-            <key column="coder_id" not-null="true"/>
-            <one-to-many class="com.topcoder.web.common.model.algo.RoundRegistration"/>
-        </set>
-        
-        <set name="roomResults" cascade="all-delete-orphan" inverse="true" access="field">
-            <key column="coder_id" not-null="true"/>
-            <one-to-many class="com.topcoder.web.common.model.algo.RoomResult"/>
-        </set>
-        
     </class>
 </hibernate-mapping>

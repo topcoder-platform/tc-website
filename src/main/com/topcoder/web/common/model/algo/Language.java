@@ -3,12 +3,14 @@ package com.topcoder.web.common.model.algo;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.topcoder.web.common.model.Base;
+
 /**
  * @author pulky
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jun 4, 2007
  */
-public class Language {
+public class Language extends Base {
     public static final int JAVA_LANGUAGE = 1;
     public static final int XML_LANGUAGE = 2;
     public static final int CPP_LANGUAGE = 3;

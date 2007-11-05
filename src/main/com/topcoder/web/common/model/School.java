@@ -1,6 +1,6 @@
 package com.topcoder.web.common.model;
 
-import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.ep.model.Classroom;
 
 import java.util.Collections;
 import java.util.Date;
