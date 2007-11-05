@@ -136,7 +136,7 @@
                                      for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.
                                  </c:when>
                              <c:otherwise>
-                                 <span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for
+                                 <nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
                              this contest.
                              </c:otherwise>
                              </c:choose>
@@ -207,8 +207,7 @@
                 </div>
             </form>
             <br /><br />
-            <strong>NOTE:</strong> green rows indicate submissions that you have selected to be considered for
-            this contest
+            <strong>NOTE:</strong> <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates submissions that you have selected to be considered for this contest
         </div>
 
 
