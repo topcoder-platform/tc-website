@@ -39,9 +39,9 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">11.02.07 7:30 PM - </td><td width="100%">Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">Development</A> Finals: Round 3</td></tr>
-<tr class="bodyText"><td nowrap="nowrap">11.01.07 5:00 PM - </td><td width="100%">Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">Development</A> Finals: Round 2</td></tr>
-<tr class="bodyText"><td nowrap="nowrap">10.31.07 7:30 PM - </td><td width="100%">Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">Development</A> Finals: Round 1</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.02.07 7:30 PM - </td><td width="100%">TCCC07 Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">Development</A> Finals: Round 3</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.01.07 5:00 PM - </td><td width="100%">TCCC07 Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">Development</A> Finals: Round 2</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.31.07 7:30 PM - </td><td width="100%">TCCC07 Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">Development</A> Finals: Round 1</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.04.07 4:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=umltool&d3=description">How Do You Like the UML Tool?</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.04.07 1:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=stage1Winners">2007.5 Digital Run: Stage 1 Winners</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.20.07 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=umltool&d3=description&node=des_uml_tool">Try the TopCoder UML Tool</A><br></td></tr>
