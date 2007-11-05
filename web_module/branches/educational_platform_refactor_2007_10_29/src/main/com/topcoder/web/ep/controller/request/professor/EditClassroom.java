@@ -137,8 +137,11 @@ public class EditClassroom extends LongBase {
                         c.setStatusId(Classroom.ACTIVE);
                         c.setSchool(s);
 
-                        List<Coder> sc = DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.PENDING_STATUS);
-                        sc.addAll(DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.ACTIVE_STATUS));
+                        List<Coder> sc = new ArrayList<Coder>();
+                        if (c.getId() != null) {
+                            sc = DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.PENDING_STATUS);
+                            sc.addAll(DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.ACTIVE_STATUS));
+                        }
                         
                         List<Coder> ps = DAOUtil.getFactory().getStudentClassroomDAO().findUsingProfessorIdSchoolId(c.getProfessor().getId(), s.getId());
 
