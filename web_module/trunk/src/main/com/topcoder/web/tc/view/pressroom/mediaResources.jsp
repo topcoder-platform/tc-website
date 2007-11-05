@@ -77,26 +77,32 @@
                             <%-- because of floating problem, this data presented using table --%>
                             <table cellpadding="0" cellspacing="0">
                             <tr>
+                                <td class="pr_video_img"><a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movies"><img src="/i/pressroom/tccc07webcast.png" alt="TCCC07 webcast" /></a></td>
+                                <td class="pr_video_space">&nbsp;</td>
+                                <td class="pr_video_desc">
+                                    <h3><a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movies">2007 TopCoder Collegiate Challenge webcast</a></h3>
+                                    <p>View the entire TCCC07 in 3 separate parts as well as the Tournament trailer.  Requires Flash 7 or higher. 
+                                    <br />
+                                    <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_part1&title=TC%20Channel%20at%20the%20TCCC07%20Part%201' refer='mediaResources' />"><small style="margin-left:10px;">Ch 1 time: 00:07:03 | Format: Flash</small></a>
+                                    <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_part2&title=TC%20Channel%20at%20the%20TCCC07%20Part%202' refer='mediaResources' />"><small style="margin-left:10px;">Ch 2 time: 00:10:07 | Format: Flash</small></a>
+                                    <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_part3&title=TC%20Channel%20at%20the%20TCCC07%20Part%203' refer='mediaResources' />"><small style="margin-left:10px;">Ch 3 time: 00:09:30 | Format: Flash</small></a></p>
+                                    
+                                    <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movies" class="button">View</a></span></div>
+                                </td>
+                            </tr>
+                            
+                            <tr>
                                 <td class="pr_video_img"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies"><img src="/i/pressroom/tco07webcast.png" alt="TCO07 webcast" /></a></td>
                                 <td class="pr_video_space">&nbsp;</td>
                                 <td class="pr_video_desc">
                                     <h3><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies">2007 TopCoder Open webcast</a></h3>
                                     <p>View the entire TCO07 in 3 separate parts.  Also featuring a Tournament trailer, an interview with AOL CTO Balan Nair, and a handheld camera montage.  Requires Flash 7 or higher. 
-                                    <br /><small style="margin-left:10px;">Ch 1 time: 01:03:55 | Format: Flash</small></p>
+                                    <br />
+                                    <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast1&title=Webcast%20Part%201"><small style="margin-left:10px;">Ch 1 time: 01:03:55 | Format: Flash</small></a>
+                                    <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast2&title=Webcast%20Part%202"><small style="margin-left:10px;">Ch 2 time: 01:07:50 | Format: Flash</small></a>
+                                    <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=webcast3&title=Webcast%20Part%203"><small style="margin-left:10px;">Ch 3 time: 00:28:46 | Format: Flash</small></a></p>
                                     
                                     <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies" class="button">View</a></span></div>
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="pr_video_img"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies"><img src="/i/pressroom/video_1.jpg" alt="TCCC06 webcast" /></a></td>
-                                <td class="pr_video_space">&nbsp;</td>
-                                <td class="pr_video_desc">
-                                    <h3><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies">2006 TopCoder Collegiate Challenge webcast</a></h3>
-                                    <p>View the entire TCCC06 in 8 separate parts.  Requires Flash 7 or higher. 
-                                    <br /><small style="margin-left:10px;">Ch 1 time: 00:26:27 | Format: Flash</small></p>
-                                    
-                                    <div style="height:15px;"><span style="width:70; float:left; padding:5px;"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies" class="button">View</a></span></div>
                                 </td>
                             </tr>
                             </table>
