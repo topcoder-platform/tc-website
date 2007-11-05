@@ -12,10 +12,10 @@ import java.util.Map;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.StudentClassroom;
-import com.topcoder.web.ep.controller.request.student.StudentHomeDetailRow;
-import com.topcoder.web.ep.controller.request.student.StudentHomeRow;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
+import com.topcoder.web.ep.util.StudentHomeDetailRow;
+import com.topcoder.web.ep.util.StudentHomeRow;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -33,7 +33,7 @@ public class Home extends SharedBaseProcessor {
         getRequest().setAttribute("classrooms", DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingProfessorId(new Long(getUser().getId())));
 
         List<School> ls = DAOUtil.getFactory().getSchoolDAO().findSchoolsUsingProfessorId(getUser().getId());
-        // show school in header only in case the professor has just one
+        // show school in header only in case the professor has just one school
         if (ls.size() == 1) {
             getRequest().setAttribute("schoolName", ls.iterator().next().getName());                
         }
@@ -69,7 +69,7 @@ public class Home extends SharedBaseProcessor {
             getRequest().setAttribute("schoolName", schools.values().iterator().next().getSchoolName());                
         }
 
-        if (DAOUtil.getFactory().getProfessorDAO().hasActiveProfessors(getUser().getId())) {
+        if (schools.size() > 0) {
             log.debug("student with registration");
             // user already registered
             getRequest().setAttribute("schools", schools.values());                

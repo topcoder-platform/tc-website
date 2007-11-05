@@ -7,7 +7,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import com.topcoder.web.common.dao.ClassroomDAO;
-import com.topcoder.web.common.model.educ.Classroom;
+import com.topcoder.web.ep.model.Classroom;
  
 
 /**

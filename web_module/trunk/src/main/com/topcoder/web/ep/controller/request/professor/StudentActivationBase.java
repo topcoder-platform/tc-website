@@ -16,9 +16,9 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -31,7 +31,7 @@ public abstract class StudentActivationBase extends ShortHibernateProcessor {
     protected abstract void process(Classroom c, List<StudentClassroom> lsc);
 
     /* (non-Javadoc)
-     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     * @see com.topcoder.web.common.ShortHibernateProcessor#dbProcessing()
      */
     @Override
     protected void dbProcessing() throws Exception {

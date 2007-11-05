@@ -14,8 +14,8 @@ import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
+import com.topcoder.web.ep.model.Classroom;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -23,8 +23,16 @@ import com.topcoder.web.ep.Constants;
  */
 public abstract class LongBase extends LongHibernateProcessor {
     private DAOFactory factory = null;
+
+    /**
+     * This prefix is to help distinguish different objects in the same session but for different
+     * wizards. 
+     */
     public String sessionPrefix = ""; 
     
+    /**
+     * Clears session objects
+     */
     protected void clearSession() {
         getRequest().getSession().setAttribute(sessionPrefix + Constants.USER, null);
         getRequest().getSession().setAttribute(sessionPrefix + Constants.SCHOOL, null);

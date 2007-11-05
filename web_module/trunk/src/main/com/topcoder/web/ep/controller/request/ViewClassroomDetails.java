@@ -10,9 +10,9 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.educ.Classroom;
-import com.topcoder.web.common.model.educ.StudentClassroom;
 import com.topcoder.web.ep.Constants;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -27,20 +27,27 @@ public class ViewClassroomDetails extends SharedBaseProcessor {
         Classroom c = getClassroom();
         log.debug("is professor");
         
-        // this user is the classroom's professor
-        getRequest().setAttribute("schoolName", c.getSchool().getName());                
-        getRequest().setAttribute("classroom", c);
-        getRequest().setAttribute("activeStudents", c.getStudents(StudentClassroom.ACTIVE_STATUS));                
-        getRequest().setAttribute("pendingStudents", c.getStudents(StudentClassroom.PENDING_STATUS));
-        
-        setNextPage("/professor/viewClassroomDetails.jsp");
-        setIsNextPageInContext(true);
+        // check if the user is seeing his own classroom details
+        if (c.getProfessor().getId().equals(getUser().getId())) {
+            // this user is the classroom's professor
+            getRequest().setAttribute("schoolName", c.getSchool().getName());                
+            getRequest().setAttribute("classroom", c);
+            getRequest().setAttribute("activeStudents", DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.ACTIVE_STATUS));                
+            getRequest().setAttribute("pendingStudents", DAOUtil.getFactory().getStudentClassroomDAO().findUsingClassroomIdStatusId(c.getId(), StudentClassroom.PENDING_STATUS));
+            
+            setNextPage("/professor/viewClassroomDetails.jsp");
+            setIsNextPageInContext(true);
+        } else {
+            throw new NavigationException("You don't have permission to see this page.");
+        }
     }
 
     @Override
     protected void studentProcessing() throws Exception {
         Classroom c = getClassroom();
-        if (DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(getUser().getId(), c.getId()) != null) {
+
+        // check if this user is an active student of the classroom
+        if (DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(getUser().getId(), c.getId()) != null) {
             log.debug("active student");
             // this user is an active student of the classroom
             getRequest().setAttribute("schoolName", c.getSchool().getName());                

@@ -27,9 +27,11 @@ import com.topcoder.web.common.model.algo.ComponentState;
 import com.topcoder.web.common.model.algo.Round;
 import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.algo.Submission;
-import com.topcoder.web.common.model.educ.Classroom;
 import com.topcoder.web.ep.Constants;
 import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
+import com.topcoder.web.ep.util.SystemTestRow;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -53,7 +55,9 @@ public class ViewSubmission extends SharedBaseProcessor {
         }
 
         // check if it's a valid student
-        Coder s = DAOUtil.getFactory().getCoderDAO().getStudentUsingClassroomId(getStudentParam(), c.getId()); 
+        StudentClassroom sc = DAOUtil.getFactory().getStudentClassroomDAO().findUsingStudentIdClassroomId(getStudentParam(), c.getId());
+        Coder s = (sc != null) ? sc.getId().getStudent() : null;
+
         if (s == null) {
             throw new TCWebException("Couldn't find student");
         }
@@ -68,12 +72,13 @@ public class ViewSubmission extends SharedBaseProcessor {
 
         // check if this assignment belongs to the logged student
         Classroom c = DAOUtil.getFactory().getClassroomDAO().find((Long) a.getProperty(RoundProperty.CLASSROOM_ID_PROPERTY_ID));
-        if (DAOUtil.getFactory().getCoderDAO().getActiveStudentUsingClassroomId(getUser().getId(), c.getId()) == null) {
+        if (DAOUtil.getFactory().getStudentClassroomDAO().findActiveUsingStudentIdClassroomId(getUser().getId(), c.getId()) == null) {
             throw new NavigationException("You don't have permission to see this page.");
         }
 
         // check if it's a valid student
-        Coder s = DAOUtil.getFactory().getCoderDAO().getStudentUsingClassroomId(getStudentParam(), c.getId()); 
+        StudentClassroom sc = DAOUtil.getFactory().getStudentClassroomDAO().findUsingStudentIdClassroomId(getStudentParam(), c.getId());
+        Coder s = (sc != null) ? sc.getId().getStudent() : null;
         if (s == null) {
             throw new TCWebException("Couldn't find student");
         }
@@ -132,7 +137,6 @@ public class ViewSubmission extends SharedBaseProcessor {
                 ));
         }
         
-        
         getRequest().setAttribute("classroom", c);
         getRequest().setAttribute("assignment", a);
         getRequest().setAttribute("component", cmp);
@@ -163,7 +167,6 @@ public class ViewSubmission extends SharedBaseProcessor {
         text = StringUtils.htmlEncode(text);
         while ((i = text.indexOf("\n\n")) >= 0) {
             text = text.substring(0, i + 1) + "&#160;" + text.substring(i + 1);
-
         }
 
         StringTokenizer strtok = new StringTokenizer(text, "\n");

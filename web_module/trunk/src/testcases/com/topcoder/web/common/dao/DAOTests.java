@@ -55,6 +55,7 @@ public class DAOTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(ProfessorDAOTestCase.class));
         suite.addTest(new TestSuite(ClassroomDAOTestCase.class));
         suite.addTest(new TestSuite(RoundDAOTestCase.class));        
+        suite.addTest(new TestSuite(StudentClassroomDAOTestCase.class));        
         
         return suite;
     }

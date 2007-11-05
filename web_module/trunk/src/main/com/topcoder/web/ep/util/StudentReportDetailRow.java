@@ -1,11 +1,9 @@
-/**
- * 
- */
-package com.topcoder.web.ep.controller.request.reports;
+package com.topcoder.web.ep.util;
 
 /**
+ * Simple representation of the report's row
+ * 
  * @author Pablo
- *
  */
 public class StudentReportDetailRow {
     private Long componentId;

@@ -1,12 +1,9 @@
+package com.topcoder.web.ep.util;
+
 /**
+ * Simple representation of the report's row
  * 
- */
-package com.topcoder.web.ep.controller.request.student;
-
-
-/**
  * @author Pablo
- *
  */
 public class StudentHomeDetailRow {
     private Long classroomId;

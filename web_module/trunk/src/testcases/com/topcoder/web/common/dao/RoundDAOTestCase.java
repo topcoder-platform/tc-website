@@ -5,13 +5,24 @@
 */
 package com.topcoder.web.common.dao;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import com.topcoder.web.common.model.Coder;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.algo.Language;
 import com.topcoder.web.common.model.algo.Round;
-import com.topcoder.web.common.model.algo.RoundProperty;
 import com.topcoder.web.common.model.algo.RoundType;
+import com.topcoder.web.common.model.educ.Professor;
+import com.topcoder.web.common.model.educ.ProfessorStatus;
+import com.topcoder.web.ep.arena.ArenaHelper;
+import com.topcoder.web.ep.dto.AssignmentDTO;
+import com.topcoder.web.ep.dto.ComponentDTO;
+import com.topcoder.web.ep.model.Classroom;
+import com.topcoder.web.ep.model.StudentClassroom;
 import com.topcoder.web.reg.TCHibernateTestCase;
 
 /**
@@ -90,31 +101,158 @@ public class RoundDAOTestCase extends TCHibernateTestCase {
         DAOUtil.getFactory().getRoundDAO().delete(r2);
     }
 
-    public void testFindDuplicateName() {
-        // todo: create test data rather than use existing data from the db
+    public void testEducationalAssignments() {
+        // findDuplicateName
+        // getAssignments
+        // getAssignmentsForStudent
         
-        assertTrue("Should've found the round", DAOUtil.getFactory().getRoundDAO().findDuplicateName(1160l, "Test Integ 2", null).size() > 0);
+        ArenaHelper ah = new ArenaHelper();
+        ah.setSendEvent(false);
 
-        assertTrue("Shouldn't have found the round", DAOUtil.getFactory().getRoundDAO().findDuplicateName(1160l, "Test Integ 2", 21102l).size() == 0);
+        Classroom c = createClassroomForTest();
+        AssignmentDTO basicADTO = createBasicAssignmentDTO(c);
 
-    }
+        ah.addNewAssignment(basicADTO);
 
-    public void testGetAssignments() {
-        // todo: create test data rather than use existing data from the db
+        List<Long> coderIds = new ArrayList<Long>();
+        coderIds.add(119676l);
+        
+        ah.updateRoundRegistration(basicADTO.getRoundId(), coderIds);
+
+        assertTrue("Should've found the round", DAOUtil.getFactory().getRoundDAO().findDuplicateName(c.getId(), basicADTO.getAssignmentName(), null).size() > 0);
+
+        assertTrue("Shouldn't have found the round", DAOUtil.getFactory().getRoundDAO().findDuplicateName(c.getId(), basicADTO.getAssignmentName(), basicADTO.getRoundId()).size() == 0);
 
         assertTrue("There are no assignments for the classroom", DAOUtil.getFactory().getRoundDAO().getAssignments(999l).size() == 0);
 
-        assertTrue("There are assignments for the classroom", DAOUtil.getFactory().getRoundDAO().getAssignments(1160l).size() > 0);
+        assertTrue("There are assignments for the classroom", DAOUtil.getFactory().getRoundDAO().getAssignments(c.getId()).size() > 0);
+
+        assertTrue("There are no assignments for the student", DAOUtil.getFactory().getRoundDAO().getAssignmentsForStudent(999l, 119676l).size() == 0);
+
+        assertTrue("There are no assignments for the student", DAOUtil.getFactory().getRoundDAO().getAssignmentsForStudent(c.getId(), 8369898l).size() == 0);
+
+        assertTrue("There are assignments for the student", DAOUtil.getFactory().getRoundDAO().getAssignmentsForStudent(c.getId(), 119676l).size() > 0);
+
+        super.tearDown();
+        super.setUp();
+
+        // clean up the professor and remove the created assignment
+        cleanUp(basicADTO);
+
     }
 
-    public void testGetAssignmentsForStudent() {
-        // todo: create test data rather than use existing data from the db
+    
+    
+    
+    /************************ PRIVATE HELPER METHODS ******************************/ 
+    
+    private void cleanUp(AssignmentDTO basicADTO) {
+        User u = DAOUtil.getFactory().getUserDAO().find("bauna", true);
+        Professor p = u.getProfessor();
 
-        assertTrue("There are no assignments for the classroom", DAOUtil.getFactory().getRoundDAO().getAssignmentsForStudent(999l, 8416646l).size() == 0);
-
-        assertTrue("There are no assignments for the student", DAOUtil.getFactory().getRoundDAO().getAssignmentsForStudent(1160l, 999l).size() == 0);
-
-        assertTrue("There are assignments for the student", DAOUtil.getFactory().getRoundDAO().getAssignmentsForStudent(1160l, 8416646l).size() > 0);
-
+        if (p != null) {
+            p.getUser().setProfessor(null);
+    
+            // delete all professor's classrooms
+            List<Classroom> lc = DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingProfessorId(p.getId());
+    
+            for (Classroom cls : lc) {
+                DAOUtil.getFactory().getClassroomDAO().delete(cls);
+            }
+    
+            DAOUtil.getFactory().getProfessorDAO().delete(p);
+        }
+        
+        if (basicADTO.getRoundId() != null) {
+            DAOUtil.getFactory().getRoundDAO().delete(
+                    DAOUtil.getFactory().getRoundDAO().find(basicADTO.getRoundId()));
+        }
     }
+
+    private Classroom createClassroomForTest() {
+        // create or clean professor first
+        User u = DAOUtil.getFactory().getUserDAO().find("bauna", true);
+        Professor p = u.getProfessor();
+
+        if (p == null) {
+            p = new Professor();
+            p.setStatus(DAOUtil.getFactory().getProfessorStatusDA0().find(ProfessorStatus.ACTIVE));
+            p.setUser(u);
+            u.setProfessor(p);
+        } else {
+            // delete all professor's classrooms
+            List<Classroom> lc = DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingProfessorId(p.getId());
+
+            for (Classroom cls : lc) {
+                DAOUtil.getFactory().getClassroomDAO().delete(cls);
+            }
+        }
+
+        DAOUtil.getFactory().getProfessorDAO().saveOrUpdate(p);
+        
+        super.tearDown();
+        super.setUp();
+
+        // create classroom with registrations
+        
+        Coder s = DAOUtil.getFactory().getCoderDAO().find(119676l);
+        Coder s2 = DAOUtil.getFactory().getCoderDAO().find(8369898l);
+
+        Classroom c = new Classroom();
+        c.setName("test classroom");
+        c.setAcademicPeriod("test academic");
+        c.setDescription("test");
+        c.setProfessor(p);
+        c.setSchool(DAOUtil.getFactory().getSchoolDAO().find(22l));
+        c.setStatusId(Classroom.ACTIVE);
+
+        StudentClassroom sc = new StudentClassroom();
+        sc.setStatusId(StudentClassroom.ACTIVE_STATUS);
+        sc.getId().setClassroom(c);
+        sc.getId().setStudent(s);
+        c.addStudentClassroom(sc);
+        
+        StudentClassroom sc2 = new StudentClassroom();
+        sc2.setStatusId(StudentClassroom.ACTIVE_STATUS);
+        sc2.getId().setClassroom(c);
+        sc2.getId().setStudent(s2);
+        c.addStudentClassroom(sc2);
+
+        DAOUtil.getFactory().getClassroomDAO().saveOrUpdate(c);
+
+        super.tearDown();
+        super.setUp();
+
+        return c;
+    }
+
+    private AssignmentDTO createBasicAssignmentDTO(Classroom c) {
+        AssignmentDTO adto = new AssignmentDTO();
+        
+        adto.setClassroomId(c.getId());
+        adto.setClassroomName(c.getName());
+        adto.setSchoolName(c.getSchool().getName());
+
+        adto.setAssignmentName("test assignment name");
+        adto.setStartDate(new Timestamp((new Date()).getTime() + 1000000));
+        adto.setEndDate(new Timestamp((new Date()).getTime() + 1200000));
+        adto.setCoderPhaseLength(0l);
+        adto.setShowAllScores(1l);
+        adto.setScoreType(1l);
+        
+        // fill the components
+        adto.addComponent(new ComponentDTO(5l, 300d, "Denominator"));
+        adto.addComponent(new ComponentDTO(6l, null, "Factor"));
+        adto.addComponent(new ComponentDTO(7l, 900d, "getChange"));
+
+        // fill the languages
+        List<Integer> languageList = new ArrayList<Integer>();
+
+        languageList.add(Language.JAVA_LANGUAGE);
+        languageList.add(Language.CPP_LANGUAGE);
+        adto.setLanguages(languageList);
+        
+        return adto;
+    }
+
 }

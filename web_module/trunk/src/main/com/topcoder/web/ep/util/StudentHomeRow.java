@@ -1,14 +1,12 @@
-/**
- * 
- */
-package com.topcoder.web.ep.controller.request.student;
+package com.topcoder.web.ep.util;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Simple representation of the report's row
+ * 
  * @author Pablo
- *
  */
 public class StudentHomeRow {
     private Long schoolId;
@@ -46,7 +44,4 @@ public class StudentHomeRow {
     public void setDetails(List<StudentHomeDetailRow> details) {
         this.details = details;
     }
-    
-
-    
 }
