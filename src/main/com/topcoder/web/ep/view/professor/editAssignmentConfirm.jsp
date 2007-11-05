@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
-<%@ page import="com.topcoder.web.common.model.educ.AssignmentScoreType"%>
+<%@ page import="com.topcoder.web.ep.model.AssignmentScoreType"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%@ page contentType="text/html;charset=utf-8" %> 
