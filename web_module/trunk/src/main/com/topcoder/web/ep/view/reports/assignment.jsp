@@ -3,7 +3,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.web.ep.Constants"%>
 <%@ page import="com.topcoder.web.ep.controller.request.reports.AssignmentReport"%>
-<%@ page import="com.topcoder.web.common.model.educ.AssignmentScoreType"%>
+<%@ page import="com.topcoder.web.ep.model.AssignmentScoreType"%>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
