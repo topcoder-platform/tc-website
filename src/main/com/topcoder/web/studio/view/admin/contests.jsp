@@ -39,6 +39,8 @@
 
                 <h1>Contests</h1>
 
+                <div align="right" style="margin-bottom: 10px;"><a href="${sessionInfo.servletPath}?module=AdminViewContest"><img src="/i/v2/interface/btnAddContest.png" alt="Add contest" /></a></div>
+
 <div class="statHolder">
     <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
     <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
