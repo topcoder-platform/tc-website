@@ -122,17 +122,5 @@ public class SchoolDAOHibernate extends GenericBase<School, Long> implements Sch
         return (List<School>) c.list();
     }
 
-    @SuppressWarnings("unchecked")
-    public List<School> findSchoolsUsingStudentId(Long studentId) {
-        Criteria c = getSession().createCriteria(School.class);
-        c.addOrder(Order.asc("name"));
-        c.createCriteria("classrooms")
-            .add(Restrictions.eq("statusId", Classroom.ACTIVE))
-            .createCriteria("studentClassrooms")
-                .add(Restrictions.eq("statusId", StudentClassroom.ACTIVE_STATUS))
-                .add(Restrictions.eq("id.student.id", studentId));
-
-        return c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY).list();
-    }
 }
 

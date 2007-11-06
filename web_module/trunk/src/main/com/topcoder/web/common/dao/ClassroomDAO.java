@@ -17,6 +17,8 @@ public interface ClassroomDAO extends GenericDAO<Classroom, Long> {
 
     public List<Classroom> getClassroomsUsingStudentId(Long studentId);
 
+    public List<Classroom> getClassroomsUsingSchoolId(Long schoolId);
+
     List<Classroom> findClassroomUsingNameAndPeriod(Long schoolId, String name, String period);
     
 }

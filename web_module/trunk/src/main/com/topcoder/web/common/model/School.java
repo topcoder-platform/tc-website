@@ -1,7 +1,5 @@
 package com.topcoder.web.common.model;
 
-import com.topcoder.web.ep.model.Classroom;
-
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
@@ -22,11 +20,9 @@ public class School extends Base {
     private Date modifyDate;
     private User user;
 
-    private Set<Classroom> classrooms;
     private Set<UserSchool> userSchools;
 
     public School() {
-        this.classrooms = new HashSet<Classroom>();
         this.userSchools = new HashSet<UserSchool>();
     }
 
@@ -107,20 +103,6 @@ public class School extends Base {
 
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
-    }
-
-    /**
-     * @return the classrooms
-     */
-    public Set<Classroom> getClassrooms() {
-        return Collections.unmodifiableSet(classrooms);
-    }
-
-    /**
-     * @param classrooms the classrooms to set
-     */
-    public void setClassrooms(Set<Classroom> classrooms) {
-        this.classrooms = classrooms;
     }
 
     /**

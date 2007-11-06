@@ -5,11 +5,13 @@
 */
 package com.topcoder.web.ep.controller.request.reports;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.ep.controller.request.SharedBaseProcessor;
+import com.topcoder.web.ep.model.Classroom;
 import com.topcoder.web.ep.model.StudentClassroom;
 
 /**
@@ -34,10 +36,17 @@ public class Home extends SharedBaseProcessor {
 
     @Override
     protected void studentProcessing() throws Exception {
-        getRequest().setAttribute("classrooms", DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(new Long(getUser().getId()), StudentClassroom.ACTIVE_STATUS));
+        List<Classroom> lc = DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(new Long(getUser().getId()), StudentClassroom.ACTIVE_STATUS);
+        getRequest().setAttribute("classrooms", lc);
         
-        List<School> ls = DAOUtil.getFactory().getSchoolDAO().findSchoolsUsingStudentId(getUser().getId());
-        // show school in header only in case the professor has just one
+        List<School> ls = new ArrayList<School>();
+        for (Classroom c : lc) {
+            if (!ls.contains(c.getSchool())) {
+                ls.add(c.getSchool());
+            }
+        }
+        
+        // show school in header only in case the student has just one
         if (ls.size() == 1) {
             getRequest().setAttribute("schoolName", ls.iterator().next().getName());                
         }

@@ -105,7 +105,8 @@ public class SelectClassroom extends LongBase {
 
     private Set<Classroom> getPossibleClassrooms(School s, Long userId) {
         // include only non-registered classrooms
-        Set<Classroom> sc = new HashSet<Classroom>(s.getClassrooms());
+        Set<Classroom> sc = new HashSet<Classroom>(DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingSchoolId(s.getId()));
+        
         for (Classroom c : DAOUtil.getFactory().getClassroomDAO().getClassroomsUsingStudentId(userId)) {
             if (sc.contains(c)) {
                 sc.remove(c);

@@ -21,11 +21,6 @@
         <!-- This field is just read and never written, since insert and update are set to false -->
         <property name="modifyDate" column="modify_date" access="field" update="false" insert="false"/>
 
-        <set name="classrooms" cascade="save-update" inverse="true" access="field">
-            <key column="school_id" not-null="true"/>
-            <one-to-many class="com.topcoder.web.ep.model.Classroom"/>
-        </set>
-
         <set name="userSchools" cascade="none" inverse="true">
             <key column="school_id" not-null="true"/>
             <one-to-many class="UserSchool"/>
