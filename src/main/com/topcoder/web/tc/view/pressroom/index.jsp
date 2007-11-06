@@ -118,7 +118,7 @@
                 <%-- Orlando Sentinel begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/community/news/lakebuenavista/orl-topcoder0207nov02,0,4540773.story' refer='pr_index' />"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/community/news/lakebuenavista/orl-topcoder0207nov02,0,4540773.story' refer='pr_index' />"><img src="/i/pressroom/orlandoSentinel_logo.png" alt="Orlando Sentinel" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
                         <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/community/news/lakebuenavista/orl-topcoder0207nov02,0,4540773.story' refer='pr_index' />">Computer coders vie for $260,000 in prize money (with video)</a></h3>
@@ -131,7 +131,7 @@
                 <%-- Orlando Sentinel begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/business/orl-bk-topcoder110107,0,3810238.story?coll=orl_tab01_layout' refer='pr_index' />"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/business/orl-bk-topcoder110107,0,3810238.story?coll=orl_tab01_layout' refer='pr_index' />"><img src="/i/pressroom/orlandoSentinel_logo.png" alt="Orlando Sentinel" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
                         <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/business/orl-bk-topcoder110107,0,3810238.story?coll=orl_tab01_layout' refer='pr_index' />">Local eliminated, but TopCoder Collegiate Challenge continues</a></h3>
@@ -157,7 +157,7 @@
                 <%-- Investor's Business Daily begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='pr_index' />"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='pr_index' />"><img src="/i/pressroom/investorsBusinessDaily_logo.png" alt="Investor's Business Daily" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
                         <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='pr_index' />">TopCoder Finds Tech Top Guns</a></h3>
