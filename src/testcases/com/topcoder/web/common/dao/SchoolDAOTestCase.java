@@ -113,16 +113,7 @@ public class SchoolDAOTestCase extends TCHibernateTestCase {
             }
         }
         assertTrue("Could not found school using professor " + s.getId(), found);
-        
-        ls = DAOUtil.getFactory().getSchoolDAO().findSchoolsUsingStudentId(s.getId());
-        found = false;
-        for (School sch : ls) {
-            if (sch.getId().equals(22l)) {
-                found = true;
-            }
-        }
-        assertTrue("Could not found school using student " + s.getId(), found);
-        
+                
         tearDown();
         setUp();
 
