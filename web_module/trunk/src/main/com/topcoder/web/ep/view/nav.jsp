@@ -7,8 +7,8 @@
 <div id="navigation">
     <div>
          <ul>
-              <li><a href="javascript:arena();"<% if (node.equals("arena")) {%> class="on"<% } %>><span>Launch Arena</span></a></li>
-              <li>|</li>
+<%--              <li><a href="javascript:arena();"<% if (node.equals("arena")) {%> class="on"<% } %>><span>Launch Arena</span></a></li>
+              <li>|</li> --%>
               <li><a href="/education/"<% if (node.equals("home")) {%> class="on"<% } %>><span>Manage classes</span></a></li>
               <li>|</li>
               <li><a href="/education/reports/?module=Home"<% if (node.equals("reports")) {%> class="on"<% } %>><span>Reports</span></a></li>
