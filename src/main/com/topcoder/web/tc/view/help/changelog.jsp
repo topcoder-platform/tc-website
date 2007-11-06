@@ -43,6 +43,15 @@
 </jsp:include>
 
 <p>
+    5.13.1 - 2007.11.06
+    <ul>
+        <li>Don't clear the cache when someone registers, there's nothing to clear, and it's slow to try -dok </li>
+    </ul>
+
+</p>
+
+
+<p>
     5.13.0 - 2007.10.25
     <ul>
         <li>Add Educational Platform -pulky</li>
