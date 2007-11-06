@@ -85,14 +85,14 @@
 
             <p>
             Our guidelines for publishing member photos are similar to a driver's license photo.  The photo should display your shoulders and 
-            your face.  Please note that TopCoder will not publish inappropriate photos (ie. sticking our your tongue, making faces, etc.).
+            your face.  Please note that TopCoder will not publish inappropriate photos (ie. sticking out your tongue, making faces, etc.).
             <br /><br />
             TopCoder  appreciates your interest in submitting photos for our website but we also reserve the right to not publish a member's 
             submitted photo if it does not fit our requirements.  Photos may be rejected for any of the following reasons:</p>
             <ul>
             <li>unfit resolution or clarity</li>
             <li>contains inappropriate content</li>
-            <li>obviously not a recent photo of a member (no aliens,teddy bears, baby photos, etc.)</li>
+            <li>obviously not a recent photo of a member (no aliens, teddy bears, baby photos, etc.)</li>
             <li>copyrighted to another party</li>
             </ul>
 
