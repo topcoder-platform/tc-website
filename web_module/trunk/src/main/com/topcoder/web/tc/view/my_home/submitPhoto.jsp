@@ -1,13 +1,11 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <html>
 
 <head>
-    <title>TopCoder - My TopCoder</title>
+    <title>TopCoder</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../script.jsp" />
@@ -36,12 +34,78 @@
 <%-- Center Column Begins --%>
         <td width="100%" align="center" class="bodyColumn">
             <div class="maxWidthBody" align="left">
-            
+
                 <jsp:include page="../page_title.jsp" >
                     <jsp:param name="image" value="my_tc"/>
                     <jsp:param name="title" value="Submit a photo"/>
                 </jsp:include>
 
+            <div align="center" style="margin: 20px;">
+                <a href="" class="button" style="width: 120px;">Submit a photo</a>
+            </div>
+
+            <h3>You can process your own photo</h3>
+
+            <p>
+                You can help speed up the process and ensure that you are happy with the results by processing your photo yourself.  It only takes a few minutes.
+            </p>
+
+            <p>
+                It's easy:
+            </p>
+
+            <ul>
+                <li>Download <a href="/i/my_home/backdrop.jpg">backdrop.jpg</a>.</li>
+                <li>Cut yourself out of any photo that meets TopCoder's guidelines (see below) and paste it on the backdrop</li>
+                <li>Resize and move your picture (but not the backdrop) until it meets the TopCoder standards (centered, includes full head and upper torso)</li>
+            </ul>
+
+            <p>
+                In the end, your processed photo should look something like this:
+            </p>
+
+            <div align="center">
+                <img src="/i/my_home/mFinalGood.jpg" alt="" class="myStatsPhoto" />
+            </div>
+
+            <p align="center" class="small">
+                (except of course your photo will be of you,<br />not this random male model guy)
+            </p>
+
+            <p>
+                Remember that if you'd prefer to have TopCoder process your photo, you can submit the unprocessed photo of yourself.
+            </p>
+
+            <h3>Timeframe for Photo Processing</h3>
+            <p>
+            Since the photos are processed manually, it's unpredictable how soon your profile will be updated. On average, they get processed every other week. Please note that these dates may change as a result of holidays or other major TopCoder events.
+            </p>            
+
+            <h3>Guidelines for Photo Content</h3>
+
+            <p>
+            Our guidelines for publishing member photos are similar to a driver's license photo.  The photo should display your shoulders and 
+            your face.  Please note that TopCoder will not publish inappropriate photos (ie. sticking our your tongue, making faces, etc.).
+            <br /><br />
+            TopCoder  appreciates your interest in submitting photos for our website but we also reserve the right to not publish a member's 
+            submitted photo if it does not fit our requirements.  Photos may be rejected for any of the following reasons:</p>
+            <ul>
+            <li>unfit resolution or clarity</li>
+            <li>contains inappropriate content</li>
+            <li>obviously not a recent photo of a member (no aliens,teddy bears, baby photos, etc.)</li>
+            <li>copyrighted to another party</li>
+            </ul>
+
+            <p>
+            Here are two examples of acceptable and unacceptable photos:
+            </p>
+            <div align="center">
+            <img src="/i/my_home/mGood1.jpg" alt="" />
+            <img src="/i/my_home/mGood2.jpg" alt="" />
+            <img src="/i/clear.gif" alt="" width="50" height="128" />
+            <img src="/i/mpbad1.jpg" alt="" width="86" height="128" />
+            <img src="/i/mpbad2.jpg" alt="" width="86" height="128" />
+            </div>
 
             </div>
         </td>
