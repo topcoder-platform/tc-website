@@ -1310,16 +1310,16 @@ public class TCLoadTCS extends TCLoad {
                         "    , pr.point_adjustment" +
                         "    , pr.current_reliability_ind " +
                         "    , pr.reliable_submission_ind " +
-                        "    , pr.rating_order " +                        
-                        "    , NVL ((select max(cvd.price) " + 
+                        "    , pr.rating_order " +
+                        "    , NVL ((select max(cvd.price) " +
                         "             from comp_version_dates cvd  " +
                         "             , project_info pi_ci " +
-                        "             where pi_ci.value = cvd.comp_vers_id " +  
-                        "             and cvd.phase_id = p.project_category_id+111 " +                        
+                        "             where pi_ci.value = cvd.comp_vers_id " +
+                        "             and cvd.phase_id = p.project_category_id+111 " +
                         "             and pi_ci.project_id = p.project_id  " +
                         "             and pi_ci.project_info_type_id = 1), " +
                         "          (select value from project_info pi_am where pi_am.project_info_type_id = 16 and pi_am.project_id = p.project_id) " +
-                        "                ) as amount  " +                        
+                        "                ) as amount  " +
                         "     , (select value from project_info where project_id = p.project_id and project_info_type_id = 26) as dr_ind " +
                         "    from project_result pr" +
                         "       ,project p" +
@@ -1538,7 +1538,7 @@ public class TCLoadTCS extends TCLoad {
                     }
                     resultInsert.setInt(25, projectResults.getInt("rating_ind") == 1 ? currNumRatings + 1 : currNumRatings);
                     resultInsert.setObject(26, projectResults.getObject("rating_order"));
-                    
+
                     if (hasDR) {
                         resultInsert.setDouble(27, potentialPoints);
                     } else {
@@ -4033,8 +4033,8 @@ public class TCLoadTCS extends TCLoad {
                     } else {
                         update.setNull(7, Types.INTEGER);
                     }
-                    update.setObject(8, rs.getObject("appeal_text"));
-                    update.setObject(9, rs.getObject("appeal_response"));
+                    update.setString(8, rs.getString("appeal_text"));
+                    update.setString(9, rs.getString("appeal_response"));
 
                     String successfulInd = rs.getString("successful_ind");
                     if (successfulInd == null) {
@@ -4068,8 +4068,8 @@ public class TCLoadTCS extends TCLoad {
                         } else {
                             insert.setNull(7, Types.INTEGER);
                         }
-                        insert.setObject(8, rs.getObject("appeal_text"));
-                        insert.setObject(9, rs.getObject("appeal_response"));
+                        insert.setString(8, rs.getString("appeal_text"));
+                        insert.setString(9, rs.getString("appeal_response"));
                         insert.setLong(10, rs.getLong("appeal_id"));
                         if (successfulInd == null) {
                             insert.setNull(11, Types.INTEGER);
@@ -4797,7 +4797,7 @@ public class TCLoadTCS extends TCLoad {
                         "       ,pr.placed " +
                         "       ,pr.point_adjustment " +
                         "       ,pr.final_score " +
-                        "       ,pr.passed_review_ind " +                        
+                        "       ,pr.passed_review_ind " +
                         "       , NVL ((select max(cvd.price) " +
                         "           from project_info pi_ci " +
                         "                , comp_version_dates cvd " +
@@ -4872,7 +4872,7 @@ public class TCLoadTCS extends TCLoad {
                     continue;
                 }
                 if (rs.getDouble("amount") < 0.01) {
-                    log.warn("Project: " + rs.getLong("project_id") + " has zero amount!" );
+                    log.warn("Project: " + rs.getLong("project_id") + " has zero amount!");
                 }
                 ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
                         rs.getDouble("final_score"), rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"),
