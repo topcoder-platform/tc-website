@@ -149,7 +149,7 @@
                 <c:when test="${schedItem.a==resultsId}">
                     <li>
                     <tc-webtag:format object="${schedItem.b}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-                    - Food &amp; TopCoder presentation
+                    - Food
                     </li>
                 </c:when>
                 <c:when test="${schedItem.a==presentationId}">
@@ -178,8 +178,8 @@
 
     <%--
     <strong>${mainEvent.recruiterName }</strong> will give a presentation to explain the benefits of TopCoder membership and competition.
-    --%>
     <a href="/download/misc/College_Tour_Presentation.ppt">The presentation</a> is available for download.
+    --%>
 
     <br><br>
     
