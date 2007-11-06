@@ -404,6 +404,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            Skilled at code, he wins a load
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://seattletimes.nwsource.com/html/localnews/2003991315_coder03m.html' refer='homepage_index' />">...more</a><br />[November 6]<br /><br />
+            
             Computer coders vie for $260,000 in prize money (with video)
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/community/news/lakebuenavista/orl-topcoder0207nov02,0,4540773.story' refer='homepage_index' />">...more</a><br />[November 2]<br /><br />
             
@@ -418,9 +421,6 @@
             
             Whose mouse is mightiest? UW code whiz hopes it's his
             <a target="_blank" href="<tc-webtag:linkTracking link='http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=coder31m&date=20071031&query=michael+skinner' refer='homepage_index' />">...more</a><br />[October 31]<br /><br />
-            
-            TopCoder Open to Feature World's Elite Software Developers
-            <a href="/tc?module=Static&d1=pressroom&d2=pr_100107">...more</a><br />[October 1]<br /><br />
             
 
 
