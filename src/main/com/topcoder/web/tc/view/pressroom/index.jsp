@@ -102,6 +102,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- The Seattle Times begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://seattletimes.nwsource.com/html/localnews/2003991315_coder03m.html' refer='pr_index' />"><img src="/i/pressroom/seattleTimes_logo.png" alt="The Seattle Times" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://seattletimes.nwsource.com/html/localnews/2003991315_coder03m.html' refer='pr_index' />">Skilled at code, he wins a load</a></h3>
+                        <p>University of Washington computer whiz Michael Skinner scored an upset victory Friday by winning his division of an international contest aimed at finding out who can write the most effective computer programs.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://seattletimes.nwsource.com/html/localnews/2003991315_coder03m.html' refer='pr_index' />">[November 6]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- The Seattle Times end --%>
+                
                 <%-- Orlando Sentinel begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
