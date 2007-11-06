@@ -41,7 +41,7 @@
                 </jsp:include>
 
             <div align="center" style="margin: 20px;">
-                <a href="" class="button" style="width: 120px;">Submit a photo</a>
+                <a href="mailto:memberphotos@topcoder.com?subject=" class="button" style="width: 120px;">Submit a photo</a>
             </div>
 
             <h3>You can process your own photo</h3>
