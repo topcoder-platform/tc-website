@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.13.1 - 2007.11.06
+    5.13.1 - 2007.11.07
     <ul>
         <li>Don't clear the cache when someone registers, there's nothing to clear, and it's slow to try -dok </li>
     </ul>
