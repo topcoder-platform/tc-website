@@ -84,7 +84,7 @@
             <h3>Guidelines for Photo Content</h3>
 
             <p>
-            Our guidelines for publishing member photos are similar to a driver's license photo.  The photo should display your shoulders and 
+            Our guidelines for publishing member photos are similar to a passport photo.  The photo should display your shoulders and 
             your face.  Please note that TopCoder will not publish inappropriate photos (ie. sticking out your tongue, making faces, etc.).
             <br /><br />
             TopCoder  appreciates your interest in submitting photos for our website but we also reserve the right to not publish a member's 
