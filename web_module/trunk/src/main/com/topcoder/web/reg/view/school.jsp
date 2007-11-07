@@ -46,7 +46,8 @@
             <tc-webtag:textInput name="${schoolName}" size="50" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
             <A href="#" onclick="document.schoolSearchForm.submit();return false;">Search</A>
             <br>
-            Use * for a wildcard character
+            Just enter a few characters of the name to increase the chances of finding your school in our system.
+            For example, if you attend  Indiana University, you might search for indi
             <br><br>
         </form>
 
