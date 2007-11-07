@@ -42,8 +42,8 @@ public class UnCachedResponse extends SimpleResponse {
     }
 
     private void init() {
-        setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        setHeader("Cache-Control", "pre-check=0, post-check=0");
+        addHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        addHeader("Cache-Control", "pre-check=0, post-check=0");
         setDateHeader("Expires", 0);
     }
 
