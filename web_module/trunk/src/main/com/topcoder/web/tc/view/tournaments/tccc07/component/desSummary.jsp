@@ -36,6 +36,66 @@
                     <p style="float:right; width:200px; 350px; margin-left:10px;"><img src="/i/tournament/tccc07/compDes.jpg"></p>
                     <br /><br />
                     <p>After three days of on-site finals, <tc-webtag:handle coderId="293874" context="design" darkBG="true" /> emerged as the winner of the 2007 TopCoder Collegiate Challenge Component Design competition, taking home the top prize of $25,000. <tc-webtag:handle coderId="8518361" darkBG="true" /> took second place, and <tc-webtag:handle coderId="21471587" darkBG="true" /> took home the third.</p>
+                    
+                    <p style="font-size:14px; font-weight:bold;">Component Design Final Scores</p>
+                    <table cellspacing="0" cellpadding="0" class="stat" style="width: 50%">
+                        <thead>
+                            <tr class="sidebarTitle" nowrap="nowrap">
+                                <td class="header" colspan="1">Handle</td>
+                                <td class="headerC" colspan="1">Final Score</td>
+                            </tr>
+                        </thead> 
+                        <%-- nicka81 --%>
+                        <tbody>
+                            <tr class="light">
+                                <td class="value"><tc-webtag:handle coderId="293874" darkBG="true" context="design" /></td>
+                                <td class="valueC">92</td>
+                            </tr>
+                        </tbody>
+                        <%-- Vovka --%>
+                        <tbody>
+                            <tr class="dark">
+                                <td class="value"><tc-webtag:handle coderId="8518361" darkBG="true" context="design" /></td>
+                                <td class="valueC">60</td>
+                            </tr>
+                        </tbody>
+                        <%-- urtks --%>
+                        <tbody>
+                            <tr class="light">
+                                <td class="value"><tc-webtag:handle coderId="21471587" darkBG="true" context="design" /></td>
+                                <td class="valueC">42</td>
+                            </tr>
+                        </tbody>
+                        <%-- kakarotto --%>
+                        <tbody>
+                            <tr class="dark">
+                                <td class="value"><tc-webtag:handle coderId="20256177" darkBG="true" context="design" /></td>
+                                <td class="valueC">38</td>
+                            </tr>
+                        </tbody>
+                        <%-- Luca --%>
+                        <tbody>
+                            <tr class="light">
+                                <td class="value"><tc-webtag:handle coderId="10348862" darkBG="true" context="design" /></td>
+                                <td class="valueC">34</td>
+                            </tr>
+                        </tbody>
+                        <%-- sql_lall --%>
+                        <tbody>
+                            <tr class="dark">
+                                <td class="value"><tc-webtag:handle coderId="275640" darkBG="true" context="design" /></td>
+                                <td class="valueC">26</td>
+                            </tr>
+                        </tbody>
+                        <%-- bramandia --%>
+                        <tbody>
+                            <tr class="light">
+                                <td class="value"><tc-webtag:handle coderId="7568791" darkBG="true" context="design" /></td>
+                                <td class="valueC">18</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br /><br />
 
                     <%-- Round 1 --%>
                     <p>Wednesday, October 31, 2007<br />
