@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />11.07.07<br />3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=features&d2=110707">Meet the October 2007 Coders of the Month</A></span><br /><br />
+        Don't miss this month's Meet the Coders, where <tc-webtag:handle coderId="21684580" context="development" /> gives an insider's view into the Component Development Competition.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=110707">details</a> | 
+        <A href="/tc?module=COMHistory&achtid=5">algorithm</a> | 
+        <A href="/tc?module=COMHistory&achtid=6">design</a> | 
+        <A href="/tc?module=COMHistory&achtid=7">development</a> | 
+        <tc-webtag:forumLink forumID="518073" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.06.07<br />4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A target="_blank" href="<tc-webtag:linkTracking link='http://seattletimes.nwsource.com/html/localnews/2003991315_coder03m.html' refer='/tc' />">Skilled at code, he wins a load</A></span><br /><br />
@@ -169,23 +185,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoWildcard">details</A> | 
          <tc-webtag:forumLink forumID="518017" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />11.01.07<br />5:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">Development</A> Finals: Round 2</span><br /><br />
-      Round 2 of the Component Design and Development Finals has completed.  Be sure to check out the analysis from the review board!</td>
-         <td class="newsPhoto">&nbsp;</td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">design</A> | 
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">development</A> | 
-         <tc-webtag:forumLink forumID="518024" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    

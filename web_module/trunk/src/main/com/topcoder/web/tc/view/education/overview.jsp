@@ -39,12 +39,12 @@
 <br /><br />
 <span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=110707"><strong>Meet the October 2007 Coders of the Month</strong></a><br />
+Don't miss this month's Meet the Coders, where <tc-webtag:handle coderId="21684580" context="development" /> gives an insider's view into the Component Development Competition.</li>
 <li><a href="/tc?module=Static&d1=features&d2=102607"><strong>TCCC07 Preview: The Studio competition</strong></a>, by <tc-webtag:handle coderId="20641048" /><br />
 For the very first time in TopCoder Collegiate Challenge history, a competitor will compete to become a Studio Design Champion. The Studio Design competition was already a part of TCO07 and turned out to be a big success. Studio Design, along with Marathon Matches, are brand new tracks for TCCC this year.</li>
 <li><a href="/tc?module=Static&d1=features&d2=102307"><strong>Meet the September Coders of the Month</strong></a><br />
 We caught up with two of September's "coders of the month," to learn a little bit more about them, their proudest TopCoder moments, and more...</li>
-<li><a href="/tc?module=Static&d1=features&d2=101507"><strong>TCCC07 Preview: The Marathon Match competition</strong></a>, by <tc-webtag:handle coderId="7390467" /><br />
-With the TCCC finals around the corner, now is a good time to look back at the three exciting online rounds, as well as look forward to the Championship round on October 31.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br />
 <ul>
