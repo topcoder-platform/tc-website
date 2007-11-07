@@ -149,10 +149,16 @@
 
         <mapping class="com.topcoder.web.common.model.educ.Professor"/>
         <mapping class="com.topcoder.web.common.model.educ.ProfessorStatus"/>
-        <mapping class="com.topcoder.web.ep.model.Classroom"/>
-        <!--          <mapping class="com.topcoder.web.ep.model.StudentClassroom"/> -->
 
+        <!-- If education platform is deployed in a different server than reg, these
+             two mappings need to be uncommented only in the education platform server.
+             If education platform and reg are in the same server, these two mappings 
+             need to be uncommented. (the EP dependencies will be there since everything
+             is in the same server) -->
+        <!--
+        <mapping class="com.topcoder.web.ep.model.Classroom"/>
         <mapping resource="com/topcoder/web/ep/model/StudentClassroom.hbm.xml"/>
+        -->
 
         <!-- this is really just here so that we can run the oracle on the tc site -->
         <!--
