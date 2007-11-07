@@ -50,9 +50,9 @@
       </td>
    </tr>
    </table>
-   <%-- On/Off 
-   <div><A class="cotmFeature" href="/tc?module=Static&d1=features&d2=102307">Read Their Interviews</A></div>
-   --%>
+   <%-- On/Off --%>
+   <div><A class="cotmFeature" href="/tc?module=Static&d1=features&d2=110707">Read Their Interviews</A></div>
+   
    </div>
 </div>
 
