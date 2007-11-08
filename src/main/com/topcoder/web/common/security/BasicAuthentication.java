@@ -228,7 +228,9 @@ public class BasicAuthentication implements WebAuthentication {
                     }
                 }
             }
-            loggedOut = false;
+            if (loggedOut == null) {
+                loggedOut = false;
+            }
         }
         if (log.isDebugEnabled()) {
             log.debug("logged out is " + loggedOut);
