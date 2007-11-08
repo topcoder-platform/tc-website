@@ -110,7 +110,7 @@
 
 
 
-    <target name="compile" depends="init,jar_shared" unless="compile_set">
+    <target name="compile" depends="init,compile_shared" unless="compile_set">
         <available property="jdk1.4+" classname="java.nio.ByteBuffer"/>
         <javac
                 srcdir="${java}"
@@ -154,15 +154,6 @@
         <!-- kill the entire build dir -->
         <delete dir="${build}"/>
         <delete dir="${bin}"/>
-    </target>
-
-    <target name="jar_shared" depends="compile_shared" unless="jar_shared_set">
-        <jar jarfile="${shared.jar}">
-            <fileset dir="${classes}">
-                <include name="com/topcoder/shared/**/*.class"/>
-            </fileset>
-        </jar>
-        <property name="jar_shared_set" value="true"/>
     </target>
 
     <target name="jar_common">

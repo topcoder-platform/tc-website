@@ -20,6 +20,8 @@
     <property name="images" value="images"/>
     <property name="shared.jar" value="${bin}/shared.jar"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="shared.build" value="${basedir}/../shared"/>
+    <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
     <property name="web" value="src/main/com/topcoder/web"/>
     <property name="jboss_home" value="../jboss-4.0.4.GA"/>
     <property name="jboss_deploy" value="${jboss_home}/server/default/deploy"/>
@@ -40,6 +42,7 @@
         <pathelement location="${testclasses}"/>
         <pathelement location="${resources}"/>
         <pathelement location="${resources}/hibernate"/>
+        <pathelement location="${shared.jar}"/>
         <pathelement location="${images}"/>
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
@@ -81,14 +84,17 @@
         <pathelement location="${jars.dir}/tcs/user.jar"/>
 
         <!-- hibernate files -->
-        <pathelement location="${jars.dir}/hibernate-3.1/hibernate3.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/commons-logging-1.0.4.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/ehcache-1.1.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/hibernate3.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/commons-logging-1.0.4.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/ehcache-1.2.3.jar"/>
         <pathelement location="${jive.dir}/velocity-dep.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/cglib-2.1.3.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/asm.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/ant-antlr-1.6.5.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.1/antlr-2.7.6rc1.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/cglib-2.1.3.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/asm.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/ant-antlr-1.6.5.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/antlr-2.7.6.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-commons-annotations.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
@@ -102,22 +108,13 @@
         <mkdir dir="${ear.dir}"/>
     </target>
 
-    <target name="compile_shared" depends="init">
-        <javac
-                srcdir="${shared}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.5"
-                target="1.5"
-                >
-        </javac>
-        <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
-        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
+    <target name="compile_shared" depends="init" unless="compile_shared_set">
+        <ant dir="${shared.build}" target="jar"/>
+        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
+        <property name="compile_shared_set" value="true"/>
     </target>
 
-    <target name="compile" depends="init,jar_shared">
+    <target name="compile" depends="init,compile_shared">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -136,7 +133,7 @@
         <antcall target="jar_common"/>
     </target>
 
-    <target name="compile_forums" depends="init,jar_shared">
+    <target name="compile_forums" depends="init,compile_shared">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -158,7 +155,7 @@
         <antcall target="jar_common"/>
     </target>
 
-    <target name="compile_forumData" depends="init,jar_shared">
+    <target name="compile_forumData" depends="init,compile_shared">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -172,7 +169,7 @@
         </javac>
     </target>
 
-    <target name="compile_TCJive" depends="init,jar_shared">
+    <target name="compile_TCJive" depends="init,compile_shared">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -197,15 +194,8 @@
         <delete dir="${bin}"/>
     </target>
 
-    <target name="jar_shared" depends="compile_shared">
-        <jar jarfile="${shared.jar}">
-            <fileset dir="${classes}">
-                <include name="com/topcoder/shared/**/*.class"/>
-            </fileset>
-        </jar>
-    </target>
 
-    <target name="jar_common" depends="">
+    <target name="jar_common">
         <jar jarfile="${common.jar}">
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/common/**/*.class"/>
@@ -324,7 +314,7 @@
         </ear>
     </target>
 
-    <target name="build-forums" depends="">
+    <target name="build-forums">
         <antcall target="war-forums"/>
         <antcall target="build-security"/>
         <antcall target="package-TCJive"/>
@@ -374,13 +364,13 @@
         <antcall target="explode-forums"/>
     </target>
 
-    <target name="explode-forums" depends="">
+    <target name="explode-forums">
         <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
         <delete dir="${jboss_deploy}/forums.war/META-INF"/>
     </target>
 
 	<!-- resolve move-libs redundancies -->
-    <target name="deploy-forums-full" depends="">
+    <target name="deploy-forums-full">
         <antcall target="deploy-forums"/>
 
         <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
@@ -428,7 +418,7 @@
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
     </target>
 
-    <target name="deploy-forums" depends="">
+    <target name="deploy-forums">
         <antcall target="explode-forums"/>
 
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
