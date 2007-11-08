@@ -264,21 +264,22 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
     public Principal getUser(HttpServletRequest request, HttpServletResponse response) {
         //log.debug("XXX getUser(request, response) called");
+        long start = System.currentTimeMillis();
+        Principal ret = null;
         try {
             WebAuthentication authentication = getAuth(request, response);
-            if (authentication.getActiveUser().isAnonymous()) {
-                return null;
-            } else {
+            if (!authentication.getActiveUser().isAnonymous()) {
                 com.atlassian.user.User user = checkAndAddUser(authentication.getActiveUser().getUserName());
                 checkAndAddEmail(user, authentication.getActiveUser().getId());
                 checkAndAddAdmin(authentication.getActiveUser().getUserName(), user);
-                return user;
+                ret = user;
             }
 
         } catch (Exception e) {
             log.warn(e.getMessage(), e);
-            return null;
         }
+        log.debug("getUser(request, response) took " + (System.currentTimeMillis() - start) + " ms");
+        return ret;
     }
 
     private WebAuthentication getAuth(HttpServletRequest request, HttpServletResponse response) throws Exception {
