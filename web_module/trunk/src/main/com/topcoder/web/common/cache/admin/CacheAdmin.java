@@ -1,19 +1,21 @@
 package com.topcoder.web.common.cache.admin;
 
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.TCResourceBundle;
-import com.topcoder.shared.util.logging.Logger;
+import java.util.Set;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
 import org.jboss.cache.CacheException;
 import org.jboss.cache.Fqn;
 import org.jboss.cache.TreeCacheMBean;
 import org.jboss.system.ServiceMBeanSupport;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import java.util.Set;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
- * @author dok
+ * @author dok, pulky
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: May 2, 2007
  */
@@ -59,6 +61,24 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
         try {
             ctx = TCContext.getInitial(b.getProperty("host_url"));
             TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
+            int count = removelike(s, "/", cache);
+
+            return count + " items removed from cache";
+        } catch (NamingException e) {
+            throw new RuntimeException(e);
+        } catch (CacheException e) {
+            throw new RuntimeException("Couldn't remove the root ", e);
+        } finally {
+            TCContext.close(ctx);
+        }
+    }
+
+    public String removelike(Set<String> s) {
+        InitialContext ctx = null;
+        TCResourceBundle b = new TCResourceBundle("cache");
+        try {
+            ctx = TCContext.getInitial(b.getProperty("host_url"));
+            TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
 
             int count = removelike(s, "/", cache);
 
@@ -95,6 +115,31 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
         return ret;
     }
 
+    private int removelike(Set<String> s, String parent, TreeCacheMBean cache) throws CacheException {
+        String kid;
+        String fqn;
+        int ret = 0;
+        for (Object child : cache.getChildrenNames(parent)) {
+            kid = (String) child;
+            fqn = parent + "/" + kid;
+            boolean found = false;
+            for (String key : s) {
+                if (kid.indexOf(key) >= 0) {
+                    cache.remove(fqn);
+                    ret++;
+                    found = true;
+                }
+            }
+            if (!found) {
+                Set kids = cache.getChildrenNames(fqn);
+                if (kids != null && !kids.isEmpty()) {
+                    ret += removelike(s, fqn, cache);
+                }
+
+            }
+        }
+        return ret;
+    }
 
     public int size() {
         InitialContext ctx = null;
