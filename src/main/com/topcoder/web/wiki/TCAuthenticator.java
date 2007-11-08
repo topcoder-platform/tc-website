@@ -23,6 +23,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.WebConstants;
@@ -76,15 +77,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                             //confluence likes to work with lower case user names
                             com.atlassian.user.User cUser = checkAndAddUser(userName);
                             checkAndAddEmail(cUser, sub.getUserId());
-
-                            boolean isTCAdmin = isAdmin(userName);
-                            boolean isConfluenceAdmin = hasGroup(cUser, GROUP_TOPCODER_STAFF);
-
-                            if (isTCAdmin && !isConfluenceAdmin) {
-                                getUserAccessor().addMembership(GROUP_TOPCODER_STAFF, cUser.getName());
-                            } else if (!isTCAdmin && isConfluenceAdmin) {
-                                getUserAccessor().removeMembership(GROUP_TOPCODER_STAFF, cUser.getName());
-                            }
+                            checkAndAddAdmin(userName, cUser);
                             authentication.login(new SimpleUser(sub.getUserId(), userName, password), cookie);
                             return true;
                         } else {
@@ -200,7 +193,8 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     private boolean isAdmin(final String userName) throws Exception {
         try {
             PrincipalMgrLocal pmr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
-            TCSubject sub = pmr.getUserSubject(pmr.getUser(userName).getId());
+            //TCSubject sub = pmr.getUserSubject(pmr.getUser(userName).getId());
+            TCSubject sub = SecurityHelper.getUserSubject(pmr.getUser(userName).getId());
             for (Object rp : sub.getPrincipals()) {
                 if (((RolePrincipal) rp).getName().equals("group_Admin")) {
                     return true;
@@ -229,6 +223,18 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
 
         return cUser;
+
+    }
+
+    private void checkAndAddAdmin(String userName, com.atlassian.user.User cUser) throws Exception {
+        boolean isTCAdmin = isAdmin(userName);
+        boolean isConfluenceAdmin = hasGroup(cUser, GROUP_TOPCODER_STAFF);
+
+        if (isTCAdmin && !isConfluenceAdmin) {
+            getUserAccessor().addMembership(GROUP_TOPCODER_STAFF, cUser.getName());
+        } else if (!isTCAdmin && isConfluenceAdmin) {
+            getUserAccessor().removeMembership(GROUP_TOPCODER_STAFF, cUser.getName());
+        }
 
     }
 
@@ -265,6 +271,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             } else {
                 com.atlassian.user.User user = checkAndAddUser(authentication.getActiveUser().getUserName());
                 checkAndAddEmail(user, authentication.getActiveUser().getId());
+                checkAndAddAdmin(authentication.getActiveUser().getUserName(), user);
                 return user;
             }
 
