@@ -404,6 +404,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            Russian programmer twice the best worldwide
+            <a href="/tc?module=Static&d1=pressroom&d2=art_110807">...more</a><br />[November 8]<br /><br />
+            
             Skilled at code, he wins a load
             <a target="_blank" href="<tc-webtag:linkTracking link='http://seattletimes.nwsource.com/html/localnews/2003991315_coder03m.html' refer='homepage_index' />">...more</a><br />[November 6]<br /><br />
             
@@ -418,9 +421,6 @@
             
             TopCoder Finds Tech Top Guns
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='homepage_index' />">...more</a><br />[October 31]<br /><br />
-            
-            Whose mouse is mightiest? UW code whiz hopes it's his
-            <a target="_blank" href="<tc-webtag:linkTracking link='http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=coder31m&date=20071031&query=michael+skinner' refer='homepage_index' />">...more</a><br />[October 31]<br /><br />
             
 
 
