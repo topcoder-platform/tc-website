@@ -34,7 +34,7 @@ public class UnCachedResponse extends SimpleResponse {
             init();
         } else {
             if (!containsHeader("Cache-Control") &&
-                    !containsHeader("Expires")) {
+                    !containsHeader("Expires")  && !containsHeader("Pragma")) {
                 init();
             }
         }
@@ -44,6 +44,11 @@ public class UnCachedResponse extends SimpleResponse {
     private void init() {
         addHeader("Cache-Control", "no-cache, no-store, must-revalidate");
         addHeader("Cache-Control", "pre-check=0, post-check=0");
+
+        //this is for http/1.0 proxies that don't know about Cache-Control.
+        //they'll cache cookies if we're not careful.
+        addHeader("Pragma", "no-cache");
+
         setDateHeader("Expires", 0);
     }
 
