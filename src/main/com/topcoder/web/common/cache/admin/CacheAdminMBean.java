@@ -1,5 +1,7 @@
 package com.topcoder.web.common.cache.admin;
 
+import java.util.Set;
+
 import org.jboss.system.ServiceMBean;
 
 /**
@@ -13,6 +15,8 @@ public interface CacheAdminMBean extends ServiceMBean {
     void clear(String fqn);
 
     String removelike(String s);
+
+    String removelike(Set<String> s);
 
     int size();
 
