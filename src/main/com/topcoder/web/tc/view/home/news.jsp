@@ -6,7 +6,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.08.07<br />6:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=art_110807">Russian programmer twice the best worldwide</A></span><br /><br />
+        <A href="/tc?module=Static&d1=pressroom&d2=art_110807">Russian programmer twice the best worldwide</A></span><br /><br />
         Having won, Peter Mitrichev (<tc-webtag:handle coderId="10574855" context="algorithm"/>) is now the first in the TopCoder world rating.</td>
    </tr>
    <tr><td class="newsLinksCell">
