@@ -43,6 +43,15 @@
 </jsp:include>
 
 <p>
+    5.13.2 - 2007.11.08
+    <ul>
+        <li>Updated cache clearing to be done locally in the cache server -pulky </li>
+    </ul>
+
+</p>
+
+
+<p>
     5.13.1 - 2007.11.07
     <ul>
         <li>Don't clear the cache when someone registers, there's nothing to clear, and it's slow to try -dok </li>
