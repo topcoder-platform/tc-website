@@ -102,6 +102,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+            <%-- CNews begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=art_110807"><img src="/i/pressroom/cnews_logo.png" alt="CNews" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=art_110807">Russian programmer twice the best worldwide</a></h3>
+                        <p>Having won, Peter Mitrichev (<tc-webtag:handle coderId="10574855" context="algorithm"/>) is now the first in the TopCoder world rating.  <small><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=art_110807">[November 8]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- CNews end --%>
+                
                 <%-- The Seattle Times begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
