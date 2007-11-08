@@ -73,6 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd>Russian programmer twice the best worldwide [November 8 - CNews] <br /><a href="/tc?module=Static&d1=pressroom&d2=art_110807">English translation</a>&#160;|&#160;<a target="_blank" href="<tc-webtag:linkTracking link='http://www.cnews.ru/news/top/index.shtml?2007/11/07/273856' refer='art_archive' />">original article</a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://seattletimes.nwsource.com/html/localnews/2003991315_coder03m.html' refer='art_archive' />">Skilled at code, he wins a load <br /><small style="margin-left:10px;">[November 6 - The Seattle Times]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/community/news/lakebuenavista/orl-topcoder0207nov02,0,4540773.story' refer='art_archive' />">Computer coders vie for $260,000 in prize money (with video) <br /><small style="margin-left:10px;">[November 2 - Orlando Sentinel]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/business/orl-bk-topcoder110107,0,3810238.story?coll=orl_tab01_layout' refer='art_archive' />">Local eliminated, but TopCoder Collegiate Challenge continues <br /><small style="margin-left:10px;">[November 1 - Orlando Sentinel]</small></a></dd>
