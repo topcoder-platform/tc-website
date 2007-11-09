@@ -102,6 +102,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+            <%-- The Daily | University of Washington begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://thedaily.washington.edu/article/2007/11/9/uwSeniorWinsNationalCodingCompetition' refer='pr_index' />"><img src="/i/pressroom/theDaily_logo.png" alt="The Daily" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://thedaily.washington.edu/article/2007/11/9/uwSeniorWinsNationalCodingCompetition' refer='pr_index' />">UW senior wins national coding competition</a></h3>
+                        <p>Computer Science senior Michael Skinner (<tc-webtag:handle coderId="7454301" context="marathon_match" />) placed first in his division of the national TopCoder Collegiate Competition in Orlando, Fla., Nov. 2.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://thedaily.washington.edu/article/2007/11/9/uwSeniorWinsNationalCodingCompetition' refer='pr_index' />">[November 9]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- The Daily | University of Washington end --%>
+                
             <%-- CNews begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
