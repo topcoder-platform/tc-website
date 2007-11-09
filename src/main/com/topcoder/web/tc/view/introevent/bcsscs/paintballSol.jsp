@@ -52,15 +52,15 @@
 import java.util.*;
  
 public class Paintball {
-    class Team implements Comparable<Team> {
+    class Team implements Comparable&lt;Team&gt; {
         String name;
         int score;
  
-        ArrayList<Player> players;
+        ArrayList&lt;Player&gt; players;
  
         public Team(String name) {
             this.name = name;
-            players = new ArrayList<Player>();
+            players = new ArrayList&lt;Player&gt;();
         }
  
         public int compareTo(Team o) {
@@ -81,7 +81,7 @@ public class Paintball {
         }
     }
  
-    class Player implements Comparable<Player> {
+    class Player implements Comparable&lt;Player&gt; {
         String name;
         int score;
  
