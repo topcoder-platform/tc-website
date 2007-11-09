@@ -404,6 +404,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            UW senior wins national coding competition
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://thedaily.washington.edu/article/2007/11/9/uwSeniorWinsNationalCodingCompetition' refer='homepage_index' />">...more</a><br />[November 9]<br /><br />
+            
             Russian programmer twice the best worldwide
             <a href="/tc?module=Static&d1=pressroom&d2=art_110807">...more</a><br />[November 8]<br /><br />
             
@@ -418,9 +421,6 @@
             
             College Coders Vie for Cash in Contest
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nytimes.com/idg/IDG_002570DE00740E1800257384005A2F1F.html?ref=technology' refer='homepage_index' />">...more</a><br />[November 1]<br /><br />
-            
-            TopCoder Finds Tech Top Guns
-            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='homepage_index' />">...more</a><br />[October 31]<br /><br />
             
 
 

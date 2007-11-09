@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.09.07<br />11:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://thedaily.washington.edu/article/2007/11/9/uwSeniorWinsNationalCodingCompetition' refer='/tc' />">UW senior wins national coding competition</A></span><br /><br />
+        Computer Science senior Michael Skinner (<tc-webtag:handle coderId="7454301" context="marathon_match" />) placed first in his division of the national TopCoder Collegiate Competition in Orlando, Fla., Nov. 2.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://thedaily.washington.edu/article/2007/11/9/uwSeniorWinsNationalCodingCompetition' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="518119" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.08.07<br />6:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=pressroom&d2=art_110807">Russian programmer twice the best worldwide</A></span><br /><br />
@@ -167,21 +180,5 @@
         <A target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/community/news/lakebuenavista/orl-topcoder0207nov02,0,4540773.story' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="518067" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tcchannel.png" alt="Tournament News" border="0" /><br />11.01.07<br />12:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_part2&title=TC%20Channel%20at%20the%20TCCC07%20Part%202' refer='/tc' />">TC Channel at the TCCC07 Part 2</A></span><br /><br />
-      Check out the TC Channel's coverage of the second day of the TCCC07.  The war room gets totally <tc-webtag:handle coderId="21043968" />-ed!</td>
-         <td class="newsPhoto">&nbsp;</td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_part2&title=TC%20Channel%20at%20the%20TCCC07%20Part%202' refer='/tc' />">watch now</A> | 
-         <tc-webtag:forumLink forumID="517933" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
