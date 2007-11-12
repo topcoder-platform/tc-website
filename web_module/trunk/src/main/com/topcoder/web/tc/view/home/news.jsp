@@ -4,6 +4,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.12.07<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='http://forums.topcoder.com/?module=Thread&threadID=593270&start=0' refer='/tc' />">The Next Evolution of TopCoder</A></span><br /><br />
+        It's time. As we have moved much more toward the model of a virtual company, we now feel that it is time to take the next logical step. Please take a moment to visit the TopCoder forums to read more about our plans and to offer your feedback and suggestions.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='http://forums.topcoder.com/?module=Thread&threadID=593270&start=0' refer='/tc' />">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.12.07<br />9:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -166,22 +178,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=summary">details</A> | 
          <tc-webtag:forumLink forumID="518065" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />11.02.07<br />7:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=summary">abedavera is the new Studio Champion!</A></span><br /><br />
-      The Studio finalists were given the task on Tuesday night during the welcome reception of designing a promotional poster and postcard for college campuses. Everyone had their favorite, but the overwhelming comment was how incredibly different each design was from the others. Congratulations to <tc-webtag:handle coderId="22689218" />, who takes home the grand prize of $15,000.</td>
-         <td class="newsPhoto"><img src="/i/m/jwlms_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="22656806" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=summary">details</A> | 
-         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=1042&start=0&mc=4#4139">discuss this</a> |
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
