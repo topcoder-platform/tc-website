@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.12.07<br />9:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm374">SRM 374 - Problem Set &amp; Analysis</A></span><br /><br />
+      The first match after the TCCC was composed of a straightforward Easy, a very easy Medium and an easy but extremely tricky Hard problem, which lead to an eventful challenge phase. Many contestants had to resubmit the Hard problem after discovering an issue with overflows or commercials split over two different days.</td>
+         <td class="newsPhoto"><img src="/i/m/jbernadas_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="22653044" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm374">details</A> | 
+         <tc-webtag:forumLink forumID="516071" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.09.07<br />11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A target="_blank" href="<tc-webtag:linkTracking link='http://thedaily.washington.edu/article/2007/11/9/uwSeniorWinsNationalCodingCompetition' refer='/tc' />">UW senior wins national coding competition</A></span><br /><br />
@@ -167,18 +183,5 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=summary">details</A> | 
          <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=1042&start=0&mc=4#4139">discuss this</a> |
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.02.07<br />6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/community/news/lakebuenavista/orl-topcoder0207nov02,0,4540773.story' refer='/tc' />">Computer coders vie for $260,000 in prize money (with video)</A></span><br /><br />
-        Having left the obscurity of their bedrooms, some of the world's top college computer coders are vying today for a combined $260,000 in prize money and worldwide bragging rights.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/community/news/lakebuenavista/orl-topcoder0207nov02,0,4540773.story' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="518067" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
    
