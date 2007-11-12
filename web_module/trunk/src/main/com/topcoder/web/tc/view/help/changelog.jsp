@@ -43,6 +43,17 @@
 </jsp:include>
 
 <p>
+    5.13.3 - 2007.11.xx
+    <ul>
+<%--
+        <li>Component contest details page and Submission download processor updated
+            to use catalog ids instead of descriptions -pulky</li>
+--%>
+    </ul>
+
+</p>
+
+<p>
     5.13.2 - 2007.11.08
     <ul>
         <li>Updated cache clearing to be done locally in the cache server -pulky </li>
