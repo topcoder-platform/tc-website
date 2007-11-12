@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.13.3 - 2007.11.xx
+    5.13.3 - 2007.11.12
     <ul>
 <%--
         <li>Component contest details page and Submission download processor updated
