@@ -1,5 +1,12 @@
 package com.topcoder.web.tc.controller.request.compstats;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.util.Map;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -9,15 +16,10 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
-
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.util.Map;
 
 /**
  * Download a submission.
@@ -110,8 +112,8 @@ public class DownloadSubmission extends Base {
 
         ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");
         
-        if ("Java Custom".equals(projectInfo.getStringItem(0, "category_desc")) ||
-                ".Net Custom".equals(projectInfo.getStringItem(0, "category_desc"))) {
+        if (projectInfo.getIntItem(0, "category_id") == WebConstants.JAVA_CUSTOM_CATALOG ||
+                projectInfo.getIntItem(0, "category_id") == WebConstants.NET_CUSTOM_CATALOG) {
             return false;
         }
 
