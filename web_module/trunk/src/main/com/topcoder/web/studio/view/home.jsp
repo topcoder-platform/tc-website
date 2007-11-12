@@ -70,14 +70,6 @@
             <div id="homeRightCol">
                 <div class="spacer">
 
-<%--
-                    <!-- message title -->
-                    <div style="width: 200px; height: 25px; margin-bottom: 10px; background: transparent url(/i/v2/home_bg_right_title.png) center center no-repeat;">
-                        <div style="font-weight: bold; padding: 2px 0px 0px 10px; ">
-                            Message
-                        </div>
-                    </div>
---%>                    
                     <!-- login title -->
                     <div style="width: 200px; height: 25px; margin-bottom: 10px; background: transparent url(/i/v2/home_bg_right_title.png) center center no-repeat;">
                         <div style="font-weight: bold; padding: 2px 0px 0px 10px; ">
@@ -133,6 +125,18 @@
                             </c:otherwise>
                         </c:choose>
                         </div>
+                    </div>
+
+                    <!-- message title -->
+                    <div style="width: 200px; height: 25px; margin-bottom: 10px; background: transparent url(/i/v2/home_bg_right_title.png) center center no-repeat;">
+                        <div style="font-weight: bold; padding: 2px 0px 0px 10px; ">
+                            Message
+                        </div>
+                    </div>
+
+                    <!-- promo -->
+                    <div style="margin-bottom: 20px;">
+                        <a href="http://forums.topcoder.com/?module=Thread&threadID=593270"><img src="/i/v2/home/tcevolution.png" alt="" /></a>
                     </div>
 
                     <!-- DOTM title -->
