@@ -3,7 +3,8 @@
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.SessionInfo,
-                 com.topcoder.web.tc.Constants" %>
+                 com.topcoder.web.tc.Constants,
+                 com.topcoder.web.common.WebConstants" %>
 
 <%@ page import="java.util.Map" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -36,16 +37,16 @@
     boolean first = true;
 
     String imgName = "";
-    if (projectInfo.getStringItem(0, "category_desc").equals("Java")) {
+    if (projectInfo.getIntItem(0, "category_id") == WebConstants.JAVA_CATALOG) {
         imgName = "/i/development/smJava.gif";
     }
-    if (projectInfo.getStringItem(0, "category_desc").equals(".NET")) {
+    if (projectInfo.getIntItem(0, "category_id") == WebConstants.NET_CATALOG) {
         imgName = "/i/development/netSm.gif";
     }
-    if (projectInfo.getStringItem(0, "category_desc").equals("Java Custom")) {
+    if (projectInfo.getIntItem(0, "category_id") == WebConstants.JAVA_CUSTOM_CATALOG) {
         imgName = "/i/development/smJavaCustom.gif";
     }
-    if (projectInfo.getStringItem(0, "category_desc").equals(".NET Custom")) {
+    if (projectInfo.getIntItem(0, "category_id") == WebConstants.NET_CUSTOM_CATALOG) {
         imgName = "/i/development/smNetCustom.gif";
     }
 
@@ -338,8 +339,8 @@
         <% } %>
         <TD class="valueC" nowrap="nowrap">
             <% if ((isComplete || userId == resultRow.getLongItem("user_id") || isReviewer) 
-                    && (sessionInfo.isAdmin() || (!projectInfo.getStringItem(0, "category_desc").equals("Java Custom")
-                                                 && !projectInfo.getStringItem(0, "category_desc").equals(".Net Custom")))                  
+                    && (sessionInfo.isAdmin() || (projectInfo.getIntItem(0, "category_id") != WebConstants.JAVA_CUSTOM_CATALOG
+                                                 && projectInfo.getIntItem(0, "category_id") != WebConstants.NET_CUSTOM_CATALOG))                  
                     ) { 
             
             %>
