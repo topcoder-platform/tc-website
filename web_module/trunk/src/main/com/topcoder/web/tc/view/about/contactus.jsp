@@ -63,7 +63,7 @@ TopCoder is about. Please contact the appropriate individuals below for more inf
      <td width="50%" align="left" class="bodyText">
          <p><strong>Contact us by email</strong><br />
          <A href="mailto:service@topcoder.com" class="bodyText">Membership</A><br />
-         <A href="mailto:mluce@topcoder.com" class="bodyText">High School Competitions</A><br />
+         <A href="mailto:jdamato@topcoder.com" class="bodyText">High School Competitions</A><br />
          <A href="mailto:service@topcoder.com" class="bodyText">General Questions</A><br />
          <A href="mailto:service@topcoder.com" class="bodyText">Competition Tech Support</A><br />
          <A href="mailto:service@topcodersoftware.com" class="bodyText">Software Tech Support</A></p>
@@ -116,13 +116,14 @@ TopCoder is about. Please contact the appropriate individuals below for more inf
      </td>
          
      <td width="50%" align="left" class="bodyText">
-         <p><a href="mailto:jdamato@topcoder.com" class="bodyText">Events / College Relations</a><br />
+         <p><a href="mailto:jdamato@topcoder.com" class="bodyText">TopCoder Events &amp; High School Competitions</a><br />
          Jessie D'Amato Ford<br />
          tel: 860.633.5540<br />
          fax: 860.657.4276<br />
          &#160;</p>
      </td>
  </tr>
+ <%--
  <tr valign="top">
      <td width="50%" align="left" class="bodyText">
          <p><a href="mailto:mluce@topcoder.com" class="bodyText">High School Competitions</a><br />
@@ -132,6 +133,7 @@ TopCoder is about. Please contact the appropriate individuals below for more inf
          &#160;</p>
      </td>
    </tr>
+   --%>
 
 </table>
 
