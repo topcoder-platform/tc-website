@@ -46,7 +46,7 @@
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="22666646" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=111207"><strong>TCCC07: So this guy goes to Orlando, and ...</strong></A></td>
-               <td class="bodyText" nowrap=nowrap>Nov 13, 2007</td> 
+               <td class="bodyText" nowrap=nowrap>Nov 12, 2007</td> 
             </tr>
             <tr valign="top">
                <td class="bodyText">&nbsp;</td>
