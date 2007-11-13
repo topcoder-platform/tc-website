@@ -4197,17 +4197,41 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new NoObjectFoundException("Contract " + c.getHeader().getId() + " not found in database");
     }
 
-    // Helper function, assumes autocommit is false
+    /**
+     * Helper function for a payment update for regular users
+     * 
+     * Note: this methods assumes autocommit is false.
+     * 
+     * @param p the payment to update
+     * @throws Exception if the update fails
+     */
     private void updatePayment(Payment p) throws Exception {
+        updatePayment(p, false);
+    }
+
+    /**
+     * Helper function for a payment update
+     * 
+     * Note: this methods assumes autocommit is false and uses a trxDataSource.
+     * 
+     * @param p the payment to update
+     * @param supervisor true if the update requester is a supervisor
+     * @throws Exception if the update fails
+     */
+    private void updatePayment(Payment p, boolean supervisor) throws Exception {
         PreparedStatement ps = null;
         Connection c = null;
 
         try {
             c = DBMS.getConnection(trxDataSource);
 
-            // Check for validity
-            checkPayment(c, p, false);
-
+            // if a supervisor is updating this payment, don't perform checks, they 
+            // can do anything.
+            if (!supervisor) {
+                // Check for validity
+                checkPayment(c, p, false);
+            }
+            
             fillPaymentNetAmount(c, p);
 
             long paymentDetailId = insertPaymentDetail(c, p);
@@ -5592,34 +5616,57 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Update a payment.
+     * Update a payment for regular users.
      * The payment must be already saved in the database, or an exception will be thrown.
+     *
+     * This method assumes autocommit is set to false
      *
      * @param payment payment to update.
      * @return the updated payment.
-     * @throws Exception
+     * @throws Exception if the update fails
      */
     public BasePayment updatePayment(BasePayment payment) throws Exception {
-        if (payment.getId() <= 0) {
-            throw new IllegalArgumentException("Payment is missing payment_id");
+        return updatePayment(payment, false);
+    }
+     
+    /**
+     * Update a payment for regular users.
+     * The payment must be already saved in the database, or an exception will be thrown.
+     *
+     * This method assumes autocommit is set to false
+     *
+     * @param payment payment to update.
+     * @param supervisor true if the requester is a supervisor
+     * @return the updated payment.
+     * @throws Exception if the update fails
+     */
+    public BasePayment updatePayment(BasePayment payment, boolean supervisor) throws Exception {
+        try {
+            if (payment.getId() <= 0) {
+                throw new IllegalArgumentException("Payment is missing payment_id");
+            }
+    
+            int rationale = payment.getModificationRationale();
+    
+            // if nothing seems to be changed, set the rationale to multiple fields
+            // to be in the safe side.  It won't hurt.
+            if (rationale == 0) {
+                rationale = MODIFICATION_MULTIPLE_FIELDS;
+            }
+    
+            (new PaymentStatusManager()).paymentUpdated(payment);
+    
+            Payment p = createPayment(payment);
+            p.setRationaleId(rationale);
+            updatePayment(p, supervisor);
+            payment.resetModificationRationale();
+    
+            return payment;
+        } catch (Exception e) {
+            ejbContext.setRollbackOnly();
+            printException(e);
+            throw e;
         }
-
-        int rationale = payment.getModificationRationale();
-
-        // if nothing seems to be changed, set the rationale to multiple fields
-        // to be in the safe side.  It won't hurt.
-        if (rationale == 0) {
-            rationale = MODIFICATION_MULTIPLE_FIELDS;
-        }
-
-        (new PaymentStatusManager()).paymentUpdated(payment);
-
-        Payment p = createPayment(payment);
-        p.setRationaleId(rationale);
-        updatePayment(p);
-        payment.resetModificationRationale();
-
-        return payment;
     }
 
     private int getProjectType(long projectId) throws SQLException {
