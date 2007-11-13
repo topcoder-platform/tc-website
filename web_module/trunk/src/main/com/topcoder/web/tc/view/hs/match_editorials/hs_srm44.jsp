@@ -59,16 +59,16 @@
 
 <p>
 
-This match saw 80 coders, 11 of them newcomers. Coders faced with an easy problem set - 13 of them solved correctly 
-all three problems. Some implementations of easy problem should have covered border case, but didn't which resulted in successful 
-challenges and failed system tests. After easy problem, most of coders stepped onto medimum one, where 
-<tc-webtag:handle coderId="14767863" context="algorithm"/>  very soon came up with sorrect solution. It seems 
+This match saw 80 coders, 11 of them newcomers. Coders were faced with an easy problem set - 13 of them solved correctly 
+all three problems. Some implementations of the easy problem should have covered border case, but didn't which resulted in successful 
+challenges and failed system tests. After the easy problem, most of coders stepped onto the medimum one, where 
+<tc-webtag:handle coderId="14767863" context="algorithm"/> very soon came up with sorrect solution. It seems 
 some coders took the hard problem too lightly, which resulted in several resubmits 
-(<tc-webtag:handle coderId="12005484" context="algorithm"/>  had to resubmit twice).<br /><br />
+(<tc-webtag:handle coderId="12005484" context="algorithm"/> had to resubmit twice).<br /><br />
 Thanks to fast solutions for all problems and two successful challenges 
-<tc-webtag:handle coderId="22285847" context="algorithm"/>  won match, followed by 
-<tc-webtag:handle coderId="22663117" context="algorithm"/>  who submited the hard problem a bit slower 
-and finished challenge phase without extra points. Thanks to successful challenges, 
+<tc-webtag:handle coderId="22285847" context="algorithm"/> won the match, followed by 
+<tc-webtag:handle coderId="22663117" context="algorithm"/> who submited the hard problem a bit slower 
+and finished the challenge phase without extra points. Thanks to successful challenges, 
 <tc-webtag:handle coderId="15604398" context="algorithm"/> beat 
 <tc-webtag:handle coderId="11972352" context="algorithm"/>, took third place and became red.
 
