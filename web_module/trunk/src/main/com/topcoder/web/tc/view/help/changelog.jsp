@@ -43,6 +43,15 @@
 </jsp:include>
 
 <p>
+    5.13.4 - 2007.11.xx
+    <ul>
+        <li>Admit updating all payments (no matter their status) 
+            in the supervisor update page -pulky</li>
+    </ul>
+
+</p>
+
+<p>
     5.13.3 - 2007.11.12
     <ul>
 <%--
