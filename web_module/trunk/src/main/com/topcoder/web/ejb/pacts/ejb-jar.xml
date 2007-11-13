@@ -46,6 +46,21 @@
         <container-transaction>
             <method>
                 <ejb-name>PactsServices</ejb-name>
+                <method-name>updatePayment</method-name>
+                <method-params>
+                    <method-param>com.topcoder.web.ejb.pacts.BasePayment</method-param>
+                </method-params>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>updatePayment</method-name>
+                <method-params>
+                    <method-param>com.topcoder.web.ejb.pacts.BasePayment</method-param>
+                    <method-param>boolean</method-param>
+                </method-params>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
                 <method-name>addPayment</method-name>
                 <method-params>
                     <method-param>com.topcoder.web.ejb.pacts.BasePayment</method-param>

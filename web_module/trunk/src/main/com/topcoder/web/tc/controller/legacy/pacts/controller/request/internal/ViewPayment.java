@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
@@ -23,8 +24,13 @@ public class ViewPayment extends BaseProcessor implements PactsConstants {
 
         try {
             DataInterfaceBean bean = new DataInterfaceBean();
-
-            Payment payment = new Payment(bean.getPayment(payment_id));
+            
+            Payment payment = null;
+            try {
+                payment = new Payment(bean.getPayment(payment_id));
+            } catch (Exception e) {
+                throw new NavigationException("Payment no longer exist or couldn't be retrieved");
+            }
             getRequest().setAttribute(PACTS_INTERNAL_RESULT, payment);
 
 
@@ -48,8 +54,9 @@ public class ViewPayment extends BaseProcessor implements PactsConstants {
 
             setNextPage(INTERNAL_PAYMENT_JSP);
             setIsNextPageInContext(true);
+        } catch (NavigationException ne) {
+            throw ne;
         } catch (Exception e) {
-            throw new TCWebException(e);
         }
     }
 }

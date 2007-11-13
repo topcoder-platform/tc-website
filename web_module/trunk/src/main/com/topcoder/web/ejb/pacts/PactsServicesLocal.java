@@ -226,6 +226,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
     
     BasePayment updatePayment(BasePayment payment) throws  Exception;
 
+    BasePayment updatePayment(BasePayment payment, boolean supervisor) throws  Exception;
+
     List findPayments(int paymentTypeId) throws  SQLException, InvalidStatusException;
 
     List findPayments(int paymentTypeId, long referenceId) throws  SQLException, InvalidStatusException;

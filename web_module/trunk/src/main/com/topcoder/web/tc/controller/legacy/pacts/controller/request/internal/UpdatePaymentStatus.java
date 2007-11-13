@@ -64,7 +64,7 @@ public class UpdatePaymentStatus extends PactsBaseProcessor implements PactsCons
             
             payment.setCurrentStatus(bps);
             
-            dib.updatePayment(payment);
+            dib.updatePayment(payment, true);
             
             setNextPage(Links.viewPayment(paymentId));
             setIsNextPageInContext(false);
