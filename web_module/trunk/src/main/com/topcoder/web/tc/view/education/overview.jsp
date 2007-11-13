@@ -39,12 +39,12 @@
 <br /><br />
 <span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=111207"><strong>TCCC07: So this guy goes to Orlando, and ...</strong></a>, by <tc-webtag:handle coderId="22666646" /><br />
+<tc-webtag:handle coderId="22666646" />, a.k.a. Adrian Nadjiwon (TopCoder Studio member and self-proclaimed nicotine addict) lends his perspective of the 2007 TopCoder Collegiate Challenge from Walt Disney World.</li>
 <li><a href="/tc?module=Static&d1=features&d2=110707"><strong>Meet the October 2007 Coders of the Month</strong></a><br />
 Don't miss this month's Meet the Coders, where <tc-webtag:handle coderId="21684580" context="development" /> gives an insider's view into the Component Development Competition.</li>
 <li><a href="/tc?module=Static&d1=features&d2=102607"><strong>TCCC07 Preview: The Studio competition</strong></a>, by <tc-webtag:handle coderId="20641048" /><br />
 For the very first time in TopCoder Collegiate Challenge history, a competitor will compete to become a Studio Design Champion. The Studio Design competition was already a part of TCO07 and turned out to be a big success. Studio Design, along with Marathon Matches, are brand new tracks for TCCC this year.</li>
-<li><a href="/tc?module=Static&d1=features&d2=102307"><strong>Meet the September Coders of the Month</strong></a><br />
-We caught up with two of September's "coders of the month," to learn a little bit more about them, their proudest TopCoder moments, and more...</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br />
 <ul>
