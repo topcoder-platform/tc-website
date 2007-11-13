@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />11.13.07<br />5:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=111207">TCCC07: So this guy goes to Orlando, and ...</A></span><br /><br />
+      <tc-webtag:handle coderId="22666646" />, a.k.a. Adrian Nadjiwon (TopCoder Studio member and self-proclaimed nicotine addict) lends his perspective of the 2007 TopCoder Collegiate Challenge from Walt Disney World.</td>
+         <td class="newsPhoto"><img src="/i/m/dogsoldier39_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="22666646" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=111207">details</A> | 
+         <tc-webtag:forumLink forumID="518149" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.13.07<br />2:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -162,22 +178,6 @@
    <tr><td class="newsLinksCell">
          <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_part3&title=TC%20Channel%20at%20the%20TCCC07%20Part%203' refer='/tc' />">watch now</A> | 
          <tc-webtag:forumLink forumID="517933" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />11.02.07<br />7:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoFinals">Petr is the new Algorithm Champion!</A></span><br /><br />
-      <tc-webtag:handle coderId="10574855" context="algorithm" /> finished strongly as the winner of the 2007 TopCoder Collegiate Challenge Algorithm competition, taking home the top prize of $25,000. <tc-webtag:handle coderId="9906197" context="algorithm" /> came in second, and <tc-webtag:handle coderId="7390224" context="algorithm" /> took home the third.</td>
-         <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoFinals">details</A> | 
-         <tc-webtag:forumLink forumID="518018" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
