@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.13.07<br />2:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm375">SRM 375 - Problem Set &amp; Analysis</A></span><br /><br />
+      SRM 375 Division 1 victory was deserved by <tc-webtag:handle coderId="10574855" context="algorithm"/> who showed the fastest time on both 250-pointer and 1000-pointer. The fastest 500-pointer was written by <tc-webtag:handle coderId="9906197" context="algorithm"/> who came in second. Two Ukrainians, <tc-webtag:handle coderId="8433628" context="algorithm"/> and <tc-webtag:handle coderId="13351270" context="algorithm"/> were 3rd and 4th respectively, and those are the only four coders who solved all three problems correctly.</td>
+         <td class="newsPhoto"><img src="/i/m/darnley_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="21971539" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm375">details</A> | 
+         <tc-webtag:forumLink forumID="516072" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.13.07<br />1:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -162,22 +178,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=algoFinals">details</A> | 
          <tc-webtag:forumLink forumID="518018" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />11.02.07<br />7:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">nicka81 is the new Component Design Champion!</A></span><br /><br />
-      After three days of on-site finals, <tc-webtag:handle coderId="293874" context="design" /> emerged as the winner of the 2007 TopCoder Collegiate Challenge Component Design competition, taking home the top prize of $25,000. <tc-webtag:handle coderId="8518361" /> took second place, and <tc-webtag:handle coderId="21471587" /> took home the third.</td>
-         <td class="newsPhoto">&nbsp;</td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">details</A> | 
-         <tc-webtag:forumLink forumID="518024" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
