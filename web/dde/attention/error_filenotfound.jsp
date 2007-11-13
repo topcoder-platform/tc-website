@@ -18,6 +18,9 @@
     // STANDARD PAGE VARIABLES
     String page_name = "error_filenotfound.jsp";
     String action = request.getParameter("a");
+
+    // include a 404 status in the response
+    response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 %>
 
 <html>
