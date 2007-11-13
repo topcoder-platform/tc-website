@@ -1,0 +1,176 @@
+<project name="topcoder" default="main" basedir=".">
+    <property name="Name" value="TopCoder"/>
+    <property name="build" value="build"/>
+    <property name="war.dir" value="${build}/wars"/>
+    <property name="ear.dir" value="${build}/ears"/>
+    <property name="ejb_jars" value="${build}/ejb_jars"/>
+    <property name="classes" value="${build}/classes"/>
+    <property name="testclasses" value="${build}/testcases"/>
+    <property name="build.javadocs" value="${build}/javadocs"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="jars.dir" value="${lib.dir}/jars"/>
+    <property name="jive.dir" value="lib/jars/jive"/>
+    <property name="struts.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
+    <property name="bin" value="lib/bin"/>
+    <property name="src.dir" value="src"/>
+    <property name="java" value="${src.dir}/main"/>
+    <property name="shared" value="../shared/src/main"/>
+    <property name="testjava" value="${src.dir}/testcases"/>
+    <property name="resources" value="resources"/>
+    <property name="conf" value="conf"/>
+    <property name="taglib" value="${resources}/taglib"/>
+    <property name="images" value="images"/>
+    <property name="shared.jar" value="${bin}/shared.jar"/>
+    <property name="long.jar" value="${bin}/long.jar"/>
+    <property name="web" value="src/main/com/topcoder/web"/>
+    <property name="jboss_home" value="../jboss-4.0.2"/>
+    <property name="jboss_deploy" value="${jboss_home}/server/all/deploy"/>
+    <property name="jboss_lib" value="${jboss_home}/server/all/lib"/>
+    <property name="jboss_conf" value="${jboss_home}/server/all/conf"/>
+    <property environment="env"/>
+
+    <property name="deprecation" value="true"/>
+    <property name="debug" value="true"/>
+    <property name="junitsummary" value="on"/>
+
+    <target name="main" depends="compile">
+    </target>
+
+    <path id="class.path">
+        <pathelement location="${classes}"/>
+        <pathelement location="${testclasses}"/>
+        <pathelement location="${resources}"/>
+        <pathelement location="${images}"/>
+        <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+        <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+        <pathelement location="${jars.dir}/bfograph.jar"/>
+
+        <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
+        <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
+        <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+        <pathelement location="${jars.dir}/jboss/xalan.jar"/>
+        <pathelement location="${jars.dir}/jboss/xercesImpl.jar"/>
+        <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
+        <pathelement location="${jars.dir}/jboss/mail.jar"/>
+        <pathelement location="${jars.dir}/junit.jar"/>
+
+        <pathelement location="${jive.dir}/jivebase.jar"/>
+        <pathelement location="${jive.dir}/jiveforums.jar"/>
+        <pathelement location="${jive.dir}/xwork.jar"/>
+
+        <pathelement location="/usr/java/j2sdk1.4.2_04/jre/lib/ext/sunjce_provider.jar"/>
+
+
+        <!-- TCS Components -->
+        <!--
+                 <pathelement location="${jars.dir}/configmanager2.jar"/>
+        -->
+        <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.3/configuration_manager.jar"/>
+        <pathelement location="${jars.dir}/tcs/histogram/1.0/histogram.jar"/>
+        <pathelement location="${jars.dir}/object_formatter.jar"/>
+        <pathelement location="${jars.dir}/idgenerator.jar"/>
+        <pathelement location="${jars.dir}/upload.jar"/>
+        <pathelement location="${jars.dir}/tcsUtil.jar"/>
+        <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+        <pathelement location="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
+
+        <!-- TCS Other -->
+        <pathelement location="${jars.dir}/tcs/catalog.jar"/>
+        <pathelement location="${jars.dir}/tcs/user.jar"/>
+
+        <!-- file conversion component -->
+        <pathelement location="${jars.dir}/fileconvert.jar"/>
+        <pathelement location="${jars.dir}/httpunit.jar"/>
+        <pathelement location="${jars.dir}/itext-1.1.jar"/>
+
+    </path>
+
+    <target name="init">
+        <mkdir dir="${classes}"/>
+        <mkdir dir="${testclasses}"/>
+        <mkdir dir="${bin}"/>
+        <mkdir dir="${ejb_jars}"/>
+        <mkdir dir="${war.dir}"/>
+        <mkdir dir="${ear.dir}"/>
+    </target>
+
+    <target name="compile_shared" depends="init">
+        <javac
+                srcdir="${shared}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                >
+        </javac>
+        <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
+        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
+    </target>
+
+    <target name="compile" depends="init,jar_shared">
+        <available property="jdk1.4+" classname="java.nio.ByteBuffer"/>
+        <javac
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                >
+            <exclude
+                    name="com/topcoder/security/**"
+                    unless="jdk1.4+"
+                    />
+            <include name="com/topcoder/common/**"/>
+            <include name="com/topcoder/ejb/**"/>
+            <include name="com/topcoder/security/**"/>
+            <include name="com/topcoder/utilities/**"/>
+            <include name="com/topcoder/web/**"/>
+        </javac>
+    </target>
+
+
+    <target name="clean">
+        <!-- kill the entire build dir -->
+        <delete dir="${build}"/>
+        <delete dir="${bin}"/>
+    </target>
+
+    <target name="jar_shared" depends="compile_shared">
+        <jar jarfile="${shared.jar}">
+            <fileset dir="${classes}">
+                <include name="com/topcoder/shared/**/*.class"/>
+            </fileset>
+        </jar>
+    </target>
+
+
+    <target name="compile_tests" depends="compile">
+        <javac srcdir="${testjava}" destdir="${testclasses}"
+               classpathref="class.path"
+               deprecation="${deprecation}"
+               debug="${debug}">
+        </javac>
+    </target>
+
+    <target name="run_tests" depends="compile_tests" description="run junit tests">
+        <junit printsummary="${junitsummary}" fork="yes" showoutput="true">
+            <classpath refid="class.path"/>
+            <formatter type="xml"/>
+            <batchtest todir="${testclasses}">
+                <fileset dir="${testclasses}">
+                    <include name="**/*TestCase.class"/>
+                </fileset>
+            </batchtest>
+        </junit>
+
+        <junitreport todir="${testclasses}">
+            <fileset dir="${testclasses}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${testclasses}/html"/>
+        </junitreport>
+    </target>
+
+
+</project>
+
