@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />11.13.07<br />12:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=dbChat20071106">Deutsche Bank SRM 374 chat transcript</A></span><br /><br />
+      TopCoder members joined representatives from Deutsche Bank prior to SRM 374 to discuss career opportunities at the company.</td>
+         <td class="newsPhoto">&nbsp;</td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=dbChat20071106">details</A> | 
+         <tc-webtag:forumLink forumID="517145" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.12.07<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='http://forums.topcoder.com/?module=Thread&threadID=593270&start=0' refer='/tc' />">The Next Evolution of TopCoder</A></span><br /><br />
@@ -162,22 +178,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">details</A> | 
          <tc-webtag:forumLink forumID="518024" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />11.02.07<br />7:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=summary">paranoia is the new Marathon Match Champion!</A></span><br /><br />
-      After the dust settled, <tc-webtag:handle coderId="7454301" context="marathon_match" /> emerged as the winner of the 2007 TopCoder Collegiate Challenge Marathon Match competition, taking home the top prize of $15,000. <tc-webtag:handle coderId="10600282" context="marathon_match" /> came in second, and <tc-webtag:handle coderId="7394165" context="marathon_match" /> took home the third.</td>
-         <td class="newsPhoto">&nbsp;</td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=summary">details</A> | 
-         <tc-webtag:forumLink forumID="518065" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
