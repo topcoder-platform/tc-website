@@ -27,6 +27,7 @@
                     <h2 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h2>
                     <strong>
                         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=dbChat20070926">SRM 367</A><br />
+                        <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=dbChat20071106">SRM 374</A><br />
                     </strong>
                 </div>
                 <div style="padding-bottom:10px;">
