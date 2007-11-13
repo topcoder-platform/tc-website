@@ -54,8 +54,11 @@
         </tr>
 </table>
 <h2>Select new status and reasons</h2>
-<b>* Warning:</b> no check will be made for this status update. This action can break the regular payment process flow.
-<br/><br/>
+<p>
+    <font color="red">
+    <b>* Warning:</b> no check will be made for this status update. This action can break the regular payment process flow.
+    </font>
+</p>
 <table border="0" cellpadding="3" cellspacing="3">
         <tr>
             <td><b>Status:</b></td>
