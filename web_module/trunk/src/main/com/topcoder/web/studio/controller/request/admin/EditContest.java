@@ -110,7 +110,7 @@ public class EditContest extends Base {
             ContestProperty curr;
             for (Integer aCONTEST_PROPS : CONTEST_PROPS) {
                 curr = dao.find(aCONTEST_PROPS);
-                if (contest.isNew() || contest.getConfig(curr) == null) {
+                if (contest.getId() == null || contest.getConfig(curr) == null) {
                     currConfig = new ContestConfig();
                     currConfig.setProperty(curr);
                     contest.addConfig(currConfig);
