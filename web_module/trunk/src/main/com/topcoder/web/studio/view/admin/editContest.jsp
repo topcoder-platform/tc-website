@@ -406,7 +406,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 </form>
 
 
-<c:if test="${contest!=null && !contest.new}">
+<c:if test="${contest!=null && contest.id>0}">
     <p>
         Click
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}"
