@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />11.14.07<br />12:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=20670">Vote for the TCHS08 website</A></span><br /><br />
+      Vote now for the best 2008 TopCoder High School Tournament web design! Hurry - vote ends on Friday at 5:00 pm EST.</td>
+         <td class="newsPhoto">&nbsp;</td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=ViewSurvey&sid=20670">vote</A> | 
+         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2142">contest details</a> |
+         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=1074&start=0">discuss this</a> |
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />11.13.07<br />5:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -162,22 +179,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db">details</A> | 
          <tc-webtag:forumLink forumID="517145" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tcchannel.png" alt="Tournament News" border="0" /><br />11.02.07<br />9:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_part3&title=TC%20Channel%20at%20the%20TCCC07%20Part%203' refer='/tc' />">TC Channel at the TCCC07 Part 3</A></span><br /><br />
-      Check out the TC Channel's coverage of the last day of the TCCC07, including winner announcements.  Thanks for a great tournament, everybody.</td>
-         <td class="newsPhoto">&nbsp;</td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tccc07&d3=movieStream&clip=ep06_part3&title=TC%20Channel%20at%20the%20TCCC07%20Part%203' refer='/tc' />">watch now</A> | 
-         <tc-webtag:forumLink forumID="517933" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
