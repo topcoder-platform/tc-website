@@ -48,7 +48,7 @@
     Contests</a></div>
 
 
-<c:if test="${!contest.new}">
+<c:if test="${contest.id>0}">
     <div class="breadcrumb">
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">Contests</a>
         &gt;
