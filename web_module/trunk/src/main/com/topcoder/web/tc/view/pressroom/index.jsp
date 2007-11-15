@@ -102,7 +102,20 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
-            <%-- The Daily | University of Washington begin --%>
+                <%-- Russia Today begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.russiatoday.ru/news/news/16968' refer='pr_index' />"><img src="/i/pressroom/russiaToday_logo.png" alt="Russia Today" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.russiatoday.ru/news/news/16968' refer='pr_index' />">Russian computer whiz crowned world's best</a></h3>
+                        <p>A Russian student, Pyotr Mitrichev (<tc-webtag:handle coderId="10574855" context="algorithm"/>), has won the world programming championships, taking place in the U.S. Over 3,000 young and talented student programmers took part. Video included after the jump.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.russiatoday.ru/news/news/16968' refer='pr_index' />">[November 15]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Russia Today end --%>
+                
+                <%-- The Daily | University of Washington begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
                         <a target="_blank" href="<tc-webtag:linkTracking link='http://thedaily.washington.edu/article/2007/11/9/uwSeniorWinsNationalCodingCompetition' refer='pr_index' />"><img src="/i/pressroom/theDaily_logo.png" alt="The Daily" border="0" /></a>
@@ -115,7 +128,7 @@
                 </div>
                 <%-- The Daily | University of Washington end --%>
                 
-            <%-- CNews begin --%>
+                <%-- CNews begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
                         <a href="/tc?module=Static&d1=pressroom&d2=art_110807"><img src="/i/pressroom/cnews_logo.png" alt="CNews" border="0" /></a>

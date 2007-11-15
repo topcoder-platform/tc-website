@@ -404,6 +404,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            Russian computer whiz crowned world's best
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.russiatoday.ru/news/news/16968' refer='homepage_index' />">...more</a><br />[November 15]<br /><br />
+            
             UW senior wins national coding competition
             <a target="_blank" href="<tc-webtag:linkTracking link='http://thedaily.washington.edu/article/2007/11/9/uwSeniorWinsNationalCodingCompetition' refer='homepage_index' />">...more</a><br />[November 9]<br /><br />
             
@@ -418,9 +421,6 @@
             
             Local eliminated, but TopCoder Collegiate Challenge continues
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/business/orl-bk-topcoder110107,0,3810238.story?coll=orl_tab01_layout' refer='homepage_index' />">...more</a><br />[November 1]<br /><br />
-            
-            College Coders Vie for Cash in Contest
-            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nytimes.com/idg/IDG_002570DE00740E1800257384005A2F1F.html?ref=technology' refer='homepage_index' />">...more</a><br />[November 1]<br /><br />
             
 
 
