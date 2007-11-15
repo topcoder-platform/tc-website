@@ -1285,9 +1285,12 @@ public class TCLoadTCS extends TCLoad {
                         "    ,pr.final_score " +
                         "    ,(select max(create_time) from component_inquiry where project_id = p.project_id and user_id = pr.user_id)  as inquire_timestamp " +
                         "    ,r2.value registrationd_date" +
+                        //todo improve this data in transactional.  many records are 11/2/2006 which isn't correct.
                         "    ,(select max(u.create_date) from submission s,upload u,resource r,resource_info ri " +
                         "           where ri.resource_id = r.resource_id and ri.resource_info_type_id = 1 and r.resource_id = u.resource_id " +
                         "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and ri.value = pr.user_id and submission_status_id <> 5) as submit_timestamp  " +
+                        //todo this is no good, modify date shouldn't be used in this way.  it could be updated for any reason, so it's misleading.  perhaps we should
+                        //todo use the actual review phase end (or the most recent one) instead
                         "    ,(select max(r.modify_date) from review r,scorecard s,submission sub, upload u,resource res,resource_info ri  " +
                         "           where ri.resource_id = res.resource_id and ri.resource_info_type_id = 1 and res.resource_id = u.resource_id " +
                         "           and u.upload_id = sub.upload_id and sub.submission_id = r.submission_id and r.scorecard_id = s.scorecard_id " +
