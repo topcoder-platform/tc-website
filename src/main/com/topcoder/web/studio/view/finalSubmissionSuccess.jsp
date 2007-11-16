@@ -1,11 +1,12 @@
 <%@ page import="com.topcoder.web.studio.Constants, com.topcoder.web.studio.model.SubmissionType" %>
-<%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -49,16 +50,21 @@
 </head>
 
 <body>
-<div align="center">
-    <div id="contentOut" class="contentOut">
-        <jsp:include page="top.jsp"/>
-        <jsp:include page="topNav.jsp">
-            <jsp:param name="node" value="contests"/>
-        </jsp:include>
-        <div id="contentIn" class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="contests"/>
+            </jsp:include>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <!-- content -->
+            <div id="content">
+                <div class="contentTop">
+                    <div class="contentMiddle">
 
                 <div class="linkBox">
                     <studio:forumLink forumID="${contest.forumId}"/>
@@ -72,22 +78,24 @@
                 <h1>Final Submission Successfully Uploaded</h1>
 
                 <div align="center">
-                    <div align="left" style="width:500px; margin-top: 20px;">
+                    <p align="center" style="width:500px; margin-top: 20px;">
                         Your Submission Has Been Uploaded
                         <br /><br />
                         <div align="center">
                         <a href="${sessionInfo.servletPath}?module=ViewFinalSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onFocus="this.blur();"><img src="/i/v2/interface/btnSubmitAnother.png" alt="submit another" /></a>
                         </div>
-                    </div>
+                    </p>
                 </div>
 
+                        <br clear="all"/>
+                    </div>                
+                    <div class="contentBottom"></div>
+                </div>
             </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
-        <jsp:include page="foot.jsp"/>
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-    </div>
-</div>
 
+        <jsp:include page="foot.jsp"/>
+
+    </div>
 </body>
 </html>
