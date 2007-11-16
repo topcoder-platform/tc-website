@@ -5267,7 +5267,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" select p.project_id,  ");
         query.append(" component_name || ' '  || ");
         query.append(" pc.name || ");
-        query.append(" ' (' ||  NVL(pi_rated.value, 'UNKNWON')  || ')' as project_desc ");
+        query.append(" ' (' ||  NVL(pi_rated.value, 'UNKNOWN')  || ')' as project_desc ");
         query.append(" from project p, ");
         query.append(" comp_catalog c, ");
         query.append(" project_category_lu pc, ");
@@ -5406,7 +5406,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             query.append(" select p.project_id,  ");
             query.append(" component_name || ' '  || ");
             query.append(" pc.name || ");
-            query.append(" ' (' ||  NVL(pi_rated.value, 'UNKNWON')  || ')' as project_desc ");
+            query.append(" ' (' ||  NVL(pi_rated.value, 'UNKNOWN')  || ')' as project_desc ");
             query.append(" from project p, ");
             query.append(" comp_catalog c, ");
             query.append(" project_category_lu pc, ");
