@@ -170,7 +170,7 @@
 
                 <!-- news box -->
                 <div style="width: 525px; height: 150px; margin-bottom: 20px; background: transparent;">
-                    <a href="/?module=ViewContestDetails&amp;ct=2136"><img src="/i/v2/home/aim_20071113.png" alt="AIM Metaphor Icon Set Design Contest" /></a>
+                    <a href="/?module=ViewContestDetails&amp;ct=2144"><img src="/i/v2/home/myaol_20071116.png" alt="MyAOL module platform design contest" /></a>
                 </div>
 
                 <div style="margin-bottom: 20px;">
