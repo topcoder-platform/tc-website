@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.16.07<br />12:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm376">SRM 376 - Problem Set &amp; Analysis</A></span><br /><br />
+      Div 1 competitors were greeted with a fairly straightforward easy involving train driving and a brutal medium that was a train wreck (with only 21% of submissions correct).  The level of competition was extremely strong, featuring a large number of targeteers and tournament winners.</td>
+         <td class="newsPhoto"><img src="/i/m/jmzero_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="15498334" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm376">details</A> | 
+         <tc-webtag:forumLink forumID="516073" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.15.07<br />3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A target="_blank" href="<tc-webtag:linkTracking link='http://www.russiatoday.ru/news/news/16968' refer='/tc' />">Russian computer whiz crowned world's best</A></span><br /><br />
@@ -164,18 +180,5 @@
         <A href="/tc?module=COMHistory&achtid=7">development</a> | 
         <tc-webtag:forumLink forumID="518073" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.06.07<br />4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://seattletimes.nwsource.com/html/localnews/2003991315_coder03m.html' refer='/tc' />">Skilled at code, he wins a load</A></span><br /><br />
-        University of Washington computer whiz Michael Skinner (<tc-webtag:handle coderId="7454301" context="marathon_match" />) scored an upset victory Friday by winning his division of an international contest aimed at finding out who can write the most effective computer programs.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://seattletimes.nwsource.com/html/localnews/2003991315_coder03m.html' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="518071" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
    
