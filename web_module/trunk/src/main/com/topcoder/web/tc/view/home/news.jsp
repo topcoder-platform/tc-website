@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />11.19.07<br />6:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=SurveyResults&sid=20670">TCHS08 website winner</A></span><br /><br />
+      Check out the new web design for the 2008 TopCoder High School Tournament! Congratulations to <tc-webtag:handle coderId="22673573" /> for winning the vote and third place in Online Review!</td>
+         <td class="newsPhoto">&nbsp;</td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=SurveyResults&sid=20670">results</A> | 
+         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2142">contest details</a> |
+         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=1100&start=0">discuss this</a> |
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.16.07<br />12:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -164,21 +181,5 @@
         <A href="/tc?module=Static&d1=pressroom&d2=art_110807">details</a> | 
         <tc-webtag:forumLink forumID="518118" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />11.07.07<br />3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=features&d2=110707">Meet the October 2007 Coders of the Month</A></span><br /><br />
-        Don't miss this month's Meet the Coders, where <tc-webtag:handle coderId="21684580" context="development" /> gives an insider's view into the Component Development Competition.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=110707">details</a> | 
-        <A href="/tc?module=COMHistory&achtid=5">algorithm</a> | 
-        <A href="/tc?module=COMHistory&achtid=6">design</a> | 
-        <A href="/tc?module=COMHistory&achtid=7">development</a> | 
-        <tc-webtag:forumLink forumID="518073" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
