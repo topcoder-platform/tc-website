@@ -60,7 +60,7 @@
     <tc-webtag:format object="${roundStart}" format="EEEE MM.dd.yyyy" timeZone="${mainEvent.timeZone.description}"/>. <br><br>
 
     <span class="bigRed">Registration for this event ends on <tc-webtag:format object="${event.registrationEnd}" format="EEEE MM.dd.yyyy hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>.<br><br>
-    Participants are encouraged to bring their own laptops for use during the competition.  A wifi network will be available for use.</span><br>
+    Participants should take part in the competition from the most convenient location.  A central location will not be provided.</span><br>
     <br>
     
     The event is from
