@@ -45,6 +45,9 @@ public class ProjectUtil {
     private static final int PHASE_TYPE_APPEAL = 5;
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy hh:mm", Locale.US);
 
+    public static final int ASSEMBLY_PROJECT_TYPE = 14;
+    public static final int ARCHITECTURE_PROJECT_TYPE = 7;
+
     static void userInquiry(Connection conn, long userId, long projectId) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -81,7 +84,7 @@ public class ProjectUtil {
         // in case the project is an assembly project, the rating should be the max between design and development
         // while if the project is a regular component project, the rating should correspond to either design or development
         while (rs.next()) {
-            if (rs.getLong(3) == 14) {
+            if (rs.getLong(3) == ASSEMBLY_PROJECT_TYPE || rs.getLong(3) == ARCHITECTURE_PROJECT_TYPE) {
                 if (old_rating < rs.getLong(1)) {
                     old_rating = rs.getLong(1);                    
                 }                                
