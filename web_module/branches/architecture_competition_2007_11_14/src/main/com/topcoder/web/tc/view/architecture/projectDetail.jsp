@@ -20,7 +20,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp">
+<jsp:include page="../top.jsp">
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
@@ -230,7 +230,7 @@ Second Milestone: Marked by the completion of the Deployment phase of the projec
 
 <%-- Right Column Begins --%>
 <td width="180">
-    <jsp:include page="../../public_right.jsp">
+    <jsp:include page="../public_right.jsp">
         <jsp:param name="level1" value="default"/>
     </jsp:include>
 </td>
@@ -239,7 +239,7 @@ Second Milestone: Marked by the completion of the Deployment phase of the projec
 </tr>
 </table>
 
-<jsp:include page="../../foot.jsp"/>
+<jsp:include page="../foot.jsp"/>
 
 </body>
 

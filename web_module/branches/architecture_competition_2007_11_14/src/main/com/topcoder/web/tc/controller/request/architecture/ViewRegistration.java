@@ -61,7 +61,7 @@ public class ViewRegistration extends BaseProcessor {
 
     protected String getTerms() throws Exception {
         TermsOfUseLocal t = (TermsOfUseLocal) createLocalEJB(getInitialContext(), TermsOfUse.class);
-        return t.getText(Constants.PROJECT_TERMS_ID, DBMS.OLTP_DATASOURCE_NAME);
+        return t.getText(Constants.ARCHITECTURE_TERMS_ID, DBMS.OLTP_DATASOURCE_NAME);
 
     }
 
