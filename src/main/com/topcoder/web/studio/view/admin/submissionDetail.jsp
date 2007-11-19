@@ -29,9 +29,11 @@
                     "If your submission wins a placement designated by Online Review and/or is chosen by the client as " +
                     "a winning submission, you will be notified via email.\n\n" +
                     "Best of luck to you at the Studio!";
-        var failed = "Unfortunately, your TopCoder Studio submission has failed review for the following reason(s):\n\n" +
+        var failed = "Unfortunately, your TopCoder Studio submission has failed screening for the following reason(s):\n\n" +
+<%--
                      "You may fix and resubmit your work before the submission deadline: " +
                      "<tc-webtag:format object="${submission.contest.endTime}" format="EEEE, MMMM d, yyyy 'at' HH:mm z" timeZone="${submission.submitter.timeZone.description}"/>.\n\n"+
+--%>
                      "Best of luck to you at the Studio!";
             function choose() {
                var text = getValue("document.reviewForm", "${reviewText}");
