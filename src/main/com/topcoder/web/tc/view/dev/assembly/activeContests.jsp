@@ -1,15 +1,14 @@
 <%@  page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Assembly Competitions</title>
-<jsp:include page="/script.jsp"/>
+    <title>TopCoder Assembly Competitions</title>
+    <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
-<meta http-equiv="REFRESH" content="3;url=/tc?module=ViewAssemblyActiveContests">
+<meta http-equiv="REFRESH" content="3;url=/registration/">
 </head>
 
 <body>
@@ -38,7 +37,7 @@
 </jsp:include>
 
 <div align="center" style="margin: 40px;">
-The Active Assembly Contests have moved <A href="/tc?module=ViewAssemblyActiveContests">here</A>.
+The Active Assembly Contests have moved <A href="/registration/">here</A>.
 </div>
 
 </td>
