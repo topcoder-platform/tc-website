@@ -40,7 +40,8 @@ public interface Constants {
     public static final int TC_STUDIO_TOURNAMENT_PRIZE_PAYMENT = 33;
     public static final int HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT = 34;
     public static final int COLLEGE_TOUR_REP_PAYMENT = 35;
-    public static final int STUDIO_REVIEW_BOARD_PAYMENT= 36;
+    public static final int STUDIO_REVIEW_BOARD_PAYMENT = 36;
+    public static final int COMPONENT_ENHANCEMENTS_PAYMENT = 37;
 
     public static final int NO_REFERENCE = 0;
     public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;
