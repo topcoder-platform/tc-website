@@ -26,6 +26,9 @@
     <property name="shared.jar" value="${bin.dir}/shared.jar"/>
     <property name="common.jar" value="${bin.dir}/tcwebcommon.jar"/>
     <property name="struts.lib.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
+    <property name="shared.build" value="${basedir}/../shared"/>
+    <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
+    
 
 
     <property environment="env"/>
@@ -38,6 +41,7 @@
     <property name="debug" value="true"/>
 
     <path id="class.path">
+        <pathelement location="${shared.jar}"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
         <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
@@ -114,30 +118,14 @@
         <mkdir dir="${war.dir}"/>
     </target>
 
-    <target name="compile_shared" depends="init">
-        <javac
-                srcdir="${shared.src.dir}"
-                destdir="${classes.dir}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.5"
-                target="1.5"
-                >
-        </javac>
-        <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes.dir}"/>
-        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes.dir}"/>
+    <target name="compile_shared" depends="init" unless="compile_shared_set">
+        <ant dir="${shared.build}" target="jar"/>
+        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
+        <property name="compile_shared_set" value="true"/>
     </target>
 
-    <target name="jar_shared" depends="compile_shared">
-        <jar jarfile="${shared.jar}">
-            <fileset dir="${classes.dir}">
-                <include name="com/topcoder/shared/**/*.class"/>
-            </fileset>
-        </jar>
-    </target>
 
-    <target name="compile" depends="init,jar_shared">
+    <target name="compile" depends="init,compile_shared">
         <javac
                 srcdir="${java.dir}"
                 destdir="${classes.dir}"
@@ -171,7 +159,7 @@
     </target>
 
 
-    <target name="compile_onsite" depends="init,jar_shared">
+    <target name="compile_onsite" depends="init,compile_shared">
         <javac
                 srcdir="${java.dir}"
                 destdir="${classes.dir}"
