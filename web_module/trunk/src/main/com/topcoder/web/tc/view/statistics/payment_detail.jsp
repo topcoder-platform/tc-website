@@ -252,7 +252,9 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                         resultRow.getItem("reference_id").getResultData() != null) {%>
                     <A href="tc?module=HSRoomStats&rd=<rsc:item name="reference_id" row="<%=resultRow%>"/>&cr=<%=coderId%>">Contest Details</A>
                 <% } else if ((resultRow.getIntItem("payment_type_id") == 6 ||
-                    resultRow.getIntItem("payment_type_id") == 7) && 
+                    resultRow.getIntItem("payment_type_id") == 7 ||
+                    resultRow.getIntItem("payment_type_id") == 23 ||
+                    resultRow.getIntItem("payment_type_id") == 37) && 
                     resultRow.getItem("reference_id").getResultData() != null) {%>
                 <A href="/tc?module=CompContestDetails&pj=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Project details</A>
                 <% } else if ((resultRow.getIntItem("payment_type_id") == 17 ||
