@@ -203,13 +203,13 @@ addWord(vertex, word);
 
 
 <h3>Problems to Practice</h3>
-<p>WordFind SRM 232<br />
-SearchBox SRM 361<br />
-CyclicWords SRM 358<br />
-TagalogDictionary SRM 342<br />
-JoinedString SRM 302<br />
-CmpdWords SRM 268<br />
-Scruffle 2007 TCCC Marathon Online Round 1</p>
+<p><a href="/stat?c=problem_statement&pm=3972">WordFind SRM 232</a><br />
+<a href="/stat?c=problem_statement&pm=8019&rd=10773">SearchBox SRM 361</a><br />
+<a href="/stat?c=problem_statement&pm=7694">CyclicWords SRM 358</a><br />
+<a href="/stat?c=problem_statement&pm=7411">TagalogDictionary SRM 342</a><br />
+<a href="/stat?c=problem_statement&pm=6215">JoinedString SRM 302</a><br />
+<a href="/stat?c=problem_statement&pm=3490">CmpdWords SRM 268</a><br />
+<a href="/longcontest/?module=ViewProblemStatement&rd=10500&pm=7861">Scruffle 2007 TCCC Marathon Online Round 1</a></p>
 
 
 
