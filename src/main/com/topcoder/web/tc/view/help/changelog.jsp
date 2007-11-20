@@ -45,6 +45,8 @@
 <p>
     5.13.4 - 2007.11.xx
     <ul>
+        <li>Added new component enhancements payment -pulky</li>
+        <li>Bug fixes payment changed to reference a component project -pulky</li>
         <li>Admit updating all payments (no matter their status) 
             in the supervisor update page -pulky</li>
     </ul>
