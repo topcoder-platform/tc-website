@@ -73,6 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_110507">Students from Russian Federation, China, Indonesia and United States Win 2007 TopCoder Collegiate Challenge <br /><small style="margin-left:10px;">[November 5]</small></a></dd>
                     <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_100107">TopCoder Open to Feature World's Elite Software Developers in Competitive Programming's Top Tournament <br /><small style="margin-left:10px;">[October 1]</small></a></dd>
                     <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_092407">TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit <br /><small style="margin-left:10px;">[September 24]</small></a></dd>
                     <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_082707">TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America <br /><small style="margin-left:10px;">[August 27]</small></a></dd>
