@@ -154,6 +154,19 @@
                 </div>
                 <%-- The Seattle Times end --%>
                 
+                <%-- Students from Russian Federation, China, Indonesia and United States Win 2007 TopCoder Collegiate Challenge begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_110507"><img src="/i/pressroom/tccc07_logo.png" alt="2007 TopCoder Collegiate Challenge" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_110507">Students from Russian Federation, China, Indonesia and United States Win 2007 TopCoder Collegiate Challenge</a></h3>
+                        <p>Top Ranked Winners Bring Home International Honors and $260,000 Prize Money from Global Software Development Competition at Disney World  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_110507">[November 5]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Students from Russian Federation, China, Indonesia and United States Win 2007 TopCoder Collegiate Challenge end --%>
+                
                 <%-- Orlando Sentinel begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
