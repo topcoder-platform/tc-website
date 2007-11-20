@@ -126,6 +126,8 @@
 
 
     <target name="compile" depends="init,compile_shared">
+        <ant antfile="build_tc.xml" target="compile"/>
+        <ant antfile="build_tc.xml" target="jar_common"/>
         <javac
                 srcdir="${java.dir}"
                 destdir="${classes.dir}"
