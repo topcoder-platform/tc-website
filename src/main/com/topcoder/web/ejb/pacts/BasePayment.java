@@ -114,6 +114,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case STUDIO_REVIEW_BOARD_PAYMENT:
         case COMPONENT_PAYMENT:
         case REVIEW_BOARD_PAYMENT:
+        case BUG_FIXES_PAYMENT: 
+        case COMPONENT_ENHANCEMENTS_PAYMENT: 
             return REFERENCE_COMPONENT_PROJECT_ID;
 
         case PROBLEM_WRITING_PAYMENT:
@@ -176,6 +178,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case RELIABILITY_BONUS_PAYMENT: return new ReliabilityBonusPayment(coderId, grossAmount, referenceId);
         case MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT: return new MarathonMatchTournamentPrizePayment(coderId, grossAmount, referenceId, placed);
         case TC_STUDIO_TOURNAMENT_PRIZE_PAYMENT: return new StudioTournamentPrizePayment(coderId, grossAmount, referenceId, placed);
+        case BUG_FIXES_PAYMENT: return new BugFixesPayment(coderId, grossAmount, referenceId);
+        case COMPONENT_ENHANCEMENTS_PAYMENT: return new ComponentEnhancementsPayment(coderId, grossAmount, referenceId);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
     }
@@ -276,6 +280,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT: return "High School Tournament Prize Payment";
             case COLLEGE_TOUR_REP_PAYMENT: return "College Tour Representative Payment";
             case BUG_FIXES_PAYMENT: return "Bug Fixes Payment";
+            case COMPONENT_ENHANCEMENTS_PAYMENT: return "Component Enhancements Payment";
             case RELIABILITY_BONUS_PAYMENT: return "Reliability Bonus Payment";
             case DIGITAL_RUN_TOP_THIRD_PAYMENT: return "Digital Run Top Performers Payment";
             case ARCHITECTURE_REVIEW_PAYMENT: return "Architecture Review Payment";
