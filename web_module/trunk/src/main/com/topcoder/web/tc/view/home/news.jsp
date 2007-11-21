@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.21.07<br />1:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='http://www.topcoder.com/registration/actions/ProjectDetails.do?method=displayProjectDetails&projectId=30002900' refer='/tc' />">Milestone added to Client Cockpit Contest</A></span><br /><br />
+        We are offering a bonus prize to any team which submits a static HTML version of the TopCoder Client Cockpit by Monday, November 26th.  For more information, see <a href="http://forums.topcoder.com/?module=Thread&threadID=594286">this forum</a> thread on the contest page.  Good luck!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='http://www.topcoder.com/registration/actions/ProjectDetails.do?method=displayProjectDetails&projectId=30002900' refer='/tc' />">details</a> | 
+        <A href="http://forums.topcoder.com/?module=Thread&threadID=594286">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br />11.20.07<br />3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -171,18 +184,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm374">details</A> | 
          <tc-webtag:forumLink forumID="516071" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.09.07<br />11:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://thedaily.washington.edu/article/2007/11/9/uwSeniorWinsNationalCodingCompetition' refer='/tc' />">UW senior wins national coding competition</A></span><br /><br />
-        Computer Science senior Michael Skinner (<tc-webtag:handle coderId="7454301" context="marathon_match" />) placed first in his division of the national TopCoder Collegiate Competition in Orlando, Fla., Nov. 2.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://thedaily.washington.edu/article/2007/11/9/uwSeniorWinsNationalCodingCompetition' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="518119" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
    
