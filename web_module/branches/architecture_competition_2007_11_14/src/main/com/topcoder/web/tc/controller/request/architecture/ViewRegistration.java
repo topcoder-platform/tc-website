@@ -1,5 +1,9 @@
 package com.topcoder.web.tc.controller.request.architecture;
 
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
@@ -95,13 +99,12 @@ public class ViewRegistration extends BaseProcessor {
     }
 
     private static boolean isSuspended(long userId) throws Exception {
-//        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-//        Request r = new Request();
-//        r.setContentHandle("component_suspension");
-//        r.setProperty("uid", String.valueOf(userId));
-//        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("component_suspension");
-//        return !rsc.isEmpty();
-        return false;
+        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("component_suspension");
+        r.setProperty("uid", String.valueOf(userId));
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("component_suspension");
+        return !rsc.isEmpty();
     }
 }
 
