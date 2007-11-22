@@ -57,8 +57,7 @@ public abstract class Base extends ShortHibernateProcessor {
             case ASSEMBLY_PROJECT_TYPE:
                 return "assembly_registrants";
             case ARCHITECTURE_PROJECT_TYPE:
-                // todo: change this to use the same command
-                return "assembly_registrants";
+                return "architecture_registrants";
             default:
                 return "";
         }
