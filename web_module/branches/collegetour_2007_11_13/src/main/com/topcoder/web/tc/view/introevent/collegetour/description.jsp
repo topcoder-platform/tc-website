@@ -1,8 +1,15 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.tc.controller.request.collegetour.Description" %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
+<c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <% ResultSetContainer list = (ResultSetContainer) request.getAttribute("list"); %>
 <html>
@@ -13,6 +20,24 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
+
+<script type="text/javascript">
+  function next() {
+    var myForm = document.eventsForm;
+    myForm.<%=DataAccessConstants.START_RANK%>.value=<c:out value="${requestScope[defaults][startRank]}"/>+parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+    myForm.submit();
+  }
+  function previous() {
+    var myForm = document.eventsForm;
+    myForm.<%=DataAccessConstants.START_RANK%>.value=<c:out value="${requestScope[defaults][startRank]}"/>-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+
+    myForm.submit();
+  }
+</script>
 
 </head>
 
@@ -108,15 +133,88 @@
                 </p>
 
                 <a name="schools"></a>
-                <rsc:iterator list="<%=list%>" id="resultRow">
-                    <div align="center" style="padding: 20px;">
-                        <div align="center" style="width: 100px; border-bottom: 1px solid #999999; padding-bottom: 4px; margin-bottom: 10px;">
-                        <strong><rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy"/></strong>
+
+                <form name="eventsForm" action="${sessionInfo.servletPath}" method="get">
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CollegeTourDescription"/>
+                <tc-webtag:hiddenInput name="<%=Constants.FULL_LIST%>"/>
+                <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+                <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+                
+                <div class="pagingBox">
+                <a href="/tc?module=CollegeTourDescription">Reset view</a>
+
+                <c:choose>
+                    <c:when test="${full}">
+                        | <a href="${sessionInfo.servletPath}?module=CollegeTourDescription&full=false">Pages</a>
+                        | Full view
+                    </c:when>
+                    <c:otherwise>
+                        | Page view
+                        | <a href="${sessionInfo.servletPath}?module=CollegeTourDescription&full=true">Full view</a>
+                    </c:otherwise>
+                </c:choose>
+
+                <br />
+                    <c:if test="${!full}">
+                        <div class="pagingBox">
+                            <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                            | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                         </div>
-                        <img src="<rsc:item name="image_path" row="<%=resultRow%>"/>"
-                             alt="<rsc:item name="event_name" row="<%=resultRow%>"/>" border="0"/>
-                    </div>
-                </rsc:iterator>
+                    </c:if>
+                </div>
+
+                 <table border="1" width="100%" >
+                    <tr><td colspan="3">
+                    Events
+                    </td></tr>
+                    <tr>
+                       <td><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=list.getColumnIndex("start_time")%>" includeParams="true" excludeParams="sr"/>">Date</a></td>
+                       <td><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=list.getColumnIndex("event_name")%>" includeParams="true" excludeParams="sr"/>">Event</a>
+                            <br/><tc-webtag:textInput name="<%=Constants.EVENT_NAME%>" size="16" maxlength="100"/>
+                       </td>
+                       <td>&#160;</td>
+                    </tr>
+                    <rsc:iterator list="<%=list%>" id="resultRow">
+                        <tr>
+                            <td><rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
+                            <td><rsc:item name="event_name" row="<%=resultRow%>"/></td>
+                            <td>
+                                <img src="<rsc:item name="image_path" row="<%=resultRow%>"/>"
+                                     alt="<rsc:item name="event_name" row="<%=resultRow%>"/>" border="0"/>
+                            </td>
+                        </tr>
+                    </rsc:iterator>
+                </table>
+                <div class="pagingBox">
+                    <a href="/tc?module=CollegeTourDescription">Reset view</a>
+    
+                    <c:choose>
+                        <c:when test="${full}">
+                            | <a href="/tc?module=CollegeTourDescription&full=false">Pages</a>
+                            | Full view
+                        </c:when>
+                        <c:otherwise>
+                            | Page view
+                            | <a href="/tc?module=CollegeTourDescription&full=true">Full view</a>
+                        </c:otherwise>
+                    </c:choose>
+    
+                    <br />
+                    <c:if test="${!full}">
+                        <div class="pagingBox">
+                            <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                            | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+                        </div>
+                       <br>
+                    
+                       View &#160;
+                       <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
+                       &#160;at a time starting with &#160;
+                       <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
+                        <button name="nameSubmit" value="submit" type="submit">Go</button>
+                    </c:if>
+                </div>
+                </form>
             </div>
 
         </td>

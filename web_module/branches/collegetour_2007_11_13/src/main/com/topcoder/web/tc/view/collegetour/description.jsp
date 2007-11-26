@@ -108,15 +108,26 @@
                 </p>
 
                 <a name="schools"></a>
-                <rsc:iterator list="<%=list%>" id="resultRow">
-                    <div align="center" style="padding: 20px;">
-                        <div align="center" style="width: 100px; border-bottom: 1px solid #999999; padding-bottom: 4px; margin-bottom: 10px;">
-                        <strong><rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy"/></strong>
-                        </div>
-                        <img src="<rsc:item name="image_path" row="<%=resultRow%>"/>"
-                             alt="<rsc:item name="event_name" row="<%=resultRow%>"/>" border="0"/>
-                    </div>
-                </rsc:iterator>
+                 <table border="1" width="100%" >
+                    <tr><td colspan="3">
+                    Events
+                    </td></tr>
+                    <tr>
+                       <td><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Date</a></td>
+                       <td><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true" excludeParams="sr" />">Event</a></td>
+                       <td>&#160;</td>
+                    </tr>
+                    <tr>
+                    <rsc:iterator list="<%=list%>" id="resultRow">
+                        <td><rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
+                        <td><rsc:item name="event_name" row="<%=resultRow%>"/></td>
+                        <td>
+                            <img src="<rsc:item name="image_path" row="<%=resultRow%>"/>"
+                                 alt="<rsc:item name="event_name" row="<%=resultRow%>"/>" border="0"/>
+                        </td>
+                    </rsc:iterator>
+                    </tr>
+                </table>
             </div>
 
         </td>
