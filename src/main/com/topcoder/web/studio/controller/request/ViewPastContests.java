@@ -3,6 +3,7 @@ package com.topcoder.web.studio.controller.request;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
@@ -29,9 +30,17 @@ public class ViewPastContests extends BaseProcessor {
             r.setProperty(DataAccessConstants.SORT_QUERY, "past_contests");
         }
 
-        getRequest().setAttribute("contests", da.getData(r).get("past_contests"));
+        ResultSetContainer rsc = da.getData(r).get("past_contests");
+        getRequest().setAttribute("contests", rsc);
 
         SortInfo s = new SortInfo();
+        s.addDefault(rsc.getColumnIndex("name"), "asc");
+        s.addDefault(rsc.getColumnIndex("start_time"), "desc");
+        s.addDefault(rsc.getColumnIndex("end_time"), "desc");
+        s.addDefault(rsc.getColumnIndex("amount"), "desc");
+        s.addDefault(rsc.getColumnIndex("registrants"), "desc");
+        s.addDefault(rsc.getColumnIndex("submission_count"), "desc");
+        s.addDefault(rsc.getColumnIndex("passing_submission_count"), "desc");
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
         setNextPage("/pastContests.jsp");

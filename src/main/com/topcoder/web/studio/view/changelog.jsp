@@ -32,6 +32,14 @@
 <h1>Studio Website Changelog</h1>
 
 <p>
+    2.1.3 - 2007.11.xx
+    <ul>
+        <li>Past contests default columns sort changed-pulky</li>
+    </ul>
+
+</p>
+
+<p>
     2.1.2 - 2007.10.16
     <ul>
         <li>Fix bug in admin tool where one couldn't correctly search by handle on submissions page after submissions went to OR -dok</li>
