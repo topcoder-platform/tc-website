@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.26.07<br />12:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm378">SRM 378 - Problem Set &amp; Analysis</A></span><br /><br />
+      In division 1, the mid-match division summary had a familiar sight: <tc-webtag:handle coderId="10574855" context="algorithm"/> sitting at the top however, <tc-webtag:handle coderId="7390224" context="algorithm"/> won the match and was the only contestant to solve all three problems, followed by <tc-webtag:handle coderId="9906197" context="algorithm"/> and <tc-webtag:handle coderId="7446789" context="algorithm"/>, each with the 250 and 1000.</td>
+         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm378">details</A> | 
+         <tc-webtag:forumLink forumID="516075" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.21.07<br />1:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='http://www.topcoder.com/registration/actions/ProjectDetails.do?method=displayProjectDetails&projectId=30002900' refer='/tc' />">Milestone added to Client Cockpit Contest</A></span><br /><br />
@@ -168,21 +184,5 @@
    <tr><td class="newsLinksCell">
         <A href="<tc-webtag:linkTracking link='http://forums.topcoder.com/?module=Thread&threadID=593270&start=0' refer='/tc' />">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.12.07<br />9:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm374">SRM 374 - Problem Set &amp; Analysis</A></span><br /><br />
-      The first match after the TCCC was composed of a straightforward Easy, a very easy Medium and an easy but extremely tricky Hard problem, which lead to an eventful challenge phase. Many contestants had to resubmit the Hard problem after discovering an issue with overflows or commercials split over two different days.</td>
-         <td class="newsPhoto"><img src="/i/m/jbernadas_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="22653044" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm374">details</A> | 
-         <tc-webtag:forumLink forumID="516071" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
