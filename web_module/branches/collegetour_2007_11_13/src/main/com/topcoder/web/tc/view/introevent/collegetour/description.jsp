@@ -168,18 +168,18 @@
                     Events
                     </td></tr>
                     <tr>
-                       <td class="header"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=list.getColumnIndex("start_time")%>" includeParams="true" excludeParams="sr"/>">Date</a></td>
-                       <td class="header" style="border-left:solid 1px #ffffff;"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=list.getColumnIndex("event_name")%>" includeParams="true" excludeParams="sr"/>">Event</a>
+                       <td class="header B"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=list.getColumnIndex("start_time")%>" includeParams="true" excludeParams="sr"/>">Date</a></td>
+                       <td class="header B"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=list.getColumnIndex("event_name")%>" includeParams="true" excludeParams="sr"/>">Event</a>
                             <br/><tc-webtag:textInput name="<%=Constants.EVENT_NAME%>" size="16" maxlength="100"/>
                        </td>
-                       <td class="header" style="border-left:solid 1px #ffffff;">&#160;</td>
+                       <td class="header">&#160;</td>
                     </tr>
                     <%boolean even = false;%>
                     <rsc:iterator list="<%=list%>" id="resultRow">
                         <tr class="<%=even?"dark":"light"%>">
-                            <td class="value"><rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
-                            <td class="value" style="border-left:solid 1px #ffffff;"><rsc:item name="event_name" row="<%=resultRow%>"/></td>
-                            <td class="value" style="border-left:solid 1px #ffffff;">
+                            <td class="value B"><rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
+                            <td class="value B"><rsc:item name="event_name" row="<%=resultRow%>"/></td>
+                            <td class="value">
                                 <img src="<rsc:item name="image_path" row="<%=resultRow%>"/>"
                                      alt="<rsc:item name="event_name" row="<%=resultRow%>"/>" border="0"/>
                             </td>
