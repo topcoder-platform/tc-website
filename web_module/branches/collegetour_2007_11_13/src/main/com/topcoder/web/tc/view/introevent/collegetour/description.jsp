@@ -6,7 +6,6 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
@@ -67,7 +66,7 @@
                 </div>
 
                 <p>
-                    <h2 align="center">2006-2007 TopCoder College Tour</h2>
+                    <h2 align="center">TopCoder College Tour</h2>
                     <br/><br/>
                     <%--
                                         <p align="center"><a href="#schools">Participating schools</a></p>
@@ -75,50 +74,43 @@
 
                     <h3>Is your school on the schedule?</h3>
 
-                    TopCoder will be touring the college campuses during the remainder of 2006 and early 2007 to promote
-                    TopCoder competitions, both Component and Algorithm, and to grow membership. We're looking for
-                    collegiate CS students who are interested in hosting TopCoder on campus for an evening of problem
-                    solving, food, prizes and fun.
+                    TopCoder will be touring the college campuses in the U.S., China and Europe to promote 
+                    TopCoder competitions, both Component and Algorithm, and to grow membership. We're looking 
+                    for collegiate CS students who are interested in hosting TopCoder on campus for an evening 
+                    of problem solving, food, prizes and fun.
 
                     <br/><br/>
 
-                    <h3>How will the College Tour work?</h3>
+                    <h3>How does the College Tour work?</h3>
                     Each selected campus will receive a visit from TopCoder during a regularly scheduled SRM
-                    (<strong>S</strong>ingle <strong>R</strong>ound <strong>M</strong>atch). TopCoder
-                    will provide a private registration path for each campus prior to the SRM. At the time of the SRM,
-                    the registered students will gather in a computer lab and compete in their own virtual room during
-                    the SRM,
-                    with everyone solving the same Division II problems. Everyone who registers and attends the SRM will
-                    receive a
-                    TopCoder t-shirt and the top three performers will receive other great prizes. TopCoder will also
-                    provide food
-                    and beverages for all in attendance.
+                    (<strong>S</strong>ingle <strong>R</strong>ound <strong>M</strong>atch). At the time of 
+                    the SRM, the registered students will gather in a computer lab and compete in a virtual 
+                    room during the SRM, with everyone solving the same Division II problems. Everyone who 
+                    registers and attends the SRM will receive a TopCoder t-shirt and the top three 
+                    performers will receive other great prizes. TopCoder will also provide food and beverages 
+                    for all in attendance.
                     <br/><br/>
-                    Prior to the SRM, TopCoder will provide the school with a web page dedicated to their event, to be
-                    used for promotional and informational purposes. Additionally, TopCoder will provide flyers to be
-                    printed and hung around campus to attract attention.
+                    Prior to the SRM, TopCoder will provide the school with a web page dedicated to their 
+                    event, to be used for promotional and informational purposes. Additionally, TopCoder will 
+                    provide flyers to be printed and hung around campus to attract attention.
                     <br/><br/>
-                    At the conclusion of the SRM, TopCoder representatives will talk about the benefits of being
-                    involved with TopCoder:
+                    At the conclusion of the SRM, either a TopCoder member at the school or a TopCoder 
+                    representative will talk about the benefits of being involved with TopCoder:
 
                     <ul>
-                        <li><strong>Component Design & Development:</strong> Learn how building software happens under
-                            TopCoder's competitive model.
+                        <li><strong>TopCoder Community:</strong> Learn the benefits of being involved with a 
+                        worldwide community of programmers of all different skill levels
                         </li>
-                        <li><strong>SRMs:</strong> Win cash prizes and chat before the competition with sponsors
-                            interested in hiring TopCoder members
+                        <li><strong>TopCoder Competitions:</strong> Algorithm, Component Design &amp; 
+                        Development, Marathon Matches, Studio Graphic Design
                         </li>
-                        <li><strong>TopCoder Software:</strong> Consulting and full-time employment possibilities.</li>
-                        <li><strong>TopCoder Employment Services:</strong> Learn how the leading technology companies -
-                            Google, Yahoo, Microsoft, National Security Agency, Sun Microsystems, NVIDIA, VeriSign,
-                            Motorola, etc. - hire elite talent and what positions there are available.
+                        <li><strong>TopCoder's Software Development Model:</strong> Learn about how we create 
+                        custom software applications using our component-based development</li>
+                        <li><strong>Money making potential:</strong> TopCoder tournaments, software projects 
+                        and Studio competitions
                         </li>
-                        <li><strong>TopCoder tournaments - TopCoder Open & TopCoder Collegiate Challenge:</strong> Win
-                            huge cash prizes, major recognition, and an all-expenses paid trip to the onsite finals with
-                            other top-notch programmers from around the world.
-                        </li>
-                        <li><strong>TopCoder Studio:</strong> Learn about TopCoder's newest competition for Graphic
-                            Designers and artists.
+                        <li><strong>Job Opportunities:</strong> Learn what companies are hiring TopCoder 
+                        members around the world
                         </li>
                     </ul>
                     <br/>
@@ -177,33 +169,15 @@
                     </tr>
                     <%boolean even = false;%>
                     <rsc:iterator list="<%=list%>" id="resultRow">
-                        <c:set var="row" value="<%=resultRow%>"/>
-                    
                         <tr class="<%=even?"dark":"light"%>">
-                            <td class="value B"><fmt:formatDate value="${row.map['start_time']}" pattern="MM.dd.yyyy"/></td>
-                            <td class="value B">${row.map['event_name']}</td>
+                            <td class="value B"><rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
+                            <td class="value B"><rsc:item name="event_name" row="<%=resultRow%>"/></td>
                             <td class="value">
-                                <c:choose>
-                                    <c:when test="${row.map['algo_event'] != 0}">
-                                        <a href="${sessionInfo.servletPath}?module=IntroEventAlgoInfo&eid=${row.map['algo_event']}">
-                                            <img src="${row.map['image_path']}"
-                                                 alt="${row.map['event_name']}" border="0"/>
-                                        </a>
-                                    </c:when>
-                                    <c:when test="${row.map['comp_event'] != 0}">
-                                        <a href="${sessionInfo.servletPath}?module=IntroEventCompOverview&eid=${row.map['comp_event']}">
-                                            <img src="${row.map['image_path']}"
-                                                 alt="${row.map['event_name']}" border="0"/>
-                                        </a>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <img src="${row.map['image_path']}"
-                                             alt="${row.map['event_name']}" border="0"/>
-                                    </c:otherwise>
-                                </c:choose>
+                                <img src="<rsc:item name="image_path" row="<%=resultRow%>"/>"
+                                     alt="<rsc:item name="event_name" row="<%=resultRow%>"/>" border="0"/>
                             </td>
                         </tr>
-                        <%even=!even;%>
+                    <%even=!even;%>
                     </rsc:iterator>
                 </table>
                 <div class="pagingBox">
