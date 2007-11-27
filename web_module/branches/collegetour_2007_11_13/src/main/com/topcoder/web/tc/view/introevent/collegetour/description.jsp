@@ -163,26 +163,28 @@
                     </c:if>
                 </div>
 
-                 <table border="1" width="100%" >
-                    <tr><td colspan="3">
+                 <table cellspacing="0" cellpadding="0" width="100%" class="stat">
+                    <tr><td colspan="3" class="title">
                     Events
                     </td></tr>
                     <tr>
-                       <td><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=list.getColumnIndex("start_time")%>" includeParams="true" excludeParams="sr"/>">Date</a></td>
-                       <td><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=list.getColumnIndex("event_name")%>" includeParams="true" excludeParams="sr"/>">Event</a>
+                       <td class="header"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=list.getColumnIndex("start_time")%>" includeParams="true" excludeParams="sr"/>">Date</a></td>
+                       <td class="header" style="border-left:solid 1px #ffffff;"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=list.getColumnIndex("event_name")%>" includeParams="true" excludeParams="sr"/>">Event</a>
                             <br/><tc-webtag:textInput name="<%=Constants.EVENT_NAME%>" size="16" maxlength="100"/>
                        </td>
-                       <td>&#160;</td>
+                       <td class="header" style="border-left:solid 1px #ffffff;">&#160;</td>
                     </tr>
+                    <%boolean even = false;%>
                     <rsc:iterator list="<%=list%>" id="resultRow">
-                        <tr>
-                            <td><rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
-                            <td><rsc:item name="event_name" row="<%=resultRow%>"/></td>
-                            <td>
+                        <tr class="<%=even?"dark":"light"%>">
+                            <td class="value"><rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
+                            <td class="value" style="border-left:solid 1px #ffffff;"><rsc:item name="event_name" row="<%=resultRow%>"/></td>
+                            <td class="value" style="border-left:solid 1px #ffffff;">
                                 <img src="<rsc:item name="image_path" row="<%=resultRow%>"/>"
                                      alt="<rsc:item name="event_name" row="<%=resultRow%>"/>" border="0"/>
                             </td>
                         </tr>
+                    <%even=!even;%>
                     </rsc:iterator>
                 </table>
                 <div class="pagingBox">
