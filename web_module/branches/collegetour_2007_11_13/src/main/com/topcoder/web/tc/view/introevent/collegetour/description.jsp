@@ -6,6 +6,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
@@ -169,15 +170,33 @@
                     </tr>
                     <%boolean even = false;%>
                     <rsc:iterator list="<%=list%>" id="resultRow">
+                        <c:set var="row" value="<%=resultRow%>"/>
+                    
                         <tr class="<%=even?"dark":"light"%>">
-                            <td class="value B"><rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
-                            <td class="value B"><rsc:item name="event_name" row="<%=resultRow%>"/></td>
+                            <td class="value B"><fmt:formatDate value="${row.map['start_time']}" pattern="MM.dd.yyyy"/></td>
+                            <td class="value B">${row.map['event_name']}</td>
                             <td class="value">
-                                <img src="<rsc:item name="image_path" row="<%=resultRow%>"/>"
-                                     alt="<rsc:item name="event_name" row="<%=resultRow%>"/>" border="0"/>
+                                <c:choose>
+                                    <c:when test="${row.map['algo_event'] != 0}">
+                                        <a href="${sessionInfo.servletPath}?module=IntroEventAlgoInfo&eid=${row.map['algo_event']}">
+                                            <img src="${row.map['image_path']}"
+                                                 alt="${row.map['event_name']}" border="0"/>
+                                        </a>
+                                    </c:when>
+                                    <c:when test="${row.map['comp_event'] != 0}">
+                                        <a href="${sessionInfo.servletPath}?module=IntroEventCompOverview&eid=${row.map['comp_event']}">
+                                            <img src="${row.map['image_path']}"
+                                                 alt="${row.map['event_name']}" border="0"/>
+                                        </a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <img src="${row.map['image_path']}"
+                                             alt="${row.map['event_name']}" border="0"/>
+                                    </c:otherwise>
+                                </c:choose>
                             </td>
                         </tr>
-                    <%even=!even;%>
+                        <%even=!even;%>
                     </rsc:iterator>
                 </table>
                 <div class="pagingBox">
