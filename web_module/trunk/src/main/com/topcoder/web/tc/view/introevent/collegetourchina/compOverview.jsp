@@ -2,11 +2,12 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
-
+<%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <title>TopCoder College Tour</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
