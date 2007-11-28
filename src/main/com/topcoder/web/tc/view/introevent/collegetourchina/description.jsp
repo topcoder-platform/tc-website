@@ -3,11 +3,13 @@
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <% ResultSetContainer list = (ResultSetContainer) request.getAttribute("list"); %>
 <html>
 <head>
     <title>TopCoder College Tour</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
