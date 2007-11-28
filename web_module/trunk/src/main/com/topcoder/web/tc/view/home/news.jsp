@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.28.07<br />10:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm45">TCHS SRM 45 - Problem Set &amp; Analysis</A></span><br /><br />
+      Many students participated in this match.  They were faced with pretty easy problemset. 40 contestants successfully finished all three problems. Some of them finished all in less than 15 minutes.  The difference in total points between successive contestants was very small (that's what easy match brings - you have to be fast).</td>
+         <td class="newsPhoto"><img src="/i/m/Relja_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20641244" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm45">details</A> | 
+         <tc-webtag:forumLink forumID="516571" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.26.07<br />12:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -172,17 +188,5 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=dbChat20071106">details</A> | 
          <tc-webtag:forumLink forumID="517145" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.12.07<br />1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='http://forums.topcoder.com/?module=Thread&threadID=593270&start=0' refer='/tc' />">The Next Evolution of TopCoder</A></span><br /><br />
-        It's time. As we have moved much more toward the model of a virtual company, we now feel that it is time to take the next logical step. Please take a moment to visit the TopCoder forums to read more about our plans and to offer your feedback and suggestions.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='http://forums.topcoder.com/?module=Thread&threadID=593270&start=0' refer='/tc' />">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
