@@ -10,7 +10,8 @@
         Version 1.0.0 of the <a href="/tc?module=Static&d1=dev&d2=umltool&d3=description">TopCoder UML Tool</a> is now available, and beginning today it is the required UML tool for all design contests. For more information on downloading the tool, or to discuss outstanding issues and planned enhancements, please see <tc-webtag:handle coderId="156859" context="algorithm"/>'s forum post.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="http://forums.topcoder.com/?module=Announcement&annID=466">discuss this</a> | 
+        <A href="http://forums.topcoder.com/?module=Announcement&annID=466">details</a> | 
+        <a href="http://forums.topcoder.com/?module=Category&categoryID=2479">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
    
