@@ -4,6 +4,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.29.07<br />5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://forums.topcoder.com/?module=Announcement&annID=466">The TopCoder UML Tool 1.0.0 is Released, Required</A></span><br /><br />
+        Version 1.0.0 of the <a href="/tc?module=Static&d1=dev&d2=umltool&d3=description">TopCoder UML Tool</a> is now available, and beginning today it is the required UML tool for all design contests. For more information on downloading the tool, or to discuss outstanding issues and planned enhancements, please see <tc-webtag:handle coderId="156859" context="algorithm"/>'s forum post.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://forums.topcoder.com/?module=Announcement&annID=466">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br />11.29.07<br />3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -172,21 +184,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm375">details</A> | 
          <tc-webtag:forumLink forumID="516072" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.13.07<br />1:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm44">TCHS SRM 44 - Problem Set &amp; Analysis</A></span><br /><br />
-      This match saw 80 coders, 11 of them newcomers. Coders were faced with an easy problem set - 13 of them solved correctly all three problems. Some implementations of the easy problem should have covered border case, but didn't which resulted in successful challenges and failed system tests.</td>
-         <td class="newsPhoto"><img src="/i/m/boba5551_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20394568" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm44">details</A> | 
-         <tc-webtag:forumLink forumID="516570" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
    
