@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss>
+  <enterprise-beans>
+    <session>
+      <ejb-name>PactsServices</ejb-name>
+      <jndi-name>com.topcoder.web.ejb.pacts.PactsServicesHome</jndi-name>
+       <local-jndi-name>java:/com.topcoder.web.ejb.pacts.PactsServicesLocalHome</local-jndi-name>
+    </session>
+    <session>
+      <ejb-name>PactsClientServices</ejb-name>
+      <jndi-name>com.topcoder.web.ejb.pacts.PactsClientServicesHome</jndi-name>
+    </session>
+  </enterprise-beans>
+</jboss>
