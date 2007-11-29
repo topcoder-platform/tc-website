@@ -400,15 +400,9 @@ public class Register extends ViewRegistration {
                         "The deadline for submitting a solution is " + date + ". Please upload your design using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at service@topcodersoftware.com.  All late submissions will be ignored.\n\n" +
                         "If you have any questions please contact service@topcodersoftware.com\n\n" +
 
-
-                        "TopCoder currently supports two options for generating UML diagrams: the TopCoder UML Tool and Poseidon for UML 5.x.\n\n" +
-
                         "You can read more about our UML tool and download it at\n" +
                         "http://www.topcoder.com/tc?module=Static&d1=dev&d2=umltool&d3=description\n\n" +
 
-                        "If you choose to use Poseidon, you can obtain version 5 from ftp.gentleware.biz. Below is your serial number for Poseidon for 5.0 UML ommunity Edition. This license is good for one year and is valid for TopCoder work.\n\n" +
-
-                        key + "\n\n" +
                         "TopCoder Software Team");
 
             } else {
@@ -416,14 +410,10 @@ public class Register extends ViewRegistration {
                         "Thank you, for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=" + activeForumCategoryId + " ) which can be used to obtain the component design (See \"Development Phase Documents\" thread), as well as to ask questions regarding the development process or the component design. Please post your questions at any time and the component designer will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!\n\n" +
                         "The deadline for submitting a solution is " + date + ". Please upload your solution using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review. If you encounter any problems, please contact us at service@topcodersoftware.com.  Any late submissions will be ignored. \n\n" +
                         "If you have any questions please contact service@topcodersoftware.com\n\n" +
-                        "TopCoder currently supports two options for generating UML diagrams: the TopCoder UML Tool and Poseidon for UML 5.x.\n\n" +
 
                         "You can read more about our UML tool and download it at\n" +
                         "http://www.topcoder.com/tc?module=Static&d1=dev&d2=umltool&d3=description\n\n" +
 
-                        "If you choose to use Poseidon, you can obtain version 5 from ftp.gentleware.biz. Below is your serial number for Poseidon for 5.0 UML ommunity Edition. This license is good for one year and is valid for TopCoder work.\n\n" +
-
-                        key + "\n\n" +
                         "TopCoder Software Team");
             }
             EmailEngine.send(mail);
