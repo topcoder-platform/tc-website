@@ -2,6 +2,22 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%------------------------------ dcp's MDDB tutorial
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br />11.29.07<br />3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=mddb">An Introduction to Multidimensional Databases</A></span><br /><br />
+      In this article, we'll explore the exciting topic of multidimensional databases, which we'll refer to as MDDBs from now on.  MDDBs are a very popular technology in the <a target="_blank" href="http://en.wikipedia.org/wiki/Business_intelligence">business intelligence</a> arena, and they allow a company to perform in-depth, strategic analysis on a variety of factors affecting their company.</td>
+         <td class="newsPhoto"><img src="/i/m/dcp_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="21684580" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=mddb">details</A> | 
+         <tc-webtag:forumLink forumID="518333" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+   --------------------------%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.28.07<br />10:00 AM</td>
