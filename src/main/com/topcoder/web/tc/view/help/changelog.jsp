@@ -42,6 +42,15 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+
+<p>
+    5.13.5 - 2007.11.xx
+    <ul>
+        <li>Remove poseidon from the component registration succes email text -dok</li>
+    </ul>
+
+</p>
+
 <p>
     5.13.4 - 2007.11.26
     <ul>
