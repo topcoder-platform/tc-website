@@ -2,7 +2,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%------------------------------ dcp's MDDB tutorial
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br />11.29.07<br />3:00 PM</td>
       <td class="newsTextCell">
@@ -17,7 +17,7 @@
          <tc-webtag:forumLink forumID="518333" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
-   --------------------------%>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.28.07<br />10:00 AM</td>
@@ -188,21 +188,5 @@
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm44">details</A> | 
          <tc-webtag:forumLink forumID="516570" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />11.13.07<br />12:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=dbChat20071106">Deutsche Bank SRM 374 chat transcript</A></span><br /><br />
-      TopCoder members joined representatives from Deutsche Bank prior to SRM 374 to discuss career opportunities at the company.</td>
-         <td class="newsPhoto">&nbsp;</td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=dbChat20071106">details</A> | 
-         <tc-webtag:forumLink forumID="517145" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
