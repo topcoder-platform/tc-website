@@ -96,7 +96,7 @@ public class Util {
             }
         }
 
-        return table[i][k];
+        return (list1.size() == 0 || list2.size() == 0) ? Integer.MAX_VALUE : table[i][k];
     }
 
     public static double stddev(List values) {

@@ -52,7 +52,7 @@ public class TokenHistogram {
         for (int i = 0; i < len; i++) {
             ret += b1[i].getDifference(b2[i]);
         }
-        return ret;
+        return (len == 0) ? Integer.MAX_VALUE : ret;
     }
 
     private Bar[] getHistogram() {
