@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.30.07<br />5:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm379">SRM 379 - Problem Set &amp; Analysis</A></span><br /><br />
+      The SRM 379 division 1 has ended with <tc-webtag:handle coderId="272072" context="algorithm"/>, <tc-webtag:handle coderId="7442498" context="algorithm"/> and <tc-webtag:handle coderId="22641658" context="algorithm"/> taking the first three places. <tc-webtag:handle coderId="272072" context="algorithm"/> set a new SRM win record showing an outstanding performance and being the fastest to solve the 250. <tc-webtag:handle coderId="22641658" context="algorithm"/> and <tc-webtag:handle coderId="22689544" context="algorithm"/> were the fastest to solve the 500 and 1000, respecively.</td>
+         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="21052072" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm379">details</A> | 
+         <tc-webtag:forumLink forumID="516076" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.30.07<br />4:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -169,21 +185,5 @@
          <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2142">contest details</a> |
          <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=1074&start=0">discuss this</a> |
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Articles" border="0" /><br />11.13.07<br />5:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=111207">TCCC07: So this guy goes to Orlando, and ...</A></span><br /><br />
-      <tc-webtag:handle coderId="22666646" />, a.k.a. Adrian Nadjiwon (TopCoder Studio member and self-proclaimed nicotine addict) lends his perspective of the 2007 TopCoder Collegiate Challenge from Walt Disney World.</td>
-         <td class="newsPhoto"><img src="/i/m/dogsoldier39_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="22666646" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=111207">details</A> | 
-         <tc-webtag:forumLink forumID="518149" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
