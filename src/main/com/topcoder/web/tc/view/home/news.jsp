@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.30.07<br />4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm46">TCHS SRM 46 - Problem Set &amp; Analysis</A></span><br /><br />
+      The match attracted 97 registrants, 19 of them newcomers. Coders faced a tricky medium and not so difficult hard - it resulted in 9 people getting all three problems correct and 7 with easy and hard.</td>
+         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="21157942" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm46">details</A> | 
+         <tc-webtag:forumLink forumID="516572" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.29.07<br />5:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://forums.topcoder.com/?module=Announcement&annID=466">The TopCoder UML Tool 1.0.0 is Released, Required</A></span><br /><br />
@@ -169,21 +185,5 @@
          <A href="/tc?module=Static&d1=features&d2=111207">details</A> | 
          <tc-webtag:forumLink forumID="518149" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.13.07<br />2:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm375">SRM 375 - Problem Set &amp; Analysis</A></span><br /><br />
-      SRM 375 Division 1 victory was deserved by <tc-webtag:handle coderId="10574855" context="algorithm"/> who showed the fastest time on both 250-pointer and 1000-pointer. The fastest 500-pointer was written by <tc-webtag:handle coderId="9906197" context="algorithm"/> who came in second. Two Ukrainians, <tc-webtag:handle coderId="8433628" context="algorithm"/> and <tc-webtag:handle coderId="13351270" context="algorithm"/> were 3rd and 4th respectively, and those are the only four coders who solved all three problems correctly.</td>
-         <td class="newsPhoto"><img src="/i/m/darnley_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="21971539" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm375">details</A> | 
-         <tc-webtag:forumLink forumID="516072" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
