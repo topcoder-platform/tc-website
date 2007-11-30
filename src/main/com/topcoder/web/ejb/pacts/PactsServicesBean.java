@@ -4199,9 +4199,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Helper function for a payment update for regular users
-     * 
+     * <p/>
      * Note: this methods assumes autocommit is false.
-     * 
+     *
      * @param p the payment to update
      * @throws Exception if the update fails
      */
@@ -4211,10 +4211,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Helper function for a payment update
-     * 
+     * <p/>
      * Note: this methods assumes autocommit is false and uses a trxDataSource.
-     * 
-     * @param p the payment to update
+     *
+     * @param p          the payment to update
      * @param supervisor true if the update requester is a supervisor
      * @throws Exception if the update fails
      */
@@ -4231,7 +4231,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 // Check for validity
                 checkPayment(c, p, false);
             }
-            
+
             fillPaymentNetAmount(c, p);
 
             long paymentDetailId = insertPaymentDetail(c, p);
@@ -5264,22 +5264,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public Map findProjects(String search) throws SQLException {
         StringBuffer query = new StringBuffer(1000);
 
-        query.append(" select p.project_id,  ");
-        query.append(" component_name || ' '  || ");
-        query.append(" pc.name || ");
-        query.append(" ' (' ||  NVL(pi_rated.value, 'UNKNOWN')  || ')' as project_desc ");
-        query.append(" from project p, ");
-        query.append(" comp_catalog c, ");
-        query.append(" project_category_lu pc, ");
-        query.append(" project_info pi_comp, ");
-        query.append(" OUTER project_info pi_rated ");
-        query.append(" where pi_comp.value = c.component_id ");
-        query.append(" and p.project_category_id = pc.project_category_id ");
-        query.append(" and pi_rated.project_info_type_id = 22 ");
+        query.append(" select p.project_id, ");
+        query.append(" pi_name.value || ' '  ||  ");
+        query.append(" pc.name ||  ");
+        query.append(" ' (' ||  NVL(pi_rated.value, 'UNKNWON')  || ')' as project_desc ");
+        query.append(" from project p,  ");
+        query.append(" project_info pi_name ");
+        query.append(" project_category_lu pc,  ");
+        query.append(" OUTER project_info pi_rated  ");
+        query.append(" where p.project_category_id = pc.project_category_id ");
+        query.append(" and pi_rated.project_info_type_id = 22  ");
         query.append(" and pi_rated.project_id = p.project_id ");
-        query.append(" and pi_comp.project_info_type_id = 2 ");
-        query.append(" and pi_comp.project_id = p.project_id ");
-        query.append(" and " + filterCondition("component_name", search));
+        query.append(" and pi_name.project_id = p.project_id ");
+        query.append(" and pi_name.project_info_type_id = 6 ");
+        query.append(" and pi_name.value like '%TCHS%'; ");
+        query.append(" and " + filterCondition("pi_name.value", search));
         query.append(" order by pi_rated.value ");
 
 
@@ -5618,7 +5617,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Update a payment for regular users.
      * The payment must be already saved in the database, or an exception will be thrown.
-     *
+     * <p/>
      * This method assumes autocommit is set to false
      *
      * @param payment payment to update.
@@ -5628,14 +5627,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public BasePayment updatePayment(BasePayment payment) throws Exception {
         return updatePayment(payment, false);
     }
-     
+
     /**
      * Update a payment for regular users.
      * The payment must be already saved in the database, or an exception will be thrown.
-     *
+     * <p/>
      * This method assumes autocommit is set to false
      *
-     * @param payment payment to update.
+     * @param payment    payment to update.
      * @param supervisor true if the requester is a supervisor
      * @return the updated payment.
      * @throws Exception if the update fails
@@ -5645,22 +5644,22 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (payment.getId() <= 0) {
                 throw new IllegalArgumentException("Payment is missing payment_id");
             }
-    
+
             int rationale = payment.getModificationRationale();
-    
+
             // if nothing seems to be changed, set the rationale to multiple fields
             // to be in the safe side.  It won't hurt.
             if (rationale == 0) {
                 rationale = MODIFICATION_MULTIPLE_FIELDS;
             }
-    
+
             (new PaymentStatusManager()).paymentUpdated(payment);
-    
+
             Payment p = createPayment(payment);
             p.setRationaleId(rationale);
             updatePayment(p, supervisor);
             payment.resetModificationRationale();
-    
+
             return payment;
         } catch (Exception e) {
             ejbContext.setRollbackOnly();
