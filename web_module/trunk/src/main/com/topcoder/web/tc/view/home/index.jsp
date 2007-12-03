@@ -85,7 +85,7 @@
         <img src="/i/home/tco07champions.png" alt="2007 TopCoder Open" usemap="#tco07" style="display: block;" />
         --%>
         
-        <%-- TCCC07 --%>
+        <%-- TCCC07 
         <map name="tccc07">
         <area shape="rect" alt="" coords="1,1,260,150" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about" />
         <area shape="rect" alt="" coords="280,9,480,30" target="_blank" href="/pdfs/tournaments/TCCC07_Program_View.pdf" />
@@ -94,7 +94,7 @@
         <area shape="rect" alt="" coords="280,118,480,135" target="_blank" href="http://www.topcoder.com/wiki/pages/viewrecentblogposts.action?key=tccc07" />
         </map>
         <img src="/i/home/tccc07PDFphotosBlogs.png" alt="TCCC07" usemap="#tccc07" style="display: block;" />
-        
+        --%>
         
         <%-- TCCC07 Prestigious Professor Program 
         <map name="tccc07">
@@ -103,6 +103,10 @@
         </map>
         <img src="/i/home/tccc07_ppa.png" alt="TCCC07 Prestigious Professor Program" usemap="#tccc07" style="display: block;" />
         --%>
+        
+        <%-- TCHS08 --%>
+        <a href="<tc-webtag:linkTracking link='http://forums.topcoder.com/?module=Thread&threadID=590134&mc=24#875555' refer='homepage' />"><img src="/i/home/tchs08_promo.png" alt="2008 TopCoder High School" /></a>
+        
         
         <%-- UML Tool 
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='homepage' />"><img src="/i/home/umltoolRelease.jpg" alt="UML Tool Release" /></A>
