@@ -441,7 +441,7 @@ public class ComponentManagerBean
             throw new CatalogException(
                     "Not authorized to determine public forums: " + exception.toString());
         } catch (ForumCategoryNotFoundException exception) {
-            log.error(exception);
+            log.error("error", exception);
             throw new CatalogException(
                     "Forum category not found: " + exception.toString());
         } catch (RemoteException exception) {
