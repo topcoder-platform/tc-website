@@ -69,14 +69,7 @@
                     <span style="padding-left:125px;"><a href="#linktonews"><img src="/i/pressroom/featured_tco07.png" width="440" height="136" ></a></span>
                     --%>
                     <div style="padding-left:90px;">
-                        <map name="tccc07">
-                        <area shape="rect" alt="" coords="1,1,260,150" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about" />
-                        <area shape="rect" alt="" coords="280,9,480,30" target="_blank" href="/pdfs/tournaments/TCCC07_Program_View.pdf" />
-                        <area shape="rect" alt="" coords="280,47,480,65" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=movies" />
-                        <area shape="rect" alt="" coords="280,85,480,100" href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=photos" />
-                        <area shape="rect" alt="" coords="280,118,480,135" target="_blank" href="http://www.topcoder.com/wiki/pages/viewrecentblogposts.action?key=tccc07" />
-                        </map>
-                        <img src="/i/home/tccc07PDFphotosBlogs.png" alt="TCCC07" usemap="#tccc07" style="display: block;" />
+                        <a href="<tc-webtag:linkTracking link='http://forums.topcoder.com/?module=Thread&threadID=590134&mc=24#875555' refer='pressroom_index' />"><img src="/i/home/tchs08_promo.png" alt="2008 TopCoder High School" /></a>
                     </div>
                 </div>
                 <%--
