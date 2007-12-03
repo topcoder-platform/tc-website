@@ -61,17 +61,17 @@
             
 
 
-<!--IMS Health begins -->
+<!-- Direct Energy begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/clients/ims_logo.gif" alt="IMS Health" border="0" /></td>
+                    <td width="170"><img src="/images/clients/directenergy_logo.gif" alt="Direct Energy" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">IMS is the global source for pharmaceutical market intelligence, providing critical information, analysis and services that drive decisions and shape strategies. Just about every major pharmaceutical and biotech company in the world is a customer of IMS. The company's unique mix of experience and expertise makes it the right choice for help in optimizing portfolios, ensuring successful launches, managing brands, and improving the effectiveness of sales teams. A key component of the company's market intelligence is its ability to capture and analyze detailed information on prescriptions. TopCoder is working with IMS to build an automated application that improves this process.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www.imshealth.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                    <td width="99%" class="bodyText">Direct Energy is North America's largest competitive energy solutions provider, with over five million residential and commercial customer relationships. Direct Energy provides customers with choice and support in managing energy costs through a portfolio of innovative products and services.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.directenergy.com/" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
-<!-- IMS Health ends -->
+<!-- Direct Energy ends -->
 
              <hr width="100%" size="1px" noshade>
              
@@ -227,19 +227,7 @@
 
              <hr width="100%" size="1px" noshade>
              
-<!-- Direct Energy begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr valign="top">
-                    <td width="170"><img src="/images/clients/directenergy_logo.gif" alt="Direct Energy" border="0" /></td>
-                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">Direct Energy is North America's largest competitive energy solutions provider, with over five million residential and commercial customer relationships. Direct Energy provides customers with choice and support in managing energy costs through a portfolio of innovative products and services.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www.directenergy.com/" refer="customer_index"/>" target="_blank">homepage</A>
-                     </td>
-                </tr>
-            </table>
-<!-- Direct Energy ends -->
 
-             <hr width="100%" size="1px" noshade>
              
 <%-- ESPN begins 
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -297,7 +285,19 @@ ESPN ends
 
              <hr width="100%" size="1px" noshade>
              
+<!--IMS Health begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/ims_logo.gif" alt="IMS Health" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">IMS is the global source for pharmaceutical market intelligence, providing critical information, analysis and services that drive decisions and shape strategies. Just about every major pharmaceutical and biotech company in the world is a customer of IMS. The company's unique mix of experience and expertise makes it the right choice for help in optimizing portfolios, ensuring successful launches, managing brands, and improving the effectiveness of sales teams. A key component of the company's market intelligence is its ability to capture and analyze detailed information on prescriptions. TopCoder is working with IMS to build an automated application that improves this process.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.imshealth.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- IMS Health ends -->
 
+             <hr width="100%" size="1px" noshade>
              
 <!-- NEJ begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
