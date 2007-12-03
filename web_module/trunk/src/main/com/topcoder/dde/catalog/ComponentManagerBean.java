@@ -25,12 +25,20 @@ import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.util.config.*;
+import com.topcoder.util.config.ConfigManager;
+import com.topcoder.util.config.ConfigManagerException;
+import com.topcoder.util.config.ConfigManagerInterface;
 import com.topcoder.util.errorhandling.BaseException;
 import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.ejb.forums.ForumsHome;
 
-import javax.ejb.*;
+import javax.ejb.CreateException;
+import javax.ejb.EJBException;
+import javax.ejb.FinderException;
+import javax.ejb.ObjectNotFoundException;
+import javax.ejb.RemoveException;
+import javax.ejb.SessionBean;
+import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -45,7 +53,7 @@ import java.util.*;
 
 /**
  * The implementation of the methods of ComponentManagerEJB.
- *
+ * <p/>
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
@@ -55,17 +63,17 @@ import java.util.*;
  * Class was updated to deal with the elimination of tcsrating attribute.
  * </li>
  * </ol>
- *
+ * <p/>
  * Version 1.0.2 Change notes:
  * <ol>
  * <li>
  * Version admin tool was fixed to allow post-creation public forum flag changes.
  * </li>
  *
- * @version 1.0.2
  * @author Albert Mao, pulky
- * @see     ComponentManager
- * @see     ComponentManagerHome
+ * @version 1.0.2
+ * @see ComponentManager
+ * @see ComponentManagerHome
  */
 public class ComponentManagerBean
         implements SessionBean, ConfigManagerInterface {
@@ -216,7 +224,7 @@ public class ComponentManagerBean
         } catch (ObjectNotFoundException exception) {
             throw new CreateException(
                     "Specified component does not exist in catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CreateException(exception.toString());
         }
@@ -253,7 +261,7 @@ public class ComponentManagerBean
         } catch (ObjectNotFoundException exception) {
             throw new CreateException(
                     "Specified component does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CreateException(exception.toString());
         }
@@ -266,7 +274,7 @@ public class ComponentManagerBean
         } catch (ObjectNotFoundException exception) {
             throw new CreateException(
                     "Specified version does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CreateException(exception.toString());
         }
@@ -302,12 +310,12 @@ public class ComponentManagerBean
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to create security role for component: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (GeneralSecurityException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to create security role for component: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         } catch (FinderException e) {
@@ -335,7 +343,7 @@ public class ComponentManagerBean
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified version does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
@@ -394,25 +402,25 @@ public class ComponentManagerBean
                 bean.getVersion(), bean.getVersionText().trim(),
                 bean.getComments(), bean.getPhaseId(),
                 new Date(bean.getPhaseTime().getTime()), bean.getPrice(), bean.getSuspended());
-        
+
         Forums forums = null;
         try {
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
-    		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
-    		forums = forumsHome.create();
-    	} catch (NamingException e) { 
-    		ejbContext.setRollbackOnly();
+            ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
+            forums = forumsHome.create();
+        } catch (NamingException e) {
+            ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to connect to forums server EJB: "
-                    + e.toString());
-        } catch (CreateException e) { 
-    		ejbContext.setRollbackOnly();
+                            + e.toString());
+        } catch (CreateException e) {
+            ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
-        } catch (RemoteException e) { 
-    		ejbContext.setRollbackOnly();
+        } catch (RemoteException e) {
+            ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
         }
-        
+
         // look for the public forum flag
         try {
             long categoryId = 0;
@@ -426,20 +434,21 @@ public class ComponentManagerBean
                 throw new CatalogException("Could not find forum: " + impossible.toString());
             }
             if (forumIterator.hasNext()) {
-            	categoryId = ((LocalDDECompForumXref)forumIterator.next()).getCategoryId();
-            	cvi.setPublicForum(forums.isPublic(categoryId));
+                categoryId = ((LocalDDECompForumXref) forumIterator.next()).getCategoryId();
+                cvi.setPublicForum(forums.isPublic(categoryId));
             }
         } catch (UnauthorizedException exception) {
             throw new CatalogException(
-                "Not authorized to determine public forums: " + exception.toString());
+                    "Not authorized to determine public forums: " + exception.toString());
         } catch (ForumCategoryNotFoundException exception) {
+            log.error(exception);
             throw new CatalogException(
-                "Forum category not found: " + exception.toString());
+                    "Forum category not found: " + exception.toString());
         } catch (RemoteException exception) {
             throw new CatalogException(exception.toString());
         } catch (EJBException exception) {
             throw new CatalogException(exception.toString());
-        } 
+        }
 
         return cvi;
     }
@@ -595,7 +604,7 @@ public class ComponentManagerBean
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Specified technology does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
@@ -624,7 +633,6 @@ public class ComponentManagerBean
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
-
 
         // Change Online Review Security roles on component name change
         if (!compBean.getComponentName().equals(info.getName())) {
@@ -697,9 +705,9 @@ public class ComponentManagerBean
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
-        
+
         Forums forumsBean = getForumsBean();
-        
+
         // If the version is completed:
         if (info.getPhase() == ComponentVersionInfo.COMPLETED
                 && versionBean.getPhaseId() != info.getPhase()) {
@@ -724,14 +732,14 @@ public class ComponentManagerBean
                     forumsBean.closeCategory(forumRef.getCategoryId());
                 }
             } catch (RemoteException exception) {
-            	ejbContext.setRollbackOnly();
+                ejbContext.setRollbackOnly();
                 throw new CatalogException(exception.toString());
             } catch (UnauthorizedException exception) {
-            	throw new CatalogException(
-                    "Not authorized to determine public forums: " + exception.toString());
+                throw new CatalogException(
+                        "Not authorized to determine public forums: " + exception.toString());
             } catch (ForumCategoryNotFoundException exception) {
                 throw new CatalogException(
-                    "Forum category not found: " + exception.toString());
+                        "Forum category not found: " + exception.toString());
             }
 
             if (version > compBean.getCurrentVersion()
@@ -765,13 +773,13 @@ public class ComponentManagerBean
         // If the version is changing to specification or development
         // Makes sure the specification forum is created even if the component
         // is moved directly from collaboration to development.
-    	LocalDDECompCatalog compBean;
+        LocalDDECompCatalog compBean;
         try {
             compBean = catalogHome.findByPrimaryKey(new Long(componentId));
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
-    	
+
         Collection forums;
         try {
             forums = compforumHome.findByCompVersId(versionId);
@@ -782,46 +790,46 @@ public class ComponentManagerBean
         if (forums.size() == 0) {
             if (info.getPhase() == ComponentVersionInfo.SPECIFICATION
                     || info.getPhase() == ComponentVersionInfo.DEVELOPMENT) {
-        	
-	            if (!ejbContext.getRollbackOnly()) {
-	    	    	try {
-	    	    		/*
-	    	    		 * This should be replaced by a distributed transaction (XA, etc.) that rolls back 
-	    	    		 * changes on the software and forum servers when an error in the workflow occurs.
-	    	    		 */
-	    	    		//log.info("*** [ComponentManagerBean.updateVersionInfo()] calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
-	    	    		categoryID = forumsBean.createSoftwareComponentForums(compBean.getComponentName(), 
-	    	    				((Long)compBean.getPrimaryKey()).longValue(), ((Long)versionBean.getPrimaryKey()).longValue(), 
-	    	    				versionBean.getPhaseId(), compBean.getStatusId(), compBean.getRootCategory(), 
-	    	    				compBean.getShortDesc(), versionBean.getVersionText(), info.getPublicForum());
+
+                if (!ejbContext.getRollbackOnly()) {
+                    try {
+                        /*
+                               * This should be replaced by a distributed transaction (XA, etc.) that rolls back
+                               * changes on the software and forum servers when an error in the workflow occurs.
+                               */
+                        //log.info("*** [ComponentManagerBean.updateVersionInfo()] calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
+                        categoryID = forumsBean.createSoftwareComponentForums(compBean.getComponentName(),
+                                ((Long) compBean.getPrimaryKey()).longValue(), ((Long) versionBean.getPrimaryKey()).longValue(),
+                                versionBean.getPhaseId(), compBean.getStatusId(), compBean.getRootCategory(),
+                                compBean.getShortDesc(), versionBean.getVersionText(), info.getPublicForum());
                         compforumHome.create(categoryID, info.getVersionId());
-	    	    		//log.info("*** [ComponentManagerBean.updateVersionInfo()] finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
-	    	    	} catch (RemoteException e) {
-	    	    		ejbContext.setRollbackOnly();
-	    	            throw new CatalogException(e.toString());
-	    	    	} catch (Exception e) {
-	    	    		ejbContext.setRollbackOnly();
-	    	            throw new CatalogException(e.toString());
-	    	    	}
-	        	}
+                        //log.info("*** [ComponentManagerBean.updateVersionInfo()] finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
+                    } catch (RemoteException e) {
+                        ejbContext.setRollbackOnly();
+                        throw new CatalogException(e.toString());
+                    } catch (Exception e) {
+                        ejbContext.setRollbackOnly();
+                        throw new CatalogException(e.toString());
+                    }
+                }
             }
         } else {
             log.debug("Updating public flag");
             // all forums are created, but the public attribute must be updated.
-            for (Iterator it=forums.iterator(); it.hasNext(); ) {
-                LocalDDECompForumXref compForumXref = (LocalDDECompForumXref)it.next();
+            for (Iterator it = forums.iterator(); it.hasNext();) {
+                LocalDDECompForumXref compForumXref = (LocalDDECompForumXref) it.next();
 
                 try {
                     log.debug("Looking for forum category: " + compForumXref.getCategoryId());
 
                     try {
-                    	forumsBean.setPublic(compForumXref.getCategoryId(), info.getPublicForum());
+                        forumsBean.setPublic(compForumXref.getCategoryId(), info.getPublicForum());
                     } catch (UnauthorizedException exception) {
-                    	throw new CatalogException(
-                            "Not authorized to determine public forums: " + exception.toString());
+                        throw new CatalogException(
+                                "Not authorized to determine public forums: " + exception.toString());
                     } catch (ForumCategoryNotFoundException exception) {
                         throw new CatalogException(
-                            "Forum category not found: " + exception.toString());
+                                "Forum category not found: " + exception.toString());
                     }
                 } catch (RemoteException exception) {
                     ejbContext.setRollbackOnly();
@@ -829,7 +837,6 @@ public class ComponentManagerBean
                 }
             }
         }
-
 
         // Change Online Review Security roles if versionText has changed
         if (!versionBean.getVersionText().trim().equals(info.getVersionLabel())) {
@@ -851,7 +858,7 @@ public class ComponentManagerBean
         if ((versionBean.getPhaseId() == ComponentVersionInfo.COLLABORATION
                 && info.getPhase() == ComponentVersionInfo.SPECIFICATION) ||
                 (versionBean.getPhaseId() == ComponentVersionInfo.SPECIFICATION
-                    && info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
+                        && info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
             log.debug("Phase Change.");
 
             long projectTypeId;
@@ -873,25 +880,25 @@ public class ComponentManagerBean
 
                 // if component went to dev, get the winner from design to add to forum post notification.
                 if ((versionBean.getPhaseId() != ComponentVersionInfo.DEVELOPMENT) &&
-                    (info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
+                        (info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
                     log.debug("Project went to development. Design winner will be added to notification");
 
                     long[] winnerCategoryIds = pt.getProjectWinnerIdForumCategoryId(
-                        pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), ProjectType.ID_DESIGN), requestor);
+                            pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), ProjectType.ID_DESIGN), requestor);
 
                     if (winnerCategoryIds[0] != 0) {
                         log.debug("WinnerId=" + winnerCategoryIds[0]);
                         try {
-                        	forumsBean.createCategoryWatch(winnerCategoryIds[0], winnerCategoryIds[1]);
+                            forumsBean.createCategoryWatch(winnerCategoryIds[0], winnerCategoryIds[1]);
                         } catch (UnauthorizedException exception) {
-                        	throw new CatalogException(
-                                "Not authorized to determine public forums: " + exception.toString());
+                            throw new CatalogException(
+                                    "Not authorized to determine public forums: " + exception.toString());
                         } catch (ForumCategoryNotFoundException exception) {
                             throw new CatalogException(
-                                "Forum category not found: " + exception.toString());
+                                    "Forum category not found: " + exception.toString());
                         } catch (UserNotFoundException exception) {
-                        	throw new CatalogException(
-                                "User not found: " + exception.toString());
+                            throw new CatalogException(
+                                    "User not found: " + exception.toString());
                         }
                     } else {
                         log.debug("Winner can't be retrieved because project.getWinner()==null.  No notification added");
@@ -913,23 +920,23 @@ public class ComponentManagerBean
 
                 if (categoryID >= 0) {
                     log.debug("New category created, adding PM to notification. New category: " + categoryID);
-                    
+
                     User pm = pt.getPM(projectId);
 
                     if (pm == null) {
                         log.debug("The PM can't be retrieved for this project.  Notification not added.");
                     } else {
-                    	try {
-                        	forumsBean.createCategoryWatch(pm.getId(), categoryID);
+                        try {
+                            forumsBean.createCategoryWatch(pm.getId(), categoryID);
                         } catch (UnauthorizedException exception) {
-                        	throw new CatalogException(
-                                "Not authorized to determine public forums: " + exception.toString());
+                            throw new CatalogException(
+                                    "Not authorized to determine public forums: " + exception.toString());
                         } catch (ForumCategoryNotFoundException exception) {
                             throw new CatalogException(
-                                "Forum category not found: " + exception.toString());
+                                    "Forum category not found: " + exception.toString());
                         } catch (UserNotFoundException exception) {
-                        	throw new CatalogException(
-                                "User not found: " + exception.toString());
+                            throw new CatalogException(
+                                    "User not found: " + exception.toString());
                         }
                     }
                 }
@@ -1385,8 +1392,8 @@ public class ComponentManagerBean
     }
 
     public ForumCategory getForumCategory() throws CatalogException {
-    	Forums forumsBean = getForumsBean();
-    	ComponentVersionInfo info = getVersionInfo();
+        Forums forumsBean = getForumsBean();
+        ComponentVersionInfo info = getVersionInfo();
         Collection categories = new HashSet();
         Iterator categoryIterator;
         try {
@@ -1395,16 +1402,16 @@ public class ComponentManagerBean
             throw new CatalogException(impossible.toString());
         }
         while (categoryIterator.hasNext()) {
-        	long categoryId = ((LocalDDECompForumXref)
+            long categoryId = ((LocalDDECompForumXref)
                     categoryIterator.next()).getCategoryId();
-        	try {
+            try {
                 ArrayList data = forumsBean.getSoftwareForumCategoryData(categoryId);
-                Date startDate = (Date)data.get(0);
-                long status = Long.parseLong((String)data.get(1));
-        		categories.add(new ForumCategory(categoryId, startDate, status, version, info.getVersionLabel()));
-        	} catch (ForumCategoryNotFoundException fe) {
-        		throw new CatalogException("Forum category not found: " + fe.toString());
-        	} catch (RemoteException exception) {
+                Date startDate = (Date) data.get(0);
+                long status = Long.parseLong((String) data.get(1));
+                categories.add(new ForumCategory(categoryId, startDate, status, version, info.getVersionLabel()));
+            } catch (ForumCategoryNotFoundException fe) {
+                throw new CatalogException("Forum category not found: " + fe.toString());
+            } catch (RemoteException exception) {
                 throw new EJBException(exception.toString());
             }
         }
@@ -1419,7 +1426,7 @@ public class ComponentManagerBean
     }
 
     public ForumCategory getActiveForumCategory() throws CatalogException {
-    	Forums forumsBean = getForumsBean();
+        Forums forumsBean = getForumsBean();
         Collection categories = new HashSet();
         Iterator versionIterator = getAllVersionInfo().iterator();
         while (versionIterator.hasNext()) {
@@ -1436,15 +1443,15 @@ public class ComponentManagerBean
                         categoryIterator.next()).getCategoryId();
                 try {
                     ArrayList data = forumsBean.getSoftwareForumCategoryData(categoryId);
-                    Date startDate = (Date)data.get(0);
-                    long status = Long.parseLong((String)data.get(1));
+                    Date startDate = (Date) data.get(0);
+                    long status = Long.parseLong((String) data.get(1));
                     ForumCategory forumCategory = new ForumCategory(categoryId, startDate, status, info.getVersion(), info.getVersionLabel());
                     if (forumCategory.getStatus() == ForumCategory.ACTIVE) {
-            			categories.add(forumCategory);
-            		}
-            	} catch (ForumCategoryNotFoundException fe) {
-            		throw new CatalogException("Forum category not found: " + fe.toString());
-            	} catch (RemoteException exception) {
+                        categories.add(forumCategory);
+                    }
+                } catch (ForumCategoryNotFoundException fe) {
+                    throw new CatalogException("Forum category not found: " + fe.toString());
+                } catch (RemoteException exception) {
                     throw new EJBException(exception.toString());
                 }
             }
@@ -1459,8 +1466,8 @@ public class ComponentManagerBean
     }
 
     public Collection getClosedForumCategories() throws CatalogException {
-    	Forums forumsBean = getForumsBean();
-    	List categories = new ArrayList();
+        Forums forumsBean = getForumsBean();
+        List categories = new ArrayList();
         Iterator versionIterator = getAllVersionInfo().iterator();
         while (versionIterator.hasNext()) {
             ComponentVersionInfo info =
@@ -1476,15 +1483,15 @@ public class ComponentManagerBean
                         categoryIterator.next()).getCategoryId();
                 try {
                     ArrayList data = forumsBean.getSoftwareForumCategoryData(categoryId);
-                    Date startDate = (Date)data.get(0);
-                    long status = Long.parseLong((String)data.get(1));
+                    Date startDate = (Date) data.get(0);
+                    long status = Long.parseLong((String) data.get(1));
                     ForumCategory forumCategory = new ForumCategory(categoryId, startDate, status, info.getVersion(), info.getVersionLabel());
-            		if (forumCategory.getStatus() == ForumCategory.CLOSED) {
-            			categories.add(forumCategory);
-            		}
-            	} catch (ForumCategoryNotFoundException fe) {
-            		throw new CatalogException("Forum category not found: " + fe.toString());
-            	} catch (RemoteException exception) {
+                    if (forumCategory.getStatus() == ForumCategory.CLOSED) {
+                        categories.add(forumCategory);
+                    }
+                } catch (ForumCategoryNotFoundException fe) {
+                    throw new CatalogException("Forum category not found: " + fe.toString());
+                } catch (RemoteException exception) {
                     throw new EJBException(exception.toString());
                 }
             }
@@ -1566,8 +1573,8 @@ public class ComponentManagerBean
 
     public TeamMemberRole addTeamMemberRole(TeamMemberRole role)
             throws CatalogException {
-    	return null;
-    	/*
+        return null;
+        /*
         if (role == null) {
             throw new CatalogException(
                     "Null specified for team member role");
@@ -1877,7 +1884,7 @@ public class ComponentManagerBean
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified category is not associated with this component: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         } catch (RemoveException exception) {
@@ -1893,7 +1900,7 @@ public class ComponentManagerBean
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified technology is not associated with this component: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         } catch (RemoveException exception) {
@@ -1904,7 +1911,7 @@ public class ComponentManagerBean
 
     public void removeTeamMemberRole(long memberRoleId)
             throws CatalogException {
-    	/* user_role does not exist
+        /* user_role does not exist
         try {
             userroleHome.findByPrimaryKey(new Long(memberRoleId)).remove();
         } catch (ObjectNotFoundException exception) {
@@ -1942,7 +1949,7 @@ public class ComponentManagerBean
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified document does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         } catch (RemoveException exception) {
@@ -1958,7 +1965,7 @@ public class ComponentManagerBean
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified example does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         } catch (RemoveException exception) {
@@ -1973,7 +1980,7 @@ public class ComponentManagerBean
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified download location does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         } catch (RemoveException exception) {
@@ -1988,7 +1995,7 @@ public class ComponentManagerBean
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified review does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         } catch (RemoveException exception) {
@@ -2048,7 +2055,7 @@ public class ComponentManagerBean
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified license does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
@@ -2059,7 +2066,7 @@ public class ComponentManagerBean
         } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
                     "Specified download does not exist in the catalog: "
-                    + exception.toString());
+                            + exception.toString());
         } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
@@ -2205,6 +2212,7 @@ public class ComponentManagerBean
 
     /**
      * Gets the project id for the project of the given type associated with this component version
+     *
      * @param projectType design or development
      * @return the project id or -1 if no project was found
      * @throws CatalogException
@@ -2225,12 +2233,13 @@ public class ComponentManagerBean
     /**
      * Determines whether or not the project of the given type for this component version has yielded a
      * publicly readable aggregation worksheet
+     *
      * @param projectType design or development
      * @return true if there is an aggregation worksheet for the given type, false otherwise
      * @throws CatalogException
      */
     public boolean isAggregated(long projectType) throws CatalogException {
-    	return true;
+        return true;
         /*long projectId = getProjectId(projectType);
         if (projectId < 0) return false;
         try {
@@ -2292,7 +2301,7 @@ public class ComponentManagerBean
             LocalDDECompCatalog catalog = catalogHome.findByPrimaryKey(new Long(info.getId()));
             LocalDDECategories categories = categoriesHome.findByPrimaryKey(new Long(catalog.getRootCategory()));
             category = categories.getName();
-        } catch(FinderException e) {
+        } catch (FinderException e) {
             throw new CatalogException(e.toString());
         }
 
@@ -2305,23 +2314,23 @@ public class ComponentManagerBean
 
         return buffer.toString().trim();
     }
-    
+
     private Forums getForumsBean() throws CatalogException {
-    	Forums forumsBean = null;
+        Forums forumsBean = null;
         try {
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
-    		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
-    		forumsBean = forumsHome.create();
-    	} catch (NamingException e) { 
-    		ejbContext.setRollbackOnly();
+            ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
+            forumsBean = forumsHome.create();
+        } catch (NamingException e) {
+            ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to connect to forums server EJB: "
-                    + e.toString());
-        } catch (CreateException e) { 
-    		ejbContext.setRollbackOnly();
+                            + e.toString());
+        } catch (CreateException e) {
+            ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
-        } catch (RemoteException e) { 
-    		ejbContext.setRollbackOnly();
+        } catch (RemoteException e) {
+            ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
         }
         return forumsBean;
