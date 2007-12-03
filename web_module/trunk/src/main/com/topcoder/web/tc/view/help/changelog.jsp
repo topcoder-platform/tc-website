@@ -44,7 +44,7 @@
 
 
 <p>
-    5.13.5 - 2007.11.xx
+    5.13.5 - 2007.12.03
     <ul>
         <li>Remove poseidon from the component registration succes email text -dok</li>
         <li>Allow accounting group to associate studio reviewer payments with projects -dok</li>
