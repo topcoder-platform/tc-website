@@ -95,6 +95,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- Redmond Developer News begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='pr_index' />"><img src="/i/pressroom/rdn_logo.png" alt="Redmond Developer News" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='pr_index' />">Contested Code</a></h3>
+                        <p>How TopCoder uses a contest format to build high-quality software for clients.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='pr_index' />">[December 4]</a> | <a target="_blank" href="/i/pressroom/pdfs/rdn_20071204.pdf">PDF</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Redmond Developer News end --%>
+                
                 <%-- Russia Today begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">

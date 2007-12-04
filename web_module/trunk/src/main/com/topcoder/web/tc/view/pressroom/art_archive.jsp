@@ -73,6 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd>Contested Code [December 4 - Redmond Developer News] <br /><a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='pr_index' />">original article</a> | <a target="_blank" href="/i/pressroom/pdfs/rdn_20071204.pdf">PDF</a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.russiatoday.ru/news/news/16968' refer='art_archive' />">Russian computer whiz crowned world's best <br /><small style="margin-left:10px;">[November 15 - Russia Today]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://thedaily.washington.edu/article/2007/11/9/uwSeniorWinsNationalCodingCompetition' refer='art_archive' />">UW senior wins national coding competition <br /><small style="margin-left:10px;">[November 9 - The Daily | University of Washington]</small></a></dd>
                     <dd>Russian programmer twice the best worldwide [November 8 - CNews] <br /><a href="/tc?module=Static&d1=pressroom&d2=art_110807">English translation</a>&#160;|&#160;<a target="_blank" href="<tc-webtag:linkTracking link='http://www.cnews.ru/news/top/index.shtml?2007/11/07/273856' refer='art_archive' />">original article</a></dd>
