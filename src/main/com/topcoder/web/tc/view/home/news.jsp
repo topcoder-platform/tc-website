@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />12.04.07<br />9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='/tc' />">Contested Code</A></span><br /><br />
+        How TopCoder uses a contest format to build high-quality software for clients.  <a target="_blank" href="/i/pressroom/pdfs/rdn_20071204.pdf">PDF</a> version available.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="518371" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.30.07<br />5:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -168,22 +181,5 @@
         <A target="_blank" href="<tc-webtag:linkTracking link='http://www.russiatoday.ru/news/news/16968' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="518192" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />11.14.07<br />12:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=20670">Vote for the TCHS08 website</A></span><br /><br />
-      Vote now for the best 2008 TopCoder High School Tournament web design! Hurry - vote ends on Friday at 5:00 pm EST.</td>
-         <td class="newsPhoto">&nbsp;</td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=ViewSurvey&sid=20670">vote</A> | 
-         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2142">contest details</a> |
-         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=1074&start=0">discuss this</a> |
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    

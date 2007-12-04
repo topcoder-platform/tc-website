@@ -408,6 +408,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            Contested Code
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='homepage_index' />">...more</a><br />[December 4]<br /><br />
+            
             Russian computer whiz crowned world's best
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.russiatoday.ru/news/news/16968' refer='homepage_index' />">...more</a><br />[November 15]<br /><br />
             
@@ -422,9 +425,6 @@
             
             Students from Russian Federation, China, Indonesia and United States Win 2007 TopCoder Collegiate Challenge
             <a href="/tc?module=Static&d1=pressroom&d2=pr_110507">...more</a><br />[November 5]<br /><br />
-            
-            Computer coders vie for $260,000 in prize money (with video)
-            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/community/news/lakebuenavista/orl-topcoder0207nov02,0,4540773.story' refer='homepage_index' />">...more</a><br />[November 2]<br /><br />
             
 
 
