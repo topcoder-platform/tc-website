@@ -4,15 +4,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />12.04.07<br />9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='/tc' />">Redmond Developer News: Contested Code</A></span><br /><br />
-        How TopCoder uses a contest format to build high-quality software for clients.  <a target="_blank" href="/i/pressroom/pdfs/rdn_20071204.pdf">PDF</a> version available.</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature News" border="0" /><br />12.05.07<br />6:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=120507">Know your hero: myprasanna</A></span><br /><br />
+      This issue of the 'Know Your Hero' interview series features M.Y. Prasanna (TopCoder handle: <tc-webtag:handle coderId="13366203" context="algorithm"/>). Prasanna has a credit of becoming the third Indian to have ever become a red-rated member in TopCoder.</td>
+         <td class="newsPhoto"><img src="/i/m/marutib_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="22685759" context="algorithm"/></td></tr></table>
+      </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="518371" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+         <A href="/tc?module=Static&d1=features&d2=120507">details</A> | 
+         <tc-webtag:forumLink forumID="518456" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
 <%--------------------------------------------------------%>
