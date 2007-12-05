@@ -173,11 +173,11 @@
                     Other College Tour Events
                     </td></tr>
                     <tr>
-                       <td class="header"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=list.getColumnIndex("event_name")%>" includeParams="true" excludeParams="sr"/>">Event</a>
+                       <td class="header"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=list.getColumnIndex("event_name")%>" includeParams="true" excludeParams="sr"/>#schools">Event</a>
                             <br /><tc-webtag:textInput name="<%=Constants.EVENT_NAME%>" size="16" maxlength="100"/>
                        </td>
                        <td class="headerC B">&#160;</td>
-                       <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=list.getColumnIndex("start_time")%>" includeParams="true" excludeParams="sr"/>">Date</a></td>
+                       <td class="headerC"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=list.getColumnIndex("start_time")%>" includeParams="true" excludeParams="sr"/>#schools">Date</a></td>
                     </tr>
                     <%boolean even = false;%>
                     <rsc:iterator list="<%=list%>" id="resultRow">
