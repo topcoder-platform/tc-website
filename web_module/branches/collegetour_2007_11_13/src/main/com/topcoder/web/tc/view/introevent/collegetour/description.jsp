@@ -46,7 +46,16 @@
 
 </head>
 
-<body>
+<c:set var="goToSchools" value="true"/>
+
+<c:choose>
+<c:when test="${goToSchools}">
+    <body onload="location.href='#schools'">
+</c:when>
+<c:otherwise>
+    <body>
+</c:otherwise>
+</c:choose>
 
 <jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>
