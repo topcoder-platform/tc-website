@@ -408,7 +408,7 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
-            Contested Code
+            Redmond Developer News: Contested Code
             <a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='homepage_index' />">...more</a><br />[December 4]<br /><br />
             
             Russian computer whiz crowned world's best
