@@ -57,7 +57,7 @@ public class Description extends BaseProcessor {
             rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank), endRank);
         }
             
-        getRequest().setAttribute("goToSchools", "POST".equals(getRequest().getMethod()));
+        getRequest().setAttribute("goToSchools", StringUtils.checkNull(getRequest().getParameter("goToSchools")));
         getRequest().setAttribute(Constants.FULL_LIST, full);
         setDefault(DataAccessConstants.START_RANK, startRank);
         setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
