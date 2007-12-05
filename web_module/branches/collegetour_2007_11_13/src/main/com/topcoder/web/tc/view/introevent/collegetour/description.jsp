@@ -10,6 +10,7 @@
 
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
+<c:set value="<%=Constants.EVENT_NAME%>" var="event_name"/>
 
 <% ResultSetContainer list = (ResultSetContainer) request.getAttribute("list"); %>
 
@@ -46,10 +47,8 @@
 
 </head>
 
-<c:set var="goToSchools" value="true"/>
-
 <c:choose>
-<c:when test="${goToSchools}">
+<c:when test="${not empty requestScope[defaults][event_name]}">
     <body onload="location.href='#schools'">
 </c:when>
 <c:otherwise>
