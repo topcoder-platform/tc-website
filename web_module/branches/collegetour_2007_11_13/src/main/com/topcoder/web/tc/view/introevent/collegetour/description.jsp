@@ -10,7 +10,6 @@
 
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
-<c:set value="<%=Constants.EVENT_NAME%>" var="event_name"/>
 
 <% ResultSetContainer list = (ResultSetContainer) request.getAttribute("list"); %>
 
@@ -48,7 +47,7 @@
 </head>
 
 <c:choose>
-<c:when test="${not empty requestScope[defaults][event_name]}">
+<c:when test="${goToSchools}">
     <body onload="location.href='#schools'">
 </c:when>
 <c:otherwise>
@@ -144,18 +143,19 @@
                 <tc-webtag:hiddenInput name="<%=Constants.FULL_LIST%>"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+                <tc-webtag:hiddenInput name="goToSchools" value="true"/>
                 
                 <div class="pagingBox">
-                <a href="/tc?module=CollegeTourDescription">Reset view</a>
+                <a href="/tc?module=CollegeTourDescription#schools">Reset view</a>
 
                 <c:choose>
                     <c:when test="${full}">
-                        | <a href="${sessionInfo.servletPath}?module=CollegeTourDescription&amp;full=false">Pages</a>
+                        | <a href="${sessionInfo.servletPath}?module=CollegeTourDescription&amp;full=false#schools">Pages</a>
                         | Full view
                     </c:when>
                     <c:otherwise>
                         | Page view
-                        | <a href="${sessionInfo.servletPath}?module=CollegeTourDescription&amp;full=true">Full view</a>
+                        | <a href="${sessionInfo.servletPath}?module=CollegeTourDescription&amp;full=true#schools">Full view</a>
                     </c:otherwise>
                 </c:choose>
 
@@ -211,16 +211,16 @@
                     </rsc:iterator>
                 </table>
                 <div class="pagingBox">
-                    <a href="/tc?module=CollegeTourDescription">Reset view</a>
+                    <a href="/tc?module=CollegeTourDescription#schools">Reset view</a>
     
                     <c:choose>
                         <c:when test="${full}">
-                            | <a href="/tc?module=CollegeTourDescription&amp;full=false">Pages</a>
+                            | <a href="/tc?module=CollegeTourDescription&amp;full=false#schools">Pages</a>
                             | Full view
                         </c:when>
                         <c:otherwise>
                             | Page view
-                            | <a href="/tc?module=CollegeTourDescription&amp;full=true">Full view</a>
+                            | <a href="/tc?module=CollegeTourDescription&amp;full=true#schools">Full view</a>
                         </c:otherwise>
                     </c:choose>
     
