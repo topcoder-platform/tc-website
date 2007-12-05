@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name='UserServices' targetNamespace='http://userservices.ejb.web.topcoder.com/' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://userservices.ejb.web.topcoder.com/' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types/>
+ <message name='UserServices_isRated'>
+  <part name='long_1' type='xsd:long'/>
+ </message>
+ <message name='UserServices_isRatedResponse'>
+  <part name='result' type='xsd:boolean'/>
+ </message>
+ <portType name='UserServices'>
+  <operation name='isRated' parameterOrder='long_1'>
+   <input message='tns:UserServices_isRated'/>
+   <output message='tns:UserServices_isRatedResponse'/>
+  </operation>
+ </portType>
+ <binding name='UserServicesBinding' type='tns:UserServices'>
+  <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='isRated'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://userservices.ejb.web.topcoder.com/' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://userservices.ejb.web.topcoder.com/' use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='UserServices'>
+  <port binding='tns:UserServicesBinding' name='UserServicesPort'>
+   <soap:address location='REPLACE_WITH_ACTUAL_URL'/>
+  </port>
+ </service>
+</definitions>
