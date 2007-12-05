@@ -39,12 +39,12 @@
 <br /><br />
 <span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=120507"><strong>Know your hero: myprasanna</strong></a>, by <tc-webtag:handle coderId="22685759" context="algorithm"/><br />
+This issue of the 'Know Your Hero' interview series features M.Y. Prasanna (TopCoder handle: <tc-webtag:handle coderId="13366203" context="algorithm"/>). Prasanna has a credit of becoming the third Indian to have ever become a red-rated member in TopCoder.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=usingTries"><strong>Using Tries</strong></a>, by <tc-webtag:handle coderId="10200923" context="algorithm"/><br />
 There are many algorithms and data structures to index and search strings inside a text, some of them are included in the standard libraries, but not all of them; the trie data structure is a good example of one that isn't.</li>
 <li><a href="/tc?module=Static&d1=features&d2=111207"><strong>TCCC07: So this guy goes to Orlando, and ...</strong></a>, by <tc-webtag:handle coderId="22666646" /><br />
 <tc-webtag:handle coderId="22666646" />, a.k.a. Adrian Nadjiwon (TopCoder Studio member and self-proclaimed nicotine addict) lends his perspective of the 2007 TopCoder Collegiate Challenge from Walt Disney World.</li>
-<li><a href="/tc?module=Static&d1=features&d2=110707"><strong>Meet the October 2007 Coders of the Month</strong></a><br />
-Don't miss this month's Meet the Coders, where <tc-webtag:handle coderId="21684580" context="development" /> gives an insider's view into the Component Development Competition.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br />
 <ul>
