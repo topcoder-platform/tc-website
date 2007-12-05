@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.controller.request.collegetour;
+package com.topcoder.web.tc.controller.request.introevent;
 
 import java.util.ArrayList;
 import java.util.Map;
