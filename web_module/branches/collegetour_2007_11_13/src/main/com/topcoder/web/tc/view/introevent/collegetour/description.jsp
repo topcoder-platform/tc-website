@@ -150,7 +150,7 @@
 
                 <c:choose>
                     <c:when test="${full}">
-                        | <a href="${sessionInfo.servletPath}?module=CollegeTourDescription&amp;full=false#schools">Pages</a>
+                        | <a href="${sessionInfo.servletPath}?module=CollegeTourDescription&amp;full=false#schools">Page view</a>
                         | Full view
                     </c:when>
                     <c:otherwise>
@@ -215,7 +215,7 @@
     
                     <c:choose>
                         <c:when test="${full}">
-                            | <a href="/tc?module=CollegeTourDescription&amp;full=false#schools">Pages</a>
+                            | <a href="/tc?module=CollegeTourDescription&amp;full=false#schools">Page view</a>
                             | Full view
                         </c:when>
                         <c:otherwise>
