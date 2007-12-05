@@ -58,7 +58,7 @@
             <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/development/digitalRun.gif" alt="The Digital Run" border="0"/></A>
         </td>
         <td align="right">
-            <A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></A>
+            <A href="/wiki/display/tc/Getting+Started+in+Component+Design+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></A>
         </td>
     </tr>
 </table>
@@ -177,7 +177,7 @@
             <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/development/digitalRun.gif" alt="The Digital Run" border="0"/></A>
         </td>
         <td align="right">
-            <A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></A>
+            <A href="/wiki/display/tc/Getting+Started+in+Component+Development+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></A>
         </td>
     </tr>
 </table>

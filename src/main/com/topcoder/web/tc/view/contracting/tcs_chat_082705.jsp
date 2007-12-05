@@ -305,7 +305,7 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="dark"><span class="bigRed">AdamSelene</span></td><td class="dark"><span class="bigRed">hubPL: Ant scripts are typically included and require minor alterations</span></td></tr>
 <tr><td class="light"><span class="bigRed">mess</span></td><td class="light"><span class="bigRed">hubPL: the ant scripts are provided to you</span></td></tr>
 <tr><td class="dark"><span class="bigRed">AdamSelene</span></td><td class="dark"><span class="bigRed">hubPL: there are tutorials to help with that</span></td></tr>
-<tr><td class="light"><span class="bigRed">AdamSelene</span></td><td class="light"><span class="bigRed">hubPL: see this page: http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted</span></td></tr>
+<tr><td class="light"><span class="bigRed">AdamSelene</span></td><td class="light"><span class="bigRed">hubPL: see this page: http://www.topcoder.com/wiki/display/tc/Getting+Started+in+Component+Design+Competitions</span></td></tr>
 <tr><td class="dark"><b>hubPL</b></td><td class="dark">thanks:)</td></tr>
 <tr><td class="light"><span class="bigRed">AdamSelene</span></td><td class="light"><span class="bigRed">Welcome!</span></td></tr>
 <tr><td class="dark"><b>gnosio</b></td><td class="dark">man ..i love ur arena applet..</td></tr>
@@ -449,7 +449,7 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="dark"><b>sql_lall</b></td><td class="dark">kranjit: I recommend the tutorials (http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=comp_index)</td></tr>
 <tr><td class="light"><b>paramindia</b></td><td class="light">i went to that link and opened the PDF file</td></tr>
 <tr><td class="dark"><b>gt494</b></td><td class="dark">bwright: How many more do you need?</td></tr>
-<tr><td class="light"><b>sql_lall</b></td><td class="light">kranjit: as well as 'getting started': http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted</td></tr>
+<tr><td class="light"><b>sql_lall</b></td><td class="light">kranjit: as well as 'getting started': http://www.topcoder.com/wiki/display/tc/Getting+Started+in+Component+Design+Competitions</td></tr>
 <tr><td class="dark"><b>paramindia</b></td><td class="dark">that file that contains description</td></tr>
 <tr><td class="light"><b>datawrangler</b></td><td class="light">mess: thx - ill b in touch</td></tr>
 <tr><td class="dark"><b>paramindia</b></td><td class="dark">but i didn/t found any registartion link</td></tr>

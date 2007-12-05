@@ -19,36 +19,24 @@
     -->
 </script>
 <script type="text/javascript">
-var currTopTen = null;
-function swapTopTen(topTenID){
-    hide('topTenAlgo');
-    hide('topTenAlgoSchools');
-    hide('topTenAlgoCountries');
-    hide('topTenDes');
-    hide('topTenDev');
-    hide('topTenMM');
-    showBlock(topTenID);
-    createCookie('defaultTopTen',topTenID,365);
+function goTall(showID){
+    goShort('t10Algo');
+    goShort('t10Des');
+    goShort('t10Dev');
+    goShort('t10MM');
+    goShort('t10AlgoSchools');
+    goShort('t10AlgoCountries');
+    var objShow = document.getElementById(showID);
+    objShow.className = 'show';
 }
-
-function init() {
-   id = readCookie('defaultTopTen');
-   if (id == null) id = 'topTenAlgo';
-   
-   for (var i = 0; i < document.f.topTen.length; i++) {
-      if (document.f.topTen.options[i].value == id) {
-         document.f.topTen.selectedIndex = i;
-         break;
-      }
-   }
-   
-   swapTopTen(id);
+function goShort(hideID){
+    var objHide = document.getElementById(hideID);
+    objHide.className = 'hide';
 }
-
 </script>
 </head>
 
-<body onload="init()">
+<body>
 
 <%--
 <div style="position:absolute; left:200px; top:190px;">
@@ -132,25 +120,15 @@ function init() {
                     <img src="/i/home/top10.png" alt="Top 10" style="display:block;" />
                 </div>
 
-                <div style="padding-bottom: 10px;" align="center">
-                    <form name="f" action="#">
-                    <select name="topTen" onchange="swapTopTen(this.value);" >
-                    <option value="topTenAlgo" selected="selected">Algorithm</option>
-                    <option value="topTenAlgoSchools">Algorithm Schools</option>
-                    <option value="topTenAlgoCountries">Algorithm Countries</option>
-                    <option value="topTenDes">Design</option>
-                    <option value="topTenDev">Development</option>
-                    <option value="topTenMM">Marathon Matches</option>
-                    </select>
-                    </form>
-                </div>
-                
+                <h3 align="center">Coders</h3>
                 <jsp:include page="top_coders.jsp" />
-                <jsp:include page="top_schools.jsp" />
-                <jsp:include page="top_countries.jsp" />
                 <jsp:include page="top_designers.jsp" />
                 <jsp:include page="top_developers.jsp" />
                 <jsp:include page="top_mm_coders.jsp" />
+                <h3 align="center">Schools</h3>
+                <jsp:include page="top_schools.jsp" />
+                <h3 align="center">Countries</h3>
+                <jsp:include page="top_countries.jsp" />
 
             </div>
         </div>
