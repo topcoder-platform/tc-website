@@ -7,133 +7,161 @@
 <script src="/js/tcscript.js" type="text/javascript"></script>
 <% ResultSetContainer rscAlgData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Alg_Data"); %>
 <% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data"); %>
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
-   <tr>
-      <td class="divider">
-         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-            <tr><td class="tableTitle" colspan="2">Algorithm Competitions</td></tr>
-            <tr><td class="ratingBox" colspan="2">Rating:<br>
-            <%if(rscAlgData.getIntItem(0, "rating") != 0) {%>
-                <tc-webtags:ratingColor rating='<%=rscAlgData.getIntItem(0, "rating")%>'><rsc:item name="rating" set="<%=rscAlgData%>" format="####"/></tc-webtags:ratingColor>
-            <%} else {%>
-                not rated
-            <%}%>
-            </td></tr>
-            <tr><td class="catNW" colspan="2"><A HREF='/tc?module=AlgoCompetitionHistory&cr=<%=request.getParameter("cr")%>'>[competition history]</A><br><br></td></tr>
-            <tr><td class="catNW">Percentile:</td><td class="statRNW"><rsc:item name="percentile" set="<%=rscAlgData%>" ifNull="N/A" /></td></tr>
-            <tr><td class="catNW">Rank:</td><td class="statRNW"><rsc:item name="rank" set="<%=rscAlgData%>" ifNull="not ranked" /><% if (rscAlgData.getStringItem(0, "rank")!=null) { %> of <rsc:item name="num_ranked" set="<%=rscAlgData%>"/><% } %></td></tr>
-            <tr><td class="catNW">Country Rank:</td><td class="statRNW"><rsc:item name="country_rank" set="<%=rscAlgData%>" ifNull="not ranked" /><% if (rscAlgData.getStringItem(0, "country_rank")!=null) { %> of <rsc:item name="num_country_ranked" set="<%=rscAlgData%>"/><% } %></td></tr>
-            <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
-                <tr><td class="catNW">School Rank:</td><td class="statRNW"><rsc:item name="school_rank" set="<%=rscAlgData%>" ifNull="not ranked" /><% if (rscAlgData.getStringItem(0, "school_rank")!=null) { %> of <rsc:item name="num_school_ranked" set="<%=rscAlgData%>"/><% } %></td></tr>
-            <% }%>
-            <tr><td class="catNW">Volatility:</td><td class="statRNW"><rsc:item name="vol" set="<%=rscAlgData%>" format="####"/></td></tr>
-            <tr><td class="catNW">Maximum Rating:</td><td class="statRNW"><rsc:item name="highest_rating" set="<%=rscAlgData%>" format="####"/></td></tr>
-            <tr><td class="catNW">Minimum Rating:</td><td class="statRNW"><rsc:item name="lowest_rating" set="<%=rscAlgData%>" format="####"/></td></tr>
-            <tr><td class="catNW">Default Language:</td><td class="statRNW"><rsc:item name="language_name" set="<%=rscAlgData%>" /></td></tr>
-            <tr><td class="catNW">Competitions:</td><td class="statRNW"><A HREF='/tc?module=AlgoCompetitionHistory&cr=<%=request.getParameter("cr")%>'><rsc:item name="num_ratings" set="<%=rscAlgData%>" /></A></td></tr>
-            <tr><td class="catNW">Most Recent Event:</td><td class="statRNW"><rsc:item name="last_round" set="<%=rscAlgData%>" /><br><rsc:item name="last_round_date" set="<%=rscAlgData%>" format="MM.dd.yy"/></td></tr>
-         </table>
-      </td>
-      <td width="75%" valign="top">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="background: #eeeeee;">
+<tbody>
+    <tr>
+        <td valign="top">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat">
+            <tbody>
+                <tr><td class="title" colspan="2">Algorithm Competitions</td></tr>
+                <tr class="dark">
+                    <td class="valueC" colspan="2">
+                    <div class="ratingBox">
+                    Rating:<br />
+                    <%if(rscAlgData.getIntItem(0, "rating") != 0) {%>
+                        <tc-webtags:ratingColor rating='<%=rscAlgData.getIntItem(0, "rating")%>'><rsc:item name="rating" set="<%=rscAlgData%>" format="####"/></tc-webtags:ratingColor>
+                    <%} else {%>
+                        not rated
+                    <%}%>
+                    </div>
+                    <br />
+                    <strong><a href='/tc?module=AlgoCompetitionHistory&cr=<%=request.getParameter("cr")%>'>[competition history]</a></strong>
+                    </td>
+                </tr>
+                <%int i = 0;%>
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>"><td class="field">Percentile:</td><td class="valueR"><rsc:item name="percentile" set="<%=rscAlgData%>" ifNull="N/A" /></td></tr>
+                <%i++;%>
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>"><td class="field">Rank:</td><td class="valueR"><rsc:item name="rank" set="<%=rscAlgData%>" ifNull="not ranked" /><% if (rscAlgData.getStringItem(0, "rank")!=null) { %> of <rsc:item name="num_ranked" set="<%=rscAlgData%>"/><% } %></td></tr>
+                <%i++;%>
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>"><td class="field">Country Rank:</td><td class="valueR"><rsc:item name="country_rank" set="<%=rscAlgData%>" ifNull="not ranked" /><% if (rscAlgData.getStringItem(0, "country_rank")!=null) { %> of <rsc:item name="num_country_ranked" set="<%=rscAlgData%>"/><% } %></td></tr>
+                <%i++;%>
+                <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>"><td class="field">School Rank:</td><td class="valueR"><rsc:item name="school_rank" set="<%=rscAlgData%>" ifNull="not ranked" /><% if (rscAlgData.getStringItem(0, "school_rank")!=null) { %> of <rsc:item name="num_school_ranked" set="<%=rscAlgData%>"/><% } %></td></tr>
+                <%i++;%>
+                <% }%>
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>"><td class="field">Volatility:</td><td class="valueR"><rsc:item name="vol" set="<%=rscAlgData%>" format="####"/></td></tr>
+                <%i++;%>
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>"><td class="field">Maximum Rating:</td><td class="valueR"><rsc:item name="highest_rating" set="<%=rscAlgData%>" format="####"/></td></tr>
+                <%i++;%>
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>"><td class="field">Minimum Rating:</td><td class="valueR"><rsc:item name="lowest_rating" set="<%=rscAlgData%>" format="####"/></td></tr>
+                <%i++;%>
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>"><td class="field">Default Language:</td><td class="valueR"><rsc:item name="language_name" set="<%=rscAlgData%>" /></td></tr>
+                <%i++;%>
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>"><td class="field">Competitions:</td><td class="valueR"><a href='/tc?module=AlgoCompetitionHistory&cr=<%=request.getParameter("cr")%>'><rsc:item name="num_ratings" set="<%=rscAlgData%>" /></a></td></tr>
+                <%i++;%>
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>"><td class="field">Most Recent Event:</td><td class="valueR"><rsc:item name="last_round" set="<%=rscAlgData%>" /><br /><rsc:item name="last_round_date" set="<%=rscAlgData%>" format="MM.dd.yy"/></td></tr>
+            </tbody>
+            </table>
+        </td>
+        <td width="75%" valign="top">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat">
+            <tbody>
 <%
 ResultSetContainer rscSummaryDiv1 = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Submission_Summary_Div_1");
 ResultSetContainer rscTotalDiv1 = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Submission_Totals_Div_1");
 if(!rscSummaryDiv1.isEmpty()) {
 %>
-      <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-            <tr><td class="tableTitle" colspan="5">Division I Submissions</td></tr>
-            <tr>
-               <td class="tableHeader">Problem</td>
-               <td class="tableHeader" align="right" width="25%">Submitted</td>
-               <td class="tableHeader" align="right" width="25%">Failed Challenge</td>
-               <td class="tableHeader" align="right" width="25%">Failed Sys. Test</td>
-               <td class="tableHeader" align="right" width="25%">Success %</td>
-            </tr>
-            <rsc:iterator id="resultRow" list="<%=rscSummaryDiv1%>">
-            <tr>
-               <td class="cat" nowrap="nowrap"><rsc:item name="level_desc" row="<%=resultRow%>" /></td>
-               <td class="statR"><rsc:item name="problems_submitted" row="<%=resultRow%>" /></td>
-               <td class="statR"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" /></td>
-               <td class="statR"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" /></td>
-               <td class="statR"><rsc:item name="success_percentage" row="<%=resultRow%>" format="0.00%"/></td>
-            </tr>
-            </rsc:iterator>
-            <tr>
-               <td class="cat" nowrap="nowrap">Total</td>
-               <td class="statR"><rsc:item name="problems_submitted" set="<%=rscTotalDiv1%>" /></td>
-               <td class="statR"><rsc:item name="problems_failed_by_challenge" set="<%=rscTotalDiv1%>" /></td>
-               <td class="statR"><rsc:item name="problems_failed_by_system_test" set="<%=rscTotalDiv1%>" /></td>
-               <td class="statR"><rsc:item name="success_percentage" set="<%=rscTotalDiv1%>" format="0.00%" /></td>
-            </tr>
-         </table>
+                <tr><td class="title" colspan="5">Division I Submissions</td></tr>
+                <tr>
+                    <td class="header">Problem</td>
+                    <td class="header" align="right" width="25%">Submitted</td>
+                    <td class="header" align="right" width="25%">Failed Challenge</td>
+                    <td class="header" align="right" width="25%">Failed Sys. Test</td>
+                    <td class="header" align="right" width="25%">Success %</td>
+                </tr>
+                <%i = 0;%>
+                <rsc:iterator id="resultRow" list="<%=rscSummaryDiv1%>">
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                    <td class="field" nowrap="nowrap"><rsc:item name="level_desc" row="<%=resultRow%>" /></td>
+                    <td class="valueR"><rsc:item name="problems_submitted" row="<%=resultRow%>" /></td>
+                    <td class="valueR"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" /></td>
+                    <td class="valueR"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" /></td>
+                    <td class="valueR"><rsc:item name="success_percentage" row="<%=resultRow%>" format="0.00%"/></td>
+                </tr>
+                <%i++;%>
+                </rsc:iterator>
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                    <td class="field" nowrap="nowrap">Total</td>
+                    <td class="valueR"><rsc:item name="problems_submitted" set="<%=rscTotalDiv1%>" /></td>
+                    <td class="valueR"><rsc:item name="problems_failed_by_challenge" set="<%=rscTotalDiv1%>" /></td>
+                    <td class="valueR"><rsc:item name="problems_failed_by_system_test" set="<%=rscTotalDiv1%>" /></td>
+                    <td class="valueR"><rsc:item name="success_percentage" set="<%=rscTotalDiv1%>" format="0.00%" /></td>
+                </tr>
 <%
 }
 ResultSetContainer rscSummaryDiv2 = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Submission_Summary_Div_2");
 ResultSetContainer rscTotalDiv2 = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Submission_Totals_Div_2");
 if(!rscSummaryDiv2.isEmpty()) {
 %>
-      <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-            <tr><td class="tableTitle" colspan="5">Division II Submissions</td></tr>
-            <tr>
-               <td class="tableHeader">Problem</td>
-               <td class="tableHeader" align="right" width="25%">Submitted</td>
-               <td class="tableHeader" align="right" width="25%">Failed Challenge</td>
-               <td class="tableHeader" align="right" width="25%">Failed Sys. Test</td>
-               <td class="tableHeader" align="right" width="25%">Success %</td>
-            </tr>
-            <rsc:iterator id="resultRow" list="<%=rscSummaryDiv2%>">
-            <tr>
-               <td class="cat" nowrap="nowrap"><rsc:item name="level_desc" row="<%=resultRow%>" /></td>
-               <td class="statR"><rsc:item name="problems_submitted" row="<%=resultRow%>" /></td>
-               <td class="statR"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" /></td>
-               <td class="statR"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" /></td>
-               <td class="statR"><rsc:item name="success_percentage" row="<%=resultRow%>" format="0.00%"/></td>
-            </tr>
-            </rsc:iterator>
-            <tr>
-               <td class="cat" nowrap="nowrap">Total</td>
-               <td class="statR"><rsc:item name="problems_submitted" set="<%=rscTotalDiv2%>" /></td>
-               <td class="statR"><rsc:item name="problems_failed_by_challenge" set="<%=rscTotalDiv2%>" /></td>
-               <td class="statR"><rsc:item name="problems_failed_by_system_test" set="<%=rscTotalDiv2%>" /></td>
-               <td class="statR"><rsc:item name="success_percentage" set="<%=rscTotalDiv2%>" format="0.00%" /></td>
-            </tr>
-         </table>
+                <tr><td class="title" colspan="5">Division II Submissions</td></tr>
+                <tr>
+                    <td class="header">Problem</td>
+                    <td class="header" align="right" width="25%">Submitted</td>
+                    <td class="header" align="right" width="25%">Failed Challenge</td>
+                    <td class="header" align="right" width="25%">Failed Sys. Test</td>
+                    <td class="header" align="right" width="25%">Success %</td>
+                </tr>
+                <%i = 0;%>
+                <rsc:iterator id="resultRow" list="<%=rscSummaryDiv2%>">
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                    <td class="field" nowrap="nowrap"><rsc:item name="level_desc" row="<%=resultRow%>" /></td>
+                    <td class="valueR"><rsc:item name="problems_submitted" row="<%=resultRow%>" /></td>
+                    <td class="valueR"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" /></td>
+                    <td class="valueR"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" /></td>
+                    <td class="valueR"><rsc:item name="success_percentage" row="<%=resultRow%>" format="0.00%"/></td>
+                </tr>
+                <%i++;%>
+                </rsc:iterator>
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                    <td class="field" nowrap="nowrap">Total</td>
+                    <td class="valueR"><rsc:item name="problems_submitted" set="<%=rscTotalDiv2%>" /></td>
+                    <td class="valueR"><rsc:item name="problems_failed_by_challenge" set="<%=rscTotalDiv2%>" /></td>
+                    <td class="valueR"><rsc:item name="problems_failed_by_system_test" set="<%=rscTotalDiv2%>" /></td>
+                    <td class="valueR"><rsc:item name="success_percentage" set="<%=rscTotalDiv2%>" format="0.00%" /></td>
+                </tr>
 <%
 }
 ResultSetContainer rscSummaryChal = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Challenge_Summary");
 ResultSetContainer rscTotalChal = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Challenge_Totals");
 if(!rscSummaryChal.isEmpty()) {
 %>
-         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-            <tr><td class="tableTitle" colspan="5">Challenges</td></tr>
-            <tr>
-               <td class="tableHeader">Problem</td>
-               <td class="tableHeader" align="right" width="33%"># Failed Challenges</td>
-               <td class="tableHeader" align="right" width="33%"># Challenges</td>
-               <td class="tableHeader" align="right" width="33%">Success %      </td>
-            </tr>
-            <rsc:iterator id="resultRow" list="<%=rscSummaryChal%>">
-            <tr>
-               <td class="cat" nowrap="nowrap"><rsc:item name="level_desc" row="<%=resultRow%>" /></td>
-               <td class="statR"><rsc:item name="challenges_made_failed" row="<%=resultRow%>" /></td>
-               <td class="statR"><rsc:item name="challenge_attempts_made" row="<%=resultRow%>" /></td>
-               <td class="statR"><rsc:item name="success_percentage" row="<%=resultRow%>" format="0.00%"/></td>
-            </tr>
-            </rsc:iterator>
-            <tr>
-               <td class="cat" nowrap="nowrap">Total</td>
-               <td class="statR"><rsc:item name="challenges_made_failed" set="<%=rscTotalChal%>" /></td>
-               <td class="statR"><rsc:item name="challenge_attempts_made" set="<%=rscTotalChal%>" /></td>
-               <td class="statR"><rsc:item name="success_percentage" set="<%=rscTotalChal%>" format="0.00%" /></td>
-            </tr>
-         </table>
+                <tr><td class="title" colspan="5">Challenges</td></tr>
+                <tr>
+                    <td class="header" colspan="2">Problem</td>
+                    <td class="header" align="right" width="33%"># Failed Challenges</td>
+                    <td class="header" align="right" width="33%"># Challenges</td>
+                    <td class="header" align="right" width="33%">Success %      </td>
+                </tr>
+                <%i = 0;%>
+                <rsc:iterator id="resultRow" list="<%=rscSummaryChal%>">
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                    <td class="field" nowrap="nowrap" colspan="2"><rsc:item name="level_desc" row="<%=resultRow%>" /></td>
+                    <td class="valueR"><rsc:item name="challenges_made_failed" row="<%=resultRow%>" /></td>
+                    <td class="valueR"><rsc:item name="challenge_attempts_made" row="<%=resultRow%>" /></td>
+                    <td class="valueR"><rsc:item name="success_percentage" row="<%=resultRow%>" format="0.00%"/></td>
+                </tr>
+                <%i++;%>
+                </rsc:iterator>
+                <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                    <td class="field" nowrap="nowrap" colspan="2">Total</td>
+                    <td class="valueR"><rsc:item name="challenges_made_failed" set="<%=rscTotalChal%>" /></td>
+                    <td class="valueR"><rsc:item name="challenge_attempts_made" set="<%=rscTotalChal%>" /></td>
+                    <td class="valueR"><rsc:item name="success_percentage" set="<%=rscTotalChal%>" format="0.00%" /></td>
+                </tr>
 <%
 }
 %>
-      </td>
-   </tr>
-   <tr>
-      <td colspan="2" align="center" style="border-top: 1px solid #999999;">
+            </tbody>
+            </table>
+
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat">
+            <tbody>
+                <tr class="dark">
+                    <td class="valueC">
 <script language="JavaScript">
 var s='<object ' +
 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ' +
@@ -163,6 +191,11 @@ var s='<object ' +
 '</object> ';
 doWrite(s);
 </script>
-      </td>
-   </tr>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </td>
+    </tr>
+</tbody>
 </table>

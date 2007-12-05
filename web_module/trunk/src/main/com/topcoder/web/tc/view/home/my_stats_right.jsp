@@ -119,10 +119,10 @@
             <a href="/tc?module=Static&d1=help&d2=index" class="statText">Competition Guide.</a></p>
 
          <p>To learn more about Design Competitions, check out 
-         <a href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted" class="statText">this tutorial</a>.</p>
+         <a href="/wiki/display/tc/Getting+Started+in+Component+Design+Competitions" class="statText">this tutorial</a>.</p>
 
          <p>To learn more about Development Competitions, check out 
-            <a href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted" class="statText">this tutorial</a>.</p>
+            <a href="/wiki/display/tc/Getting+Started+in+Component+Development+Competitions" class="statText">this tutorial</a>.</p>
         </td>
     </tr>
 </tbody>
