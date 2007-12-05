@@ -1,15 +1,14 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<%@ page import="com.topcoder.common.web.data.report.Constants"%>
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
-<%@ page import="com.topcoder.shared.dataAccess.QueryRequest"%>
-<%@ page import="com.topcoder.shared.util.DBMS"%>
 <%@ page import="com.topcoder.shared.dataAccess.QueryDataAccess"%>
-<%@ page import="java.util.HashMap" %>
+<%@ page import="com.topcoder.shared.dataAccess.QueryRequest"%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ page import="java.util.Map" %>
-<%@ page import="com.topcoder.common.web.data.report.Constants" %>
-<%@ page import="java.util.Iterator" %>
+<%@ page import="com.topcoder.shared.util.DBMS" %>
 <%@ page import="com.topcoder.web.common.StringUtils" %>
 <%@ page import="com.topcoder.web.tc.controller.request.report.CSVResults" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <html>
@@ -17,6 +16,24 @@
     <title>TopCoder Reporting II</title>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
       <link type="text/css" rel="stylesheet" href="/css/tcStyles.css">
+      <style type="text/css">
+
+      table tr.odd  {
+        background: #E5E5E5;
+      }
+
+      table tr.even {
+        background: #D5D5D5;
+      }
+
+      table tr.odd:hover,
+      table tr.even:hover {
+        background: #CCFFCC;
+      }
+
+
+      </style>
+
   </head>
   <body>
     <a href="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY%>">&lt;&lt; back to main menu<a><br/><br/>
@@ -64,7 +81,7 @@
                 ResultSetContainer.ResultSetRow r;
                 for (Object r1 : rs) {
                     r = (ResultSetContainer.ResultSetRow) r1;%>
-            <tr class="<%=even?"light":"dark"%>">
+            <tr class="<%=even?"even":"odd"%>">
                 <%
                     for (int j = 0; j < rs.getColumns().length; j++) {
                 %>
