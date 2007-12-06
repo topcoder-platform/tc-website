@@ -1312,7 +1312,7 @@
                         <method-param>long</method-param>
                     </method-params>
                 </query-method>
-                <ejb-ql>SELECT COUNT(dt) FROM DDEDownloadTracking dt WHERE dt.userMaster.id = ?1 AND dt.compVersions.compCatalog.id= ?2</ejb-ql>
+                <ejb-ql>SELECT dt FROM DDEDownloadTracking dt WHERE dt.userMaster.id = ?1 AND dt.compVersions.compCatalog.id= ?2</ejb-ql>
             </query>
         </entity>
         <entity>
