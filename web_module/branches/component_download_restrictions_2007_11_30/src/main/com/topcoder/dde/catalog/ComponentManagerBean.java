@@ -2116,7 +2116,7 @@ public class ComponentManagerBean
         }
         
         try {
-            int numberDownloads = trackingHome.getNumberDownloads(subject.getUserId(), componentId);
+            int numberDownloads = trackingHome.findByUserIdComponentId(subject.getUserId(), componentId).size();
             log.debug("numberDownloads: " + numberDownloads);
             if (numberDownloads > MAX_PUBLIC_DOWNLOADS) {
                 return false;

@@ -4,6 +4,7 @@ import javax.ejb.CreateException;
 import javax.ejb.EJBLocalHome;
 import javax.ejb.FinderException;
 import java.sql.Timestamp;
+import java.util.Collection;
 
 /**
  * The local home interface representing the CMP bean for the download_tracking table.
@@ -28,6 +29,11 @@ public interface LocalDDEDownloadTrackingHome extends EJBLocalHome {
     LocalDDEDownloadTracking findByPrimaryKey(Long key) throws FinderException;
 
     /**
+     */
+    Collection findByUserIdComponentId(long userId, long componentId) throws FinderException;
+
+    
+    /**
      * Creates an entity object.
      *
      * @param price                 price.
@@ -44,8 +50,5 @@ public interface LocalDDEDownloadTrackingHome extends EJBLocalHome {
                                     LocalDDEUserMaster userMaster, LocalDDELicenseLevel licenseLevel, LocalDDECompDownload compDownload, long unitCost)
             throws CreateException;
 
-    /**
-     */
-    int getNumberDownloads(long userId, long componentId) throws FinderException;
 
 }

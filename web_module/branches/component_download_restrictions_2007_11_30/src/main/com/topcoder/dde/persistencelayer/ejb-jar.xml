@@ -1306,7 +1306,7 @@
             </ejb-local-ref>
             <query>
                 <query-method>
-                    <method-name>getNumberDownloads</method-name>
+                    <method-name>findByUserIdComponentId</method-name>
                     <method-params>
                         <method-param>long</method-param>
                         <method-param>long</method-param>
