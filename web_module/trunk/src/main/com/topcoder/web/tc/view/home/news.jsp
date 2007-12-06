@@ -82,12 +82,12 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.29.07<br />5:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://forums.topcoder.com/?module=Announcement&annID=466">The TopCoder UML Tool 1.0.0 is Released, Required</A></span><br /><br />
+        <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=466">The TopCoder UML Tool 1.0.0 is Released, Required</A></span><br /><br />
         Version 1.0.0 of the <a href="/tc?module=Static&d1=dev&d2=umltool&d3=description">TopCoder UML Tool</a> is now available, and beginning today it is the required UML tool for all design contests. For more information on downloading the tool, or to discuss outstanding issues and planned enhancements, please see <tc-webtag:handle coderId="156859" context="algorithm"/>'s forum post.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="http://forums.topcoder.com/?module=Announcement&annID=466">details</a> | 
-        <a href="http://forums.topcoder.com/?module=Category&categoryID=2479">discuss this</a> | 
+        <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=466">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=2479">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
    
@@ -144,11 +144,11 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.21.07<br />1:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='http://www.topcoder.com/registration/actions/ProjectDetails.do?method=displayProjectDetails&projectId=30002900' refer='/tc' />">Milestone added to Client Cockpit Contest</A></span><br /><br />
-        We are offering a bonus prize to any team which submits a static HTML version of the TopCoder Client Cockpit by Monday, November 26th.  For more information, see <a href="http://forums.topcoder.com/?module=Thread&threadID=594286">this forum</a> thread on the contest page.  Good luck!</td>
+        We are offering a bonus prize to any team which submits a static HTML version of the TopCoder Client Cockpit by Monday, November 26th.  For more information, see <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=594286">this forum</a> thread on the contest page.  Good luck!</td>
    </tr>
    <tr><td class="newsLinksCell">
         <A href="<tc-webtag:linkTracking link='http://www.topcoder.com/registration/actions/ProjectDetails.do?method=displayProjectDetails&projectId=30002900' refer='/tc' />">details</a> | 
-        <A href="http://forums.topcoder.com/?module=Thread&threadID=594286">discuss this</a> | 
+        <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=594286">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
