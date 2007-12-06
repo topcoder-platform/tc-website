@@ -20,6 +20,19 @@
    
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />12.04.07<br />6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='/tc' />"> Redmond Developer News: Contested Code</A></span><br /><br />
+        How TopCoder uses a contest format to build high-quality software for clients.  <a target="_blank" href="/i/pressroom/pdfs/rdn_20071204.pdf">PDF</a> version available.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="518371" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.30.07<br />5:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -171,18 +184,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm376">details</A> | 
          <tc-webtag:forumLink forumID="516073" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.15.07<br />3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.russiatoday.ru/news/news/16968' refer='/tc' />">Russian computer whiz crowned world's best</A></span><br /><br />
-        A Russian student, Pyotr Mitrichev (<tc-webtag:handle coderId="10574855" context="algorithm"/>), has won the world programming championships, taking place in the U.S. Over 3,000 young and talented student programmers took part. Video included after the jump.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.russiatoday.ru/news/news/16968' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="518192" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
    
