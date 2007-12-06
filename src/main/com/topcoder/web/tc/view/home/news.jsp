@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.06.07<br />10:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/wiki/display/tc/Home">TopCoder Wiki is Live</A></span><br /><br />
+        The TopCoder Wiki is now online and available for editing.  We've migrated the documentation for Algorithm, Component Design, and Component Development Competitions to the Wiki, and we will continue to move more of the site in the coming months.
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="">view</a> | 
+         <tc-webtag:forumLink forumID="518474" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature News" border="0" /><br />12.05.07<br />6:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -168,21 +182,5 @@
          <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2142">contest details</a> |
          <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=1100&start=0">discuss this</a> |
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.16.07<br />12:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm376">SRM 376 - Problem Set &amp; Analysis</A></span><br /><br />
-      Div 1 competitors were greeted with a fairly straightforward easy involving train driving and a brutal medium that was a train wreck (with only 21% of submissions correct).  The level of competition was extremely strong, featuring a large number of targeteers and tournament winners.</td>
-         <td class="newsPhoto"><img src="/i/m/jmzero_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="15498334" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm376">details</A> | 
-         <tc-webtag:forumLink forumID="516073" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
