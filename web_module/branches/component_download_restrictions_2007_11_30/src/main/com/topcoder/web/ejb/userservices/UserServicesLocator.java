@@ -20,7 +20,7 @@ public class UserServicesLocator extends ServiceLocatorSupport {
         this(UserServices.class, 
                 UserServicesHome.class, 
                 UserServicesHome.EJB_REF_NAME, 
-                ApplicationServer.HOST_URL);
+                ApplicationServer.USER_SERVICES_HOST_URL);
     }
 
     public UserServicesLocator(Class interfaceClass, Class homeInterfaceClass,
