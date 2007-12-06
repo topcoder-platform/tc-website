@@ -2126,7 +2126,7 @@ public class ComponentManagerBean
             throw new EJBException(e.toString());
         }
         
-        return false;
+        return true;
     }
 
     public void trackDownload(long userId, long downloadId, long licenseId)
