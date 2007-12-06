@@ -44,4 +44,8 @@ public interface LocalDDEDownloadTrackingHome extends EJBLocalHome {
                                     LocalDDEUserMaster userMaster, LocalDDELicenseLevel licenseLevel, LocalDDECompDownload compDownload, long unitCost)
             throws CreateException;
 
+    /**
+     */
+    int getNumberDownloads(long userId, long componentId) throws FinderException;
+
 }

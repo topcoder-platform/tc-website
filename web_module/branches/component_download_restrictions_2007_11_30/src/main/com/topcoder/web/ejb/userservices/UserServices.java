@@ -6,7 +6,8 @@ import javax.ejb.EJBObject;
 
 public interface UserServices extends EJBObject {
 
-    public Boolean isRated(long userId)
-            throws RemoteException;
+    public boolean isRated(long userId) throws RemoteException;
+
+    public boolean hasRegistration(long userId, int[] categoryIds) throws RemoteException;
 
 }

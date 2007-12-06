@@ -26,7 +26,7 @@
                 <ejb-name>UserServices</ejb-name>
                 <method-name>*</method-name>
             </method>
-            <trans-attribute>Required</trans-attribute>
+            <trans-attribute>Supports</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>

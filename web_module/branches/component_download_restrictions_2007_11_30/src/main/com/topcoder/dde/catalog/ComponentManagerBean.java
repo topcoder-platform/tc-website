@@ -4,6 +4,35 @@
 
 package com.topcoder.dde.catalog;
 
+import java.rmi.RemoteException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+import java.util.Vector;
+
+import javax.ejb.CreateException;
+import javax.ejb.EJBException;
+import javax.ejb.FinderException;
+import javax.ejb.ObjectNotFoundException;
+import javax.ejb.RemoveException;
+import javax.ejb.SessionBean;
+import javax.ejb.SessionContext;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.rmi.PortableRemoteObject;
+import javax.sql.DataSource;
+
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.UserNotFoundException;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
@@ -12,7 +41,42 @@ import com.topcoder.apps.review.projecttracker.ProjectTrackerV2;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home;
 import com.topcoder.apps.review.projecttracker.ProjectType;
 import com.topcoder.apps.review.projecttracker.User;
-import com.topcoder.dde.persistencelayer.interfaces.*;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECategories;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECategoriesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalog;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalogHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCategories;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCategoriesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDependencies;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDependenciesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDocumentation;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDocumentationHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDownload;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDownloadHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompExamples;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompExamplesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompForumXref;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompForumXrefHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompKeywords;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompKeywordsHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompReviews;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompReviewsHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompTechnology;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompTechnologyHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionDates;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionDatesHistoryHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionDatesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersions;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionsHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDEDownloadTrackingHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDELicenseLevel;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDELicenseLevelHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDERolesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDETechnologyTypes;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDETechnologyTypesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDEUserMaster;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDEUserMasterHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDEUserRoleHome;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
@@ -25,23 +89,14 @@ import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.util.config.*;
+import com.topcoder.util.config.ConfigManager;
+import com.topcoder.util.config.ConfigManagerException;
+import com.topcoder.util.config.ConfigManagerInterface;
 import com.topcoder.util.errorhandling.BaseException;
 import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.ejb.forums.ForumsHome;
-
-import javax.ejb.*;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.rmi.PortableRemoteObject;
-import javax.sql.DataSource;
-import java.rmi.RemoteException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Timestamp;
-import java.util.*;
+import com.topcoder.web.ejb.userservices.UserServices;
+import com.topcoder.web.ejb.userservices.UserServicesLocator;
 
 /**
  * The implementation of the methods of ComponentManagerEJB.
@@ -75,11 +130,16 @@ public class ComponentManagerBean
     private static final String
             CONFIG_NAMESPACE = "com.topcoder.dde.catalog.ComponentManagerBean";
 
+    private static final int[] competitionCategories = 
+        {1, 2, 7, 13, 14, 16, 17, 18, 19, 20, 21};
+    
     //Permission constants
     private static final long JAVA_PERM = 21;
     private static final long NET_PERM = 22;
     private static final long JAVA_CAT = 5801776;
     private static final long NET_CAT = 5801777;
+
+    private static final int MAX_PUBLIC_DOWNLOADS = 5;
 
     /*
      * The following field declarations should be private, but a bug in JBoss
@@ -2002,6 +2062,8 @@ public class ComponentManagerBean
             throw new CatalogException("Null specified for subject");
         }
 
+        log.debug("canDownload called (user, component): " + subject.getUserId() + ", " + componentId);
+
         PolicyRemote checker;
         try {
             checker = policyHome.create();
@@ -2020,7 +2082,51 @@ public class ComponentManagerBean
         } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         }
-        return hasPermission;
+
+        log.debug("hasPermission: " + hasPermission);
+        if (!hasPermission) {
+            return false;
+        }
+        
+        UserServices us = null;
+        try {
+            us = (UserServices)(new UserServicesLocator()).getService();
+
+            log.debug("us.isRated(subject.getUserId()): " + us.isRated(subject.getUserId()));
+
+            if (us.isRated(subject.getUserId())) {
+                return true;
+            }
+            
+            log.debug("us.hasRegistration(subject.getUserId(), competitionCategories): " + us.hasRegistration(subject.getUserId(), competitionCategories));
+
+            if (us.hasRegistration(subject.getUserId(), competitionCategories)) {
+                return true; 
+            }
+            
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            throw new EJBException(e.toString());
+        } catch (NamingException e) {
+            e.printStackTrace();
+            throw new EJBException(e.toString());
+        } catch (CreateException e) {
+            e.printStackTrace();
+            throw new EJBException(e.toString());
+        }
+        
+        try {
+            int numberDownloads = trackingHome.getNumberDownloads(subject.getUserId(), componentId);
+            log.debug("numberDownloads: " + numberDownloads);
+            if (numberDownloads > MAX_PUBLIC_DOWNLOADS) {
+                return false;
+            }
+        } catch (FinderException e) {
+            e.printStackTrace();
+            throw new EJBException(e.toString());
+        }
+        
+        return false;
     }
 
     public void trackDownload(long userId, long downloadId, long licenseId)

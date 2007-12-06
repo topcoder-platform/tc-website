@@ -10,7 +10,8 @@ import java.rmi.RemoteException;
  */
 public interface UserServicesWS extends Remote {
 
-    public Boolean isRated(long userId)
-            throws RemoteException;
+    public boolean isRated(long userId) throws RemoteException;
+
+    public boolean hasRegistration(long userId, int[] categoryIds) throws RemoteException;
 
 }

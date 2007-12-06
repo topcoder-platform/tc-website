@@ -18,6 +18,16 @@ import com.topcoder.web.ejb.BaseEJB;
  */
 public class UserServicesBean extends BaseEJB {
 
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object, i.e. when data members are changed.
+     *
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
+     */
+    private static final long serialVersionUID = 1L;
+
+    private static final int DAYS_FROM_REGISTRATION = 30;
+
     private static Logger log = Logger.getLogger(UserServicesBean.class);
 
     private static final String GET_RATINGS_QUERY =
@@ -53,8 +63,25 @@ public class UserServicesBean extends BaseEJB {
         "   and sr.review_status_id = 1 " +
         "   and s.submitter_id = ? ";
 
+    private static final String GET_REGISTERED_IN_COMPETITION_QUERY =
+        "select count(*) as num_registered " +
+        "  from project_phase pi  " +
+        "    , project p  " +
+        "    , resource r  " +
+        "    , resource_info ri " + 
+        "  where pi.phase_type_id = 1 " +  
+        "    and pi.scheduled_end_time > current - " + DAYS_FROM_REGISTRATION + " units day " +
+        "    and pi.project_id = p.project_id  " +
+        "    and p.project_status_id = 1  " +
+        "    and r.project_id = p.project_id  " +
+        "    and r.resource_role_id = 1  " +
+        "    and ri.resource_id = r.resource_id  " +
+        "    and ri.resource_info_type_id = 1  " +
+        "    and ri.value = ? " +
+        "    and p.project_category_id in ( ";
 
-    public Boolean isRated(long userId) {
+    
+    public boolean isRated(long userId) {
         log.debug("UserServicesBean.isRated(" + userId + ") called...");
         
         Connection connOLTP = null;
@@ -64,7 +91,7 @@ public class UserServicesBean extends BaseEJB {
         PreparedStatement psStudio = null;
         ResultSet rsStudio = null;
 
-        Boolean rated = Boolean.FALSE;
+        boolean rated = false;
         
         try {
             // first we check algo, design, development, high school and marathon.
@@ -78,7 +105,7 @@ public class UserServicesBean extends BaseEJB {
                 rsOLTP.getInt("development_rating") +
                 rsOLTP.getInt("hs_algorithm_rating") +
                 rsOLTP.getInt("marathon_match_rating")) > 0) {
-                rated = Boolean.TRUE;
+                rated = true;
             }
             
             // then we check studio.
@@ -89,7 +116,7 @@ public class UserServicesBean extends BaseEJB {
             rsStudio = psStudio.executeQuery();
             if (rsStudio.next() &&
                 rsStudio.getInt("num_passed") > 0) {
-                rated = Boolean.TRUE;
+                rated = true;
             }            
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
@@ -105,5 +132,51 @@ public class UserServicesBean extends BaseEJB {
             close(connStudio);
         }
         return rated;
+    }
+
+    public boolean hasRegistration(long userId, int[] categoryIds) {
+        
+        if (categoryIds.length == 0) {
+            return false;
+        }
+        
+        String categories = "";
+        for (int i = 0; i < categoryIds.length; i++) {
+            if (i > 0) {
+                categories += ", ";
+            }
+            categories += categoryIds[i];
+        }
+
+        log.debug("UserServicesBean.hasRegistration(" + userId + ", {" + categories + "}) called...");
+
+        String sql = GET_REGISTERED_IN_COMPETITION_QUERY + categories + ")";
+        
+        Connection connTcsCatalog = null;
+        PreparedStatement psTcsCatalog = null;
+        ResultSet rsTcsCatalog = null;
+
+        boolean registered = false;
+        
+        try {
+            connTcsCatalog = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+            psTcsCatalog = connTcsCatalog.prepareStatement(sql);
+            psTcsCatalog.setString(1, String.valueOf(userId));
+            rsTcsCatalog = psTcsCatalog.executeQuery();
+            if (rsTcsCatalog.next() &&
+                rsTcsCatalog.getInt("num_registered") > 0) {
+                registered = true;
+            }            
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException(sqe.getMessage());
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+            close(rsTcsCatalog);
+            close(psTcsCatalog);
+            close(connTcsCatalog);
+        }
+        return registered;
     }
 }

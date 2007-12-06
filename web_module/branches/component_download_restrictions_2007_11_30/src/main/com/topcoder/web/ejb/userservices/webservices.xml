@@ -4,8 +4,8 @@
   <wsdl-file>META-INF/wsdl/UserServices.wsdl</wsdl-file>
   <jaxrpc-mapping-file>META-INF/jaxrpc-mapping.xml</jaxrpc-mapping-file>
   <port-component>
-   <port-component-name>UserServicesPort</port-component-name>
-   <wsdl-port>impl:UserServicesPort</wsdl-port>
+   <port-component-name>UserServicesWSPort</port-component-name>
+   <wsdl-port>impl:UserServicesWSPort</wsdl-port>
    <service-endpoint-interface>com.topcoder.web.ejb.userservices.UserServicesWS</service-endpoint-interface>
    <service-impl-bean>
     <ejb-link>UserServices</ejb-link>

@@ -4,17 +4,44 @@
   <namespaceURI>http://userservices.ejb.web.topcoder.com/types</namespaceURI>
  </package-mapping>
  <service-interface-mapping>
-  <service-interface>com.topcoder.web.ejb.userservices.UserServicesWS</service-interface>
+  <service-interface>com.topcoder.web.ejb.userservices.UserServices</service-interface>
   <wsdl-service-name xmlns:serviceNS='http://userservices.ejb.web.topcoder.com/'>serviceNS:UserServices</wsdl-service-name>
   <port-mapping>
-   <port-name>UserServicesPort</port-name>
-   <java-port-name>UserServicesPort</java-port-name>
+   <port-name>UserServicesWSPort</port-name>
+   <java-port-name>UserServicesWSPort</java-port-name>
   </port-mapping>
  </service-interface-mapping>
  <service-endpoint-interface-mapping>
   <service-endpoint-interface>com.topcoder.web.ejb.userservices.UserServicesWS</service-endpoint-interface>
-  <wsdl-port-type xmlns:portTypeNS='http://userservices.ejb.web.topcoder.com/'>portTypeNS:UserServices</wsdl-port-type>
-  <wsdl-binding xmlns:bindingNS='http://userservices.ejb.web.topcoder.com/'>bindingNS:UserServicesBinding</wsdl-binding>
+  <wsdl-port-type xmlns:portTypeNS='http://userservices.ejb.web.topcoder.com/'>portTypeNS:UserServicesWS</wsdl-port-type>
+  <wsdl-binding xmlns:bindingNS='http://userservices.ejb.web.topcoder.com/'>bindingNS:UserServicesWSBinding</wsdl-binding>
+  <service-endpoint-method-mapping>
+   <java-method-name>hasRegistration</java-method-name>
+   <wsdl-operation>hasRegistration</wsdl-operation>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>long</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://userservices.ejb.web.topcoder.com/'>wsdlMsgNS:UserServicesWS_hasRegistration</wsdl-message>
+     <wsdl-message-part-name>long_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <method-param-parts-mapping>
+    <param-position>1</param-position>
+    <param-type>int[]</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://userservices.ejb.web.topcoder.com/'>wsdlMsgNS:UserServicesWS_hasRegistration</wsdl-message>
+     <wsdl-message-part-name>arrayOfint_2</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>boolean</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://userservices.ejb.web.topcoder.com/'>wsdlMsgNS:UserServicesWS_hasRegistrationResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
   <service-endpoint-method-mapping>
    <java-method-name>isRated</java-method-name>
    <wsdl-operation>isRated</wsdl-operation>
@@ -22,14 +49,14 @@
     <param-position>0</param-position>
     <param-type>long</param-type>
     <wsdl-message-mapping>
-     <wsdl-message xmlns:wsdlMsgNS='http://userservices.ejb.web.topcoder.com/'>wsdlMsgNS:UserServices_isRated</wsdl-message>
+     <wsdl-message xmlns:wsdlMsgNS='http://userservices.ejb.web.topcoder.com/'>wsdlMsgNS:UserServicesWS_isRated</wsdl-message>
      <wsdl-message-part-name>long_1</wsdl-message-part-name>
      <parameter-mode>IN</parameter-mode>
     </wsdl-message-mapping>
    </method-param-parts-mapping>
    <wsdl-return-value-mapping>
-    <method-return-value>java.lang.Boolean</method-return-value>
-    <wsdl-message xmlns:wsdlMsgNS='http://userservices.ejb.web.topcoder.com/'>wsdlMsgNS:UserServices_isRatedResponse</wsdl-message>
+    <method-return-value>boolean</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://userservices.ejb.web.topcoder.com/'>wsdlMsgNS:UserServicesWS_isRatedResponse</wsdl-message>
     <wsdl-message-part-name>result</wsdl-message-part-name>
    </wsdl-return-value-mapping>
   </service-endpoint-method-mapping>
