@@ -2,21 +2,6 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%------------------------------------------------------ waiting for permission
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.06.07<br />10:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/wiki/display/tc/Home">TopCoder Wiki is Live</A></span><br /><br />
-        The TopCoder Wiki is now online and available for editing.  We've migrated the documentation for Algorithm, Component Design, and Component Development Competitions to the Wiki, and we will continue to move more of the site in the coming months.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="">view</a> | 
-         <tc-webtag:forumLink forumID="518474" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
---%>
-
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature News" border="0" /><br />12.05.07<br />6:00 PM</td>
