@@ -3,28 +3,29 @@
  */
 package com.topcoder.web.ejb.userservices;
 
+import java.rmi.RemoteException;
+
+import javax.ejb.CreateException;
+import javax.naming.NamingException;
+
 import com.topcoder.shared.ejb.ServiceLocatorSupport;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.logging.Logger;
 
 /**
  * A locator for the User Services EJB
  * 
  * @author Pablo
  */
-public class UserServicesLocator extends ServiceLocatorSupport {
+public class UserServicesLocator {
 
-    private static Logger log = Logger.getLogger(UserServicesBean.class);
+    private static final ServiceLocatorSupport locator =
+        new ServiceLocatorSupport(UserServices.class, 
+            UserServicesHome.class, 
+            UserServicesHome.EJB_REF_NAME, 
+            ApplicationServer.USER_SERVICES_HOST_URL);
 
-    public UserServicesLocator() {
-        this(UserServices.class, 
-                UserServicesHome.class, 
-                UserServicesHome.EJB_REF_NAME, 
-                ApplicationServer.USER_SERVICES_HOST_URL);
+    public static UserServices getService() throws NamingException, RemoteException, CreateException {
+        return (UserServices) locator.getService();
     }
 
-    public UserServicesLocator(Class interfaceClass, Class homeInterfaceClass,
-            String jndiName, String contextURL) {
-        super(interfaceClass, homeInterfaceClass, jndiName, contextURL);
-    }
 }

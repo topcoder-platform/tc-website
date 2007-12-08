@@ -2055,97 +2055,92 @@ public class ComponentManagerBean
         }
     }
 
+    /**
+     * This method will apply the restrictions on the component download operation.
+     * It will follow the next process:
+     * - check download permission
+     * - grant access if rated
+     * - grant access if registered to a current dev, design, assembly, testing, architecture or studio project
+     * - deny access if the user has already downloaded more than N components
+     * - deny access if the requested component doesn't is not "public"
+     * 
+     * @param subject the security subject of the requester
+     * @return true if permission is granted.
+     * @throws CatalogException 
+     */
     public boolean canDownload(TCSubject subject) throws CatalogException {
         if (subject == null) {
             throw new CatalogException("Null specified for subject");
         }
-
         log.debug("canDownload called (user, component): " + subject.getUserId() + ", " + componentId);
-
-        PolicyRemote checker;
-        try {
-            checker = policyHome.create();
-        } catch (CreateException exception) {
-            throw new CatalogException(exception.toString());
-        } catch (RemoteException exception) {
-            throw new EJBException(exception.toString());
-        }
-
-        boolean hasPermission;
-        try {
-            hasPermission = checker.checkPermission(subject,
-                    new DownloadPermission(componentId));
-        } catch (GeneralSecurityException exception) {
-            throw new CatalogException(exception.toString());
-        } catch (RemoteException exception) {
-            throw new EJBException(exception.toString());
-        }
-
-        log.debug("hasPermission: " + hasPermission);
-        if (!hasPermission) {
-            return false;
-        }
         
-        UserServices us = null;
+        int maxPublicDownloads = getMaxPublicDownloads();
+
         try {
-            us = (UserServices)(new UserServicesLocator()).getService();
-
+            // check for regular permission
+            PolicyRemote checker = policyHome.create();
+            boolean hasPermission = checker.checkPermission(subject, new DownloadPermission(componentId));
+            log.debug("hasPermission: " + hasPermission);
+            if (!hasPermission) {
+                return false;
+            }
+        
+            // check for rating
+            UserServices us = UserServicesLocator.getService();
             log.debug("us.isRated(subject.getUserId()): " + us.isRated(subject.getUserId()));
-
             if (us.isRated(subject.getUserId())) {
                 return true;
             }
             
+            // check if the user has registrations
             log.debug("us.hasRegistration(subject.getUserId(), competitionCategories): " + us.hasRegistration(subject.getUserId(), competitionCategories));
-
             if (us.hasRegistration(subject.getUserId(), competitionCategories)) {
                 return true; 
             }
             
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            throw new EJBException(e.toString());
-        } catch (NamingException e) {
-            e.printStackTrace();
-            throw new EJBException(e.toString());
-        } catch (CreateException e) {
-            e.printStackTrace();
-            throw new EJBException(e.toString());
-        }
-        
-        try {
+            // check how many downloads the user has already done
             int numberDownloads = trackingHome.findByUserIdComponentId(subject.getUserId(), componentId).size();
             log.debug("numberDownloads: " + numberDownloads);
-            if (numberDownloads >= Integer.parseInt(getConfigValue("max_public_downloads"))) {
-                return false;
+            if (numberDownloads >= maxPublicDownloads) {
+                throw new ComponentDownloadException("You have exceeded the number of allowed downloads");
             }
-        } catch (FinderException e) {
-            e.printStackTrace();
-            throw new EJBException(e.toString());
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-            throw new EJBException(e.toString());
-        } catch (ConfigManagerException e) {
-            e.printStackTrace();
-            throw new EJBException(e.toString());
-        }
         
-        try {
-            LocalDDECompCatalog comp = catalogHome.findPublicByComponentId(new Long(componentId));
-            if (comp == null) {
-                log.debug("component not public.");
-                return false;
+            LocalDDECompCatalog catalog = catalogHome.findByPrimaryKey(new Long(componentId));
+            log.debug("catalog.getPublicInd : " + catalog.getPublicInd());
+
+            // check if the requested component is public
+            try {
+                LocalDDECompCatalog comp = catalogHome.findPublicByComponentId(new Long(componentId));
+                log.debug("Public component.");
+            } catch (ObjectNotFoundException e) {
+                log.debug("Not public component.");
+                throw new ComponentDownloadException("You are not allowed to download non-public components");
             }
-            log.debug("component public.");
-        } catch (ObjectNotFoundException e) {
-            log.debug("component not public.");
-            return false;
         } catch (FinderException e) {
-            e.printStackTrace();
-            throw new EJBException(e.toString());
+            throw new EJBException(e);
+        } catch (NamingException e) {
+            throw new EJBException(e);
+        } catch (GeneralSecurityException exception) {
+            throw new CatalogException(exception.toString());
+        } catch (CreateException exception) {
+            throw new CatalogException(exception.toString());
+        } catch (RemoteException e) {
+            throw new EJBException(e);
         }
         
         return true;
+    }
+
+    private int getMaxPublicDownloads() {
+        int maxPublicDownloads;
+        try {
+            maxPublicDownloads = Integer.parseInt(getConfigValue("max_public_downloads"));
+        } catch (NumberFormatException e) {
+            throw new EJBException(e.toString());
+        } catch (ConfigManagerException e) {
+            throw new EJBException(e.toString());
+        }
+        return maxPublicDownloads;
     }
 
     public void trackDownload(long userId, long downloadId, long licenseId)
