@@ -36,7 +36,7 @@ public interface LocalDDEDownloadTrackingHome extends EJBLocalHome {
      * @return a collection of LocalDDEDownloadTracking for the specified user, component
      * @throws FinderException an application level error occurred during the find operation.
      */
-    Collection findByUserIdComponentId(long userId, long componentId) throws FinderException;
+    Collection findByUserId(long userId) throws FinderException;
     
     
     /**
@@ -57,13 +57,11 @@ public interface LocalDDEDownloadTrackingHome extends EJBLocalHome {
             throws CreateException;
 
     /**
-     * Finds the number of downloads for a particular user id and component id.
+     * Finds the number of downloads for a particular user id
      * 
      * @param userId the user id to look for
-     * @param componentId the component id to look for
-     * @return the number of downloads for the specified user, component
+     * @return the number of downloads for the specified user
      * @throws FinderException an application level error occurred during the find operation.
      */
-    int numberDownloadsByUserIdComponentId(long userId, long componentId) 
-            throws FinderException;
+    int numberDownloadsByUserId(long userId) throws FinderException;
 }

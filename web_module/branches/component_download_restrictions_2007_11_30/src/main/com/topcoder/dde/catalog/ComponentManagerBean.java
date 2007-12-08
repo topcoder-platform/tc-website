@@ -2100,9 +2100,9 @@ public class ComponentManagerBean
             
             // check how many downloads the user has already done
             
-            log.debug("trackingHome.ejbHomeNumberDownloadsByUserIdComponentId(subject.getUserId(), componentId): " + trackingHome.numberDownloadsByUserIdComponentId(subject.getUserId(), componentId));
+            log.debug("trackingHome.ejbHomeNumberDownloadsByUserId(subject.getUserId(), componentId): " + trackingHome.numberDownloadsByUserId(subject.getUserId()));
             
-            int numberDownloads = trackingHome.findByUserIdComponentId(subject.getUserId(), componentId).size();
+            int numberDownloads = trackingHome.findByUserId(subject.getUserId()).size();
             log.debug("numberDownloads: " + numberDownloads);
             if (numberDownloads >= maxPublicDownloads) {
                 throw new ComponentDownloadException("You have exceeded the number of allowed downloads");

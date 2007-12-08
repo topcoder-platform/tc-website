@@ -1317,23 +1317,21 @@
             </ejb-local-ref>
             <query>
                 <query-method>
-                    <method-name>findByUserIdComponentId</method-name>
+                    <method-name>findByUserId</method-name>
                     <method-params>
-                        <method-param>long</method-param>
                         <method-param>long</method-param>
                     </method-params>
                 </query-method>
-                <ejb-ql>SELECT OBJECT(dt) FROM DDEDownloadTracking dt WHERE dt.userMaster.id = ?1 AND dt.compVersions.compCatalog.id= ?2</ejb-ql>
+                <ejb-ql>SELECT OBJECT(dt) FROM DDEDownloadTracking dt WHERE dt.userMaster.id = ?1</ejb-ql>
             </query>
             <query>
                 <query-method>
-                    <method-name>ejbSelectNumberDownloadsByUserIdComponentId</method-name>
+                    <method-name>ejbSelectNumberDownloadsByUserId</method-name>
                     <method-params>
-                        <method-param>long</method-param>
                         <method-param>long</method-param>
                     </method-params>
                 </query-method>
-                <ejb-ql>SELECT COUNT(DISTINCT dt.compVersions.compCatalog.id) FROM DDEDownloadTracking dt WHERE dt.userMaster.id = ?1 AND dt.compVersions.compCatalog.id= ?2</ejb-ql>
+                <ejb-ql>SELECT COUNT(DISTINCT dt.compVersions.compCatalog.id) FROM DDEDownloadTracking dt WHERE dt.userMaster.id = ?1</ejb-ql>
             </query>
         </entity>
         <entity>
