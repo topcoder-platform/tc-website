@@ -139,8 +139,6 @@ public class ComponentManagerBean
     private static final long JAVA_CAT = 5801776;
     private static final long NET_CAT = 5801777;
 
-    private static final int MAX_PUBLIC_DOWNLOADS = 5;
-
     /*
      * The following field declarations should be private, but a bug in JBoss
      * prevents stateful session beans from being passivated and activated
@@ -2118,9 +2116,27 @@ public class ComponentManagerBean
         try {
             int numberDownloads = trackingHome.findByUserIdComponentId(subject.getUserId(), componentId).size();
             log.debug("numberDownloads: " + numberDownloads);
-            if (numberDownloads > MAX_PUBLIC_DOWNLOADS) {
+            if (numberDownloads >= Integer.parseInt(getConfigValue("max_public_downloads"))) {
                 return false;
             }
+        } catch (FinderException e) {
+            e.printStackTrace();
+            throw new EJBException(e.toString());
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            throw new EJBException(e.toString());
+        } catch (ConfigManagerException e) {
+            e.printStackTrace();
+            throw new EJBException(e.toString());
+        }
+        
+        try {
+            LocalDDECompCatalog comp = catalogHome.findPublicByComponentId(new Long(componentId));
+            if (comp == null) {
+                log.debug("component not public.");
+                return false;
+            }
+            log.debug("component public.");
         } catch (FinderException e) {
             e.printStackTrace();
             throw new EJBException(e.toString());
