@@ -1317,16 +1317,7 @@
             </ejb-local-ref>
             <query>
                 <query-method>
-                    <method-name>findByUserId</method-name>
-                    <method-params>
-                        <method-param>long</method-param>
-                    </method-params>
-                </query-method>
-                <ejb-ql>SELECT OBJECT(dt) FROM DDEDownloadTracking dt WHERE dt.userMaster.id = ?1</ejb-ql>
-            </query>
-            <query>
-                <query-method>
-                    <method-name>ejbSelectNumberDownloadsByUserId</method-name>
+                    <method-name>ejbSelectNumberComponentDownloadsByUserId</method-name>
                     <method-params>
                         <method-param>long</method-param>
                     </method-params>

@@ -154,7 +154,7 @@ public abstract class DDEDownloadTrackingBean extends DDEBaseCompVersionsBean {
      *
      * These methods are NOT exposed in the bean's home interface.
      */
-    public abstract int ejbSelectNumberDownloadsByUserId(long userId) throws FinderException;
+    public abstract int ejbSelectNumberComponentDownloadsByUserId(long userId) throws FinderException;
 
 
     
@@ -171,8 +171,8 @@ public abstract class DDEDownloadTrackingBean extends DDEBaseCompVersionsBean {
      * @return the number of downloads for the specified user
      * @throws FinderException an application level error occurred during the find operation.
      */
-    public int ejbHomeNumberDownloadsByUserId(long userId) throws FinderException {
-        return this.ejbSelectNumberDownloadsByUserId(userId);
+    public int ejbHomeNumberComponentDownloadsByUserId(long userId) throws FinderException {
+        return this.ejbSelectNumberComponentDownloadsByUserId(userId);
     }
 
 }
