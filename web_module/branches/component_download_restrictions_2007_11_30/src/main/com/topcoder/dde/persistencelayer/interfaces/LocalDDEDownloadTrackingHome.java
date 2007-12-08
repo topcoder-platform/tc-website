@@ -38,15 +38,6 @@ public interface LocalDDEDownloadTrackingHome extends EJBLocalHome {
      */
     Collection findByUserIdComponentId(long userId, long componentId) throws FinderException;
     
-    /**
-     * Finds the number of downloads for a particular user id and component id.
-     * 
-     * @param userId the user id to look for
-     * @param componentId the component id to look for
-     * @return the number of downloads for the specified user, component
-     * @throws FinderException an application level error occurred during the find operation.
-     */
-    int findNumberDownloadsByUserIdComponentId(long userId, long componentId) throws FinderException;
     
     /**
      * Creates an entity object.
