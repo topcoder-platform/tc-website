@@ -150,9 +150,7 @@ public abstract class DDEDownloadTrackingBean extends DDEBaseCompVersionsBean {
     }
 
     /**
-     * Select methods. These are implemented by the container. You can
-     * customize the functionality of these methods in the deployment
-     * descriptor through EJB-QL.
+     * Select methods. These are implemented by the container. 
      *
      * These methods are NOT exposed in the bean's home interface.
      */

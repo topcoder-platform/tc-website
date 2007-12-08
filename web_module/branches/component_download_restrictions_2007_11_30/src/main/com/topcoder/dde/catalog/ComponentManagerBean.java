@@ -2100,7 +2100,7 @@ public class ComponentManagerBean
             
             // check how many downloads the user has already done
             
-            log.debug("trackingHome.ejbHomeNumberDownloadsByUserIdComponentId(subject.getUserId(), componentId): " + trackingHome.ejbHomeNumberDownloadsByUserIdComponentId(subject.getUserId(), componentId));
+            log.debug("trackingHome.ejbHomeNumberDownloadsByUserIdComponentId(subject.getUserId(), componentId): " + trackingHome.homeNumberDownloadsByUserIdComponentId(subject.getUserId(), componentId));
             
             int numberDownloads = trackingHome.findByUserIdComponentId(subject.getUserId(), componentId).size();
             log.debug("numberDownloads: " + numberDownloads);
