@@ -6,6 +6,8 @@ import com.topcoder.dde.persistencelayer.interfaces.LocalDDELicenseLevel;
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDEUserMaster;
 
 import javax.ejb.CreateException;
+import javax.ejb.FinderException;
+
 import java.sql.Timestamp;
 
 /**
@@ -145,6 +147,35 @@ public abstract class DDEDownloadTrackingBean extends DDEBaseCompVersionsBean {
         setUserMaster(userMaster);
         setLicenseLevel(licenseLevel);
         setCompDownload(compDownload);
+    }
+
+    /**
+     * Select methods. These are implemented by the container. You can
+     * customize the functionality of these methods in the deployment
+     * descriptor through EJB-QL.
+     *
+     * These methods are NOT exposed in the bean's home interface.
+     */
+    public abstract int ejbSelectNumberDownloadsByUserIdComponentId(long userId, long componentId) throws FinderException;
+
+
+    
+    /**
+     * Begin buisness logic methods that use select methods.
+     * 
+     * These methods are exposed in the bean's home interfaces.
+     */
+    
+    /**
+     * Finds the number of downloads for a particular user id and component id.
+     * 
+     * @param userId the user id to look for
+     * @param componentId the component id to look for
+     * @return the number of downloads for the specified user, component
+     * @throws FinderException an application level error occurred during the find operation.
+     */
+    public int ejbHomeNumberDownloadsByUserIdComponentId(long userId, long componentId) throws FinderException {
+        return this.ejbSelectNumberDownloadsByUserIdComponentId(userId, componentId);
     }
 
 }

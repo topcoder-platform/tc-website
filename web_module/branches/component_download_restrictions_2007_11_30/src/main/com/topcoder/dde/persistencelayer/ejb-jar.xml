@@ -217,15 +217,6 @@
                 </query-method>
                 <ejb-ql>SELECT OBJECT(c) FROM DDECompCatalog c WHERE c.publicInd = 1</ejb-ql>
             </query>
-            <query>
-                <query-method>
-                    <method-name>findPublicByComponentId</method-name>
-                    <method-params>
-                        <method-param>long</method-param>
-                    </method-params>
-                </query-method>
-                <ejb-ql>SELECT OBJECT(c) FROM DDECompCatalog c WHERE c.id = ?1 AND c.publicInd = 1</ejb-ql>
-            </query>
         </entity>
         <entity>
             <ejb-name>DDECompVersionsEJB</ejb-name>
@@ -1333,6 +1324,16 @@
                     </method-params>
                 </query-method>
                 <ejb-ql>SELECT OBJECT(dt) FROM DDEDownloadTracking dt WHERE dt.userMaster.id = ?1 AND dt.compVersions.compCatalog.id= ?2</ejb-ql>
+            </query>
+            <query>
+                <query-method>
+                    <method-name>ejbSelectNumberDownloadsByUserIdComponentId</method-name>
+                    <method-params>
+                        <method-param>long</method-param>
+                        <method-param>long</method-param>
+                    </method-params>
+                </query-method>
+                <ejb-ql>SELECT COUNT(dt) FROM DDEDownloadTracking dt WHERE dt.userMaster.id = ?1 AND dt.compVersions.compCatalog.id= ?2</ejb-ql>
             </query>
         </entity>
         <entity>

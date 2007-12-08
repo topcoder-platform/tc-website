@@ -2099,23 +2099,23 @@ public class ComponentManagerBean
             }
             
             // check how many downloads the user has already done
+            
+            log.debug("trackingHome.ejbHomeNumberDownloadsByUserIdComponentId(subject.getUserId(), componentId): " + trackingHome.ejbHomeNumberDownloadsByUserIdComponentId(subject.getUserId(), componentId));
+            
             int numberDownloads = trackingHome.findByUserIdComponentId(subject.getUserId(), componentId).size();
             log.debug("numberDownloads: " + numberDownloads);
             if (numberDownloads >= maxPublicDownloads) {
                 throw new ComponentDownloadException("You have exceeded the number of allowed downloads");
             }
         
-            LocalDDECompCatalog catalog = catalogHome.findByPrimaryKey(new Long(componentId));
-            log.debug("catalog.getPublicInd : " + catalog.getPublicInd());
-
-            // check if the requested component is public
-            try {
-                LocalDDECompCatalog comp = catalogHome.findPublicByComponentId(new Long(componentId));
-                log.debug("Public component.");
-            } catch (ObjectNotFoundException e) {
+            LocalDDECompCatalog comp = catalogHome.findByPrimaryKey(new Long(componentId));
+            if (comp.getPublicInd() != 1) {
                 log.debug("Not public component.");
                 throw new ComponentDownloadException("You are not allowed to download non-public components");
-            }
+            } 
+            log.debug("Public component.");
+        } catch (ObjectNotFoundException e) {
+            throw new EJBException(e);
         } catch (FinderException e) {
             throw new EJBException(e);
         } catch (NamingException e) {
