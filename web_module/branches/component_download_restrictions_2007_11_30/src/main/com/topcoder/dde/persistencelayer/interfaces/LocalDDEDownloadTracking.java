@@ -1,7 +1,9 @@
 package com.topcoder.dde.persistencelayer.interfaces;
 
-import javax.ejb.EJBLocalObject;
 import java.sql.Timestamp;
+
+import javax.ejb.EJBLocalObject;
+import javax.ejb.FinderException;
 
 /**
  * The local interface representing the CMP bean for the download_tracking table.
@@ -60,4 +62,7 @@ public interface LocalDDEDownloadTracking extends EJBLocalObject {
      */
     long getUnitCost();
 
+    int ejbHomeNumberDownloadsByUserIdComponentId(long userId, long componentId) throws FinderException;
+        
 }
+
