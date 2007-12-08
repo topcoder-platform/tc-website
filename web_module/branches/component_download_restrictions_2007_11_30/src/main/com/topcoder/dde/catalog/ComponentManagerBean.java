@@ -2137,6 +2137,9 @@ public class ComponentManagerBean
                 return false;
             }
             log.debug("component public.");
+        } catch (ObjectNotFoundException e) {
+            log.debug("component not public.");
+            return false;
         } catch (FinderException e) {
             e.printStackTrace();
             throw new EJBException(e.toString());
