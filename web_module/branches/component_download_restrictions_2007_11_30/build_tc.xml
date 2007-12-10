@@ -1336,6 +1336,7 @@
         <antcall target="package-EJB-SurveyBean"/>
         <antcall target="package-EJB-UserEvent"/>
         <antcall target="package-EJB-UserBean"/>
+        <antcall target="package-EJB-UserServicesBean"/>
         <antcall target="package-EJB-UtilBean"/>
 
         <antcall target="war-tc"/>
