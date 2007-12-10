@@ -5,7 +5,6 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page import="com.topcoder.web.common.model.SoftwareComponent"%>
 <%@ page import="com.topcoder.web.tc.controller.request.development.Base"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -51,6 +50,11 @@
                          <jsp:param name="node" value="assembly_compete"/>
                      </jsp:include>
          <%      break;
+                 case Base.ARCHITECTURE_PROJECT_TYPE: %>
+                     <jsp:include page="/includes/global_left.jsp">
+                         <jsp:param name="node" value="architecture_compete"/>
+                     </jsp:include>
+         <%      break;
              }
          %>
         </td>
@@ -82,6 +86,12 @@
                 			    <jsp:param name="title" value="Active Contests"/>
                 			</jsp:include>
                 <%      break;
+                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
+                            <jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="architecture"/>
+                                <jsp:param name="title" value="Active Contests"/>
+                            </jsp:include>
+                <%      break;
                     }
                 %>    
 
@@ -101,6 +111,9 @@
                 <%      break;
                         case Base.ASSEMBLY_PROJECT_TYPE: %>
 			              Assembly
+                <%      break;
+                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
+                          Architecture
                 <%      break;
                     }
                 %>
@@ -181,6 +194,9 @@
                 <%      break;
                         case Base.ASSEMBLY_PROJECT_TYPE: %>
 			                <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=(resultRow.getIntItem("dev_rating") > resultRow.getIntItem("des_rating") ? "Development" : "Design")%>'/>
+                <%      break;
+                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
+                            <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=(resultRow.getIntItem("dev_rating") > resultRow.getIntItem("des_rating") ? "Development" : "Design")%>'/>
                 <%      break;
                     }
                 %>
