@@ -40,7 +40,7 @@
                     <img src="/i/hs/banner.jpg" alt="TopCoder High School" border="0">
                 </div>
 
-                    <span class="title">2007 TopCoder High School Tournament</span>
+                    <span class="title">2008 TopCoder High School Tournament</span>
                     <br><br>
           <span class="bigRed">No purchase necessary to enter or win.  Void where prohibited.</span>
           <h3>Overview of the Tournament</h3>
