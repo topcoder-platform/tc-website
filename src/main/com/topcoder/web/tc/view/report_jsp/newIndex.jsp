@@ -53,6 +53,7 @@ New Software Reports
     <LI><A HREF="<%=baseTCSUrl+"project_statistics_report"%>">Project Statistics</a></LI>
 
     <LI><A HREF="<%=baseTCSUrl+"component_timelines"%>">Component Timelines</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"component_cost"%>">Component Cost</a></LI>
     <LI><A HREF="<%=baseTCSUrl+"fulfillment"%>">Component Fulfillment</a></LI>
     <LI><A HREF="<%=baseTCSUrl+"security_reviews"%>">Security Reviews</a></LI>
     <LI><A HREF="<%=baseTCSUrl+"member_project_query"%>">Projects by Member</a></LI>
