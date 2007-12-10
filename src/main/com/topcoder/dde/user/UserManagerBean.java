@@ -67,6 +67,9 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
     private static final String EMAILENGINE_PROPERTIES_FORMAT = ConfigManager.CONFIG_XML_FORMAT;
     private static final Logger logger = Logger.getLogger(UserManagerBean.class);
 
+    public static final int ASSEMBLY_PROJECT_TYPE = 14;
+    public static final int ARCHITECTURE_PROJECT_TYPE = 7;
+
     /*
      * This group (which all new users are put into) is assumed to be in the
      * database.  If it's not there, an exception will be thrown.
@@ -1036,7 +1039,9 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
                 rating = 0;
             }
 
-            registerInquiry(userId, componentId, rating, userId, comments, true, projectCategory == 14 ? null : new Long(phase), version, projectId);
+            registerInquiry(userId, componentId, rating, userId, comments, true, 
+                (projectCategory == ASSEMBLY_PROJECT_TYPE || projectCategory == ARCHITECTURE_PROJECT_TYPE) ? null : new Long(phase), 
+                version, projectId);
 
             Object objTechTypes = ctx.lookup(ComponentManagerHome.EJB_REF_NAME);
             ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);

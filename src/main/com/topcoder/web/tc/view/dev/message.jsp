@@ -4,7 +4,6 @@
 <html>
 <%@ page import="com.topcoder.web.tc.Constants"%>
 <%@ page import="com.topcoder.web.tc.controller.request.development.Base"%>
-<%@ page import="com.topcoder.web.common.model.SoftwareComponent"%> 
 <head>
     <title>TopCoder - Message</title>
     <jsp:include page="../script.jsp"/>
@@ -42,6 +41,12 @@
                                 <jsp:param name="node" value="assembly_compete"/>
                             </jsp:include>
                 <%      break;
+                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="architecture_compete"/>
+                            </jsp:include>
+                <%      break;
+
                     }
                 %>
         </td>
@@ -73,6 +78,13 @@
                 			    <jsp:param name="title" value="Active Contests"/>
                 			</jsp:include>
                 <%      break;
+                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
+                            <jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="architecture"/>
+                                <jsp:param name="title" value="Active Contests"/>
+                            </jsp:include>
+                <%      break;
+
                     }
                 %>                
 

@@ -27,6 +27,7 @@ public abstract class Base extends ShortHibernateProcessor {
     public static final int COMPONENT_DESIGN_PROJECT_TYPE = 1;
     public static final int COMPONENT_DEVELOPMENT_PROJECT_TYPE = 2;
     public static final int ASSEMBLY_PROJECT_TYPE = 14;
+    public static final int ARCHITECTURE_PROJECT_TYPE = 7;
 
     protected int getProjectTypeId(long projectId) throws Exception {
         ProjectLocal pl = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
@@ -41,6 +42,8 @@ public abstract class Base extends ShortHibernateProcessor {
                 return Constants.DEVELOPMENT_DETAIL;
             case ASSEMBLY_PROJECT_TYPE:
                 return "/dev/assembly/projectDetail.jsp";
+            case ARCHITECTURE_PROJECT_TYPE:
+                return "/architecture/projectDetail.jsp";
             default:
                 return "";
         }
@@ -53,6 +56,8 @@ public abstract class Base extends ShortHibernateProcessor {
                 return "registrants";
             case ASSEMBLY_PROJECT_TYPE:
                 return "assembly_registrants";
+            case ARCHITECTURE_PROJECT_TYPE:
+                return "architecture_registrants";
             default:
                 return "";
         }
