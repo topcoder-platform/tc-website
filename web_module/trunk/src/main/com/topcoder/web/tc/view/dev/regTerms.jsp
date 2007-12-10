@@ -48,6 +48,11 @@
                                 <jsp:param name="node" value="assembly_compete"/>
                             </jsp:include>
                 <%      break;
+                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="architecture_compete"/>
+                            </jsp:include>
+                <%      break;
                     }
                 %>
         </td>
@@ -75,10 +80,16 @@
                 			</jsp:include>
                 <%      break;
                         case Base.ASSEMBLY_PROJECT_TYPE: %>
-                			<jsp:include page="/page_title.jsp">
+                            <jsp:include page="/page_title.jsp">
                                 <jsp:param name="image" value="assembly"/>
-                			    <jsp:param name="title" value="Active Contests"/>
-                			</jsp:include>
+                                <jsp:param name="title" value="Active Contests"/>
+                            </jsp:include>
+                <%      break;
+                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
+                            <jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="architecture"/>
+                                <jsp:param name="title" value="Active Contests"/>
+                            </jsp:include>
                 <%      break;
                     }
                 %>                
@@ -92,6 +103,9 @@
                 <%      break;
                         case Base.ASSEMBLY_PROJECT_TYPE: %>
                             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="AssemblyProjectRegister"/>
+                <%      break;
+                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
+                        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ArchitectureProjectRegister"/>
                 <%      break;
                     }
                 %>                
