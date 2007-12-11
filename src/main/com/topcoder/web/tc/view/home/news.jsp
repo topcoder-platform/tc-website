@@ -52,6 +52,19 @@
    
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />12.06.07<br />6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9050920&pageNumber=1' refer='/tc' />">Computerworld: Should your company 'crowdsource' its next project?</A></span><br /><br />
+        Whether it's to increase loyalty among customers speed up development time or cast outward for innovative ideas, companies are trying on many styles of 'crowdsourcing'  <a target="_blank" href="/i/pressroom/pdfs/computerworld_20071206.pdf">PDF</a> version available.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9050920&pageNumber=1' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="518479" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature News" border="0" /><br />12.05.07<br />6:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -70,7 +83,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />12.04.07<br />6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='/tc' />"> Redmond Developer News: Contested Code</A></span><br /><br />
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='/tc' />">Redmond Developer News: Contested Code</A></span><br /><br />
         How TopCoder uses a contest format to build high-quality software for clients.  <a target="_blank" href="/i/pressroom/pdfs/rdn_20071204.pdf">PDF</a> version available.</td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -170,18 +183,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm378">details</A> | 
          <tc-webtag:forumLink forumID="516075" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.21.07<br />1:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='http://www.topcoder.com/registration/actions/ProjectDetails.do?method=displayProjectDetails&projectId=30002900' refer='/tc' />">Milestone added to Client Cockpit Contest</A></span><br /><br />
-        We are offering a bonus prize to any team which submits a static HTML version of the TopCoder Client Cockpit by Monday, November 26th.  For more information, see <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=594286">this forum</a> thread on the contest page.  Good luck!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='http://www.topcoder.com/registration/actions/ProjectDetails.do?method=displayProjectDetails&projectId=30002900' refer='/tc' />">details</a> | 
-        <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=594286">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
