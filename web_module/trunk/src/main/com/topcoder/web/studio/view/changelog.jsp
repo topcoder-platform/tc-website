@@ -36,6 +36,7 @@
     <ul>
         <li>Past contests default columns sort changed -pulky</li>
         <li>Make it possible to wrap up a contest that does not include online review -dok</li>
+        <li>Don't show some of the fields in the admin site until the contest exists -dok</li>
     </ul>
 
 </p>
