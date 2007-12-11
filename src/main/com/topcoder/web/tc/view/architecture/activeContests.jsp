@@ -43,7 +43,7 @@
 </jsp:include>
 
 <div align="right" style="margin: 6px 0px;">
-    <a href="/tc?module=Static&d1=architecture&d2=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
+    <a href="/wiki/display/tc/How+to+Compete+in+Architecture+Competitions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
 </div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
