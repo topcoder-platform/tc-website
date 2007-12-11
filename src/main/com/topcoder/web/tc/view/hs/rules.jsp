@@ -52,7 +52,7 @@
             <li>Must be at least 13 years of age; AND</li>
             <li>Must be no older than 20 years of age on March 16, 2008; AND</li>
             <li>Must be pursuing a secondary (non university) education at some point during the season*; AND</li>
-            <li>Must have competed in at least three (3) rated TCHS SRMs as of January 12, 2008.</li>
+            <li>Must have competed in at least three (3) rated TCHS SRMs between July 12, 2007 and January 12, 2008.</li>
           </ul>
 <p>
 *The season will run between July 12, 2007 and March 16, 2008.
