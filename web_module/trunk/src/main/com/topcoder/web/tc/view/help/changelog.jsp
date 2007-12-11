@@ -44,6 +44,14 @@
 
 
 <p>
+    5.13.6 - 2007.12.11
+    <ul>
+        <li>Architecture competition pages -pulky</li>
+    </ul>
+
+</p>
+
+<p>
     5.13.5 - 2007.12.03
     <ul>
         <li>Remove poseidon from the component registration succes email text -dok</li>
