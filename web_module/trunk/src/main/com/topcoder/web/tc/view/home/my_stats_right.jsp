@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.common.model.CoderSessionInfo,
-                 com.topcoder.web.common.BaseServlet"%>
+                 com.topcoder.web.common.BaseServlet,
+                 com.topcoder.web.common.model.CoderSessionInfo"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -93,7 +93,7 @@
     <tr>
         <td class="value">Rating</td>
         <td class="valueR">
-        <% if (coderInfo.getItem(0, "mm_rating").getResultData()==null||coderInfo.getIntItem(0, "rating")<1) { %>
+        <% if (coderInfo.getItem(0, "mm_rating").getResultData()==null||coderInfo.getIntItem(0, "mm_rating")<1) { %>
         Not Rated
         <% } else { %>
             <a class="gMetal" href="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<%=info.getUserId()%>">
