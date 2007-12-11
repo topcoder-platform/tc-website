@@ -49,6 +49,7 @@
 <!-- ends -->
 
 <p>
+    <div align="center"><a href="/tc?module=CollegeTourDescription"><img src="/i/collegetour/seeOtherEvents.png" /></a></div>
     <h2>TopCoder College Tour SRM Overview</h2>
 
     <br>

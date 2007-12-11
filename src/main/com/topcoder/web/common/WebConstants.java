@@ -53,9 +53,8 @@ public interface WebConstants {
     public static final String END_TIME = "etm";
     public static final String ROUND_NAME = "roundName";
 
-
+    public static final String FULL_LIST = "full";
     public static String EVENT_ID = "eid";
-
 
     public static final String TERMS = "terms";
     public static final String TERMS_AGREE = "terms_agree";

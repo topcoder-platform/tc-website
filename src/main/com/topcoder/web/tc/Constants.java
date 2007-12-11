@@ -44,6 +44,8 @@ public class Constants implements WebConstants {
     public static String STAGE_LIST_KEY;
     public static String SEASON_LIST_KEY;
 
+    public static String DEFAULT_COLLEGE_TOUR;
+    public static String MAX_COLLEGE_TOUR;
 
     /* request parameters */
     //todo convert problem id to pm and move it to webconstants.  it is only used by problem rating right now
@@ -303,6 +305,7 @@ public class Constants implements WebConstants {
     public static final String COLLEGE_TOUR_CONFIG_INFO = "configInfo";
     public static final String ROUND_NAME = "rdname";
 
+    public static final String EVENT_NAME = "ename";
 
 
     public static final String EVENT_ID = "eid";
