@@ -460,7 +460,6 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
         </p>
     </form>
 
-</c:if>
 
 
 <c:set value="<%=PrizeType.CONTEST%>" var="contestPrize"/>
@@ -562,6 +561,9 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
     </form>
 
 </c:if>
+
+</c:if>
+
 
 
                         <br clear="all"/>
