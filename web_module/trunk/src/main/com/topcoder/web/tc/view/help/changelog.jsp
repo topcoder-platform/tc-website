@@ -47,6 +47,7 @@
     5.13.6 - 2007.12.11
     <ul>
         <li>Architecture competition pages -pulky</li>
+        <li>College tour pages enhancements -pulky</li>
     </ul>
 
 </p>
