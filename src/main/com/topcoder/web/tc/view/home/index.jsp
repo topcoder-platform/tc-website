@@ -408,6 +408,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            Should your company 'crowdsource' its next project?
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9050920&pageNumber=1' refer='homepage_index' />">...more</a><br />[December 6]<br /><br />
+            
             Redmond Developer News: Contested Code
             <a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='homepage_index' />">...more</a><br />[December 4]<br /><br />
             
@@ -422,9 +425,6 @@
             
             Skilled at code, he wins a load
             <a target="_blank" href="<tc-webtag:linkTracking link='http://seattletimes.nwsource.com/html/localnews/2003991315_coder03m.html' refer='homepage_index' />">...more</a><br />[November 6]<br /><br />
-            
-            Students from Russian Federation, China, Indonesia and United States Win 2007 TopCoder Collegiate Challenge
-            <a href="/tc?module=Static&d1=pressroom&d2=pr_110507">...more</a><br />[November 5]<br /><br />
             
 
 
