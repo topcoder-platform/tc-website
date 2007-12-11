@@ -16,7 +16,7 @@
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
     <% String node = request.getParameter(WebConstants.LEFT_NAV_KEY);
-        if (node!=null&&!(node.equals("des_uml_tool")||node.equals("dev_uml_tool"))) {
+        if (node!=null&&!(node.equals("arch_uml_tool")||node.equals("des_uml_tool")||node.equals("dev_uml_tool"))) {
             node = null;
         }
         if(node==null){
