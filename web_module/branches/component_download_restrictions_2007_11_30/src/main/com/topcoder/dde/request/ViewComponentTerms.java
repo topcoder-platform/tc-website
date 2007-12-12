@@ -1,7 +1,11 @@
 package com.topcoder.dde.request;
 
+import javax.rmi.PortableRemoteObject;
+
 import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.ComponentManagerHome;
+import com.topcoder.dde.catalog.NonPublicComponentException;
+import com.topcoder.dde.catalog.ReachedQuotaException;
 import com.topcoder.dde.user.UserManagerRemote;
 import com.topcoder.dde.user.UserManagerRemoteHome;
 import com.topcoder.dde.util.Constants;
@@ -10,8 +14,6 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 
-import javax.rmi.PortableRemoteObject;
-
 /**
  * @author  dok
  * @version  $Revision$ $Date$
@@ -19,6 +21,9 @@ import javax.rmi.PortableRemoteObject;
  */
 public class ViewComponentTerms extends BaseProcessor {
 
+
+    public static final int QUOTA_REACHED_REASON = 1;
+    public static final int NON_PUBLIC_REASON = 2;
 
     protected void businessProcessing() throws Exception {
 
@@ -41,11 +46,22 @@ public class ViewComponentTerms extends BaseProcessor {
             TCSubject tcSubject = (TCSubject) getRequest().getSession().getAttribute("TCSUBJECT");
             long compId = Long.parseLong((String) getRequest().getParameter("comp"));
             ComponentManager compMgr = componentManagerHome.create(compId);
-            if (compMgr.canDownload(tcSubject)) {
-                getRequest().setAttribute(Constants.TERMS, userManager.getComponentTerms());
-                setNextPage("/terms/componentTerms.jsp");
-            } else {
-                // go to error page
+
+            try {
+                if (compMgr.canDownload(tcSubject)) {
+                    getRequest().setAttribute(Constants.TERMS, userManager.getComponentTerms());
+                    setNextPage("/terms/componentTerms.jsp");
+                } else {
+                    throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+                }
+            } catch (ReachedQuotaException e) {
+                getRequest().setAttribute("failure_reason", QUOTA_REACHED_REASON);
+                getRequest().setAttribute("max_downloads", compMgr.getMaxPublicDownloads());
+                setNextPage("/catalog/sorry.jsp");
+            } catch (NonPublicComponentException e) {
+                getRequest().setAttribute("failure_reason", NON_PUBLIC_REASON);                
+                getRequest().setAttribute("max_downloads", compMgr.getMaxPublicDownloads());
+                setNextPage("/catalog/sorry.jsp");
             }
             setIsNextPageInContext(true);
         }

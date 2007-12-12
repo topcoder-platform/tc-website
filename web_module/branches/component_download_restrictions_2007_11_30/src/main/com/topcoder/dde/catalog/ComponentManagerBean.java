@@ -2102,13 +2102,13 @@ public class ComponentManagerBean
             int numberDownloads = trackingHome.numberComponentDownloadsByUserId(subject.getUserId());
             log.debug("numberDownloads: " + numberDownloads);
             if (numberDownloads >= maxPublicDownloads) {
-                throw new ComponentDownloadException("You have exceeded the number of allowed downloads");
+                throw new ReachedQuotaException("You have exceeded the number of allowed downloads");
             }
         
             LocalDDECompCatalog comp = catalogHome.findByPrimaryKey(new Long(componentId));
             if (comp.getPublicInd() != 1) {
                 log.debug("Not public component.");
-                throw new ComponentDownloadException("You are not allowed to download non-public components");
+                throw new NonPublicComponentException("You are not allowed to download non-public components");
             } 
             log.debug("Public component.");
         } catch (ObjectNotFoundException e) {
@@ -2128,7 +2128,7 @@ public class ComponentManagerBean
         return true;
     }
 
-    private int getMaxPublicDownloads() {
+    public int getMaxPublicDownloads() {
         int maxPublicDownloads;
         try {
             maxPublicDownloads = Integer.parseInt(getConfigValue("max_public_downloads"));
