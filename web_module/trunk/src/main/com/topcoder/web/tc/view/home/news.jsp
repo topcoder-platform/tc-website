@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />12.12.07<br />11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.mckinseyquarterly.com/article_abstract_visitor.aspx?ar=2080&l2=13&l3=11' refer='/tc' />">The McKinsey Quarterly: Eight business technology trends to watch</A></span><br /><br />
+        Companies will have to build capabilities to engage talent globally or contract with talent aggregators that specialize in providing such services. TopCoder gives organizations that want to have software developed for them access to its talent pool.  <a target="_blank" href="/i/pressroom/pdfs/mckinsey_20071212.pdf">PDF</a> version available.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.mckinseyquarterly.com/article_abstract_visitor.aspx?ar=2080&l2=13&l3=11' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="518481" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.11.07<br />10:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -167,21 +180,5 @@
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm45">details</A> | 
          <tc-webtag:forumLink forumID="516571" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.26.07<br />12:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm378">SRM 378 - Problem Set &amp; Analysis</A></span><br /><br />
-      In division 1, the mid-match division summary had a familiar sight: <tc-webtag:handle coderId="10574855" context="algorithm"/> sitting at the top however, <tc-webtag:handle coderId="7390224" context="algorithm"/> won the match and was the only contestant to solve all three problems, followed by <tc-webtag:handle coderId="9906197" context="algorithm"/> and <tc-webtag:handle coderId="7446789" context="algorithm"/>, each with the 250 and 1000.</td>
-         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm378">details</A> | 
-         <tc-webtag:forumLink forumID="516075" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    

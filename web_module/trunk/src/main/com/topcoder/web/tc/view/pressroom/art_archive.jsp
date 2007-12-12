@@ -73,6 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd>Eight business technology trends to watch [December 12 - The McKinsey Quarterly] <br /><a target="_blank" href="<tc-webtag:linkTracking link='http://www.mckinseyquarterly.com/article_abstract_visitor.aspx?ar=2080&l2=13&l3=11' refer='art_archive' />">original article</a> | <a target="_blank" href="/i/pressroom/pdfs/mckinsey_20071212.pdf">PDF</a></dd>
                     <dd>Should your company 'crowdsource' its next project? [December 6 - Computerworld] <br /><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9050920&pageNumber=1' refer='art_archive' />">original article</a> | <a target="_blank" href="/i/pressroom/pdfs/computerworld_20071206.pdf">PDF</a></dd>
                     <dd>Contested Code [December 4 - Redmond Developer News] <br /><a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='art_archive' />">original article</a> | <a target="_blank" href="/i/pressroom/pdfs/rdn_20071204.pdf">PDF</a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.russiatoday.ru/news/news/16968' refer='art_archive' />">Russian computer whiz crowned world's best <br /><small style="margin-left:10px;">[November 15 - Russia Today]</small></a></dd>
