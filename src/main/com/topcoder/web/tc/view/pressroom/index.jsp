@@ -95,6 +95,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- The McKinsey Quarterly: Eight business technology trends to watch begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.mckinseyquarterly.com/article_abstract_visitor.aspx?ar=2080&l2=13&l3=11' refer='pr_index' />"><img src="/i/pressroom/theMcKinseyQuarterly_logo.png" alt="The McKinsey Quarterly logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.mckinseyquarterly.com/article_abstract_visitor.aspx?ar=2080&l2=13&l3=11' refer='pr_index' />">Eight business technology trends to watch</a></h3>
+                        <p>Companies will have to build capabilities to engage talent globally or contract with talent aggregators that specialize in providing such services. TopCoder gives organizations that want to have software developed for them access to its talent pool.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.mckinseyquarterly.com/article_abstract_visitor.aspx?ar=2080&l2=13&l3=11' refer='pr_index' />">[December 12]</a> | <a target="_blank" href="/i/pressroom/pdfs/mckinsey_20071212.pdf">PDF</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- The McKinsey Quarterly: Eight business technology trends to watch end --%>
+                
                 <%-- Computerworld: Should your company 'crowdsource' its next project? begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
