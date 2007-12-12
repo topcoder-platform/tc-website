@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br />12.12.07<br />4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions">The Best Questions for Would-be C++ Programmers, Part 1</A></span><br /><br />
+      It seems that an almost obligatory and very important part of the recruitment process is "the test." "The test" can provide information both for the interviewer and the candidate. I've had my fair share of interviews, more or less successful, and I would like to share with you my experience regarding some questions I had to face.</td>
+         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="22630158" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions">details</A> | 
+         <tc-webtag:forumLink forumID="518480" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.12.07<br />2:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='/tc' />">TopCoder Architecture Competitions Are Here!</A></span><br /><br />
@@ -162,21 +178,5 @@
         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=466">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=2479">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br />11.29.07<br />3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=mddb">An Introduction to Multidimensional Databases</A></span><br /><br />
-      In this article, we'll explore the exciting topic of multidimensional databases, which we'll refer to as MDDBs from now on.  MDDBs are a very popular technology in the <a target="_blank" href="http://en.wikipedia.org/wiki/Business_intelligence">business intelligence</a> arena, and they allow a company to perform in-depth, strategic analysis on a variety of factors affecting their company.</td>
-         <td class="newsPhoto"><img src="/i/m/dcp_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="21684580" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=mddb">details</A> | 
-         <tc-webtag:forumLink forumID="518333" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
    
