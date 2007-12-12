@@ -59,4 +59,4 @@
 --%>
 
 <%-- Architecture --%>
-<a href="<tc-webtag:linkTracking link='/tc?module=ViewArchitectureActiveContests' refer='/tc' />"><img src="/i/home/architectureCompetitions.jpg" alt="Architecture Competition" /></a>
+<a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='/tc' />"><img src="/i/home/architectureCompetitions.jpg" alt="Architecture Competition" /></a>
