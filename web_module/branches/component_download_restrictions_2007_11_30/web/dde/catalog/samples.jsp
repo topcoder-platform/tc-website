@@ -56,7 +56,7 @@
                 </p>
                 <p>
                     <c:forEach var="download" items="${downloads}">
-                        <a href="/c_component_download.jsp?comp=${download.id}&ver=${download.currentVersion}">${download.componentName}</a><br/>
+                        <a href="/c_component_download.jsp?comp=&ver=${download.currentVersion}">${download.componentName}</a><br/>
                     </c:forEach>
                 </p>
             </div>
