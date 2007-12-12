@@ -2216,10 +2216,12 @@
                 <ejb-name>DDEUserCustomerEJB</ejb-name>
                 <method-name>*</method-name>
             </method>
+<!--
             <method>
                 <ejb-name>DDEDownloadTrackingEJB</ejb-name>
                 <method-name>*</method-name>
             </method>
+-->
             <method>
                 <ejb-name>DDEComponentInquiryEJB</ejb-name>
                 <method-name>*</method-name>
@@ -2245,6 +2247,10 @@
                 <ejb-name>DDECompCatalogEJB</ejb-name>
                 <method-name>*</method-name>
             </method>
+            <method>
+                <ejb-name>DDEDownloadTrackingEJB</ejb-name>
+                <method-name>*</method-name>
+            </method>            
             <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
