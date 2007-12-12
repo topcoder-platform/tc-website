@@ -146,9 +146,9 @@ public class ServerMonitorBot {
         PrintWriter pw = new PrintWriter(f);
         for (UptimeInfo in : info) {
             pw.print(in.getKey());
-            pw.println("|");
+            pw.print("|");
             pw.print(in.getTotal());
-            pw.println("|");
+            pw.print("|");
             pw.print(in.getFailure());
             pw.println("|");
         }
