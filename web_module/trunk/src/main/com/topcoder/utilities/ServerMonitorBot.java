@@ -10,14 +10,31 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * @author rfairfax
  */
 public class ServerMonitorBot {
-    private static final Logger log = Logger.getLogger(ServerMonitorBot.class);
+
+    static final Logger log = Logger.getLogger(ServerMonitorBot.class);
+    private boolean testing = true;
+
+    private String[] addresses = {
+            "mobile_on_call@topcoder.com",
+            "email_on_call@topcoder.com"};
+    private String[] testingAddresses = {
+            "dok@topcoder.com"};
 
     /**
      * Creates a new instance of ServerMonitorBot
@@ -30,161 +47,26 @@ public class ServerMonitorBot {
         client.run();
     }
 
-    private boolean isTCAlive = true;
-    private boolean isSoftwareAlive = true;
-    private boolean isStudioAlive = true;
-    private boolean isForumsAlive = true;
+    private final static PollInfo[] sites = {
+            new PollInfo(true, "http://www.topcoder.com", "tc", 30)
+            , new PollInfo(true, "http://software.topcoder.com", "software", 30)
+            , new PollInfo(true, "http://forums.topcoder.com", "forums", 30)
+            , new PollInfo(true, "http://studio.topcoder.com", "studio", 30)
+            , new PollInfo(true, "http://www.topcoder.com/wiki", "wiki", 30)
+            , new PollInfo(true, "http://www.topcoder.com/time", "time tracker", 30)
+            , new PollInfo(true, "http://www.topcoder.com/bugs", "bug tracker", 30)
+    };
 
     public void run() {
 
         while (true) {
             try {
-                Runtime r = Runtime.getRuntime();
 
                 log.info("STARTING");
-                String[] callAndArgs = {"wget",
-                        "http://www.topcoder.com",
-                        "--header=Host: www.topcoder.com",
-                        "--timeout=30",
-                        "-t3",
-                        ""};
-
-                Process p = r.exec(callAndArgs);
-                p.waitFor();
-
-                String ret = getData(p.getErrorStream());
-                p.destroy();
-
-
-                log.info("1:" + ret + "\n" + p.exitValue());
-
-                if (ret.indexOf("failed") != -1) {
-                    if (isTCAlive) {
-                        isTCAlive = false;
-                        log.warn("FAILED, SENDING MAIL");
-                        addError("connection to wwww.topcoder.com failed");
-                        sendError();
-                    }
-                } else if (ret.indexOf("200 OK") == -1) {
-                    if (isTCAlive) {
-                        isTCAlive = false;
-                        log.warn("FAILED, SENDING MAIL");
-                        addError("response from wwww.topcoder.com failed");
-                        addErrorLarge(ret);
-                        sendError();
-                    }
-                } else {
-                    isTCAlive = true;
+                for (PollInfo site : sites) {
+                    testSite(site);
                 }
-
-                //delete file
-                wack();
-
-                String[] callAndArgs2 = {"wget",
-                        "http://software.topcoder.com",
-                        "--timeout=30",
-                        "-t3",
-                        ""};
-
-                p = r.exec(callAndArgs2);
-                p.waitFor();
-
-                ret = getData(p.getErrorStream());
-                p.destroy();
-
-                log.info("2:" + ret + "\n" + p.exitValue());
-
-                if (ret.indexOf("failed") != -1) {
-                    if (isSoftwareAlive) {
-                        isSoftwareAlive = false;
-                        log.warn("FAILED, SENDING MAIL");
-                        addError("connection to software failed");
-                        sendError();
-                    }
-                } else if (ret.indexOf("200 OK") == -1) {
-                    if (isSoftwareAlive) {
-                        isSoftwareAlive = false;
-                        log.warn("FAILED, SENDING MAIL");
-                        addError("response from software failed");
-                        addError(ret);
-                        sendError();
-                    }
-                } else {
-                    isSoftwareAlive = true;
-                }
-
-                wack();
-
-                String[] callAndArgs3 = {"wget",
-                        "http://forums.topcoder.com",
-                        "--timeout=30",
-                        "-t3",
-                        ""};
-
-                p = r.exec(callAndArgs3);
-                p.waitFor();
-
-                ret = getData(p.getErrorStream());
-                p.destroy();
-
-                log.info("2:" + ret + "\n" + p.exitValue());
-
-                if (ret.indexOf("failed") != -1) {
-                    if (isForumsAlive) {
-                        isForumsAlive = false;
-                        log.warn("FAILED, SENDING MAIL");
-                        addError("connection to forums failed");
-                        sendError();
-                    }
-                } else if (ret.indexOf("200 OK") == -1) {
-                    if (isForumsAlive) {
-                        isForumsAlive = false;
-                        log.warn("FAILED, SENDING MAIL");
-                        addError("response from forums failed");
-                        addError(ret);
-                        sendError();
-                    }
-                } else {
-                    isForumsAlive = true;
-                }
-
-                wack();
-
-                String[] callAndArgs4 = {"wget",
-                        "http://studio.topcoder.com",
-                        "--timeout=30",
-                        "-t3",
-                        ""};
-
-                p = r.exec(callAndArgs4);
-                p.waitFor();
-
-                ret = getData(p.getErrorStream());
-                p.destroy();
-
-                log.info("2:" + ret + "\n" + p.exitValue());
-
-                if (ret.indexOf("failed") != -1) {
-                    if (isStudioAlive) {
-                        isStudioAlive = false;
-                        log.warn("FAILED, SENDING MAIL");
-                        addError("connection to studio failed");
-                        sendError();
-                    }
-                } else if (ret.indexOf("200 OK") == -1) {
-                    if (isStudioAlive) {
-                        isStudioAlive = false;
-                        log.warn("FAILED, SENDING MAIL");
-                        addError("response from studio failed");
-                        addError(ret);
-                        sendError();
-                    }
-                } else {
-                    isStudioAlive = true;
-                }
-
-                wack();
-
+                recordUptimeData(sites);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -192,6 +74,149 @@ public class ServerMonitorBot {
 
             wait(5 * 60); // 5 minutes
         }
+    }
+
+    private void recordUptimeData(PollInfo[] p) throws FileNotFoundException {
+        File f = getCurrentFile();
+        int oldId = Integer.parseInt(f.getName().substring(FILENAME_PREFIX.length() - 1));
+        File newFile = new File(FILENAME_PREFIX + (oldId + 1));
+        List<UptimeInfo> infoList = readCurrentInfo();
+
+        for (PollInfo site : sites) {
+            for (UptimeInfo info : infoList) {
+                if (site.getSiteName().equals(info.getKey())) {
+                    info.setTotal(info.getTotal() + 1);
+                    if (!site.isAlive()) {
+                        info.setFailure(info.getFailure() + 1);
+                    }
+                }
+            }
+        }
+        writeInfo(newFile, infoList);
+
+    }
+
+    private static final String FILENAME_PREFIX = "uptime_info_";
+
+    private List<UptimeInfo> readCurrentInfo() {
+        File f = getCurrentFile();
+        ArrayList<UptimeInfo> ret = new ArrayList<UptimeInfo>();
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+            String line;
+            UptimeInfo info;
+            while ((line = br.readLine()) != null) {
+                if (!line.startsWith("#")) {
+                    info = new UptimeInfo();
+                    StringTokenizer st = new StringTokenizer(line, "|");
+                    info.setKey(st.nextToken());
+                    info.setTotal(Integer.parseInt(st.nextToken()));
+                    info.setFailure(Integer.parseInt(st.nextToken()));
+                    ret.add(info);
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            log.warn("couldn't find file " + f.getName());
+        } catch (IOException e) {
+            log.error("io exception", e);
+        }
+        return ret;
+    }
+
+    private void writeInfo(File f, List<UptimeInfo> info) throws FileNotFoundException {
+        PrintWriter pw = new PrintWriter(f);
+        for (UptimeInfo in : info) {
+            pw.print(in.getKey());
+            pw.println("|");
+            pw.print(in.getTotal());
+            pw.println("|");
+            pw.print(in.getFailure());
+            pw.println("|");
+        }
+        pw.flush();
+        pw.close();
+    }
+
+    private File getCurrentFile() {
+        File[] files = new File(".").listFiles();
+        int id = 0;
+        int idx = 0;
+        for (int i = 0; i < files.length; i++) {
+            int tempId = 0;
+            if (files[i].getName().startsWith(FILENAME_PREFIX)) {
+                tempId = Math.max(id, Integer.parseInt(files[i].getName().substring(FILENAME_PREFIX.length() - 1)));
+                if (tempId > id) {
+                    id = tempId;
+                    idx = i;
+                }
+            }
+        }
+        return files[idx];
+    }
+
+
+    private static class UptimeInfo {
+        private String key;
+        private int total;
+        private int failure;
+
+        public String getKey() {
+            return key;
+        }
+
+        public void setKey(String key) {
+            this.key = key;
+        }
+
+        public int getTotal() {
+            return total;
+        }
+
+        public void setTotal(int total) {
+            this.total = total;
+        }
+
+        public int getFailure() {
+            return failure;
+        }
+
+        public void setFailure(int failure) {
+            this.failure = failure;
+        }
+    }
+
+    private void testSite(PollInfo info) throws InterruptedException, IOException {
+        String[] callAndArgs4 = {"wget",
+                info.getUrl(),
+                "--timeout=" + info.getTimeout(),
+                "-t3",
+                ""};
+
+        Process p = Runtime.getRuntime().exec(callAndArgs4);
+        p.waitFor();
+
+        String errorInfo = getData(p.getErrorStream());
+        p.destroy();
+
+        log.info(info.getUrl() + " " + errorInfo + "\n" + p.exitValue());
+
+        if (errorInfo.indexOf("failed") != -1) {
+            if (info.isAlive()) {
+                log.warn("FAILED, SENDING MAIL");
+                addError("connection to " + info.getSiteName() + " failed");
+                sendError();
+            }
+        } else if (errorInfo.indexOf("200 OK") == -1) {
+            if (info.isAlive()) {
+                log.warn("FAILED, SENDING MAIL");
+                addError("response from " + info.getSiteName() + " failed");
+                addError(errorInfo);
+                sendError();
+            }
+        }
+
+
     }
 
     public String getData(InputStream in) {
@@ -209,46 +234,36 @@ public class ServerMonitorBot {
     }
 
     private static String errorText = "";
-    private static String errorTextLarge = "";
 
     public static void addError(String message) {
         log.info("ADDING ERROR");
         errorText += message + "\n";
-        errorTextLarge += message + "\n";
-    }
-
-    public static void addErrorLarge(String message) {
-        errorTextLarge += message + "\n";
     }
 
     public void sendError() {
         if (!errorText.equals("")) {
             log.info("short text \n" + errorText);
-            log.info("long text \n" + errorTextLarge);
             try {
-                TCSEmailMessage em = new TCSEmailMessage();
-                em.addToAddress("mobile_on_call@topcoder.com", TCSEmailMessage.TO);
-
-                em.setSubject("Server Error");
-                em.setBody(errorText);
-                em.setFromAddress("rfairfax@topcoder.com");
-
-                EmailEngine.send(em);
-
-                em = new TCSEmailMessage();
-                em.addToAddress("email_on_call@topcoder.com", TCSEmailMessage.TO);
-                em.setSubject("Server Error");
-                em.setBody(errorTextLarge);
-                em.setFromAddress("rfairfax@topcoder.com");
-
-                EmailEngine.send(em);
+                String[] addresses;
+                if (testing) {
+                    addresses = testingAddresses;
+                } else {
+                    addresses = this.addresses;
+                }
+                for (String address : addresses) {
+                    TCSEmailMessage em = new TCSEmailMessage();
+                    em.addToAddress(address, TCSEmailMessage.TO);
+                    em.setSubject("Server Error");
+                    em.setBody(errorText);
+                    em.setFromAddress("rfairfax@topcoder.com");
+                    EmailEngine.send(em);
+                }
             } catch (Exception e) {
                 log.error("HERE" + e.getClass());
                 e.printStackTrace();
             }
         }
         errorText = "";
-        errorTextLarge = "";
     }
 
     /**
@@ -275,16 +290,65 @@ public class ServerMonitorBot {
     }
 
     private void wack() {
-                        File[] files = new File(".").listFiles();
-                int i=0;
-                try {
-                    for (; i<files.length; i++) {
-                        if (files[i].getName().startsWith("index")) {
-                            files[i].delete();
-                        }
-                    }
-                } catch (Exception e) {
-                    log.debug("error deleting " + files[i] + " " + e.getMessage());
+        File[] files = new File(".").listFiles();
+        int i = 0;
+        try {
+            for (; i < files.length; i++) {
+                if (files[i].getName().startsWith("index")) {
+                    files[i].delete();
                 }
+            }
+        } catch (Exception e) {
+            log.debug("error deleting " + files[i] + " " + e.getMessage());
+        }
     }
+
+
+    private static class PollInfo {
+        private boolean isAlive;
+        private String siteName;
+        private String url;
+        private int timeout;
+
+        PollInfo(boolean isAlive, String url, String siteName, int timeout) {
+            this.isAlive = isAlive;
+            this.url = url;
+            this.siteName = siteName;
+            this.timeout = timeout;
+        }
+
+
+        public boolean isAlive() {
+            return isAlive;
+        }
+
+        public void setAlive(boolean alive) {
+            isAlive = alive;
+        }
+
+        public String getSiteName() {
+            return siteName;
+        }
+
+        public void setSiteName(String siteName) {
+            this.siteName = siteName;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public int getTimeout() {
+            return timeout;
+        }
+
+        public void setTimeout(int timeout) {
+            this.timeout = timeout;
+        }
+    }
+
 }
