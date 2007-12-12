@@ -33,11 +33,12 @@ public class ViewSampleComponents extends BaseProcessor {
                     getInitialContext().lookup(ComponentManagerHome.EJB_REF_NAME), ComponentManagerHome.class);
             ComponentManager compMgr = componentManagerHome.create();
 
-            LocalDDEDownloadTrackingHome trackingHome = (LocalDDEDownloadTrackingHome) PortableRemoteObject.narrow(
-                    getInitialContext().lookup(LocalDDEDownloadTrackingHome.EJB_REF_NAME), LocalDDEDownloadTrackingHome.class);
+//            LocalDDEDownloadTrackingHome trackingHome = (LocalDDEDownloadTrackingHome) PortableRemoteObject.narrow(
+//                    getInitialContext().lookup(LocalDDEDownloadTrackingHome.EJB_REF_NAME), LocalDDEDownloadTrackingHome.class);
 
             int maxPublicDownloads = compMgr.getMaxPublicDownloads();
-            int numberDownloads = trackingHome.numberComponentDownloadsByUserId(getUser().getId());
+//            int numberDownloads = trackingHome.numberComponentDownloadsByUserId(getUser().getId());
+            int numberDownloads = 3;
 
             getRequest().setAttribute("max_downloads", maxPublicDownloads);                
             getRequest().setAttribute("remaining_downloads", maxPublicDownloads - numberDownloads);                
