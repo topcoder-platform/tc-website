@@ -78,6 +78,7 @@ public class ServerMonitorBot {
     }
 
     private void recordUptimeData(PollInfo[] p) throws FileNotFoundException {
+        log.info("recording update data");
         File f = getCurrentFile();
         int oldId = 0;
         if (f != null) {
