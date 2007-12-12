@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.12.07<br />2:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='/tc' />">TopCoder Architecture Competitions Are Here!</A></span><br /><br />
+        Well, <em>almost</em> here. We've been preparing the first competition for release and now we'd like to get your feedback.<br /><br /> This is your chance to help guide the direction of these competitions, so we’re providing a full explanation – ahead of time - of the competition process, the scorecard, 
+        the deliverables and all of the documents we plan to release to initially support these contests. This includes the actual specification documentation for the first beta Architecture Competition which will be launched next week. Please take a look and let us know what you think!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="518483" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />12.12.07<br />11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A target="_blank" href="<tc-webtag:linkTracking link='http://www.mckinseyquarterly.com/article_abstract_visitor.aspx?ar=2080&l2=13&l3=11' refer='/tc' />">The McKinsey Quarterly: Eight business technology trends to watch</A></span><br /><br />
@@ -164,21 +178,5 @@
          <A href="/tc?module=Static&d1=tutorials&d2=mddb">details</A> | 
          <tc-webtag:forumLink forumID="518333" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.28.07<br />10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm45">TCHS SRM 45 - Problem Set &amp; Analysis</A></span><br /><br />
-      Many students participated in this match.  They were faced with pretty easy problemset. 40 contestants successfully finished all three problems. Some of them finished all in less than 15 minutes.  The difference in total points between successive contestants was very small (that's what easy match brings - you have to be fast).</td>
-         <td class="newsPhoto"><img src="/i/m/Relja_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20641244" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm45">details</A> | 
-         <tc-webtag:forumLink forumID="516571" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
    
