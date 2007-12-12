@@ -1,14 +1,6 @@
-<%@ page import="java.util.Collection"%>
-<%@ page import="java.util.Iterator"%>
-<%@ page import="com.topcoder.dde.catalog.Download"%>
-<%@ page import="com.topcoder.dde.util.Constants"%>
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
-
-<jsp:useBean id="componentInfo" class="com.topcoder.dde.catalog.ComponentInfo" scope="request" />
-<jsp:useBean id="versionInfo" class="com.topcoder.dde.catalog.ComponentVersionInfo" scope="request" />
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<% Collection downloads = (Collection)request.getAttribute("downloads");%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -54,21 +46,19 @@
         <td width="99%" align="center">
             <div style="width:510px; margin-bottom: 40px;" align="left">
                 <p>
-                    The following is a list of sample components that you can download.  Each member is allowed to download from this list <strong>5</strong> times.
+                    The following is a list of sample components that you can download.  Each member is allowed to download from this list <strong>${max_downloads}</strong> times.
                 </p>
                 <p align="center">
-                    You have <strong>5</strong> downloads remaining.
+                    You have <strong>${remaining_downloads}</strong> downloads remaining.
                 </p>
                 <p style="border-bottom: 1px solid #000000;">
                     <strong>Sample components</strong>
                 </p>
                 <p>
-                    <a href="">Component 1</a><br />
-                    <a href="">Component 2</a><br />
+                    <c:forEach var="download" items="${downloads}">
+                        <a href="/c_component_download.jsp?comp=${download.id}&ver=${download.currentVersion}">${download.componentName}</a><br/>
+                    </c:forEach>
                 </p>
-
-                
-
             </div>
         </td>
 <!-- Center Column begins -->

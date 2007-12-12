@@ -1,14 +1,8 @@
-<%@ page import="java.util.Collection"%>
-<%@ page import="java.util.Iterator"%>
-<%@ page import="com.topcoder.dde.catalog.Download"%>
-<%@ page import="com.topcoder.dde.util.Constants"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.topcoder.dde.request.ViewComponentTerms"%>
+
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
-
-<jsp:useBean id="componentInfo" class="com.topcoder.dde.catalog.ComponentInfo" scope="request" />
-<jsp:useBean id="versionInfo" class="com.topcoder.dde.catalog.ComponentVersionInfo" scope="request" />
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<% Collection downloads = (Collection)request.getAttribute("downloads");%>
 
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -26,6 +20,9 @@
 </head>
 
 <body class="body">
+
+<c:set value="<%=ViewComponentTerms.NON_PUBLIC_REASON%>" var="non_public"/>
+<c:set value="<%=ViewComponentTerms.QUOTA_REACHED_REASON%>" var="quota_reached"/>
 
 <!-- Header begins -->
 <jsp:include page="/includes/top.jsp"/>
@@ -53,24 +50,27 @@
 <!-- Center Column begins -->
         <td width="99%" align="center">
             <div style="width:510px; margin-bottom: 40px;" align="left">
-                <div align="center" style="margin: 40px;">
-                    <img src="/i/catalog/sorry.png" alt="Sorry"/>
-                </div>
-                <p>
-                    However we do offer a set of components that are available for download.  Each TopCoder member is allowed download a component from this list <strong>5</strong> times.
-                </p>
-                <div align="center" style="margin: 20px;">
-                    <a href=""><img src="/i/catalog/viewAvailable.png" alt="View available components" border="0" /></a>
-                </div>
-                <p>
-                    If you are interested in downloading additional components for non-commercial or trial purposes, or if you require access to the full component catalog to compete in a TopCoder competition and you feel that this error message is a mistake, send an email <a href="mailto:service@topcoder.com">service@topcoder.com</a> explaining the situation.
-                </p>
-                <div align="center" style="margin: 40px;">
-                    <img src="/i/catalog/sorryLimit.png" alt="Sorry"/>
-                </div>
-                <p>
-                    Unfortunately you have already downloaded <strong>5</strong> components from the list of samples.
-                </p>
+                <c:choose>
+                    <c:when test="${failure_reason == non_public}">
+                        <div align="center" style="margin: 40px;">
+                            <img src="/i/catalog/sorry.png" alt="Sorry"/>
+                        </div>
+                        <p>
+                            However we do offer a set of components that are available for download.  Each TopCoder member is allowed download a component from this list <strong>${max_downloads}</strong> times.
+                        </p>
+                        <div align="center" style="margin: 20px;">
+                            <a href="/ViewSampleComponents"><img src="/i/catalog/viewAvailable.png" alt="View available components" border="0" /></a>
+                        </div>
+                    </c:when>
+                    <c:when test="${failure_reason == quota_reached}">
+                        <div align="center" style="margin: 40px;">
+                            <img src="/i/catalog/sorryLimit.png" alt="Sorry"/>
+                        </div>
+                        <p>
+                            Unfortunately you have already downloaded <strong>${max_downloads}</strong> components from the list of samples.
+                        </p>
+                    </c:when>
+                </c:choose>
                 <p>
                     If you are interested in downloading additional components for non-commercial or trial purposes, or if you require access to the full component catalog to compete in a TopCoder competition and you feel that this error message is a mistake, send an email <a href="mailto:service@topcoder.com">service@topcoder.com</a> explaining the situation.
                 </p>
@@ -110,6 +110,5 @@
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
 
-</form>
 </body>
 </html>
