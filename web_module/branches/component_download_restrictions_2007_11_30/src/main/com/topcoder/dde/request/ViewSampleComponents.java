@@ -8,7 +8,6 @@ import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalog;
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalogHome;
-import com.topcoder.dde.persistencelayer.interfaces.LocalDDEDownloadTrackingHome;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
@@ -29,16 +28,13 @@ public class ViewSampleComponents extends BaseProcessor {
                     getInitialContext().lookup(LocalDDECompCatalogHome.EJB_REF_NAME), LocalDDECompCatalogHome.class);
             Collection<LocalDDECompCatalog> publicComponents = (Collection<LocalDDECompCatalog>) compCatalogHome.findPublic();
 
-            LocalDDEDownloadTrackingHome trackingHome = (LocalDDEDownloadTrackingHome) PortableRemoteObject.narrow(
-                    getInitialContext().lookup(LocalDDEDownloadTrackingHome.EJB_REF_NAME), LocalDDEDownloadTrackingHome.class);
-
             ComponentManagerHome componentManagerHome = (ComponentManagerHome) PortableRemoteObject.narrow(
                     getInitialContext().lookup(ComponentManagerHome.EJB_REF_NAME), ComponentManagerHome.class);
             ComponentManager compMgr = componentManagerHome.create();
 
 
             int maxPublicDownloads = compMgr.getMaxPublicDownloads();
-            int numberDownloads = trackingHome.numberComponentDownloadsByUserId(getUser().getId());
+            int numberDownloads = compMgr.getNumberComponentsDownloaded(getUser().getId());
 
             getRequest().setAttribute("max_downloads", maxPublicDownloads);                
             getRequest().setAttribute("remaining_downloads", maxPublicDownloads - numberDownloads);                

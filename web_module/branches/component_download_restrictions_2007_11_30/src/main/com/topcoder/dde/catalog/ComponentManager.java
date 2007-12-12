@@ -715,6 +715,9 @@ public interface ComponentManager extends javax.ejb.EJBObject {
     public int getMaxPublicDownloads()
             throws RemoteException;
 
+    public int getNumberComponentsDownloaded(long userId)
+            throws RemoteException;
+
     /**
      * Tracks a download of the version of the component managed by this
      * instance.

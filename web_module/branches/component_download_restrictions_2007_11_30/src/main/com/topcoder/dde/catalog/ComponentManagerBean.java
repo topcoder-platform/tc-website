@@ -2133,11 +2133,21 @@ public class ComponentManagerBean
         try {
             maxPublicDownloads = Integer.parseInt(getConfigValue("max_public_downloads"));
         } catch (NumberFormatException e) {
-            throw new EJBException(e.toString());
+            throw new EJBException(e);
         } catch (ConfigManagerException e) {
-            throw new EJBException(e.toString());
+            throw new EJBException(e);
         }
         return maxPublicDownloads;
+    }
+
+    public int getNumberComponentsDownloaded(long userId) {
+        int numComponentsDownloaded;
+            try {
+                numComponentsDownloaded = trackingHome.numberComponentDownloadsByUserId(userId);
+            } catch (FinderException e) {
+                throw new EJBException(e);
+            }
+        return numComponentsDownloaded;
     }
 
     public void trackDownload(long userId, long downloadId, long licenseId)
