@@ -29,20 +29,20 @@ public class ViewSampleComponents extends BaseProcessor {
                     getInitialContext().lookup(LocalDDECompCatalogHome.EJB_REF_NAME), LocalDDECompCatalogHome.class);
             Collection<LocalDDECompCatalog> publicComponents = (Collection<LocalDDECompCatalog>) compCatalogHome.findPublic();
 
+            LocalDDEDownloadTrackingHome trackingHome = (LocalDDEDownloadTrackingHome) PortableRemoteObject.narrow(
+                    getInitialContext().lookup(LocalDDEDownloadTrackingHome.EJB_REF_NAME), LocalDDEDownloadTrackingHome.class);
+
             ComponentManagerHome componentManagerHome = (ComponentManagerHome) PortableRemoteObject.narrow(
                     getInitialContext().lookup(ComponentManagerHome.EJB_REF_NAME), ComponentManagerHome.class);
             ComponentManager compMgr = componentManagerHome.create();
 
-//            LocalDDEDownloadTrackingHome trackingHome = (LocalDDEDownloadTrackingHome) PortableRemoteObject.narrow(
-//                    getInitialContext().lookup(LocalDDEDownloadTrackingHome.EJB_REF_NAME), LocalDDEDownloadTrackingHome.class);
 
             int maxPublicDownloads = compMgr.getMaxPublicDownloads();
-//            int numberDownloads = trackingHome.numberComponentDownloadsByUserId(getUser().getId());
-            int numberDownloads = 3;
+            int numberDownloads = trackingHome.numberComponentDownloadsByUserId(getUser().getId());
 
             getRequest().setAttribute("max_downloads", maxPublicDownloads);                
             getRequest().setAttribute("remaining_downloads", maxPublicDownloads - numberDownloads);                
-            getRequest().setAttribute("downloads", publicComponents);                
+            getRequest().setAttribute("public_components", publicComponents);                
             setNextPage("/catalog/samples.jsp");
 
             setIsNextPageInContext(true);

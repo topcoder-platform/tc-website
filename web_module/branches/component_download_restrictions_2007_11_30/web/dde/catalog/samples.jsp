@@ -55,8 +55,8 @@
                     <strong>Sample components</strong>
                 </p>
                 <p>
-                    <c:forEach var="download" items="${downloads}">
-                        <a href="/c_component_download.jsp?comp=${download.primaryKey}&ver=${download.currentVersion}">${download.componentName}</a><br/>
+                    <c:forEach var="component" items="${public_components}">
+                        <a href="/tcs?module=ViewComponentTerms&comp=${component.primaryKey}&ver=${component.currentVersion}">${component.componentName}</a><br/>
                     </c:forEach>
                 </p>
             </div>
