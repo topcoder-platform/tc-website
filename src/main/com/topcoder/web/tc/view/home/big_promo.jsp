@@ -2,7 +2,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%-- digital run 
-<A href="/tc?module=Static&d1=digital_run&d2=description"><IMG SRC="/i/home/digitalrun20070504.png" border="0" alt="The Digital Run - 2007.5 Season" /></A>
+<a href="/tc?module=Static&d1=digital_run&d2=description"><IMG SRC="/i/home/digitalrun20070504.png" border="0" alt="The Digital Run - 2007.5 Season" /></a>
 --%>
 <%-- TCHS  
 <map name="tchs07">
@@ -19,7 +19,7 @@
         <area shape="rect" alt="" coords="379,36,409,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary" />
         <area shape="rect" alt="" coords="412,36,442,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=summary" />
         <area shape="rect" alt="" coords="445,36,475,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=summary" />
-
+<a
         <area shape="rect" alt="" coords="1,5,287,146" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about" />
         <area shape="rect" alt="" coords="300,109,361,130" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies" />
         <area shape="rect" alt="" coords="375,109,430,130" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=photos" />
@@ -28,7 +28,7 @@
         <img src="/i/home/tco07champions.png" alt="2007 TopCoder Open" usemap="#tco07" style="display: block;" />
         --%>
 <%-- homepage design prediction 
-<A href="/to"><img src="/i/home/predictRd2.png" alt="Predict the winners"/></A>
+<a href="/to"><img src="/i/home/predictRd2.png" alt="Predict the winners"/></a>
 --%>
 
 <%-- TCCC07 
@@ -50,10 +50,13 @@
 <img src="/i/home/tccc07_ppa.png" alt="TCCC07 Prestigious Professor Program" usemap="#tccc07" style="display: block;" />
 --%>
 
-<%-- TCHS08 --%>
+<%-- TCHS08 
 <a href="<tc-webtag:linkTracking link='http://forums.topcoder.com/?module=Thread&threadID=590134&mc=24#875555' refer='/tc' />"><img src="/i/home/tchs08_promo.jpg" alt="2008 TopCoder High School" /></a>
-
+--%>
 
 <%-- UML Tool 
-<A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />"><img src="/i/home/umltoolRelease.jpg" alt="UML Tool Release" /></A>
+<a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />"><img src="/i/home/umltoolRelease.jpg" alt="UML Tool Release" /></a>
 --%>
+
+<%-- Architecture --%>
+<a href="<tc-webtag:linkTracking link='/tc?module=ViewArchitectureActiveContests' refer='/tc' />"><img src="/i/home/architectureCompetitions.jpg" alt="Architecture Competition" /></a>
