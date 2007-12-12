@@ -19,6 +19,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -85,13 +86,25 @@ public class ServerMonitorBot {
         File newFile = new File(FILENAME_PREFIX + (oldId + 1));
         List<UptimeInfo> infoList = readCurrentInfo();
 
+        HashMap<String, UptimeInfo> infoMap = new HashMap<String, UptimeInfo>();
+        for (UptimeInfo info : infoList) {
+            infoMap.put(info.getKey(), info);
+        }
+
+        UptimeInfo tempInfo = null;
         for (PollInfo site : sites) {
-            for (UptimeInfo info : infoList) {
-                if (site.getSiteName().equals(info.getKey())) {
-                    info.setTotal(info.getTotal() + 1);
-                    if (!site.isAlive()) {
-                        info.setFailure(info.getFailure() + 1);
-                    }
+            tempInfo = infoMap.get(site.getSiteName());
+            if (tempInfo == null) {
+                tempInfo = new UptimeInfo();
+                tempInfo.setTotal(1);
+                if (!site.isAlive()) {
+                    tempInfo.setFailure(1);
+                }
+                infoMap.put(site.getSiteName(), tempInfo);
+            } else {
+                tempInfo.setTotal(tempInfo.getTotal() + 1);
+                if (site.getSiteName().equals(tempInfo.getKey())) {
+                    tempInfo.setTotal(tempInfo.getTotal() + 1);
                 }
             }
         }
@@ -104,25 +117,26 @@ public class ServerMonitorBot {
     private List<UptimeInfo> readCurrentInfo() {
         File f = getCurrentFile();
         ArrayList<UptimeInfo> ret = new ArrayList<UptimeInfo>();
-        try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
-            String line;
-            UptimeInfo info;
-            while ((line = br.readLine()) != null) {
-                if (!line.startsWith("#")) {
-                    info = new UptimeInfo();
-                    StringTokenizer st = new StringTokenizer(line, "|");
-                    info.setKey(st.nextToken());
-                    info.setTotal(Integer.parseInt(st.nextToken()));
-                    info.setFailure(Integer.parseInt(st.nextToken()));
-                    ret.add(info);
+        if (f != null) {
+            try {
+                BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+                String line;
+                UptimeInfo info;
+                while ((line = br.readLine()) != null) {
+                    if (!line.startsWith("#")) {
+                        info = new UptimeInfo();
+                        StringTokenizer st = new StringTokenizer(line, "|");
+                        info.setKey(st.nextToken());
+                        info.setTotal(Integer.parseInt(st.nextToken()));
+                        info.setFailure(Integer.parseInt(st.nextToken()));
+                        ret.add(info);
+                    }
                 }
+            } catch (FileNotFoundException e) {
+                log.warn("couldn't find file " + f.getName());
+            } catch (IOException e) {
+                log.error("io exception", e);
             }
-
-        } catch (FileNotFoundException e) {
-            log.warn("couldn't find file " + f.getName());
-        } catch (IOException e) {
-            log.error("io exception", e);
         }
         return ret;
     }
