@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%"> 
+<tr class="bodyText"><td nowrap="nowrap">12.12.07 2:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=architecture&d2=beta">TopCoder Architecture Competitions Are Here!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.21.07 1:15 PM - </td><td width="100%"><A href="http://www.topcoder.com/registration/actions/ProjectDetails.do?method=displayProjectDetails&projectId=30002900">Milestone added to Client Cockpit Contest</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.12.07 1:00 PM - </td><td width="100%"><A href="http://forums.topcoder.com/?module=Thread&threadID=593270&start=0">The Next Evolution of TopCoder</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.30.07 5:45 PM - </td><td width="100%"><A target="_blank" href="http://csf.topcoder.com/forums?module=Thread&threadID=123&start=0">CSF Mashup Assembly $40,000.00 Series Prize Purse Winners</A></td></tr>
