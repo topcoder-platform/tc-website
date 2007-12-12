@@ -81,7 +81,7 @@ public class ServerMonitorBot {
         File f = getCurrentFile();
         int oldId = 0;
         if (f != null) {
-            oldId = Integer.parseInt(f.getName().substring(FILENAME_PREFIX.length() - 1));
+            oldId = Integer.parseInt(f.getName().substring(FILENAME_PREFIX.length()));
         }
         File newFile = new File(FILENAME_PREFIX + (oldId + 1));
         List<UptimeInfo> infoList = readCurrentInfo();
