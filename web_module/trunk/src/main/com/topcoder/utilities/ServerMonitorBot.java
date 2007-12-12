@@ -109,7 +109,11 @@ public class ServerMonitorBot {
                 }
             }
         }
-        writeInfo(newFile, infoList);
+        ArrayList<UptimeInfo> newList = new ArrayList<UptimeInfo>(infoMap.size());
+        for (UptimeInfo info : infoMap.values()) {
+            newList.add(info);
+        }
+        writeInfo(newFile, newList);
 
     }
 
