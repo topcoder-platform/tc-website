@@ -40,14 +40,16 @@
             <div align="left" style="margin-bottom: 20px;">
                 <img src="/i/introevent/bcsLogo.png" alt="" />
             </div>
-            <h2>Problem Statement for StringFragmentation</h2>
+            <h2>Problem Statement for TheDiceGame</h2>
 
+            <%--
             <div>
             <strong>
             Problem Statement 
-            | <A href="/tc?module=Static&d1=introevent&d2=bcsscs&d3=stringFragmentationSol" class="bcLink">Solution</A>
+            | <A href="/tc?module=Static&d1=introevent&d2=bcsscs&d3=theDiceGameSol" class="bcLink">Solution</A>
             </strong>
             </div>
+            --%>
             
             <table>
                 <tbody>
@@ -57,9 +59,8 @@
                     <tr>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td>
-                            <p>You are given a String containing a list of words separated by single spaces, with no leading or trailing spaces. You have a panel on which you would like to write these words, in order, possibly over multiple lines. The words must go from left to right within each line, and the lines must go from top to bottom. Each line must contain only complete words, and each pair of adjacent words in a line must be separated by a single space. There must be no leading or trailing spaces.</p>
-                            <p>You must write the words in a font size greater than 7. In a font of size N, the height of each letter is 2*N pixels, and the width of each character (letters and spaces) is N+2 pixels. There is no space between adjacent characters and adjacent lines.</p>
-                            <p>You are given a String <strong>text</strong> containing the words you must write. The dimensions of the panel in pixels are given in the ints <strong>width</strong> and <strong>height</strong>. You are not allowed to rotate the panel. Return the largest integer font size strictly greater than 7 that you can use to write the words on the panel, or -1 if it is impossible.</p>
+                            <p>Little John has one standard die with numbers one to six on its sides. Each time he throws the die, he gets as many candies from his mom as the number on the top of the die. John's goal is to collect at least <strong>candies</strong> candies. Then he will eat them all and became a little fat boy.</p>
+                            <p>Return the expected number of throws needed for John to achieve his goal.</p>
                         </td>
                     </tr>
                     <tr>
@@ -75,23 +76,23 @@
                                 <tbody>
                                     <tr>
                                         <td>Class:</td>
-                                        <td>StringFragmentation</td>
+                                        <td>TheDiceGame</td>
                                     </tr>
                                     <tr>
                                         <td>Method:</td>
-                                        <td>largestFontSize</td>
+                                        <td>expectedThrows</td>
                                     </tr>
                                     <tr>
                                         <td>Parameters:</td>
-                                        <td>String, int, int</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Returns:</td>
                                         <td>int</td>
                                     </tr>
                                     <tr>
+                                        <td>Returns:</td>
+                                        <td>double</td>
+                                    </tr>
+                                    <tr>
                                         <td>Method signature:</td>
-                                        <td>int largestFontSize(String text, int width, int height)</td>
+                                        <td>double expectedThrows(int candies)</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">(be sure your method is public)</td>
@@ -114,7 +115,7 @@
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td>If you start a new line between two words, then the space that separated them in the input doesn't get written to the panel.</td>
+                        <td>The returned value must be accurate to within a relative or absolute value of 1E-9.</td>
                     </tr>
                     <tr>
                         <td colspan="2">&nbsp;</td>
@@ -124,22 +125,7 @@
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td><strong>text</strong> will contain between 1 and 50 characters, inclusive.</td>
-                    </tr>
-                    <tr>
-                        <td align="center" valign="top">-</td>
-                        <td>Each character in <strong>text</strong> will be an uppercase letter ('A'-'Z') or a space (' ').</td>
-                    </tr>
-                    <tr>
-                        <td align="center" valign="top">-</td>
-                        <td><strong>text</strong> must be a list of words separated by single spaces, with no leading or trailing spaces, where each word is one or more uppercase letters.</td>
-                    </tr>
-                    <tr>
-                        <td align="center" valign="top">-</td>
-                        <td><strong>width</strong> and <strong>height</strong> will be between 1 and 10000, inclusive.</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">&nbsp;</td>
+                        <td><strong>candies</strong> will be between 1 and 1000000, inclusive.</td>
                     </tr>
                     <tr>
                         <td colspan="2"><h3>Examples</h3></td>
@@ -159,9 +145,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>"ONE TWO THREE FOUR FIVE"
-150
-40</pre>
+                                                            <pre>1</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -170,7 +154,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 9</pre>
+                                            <pre>Returns: 1.0</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -178,7 +162,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">With a font size of 9, we can write "ONE TWO THREE" on the first line and "FOUR FIVE" on the second line. The width of the first line is 13 characters * (9+2) pixels = 143 pixels. The width of the second line is 9 characters * (9+2) pixels = 99 pixels. The total height is 2 lines * (2*9) pixels = 36 pixels. The total size is therefore 143 x 36 pixels, which fits inside the 150 x 40 pixel panel. If you used a font size of 10, it would be 156 x 40 pixels, which would not fit.</td>
+                                                        <td colspan="2">John needs only one throw to get at least one candy.</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -203,9 +187,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>"ONE TWO THREE FOUR FIVE"
-150
-60</pre>
+                                                            <pre>2</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -214,7 +196,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 10</pre>
+                                            <pre>Returns: 1.1666666666666667</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -222,7 +204,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">Now we can write it in a font size of 10 by separating the text into three lines: "ONE TWO", "THREE", "FOUR FIVE".</td>
+                                                        <td colspan="2">After the first throw, there is a probability of 1/6 that John will need an additional throw.</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -247,9 +229,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>"ONE TWO THREE FOUR FIVE"
-150
-10000</pre>
+                                                            <pre>7</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -258,7 +238,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 28</pre>
+                                            <pre>Returns: 2.5216263717421126</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -266,7 +246,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">If you write each word on a separate line, you can use a font size of 28. The widest line would be "THREE", which is 150 pixels wide.</td>
+                                                        <td colspan="2">&nbsp;</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -291,9 +271,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>"ONE TWO THREE FOUR FIVE"
-10000
-10000</pre>
+                                                            <pre>47</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -302,7 +280,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 1250</pre>
+                                            <pre>Returns: 13.90476189046144</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -311,94 +289,6 @@
                                                 <tbody>
                                                     <tr>
                                                         <td colspan="2">&nbsp;</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center" nowrap="true">4)</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                        <td>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <pre>"ONE TWO THREE FOUR FIVE"
-50
-50</pre>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <pre>Returns: -1</pre>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td colspan="2">&nbsp;</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center" nowrap="true">5)</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                        <td>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <pre>"A"
-9
-14</pre>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <pre>Returns: -1</pre>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td colspan="2">Note that font size must be <em>strictly</em> greater than 7.</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
