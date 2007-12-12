@@ -97,6 +97,7 @@ public class ServerMonitorBot {
             tempInfo = infoMap.get(site.getSiteName());
             if (tempInfo == null) {
                 tempInfo = new UptimeInfo();
+                tempInfo.setKey(site.getSiteName());
                 tempInfo.setTotal(1);
                 if (!site.isAlive()) {
                     tempInfo.setFailure(1);
@@ -153,7 +154,6 @@ public class ServerMonitorBot {
             buf.append("|");
             buf.append(in.getFailure());
             buf.append("|");
-            log.info(buf.toString());
             pw.println(buf.toString());
 
         }
