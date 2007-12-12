@@ -153,7 +153,7 @@ public class ServerMonitorBot {
             buf.append("|");
             buf.append(in.getFailure());
             buf.append("|");
-            log.debug(buf.toString());
+            log.info(buf.toString());
             pw.println(buf.toString());
 
         }
@@ -243,6 +243,7 @@ public class ServerMonitorBot {
                 sendError();
             }
         }
+        wack();
 
 
     }
