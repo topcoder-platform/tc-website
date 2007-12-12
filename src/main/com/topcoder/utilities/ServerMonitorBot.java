@@ -144,7 +144,7 @@ public class ServerMonitorBot {
     private File getCurrentFile() {
         File[] files = new File(".").listFiles();
         int id = 0;
-        int idx = 0;
+        int idx = -1;
         for (int i = 0; i < files.length; i++) {
             int tempId = 0;
             if (files[i].getName().startsWith(FILENAME_PREFIX)) {
@@ -155,7 +155,12 @@ public class ServerMonitorBot {
                 }
             }
         }
-        return files[idx];
+        if (idx >= 0) {
+            return files[idx];
+        } else {
+            return null;
+        }
+
     }
 
 
