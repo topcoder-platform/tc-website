@@ -144,13 +144,18 @@ public class ServerMonitorBot {
 
     private void writeInfo(File f, List<UptimeInfo> info) throws FileNotFoundException {
         PrintWriter pw = new PrintWriter(f);
+        StringBuilder buf;
         for (UptimeInfo in : info) {
-            pw.print(in.getKey());
-            pw.print("|");
-            pw.print(in.getTotal());
-            pw.print("|");
-            pw.print(in.getFailure());
-            pw.println("|");
+            buf = new StringBuilder(50);
+            buf.append(in.getKey());
+            buf.append("|");
+            buf.append(in.getTotal());
+            buf.append("|");
+            buf.append(in.getFailure());
+            buf.append("|");
+            log.debug(buf.toString());
+            pw.println(buf.toString());
+
         }
         pw.flush();
         pw.close();
@@ -312,13 +317,19 @@ public class ServerMonitorBot {
         sem = true;
     }
 
+
+    private final static String[] badFiles = {
+            "dashboard.action", "Dashboard.jspa", "index.html", "login.jsp"};
+
     private void wack() {
         File[] files = new File(".").listFiles();
         int i = 0;
         try {
             for (; i < files.length; i++) {
-                if (files[i].getName().startsWith("index")) {
-                    files[i].delete();
+                for (String s : badFiles) {
+                    if (files[i].getName().startsWith(s)) {
+                        files[i].delete();
+                    }
                 }
             }
         } catch (Exception e) {
