@@ -78,7 +78,10 @@ public class ServerMonitorBot {
 
     private void recordUptimeData(PollInfo[] p) throws FileNotFoundException {
         File f = getCurrentFile();
-        int oldId = Integer.parseInt(f.getName().substring(FILENAME_PREFIX.length() - 1));
+        int oldId = 0;
+        if (f != null) {
+            oldId = Integer.parseInt(f.getName().substring(FILENAME_PREFIX.length() - 1));
+        }
         File newFile = new File(FILENAME_PREFIX + (oldId + 1));
         List<UptimeInfo> infoList = readCurrentInfo();
 
