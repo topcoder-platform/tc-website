@@ -59,7 +59,7 @@
                             However we do offer a set of components that are available for download.  Each TopCoder member is allowed download a component from this list <strong>${max_downloads}</strong> times.
                         </p>
                         <div align="center" style="margin: 20px;">
-                            <a href="/ViewSampleComponents"><img src="/i/catalog/viewAvailable.png" alt="View available components" border="0" /></a>
+                            <a href="/tcs?module=ViewSampleComponents"><img src="/i/catalog/viewAvailable.png" alt="View available components" border="0" /></a>
                         </div>
                     </c:when>
                     <c:when test="${failure_reason == quota_reached}">
