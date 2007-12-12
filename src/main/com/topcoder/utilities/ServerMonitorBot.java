@@ -132,6 +132,7 @@ public class ServerMonitorBot {
                         ret.add(info);
                     }
                 }
+                br.close();
             } catch (FileNotFoundException e) {
                 log.warn("couldn't find file " + f.getName());
             } catch (IOException e) {
