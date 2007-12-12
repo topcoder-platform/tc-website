@@ -37,7 +37,7 @@ public class ViewSampleComponents extends BaseProcessor {
             int numberDownloads = compMgr.getNumberComponentsDownloaded(getUser().getId());
 
             getRequest().setAttribute("max_downloads", maxPublicDownloads);                
-            getRequest().setAttribute("remaining_downloads", maxPublicDownloads - numberDownloads);                
+            getRequest().setAttribute("remaining_downloads", (maxPublicDownloads - numberDownloads) < 0 ? 0 : (maxPublicDownloads - numberDownloads));                
             getRequest().setAttribute("public_components", publicComponents);                
             setNextPage("/catalog/samples.jsp");
 
