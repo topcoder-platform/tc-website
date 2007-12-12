@@ -163,7 +163,7 @@ public class ServerMonitorBot {
         for (int i = 0; i < files.length; i++) {
             int tempId = 0;
             if (files[i].getName().startsWith(FILENAME_PREFIX)) {
-                tempId = Math.max(id, Integer.parseInt(files[i].getName().substring(FILENAME_PREFIX.length() - 1)));
+                tempId = Math.max(id, Integer.parseInt(files[i].getName().substring(FILENAME_PREFIX.length())));
                 if (tempId > id) {
                     id = tempId;
                     idx = i;
