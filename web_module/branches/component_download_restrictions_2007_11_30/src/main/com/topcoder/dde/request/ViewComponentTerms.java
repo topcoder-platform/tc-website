@@ -22,8 +22,8 @@ import com.topcoder.web.common.PermissionException;
 public class ViewComponentTerms extends BaseProcessor {
 
 
-    public static final int QUOTA_REACHED_REASON = 1;
-    public static final int NON_PUBLIC_REASON = 2;
+    public static final Integer QUOTA_REACHED_REASON = 1;
+    public static final Integer NON_PUBLIC_REASON = 2;
 
     protected void businessProcessing() throws Exception {
 
