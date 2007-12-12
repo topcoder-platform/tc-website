@@ -77,7 +77,7 @@ public class ServerMonitorBot {
         }
     }
 
-    private void recordUptimeData(PollInfo[] p) throws FileNotFoundException {
+    private void recordUptimeData(PollInfo[] p) throws IOException {
         log.info("recording update data");
         File f = getCurrentFile();
         int oldId = 0;
@@ -115,35 +115,30 @@ public class ServerMonitorBot {
 
     private static final String FILENAME_PREFIX = "uptime_info_";
 
-    private List<UptimeInfo> readCurrentInfo() {
+    private List<UptimeInfo> readCurrentInfo() throws IOException {
         File f = getCurrentFile();
         ArrayList<UptimeInfo> ret = new ArrayList<UptimeInfo>();
         if (f != null) {
-            try {
-                BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
-                String line;
-                UptimeInfo info;
-                while ((line = br.readLine()) != null) {
-                    if (!line.startsWith("#")) {
-                        info = new UptimeInfo();
-                        StringTokenizer st = new StringTokenizer(line, "|");
-                        info.setKey(st.nextToken());
-                        info.setTotal(Integer.parseInt(st.nextToken()));
-                        info.setFailure(Integer.parseInt(st.nextToken()));
-                        ret.add(info);
-                    }
+            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+            String line;
+            UptimeInfo info;
+            while ((line = br.readLine()) != null) {
+                if (!line.startsWith("#")) {
+                    info = new UptimeInfo();
+                    StringTokenizer st = new StringTokenizer(line, "|");
+                    info.setKey(st.nextToken());
+                    info.setTotal(Integer.parseInt(st.nextToken()));
+                    info.setFailure(Integer.parseInt(st.nextToken()));
+                    ret.add(info);
                 }
-                br.close();
-            } catch (FileNotFoundException e) {
-                log.warn("couldn't find file " + f.getName());
-            } catch (IOException e) {
-                log.error("io exception", e);
             }
+            br.close();
         }
         return ret;
     }
 
     private void writeInfo(File f, List<UptimeInfo> info) throws FileNotFoundException {
+        log.info("write info to file");
         PrintWriter pw = new PrintWriter(f);
         StringBuilder buf;
         for (UptimeInfo in : info) {
