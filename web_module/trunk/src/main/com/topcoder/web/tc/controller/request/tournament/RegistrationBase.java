@@ -89,6 +89,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
                         if (getIneligibleRedirect() != null) {
                             setNextPage(getIneligibleRedirect());
                             setIsNextPageInContext(true);
+                            return;
                         } else {
                             throw new NavigationException("You are not eligible to register for the " + e.getDescription());
                         }
