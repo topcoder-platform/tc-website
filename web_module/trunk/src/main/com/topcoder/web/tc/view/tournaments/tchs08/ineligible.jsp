@@ -26,7 +26,9 @@
             <h2>2008 TopCoder High School Tournament</h2>
         </div><%-- #title --%>
         
-        <div id="content">&nbsp;
+        <div id="content">
+            <p><strong>Sorry, you are ineligible for the 2008 TopCoder High School Tournament.</strong></p>
+            <p><strong>Before registering for the tournament, you must be registered for the current TCHS season. If you think this is the reason you are ineligible, please <a href="/tc?module=HSViewRegister">register for the season</a> before registering here.</p>
             
         </div><%-- #content --%>
         
