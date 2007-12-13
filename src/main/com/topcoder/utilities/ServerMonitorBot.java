@@ -101,7 +101,7 @@ public class ServerMonitorBot {
             } else {
                 tempInfo.setTotal(tempInfo.getTotal() + 1);
                 if (!site.isAlive()) {
-                    tempInfo.setTotal(tempInfo.getTotal() + 1);
+                    tempInfo.setTotal(tempInfo.getFailure()+1);
                 }
             }
         }
