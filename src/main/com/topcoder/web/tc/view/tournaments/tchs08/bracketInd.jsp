@@ -23,12 +23,12 @@
     <div id="main"><div id="mainwrapper">
     
         <div id="title">
-            <h2>Individual Results</h2>
+            <h2>Results</h2>
         </div><%-- #title --%>
         
         <div id="content">
             <div>&nbsp;</div>
-            <div align="center"><font size="12px"><strong>Coming Soon</strong></font></div>
+            <div align="center"><strong>Coming Soon</strong></div>
             
         </div><%-- #content --%>
         
