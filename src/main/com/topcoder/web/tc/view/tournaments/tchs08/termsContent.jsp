@@ -36,7 +36,7 @@
         </div><%-- #title --%>
         
         <div id="content">
-            <c:import url="${sessionInfo.servletPath}">
+            <c:import url="/tc">
                 <c:param name="<%=Constants.MODULE_KEY%>" value="Terms"/>
                 <c:param name="<%=Constants.TERMS_OF_USE_ID%>" value="<%=request.getParameter(Constants.TERMS_OF_USE_ID)%>"/>
             </c:import>
