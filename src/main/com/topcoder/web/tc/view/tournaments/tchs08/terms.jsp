@@ -1,16 +1,12 @@
-<%@ page import="com.topcoder.web.common.BaseProcessor" %>
-<%@ page import="com.topcoder.web.common.model.Event,
-                 com.topcoder.web.tc.Constants,
-                 java.util.ArrayList,
-                 java.util.HashMap,
-                 java.util.List" %>
+<%@ page import="com.topcoder.web.common.model.Event" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <% Event event = (Event) request.getAttribute("event"); 
-   List questionInfo = new ArrayList(event.getSurvey().getQuestions()); 
-   HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
+   //List questionInfo = new ArrayList(event.getSurvey().getQuestions()); 
+   //HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
    %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
