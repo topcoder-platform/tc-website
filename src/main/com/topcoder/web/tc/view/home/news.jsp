@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.13.07<br />12:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=calendar&d2=thisMonth">Event Calendar updated through March 2008</A></span><br /><br />
+        The Event Calendar has been updated with new SRMs and new Marathon Matches through March 2008.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=calendar&d2=thisMonth">details</a> | 
+        <tc-webtag:forumLink forumID="518541" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br />12.12.07<br />4:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -165,18 +178,5 @@
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm46">details</A> | 
          <tc-webtag:forumLink forumID="516572" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.29.07<br />5:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=466">The TopCoder UML Tool 1.0.0 is Released, Required</A></span><br /><br />
-        Version 1.0.0 of the <a href="/tc?module=Static&d1=dev&d2=umltool&d3=description">TopCoder UML Tool</a> is now available, and beginning today it is the required UML tool for all design contests. For more information on downloading the tool, or to discuss outstanding issues and planned enhancements, please see <tc-webtag:handle coderId="156859" context="algorithm"/>'s forum post.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=466">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=2479">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
    
