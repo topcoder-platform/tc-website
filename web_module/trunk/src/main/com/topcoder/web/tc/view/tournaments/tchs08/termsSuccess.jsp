@@ -33,9 +33,11 @@
             <%if (eligible.booleanValue()) {%>
                 You have successfully registered for the 2008 TopCoder&#174; High School Tournament.
                 <br><br>
+<%--
                 You have been assigned to the <strong><%=assignedRegion%> Region</strong>.
                 <br><br>
                 If you have any concerns regarding your assigned region, please email <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
+--%>
             <%} else {%>
                 Sorry, you are ineligible for the TCHS08.  If this is a mistake, contact <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
                 <br><br>
