@@ -28,7 +28,7 @@ public class UnlimitedDownloadPermission extends TCPermission {
      * Constructs a new <code>UnlimitedDownloadPermission</code> object.
      */
     public UnlimitedDownloadPermission() {
-        super(AdminPermission.class.getName());
+        super(UnlimitedDownloadPermission.class.getName());
     }
 
     /**
@@ -37,7 +37,7 @@ public class UnlimitedDownloadPermission extends TCPermission {
      * @param componentId the primary key of the component
      */
     public UnlimitedDownloadPermission(long componentId) {
-        super(AdminPermission.class.getName() + " " + componentId);
+        super(UnlimitedDownloadPermission.class.getName() + " " + componentId);
     }
 
 }
