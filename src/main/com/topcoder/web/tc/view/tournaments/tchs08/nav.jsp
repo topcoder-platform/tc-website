@@ -11,11 +11,11 @@
     
     <ul id="nav">
         <li id="nav_overview"><a title="TCHS08 Overview" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=overview"<% if (tabLev1.equals("overview")) {%> class="active"<% } %>>Overview</a></li>
-        <li id="nav_program"><a title="Download Tournament Program (PDF)" onfocus="this.blur();" href="#"<% if (tabLev1.equals("program")) {%> class="active"<% } %>>Tournament Program</a></li>
+        <li id="nav_program"><a title="Download Tournament Program (PDF)" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=program"<% if (tabLev1.equals("program")) {%> class="active"<% } %>>Tournament Program</a></li>
         <li id="nav_online"><a title="View Online Schedule" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule"<% if (tabLev1.equals("onlineSchedule")) {%> class="active"<% } %>>Online Schedule</a></li>
         <li id="nav_onsite"><a title="View Onsite Schedule" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onsiteSchedule"<% if (tabLev1.equals("onsiteSchedule")) {%> class="active"<% } %>>Onsite Schedule</a></li>
         <li id="nav_rules"><a title="TCHS08 Rules" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=rules"<% if (tabLev1.equals("rules")) {%> class="active"<% } %>>Rules</a></li>
-        <li id="nav_visa"><a title="Getting a Visa" onfocus="this.blur();" href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early"<% if (tabLev1.equals("getVisa")) {%> class="active"<% } %>>Getting a Visa</a></li>
+        <li id="nav_visa"><a title="Getting a Visa" onfocus="this.blur();" target="_blank" href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early"<% if (tabLev1.equals("getVisa")) {%> class="active"<% } %>>Getting a Visa</a></li>
         <li id="nav_individual"><a title="Individual Results" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=bracketInd"<% if (tabLev1.equals("resultsInd")) {%> class="active"<% } %>>Individual Results</a></li>
         <li id="nav_registrants"><a title="Registrants" onfocus="this.blur();" href="/tchs08?module=ViewEventRegistrants&eid=992"<% if (tabLev1.equals("registrants")) {%> class="active"<% } %>>Registrants</a></li>
         <li id="nav_purdue"><a title="Purdue" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=purdue"<% if (tabLev1.equals("purdue")) {%> class="active"<% } %>>Purdue</a></li>
