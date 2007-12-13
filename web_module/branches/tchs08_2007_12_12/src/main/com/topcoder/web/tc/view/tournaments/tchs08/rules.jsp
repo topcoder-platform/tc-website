@@ -27,10 +27,10 @@
         </div><%-- #title --%>
         
         <div id="content">
-            <p class="bigRed">No purchase necessary to enter or win. Void where prohibited.</p>
+            <p><span class="bigRed">No purchase necessary to enter or win. Void where prohibited.</span></p>
             
             <h3>Overview of the Tournament</h3>
-            <p>The 2008 TopCoder High School Tournament (TCHS08) will take place between December 17, 2008 and March 15, 2008. It will consist of three (3) online elimination rounds and one (1) onsite Championship round. .The prize purse for this competition is at least $50,000 in scholarships and other prizes. Up to ten (10) competitors will win a scholarship and for competing in Online Round #2, up to 500 competitors will receive a participatory prize. The top 50 finishers in the Online Round 3 will advance to the onsite Championship round, being held on the campus of Purdue University in West Lafayette, Indiana, USA on March 15, 2008.</p>
+            <p>The 2008 TopCoder High School Tournament (TCHS08) will take place between December 17, 2007 and March 15, 2008. It will consist of three (3) online elimination rounds and one (1) onsite Championship round. The prize purse for this competition is at least $50,000 in scholarships and other prizes. Up to ten (10) competitors will win a scholarship and for competing in Online Round 3, up to 100 competitors will receive a participatory prize. The top 50 finishers in the Online Round 3 will advance to the onsite Championship round, being held on the campus of Purdue University in West Lafayette, Indiana, USA on March 15, 2008.</p>
             
             <h3>Eligibility</h3>
             <p>TopCoder members meeting the following criteria are eligible to compete in TCHS08:</p>
@@ -38,18 +38,18 @@
                     <li>Must be at least 13 years of age; AND</li>
                     <li>Must be no older than 20 years of age on March 16, 2008; AND</li>
                     <li>Must be pursuing a secondary (non university) education at some point during the season*; AND</li>
-                    <li>Must have competed in at least three (3) rated TCHS SRMs as of January 12, 2008.</li>
+                    <li>Must have competed in at least three (3) rated TCHS SRMs between July 12, 2007 and January 12, 2008.</li>
                 </ul>
-            </p>*The season will run between July 12, 2007 and March 16, 2008.</p>
-            <p>TopCoder members who are between 13 and 20 years of age (inclusive) on January12, 2008 are eligible to win scholarships and prizes, unless otherwise prohibited. TCHS08 is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Residents of Cuba, Iran, Iraq, North Korea, Sudan, or Syria are ineligible to receive cash prizes and are ineligible to attend the onsite final round of competition as competitors.</p>
+            <p>*The season will run between July 12, 2007 and March 16, 2008.</p>
+            <p>TopCoder members who are between 13 and 20 years of age (inclusive) on January 12, 2008 are eligible to win scholarships and prizes, unless otherwise prohibited. TCHS08 is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Residents of Cuba, Iran, Iraq, North Korea, Sudan, or Syria are ineligible to receive cash prizes and are ineligible to attend the onsite final round of competition as competitors.</p>
             <p>Employees of TopCoder, Inc. and of all official tournament sponsors, regardless of commitment date as sponsor, including any companies involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families (parent, child, sibling, and spouse of each) and/or persons living in the same household as such persons, are ineligible to enter the tournament. TopCoder members who are performing internships for any official tournament sponsor between January 12, 2008 and March 15, 2008 are also ineligible to compete.</p>
-            <p>In the event that a competitor is disqualified from any round, no other competitors will be added in his/her place. The only exception to this is advancement to the onsite rounds.</p>
+            <p>In the event that a competitor is disqualified from any round, no other competitors will be added in his/her place. The only exception to this is advancement to the onsite Championship round.</p>
             
             <h3>Registration</h3>
             <p>Registration for the 2008 TopCoder High School Tournament will open at 9:00 AM EST on Monday, December 17, 2007, and will close at 5:00 PM EST on Thursday, January 10, 2008. In order to compete in the tournament, competitors must have registered prior to 5:00 PM EST on Thursday, January 10, 2008. In order to be eligible to compete in any portion of the TCHS Tournament, competitors must be a registered TopCoder High School member and have registered separately for the Tournament. There is no limit to the number of registrants for the tournament; however each individual may only register once.</p>
             
             <h3>Online Elimination Rounds</h3
-            <p>All members who have competed in at least three (3) rated TCHS SRMs prior to January 12, 2008 and who have registered for the tournament are eligible to compete in Online Round 1.</p>
+            <p>All members who have competed in at least three (3) rated TCHS SRMs between July 12, 2007 and January 12, 2008 and who have registered for the tournament are eligible to compete in Online Round 1.</p>
             <p>Everyone who competes in an online round must register for each round in the TopCoder Competition Arena no later than five (5) minutes prior to the start of the online round. TopCoder will communicate each Online Round in Eastern Standard Time (UTC/GMT -5). Contestants may be located and competing in time zones other than Eastern Standard Time and must adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.</p>
             <p>All competitors will be randomly assigned to virtual competition rooms. Rooms will be created such that each room has a maximum of 25 competitors. The number of rooms in each round is (the # of competitors who advanced to the round)/25.</p>
             <p>The dates and times of the online rounds of competition are as follows:</p>
@@ -88,7 +88,7 @@
             <h3>Scoring and Advancing during Online Rounds</h3>
             <p>After each Online Round, the highest scorers from across all rooms will be identified and will advance to the next online round. Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of each Online Round is as follows:</p>
             <p><strong>Online Round 1</strong><br />
-            All registered competitors will compete and up to 500 will advance. The highest 500 scoring competitors across all rooms in each section will advance to Online Round 2.</p>
+            All registered competitors will compete and up to 500 will advance. The highest 500 scoring competitors across all rooms will advance to Online Round 2.</p>
             <p><strong>Online Round 2</strong><br />
             Up to 500 competitors will compete and up to 100 will advance. The highest 100 scoring competitors across all rooms will advance to Online Round 3.</p>
             <p><strong>Online Round 3</strong><br />
@@ -108,18 +108,25 @@
             <p>The System Testing Phase is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</p>
             
             <h3>Onsite Championship Round</h3>
-            <p><strong>Important Information:<br />
-            Travel Confirmation</strong></p>
-            <p>The fifty (50) advancers from Online Round 3 will travel to the campus of Purdue University on Friday, March 14, 2008 to compete in the Final round of the TCHS08 Tournament being held on Saturday, March 15, 2008. All contestants must arrive at the campus of Purdue University no later than 4:00 PM EST on Friday, March 14, 2008.</p>
+            <p><strong>Important Information:<br /><br />
+            Travel Confirmation</strong><br />
+            The fifty (50) advancers from Online Round 3 will travel to the campus of Purdue University on Friday, March 14, 2008 to compete in the Final round of the TCHS08 Tournament being held on Saturday, March 15, 2008. All contestants must arrive at the campus of Purdue University no later than 4:00 PM EDT on Friday, March 14, 2008.</p>
             <p>All contestants must confirm their attendance at the onsite Championship round no later than 5:00 PM EST (UTC/GMT -5) on Friday, February 8, 2008. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the U.S. by that date and time. In order for a finalist to confirm attendance for the onsite finals, it is necessary to show proof of visa and/or passport by the deadline (5:00 PM EST (UTC/GMT -5) on Friday, February 8, 2008) if the finalist is required for travel from outside the United States. Finalists may do this by emailing a copy of their documents to Jessie D'Amato Ford at <a href="mailto:jdamato@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">jdamato@topcoder.com</a>. Competitors who fail to meet this requirement by the deadline will not be able to attend the onsite finals and will be replaced as an onsite finalist.</p>
             
             <h3>Visa Assistance</h3>
-            <p>At the end of Online Round 1, TopCoder will issue visa invitation letters at the request of international competitors who require one to obtain a travel visa to enter the United States. All competitors who advance to Online Round 2 will receive a visa invitation letter request form. Competitors have until 5:00 PM EST (GMT/UTC -5) on Friday, February 25, 2008 to request a letter. Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. If a competitor fails to request a visa invitation letter by the date above, TopCoder will not be able to assist in the visa process.</p>
+            <p>At the end of Online Round 1, TopCoder will issue visa invitation letters at the request of international competitors who require one to obtain a travel visa to enter the United States. All competitors who advance to Online Round 2 will receive a visa invitation letter request form. Competitors have until 5:00 PM EST (GMT/UTC -5) on Friday, January 25, 2008 to request a letter. Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. If a competitor fails to request a visa invitation letter by the date above, TopCoder will not be able to assist in the visa process.</p>
             <p>TopCoder will provide air travel arrangements for each competitor. The flight will be reserved and paid for by TopCoder and will be for arrival on March 14, 2008 and departure on March 16 2008.TopCoder will pay for each competitor's airfare up to $1,500, though we reserve the right to make exceptions to the maximum amount based on individual circumstances. Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor.</p>
-            <p>Ground transportation to and from the Indianapolis International Airport will be provided for each competitor by TopCoder.   Hotel accommodations and certain meals will be provided for each competitor as well. All other expenses are the responsibility of the competitor. TopCoder will not provide travel or lodging accommodations for guests of the competitor.</p>
+            <p>Ground transportation to and from the Indianapolis International Airport will be provided for each competitor by TopCoder. Hotel accommodations and certain meals will be provided for each competitor as well. All other expenses are the responsibility of the competitor. TopCoder will not provide travel or lodging accommodations for guests or chaperones of the competitor.</p>
+            <p>Hotel Information<br />
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.union.purdue.edu/HTML/UnionClubHotel/' refer='tchs08_rules' />">Union Club Hotel</a><br />
+            101 N Grant St<br />
+            West Lafayette, IN 47906<br />
+            (800) 320-6291<br />
+            (765) 494-8913<br />
+            All competitors will be staying at the <a target="_blank" href="<tc-webtag:linkTracking link='http://www.union.purdue.edu/HTML/UnionClubHotel/' refer='tchs08_rules' />">Union Club Hotel</a> at Purdue University. TopCoder will make reservations for all the competitors. Guests and chaperones can make reservations by calling the hotel.</p>
             
             <h3>Championship Round</h3>
-            <p>TopCoder will determine the room assignments for the Championship round prior to the start of the round. The dates and times of the onsite Championship round is as follows:</p>
+            <p>TopCoder will determine the room assignments for the Championship round prior to the start of the round. The date and time of the onsite Championship round are as follows:</p>
             <div id="sample_table">
                 <table width="100%" cellpadding="0" cellspacing="0">
                     <tr>
@@ -187,16 +194,16 @@
                         <td>$2,000</td>
                     </tr>
                     <tr class="light">
-                        <td>Up to 500 competitors who compete in Online Round 2</td>
-                        <td>Limited edition 2008 TopCoder High School Tournament t-shirt</td>
+                        <td>Up to 100 competitors who compete in Online Round 3</td>
+                        <td>Limited edition 2008 TopCoder High School Tournament t-shirts will be sent by TopCoder</td>
                     </tr>
                 </table>
             </div><%-- #sample_table --%>
             <p>* Prize will be awarded at the conclusion of the Championship Round. Winners must be <strong>present</strong> at the Awards Ceremony to receive prize. TopCoder reserves the right to increase the total prize purse or change the prize breakdown distribution at its sole discretion at any point during the tournament.</p>
             
-            <h3>Conditions for Participation</h3>
+            <h3>Conditions of Participation</h3>
             <p>By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.</p>
-            <p class="bigRed">Contestants must not cheat. All ideas for code and/or challenge submitted must be the contestant's alone. TopCoder uses the word "cheat" to mean collaboration of any sort - including, but not limited to, working with another competitor, submitting code that was not fully authored by you, and using resources, software, etc. that are not allowed in TopCoder competitions. TopCoder reserves the right, in its sole discretion, to remove any competitor from the tournament who it suspects has cheated.</p>
+            <p><span class="bigRed">Contestants must not cheat. All ideas for code and/or challenge submitted must be the contestant's alone. TopCoder uses the word "cheat" to mean collaboration of any sort - including, but not limited to, working with another competitor, submitting code that was not fully authored by you, and using resources, software, etc. that are not allowed in TopCoder competitions. TopCoder reserves the right, in its sole discretion, to remove any competitor from the tournament who it suspects has cheated.</span></p>
             <p>All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.</p>
             <p>All contestants who advance to Online Round 3 must complete the following items and submit them to TopCoder by 10:00 AM EST (UTC/GMT -5) on Saturday, January 26, 2008:</p>
                 <ul>
@@ -205,6 +212,7 @@
                 </ul>
             <p>All contestants who advance to the onsite Championship round must complete the following items and submit them to TopCoder by 5:00 PM EST (UTC/GMT -5) on Friday, February 8, 2008:</p>
                 <ul>
+                    <li>Confirmation of attendance/proof of travel documents - Please email <a href="mailto:jdamato@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a> to confirm your attendance onsite. If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents.</li>
                     <li>Competitor questionnaire - the questions and responses will be published in the 2008 TopCoder High School Tournament Program</li>
                     <li>Travel/Lodging form - provides TopCoder with the appropriate information for your trip to the onsite Championship round</li>
                     <li>Affidavit of Eligibility and Liability and Publicity Release

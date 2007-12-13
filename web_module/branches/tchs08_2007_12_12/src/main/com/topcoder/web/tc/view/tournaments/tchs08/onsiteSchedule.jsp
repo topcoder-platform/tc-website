@@ -34,7 +34,7 @@
                         <th>Friday, March 14, 2008</th>
                     </tr>
                     <tr class="light">
-                        <td>8:00 AM - 5:00 AM Arrival &amp; Check In</td>
+                        <td>9:00 AM - 5:00 PM Registration &amp; Hotel Check In</td>
                     </tr>
                     <tr class="dark">
                         <td>7:00 PM - 9:00 PM Welcome Reception</td>

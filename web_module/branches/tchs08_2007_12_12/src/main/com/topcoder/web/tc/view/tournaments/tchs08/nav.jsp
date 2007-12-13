@@ -15,7 +15,7 @@
         <li id="nav_online"><a title="View Online Schedule" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule"<% if (tabLev1.equals("onlineSchedule")) {%> class="active"<% } %>>Online Schedule</a></li>
         <li id="nav_onsite"><a title="View Onsite Schedule" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onsiteSchedule"<% if (tabLev1.equals("onsiteSchedule")) {%> class="active"<% } %>>Onsite Schedule</a></li>
         <li id="nav_rules"><a title="TCHS08 Rules" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=rules"<% if (tabLev1.equals("rules")) {%> class="active"<% } %>>Rules</a></li>
-        <li id="nav_visa"><a title="Getting a Visa" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=getVisa"<% if (tabLev1.equals("getVisa")) {%> class="active"<% } %>>Getting a Visa</a></li>
+        <li id="nav_visa"><a title="Getting a Visa" href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early"<% if (tabLev1.equals("getVisa")) {%> class="active"<% } %>>Getting a Visa</a></li>
         <li id="nav_individual"><a title="Individual Results" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=bracketInd"<% if (tabLev1.equals("resultsInd")) {%> class="active"<% } %>>Individual Results</a></li>
         <li id="nav_registrants"><a title="Registrants" href="#"<% if (tabLev1.equals("registrants")) {%> class="active"<% } %>>Registrants</a></li>
         <li id="nav_purdue"><a title="Purdue" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=purdue"<% if (tabLev1.equals("purdue")) {%> class="active"<% } %>>Purdue</a></li>

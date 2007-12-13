@@ -1,3 +1,4 @@
+    <%--
     <div id="sponsors">
         <ul>
             <li><a href="#" title="Sponsors Description"><img src="/i/tournament/tchs08/ads_.png" width="168" alt="Sponsors Name" /></a></li>
@@ -5,8 +6,18 @@
             <li><a href="#" title="Sponsors Description"><img src="/i/tournament/tchs08/ads_.png" width="168" alt="Sponsors Name" /></a></li>
             <li><a href="#" title="Sponsors Description"><img src="/i/tournament/tchs08/ads_.png" width="168" alt="Sponsors Name" /></a></li>
         </ul>
-    </div><%-- #sponsors --%>
+    </div> #sponsors --%>
     
+    <div id="impDates">
+        <h2>Important Dates</h2>
+        <p><strong>Registration Begins</strong><br />December 17, 2007 at 9:00 AM EST</p><br />
+        <p><strong>Registration Closes</strong><br />January 10, 2008 at 5:00 PM EST</p><br />
+        <p><strong>Online Round 1</strong><br />January 12, 2008 at 1:00 PM EST</p><br />
+        <p><strong>Online Round 2</strong><br />January 19, 2008 at 1:00 PM EST</p><br />
+        <p><strong>Online Round 3</strong><br />January 26, 2008 at 1:00 PM EST</p><br />
+        <p><strong>Finals</strong><br />Saturday, March 15 at 10:00 AM EDT at Purdue University</p><br />
+    <div>
+
     <div class="clear"></div>
     
 </div></div><%-- #mainwrapper #main --%>
