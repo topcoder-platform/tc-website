@@ -26,7 +26,9 @@
             <h2>Individual Results</h2>
         </div><%-- #title --%>
         
-        <div id="content">&nbsp;
+        <div id="content">
+            <div>&nbsp;</div>
+            <div align="center"><font size="12px"><strong>Coming Soon</strong></font></div>
             
         </div><%-- #content --%>
         
