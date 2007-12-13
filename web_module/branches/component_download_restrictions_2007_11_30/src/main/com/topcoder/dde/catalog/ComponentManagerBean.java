@@ -2077,8 +2077,23 @@ public class ComponentManagerBean
         int maxPublicDownloads = getMaxPublicDownloads();
 
         try {
-            // check for regular permission
+            // check for special permissions
+            // first general
             PolicyRemote checker = policyHome.create();
+            boolean hasSpecialPermission = checker.checkPermission(subject, new UnlimitedDownloadPermission());
+            log.debug("hasGeneralUnlimitedPermission: " + hasSpecialPermission);
+            if (hasSpecialPermission) {
+                return true;
+            }
+
+            // then for this particular component
+            hasSpecialPermission = checker.checkPermission(subject, new UnlimitedDownloadPermission(componentId));
+            log.debug("hasComponentUnlimitedPermission: " + hasSpecialPermission);
+            if (hasSpecialPermission) {
+                return true;
+            }
+
+            // check for regular permission
             boolean hasPermission = checker.checkPermission(subject, new DownloadPermission(componentId));
             log.debug("hasPermission: " + hasPermission);
             if (!hasPermission) {

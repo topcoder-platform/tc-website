@@ -32,7 +32,6 @@ public class ViewSampleComponents extends BaseProcessor {
                     getInitialContext().lookup(ComponentManagerHome.EJB_REF_NAME), ComponentManagerHome.class);
             ComponentManager compMgr = componentManagerHome.create();
 
-
             int maxPublicDownloads = compMgr.getMaxPublicDownloads();
             int numberDownloads = compMgr.getNumberComponentsDownloaded(getUser().getId());
 
