@@ -100,13 +100,13 @@ public class Home extends Base {
             getRequest().setAttribute("compTerms", compTerms);
             getRequest().setAttribute("algoTerms", algoTerms);
 
-            DataAccess tchs07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
-            Request tchs07Request = new Request();
-            tchs07Request.setProperty("cr", String.valueOf(getUser().getId()));
+            DataAccess tchs08Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            Request tchs08Request = new Request();
+            tchs08Request.setProperty("cr", String.valueOf(getUser().getId()));
             
-            tchs07Request.setContentHandle("tchs08_eligibility");
+            tchs08Request.setContentHandle("tchs08_eligibility");
             getRequest().setAttribute("tchs08_info",
-                    tchs07Dai.getData(tchs07Request).get("tchs08_eligibility"));
+                    tchs08Dai.getData(tchs08Request).get("tchs08_eligibility"));
             
 /*            DataAccess tco07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Request tco07Request = new Request();
@@ -116,6 +116,7 @@ public class Home extends Base {
             getRequest().setAttribute("tco07_info",
                     tco07Dai.getData(tco07Request).get("tco07_info"));*/
 
+/*
             DataAccess tccc07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Request tccc07Request = new Request();
             tccc07Request.setProperty("cr", String.valueOf(getUser().getId()));
@@ -123,6 +124,7 @@ public class Home extends Base {
             tccc07Request.setContentHandle("tccc07_info");
             getRequest().setAttribute("tccc07_info",
                     tccc07Dai.getData(tccc07Request).get("tccc07_info"));
+*/
 
 
         } catch (TCWebException e) {
