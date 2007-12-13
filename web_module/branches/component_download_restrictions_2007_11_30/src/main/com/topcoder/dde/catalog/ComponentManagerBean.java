@@ -2107,14 +2107,16 @@ public class ComponentManagerBean
         
             // check for rating
             UserServices us = UserServicesLocator.getService();
-            log.debug("us.isRated(subject.getUserId()): " + us.isRated(subject.getUserId()));
-            if (us.isRated(subject.getUserId())) {
+            boolean isRated = us.isRated(subject.getUserId());
+            log.debug("us.isRated(subject.getUserId()): " + isRated);
+            if (isRated) {
                 return true;
             }
             
             // check if the user has registrations
-            log.debug("us.hasRegistration(subject.getUserId(), competitionCategories): " + us.hasRegistration(subject.getUserId(), competitionCategories));
-            if (us.hasCompetitionRegistration(subject.getUserId(), maxDaysFromRegistration, competitionCategories)) {
+            boolean hasCompetitionRegistration = us.hasCompetitionRegistration(subject.getUserId(), maxDaysFromRegistration, competitionCategories);
+            log.debug("us.hasRegistration(subject.getUserId(), competitionCategories): " + hasCompetitionRegistration);
+            if (hasCompetitionRegistration) {
                 return true; 
             }
             
