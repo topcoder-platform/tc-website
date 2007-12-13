@@ -80,16 +80,6 @@ public class ServerMonitorBot {
     private void recordUptimeData(PollInfo[] p) throws IOException {
         log.info("recording update data");
         File f = getCurrentFile();
-        if (f==null) {
-            f = new File(FILENAME);
-        }
-/*
-        int oldId = 0;
-        if (f != null) {
-            oldId = Integer.parseInt(f.getName().substring(FILENAME_PREFIX.length()));
-        }
-        File newFile = new File(FILENAME_PREFIX + (oldId + 1));
-*/
         List<UptimeInfo> infoList = readCurrentInfo();
 
         HashMap<String, UptimeInfo> infoMap = new HashMap<String, UptimeInfo>();
@@ -129,7 +119,7 @@ public class ServerMonitorBot {
     private List<UptimeInfo> readCurrentInfo() throws IOException {
         File f = getCurrentFile();
         ArrayList<UptimeInfo> ret = new ArrayList<UptimeInfo>();
-        if (f != null) {
+        if (f.exists()) {
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
             String line;
             UptimeInfo info;
@@ -167,8 +157,13 @@ public class ServerMonitorBot {
         pw.close();
     }
 
-    private File getCurrentFile() {
-        return new File(FILENAME);
+    private File getCurrentFile() throws IOException {
+        File f = new File(FILENAME);
+        if (!f.exists()) {
+            f.createNewFile();
+        }
+
+        return f;
 /*
         File[] files = new File(".").listFiles();
         int id = 0;
