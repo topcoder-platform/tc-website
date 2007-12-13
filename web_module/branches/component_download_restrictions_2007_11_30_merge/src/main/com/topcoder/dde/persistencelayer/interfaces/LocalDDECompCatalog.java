@@ -118,4 +118,18 @@ public interface LocalDDECompCatalog extends EJBLocalObject {
      */
     void setFunctionDesc(String functionDesc);
 
+    /**
+     * Gets the public indicator.
+     *
+     * @return public indicator.
+     */
+    int getPublicInd();
+
+    /**
+     * Sets the public indicator.
+     *
+     * @param publicInd public indicator.
+     */
+    void setPublicInd(int publicInd);
+
 }
