@@ -1,10 +1,8 @@
 <%@ page import="com.topcoder.web.common.BaseProcessor" %>
 <%@ page import="com.topcoder.web.common.model.Event,
-                 com.topcoder.web.common.tag.AnswerInput,
                  com.topcoder.web.tc.Constants,
-                 com.topcoder.web.tc.controller.request.tournament.RegistrationBase,
-                 java.util.ArrayList" %>
-<%@ page import="java.util.HashMap,
+                 java.util.ArrayList,
+                 java.util.HashMap,
                  java.util.List" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -42,7 +40,7 @@
         <div id="content">
 
             <form name="terms" method="POST" action="${sessionInfo.servletPath}">
-                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCHS08SubmitRegistration"/>
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitRegistration"/>
                 <tc-webtag:hiddenInput name="<%=Constants.EVENT_ID%>" value="<%=event.getId().toString()%>"/>
 
                 <p align="left">To complete your registration for the <%=event.getDescription()%> you
@@ -62,6 +60,7 @@
                 </div>
                 <br/>
 
+<%--
             <tc:questionIterator list="<%=questionInfo%>" id="question">
                 <table cellpadding="0" cellspacing="0" class="stat" align="center">
                     <tr>
@@ -93,7 +92,8 @@
                 </table>
                 <br/>
             </tc:questionIterator>
-                
+--%>
+
                 <div align="center">
                     <button name="submit" value="submit" type="submit">Submit</button>
                 </div>
