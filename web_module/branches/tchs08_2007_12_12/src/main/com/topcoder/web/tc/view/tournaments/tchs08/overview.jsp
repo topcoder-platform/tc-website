@@ -23,7 +23,7 @@
     <div id="main"><div id="mainwrapper">
     
         <div id="title">
-            <h2>2008 TopCoder&reg; High School Tournament</h2>
+            <h2>2008 TopCoder High School Tournament</h2>
         </div><%-- #title --%>
         
         <div id="content">
@@ -35,7 +35,7 @@
             Online Elimination Rounds: January 12, 19 and 26, 2008</p>
             
             <h3>Who can compete?</h3>
-            <p>Any registered TopCoder High School member between the ages of 13 and 20 (inclusive) can compete, as long as they are pursuing a secondary education during the season. Individuals must also participate in at least three (3) rated TCHS SRMs by January 12, 2008.</p>
+            <p>Any registered TopCoder High School member between the ages of 13 and 20 (inclusive) can compete, as long as they are pursuing a secondary education during the season. Individuals must also participate in at least three (3) rated TCHS SRMs between July 12, 2007 and January 12, 2008.</p>
             
             <h3>TCHS Onsite Championship Round</h3>
             <p>March 15, 2008 at the <a target="_blank" href="<tc-webtag:linkTracking link='http://www.cs.purdue.edu/about_us/lawson/' refer='tchs08_overview' />">Lawson Building</a> on the campus of Purdue University in West Lafayette, IN, USA</p>
