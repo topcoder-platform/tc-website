@@ -32,32 +32,36 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         String inCollegeInput = "";
         String inHighSchoolInput = "";
         String ageKey = "";
-        for (Iterator it = survey.getQuestions().iterator(); it.hasNext();) {
-            Question q = (Question) it.next();
-            Response response = (new SurveyHelper()).findResponse(responses, q.getId());
-            if (response != null) {
-                if (q.getKeyword().equals(AGE)) {
-                    ageInput = StringUtils.checkNull(response.getText());
-                    ageKey = AnswerInput.PREFIX + q.getId();
-                } else if (q.getKeyword().equals(IN_COLLEGE)) {
-                    inCollegeInput = StringUtils.checkNull(response.getAnswer().getText());
-                } else if (q.getKeyword().equals(IN_HIGH_SCHOOL)) {
-                    inHighSchoolInput = StringUtils.checkNull(response.getAnswer().getText());
+        if (survey!=null) {
+            for (Iterator it = survey.getQuestions().iterator(); it.hasNext();) {
+                Question q = (Question) it.next();
+                Response response = (new SurveyHelper()).findResponse(responses, q.getId());
+                if (response != null) {
+                    if (q.getKeyword().equals(AGE)) {
+                        ageInput = StringUtils.checkNull(response.getText());
+                        ageKey = AnswerInput.PREFIX + q.getId();
+                    } else if (q.getKeyword().equals(IN_COLLEGE)) {
+                        inCollegeInput = StringUtils.checkNull(response.getAnswer().getText());
+                    } else if (q.getKeyword().equals(IN_HIGH_SCHOOL)) {
+                        inHighSchoolInput = StringUtils.checkNull(response.getAnswer().getText());
+                    }
                 }
             }
+            if (log.isDebugEnabled()) {
+                log.debug("ageInput " + ageInput + " college " + inCollegeInput + " highschool " + inHighSchoolInput);
+            }
+            int age = 0;
+            try {
+                age = Integer.parseInt(ageInput);
+            } catch (NumberFormatException e) {
+                addError(ageKey, "Please enter a valid number for your age.");
+            }
+
+            return (new Boolean(age <= 20 && age >= 13 && !"Yes".equals(inCollegeInput) && "Yes".equals(inHighSchoolInput)));
+        } else {
+            return true;
         }
 
-        if (log.isDebugEnabled()) {
-            log.debug("ageInput " + ageInput + " college " + inCollegeInput + " highschool " + inHighSchoolInput);
-        }
-        int age = 0;
-        try {
-            age = Integer.parseInt(ageInput);
-        } catch (NumberFormatException e) {
-            addError(ageKey, "Please enter a valid number for your age.");
-        }
-
-        return (new Boolean(age <= 20 && age >= 13 && !"Yes".equals(inCollegeInput) && "Yes".equals(inHighSchoolInput)));
     }
 
 
