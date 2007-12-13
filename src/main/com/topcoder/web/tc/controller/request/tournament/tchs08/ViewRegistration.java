@@ -25,7 +25,7 @@ public class ViewRegistration extends ViewRegistrationBase {
 
     @Override
     protected String getIneligibleRedirect() {
-        return "/tchs08?" + Constants.MODULE_KEY + "=Static&d1=tournament&d2=tchs08&d3=ineligible";
+        return "/tc?" + Constants.MODULE_KEY + "=Static&d1=tournament&d2=tchs08&d3=ineligible";
     }
 
 }
