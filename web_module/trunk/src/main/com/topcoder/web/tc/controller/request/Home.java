@@ -1,16 +1,16 @@
 package com.topcoder.web.tc.controller.request;
 
-import java.util.Map;
-
-import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.tournament.tccc06.ViewAlgoRegistration;
 import com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms;
+
+import java.util.Map;
 
 public class Home extends Base {
 
@@ -100,15 +100,15 @@ public class Home extends Base {
             getRequest().setAttribute("compTerms", compTerms);
             getRequest().setAttribute("algoTerms", algoTerms);
 
-/*            DataAccess tchs07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            DataAccess tchs07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Request tchs07Request = new Request();
             tchs07Request.setProperty("cr", String.valueOf(getUser().getId()));
             
-            tchs07Request.setContentHandle("tchs07_eligibility");
-            getRequest().setAttribute("tchs07_info",
-                    tchs07Dai.getData(tchs07Request).get("tchs07_eligibility"));
+            tchs07Request.setContentHandle("tchs08_eligibility");
+            getRequest().setAttribute("tchs08_info",
+                    tchs07Dai.getData(tchs07Request).get("tchs08_eligibility"));
             
-            DataAccess tco07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+/*            DataAccess tco07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Request tco07Request = new Request();
             tco07Request.setProperty("cr", String.valueOf(getUser().getId()));
             
