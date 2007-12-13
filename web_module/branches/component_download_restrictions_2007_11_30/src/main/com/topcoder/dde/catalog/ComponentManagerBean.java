@@ -2080,14 +2080,18 @@ public class ComponentManagerBean
             // check for special permissions
             // first general
             PolicyRemote checker = policyHome.create();
-            boolean hasSpecialPermission = checker.checkPermission(subject, new UnlimitedDownloadPermission());
+            UnlimitedDownloadPermission udp = new UnlimitedDownloadPermission();
+            log.debug("checking for permission..." + udp.getName() + "-");
+            boolean hasSpecialPermission = checker.checkPermission(subject, udp);
             log.debug("hasGeneralUnlimitedPermission: " + hasSpecialPermission);
             if (hasSpecialPermission) {
                 return true;
             }
 
             // then for this particular component
-            hasSpecialPermission = checker.checkPermission(subject, new UnlimitedDownloadPermission(componentId));
+            udp = new UnlimitedDownloadPermission(componentId);
+            hasSpecialPermission = checker.checkPermission(subject, udp);
+            log.debug("checking for permission..." + udp.getName() + "-");
             log.debug("hasComponentUnlimitedPermission: " + hasSpecialPermission);
             if (hasSpecialPermission) {
                 return true;
