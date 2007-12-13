@@ -15,7 +15,7 @@
 <div id="wrapper">
 
     <jsp:include page="nav.jsp" >
-    <jsp:param name="tabLev1" value="overview"/>
+    <jsp:param name="tabLev1" value="registrants"/>
     <jsp:param name="tabLev2" value=""/>
     <jsp:param name="tabLev3" value=""/>
     </jsp:include>
