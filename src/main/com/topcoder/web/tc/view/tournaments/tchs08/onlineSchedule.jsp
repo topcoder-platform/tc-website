@@ -34,7 +34,7 @@
     
             <h3>Online Elimination Rounds</h3>
             <div id="sample_table">
-                <table width="100%" cellpadding="0" cellspacing="0">
+                <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                     <tr>
                         <th>Round of Competition</th>
                         <th>Date and Time *</th>

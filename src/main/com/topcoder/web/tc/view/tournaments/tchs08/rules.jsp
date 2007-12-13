@@ -54,7 +54,7 @@
             <p>All competitors will be randomly assigned to virtual competition rooms. Rooms will be created such that each room has a maximum of 25 competitors. The number of rooms in each round is (the # of competitors who advanced to the round)/25.</p>
             <p>The dates and times of the online rounds of competition are as follows:</p>
             <div id="sample_table">
-                <table width="100%" cellpadding="0" cellspacing="0">
+                <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                     <tr>
                         <th>Round of Competition</th>
                         <th>Date and Time *</th>
@@ -128,7 +128,7 @@
             <h3>Championship Round</h3>
             <p>TopCoder will determine the room assignments for the Championship round prior to the start of the round. The date and time of the onsite Championship round are as follows:</p>
             <div id="sample_table">
-                <table width="100%" cellpadding="0" cellspacing="0">
+                <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                     <tr>
                         <th>Round of Competition</th>
                         <th>Date and Time (Eastern Daylight Time)</th>
@@ -148,7 +148,7 @@
             <h3>About the Prizes</h3>
             <p>The tournament will award participatory prizes to up to 500 competitors and at least $50,000 in scholarships and prizes. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner. Prizes will be distributed as follows:</p>
             <div id="sample_table">
-                <table width="100%" cellpadding="0" cellspacing="0">
+                <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                     <tr>
                         <th>Competitor</th>
                         <th>Prize</th>

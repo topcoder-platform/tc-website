@@ -29,7 +29,7 @@
         <div>&nbsp;</div>
         <div id="content">
             <div id="sample_table">
-                <table width="100%" cellpadding="0" cellspacing="0">
+                <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                     <tr>
                         <th>Friday, March 14, 2008</th>
                     </tr>
