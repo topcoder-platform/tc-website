@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.request.tournament.tchs08;
 
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.RegionType;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.tournament.ViewRegistrationBase;
 
 /**
@@ -21,4 +22,10 @@ public class ViewRegistration extends ViewRegistrationBase {
 
         getRequest().setAttribute("assignedRegion", er.getId().getUser().getHomeAddress().getCountry().getRegionByType(rt).getName());
     }
+
+    @Override
+    protected String getIneligibleRedirect() {
+        return "?" + Constants.MODULE_KEY + "=Static&d1=tournament&d2=tchs08&d3=ineligible";
+    }
+
 }
