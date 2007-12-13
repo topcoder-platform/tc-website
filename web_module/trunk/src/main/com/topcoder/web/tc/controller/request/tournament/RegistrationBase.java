@@ -1,11 +1,5 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
-
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
@@ -18,6 +12,12 @@ import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.tc.Constants;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
 
 /**
  * @author dok, pulky
@@ -86,7 +86,12 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
                         getRequest().setAttribute("event", e);
                         regProcessing(e, u);
                     } else {
-                        throw new NavigationException("You are not eligible to register for the " + e.getDescription());
+                        if (getIneligibleRedirect() != null) {
+                            setNextPage(getIneligibleRedirect());
+                            setIsNextPageInContext(true);
+                        } else {
+                            throw new NavigationException("You are not eligible to register for the " + e.getDescription());
+                        }
                     }
                 } else {
                     alreadyRegisteredProcessing(er);
@@ -112,5 +117,9 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
 
     public User getActiveUser() {
         return getUser().isAnonymous() ? null : DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+    }
+
+    protected String getIneligibleRedirect() {
+        return null;
     }
 }
