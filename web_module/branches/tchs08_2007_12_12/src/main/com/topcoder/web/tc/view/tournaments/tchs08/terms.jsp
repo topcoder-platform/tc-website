@@ -1,6 +1,22 @@
+<%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.common.model.Event,
+                 com.topcoder.web.common.model.Question,
+                 com.topcoder.web.common.tag.AnswerInput,
+                 com.topcoder.web.tc.controller.request.tournament.RegistrationBase,
+                 com.topcoder.web.common.BaseProcessor" %>
+<%@ page import="java.util.Collections,
+                 java.util.Set,
+                 java.util.ArrayList,
+                 java.util.List,
+                 java.util.HashMap" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<% Event event = (Event) request.getAttribute("event"); 
+   List questionInfo = new ArrayList(event.getSurvey().getQuestions()); 
+   HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
+   %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -15,7 +31,7 @@
 <div id="wrapper">
 
     <jsp:include page="nav.jsp" >
-    <jsp:param name="tabLev1" value="overview"/>
+    <jsp:param name="tabLev1" value="registrants"/>
     <jsp:param name="tabLev2" value=""/>
     <jsp:param name="tabLev3" value=""/>
     </jsp:include>
