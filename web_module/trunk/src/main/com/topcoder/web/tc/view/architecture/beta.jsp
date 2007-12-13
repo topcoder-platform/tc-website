@@ -65,7 +65,7 @@
                     We are providing the TC community the same training materials we use for our internal architects. You can view these in our wiki.
                 </p>
                 <div align="right" style="margin: 10px 0 20px 0;">
-                    <img src="/i/development/architecture/trainingComingSoon.png" alt="Training Materials" style="display: block;" />
+                    <a href="/wiki/display/training/Architecture+Training+Module"><img src="/i/development/architecture/training.png" alt="Training Materials" style="display: block;" /></a>
                 </div>
                 <p align="justify">
                     We've put together sample architecture deliverables to give an idea of the completed documents that will comprise the deliverables from a typical architecture competition.  These are zipped up and downloadable here.
