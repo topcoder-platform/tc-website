@@ -93,14 +93,14 @@ public class ServerMonitorBot {
             if (tempInfo == null) {
                 tempInfo = new UptimeInfo();
                 tempInfo.setKey(site.getSiteName());
+                infoMap.put(site.getSiteName(), tempInfo);
                 tempInfo.setTotal(1);
                 if (!site.isAlive()) {
                     tempInfo.setFailure(1);
                 }
-                infoMap.put(site.getSiteName(), tempInfo);
             } else {
                 tempInfo.setTotal(tempInfo.getTotal() + 1);
-                if (site.getSiteName().equals(tempInfo.getKey())) {
+                if (!site.isAlive()) {
                     tempInfo.setTotal(tempInfo.getTotal() + 1);
                 }
             }
