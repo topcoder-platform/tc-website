@@ -14,6 +14,9 @@ import com.topcoder.dde.catalog.CatalogHome;
 import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.dde.catalog.Download;
+import com.topcoder.dde.catalog.NonPublicComponentException;
+import com.topcoder.dde.catalog.ReachedQuotaException;
+import com.topcoder.dde.request.ViewComponentTerms;
 import com.topcoder.dde.user.User;
 import com.topcoder.security.TCSubject;
 
@@ -56,7 +59,21 @@ public class DDEComponentDownload extends DownloadServlet {
             TCSubject tcSubject = (TCSubject) request.getSession().getAttribute("TCSUBJECT");
             long compId = Long.parseLong((String) request.getParameter("comp"));
             ComponentManager compMgr = componentManagerHome.create(compId);
-            return (compMgr.canDownload(tcSubject));
+            
+            boolean retVal = false;
+            try {
+                retVal = compMgr.canDownload(tcSubject);
+            } catch (ReachedQuotaException e) {
+                request.setAttribute("failure_reason", ViewComponentTerms.QUOTA_REACHED_REASON);
+                request.setAttribute("max_downloads", compMgr.getMaxPublicDownloads());
+                unAuthorizedPage = "/catalog/sorry.jsp";
+            } catch (NonPublicComponentException e) {
+                request.setAttribute("failure_reason", ViewComponentTerms.NON_PUBLIC_REASON);                
+                request.setAttribute("max_downloads", compMgr.getMaxPublicDownloads());
+                unAuthorizedPage = "/catalog/sorry.jsp";
+            }
+            
+            return retVal;
         } catch (Exception e) {
             e.printStackTrace();
         }
