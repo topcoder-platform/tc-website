@@ -2124,6 +2124,7 @@ public class ComponentManagerBean
                 throw new ReachedQuotaException("You have exceeded the number of allowed downloads");
             }
         
+            // check if the component is for public download
             LocalDDECompCatalog comp = catalogHome.findByPrimaryKey(new Long(componentId));
             if (comp.getPublicInd() != 1) {
                 log.debug("Not public component.");
