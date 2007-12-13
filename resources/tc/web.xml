@@ -67,7 +67,7 @@
         </init-param>
         <init-param>
             <param-name>processor_path</param-name>
-            <param-value>com.topcoder.web.tc.controller.request.tournaments.tchs08.</param-value>
+            <param-value>com.topcoder.web.tc.controller.request.tournament.tchs08.</param-value>
         </init-param>
         <init-param>
             <param-name>error_page</param-name>
