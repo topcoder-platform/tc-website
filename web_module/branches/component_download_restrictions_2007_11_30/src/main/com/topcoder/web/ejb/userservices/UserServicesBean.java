@@ -26,8 +26,6 @@ public class UserServicesBean extends BaseEJB {
      */
     private static final long serialVersionUID = 1L;
 
-    private static final int DAYS_FROM_REGISTRATION = 30;
-
     private static Logger log = Logger.getLogger(UserServicesBean.class);
 
     private static final String GET_RATINGS_QUERY =
@@ -70,7 +68,7 @@ public class UserServicesBean extends BaseEJB {
         "    , resource r  " +
         "    , resource_info ri " + 
         "  where pi.phase_type_id = 1 " +  
-        "    and pi.scheduled_end_time > current - " + DAYS_FROM_REGISTRATION + " units day " +
+        "    and pi.scheduled_end_time > current - ? units day " +
         "    and pi.project_id = p.project_id  " +
         "    and p.project_status_id = 1  " +
         "    and r.project_id = p.project_id  " +
@@ -134,7 +132,7 @@ public class UserServicesBean extends BaseEJB {
         return rated;
     }
 
-    public boolean hasRegistration(long userId, int[] categoryIds) {
+    public boolean hasCompetitionRegistration(long userId, int maxDaysFromRegistration, int[] categoryIds) {
         
         if (categoryIds.length == 0) {
             return false;
@@ -161,7 +159,8 @@ public class UserServicesBean extends BaseEJB {
         try {
             connTcsCatalog = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
             psTcsCatalog = connTcsCatalog.prepareStatement(sql);
-            psTcsCatalog.setString(1, String.valueOf(userId));
+            psTcsCatalog.setInt(1, maxDaysFromRegistration);
+            psTcsCatalog.setString(2, String.valueOf(userId));
             rsTcsCatalog = psTcsCatalog.executeQuery();
             if (rsTcsCatalog.next() &&
                 rsTcsCatalog.getInt("num_registered") > 0) {

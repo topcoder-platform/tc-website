@@ -91,7 +91,7 @@ abstract public class DownloadServlet extends HttpServlet {
         }
         if (!isAuthorized(request)) {
             // redirect to unauthorized page
-            if (sendRedirect ) {
+            if (sendRedirect) {
                 response.sendRedirect(unAuthorizedPage);
             } else {
                 getServletContext().getRequestDispatcher(response.encodeURL(unAuthorizedPage)).forward(request, response);

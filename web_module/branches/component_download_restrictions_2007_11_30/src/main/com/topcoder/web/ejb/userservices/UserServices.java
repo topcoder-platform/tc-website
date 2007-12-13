@@ -8,6 +8,6 @@ public interface UserServices extends EJBObject {
 
     public boolean isRated(long userId) throws RemoteException;
 
-    public boolean hasRegistration(long userId, int[] categoryIds) throws RemoteException;
+    public boolean hasCompetitionRegistration(long userId, int maxDaysFromRegistration, int[] categoryIds) throws RemoteException;
 
 }

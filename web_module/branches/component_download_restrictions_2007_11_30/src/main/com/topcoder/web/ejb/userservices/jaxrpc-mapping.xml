@@ -16,29 +16,38 @@
   <wsdl-port-type xmlns:portTypeNS='http://userservices.ejb.web.topcoder.com/'>portTypeNS:UserServicesWS</wsdl-port-type>
   <wsdl-binding xmlns:bindingNS='http://userservices.ejb.web.topcoder.com/'>bindingNS:UserServicesWSBinding</wsdl-binding>
   <service-endpoint-method-mapping>
-   <java-method-name>hasRegistration</java-method-name>
-   <wsdl-operation>hasRegistration</wsdl-operation>
+   <java-method-name>hasCompetitionRegistration</java-method-name>
+   <wsdl-operation>hasCompetitionRegistration</wsdl-operation>
    <method-param-parts-mapping>
     <param-position>0</param-position>
     <param-type>long</param-type>
     <wsdl-message-mapping>
-     <wsdl-message xmlns:wsdlMsgNS='http://userservices.ejb.web.topcoder.com/'>wsdlMsgNS:UserServicesWS_hasRegistration</wsdl-message>
+     <wsdl-message xmlns:wsdlMsgNS='http://userservices.ejb.web.topcoder.com/'>wsdlMsgNS:UserServicesWS_hasCompetitionRegistration</wsdl-message>
      <wsdl-message-part-name>long_1</wsdl-message-part-name>
      <parameter-mode>IN</parameter-mode>
     </wsdl-message-mapping>
    </method-param-parts-mapping>
    <method-param-parts-mapping>
     <param-position>1</param-position>
+    <param-type>int</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://userservices.ejb.web.topcoder.com/'>wsdlMsgNS:UserServicesWS_hasCompetitionRegistration</wsdl-message>
+     <wsdl-message-part-name>int_2</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <method-param-parts-mapping>
+    <param-position>2</param-position>
     <param-type>int[]</param-type>
     <wsdl-message-mapping>
-     <wsdl-message xmlns:wsdlMsgNS='http://userservices.ejb.web.topcoder.com/'>wsdlMsgNS:UserServicesWS_hasRegistration</wsdl-message>
-     <wsdl-message-part-name>arrayOfint_2</wsdl-message-part-name>
+     <wsdl-message xmlns:wsdlMsgNS='http://userservices.ejb.web.topcoder.com/'>wsdlMsgNS:UserServicesWS_hasCompetitionRegistration</wsdl-message>
+     <wsdl-message-part-name>arrayOfint_3</wsdl-message-part-name>
      <parameter-mode>IN</parameter-mode>
     </wsdl-message-mapping>
    </method-param-parts-mapping>
    <wsdl-return-value-mapping>
     <method-return-value>boolean</method-return-value>
-    <wsdl-message xmlns:wsdlMsgNS='http://userservices.ejb.web.topcoder.com/'>wsdlMsgNS:UserServicesWS_hasRegistrationResponse</wsdl-message>
+    <wsdl-message xmlns:wsdlMsgNS='http://userservices.ejb.web.topcoder.com/'>wsdlMsgNS:UserServicesWS_hasCompetitionRegistrationResponse</wsdl-message>
     <wsdl-message-part-name>result</wsdl-message-part-name>
    </wsdl-return-value-mapping>
   </service-endpoint-method-mapping>

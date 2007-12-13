@@ -2075,6 +2075,7 @@ public class ComponentManagerBean
         log.debug("canDownload called (user, component): " + subject.getUserId() + ", " + componentId);
         
         int maxPublicDownloads = getMaxPublicDownloads();
+        int maxDaysFromRegistration = getMaxDaysFromRegistration();
 
         try {
             // check for special permissions
@@ -2113,7 +2114,7 @@ public class ComponentManagerBean
             
             // check if the user has registrations
             log.debug("us.hasRegistration(subject.getUserId(), competitionCategories): " + us.hasRegistration(subject.getUserId(), competitionCategories));
-            if (us.hasRegistration(subject.getUserId(), competitionCategories)) {
+            if (us.hasCompetitionRegistration(subject.getUserId(), maxDaysFromRegistration, competitionCategories)) {
                 return true; 
             }
             
@@ -2158,6 +2159,18 @@ public class ComponentManagerBean
             throw new EJBException(e);
         }
         return maxPublicDownloads;
+    }
+
+    public int getMaxDaysFromRegistration() {
+        int maxDaysFromRegistration;
+        try {
+            maxDaysFromRegistration = Integer.parseInt(getConfigValue("max_days_from_registration"));
+        } catch (NumberFormatException e) {
+            throw new EJBException(e);
+        } catch (ConfigManagerException e) {
+            throw new EJBException(e);
+        }
+        return maxDaysFromRegistration;
     }
 
     public int getNumberComponentsDownloaded(long userId) {

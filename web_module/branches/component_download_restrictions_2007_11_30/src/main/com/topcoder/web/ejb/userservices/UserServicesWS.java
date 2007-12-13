@@ -12,6 +12,6 @@ public interface UserServicesWS extends Remote {
 
     public boolean isRated(long userId) throws RemoteException;
 
-    public boolean hasRegistration(long userId, int[] categoryIds) throws RemoteException;
+    public boolean hasCompetitionRegistration(long userId, int maxDaysFromRegistration, int[] categoryIds) throws RemoteException;
 
 }

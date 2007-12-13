@@ -15,11 +15,12 @@
  <message name='UserServicesWS_isRatedResponse'>
   <part name='result' type='xsd:boolean'/>
  </message>
- <message name='UserServicesWS_hasRegistration'>
+ <message name='UserServicesWS_hasCompetitionRegistration'>
   <part name='long_1' type='xsd:long'/>
-  <part name='arrayOfint_2' type='ns1:int.Array'/>
+  <part name='int_2' type='xsd:int'/>
+  <part name='arrayOfint_3' type='ns1:int.Array'/>
  </message>
- <message name='UserServicesWS_hasRegistrationResponse'>
+ <message name='UserServicesWS_hasCompetitionRegistrationResponse'>
   <part name='result' type='xsd:boolean'/>
  </message>
  <portType name='UserServicesWS'>
@@ -27,9 +28,9 @@
    <input message='tns:UserServicesWS_isRated'/>
    <output message='tns:UserServicesWS_isRatedResponse'/>
   </operation>
-  <operation name='hasRegistration' parameterOrder='long_1 arrayOfint_2'>
-   <input message='tns:UserServicesWS_hasRegistration'/>
-   <output message='tns:UserServicesWS_hasRegistrationResponse'/>
+  <operation name='hasCompetitionRegistration' parameterOrder='long_1 int_2 arrayOfint_3'>
+   <input message='tns:UserServicesWS_hasCompetitionRegistration'/>
+   <output message='tns:UserServicesWS_hasCompetitionRegistrationResponse'/>
   </operation>
  </portType>
  <binding name='UserServicesWSBinding' type='tns:UserServicesWS'>
@@ -43,7 +44,7 @@
     <soap:body namespace='http://userservices.ejb.web.topcoder.com/' use='literal'/>
    </output>
   </operation>
-  <operation name='hasRegistration'>
+  <operation name='hasCompetitionRegistration'>
    <soap:operation soapAction=''/>
    <input>
     <soap:body namespace='http://userservices.ejb.web.topcoder.com/' use='literal'/>
