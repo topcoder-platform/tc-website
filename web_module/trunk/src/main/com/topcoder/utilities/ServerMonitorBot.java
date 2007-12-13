@@ -80,11 +80,13 @@ public class ServerMonitorBot {
     private void recordUptimeData(PollInfo[] p) throws IOException {
         log.info("recording update data");
         File f = getCurrentFile();
+/*
         int oldId = 0;
         if (f != null) {
             oldId = Integer.parseInt(f.getName().substring(FILENAME_PREFIX.length()));
         }
         File newFile = new File(FILENAME_PREFIX + (oldId + 1));
+*/
         List<UptimeInfo> infoList = readCurrentInfo();
 
         HashMap<String, UptimeInfo> infoMap = new HashMap<String, UptimeInfo>();
@@ -114,11 +116,12 @@ public class ServerMonitorBot {
         for (UptimeInfo info : infoMap.values()) {
             newList.add(info);
         }
-        writeInfo(newFile, newList);
+        f.delete();
+        writeInfo(f, newList);
 
     }
 
-    private static final String FILENAME_PREFIX = "uptime_info_";
+    private static final String FILENAME = "uptime_info";
 
     private List<UptimeInfo> readCurrentInfo() throws IOException {
         File f = getCurrentFile();
@@ -162,6 +165,8 @@ public class ServerMonitorBot {
     }
 
     private File getCurrentFile() {
+        return new File("./"+FILENAME);
+/*
         File[] files = new File(".").listFiles();
         int id = 0;
         int idx = -1;
@@ -180,6 +185,7 @@ public class ServerMonitorBot {
         } else {
             return null;
         }
+*/
 
     }
 
