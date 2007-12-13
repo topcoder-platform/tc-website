@@ -67,10 +67,12 @@ public class DDEComponentDownload extends DownloadServlet {
                 request.setAttribute("failure_reason", ViewComponentTerms.QUOTA_REACHED_REASON);
                 request.setAttribute("max_downloads", compMgr.getMaxPublicDownloads());
                 unAuthorizedPage = "/catalog/sorry.jsp";
+                sendRedirect = false;
             } catch (NonPublicComponentException e) {
                 request.setAttribute("failure_reason", ViewComponentTerms.NON_PUBLIC_REASON);                
                 request.setAttribute("max_downloads", compMgr.getMaxPublicDownloads());
                 unAuthorizedPage = "/catalog/sorry.jsp";
+                sendRedirect = false;
             }
             
             return retVal;

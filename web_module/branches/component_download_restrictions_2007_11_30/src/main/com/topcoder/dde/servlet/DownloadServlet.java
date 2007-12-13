@@ -22,6 +22,8 @@ abstract public class DownloadServlet extends HttpServlet {
 
     protected String unAuthorizedPage = "/pages/s_subscriptions.jsp";
 
+    protected boolean sendRedirect = true;
+
     /** Initializes the servlet.
      */
     public void init(ServletConfig config) throws ServletException {
@@ -89,7 +91,11 @@ abstract public class DownloadServlet extends HttpServlet {
         }
         if (!isAuthorized(request)) {
             // redirect to unauthorized page
-            response.sendRedirect(unAuthorizedPage);
+            if (sendRedirect ) {
+                response.sendRedirect(unAuthorizedPage);
+            } else {
+                getServletContext().getRequestDispatcher(response.encodeURL(unAuthorizedPage)).forward(request, response);
+            }
             return;
         }
 
