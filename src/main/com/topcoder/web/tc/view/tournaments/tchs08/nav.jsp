@@ -17,7 +17,7 @@
         <li id="nav_rules"><a title="TCHS08 Rules" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=rules"<% if (tabLev1.equals("rules")) {%> class="active"<% } %>>Rules</a></li>
         <li id="nav_visa"><a title="Getting a Visa" onfocus="this.blur();" href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early"<% if (tabLev1.equals("getVisa")) {%> class="active"<% } %>>Getting a Visa</a></li>
         <li id="nav_individual"><a title="Individual Results" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=bracketInd"<% if (tabLev1.equals("resultsInd")) {%> class="active"<% } %>>Individual Results</a></li>
-        <li id="nav_registrants"><a title="Registrants" onfocus="this.blur();" href="/tchs?module=ViewEventRegistrants&eid=992"<% if (tabLev1.equals("registrants")) {%> class="active"<% } %>>Registrants</a></li>
+        <li id="nav_registrants"><a title="Registrants" onfocus="this.blur();" href="/tchs08?module=ViewEventRegistrants&eid=992"<% if (tabLev1.equals("registrants")) {%> class="active"<% } %>>Registrants</a></li>
         <li id="nav_purdue"><a title="Purdue" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=purdue"<% if (tabLev1.equals("purdue")) {%> class="active"<% } %>>Purdue</a></li>
     </ul>
     
