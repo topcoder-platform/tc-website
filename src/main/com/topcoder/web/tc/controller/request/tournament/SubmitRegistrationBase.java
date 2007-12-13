@@ -1,9 +1,7 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
-import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.web.common.SurveyHelper;
-import com.topcoder.web.common.cache.CacheClient;
-import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Question;
@@ -63,11 +61,7 @@ public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
     
     protected void refreshCache(Event e) {
         try {
-            CacheClient cc = CacheClientFactory.create();
-            Request r = new Request();
-            log.debug("removing " + e.getShortDescription() + "_registrants" + " from cache.");
-            r.setContentHandle(e.getShortDescription() + "_registrants");
-            cc.remove(r.getCacheKey());
+            CacheClearer.removelike(e.getShortDescription() + "_registrants");
         } catch (Exception ignore) {
             ignore.printStackTrace();
         }
