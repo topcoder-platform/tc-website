@@ -146,7 +146,7 @@
                 </ul>
             
             <h3>About the Prizes</h3>
-            <p>The tournament will award participatory prizes to up to 500 competitors and at least $50,000 in scholarships and prizes. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner. Prizes will be distributed as follows:</p>
+            <p>The tournament will award participatory prizes to up to 100 competitors and at least $50,000 in scholarships and prizes. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner. Prizes will be distributed as follows:</p>
             <div id="sample_table">
                 <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                     <tr>
@@ -154,44 +154,36 @@
                         <th>Prize</th>
                     </tr>
                     <tr class="light">
-                        <td>First place finisher</td>
-                        <td>$20,000</td>
+                        <td>1<sup>st</sup> place finisher</td>
+                        <td>$15,000</td>
                     </tr>
                     <tr class="dark">
-                        <td>Second place finisher</td>
+                        <td>2<sup>nd</sup> place finisher</td>
                         <td>$10,000</td>
                     </tr>
                     <tr class="light">
-                        <td>Third place finisher</td>
+                        <td>3<sup>rd</sup> place finisher</td>
                         <td>$5,000</td>
                     </tr>
                     <tr class="dark">
-                        <td>Fourth place finisher</td>
+                        <td>4<sup>th</sup> place finisher</td>
                         <td>$2,500</td>
                     </tr>
                     <tr class="light">
-                        <td>Fifth place finisher</td>
-                        <td>$2,500</td>
+                        <td>5<sup>th</sup> place finisher</td>
+                        <td>$1,500</td>
                     </tr>
                     <tr class="dark">
-                        <td>Sixth place finisher</td>
-                        <td>$2,000</td>
+                        <td>6<sup>th</sup> - 10<sup>th</sup> place finishers</td>
+                        <td>$800 each</td>
                     </tr>
                     <tr class="light">
-                        <td>Seventh place finisher</td>
-                        <td>$2,000</td>
+                        <td>11<sup>th</sup> - 20<sup>th</sup> place finishers</td>
+                        <td>$450 each</td>
                     </tr>
                     <tr class="dark">
-                        <td>Eighth place finisher</td>
-                        <td>$2,000</td>
-                    </tr>
-                    <tr class="light">
-                        <td>Ninth place finisher</td>
-                        <td>$2,000</td>
-                    </tr>
-                    <tr class="dark">
-                        <td>Tenth place finisher</td>
-                        <td>$2,000</td>
+                        <td>21<sup>st</sup> - 50<sup>th</sup> place finishers</td>
+                        <td>$250 each</td>
                     </tr>
                     <tr class="light">
                         <td>Up to 100 competitors who compete in Online Round 3</td>
