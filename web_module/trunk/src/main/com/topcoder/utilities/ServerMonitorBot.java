@@ -80,6 +80,9 @@ public class ServerMonitorBot {
     private void recordUptimeData(PollInfo[] p) throws IOException {
         log.info("recording update data");
         File f = getCurrentFile();
+        if (f==null) {
+            f = new File(FILENAME);
+        }
 /*
         int oldId = 0;
         if (f != null) {
@@ -121,7 +124,7 @@ public class ServerMonitorBot {
 
     }
 
-    private static final String FILENAME = "uptime_info";
+    private static final String FILENAME = "./uptime_info";
 
     private List<UptimeInfo> readCurrentInfo() throws IOException {
         File f = getCurrentFile();
@@ -165,7 +168,7 @@ public class ServerMonitorBot {
     }
 
     private File getCurrentFile() {
-        return new File("./"+FILENAME);
+        return new File(FILENAME);
 /*
         File[] files = new File(".").listFiles();
         int id = 0;
