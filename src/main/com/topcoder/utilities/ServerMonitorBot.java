@@ -29,13 +29,17 @@ import java.util.StringTokenizer;
 public class ServerMonitorBot {
 
     static final Logger log = Logger.getLogger(ServerMonitorBot.class);
-    private boolean testing = true;
+    private boolean testing = false;
 
     private String[] addresses = {
             "mobile_on_call@topcoder.com",
             "email_on_call@topcoder.com"};
     private String[] testingAddresses = {
-            "dok@topcoder.com"};
+            "dok@topcoder.com","dok@topcoder.com"
+    };
+
+    private final static int SHORT_LIST = 0;
+    private final static int LONG_LIST = 1;
 
     /**
      * Creates a new instance of ServerMonitorBot
@@ -54,7 +58,6 @@ public class ServerMonitorBot {
             , new PollInfo(true, "http://forums.topcoder.com", "forums", 30)
             , new PollInfo(true, "http://studio.topcoder.com", "studio", 30)
             , new PollInfo(true, "http://www.topcoder.com/wiki", "wiki", 30)
-                        , new PollInfo(true, "http://63.118.154.162", "dev", 30)
             , new PollInfo(true, "http://www.topcoder.com/time", "time tracker", 30)
             , new PollInfo(true, "http://www.topcoder.com/bugs", "bug tracker", 30)
     };
@@ -240,6 +243,8 @@ public class ServerMonitorBot {
             if (info.isAlive()) {
                 log.warn("FAILED, SENDING MAIL");
                 addError("connection to " + info.getSiteName() + " failed");
+                addError(errorInfo);
+                addShortError("connection to " + info.getSiteName() + " failed");
                 info.setAlive(false);
                 sendError();
             }
@@ -248,6 +253,7 @@ public class ServerMonitorBot {
                 log.warn("FAILED, SENDING MAIL");
                 addError("response from " + info.getSiteName() + " failed");
                 addError(errorInfo);
+                addShortError("response from " + info.getSiteName() + " failed");
                 info.setAlive(false);
                 sendError();
             }
@@ -271,37 +277,40 @@ public class ServerMonitorBot {
         return ret.toString();
     }
 
-    private static String errorText = "";
+    private static String[] errors = {"", ""};
 
     public static void addError(String message) {
         log.info("ADDING ERROR");
-        errorText += message + "\n";
+        errors[LONG_LIST] += message + "\n";
+    }
+
+    public static void addShortError(String message) {
+        log.info("ADDING SHORT ERROR");
+        errors[SHORT_LIST] += message + "\n";
     }
 
     public void sendError() {
-        if (!errorText.equals("")) {
-            log.info("short text \n" + errorText);
-            try {
-                String[] addresses;
-                if (testing) {
-                    addresses = testingAddresses;
-                } else {
-                    addresses = this.addresses;
+        String[] addresses;
+        if (testing) {
+            addresses = testingAddresses;
+        } else {
+            addresses = this.addresses;
+        }
+        for (int i=0; i<errors.length; i++) {
+            if (!errors[i].equals("")) {
+                try {
+                        TCSEmailMessage em = new TCSEmailMessage();
+                        em.addToAddress(addresses[i], TCSEmailMessage.TO);
+                        em.setSubject("Server Error");
+                        em.setBody(errors[i]);
+                        em.setFromAddress("rfairfax@topcoder.com");
+                        EmailEngine.send(em);
+                } catch (Exception e) {
+                    log.error("HERE" + e.getClass());
+                    e.printStackTrace();
                 }
-                for (String address : addresses) {
-                    TCSEmailMessage em = new TCSEmailMessage();
-                    em.addToAddress(address, TCSEmailMessage.TO);
-                    em.setSubject("Server Error");
-                    em.setBody(errorText);
-                    em.setFromAddress("rfairfax@topcoder.com");
-                    EmailEngine.send(em);
-                }
-            } catch (Exception e) {
-                log.error("HERE" + e.getClass());
-                e.printStackTrace();
             }
         }
-        errorText = "";
     }
 
     /**
