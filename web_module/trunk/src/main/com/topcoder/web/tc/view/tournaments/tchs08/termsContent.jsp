@@ -21,32 +21,11 @@
 </head>
 <body class="termsBody" style="margin:5px;">
 
-<div id="wrapper">
+<c:import url="/tc">
+    <c:param name="<%=Constants.MODULE_KEY%>" value="Terms"/>
+    <c:param name="<%=Constants.TERMS_OF_USE_ID%>" value="<%=request.getParameter(Constants.TERMS_OF_USE_ID)%>"/>
+</c:import>
 
-    <jsp:include page="nav.jsp" >
-    <jsp:param name="tabLev1" value="registrants"/>
-    <jsp:param name="tabLev2" value=""/>
-    <jsp:param name="tabLev3" value=""/>
-    </jsp:include>
-    
-    <div id="main"><div id="mainwrapper">
-    
-        <div id="title">
-            <h2>Registration</h2>
-        </div><%-- #title --%>
-        
-        <div id="content">
-            <c:import url="/tc">
-                <c:param name="<%=Constants.MODULE_KEY%>" value="Terms"/>
-                <c:param name="<%=Constants.TERMS_OF_USE_ID%>" value="<%=request.getParameter(Constants.TERMS_OF_USE_ID)%>"/>
-            </c:import>
-            
-        </div><%-- #content --%>
-        
-        <jsp:include page="footer.jsp" />
-
-
-</div><%-- #wrapper --%>
 
 </body>
 </html>
