@@ -104,8 +104,12 @@
         <img src="/i/home/tccc07_ppa.png" alt="TCCC07 Prestigious Professor Program" usemap="#tccc07" style="display: block;" />
         --%>
         
-        <%-- TCHS08 --%>
+        <%-- TCHS08 
         <a href="<tc-webtag:linkTracking link='http://forums.topcoder.com/?module=Thread&threadID=590134&mc=24#875555' refer='homepage' />"><img src="/i/home/tchs08_promo.jpg" alt="2008 TopCoder High School" /></a>
+        --%>
+        
+        <%-- Architecture --%>
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='homepage' />"><img src="/i/home/architectureBeta.jpg" alt="Architecture Competition" /></a>
         
         
         <%-- UML Tool 
