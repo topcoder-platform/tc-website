@@ -15,8 +15,8 @@
     <STYLE TYPE="text/css">
         html.termsHTML, body.termsBody {
             text-align:left;
-            color: #333333;
-            background: #FFFFFF;
+            color: #ffffff;
+            background: #333333;
         }
     </STYLE>
 </head>
