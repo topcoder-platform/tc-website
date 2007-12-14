@@ -14,9 +14,12 @@
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
     <STYLE TYPE="text/css">
         html.termsHTML, body.termsBody {
-            text-align:left;
             color: #ffffff;
             background: #333333;
+        }
+        #content P {
+            margin-bottom: 1em;
+            text-align: justify;
         }
     </STYLE>
 </head>
