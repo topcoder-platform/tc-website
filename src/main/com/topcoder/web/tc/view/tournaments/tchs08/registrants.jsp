@@ -35,7 +35,7 @@
         <div id="content">
             <div align="center">
 
-            <table cellpadding="0" cellspacing="0" class="stat" width="100%">
+            <table cellpadding="0" cellspacing="0" class="stat" width="50%">
             <thead>
                 <tr><th colspan="4">Registrants: <%=rsc.size()%></th></tr>
                 <tr>
