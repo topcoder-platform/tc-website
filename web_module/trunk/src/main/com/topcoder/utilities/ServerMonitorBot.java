@@ -29,7 +29,7 @@ import java.util.StringTokenizer;
 public class ServerMonitorBot {
 
     static final Logger log = Logger.getLogger(ServerMonitorBot.class);
-    private boolean testing = false;
+    private boolean testing = true;
 
     private String[] addresses = {
             "mobile_on_call@topcoder.com",
