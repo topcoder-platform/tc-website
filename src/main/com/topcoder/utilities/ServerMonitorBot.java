@@ -257,6 +257,8 @@ public class ServerMonitorBot {
                 info.setAlive(false);
                 sendError();
             }
+        } else {
+            info.setAlive(true);
         }
         wack();
 
