@@ -16,20 +16,18 @@
         html.termsHTML, body.termsBody {
             color: #ffffff;
             background: #333333;
-        }
-        #content P {
-            margin-bottom: 1em;
-            text-align: justify;
+            text-align: left;
         }
     </STYLE>
 </head>
 <body class="termsBody" style="margin:5px;">
 
+<div id="content" style="width: auto;">
 <c:import url="/tc">
     <c:param name="<%=Constants.MODULE_KEY%>" value="Terms"/>
     <c:param name="<%=Constants.TERMS_OF_USE_ID%>" value="<%=request.getParameter(Constants.TERMS_OF_USE_ID)%>"/>
 </c:import>
-
+</div>
 
 </body>
 </html>
