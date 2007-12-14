@@ -35,9 +35,9 @@
         <div id="content">
             <div align="center">
 
-            <table cellpadding="0" cellspacing="0">
+            <table cellpadding="0" cellspacing="0" class="stat" width="100%">
             <thead>
-                <tr><td class="title" colspan="4">Registrants: <%=rsc.size()%></td></tr>
+                <tr><th colspan="4">Registrants: <%=rsc.size()%></th></tr>
                 <tr>
                     <td class="header" width="60%">
                         <a href="/tc?module=TCHS08ViewRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
