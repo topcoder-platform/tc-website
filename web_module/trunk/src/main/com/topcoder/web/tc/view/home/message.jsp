@@ -63,36 +63,36 @@
 <% } %>
 <%-- TCCC07 ENDS HERE --%>
 
-<%-- TCHS07 STARTS HERE --%>
+<%-- TCHS08 STARTS HERE --%>
 <% ResultSetContainer rscTch08 = (ResultSetContainer) request.getAttribute("tchs08_info");
     if (rscTch08 != null && !rscTch08.isEmpty() && rscTch08.getIntItem(0, "open") == 1) {
 %>
 
 <style type="text/css">
-    .tchs07Message {
+    .tchs08Message {
         color: #FFFFFF;
         font-size: 11px;
         font-weight: normal;
         padding: 5px;
-        background: #FF9900 url(/i/tournament/tchs07/calendar_bg.png) top center;
+        background: #d2b44a url(/i/tournament/tchs08/calendarBg.png) top center;
     }
 
-    A.tchs07MessageLink:link {
+    A.tchs08MessageLink:link {
         color: #FFFFFF;
         text-decoration: underline;
     }
 
-    A.tchs07MessageLink:visited {
+    A.tchs08MessageLink:visited {
         color: #FFFFFF;
         text-decoration: underline;
     }
 
-    A.tchs07MessageLink:hover {
+    A.tchs08MessageLink:hover {
         color: #FFFFFF;
         text-decoration: none;
     }
 
-    A.tchs07MessageLink:active {
+    A.tchs08MessageLink:active {
         color: #FFFFFF;
         text-decoration: underline;
     }
@@ -105,7 +105,7 @@
 <table cellspacing="0" cellpadding="0" class="messageBoxFrame" style="margin-bottom: 10px;">
     <tr>
         <td class="tchs07Message" align="center">
-            <A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=overview"><img src="/i/tournament/tchs07/message.png" alt="TCHS07" border="0"/></A>
+            <A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=overview"><img src="/i/tournament/tchs08/message.png" alt="TCHS08" border="0"/></A>
             <br /><br />
             <% if (rscTch08.getIntItem(0, "registered")== 0) { %>
                 Sorry, you are ineligible for the <strong>2008 TopCoder High School Tournament</strong>.<br><br>If this is a mistake, contact <A href="mailto:service@topcoder.com" class="tchs07MessageLink">service@topcoder.com</A>.<br />
@@ -113,13 +113,13 @@
                 You are registered for the <strong>2008 TopCoder High School Tournament</strong>.<br />
             <% } else { %>
                 You are not registered for the <strong>2008 TopCoder High School Tournament</strong>, click
-            <a href="/tchs08?module=ViewRegistration" class="tchs07MessageLink">here</a> to register.<br />
+            <a href="/tchs08?module=ViewRegistration" class="tchs08MessageLink">here</a> to register.<br />
             <% } %>
         </td>
     </tr>
 </table>
 <% } %>
-<%-- TCHS07 STARTS HERE --%>
+<%-- TCHS08 STARTS HERE --%>
 
 
 <%--
