@@ -238,6 +238,7 @@ public class ServerMonitorBot {
             if (info.isAlive()) {
                 log.warn("FAILED, SENDING MAIL");
                 addError("connection to " + info.getSiteName() + " failed");
+                info.setAlive(false);
                 sendError();
             }
         } else if (errorInfo.indexOf("200 OK") == -1) {
@@ -245,6 +246,7 @@ public class ServerMonitorBot {
                 log.warn("FAILED, SENDING MAIL");
                 addError("response from " + info.getSiteName() + " failed");
                 addError(errorInfo);
+                info.setAlive(false);
                 sendError();
             }
         }
