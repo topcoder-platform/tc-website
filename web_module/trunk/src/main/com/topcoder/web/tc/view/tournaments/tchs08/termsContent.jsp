@@ -14,6 +14,7 @@
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
     <STYLE TYPE="text/css">
         html.termsHTML, body.termsBody {
+            text-align:left;
             color: #333333;
             background: #FFFFFF;
         }
