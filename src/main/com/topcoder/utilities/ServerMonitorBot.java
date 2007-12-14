@@ -89,7 +89,7 @@ public class ServerMonitorBot {
         }
 
         UptimeInfo tempInfo = null;
-        for (PollInfo site : sites) {
+        for (PollInfo site : p) {
             tempInfo = infoMap.get(site.getSiteName());
             if (tempInfo == null) {
                 tempInfo = new UptimeInfo();
@@ -102,7 +102,7 @@ public class ServerMonitorBot {
             } else {
                 tempInfo.setTotal(tempInfo.getTotal() + 1);
                 if (!site.isAlive()) {
-                    tempInfo.setTotal(tempInfo.getFailure()+1);
+                    tempInfo.setFailure(tempInfo.getFailure()+1);
                 }
             }
         }
