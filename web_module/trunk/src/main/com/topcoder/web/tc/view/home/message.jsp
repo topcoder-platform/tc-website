@@ -74,7 +74,7 @@
         font-size: 11px;
         font-weight: normal;
         padding: 5px;
-        background: #d2b44a url(/i/tournament/tchs08/calendarBg.png) top center;
+        background: #d1b54a url(/i/tournament/tchs08/calendarBg.png) top center;
     }
 
     A.tchs08MessageLink:link {
