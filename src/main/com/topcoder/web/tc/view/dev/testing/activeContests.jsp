@@ -54,6 +54,40 @@
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_virgoTesting">Virgo Testing Competition</A>
+      </td>
+      <td class="valueC">
+      <%--
+      registration closed
+      --%>
+      <A href="mailto:mailto:TestingSubmissions@topcoder.com?subject=Register:%20Virgo%20%20Testing%20Competition">register</A>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_registrationToolTeams">results</A>
+      --%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_registrationToolTeams">standings</A>
+      --%>
+      </td>
+      <td class="valueC">$1,000</td>
+      <td class="valueC">
+      12.18.2007 9:00 AM EDT
+      </td>
+      <td class="valueC">
+      12.24.2007 9:00 AM EDT
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <tc-webtag:forumLink forumID="518486" message="discuss" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_registrationToolTeams">Registration Tool - Teams</A>
       </td>
       <td class="valueC">
