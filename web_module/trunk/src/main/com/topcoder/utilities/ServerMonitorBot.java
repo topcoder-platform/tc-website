@@ -151,8 +151,8 @@ public class ServerMonitorBot {
             buf.append("|");
             buf.append(in.getFailure());
             buf.append("|");
-            buf.append(((float)in.getFailure()/in.getTotal())*100);
-            buf.append("%");
+            buf.append((1-((float)in.getFailure()/in.getTotal()))*100);
+            buf.append("% up time");
             pw.println(buf.toString());
 
         }
