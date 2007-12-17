@@ -132,7 +132,7 @@ By participating in the contest and redeeming a prize, participants release and 
 TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in the contest, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the contest process, or otherwise being in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the contest if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.
 <br><br>
 <b>OTHER</b><br>
-The contest is void in whole or in part where prohibited by law.  This contest is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033.
+The contest is void in whole or in part where prohibited by law.  This contest is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.
          </div>
 
          <p><br/></p>

@@ -175,7 +175,7 @@ The Championship Round is the final round of the Sponsor Track Competition.  Up 
 
 <p>The tournament is void in whole or in part where prohibited by law.</p>
 <p>A list of tournament winners by coder handles will be available on the web site at <a target="_blank" href="http://www.topcoder.com/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the end of the tournament.</p>
-<p>This tournament is brought to you by <a target="_blank" href="http://www.topcoder.com/">TopCoder, Inc.</a> 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+<p>This tournament is brought to you by <a target="_blank" href="http://www.topcoder.com/">TopCoder, Inc.</a> 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.</p>
                    </div>
                 </td>
             </tr>

@@ -372,7 +372,7 @@ The tournament is void in whole or in part where prohibited by law.
 A list of tournament winners by coder handles will be available on the web site at <A href="/tc">http://www.topcoder.com/tc</A>, and will be displayed for at least 3 months after the end of the tournament. 
 </p>
 <p>
-This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue, Glastonbury, CT 06033. AOL LLC is not responsible for any aspect of the Tournament.
+This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033. AOL LLC is not responsible for any aspect of the Tournament.
 </p>
 
                     </div>
