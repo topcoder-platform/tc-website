@@ -87,7 +87,7 @@
                 </div>
                 <div>
                     <p><strong>How do I return the Assignment?</strong></p>
-                    <p>Each individual member's first assignment must be signed and either (i) scanned as a PDF file and emailed to <a href="mailto:payments@topcoder.com?subject=Assignment Documents FAQ">payments@topcoder.com</a> or (ii) mailed to:  TopCoder, Inc., Attn: Payments, 703 Hebron Avenue, Glastonbury, CT 06033.  However, please keep in mind that we must actually receive the Assignment before the expiration of 30 days.</p>
+                    <p>Each individual member's first assignment must be signed and either (i) scanned as a PDF file and emailed to <a href="mailto:payments@topcoder.com?subject=Assignment Documents FAQ">payments@topcoder.com</a> or (ii) mailed to:  TopCoder, Inc., Attn: Payments, 95 Glastonbury Blvd, Glastonbury, CT 06033.  However, please keep in mind that we must actually receive the Assignment before the expiration of 30 days.</p>
                 </div>
                 <div>
                     <p><strong>How much time do I have to return the Assignment?</strong></p>

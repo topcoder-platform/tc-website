@@ -87,7 +87,7 @@
                             <li>Make your check payable to the <em>Christopher Reeve Paralysis Foundation</em>.</li>
                             <li>Mail your check to:<br/>
                             TopCoder<br />
-                            703 Hebron Ave<br />
+                            95 Glastonbury Blvd<br />
                             Glastonbury,CT 06033<br />
                             ATTN:  CRPF DONATIONS<br/>
                             <strong>The check must be received no later than November 10, 2003.</strong></li>

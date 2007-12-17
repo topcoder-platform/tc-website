@@ -159,7 +159,7 @@ education and not matriculated full time at a college or university.
 <p>A list of competitor handles for all SRMs will be available on the web site at
     http://www.topcoder.com displayed for at least 3 months after the end of the SRM.</p>
 
-<p>This SRM is brought to you by TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033.</p>
+<p>This SRM is brought to you by TopCoder, Inc., 95 Glastonbury Blvd, Glastonbury, CT 06033.</p>
 
 
 </div>
@@ -276,7 +276,7 @@ education and not matriculated full time at a college or university.
 <p>A list of competitor handles for all SRMs will be available on the web site at
     http://www.topcoder.com displayed for at least 3 months after the end of the SRM.</p>
 
-<p>This SRM is brought to you by TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033.</p>
+<p>This SRM is brought to you by TopCoder, Inc., 95 Glastonbury Blvd, Glastonbury, CT 06033.</p>
 
 
 </div>

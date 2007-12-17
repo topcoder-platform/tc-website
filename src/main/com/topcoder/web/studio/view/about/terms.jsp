@@ -87,7 +87,7 @@
                    <tr valign="top"><td nowrap="nowrap">BY E-MAIL:</td><td width="100%"><a href="mailto:service@topcoder.com">service@topcoder.com</a></td></tr>
                    <tr valign="top"><td nowrap="nowrap">BY MAIL:</td><td>John Hughes c/o Tanya Horgan<br />
                       TopCoder, Inc.<br />
-                      703 Hebron Avenue,<br />
+                      95 Glastonbury Blvd,<br />
                       Glastonbury, CT  06033
                    <tr valign="top"><td nowrap="nowrap">BY PHONE:</td><td>860.633.5540</td></tr>
                 </table>

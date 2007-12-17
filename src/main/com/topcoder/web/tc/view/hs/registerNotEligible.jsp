@@ -66,7 +66,7 @@
                <br /><br />
                TopCoder, Inc.
                <br />Attn: TCHS08
-               <br />703 Hebron Avenue
+               <br />95 Glastonbury Blvd
                <br />Glastonbury, CT, 06033, USA
                <br /><br />
                If you have any questions please contact <a href="jford@topcoder.com?subject=TCHS Eligibility">Jessie D'Amato Ford</a>.

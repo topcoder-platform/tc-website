@@ -257,7 +257,7 @@ http://www.topcoder.com displayed for at least 3 months after the end of the
 competition.<br/><br/>
 
 This tournament is brought to you by
-TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033.<br/><br/>
+TopCoder, Inc., 95 Glastonbury Blvd, Glastonbury, CT 06033.<br/><br/>
 
 <% } else { %>
                                 <span class="bigRed">
@@ -394,7 +394,7 @@ http://www.topcoder.com displayed for at least 3 months after the end of the
 competition.<br/><br/>
 
 This tournament is brought to you by
-TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033.<br/><br/>
+TopCoder, Inc., 95 Glastonbury Blvd, Glastonbury, CT 06033.<br/><br/>
 
 <% } %>
 

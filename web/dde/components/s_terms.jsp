@@ -115,7 +115,7 @@
                         <p>By email: <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a><br />
                         By mail: Tanya Horgan<br />
                         TopCoder Software, Inc.<br />
-                        703 Hebron Avenue,<br />
+                        95 Glastonbury Blvd,<br />
                         Glastonbury, CT 06033<br />
                         BY PHONE: 860.633.5540</p>
 

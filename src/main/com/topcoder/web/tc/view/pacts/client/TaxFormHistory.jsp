@@ -82,7 +82,7 @@
             <A class="statText" href="/contest/fw8ben.pdf">Click here for the W-8BEN form >></A><BR></LI></UL>
 
 
-        Mailing address for forms and affidavits: TopCoder, 703 Hebron Avenue, Glastonbury, CT 06033
+        Mailing address for forms and affidavits: TopCoder, 95 Glastonbury Blvd, Glastonbury, CT 06033
 
         <p>Here are the tax forms currently on file:</p>
 

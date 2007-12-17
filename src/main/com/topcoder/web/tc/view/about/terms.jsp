@@ -103,7 +103,7 @@ If you believe that your work has been copied and is accessible at our Web site 
    <tr valign="top"><td nowrap="nowrap">BY E-MAIL:</td><td width="100%"><A href="mailto:service@topcoder.com">service@topcoder.com</A></td></tr>
    <tr valign="top"><td nowrap="nowrap">BY MAIL:</td><td>John Hughes c/o Tanya Horgan<br>
       TopCoder, Inc.<br>
-      703 Hebron Avenue,<br>
+      95 Glastonbury Blvd,<br>
       Glastonbury, CT  06033
    <tr valign="top"><td nowrap="nowrap">BY PHONE:</td><td>860.633.5540</td></tr>
 </table>

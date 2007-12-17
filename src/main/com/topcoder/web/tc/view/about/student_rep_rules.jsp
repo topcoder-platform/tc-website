@@ -65,7 +65,7 @@
 		<br><br>
 		<strong>OTHER</strong><br/>
 		The tournament is void in whole or in part where prohibited by law.  This tournament is brought to you by TopCoder, Inc.
-		(<a href="http://www.topcoder.com/" target="_blank">http://www.topcoder.com/</a>) 703 Hebron Avenue, Glastonbury, CT 06033.
+		(<a href="http://www.topcoder.com/" target="_blank">http://www.topcoder.com/</a>) 95 Glastonbury Blvd, Glastonbury, CT 06033.
 
 
         </td>

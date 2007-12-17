@@ -313,7 +313,7 @@ Acceptance of prize constitutes permission to use winner's name and/or likeness 
 <br><br>
 All federal, state and local laws and regulations apply.
 <br><br>
-This tournament is brought to you by TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033.
+This tournament is brought to you by TopCoder, Inc., 95 Glastonbury Blvd, Glastonbury, CT 06033.
 
    </div>
 </div>

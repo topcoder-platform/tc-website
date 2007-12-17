@@ -202,7 +202,7 @@ Winners will be announced on <A target="_blank" href="/">http://csf.topcoder.com
 <h3>CONTACTS</h3>
 
 <p>
-This Contest Series is brought to you by Microsoft Corporation, One Microsoft Way, Redmond WA 98052 and TopCoder, Inc., 703 Hebron Avenue, Glastonbury, CT 06033.
+This Contest Series is brought to you by Microsoft Corporation, One Microsoft Way, Redmond WA 98052 and TopCoder, Inc., 95 Glastonbury Blvd, Glastonbury, CT 06033.
 </p>
 
 <%--
