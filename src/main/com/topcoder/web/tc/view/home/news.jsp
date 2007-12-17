@@ -2,7 +2,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%-------------------------- Monday Morning TCHS08 launch
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />12.17.07<br />9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -14,7 +14,7 @@
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=590134&start=0&mc=49">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-   ------------------------------%>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.13.07<br />12:15 PM</td>
@@ -175,21 +175,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm379">details</A> | 
          <tc-webtag:forumLink forumID="516076" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.30.07<br />4:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm46">TCHS SRM 46 - Problem Set &amp; Analysis</A></span><br /><br />
-      The match attracted 97 registrants, 19 of them newcomers. Coders faced a tricky medium and not so difficult hard - it resulted in 9 people getting all three problems correct and 7 with easy and hard.</td>
-         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="21157942" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm46">details</A> | 
-         <tc-webtag:forumLink forumID="516572" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
    
