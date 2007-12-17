@@ -56,27 +56,29 @@
       </tr>
    </table>
 
-<%--
+
    <div class="sectionHeader">Current Tournaments</div>
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about"><img src="/i/tournament/tccc07current.png" alt="2007 TopCoder Collegiate Challenge" border="0" /></A><br /></td>
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=overview"><img src="/i/tournament/tchs08current.png" alt="2008 TopCoder High School" border="0" /></A><br /></td>
          <td width="100%">
-         <span class="bodySubtitle">2007 TopCoder&#174; Collegiate Challenge</span>
+         <span class="bodySubtitle">2008 TopCoder&#174; High School</span>
          <br /><br />
-         Oct 30 - Nov 2<br />
-         Disney World Contemporary Resort<br />
-         Orlando, FL, USA<br />
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about">Details</A>
+         March 14-16<br />
+         The Lawson Building<br />
+         Purdue University<br />
+         West Lafayette, IN, USA<br />
+         <A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=overview">Details</A>
          <br />
+         <%--
          <A target="_blank" href="/pdfs/tournaments/TCCC07_Program_View.pdf">Program [PDF]</A>
          <br />
-         <A href="http://studio.topcoder.com/?module=ViewSubmissions&ct=2104">Logo Contest</A>
+         --%>
+         <A href="http://studio.topcoder.com/?module=ViewSubmissions&ct=2138">Logo Contest</A>
          </td>
       </tr>
    </table>
---%>
 
    <div class="sectionHeader" width="100%">Past Tournaments</div>
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
