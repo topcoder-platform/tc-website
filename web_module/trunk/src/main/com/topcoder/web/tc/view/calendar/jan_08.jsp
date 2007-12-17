@@ -59,7 +59,12 @@
       <td class="empty">&#160;</td>
       <td class="value">1</td>
       <td class="value">2</td>
-      <td class="value">3</td>
+      <td class="value">3
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
+      </td>
       <td class="value">4</td>
       <td class="value">5
         <div class="srm">
@@ -88,6 +93,10 @@
          </div>
       </td>
       <td class="value">10
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
       </td>
       <td class="value">11
       </td>
@@ -109,6 +118,10 @@
       <td class="value">16
       </td>
       <td class="value">17
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
       </td>
       <td class="value">18
       </td>
@@ -126,6 +139,10 @@
       <td class="value">23
       </td>
       <td class="value">24
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=11123">SRM 389</A></strong><br>
          7:00 AM
@@ -152,6 +169,10 @@
          </div>
       </td>
       <td class="value">31
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
       </td>
       <td class="empty">&#160;<br><br><br><br><br></td>
       <td class="empty">&#160;</td>

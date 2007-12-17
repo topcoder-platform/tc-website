@@ -75,6 +75,10 @@
       <td class="value">5
       </td>
       <td class="value">6
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=11126">SRM 392</A></strong><br>
          7:00 AM
@@ -100,6 +104,10 @@
       <td class="value">12
       </td>
       <td class="value">13
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
       </td>
       <td class="value">14
       </td>
@@ -117,6 +125,10 @@
       <td class="value">19
       </td>
       <td class="value">20
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
       </td>
       <td class="value">21
       </td>
@@ -142,6 +154,10 @@
          </div>
       </td>
       <td class="value">27
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
       </td>
       <td class="value">28
       </td>
