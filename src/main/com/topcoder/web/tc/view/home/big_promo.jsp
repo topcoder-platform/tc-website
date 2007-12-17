@@ -54,9 +54,18 @@
 <a href="<tc-webtag:linkTracking link='http://forums.topcoder.com/?module=Thread&threadID=590134&mc=24#875555' refer='/tc' />"><img src="/i/home/tchs08_promo.jpg" alt="2008 TopCoder High School" /></a>
 --%>
 
+<%-- TCHS08 And Architecture Competition --%>
+<map name="tchs08">
+<area shape="rect" alt="" coords="10,10,270,135" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=overview" />
+<area shape="rect" alt="" coords="290,12,455,135" href="/tc?module=Static&d1=architecture&d2=beta" />
+</map>
+<img src="/i/home/tchs08ANDarchComp.png" alt="TCHS08" usemap="#tchs08" style="display: block;" />
+
+
 <%-- UML Tool 
 <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />"><img src="/i/home/umltoolRelease.jpg" alt="UML Tool Release" /></a>
 --%>
 
-<%-- Architecture --%>
+<%-- Architecture 
 <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='/tc' />"><img src="/i/home/architectureBeta.jpg" alt="Architecture Competition" /></a>
+--%>
