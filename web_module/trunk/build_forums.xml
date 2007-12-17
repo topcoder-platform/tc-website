@@ -383,7 +383,7 @@
         <antcall target="move-libs"/>
     </target>
 
-    <target name="deploy-forums">
+    <target name="deploy">
         <antcall target="build-forums"/>
         <antcall target="expand"/>
     </target>
