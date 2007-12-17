@@ -39,7 +39,7 @@
 
     <%-- pr_header begin --%>
     <div id="pr_header">
-        <h1><a href="/tc?module=Static&d1=pressroom&d2=index" name="pr_top">Press Room</a></h1>
+        <h1><a onfocus="this.blur();" href="/tc?module=Static&d1=pressroom&d2=index" name="pr_top">Press Room</a></h1>
     </div>
     <%-- pr_header end --%>
     
