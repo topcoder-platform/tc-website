@@ -48,7 +48,7 @@
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${jars.dir}/bfograph.jar"/>
         <pathelement location="${jars.dir}/activation.jar"/>
-    	<pathelement location="${jars.dir}/httpunit.jar"/>
+        <pathelement location="${jars.dir}/httpunit.jar"/>
 
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
@@ -58,8 +58,8 @@
         <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
         <pathelement location="${jars.dir}/jboss/mail.jar"/>
         <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
-    	<pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
-    	<pathelement location="${jars.dir}/jboss/jgroups.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
+        <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
 
         <pathelement location="${jive.dir}/jivebase.jar"/>
         <pathelement location="${jive.dir}/jiveforums.jar"/>
@@ -73,7 +73,8 @@
         <!-- TCS Components -->
         <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
         <pathelement location="${jars.dir}/object_formatter.jar"/>
-       	<pathelement location="${jars.dir}/idgenerator.jar"/> <!-- needed for shared.jar -->
+        <pathelement location="${jars.dir}/idgenerator.jar"/>
+        <!-- needed for shared.jar -->
         <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <pathelement location="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
@@ -323,7 +324,7 @@
         <antcall target="package-EJB-UserBean"/>
         <antcall target="package-EJB-EmailBean"/>
     </target>
-	
+
     <target name="war-forums" depends="compile_forums">
         <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/tc/web.xml">
             <fileset dir="${java}/com/topcoder/web/forums/view/tc">
@@ -359,19 +360,58 @@
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
             </lib>
-           
         </war>
-        <antcall target="explode-forums"/>
+        <antcall target="expand-forums"/>
     </target>
 
-    <target name="explode-forums">
+    <target name="expand-forums">
         <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
         <delete dir="${jboss_deploy}/forums.war/META-INF"/>
     </target>
 
-	<!-- resolve move-libs redundancies -->
-    <target name="deploy-forums-full">
-        <antcall target="deploy-forums"/>
+    <target name="expand">
+        <antcall target="expand-forums"/>
+
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/User.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/Email.jar"/>
+
+        <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
+        <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
+        <antcall target="move-conf"/>
+        <antcall target="move-libs"/>
+    </target>
+
+    <target name="deploy-forums">
+        <antcall target="build-forums"/>
+        <antcall target="expand"/>
+    </target>
+
+    <target name="move-conf">
+        <copy todir="${jboss_conf}" file="${resources}/forums/tc/jive_init.xml"/>
+        <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
+        <copy todir="${jboss_conf}/com/topcoder/security/" file="${resources}/com/topcoder/security/Util.properties"/>
+        <copy todir="${jboss_conf}/com/topcoder/util/config/"
+              file="${resources}/com/topcoder/util/config/ConfigManager.properties"/>
+        <copy todir="${jboss_conf}/com/topcoder/servlet/request/"
+              file="${resources}/com/topcoder/servlet/request/FileUpload.xml"/>
+
+    </target>
+
+
+    <target name="move-libs">
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/data_validation/1.0/data_validation.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_system_server/1.0/file_system_server.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/guid_generator/1.0/guid_generator.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/heartbeat/1.0/heartbeat.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/ip_server/2.0.1/ip_server.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
 
         <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
@@ -395,40 +435,10 @@
             </fileset>
         </copy>
 
-
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
-    	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
-    	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/data_validation/1.0/data_validation.jar"/>
-    	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_system_server/1.0/file_system_server.jar"/>
-    	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/guid_generator/1.0/guid_generator.jar"/>
-    	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/heartbeat/1.0/heartbeat.jar"/>
-    	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/ip_server/2.0.1/ip_server.jar"/>
-    	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
-
-        <copy todir="${jboss_conf}" file="${resources}/forums/tc/jive_init.xml"/>
-        <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
-        <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
-        <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
-        <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
-        <copy todir="${jboss_conf}/com/topcoder/security/" file="${resources}/com/topcoder/security/Util.properties"/>
-        <copy todir="${jboss_conf}/com/topcoder/util/config/" file="${resources}/com/topcoder/util/config/ConfigManager.properties"/>
-    	<copy todir="${jboss_conf}/com/topcoder/servlet/request/" file="${resources}/com/topcoder/servlet/request/FileUpload.xml"/>
-
-        <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
-        <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
-    </target>
-
-    <target name="deploy-forums">
-        <antcall target="explode-forums"/>
-
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${common.jar}"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcjive.jar"/>
 
-        <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
-        <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
-        <copy todir="${jboss_deploy}" file="${ejb_jars}/User.jar"/>
-        <copy todir="${jboss_deploy}" file="${ejb_jars}/Email.jar"/>
     </target>
 
     <target name="run-ForumConverter" depends="compile_forumData">
@@ -470,5 +480,5 @@
             </classpath>
         </java>
     </target>
-	
+
 </project>
