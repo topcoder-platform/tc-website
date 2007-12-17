@@ -112,6 +112,11 @@
       <td class="value">14
       </td>
       <td class="value">15
+         <div class="tchs08">
+         <div class="emblem"><img src="/i/tournament/tchs08/emblem.png" alt="TCHS08" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onsiteSchedule">Onsite Finals</A></strong><br>
+         10:00 AM 
+         </div>
       </td>
    </tr>
 
