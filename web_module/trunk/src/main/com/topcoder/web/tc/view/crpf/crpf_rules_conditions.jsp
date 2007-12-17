@@ -120,7 +120,7 @@
                   <p>A list of tournament winners by coder handles will be available on the web site at <A href="http://www.topcoder.com/crpf ">www.topcoder.com/crpf</A> and will be
                   displayed for at least 3 months after the end of the tournament.</p>
 
-                  <p>This tournament is brought to you by TopCoder, Inc. (<A href="/ ">www.topcoder.com</A>) 703 Hebron Avenue, Glastonbury, CT 06033
+                  <p>This tournament is brought to you by TopCoder, Inc. (<A href="/ ">www.topcoder.com</A>) 95 Glastonbury Blvd, Glastonbury, CT 06033
                   and the Christopher Reeve Paralysis Foundation (<A href="http://www.crpf.org/">www.crpf.org</A>) 500 Morris Avenue, Springfield, NJ 07081.</p>
 
 

@@ -315,7 +315,7 @@
 	<%}%>
         
         <p align="justify">
-        This tournament is brought to you by TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033.
+        This tournament is brought to you by TopCoder, Inc., 95 Glastonbury Blvd, Glastonbury, CT 06033.
         </p>
 
 	<p align="justify">

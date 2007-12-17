@@ -57,7 +57,7 @@ Our privacy policy and security measures are periodically reviewed and enhanced 
 California Civil Code Section 1798.83 permits registered users who are California residents to request certain information regarding disclosure of personal information to third parties for their direct marketing purposes.  To request such information, please e-mail <A href="mailto:service@topcoder.com">service@topcoder.com</A> or write to us at:
 <br><br>
 TopCoder<br>
-703 Hebron Avenue<br>
+95 Glastonbury Blvd<br>
 Glastonbury, CT  06033
 <br><br>
 <span class="bodySubtitle">Information About All TopCoder Visitors</span><br>

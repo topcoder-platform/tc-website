@@ -38,7 +38,7 @@
                                         <td align="left" colspan="2">
                                             <strong>Corporate Address</strong><br />
                                             TopCoder, Inc.<br />
-                                            703 Hebron Avenue<br />
+                                            95 Glastonbury Blvd<br />
                                             Glastonbury, CT 06033 U.S.A.<br />
                                             tel: 860.633.5540<br />
                                             fax: 860.657.4276

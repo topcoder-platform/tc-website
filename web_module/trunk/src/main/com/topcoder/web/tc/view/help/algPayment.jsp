@@ -140,7 +140,7 @@ Please email other tax questions to <A href="mailto:payments@topcoder.com">payme
 <b>Send notarized affidavits and tax forms to:</b><br>
 TopCoder, Inc.<br>
 Attn: Payments<br>
-703 Hebron Avenue<br>
+95 Glastonbury Blvd<br>
 Glastonbury, CT 06033
          <p><br/></p>
          </td>
