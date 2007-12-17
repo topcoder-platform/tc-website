@@ -364,7 +364,7 @@ infection by computer virus, bugs, tampering, unauthorized intervention or techn
 <span class="subTitle">Other</span><br>
 The tournament is void in whole or in part where prohibited by law.
 <br><br>
-This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue,
+This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue (now 95 Glastonbury Blvd),
 Glastonbury, CT 06033 and Google Inc. (<A href="/?t=sponsor&c=link&link=http://www.google.com">http://www.google.com</A>)
 1600 Amphitheatre Parkway, Mountain View, CA 94043.
 

@@ -548,7 +548,7 @@ A list of tournament winners by coder handles will be available on the web site 
 <P CLASS="statText">
 This tournament is brought to you by: <BR/><BR/>Sun Microsystems, Inc. (<A HREF="http://www.sun.com/" CLASS="statText"><FONT COLOR="#FFCC00">http://www.sun.com</FONT></A>)<BR/> 
 901 San Antonio Road<BR/> 
-Palo Alto, CA 94303<BR/><BR/>  and <BR/><BR/> TopCoder, Inc. (<A HREF="http://www.topcoder.com" CLASS="statText"><FONT COLOR="#FFCC00">www.topcoder.com</FONT></A>)<BR/> 703 Hebron Avenue<BR/> Glastonbury, CT 06033
+Palo Alto, CA 94303<BR/><BR/>  and <BR/><BR/> TopCoder, Inc. (<A HREF="http://www.topcoder.com" CLASS="statText"><FONT COLOR="#FFCC00">www.topcoder.com</FONT></A>)<BR/> 703 Hebron Avenue (now 95 Glastonbury Blvd)<BR/> Glastonbury, CT 06033
 </P>
 <P CLASS="statText"><A HREF="#top" CLASS="statText"><FONT COLOR="#FFCC00">Back to Top</FONT></A></P>
 

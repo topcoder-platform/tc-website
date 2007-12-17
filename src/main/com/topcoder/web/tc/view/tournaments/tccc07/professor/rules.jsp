@@ -74,7 +74,7 @@
                 
                 <h2>Other</h2>
                 <p>The contest is void in whole or in part where prohibited by law.</p>
-                <p>This tournament is brought to you by <a target="_blank" href="/">TopCoder, Inc.</a> 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+                <p>This tournament is brought to you by <a target="_blank" href="/">TopCoder, Inc.</a> 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.</p>
 
 
             </div>

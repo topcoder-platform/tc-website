@@ -181,7 +181,7 @@
 
             <p>Any appeals as to the outcome of a round of competition must be submitted via email to <A href="mailto:service@topcoder.com" class="bodyText">service@topcoder.com</A> by no later than 11:00 AM Eastern Time on the date following the round for which the appeal is being addressed.</p>
 
-            <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+            <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.</p>
 
          <p><br/></p>
          </td>

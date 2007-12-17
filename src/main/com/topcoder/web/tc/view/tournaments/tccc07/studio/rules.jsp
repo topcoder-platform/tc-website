@@ -386,7 +386,7 @@ The six (6) highest individual placement scores that each contestant receives fo
 
                             </ol>
                         <li>Applicable tax form (unless one is already on file with TopCoder)</li>
-                        <li>Letter from your college/university on official stationary that states you are/were a full time student between July 23, 2007 and November 3, 2007 OR a photocopy of your International Student Identity Card (ISIC) that shows you are/were a full time student between the dates July 23, 2007 and November 3, 2007 If sending a letter, it must be written in English and signed by an official university staff member. If sending a photocopy of your ISIC, it must list the name of your college or university. If the card is not in English, you must provide a translation to English with the photocopy. Necessary documents must be sent directly to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue, Glastonbury, CT, 06033, USA.</li>
+                        <li>Letter from your college/university on official stationary that states you are/were a full time student between July 23, 2007 and November 3, 2007 OR a photocopy of your International Student Identity Card (ISIC) that shows you are/were a full time student between the dates July 23, 2007 and November 3, 2007 If sending a letter, it must be written in English and signed by an official university staff member. If sending a photocopy of your ISIC, it must list the name of your college or university. If the card is not in English, you must provide a translation to English with the photocopy. Necessary documents must be sent directly to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT, 06033, USA.</li>
                     </ul>
                 <p>A competitors who fails to submit the above items on time will not advance to the onsite Championship round and will be replaced by  the competitor with the next highest cumulative placement points.</p>
                 <p>All prizes (cash prizes and participatory prizes) will be sent within 60 days of the completion of the Championship Round. Unclaimed or undeliverable prizes will be forfeited. Competitors who do not submit the required information by the applicable deadlines forfeit their prizes.</p>
@@ -399,7 +399,7 @@ The six (6) highest individual placement scores that each contestant receives fo
                 <h2>Other</h2>
                 <p>The SDC and the Tournament are void in whole or in part where prohibited by law. A list of SDC and Tournament winners by handles will be available on the web site at <a target="_blank" href="/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the completion of the SDC and the Tournament.</p>
 
-                <p>The SDC and the Tournament are brought to you by TopCoder, Inc. (<a target="_blank" href="/">http://www.topcoder.com/</a>) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+                <p>The SDC and the Tournament are brought to you by TopCoder, Inc. (<a target="_blank" href="/">http://www.topcoder.com/</a>) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.</p>
 
 
             </div>

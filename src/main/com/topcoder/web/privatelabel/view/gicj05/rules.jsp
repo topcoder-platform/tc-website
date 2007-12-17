@@ -238,7 +238,7 @@
          <span class="greenSubtitle">Other</span><br>
          The tournament is void in whole or in part where prohibited by law.
          <br/><br/>
-         This tournament is brought to you by Google Online India Private Limited (<A href="http://www.google.com/bangalore">http://www.google.com/bangalore</A>) Prestige Sigma, No. 3, 1st Floor, Vittal Mallya Road (Grant Road), Corporation Division No. 61, Bangalore 560 001, India and TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue, Glastonbury, CT 06033.
+         This tournament is brought to you by Google Online India Private Limited (<A href="http://www.google.com/bangalore">http://www.google.com/bangalore</A>) Prestige Sigma, No. 3, 1st Floor, Vittal Mallya Road (Grant Road), Corporation Division No. 61, Bangalore 560 001, India and TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.
 			<br><br>
 			</div>
 		</td>

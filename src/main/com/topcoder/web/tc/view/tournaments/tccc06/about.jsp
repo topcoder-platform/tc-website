@@ -56,7 +56,7 @@ Refer your friends and classmates to TopCoder, and you could be our top <A href=
 <br><br>--%>
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_rules">Algorithm</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_rules">Component</A> rules and regulations for full details.
 <br><br>
-<span class="smallText">This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue, Glastonbury, CT 06033. AOL LLC is not responsible for any aspect of the Tournament.</span>
+<span class="smallText">This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033. AOL LLC is not responsible for any aspect of the Tournament.</span>
 <br><br>
        </div>
       </td>

@@ -224,7 +224,7 @@
                             <li>TopCoder must receive the original signed Travel Waiver. The document must be postmarked by February 8, 2008, and must be sent in such a manner that it will arrive at TopCoder no later than March 7, 2008.</li>
                         </ul>
                     </li>
-                    <li>Letter from your secondary school on official stationary that states you are currently a full time student. The letter must be written in English and signed by an official school staff member. The letter must be sent directly by a school official to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue, Glastonbury, CT, 06033, USA, and must arrive no later than March 7, 2008.</li>
+                    <li>Letter from your secondary school on official stationary that states you are currently a full time student. The letter must be written in English and signed by an official school staff member. The letter must be sent directly by a school official to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT, 06033, USA, and must arrive no later than March 7, 2008.</li>
                 </ul>
             <p>Failure to submit the above items on time will result in a forfeiture of advancement as an onsite finalist. In that case, the next highest scorer(s) from Online Round 3 will advance.</p>
             <p>All participatory prizes will be sent via the United States Postal Service. Unclaimed or undeliverable participatory prizes will be forfeited. Competitors who do not submit the required information listed above by the applicable deadlines will forfeit their participatory prize.</p>
@@ -237,7 +237,7 @@
             <h3>Other</h3>
             <p>The tournament is void in whole or in part where prohibited by law.</p>
             <p>A list of tournament winners by coder handles will be available on the web site at <a href="/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the end of the tournament.</p>
-            <p>This tournament is brought to you by TopCoder, Inc. (<a href="/">http://www.topcoder.com/</a>) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+            <p>This tournament is brought to you by TopCoder, Inc. (<a href="/">http://www.topcoder.com/</a>) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.</p>
 
         </div><%-- #content --%>
         

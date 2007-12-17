@@ -69,7 +69,7 @@
         <% if (info.getIntItem(0, "has_tax_form") == 0) {%>
         <p><strong>TAX FORM</strong> - must be mailed to TopCoder Payments and postmarked on or before Friday,
             September 28.
-            They can be mailed to:  TopCoder, Inc., Attn:  Payments, 703 Hebron Avenue, Glastonbury, CT 06033, USA.
+            They can be mailed to:  TopCoder, Inc., Attn:  Payments, 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033, USA.
         </p>
 
         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN). If you don't
@@ -120,7 +120,7 @@
             If sending a letter, it must be written in English and signed by an official university staff member. If
             sending a photocopy of your ISIC, it must list the name of your college or university. If the card is not in
             English, you must provide a translation to English with the photocopy. Necessary documents must be sent directly
-            to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue, Glastonbury, CT, 06033, USA.
+            to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT, 06033, USA.
         </p>
 
     </li>

@@ -236,7 +236,7 @@
 
             <p>The results of a round of competition will be considered, by TopCoder, to be final at 11:00 AM EST on the day following the round of competition.  Any appeals regarding the validity of these results must be received by TopCoder at the <A href="mailto:service@topcoder.com" class="bodyText">service@topcoder.com</A> email address no later than 11:00 AM EST on the second day following the date on which the round of competition was held.</p>
 
-            <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+            <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.</p>
 
          <p><br/></p>
          </td>

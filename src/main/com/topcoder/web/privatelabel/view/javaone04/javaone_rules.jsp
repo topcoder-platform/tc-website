@@ -255,7 +255,7 @@
 			at least 3 months after the end of the tournament.</p>
 
 			<p class="regmiddle">This tournament is brought to you by Sun Microsystems, Inc. (<a href="http://www.sun.com/">http://www.sun.com</a>),
-			901 San Antonio Road, Palo Alto, CA 94303 and TopCoder, Inc. (<a href="http://www.topcoder.com/">http://www.topcoder.com</a>) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+			901 San Antonio Road, Palo Alto, CA 94303 and TopCoder, Inc. (<a href="http://www.topcoder.com/">http://www.topcoder.com</a>) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.</p>
 
 
 					</td>

@@ -70,7 +70,7 @@
                                         <p>Contact: <br/>
                                         Paul Moriarty<br/>
                                         TopCoder, Inc. <br/>
-                                        703 Hebron Avenue<br/>
+                                        703 Hebron Avenue (now 95 Glastonbury Blvd)<br/>
                                         Glastonbury, CT 06033 U.S.A.<br/>
                                         tel: 860.633.5540<br/>
                                         fax: 860.657.4276

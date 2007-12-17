@@ -85,7 +85,7 @@ completion as planned for any reason, including infection by computer virus, bug
 <P><B>Other</B></P>
 <P>The tournament is void in whole or in part where prohibited by law.</P>
 <P>A list of tournament winners by coder handles will be available on the web site at www.topcoder.com, and will be displayed for at least 3 months after the end of the tournament.</P>
-<P>This tournament is brought to you by TopCoder, Inc. (www.topcoder.com) 703 Hebron Avenue, Glastonbury, CT 06033.</P>
+<P>This tournament is brought to you by TopCoder, Inc. (www.topcoder.com) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.</P>
 <br><br>
 </TD>
 </TR>

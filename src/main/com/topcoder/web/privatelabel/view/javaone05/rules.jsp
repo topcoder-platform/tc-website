@@ -166,7 +166,7 @@ The tournament is void in whole or in part where prohibited by law.
 <br><br>
 A list of tournament winners will be available on the web site at <A href="/javaone2005">www.topcoder.com/javaone2005</A> and will be displayed for at least 3 months after the end of the tournament.
 <br><br>
-This tournament is brought to you by Sun Microsystems, Inc. (<A href="http://www.sun.com">http://www.sun.com</A>), 4150 Network Circle, Santa Clara, CA 95054 and its affiliated companies and TopCoder, Inc. (<A href="/">http://www.topcoder.com</A>) 703 Hebron Avenue, Glastonbury, CT 06033.
+This tournament is brought to you by Sun Microsystems, Inc. (<A href="http://www.sun.com">http://www.sun.com</A>), 4150 Network Circle, Santa Clara, CA 95054 and its affiliated companies and TopCoder, Inc. (<A href="/">http://www.topcoder.com</A>) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.
 
 </div>
                </td>

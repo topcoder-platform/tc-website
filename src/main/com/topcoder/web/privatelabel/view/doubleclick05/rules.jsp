@@ -147,7 +147,7 @@
          <span class="dc_subTitle">Other</span><br>
          The tournament is void in whole or in part where prohibited by law.
          <br><br>
-         This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue, Glastonbury, CT 06033 and DoubleClick Inc. (<A href="http://www.doubleclick.net">http://www.doubleclick.net</A>) 111 Eighth Avenue, New York, NY 10011.
+         This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033 and DoubleClick Inc. (<A href="http://www.doubleclick.net">http://www.doubleclick.net</A>) 111 Eighth Avenue, New York, NY 10011.
          </p>
 		</td>
 	</tr>
