@@ -615,7 +615,7 @@ information about <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=getVisa"
 
 <p>
     This tournament is brought to you by TopCoder, Inc. (<a href="http://www.topcoder.com/">http://www.topcoder.com/</a>)
-    703 Hebron Avenue, Glastonbury, CT 06033. AOL LLC is not responsible for any aspect of the Tournament.
+    703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033. AOL LLC is not responsible for any aspect of the Tournament.
 </p>
 </div>
 </td>

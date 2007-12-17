@@ -56,7 +56,7 @@ This is your chance to compete in one of the most prestigious competitions on ea
 </ol>
 
 <p align="center" style="margin-top: 40px;">
-This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue, Glastonbury, CT 06033.<br>
+This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.<br>
 <span class="small">[AOL LLC is not responsible for any aspect of the Tournament.]</span>
 </p>
 

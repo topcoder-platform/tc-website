@@ -77,7 +77,7 @@
     <li>
         <% if (info.getIntItem(0, "has_tax_form") == 0) {%>
         <p><strong>TAX FORM</strong> - must be mailed to TopCoder Payments and postmarked on or before Friday, May 18.
-            They can be mailed to:  TopCoder, Inc., Attn:  Payments, 703 Hebron Avenue, Glastonbury, CT 06033, USA.
+            They can be mailed to:  TopCoder, Inc., Attn:  Payments, 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033, USA.
         </p>
 
         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN). If you don't
