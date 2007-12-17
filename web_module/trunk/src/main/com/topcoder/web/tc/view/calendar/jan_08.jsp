@@ -101,6 +101,11 @@
       <td class="value">11
       </td>
       <td class="value">12
+         <div class="tchs08">
+         <div class="emblem"><img src="/i/tournament/tchs08/emblem.png" alt="TCHS08" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule">Online Round 1</A></strong><br>
+         1:00 PM 
+         </div>
       </td>
    </tr>
 
@@ -126,6 +131,11 @@
       <td class="value">18
       </td>
       <td class="value">19
+         <div class="tchs08">
+         <div class="emblem"><img src="/i/tournament/tchs08/emblem.png" alt="TCHS08" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule">Online Round 2</A></strong><br>
+         1:00 PM 
+         </div>
       </td>
    </tr>
 
@@ -151,6 +161,11 @@
       <td class="value">25
       </td>
       <td class="value">26
+         <div class="tchs08">
+         <div class="emblem"><img src="/i/tournament/tchs08/emblem.png" alt="TCHS08" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule">Online Round 3</A></strong><br>
+         1:00 PM 
+         </div>
       </td>
    </tr>
 
