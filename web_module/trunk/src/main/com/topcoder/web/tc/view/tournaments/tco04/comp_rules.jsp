@@ -563,7 +563,7 @@
             be displayed for at least 3 months after the end of the tournament.</p>
 
             <p>This tournament is brought to you by TopCoder, Inc. (<a href="http://www.topcoder.com/">http://www.topcoder.com/</a>)
-            703 Hebron Avenue, Glastonbury, CT 06033.</p>
+            703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.</p>
 
 
         <p><br/></p>

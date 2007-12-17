@@ -96,7 +96,7 @@
                                     Address to send affidavits & tax forms to:<br/>
                                     TopCoder, Inc. <br/>
                                     Attn: MaryBeth Luce<br/>
-                                    703 Hebron Avenue<br/>
+                                    703 Hebron Avenue (now 95 Glastonbury Blvd)<br/>
                                     Glastonbury, CT 06033
                                 </div>
                                    </p>

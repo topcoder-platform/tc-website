@@ -357,7 +357,7 @@
 
                         <p>The Contest is void in whole or in part where prohibited by law.</p>
 
-                        <p>This Contest is brought to you by <A href="http://www.topcoder.com/" class="bodyText">TopCoder, Inc.</A>, 703 Hebron Avenue, Glastonbury, CT 06033 and
+                        <p>This Contest is brought to you by <A href="http://www.topcoder.com/" class="bodyText">TopCoder, Inc.</A>, 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033 and
                         Verizon Data Services India Private Limited at No 1208, 'D' Wing, Tidel Park Limited, 4, Canal Bank Road, Taramani, Chennai-600 113.</p>
 
 

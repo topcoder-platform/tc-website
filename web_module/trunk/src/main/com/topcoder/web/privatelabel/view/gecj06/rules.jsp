@@ -254,7 +254,7 @@ Google and TopCoder reserve the right, in their sole discretion, to revoke any a
 <span class="greenSubtitle">Other</span><br>
 The tournament is void in whole or in part where prohibited by law.
 <br><br>
-This tournament is brought to you by TopCoder, Inc. (<a href="http://www.topcoder.com/">http://www.topcoder.com/</a>) 703 Hebron Avenue, Glastonbury, CT 06033 and Google Inc. (<a href="/?t=sponsor&c=link&link=http://www.google.com/">http://www.google.com</a>) 1600 Amphitheatre Parkway, Mountain View, CA 94043.
+This tournament is brought to you by TopCoder, Inc. (<a href="http://www.topcoder.com/">http://www.topcoder.com/</a>) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033 and Google Inc. (<a href="/?t=sponsor&c=link&link=http://www.google.com/">http://www.google.com</a>) 1600 Amphitheatre Parkway, Mountain View, CA 94043.
 <br><br>
 </div>
 </td>

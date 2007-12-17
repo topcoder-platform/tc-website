@@ -122,7 +122,7 @@
 			</p>A list of tournament winners will be available on the web site at <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about">www.topcoder.com/tco04</a> and will be displayed
 			for at least 3 months after the end of the tournament.</p>
 
-			<p>This tournament is brought to you by TopCoder, Inc. (<a href="/">http://www.topcoder.com</a>) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+			<p>This tournament is brought to you by TopCoder, Inc. (<a href="/">http://www.topcoder.com</a>) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.</p>
 
 
         </td>

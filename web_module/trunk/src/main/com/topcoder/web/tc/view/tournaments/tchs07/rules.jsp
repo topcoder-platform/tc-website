@@ -336,7 +336,7 @@
               <li>TopCoder must receive the original signed Travel Waiver. The document must be postmarked by April 25, 2007, and must be sent in such a manner that it will arrive at TopCoder no later than May 4, 2007.</li>
               </ul>
           </li>
-          <li>Letter from your high school on official stationary that states you are currently a full time student. The letter must be written in English and signed by an official school staff member. The letter must be sent directly to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue, Glastonbury, CT, 06033, USA, and must arrive no later than May 4, 2007.</li>
+          <li>Letter from your high school on official stationary that states you are currently a full time student. The letter must be written in English and signed by an official school staff member. The letter must be sent directly to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT, 06033, USA, and must arrive no later than May 4, 2007.</li>
           </ul>
 
           Failure to submit the above items on time will result in a forfeiture of advancement as an onsite finalist.  In that case, the next highest scorer(s) from Online Regional Round #3 will advance.
@@ -358,7 +358,7 @@
           <br><br>
           A list of tournament winners by coder handles will be available on the web site at <A href="/tc">http://www.topcoder.com/tc</A>, and will be displayed for at least 3 months after the end of the tournament.
           <br><br>
-          This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue, Glastonbury, CT 06033.
+          This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.
           <br><br>
 
         </div>

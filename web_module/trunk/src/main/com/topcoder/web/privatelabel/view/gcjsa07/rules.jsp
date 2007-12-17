@@ -408,7 +408,7 @@ materials received by you into (or to a national or resident of) any Embargoed C
 Google and TopCoder reserve the right to limit the availability of this website and/or participation in Code Jam to any person, 
 geographic area, or jurisdiction it so desires, at any time and in our sole discretion.
 <br><br>
-This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue,
+This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue (now 95 Glastonbury Blvd),
 Glastonbury, CT 06033 USA and Google Inc. (<A href="/?t=sponsor&c=link&link=http://www.google.com">http://www.google.com</A>)
 1600 Amphitheatre Parkway, Mountain View, CA 94043 USA.
 

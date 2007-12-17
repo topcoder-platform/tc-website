@@ -148,7 +148,7 @@ unauthorized intervention or technical failures of any sort.
 <br/><br/>
 The tournament is void in whole or in part where prohibited by law.
 <br/><br/>
-This tournament is brought to you by <a href="http://www.topcoder.com/">TopCoder, Inc.</a> 703 Hebron Avenue, Glastonbury, CT 06033, and 
+This tournament is brought to you by <a href="http://www.topcoder.com/">TopCoder, Inc.</a> 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033, and 
 <a href="http://www.verisign.com/">VeriSign, Inc.</a> 487 East Middlefield Road, Mountain View, CA 94043.
 </div>
 </td>

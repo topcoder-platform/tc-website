@@ -83,7 +83,7 @@ TopCoder reserves the right, in its sole discretion, to revoke any and all privi
 <span class="bodySubtitle">Other</span><br/>
 The contest is void in whole or in part where prohibited by law.
 <br><br>
-This contest is brought to you by TopCoder, Inc. (<a href="/">http://www.topcoder.com/</a>) 703 Hebron Avenue, Glastonbury, CT 06033.
+This contest is brought to you by TopCoder, Inc. (<a href="/">http://www.topcoder.com/</a>) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.
 
 
 

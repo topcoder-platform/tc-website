@@ -596,7 +596,7 @@ A list of tournament winners by coder handles will be available on the web site 
 </P>
 
 <P>
-This tournament is brought to you by TopCoder, Inc. (www.topcoder.com) 703 Hebron Avenue, Glastonbury, CT 06033.
+This tournament is brought to you by TopCoder, Inc. (www.topcoder.com) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.
 </P>
 <P><A HREF="#top" CLASS="statText">Back to Top</A></P>
 

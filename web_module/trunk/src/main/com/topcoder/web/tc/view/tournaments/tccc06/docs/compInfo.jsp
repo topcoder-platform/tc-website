@@ -88,7 +88,7 @@
             are a current
             full time student. The letter must be signed by an official university staff member.
             Alternatively, you can submit a photocopy of your ISIC card. Either the letter or
-            the ISIC must be sent directly to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue,
+            the ISIC must be sent directly to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue (now 95 Glastonbury Blvd),
             Glastonbury, CT, USA 06033.
             Please revisit the
             <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_rules" target="_blank">component

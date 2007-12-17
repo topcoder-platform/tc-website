@@ -120,7 +120,7 @@ One (1) TopCoder&#174; Gift Pack
 			<p><span class="bodySubtitle">Other</span><br/>
 			The tournament is void in whole or in part where prohibited by law.</p>
 
-			<p>This tournament is brought to you by TopCoder, Inc. (<a href="/">http://www.topcoder.com</a>) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+			<p>This tournament is brought to you by TopCoder, Inc. (<a href="/">http://www.topcoder.com</a>) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.</p>
 
 
         </td>

@@ -301,7 +301,7 @@
             on the second day following the date on which the round of competition was held.  For the onsite rounds of competition, competitors
             may appeal the results within five (5) minutes following the announcement of the results.</p>
 
-            <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+            <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue (now 95 Glastonbury Blvd), Glastonbury, CT 06033.</p>
 
 
         <p><br/></p>
