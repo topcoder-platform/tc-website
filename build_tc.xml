@@ -198,7 +198,7 @@
         <property name="jar_shared_set" value="true"/>
     </target>
 
-    <target name="jar_common" depends="">
+    <target name="jar_common">
         <jar jarfile="${common.jar}">
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/common/**/*.class"/>
@@ -606,7 +606,7 @@
             </fileset>
         </copy>
     </target>
-    <target name="move-libs" depends="">
+    <target name="move-libs">
         <copy todir="${jboss_lib}">
             <fileset dir="${bin}">
                 <include name="tcwebcommon.jar"/>
@@ -911,7 +911,7 @@
         <antcall target="expand-reg"/>
     </target>
 
-    <target name="expand-reg" depends="">
+    <target name="expand-reg">
         <delete file="${jboss_deploy}/reg.war"/>
         <unwar src="${war.dir}/reg.war" dest="${jboss_deploy}/reg.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/reg.war/META-INF"/>
@@ -968,7 +968,7 @@
         <antcall target="expand-ep"/>
     </target>
 
-    <target name="expand-ep" depends="">
+    <target name="expand-ep">
         <delete file="${jboss_deploy}/ep.war"/>
         <unwar src="${war.dir}/ep.war" dest="${jboss_deploy}/ep.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/ep.war/META-INF"/>
@@ -1456,7 +1456,7 @@
         <antcall target="expand-longcontest"/>
     </target>
 
-    <target name="expand-longcontest" depends="">
+    <target name="expand-longcontest">
         <copy todir="${jboss_deploy}">
             <fileset dir="${ejb_jars}">
                 <include name="RoundRegistration.jar"/>
@@ -1469,23 +1469,4 @@
     </target>
 
 
-    <target name="build-cache-admin" depends="compile">
-        <jar jarfile="${sar.dir}/cacheadmin.sar" basedir="${classes}"
-             includes="com/topcoder/web/common/cache/admin/*">
-            <metainf dir="${java}/com/topcoder/web/common/cache/admin/" includes="*.xml"/>
-        </jar>
-    </target>
-
-
 </project>
-
-
-
-
-
-
-
-
-
-
-
