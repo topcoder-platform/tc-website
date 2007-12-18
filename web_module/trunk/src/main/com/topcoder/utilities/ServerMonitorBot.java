@@ -55,7 +55,7 @@ public class ServerMonitorBot {
     private final static PollInfo[] sites = {
             new PollInfo(true, "http://www.topcoder.com", "tc", 30)
             , new PollInfo(true, "http://software.topcoder.com", "software", 30)
-            , new PollInfo(true, "http://forums.topcoder.com", "forums", 30)
+            , new PollInfo(true, "http://forums.topcoder.com", "forums", 45)
             , new PollInfo(true, "http://studio.topcoder.com", "studio", 30)
             , new PollInfo(true, "http://www.topcoder.com/wiki", "wiki", 30)
             , new PollInfo(true, "http://www.topcoder.com/time", "time tracker", 30)
@@ -307,6 +307,7 @@ public class ServerMonitorBot {
                         em.setBody(errors[i]);
                         em.setFromAddress("rfairfax@topcoder.com");
                         EmailEngine.send(em);
+                    errors[i]="";
                 } catch (Exception e) {
                     log.error("HERE" + e.getClass());
                     e.printStackTrace();
