@@ -21,7 +21,16 @@ import java.sql.Timestamp;
 import java.sql.Types;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * <strong>Purpose</strong>:
@@ -876,7 +885,7 @@ public class TCLoadTCS extends TCLoad {
                             "   ,p.project_status_id as project_stat_id " +
                             "   ,psl.name as project_stat_name " +
                             "   ,cat.viewable as viewable " +
-                            "   ,substr(pi2.value,1,40) as version_id " +
+                            "   ,cv.version as version_id " +
                             "   ,cv.version_text " +
                             "   ,pivi.value as rating_date " +
                             "   ,case when pivt.value is not null then substr(pivt.value,1,20) else null end as winner_id" +
