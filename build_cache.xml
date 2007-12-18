@@ -99,6 +99,9 @@
         </copy>
         <copy todir="${jboss_lib}" file="${shared.jar}"/>
         <copy todir="${jboss_lib}" file="${ejb_jars}/security.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/jboss/jgroups.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/jboss/jboss-cache.jar"/>
+        
 
 
         <copy todir="${jboss_conf}">
