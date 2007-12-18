@@ -40,7 +40,7 @@
                 <tr><th colspan="4">Registrants: <%=rsc.size()%></th></tr>
                 <tr>
                     <td class="header" width="60%">
-                        <a href="/tc?module=TCHS08ViewRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
+                        <a href="/tchs08?module=ViewEventRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
                     </td>
 <%--
                     <td class="header" width="40%">
@@ -48,7 +48,7 @@
                     </td>
 --%>
                     <td class="headerR">
-                        <a href="/tc?module=TCHS08ViewRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
+                        <a href="/tchs08?module=ViewEventRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
                     </td>
                 </tr>
             </thead>
