@@ -87,7 +87,7 @@
         </jar>
     </target>
 
-    <target name="deploy-cache" depends="build-cache-admin">
+    <target name="deploy" depends="build-cache-admin">
          <ant antfile="build_tc.xml" target="build-security"/>
 
         <copy todir="${jboss_deploy}" file="${sar.dir}/cacheadmin.sar"/>
