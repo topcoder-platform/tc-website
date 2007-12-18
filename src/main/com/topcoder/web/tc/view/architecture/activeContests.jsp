@@ -35,7 +35,8 @@
 </td>
 
 <!-- Center Column Begins -->
-        <td width="100%" align="left" class="bodyColumn">
+        <td width="100%" align="center" class="bodyColumn">
+            <div class="maxWidthBody">
 
 <jsp:include page="/page_title.jsp">
 <jsp:param name="image" value="architecture"/>
@@ -101,11 +102,8 @@
     <% even = !even;%>
     </rsc:iterator>
 </table>
-<br />
 
-<p><br /></p>
-
-
+    </div>
 </td>
 <!-- Center Column Ends -->
 
