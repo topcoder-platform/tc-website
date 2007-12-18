@@ -552,6 +552,9 @@
                 <include name="tcwebcommon.jar"/>
             </fileset>
         </copy>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/jboss/jgroups.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/jboss/jboss-cache.jar"/>
+
     </target>
 
     <target name="build-site">
