@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.19.07<br />12:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm383">SRM 383 - Problem Set &amp; Analysis</A></span><br /><br />
+      SRM 383 came a mere 38 hours after the previous SRM, giving coders barely enough time to finish working through the problems in the practice room before being back in the arena for another match. Nevertheless, 924 competitors showed up for the main event, with another 74 competing in the TopCoder College Tour.</td>
+         <td class="newsPhoto"><img src="/i/m/StevieT_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="21911760" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm383">details</A> | 
+         <tc-webtag:forumLink forumID="516080" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.19.07<br />12:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -164,18 +180,5 @@
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm47">details</A> | 
          <tc-webtag:forumLink forumID="516573" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />12.06.07<br />6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9050920&pageNumber=1' refer='/tc' />">Computerworld: Should your company 'crowdsource' its next project?</A></span><br /><br />
-        Whether it's to increase loyalty among customers speed up development time or cast outward for innovative ideas, companies are trying on many styles of 'crowdsourcing'  <a target="_blank" href="/i/pressroom/pdfs/computerworld_20071206.pdf">PDF</a> version available.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9050920&pageNumber=1' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="518479" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
    
