@@ -494,7 +494,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.contractId = contractId;
     }
 
-
     /**
      * Base class for procesing payments, i.e. completing some information that must be looked
      * up in other tables.

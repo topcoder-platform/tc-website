@@ -4581,6 +4581,32 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     }
 
+    /**
+     * Get if the payment type requires client.
+     *
+     * @param paymentTypeId type id of the payment
+     * @return true if the payment type requires client.
+     */
+    public boolean requiresClient(int paymentTypeId) throws SQLException {
+        StringBuffer query = new StringBuffer(100);
+        query.append(" SELECT requires_client_ind ");
+        query.append(" FROM payment_type_lu ");
+        query.append(" WHERE payment_type_id = " + paymentTypeId);
+
+        ResultSetContainer rsc = runSelectQuery(query.toString());
+
+        if (rsc.getRowCount() != 1) {
+            throw new IllegalArgumentException("Payment type not found: " + paymentTypeId);
+        }
+
+        if (rsc.getItem(0, "requires_client_ind").getResultData() != null &&
+            rsc.getIntItem(0, "requires_client_ind") == 1) {
+            return true;
+        }
+
+        return false;
+    }
+
     public boolean hasTaxForm(long userId) throws SQLException {
 
         // Change to also check for tax forms on file
