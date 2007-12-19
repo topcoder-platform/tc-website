@@ -4,6 +4,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.19.07<br />9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        TopCoder Has Moved</span><br /><br />
+        We recently packed up all our stuff and moved into a new home.  Our new address is below, so make sure you update your address book.  If we’re not in your address book, well, maybe add us now.  And send us something, like a postcard!  We love postcards!<br /><br />
+        TopCoder, Inc.<br />
+        95 Glastonbury Blvd<br />
+        Glastonbury, CT 06033 U.S.A.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <tc-webtag:forumLink forumID="518571" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />12.17.07<br />9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=overview' refer='/tc' />">TCHS08 registration is open</A></span><br /><br />
@@ -159,21 +174,5 @@
         <A target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="518371" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.30.07<br />5:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm379">SRM 379 - Problem Set &amp; Analysis</A></span><br /><br />
-      The SRM 379 division 1 has ended with <tc-webtag:handle coderId="272072" context="algorithm"/>, <tc-webtag:handle coderId="7442498" context="algorithm"/> and <tc-webtag:handle coderId="22641658" context="algorithm"/> taking the first three places. <tc-webtag:handle coderId="272072" context="algorithm"/> set a new SRM win record showing an outstanding performance and being the fastest to solve the 250. <tc-webtag:handle coderId="22641658" context="algorithm"/> and <tc-webtag:handle coderId="22689544" context="algorithm"/> were the fastest to solve the 500 and 1000, respecively.</td>
-         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="21052072" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm379">details</A> | 
-         <tc-webtag:forumLink forumID="516076" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
