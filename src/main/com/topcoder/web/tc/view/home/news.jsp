@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.19.07<br />12:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm48">TCHS SRM 48 - Problem Set &amp; Analysis</A></span><br /><br />
+      This match saw a tough hard problem with only one passing solution and even that was submitted with little time left. In addition to that, less than half of the submitted solutions were correct.</td>
+         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="21547660" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm48">details</A> | 
+         <tc-webtag:forumLink forumID="516574" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.19.07<br />11:45 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -161,21 +177,5 @@
         <A target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9050920&pageNumber=1' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="518479" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature News" border="0" /><br />12.05.07<br />6:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=120507">Know your hero: myprasanna</A></span><br /><br />
-      This issue of the 'Know Your Hero' interview series features M.Y. Prasanna (TopCoder handle: <tc-webtag:handle coderId="13366203" context="algorithm"/>). Prasanna has a credit of becoming the third Indian to have ever become a red-rated member in TopCoder.</td>
-         <td class="newsPhoto"><img src="/i/m/marutib_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="22685759" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=120507">details</A> | 
-         <tc-webtag:forumLink forumID="518456" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
