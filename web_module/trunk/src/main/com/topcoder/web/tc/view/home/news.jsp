@@ -4,7 +4,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.19.07<br />12:45 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.19.07<br />1:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm383">SRM 383 - Problem Set &amp; Analysis</A></span><br /><br />
