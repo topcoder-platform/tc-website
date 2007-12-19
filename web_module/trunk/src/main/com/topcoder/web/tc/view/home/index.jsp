@@ -484,5 +484,17 @@
             <td class="copyright" colspan="5">Copyright &#169; 2001-2007, TopCoder, Inc. All rights reserved.</td>
         </tr>
 </table>
+
+<%-- Google Analytics --%>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3257193-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
 </body>
 </html>
