@@ -111,7 +111,7 @@
             <p><strong>Important Information:<br /><br />
             Travel Confirmation</strong><br />
             The fifty (50) advancers from Online Round 3 will travel to the campus of Purdue University on Friday, March 14, 2008 to compete in the Final round of the TCHS08 Tournament being held on Saturday, March 15, 2008. All contestants must arrive at the campus of Purdue University no later than 4:00 PM EDT on Friday, March 14, 2008.</p>
-            <p>All contestants must confirm their attendance at the onsite Championship round no later than 5:00 PM EST (UTC/GMT -5) on Friday, February 8, 2008. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the U.S. by that date and time. In order for a finalist to confirm attendance for the onsite finals, it is necessary to show proof of visa and/or passport by the deadline (5:00 PM EST (UTC/GMT -5) on Friday, February 8, 2008) if the finalist is required for travel from outside the United States. Finalists may do this by emailing a copy of their documents to Jessie D'Amato Ford at <a href="mailto:jdamato@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">jdamato@topcoder.com</a>. Competitors who fail to meet this requirement by the deadline will not be able to attend the onsite finals and will be replaced as an onsite finalist.</p>
+            <p>All contestants must confirm their attendance at the onsite Championship round no later than 5:00 PM EST (UTC/GMT -5) on Friday, February 18, 2008. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the U.S. by that date and time. In order for a finalist to confirm attendance for the onsite finals, it is necessary to show proof of visa and/or passport by the deadline (5:00 PM EST (UTC/GMT -5) on Friday, February 18, 2008) if the finalist is required for travel from outside the United States. Finalists may do this by emailing a copy of their documents to Jessie D'Amato Ford at <a href="mailto:jdamato@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">jdamato@topcoder.com</a>. Competitors who fail to meet this requirement by the deadline will not be able to attend the onsite finals and will be replaced as an onsite finalist.</p>
             
             <h3>Visa Assistance</h3>
             <p>At the end of Online Round 1, TopCoder will issue visa invitation letters at the request of international competitors who require one to obtain a travel visa to enter the United States. All competitors who advance to Online Round 2 will receive a visa invitation letter request form. Competitors have until 5:00 PM EST (GMT/UTC -5) on Friday, January 25, 2008 to request a letter. Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. If a competitor fails to request a visa invitation letter by the date above, TopCoder will not be able to assist in the visa process.</p>
@@ -202,26 +202,26 @@
                     <li>Update your profile</li>
                     <li>Please submit a head shot by emailing <a href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</a>, if we do not have one on file for you. If you also want your photo to be posted on your member profile on the TopCoder website, please submit your photo by clicking the "Click here to send your photo" link in the Update Profile section.</li>
                 </ul>
-            <p>All contestants who advance to the onsite Championship round must complete the following items and submit them to TopCoder by 5:00 PM EST (UTC/GMT -5) on Friday, February 8, 2008:</p>
+            <p>All contestants who advance to the onsite Championship round must complete the following items and submit them to TopCoder by 5:00 PM EST (UTC/GMT -5) on Friday, February 18, 2008:</p>
                 <ul>
                     <li>Confirmation of attendance/proof of travel documents - Please email <a href="mailto:jdamato@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a> to confirm your attendance onsite. If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents.</li>
                     <li>Competitor questionnaire - the questions and responses will be published in the 2008 TopCoder High School Tournament Program</li>
                     <li>Travel/Lodging form - provides TopCoder with the appropriate information for your trip to the onsite Championship round</li>
                     <li>Affidavit of Eligibility and Liability and Publicity Release
                         <ul>
-                            <li>TopCoder must receive the original copy of a notarized affidavit unless a notarized affidavit is already on file with TopCoder. The document must be postmarked by February 8, 2008, and must be sent in such a manner that it will arrive at TopCoder no later than March 7, 2008.</li>
+                            <li>TopCoder must receive the original copy of a notarized affidavit unless a notarized affidavit is already on file with TopCoder. The document must be postmarked by February 18, 2008, and must be sent in such a manner that it will arrive at TopCoder no later than March 7, 2008.</li>
                             <li>If TopCoder already has a notarized affidavit and a tax form on file for a contestant, that contestant may affirm the affidavit online. No hardcopy needs to be sent to TopCoder.</li>
                         </ul>
                     </li>
                     <li>IRS Tax Form W-9 or W-8BEN, as appropriate
                         <ul>
-                            <li>TopCoder must receive the original copy of a signed tax form unless a tax form is already on file with TopCoder. The document must be postmarked by February 8, 2008, and must be sent in such a manner that it will arrive at TopCoder no later than March 7, 2008.</li>
+                            <li>TopCoder must receive the original copy of a signed tax form unless a tax form is already on file with TopCoder. The document must be postmarked by February 18, 2008, and must be sent in such a manner that it will arrive at TopCoder no later than March 7, 2008.</li>
                             <li>If TopCoder already has a tax form on file for a contestant, the contestant does NOT need to send an additional tax form unless his/her address has changed.</li>
                         </ul>
                     </li>
                     <li>Travel Waiver - Must be completed for all competitors under the age of 18.
                         <ul>
-                            <li>TopCoder must receive the original signed Travel Waiver. The document must be postmarked by February 8, 2008, and must be sent in such a manner that it will arrive at TopCoder no later than March 7, 2008.</li>
+                            <li>TopCoder must receive the original signed Travel Waiver. The document must be postmarked by February 18, 2008, and must be sent in such a manner that it will arrive at TopCoder no later than March 7, 2008.</li>
                         </ul>
                     </li>
                     <li>Letter from your secondary school on official stationary that states you are currently a full time student. The letter must be written in English and signed by an official school staff member. The letter must be sent directly by a school official to TopCoder, Inc., Attn: Jessie D'Amato Ford, 95 Glastonbury Blvd, Glastonbury, CT, 06033, USA, and must arrive no later than March 7, 2008.</li>
