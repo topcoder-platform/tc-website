@@ -26,7 +26,7 @@
 <%-- Left Column Begins--%>
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="node" value=""/>
+                <jsp:param name="node" value="architecture_overview"/>
             </jsp:include>
         </td>
 <%-- Left Column Ends --%>
@@ -35,11 +35,10 @@
         <td width="100%" align="center" class="bodyColumn">
             <div class="fixedWidthBody">
            
-                <div align="center"><img src="/i/development/architecture/banner.jpg" alt="TopCoder Architecture Competitions" /></div>
+                <div align="center"><a href="/tc?module=ViewArchitectureActiveContests"><img src="/i/development/architecture/banner20071218.jpg" alt="TopCoder Architecture Competitions" /></a></div>
 
-                <h2 align="center">
-                    TopCoder architecture competitions<br />are just around the corner.
-                </h2>
+                <p align="center" class="bigRed">The beta competition <a href="/tc?module=ViewArchitectureActiveContests" class="bigRed">has started</a>!</p>
+
                 <p align="justify">
                     We've been preparing the first competition for release and now we'd like to get your feedback.  This page is intended to show to you - ahead of time - the competition process, the scorecard, and all of the documents that we plan to release to initially support these competitions.  This includes the actual specification documentation for the first competition.  We encourage all of you to give your feedback, which we will review and integrate into the first competition when it launches next week.
                 </p>
@@ -59,7 +58,7 @@
                     Take a look at the scorecards we'll be using for architecture competitions, and tell us what you think.
                 </p>
                 <div align="right" style="margin: 10px 0 20px 0;">
-                    <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewReview.do?method=viewReview&rid=53007"><img src="/i/development/architecture/scorecard.png" alt="Scorecard" style="display: block;" /></a>
+                    <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewReview.do?method=viewReview&amp;rid=53007"><img src="/i/development/architecture/scorecard.png" alt="Scorecard" style="display: block;" /></a>
                 </div>
                 <p align="justify">
                     We are providing the TC community the same training materials we use for our internal architects. You can view these in our wiki.
@@ -89,7 +88,7 @@
                     It's all coming next week, so let us know what you think!
                 </p>
                 <div align="right" style="margin: 10px 0 20px 0;">
-                    <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=518483"><img src="/i/development/architecture/discuss.png" alt="Discuss" style="display: block;" /></a>
+                    <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&amp;forumID=518483"><img src="/i/development/architecture/discuss.png" alt="Discuss" style="display: block;" /></a>
                 </div>
 
             </div>
