@@ -173,7 +173,7 @@
                     <%--
                     <a href="/?module=ViewActiveContests"><img src="/i/v2/home/studiov3.png" alt="Welcome to TopCoder Studio" /></a>
                     --%>
-                    <img src="/i/v2/home/widgetWednesday.png" alt="Widget Wednesday" />
+                    <a href="/?module=ViewActiveContests"><img src="/i/v2/home/widgetWednesday.png" alt="Widget Wednesday" /></a>
                 </div>
 
                 <div style="margin-bottom: 20px;">
