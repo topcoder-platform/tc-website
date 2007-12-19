@@ -16,8 +16,6 @@ import com.topcoder.shared.util.DBMS;
  */
 public abstract class ComponentProjectReferencePayment extends BasePayment {
     private long projectId;
-    private String client = null;
-
 
     /**
      * Create a payment that references a component project.
@@ -72,9 +70,8 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
     public ComponentProjectReferencePayment(int paymentTypeId, long coderId, double grossAmount,
             String client, long projectId, int placed) {
 
-        super(paymentTypeId, coderId, grossAmount, placed);
+        super(paymentTypeId, coderId, client, grossAmount, placed);
         this.projectId = projectId;
-        this.client = client;
     }
 
 
@@ -96,26 +93,6 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
         fieldChanged(MODIFICATION_REFERENCE, projectId != this.projectId);
         this.projectId = projectId;
     }
-
-    /**
-     * Get the client for the project.
-     *
-     * @return the client for the project.
-     */
-    public String getClient() {
-        return client;
-    }
-
-    /**
-     * Set the client for the project.
-     *
-     * @param client the client for the project.
-     */
-    public void setClient(String client) {
-        fieldChanged(MODIFICATION_REFERENCE, client != this.client);
-        this.client = client;
-    }
-
 
     /**
      * Get whether the project referenced is a design project.

@@ -5579,6 +5579,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         p.setCharity(payment.isCharity());
         p.setMethodId(payment.getMethodId());
         p.getHeader().setMethodId(payment.getMethodId());
+        p.getHeader().setClient(payment.getClient());
 
         switch (payment.getReferenceTypeId()) {
             case REFERENCE_ALGORITHM_ROUND_ID:
@@ -5586,7 +5587,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 break;
             case REFERENCE_COMPONENT_PROJECT_ID:
                 p.getHeader().setComponentProjectId(((ComponentProjectReferencePayment) payment).getProjectId());
-                p.getHeader().setClient(((ComponentProjectReferencePayment) payment).getClient());
                 break;
             case REFERENCE_ALGORITHM_PROBLEM_ID:
                 p.getHeader().setAlgorithmProblemId(((AlgorithmProblemReferencePayment) payment).getProblemId());
@@ -6171,9 +6171,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         payment.setCurrentStatus(currentStatus);
 
-        if (payment instanceof ComponentProjectReferencePayment) {
-            ((ComponentProjectReferencePayment) payment).setClient(client);
-        }
+//        if (payment instanceof ComponentProjectReferencePayment) {
+//        ((ComponentProjectReferencePayment) payment).setClient(client);
+        payment.setClient(client);
+//        }
 
         return payment;
     }

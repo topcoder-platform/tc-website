@@ -149,6 +149,8 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         
                     	setReference(payment);                
                         
+                    	// TODO: check if required (use DB flag)
+                    	payment.setClient((String) getRequest().getParameter("client"));
                         payment.setDescription(desc);
                         
                         payment.setTotalAmount(totalAmount);
@@ -252,9 +254,10 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     typeId = payment.getPaymentType();
                     methodId = payment.getMethodId();
 
-                    if (payment instanceof ComponentProjectReferencePayment) {
-                    	client = ((ComponentProjectReferencePayment) payment).getClient();
-                    }
+//                    if (payment instanceof ComponentProjectReferencePayment) {
+//                    	client = ((ComponentProjectReferencePayment) payment).getClient();
+                        client = payment.getClient();
+//                    }
 
 
                     totalAmount = payment.getTotalAmount();
@@ -323,12 +326,13 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
     	boolean useRef = getRequest().getParameter(rf) != null && getRequest().getParameter(rf).trim().length() > 0;
     	
+        
+
         if (payment instanceof AlgorithmRoundReferencePayment) {
             ((AlgorithmRoundReferencePayment) payment).setRoundId(getLongParameter(useRef? rf : "algorithm_round_id"));
             
         } else if (payment instanceof ComponentProjectReferencePayment) {
             ((ComponentProjectReferencePayment) payment).setProjectId(getLongParameter(useRef? rf : "component_project_id"));
-            ((ComponentProjectReferencePayment) payment).setClient((String) getRequest().getParameter("client"));
             
         } else if (payment instanceof AlgorithmProblemReferencePayment) {
         	((AlgorithmProblemReferencePayment) payment).setProblemId(getOptionalLongParameter(useRef? rf : "algorithm_problem_id", 0));

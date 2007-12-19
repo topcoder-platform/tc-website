@@ -21,6 +21,10 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
             boolean optionalReference = false;
             DataInterfaceBean dib = new DataInterfaceBean();
 
+            // TODO: get if client is required from the DB.
+            getRequest().setAttribute("requiresClient", Boolean.TRUE);
+            
+            
             Map map = null;
             String field = "";
             if (search != null) {
