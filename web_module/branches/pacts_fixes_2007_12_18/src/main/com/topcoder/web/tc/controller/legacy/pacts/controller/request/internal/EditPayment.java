@@ -304,6 +304,9 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             getRequest().setAttribute(USER, user);
 
             if (payment != null) {
+                // TODO: get if client is required from the DB.
+                getRequest().setAttribute("requiresClient", Boolean.TRUE);
+
                 getRequest().setAttribute("reference_id", getReferenceId(payment) + "");
                 getRequest().setAttribute(PAYMENT, payment);
             }
