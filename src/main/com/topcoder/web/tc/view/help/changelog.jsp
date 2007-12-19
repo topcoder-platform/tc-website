@@ -44,6 +44,14 @@
 
 
 <p>
+    5.13.7 - 2007.12.18
+    <ul>
+        <li>Updated company address -dok</li>
+    </ul>
+
+</p>
+
+<p>
     5.13.6 - 2007.12.11
     <ul>
         <li>Architecture competition pages -pulky</li>
