@@ -57,10 +57,10 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_virgoTesting">Virgo Testing Competition</A>
       </td>
       <td class="valueC">
-      <%--
       registration closed
-      --%>
+      <%--
       <A href="mailto:mailto:TestingSubmissions@topcoder.com?subject=Register:%20Virgo%20%20Testing%20Competition">register</A>
+      --%>
       </td>
       <td class="valueC">
       &#160;
