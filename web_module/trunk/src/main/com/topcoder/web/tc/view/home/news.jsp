@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.19.07<br />11:45 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm382">SRM 382 - Problem Set &amp; Analysis</A></span><br /><br />
+      Division 1 was presented with slightly unusual problem set, with technical 250, tricky 500 and relatively easy 1000 problems. This SRM is also remarkable because of a new record – after it there are 12 active targets in TC rating, more than ever.</td>
+         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="14908325" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm382">details</A> | 
+         <tc-webtag:forumLink forumID="516079" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.19.07<br />9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         TopCoder Has Moved</span><br /><br />
@@ -161,18 +177,5 @@
          <A href="/tc?module=Static&d1=features&d2=120507">details</A> | 
          <tc-webtag:forumLink forumID="518456" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />12.04.07<br />6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='/tc' />">Redmond Developer News: Contested Code</A></span><br /><br />
-        How TopCoder uses a contest format to build high-quality software for clients.  <a target="_blank" href="/i/pressroom/pdfs/rdn_20071204.pdf">PDF</a> version available.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="518371" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
    
