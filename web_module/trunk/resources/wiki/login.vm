@@ -31,7 +31,7 @@
                 <br/>
             </div>
         #else
-            <form method="POST" action="https${bootstrap.domainName.substring(4)}login.action" name="loginform">
+            <form method="POST" action="https${bootstrap.domainName.substring(4)}/login.action" name="loginform">
                 <div align="center"><div style="width: 500px;"><div style="text-align: left;">
 
                     <div class="form-header">
