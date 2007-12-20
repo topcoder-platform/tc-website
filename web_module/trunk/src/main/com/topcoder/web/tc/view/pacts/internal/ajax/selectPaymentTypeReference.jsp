@@ -257,7 +257,7 @@
      
     <taconite-replace contextNodeID="projectClient" parseInBrowser="true">
         <c:choose>
-            <c:when test="${refId == COMPONENT_PROJECT}">
+            <c:when test="${requiresClient}">
             <tr id="projectClient"> 
             <td><b>Client:</b></td>
             <td>
