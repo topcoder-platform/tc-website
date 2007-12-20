@@ -44,6 +44,15 @@
 
 
 <p>
+    5.13.8 - 2007.12.xx
+    <ul>
+        <li>Changed pacts add payment functionality so that the client is asked for more payment types. (new flag in the DB) -pulky</li>
+        <li>Changes reliability generation so that the reliability payment uses the parent's client information -pulky</li>
+    </ul>
+</p>
+
+
+<p>
     5.13.7 - 2007.12.18
     <ul>
         <li>Updated company address -dok</li>
