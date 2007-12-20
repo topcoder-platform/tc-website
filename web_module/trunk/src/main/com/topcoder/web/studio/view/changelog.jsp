@@ -32,7 +32,7 @@
 <h1>Studio Website Changelog</h1>
 
 <p>
-    2.1.3 - 2007.11.xx
+    2.1.3 - 2007.12.20
     <ul>
         <li>Past contests default columns sort changed -pulky</li>
         <li>Make it possible to wrap up a contest that does not include online review -dok</li>
