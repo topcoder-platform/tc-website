@@ -54,6 +54,7 @@ function menu_goto( menuform )
 <select name="newurl" onchange="menu_goto(this.form)">
   <option value="/tc?module=Static&d1=digital_run&d2=2006description">2007 Season</option>
   <option value="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=description" selected="selected">2007.5 Season</option>
+  <option value="/tc?module=Static&d1=digital_run&d2=2008&d3=description">2008 Season</option>
 </select>
 </form>
 
