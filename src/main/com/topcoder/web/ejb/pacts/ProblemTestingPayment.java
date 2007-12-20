@@ -18,7 +18,7 @@ public class ProblemTestingPayment extends AlgorithmRoundReferencePayment {
      * serialization for this object, i.e. when data members are changed.
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     /**
      * This is used if there is no reference to a round.

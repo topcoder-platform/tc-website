@@ -17,10 +17,13 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
         try {
             int type = Integer.parseInt(getRequest().getParameter("payment_type_id"));
             int refId = BasePayment.getReferenceTypeId(type);
+
             String search = getRequest().getParameter("search_text");
             boolean optionalReference = false;
             DataInterfaceBean dib = new DataInterfaceBean();
 
+            getRequest().setAttribute("requiresClient", new Boolean(dib.requiresClient(type)));
+            
             Map map = null;
             String field = "";
             if (search != null) {

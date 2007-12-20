@@ -67,7 +67,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 2L;
+    private static final long serialVersionUID = 3L;
 
 
     private static final Logger log = Logger.getLogger(PactsServicesBean.class);
@@ -3638,6 +3638,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     referPay.getHeader().getUser().setId(referId);
                     referPay.setDueDate(p.getDueDate());
                     referPay.getHeader().setParentPaymentId(paymentId);
+                    
+                    // use the same client as the parent
+                    referPay.getHeader().setClient(p.getHeader().getClient());
                     log.debug("referrer found:" + handle);
 
                     // Recursive call
@@ -4579,6 +4582,32 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
         return ret;
 
+    }
+
+    /**
+     * Get if the payment type requires client.
+     *
+     * @param paymentTypeId type id of the payment
+     * @return true if the payment type requires client.
+     */
+    public boolean requiresClient(int paymentTypeId) throws SQLException {
+        StringBuffer query = new StringBuffer(100);
+        query.append(" SELECT requires_client_ind ");
+        query.append(" FROM payment_type_lu ");
+        query.append(" WHERE payment_type_id = " + paymentTypeId);
+
+        ResultSetContainer rsc = runSelectQuery(query.toString());
+
+        if (rsc.getRowCount() != 1) {
+            throw new IllegalArgumentException("Payment type not found: " + paymentTypeId);
+        }
+
+        if (rsc.getItem(0, "requires_client_ind").getResultData() != null &&
+            rsc.getIntItem(0, "requires_client_ind") == 1) {
+            return true;
+        }
+
+        return false;
     }
 
     public boolean hasTaxForm(long userId) throws SQLException {
@@ -5579,6 +5608,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         p.setCharity(payment.isCharity());
         p.setMethodId(payment.getMethodId());
         p.getHeader().setMethodId(payment.getMethodId());
+        p.getHeader().setClient(payment.getClient());
 
         switch (payment.getReferenceTypeId()) {
             case REFERENCE_ALGORITHM_ROUND_ID:
@@ -5586,7 +5616,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 break;
             case REFERENCE_COMPONENT_PROJECT_ID:
                 p.getHeader().setComponentProjectId(((ComponentProjectReferencePayment) payment).getProjectId());
-                p.getHeader().setClient(((ComponentProjectReferencePayment) payment).getClient());
                 break;
             case REFERENCE_ALGORITHM_PROBLEM_ID:
                 p.getHeader().setAlgorithmProblemId(((AlgorithmProblemReferencePayment) payment).getProblemId());
@@ -6171,9 +6200,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         payment.setCurrentStatus(currentStatus);
 
-        if (payment instanceof ComponentProjectReferencePayment) {
-            ((ComponentProjectReferencePayment) payment).setClient(client);
-        }
+//        if (payment instanceof ComponentProjectReferencePayment) {
+//        ((ComponentProjectReferencePayment) payment).setClient(client);
+        payment.setClient(client);
+//        }
 
         return payment;
     }

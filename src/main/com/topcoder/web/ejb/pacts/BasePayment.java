@@ -55,6 +55,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     // value indicating which field was changed.
     private int modificationRationale = 0;
 
+    private String client = null;
+
     /**
      * Create a base payment.
      *
@@ -83,7 +85,34 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.installmentNumber = 1;
         this.placed = placed;
     }
-    
+
+    /**
+     * Create a base payment.
+     *
+     * @param paymentTypeId type of the payment
+     * @param coderId coder that receives the payment.
+     * @param client the client related to this payment
+     * @param grossAmount gross amount of the payment.
+     */
+    protected BasePayment(int paymentTypeId, long coderId, String client, double grossAmount) {
+        this(paymentTypeId,coderId, client, grossAmount, 0);
+    }
+
+    /**
+     * Create a base payment including the placement position in a contest.
+     * The placement is just for creating the description of the payment.
+     *
+     * @param paymentTypeId type of the payment
+     * @param coderId coder that receives the payment.
+     * @param client the client related to this payment
+     * @param grossAmount gross amount of the payment.
+     * @param placed the position that the coder had in the contest.
+     */
+    protected BasePayment(int paymentTypeId, long coderId, String client, double grossAmount, int placed) {
+        this(paymentTypeId,coderId, grossAmount, placed);
+        this.client = client;
+    }
+
     /**
      * Get the type of reference that this payment uses.
      * It will return the value of one of the constants: NO_REFERENCE or REFERENCE_*
@@ -310,6 +339,26 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         return placed;
     }
 
+    /**
+     * Get the client for the project.
+     *
+     * @return the client for the project.
+     */
+    public String getClient() {
+        return client;
+    }
+
+    /**
+     * Set the client for the project.
+     *
+     * @param client the client for the project.
+     */
+    public void setClient(String client) {
+        fieldChanged(MODIFICATION_REFERENCE, client != null && client != this.client);
+        this.client = client;
+    }
+
+
     public String getDescription() {
         return description;
     }
@@ -444,7 +493,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     public void setContractId(long contractId) {
         this.contractId = contractId;
     }
-
 
     /**
      * Base class for procesing payments, i.e. completing some information that must be looked

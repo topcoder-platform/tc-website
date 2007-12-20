@@ -18,7 +18,7 @@ public class ComponentTournamentBonusPayment extends ComponentContestReferencePa
      * serialization for this object, i.e. when data members are changed.
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     /**
      * Create a payment for winning a tournament bonus in a component contest.
