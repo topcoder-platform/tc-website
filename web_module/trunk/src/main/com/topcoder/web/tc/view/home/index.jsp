@@ -177,13 +177,17 @@
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunDesCup.png" alt="The Digital Run Design Cup" border="0" style="display:block;"/></A>
                 --%>
                 
-                <%-- DIGITAL RUN DEVELOPMENT CUP --%>
+                <%-- DIGITAL RUN DEVELOPMENT CUP 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunDevCup.png" alt="The Digital Run Development Cup" border="0" style="display:block;"/></A>
-                
+                --%>
                 
                 <%-- DIGITAL RUN TOTAL PRIZES 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunTotalPrizes.png" alt="The Digital Run Total Prizes" border="0" style="display:block;"/></A>
                 --%>
+
+                <%-- DIGITAL RUN 2008 --%>
+                <A href="/tc?module=Static&d1=digital_run&d2=2008&d3=description"><img src="/i/home/dig_run_2008.png" alt="The Digital Run 2008" border="0" style="display:block;"/></A>
+                
 
                 <%-- TCO07
                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07sm.png" alt="TCO07" border="0" style="display:block;"/></A>
