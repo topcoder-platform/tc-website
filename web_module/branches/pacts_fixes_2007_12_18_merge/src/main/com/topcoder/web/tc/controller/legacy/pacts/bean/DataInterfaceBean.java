@@ -1354,6 +1354,11 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.hasTaxForm(userId);
     }
 
+    public boolean requiresClient(int paymentTypeId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.requiresClient(paymentTypeId);
+    }
+
     /**
      * Generates all the affidavits and payments for the people who won
      * money in the given contest round.  Returns the number of

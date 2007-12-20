@@ -45,7 +45,7 @@ public class PayReliabilityBonus extends DBUtility {
 		// Find all the project result that have a payment but not a reliability bonus payment
 		// If a reliability bonus is deleted (status 69) it will be found anyways, so that if 
 		// someone deletes a reliability bonus, it is not created again.
-		query.append("SELECT pr.user_id, pr.project_id, pr.old_reliability, pd.total_amount, p.payment_id, ");
+		query.append("SELECT pr.user_id, pr.project_id, pr.old_reliability, pd.total_amount, pd.client, p.payment_id, ");
         query.append("       (select NVL(ppd.actual_start_time, psd.actual_start_time)   ");
         query.append("          from tcs_catalog:project proj  ");
         query.append("               , OUTER tcs_catalog:project_phase psd  ");
@@ -86,11 +86,11 @@ public class PayReliabilityBonus extends DBUtility {
         	double amount = rs.getDouble("total_amount");
         	long paymentId = rs.getLong("payment_id");
         	Date postingDate = rs.getDate("posting_Date");
-            
-            
-    		double bonusAmount;
-            
-            
+
+        	// use parent's client for the reliability payment
+        	String client = rs.getString("client");
+
+        	double bonusAmount;
             if (postingDate.before(SCHEMA_CHANGE_DATE)) {
                 bonusAmount = getReliabilityPercent(reliability) * amount;
             } else {
@@ -99,6 +99,7 @@ public class PayReliabilityBonus extends DBUtility {
 
             if (onlyAnalyze.equalsIgnoreCase("false")) {
             	ReliabilityBonusPayment bp = new ReliabilityBonusPayment(userId, bonusAmount, paymentId);
+            	bp.setClient(client);
             	bp.setNetAmount(bonusAmount);
 
             	ejb.addPayment(bp);
