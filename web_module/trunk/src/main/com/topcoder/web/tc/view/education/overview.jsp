@@ -39,12 +39,12 @@
 <br /><br />
 <span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
+<li><a href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions2"><strong>The Best Questions for Would-be C++ Programmers, Part 2</strong></a>, by <tc-webtag:handle coderId="22630158" context="algorithm"/><br />
+In the second part of this installment we'll tackle some questions regarding more advanced features of the language (the experienced C++ programmers will consider some of these more on the basic side). So let's get to it and work on the second part of this "interview".</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions"><strong>The Best Questions for Would-be C++ Programmers, Part 1</strong></a>, by <tc-webtag:handle coderId="22630158" context="algorithm"/><br />
 It seems that an almost obligatory and very important part of the recruitment process is "the test." "The test" can provide information both for the interviewer and the candidate. I've had my fair share of interviews, more or less successful, and I would like to share with you my experience regarding some questions I had to face.</li>
 <li><a href="/tc?module=Static&d1=features&d2=120507"><strong>Know your hero: myprasanna</strong></a>, by <tc-webtag:handle coderId="22685759" context="algorithm"/><br />
 This issue of the 'Know Your Hero' interview series features M.Y. Prasanna (TopCoder handle: <tc-webtag:handle coderId="13366203" context="algorithm"/>). Prasanna has a credit of becoming the third Indian to have ever become a red-rated member in TopCoder.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=usingTries"><strong>Using Tries</strong></a>, by <tc-webtag:handle coderId="10200923" context="algorithm"/><br />
-There are many algorithms and data structures to index and search strings inside a text, some of them are included in the standard libraries, but not all of them; the trie data structure is a good example of one that isn't.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br />
 <ul>
