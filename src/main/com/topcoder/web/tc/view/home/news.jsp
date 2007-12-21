@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.21.07<br />9:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=digital_run&d2=2008&d3=description">Digital Run 2008 Stage 1 Starts Soon</A></span><br /><br />
+        With just over a week until the end of the year and with it the end of the current Digital Run, you may have been thinking, "Boy, I hope they announce another season."  And then BAM, here we are announcing it!  So let's fire it up again.  The first stage starts <strong>January 1</strong> and it's a fresh start for everyone.  So even if you missed the Digital Run before, this is your chance to get a piece of the <strong>$350,000 prize purse and a trip to the 2009 TopCoder Open</strong>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=digital_run&d2=2008&d3=description">details</a> | 
+        <tc-webtag:forumLink forumID="518618" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.19.07<br />1:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -164,21 +177,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm380">details</A> | 
          <tc-webtag:forumLink forumID="516077" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.10.07<br />9:45 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm47">TCHS SRM 47 - Problem Set &amp; Analysis</A></span><br /><br />
-      130 students participated the match, 22 of them newcomers. They faced a set of problems somewhat brute-force solvable and not so tricky. Finally 7 people successfully solved all problems.</td>
-         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="15166995" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm47">details</A> | 
-         <tc-webtag:forumLink forumID="516573" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
    
