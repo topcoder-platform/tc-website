@@ -99,6 +99,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- Network World begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.networkworld.com/podcasts/panorama/2007/122007pan-topcoder.html' refer='pr_index' />"><img src="/i/pressroom/networkWorld_logo.png" alt="Network World logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.networkworld.com/podcasts/panorama/2007/122007pan-topcoder.html' refer='pr_index' />">Coder contests drive app development [PODCAST]</a></h3>
+                        <p>Network World's Jason Meserve looks at a different spin on outsourcing application development with TopCoder's Mike Morris, senior vice president of software development.  This podcast discusses hosting application development tournaments as a means to find talent and create robust code.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.networkworld.com/podcasts/panorama/2007/122007pan-topcoder.html' refer='pr_index' />">[December 21]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Network World end --%>
+                
                 <%-- The McKinsey Quarterly: Eight business technology trends to watch begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">

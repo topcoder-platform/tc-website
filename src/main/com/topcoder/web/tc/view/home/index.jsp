@@ -424,6 +424,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            Coder contests drive app development [PODCAST]
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.networkworld.com/podcasts/panorama/2007/122007pan-topcoder.html' refer='homepage_index' />">...more</a><br />[December 21]<br /><br />
+            
             Eight business technology trends to watch
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.mckinseyquarterly.com/article_abstract_visitor.aspx?ar=2080&l2=13&l3=11' refer='homepage_index' />">...more</a><br />[December 12]<br /><br />
             
@@ -438,9 +441,6 @@
             
             UW senior wins national coding competition
             <a target="_blank" href="<tc-webtag:linkTracking link='http://thedaily.washington.edu/article/2007/11/9/uwSeniorWinsNationalCodingCompetition' refer='homepage_index' />">...more</a><br />[November 9]<br /><br />
-            
-            Russian programmer twice the best worldwide
-            <a href="/tc?module=Static&d1=pressroom&d2=art_110807">...more</a><br />[November 8]<br /><br />
             
 
 
