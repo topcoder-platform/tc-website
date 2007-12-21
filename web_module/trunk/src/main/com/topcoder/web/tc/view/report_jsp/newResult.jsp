@@ -7,9 +7,11 @@
 <%@ page import="com.topcoder.shared.util.DBMS" %>
 <%@ page import="com.topcoder.web.common.StringUtils" %>
 <%@ page import="com.topcoder.web.tc.controller.request.report.CSVResults" %>
+<%@ page import="java.sql.Types" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <html>
   <head>
