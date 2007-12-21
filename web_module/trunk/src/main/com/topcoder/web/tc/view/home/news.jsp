@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />12.21.07<br />11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.networkworld.com/podcasts/panorama/2007/122007pan-topcoder.html' refer='/tc' />">Network World: Coder contests drive app development [PODCAST]</A></span><br /><br />
+        Network World's Jason Meserve looks at a different spin on outsourcing application development with TopCoder's Mike Morris, senior vice president of software development.  This podcast discusses hosting application development tournaments as a means to find talent and create robust code.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.networkworld.com/podcasts/panorama/2007/122007pan-topcoder.html' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="518619" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.21.07<br />9:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=digital_run&d2=2008&d3=description">Digital Run 2008 Stage 1 Starts Soon</A></span><br /><br />
@@ -160,22 +173,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=match_editorials&d2=srm381">details</A> | 
          <tc-webtag:forumLink forumID="516078" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.10.07<br />10:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm380">SRM 380 - Problem Set &amp; Analysis</A></span><br /><br />
-      SRM 380 wasn't a usual match, it was a challenger's good dream. All problems, except for Div2Easy provided excellent opportunity to gather a lot of points during the challenge phase.</td>
-         <td class="newsPhoto"><img src="/i/m/gevak_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="7340263" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm380">details</A> | 
-         <tc-webtag:forumLink forumID="516077" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
