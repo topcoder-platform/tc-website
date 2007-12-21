@@ -72,7 +72,14 @@
             </TR>
             <TR>
                 <% for (int i = 0; i < rs.getColumns().length; i++) {%>
-                <TD><b><%= StringUtils.replace(rs.getColumns()[i].getName(), "_", " ")%>
+                <TD><b>
+                    <% if (rs.getColumnInfo(i).getType()==Types.DECIMAL ||
+                    rs.getColumnInfo(i).getType()== Types.NUMERIC ||
+                    rs.getColumnInfo(i).getType()== Types.FLOAT) { %>
+                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=i%>" descColumn="<%=i%>"/>&amp;<%=DataAccessConstants.SORT_QUERY%>=<%=query.getStringItem("name")%>"><%= StringUtils.replace(rs.getColumns()[i].getName(), "_", " ")%></a>
+                    <% } else { %>
+                    <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="<%=i%>" ascColumn="<%=i%>"/>&amp;<%=DataAccessConstants.SORT_QUERY%>=<%=query.getStringItem("name")%>"><%= StringUtils.replace(rs.getColumns()[i].getName(), "_", " ")%></a>
+                     <% } %>
                 </b></TD>
                 <% } %>
             </TR>
