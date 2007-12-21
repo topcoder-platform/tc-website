@@ -387,7 +387,7 @@ SimpleBase :: SimpleBase(string &amp;name) : m_name(name)
     </li>
 </ol>
 
-<p>That's it for the first part of this installment. Stay tuned for the second one, as we're going to go deeper into the language features. Good luck on those interviews!</p>
+<p>That's it for the first part of this installment. Stay tuned for the <a href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions2">second one</a>, as we're going to go deeper into the language features. Good luck on those interviews!</p>
 <br />
 
 <h3>References</h3>
