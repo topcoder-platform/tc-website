@@ -12,10 +12,6 @@
     </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>CSF</title>
-    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
-    <script type="text/javascript"> _uacct = "UA-321688-2";
-    urchinTracker(); </script>
-    <script type="text/javascript" src="/js/popup.js"></script>
 </head>
 
 <body>
