@@ -7,7 +7,6 @@
 <%@ page import="com.topcoder.shared.util.DBMS" %>
 <%@ page import="com.topcoder.web.common.StringUtils" %>
 <%@ page import="com.topcoder.web.tc.controller.request.report.CSVResults" %>
-<%@ page import="java.sql.Types" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -75,14 +74,7 @@
             <TR>
                 <% for (int i = 0; i < rs.getColumns().length; i++) {%>
                 <TD><b>
-                    <% if (rs.getColumnInfo(i).getType()==Types.DECIMAL ||
-                    rs.getColumnInfo(i).getType()== Types.NUMERIC ||
-                            rs.getColumnInfo(i).getType()== Types.INTEGER ||
-                    rs.getColumnInfo(i).getType()== Types.FLOAT) { %>
-                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams="true" column="<%=i%>" descColumn="<%=i%>"/>&amp;<%=DataAccessConstants.SORT_QUERY%>=<%=query.getStringItem("name")%>"><%= StringUtils.replace(rs.getColumns()[i].getName(), "_", " ")%></a>
-                    <% } else { %>
-                    <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams="true" column="<%=i%>" ascColumn="<%=i%>"/>&amp;<%=DataAccessConstants.SORT_QUERY%>=<%=query.getStringItem("name")%>"><%= StringUtils.replace(rs.getColumns()[i].getName(), "_", " ")%></a>
-                     <% } %>
+                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams="true" column="<%=i%>"/>&amp;<%=DataAccessConstants.SORT_QUERY%>=<%=query.getStringItem("name")%>"><%= StringUtils.replace(rs.getColumns()[i].getName(), "_", " ")%></a>
                 </b></TD>
                 <% } %>
             </TR>
