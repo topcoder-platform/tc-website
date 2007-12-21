@@ -77,6 +77,7 @@
                 <TD><b>
                     <% if (rs.getColumnInfo(i).getType()==Types.DECIMAL ||
                     rs.getColumnInfo(i).getType()== Types.NUMERIC ||
+                            rs.getColumnInfo(i).getType()== Types.INTEGER ||
                     rs.getColumnInfo(i).getType()== Types.FLOAT) { %>
                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams="true" column="<%=i%>" descColumn="<%=i%>"/>&amp;<%=DataAccessConstants.SORT_QUERY%>=<%=query.getStringItem("name")%>"><%= StringUtils.replace(rs.getColumns()[i].getName(), "_", " ")%></a>
                     <% } else { %>
