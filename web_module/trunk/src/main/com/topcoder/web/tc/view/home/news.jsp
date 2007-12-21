@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br />12.21.07<br />4:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions2">The Best Questions for Would-be C++ Programmers, Part 2</A></span><br /><br />
+      In the second part of this installment we'll tackle some questions regarding more advanced features of the language (the experienced C++ programmers will consider some of these more on the basic side). So let's get to it and work on the second part of this "interview".</td>
+         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="22630158" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions2">details</A> | 
+         <tc-webtag:forumLink forumID="518480" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />12.21.07<br />11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A target="_blank" href="<tc-webtag:linkTracking link='http://www.networkworld.com/podcasts/panorama/2007/122007pan-topcoder.html' refer='/tc' />">Network World: Coder contests drive app development [PODCAST]</A></span><br /><br />
@@ -158,21 +174,5 @@
         <A target="_blank" href="<tc-webtag:linkTracking link='http://www.mckinseyquarterly.com/article_abstract_visitor.aspx?ar=2080&l2=13&l3=11' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="518481" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.11.07<br />10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm381">SRM 381 - Problem Set &amp; Analysis</A></span><br /><br />
-      Saturday, the 8th of December, such a beautiful evening here in Ukraine. SRM 381 made it even better. 1500 coders (it seems that there was at least one more who wished to take part in) from all over the world were ready to do their best during amazing 95 minutes of coding and challenging.</td>
-         <td class="newsPhoto"><img src="/i/m/Vasyl(alphacom)_big3.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="13351270" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm381">details</A> | 
-         <tc-webtag:forumLink forumID="516078" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
