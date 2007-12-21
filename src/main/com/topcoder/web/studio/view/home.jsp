@@ -170,10 +170,10 @@
 
                 <!-- news box -->
                 <div style="width: 525px; height: 150px; margin-bottom: 20px; background: transparent;">
-                    <%--
                     <a href="/?module=ViewActiveContests"><img src="/i/v2/home/studiov3.png" alt="Welcome to TopCoder Studio" /></a>
-                    --%>
+                    <%--
                     <a href="/?module=ViewActiveContests"><img src="/i/v2/home/widgetWednesday.png" alt="Widget Wednesday" /></a>
+                    --%>
                 </div>
 
                 <div style="margin-bottom: 20px;">
