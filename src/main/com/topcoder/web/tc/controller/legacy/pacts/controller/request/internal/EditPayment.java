@@ -137,7 +137,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     addError("error", getRequest().getParameter("missing_reference"));
                 }
 
-                if (dib.requiresClient(payment.getPaymentType()) == CLIENT_REQUIRED && 
+                if (dib.requiresClient(typeId) == CLIENT_REQUIRED && 
                         "".equals((String) getRequest().getParameter("client"))) {
                     addError("error", "Please enter a valid client");
                 }
