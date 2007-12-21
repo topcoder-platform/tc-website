@@ -196,7 +196,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     boolean hasAllDemographicAnswers(long userId) throws SQLException;
 
-    boolean requiresClient(int paymentTypeId) throws SQLException;
+    int requiresClient(int paymentTypeId) throws SQLException;
 
     boolean hasTaxForm(long userId) throws SQLException;
 

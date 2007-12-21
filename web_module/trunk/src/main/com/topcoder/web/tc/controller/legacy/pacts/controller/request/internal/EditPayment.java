@@ -35,9 +35,13 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeaderList;
 /**
  * Add or update a payment.
  *
- * @author  cucu
+ * @author  cucu, pulky
  */
 public class EditPayment extends PactsBaseProcessor implements PactsConstants {
+
+    private static final int CLIENT_NOT_REQUIRED = 0;
+    private static final int CLIENT_OPTIONAL = 1;
+    private static final int CLIENT_REQUIRED = 2;
 
     protected void businessProcessing() throws TCWebException {
     	SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_STRING);
@@ -133,6 +137,11 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     addError("error", getRequest().getParameter("missing_reference"));
                 }
 
+                if (dib.requiresClient(payment.getPaymentType()) == CLIENT_REQUIRED && 
+                        "".equals((String) getRequest().getParameter("client"))) {
+                    addError("error", "Please enter a valid client");
+                }
+
                 if (!hasErrors()) {
                     // Parameters are ok, so add or update the payment
 
@@ -149,7 +158,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         
                     	setReference(payment);                
                         
-                        if (dib.requiresClient(payment.getPaymentType())) {
+                        if (dib.requiresClient(payment.getPaymentType()) > CLIENT_NOT_REQUIRED) {
                             payment.setClient((String) getRequest().getParameter("client"));
                         }
                         payment.setDescription(desc);
@@ -305,7 +314,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             getRequest().setAttribute(USER, user);
 
             if (payment != null) {
-                getRequest().setAttribute("requiresClient", new Boolean(dib.requiresClient(payment.getPaymentType())));
+                getRequest().setAttribute("requiresClient", new Boolean(dib.requiresClient(payment.getPaymentType()) > CLIENT_NOT_REQUIRED));
 
                 getRequest().setAttribute("reference_id", getReferenceId(payment) + "");
                 getRequest().setAttribute(PAYMENT, payment);

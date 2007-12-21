@@ -1354,7 +1354,7 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.hasTaxForm(userId);
     }
 
-    public boolean requiresClient(int paymentTypeId) throws RemoteException, SQLException {
+    public int requiresClient(int paymentTypeId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.requiresClient(paymentTypeId);
     }
