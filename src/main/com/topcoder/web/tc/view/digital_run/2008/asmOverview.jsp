@@ -166,9 +166,9 @@ The points would be awarded as follows:
       <td class="sidebarTitle" align="center" valign="middle">Individual Points earned</td>
    </tr>
    <tr>
-      <td class="sidebarText" rowspan="2" align="center" nowrap="nowrap">Team A</td>
-      <td class="sidebarText" align="center" rowspan="2">54%</td>
-      <td class="sidebarText" align="center" rowspan="2">6480</td>
+      <td class="sidebarText" rowspan="2" align="center" valign="middle" nowrap="nowrap">Team A</td>
+      <td class="sidebarText" align="center" valign="middle" rowspan="2">54%</td>
+      <td class="sidebarText" align="center" valign="middle" rowspan="2">6480</td>
       <td class="sidebarText" align="center" valign="middle">50%</td>
       <td class="sidebarText" align="center" valign="middle">3240</td>
     </tr>
@@ -178,8 +178,8 @@ The points would be awarded as follows:
     </tr>
    <tr>
       <td class="sidebarText" rowspan="3" align="center" nowrap="nowrap">Team B</td>
-      <td class="sidebarText" align="center" rowspan="3">30%</td>
-      <td class="sidebarText" align="center" rowspan="3">3600</td>
+      <td class="sidebarText" align="center" valign="middle" rowspan="3">30%</td>
+      <td class="sidebarText" align="center" valign="middle" rowspan="3">3600</td>
       <td class="sidebarText" align="center" valign="middle">40%</td>
       <td class="sidebarText" align="center" valign="middle">1440</td>
     </tr>
@@ -193,8 +193,8 @@ The points would be awarded as follows:
     </tr>
    <tr>
       <td class="sidebarText" rowspan="3" align="center" nowrap="nowrap">Team C</td>
-      <td class="sidebarText" align="center" rowspan="3">16%</td>
-      <td class="sidebarText" align="center" rowspan="3">1920</td>
+      <td class="sidebarText" align="center" valign="middle" rowspan="3">16%</td>
+      <td class="sidebarText" align="center" valign="middle" rowspan="3">1920</td>
       <td class="sidebarText" align="center" valign="middle">50%</td>
       <td class="sidebarText" align="center" valign="middle">960</td>
     </tr>
@@ -231,10 +231,10 @@ The points would be awarded as follows:
       <td class="sidebarTitle" align="center" valign="middle">Individual Points Earned</td>
    </tr>
    <tr>
-      <td class="sidebarText" rowspan="2" align="center" nowrap="nowrap">Team A</td>
-      <td class="sidebarText" align="center" rowspan="2">54%</td>
-      <td class="sidebarText" align="center" rowspan="2">3%</td>
-      <td class="sidebarText" align="center" rowspan="2">6285.6</td>
+      <td class="sidebarText" rowspan="2" align="center" valign="middle" nowrap="nowrap">Team A</td>
+      <td class="sidebarText" align="center" valign="middle" rowspan="2">54%</td>
+      <td class="sidebarText" align="center" valign="middle" rowspan="2">3%</td>
+      <td class="sidebarText" align="center" valign="middle" rowspan="2">6285.6</td>
       <td class="sidebarText" align="center" valign="middle">50%</td>
       <td class="sidebarText" align="center" valign="middle">3142.8</td>
     </tr>
@@ -243,10 +243,10 @@ The points would be awarded as follows:
       <td class="sidebarText" align="center" valign="middle">3142.8</td>
     </tr>
    <tr>
-      <td class="sidebarText" rowspan="3" align="center" nowrap="nowrap">Team B</td>
-      <td class="sidebarText" align="center" rowspan="3">30%</td>
-      <td class="sidebarText" align="center" rowspan="3">0%</td>
-      <td class="sidebarText" align="center" rowspan="3">3600</td>
+      <td class="sidebarText" rowspan="3" align="center" valign="middle" nowrap="nowrap">Team B</td>
+      <td class="sidebarText" align="center" valign="middle" rowspan="3">30%</td>
+      <td class="sidebarText" align="center" valign="middle" rowspan="3">0%</td>
+      <td class="sidebarText" align="center" valign="middle" rowspan="3">3600</td>
       <td class="sidebarText" align="center" valign="middle">40%</td>
       <td class="sidebarText" align="center" valign="middle">1440</td>
     </tr>
@@ -259,10 +259,10 @@ The points would be awarded as follows:
       <td class="sidebarText" align="center" valign="middle">720</td>
     </tr>
    <tr>
-      <td class="sidebarText" rowspan="3" align="center" nowrap="nowrap">Team C</td>
-      <td class="sidebarText" align="center" rowspan="3">16%</td>
-      <td class="sidebarText" align="center" rowspan="3">0%</td>
-      <td class="sidebarText" align="center" rowspan="3">1920</td>
+      <td class="sidebarText" rowspan="3" align="center" valign="middle" nowrap="nowrap">Team C</td>
+      <td class="sidebarText" align="center" rowspan="3" valign="middle">16%</td>
+      <td class="sidebarText" align="center" rowspan="3" valign="middle">0%</td>
+      <td class="sidebarText" align="center" rowspan="3" valign="middle">1920</td>
       <td class="sidebarText" align="center" valign="middle">50%</td>
       <td class="sidebarText" align="center" valign="middle">960</td>
     </tr>
