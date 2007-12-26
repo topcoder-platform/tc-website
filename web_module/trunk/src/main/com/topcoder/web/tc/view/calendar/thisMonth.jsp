@@ -55,7 +55,7 @@
    </tr>
 
    <tr>
-      <td class="empty">&#160;<br><br><br><br><br></td>
+      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="empty">&#160;</td>
       <td class="empty">&#160;</td>
       <td class="empty">&#160;</td>
@@ -72,11 +72,11 @@
       </td>
       <td class="value">4
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10802">SRM 380</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10802">SRM 380</A></strong><br />
          7:00 AM
          </div>
          <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10803">TCHS SRM 47</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10803">TCHS SRM 47</A></strong><br />
          7:00 AM
          </div>
       </td>
@@ -84,7 +84,7 @@
       </td>
       <td class="value">6
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br />
          9:00 AM
          </div>
       </td>
@@ -92,7 +92,7 @@
       </td>
       <td class="value">8
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10804">SRM 381</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10804">SRM 381</A></strong><br />
          12:00 Noon
          </div>
       </td>
@@ -105,28 +105,28 @@
       </td>
       <td class="value">11
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10805">SRM 382</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10805">SRM 382</A></strong><br />
          9:00 PM
          </div>
       </td>
       <td class="value">12
          <div class="long">
-         <strong><A href="/tc?module=MatchDetails&rd=10933">Marathon Match 27</A></strong><br>
-         12:00 NOON<br>
+         <strong><A href="/tc?module=MatchDetails&rd=10933">Marathon Match 27</A></strong><br />
+         12:00 NOON<br />
          1 week
          </div>
       </td>
       <td class="value">13
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br />
          9:00 AM
          </div>
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10806">SRM 383</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10806">SRM 383</A></strong><br />
          11:00 AM
          </div>
          <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10807">TCHS SRM 48</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10807">TCHS SRM 48</A></strong><br />
          11:00 AM
          </div>
       </td>
@@ -145,17 +145,17 @@
       </td>
       <td class="value">19
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10808">SRM 384</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10808">SRM 384</A></strong><br />
          9:00 PM
          </div>
          <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10809">TCHS SRM 49</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10809">TCHS SRM 49</A></strong><br />
          9:00 PM
          </div>
       </td>
       <td class="value">20
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br />
          9:00 AM
          </div>
       </td>
@@ -169,18 +169,26 @@
       <td class="value">23
       </td>
       <td class="value">24
+         <div class="tcHoliday">
+         <strong>Office Closed</strong><br />
+         Christmas Eve
+         </div>
       </td>
       <td class="value">25
+         <div class="tcHoliday">
+         <strong>Office Closed</strong><br />
+         Christmas Day
+         </div>
       </td>
       <td class="value">26
       </td>
       <td class="value">27
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br />
          9:00 AM
          </div>
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10810">SRM 385</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10810">SRM 385</A></strong><br />
          11:00 AM
          </div>
       </td>
@@ -195,7 +203,7 @@
       </td>
       <td class="value">31
       </td>
-      <td class="empty">&#160;<br><br><br><br><br></td>
+      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="empty">&#160;</td>
       <td class="empty">&#160;</td>
       <td class="empty">&#160;</td>
