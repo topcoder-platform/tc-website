@@ -55,7 +55,7 @@
    </tr>
 
    <tr>
-      <td class="empty">&#160;<br><br><br><br><br></td>
+      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="empty">&#160;</td>
       <td class="empty">&#160;</td>
       <td class="empty">&#160;</td>
@@ -76,11 +76,11 @@
       </td>
       <td class="value">6
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br />
          9:00 AM
          </div>
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=11126">SRM 392</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=11126">SRM 392</A></strong><br />
          7:00 AM
          </div>
       </td>
@@ -97,7 +97,7 @@
       </td>
       <td class="value">11
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=11127">SRM 393</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=11127">SRM 393</A></strong><br />
          11:00 AM
          </div>
       </td>
@@ -105,7 +105,7 @@
       </td>
       <td class="value">13
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br />
          9:00 AM
          </div>
       </td>
@@ -114,7 +114,7 @@
       <td class="value">15
          <div class="tchs08">
          <div class="emblem"><img src="/i/tournament/tchs08/emblem.png" alt="TCHS08" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onsiteSchedule">Onsite Finals</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onsiteSchedule">Onsite Finals</A></strong><br />
          10:00 AM 
          </div>
       </td>
@@ -131,15 +131,19 @@
       </td>
       <td class="value">20
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br />
          9:00 AM
          </div>
       </td>
       <td class="value">21
+         <div class="tcHoliday">
+         <strong>Office Closed</strong><br />
+         Good Friday
+         </div>
       </td>
       <td class="value">22
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=11128">SRM 394</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=11128">SRM 394</A></strong><br />
          12:00 NOON
          </div>
       </td>
@@ -154,13 +158,13 @@
       </td>
       <td class="value">26
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=11129">SRM 395</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=11129">SRM 395</A></strong><br />
          9:00 PM
          </div>
       </td>
       <td class="value">27
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br />
          9:00 AM
          </div>
       </td>
@@ -175,7 +179,7 @@
       </td>
       <td class="value">31
       </td>
-      <td class="empty">&#160;<br><br><br><br><br></td>
+      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="empty">&#160;</td>
       <td class="empty">&#160;</td>
       <td class="empty">&#160;</td>
