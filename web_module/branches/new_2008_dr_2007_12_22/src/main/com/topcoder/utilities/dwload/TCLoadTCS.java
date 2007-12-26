@@ -4879,7 +4879,7 @@ public class TCLoadTCS extends TCLoad {
             List<ProjectResult> pr = new ArrayList<ProjectResult>();
             int count = 0;
             while (rs.next()) {
-                // Skip non Digital Review projects
+                // Skip non Digital Run projects
                 if ("Off".equals(rs.getString("dr_ind"))) {
                     continue;
                 }
