@@ -474,10 +474,10 @@ as a sample of second one.
  
 
 <div class="authorPhoto">
-    <img src="/i/m/rasto6sk_big.jpg" alt="Author" />
+    <img src="/i/m/Nickolas_big.jpg" alt="Author" />
 </div>
 <div class="authorText">
-    By&#160;<tc-webtag:handle coderId="13396848" context="algorithm"/><br />    <em>TopCoder Member</em>
+    By&#160;<tc-webtag:handle coderId="15635590" context="algorithm"/><br />    <em>TopCoder Member</em>
 </div>
 </div>
 </td>

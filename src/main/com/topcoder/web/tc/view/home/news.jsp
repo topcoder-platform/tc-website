@@ -9,7 +9,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm49">TCHS SRM 49 - Problem Set &amp; Analysis</A></span><br /><br />
       The last High School SRM before the second TCHS Tournament attracted 127 registrants, 15 of them newcomers. They faced a set of a tricky Easy, a Medium that had more passing solutions than Easy, and a rather simple Hard. After the system tests it turned out that only 81 people got a positive score, and 24 of them got all three problems correct.</td>
-         <td class="newsPhoto"><img src="/i/m/rasto6sk_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="13396848" context="algorithm"/></td></tr></table>
+         <td class="newsPhoto"><img src="/i/m/Nickolas_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="15635590" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
