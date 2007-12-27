@@ -4554,7 +4554,7 @@ public class TCLoadTCS extends TCLoad {
 
         final String INSERT =
                 "insert into stage (season_id, start_calendar_id, end_calendar_id, name, stage_id) " +
-                        " values (?,?,?,?,?,?,?)";
+                        " values (?,?,?,?,?)";
 
 
         try {
