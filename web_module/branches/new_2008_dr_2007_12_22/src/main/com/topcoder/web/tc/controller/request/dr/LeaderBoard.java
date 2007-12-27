@@ -70,12 +70,12 @@ public class LeaderBoard extends BaseBoard {
         
         // Put the results in a list
         List<LeaderBoardRow> results = new ArrayList<LeaderBoardRow>();
-        
         for (ResultSetContainer.ResultSetRow row : rsc) {
             LeaderBoardRow lbr = new LeaderBoardRow(stageId, phaseId, row.getIntItem("current_place"), row.getLongItem("coder_id"),row.getStringItem("handle"),
                      row.getDoubleItem("final_points"), row.getDoubleItem("potential_points"), 
                      row.getStringItem("current_top_performer_prize") == null? 0.0 : row.getDoubleItem("current_top_performer_prize"),
-                     row.getStringItem("current_top_n_prize") == null? 0.0 : row.getDoubleItem("current_top_n_prize"));
+                     row.getStringItem("current_top_n_prize") == null? 0.0 : row.getDoubleItem("current_top_n_prize"),
+                     hasWonTrip(row.getIntItem("current_place"), ct[2]));
             
             results.add(lbr);
             
@@ -104,6 +104,18 @@ public class LeaderBoard extends BaseBoard {
     
     
     /**
+     * Checks if the coder has win a trip
+     * 
+     * @param rank
+     * @param topTripWinners
+     * @return true if the winner won a trip
+     */
+    private boolean hasWonTrip(int rank, int topTripWinners) {
+        return rank <= topTripWinners;
+    }
+
+
+    /**
      * Get the stage and top performers contest for the specified stage and phase
      * 
      * @param stageId
@@ -121,14 +133,16 @@ public class LeaderBoard extends BaseBoard {
         DataAccessInt dai = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME); 
         ResultSetContainer contests= dai.getData(r).get("dr_contests_for_stage");
         
-        
-        
-        int []result = new int[2];
+        int []result = new int[3];
         result[0] = -1;
         result[1] = -1;
+        result[2] = 0;
         
         for(ResultSetContainer.ResultSetRow row : contests) {
-            if (row.getIntItem("contest_type_id") == DR_STAGE_CONTEST_TYPE) result[0] = row.getIntItem("contest_id");
+            if (row.getIntItem("contest_type_id") == DR_STAGE_CONTEST_TYPE) {
+                result[0] = row.getIntItem("contest_id");
+                result[2] = row.getIntItem("top_trip_winners");
+            }
             if (row.getIntItem("contest_type_id") == DR_TOP_PERFORMERS_CONTEST_TYPE) result[1] = row.getIntItem("contest_id");
         }
         
