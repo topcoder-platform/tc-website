@@ -200,7 +200,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
             </c:if>
         </td>
         <td class="valueC">
-            <c:if test="${boardRow.winTrip}">
+            <c:if test="${boardRow.placementPrize>0}">
                 <div id="pop${status.index }b" class="popUp"><div>Cash prize for placing in the <strong>Top Five</strong></div></div>
                 <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onMouseOver="popUp(this,'pop${status.index }b')" onMouseOut="popHide()" /></div>
             </c:if>
