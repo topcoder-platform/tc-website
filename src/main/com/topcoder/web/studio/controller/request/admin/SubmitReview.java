@@ -19,7 +19,6 @@ import com.topcoder.web.studio.model.ReviewStatus;
 import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionReview;
 
-import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -97,9 +96,13 @@ public class SubmitReview extends Base {
             }
 
             sr = StudioDAOUtil.getFactory().getSubmissionReviewDAO().find(submissionId);
+/*
             if (sr.getSubmission().getContest().getEndTime().before(new Timestamp(System.currentTimeMillis()))) {
+*/
                 refreshCache(s.getContest());
+/*
             }
+*/
 
             StringBuffer buf = new StringBuffer(50);
             buf.append(getSessionInfo().getServletPath());
