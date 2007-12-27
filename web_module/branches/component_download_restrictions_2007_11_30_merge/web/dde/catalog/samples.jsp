@@ -46,7 +46,7 @@
         <td width="99%" align="center">
             <div style="width:510px; margin-bottom: 40px;" align="left">
                 <p>
-                    The following is a list of sample components that you can download.  Each member is allowed to download from this list <strong>${max_downloads}</strong> times.
+                    The following is a list of TopCoder components that are available to all members for download. These components may be used for trial or non-commercial purposes.  If you are interested in gaining full trial access to download components or you wish to purchase access to the components for commercial purposes, please send an email to service@topcoder.com and explain the situation. You may download from this list up to <strong>${max_downloads}</strong> times.
                 </p>
                 <p align="center">
                     You have <strong>${remaining_downloads}</strong> downloads remaining.

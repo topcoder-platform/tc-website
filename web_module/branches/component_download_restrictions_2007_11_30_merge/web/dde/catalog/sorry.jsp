@@ -56,10 +56,10 @@
                             <img src="/i/catalog/sorry.png" alt="Sorry"/>
                         </div>
                         <p>
-                            However we do offer a set of components that are available for download.  Each TopCoder member is allowed download a component from this list <strong>${max_downloads}</strong> times.
+                            However we do offer a set of components that are available to all members for download. These components may be used for trial or non-commercial purposes.  You may download from the trial component list up to <strong>${max_downloads}</strong> times.
                         </p>
                         <div align="center" style="margin: 20px;">
-                            <a href="/tcs?module=ViewSampleComponents"><img src="/i/catalog/viewAvailable.png" alt="View available components" border="0" /></a>
+                            <a href="/tcs?module=ViewSampleComponents"><img src="/i/catalog/viewAvailable.png" alt="View trial components" border="0" /></a>
                         </div>
                     </c:when>
                     <c:when test="${failure_reason == quota_reached}">
@@ -67,12 +67,15 @@
                             <img src="/i/catalog/sorryLimit.png" alt="Sorry"/>
                         </div>
                         <p>
-                            Unfortunately you have already downloaded <strong>${max_downloads}</strong> components from the list of samples.
+                            You have downloaded the maximum number of components from the list of trial components.
                         </p>
                     </c:when>
                 </c:choose>
                 <p>
-                    If you are interested in downloading additional components for non-commercial or trial purposes, or if you require access to the full component catalog to compete in a TopCoder competition and you feel that this error message is a mistake, send an email <a href="mailto:service@topcoder.com">service@topcoder.com</a> explaining the situation.
+                    If you are interested in gaining full trial access to download components or you wish to purchase access to the components for commercial purposes, please send an email to <a href="mailto:service@topcoder.com">service@topcoder.com</a> and explain the situation.
+                </p>
+                <p>
+                    If you need access to this component for TopCoder competition purposes or you have already purchased access, please send an email to <a href="mailto:service@topcoder.com">service@topcoder.com</a> and explain the situation.
                 </p>
             </div>
         </td>
