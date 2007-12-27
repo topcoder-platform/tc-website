@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.27.07<br />10:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm49">TCHS SRM 49 - Problem Set &amp; Analysis</A></span><br /><br />
+      The last High School SRM before the second TCHS Tournament attracted 127 registrants, 15 of them newcomers. They faced a set of a tricky Easy, a Medium that had more passing solutions than Easy, and a rather simple Hard. After the system tests it turned out that only 81 people got a positive score, and 24 of them got all three problems correct.</td>
+         <td class="newsPhoto"><img src="/i/m/rasto6sk_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="13396848" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm49">details</A> | 
+         <tc-webtag:forumLink forumID="516575" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br />12.21.07<br />4:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -161,18 +177,5 @@
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="518483" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />12.12.07<br />11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.mckinseyquarterly.com/article_abstract_visitor.aspx?ar=2080&l2=13&l3=11' refer='/tc' />">The McKinsey Quarterly: Eight business technology trends to watch</A></span><br /><br />
-        Companies will have to build capabilities to engage talent globally or contract with talent aggregators that specialize in providing such services. TopCoder gives organizations that want to have software developed for them access to its talent pool.  <a target="_blank" href="/i/pressroom/pdfs/mckinsey_20071212.pdf">PDF</a> version available.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.mckinseyquarterly.com/article_abstract_visitor.aspx?ar=2080&l2=13&l3=11' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="518481" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
    
