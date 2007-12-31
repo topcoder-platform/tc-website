@@ -2,7 +2,26 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <c:choose>
-    <c:when test="${param['clip']=='ep06_part3' || param['clip']==null}">
+    <c:when test="${param['clip']=='ep07' || param['clip']==null}">
+        <br /><strong>Episode 7</strong>
+        (<tc-webtag:forumLink forumID="518706" message="discuss" />)
+        <div style="margin-left: 10px;">
+            00:00 Introduction
+            <br />00:34 News
+            <br />01:34 Dynamic Programming (by <tc-webtag:handle coderId="10407399" context="algorithm"/>)
+            <br />09:25 Behind the Handle: <tc-webtag:handle coderId="8472826" context="algorithm"/> (by <tc-webtag:handle coderId="15006955" context="algorithm"/>)
+            <br />14:20 TC Trivia
+            <%--
+            <br /><a href="/movies/tcchannel/ep07.mov">Low-bandwidth version</a>
+            --%>
+        </div>
+    </c:when>
+    <c:otherwise>
+        <br /><a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep07">Episode 7</a>
+    </c:otherwise>
+</c:choose>
+<c:choose>
+    <c:when test="${param['clip']=='ep06_part3'}">
         <br /><strong>TC Channel at the TCCC07 Part 3</strong>
         (<tc-webtag:forumLink forumID="517933" message="discuss" />)
     </c:when>
