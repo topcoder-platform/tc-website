@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tcchannel.png" alt="Movies" border="0" /><br />12.31.07<br />11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep07' refer='/tc' />">TC Channel: Episode 7</A></span><br /><br />
+        Our final TC Channel of 2007 is now online, featuring a tutorial on Dynamic Programming, a "Behind the Handle" video of <tc-webtag:handle coderId="8472826" context="algorithm"/>, and another installment of TC Trivia with Markus Lacher. You also won't want to miss our closing "auf Wiedersehen" montage of Dean &amp; Markus highlights from the first 7 episodes!  Happy viewing and Happy New Year from the TC Channel!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep07' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="518706" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.27.07<br />11:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -163,21 +176,5 @@
         <A href="/tc?module=Static&d1=calendar&d2=thisMonth">details</a> | 
         <tc-webtag:forumLink forumID="518541" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br />12.12.07<br />4:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions">The Best Questions for Would-be C++ Programmers, Part 1</A></span><br /><br />
-      It seems that an almost obligatory and very important part of the recruitment process is "the test." "The test" can provide information both for the interviewer and the candidate. I've had my fair share of interviews, more or less successful, and I would like to share with you my experience regarding some questions I had to face.</td>
-         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="22630158" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions">details</A> | 
-         <tc-webtag:forumLink forumID="518480" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
    
