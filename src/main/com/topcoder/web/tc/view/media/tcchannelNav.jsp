@@ -11,9 +11,7 @@
             <br />01:34 Dynamic Programming (by <tc-webtag:handle coderId="10407399" context="algorithm"/>)
             <br />09:25 Behind the Handle: <tc-webtag:handle coderId="8472826" context="algorithm"/> (by <tc-webtag:handle coderId="15006955" context="algorithm"/>)
             <br />14:20 TC Trivia
-            <%--
-            <br /><a href="/movies/tcchannel/ep07.mov">Low-bandwidth version</a>
-            --%>
+            <br /><a href="/movies/tcchannel/ep07.wmv">Low-bandwidth version</a>
         </div>
     </c:when>
     <c:otherwise>
