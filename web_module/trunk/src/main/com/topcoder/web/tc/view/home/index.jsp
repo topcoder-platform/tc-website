@@ -424,6 +424,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            TopCoder Expands With New Headquarters in Connecticut
+            <a href="/tc?module=Static&d1=pressroom&d2=pr_010208">...more</a><br />[January 2]<br /><br />
+            
             Coder contests drive app development [PODCAST]
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.networkworld.com/podcasts/panorama/2007/122007pan-topcoder.html' refer='homepage_index' />">...more</a><br />[December 21]<br /><br />
             
@@ -438,9 +441,6 @@
             
             Russian computer whiz crowned world's best
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.russiatoday.ru/news/news/16968' refer='homepage_index' />">...more</a><br />[November 15]<br /><br />
-            
-            UW senior wins national coding competition
-            <a target="_blank" href="<tc-webtag:linkTracking link='http://thedaily.washington.edu/article/2007/11/9/uwSeniorWinsNationalCodingCompetition' refer='homepage_index' />">...more</a><br />[November 9]<br /><br />
             
 
 
