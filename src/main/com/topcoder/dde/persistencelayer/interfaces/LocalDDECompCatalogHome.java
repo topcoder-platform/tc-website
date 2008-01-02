@@ -72,4 +72,13 @@ public interface LocalDDECompCatalogHome extends EJBLocalHome {
      */
     Collection findByCatalogAndStatus(long catalogId, long statusId) throws FinderException;
 
+    /**
+     * Returns a Collection of LocalDDECompCatalog objects with a public indicator
+     * @param catalogId
+     * @param statusId
+     * @return
+     * @throws FinderException
+     */
+    Collection findPublic() throws FinderException;
+
 }

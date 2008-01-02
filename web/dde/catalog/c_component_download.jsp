@@ -63,6 +63,14 @@
         response.sendRedirect("/login.jsp");
     }
 
+    try {
+        if (!componentManager.canDownload(tcSubject)) {
+            response.sendRedirect("/tcs?module=ViewComponentTerms&comp=" + lngComponent + ((lngVersion == 0) ? "" : "&ver=" + lngVersion) );
+        }
+    } catch (Exception e) {
+        response.sendRedirect("/tcs?module=ViewComponentTerms&comp=" + lngComponent + ((lngVersion == 0) ? "" : "&ver=" + lngVersion) );
+    }
+
     Download downloads[] = (Download[])componentManager.getDownloads().toArray(new Download[0]);
     LicenseLevel licenses[] = (LicenseLevel[])catalog.getLicenseLevels().toArray(new LicenseLevel[0]);
 %>

@@ -106,6 +106,20 @@ public abstract class DDECompCatalogBean extends DDEBaseDescStatusBean {
 
 
     /**
+     * Gets the public indicator.
+     *
+     * @return public indicator.
+     */
+    public abstract int getPublicInd();
+
+    /**
+     * Sets the public indicator.
+     *
+     * @param publicInd public indicator.
+     */
+    public abstract void setPublicInd(int publicInd);
+
+    /**
      * Creates an entity object.
      *
      * @param currentVersion        current version.
@@ -128,6 +142,7 @@ public abstract class DDECompCatalogBean extends DDEBaseDescStatusBean {
         setFunctionDesc(functionDesc);
         setCreateTime(createTime);
         setRootCategory(rootCategory);
+        setPublicInd(0);
         return null;
     }
 
