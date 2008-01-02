@@ -330,6 +330,16 @@
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/user" includes="*.xml"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/user" includes="wsdl"/>
+        </jar>
+    </target>
+
+    <target name="package-EJB-UserServicesBean" depends="compile">
+        <jar jarfile="${ejb_jars}/UserServices.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/userservices/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/userservices" includes="*.xml"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/userservices" includes="wsdl/*.wsdl"/>
         </jar>
     </target>
 
@@ -1326,6 +1336,7 @@
         <antcall target="package-EJB-SurveyBean"/>
         <antcall target="package-EJB-UserEvent"/>
         <antcall target="package-EJB-UserBean"/>
+        <antcall target="package-EJB-UserServicesBean"/>
         <antcall target="package-EJB-UtilBean"/>
 
         <antcall target="war-tc"/>

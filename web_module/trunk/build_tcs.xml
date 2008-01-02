@@ -391,6 +391,7 @@
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${ejb.jars.dir}">
                 <include name="security.jar"/>
+                <include name="UserServices.jar"/>
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
@@ -566,6 +567,7 @@
         <target name="build-ear" depends="war-dde,war-or,build-ejbs,build-sars">
     -->
     <target name="build-ear" depends="war-dde,build-ejbs">
+        <ant antfile="build_tc.xml" target="package-EJB-UserServicesBean"/>
         <ear earfile="${ear.dir}/dde.ear" appxml="${resources.dir}/dde/application.xml">
             <!-- remove with new OR
                         <fileset dir="${sar.dir}">
