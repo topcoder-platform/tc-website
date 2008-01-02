@@ -64,6 +64,28 @@
         
             <%-- Yearly Sub Content Container --%>
             <div class="pr_subheader">
+                <h2><span>2008</span></h2>
+            </div>
+            
+            <%-- pr_border creation --%>
+            <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
+                <div class="pr_newsarchive">
+                    <dl>
+                    <dt>&nbsp;</dt>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_010208">TopCoder Expands With New Headquarters in Connecticut <br /><small style="margin-left:10px;">[January 2]</small></a></dd>
+                    </dl>
+                </div>
+                
+                <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
+                <div class="pr_clear"></div>
+                
+            </div></div></div>
+            <%-- Yearly Container end --%>
+            
+            
+            <%-- Yearly Sub Content Container --%>
+            <div class="pr_subheader">
                 <h2><span>2007</span></h2>
             </div>
             

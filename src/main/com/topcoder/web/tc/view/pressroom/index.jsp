@@ -93,6 +93,34 @@
             
             <%-- Yearly Sub Content Container --%>
             <div class="pr_subheader">
+                <h2><span>2008</span></h2>
+            </div>
+            
+            <%-- pr_border creation --%>
+            <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
+                <%-- TopCoder Expands With New Headquarters in Connecticut begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_010208"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_010208">TopCoder Expands With New Headquarters in Connecticut</a></h3>
+                        <p>Global Leader in Programming Contests and Software Methodology Stays Centered in Glastonbury  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_010208">[January 2]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder Expands With New Headquarters in Connecticut end --%>
+                
+                <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
+                <div class="pr_clear"></div>
+                
+            </div></div></div>
+            <%-- Yearly Container end --%>
+            
+            
+            <%-- Yearly Sub Content Container --%>
+            <div class="pr_subheader">
                 <h2><span>2007</span></h2>
             </div>
             
@@ -598,6 +626,7 @@
                 
             </div></div></div>
             <%-- Yearly Container end --%>
+            
             
             <%-- Yearly Sub Content Container --%>
             <div class="pr_subheader">
