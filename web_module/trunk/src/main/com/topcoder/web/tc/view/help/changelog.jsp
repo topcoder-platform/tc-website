@@ -48,6 +48,7 @@
     <ul>
         <li>Changed pacts add payment functionality so that the client is asked for more payment types. (new flag in the DB) -pulky</li>
         <li>Changes reliability generation so that the reliability payment uses the parent's client information -pulky</li>
+        <li>New component download restrictions -pulky</li>
     </ul>
 </p>
 
