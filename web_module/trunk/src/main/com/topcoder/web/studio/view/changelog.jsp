@@ -31,6 +31,16 @@
 
 <h1>Studio Website Changelog</h1>
 
+
+<p>
+    2.1.4 - 2008.01.02
+    <ul>
+        <li>Always refresh cache after admin reviews a submission -dok</li>
+    </ul>
+
+</p>
+
+
 <p>
     2.1.3 - 2007.12.20
     <ul>
