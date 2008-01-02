@@ -361,10 +361,10 @@
                 </div>
                 <%-- Lilly & Deutsche Bank Announced as New Sponsors & NSA Returns as Patron of TCCC07 end --%>
                 
-                <%-- 6 State companies among fastest growing begin --%>
+                <%-- WNPR: Connecticut 6 State companies among fastest growing begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.publicbroadcasting.net/wnpr/news.newsmain?action=article&ARTICLE_ID=1139736' refer='/pressroom_index' />"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.publicbroadcasting.net/wnpr/news.newsmain?action=article&ARTICLE_ID=1139736' refer='/pressroom_index' />"><img src="/i/pressroom/wnpr_logo.gif" alt="WNPR logo" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
                         <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.publicbroadcasting.net/wnpr/news.newsmain?action=article&ARTICLE_ID=1139736' refer='/pressroom_index' />">6 State companies among fastest growing</a></h3>
@@ -372,12 +372,12 @@
                     </div>
                     <div class="pr_clear"></div>
                 </div>
-                <%-- 6 State companies among fastest growing end --%>
+                <%-- WNPR Connecticut: 6 State companies among fastest growing end --%>
                 
                 <%-- Fox TV: "Top Computer Programmers Compete" begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=art_080207"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                        <a href="/tc?module=Static&d1=pressroom&d2=art_080207"><img src="/i/pressroom/foxTVchicago_logo.png" alt="Fox TV Chicago logo" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
                         <h3><a href="/tc?module=Static&d1=pressroom&d2=art_080207">Fox TV: "Top Computer Programmers Compete"</a></h3>
