@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />01.02.08<br />10:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm385">SRM 385 - Problem Set &amp; Analysis</A></span><br /><br />
+      The last SRM in the year, authored by <tc-webtag:handle coderId="10574855" context="algorithm"/>, attracted 1359 participants. In Division 1, coders faced a very tough 1100-point problem which eventually no one managed to get right.
+</td>
+         <td class="newsPhoto"><img src="/i/m/dmytro_big4.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="7546003" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm385">details</A> | 
+         <tc-webtag:forumLink forumID="518660" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tcchannel.png" alt="Movies" border="0" /><br />12.31.07<br />11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep07' refer='/tc' />">TC Channel: Episode 7</A></span><br /><br />
@@ -163,18 +180,5 @@
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=overview' refer='/tc' />">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=590134&start=0&mc=49">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.13.07<br />12:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=calendar&d2=thisMonth">Event Calendar updated through March 2008</A></span><br /><br />
-        The Event Calendar has been updated with new SRMs and new Marathon Matches through March 2008.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=calendar&d2=thisMonth">details</a> | 
-        <tc-webtag:forumLink forumID="518541" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
