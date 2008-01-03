@@ -1366,6 +1366,7 @@
                 <include name="ResumeServices.jar"/>
                 <include name="Survey.jar"/>
                 <include name="User.jar"/>
+                <include name="UserServices.jar"/>
                 <include name="Util.jar"/>
             </fileset>
         </copy>
