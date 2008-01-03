@@ -37,17 +37,11 @@
            
                 <div align="center"><a href="/tc?module=ViewArchitectureActiveContests"><img src="/i/development/architecture/banner20071218.jpg" alt="TopCoder Architecture Competitions" /></a></div>
 
-                <p align="center" class="bigRed">The beta competition <a href="/tc?module=ViewArchitectureActiveContests" class="bigRed">has started</a>!</p>
+                <p align="center" class="bigRed">View our newest <a href="/tc?module=ViewArchitectureActiveContests" class="bigRed">competitions</a>!</p>
 
                 <p align="justify">
-                    We've been preparing the first competition for release and now we'd like to get your feedback.  This page is intended to show to you - ahead of time - the competition process, the scorecard, and all of the documents that we plan to release to initially support these competitions.  This includes the actual specification documentation for the first competition.  We encourage all of you to give your feedback, which we will review and integrate into the first competition when it launches next week.
+                    As part of these Architecture Competitions members have been tasked to create an architecture based on a complete prototype and an application requirement specification. The prototype and application requirement specification are part of a much larger enterprise suite of applications, which when assembled together comprise "Project Phoenix". For each milestone that is completed, you will receive $200.00 in addition to the compensation you would receive if you were to win the 1st or 2nd place. Even if you do not make any placements, you will still receive the full $200.00 for EACH milestone that is submitted.
                 </p>
-                <p align="justify">
-                    This is your chance to guide the direction of these competitions.  Remember, architecture competitions will feed into component competitions, so it's important that we get your feedback as we broaden the scope of member participation in the overall application development process.
-                </p>
-                <h2 align="center">
-                    FIRST PRIZE FOR THE BETA COMPETITION<br />WILL BE $2000
-                </h2>
                 <p align="justify">
                     The competition format will require you to create sequence diagrams illustrating the interaction between components, the component specifications and database schemas.  Furthermore, based on feedback we've already heard from architects, we have incorporated working prototypes into this competition process as a required deliverable. 
                 </p>
@@ -72,21 +66,6 @@
                 <div align="right" style="margin: 10px 0 20px 0;">
                     <a href="/wiki/display/tc/Sample+Architecture+Deliverables"><img src="/i/development/architecture/sample.png" alt="Sample Submission" style="display: block;" /></a>
                 </div>
-                <h2 align="center">
-                    BETA ARCHITECTURE COMPETITION LAUNCH<br />TUESDAY, DECEMBER 18TH
-                </h2>
-                <p align="justify">
-                    This competition will be to architect the TopCoder Client Cockpit, an entry point for customers to interact with the TopCoder Community through a customizable home base, built on a widget framework from which a registered TopCoder client-member will be able to launch and track projects, send/receive messages and monitor a variety of information sources.
-                </p>
-                <p align="justify">
-                    We are intending to provide as business specifications for this competition, a document describing the requirements and widget behavior, as well as storyboard images and graphic elements of the look and feel. Please take a look and let us know what you think of the specs.
-                </p>
-                <div align="right" style="margin: 10px 0 20px 0;">
-                    <a href="/wiki/display/tc/TopCoder+Architecture+Beta+Competition+Specification"><img src="/i/development/architecture/businessSpecs.png" alt="Business specs" style="display: block;" /></a>
-                </div>
-                <p align="justify">
-                    It's all coming next week, so let us know what you think!
-                </p>
                 <div align="right" style="margin: 10px 0 20px 0;">
                     <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&amp;forumID=518483"><img src="/i/development/architecture/discuss.png" alt="Discuss" style="display: block;" /></a>
                 </div>
