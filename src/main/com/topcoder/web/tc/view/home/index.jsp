@@ -424,6 +424,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            Gaming the System
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='homepage_index' />">...more</a><br />[January 3]<br /><br />
+            
             TopCoder Expands With New Headquarters in Connecticut
             <a href="/tc?module=Static&d1=pressroom&d2=pr_010208">...more</a><br />[January 2]<br /><br />
             
@@ -438,9 +441,6 @@
             
             Redmond Developer News: Contested Code
             <a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='homepage_index' />">...more</a><br />[December 4]<br /><br />
-            
-            Russian computer whiz crowned world's best
-            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.russiatoday.ru/news/news/16968' refer='homepage_index' />">...more</a><br />[November 15]<br /><br />
             
 
 

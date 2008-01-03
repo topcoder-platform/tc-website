@@ -99,6 +99,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- CFO.com: Gaming the System begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='pr_index' />"><img src="/i/pressroom/cfo_logo.png" alt="CFO.com logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='pr_index' />">Gaming the System</a></h3>
+                        <p>How a small outsourcing firm uses competition to unite its global community.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='pr_index' />">[January 3]</a> | <a target="_blank" href="/i/pressroom/pdfs/cfo_20080103.pdf">PDF</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- CFO.com: Gaming the System end --%>
+                
                 <%-- TopCoder Expands With New Headquarters in Connecticut begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">

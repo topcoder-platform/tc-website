@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />01.03.08<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='/tc' />">CFO.com: Gaming the System</A></span><br /><br />
+        <tc-webtag:handle coderId="20437508" context="design"/> is on fire: three consecutive wins for nearly 1,700 points have moved the Russian into fourth place, and he's gaining on two Americans, <tc-webtag:handle coderId="7390772" context="design"/> and <tc-webtag:handle coderId="11797255" context="design"/>, who don't seem to have much fight left in them. But <tc-webtag:handle coderId="20437508" context="design"/> remains nearly 300 points shy of the top spot, held by <tc-webtag:handle coderId="11789293" context="design"/>, the four-event Chinese ace who has never finished out of the money. Welcome to the Matrix, corporate edition, where to survive and thrive you must stay plugged in. <a target="_blank" href="/i/pressroom/pdfs/cfo_20080103.pdf">PDF</a> version available.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="518764" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />01.02.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=pressroom&d2=pr_010208">TopCoder Expands With New Headquarters in Connecticut</A></span><br /><br />
@@ -165,20 +178,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm382">details</A> | 
          <tc-webtag:forumLink forumID="516079" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.19.07<br />9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        TopCoder Has Moved</span><br /><br />
-        We recently packed up all our stuff and moved into a new home.  Our new address is below, so make sure you update your address book.  If we’re not in your address book, well, maybe add us now.  And send us something, like a postcard!  We love postcards!<br /><br />
-        TopCoder, Inc.<br />
-        95 Glastonbury Blvd<br />
-        Glastonbury, CT 06033 U.S.A.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <tc-webtag:forumLink forumID="518571" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
