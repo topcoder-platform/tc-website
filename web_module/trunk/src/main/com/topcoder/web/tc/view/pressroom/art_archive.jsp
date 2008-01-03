@@ -61,6 +61,28 @@
     <div id="pr_frame"><div id="pr_frame2"><div id="pr_frame3">
 
         <div id="pr_content" align="left">
+        
+            <%-- Yearly Sub Content Container --%>
+            <div class="pr_subheader">
+                <h2><span>2008</span></h2>
+            </div>
+
+            <%-- pr_border creation --%>
+            <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+
+                <div class="pr_newsarchive">
+                    <dl>
+                    <dt>&nbsp;</dt>
+                    <dd>Gaming the System [January 3 - CFO.com] <br /><a target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='art_archive' />">original article</a> | <a target="_blank" href="/i/pressroom/pdfs/cfo_20080103.pdf">PDF</a></dd>
+                    </dl>
+                </div>
+
+                <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
+                <div class="pr_clear"></div>
+
+            </div></div></div>
+            <%-- Yearly Container end --%>
+            
 
             <%-- Yearly Sub Content Container --%>
             <div class="pr_subheader">
