@@ -53,30 +53,30 @@
 
 <!-- Middle Column begins -->
         <td width="100%">
-		<table cellspacing=0 cellpadding=0 border=0 width=510 align=center>
-			<tr>
-				<td colspan=2>
-				<img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br/>
-				<img src="/images/headComponentsShort.gif" alt="Components" width="153" height="32" border="0"><br/>
-				<img src="/images/clear.gif" alt="" width="10" height="15" border="0" />
-				</td>
-			</tr>
-			<tr>
-				<td class=catalogIndexHeader colspan=2>Find Components</td>
-			</tr>
-			<tr valign=top>
-				<td class=catalogIndexCell><A href="/components/appSuiteIndex.jsp"><img src="/images/catalog/appSuiteBtn.jpg" border=0/></A></td>
-				<td class=catalogIndexCell width=100%><A href="/components/appSuiteIndex.jsp"><b>Browse Application Suites</b></A><br/>Application Suites are multi-purpose tools to solve a variety of software needs in one package. Thinking of adding an eCommerce section to your site? Our eCommerce Application Suite has everything you will need from a shopping cart to security.</td>
-			</tr>
-			<tr valign=top>
-				<td class=catalogIndexCell><A href="/catalog/c_showroom.jsp"><img src="/images/catalog/categoryBtn.jpg" border=0/></A></td>
-				<td class=catalogIndexCell><A href="/catalog/c_showroom.jsp"><b>Browse Components by Category</b></A><br/>Need some Security Tools? How about some Administration Tools? If you have a specific software functionality need, browse here to view our Component Catalog broken up into categories.</td>
-			</tr>
-			<tr valign=top>
-				<td class=catalogIndexCell><A href="/catalog/c_showroom.jsp?a=all"><img src="/images/catalog/indexBtn.jpg" border=0/></A></td>
-				<td class=catalogIndexCell><A href="/catalog/c_showroom.jsp?a=all"><b>Browse Component Index</b></A><br/>An alphabetical listing of our components, both Java and .Net.  Browse here if you know the exact component that you are looking for.</td>
-			</tr>
-		</table>
+        <table cellspacing=0 cellpadding=0 border=0 width=510 align=center>
+            <tr>
+                <td colspan=2>
+                <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br/>
+                <img src="/images/headComponentsShort.gif" alt="Components" width="153" height="32" border="0"><br/>
+                <img src="/images/clear.gif" alt="" width="10" height="15" border="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class=catalogIndexHeader colspan=2>Find Components</td>
+            </tr>
+            <tr valign=top>
+                <td class=catalogIndexCell><A href="/components/appSuiteIndex.jsp"><img src="/images/catalog/appSuiteBtn.jpg" border=0/></A></td>
+                <td class=catalogIndexCell width=100%><A href="/components/appSuiteIndex.jsp"><b>Browse Application Suites</b></A><br/>Application Suites are multi-purpose tools to solve a variety of software needs in one package. Thinking of adding an eCommerce section to your site? Our eCommerce Application Suite has everything you will need from a shopping cart to security.</td>
+            </tr>
+            <tr valign=top>
+                <td class=catalogIndexCell><A href="/catalog/c_showroom.jsp"><img src="/images/catalog/categoryBtn.jpg" border=0/></A></td>
+                <td class=catalogIndexCell><A href="/catalog/c_showroom.jsp"><b>Browse Components by Category</b></A><br/>Need some Security Tools? How about some Administration Tools? If you have a specific software functionality need, browse here to view our Component Catalog broken up into categories.</td>
+            </tr>
+            <tr valign=top>
+                <td class=catalogIndexCell><A href="/catalog/c_showroom.jsp?a=all"><img src="/images/catalog/indexBtn.jpg" border=0/></A></td>
+                <td class=catalogIndexCell><A href="/catalog/c_showroom.jsp?a=all"><b>Browse Component Index</b></A><br/>An alphabetical listing of our components, both Java and .Net.  Browse here if you know the exact component that you are looking for.</td>
+            </tr>
+        </table>
         </td>
 <!-- Middle Column ends -->
 
@@ -102,6 +102,16 @@
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3257193-2");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
 
 </body>
 </html>
