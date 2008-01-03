@@ -308,7 +308,8 @@ public class ProjectUtil {
                 || rootCategoryId == 5801777
                 || rootCategoryId == 5801778
                 || rootCategoryId == 5801779
-                || rootCategoryId == 9926572) {
+                || rootCategoryId == 9926572
+                || rootCategoryId == 26805357) { //c++
             PhaseTemplate template = getPhaseTemplate();
             String templateName = (projectTypeId == 1) ? "Design" : "Development";
             if (rootCategoryId == 9926572) {
