@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%"> 
+<tr class="bodyText"><td nowrap="nowrap">01.03.08 4:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=architecture&d2=beta">Registration Open for Three More Architecture Competitions</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.19.07 9:00 AM - </td><td width="100%">TopCoder Has Moved</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.13.07 12:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=calendar&d2=thisMonth">Event Calendar updated through March 2008</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.12.07 2:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=architecture&d2=beta">TopCoder Architecture Competitions Are Here!</A></td></tr>

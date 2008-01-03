@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />01.03.08<br />4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='/tc' />">Registration Open for Three More Architecture Competitions</A></span><br /><br />
+        As part of these Architecture Competitions members have been tasked to create an architecture based on a complete prototype and an application requirement specification. The prototype and application requirement specification are part of a much larger enterprise suite of applications, which when assembled together comprise "Project Phoenix". For each milestone that is completed, you will receive $200.00 in addition to the compensation you would receive if you were to win the 1st or 2nd place. Even if you do not make any placements, you will still receive the full $200.00 for EACH milestone that is submitted.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="518483" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />01.03.08<br />12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='/tc' />">CFO.com: Gaming the System</A></span><br /><br />
@@ -162,21 +175,5 @@
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm48">details</A> | 
          <tc-webtag:forumLink forumID="516574" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.19.07<br />11:45 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm382">SRM 382 - Problem Set &amp; Analysis</A></span><br /><br />
-      Division 1 was presented with slightly unusual problem set, with technical 250, tricky 500 and relatively easy 1000 problems. This SRM is also remarkable because of a new record – after it there are 12 active targets in TC rating, more than ever.</td>
-         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="14908325" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm382">details</A> | 
-         <tc-webtag:forumLink forumID="516079" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
