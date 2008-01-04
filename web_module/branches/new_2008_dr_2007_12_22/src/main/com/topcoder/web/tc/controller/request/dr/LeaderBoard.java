@@ -97,12 +97,43 @@ public class LeaderBoard extends BaseBoard {
         getRequest().setAttribute(Constants.STAGE_ID, stageId);
         getRequest().setAttribute("hasRookieCompetition", hasRookie);
         getRequest().setAttribute("results", cropped);
+        getRequest().setAttribute("topTripWinners", numToLetters(ct[2]));
 
         setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
         setIsNextPageInContext(true);        
     }
     
     
+    private String numToLetters(int i) {
+        switch (i) {
+        case 1:
+            return "One";
+        case 2:
+            return "Two";
+        case 3:
+            return "Three";
+        case 4:
+            return "Four";
+        case 5:
+            return "Five";
+        case 6:
+            return "Six";
+        case 7:
+            return "Seven";
+        case 8:
+            return "Eight";
+        case 9:
+            return "Nine";
+        case 10:
+            return "Ten";
+        default:
+            return String.valueOf(i);
+        }
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
     /**
      * Checks if the coder has win a trip
      * 
