@@ -12,7 +12,7 @@ import com.topcoder.web.tc.controller.request.tournament.ViewRegistrantsBase;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 16, 2007
  */
-public class ViewRegistrants extends ViewRegistrantsBase {
+public class Registrants extends ViewRegistrantsBase {
     protected final String getEventShortDesc() {
         String eventType = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_TYPE));
         if (!"".equals(eventType)) {
