@@ -1,6 +1,7 @@
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.topcoder.dde.catalog.Catalog" %>
 
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -18,6 +19,12 @@
 </head>
 
 <body class="body">
+
+<c:set value="<%=new Long(Catalog.NET_CATALOG)%>" var="NET_CATALOG"/>
+<c:set value="<%=new Long(Catalog.JAVA_CATALOG)%>" var="JAVA_CATALOG"/>
+<c:set value="<%=new Long(Catalog.FLASH_CATALOG)%>" var="FLASH_CATALOG"/>
+<c:set value="<%=new Long(Catalog.JAVA_CUSTOM_CATALOG)%>" var="JAVA_CUSTOM_CATALOG"/>
+<c:set value="<%=new Long(Catalog.NET_CUSTOM_CATALOG)%>" var="NET_CUSTOM_CATALOG"/>
 
 <!-- Header begins -->
 <jsp:include page="/includes/top.jsp"/>
@@ -56,6 +63,23 @@
                 </p>
                 <p>
                     <c:forEach var="component" items="${public_components}">
+                        <c:choose>
+                            <c:when test="${component.rootCategory == NET_CATALOG}">
+                                <img src="/images/dotnetSm.gif" alt="" border="0" />
+                            </c:when>
+                            <c:when test="${component.rootCategory == JAVA_CATALOG}">
+                                <img src="/images/javaSm.gif" alt="" border="0" />
+                            </c:when>
+                            <c:when test="${component.rootCategory == FLASH_CATALOG}">
+                                <img src="/images/flashSm.gif" alt="" border="0" />
+                            </c:when>
+                            <c:when test="${component.rootCategory == JAVA_CUSTOM_CATALOG}">
+                                <img src="/images/javaCustomSm.gif" alt="" border="0" />
+                            </c:when>
+                            <c:when test="${component.rootCategory == NET_CUSTOM_CATALOG}">
+                                <img src="/images/dotnetCustomSm.gif" alt="" border="0" />
+                            </c:when>
+                        </c:choose>                    
                         <a href="/tcs?module=ViewComponentTerms&comp=${component.primaryKey}&ver=${component.currentVersion}">${component.componentName}</a><br/>
                     </c:forEach>
                 </p>
