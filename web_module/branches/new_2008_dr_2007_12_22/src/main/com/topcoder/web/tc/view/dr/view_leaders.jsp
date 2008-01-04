@@ -195,7 +195,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
             <tc-webtag:handle coderId='${boardRow.userId}' context='${context}'/></td>
         <td class="valueC">
             <c:if test="${boardRow.winTrip}">
-                <div id="pop${status.index }a" class="popUp"><div>Trip to the next TCO Finals for placing in the <strong>Top Five</strong></div></div>
+                <div id="pop${status.index }a" class="popUp"><div>Trip to the next TCO Finals for placing in the <strong>Top ${topTripWinners}</strong></div></div>
                 <div align="center"><img src="/i/interface/emblem/trip.gif" alt="" border="0" onMouseOver="popUp(this,'pop${status.index }a')" onMouseOut="popHide()" /></div>
             </c:if>
         </td>

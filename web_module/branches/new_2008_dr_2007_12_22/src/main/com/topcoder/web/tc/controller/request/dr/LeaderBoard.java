@@ -129,8 +129,6 @@ public class LeaderBoard extends BaseBoard {
         default:
             return String.valueOf(i);
         }
-        // TODO Auto-generated method stub
-        return null;
     }
 
 
