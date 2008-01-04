@@ -7,7 +7,7 @@ import java.util.List;
  * 
  * @author pulky
  */
-public class DR2008TopPerformersCalculator extends DR2007dot5ResultCalculatorBase implements TopPerformersCalculator{
+public class DR2008TopPerformersCalculator extends DR2008ResultCalculatorBase implements TopPerformersCalculator{
     
     private double factor = 0;
     

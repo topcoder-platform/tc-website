@@ -7,7 +7,7 @@ import java.util.List;
  *  
  * @author pulky
  */
-public class DR2008TopNCalculator extends DR2007dot5ResultCalculatorBase {
+public class DR2008TopNCalculator extends DR2008ResultCalculatorBase {
     
     protected void assignPrizes(List<ContestResult> pr, List<Double> prizesAmount) {
         assignTopNPrizes(pr, prizesAmount);
