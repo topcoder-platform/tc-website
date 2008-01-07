@@ -99,6 +99,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_010708"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_010708">TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum</a></h3>
+                        <p>Jack Hughes, TopCoder Chairman and Founder, to Share Insight on Using Online Professional Communities to Accomplish Work  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_010708">[January 7]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum end --%>
+                
                 <%-- CFO.com: Gaming the System begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">

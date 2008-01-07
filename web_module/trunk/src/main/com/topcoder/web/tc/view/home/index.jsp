@@ -425,6 +425,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum
+            <a href="/tc?module=Static&d1=pressroom&d2=pr_010708">...more</a><br />[January 7]<br /><br />
+            
             Gaming the System
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='homepage_index' />">...more</a><br />[January 3]<br /><br />
             
@@ -439,9 +442,6 @@
             
             Should your company 'crowdsource' its next project?
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9050920&pageNumber=1' refer='homepage_index' />">...more</a><br />[December 6]<br /><br />
-            
-            Redmond Developer News: Contested Code
-            <a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='homepage_index' />">...more</a><br />[December 4]<br /><br />
             
 
 
