@@ -72,7 +72,7 @@ public class UserServicesBean extends BaseEJB {
         "    and pi.project_id = p.project_id  " +
         "    and p.project_status_id = 1  " +
         "    and r.project_id = p.project_id  " +
-        "    and r.resource_role_id = 1  " +
+        "    and r.resource_role_id in (1, 11, 1001, 1002) " +
         "    and ri.resource_id = r.resource_id  " +
         "    and ri.resource_info_type_id = 1  " +
         "    and ri.value = ? " +
