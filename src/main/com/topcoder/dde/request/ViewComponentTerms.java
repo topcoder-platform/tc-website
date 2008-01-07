@@ -48,12 +48,11 @@ public class ViewComponentTerms extends BaseProcessor {
             ComponentManager compMgr = componentManagerHome.create(compId);
 
             try {
-                if (compMgr.canDownload(tcSubject)) {
-                    getRequest().setAttribute(Constants.TERMS, userManager.getComponentTerms());
-                    setNextPage("/terms/componentTerms.jsp");
-                } else {
-                    throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-                }
+                // we don't care here if the user has permission
+                // he must get to the terms page in order to get those permissions
+                compMgr.canDownload(tcSubject);
+                getRequest().setAttribute(Constants.TERMS, userManager.getComponentTerms());
+                setNextPage("/terms/componentTerms.jsp");
             } catch (ReachedQuotaException e) {
                 getRequest().setAttribute("failure_reason", QUOTA_REACHED_REASON);
                 getRequest().setAttribute("max_downloads", compMgr.getMaxPublicDownloads());
