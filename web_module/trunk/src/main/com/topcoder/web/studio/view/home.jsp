@@ -148,10 +148,10 @@
                     
                     <!-- DOTM box -->
                     <div id="homeDOTMBox">
-                        <img src="/i/m/nophoto.jpg" alt="" style="position: absolute; top: 20px; left: 5px; width: 55px; height: 61px; border: 1px solid #bebebe;" />
+                        <img src="/i/m/djackmania_big.jpg" alt="" style="position: absolute; top: 20px; left: 5px; width: 55px; height: 61px; border: 1px solid #bebebe;" />
                         <div style="text-align: center; padding: 15px 10px 0 71px; margin: 0;">
-                            <strong>November 2007</strong>
-                            <br /><studio:handle coderId="22653907"/>: Won $2,000 in three contests
+                            <strong>December 2007</strong>
+                            <br /><studio:handle coderId="22690288"/>: Won $3,400 in three contests
                         </div>
                     </div>
 
