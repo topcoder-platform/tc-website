@@ -2,7 +2,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%-------------------------- post at 3pm
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />01.07.08<br />3:00 PM</td>
       <td class="newsTextCell">
@@ -17,7 +17,7 @@
          <tc-webtag:forumLink forumID="518788" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
-   ------------------------------%>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />01.07.08<br />11:00 AM</td>
@@ -172,21 +172,5 @@
         <A href="/tc?module=Static&d1=digital_run&d2=2008&d3=description">details</a> | 
         <tc-webtag:forumLink forumID="518618" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.19.07<br />1:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm383">SRM 383 - Problem Set &amp; Analysis</A></span><br /><br />
-      SRM 383 came a mere 38 hours after the previous SRM, giving coders barely enough time to finish working through the problems in the practice room before being back in the arena for another match. Nevertheless, 924 competitors showed up for the main event, with another 74 competing in the TopCoder College Tour.</td>
-         <td class="newsPhoto"><img src="/i/m/StevieT_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="21911760" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm383">details</A> | 
-         <tc-webtag:forumLink forumID="516080" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
