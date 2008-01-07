@@ -10,7 +10,7 @@
 <script src="js/minmax.js" language="javascript" type="text/javascript"></script>
 <script src="js/tco08.js" language="javascript" type="text/javascript"></script>
 </head>
-<body id="page_home">
+<body id="page_sub">
 
 <div id="wrapper">
 
@@ -20,31 +20,7 @@
     <jsp:param name="tabLev3" value=""/>
     </jsp:include>
 
-<div id="mainmiddle"><div id="mainwrapper"><div id="main">
 
-    <div id="content">
-    
-        <div id="front_pic"><img src="/i/tournament/tco08/front_pic.jpg" alt="Who will be the next TCO Champions?" width="440" height="260" /></div>
-    
-        <%--
-        <div id="menuwrap">
-            <div id="menu">
-                <ul id="menunav">
-                    <li><a href="#">Secondary Nav Off</a></li>
-                    <li><a href="#">Secondary Nav Off</a></li>
-                    <li class="active"><a href="#">Secondary Nav On</a>
-                        <ul>
-                            <li><a href="#">Tertiary Nav Off</a></li>
-                            <li class="active"><a href="#">Tertiary Nav On</a></li>
-                            <li><a href="#">Tertiary Nav Off</a></li>
-                            <li><a href="#">Tertiary Nav Off</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Secondary Nav Off</a></li>
-                </ul>
-            </div>
-            <div class="clearleft"></div>
-        </div> #menuwrap --%>
         
         
         <h2>Title</h2>
