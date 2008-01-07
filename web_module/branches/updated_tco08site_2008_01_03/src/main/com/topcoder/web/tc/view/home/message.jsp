@@ -1,9 +1,9 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>    
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
-<%-- TCCC07 STARTS HERE --%>        
-<% ResultSetContainer rscTccc07 = (ResultSetContainer) request.getAttribute("tccc07_info");
-    if (rscTccc07 != null && !rscTccc07.isEmpty()) {
+<%-- TCO08 STARTS HERE --%>        
+<% ResultSetContainer rscTco07 = (ResultSetContainer) request.getAttribute("tco08_info");
+    if (rscTco07 != null && !rscTco07.isEmpty()) {
 %>
 
 <style type="text/css">
@@ -44,16 +44,16 @@
     <tr>
         <td class="tccc07Message" align="center">
             <div align="center" style="margin: 6px 0px;">
-                <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about"><img src="/i/tournament/tccc07/message.png" alt="TCCC07" border="0"/></a>
+                <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=about"><img src="/i/tournament/tccc07/message.png" alt="TCO08" border="0"/></a>
             </div>
-            <rsc:iterator list='<%=rscTccc07%>' id="resultRow">
+            <rsc:iterator list='<%=rscTco07%>' id="resultRow">
                 <% if (resultRow.getIntItem("registered")== 0) { %>
                     Sorry, you are ineligible for the <strong><%=resultRow.getStringItem("event_desc")%></strong>.<br/>If this is a mistake, contact <a href="mailto:service@topcoder.com" class="tccc07MessageLink">service@topcoder.com</a>.
                 <% } else if (resultRow.getIntItem("registered")== 1) { %>
                     You are registered for the <strong><%=resultRow.getStringItem("event_desc")%></strong>.
                 <% } else { %>
                     You are not registered for the <strong><%=resultRow.getStringItem("event_desc")%></strong>.
-                 <br />Would you like to <a href="/tc?module=TCCC07ViewRegistration&et=<rsc:item name="event_type_id" row='<%=resultRow%>'/>" class="tccc07MessageLink">register</a>?
+                 <br />Would you like to <a href="/tco08?module=ViewRegistration&et=<rsc:item name="event_type_id" row='<%=resultRow%>'/>" class="tccc07MessageLink">register</a>?
                 <% } %>
                 <br/><br/>
             </rsc:iterator>
@@ -61,7 +61,7 @@
     </tr>
 </table>
 <% } %>
-<%-- TCCC07 ENDS HERE --%>
+<%-- TCO08 ENDS HERE --%>
 
 <%-- TCHS08 STARTS HERE --%>
 <% ResultSetContainer rscTch08 = (ResultSetContainer) request.getAttribute("tchs08_info");
