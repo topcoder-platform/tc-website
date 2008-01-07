@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />01.07.08<br />11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=pressroom&d2=pr_010708">TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum</A></span><br /><br />
+        TopCoder global community of software developers to be highlighted in presentation on how online professional communities can be used to accomplish work.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=pressroom&d2=pr_010708">details</a> | 
+        <tc-webtag:forumLink forumID="518782" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />01.03.08<br />4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='/tc' />">Registration Open for Three More Architecture Competitions</A></span><br /><br />
@@ -159,21 +172,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm383">details</A> | 
          <tc-webtag:forumLink forumID="516080" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.19.07<br />12:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm48">TCHS SRM 48 - Problem Set &amp; Analysis</A></span><br /><br />
-      This match saw a tough hard problem with only one passing solution and even that was submitted with little time left. In addition to that, less than half of the submitted solutions were correct.</td>
-         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="21547660" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm48">details</A> | 
-         <tc-webtag:forumLink forumID="516574" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
    
