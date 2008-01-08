@@ -47,7 +47,7 @@ public class Registrants extends ViewRegistrantsBase {
     
     protected void setNextPage(Event e) {
         getRequest().setAttribute(Constants.EVENT_TYPE, getRequest().getParameter(Constants.EVENT_TYPE));
-        setNextPage("/tournaments/tccc07/" + getContestTypeUsingEventType(Integer.parseInt(getRequest().getParameter("et"))) + "/registrants.jsp");
+        setNextPage("/tournaments/tco08/" + getContestTypeUsingEventType(Integer.parseInt(getRequest().getParameter("et"))) + "/registrants.jsp");
         setIsNextPageInContext(true);
     }
 }

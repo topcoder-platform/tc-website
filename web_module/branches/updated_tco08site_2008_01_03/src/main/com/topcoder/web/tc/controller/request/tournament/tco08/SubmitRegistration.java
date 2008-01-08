@@ -166,7 +166,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     protected void setNextPage(Event e, User u) {
         getRequest().setAttribute(Constants.EVENT_TYPE, getRequest().getParameter(Constants.EVENT_TYPE));
         if (hasErrors()) {
-            setNextPage("/tournaments/tccc07/terms.jsp");
+            setNextPage("/tournaments/tco08/terms.jsp");
             setIsNextPageInContext(true);
         } else {
             setNextPage("/tco08?module=ViewRegistration&et=" + getRequest().getParameter(Constants.EVENT_TYPE));
