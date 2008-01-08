@@ -89,6 +89,11 @@ public interface IBoardRow {
     boolean isWinTrip();
 
     /**
+     * @param winTrip true if the coder will win a trip.
+     */
+    boolean setWinTrip(boolean winTrip);
+
+    /**
      * @return Returns the potential Points.
      */
     double getPotentialPoints();
