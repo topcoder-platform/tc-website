@@ -28,13 +28,23 @@
         
         <h2>2008 TopCoder&reg; Open</h2>
         
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p><em><strong>Who will emerge as champions in the world's most elite software developer face-off?</strong></em></p>
+        <p>The TCO returns to the action of Las Vegas for the TopCoder Open in 2008.  Las Vegas has been kind to many TopCoder members: <tc-webtag:handle coderId="309453" context="algorithm"/>, <tc-webtag:handle coderId="7548200" context="development"/>, <tc-webtag:handle coderId="10600282" context="marathon_match"/>, <tc-webtag:handle coderId="10574855" context="algorithm"/> and <tc-webtag:handle coderId="119676" context="design"/>, just to name a few.  It's also where we crowned the first-ever Studio Design and Marathon Champions.  Five new Champions will be crowned this time in Sin City.  Will you be one of them?</p>
 
         <div class="sub_content">
         
-            <h3>Subtitle</h3>
+            <h3>Mark your calendars!</h3>
+            <p>The TCO08 Finals will take place May 11 - 15, 2008 at the Mirage in Las Vegas, Nevada and we're giving away $260,000 in prizes.</p>
+            <p>The TCO is bigger and better in 2008, as we <strong>increase the finalist pool by 50 percent</strong>! TopCoder will fly in the top 120 finalists this year to compete for more than a quarter of a million dollars in prizes. As our member community continues to grow, so does the elite competition. Spread the word, the world's best developers will be heading to Vegas in May!</p>
             
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h3>Details:</h3>
+            <p>There will be four competitions making up the TCO08:</p>
+            <ul>
+                <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description">Algorithm Competition</a></li>
+                <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description">Component Design and Development Competitions</a></li>
+                <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description">Marathon Match Competition</a></li>
+                <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=description">Studio Competition</a></li>
+            </ul>
     
             <div id="sample_handles">
                 
