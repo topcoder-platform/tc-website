@@ -58,7 +58,6 @@
         <div id="menuwrap">
             <div id="menu">
                 <%--------------- SECONDARY NAVIGATION ---------------%>
-                
                 <ul id="menunav">
                     <% if (tabLev1.equals("overview")) {%>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=about"<% if (tabLev2.equals("details")) {%> class="on"<% } %>>Details</a></li>
@@ -117,83 +116,85 @@
                         <li><a href=""<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
                         --%>
                     <% } %>
-                    
-                    <%--------------- TERTIARY NAVIGATION ---------------%>
-                        <ul>
-                            <% if (tabLev1.equals("overview")) {%>
-                                <% if (tabLev2.equals("joinus")) {%>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=onsiteSchedule"<% if (tabLev3.equals("onsiteschedule")) {%> class="on"<% } %>>Onsite schedule</a></li>
-                                    <%--
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=devForums"<% if (tabLev3.equals("devforums")) {%> class="on"<% } %>>Developer forums</a></li>
-                                    --%>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=getVisa"<% if (tabLev3.equals("getvisa")) {%> class="on"<% } %>>Getting a visa</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=transportation"<% if (tabLev3.equals("transportation")) {%> class="on"<% } %>>Transportation</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=hotels"<% if (tabLev3.equals("hotels")) {%> class="on"<% } %>>Hotels</a></li>
-                                    <%--
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=whatToDo"<% if (tabLev3.equals("whattodo")) {%> class="on"<% } %>>Walt Disney World</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=professor&d4=description"<% if (tabLev3.equals("professor")) {%> class="on"<% } %>>Prestigious Professor Award</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=blog&d4=description"<% if (tabLev3.equals("blog")) {%> class="on"<% } %>>Blog contest</a></li>
-                                    --%>
-                                
-                                <% } else if (tabLev2.equals("onsiteevents")) { %>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movies"<% if (tabLev3.equals("movies")) {%> class="on"<% } %>>Movies</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=photos"<% if (tabLev3.equals("photos")) {%> class="on"<% } %>>Photos</a></li>
-                                    <%--
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=blogs&d4=overview"<% if (tabLev3.equals("blogs")) {%> class="on"<% } %>>Blogs</a></li>
-                                    --%>
-                                
-                                <% } else if (tabLev2.equals("sponsors")) { %>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly"<% if (tabLev3.equals("lilly")) {%> class="on"<% } %>>Lilly</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=db"<% if (tabLev3.equals("db")) {%> class="on"<% } %>>Deutsche Bank</a></li>
-                                    
-                                <% } else if (tabLev2.equals("eventpatrons")) { %>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=nsa"<% if (tabLev3.equals("nsa")) {%> class="on"<% } %>>NSA</a></li>
-                            <% } %>
-                            
-                            <% } else if (tabLev1.equals("algorithm")) { %>
-                                <% if (tabLev2.equals("advancers")) {%>
-                                    <li><a href="/tc?module=tco08AlgorithmQualification"<% if (tabLev3.equals("qualification")) {%> class="on"<% } %>>Qualification</a></li>
-                                    <li><a href="/tc?module=tco08AlgorithmSections&rd=10898"<% if (tabLev3.equals("sections")) {%> class="on"<% } %>>Sections</a></li>
-                                    <li><a href="/tc?module=tco08AlgorithmAdvancers"<% if (tabLev3.equals("overview")) {%> class="on"<% } %>>Overview</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=bracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>
-                                
-                                <% } else if (tabLev2.equals("summary")) { %>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=algoSemi01"<% if (tabLev3.equals("room1")) {%> class="on"<% } %>>Room 1</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=algoSemi02"<% if (tabLev3.equals("room2")) {%> class="on"<% } %>>Room 2</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=algoSemi03"<% if (tabLev3.equals("room3")) {%> class="on"<% } %>>Room 3</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=algoWildcard"<% if (tabLev3.equals("wildcard")) {%> class="on"<% } %>>Wildcard</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=algoFinals"<% if (tabLev3.equals("finals")) {%> class="on"<% } %>>Finals</a></li>
-                            <% } %>
-                            
-                            <% } else if (tabLev1.equals("component")) { %>
-                                <% if (tabLev2.equals("design")) {%>
-                                    <li><a href="/tc?module=tco08ContestDetails&ct=420&eid=3002"<% if (tabLev3.equals("results")) {%> class="on"<% } %>>Results</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=desBracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=desSummary"<% if (tabLev3.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
-                                
-                                <% } else if (tabLev2.equals("development")) { %>
-                                    <li><a href="/tc?module=tco08ContestDetails&ct=421&eid=3002"<% if (tabLev3.equals("results")) {%> class="on"<% } %>>Results</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=devBracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=devSummary"<% if (tabLev3.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
-                            <% } %>
-                            
-                            <% } else if (tabLev1.equals("marathon")) { %>
-                                <% if (tabLev2.equals("advancers")) {%>
-                                    <li><a href="/tc?module=tco08MarathonAdvancers"<% if (tabLev3.equals("overview")) {%> class="on"<% } %>>Overview</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=bracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=summary"<% if (tabLev3.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
-                                <% } %>
-                            
-                            <% } else if (tabLev1.equals("studio")) { %>
-                                <% if (tabLev2.equals("advancers")) {%>
-                                    <li><a href="/tc?module=tco08StudioLeaderboard&eid=3004"<% if (tabLev3.equals("leaderboard")) {%> class="on"<% } %>>Leaderboard</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=bracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>
-                                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=summary"<% if (tabLev3.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
-                                <% } %>
-                            <% } %>
-                        </ul>
-                    </li>
                 </ul>
+                
+                <%--------------- TERTIARY NAVIGATION ---------------%>
+                <ul id="menunav">
+                    <% if (tabLev1.equals("overview")) {%>
+                        <% if (tabLev2.equals("joinus")) {%>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=onsiteSchedule"<% if (tabLev3.equals("onsiteschedule")) {%> class="on"<% } %>>Onsite schedule</a></li>
+                            <%--
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=devForums"<% if (tabLev3.equals("devforums")) {%> class="on"<% } %>>Developer forums</a></li>
+                            --%>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=getVisa"<% if (tabLev3.equals("getvisa")) {%> class="on"<% } %>>Getting a visa</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=transportation"<% if (tabLev3.equals("transportation")) {%> class="on"<% } %>>Transportation</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=hotels"<% if (tabLev3.equals("hotels")) {%> class="on"<% } %>>Hotels</a></li>
+                            <%--
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=whatToDo"<% if (tabLev3.equals("whattodo")) {%> class="on"<% } %>>Walt Disney World</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=professor&d4=description"<% if (tabLev3.equals("professor")) {%> class="on"<% } %>>Prestigious Professor Award</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=blog&d4=description"<% if (tabLev3.equals("blog")) {%> class="on"<% } %>>Blog contest</a></li>
+                            --%>
+                        
+                        <% } else if (tabLev2.equals("onsiteevents")) { %>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movies"<% if (tabLev3.equals("movies")) {%> class="on"<% } %>>Movies</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=photos"<% if (tabLev3.equals("photos")) {%> class="on"<% } %>>Photos</a></li>
+                            <%--
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=blogs&d4=overview"<% if (tabLev3.equals("blogs")) {%> class="on"<% } %>>Blogs</a></li>
+                            --%>
+                        
+                        <% } else if (tabLev2.equals("sponsors")) { %>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly"<% if (tabLev3.equals("lilly")) {%> class="on"<% } %>>Lilly</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=db"<% if (tabLev3.equals("db")) {%> class="on"<% } %>>Deutsche Bank</a></li>
+                            
+                        <% } else if (tabLev2.equals("eventpatrons")) { %>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=nsa"<% if (tabLev3.equals("nsa")) {%> class="on"<% } %>>NSA</a></li>
+                    <% } %>
+                    
+                    <% } else if (tabLev1.equals("algorithm")) { %>
+                        <% if (tabLev2.equals("advancers")) {%>
+                            <li><a href="/tc?module=tco08AlgorithmQualification"<% if (tabLev3.equals("qualification")) {%> class="on"<% } %>>Qualification</a></li>
+                            <li><a href="/tc?module=tco08AlgorithmSections&rd=10898"<% if (tabLev3.equals("sections")) {%> class="on"<% } %>>Sections</a></li>
+                            <li><a href="/tc?module=tco08AlgorithmAdvancers"<% if (tabLev3.equals("overview")) {%> class="on"<% } %>>Overview</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=bracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>
+                        
+                        <% } else if (tabLev2.equals("summary")) { %>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=algoSemi01"<% if (tabLev3.equals("room1")) {%> class="on"<% } %>>Room 1</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=algoSemi02"<% if (tabLev3.equals("room2")) {%> class="on"<% } %>>Room 2</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=algoSemi03"<% if (tabLev3.equals("room3")) {%> class="on"<% } %>>Room 3</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=algoWildcard"<% if (tabLev3.equals("wildcard")) {%> class="on"<% } %>>Wildcard</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=algoFinals"<% if (tabLev3.equals("finals")) {%> class="on"<% } %>>Finals</a></li>
+                    <% } %>
+                    
+                    <% } else if (tabLev1.equals("component")) { %>
+                        <% if (tabLev2.equals("design")) {%>
+                            <li><a href="/tc?module=tco08ContestDetails&ct=420&eid=3002"<% if (tabLev3.equals("results")) {%> class="on"<% } %>>Results</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=desBracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=desSummary"<% if (tabLev3.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
+                        
+                        <% } else if (tabLev2.equals("development")) { %>
+                            <li><a href="/tc?module=tco08ContestDetails&ct=421&eid=3002"<% if (tabLev3.equals("results")) {%> class="on"<% } %>>Results</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=devBracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=devSummary"<% if (tabLev3.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
+                    <% } %>
+                    
+                    <% } else if (tabLev1.equals("marathon")) { %>
+                        <% if (tabLev2.equals("advancers")) {%>
+                            <li><a href="/tc?module=tco08MarathonAdvancers"<% if (tabLev3.equals("overview")) {%> class="on"<% } %>>Overview</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=bracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=summary"<% if (tabLev3.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
+                        <% } %>
+                    
+                    <% } else if (tabLev1.equals("studio")) { %>
+                        <% if (tabLev2.equals("advancers")) {%>
+                            <li><a href="/tc?module=tco08StudioLeaderboard&eid=3004"<% if (tabLev3.equals("leaderboard")) {%> class="on"<% } %>>Leaderboard</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=bracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>
+                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=summary"<% if (tabLev3.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
+                        <% } %>
+                    <% } %>
+                </ul>
+                <%--
+                    </li>
+                </ul> --%>
             </div>
             <div class="clearleft"></div>
         </div><%-- #menuwrap --%>
