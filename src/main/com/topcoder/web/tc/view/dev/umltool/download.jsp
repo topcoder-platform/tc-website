@@ -63,7 +63,7 @@
                 
                 <ol>
                 <li>Make sure the machine you are installing on has the proper version of Java (1.5)</li>
-                <li><a href="/download/development/umltool/UML_Tool_Frontend_Installer-1.1.1.jar">Download</a> and execute installer jar. The OS may support doing this in the GUI, or you can use the command line: java -jar UML_Tool_Frontend_Installer-1.1.1.jar</li>
+                <li><a href="/download/development/umltool/UML_Tool_Frontend_Installer-1.1.2.jar">Download</a> and execute installer jar. The OS may support doing this in the GUI, or you can use the command line: java -jar UML_Tool_Frontend_Installer-1.1.2.jar</li>
                 <li>Follow instructions on installer screen</li>
                 </ol>
 
@@ -72,7 +72,7 @@
                 </p>
                 
                 <div align="center">
-                    <a href="/download/development/umltool/UML_Tool_Frontend_Installer-1.1.1.jar" class="bigButton" style="width: 140px; margin: 40px;">Download Now</a>
+                    <a href="/download/development/umltool/UML_Tool_Frontend_Installer-1.1.2.jar" class="bigButton" style="width: 140px; margin: 40px;">Download Now</a>
                 </div>
                 
                 <h2>Uninstalling the UML tool</h2>
