@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>2008 TopCoder Open</title>
-<link type="image/x-icon" rel="shortcut icon" href="//i/tournament/tco08/favicon.ico"/>
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 <script src="js/minmax.js" language="javascript" type="text/javascript"></script>
@@ -54,26 +54,26 @@
             <div id="sample_table">
             
                 <p><strong>Sample Table:</strong></p>
-                <table width="100%" cellpadding="0" cellspacing="0">
+                <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                 <tr>
                     <th>Table Header</th>
                 </tr>
-                <tr>
+                <tr class="dark">
                     <td>Table row</td>
                 </tr>
-                <tr class="alt">
+                <tr class="light">
                     <td>Table row</td>
                 </tr>
-                <tr>
+                <tr class="dark">
                     <td>Table row</td>
                 </tr>
-                <tr class="alt">
+                <tr class="light">
                     <td>Table row</td>
                 </tr>
-                <tr>
+                <tr class="dark">
                     <td>Table row</td>
                 </tr>
-                <tr class="alt">
+                <tr class="light">
                     <td>Table row</td>
                 </tr>
                 </table>

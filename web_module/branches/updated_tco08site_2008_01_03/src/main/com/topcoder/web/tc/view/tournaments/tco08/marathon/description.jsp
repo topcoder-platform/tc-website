@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>2008 TopCoder Open</title>
-<link type="image/x-icon" rel="shortcut icon" href="//i/tournament/tco08/favicon.ico"/>
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 <script src="js/minmax.js" language="javascript" type="text/javascript"></script>
