@@ -39,8 +39,8 @@
 <!-- Left Column begins -->
         <td width="180" class="leftColumn">
             <jsp:include page="/includes/left.jsp" >
-                <jsp:param name="level1" value="catalog"/>
-                <jsp:param name="level2" value="download"/>
+                <jsp:param name="level1" value="components"/>
+                <jsp:param name="level2" value="find"/>
             </jsp:include>
         </td>
 <!-- Left Column ends -->
@@ -52,8 +52,14 @@
 <!-- Center Column begins -->
         <td width="99%" align="center">
             <div style="width:510px; margin-bottom: 40px;" align="left">
+                <div style="margin: 15px 0;">
+                    <img src="/images/headComponentsShort.gif" alt="Components" border="0" height="32" width="153">
+                </div>
                 <p>
                     The following is a list of TopCoder components that are available to all members for download. These components may be used for trial or non-commercial purposes.  If you are interested in gaining full trial access to download components or you wish to purchase access to the components for commercial purposes, please send an email to <a href="mailto:service@topcoder.com">service@topcoder.com</a> and explain the situation. You may download from this list up to <strong>${max_downloads}</strong> times.
+                </p>
+                <p>
+                    NOTE: ${max_downloads} downloads does not mean ${max_downloads} components.  For example if you download the same component twice, it counts as 2 downloads.
                 </p>
                 <p align="center">
                     You have <strong>${remaining_downloads}</strong> downloads remaining.
@@ -65,19 +71,19 @@
                     <c:forEach var="component" items="${public_components}">
                         <c:choose>
                             <c:when test="${component.rootCategory == NET_CATALOG}">
-                                <img src="/images/dotnetSm.gif" alt="" border="0" />
+                                <img src="/images/dotnetSm.gif" alt="" border="0" align="absmiddle" />
                             </c:when>
                             <c:when test="${component.rootCategory == JAVA_CATALOG}">
-                                <img src="/images/javaSm.gif" alt="" border="0" />
+                                <img src="/images/javaSm.gif" alt="" border="0" align="absmiddle" />
                             </c:when>
                             <c:when test="${component.rootCategory == FLASH_CATALOG}">
-                                <img src="/images/flashSm.gif" alt="" border="0" />
+                                <img src="/images/flashSm.gif" alt="" border="0" align="absmiddle" />
                             </c:when>
                             <c:when test="${component.rootCategory == JAVA_CUSTOM_CATALOG}">
-                                <img src="/images/javaCustomSm.gif" alt="" border="0" />
+                                <img src="/images/javaCustomSm.gif" alt="" border="0" align="absmiddle" />
                             </c:when>
                             <c:when test="${component.rootCategory == NET_CUSTOM_CATALOG}">
-                                <img src="/images/dotnetCustomSm.gif" alt="" border="0" />
+                                <img src="/images/dotnetCustomSm.gif" alt="" border="0" align="absmiddle" />
                             </c:when>
                         </c:choose>                    
                         <a href="/tcs?module=ViewComponentTerms&comp=${component.primaryKey}&ver=${component.currentVersion}">${component.componentName}</a><br/>
