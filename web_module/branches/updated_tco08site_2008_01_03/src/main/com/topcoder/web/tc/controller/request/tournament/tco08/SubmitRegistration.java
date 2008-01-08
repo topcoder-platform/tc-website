@@ -40,7 +40,6 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     protected Boolean validateSurvey(Survey survey, List responses) {
         String ageInput = "";
         String ageKey = "";
-        String inCollegeInput = "";
         String pref1 = "";
         String pref2 = "";
         String pref3 = "";
@@ -54,8 +53,6 @@ public class SubmitRegistration extends SubmitRegistrationBase {
                 if (q.getKeyword().equals(AGE)) {
                     ageInput = StringUtils.checkNull(response.getText());
                     ageKey = AnswerInput.PREFIX + q.getId();
-                } else if (q.getKeyword().equals(IN_COLLEGE)) {
-                    inCollegeInput = StringUtils.checkNull(response.getAnswer().getText());
                 } else if (q.getKeyword().equals("pref1")) {
                     pref1 = StringUtils.checkNull(response.getAnswer().getText());
                     pref1Key = AnswerInput.PREFIX + q.getId();
@@ -93,7 +90,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         }
 
         if (log.isDebugEnabled()) {
-            log.debug("ageInput " + ageInput + " college " + inCollegeInput);
+            log.debug("ageInput " + ageInput);
         }
         int age = 0;
         try {
@@ -101,8 +98,8 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         } catch (NumberFormatException e) {
             addError(ageKey, "Please enter a valid number for your age.");
         }
-
-        return (new Boolean(age >= 18 && age <= 130 && "Yes".equals(inCollegeInput)));
+        
+        return (new Boolean(age >= 18 && age <= 130));
     }
 
     protected void dbProcessing() throws Exception {
