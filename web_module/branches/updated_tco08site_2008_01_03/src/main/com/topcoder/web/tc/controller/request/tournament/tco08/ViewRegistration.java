@@ -35,7 +35,11 @@ public class ViewRegistration extends ViewRegistrationBase {
     public boolean isEligible(Event e, User u) throws Exception {
         Set regTypes = u.getRegistrationTypes();
         boolean eligible = false;
+        log.debug("viewregistration.iseligible: e.getType().getId(): " + e.getType().getId());
+        log.debug("user: " + u.getId());
+        
         for (Iterator it = regTypes.iterator(); it.hasNext() && !eligible;) {
+            log.debug("rt.getId(): " + rt.getId());
             RegistrationType rt = (RegistrationType) it.next();
             if (e.getType().getId().equals(EventType.ALGORITHM_TOURNAMENT_ID) ||
                     e.getType().getId().equals(EventType.COMPONENT_TOURNAMENT_ID) ||
@@ -51,6 +55,7 @@ public class ViewRegistration extends ViewRegistrationBase {
                 }
             }
         }
+        log.debug("eligible: " + eligible);
         return eligible;
     }
 
