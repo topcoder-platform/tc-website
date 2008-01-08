@@ -391,6 +391,9 @@
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${ejb.jars.dir}">
                 <include name="security.jar"/>
+                <!-- move the UserServices library out from the jboss lib directory
+                     jira: https://www.topcoder.com/bugs/browse/TCWEB-38
+                -->
                 <include name="UserServices.jar"/>
             </fileset>
         </copy>
@@ -578,6 +581,7 @@
                 <include name="*.jar"/>
                 <exclude name="Project.jar"/>
                 <exclude name="RBoard.jar"/>
+                <exclude name="UserServices.jar"/>
                 <!--remove with new OR
                                 <exclude name="Specification.jar"/>
                 -->
