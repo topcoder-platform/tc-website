@@ -105,7 +105,7 @@
         --%>
         
         <%-- TCHS08 
-        <a href="<tc-webtag:linkTracking link='http://forums.topcoder.com/?module=Thread&threadID=590134&mc=24#875555' refer='homepage' />"><img src="/i/home/tchs08_promo.jpg" alt="2008 TopCoder High School" /></a>
+        <a href="<tc-webtag:linkTracking link='/tchs08' refer='homepage' />"><img src="/i/home/tchs08LastRegistration.png" alt="2008 TopCoder High School" /></a>
         --%>
         
         <%-- TCHS08 And Architecture Competition 
