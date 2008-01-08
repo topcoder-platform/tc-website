@@ -21,11 +21,11 @@
     
     <%---- PRIMARY NAVIGATION ----%>
     <ul id="nav">
-        <li id="nav_overview"><a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=about"<% if (tabLev1.equals("overview")) {%> class="active"<% } %>>Tournament Overview</a></li>
-        <li id="nav_algo"><a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description"<% if (tabLev1.equals("algorithm")) {%> class="active"<% } %>>Algorithm Competition</a></li>
-        <li id="nav_comp"><a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description"<% if (tabLev1.equals("component")) {%> class="active"<% } %>>Component Competition</a></li>
-        <li id="nav_mm"><a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description"<% if (tabLev1.equals("marathon")) {%> class="active"<% } %>>Marathon Competition</a></li>
-        <li id="nav_studio"><a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=description"<% if (tabLev1.equals("studio")) {%> class="active"<% } %>>Studio Competition</a></li>
+        <li id="nav_overview"><a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=about"<% if (tabLev1.equals("overview")) {%> class="on"<% } %>>Tournament Overview</a></li>
+        <li id="nav_algo"><a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description"<% if (tabLev1.equals("algorithm")) {%> class="on"<% } %>>Algorithm Competition</a></li>
+        <li id="nav_comp"><a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description"<% if (tabLev1.equals("component")) {%> class="on"<% } %>>Component Competition</a></li>
+        <li id="nav_mm"><a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description"<% if (tabLev1.equals("marathon")) {%> class="on"<% } %>>Marathon Competition</a></li>
+        <li id="nav_studio"><a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=description"<% if (tabLev1.equals("studio")) {%> class="on"<% } %>>Studio Competition</a></li>
     </ul><%-- #nav --%>
     
 
@@ -73,46 +73,46 @@
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly"<% if (tabLev2.equals("sponsors")) {%> class="on"<% } %>>Sponsors</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=nsa"<% if (tabLev2.equals("eventpatrons")) {%> class="on"<% } %>>Event Patrons</a></li>
                         
-                    <% } else if (tabLev1.equals(EventType.ALGORITHM_TOURNAMENT_ID.toString())) { %>
+                    <% } else if (tabLev1.equals("algorithm")) { %>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=rules"<% if (tabLev2.equals("rules")) {%> class="on"<% } %>>Rules</a></li>
-                        <li><a href="/tc?module=tco08ViewRegistration&et=<%=EventType.ALGORITHM_TOURNAMENT_ID%>"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
+                        <li><a href="/tc?module=tco08ViewRegistration&et=algorithm"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
                         <%--
-                        <li><a href="/tc?module=tco08ViewRegistrants&et=<%=EventType.ALGORITHM_TOURNAMENT_ID%>"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
+                        <li><a href="/tc?module=tco08ViewRegistrants&et=algorithm"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <li><a href="/tc?module=tco08AlgorithmAdvancers"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=algoSemi01"<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
                         --%>
                         
-                    <% } else if (tabLev1.equals(EventType.COMPONENT_TOURNAMENT_ID.toString())) { %>
+                    <% } else if (tabLev1.equals("component")) { %>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=rules"<% if (tabLev2.equals("rules")) {%> class="on"<% } %>>Rules</a></li>
-                        <li><a href="/tc?module=tco08ViewRegistration&et=<%=EventType.COMPONENT_TOURNAMENT_ID%>"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
+                        <li><a href="/tc?module=tco08ViewRegistration&et=component"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
                         <%--
-                        <li><a href="/tc?module=tco08ViewRegistrants&et=<%=EventType.COMPONENT_TOURNAMENT_ID%>"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
+                        <li><a href="/tc?module=tco08ViewRegistrants&et=component"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <li><a href="/tc?module=tco08ContestDetails&ct=420&eid=3002"<% if (tabLev2.equals("design")) {%> class="on"<% } %>>Design</a></li>
                         <li><a href="/tc?module=tco08ContestDetails&ct=421&eid=3002"<% if (tabLev2.equals("development")) {%> class="on"<% } %>>Development</a></li>
                         --%>
                         
-                    <% } else if (tabLev1.equals(EventType.MARATHON_TOURNAMENT_ID.toString())) { %>
+                    <% } else if (tabLev1.equals("marathon")) { %>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=rules"<% if (tabLev2.equals("rules")) {%> class="on"<% } %>>Rules</a></li>
-                        <li><a href="/tc?module=tco08ViewRegistration&et=<%=EventType.MARATHON_TOURNAMENT_ID%>"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
+                        <li><a href="/tc?module=tco08ViewRegistration&et=marathon"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
                         <%--
-                        <li><a href="/tc?module=tco08ViewRegistrants&et=<%=EventType.MARATHON_TOURNAMENT_ID%>"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
+                        <li><a href="/tc?module=tco08ViewRegistrants&et=marathon"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <li><a href="/tc?module=tco08MarathonAdvancers"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a></li>
                         <li><a href=""<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
                         --%>
                         
-                    <% } else if (tabLev1.equals(EventType.STUDIO_TOURNAMENT_ID.toString())) { %>
+                    <% } else if (tabLev1.equals("studio")) { %>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=rules"<% if (tabLev2.equals("rules")) {%> class="on"<% } %>>Rules</a></li>
-                        <li><a href="/tc?module=tco08ViewRegistration&et=<%=EventType.STUDIO_TOURNAMENT_ID%>"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
+                        <li><a href="/tc?module=tco08ViewRegistration&et=studio"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
                         <%--
-                        <li><a href="/tc?module=tco08ViewRegistrants&et=<%=EventType.STUDIO_TOURNAMENT_ID%>"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
+                        <li><a href="/tc?module=tco08ViewRegistrants&et=studio"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <li><a href="/tc?module=tco08StudioLeaderboard&eid=3004"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a></li>
                         <li><a href=""<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
                         --%>
@@ -150,7 +150,7 @@
                                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=nsa"<% if (tabLev3.equals("nsa")) {%> class="on"<% } %>>NSA</a></li>
                             <% } %>
                             
-                            <% } else if (tabLev1.equals(EventType.ALGORITHM_TOURNAMENT_ID.toString())) { %>
+                            <% } else if (tabLev1.equals("algorithm")) { %>
                                 <% if (tabLev2.equals("advancers")) {%>
                                     <li><a href="/tc?module=tco08AlgorithmQualification"<% if (tabLev3.equals("qualification")) {%> class="on"<% } %>>Qualification</a></li>
                                     <li><a href="/tc?module=tco08AlgorithmSections&rd=10898"<% if (tabLev3.equals("sections")) {%> class="on"<% } %>>Sections</a></li>
@@ -165,7 +165,7 @@
                                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=algoFinals"<% if (tabLev3.equals("finals")) {%> class="on"<% } %>>Finals</a></li>
                             <% } %>
                             
-                            <% } else if (tabLev1.equals(EventType.COMPONENT_TOURNAMENT_ID.toString())) { %>
+                            <% } else if (tabLev1.equals("component")) { %>
                                 <% if (tabLev2.equals("design")) {%>
                                     <li><a href="/tc?module=tco08ContestDetails&ct=420&eid=3002"<% if (tabLev3.equals("results")) {%> class="on"<% } %>>Results</a></li>
                                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=desBracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>
@@ -177,14 +177,14 @@
                                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=devSummary"<% if (tabLev3.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
                             <% } %>
                             
-                            <% } else if (tabLev1.equals(EventType.MARATHON_TOURNAMENT_ID.toString())) { %>
+                            <% } else if (tabLev1.equals("marathon")) { %>
                                 <% if (tabLev2.equals("advancers")) {%>
                                     <li><a href="/tc?module=tco08MarathonAdvancers"<% if (tabLev3.equals("overview")) {%> class="on"<% } %>>Overview</a></li>
                                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=bracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>
                                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=summary"<% if (tabLev3.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
                                 <% } %>
                             
-                            <% } else if (tabLev1.equals(EventType.STUDIO_TOURNAMENT_ID.toString())) { %>
+                            <% } else if (tabLev1.equals("studio")) { %>
                                 <% if (tabLev2.equals("advancers")) {%>
                                     <li><a href="/tc?module=tco08StudioLeaderboard&eid=3004"<% if (tabLev3.equals("leaderboard")) {%> class="on"<% } %>>Leaderboard</a></li>
                                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=bracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>

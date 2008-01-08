@@ -18,8 +18,8 @@
 <div id="wrapper">
 
     <jsp:include page="../nav.jsp" >
-    <jsp:param name="tabLev1" value="studio"/>
-    <jsp:param name="tabLev2" value="description"/>
+    <jsp:param name="tabLev1" value="algorithm"/>
+    <jsp:param name="tabLev2" value="schedule"/>
     <jsp:param name="tabLev3" value=""/>
     </jsp:include>
 
