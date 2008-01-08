@@ -54,6 +54,12 @@ public abstract class BaseBoardRow implements IBoardRow {
     protected double potentialPoints;
 
     /**
+     * Property containing the winTrip flag
+     */
+    protected boolean winTrip;
+
+
+    /**
      * Default constructor
      */
     public BaseBoardRow() {
@@ -177,5 +183,19 @@ public abstract class BaseBoardRow implements IBoardRow {
      */
     public double getTotalPoints() {
         return this.points + this.potentialPoints;
+    }
+
+    /**
+     * @return true winTrip flag
+     */
+    public boolean isWinTrip() {
+        return winTrip;
+    }
+
+    /**
+     * @param winTrip true if the coder will win a trip.
+     */
+    public boolean setWinTrip(boolean winTrip) {
+        return winTrip;
     }
 }

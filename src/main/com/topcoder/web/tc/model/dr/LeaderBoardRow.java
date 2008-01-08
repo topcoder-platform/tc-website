@@ -40,9 +40,10 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
      * @param placementPrize The placementPrize to set.
      * @param totalPrize     The totalPrize to set.
      * @param outstandingPoints     The outstandingPoints to set.
+     * @param winTrip        The winTrip flag to set.
      */
     public LeaderBoardRow(long period, long phase, long rank, long userId, String userName, double points, double potentialPoints,
-                          double pointsPrize, double placementPrize) {
+                          double pointsPrize, double placementPrize, boolean winTrip) {
         super();
         this.period = period;
         this.phase = phase;
@@ -53,6 +54,7 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
         this.pointsPrize = pointsPrize;
         this.placementPrize = placementPrize;
         this.potentialPoints = potentialPoints;
+        this.winTrip = winTrip;
     }
 
     /**
@@ -76,7 +78,6 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
         return pointsPrize > 0;
     }
 
-
     /**
      * @return Returns the totalPrize.
      */
@@ -84,10 +85,4 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
         return placementPrize + pointsPrize;
     }
 
-    /**
-     * @return true if the coder will win a trip.
-     */
-    public boolean isWinTrip() {
-        return placementPrize > 0;
-    }
 }

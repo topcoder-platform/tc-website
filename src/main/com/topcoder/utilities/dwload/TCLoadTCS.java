@@ -4542,18 +4542,18 @@ public class TCLoadTCS extends TCLoad {
         PreparedStatement insert = null;
 
         final String SELECT =
-                " select stage_id, season_id, name, start_date, end_date, top_performers_factor " +
+                " select stage_id, season_id, name, start_date, end_date " +
                         " from stage " +
                         " where modify_date > ? ";
 
 
         final String UPDATE =
-                "update stage set season_id=?, start_calendar_id=?, end_calendar_id=?, name=?, top_performers_factor=? " +
+                "update stage set season_id=?, start_calendar_id=?, end_calendar_id=?, name=? " +
                         " where stage_id=?";
 
         final String INSERT =
-                "insert into stage (season_id, start_calendar_id, end_calendar_id, name, top_performers_factor, stage_id) " +
-                        " values (?,?,?,?,?,?)";
+                "insert into stage (season_id, start_calendar_id, end_calendar_id, name, stage_id) " +
+                        " values (?,?,?,?,?)";
 
 
         try {
@@ -4576,8 +4576,7 @@ public class TCLoadTCS extends TCLoad {
                 setCalendar(update, 2, rs.getTimestamp("start_date"));
                 setCalendar(update, 3, rs.getTimestamp("end_date"));
                 update.setString(4, rs.getString("name"));
-                update.setDouble(5, rs.getDouble("top_performers_factor"));
-                update.setInt(6, rs.getInt("stage_id"));
+                update.setInt(5, rs.getInt("stage_id"));
 
                 int retVal = update.executeUpdate();
 
@@ -4588,8 +4587,7 @@ public class TCLoadTCS extends TCLoad {
                     setCalendar(insert, 2, rs.getTimestamp("start_date"));
                     setCalendar(insert, 3, rs.getTimestamp("end_date"));
                     insert.setString(4, rs.getString("name"));
-                    insert.setDouble(5, rs.getDouble("top_performers_factor"));
-                    insert.setInt(6, rs.getInt("stage_id"));
+                    insert.setInt(5, rs.getInt("stage_id"));
 
                     insert.executeUpdate();
                 }
@@ -4621,7 +4619,7 @@ public class TCLoadTCS extends TCLoad {
         log.debug("load stage results");
 
         final String SELECT_STAGES =
-                " select distinct s.season_id, s.stage_id, s.start_date, s.end_date, s.top_performers_factor " +
+                " select distinct s.season_id, s.stage_id, s.start_date, s.end_date " +
                         " from project_result pr, " +
                         "      stage s, " +
                         "      project p,  " +
@@ -4646,7 +4644,7 @@ public class TCLoadTCS extends TCLoad {
                         " and p.project_id = pr.project_id) between s.start_date and s.end_date ";
 
         final String SELECT_CONTESTS =
-                " select c.contest_id, c.phase_id, c.contest_type_id, crc.class_name " +
+                " select c.contest_id, c.phase_id, c.contest_type_id, crc.class_name, x.top_performers_factor " +
                         " from contest_stage_xref x " +
                         " ,contest c " +
                         " ,contest_result_calculator_lu crc " +
@@ -4676,12 +4674,11 @@ public class TCLoadTCS extends TCLoad {
 
                 Timestamp startDate = rsStages.getTimestamp("start_date");
                 Timestamp endDate = rsStages.getTimestamp("end_date");
-                double factor = rsStages.getDouble("top_performers_factor");
                 int seasonId = rsStages.getInt("season_id");
 
                 while (rsContests.next()) {
                     loadDRContestResults(seasonId, startDate, endDate, rsContests.getInt("phase_id"), rsContests.getInt("contest_id"),
-                            rsContests.getString("class_name"), factor);
+                            rsContests.getString("class_name"), rsContests.getDouble("top_performers_factor"));
                 }
 
             }
@@ -4879,7 +4876,7 @@ public class TCLoadTCS extends TCLoad {
             List<ProjectResult> pr = new ArrayList<ProjectResult>();
             int count = 0;
             while (rs.next()) {
-                // Skip non Digital Review projects
+                // Skip non Digital Run projects
                 if ("Off".equals(rs.getString("dr_ind"))) {
                     continue;
                 }
