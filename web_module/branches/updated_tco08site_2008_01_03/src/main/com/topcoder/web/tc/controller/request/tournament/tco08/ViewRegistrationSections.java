@@ -77,7 +77,7 @@ public class ViewRegistrationSections extends ViewRegistrationBase {
 
     protected void setNextPage(Event e, User u) {
         getRequest().setAttribute(Constants.EVENT_TYPE, getRequest().getParameter(Constants.EVENT_TYPE));
-        setNextPage("/tournaments/tc008/updateSections.jsp");
+        setNextPage("/tournaments/tco08/updateSections.jsp");
         setIsNextPageInContext(true);
     }
 }
