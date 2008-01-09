@@ -44,11 +44,6 @@
                         <c:choose>
                             <c:when test="${eligible}">
                                 You have successfully registered for the<br><strong>${event.description}</strong>.
-                                <c:if test="${event.type.id==algoEvent}">
-                                    <br />
-                                    <br />
-                                    You can <a href="/tco08?module=ViewRegistrationSections&et=6">change your section preferences</a> at any time before registration closes.
-                                </c:if>
                             </c:when>
                             <c:otherwise>
                                 Sorry, you are ineligible for the <strong>${event.description}</strong>.

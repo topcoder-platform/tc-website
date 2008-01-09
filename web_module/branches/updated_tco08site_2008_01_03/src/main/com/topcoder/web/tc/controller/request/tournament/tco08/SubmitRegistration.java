@@ -40,12 +40,8 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     protected Boolean validateSurvey(Survey survey, List responses) {
         String ageInput = "";
         String ageKey = "";
-        String pref1 = "";
-        String pref2 = "";
-        String pref3 = "";
-        String pref1Key = "";
-        String pref2Key = "";
-        String pref3Key = "";
+        String resident = "";
+        String residentKey = "";
         for (Iterator it = survey.getQuestions().iterator(); it.hasNext();) {
             Question q = (Question) it.next();
             Response response = (new SurveyHelper()).findResponse(responses, q.getId());
@@ -53,44 +49,20 @@ public class SubmitRegistration extends SubmitRegistrationBase {
                 if (q.getKeyword().equals(AGE)) {
                     ageInput = StringUtils.checkNull(response.getText());
                     ageKey = AnswerInput.PREFIX + q.getId();
-                } else if (q.getKeyword().equals("pref1")) {
-                    pref1 = StringUtils.checkNull(response.getAnswer().getText());
-                    pref1Key = AnswerInput.PREFIX + q.getId();
-                } else if (q.getKeyword().equals("pref2")) {
-                    pref2 = StringUtils.checkNull(response.getAnswer().getText());
-                    pref2Key = AnswerInput.PREFIX + q.getId();
-                } else if (q.getKeyword().equals("pref3")) {
-                    pref3 = StringUtils.checkNull(response.getAnswer().getText());
-                    pref3Key = AnswerInput.PREFIX + q.getId();
+                } else if (q.getKeyword().equals(RESIDENT)) {
+                    resident = StringUtils.checkNull(response.getText());
+                    residentKey = AnswerInput.PREFIX + q.getId();
                 }
             }
         }
 
-        if (getEventShortDesc().equals("tco08algorithm")) {
-            if (pref1.equals(pref2) && pref2.equals(pref3)) {
-                addError(pref1Key, "You can't select the same section more than once.");
-                addError(pref2Key, "You can't select the same section more than once.");
-                addError(pref3Key, "You can't select the same section more than once.");
-            } else {
-                if (pref1.equals(pref2)) {
-                    addError(pref1Key, "You can't select the same section more than once.");
-                    addError(pref2Key, "You can't select the same section more than once.");
-                }
-
-                if (pref1.equals(pref3)) {
-                    addError(pref1Key, "You can't select the same section more than once.");
-                    addError(pref3Key, "You can't select the same section more than once.");
-                }
-
-                if (pref2.equals(pref3)) {
-                    addError(pref2Key, "You can't select the same section more than once.");
-                    addError(pref3Key, "You can't select the same section more than once.");
-                }
-            }
+        if (!resident.toLowerCase().equals("yes") && !resident.toLowerCase().equals("no")) {
+            addError(residentKey, "You must type either 'Yes' or 'No'.");
         }
 
         if (log.isDebugEnabled()) {
             log.debug("ageInput " + ageInput);
+            log.debug("resident input " + resident);
         }
         int age = 0;
         try {
@@ -99,7 +71,13 @@ public class SubmitRegistration extends SubmitRegistrationBase {
             addError(ageKey, "Please enter a valid number for your age.");
         }
         
-        return (new Boolean(age >= 18 && age <= 130));
+        boolean eligibilityResident = true;
+        
+        if (getEventShortDesc().equals("tco08component") || getEventShortDesc().equals("tco08studio")) {
+            eligibilityResident = resident.toLowerCase().equals("no"); 
+        }
+        
+        return (new Boolean(age >= 18 && age <= 130 && eligibilityResident));
     }
 
     protected void dbProcessing() throws Exception {
