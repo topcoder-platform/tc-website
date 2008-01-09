@@ -10,8 +10,6 @@
 <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-<script src="js/minmax.js" language="javascript" type="text/javascript"></script>
-<script src="js/tco08.js" language="javascript" type="text/javascript"></script>
 </head>
 <body id="page_sub">
 
@@ -37,7 +35,7 @@
             <p>The TCO08 Finals will take place May 11 - 15, 2008 at the Mirage in Las Vegas, Nevada and we're giving away $260,000 in prizes.</p>
             <p>The TCO is bigger and better in 2008, as we <strong>increase the finalist pool by 50 percent</strong>! TopCoder will fly in the top 120 finalists this year to compete for more than a quarter of a million dollars in prizes. As our member community continues to grow, so does the elite competition. Spread the word, the world's best developers will be heading to Vegas in May!</p>
             
-            <h3>Details:</h3>
+            <h3>Details</h3>
             <p>There will be four competitions making up the TCO08:</p>
             <ul>
                 <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description">Algorithm Competition</a></li>
@@ -45,51 +43,9 @@
                 <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description">Marathon Match Competition</a></li>
                 <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=description">Studio Competition</a></li>
             </ul>
-    
-            <div id="sample_handles">
-                
-                <p><strong>Sample Handles:</strong></p>
-                
-                <p>
-                    <span class="handle_01">FF9900</span><br />
-                    <span class="handle_02">EE0000</span><br />
-                    <span class="handle_03">DDCC00</span><br />
-                    <span class="handle_04">6666FF</span><br />
-                    <span class="handle_05">00A900</span><br />
-                    <span class="handle_06">999999</span><br />
-                    <span class="handle_07">FFFFFF</span><br />
-                </p>
-            </div><%-- #sample_handles --%>
-            
-            <div id="sample_table">
-            
-                <p><strong>Sample Table:</strong></p>
-                <table width="100%" cellpadding="0" cellspacing="0" class="stat">
-                <tr>
-                    <th>Table Header</th>
-                </tr>
-                <tr class="dark">
-                    <td>Table row</td>
-                </tr>
-                <tr class="light">
-                    <td>Table row</td>
-                </tr>
-                <tr class="dark">
-                    <td>Table row</td>
-                </tr>
-                <tr class="light">
-                    <td>Table row</td>
-                </tr>
-                <tr class="dark">
-                    <td>Table row</td>
-                </tr>
-                <tr class="light">
-                    <td>Table row</td>
-                </tr>
-                </table>
-            </div><%-- #sample_table --%>
-            
-            
+            <p>Only the top 120 competitors will make the TCO, so polish your skills now to prepare for the competition. We'll have room for everyone at the Developer Forums - start making plans now for your trip to Las Vegas in May.</p>
+            <p>The competition is free and you must be a member 18 years old or older, as well as meet all eligibility criteria, in order to participate.</p>
+            <p>It is important for you to read the official rules and regulations for more details.</p>
         
         </div><%-- .sub_content --%>
         
