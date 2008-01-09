@@ -10,8 +10,6 @@
 <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-<script src="js/minmax.js" language="javascript" type="text/javascript"></script>
-<script src="js/tco08.js" language="javascript" type="text/javascript"></script>
 </head>
 <body id="page_sub">
 
@@ -26,60 +24,75 @@
 
         
         
-        <h2>Title</h2>
+        <h2>Travel Information to the TCO</h2>
         
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Want to attend the 2008 TopCoder Open?  Here's some information to help you with your plans.</p>
 
         <div class="sub_content">
         
-            <h3>Subtitle</h3>
+            <h3>Transportation</h3>
+            <p><strong>Air Travel</strong>:  Las Vegas is home to McCarran International Airport.  There are many flights into and out of this airport.</p>
+            <p><strong>Bus Travel</strong>:  You can get to Las Vegas by bus.  There is a Greyhound Station in the city.  See more information <a target="_blank" href="<tc-webtag:linkTracking link='http://www.greyhound.com/home/TicketCenter/locations.asp?state=nv' refer='tco08_transportation' />">here</a>.</p>
+            <p><strong>Car Travel</strong>:  If you're driving to Las Vegas, you can get directions <a target="_blank" href="http://www.mapquest.com/directions/main.adp?src=maps&1sb=revise&2l=7k9ZFU%2flVYlhFW0oBB4AKQ%3d%3d&2g=CwIOaITpQ%2beWN1oBkFdhWQ%3d%3d&2v=L1BAA&2a=3400%20Las%20Vegas%20Blvd%20S&2c=Las%20Vegas&2s=NV&2z=89109%2d8923&2y=US&2pn=&2pl=">here</a>.</p>
             
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    
-            <div id="sample_handles">
-                
-                <p><strong>Sample Handles:</strong></p>
-                
-                <p>
-                    <span class="handle_01">FF9900</span><br />
-                    <span class="handle_02">EE0000</span><br />
-                    <span class="handle_03">DDCC00</span><br />
-                    <span class="handle_04">6666FF</span><br />
-                    <span class="handle_05">00A900</span><br />
-                    <span class="handle_06">999999</span><br />
-                    <span class="handle_07">FFFFFF</span><br />
-                </p>
-            </div><%-- #sample_handles --%>
-            
-            <div id="sample_table">
-            
-                <p><strong>Sample Table:</strong></p>
-                <table width="100%" cellpadding="0" cellspacing="0">
+            <h3>Hotels</h3>
+            <p>There are a plethora of hotels in Las Vegas that you can choose from.  Here are a few that are affordable and in the vicinity of the 2008 TopCoder Open.</p>
+            <p><strong><a target="_blank" href="<tc-webtag:linkTracking link='http://www.mirage.com/hotel/' refer='tco08_transportation' />">The Mirage</a></strong><br />
+            800-374-9000<br />
+            The event will take place at the Mirage so it is the most convenient for attending the event.  Rooms at the Mirage can be reserved with a TopCoder group rate.  In order to receive the TopCoder group rate, please mention TopCoder upon calling.  Alternatively, you can book online <a target="_blank" href="<tc-webtag:linkTracking link='https://reservations.mgmmirage.com/bookingengine.aspx?host=group&pid=160&code=topcod08' refer='tco08_transportation' />">here</a>.</p>
+            <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
-                    <th>Table Header</th>
+                    <td width="20%">Room rates:</td>
+                    <td>$159* Sunday through Thursday</td>
                 </tr>
                 <tr>
-                    <td>Table row</td>
+                    <td width="20%">&nbsp;</td>
+                    <td>$199* Friday and Saturday</td>
                 </tr>
-                <tr class="alt">
-                    <td>Table row</td>
-                </tr>
-                <tr>
-                    <td>Table row</td>
-                </tr>
-                <tr class="alt">
-                    <td>Table row</td>
-                </tr>
-                <tr>
-                    <td>Table row</td>
-                </tr>
-                <tr class="alt">
-                    <td>Table row</td>
-                </tr>
-                </table>
-            </div><%-- #sample_table --%>
+            </table>
+            <br />
             
+            <p><strong><a target="_blank" href="<tc-webtag:linkTracking link='http://www.treasureisland.com/' refer='tco08_transportation' />">Treasure Island</a></strong><br />
+            800-288-7206<br />
+            Treasure Island is next door to the Mirage.  There is a tram connecting the two hotels.  Book online <a target="_blank" href="<tc-webtag:linkTracking link='http://www.treasureisland.com/' refer='tco08_transportation' />">here</a> or call the number above.</p>
+            <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="20%">Room rate:</td>
+                    <td>$209*</td>
+                </tr>
+            </table>
+            <br />
             
+            <p><strong><a target="_blank" href="<tc-webtag:linkTracking link='https://www.harrahs.com/index.shtml' refer='tco08_transportation' />">Harrah's</a></strong><br />
+            800-HARRAHS (800-427-7247)<br />
+            Harrah's is across the street from the Mirage and a quick walk.  Book online <a target="_blank" href="<tc-webtag:linkTracking link='https://www.harrahs.com/index.shtml' refer='tco08_transportation' />">here</a> or call the number above.</p>
+            <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="20%">Room rate:</td>
+                    <td>$100*</td>
+                </tr>
+            </table>
+            <br />
+            
+            <p><strong><a target="_blank" href="<tc-webtag:linkTracking link='https://www.harrahs.com/casinos/flamingo-las-vegas/hotel-casino/property-home.shtml' refer='tco08_transportation' />">Flamingo</a></strong><br />
+            888-902-9929<br />
+            The Flamingo Hotel is across the street from the Mirage and also a quick walk.  Book online <a target="_blank" href="<tc-webtag:linkTracking link='https://www.harrahs.com/casinos/flamingo-las-vegas/hotel-casino/property-home.shtml' refer='tco08_transportation' />">here</a> or call the number above.</p>
+            <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="20%">Room rate:</td>
+                    <td>$90*</td>
+                </tr>
+            </table>
+            <br />
+            
+            <p>Take a look at this Las Vegas Strip <a target="_blank" href="<tc-webtag:linkTracking link='http://www.lasvegas.com/lounge/map.html' refer='tco08_transportation' />">map</a> for a more detailed list of hotels and proximity to the Mirage (number 16 on the map).</p>
+            <p>*Rate does not include taxes or fees and is subject to change at any time.</p>
+            <p>Some good resources for you to utilize when booking travel:<br />
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.lasvegas.com/' refer='tco08_transportation' />">www.lasvegas.com</a><br />
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.atozvegas.com/' refer='tco08_transportation' />">www.atozvegas.com</a><br />
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.vegas.com/' refer='tco08_transportation' />">www.vegas.com</a><br />
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.visitlasvegas.com/' refer='tco08_transportation' />">www.visitlasvegas.com</a></p>
+
         
         </div><%-- .sub_content --%>
         
