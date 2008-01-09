@@ -24,61 +24,125 @@
     </jsp:include>
 
 
-        <h2>Title</h2>
+        <h2>Algorithm Competition Schedule</h2>
         
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
         <div class="sub_content">
         
-            <h3>Subtitle</h3>
-            
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    
-            <div id="sample_handles">
-                
-                <p><strong>Sample Handles:</strong></p>
-                
-                <p>
-                    <span class="handle_01">FF9900</span><br />
-                    <span class="handle_02">EE0000</span><br />
-                    <span class="handle_03">DDCC00</span><br />
-                    <span class="handle_04">6666FF</span><br />
-                    <span class="handle_05">00A900</span><br />
-                    <span class="handle_06">999999</span><br />
-                    <span class="handle_07">FFFFFF</span><br />
-                </p>
-            </div><%-- #sample_handles --%>
-            
-            <div id="sample_table">
-            
-                <p><strong>Sample Table:</strong></p>
-                <table width="100%" cellpadding="0" cellspacing="0">
+            <h3>Registration</h3>
+            <p>Registration for the 2008 TopCoder Open Algorithm Competition will open at 9:00 AM EST on Monday, January 14 and will close at 5:00 PM EST on Friday, February 2, 2008.</p>
+            <p><strong>Online and Onsite Elimination Rounds</strong></p>
+            <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                 <tr>
-                    <th>Table Header</th>
+                    <th colspan="4">Online Qualification Rounds</th>
                 </tr>
                 <tr>
-                    <td>Table row</td>
+                    <th>Round</th>
+                    <th>Date and Time</th>
+                    <th># of Participants</th>
+                    <th># of Advancers</th>
                 </tr>
-                <tr class="alt">
-                    <td>Table row</td>
+                <tr class="dark">
+                    <td>Qualif. Round 1</td>
+                    <td>Tuesday, February 5<br />Register: 6:00 - 8:55 PM<br />START: 9:00 PM*<br /></td>
+                    <td>1,350</td>
+                    <td>550</td>
+                </tr>
+                <tr class="light">
+                    <td>Qualif. Round 2</td>
+                    <td>Saturday, February 9<br />Register: 10:00 AM - 12:55 PM<br />START: 1:00 PM*<br /></td>
+                    <td>1,350</td>
+                    <td>550</td>
+                </tr>
+                <tr class="dark">
+                    <td>Qualif. Round 3</td>
+                    <td>Tuesday, February 12<br />Register: 4:00 - 6:55 AM<br />START: 7:00 AM*<br /></td>
+                    <td>1,350</td>
+                    <td>550</td>
                 </tr>
                 <tr>
-                    <td>Table row</td>
+                    <th colspan="4">Online Elimination Rounds</th>
                 </tr>
-                <tr class="alt">
-                    <td>Table row</td>
+                <tr class="dark">
+                    <td>Online Round 1</td>
+                    <td>Saturday, February 16<br />Register: 10:00 AM - 12:55 PM<br />START: 1:00 PM*<br /></td>
+                    <td>Up to 1800</td>
+                    <td>900</td>
+                </tr>
+                <tr class="light">
+                    <td>Online Round 2</td>
+                    <td>Saturday, February 23<br />Register: 10:00 AM - 12:55 PM<br />START: 1:00 PM*<br /></td>
+                    <td>900</td>
+                    <td>300</td>
+                </tr>
+                <tr class="dark">
+                    <td>Online Round 3</td>
+                    <td>Saturday, March 1<br />Register: 10:00 AM - 12:55 PM<br />START: 1:00 PM*<br /></td>
+                    <td>300</td>
+                    <td>150</td>
+                </tr>
+                <tr class="light">
+                    <td>Online Round 4</td>
+                    <td>Saturday, March 8<br />Register: 10:00 AM - 12:55 PM<br />START: 1:00 PM*<br /></td>
+                    <td>150</td>
+                    <td>72</td>
                 </tr>
                 <tr>
-                    <td>Table row</td>
+                    <th colspan="4">Onsite Finals</th>
                 </tr>
-                <tr class="alt">
-                    <td>Table row</td>
+                <tr class="dark">
+                    <td>Semifinal Room 1</td>
+                    <td>Tuesday, May 13 at 8:00 AM***</td>
+                    <td>24</td>
+                    <td>Top 3 advance to<br />the Champ. Round;<br />Next 4 advance to<br />the Wildcard Round</td>
                 </tr>
-                </table>
-            </div><%-- #sample_table --%>
+                <tr class="light">
+                    <td>Semifinal Room 2</td>
+                    <td>Tuesday, May 13 at 11:00 AM***</td>
+                    <td>24</td>
+                    <td>Top 3 advance to<br />the Champ. Round;<br />Next 4 advance to<br />the Wildcard Round</td>
+                </tr>
+                <tr class="dark">
+                    <td>Semifinal Room 3</td>
+                    <td>Tuesday, May 13 at 2:00 PM***</td>
+                    <td>24</td>
+                    <td>Top 3 advance to<br />the Champ. Round;<br />Next 4 advance to<br />the Wildcard Round</td>
+                </tr>
+                <tr class="light">
+                    <td>Wildcard Round</td>
+                    <td>Tuesday, May 13 at 5:00 PM***</td>
+                    <td>12</td>
+                    <td>Top scorer advances<br />to Championship Round</td>
+                </tr>
+                <tr class="dark">
+                    <td>Championship Round</td>
+                    <td>Thursday, May 15 at 1:30 PM***</td>
+                    <td>10</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <br />
             
+            <table width="100%" cellpadding="0" cellspacing="0" class="stat">
+                <tr>
+                    <th colspan="2">Important Dates</th>
+                </tr>
+                <tr class="dark">
+                    <td>Last day to request a visa letter</td>
+                    <td>March 12, 2008 at 5:00 PM**</td>
+                </tr>
+                <tr class="light">
+                    <td>Finalists documents due</td>
+                    <td>March 26, 2008 at 5:00 PM**</td>
+                </tr>
+            </table>
+            <br />
             
-        
+            <p>*Times listed in Eastern Standard Time (UTC/GMT -5).<br />
+            **Times listed in Eastern Daylight Time (UTC/GMT -4).<br />
+            ***Times listed in Pacific Daylight Time (UTC/GMT -7).</p>
+            <p>In the event that an online round must be cancelled for any reason, the round will start the following day at the same time.</p>
+
+            
         </div><%-- .sub_content --%>
         
     </div><%-- #content --%>
