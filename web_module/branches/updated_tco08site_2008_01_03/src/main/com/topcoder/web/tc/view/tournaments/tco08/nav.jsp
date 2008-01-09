@@ -21,11 +21,11 @@
     
     <%---- PRIMARY NAVIGATION ----%>
     <ul id="nav">
-        <li id="nav_overview"><a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=about"<% if (tabLev1.equals("overview")) {%> class="on"<% } %>>Tournament Overview</a></li>
-        <li id="nav_algo"><a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description"<% if (tabLev1.equals("algorithm")) {%> class="on"<% } %>>Algorithm Competition</a></li>
-        <li id="nav_comp"><a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description"<% if (tabLev1.equals("component")) {%> class="on"<% } %>>Component Competition</a></li>
-        <li id="nav_mm"><a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description"<% if (tabLev1.equals("marathon")) {%> class="on"<% } %>>Marathon Competition</a></li>
-        <li id="nav_studio"><a onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=description"<% if (tabLev1.equals("studio")) {%> class="on"<% } %>>Studio Competition</a></li>
+        <li id="nav_overview"><a title="Tournament Overview" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=about"<% if (tabLev1.equals("overview")) {%> class="on"<% } %>>Tournament Overview</a></li>
+        <li id="nav_algo"><a title="Algorithm Competition" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description"<% if (tabLev1.equals("algorithm")) {%> class="on"<% } %>>Algorithm Competition</a></li>
+        <li id="nav_comp"><a title="Component Competition" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description"<% if (tabLev1.equals("component")) {%> class="on"<% } %>>Component Competition</a></li>
+        <li id="nav_mm"><a title="Marathon Competition" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description"<% if (tabLev1.equals("marathon")) {%> class="on"<% } %>>Marathon Competition</a></li>
+        <li id="nav_studio"><a title="Studio Competition" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=description"<% if (tabLev1.equals("studio")) {%> class="on"<% } %>>Studio Competition</a></li>
     </ul><%-- #nav --%>
     
 
