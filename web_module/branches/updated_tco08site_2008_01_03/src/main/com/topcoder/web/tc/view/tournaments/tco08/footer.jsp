@@ -1,3 +1,5 @@
+</div></div></div><%-- #mainwrapper + #main --%>
+
 <div id="footer">
 
     <h3 id="powered"><a href="/" title="Powered by TopCoder"><img src="/i/tournament/tco08/logo_tc.png" width="169" height="26" alt="TopCoder" /></a></h3>
