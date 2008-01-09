@@ -26,14 +26,14 @@
         
         <h2>2008 TopCoder&reg; Open</h2>
         
-        <p><em><strong>Who will emerge as champions in the world's most elite software developer face-off?</strong></em></p>
+        <p><strong><em>Who will emerge as champions in the world's most elite software developer face-off?</em></strong></p>
         <p>The TCO returns to the action of Las Vegas for the TopCoder Open in 2008.  Las Vegas has been kind to many TopCoder members: <tc-webtag:handle coderId="309453" context="algorithm"/>, <tc-webtag:handle coderId="7548200" context="development"/>, <tc-webtag:handle coderId="10600282" context="marathon_match"/>, <tc-webtag:handle coderId="10574855" context="algorithm"/> and <tc-webtag:handle coderId="119676" context="design"/>, just to name a few.  It's also where we crowned the first-ever Studio Design and Marathon Champions.  Five new Champions will be crowned this time in Sin City.  Will you be one of them?</p>
 
         <div class="sub_content">
         
             <h3>Mark your calendars!</h3>
             <p>The TCO08 Finals will take place May 11 - 15, 2008 at the Mirage in Las Vegas, Nevada and we're giving away $260,000 in prizes.</p>
-            <p>The TCO is bigger and better in 2008, as we <strong>increase the finalist pool by 50 percent</strong>! TopCoder will fly in the top 120 finalists this year to compete for more than a quarter of a million dollars in prizes. As our member community continues to grow, so does the elite competition. Spread the word, the world's best developers will be heading to Vegas in May!</p>
+            <p>The TCO is bigger and better in 2008, as we <strong><em>increase the finalist pool by 50 percent</em></strong>! TopCoder will fly in the top 120 finalists this year to compete for more than a quarter of a million dollars in prizes. As our member community continues to grow, so does the elite competition. Spread the word, the world's best developers will be heading to Vegas in May!</p>
             
             <h3>Details</h3>
             <p>There will be four competitions making up the TCO08:</p>
@@ -45,7 +45,7 @@
             </ul>
             <p>Only the top 120 competitors will make the TCO, so polish your skills now to prepare for the competition. We'll have room for everyone at the Developer Forums - start making plans now for your trip to Las Vegas in May.</p>
             <p>The competition is free and you must be a member 18 years old or older, as well as meet all eligibility criteria, in order to participate.</p>
-            <p>It is important for you to read the official rules and regulations for more details.</p>
+            <p>It is important for you to read the official <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=rules">rules and regulations</a> for more details.</p>
         
         </div><%-- .sub_content --%>
         
