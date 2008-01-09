@@ -10,9 +10,6 @@
 <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-<script src="js/minmax.js" language="javascript" type="text/javascript"></script>
-<script src="js/tco08.js" language="javascript" type="text/javascript"></script>
-</head>
 <body id="page_sub">
 
 <div id="wrapper">
