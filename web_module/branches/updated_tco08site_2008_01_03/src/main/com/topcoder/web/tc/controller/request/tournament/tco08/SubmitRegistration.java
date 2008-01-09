@@ -142,12 +142,8 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         Set regTypes = u.getRegistrationTypes();
         boolean eligible = false;
         
-        log.debug("submitregistration.iseligible: e.getType().getId(): " + e.getType().getId());
-        log.debug("user: " + u.getId());
-        
         for (Iterator it = regTypes.iterator(); it.hasNext() && !eligible;) {
             RegistrationType rt = (RegistrationType) it.next();
-            log.debug("rt.getId(): " + rt.getId());
             if (e.getType().getId().equals(EventType.ALGORITHM_TOURNAMENT_ID) ||
                     e.getType().getId().equals(EventType.COMPONENT_TOURNAMENT_ID) ||
                     e.getType().getId().equals(EventType.SPONSOR_TRACK_ID) ||
@@ -162,7 +158,6 @@ public class SubmitRegistration extends SubmitRegistrationBase {
                 }
             }
         }
-        log.debug("eligible: " + eligible);
         return eligible;
     }
 

@@ -58,7 +58,7 @@ String eventType = (String) request.getAttribute("et"); %>
                 <h1><span>Registrants</span></h1>
 
 <form name="registrantsForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewRegistrants"/>
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Registrants"/>
 <tc-webtag:hiddenInput name="et" value="<%=eventType%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
@@ -77,7 +77,7 @@ String eventType = (String) request.getAttribute("et"); %>
                                         </tr>
                                         <tr>
                                             <td class="header">
-                                                <a href="/tco08?module=ViewRegistrants&amp;et=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
+                                                <a href="/tco08?module=Registrants&amp;et=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
 									            <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                                             </td>
                                         </tr>
