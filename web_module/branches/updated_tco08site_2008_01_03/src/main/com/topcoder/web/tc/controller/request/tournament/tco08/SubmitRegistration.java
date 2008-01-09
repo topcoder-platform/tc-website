@@ -29,6 +29,14 @@ import java.util.Set;
  */
 public class SubmitRegistration extends SubmitRegistrationBase {
 
+    private static final String[] prohibitedCountries = {
+        "192", // Cuba
+        "364", // Iran
+        "", // North Korea
+        "736", // Sudan
+        "760", // Syria
+        };
+
     protected final String getEventShortDesc() {
         String eventType = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_TYPE));
         if (!"".equals(eventType)) {
@@ -136,6 +144,18 @@ public class SubmitRegistration extends SubmitRegistrationBase {
                 }
             }
         }
+        
+        
+        if (e.getType().getId().equals(EventType.STUDIO_TOURNAMENT_ID) ||
+                e.getType().getId().equals(EventType.COMPONENT_TOURNAMENT_ID)) {
+            // check their home address country
+            for (int i = 0; i < prohibitedCountries.length; i++) {
+                if (prohibitedCountries[i].equals(u.getHomeAddress().getCountry().getCode())) {
+                    return false;
+                }
+            }
+        }
+        
         return eligible;
     }
 
