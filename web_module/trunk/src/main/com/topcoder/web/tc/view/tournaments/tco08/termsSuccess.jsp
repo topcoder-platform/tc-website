@@ -2,22 +2,19 @@
 <%@ page import="com.topcoder.web.common.model.EventType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%String eventType = (String) request.getAttribute("et");%>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>The 2008 TopCoder&reg; Open - Get ready for the Ultimate TopCoder Event!</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
-    <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-    <jsp:include page="../../script.jsp" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>The 2008 TopCoder&reg; Open - Get ready for the Ultimate TopCoder Event!</title>
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+<link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
+<link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 </head>
-<body>
+<body id="page_sub">
 
-<div align="center" style="background: transparent;">
-    <div id="containAll">
-    <div id="content">
+<div id="wrapper">
 
         <jsp:include page="nav.jsp" >
         <jsp:param name="tabLev1" value="<%=eventType%>"/>
@@ -25,9 +22,8 @@
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
 
-            <div id="pageBody">
 
-                    <h1><span>
+                    <h2><span>
                         <c:choose>
                             <c:when test="${eligible}">
                                 Registration Successful
@@ -36,7 +32,7 @@
                                 Registration Failed
                             </c:otherwise>
                         </c:choose>
-                    </span></h1>
+                    </span></h2>
 
 
                 <c:set value="<%=EventType.ALGORITHM_TOURNAMENT_ID%>" var="algoEvent"/>
@@ -52,10 +48,11 @@
                         </c:choose>
                     </div>
 
-            </div>
-    </div>
-    <jsp:include page="footer.jsp" />
-    </div>
-</div>
+    </div><%-- #content --%>
+
+<jsp:include page="footer.jsp" />
+
+</div><%-- #wrapper --%>
+
 </body>
 </html>
