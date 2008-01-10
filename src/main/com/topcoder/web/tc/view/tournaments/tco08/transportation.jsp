@@ -31,15 +31,15 @@
         <div class="sub_content">
         
             <h3>Transportation</h3>
-            <p><strong>Air Travel</strong>:  Las Vegas is home to McCarran International Airport.  There are many flights into and out of this airport.</p>
+            <p><strong>Air Travel</strong>:  Las Vegas is home to <a target="_blank" href="<tc-webtag:linkTracking link='http://www.mccarran.com/' refer='tco08_transportation' />">McCarran International Airport</a>.  There are many flights into and out of this airport.</p>
             <p><strong>Bus Travel</strong>:  You can get to Las Vegas by bus.  There is a Greyhound Station in the city.  See more information <a target="_blank" href="<tc-webtag:linkTracking link='http://www.greyhound.com/home/TicketCenter/locations.asp?state=nv' refer='tco08_transportation' />">here</a>.</p>
             <p><strong>Car Travel</strong>:  If you're driving to Las Vegas, you can get directions <a target="_blank" href="http://www.mapquest.com/directions/main.adp?src=maps&1sb=revise&2l=7k9ZFU%2flVYlhFW0oBB4AKQ%3d%3d&2g=CwIOaITpQ%2beWN1oBkFdhWQ%3d%3d&2v=L1BAA&2a=3400%20Las%20Vegas%20Blvd%20S&2c=Las%20Vegas&2s=NV&2z=89109%2d8923&2y=US&2pn=&2pl=">here</a>.</p>
             
             <h3>Hotels</h3>
             <p>There are a plethora of hotels in Las Vegas that you can choose from.  Here are a few that are affordable and in the vicinity of the 2008 TopCoder Open.</p>
-            <p><strong><a target="_blank" href="<tc-webtag:linkTracking link='http://www.mirage.com/hotel/' refer='tco08_transportation' />">The Mirage</a></strong><br />
+            <p><strong><a target="_blank" href="<tc-webtag:linkTracking link='http://www.mirage.com/hotel/' refer='tco08_transportation' />">Mirage Hotel and Casino</a></strong><br />
             800-374-9000<br />
-            The event will take place at the Mirage so it is the most convenient for attending the event.  Rooms at the Mirage can be reserved with a TopCoder group rate.  In order to receive the TopCoder group rate, please mention TopCoder upon calling.  Alternatively, you can book online <a target="_blank" href="<tc-webtag:linkTracking link='https://reservations.mgmmirage.com/bookingengine.aspx?host=group&pid=160&code=topcod08' refer='tco08_transportation' />">here</a>.</p>
+            The event will take place at the Mirage* so it is the most convenient for attending the event.  Rooms at the Mirage can be reserved with a TopCoder group rate.  In order to receive the TopCoder group rate, please mention TopCoder upon calling.  Alternatively, you can book online <a target="_blank" href="<tc-webtag:linkTracking link='https://reservations.mgmmirage.com/bookingengine.aspx?host=group&pid=160&code=topcod08' refer='tco08_transportation' />">here</a>.</p>
             <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="20%">Room rates:</td>
@@ -50,6 +50,7 @@
                     <td>$199* Friday and Saturday</td>
                 </tr>
             </table>
+            <p>*All finalists' rooms will be booked by TopCoder.  If you are attending as a competitor, please do not book a room through this link.</p>
             <br />
             
             <p><strong><a target="_blank" href="<tc-webtag:linkTracking link='http://www.treasureisland.com/' refer='tco08_transportation' />">Treasure Island</a></strong><br />
