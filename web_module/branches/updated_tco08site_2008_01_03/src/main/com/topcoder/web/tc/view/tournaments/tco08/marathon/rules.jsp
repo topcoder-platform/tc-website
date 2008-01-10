@@ -41,7 +41,7 @@
             <h3>Eligibility</h3>
             <p>TopCoder members meeting the following criteria are eligible to compete in the Competition:</p>
             <ul>
-                <li>Must be at least 18 years of age (as of January 30, 2008); AND 
+                <li>Must be at least 18 years of age (as of January 30, 2008); AND</li>
                 <li>Must currently be eligible for participation in TopCoder competitions (i.e., not suspended from TopCoder).</li>
             </ul>
             <p>The Tournament and the Competition are void in the Quebec province of Canada and where prohibited by applicable law. Residents of Cuba, Iran, Iraq, North Korea, Sudan, or Syria are ineligible to receive prizes and are ineligible to attend the onsite round of the Competition as competitors.</p>
