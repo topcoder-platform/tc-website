@@ -164,7 +164,7 @@ public class ViewRegistration extends Base {
         
         // only bother if the user is not a professional (tccc)
         // comment this line if not needed
-        bother = !CoderType.PROFESSIONAL.equals(DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId())).getCoderType().getId()); 
+//        bother = !CoderType.PROFESSIONAL.equals(DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId())).getCoderType().getId()); 
         log.debug("Bother: " + bother);
         
         if (bother && isTournamentProject(projectId) && !isRegisteredForTournament()) {
@@ -210,7 +210,7 @@ public class ViewRegistration extends Base {
 
     protected boolean isRegisteredForTournament() throws Exception {
         return DAOUtil.getFactory().getEventRegistrationDAO().find(new Long(getUser().getId()),
-                Event.TCCC07_COMPONENT_ID) != null;
+                Event.TCO08_COMPONENT_ID) != null;
     }
 
     protected ComponentRegistrationServicesLocal getRegEJB() throws Exception {
