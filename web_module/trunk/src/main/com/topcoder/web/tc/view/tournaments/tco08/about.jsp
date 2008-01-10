@@ -24,7 +24,7 @@
 
         
         
-        <h2>2008 TopCoder&reg; Open</h2>
+        <h2>2008 TopCoder Open</h2>
         
         <p><strong><em>Who will emerge as champions in the world's most elite software developer face-off?</em></strong></p>
         <p>The TCO returns to the action of Las Vegas for the TopCoder Open in 2008.  Las Vegas has been kind to many TopCoder members: <tc-webtag:handle coderId="309453" context="algorithm"/>, <tc-webtag:handle coderId="7548200" context="development"/>, <tc-webtag:handle coderId="10600282" context="marathon_match"/>, <tc-webtag:handle coderId="10574855" context="algorithm"/> and <tc-webtag:handle coderId="119676" context="design"/>, just to name a few.  It's also where we crowned the first-ever Studio Design and Marathon Champions.  Five new Champions will be crowned this time in Sin City.  Will you be one of them?</p>
@@ -40,12 +40,12 @@
             <ul>
                 <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description">Algorithm Competition</a></li>
                 <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description">Component Design and Development Competitions</a></li>
-                <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description">Marathon Match Competition</a></li>
+                <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description">Marathon Competition</a></li>
                 <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=description">Studio Competition</a></li>
             </ul>
             <p>Only the top 120 competitors will make the TCO, so polish your skills now to prepare for the competition. We'll have room for everyone at the Developer Forums - start making plans now for your trip to Las Vegas in May.</p>
             <p>The competition is free and you must be a member 18 years old or older, as well as meet all eligibility criteria, in order to participate.</p>
-            <p>It is important for you to read the official <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=rules">rules and regulations</a> for more details.</p>
+            <p>It is important for you to read the official rules and regulations for the competition in which you are going to compete for more details.</p>
         
         </div><%-- .sub_content --%>
         
