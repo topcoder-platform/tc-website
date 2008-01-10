@@ -69,21 +69,21 @@ String eventType = (String) request.getAttribute("et"); %>
    <br>
 
 <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
-<thead>
-    <tr><td class="title" colspan="4">Registrants: ${numRegistrants}</td></tr>
+
+    <tr><th colspan="4">Registrants: ${numRegistrants}</th></tr>
     <tr>
-        <td class="header" width="100%">
+        <th width="100%">
             <a href="/tco08?module=Registrants&amp;et=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
             <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
-        </td>
-        <td class="headerR" nowrap="nowrap">
+        </th>
+        <th nowrap="nowrap">
             <a href="/tco08?module=Registrants&amp;et=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("des_rating")%>"/>">Design Rating</a>
-        </td>
-        <td class="headerR" nowrap="nowrap">
+        </th>
+        <th nowrap="nowrap">
             <a href="/tco08?module=Registrants&amp;et=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("dev_rating")%>"/>">Development Rating</a>
-        </td>
+        </th>
     </tr>
-</thead>
+
 <tbody>
         <%boolean even = false;%>
         <rsc:iterator list='<%=rsc%>' id="resultRow">
