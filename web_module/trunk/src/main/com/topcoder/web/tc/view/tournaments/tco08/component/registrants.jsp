@@ -52,7 +52,7 @@ String eventType = (String) request.getAttribute("et"); %>
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
 
-            <div id="pageBody">
+
                 <h2>Registrants</h2>
 
 <form name="registrantsForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
