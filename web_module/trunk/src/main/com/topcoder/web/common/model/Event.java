@@ -15,6 +15,7 @@ import java.util.Set;
 public class Event extends Base {
     public static final Long TCO07_COMPONENT_ID = new Long(7);
     public static final Long TCCC07_COMPONENT_ID = new Long(3002);
+    public static final Long TCO08_COMPONENT_ID = new Long(3006);
 
     private Long id;
     private EventType type;
