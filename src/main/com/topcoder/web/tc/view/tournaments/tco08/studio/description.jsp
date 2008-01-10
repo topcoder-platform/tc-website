@@ -39,7 +39,7 @@
             <p>The competition is free and you must be a member who is 18 years or older, as well as meet all eligibility criteria, in order to participate.</p>
             
             <h3>How to Register for the Studio Design Competition</h3>
-            <p>Click <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=registerNow">here</a> to register for the TCO08 Studio Design Competition.</p>
+            <p>Click <a href="/tco08?module=ViewRegistration&et=7">here</a> to register for the TCO08 Studio Design Competition.</p>
     
         </div><%-- .sub_content --%>
         
