@@ -22,21 +22,13 @@ public class Home extends BaseProcessor {
         getRequest().setAttribute(r.getContentHandle(), dai.getData(r));
 
         if (userIdentified()) {
-//            DataAccess tco07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
-//            Request tco07Request = new Request();
-//            tco07Request.setProperty("cr", String.valueOf(getUser().getId()));
-//
-//            tco07Request.setContentHandle("tco07studio_info");
-//            getRequest().setAttribute("tco07studio_info",
-//                    tco07Dai.getData(tco07Request).get("tco07studio_info"));
+            DataAccess tco08Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            Request tco08Request = new Request();
+            tco08Request.setProperty("cr", String.valueOf(getUser().getId()));
 
-            DataAccess tccc07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
-            Request tccc07Request = new Request();
-            tccc07Request.setProperty("cr", String.valueOf(getUser().getId()));
-
-            tccc07Request.setContentHandle("tccc07studio_info");
-            getRequest().setAttribute("tccc07studio_info",
-                    tccc07Dai.getData(tccc07Request).get("tccc07studio_info"));
+            tco08Request.setContentHandle("tco08studio_info");
+            getRequest().setAttribute("tco08studio_info",
+                    tco08Dai.getData(tco08Request).get("tco08studio_info"));
         }
 
         setNextPage("/home.jsp");
