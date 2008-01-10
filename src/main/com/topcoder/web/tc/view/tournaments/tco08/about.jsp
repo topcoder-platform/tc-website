@@ -51,8 +51,6 @@
         
     </div><%-- #content --%>
 
-</div></div></div><%-- #mainwrapper + #main --%>
-
 <jsp:include page="footer.jsp" />
 
 </div><%-- #wrapper --%>
