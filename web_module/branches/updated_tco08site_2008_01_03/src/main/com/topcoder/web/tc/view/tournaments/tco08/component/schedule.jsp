@@ -29,7 +29,7 @@
             <p>Registration for the 2008 TopCoder Open Component Design and Development Competition will open at 9:00 AM EST on Monday, January 14 and will close at 9:00 AM EST on Thursday, February 28, 2008.</p>
             <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                 <tr>
-                    <th colspan="4">Online</th>
+                    <th colspan="4">Online Rounds</th>
                 </tr>
                 <tr>
                     <th>Round</th>
