@@ -22,61 +22,23 @@
     </jsp:include>
 
 
-        <h2>Title</h2>
+        <h2>Marathon Match Competition</h2>
         
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
         <div class="sub_content">
-        
-            <h3>Subtitle</h3>
+            <p>As part of the 2008 TopCoder Open, the Marathon Competition provides a more flexible format with an extended timeline that offers different types of problems than what can be offered in the Algorithm Competition. Competitors may submit code in the following languages: Java, C++, C#, VB.NET and Python.</p>
+            <p>After three rounds of elimination, we will narrow the field down to the top twelve finalists from around the world to attend the Championship Round in Las Vegas, Nevada, USA, May 11 - May 15, 2008.</p>
             
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h3>How does it work?</h3>
+            <p>Every eligible participant that registers for the competition will be able to open the problem statement at the same time. Unlike traditional algorithm competitions, the system is not necessarily testing for correctness. In the Marathon Competition, the scoring mechanism may be different for each problem. A description of the scoring mechanism will be provided in the problem statement. Competitors will have to understand the scoring mechanism in order to effectively compete.</p>
+            <p>Clicking the Submit link will take you to a page that will allow you to paste in a solution, select the proper language and either submit (for compilation and testing) or save your code. When the Submit button is selected, the code will be immediately compiled. Any compilation messages or errors will be shown in the Messages Area. If the compilation was successful, the submission will then be placed on a queue for automated testing. Example test cases will not be tested. When your submission has been processed, you will receive an email indicating such and your place in the standings will be adjusted accordingly.</p>
+            <p>Clicking the Test Examples button will immediately compile and place your submission on a queue for automated testing of just the example test cases. Detailed feedback will be made available when the tests are complete, including processing time, score, and any output from the program. Competitors may submit test examples once every 30 minutes. The competitor's rank and overall score will not be updated.</p>
+            <p>Competitors are encouraged to improve solutions and resubmit throughout the submission phase. The most recent submission is the one that will always count towards the standings.</p>
+            
+            <h3>System Testing</h3>
+            <p>Once time is up for submitting, each submission will be run against a larger set of test cases and be issued a final score. This final score will determine the rankings of the match and the advancers of the round.</p>
+            <p>When is the competition? See the schedule <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=schedule">here</a>.</p>
+            <p>The competition is free and you must be a member who is 18 years or older, as well as meet all eligibility criteria, in order to participate.</p>
     
-            <div id="sample_handles">
-                
-                <p><strong>Sample Handles:</strong></p>
-                
-                <p>
-                    <span class="handle_01">FF9900</span><br />
-                    <span class="handle_02">EE0000</span><br />
-                    <span class="handle_03">DDCC00</span><br />
-                    <span class="handle_04">6666FF</span><br />
-                    <span class="handle_05">00A900</span><br />
-                    <span class="handle_06">999999</span><br />
-                    <span class="handle_07">FFFFFF</span><br />
-                </p>
-            </div><%-- #sample_handles --%>
-            
-            <div id="sample_table">
-            
-                <p><strong>Sample Table:</strong></p>
-                <table width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                    <th>Table Header</th>
-                </tr>
-                <tr>
-                    <td>Table row</td>
-                </tr>
-                <tr class="alt">
-                    <td>Table row</td>
-                </tr>
-                <tr>
-                    <td>Table row</td>
-                </tr>
-                <tr class="alt">
-                    <td>Table row</td>
-                </tr>
-                <tr>
-                    <td>Table row</td>
-                </tr>
-                <tr class="alt">
-                    <td>Table row</td>
-                </tr>
-                </table>
-            </div><%-- #sample_table --%>
-            
-            
-        
         </div><%-- .sub_content --%>
         
     </div><%-- #content --%>
