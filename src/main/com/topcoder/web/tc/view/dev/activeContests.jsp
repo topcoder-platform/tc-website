@@ -129,7 +129,7 @@
                     <div>Eligible for the TCO08 CDDC</div>
                 </div>
                 <div align="center">
-                    <a href='/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description'><img class="emblem" src="/i/tournament/tco08/emblem.png" alt="" border="0" onmouseover="popUp(this,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()"/></a>
+                    <a href='/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description'>-tcoIcon-<img class="emblem" src="/i/tournament/tco08/emblem.png" alt="" border="0" onmouseover="popUp(this,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()"/></a>
                 </div>
                 <% } else { %>
                 &nbsp;
