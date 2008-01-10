@@ -69,14 +69,14 @@ String eventType = (String) request.getAttribute("et"); %>
                                 <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
                                     <thead>
                                         <tr>
-                                            <td class="title">Registrants: ${numRegistrants}
-                                            </td>
+                                            <th>Registrants: ${numRegistrants}
+                                            </th>
                                         </tr>
                                         <tr>
-                                            <td class="header">
+                                            <th>
                                                 <a href="/tco08?module=Registrants&amp;et=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
                                                          <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
-                                            </td>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
