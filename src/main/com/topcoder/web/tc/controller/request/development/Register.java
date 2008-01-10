@@ -73,7 +73,7 @@ public class Register extends ViewRegistration {
 
             // only bother if the user is not a professional (tccc)
             // comment this line if not needed
-            bother = !CoderType.PROFESSIONAL.equals(DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId())).getCoderType().getId());
+//            bother = !CoderType.PROFESSIONAL.equals(DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId())).getCoderType().getId());
             log.debug("Bother: " + bother);
 
 //            Coder c = (Coder) createEJB(getInitialContext(), Coder.class);
@@ -93,7 +93,7 @@ public class Register extends ViewRegistration {
 */
                     if (isTournamentTime() && bother) {
                         if (log.isDebugEnabled()) {
-                            log.debug("it's tournament time and they are as student");
+                            log.debug("it's tournament time ");
                         }
                         boolean isRegisteredForTournament = getRequest().getAttribute("notRegistered") == null;
                         boolean isConfirmed = getRequest().getParameter("confirm") != null;
@@ -114,7 +114,7 @@ public class Register extends ViewRegistration {
                         }
                     } else {
                         if (log.isDebugEnabled()) {
-                            log.debug("just register them, it's either not tourney time, or they are a pro");
+                            log.debug("just register them, it's either not tourney time");
                         }
                         register();
                         setNextPage("/dev/regSuccess.jsp");
