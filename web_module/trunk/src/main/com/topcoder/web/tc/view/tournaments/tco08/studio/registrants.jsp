@@ -10,7 +10,7 @@
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
     <title>The 2008 TopCoder&reg; Open - Get ready for the Ultimate TopCoder Event!</title>
@@ -39,14 +39,12 @@
 </script>
     
 </head>
-<body>
+<body id="page_sub">
 
 <% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("list"));
 String eventType = (String) request.getAttribute("et"); %>
 
-<div align="center" style="background: transparent;">
-    <div id="containAll">
-    <div id="content">
+<div id="wrapper">
 
         <jsp:include page="../nav.jsp" >
         <jsp:param name="tabLev1" value="<%=EventType.STUDIO_TOURNAMENT_ID%>"/>
@@ -54,8 +52,7 @@ String eventType = (String) request.getAttribute("et"); %>
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
 
-            <div id="pageBody">
-                <h1><span>Registrants</span></h1>
+        <h2>Registrants</h2>
 
 <form name="registrantsForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Registrants"/>
@@ -78,7 +75,7 @@ String eventType = (String) request.getAttribute("et"); %>
                                         <tr>
                                             <td class="header">
                                                 <a href="/tco08?module=Registrants&amp;et=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
-									            <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
+                                                         <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                                             </td>
                                         </tr>
                                     </thead>
@@ -114,10 +111,11 @@ String eventType = (String) request.getAttribute("et"); %>
 </form>
 
 
-            </div>
-    </div>
-    <jsp:include page="../footer.jsp" />
-    </div>
-</div>
+    </div><%-- #content --%>
+
+<jsp:include page="../footer.jsp" />
+
+</div><%-- #wrapper --%>
+
 </body>
 </html>

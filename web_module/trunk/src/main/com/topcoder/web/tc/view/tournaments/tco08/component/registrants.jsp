@@ -39,7 +39,7 @@
 </script>
     
 </head>
-<body>
+<body id="page_sub">
 
 <% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("list"));
 String eventType = (String) request.getAttribute("et"); %>
@@ -53,7 +53,7 @@ String eventType = (String) request.getAttribute("et"); %>
         </jsp:include>
 
 
-                <h2>Registrants</h2>
+            <h2>Registrants</h2>
 
 <form name="registrantsForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Registrants"/>

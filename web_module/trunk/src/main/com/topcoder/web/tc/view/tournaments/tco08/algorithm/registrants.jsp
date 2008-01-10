@@ -39,7 +39,7 @@
 </script>
     
 </head>
-<body>
+<body id="page_sub">
 
 <% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("list"));
 String eventType = (String) request.getAttribute("et"); %>
