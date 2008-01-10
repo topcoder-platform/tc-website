@@ -128,7 +128,7 @@
                             <%--
                             <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=devForums"<% if (tabLev3.equals("devforums")) {%> class="on"<% } %>>Developer Forums</a></li>
                             --%>
-                            <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=getVisa"<% if (tabLev3.equals("getvisa")) {%> class="on"<% } %>>Getting a Visa</a></li>
+                            <li><a target="_blank" href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early"<% if (tabLev3.equals("getvisa")) {%> class="on"<% } %>>Getting a Visa</a></li>
                             <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=transportation"<% if (tabLev3.equals("transportation")) {%> class="on"<% } %>>Transportation</a></li>
                             <%--
                             <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=hotels"<% if (tabLev3.equals("hotels")) {%> class="on"<% } %>>Hotels</a></li>
@@ -195,9 +195,6 @@
                         <% } %>
                     <% } %>
                 </ul>
-                <%--
-                    </li>
-                </ul> --%>
             </div>
             <div class="clearleft"></div>
         </div><%-- #menuwrap --%>
