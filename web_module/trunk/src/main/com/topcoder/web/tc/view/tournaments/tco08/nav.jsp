@@ -78,9 +78,9 @@
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=rules"<% if (tabLev2.equals("rules")) {%> class="on"<% } %>>Rules</a></li>
-                        <li><a href="/tc?module=tco08ViewRegistration&et=algorithm"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
+                        <li><a href="/tco08?module=ViewRegistration&et=6"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
+                        <li><a href="/tco08?module=Registrants&et=6"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <%--
-                        <li><a href="/tc?module=tco08ViewRegistrants&et=algorithm"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <li><a href="/tc?module=tco08AlgorithmAdvancers"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=algoSemi01"<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
                         --%>
@@ -89,9 +89,9 @@
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=rules"<% if (tabLev2.equals("rules")) {%> class="on"<% } %>>Rules</a></li>
-                        <li><a href="/tc?module=tco08ViewRegistration&et=component"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
+                        <li><a href="/tco08?module=ViewRegistration&et=5"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
+                        <li><a href="/tco08?module=Registrants&et=5"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <%--
-                        <li><a href="/tc?module=tco08ViewRegistrants&et=component"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <li><a href="/tc?module=tco08ContestDetails&ct=420&eid=3002"<% if (tabLev2.equals("design")) {%> class="on"<% } %>>Design</a></li>
                         <li><a href="/tc?module=tco08ContestDetails&ct=421&eid=3002"<% if (tabLev2.equals("development")) {%> class="on"<% } %>>Development</a></li>
                         --%>
@@ -100,9 +100,9 @@
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=rules"<% if (tabLev2.equals("rules")) {%> class="on"<% } %>>Rules</a></li>
-                        <li><a href="/tc?module=tco08ViewRegistration&et=marathon"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
+                        <li><a href="/tco08?module=ViewRegistration&et=9"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
+                        <li><a href="/tco08?module=Registrants&et=9"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <%--
-                        <li><a href="/tc?module=tco08ViewRegistrants&et=marathon"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <li><a href="/tc?module=tco08MarathonAdvancers"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a></li>
                         <li><a href=""<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
                         --%>
@@ -111,9 +111,9 @@
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=rules"<% if (tabLev2.equals("rules")) {%> class="on"<% } %>>Rules</a></li>
-                        <li><a href="/tc?module=tco08ViewRegistration&et=studio"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
+                        <li><a href="/tco08?module=ViewRegistration&et=7"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
+                        <li><a href="/tco08?module=Registrants&et=7"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <%--
-                        <li><a href="/tc?module=tco08ViewRegistrants&et=studio"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <li><a href="/tc?module=tco08StudioLeaderboard&eid=3004"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a></li>
                         <li><a href=""<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
                         --%>
