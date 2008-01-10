@@ -67,7 +67,7 @@ String eventType = (String) request.getAttribute("et"); %>
 </div>
    <br>
                                 <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
-                                    <thead>
+                                    
                                         <tr>
                                             <th>Registrants: ${numRegistrants}
                                             </th>
@@ -78,7 +78,7 @@ String eventType = (String) request.getAttribute("et"); %>
                                                          <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                                             </th>
                                         </tr>
-                                    </thead>
+                                    
                                     <tbody>
                                         <%boolean even = false;%>
                                         <rsc:iterator list='<%=rsc%>' id="resultRow">
