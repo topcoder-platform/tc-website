@@ -22,60 +22,22 @@
     </jsp:include>
 
 
-        <h2>Title</h2>
+        <h2>Component Design and Development Competition</h2>
         
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
         <div class="sub_content">
         
-            <h3>Subtitle</h3>
+            <h3>Component Design</h3>
+            <p>TopCoder Design Competitions require participants to design a software component. Starting from a requirements specification, they produce a full set of design documentation: UML class, sequence, and use case diagrams, and a component specification document, which contains algorithm descriptions, exception handling, and documentation.</p>
+            <p>Each competitor's submission goes through a review process that includes an initial screening and, if the submission passes screening, a full review by a three person Review Board. The competitors have a chance to appeal their review scores and, once all appeals are answered, the winner of the competition is announced. After the winner fixes any remaining problems with their submission, the competition ends and the design is prepared to become the basis for a future development competition.</p>
+            <p>At the onsite finals of the TopCoder Open, the finalists will be tasked with designing a small widget that will be showcased in its finished form on Thursday, May 15 during the Awards Ceremony.</p>
             
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    
-            <div id="sample_handles">
-                
-                <p><strong>Sample Handles:</strong></p>
-                
-                <p>
-                    <span class="handle_01">FF9900</span><br />
-                    <span class="handle_02">EE0000</span><br />
-                    <span class="handle_03">DDCC00</span><br />
-                    <span class="handle_04">6666FF</span><br />
-                    <span class="handle_05">00A900</span><br />
-                    <span class="handle_06">999999</span><br />
-                    <span class="handle_07">FFFFFF</span><br />
-                </p>
-            </div><%-- #sample_handles --%>
-            
-            <div id="sample_table">
-            
-                <p><strong>Sample Table:</strong></p>
-                <table width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                    <th>Table Header</th>
-                </tr>
-                <tr>
-                    <td>Table row</td>
-                </tr>
-                <tr class="alt">
-                    <td>Table row</td>
-                </tr>
-                <tr>
-                    <td>Table row</td>
-                </tr>
-                <tr class="alt">
-                    <td>Table row</td>
-                </tr>
-                <tr>
-                    <td>Table row</td>
-                </tr>
-                <tr class="alt">
-                    <td>Table row</td>
-                </tr>
-                </table>
-            </div><%-- #sample_table --%>
-            
-            
+            <h3>Component Development</h3>
+            <p>TopCoder Development Competitions require participants to implement a previously designed software component. Their starting point is the winning design submission that includes UML class, sequence, and use case diagrams, and a component specification document which contains algorithm descriptions, exception handling, and documentation. They are required to provide a full implementation of the design, as well as a full suite of unit tests for their implementation and documentation.</p>
+            <p>Each competitor's submission goes through a review process that includes an initial screening and, if the submission passes screening, a full review by a three person Review Board. The competitors have a chance to appeal their review scores and, once all appeals are answered, the winner of the competition is announced. After the winner fixes any remaining problems with their submission, the competition ends and the implementation becomes a part of the TopCoder software catalog.</p>
+            <p>At the onsite finals of the TopCoder Open, the finalists will be tasked with implementing a small widget based on the winners from the Design and Studio competitions.  The widget will be showcased in its finished form on Thursday, May 15 during the Awards Ceremony.</p>
+            <p>When is the competition? See the schedule <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=schedule">here</a>.</p>
+            <p>It is important for you to read the official <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=rules">rules and regulations</a> for more details.</p>
+            <p>The competition is free and you must be a member who is 18 years or older, as well as meet all eligibility criteria, in order to participate.</p>
         
         </div><%-- .sub_content --%>
         
