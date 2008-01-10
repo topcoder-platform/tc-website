@@ -28,6 +28,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
 
     protected static final Integer HIGH_SCHOOL_REGION_TYPE = new Integer(1);
     public static final String AGE = "age";
+    public static final String RESIDENT = "resident";
     public static final String IN_COLLEGE = "incollege";
     public static final String IN_HIGH_SCHOOL = "inhs";
 

@@ -132,6 +132,8 @@
                         </div>
                     </div>
 
+                    <jsp:include page="message.jsp"/>
+
                     <!-- promo -->
                     <div style="margin-bottom: 20px;">
                         <a href="http://forums.topcoder.com/?module=Thread&threadID=593270"><img src="/i/v2/home/tcevolution.png" alt="" /></a>
