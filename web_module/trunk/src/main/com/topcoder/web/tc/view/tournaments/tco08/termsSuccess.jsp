@@ -6,7 +6,7 @@
 <%String eventType = (String) request.getAttribute("et");%>
 <html>
 <head>
-    <title>2007 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
+    <title>The 2008 TopCoder&reg; Open - Get ready for the Ultimate TopCoder Event!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
