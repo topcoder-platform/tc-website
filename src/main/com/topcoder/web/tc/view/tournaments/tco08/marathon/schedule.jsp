@@ -15,7 +15,7 @@
 <div id="wrapper">
 
     <jsp:include page="../nav.jsp" >
-    <jsp:param name="tabLev1" value="marathon"/>
+    <jsp:param name="tabLev1" value="<%=EventType.MARATHON_TOURNAMENT_ID%>"/>
     <jsp:param name="tabLev2" value="schedule"/>
     <jsp:param name="tabLev3" value=""/>
     </jsp:include>

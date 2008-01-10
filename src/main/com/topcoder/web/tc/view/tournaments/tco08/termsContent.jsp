@@ -6,7 +6,7 @@
 <head>
     <jsp:include page="/script.jsp"/>
 
-    <title>2007 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
+    <title>The 2008 TopCoder&reg; Open - Get ready for the Ultimate TopCoder Event!</title>
     <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <STYLE TYPE="text/css">
