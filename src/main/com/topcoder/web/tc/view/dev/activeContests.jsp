@@ -126,10 +126,10 @@
             <td class="value">
                 <% if (resultRow.getIntItem("tourny_project") > 0) { %>
                 <div id="popUp<rsc:item name="project_id" row="<%=resultRow%>"/>" class="popUp">
-                    <div>Eligible for the TCCC07 CDDC</div>
+                    <div>Eligible for the TCO08 CDDC</div>
                 </div>
                 <div align="center">
-                    <a href='/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=description'><img class="emblem" src="/i/tournament/tccc07/emblem.png" alt="" border="0" onmouseover="popUp(this,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()"/></a>
+                    <a href='/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description'><img class="emblem" src="/i/tournament/tco08/emblem.png" alt="" border="0" onmouseover="popUp(this,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()"/></a>
                 </div>
                 <% } else { %>
                 &nbsp;
@@ -244,10 +244,10 @@
             <td class="value">
                 <% if (resultRow.getIntItem("tourny_project") > 0) { %>
                 <div id="popUp<rsc:item name="project_id" row="<%=resultRow%>"/>" class="popUp">
-                    <div>Eligible for the TCCC07 CDDC</div>
+                    <div>Eligible for the TCO08 CDDC</div>
                 </div>
                 <div align="center">
-                    <a href='/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=description'><img class="emblem" src="/i/tournament/tccc07/emblem.png" alt="" border="0" onmouseover="popUp(this,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()"/></a>
+                    <a href='/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description'><img class="emblem" src="/i/tournament/tco08/emblem.png" alt="" border="0" onmouseover="popUp(this,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()"/></a>
                 </div>
                 <% } %>
             </td>
