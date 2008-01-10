@@ -72,7 +72,7 @@ String eventType = (String) request.getAttribute("et"); %>
     <tr><td class="title" colspan="3">Registrants: ${numRegistrants}</td></tr>
     <tr>
         <td class="headerC" nowrap="nowrap">
-            <a href="/tco08?module=Registrants&amp;et=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">TCCC Rank</a>
+            <a href="/tco08?module=Registrants&amp;et=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">TCO Rank</a>
         </td>
 <%-- show after seeds are assigned
         <td class="headerC">
