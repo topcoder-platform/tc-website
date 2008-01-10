@@ -145,7 +145,9 @@
                         
                         <% } else if (tabLev2.equals("sponsors")) { %>
                             <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly"<% if (tabLev3.equals("lilly")) {%> class="on"<% } %>>Lilly</a></li>
+                            <%--
                             <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=db"<% if (tabLev3.equals("db")) {%> class="on"<% } %>>Deutsche Bank</a></li>
+                            --%>
                             
                         <% } else if (tabLev2.equals("eventpatrons")) { %>
                             <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=nsa"<% if (tabLev3.equals("nsa")) {%> class="on"<% } %>>NSA</a></li>
