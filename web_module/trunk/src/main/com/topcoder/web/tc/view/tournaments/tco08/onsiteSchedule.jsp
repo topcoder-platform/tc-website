@@ -28,7 +28,7 @@
         
         <div class="sub_content">
         
-            <p><strong>Schedule of Onsite Events</strong></p>
+            <p><strong>Schedule of Onsite Events*</strong></p>
             <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                 <tr>
                     <th colspan="2">Sunday, May 11, 2008</th>
@@ -92,7 +92,7 @@
                     <td>Dinner</td>
                 </tr>
                 <tr class="dark">
-                    <td>6:00 PM - 8:00 PM</td>
+                    <td>7:00 PM - 9:00 PM</td>
                     <td>Wildcard Round</td>
                 </tr>
                 <tr>
@@ -126,18 +126,24 @@
                     <td>Breakfast</td>
                 </tr>
                 <tr class="light">
-                    <td>10:00 AM - 12:00 PM</td>
+                    <td>10:00 AM - Noon</td>
                     <td>Algorithm Finals</td>
                 </tr>
                 <tr class="dark">
+                    <td>11:30 AM - 1:30 PM</td>
+                    <td>Lunch</td>
+                </tr>
+                <tr class="light">
                     <td>2:00 PM - 3:00 PM</td>
                     <td>All Champion Announcements and Awards</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td>3:00 PM - 4:00 PM</td>
                     <td>Closing Reception</td>
                 </tr>
             </table>
+            <br />
+            <p>* All times shown in Pacific Daylight Time (UTC/GMT -7).</p>
 
         
         </div><%-- .sub_content --%>
