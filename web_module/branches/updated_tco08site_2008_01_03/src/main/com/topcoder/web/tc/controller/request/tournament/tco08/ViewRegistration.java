@@ -23,7 +23,7 @@ public class ViewRegistration extends ViewRegistrationBase {
     private static final String[] prohibitedCountries = {
         "192", // Cuba
         "364", // Iran
-        "", // North Korea
+        "410", // North Korea
         "736", // Sudan
         "760", // Syria
         };
