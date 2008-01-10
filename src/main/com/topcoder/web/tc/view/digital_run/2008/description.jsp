@@ -63,18 +63,20 @@ function menu_goto( menuform )
 <td align="left" style="padding-right:10px; border-right: 1px solid #999999;" valign="top">
 <span class="subtitle">Design Cup</span><br />
 <A href="/tc?module=Static&d1=digital_run&d2=2008&d3=desOverview" class="bcLink">Details</A><br />
-<span class="grayedOut">Current Leaderboard</span>
 <%--
-<A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Current Leaderboard</A>
---%><br />
+<span class="grayedOut">Current Leaderboard</span>
+--%>
+<A href="/tc?&ph=112&module=LeaderBoard&staid=7" class="bcLink">Current Leaderboard</A>
+<br />
 </td>
 <td align="left" style="padding: 0 10px; border-right: 1px solid #999999;" valign="top">
 <span class="subtitle" class="bcLink">Development Cup</span><br />
 <A href="/tc?module=Static&d1=digital_run&d2=2008&d3=devOverview" class="bcLink">Details</A><br />
-<span class="grayedOut">Current Leaderboard</span>
 <%--
-<A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Current Leaderboard</A>
---%><br />
+<span class="grayedOut">Current Leaderboard</span>
+--%>
+<A href="/tc?&ph=113&module=LeaderBoard&staid=7" class="bcLink">Current Leaderboard</A>
+<br />
 </td>
 <td align="left" style="padding-left:10px;" valign="top">
 <span class="subtitle" class="bcLink">Assembly Cup</span><br />
