@@ -38,6 +38,9 @@
     </div>
     
     <ul id="sponsors">
+        <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly"><img src="/i/tournament/tco08/lilly_logo_nav.png" width="186" height="80" alt="Eli Lilly" /></a></li>
+        <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=nsa"><img src="/i/tournament/tco08/nsa_logo_nav.png" width="186" height="80" alt="NSA" /></a></li>
+        <%--
         <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
         <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
         <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
@@ -46,8 +49,7 @@
         <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
         <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
         <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
-        <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
-        <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
+        --%>
     </ul>
         
 </div>
