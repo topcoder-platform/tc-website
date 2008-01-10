@@ -68,7 +68,7 @@ String eventType = (String) request.getAttribute("et"); %>
    <br>
 
 <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
-
+<thead>
     <tr><th colspan="3">Registrants: ${numRegistrants}</th></tr>
     <tr>
         <th nowrap="nowrap">
@@ -87,7 +87,7 @@ String eventType = (String) request.getAttribute("et"); %>
             <a href="/tco08?module=Registrants&amp;et=<%=eventType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
         </th>
     </tr>
-
+</thead>
 <tbody>
         <%boolean even = false;%>
         <rsc:iterator list='<%=rsc%>' id="resultRow">
