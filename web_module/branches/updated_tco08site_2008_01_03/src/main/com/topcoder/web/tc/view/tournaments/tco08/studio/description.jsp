@@ -22,61 +22,25 @@
     </jsp:include>
 
 
-        <h2>Title</h2>
+        <h2>Studio Design Competition</h2>
         
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
         <div class="sub_content">
-        
-            <h3>Subtitle</h3>
+            <p>TopCoder Studio is thrilled to announce the 2008 TopCoder Open! Competitors will put their design talent to the test during the 7-week Studio Design Competition (SDC) Online Round leading up to the Finals, being held at the Mirage Hotel in Las Vegas, Nevada, USA. Twelve of the most creative collegiate competitors will win a trip to Las Vegas where they will compete in the Championship Round for the chance to win cash prizes totaling $45,000.</p>
             
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h3>What is TopCoder Studio?</h3>
+            <p>TopCoder Studio challenges top creative minds from around the world to present their best design concepts to clients searching for a unique user-based perspective. By tapping into the talent of creative people with multiple specialties, new approaches and innovative concepts rise to the top. During engaging competitions, Studio members have just the right mix of client guidance, TopCoder Studio support, and creative freedom to break down barriers common in traditional client-designer relationships.</p>
+            
+            <h3>The Competition Process</h3>
+            <p>The competition process ignites creativity in both the client and the Studio members. TopCoder determines the needs of the client, presents those needs to Studio members, and administers all aspects of the competition.</p>
+            <p>Contest specifications are posted on Studio and members submit their designs according to those specs. Submissions are then screened against the contest specifications by the Contest Administrator and either passed or failed. Winners are selected by the clients.</p>
+            <p>Learn more about <a target="_blank" href="http://studio.topcoder.com/">TopCoder Studio</a></p>
+            <p>When is the competition? See the <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=schedule">schedule</a>.</p>
+            <p>Read the official <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=rules">rules and regulations</a> for important details.</p>
+            <p>The competition is free and you must be a member who is 18 years or older, as well as meet all eligibility criteria, in order to participate.</p>
+            
+            <h3>How to Register for the Studio Design Competition</h3>
+            <p>Click <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=registerNow">here</a> to register for the TCO08 Studio Design Competition.</p>
     
-            <div id="sample_handles">
-                
-                <p><strong>Sample Handles:</strong></p>
-                
-                <p>
-                    <span class="handle_01">FF9900</span><br />
-                    <span class="handle_02">EE0000</span><br />
-                    <span class="handle_03">DDCC00</span><br />
-                    <span class="handle_04">6666FF</span><br />
-                    <span class="handle_05">00A900</span><br />
-                    <span class="handle_06">999999</span><br />
-                    <span class="handle_07">FFFFFF</span><br />
-                </p>
-            </div><%-- #sample_handles --%>
-            
-            <div id="sample_table">
-            
-                <p><strong>Sample Table:</strong></p>
-                <table width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                    <th>Table Header</th>
-                </tr>
-                <tr>
-                    <td>Table row</td>
-                </tr>
-                <tr class="alt">
-                    <td>Table row</td>
-                </tr>
-                <tr>
-                    <td>Table row</td>
-                </tr>
-                <tr class="alt">
-                    <td>Table row</td>
-                </tr>
-                <tr>
-                    <td>Table row</td>
-                </tr>
-                <tr class="alt">
-                    <td>Table row</td>
-                </tr>
-                </table>
-            </div><%-- #sample_table --%>
-            
-            
-        
         </div><%-- .sub_content --%>
         
     </div><%-- #content --%>
