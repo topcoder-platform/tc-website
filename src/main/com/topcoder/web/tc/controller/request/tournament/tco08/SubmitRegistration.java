@@ -58,13 +58,13 @@ public class SubmitRegistration extends SubmitRegistrationBase {
                     ageInput = StringUtils.checkNull(response.getText());
                     ageKey = AnswerInput.PREFIX + q.getId();
                 } else if (q.getKeyword().equals(RESIDENT)) {
-                    resident = StringUtils.checkNull(response.getText());
+                    resident = StringUtils.checkNull(response.getText()).trim().toLowerCase();
                     residentKey = AnswerInput.PREFIX + q.getId();
                 }
             }
         }
 
-        if (!resident.toLowerCase().equals("yes") && !resident.toLowerCase().equals("no")) {
+        if (!resident.equals("yes") && !resident.equals("no")) {
             addError(residentKey, "You must type either 'Yes' or 'No'.");
         }
 
@@ -82,7 +82,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         boolean eligibilityResident = true;
         
         if (getEventShortDesc().equals("tco08component") || getEventShortDesc().equals("tco08studio")) {
-            eligibilityResident = resident.toLowerCase().equals("no"); 
+            eligibilityResident = resident.equals("no"); 
         }
         
         return (new Boolean(age >= 18 && age <= 130 && eligibilityResident));
