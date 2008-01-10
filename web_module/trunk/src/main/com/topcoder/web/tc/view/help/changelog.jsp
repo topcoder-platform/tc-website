@@ -44,6 +44,20 @@
 
 
 <p>
+    5.13.10 - 2008.01.10
+    <ul>
+        <li>TCO08 minisite -pulky</li>
+    </ul>
+</p>
+
+<p>
+    5.13.9 - 2008.01.09
+    <ul>
+        <li>New 2008 DR design and development boards -pulky</li>
+    </ul>
+</p>
+
+<p>
     5.13.8 - 2008.01.02
     <ul>
         <li>Changed pacts add payment functionality so that the client is asked for more payment types. (new flag in the DB) -pulky</li>
