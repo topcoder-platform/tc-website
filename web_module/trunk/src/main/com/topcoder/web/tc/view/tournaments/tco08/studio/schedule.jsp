@@ -26,7 +26,7 @@
         <div class="sub_content">
         
             <h3>Registration</h3>
-            <p>Registration for the 2008 TopCoder Open Studio Design Competition will open at 9:00 AM EST on Monday, January 14 and will close at 5:00 PM EST on Monday, February 6, 2008.</p>
+            <p>Registration for the 2008 TopCoder Open Studio Design Competition will open at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=1&day=14&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_studioSchedule' />">9:00 AM EST</a> on Monday, January 14 and will close at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=5&year=2008&hour=17&min=0&sec=0&p1=98' refer='tco08_studioSchedule' />">5:00 PM EST</a> on Wednesday, March 5, 2008.</p>
             <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                 <tr>
                     <th>Schedule</th>
@@ -40,13 +40,13 @@
                 </tr>
                 <tr class="light">
                     <td>Onsite Competition</td>
-                    <td>May 12, 2008 at 8:00 AM***</td>
-                    <td>May 12, 2008 at 11:00 AM***</td>
+                    <td>May 12, 2008 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=12&year=2008&hour=8&min=0&sec=0&p1=127' refer='tco08_studioSchedule' />">8:00 AM***</a></td>
+                    <td>May 12, 2008 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=12&year=2008&hour=11&min=0&sec=0&p1=127' refer='tco08_studioSchedule' />">11:00 AM***</a></td>
                 </tr>
                 <tr class="dark">
                     <td>Onsite Competition</td>
-                    <td>May 14, 2008 at 8:30 AM***</td>
-                    <td>May 14, 2008 at 1:00 PM***</td>
+                    <td>May 14, 2008 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=14&year=2008&hour=8&min=30&sec=0&p1=127' refer='tco08_studioSchedule' />">8:30 AM***</a></td>
+                    <td>May 14, 2008 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=14&year=2008&hour=13&min=0&sec=0&p1=127' refer='tco08_studioSchedule' />">1:00 PM***</a></td>
                 </tr>
             </table>
             <br />
@@ -57,11 +57,11 @@
                 </tr>
                 <tr class="dark">
                     <td>Last day to request a visa letter</td>
-                    <td>March 12, 2008 at 5:00 PM**</td>
+                    <td>March 12, 2008 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=12&year=2008&hour=17&min=0&sec=0&p1=98' refer='tco08_studioSchedule' />">5:00 PM**</a></td>
                 </tr>
                 <tr class="light">
                     <td>Finalists documents due</td>
-                    <td>March 26, 2008 at 5:00 PM**</td>
+                    <td>March 26, 2008 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=26&year=2008&hour=17&min=0&sec=0&p1=98' refer='tco08_studioSchedule' />">5:00 PM**</a></td>
                 </tr>
             </table>
             <br />
