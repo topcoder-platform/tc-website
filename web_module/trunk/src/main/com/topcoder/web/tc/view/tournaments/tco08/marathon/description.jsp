@@ -22,7 +22,7 @@
     </jsp:include>
 
 
-        <h2>Marathon Match Competition</h2>
+        <h2>Marathon Competition</h2>
         
         <div class="sub_content">
             <p>As part of the 2008 TopCoder Open, the Marathon Competition provides a more flexible format with an extended timeline that offers different types of problems than what can be offered in the Algorithm Competition. Competitors may submit code in the following languages: Java, C++, C#, VB.NET and Python.</p>
@@ -37,6 +37,7 @@
             <h3>System Testing</h3>
             <p>Once time is up for submitting, each submission will be run against a larger set of test cases and be issued a final score. This final score will determine the rankings of the match and the advancers of the round.</p>
             <p>When is the competition? See the schedule <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=schedule">here</a>.</p>
+            <p>It is important for you to read the official <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=rules">rules and regulations</a> for more details.</p>
             <p>The competition is free and you must be a member who is 18 years or older, as well as meet all eligibility criteria, in order to participate.</p>
     
         </div><%-- .sub_content --%>

@@ -21,7 +21,7 @@
     </jsp:include>
 
 
-        <h2>Marathon Match Competition Schedule</h2>
+        <h2>Marathon Competition Schedule</h2>
         
         <div class="sub_content">
         
