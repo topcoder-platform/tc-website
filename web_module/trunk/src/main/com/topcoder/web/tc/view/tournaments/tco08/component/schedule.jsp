@@ -39,39 +39,39 @@
                 </tr>
                 <tr class="dark">
                     <td>Week 1 of Online<br />Participation Round</td>
-                    <td>January 24, 2008<br />at 9:00 AM*</td>
+                    <td>January 24, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=1&day=24&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">9:00 AM*</a></td>
                     <td>72 Hours</td>
-                    <td>January 31, 2008<br />at 9:00 AM*</td>
+                    <td>January 31, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=1&day=31&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">9:00 AM*</a></td>
                 </tr>
                 <tr class="light">
                     <td>Week 2 of Online<br />Participation Round</td>
-                    <td>January 31, 2008<br />at 9:00 AM*</td>
+                    <td>January 31, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=1&day=31&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">9:00 AM*</a></td>
                     <td>72 Hours</td>
-                    <td>February 7, 2008<br />at 9:00 AM*</td>
+                    <td>February 7, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=7&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">9:00 AM*</a></td>
                 </tr>
                 <tr class="dark">
                     <td>Week 3 of Online<br />Participation Round</td>
-                    <td>February 7, 2008<br />at 9:00 AM*</td>
+                    <td>February 7, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=7&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">9:00 AM*</a></td>
                     <td>72 Hours</td>
-                    <td>February 14, 2008<br />at 9:00 AM*</td>
+                    <td>February 14, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=14&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">9:00 AM*</a></td>
                 </tr>
                 <tr class="light">
                     <td>Week 4 of Online<br />Participation Round</td>
-                    <td>February 14, 2008<br />at 9:00 AM*</td>
+                    <td>February 14, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=14&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">9:00 AM*</a></td>
                     <td>72 Hours</td>
-                    <td>February 21, 2008<br />at 9:00 AM*</td>
+                    <td>February 21, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=21&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">9:00 AM*</a></td>
                 </tr>
                 <tr class="dark">
                     <td>Week 5 of Online<br />Participation Round</td>
-                    <td>February 21, 2008<br />at 9:00 AM*</td>
+                    <td>February 21, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=21&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">9:00 AM*</a></td>
                     <td>72 Hours</td>
-                    <td>February 28, 2008<br />at 9:00 AM*</td>
+                    <td>February 28, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=28&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">9:00 AM*</a></td>
                 </tr>
                 <tr class="light">
                     <td>Week 6 of Online<br />Participation Round</td>
-                    <td>February 28, 2008<br />at 9:00 AM*</td>
+                    <td>February 28, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=28&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">9:00 AM*</a></td>
                     <td>72 Hours</td>
-                    <td>March 6, 2008<br />at 9:00 AM*</td>
+                    <td>March 6, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=6&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">9:00 AM*</a></td>
                 </tr>
                 <tr>
                     <th>Onsite Rounds</th>
@@ -81,15 +81,30 @@
                 </tr>
                 <tr class="dark">
                     <td>Component<br />Design Finals</td>
-                    <td>May 12, 2008<br />at 12:00 PM**</td>
+                    <td>May 12, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=12&year=2008&hour=12&min=0&sec=0&p1=127' refer='tco08_compSchedule' />">12:00 PM**</a></td>
                     <td>12</td>
-                    <td>May 12, 2008<br />at 6:00 PM**</td>
+                    <td>May 12, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=12&year=2008&hour=18&min=0&sec=0&p1=127' refer='tco08_compSchedule' />">6:00 PM**</a></td>
                 </tr>
                 <tr class="light">
                     <td>Component<br />Development Finals</td>
-                    <td>May 14, 2008<br />at 8:30 AM**</td>
+                    <td>May 14, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=14&year=2008&hour=8&min=30&sec=0&p1=127' refer='tco08_compSchedule' />">8:30 AM**</a></td>
                     <td>12</td>
-                    <td>May 14, 2008<br />at 5:00 PM**</td>
+                    <td>May 14, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=14&year=2008&hour=17&min=0&sec=0&p1=127' refer='tco08_compSchedule' />">5:00 PM**</a></td>
+                </tr>
+            </table>
+            <br />
+            
+            <table width="100%" cellpadding="0" cellspacing="0" class="stat">
+                <tr>
+                    <th colspan="2">Important Dates</th>
+                </tr>
+                <tr class="dark">
+                    <td>Last day to request a visa letter</td>
+                    <td>March 12, 2008 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=12&year=2008&hour=17&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">5:00 PM**</a></td>
+                </tr>
+                <tr class="light">
+                    <td>Finalists documents due</td>
+                    <td>March 26, 2008 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=26&year=2008&hour=17&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">5:00 PM**</a></td>
                 </tr>
             </table>
             <br />
