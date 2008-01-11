@@ -46,7 +46,7 @@
                                 <br /><strong>read and agree to</strong> the terms listed below.</p>
 
                             <div align="center">
-                                <iframe width="640" height="300" marginWidth="5" src="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=event.getTerms().getId()%>"></iframe>
+                                <iframe width="600" height="300" marginWidth="5" src="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=event.getTerms().getId()%>"></iframe>
                             </div>
 
                             <div align="center">
