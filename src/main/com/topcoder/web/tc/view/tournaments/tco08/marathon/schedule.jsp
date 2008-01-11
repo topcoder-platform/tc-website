@@ -26,7 +26,7 @@
         <div class="sub_content">
         
             <h3>Registration</h3>
-            <p>Registration for the 2008 TopCoder Open Marathon Competition will open at 9:00 AM EST on Monday, January 14 and will close at 5:00 PM EST on Tuesday, January 29, 2008.</p>
+            <p>Registration for the 2008 TopCoder Open Marathon Competition will open at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=1&day=14&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_maraSchedule' />">9:00 AM EST</a> on Monday, January 14 and will close at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=1&day=29&year=2008&hour=17&min=0&sec=0&p1=98' refer='tco08_maraSchedule' />">5:00 PM EST</a> on Tuesday, January 29, 2008.</p>
             <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                 <tr>
                     <th colspan="5">Online Elimination Rounds</th>
@@ -40,22 +40,22 @@
                 </tr>
                 <tr class="dark">
                     <td>Online Round 1</td>
-                    <td>Wednesday, Jan. 30<br />at Noon*</td>
-                    <td>Wednesday, Feb. 6<br />at Noon*</td>
+                    <td>Wednesday, Jan. 30<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=1&day=30&year=2008&hour=12&min=0&sec=0&p1=98' refer='tco08_maraSchedule' />">Noon*</a></td>
+                    <td>Wednesday, Feb. 6<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=6&year=2008&hour=12&min=0&sec=0&p1=98' refer='tco08_maraSchedule' />">Noon*</a></td>
                     <td>Unlimited</td>
                     <td>300</td>
                 </tr>
                 <tr class="light">
                     <td>Online Round 2</td>
-                    <td>Wednesday, Feb. 13<br />at Noon*</td>
-                    <td>Wednesday, Feb. 20<br />at Noon*</td>
+                    <td>Wednesday, Feb. 13<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=13&year=2008&hour=12&min=0&sec=0&p1=98' refer='tco08_maraSchedule' />">Noon*</a></td>
+                    <td>Wednesday, Feb. 20<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=20&year=2008&hour=12&min=0&sec=0&p1=98' refer='tco08_maraSchedule' />">Noon*</a></td>
                     <td>300</td>
                     <td>100</td>
                 </tr>
                 <tr class="dark">
                     <td>Online Round 3</td>
-                    <td>Wednesday, Feb. 27<br />at Noon*</td>
-                    <td>Wednesday, March 12<br />at Noon**</td>
+                    <td>Wednesday, Feb. 27<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=27&year=2008&hour=12&min=0&sec=0&p1=98' refer='tco08_maraSchedule' />">Noon*</a></td>
+                    <td>Wednesday, March 12<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=12&year=2008&hour=12&min=0&sec=0&p1=98' refer='tco08_maraSchedule' />">Noon**</a></td>
                     <td>100</td>
                     <td>12</td>
                 </tr>
@@ -64,8 +64,8 @@
                 </tr>
                 <tr class="dark">
                     <td>Finals</td>
-                    <td>Monday, May 12<br />at 9:00 AM***</td>
-                    <td>Monday, May 12<br />at 5:00 PM***</td>
+                    <td>Monday, May 12<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=12&year=2008&hour=12&min=0&sec=0&p1=98' refer='tco08_maraSchedule' />">9:00 AM***</a></td>
+                    <td>Monday, May 12<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=12&year=2008&hour=12&min=0&sec=0&p1=98' refer='tco08_maraSchedule' />">5:00 PM***</a></td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
@@ -78,11 +78,11 @@
                 </tr>
                 <tr class="dark">
                     <td>Last day to request a visa letter</td>
-                    <td>March 12, 2008 at 5:00 PM**</td>
+                    <td>March 12, 2008 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=12&year=2008&hour=12&min=0&sec=0&p1=98' refer='tco08_maraSchedule' />">5:00 PM**</a></td>
                 </tr>
                 <tr class="light">
                     <td>Finalists documents due</td>
-                    <td>March 26, 2008 at 5:00 PM**</td>
+                    <td>March 26, 2008 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=26&year=2008&hour=12&min=0&sec=0&p1=98' refer='tco08_maraSchedule' />">5:00 PM**</a></td>
                 </tr>
             </table>
             <br />
