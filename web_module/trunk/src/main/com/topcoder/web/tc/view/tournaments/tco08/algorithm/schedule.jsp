@@ -26,7 +26,7 @@
         <div class="sub_content">
         
             <h3>Registration</h3>
-            <p>Registration for the 2008 TopCoder Open Algorithm Competition will open at 9:00 AM EST on Monday, January 14 and will close at 5:00 PM EST on Friday, February 2, 2008.</p>
+            <p>Registration for the 2008 TopCoder Open Algorithm Competition will open at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=1&day=14&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_algoSchedule' />">9:00 AM EST</a> on Monday, January 14 and will close at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=1&year=2008&hour=17&min=0&sec=0&p1=98' refer='tco08_algoSchedule' />">5:00 PM EST</a> on Friday, February 1, 2008.</p>
             <p><strong>Online and Onsite Elimination Rounds</strong></p>
             <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                 <tr>
@@ -39,20 +39,20 @@
                     <th># of Advancers</th>
                 </tr>
                 <tr class="dark">
-                    <td>Qualif. Round 1</td>
-                    <td>Tuesday, February 5<br />Register: 6:00 - 8:55 PM<br />START: 9:00 PM*<br /></td>
+                    <td>Qual. Round 1</td>
+                    <td>Tuesday, February 5<br />Register: 6:00 - 8:55 PM<br /><a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=5&year=2008&hour=21&min=0&sec=0&p1=98' refer='tco08_algoSchedule' />">START: 9:00 PM*</a><br /></td>
                     <td>1,350</td>
                     <td>550</td>
                 </tr>
                 <tr class="light">
-                    <td>Qualif. Round 2</td>
-                    <td>Saturday, February 9<br />Register: 10:00 AM - 12:55 PM<br />START: 1:00 PM*<br /></td>
+                    <td>Qual. Round 2</td>
+                    <td>Saturday, February 9<br />Register: 10:00 AM - 12:55 PM<br /><a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=9&year=2008&hour=13&min=0&sec=0&p1=98' refer='tco08_algoSchedule' />">START: 1:00 PM*</a><br /></td>
                     <td>1,350</td>
                     <td>550</td>
                 </tr>
                 <tr class="dark">
-                    <td>Qualif. Round 3</td>
-                    <td>Tuesday, February 12<br />Register: 4:00 - 6:55 AM<br />START: 7:00 AM*<br /></td>
+                    <td>Qual. Round 3</td>
+                    <td>Tuesday, February 12<br />Register: 4:00 - 6:55 AM<br /><a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=12&year=2008&hour=7&min=0&sec=0&p1=98' refer='tco08_algoSchedule' />">START: 7:00 AM*</a><br /></td>
                     <td>1,350</td>
                     <td>550</td>
                 </tr>
@@ -61,25 +61,25 @@
                 </tr>
                 <tr class="dark">
                     <td>Online Round 1</td>
-                    <td>Saturday, February 16<br />Register: 10:00 AM - 12:55 PM<br />START: 1:00 PM*<br /></td>
+                    <td>Saturday, February 16<br />Register: 10:00 AM - 12:55 PM<br /><a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=16&year=2008&hour=13&min=0&sec=0&p1=98' refer='tco08_algoSchedule' />">START: 1:00 PM*</a><br /></td>
                     <td>Up to 1800</td>
                     <td>900</td>
                 </tr>
                 <tr class="light">
                     <td>Online Round 2</td>
-                    <td>Saturday, February 23<br />Register: 10:00 AM - 12:55 PM<br />START: 1:00 PM*<br /></td>
+                    <td>Saturday, February 23<br />Register: 10:00 AM - 12:55 PM<br /><a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=23&year=2008&hour=13&min=0&sec=0&p1=98' refer='tco08_algoSchedule' />">START: 1:00 PM*</a><br /></td>
                     <td>900</td>
                     <td>300</td>
                 </tr>
                 <tr class="dark">
                     <td>Online Round 3</td>
-                    <td>Saturday, March 1<br />Register: 10:00 AM - 12:55 PM<br />START: 1:00 PM*<br /></td>
+                    <td>Saturday, March 1<br />Register: 10:00 AM - 12:55 PM<br /><a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=1&year=2008&hour=13&min=0&sec=0&p1=98' refer='tco08_algoSchedule' />">START: 1:00 PM*</a><br /></td>
                     <td>300</td>
                     <td>150</td>
                 </tr>
                 <tr class="light">
                     <td>Online Round 4</td>
-                    <td>Saturday, March 8<br />Register: 10:00 AM - 12:55 PM<br />START: 1:00 PM*<br /></td>
+                    <td>Saturday, March 8<br />Register: 10:00 AM - 12:55 PM<br /><a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=1&year=2008&hour=13&min=0&sec=0&p1=98' refer='tco08_algoSchedule' />">START: 1:00 PM*</a><br /></td>
                     <td>150</td>
                     <td>72</td>
                 </tr>
@@ -88,31 +88,31 @@
                 </tr>
                 <tr class="dark">
                     <td>Semifinal Room 1</td>
-                    <td>Tuesday, May 13 at 8:00 AM***</td>
+                    <td>Tuesday, May 13 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=13&year=2008&hour=8&min=0&sec=0&p1=127' refer='tco08_algoSchedule' />">8:00 AM***</a></td>
                     <td>24</td>
                     <td>Top 3 advance to<br />the Champ. Round;<br />Next 4 advance to<br />the Wildcard Round</td>
                 </tr>
                 <tr class="light">
                     <td>Semifinal Room 2</td>
-                    <td>Tuesday, May 13 at 11:00 AM***</td>
+                    <td>Tuesday, May 13 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=13&year=2008&hour=11&min=0&sec=0&p1=127' refer='tco08_algoSchedule' />">11:00 AM***</a></td>
                     <td>24</td>
                     <td>Top 3 advance to<br />the Champ. Round;<br />Next 4 advance to<br />the Wildcard Round</td>
                 </tr>
                 <tr class="dark">
                     <td>Semifinal Room 3</td>
-                    <td>Tuesday, May 13 at 2:00 PM***</td>
+                    <td>Tuesday, May 13 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=13&year=2008&hour=14&min=0&sec=0&p1=127' refer='tco08_algoSchedule' />">2:00 PM***</a></td>
                     <td>24</td>
                     <td>Top 3 advance to<br />the Champ. Round;<br />Next 4 advance to<br />the Wildcard Round</td>
                 </tr>
                 <tr class="light">
                     <td>Wildcard Round</td>
-                    <td>Tuesday, May 13 at 5:00 PM***</td>
+                    <td>Tuesday, May 13 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=13&year=2008&hour=17&min=0&sec=0&p1=127' refer='tco08_algoSchedule' />">7:00 PM***</a></td>
                     <td>12</td>
                     <td>Top scorer advances<br />to Championship Round</td>
                 </tr>
                 <tr class="dark">
                     <td>Championship Round</td>
-                    <td>Thursday, May 15 at 1:30 PM***</td>
+                    <td>Thursday, May 15 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=15&year=2008&hour=13&min=30&sec=0&p1=127' refer='tco08_algoSchedule' />">1:30 PM***</a></td>
                     <td>10</td>
                     <td>&nbsp;</td>
                 </tr>
@@ -125,11 +125,11 @@
                 </tr>
                 <tr class="dark">
                     <td>Last day to request a visa letter</td>
-                    <td>March 12, 2008 at 5:00 PM**</td>
+                    <td>March 12, 2008 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=12&year=2008&hour=17&min=0&sec=0&p1=98' refer='tco08_algoSchedule' />">5:00 PM**</a></td>
                 </tr>
                 <tr class="light">
                     <td>Finalists documents due</td>
-                    <td>March 26, 2008 at 5:00 PM**</td>
+                    <td>March 26, 2008 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=26&year=2008&hour=17&min=0&sec=0&p1=98' refer='tco08_algoSchedule' />">5:00 PM**</a></td>
                 </tr>
             </table>
             <br />
