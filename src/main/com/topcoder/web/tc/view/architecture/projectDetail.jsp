@@ -133,9 +133,6 @@
     after you successfully register for this competition.
 </p>
 
-<br>
-<span class="bigRed">NOTE: Please see the eligibility requirements below. Competitors must sign a non-disclosure agreement before being admitted into this competition.   If you have previously completed these documents, no further action is needed.</span>
-
 <p>
 <div align="right"><a href="/wiki/display/tc/How+to+Compete+in+Architecture+Competitions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a></div>
 </p>
