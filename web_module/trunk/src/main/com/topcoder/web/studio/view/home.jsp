@@ -27,20 +27,22 @@
     <style type="text/css">
     #message {
         float: right;
-        width: 180px;
+        width: 200px;
+        height:220px;
         margin: 0px 0px 20px 20px;
-        color: #4b4fa1;
+        color: #ed1c24;
         font-size: 11px;
+        background-image: url(/i/v2/messageBox.png);
     }
     
     #message a:link, #message a:visited {
-        color: #4b4fa1;
+        color: #806666;
         text-decoration: underline;
         font-weight: bold;
     }
     
     #message a:hover, #message a:active {
-        color: #FF0000;
+        color: #ac1414;
         text-decoration: none;
         font-weight: bold;
     }
@@ -131,8 +133,8 @@
                             Message
                         </div>
                     </div>
-
                     <jsp:include page="message.jsp"/>
+                    
 
                     <!-- promo -->
                     <div style="margin-bottom: 20px;">

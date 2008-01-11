@@ -7,7 +7,7 @@
 %>
 
 <div id="message" align="center">
-    <div style="margin-bottom: 10px;">
+    <div style="margin: 10px 0px 10px 0px;">
         <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about"><img src="/i/tournament/tco08/message.png" alt="TCO08"/></a>
     </div>
         <% if (rscTco08.getIntItem(0, "registered")== 0) { %>
