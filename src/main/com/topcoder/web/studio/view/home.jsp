@@ -24,30 +24,6 @@
 
     <script type="text/javascript" src="/js/v2/popup.js"></script>
 
-    <style type="text/css">
-    #message {
-        float: right;
-        width: 200px;
-        height:220px;
-        margin: 0px 0px 20px 20px;
-        color: #ed1c24;
-        font-size: 11px;
-        background-image: url(/i/v2/messageBox.png);
-    }
-    
-    #message a:link, #message a:visited {
-        color: #806666;
-        text-decoration: underline;
-        font-weight: bold;
-    }
-    
-    #message a:hover, #message a:active {
-        color: #ac1414;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    </style>
-
 </head>
 
 <body>
@@ -127,20 +103,8 @@
                         </div>
                     </div>
 
-                    <!-- message title -->
-                    <div style="width: 200px; height: 25px; margin-bottom: 10px; background: transparent url(/i/v2/home_bg_right_title.png) center center no-repeat;">
-                        <div style="font-weight: bold; padding: 2px 0px 0px 10px; ">
-                            Message
-                        </div>
-                    </div>
                     <jsp:include page="message.jsp"/>
                     
-
-                    <!-- promo -->
-                    <div style="margin-bottom: 20px;">
-                        <a href="http://forums.topcoder.com/?module=Thread&threadID=593270"><img src="/i/v2/home/tcevolution.png" alt="" /></a>
-                    </div>
-
                     <!-- DOTM title -->
                     <div style="width: 200px; height: 25px; margin-bottom: 10px; background: transparent url(/i/v2/home_bg_right_title.png) center center no-repeat;">
                         <div style="font-weight: bold; padding: 2px 0px 0px 10px; ">
@@ -156,7 +120,6 @@
                             <br /><studio:handle coderId="22690288"/>: Won $3,400 in three contests
                         </div>
                     </div>
-
 
                 </div>
             </div>
