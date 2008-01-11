@@ -522,6 +522,11 @@
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="${isNewReg}"/>
+            <c:if test="${isNewReg}">
+                <br/>
+ <span class="small">Please choose carefully.   Your user name can <b>not</b> be changed, and it is a violation of our
+     terms of use to create more than one account.</span>
+            </c:if>
         </td>
     </tr>
 </c:if>
