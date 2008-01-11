@@ -37,6 +37,7 @@
     <h3><tc-webtag:format object="<%=new Date()%>" format="EEEE, MMMM d, yyyy" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/></h3>
     </div>
     
+    <div align="center"><p style="font-size:12px; color:#ed1c24;"><strong>Sponsors and Event Patrons</strong></p></div><br />
     <ul id="sponsors">
         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly"><img src="/i/tournament/tco08/lilly_logo_nav.png" width="186" height="80" alt="Eli Lilly" /></a></li>
         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=nsa"><img src="/i/tournament/tco08/nsa_logo_nav.png" width="186" height="80" alt="NSA" /></a></li>
