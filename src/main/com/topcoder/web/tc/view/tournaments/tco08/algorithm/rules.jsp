@@ -36,7 +36,7 @@
         
         <div class="sub_content">
             <h3>Overview of the Tournament</h3>
-            <p>The 2008 TopCoder Open Algorithm Competition ("Algorithm Competition") will take place between January 14 and May 15, 2008 and is part of the 2008 TopCoder Open ("Tournament"). It will consist of three (3) online qualification rounds, four (4) online elimination rounds and three (3) onsite final rounds: the Semifinal, Wildcard and Championship rounds. The prize purse for the Algorithm Competition is $75,000 in cash. Up to 72 competitors will win a cash prize and up to 300 competitors will receive a participatory prize for participating in Round 3.  The top 72 competitors in the online rounds will advance to the onsite Semifinal round held at the Mirage Hotel and Casino in Las Vegas, Nevada, USA, on May 11 - May 15, 2008.</p>
+            <p>The 2008 TopCoder Open Algorithm Competition ("Algorithm Competition") will take place between January 14 and May 15, 2008 and is part of the 2008 TopCoder Open ("Tournament"). It will consist of three (3) online qualification rounds, four (4) online elimination rounds and three (3) onsite final rounds: the Semifinal, Wildcard and Championship rounds. The prize purse for the Algorithm Competition is $70,000 in cash. Up to 72 competitors will win a cash prize and up to 300 competitors will receive a participatory prize for participating in Round 3.  The top 72 competitors in the online rounds will advance to the onsite Semifinal round held at the Mirage Hotel and Casino in Las Vegas, Nevada, USA, on May 11 - May 15, 2008.</p>
             
             <a name="eligibility"></a>
             <h3>Eligibility</h3>
@@ -62,7 +62,7 @@
                 <li>Competed in a TopCoder Algorithm rated event between November 1, 2007 and February 1, 2008; and</li>
                 <li>Competed in a total of at least three (3) TopCoder rated events; and</li>
                 <li>Registered for the Algorithm Competition; and</li>
-                <li>Meet all other Algorithm Competition and Tournament eligibility criteria.</li>
+                <li>Met all other Algorithm Competition and Tournament eligibility criteria.</li>
             </ul>
             <p><strong>Qualification Spots</strong> - All competitors who do not receive an automatic berth and who meet all of the Algorithm Competition and Tournament eligibility criteria can compete for one of the remaining 1,650 qualification spots in the Algorithm Competition. Three (3) Qualification Rounds will be held and the top 550 scoring competitors from each Qualification Round will win a spot in Online Round 1. The competitors who receive an automatic berth into Online Round 1 will not be allowed to compete in any of the Qualification Rounds. Those competitors who have already competed in and/or qualified for the Algorithm Competition may not compete in future Qualification Rounds.</p>
             <p>The schedule and details of the Qualification Rounds are as follows:</p>
@@ -77,21 +77,21 @@
                     <th>Maximum # of Advancers</th>
                 </tr>
                 <tr class="dark">
-                    <td>Qualif. Round 1</td>
+                    <td>Qual. Round 1</td>
                     <td>Tuesday, February 5<br />Reg: 6:00 PM - 8:55 PM<br />START: 9:00 PM</td>
-                    <td>All members who have<br />not previously qualified -<br />limited to the first 1,500<br />participants to register</td>
+                    <td>All members who have<br />not previously qualified -<br />limited to the first 1,650<br />participants to register</td>
                     <td>550</td>
                 </tr>
                 <tr class="light">
-                    <td>Qualif. Round 2</td>
+                    <td>Qual. Round 2</td>
                     <td>Saturday, February 9<br />Reg: 10:00 AM - 12:55 PM<br />START: 1:00 PM</td>
-                    <td>All members who have not<br />previously qualified or<br />competed in Round 1 -<br />limited to the first 1,500<br />participants to register</td>
+                    <td>All members who have not<br />previously qualified or<br />competed in Round 1 -<br />limited to the first 1,650<br />participants to register</td>
                     <td>550</td>
                 </tr>
                 <tr class="dark">
-                    <td>Qualif. Round 3</td>
+                    <td>Qual. Round 3</td>
                     <td>Tuesday, February 12<br />Reg: 4:00 AM - 6:55 AM<br />START: 7:00 AM</td>
-                    <td>All members who have not<br />previously qualified or<br />competed in Rounds 1 or 2 -<br />limited to the first 1,500<br />participants to register</td>
+                    <td>All members who have not<br />previously qualified or<br />competed in Rounds 1 or 2 -<br />limited to the first 1,650<br />participants to register</td>
                     <td>550</td>
                 </tr>
                 <tr class="light">
@@ -99,7 +99,7 @@
                 </tr>
             </table>
             <br />
-            <p>The format for each Qualification Round will be the same as algorithm competition held outside the Tournament and is outlined in the Competition Round Structure section.  At the conclusion of their qualification attempt, competitors will be rated based on their performance against other competitors in the same round. All qualifying competitors will be assigned seeds for the Algorithm Competition based on their Algorithm rating following the Qualification Rounds.</p>
+            <p>The format for each Qualification Round will be the same as algorithm competitions held outside the Tournament and is outlined in the Competition Round Structure section.  At the conclusion of their qualification attempt, competitors will be rated based on their performance against other competitors in the same round. All qualifying competitors will be assigned seeds for the Algorithm Competition based on their Algorithm rating following the Qualification Rounds.</p>
             <p>In the event of a tie for any advancing position during the Qualification Round, the tie will be resolved in the following manner:</p>
             <ol>
                 <li>By reference to the competitors' algorithm competition rating (higher is better) prior to the Qualification Round.</li>
@@ -146,8 +146,7 @@
                     <td>72</td>
                 </tr>
                 <tr class="dark">
-                    <td colspan="4">* NOTE: All times are Eastern Standard Time (UTC/GMT -5). In the event that a round may not be held at the designated time for any reason, the round will be held the following day at the same time.<br />
-                    ** If less than 1,800 competitors qualify to compete in Online Round 1, the maximum number of competitors that will be assigned into any section will be (Total Number of Competitors / 3), rounded up.</td>
+                    <td colspan="4">* NOTE: All times are Eastern Standard Time (UTC/GMT -5). In the event that a round may not be held at the designated time for any reason, the round will be held the following day at the same time.</td>
                 </tr>
             </table>
             <br />
@@ -198,24 +197,24 @@
                 </tr>
                 <tr class="light">
                     <td>Wildcard Round</td>
-                    <td>Tuesday, May 13, 5:00 PM</td>
+                    <td>Tuesday, May 13, 7:00 PM</td>
                 </tr>
                 <tr class="dark">
                     <td>Championship Round</td>
-                    <td>Tuesday, May 15, 10:00 AM</td>
+                    <td>Thursday, May 15, 10:00 AM</td>
                 </tr>
             </table>
             <br />
-            <p><strong>Travel Confirmation</strong><br />
-            All competitors who advance from Online Round 4 will travel to the Mirage Hotel and Casino in Las Vegas, Nevada, USA on Monday, May 12, 2008 to compete in the onsite rounds of the Algorithm Competition held on Tuesday, May 13. All onsite competitors must arrive at the Mirage no later than 5:00 PM EDT on Monday, May 12, 2008.</p>
+            <h4>Travel Confirmation</h4>
+            <p>All competitors who advance from Online Round 4 will travel to the Mirage Hotel and Casino in Las Vegas, Nevada, USA on Monday, May 12, 2008 to compete in the onsite rounds of the Algorithm Competition held on Tuesday, May 13. All onsite competitors must arrive at the Mirage no later than 5:00 PM EDT on Monday, May 12, 2008.</p>
             <p>All competitors must confirm their attendance at the onsite event no later than 5:00 PM EDT (UTC/GMT -4) on Wednesday, March 26, 2008, and must have acquired any necessary travel visas and know for certain that they can travel to the United States. If a competitor is required to travel from outside the United States, it is necessary for the competitor to show proof of a visa and/or passport by 5:00 PM EDT (UTC/GMT -4) on Wednesday, March 26, 2008. Competitors may email a copy of their documents to <a href="mailto:jdamato@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a>. Competitors who fail to meet this requirement will be replaced as an onsite competitor.</p>
-            <p><strong>Visa Assistance</strong><br />
-            At the end of Online Round 1, TopCoder will issue visa invitation letters to competitors advancing to Online Round 2 upon the request of international competitors who may require such a letter. All competitors who advance beyond Online Round 1 will receive a visa invitation letter request form. As soon as a competitor fills out the form in its entirety and returns it to TopCoder, the visa letter will be mailed.  Competitors have until 5:00 PM EDT (GMT/UTC -4) on Wednesday, March 12, 2008 to request a letter. Visas can take a significant amount of time to obtain in certain countries. It is in the best interest of competitors who need such a letter to request one well before the deadline.  The cost of obtaining a visa is the sole responsibility of the competitor. Outside of issuing an invitation letter upon request, TopCoder will not assist competitors in the process of obtaining a travel visa. See more information about <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=getVisa">travel visas</a>.</p>
-            <p><strong>Travel Details</strong><br />
-            TopCoder will provide air travel arrangements for each competitor. The flight will be reserved and paid for by TopCoder and will be for arrival on May 12, 2008 and departure on May 15, 16 or 17, 2008, whichever is most cost-effective.  At TopCoder's sole discretion, TopCoder will pay for each competitor's airfare up to $1,500, but reserves the right to make exceptions to the maximum amount based on individual circumstances. If a competitor wishes to take a flight other than the one provided by TopCoder and/or wishes to stay at a hotel other than the Mirage, or wishes to stay additional nights at the Mirage or another hotel, the competitor shall be responsible for the entire cost of such deviation from the accommodations and travel arrangements provided by TopCoder.  In addition, competitor agrees to reimburse TopCoder for any costs, penalties, fines or fees incurred by TopCoder as a result of such deviation.</p>
+            <h4>Visa Assistance</h4>
+            <p>At the end of Online Round 1, TopCoder will issue visa invitation letters to competitors advancing to Online Round 2 upon the request of international competitors who may require such a letter. All competitors who advance beyond Online Round 1 will receive a visa invitation letter request form. As soon as a competitor fills out the form in its entirety and returns it to TopCoder, the visa letter will be mailed.  Competitors have until 5:00 PM EDT (GMT/UTC -4) on Wednesday, March 12, 2008 to request a letter. Visas can take a significant amount of time to obtain in certain countries. It is in the best interest of competitors who need such a letter to request one well before the deadline.  The cost of obtaining a visa is the sole responsibility of the competitor.  See more information about <a target="_blank" href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early">travel visas</a>.</p>
+            <h4>Travel Details</h4>
+            <p>TopCoder will provide air travel arrangements for each competitor. The flight will be reserved and paid for by TopCoder and will be for arrival on May 12, 2008 and departure on May 15, 16 or 17, 2008, whichever is most cost-effective.  At TopCoder's sole discretion, TopCoder will pay for each competitor's airfare up to $1,500, but reserves the right to make exceptions to the maximum amount based on individual circumstances. If a competitor wishes to take a flight other than the one provided by TopCoder and/or wishes to stay at a hotel other than the Mirage, or wishes to stay additional nights at the Mirage or another hotel, the competitor shall be responsible for the entire cost of such deviation from the accommodations and travel arrangements provided by TopCoder.  In addition, competitor agrees to reimburse TopCoder for any costs, penalties, fines or fees incurred by TopCoder as a result of such deviation.</p>
             <p>Ground transportation to and from McCarran International Airport will be provided for each competitor by TopCoder, as well as hotel accommodations and certain meals. All other expenses are the responsibility of the competitor. TopCoder will not provide travel or lodging accommodations for any guests of a competitor.</p>
-            <p><strong>Competition Room Assignments</strong><br />
-            TopCoder will determine the assignments for rooms during the Semifinal round prior to the start of such round, in the following manner:<br />
+            <h4>Competition Room Assignments</h4>
+            <p>TopCoder will determine the assignments for rooms during the Semifinal round prior to the start of such round, in the following manner:<br />
             All competitors will be arranged by their tournament seed. Starting with the highest seeded competitor and proceeding in order, a competitor will be assigned to room 1, then room 2, then room 3, then room 3 again, then room 2, then room 1. This pattern will continue (1, 2, 3, 3, 2, 1) until all competitors are assigned to a competition room.</p>
             <p>The Semifinal Round will consist of three (3) rooms with twenty-four (24) competitors per room. The three (3) highest scoring competitors in each room will advance to the Championship Round. The next four (4) highest scoring competitors in each room will participate in one (1) Wildcard Round. The highest scoring competitor of the Wildcard Round will also advance to the Championship Round.</p>
             <p>The Championship Round will be a single round with ten (10) competitors. Placement in the Championship Round is determined by comparing the total points of each competitor during the Championship Round. The winner will be the competitor with the highest point total for the Championship round.</p>
@@ -229,7 +228,7 @@
             
             <a name="prizes"></a>
             <h3>About the Prizes</h3>
-            <p>The Algorithm Competition will award prizes to up to 300 competitors advancing to Online Round 3 and $75,000 in cash prizes to the competitors who compete in the Onsite Rounds. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner. Prizes will be distributed as follows:</p>
+            <p>The Algorithm Competition will award prizes to up to 300 competitors participating in Online Round 3 and $70,000 in cash prizes to the competitors who compete in the Onsite Rounds. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner. Prizes will be distributed as follows:</p>
             <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                 <tr>
                     <th colspan="2">Prizes</th>
