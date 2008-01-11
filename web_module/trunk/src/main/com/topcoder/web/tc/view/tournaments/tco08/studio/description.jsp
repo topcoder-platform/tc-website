@@ -25,7 +25,7 @@
         <h2>Studio Design Competition</h2>
         
         <div class="sub_content">
-            <p>TopCoder Studio is thrilled to announce the 2008 TopCoder Open! Competitors will put their design talent to the test during the 7-week Studio Design Competition (SDC) Online Round leading up to the Finals, being held at the Mirage Hotel in Las Vegas, Nevada, USA. Twelve of the most creative collegiate competitors will win a trip to Las Vegas where they will compete in the Championship Round for the chance to win cash prizes totaling $45,000.</p>
+            <p>TopCoder Studio is thrilled to announce the 2008 TopCoder Open! Competitors will put their design talent to the test during the 8-week Studio Design Competition (SDC) Online Round leading up to the Finals, being held at the Mirage Hotel in Las Vegas, Nevada, USA. Twelve of the most creative competitors will win a trip to Las Vegas where they will compete in the Championship Round for the chance to win cash prizes totaling $45,000.</p>
             
             <h3>What is TopCoder Studio?</h3>
             <p>TopCoder Studio challenges top creative minds from around the world to present their best design concepts to clients searching for a unique user-based perspective. By tapping into the talent of creative people with multiple specialties, new approaches and innovative concepts rise to the top. During engaging competitions, Studio members have just the right mix of client guidance, TopCoder Studio support, and creative freedom to break down barriers common in traditional client-designer relationships.</p>
@@ -35,11 +35,9 @@
             <p>Contest specifications are posted on Studio and members submit their designs according to those specs. Submissions are then screened against the contest specifications by the Contest Administrator and either passed or failed. Winners are selected by the clients.</p>
             <p>Learn more about <a target="_blank" href="http://studio.topcoder.com/">TopCoder Studio</a></p>
             <p>When is the competition? See the <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=schedule">schedule</a>.</p>
-            <p>Read the official <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=rules">rules and regulations</a> for important details.</p>
+            <p>It is important for you to read the official <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=rules">rules and regulations</a> for important details.</p>
             <p>The competition is free and you must be a member who is 18 years or older, as well as meet all eligibility criteria, in order to participate.</p>
             
-            <h3>How to Register for the Studio Design Competition</h3>
-            <p>Click <a href="/tco08?module=ViewRegistration&et=7">here</a> to register for the TCO08 Studio Design Competition.</p>
     
         </div><%-- .sub_content --%>
         
