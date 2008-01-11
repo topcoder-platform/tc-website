@@ -22,7 +22,7 @@
     </jsp:include>
 
 
-        <h2>Marathon Match Official Rules and Regulations</h2>
+        <h2>Marathon Competition Official Rules and Regulations</h2>
         
         <p>
             <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -44,7 +44,7 @@
                 <li>Must be at least 18 years of age (as of January 30, 2008); AND</li>
                 <li>Must currently be eligible for participation in TopCoder competitions (i.e., not suspended from TopCoder).</li>
             </ul>
-            <p>The Tournament and the Competition are void in the Quebec province of Canada and where prohibited by applicable law. Residents of Cuba, Iran, Iraq, North Korea, Sudan, or Syria are ineligible to receive prizes and are ineligible to attend the onsite round of the Competition as competitors.</p>
+            <p>The Tournament and the Competition are void in the Quebec province of Canada and where prohibited by applicable law. Residents of Cuba, Iran, North Korea, Sudan, or Syria are ineligible to receive prizes and are ineligible to attend the onsite round of the Competition as competitors.</p>
             <p>Employees of TopCoder, Inc. and of all Tournament and Competition sponsors, regardless of commitment date as sponsor, including any companies involved in the production (including prize suppliers), implementation and distribution of the Tournament and/or Competition and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the Tournament and/or Competition and members of the immediate families (parent, child, sibling, and spouse of each) and/or persons living in the same household as such persons, are ineligible to participate in the Tournament and the Competition.</p>
             <p>If a competitor's employer signs on as a sponsor of the Tournament and/or the Competition after January 14, 2008, then that competitor will be removed from further participation in the Tournament and Competition. TopCoder members who are performing internships for any Tournament and/or Competition sponsor between January 14, 2008 and May 15, 2008 are also ineligible to participate.</p>
             <p>Those members who are eligible to compete in any of the four (4) Tournament competitions will be permitted to participate in any/all of them online. However, in the event a competitor becomes a finalist in more than one competition and the onsite competition times overlap, the competitor must choose one competition in which to participate as a finalist by March 26, 2008.</p>
@@ -57,39 +57,39 @@
             <a name="structure"></a>
             <h3>Online Elimination Rounds</h3>
             <p>Competitors must register for each round separately on the TopCoder web site. All start times will be communicated as Eastern Standard Time (UTC/GMT -5). If a competitor does not participate, for any reason, in an online round to which he/she has advanced, it will be treated as an automatic loss in that round of competition.</p>
-            <p>Competitors will be assigned a seed for the Competition based on their Marathon Match rating prior to Online Round 1.</p>
+            <p>Competitors will be assigned a seed for the Competition based on their Marathon rating prior to Online Round 1.</p>
             <p>The dates and times of the online rounds of the Competition are as follows:</p>
             <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                 <tr>
                     <th>Round of Competition</th>
-                    <th>Start Date and Time*</th>
-                    <th>End Date and Time*</th>
+                    <th>Start Date and Time</th>
+                    <th>End Date and Time</th>
                     <th>Maximum # of Competitors</th>
                     <th>Advancers</th>
                 </tr>
                 <tr class="dark">
                     <td>Online Round 1</td>
-                    <td>Wednesday,<br />January 30 Noon</td>
-                    <td>Wednesday,<br />February 6 Noon</td>
+                    <td>Wednesday,<br />January 30<br />Noon*</td>
+                    <td>Wednesday,<br />February 6<br />Noon*</td>
                     <td>Unlimited</td>
                     <td>300</td>
                 </tr>
                 <tr class="light">
                     <td>Online Round 2</td>
-                    <td>Wednesday,<br />February 13 Noon</td>
-                    <td>Wednesday,<br />February 20 Noon</td>
+                    <td>Wednesday,<br />February 13<br />Noon*</td>
+                    <td>Wednesday,<br />February 20<br />Noon*</td>
                     <td>300</td>
                     <td>100</td>
                 </tr>
                 <tr class="dark">
                     <td>Online Round 3</td>
-                    <td>Wednesday,<br />February 27 Noon</td>
-                    <td>Wednesday,<br />March 12  Noon</td>
+                    <td>Wednesday,<br />February 27<br />Noon*</td>
+                    <td>Wednesday,<br />March 12<br />Noon**</td>
                     <td>100</td>
                     <td>12</td>
                 </tr>
                 <tr class="light">
-                    <td colspan="5">*Time listed in Eastern Standard Time (UTC/GMT -5). In the event that a round may not be held at the designated time for any reason, the round will start the following day at the same time.</td>
+                    <td colspan="5">*Time listed in Eastern Standard Time (UTC/GMT -5). In the event that a round may not be held at the designated time for any reason, the round will start the following day at the same time.<br />**Time listed in Eastern Daylight Time (UTC/GMT -4).</td>
                 </tr>
             </table>
             <br />
@@ -118,10 +118,10 @@
             
             <h3>Onsite Championship Round</h3>
             <h4>Important Confirmation</h4>
-            <p>The twelve (12) competitors who advance from Online Round 3 will travel to the Mirage Hotel and Casino in Las Vegas, Nevada, USA, to compete in the Championship round of the Competition on Monday, May 12, 2008. All onsite competitors must arrive at the Mirage no later than 6:00 PM PDT on Sunday, May 11, 2008.</p>
+            <p>The twelve (12) competitors who advance from Online Round 3 will travel to the Mirage Hotel and Casino in Las Vegas, Nevada, USA, to compete in the Championship round of the Competition on Monday, May 12, 2008. All onsite competitors must arrive at the Mirage no later than 5:00 PM PDT on Sunday, May 11, 2008.</p>
             <p>All competitors must confirm their attendance at the onsite Championship no later than 5:00 PM EDT (UTC/GMT -4) on Wednesday, March 26, 2008, and must have acquired any necessary travel visas and know for certain that they can travel to the United States. If a competitor is required to travel from outside the United States, it is necessary for the competitor to show proof of a visa and/or passport by 5:00 PM EDT (UTC/GMT -4) on Wednesday, March 26, 2008. Competitors may email a copy of their documents to <a href="mailto:jdamato@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a>. Competitors who fail to meet this requirement will be replaced as an onsite finalist.</p>
             <h4>Visa Assistance</h4>
-            <p>At the end of Online Round 1, TopCoder will issue visa invitation letters to competitors advancing to Online Round 2 upon the request of international competitors who may require such a letter. All competitors who advance beyond Online Round 1 will receive a visa invitation letter request form. Competitors have until 5:00 PM EDT (GMT/UTC -4) on Wednesday, March 12, 2008 to request a letter. As soon as a competitor fills out the form in its entirety and returns it to TopCoder, the visa letter will be mailed.  Competitors have until 5:00 PM EDT (GMT/UTC -4) on Wednesday, March 12, 2008, to request a letter.  Visas can take a significant amount of time to obtain in certain countries. It is in the best interest of competitors who need such a letter to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. Outside of issuing an invitation letter upon request, TopCoder will not assist competitors in the process of obtaining a travel visa. See more information about <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=getVisa">travel visas</a>.</p>
+            <p>At the end of Online Round 1, TopCoder will issue visa invitation letters to competitors advancing to Online Round 2 upon the request of international competitors who may require such a letter. All competitors who advance beyond Online Round 1 will receive a visa invitation letter request form. Competitors have until 5:00 PM EDT (GMT/UTC -4) on Wednesday, March 12, 2008 to request a letter. As soon as a competitor fills out the form in its entirety and returns it to TopCoder, the visa letter will be mailed.  Competitors have until 5:00 PM EDT (GMT/UTC -4) on Wednesday, March 12, 2008, to request a letter.  Visas can take a significant amount of time to obtain in certain countries. It is in the best interest of competitors who need such a letter to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. See more information about <a target="_blank" href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early">travel visas</a>.</p>
             <h4>Travel Details</h4>
             <p>TopCoder will provide air travel arrangements for each competitor. The flight will be reserved by and paid for by TopCoder and will be for arrival on May 11, 2008 and departure on May 15, 16 or 17, 2008, whichever is most cost-effective. At TopCoder's sole discretion, TopCoder will pay for each competitor's airfare up to $1,500, but reserves the right to make exceptions to the maximum amount based on individual circumstances. If a competitor wishes to take a flight other than the one provided by TopCoder and/or wishes to stay at a hotel other than the one provided by TopCoder, or wishes to stay additional nights at the Mirage or another hotel, the competitor shall be responsible for the entire cost of such deviation from the accommodations and travel arrangements provided by TopCoder.  In addition, competitor agrees to reimburse TopCoder for any costs, penalties, fins or fees incurred by TopCoder as a result of such deviation.</p>
             <p>Ground transportation to and from McCarran International Airport will be provided for each competitor by TopCoder, as well as hotel accommodations and certain meals for each competitor. All other expenses are the responsibility of the competitor. TopCoder will not provide travel or lodging accommodations for any guests of a competitor.</p>
@@ -137,7 +137,7 @@
             
             <a name="prizes"></a>
             <h3>About the Prizes</h3>
-            <p>Prizes will be awarded to a maximum of 200 competitors in the Competition who advance to Online Round 3. Cash prizes up to $25,000 will be awarded at the onsite Championship Round. Any and all applicable taxes on prizes are the sole responsibility of the competitors. Prizes will be distributed as follows:</p>
+            <p>Prizes will be awarded to a maximum of 200 competitors in the Competition who participate in Online Round 3. Cash prizes up to $25,000 will be awarded at the onsite Championship Round. Any and all applicable taxes on prizes are the sole responsibility of the competitors. Prizes will be distributed as follows:</p>
             <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                 <tr>
                     <th colspan="2">Prizes</th>
@@ -168,7 +168,7 @@
                 </tr>
                 <tr class="light">
                     <td>Up to 200 competitors who compete in Online Round 3</td>
-                    <td>Limited edition 2008 TopCoder Opent-shirt</td>
+                    <td>Limited edition 2008 TopCoder Open t-shirt</td>
                 </tr>
                 <tr class="dark">
                     <td colspan="2">* Prize will be awarded at the conclusion of the Championship Round. Winner must be present at the onsite Championship announcement to receive prize.</td>
