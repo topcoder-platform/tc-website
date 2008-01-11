@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">01.11.08 1:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule">TCHS08 Online Round 1</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.17.07 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=overview">TCHS08 registration is open</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.19.07 6:30 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=20670">TCHS08 website winner</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.14.07 12:00 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=20670">Vote for the TCHS08 website</A></td></tr>
