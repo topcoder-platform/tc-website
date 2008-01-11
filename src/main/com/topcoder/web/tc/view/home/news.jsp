@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.11.08<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">TCHS Online Round 1</A></span><br /><br />
+        The first round of the 2008 TCHS tournament starts tomorrow at 1:00 PM EST (UTC/GMT -5).  Don't miss the action as high school students square to start the tournament.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">details</a> | 
+        <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=590134">discuss this</A> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />01.08.08<br />12:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -162,18 +175,5 @@
          <A href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions2">details</A> | 
          <tc-webtag:forumLink forumID="518480" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />12.21.07<br />11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.networkworld.com/podcasts/panorama/2007/122007pan-topcoder.html' refer='/tc' />">Network World: Coder contests drive app development [PODCAST]</A></span><br /><br />
-        Network World's Jason Meserve looks at a different spin on outsourcing application development with TopCoder's Mike Morris, senior vice president of software development.  This podcast discusses hosting application development tournaments as a means to find talent and create robust code.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.networkworld.com/podcasts/panorama/2007/122007pan-topcoder.html' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="518619" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
    
