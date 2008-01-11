@@ -69,11 +69,7 @@
                     <span style="padding-left:125px;"><a href="#linktonews"><img src="/i/pressroom/featured_tco07.png" width="440" height="136" ></a></span>
                     --%>
                     <div style="padding-left:90px;">
-                        <map name="tchs08">
-                        <area shape="rect" alt="" coords="10,10,270,135" href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=overview" />
-                        <area shape="rect" alt="" coords="290,12,455,135" href="/tc?module=Static&d1=architecture&d2=beta" />
-                        </map>
-                        <img src="/i/home/tchs08ANDarchComp.png" alt="TCHS08" usemap="#tchs08" style="display: block;" />
+                        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='/tc' />"><img src="/i/home/architectureBeta.jpg" alt="Architecture Competition" /></a>
                     </div>
                 </div>
                 <%--
