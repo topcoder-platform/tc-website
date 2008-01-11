@@ -64,8 +64,8 @@
                 </tr>
                 <tr class="dark">
                     <td>Finals</td>
-                    <td>Monday, May 12<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=12&year=2008&hour=12&min=0&sec=0&p1=98' refer='tco08_maraSchedule' />">9:00 AM***</a></td>
-                    <td>Monday, May 12<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=12&year=2008&hour=12&min=0&sec=0&p1=98' refer='tco08_maraSchedule' />">5:00 PM***</a></td>
+                    <td>Monday, May 12<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=12&year=2008&hour=12&min=0&sec=0&p1=127' refer='tco08_maraSchedule' />">9:00 AM***</a></td>
+                    <td>Monday, May 12<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=12&year=2008&hour=12&min=0&sec=0&p1=127' refer='tco08_maraSchedule' />">5:00 PM***</a></td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
