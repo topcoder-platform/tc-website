@@ -44,9 +44,10 @@
 
 
 <p>
-    5.13.10 - 2008.01.10
+    5.14.0 - 2008.01.11
     <ul>
         <li>TCO08 minisite -pulky</li>
+        <li>Added note to registration that user names can't be changed -dok</li>
     </ul>
 </p>
 
