@@ -26,7 +26,7 @@
         <div class="sub_content">
         
             <h3>Registration</h3>
-            <p>Registration for the 2008 TopCoder Open Studio Design Competition will open at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=1&day=14&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_studioSchedule' />">9:00 AM EST</a> on Monday, January 14 and will close at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=5&year=2008&hour=17&min=0&sec=0&p1=98' refer='tco08_studioSchedule' />">5:00 PM EST</a> on Wednesday, March 5, 2008.</p>
+            <p>Registration for the 2008 TopCoder Open Studio Design Competition will open at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=1&day=14&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_studioSchedule' />">9:00 AM EST</a> on Monday, January 14 and will close at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=3&year=2008&hour=17&min=0&sec=0&p1=98' refer='tco08_studioSchedule' />">5:00 PM EST</a> on Monday, March 3, 2008.</p>
             <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                 <tr>
                     <th>Schedule</th>
