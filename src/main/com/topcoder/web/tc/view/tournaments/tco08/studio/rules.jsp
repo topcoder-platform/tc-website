@@ -55,7 +55,7 @@
             
             <a name="registration"></a>
             <h3>Registration</h3>
-            <p>Registration for the SDC will open at 9:00 AM EST on Monday, January 14, 2008, and will close at 5:00 PM EST on Wednesday, March 11, 2008. In order to be eligible to compete in the SDC, competitors must register separately for the SDC. There is no limit to the number of competitors in the SDC; however each competitor may only register once.</p>
+            <p>Registration for the SDC will open at 9:00 AM EST on Monday, January 14, 2008, and will close at 5:00 PM EST on Monday, March 3, 2008. In order to be eligible to compete in the SDC, competitors must register separately for the SDC. There is no limit to the number of competitors in the SDC; however each competitor may only register once.</p>
             
             <a name="placement"></a>
             <h3>Placement Scoring</h3>
