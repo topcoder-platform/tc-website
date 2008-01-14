@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />01.14.08<br />3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd1">TCHS08 Online Round 1 - Problem Set &amp; Analysis</A></span><br /><br />
+      The 2008 TCHS tournament started with Round 1 with 191 competitors. This giving all the posibility to advance with a positive score, which most of the competitors were able to do. For high rated highschoolers the first round was a warm up round.</td>
+         <td class="newsPhoto"><img src="/i/m/vlad_D_big5.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="13298470" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd1">details</A> | 
+         <tc-webtag:forumLink forumID="518887" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />01.14.08<br />1:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -156,21 +172,5 @@
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep07' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="518706" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.27.07<br />11:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm384">SRM 384 - Problem Set &amp; Analysis</A></span><br /><br />
-      The last Single Round Match before Christmas brought together more than 850 competitors. As a present for them we prepared a problem set in which they could play a lot of games. Exactly 3 of 5 problems were mathematical games.</td>
-         <td class="newsPhoto"><img src="/i/m/rasto6sk_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="13396848" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm384">details</A> | 
-         <tc-webtag:forumLink forumID="516081" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
