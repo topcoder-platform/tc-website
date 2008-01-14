@@ -85,13 +85,13 @@
                 <tr class="light">
                     <td>Qual. Round 2</td>
                     <td>Saturday, February 9<br />Reg: 10:00 AM - 12:55 PM<br />START: 1:00 PM</td>
-                    <td>All members who have not<br />previously qualified or<br />competed in Round 1 -<br />limited to the first 1,650<br />participants to register</td>
+                    <td>All members who have<br />not previously qualified -<br />limited to the first 1,650<br />participants to register</td>
                     <td>550</td>
                 </tr>
                 <tr class="dark">
                     <td>Qual. Round 3</td>
                     <td>Tuesday, February 12<br />Reg: 4:00 AM - 6:55 AM<br />START: 7:00 AM</td>
-                    <td>All members who have not<br />previously qualified or<br />competed in Rounds 1 or 2 -<br />limited to the first 1,650<br />participants to register</td>
+                    <td>All members who have<br />not previously qualified -<br />limited to the first 1,650<br />participants to register</td>
                     <td>550</td>
                 </tr>
                 <tr class="light">
