@@ -35,7 +35,7 @@
         
         <div class="sub_content">
             <h3>Overview of the Tournament</h3>
-            <p>The 2008 TopCoder Open Marathon Match Competition ("Competition") will take place between January 14, 2008 and May 15, 2008 and is part of the 2008 TopCoder Open ("Tournament"). It will consist of three (3) online elimination rounds and one (1) onsite final round. The prize purse of the Competition is $25,000.  Up to twelve (12) competitors will win a cash prize, and up to 200 competitors will win a participatory prize for competing in online round 3. The top 12 competitors, as determined by the online rounds, will advance to the onsite Championship round at the Mirage Hotel and Casino in Las Vegas, Nevada, USA on May 12, 2008.</p>
+            <p>The 2008 TopCoder Open Marathon Match Competition ("Competition") will take place between January 14, 2008 and May 15, 2008 and is part of the 2008 TopCoder Open ("Tournament"). It will consist of three (3) online elimination rounds and one (1) onsite final round. The prize purse of the Competition is $25,000.  Up to twelve (12) competitors will win a cash prize, and up to 100 competitors will win a participatory prize for competing in online round 3. The top 12 competitors, as determined by the online rounds, will advance to the onsite Championship round at the Mirage Hotel and Casino in Las Vegas, Nevada, USA on May 12, 2008.</p>
             
             <a name="eligibility"></a>
             <h3>Eligibility</h3>
@@ -167,7 +167,7 @@
                     <td>$625 each</td>
                 </tr>
                 <tr class="light">
-                    <td>Up to 200 competitors who compete in Online Round 3</td>
+                    <td>Up to 100 competitors who compete in Online Round 3</td>
                     <td>Limited edition 2008 TopCoder Open t-shirt</td>
                 </tr>
                 <tr class="dark">
