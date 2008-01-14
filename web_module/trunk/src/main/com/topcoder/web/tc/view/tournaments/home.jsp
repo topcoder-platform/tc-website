@@ -37,7 +37,7 @@
     </jsp:include>
 
 
-
+<%--
    <div class="sectionHeader">Upcoming Tournaments</div>
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
@@ -55,10 +55,31 @@
          </td>
       </tr>
    </table>
+--%>
 
 
    <div class="sectionHeader">Current Tournaments</div>
 
+   <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
+      <tr valign="top">
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=about"><img src="/i/tournament/tco08current.png" alt="2008 TopCoder Open" border="0" /></A><br /></td>
+         <td width="100%">
+         <span class="bodySubtitle">2008 TopCoder&#174; Open</span>
+         <br /><br />
+         May 11 - 15, 2008<br />
+         The Mirage <br />
+         Las Vegas, NV, USA<br />
+         <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=about">Details</A>
+         <br />
+         <%--
+         <A target="_blank" href="/pdfs/tournaments/TCO0*_Program_View.pdf">Program [PDF]</A>
+         <br />
+         --%>
+         <A href="http://studio.topcoder.com/?module=ViewContestResults&ct=2127">Logo Contest</A>
+         </td>
+      </tr>
+   </table>
+   
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
          <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=overview"><img src="/i/tournament/tchs08current.png" alt="2008 TopCoder High School" border="0" /></A><br /></td>
