@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />01.14.08<br />1:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm387">SRM 387 - Problem Set &amp; Analysis</A></span><br /><br />
+      After two matches, competitors have finally remembered what solving Div1 Hard during the match looks like. This match proved to be of average difficulty. The success rate for almost all problems was pretty good.</td>
+         <td class="newsPhoto"><img src="/i/m/Relja_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20641244" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm387">details</A> | 
+         <tc-webtag:forumLink forumID="518802" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.14.08<br />9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='/tc' />">2008 TopCoder Open is here</A></span><br /><br />
@@ -156,21 +172,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm384">details</A> | 
          <tc-webtag:forumLink forumID="516081" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />12.27.07<br />10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm49">TCHS SRM 49 - Problem Set &amp; Analysis</A></span><br /><br />
-      The last High School SRM before the second TCHS Tournament attracted 127 registrants, 15 of them newcomers. They faced a set of a tricky Easy, a Medium that had more passing solutions than Easy, and a rather simple Hard. After the system tests it turned out that only 81 people got a positive score, and 24 of them got all three problems correct.</td>
-         <td class="newsPhoto"><img src="/i/m/Nickolas_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="15635590" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm49">details</A> | 
-         <tc-webtag:forumLink forumID="516575" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
    
