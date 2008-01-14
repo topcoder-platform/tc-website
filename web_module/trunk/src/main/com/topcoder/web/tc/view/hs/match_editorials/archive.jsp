@@ -38,9 +38,22 @@
 <jsp:param name="title" value="Match Editorials"/>
 </jsp:include>
 
+<div class="sectionHeader">Match Editorial Archive - 2008</div>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="3">
+
+    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+    <tr><td valign="middle" class="bodyText" colspan="2">
+    <strong>January</strong></td></tr>
+    <tr><td class="bodyText">01.12.08</td><td class="bodyText" nowrap="0" width="100%">TCHS08 Online Round 1 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd1">Problem Set &amp; Analysis</a></td></tr>
+</table>
+
+<br><br>
+
 <div class="sectionHeader">Match Editorial Archive - 2007</div>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="3">
+   
     <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
     <tr><td valign="middle" class="bodyText" colspan="2">
     <strong>December</strong></td></tr>
