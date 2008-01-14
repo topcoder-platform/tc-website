@@ -41,19 +41,19 @@
                 <tr class="dark">
                     <td>Qual. Round 1</td>
                     <td>Tuesday, February 5<br />Register: 6:00 - 8:55 PM<br /><a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=5&year=2008&hour=21&min=0&sec=0&p1=98' refer='tco08_algoSchedule' />">START: 9:00 PM*</a><br /></td>
-                    <td>1,350</td>
+                    <td>1,650</td>
                     <td>550</td>
                 </tr>
                 <tr class="light">
                     <td>Qual. Round 2</td>
                     <td>Saturday, February 9<br />Register: 10:00 AM - 12:55 PM<br /><a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=9&year=2008&hour=13&min=0&sec=0&p1=98' refer='tco08_algoSchedule' />">START: 1:00 PM*</a><br /></td>
-                    <td>1,350</td>
+                    <td>1,650</td>
                     <td>550</td>
                 </tr>
                 <tr class="dark">
                     <td>Qual. Round 3</td>
                     <td>Tuesday, February 12<br />Register: 4:00 - 6:55 AM<br /><a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=2&day=12&year=2008&hour=7&min=0&sec=0&p1=98' refer='tco08_algoSchedule' />">START: 7:00 AM*</a><br /></td>
-                    <td>1,350</td>
+                    <td>1,650</td>
                     <td>550</td>
                 </tr>
                 <tr>
