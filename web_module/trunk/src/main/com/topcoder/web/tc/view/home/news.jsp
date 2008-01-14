@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.14.08<br />9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='/tc' />">2008 TopCoder Open is here</A></span><br /><br />
+        The 2008 TCO is here!  Five new Champions will be crowned this time in Las Vegas.  Register now for your chance to be one of them.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.11.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">TCHS Online Round 1</A></span><br /><br />
@@ -159,21 +172,5 @@
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm49">details</A> | 
          <tc-webtag:forumLink forumID="516575" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br />12.21.07<br />4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions2">The Best Questions for Would-be C++ Programmers, Part 2</A></span><br /><br />
-      In the second part of this installment we'll tackle some questions regarding more advanced features of the language (the experienced C++ programmers will consider some of these more on the basic side). So let's get to it and work on the second part of this "interview".</td>
-         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="22630158" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions2">details</A> | 
-         <tc-webtag:forumLink forumID="518480" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
    
