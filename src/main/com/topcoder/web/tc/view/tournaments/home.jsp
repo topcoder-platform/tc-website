@@ -80,6 +80,8 @@
       </tr>
    </table>
    
+   <hr width="100%" size="1" noshade="noshade" />
+   
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
          <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=overview"><img src="/i/tournament/tchs08current.png" alt="2008 TopCoder High School" border="0" /></A><br /></td>
