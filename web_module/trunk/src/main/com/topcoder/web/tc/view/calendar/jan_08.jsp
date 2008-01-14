@@ -118,6 +118,14 @@
       <td class="value">13
       </td>
       <td class="value">14
+         <div class="tco08">
+         <div class="emblem"><img src="/i/tournament/tco08/emblem.png" alt="TCO08" /></div>
+         <strong>TCO08 Registration Opens</strong><br />
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">Algo</A></strong>,
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=schedule">CDDC</A></strong>,
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=schedule">MM</A></strong>,
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=schedule">SDC</A></strong><br />
+         9:00 AM
       </td>
       <td class="value">15
          <div class="srm">
@@ -162,6 +170,11 @@
          <strong><A href="/tc?module=MatchDetails&rd=11123">SRM 389</A></strong><br />
          7:00 AM
          </div>
+         <div class="tco08">
+         <div class="emblem"><img src="/i/tournament/tco08/emblem.png" alt="TCO08" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=schedule">CDDC Week 1 Projects Posted</A></strong><br />
+         9:00 AM 
+         </div>
       </td>
       <td class="value">25
       </td>
@@ -180,6 +193,11 @@
       <td class="value">28
       </td>
       <td class="value">29
+         <div class="tco08">
+         <div class="emblem"><img src="/i/tournament/tco08/emblem.png" alt="TCO08" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=schedule">Marathon Registration Closes</A></strong><br />
+         5:00 PM
+         </div>
       </td>
       <td class="value">30
          <div class="long">
@@ -187,11 +205,21 @@
          12:00 NOON<br />
          1 week
          </div>
+         <div class="tco08">
+         <div class="emblem"><img src="/i/tournament/tco08/emblem.png" alt="TCO08" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=schedule">Marathon Round 1</A></strong><br />
+         12:00 NOON
+         </div>
       </td>
       <td class="value">31
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br />
          9:00 AM
+         </div>
+         <div class="tco08">
+         <div class="emblem"><img src="/i/tournament/tco08/emblem.png" alt="TCO08" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=schedule">CDDC Week 2 Projects Posted</A></strong><br />
+         9:00 AM 
          </div>
       </td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>

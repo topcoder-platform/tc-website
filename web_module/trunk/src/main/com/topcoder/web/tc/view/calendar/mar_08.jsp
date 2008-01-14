@@ -62,6 +62,11 @@
       <td class="empty">&#160;</td>
       <td class="empty">&#160;</td>
       <td class="value">1
+         <div class="tco08">
+         <div class="emblem"><img src="/i/tournament/tco08/emblem.png" alt="TCO08" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">Algo Round 3</A></strong><br />
+         1:00 PM 
+         </div>
       </td>
    </tr>
 
@@ -69,6 +74,11 @@
       <td class="value">2
       </td>
       <td class="value">3
+         <div class="tco08">
+         <div class="emblem"><img src="/i/tournament/tco08/emblem.png" alt="TCO08" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=schedule">Studio Registration Closes</A></strong><br />
+         5:00 PM
+         </div>
       </td>
       <td class="value">4
       </td>
@@ -87,6 +97,11 @@
       <td class="value">7
       </td>
       <td class="value">8
+         <div class="tco08">
+         <div class="emblem"><img src="/i/tournament/tco08/emblem.png" alt="TCO08" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">Algo Round 4</A></strong><br />
+         1:00 PM 
+         </div>
       </td>
    </tr>
 
