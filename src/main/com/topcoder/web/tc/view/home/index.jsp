@@ -104,9 +104,9 @@
         <img src="/i/home/tccc07_ppa.png" alt="TCCC07 Prestigious Professor Program" usemap="#tccc07" style="display: block;" />
         --%>
         
-        <%-- TCHS08 --%>
+        <%-- TCHS08 
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='homepage' />"><img src="/i/home/tchs08onlineRd1.png" alt="2008 TopCoder High School" /></a>
-        
+        --%>
         
         <%-- TCHS08 And Architecture Competition 
         <map name="tchs08">
@@ -115,6 +115,10 @@
         </map>
         <img src="/i/home/tchs08ANDarchComp.png" alt="TCHS08" usemap="#tchs08" style="display: block;" />
         --%>
+        
+        <%-- TCO08 --%>
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='homepage' />"><img src="/i/home/tco08registerBanner.png" alt="2008 TopCoder Open" /></a>
+        
 
 
         <%-- Architecture 
@@ -461,8 +465,11 @@
             <strong>01.15</strong> - SRM 388 - 11 AM<br /><br />
             <strong>01.19</strong> - TCHS Online Round 2 - 1 PM<br /><br />
             <strong>01.24</strong> - SRM 389 - 7 AM<br /><br />
+            <strong>01.24</strong> - TCO CDDC Week 1 Projects - 9 AM<br /><br />
             <strong>01.26</strong> - TCHS Online Round 3 - 1 PM<br /><br />
             <strong>01.30</strong> - MM 29 - 12 NOON - 1 week<br /><br />
+            <strong>01.30</strong> - TCO Marathon Round 1 - 12 NOON<br /><br />
+            <strong>01.31</strong> - TCO CDDC Week 2 Projects - 9 AM<br /><br />
             <%--<strong>01.13</strong> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br /><br />--%>
         </td>
     </tr>

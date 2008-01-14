@@ -50,9 +50,9 @@
 <img src="/i/home/tccc07_ppa.png" alt="TCCC07 Prestigious Professor Program" usemap="#tccc07" style="display: block;" />
 --%>
 
-<%-- TCHS08 --%>
+<%-- TCHS08 
 <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />"><img src="/i/home/tchs08onlineRd1.png" alt="2008 TopCoder High School" /></a>
-
+--%>
 
 <%-- TCHS08 And Architecture Competition 
 <map name="tchs08">
@@ -61,6 +61,10 @@
 </map>
 <img src="/i/home/tchs08ANDarchComp.png" alt="TCHS08" usemap="#tchs08" style="display: block;" />
 --%>
+
+<%-- TCO08 --%>
+<a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='/tc' />"><img src="/i/home/tco08registerBanner.png" alt="2008 TopCoder Open" /></a>
+
 
 <%-- UML Tool 
 <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />"><img src="/i/home/umltoolRelease.jpg" alt="UML Tool Release" /></a>
