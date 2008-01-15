@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>The 2008 TopCoder&amp; Open - Get ready for the Ultimate TopCoder Event!</title>
+<title>The 2008 TopCoder&reg; Open - Get ready for the Ultimate TopCoder Event!</title>
 <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
