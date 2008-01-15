@@ -12,6 +12,8 @@
     <property name="src.dir" value="src"/>
     <property name="java" value="${src.dir}/main"/>
     <property name="shared" value="../shared/src/main"/>
+    <property name="shared.build" value="${basedir}/../shared"/>
+    <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
     <property name="testjava" value="${src.dir}/testcases"/>
     <property name="resources" value="resources"/>
     <property name="conf" value="conf"/>
@@ -89,22 +91,12 @@
     </target>
 
     <target name="compile_shared" depends="init" unless="compile_shared_set">
-        <javac
-                srcdir="${shared}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.5"
-                target="1.5"
-                >
-        </javac>
-        <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
-        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
+        <ant dir="${shared.build}" target="jar"/>
+        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
         <property name="compile_shared_set" value="true"/>
     </target>
 
-    <target name="compile" depends="init,jar_shared" unless="compile_set">
+    <target name="compile" depends="init,compile_shared" unless="compile_set">
         <ant antfile="build_tc.xml" target="jar_shared"/>
         <ant antfile="build_tc.xml" target="compile"/>
         <ant antfile="build_tc.xml" target="jar_common"/>
