@@ -39,14 +39,14 @@
                 <h2>Registration</h2>
 
                         <form name="terms" method="post" action="/tco08">
-                            <input name="module" value="SubmitRegistration" type="hidden">
-                            <input name="et" value="<%=eventType%>" type="hidden">
+                            <input name="module" value="SubmitRegistration" type="hidden" />
+                            <input name="et" value="<%=eventType%>" type="hidden" />
 
                             <p align="center">To complete your registration for the <%=event.getDescription()%> you must
                                 <br /><strong>read and agree to</strong> the terms listed below.</p>
 
                             <div align="center">
-                                <iframe width="600" height="300" marginWidth="5" src="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=event.getTerms().getId()%>"></iframe>
+                                <iframe width="600" height="300" marginwidth="5" src="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=event.getTerms().getId()%>"></iframe>
                             </div>
 
                             <div align="center">
