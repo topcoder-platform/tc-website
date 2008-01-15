@@ -130,6 +130,8 @@
       <td class="value">15
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=11122">SRM 388</A></strong><br />
+         <A href="/tc?module=Static&d1=sponsors&d2=bt">BT</A><br />
+         $5,000<br />
          11:00 AM
          </div>
       </td>
