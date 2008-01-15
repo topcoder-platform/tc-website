@@ -118,6 +118,14 @@
                         <div style="text-align: center; padding: 15px 10px 0 71px; margin: 0;">
                             <strong>December 2007</strong>
                             <br /><studio:handle coderId="22690288"/>: Won $3,400 in three contests
+                            <%--
+                            2008
+                            JANUARY:
+                            2007
+                            DECEMBER:  22690288
+                            NOVEMBER:  22653907
+                            OCTOBER:   22018496
+                            --%>
                         </div>
                     </div>
 
