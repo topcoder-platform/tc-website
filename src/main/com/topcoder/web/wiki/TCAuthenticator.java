@@ -63,6 +63,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     public boolean login(HttpServletRequest request, HttpServletResponse response,
                          String userName, String password, boolean cookie) throws AuthenticatorException {
         log.debug("XXX login called " + userName);
+        long start = System.currentTimeMillis();
 
         try {
 
@@ -79,17 +80,21 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                             checkAndAddEmail(cUser, sub.getUserId());
                             checkAndAddAdmin(userName, cUser);
                             authentication.login(new SimpleUser(sub.getUserId(), userName, password), cookie);
+                            log.info("login(request, response, username, password, cookie) took " + (System.currentTimeMillis() - start) + " ms");
                             return true;
                         } else {
+                            log.info("login(request, response, username, password, cookie) took " + (System.currentTimeMillis() - start) + " ms");
                             return false;
                         }
                     } else {
+                        log.info("login(request, response, username, password, cookie) took " + (System.currentTimeMillis() - start) + " ms");
                         return false;
                     }
                 } catch (Exception e) {
                     if (log.isDebugEnabled()) {
                         e.printStackTrace();
                     }
+                    log.info("login(request, response, username, password, cookie) took " + (System.currentTimeMillis() - start) + " ms");
                     return false;
                 }
 
@@ -97,8 +102,8 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
 
             authentication.logout();
+            log.info("login(request, response, username, password, cookie) took " + (System.currentTimeMillis() - start) + " ms");
             return false;
-
         } catch (Exception e) {
             throw new AuthenticatorException(e.getMessage());
         }
@@ -165,6 +170,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     }
 
     protected Principal getUser(String userName) {
+        long start = System.currentTimeMillis();
         if (log.isDebugEnabled()) {
             log.debug("XXX getUser called ");
         }
@@ -173,11 +179,13 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             PrincipalMgrLocal pmr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
             UserPrincipal p = pmr.getUser(userName);
             if (p.getId() == guest.getId()) {
+                log.info("getUser(userName) took " + (System.currentTimeMillis() - start) + " ms");
                 return null;
             } else {
                 DefaultUser du = new DefaultUser(p.getName());
                 du.setName(p.getName());
                 du.setFullName(du.getName());
+                log.info("getUser(userName) took " + (System.currentTimeMillis() - start) + " ms");
                 return du;
             }
         } catch (NoSuchUserException e) {
@@ -216,17 +224,19 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
      * @return the user that was either created, or retrieved
      */
     private com.atlassian.user.User checkAndAddUser(final String userName) {
+        long start = System.currentTimeMillis();
         com.atlassian.user.User cUser = getUserAccessor().getUser(userName.toLowerCase());
         if (cUser == null) {
             cUser = getUserAccessor().addUser(userName.toLowerCase(), "", "", userName, groups);
         }
 
-
+        log.info("checkAndAddUser(userName) took " + (System.currentTimeMillis() - start) + " ms");
         return cUser;
 
     }
 
     private void checkAndAddAdmin(String userName, com.atlassian.user.User cUser) throws Exception {
+        long start = System.currentTimeMillis();
         boolean isTCAdmin = isAdmin(userName);
         boolean isConfluenceAdmin = hasGroup(cUser, GROUP_TOPCODER_STAFF);
 
@@ -235,21 +245,25 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         } else if (!isTCAdmin && isConfluenceAdmin) {
             getUserAccessor().removeMembership(GROUP_TOPCODER_STAFF, cUser.getName());
         }
+        log.info("checkAddAddAdmin(userNaem, user) took " + (System.currentTimeMillis() - start) + " ms");
 
     }
 
     private String getEmail(long userId) throws Exception {
+        long start = System.currentTimeMillis();
         DataAccess dai = new CachedDataAccess(MaxAge.HALF_HOUR, DBMS.OLTP_DATASOURCE_NAME);
         Request dataRequest = new Request();
         dataRequest.setProperty(DataAccessConstants.COMMAND, "user_email");
         dataRequest.setProperty("uid", String.valueOf(userId));
         ResultSetContainer rsc = dai.getData(dataRequest).get("user_email");
         log.debug("email for user " + userId + " " + rsc.toString());
+        log.info("getEmail(userId) took " + (System.currentTimeMillis() - start) + " ms");
         return rsc.getStringItem(0, "address");
 
     }
 
     private void checkAndAddEmail(com.atlassian.user.User user, long tcUserId) throws Exception {
+        long start = System.currentTimeMillis();
         if (user.getEmail() == null) {
             user.setEmail(getEmail(tcUserId));
             getUserAccessor().saveUser(user);
@@ -260,6 +274,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                 getUserAccessor().saveUser(user);
             }
         }
+        log.info("checkAndAddEmail(user, tcUserId) took " + (System.currentTimeMillis() - start) + " ms");
     }
 
     public Principal getUser(HttpServletRequest request, HttpServletResponse response) {
@@ -278,7 +293,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         } catch (Exception e) {
             log.warn(e.getMessage(), e);
         }
-        log.debug("getUser(request, response) took " + (System.currentTimeMillis() - start) + " ms");
+        log.info("getUser(request, response) took " + (System.currentTimeMillis() - start) + " ms");
         return ret;
     }
 
