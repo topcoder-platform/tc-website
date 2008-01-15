@@ -2,31 +2,36 @@
                  com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="java.util.Map" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>TopCoder High School 2008</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" href="/css/tchs08.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/tournaments/tchs08.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
     <jsp:include page="../../../script.jsp"/>
 </head>
 <body>
 <%ResultSetContainer info = (ResultSetContainer) ((Map) request.getAttribute("info")).get("Affidavit_Info");%>
 
-<div align="center" style="background: transparent;">
-<div class="content">
-<img src="/i/tournament/tchs08/contentN.png" alt="contentN" style="display: block;"/>
+<div id="wrapper">
 
-<jsp:include page="../links.jsp">
+    <jsp:include page="../nav.jsp" >
     <jsp:param name="tabLev1" value=""/>
     <jsp:param name="tabLev2" value=""/>
     <jsp:param name="tabLev3" value=""/>
-</jsp:include>
-
-<div class="contentSpacer">
-<h2>Important Information Needed</h2>
+    </jsp:include>
+    
+    <div id="main"><div id="mainwrapper">
+    
+        <div id="title">
+            <h2>Important Information Needed</h2>
+        </div><%-- #title --%>
+        
+        <div id="content">
 
 <h3>Please read all instructions carefully before proceeding.</h3>
 
@@ -35,7 +40,7 @@
     Monday, February 28, 2008</strong>
 
 <p>
-    <B><U>ROOMING INFORMATION:</U></B><br/>
+    <b><u>ROOMING INFORMATION:</u></b><br/>
     <br/>
     Purdue University<br/>
     Union Club Hotel<br />
@@ -58,7 +63,7 @@
         best to accommodate your request.</p>
 
 
-<B><U>AIRPORT TRANSPORTATION:</U></B>
+<b><u>AIRPORT TRANSPORTATION:</u></b>
 
 <p>
     TopCoder will provide transportation to and from the hotel and airport in Indiana via Hoosier Limousine.
@@ -68,14 +73,15 @@
 </p>
 
 
+<br clear="all" />
 <h3 align="center">Travel Form</h3>
 
-<form name="questForm" method="POST" action="https://<%=ApplicationServer.SERVER_NAME%>/tchs08">
+<form name="questForm" method="post" action="https://<%=ApplicationServer.SERVER_NAME%>/tchs08">
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TravelInfoSubmit"/>
 
 <table cellspacing="0" cellpadding="0" class="stat">
 <tr class="light">
-    <td class="value" colspan="2"><U><B>COMPETITOR INFORMATION:</B></U><br/></td>
+    <td class="value" colspan="2"><u><b>COMPETITOR INFORMATION:</b></u><br/></td>
 </tr>
 
 
@@ -104,7 +110,7 @@
 
 
 <tr class="light">
-    <td class="value" colspan="2"><U><B>Emergency contact:</B></U></td>
+    <td class="value" colspan="2"><u><b>Emergency contact:</b></u></td>
 </tr>
 <tr class="light">
     <td class="valueR"><input type="hidden" name="q36" value="Emergency contact Name"/>Name:</td>
@@ -124,7 +130,7 @@
 </tr>
 
 <tr class="light">
-    <td class="value" colspan="2"><U><B>Media Information:</B></U></td>
+    <td class="value" colspan="2"><u><b>Media Information:</b></u></td>
 </tr>
 
 <tr class="light">
@@ -149,7 +155,7 @@
 </tr>
 
 <tr class="light">
-    <td class="value" colspan="2"><U><B>TRAVEL INFORMATION:</B></U></td>
+    <td class="value" colspan="2"><u><b>TRAVEL INFORMATION:</b></u></td>
 </tr>
 <tr class="light">
     <td class="valueR"><input type="hidden" name="q42" value="Departure City/Airport"/>Departure
@@ -209,8 +215,8 @@
     </td>
 </tr>
 <tr>
-    <td class="sidebarText" align="right" colspan="2">
-        <textarea cols="80" rows="10" name="a49"></textarea>
+    <td class="sidebarText" align="center" colspan="2">
+        <textarea cols="50" rows="10" name="a49"></textarea>
     </td>
 </tr>
 
@@ -222,14 +228,14 @@
 </tr>
 <tr class="light">
     <td class="valueC" colspan="2">
-        <textarea cols="60" rows="10" name="a143"></textarea>
+        <textarea cols="50" rows="10" name="a143"></textarea>
     </td>
 </tr>
 
 
 
 <tr class="light">
-    <td class="value" colspan="2"><U><B>Introduction Information:</B></U></td>
+    <td class="value" colspan="2"><u><b>Introduction Information:</b></u></td>
 </tr>
 
 <tr class="light">
@@ -281,14 +287,14 @@
 </table>
 </form>
 
-</div>
-<div class="footer">
-    Copyright &#169; 2000-2008, TopCoder, Inc. All rights reserved.
-</div>
-<img src="/i/tournament/tchs08/contentS.png" alt="contentS" style="display: block;"/>
-</div>
-</div>
+        </div><%-- #content --%>
+        
+        <jsp:include page="../footer.jsp" />
+
+        </div></div>
+
+
+</div><%-- #wrapper --%>
 
 </body>
 </html>
-

@@ -1,39 +1,35 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Map" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>TopCoder High School 2008</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" href="/css/tchs08.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/tournaments/tchs08.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
     <jsp:include page="../../../script.jsp"/>
 </head>
 <body>
 <%ResultSetContainer info = (ResultSetContainer) ((Map) request.getAttribute("info")).get("Affidavit_Info");%>
 
-<div align="center" style="background: transparent;">
-    <div id="content">
+<div id="wrapper">
 
-        <jsp:include page="../header.jsp" />
-
-        <table cellpadding="0" cellspacing="0" id="spacer">
-        <tbody>
-            <tr>
-                <td id="navSpacer">
-
-<jsp:include page="../links.jsp">
+    <jsp:include page="../nav.jsp" >
     <jsp:param name="tabLev1" value=""/>
     <jsp:param name="tabLev2" value=""/>
     <jsp:param name="tabLev3" value=""/>
-</jsp:include>
-
-                </td>
-                <td id="bodySpacer" width="100%">
-                    <div id="pageBody">
-
-                        <h1><span>Important Information Needed</span></h1>
+    </jsp:include>
+    
+    <div id="main"><div id="mainwrapper">
+    
+        <div id="title">
+            <h2>Important Information Needed</h2>
+        </div><%-- #title --%>
+        
+        <div id="content">
 
 <h2>Please read all instructions carefully before proceeding.</h2>
 
@@ -73,7 +69,7 @@
     <li>
         <% if (info.getIntItem(0, "has_tax_form") == 0) {%>
         <p><strong>TAX FORM</strong> - must be mailed to TopCoder Payments and postmarked on or before  Monday, February 18, 2008.
-            They can be mailed to: TopCoder, Inc., Attn: Jessie D’Amato Ford, 95 Glastonbury Blvd, Glastonbury, CT 06033, USA.
+            They can be mailed to: TopCoder, Inc., Attn: Jessie D'Amato Ford, 95 Glastonbury Blvd, Glastonbury, CT 06033, USA.
         </p>
 
         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN). If you don't
@@ -146,16 +142,15 @@
 
 <p>If you have questions, please contact <a href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</a>.</p>
 
-                    </div>
-                </td>
-            </tr>
-        </table>
 
-
+        </div><%-- #content --%>
+        
         <jsp:include page="../footer.jsp" />
-    </div>
-</div>
+
+        </div></div>
+
+
+</div><%-- #wrapper --%>
 
 </body>
-
 </html>
