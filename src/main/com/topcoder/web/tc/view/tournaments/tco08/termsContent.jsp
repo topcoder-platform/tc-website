@@ -9,7 +9,7 @@
     <title>The 2008 TopCoder&reg; Open - Get ready for the Ultimate TopCoder Event!</title>
     <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <STYLE TYPE="text/css">
+    <style type="text/css">
         html.termsHTML, body.termsBody {
             color: #ffffff;
             background: #000000;
@@ -24,7 +24,7 @@
             margin: 0px 0px 20px 0px;
         }
 
-    </STYLE>
+    </style>
 </head>
 
 <body class="termsBody" style="margin:5px;">
