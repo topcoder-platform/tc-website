@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />01.15.08<br />6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/wiki/display/tc/Bug+Races">Introducing the TopCoder Bug Races!</A></span><br /><br />
+        TopCoder is excited to announce we have opened up our bug fix process to the community as a new brand of competition we're calling The Bug Races. No schedules, just a list of bugs waiting for you to fix them. Just jump into the list of active bug contests, choose one and be the first to solve it to win. It's that simple. For more information, check out the overview page – and be sure to let us know what you think. Happy Hunting!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/wiki/display/tc/Bug+Races">details</a> | 
+        <tc-webtag:forumLink forumID="519026" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />01.15.08<br />10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=MatchDetails&rd=11122">SRM 388 sponsored by BT</A></span><br /><br />
@@ -155,22 +168,5 @@
         <A href="/tc?module=Static&d1=pressroom&d2=pr_010208">details</a> | 
         <tc-webtag:forumLink forumID="518711" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />01.02.08<br />10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm385">SRM 385 - Problem Set &amp; Analysis</A></span><br /><br />
-      The last SRM in the year, authored by <tc-webtag:handle coderId="10574855" context="algorithm"/>, attracted 1359 participants. In Division 1, coders faced a very tough 1100-point problem which eventually no one managed to get right.
-</td>
-         <td class="newsPhoto"><img src="/i/m/dmytro_big4.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="7546003" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm385">details</A> | 
-         <tc-webtag:forumLink forumID="518660" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
