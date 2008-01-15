@@ -40,9 +40,8 @@
     <div align="center"><p style="font-size:12px; color:#ed1c24;"><strong>Sponsors and Event Patrons</strong></p></div><br />
     <ul id="sponsors">
         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly"><img src="/i/tournament/tco08/lilly_logo_nav.png" width="186" height="80" alt="Eli Lilly" /></a></li>
-        <%--
         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=nsa"><img src="/i/tournament/tco08/nsa_logo_nav.png" width="186" height="80" alt="NSA" /></a></li>
-        
+        <%--
         <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
         <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
         <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
@@ -74,9 +73,7 @@
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movies"<% if (tabLev2.equals("onsiteevents")) {%> class="on"<% } %>>Onsite events</a></li>
                         --%>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly"<% if (tabLev2.equals("sponsors")) {%> class="on"<% } %>>Sponsors</a></li>
-                        <%--
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=nsa"<% if (tabLev2.equals("eventpatrons")) {%> class="on"<% } %>>Event Patrons</a></li>
-                        --%>
                         
                     <% } else if (tabLev1.equals(EventType.ALGORITHM_TOURNAMENT_ID.toString())) { %>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a></li>
