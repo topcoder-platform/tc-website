@@ -268,7 +268,7 @@ The milestone tests will be executed against the test executables defined in sec
         <tr class="light"> 
             <td>Registration Phase</td> 
             <td align="center">01.11.2008</td> 
-            <td align="center">01.15.2008</td> 
+            <td align="center">01.17.2008</td> 
             <td align="center">4</td> 
         </tr> 
         <tr class="dark"> 
