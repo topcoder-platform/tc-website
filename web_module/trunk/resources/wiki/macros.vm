@@ -417,9 +417,6 @@ Prints the search box (if Confluence is setup)
 #*
  TC we don't want this stuff because we handle it in the top
         #else
-            #*  for the login link, we want it to carry the current page the user is viewing anonymously, so that once they login they will be taken back
-                to this page. However, we do not want to do this if they are on the logout/signup page/forgot password pages *#
-
             <a href="$seraph.getLinkLoginURL($req)">$action.getText('login.name')</a>
 
             #if (!$settingsManager.getGlobalSettings().isExternalUserManagement())
