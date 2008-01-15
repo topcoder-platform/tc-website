@@ -27,7 +27,7 @@
         <h2>Eli Lilly</h2>
         
         <div style="padding-bottom:10px;">
-            <a target="_blank" alt="TCO08 Sponsored by Eli Lilly" href="<tc-webtag:linkTracking link='http://www.elililly.com/' refer='tco08_lilly' />"><img alt="TCO08 Sponsored by Eli Lilly" src="/i/tournament/tco08/lilly_logo.png" /></a>
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.elililly.com/' refer='tco08_lilly' />"><img alt="TCO08 Sponsored by Eli Lilly" src="/i/tournament/tco08/lilly_logo.png" /></a>
         </div>
         <p>Eli Lilly is proud to sponsor the world's top programming talent at the 2008 TopCoder&reg; Open. This presents a tremendous platform for you to pit your development skills against the strongest field the world has to offer. Very best of Luck to you all - and Enjoy!</p>
         <p>When you want to take up the challenge of a full-time position of employment, the competition does not have to stop. In our case the challenge is to design and build the applications and systems to develop a growing portfolio of best-in-class and first-in-class pharmaceutical products that help people live longer, healthier and more active lives.</p>

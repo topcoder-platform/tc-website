@@ -27,7 +27,7 @@
         <h2>NSA</h2>
         
         <div style="padding-bottom:10px;">
-            <a target="_blank" alt="TCO08 Event Patron - NSA" href="<tc-webtag:linkTracking link='http://www.nsa.gov/' refer='tco08_nsa' />"><img alt="TCO08 Event Patron - NSA" src="/i/tournament/tco08/nsa_logo.png" /></a>
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nsa.gov/' refer='tco08_nsa' />"><img alt="TCO08 Event Patron - NSA" src="/i/tournament/tco08/nsa_logo.png" /></a>
         </div>
         <h3>Where Intelligence Goes to Work</h3>
         <p>Everyday, the National Security Agency is faced with new threats to our nation's security. Our adversaries do their best to keep their plans a secret. We work to uncover those secrets, and keep our own secrets safe. That is why it is vital for NSA to employ the most intelligent people in the country.</p>
