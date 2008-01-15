@@ -163,7 +163,7 @@
             <p>The competitors of the onsite Development Championship Round will be given eight (8) hours to integrate the winning graphical design from the Studio Championship Round and the winning Design submission to create a working module.  The Development competitors will have access to both the winning Studio submission and the winning Design submission.  At the completion of the eight (8) hour submission phase, the review board will review each submission using the standard TopCoder Development Scorecard.  The winner will be determined based on the highest review score.</p>
             <p>In the event of a tie during the onsite Championship Round for either competition, the tie will be resolved in the following manner:</p>
             <ul>
-                <li>The competitor who receives a majority of the higher scores from the Review Board will place higher.
+                <li>The competitor who receives a majority of the higher scores from the Review Board will place higher.</li>
                 <li>If a tie still remains, then the competitor who uploaded their final submission first will place higher.</li>
             </ul>
             
