@@ -12,8 +12,7 @@ import com.topcoder.web.tc.controller.request.tournament.BaseSubmitTravelInfo;
 public class TravelInfoSubmit extends BaseSubmitTravelInfo {
     protected String getSuccessPage() {
         StringBuffer next = new StringBuffer(100);
-        next.append(getSessionInfo().getServletPath());
-        next.append("?").append(Constants.MODULE_KEY).append("=Static&");
+        next.append("/tc?").append(Constants.MODULE_KEY).append("=Static&");
         next.append(Constants.STATIC_PREFIX).append("1=tournaments&");
         next.append(Constants.STATIC_PREFIX).append("2=tchs08&");
         next.append(Constants.STATIC_PREFIX).append("3=docs&");
