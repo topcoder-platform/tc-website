@@ -34,7 +34,7 @@
     <target name="main" depends="compile">
     </target>
 
-    <path id="class.path">
+    <path id="class.path">  
         <pathelement location="${classes}"/>
         <pathelement location="${testclasses}"/>
         <pathelement location="${resources}"/>
