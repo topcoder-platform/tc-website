@@ -34,8 +34,8 @@
             <p>The competition process ignites creativity in both the client and the Studio members. TopCoder determines the needs of the client, presents those needs to Studio members, and administers all aspects of the competition.</p>
             <p>Contest specifications are posted on Studio and members submit their designs according to those specs. Submissions are then screened against the contest specifications by the Contest Administrator and either passed or failed. Winners are selected by the clients.</p>
             <p>Learn more about <a target="_blank" href="http://studio.topcoder.com/">TopCoder Studio</a></p>
-            <p>When is the competition? See the <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=schedule">schedule</a>.</p>
-            <p>It is important for you to read the official <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=rules">rules and regulations</a> for important details.</p>
+            <p>When is the competition? See the <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=schedule">schedule</a>.</p>
+            <p>It is important for you to read the official <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=rules">rules and regulations</a> for important details.</p>
             <p>The competition is free and you must be a member who is 18 years or older, as well as meet all eligibility criteria, in order to participate.</p>
             
     
