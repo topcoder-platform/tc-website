@@ -57,7 +57,7 @@
     </li>
     <li>
         <p>
-            <strong>QUESTIONNAIRE</strong> - View the <a href="/tc?module=ViewSurvey&amp;sid=16630">
+            <strong>QUESTIONNAIRE</strong> - View the <a href="/tc?module=ViewSurvey&amp;sid=21920">
             2008 TopCoder High School Competitor Questionnaire</a>. NOTE: All questions are mandatory and may be included in the 
             2008 TCHS Program or used in onsite introductions, at TopCoder's sole discretion.
         </p>

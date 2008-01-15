@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.tc.Constants" %>
+                 com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="java.util.Map" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -69,7 +70,7 @@
 
 <h3 align="center">Travel Form</h3>
 
-<form name="questForm" method="POST" action="${sessionInfo.secureAbsoluteServletPath}">
+<form name="questForm" method="POST" action="https://<%=ApplicationServer.SERVER_NAME%>/tchs08">
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TravelInfoSubmit"/>
 
 <table cellspacing="0" cellpadding="0" class="stat">
