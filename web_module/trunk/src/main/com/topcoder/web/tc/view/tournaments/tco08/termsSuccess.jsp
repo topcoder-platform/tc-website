@@ -39,11 +39,11 @@
                     <div align="center" style="margin: 60px 40px 200px 40px;">
                         <c:choose>
                             <c:when test="${eligible}">
-                                You have successfully registered for the<br><strong>${event.description}</strong>.
+                                You have successfully registered for the<br /><strong>${event.description}</strong>.
                             </c:when>
                             <c:otherwise>
                                 Sorry, you are ineligible for the <strong>${event.description}</strong>.
-                                If you feel this is a mistake, please contact <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
+                                If you feel this is a mistake, please contact <a href="mailto:service@topcoder.com">service@topcoder.com</a>.
                             </c:otherwise>
                         </c:choose>
                     </div>
