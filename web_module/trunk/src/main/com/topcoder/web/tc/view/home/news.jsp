@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />01.15.08<br />10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=MatchDetails&rd=11122">SRM 388 sponsored by BT</A></span><br /><br />
+        British Telecom (BT) is sponsoring SRM 388 with $5,000 in prizes!  Be sure to check out their <a href="/tc?module=Static&d1=sponsors&d2=bt">job opportunities</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=MatchDetails&rd=11122">details</a> | 
+        <tc-webtag:forumLink forumID="516666" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />01.14.08<br />3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -159,18 +172,5 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm385">details</A> | 
          <tc-webtag:forumLink forumID="518660" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tcchannel.png" alt="Movies" border="0" /><br />12.31.07<br />11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep07' refer='/tc' />">TC Channel: Episode 7</A></span><br /><br />
-        Our final TC Channel of 2007 is now online, featuring a tutorial on Dynamic Programming, a "Behind the Handle" video of <tc-webtag:handle coderId="8472826" context="algorithm"/>, and another installment of TC Trivia with Markus Lacher. You also won't want to miss our closing "auf Wiedersehen" montage of Dean &amp; Markus highlights from the first 7 episodes!  Happy viewing and Happy New Year from the TC Channel!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep07' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="518706" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
    
