@@ -7,7 +7,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />01.15.08<br />6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/wiki/display/tc/Bug+Races">Introducing the TopCoder Bug Races!</A></span><br /><br />
-        TopCoder is excited to announce we have opened up our bug fix process to the community as a new brand of competition we're calling The Bug Races. No schedules, just a list of bugs waiting for you to fix them. Just jump into the list of active bug contests, choose one and be the first to solve it to win. It's that simple. For more information, check out the overview page – and be sure to let us know what you think. Happy Hunting!</td>
+        TopCoder is excited to announce we have opened up our bug fix process to the community as a new brand of competition we're calling The Bug Races. It's simple... just a list of bugs waiting for you to fix them. Just jump into the list of active bug contests, choose one and be the first to solve it to win. It's that simple. For more information, check out the overview page – and be sure to let us know what you think. Happy Hunting!</td>
    </tr>
    <tr><td class="newsLinksCell">
         <A href="/wiki/display/tc/Bug+Races">details</a> | 
