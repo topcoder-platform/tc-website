@@ -60,6 +60,8 @@ import java.util.Set;
  * @version 1.1.2
  */
 public class TCLoadTCS extends TCLoad {
+    private static final String LOAD_CATEGORIES = "(1, 2, 14)";
+
     private static Logger log = Logger.getLogger(TCLoadTCS.class);
 
     private static final int OVERALL_RATING_RANK_TYPE_ID = 1;
@@ -556,7 +558,7 @@ public class TCLoadTCS extends TCLoad {
                             "where s.upload_id = u.upload_id " +
                             "   and u.project_id = p.project_id " +
                             "   and p.project_status_id <> 3 " +
-                            "   and p.project_category_id in (1, 2) " +
+                            "   and p.project_category_id in " + LOAD_CATEGORIES +
                             "   and u.resource_id = r.resource_id " +
                             "   and r.resource_id = ri.resource_id " +
                             "   and ri.resource_info_type_id = 1 " +
@@ -934,7 +936,7 @@ public class TCLoadTCS extends TCLoad {
                             // we need to process deleted project, otherwise there's a possibility
                             // they will keep living in the DW.
                             //" and p.project_status_id <> 3 " +
-                            "   and p.project_category_id in (1, 2) " +
+                            "   and p.project_category_id in " + LOAD_CATEGORIES +
                             "   and (p.modify_date > ? " +
                             // comp versions with modified date
                             "   or cv.modify_date > ? " +
@@ -1262,7 +1264,7 @@ public class TCLoadTCS extends TCLoad {
                         "where p.project_id = pr.project_id " +
                         "and p.project_id = pi.project_id " +
                         "and p.project_status_id <> 3 " +
-                        "and p.project_category_id in (1, 2) " +
+                        "and p.project_category_id in " + LOAD_CATEGORIES +
                         "and pi.project_info_type_id = 1 " +
                         "and cv.comp_vers_id= pi.value " +
                         "and cc.component_id = cv.component_id " +
@@ -1871,7 +1873,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and u.upload_id = s.upload_id " +
                         "   and u.project_id = p.project_id " +
                         "   and p.project_status_id <> 3 " +
-                        "   and p.project_category_id in (1, 2) " +
+                        "   and p.project_category_id in " + LOAD_CATEGORIES +
                         "   and res.resource_id = r.resource_id " +
                         "   and resource_role_id in (4, 5, 6, 7) " +
                         "   and ri1.resource_id = u.resource_id " +
@@ -2095,7 +2097,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and u.upload_id = s.upload_id " +
                         "   and u.project_id = p.project_id " +
                         "   and p.project_status_id <> 3 " +
-                        "   and p.project_category_id in (1, 2) " +
+                        "   and p.project_category_id in " + LOAD_CATEGORIES +
                         "   and res.resource_id = r.resource_id " +
                         "   and resource_role_id in (2, 3) " +
                         "   and ri1.resource_id = u.resource_id " +
@@ -3489,7 +3491,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and u.upload_id = s.upload_id " +
                         "   and u.project_id = p.project_id " +
                         "   and p.project_status_id <> 3 " +
-                        "   and p.project_category_id in (1, 2) " +
+                        "   and p.project_category_id in " + LOAD_CATEGORIES +
                         "   and sq.scorecard_question_type_id in (1,2,4) " +
                         "   and answer <> '' " +
                         "   and piel.project_info_type_id = 14 " +
@@ -3635,7 +3637,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and u.upload_id = s.upload_id " +
                         "   and u.project_id = p.project_id " +
                         "   and p.project_status_id <> 3 " +
-                        "   and p.project_category_id in (1, 2) " +
+                        "   and p.project_category_id in " + LOAD_CATEGORIES +
                         "   and sq.scorecard_question_id = ri.scorecard_question_id " +
                         "   and sq.scorecard_question_type_id = 3 " +
                         "   and ri1.resource_id = u.resource_id " +
@@ -3788,7 +3790,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and u.upload_id = s.upload_id " +
                         "   and u.project_id = p.project_id " +
                         "   and p.project_status_id <> 3 " +
-                        "   and p.project_category_id in (1, 2) " +
+                        "   and p.project_category_id in " + LOAD_CATEGORIES +
                         "   and r.resource_id = res.resource_id " +
                         "   and res.resource_role_id in (2, 3, 4, 5, 6, 7) " +
                         "   and ric.comment_type_id in (1, 2, 3) " +
@@ -3949,7 +3951,7 @@ public class TCLoadTCS extends TCLoad {
                         "   u.upload_id = s.upload_id and " +
                         "   u.project_id = p.project_id and " +
                         "   p.project_status_id <> 3 and " +
-                        "   p.project_category_id in (1, 2) and " +
+                        "   p.project_category_id in " + LOAD_CATEGORIES + " and " +
                         "   r.resource_id = res.resource_id and " +
                         "   res.resource_role_id in (4, 5, 6, 7) and " +
                         "   res1.resource_id = u.resource_id and " +
@@ -4154,7 +4156,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and u.upload_id = s.upload_id " +
                         "   and u.project_id = p.project_id " +
                         "   and p.project_status_id <> 3 " +
-                        "   and p.project_category_id in (1, 2) " +
+                        "   and p.project_category_id in " + LOAD_CATEGORIES +
                         "   and r.resource_id = res.resource_id " +
                         "   and res.resource_role_id in (4, 5, 6, 7) " +
                         "   and ri.scorecard_question_id = sq.scorecard_question_id " +
@@ -4626,7 +4628,7 @@ public class TCLoadTCS extends TCLoad {
                         "      project_info piel " +
                         " where p.project_id = pr.project_id  " +
                         " and p.project_status_id <> 3  " +
-                        " and p.project_category_id in (1, 2)  " +
+                        " and p.project_category_id in " + LOAD_CATEGORIES +
                         " and piel.project_info_type_id = 14  " +
                         " and piel.value = 'Open'  " +
                         " and p.project_id = piel.project_id  " +
@@ -4712,7 +4714,7 @@ public class TCLoadTCS extends TCLoad {
                         "      project_info piel   " +
                         " where p.project_id = pr.project_id    " +
                         " and p.project_status_id <> 3    " +
-                        " and p.project_category_id in (1, 2)    " +
+                        " and p.project_category_id in " + LOAD_CATEGORIES +
                         " and piel.project_info_type_id = 14   " +
                         " and piel.value = 'Open'   " +
                         " and p.project_id = piel.project_id  " +
