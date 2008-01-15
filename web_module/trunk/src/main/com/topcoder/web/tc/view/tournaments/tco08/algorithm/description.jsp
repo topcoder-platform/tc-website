@@ -33,8 +33,8 @@
                 <li>The System Testing Phase is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</li>
             </ul>
             
-            <p>When is the competition? See the schedule <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">here</a>.</p>
-            <p>It is important for you to read the official <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=rules">rules and regulations</a> for more details.  We encourage you to utilize the TopCoder practice rooms in the competition arena prior to competing.</p>
+            <p>When is the competition? See the schedule <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=schedule">here</a>.</p>
+            <p>It is important for you to read the official <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=rules">rules and regulations</a> for more details.  We encourage you to utilize the TopCoder practice rooms in the competition arena prior to competing.</p>
             <p>The competition is free and you must be a member who is 18 years or older, as well as meet all eligibility criteria, in order to participate.</p>
     
         </div><%-- .sub_content --%>
