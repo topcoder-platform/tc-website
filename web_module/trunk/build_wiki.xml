@@ -99,6 +99,7 @@
 
         <copy todir="${confluence_home}/confluence" file="${resources}/wiki/login.vm" overwrite="yes"/>
         <copy todir="${confluence_home}/confluence/template/includes" file="${resources}/wiki/macros.vm" overwrite="yes"/>
+        <copy todir="${confluence_home}/confluence/WEB-INF" file="${resources}/wiki/jboss-web.xml" overwrite="yes"/>
 
     </target>
 
