@@ -19,6 +19,9 @@
         <li id="switcher_symposium"><a href="#"><span>The Software Symposium</span></a></li>
     </ul> #switcher --%>
     
+    <a style="position: absolute; top: 15px; left: 350px;" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=registerNow"><img src="/i/tournament/tco08/registerNow.png" alt="REGISTER NOW!" /></a>
+    
+    
     <%---- PRIMARY NAVIGATION ----%>
     <ul id="nav">
         <li id="nav_overview"><a title="Tournament Overview" onfocus="this.blur();" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=about"<% if (tabLev1.equals("overview")) {%> class="on"<% } %>>Tournament Overview</a></li>
