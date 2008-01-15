@@ -186,7 +186,9 @@ Link to a user's profile page, given their username. If the username doesn't exi
 #macro (usernameLinkWithCustomBaseUrl $username $baseurl)
     #if ($username != "")
         #if ($action.getUserFullName($username))<a href="$baseurl/display/~$generalUtil.doubleUrlEncode($username)">$generalUtil.htmlEncode($action.getUserFullName($username))</a>#else<a href="$baseurl/display/~$generalUtil.doubleUrlEncode($username)">$username</a>#end
-    #else Anonymous#end
+    #else
+        $action.getText('anonymous.name')
+    #end
 #end
 
 #macro (usernameLinkParentWindow $username)
@@ -338,6 +340,54 @@ Prints the search box (if Confluence is setup)
     #end
 #end
 
+#macro(renderBreadcrumbs)
+    #set ($breadcrumbs = $helper.breadcrumbs)
+    #set ($ellipsisCrumbs = $helper.getEllipsisCrumbs($breadcrumbs))
+    #set ($ellipsisShown = false)
+    #foreach( $breadcrumb in $breadcrumbs )
+        #if ($ellipsisCrumbs.contains($breadcrumb))
+            #if(!$ellipsisShown)
+                <span id="breadcrumbs">
+                    &gt;
+                    <span id="breadcrumbsEllipsis">
+                        <a href="#" onclick="showBreadcrumbsEllipsis();return false;" title="#renderEllipsisTitle($ellipsisCrumbs)">...</a>
+                    </span>
+                    <span id="breadcrumbsExpansion" style="display:none;">#renderEllipsisCrumbs($ellipsisCrumbs)</span>
+                </span>
+                #set ($ellipsisShown = true)
+            #end
+        #else
+            #if ($velocityCount > 1) &gt; #end
+            #renderBreadcrumbLink($breadcrumb)
+        #end
+    #end
+#end
+
+#macro(renderEllipsisTitle $breadcrumbs)
+
+    #foreach( $breadcrumb in $breadcrumbs )
+        #if ($velocityCount > 1) &gt; #end
+        #renderBreadcrumbTitle($breadcrumb)
+    #end
+#end
+
+#macro(renderEllipsisCrumbs $ellipsisCrumbs)
+
+    #foreach($breadcrumb in $ellipsisCrumbs)
+        #if ($velocityCount > 1) &gt; #end
+        #renderBreadcrumbLink($breadcrumb)
+    #end
+#end
+
+#macro(renderBreadcrumbLink $breadcrumb)
+    #if ($breadcrumb.target)
+        <a href="$req.contextPath$breadcrumb.target">#renderBreadcrumbTitle($breadcrumb)</a>
+    #else
+        #renderBreadcrumbTitle($breadcrumb)
+    #end
+#end
+
+#macro(renderBreadcrumbTitle $breadcrumb)$webwork.htmlEncode($action.getText($breadcrumb.title))#end
 
 #macro(usernavbar)
     #if ($bootstrap.isSetupComplete())
@@ -356,7 +406,7 @@ Prints the search box (if Confluence is setup)
 
             <a href="$!req.contextPath/users/viewuserprofile.action?username=$generalUtil.doubleUrlEncode($user.name)">$action.getText('navbar.preferences.name')</a> |
 *#
-            #if ($permissionHelper.isGlobalAdministrator($user))
+            #if ($permissionHelper.isConfluenceAdministrator($user))
                 <a href="$req.contextPath/admin/console.action">$action.getText('administration.name')</a> |
             #end
 #*
@@ -367,6 +417,9 @@ Prints the search box (if Confluence is setup)
 #*
  TC we don't want this stuff because we handle it in the top
         #else
+            #*  for the login link, we want it to carry the current page the user is viewing anonymously, so that once they login they will be taken back
+                to this page. However, we do not want to do this if they are on the logout/signup page/forgot password pages *#
+
             <a href="$seraph.getLinkLoginURL($req)">$action.getText('login.name')</a>
 
             #if (!$settingsManager.getGlobalSettings().isExternalUserManagement())
@@ -432,7 +485,7 @@ decorator=printable" rel="nofollow"><img src="$req.contextPath/images/icons/prin
                     </div>
                 #elseif ($license.licenseType.niceName == "Confluence: Personal Server")
                     <div class="license license-personal">
-                      $action.getText('personal.server',[$action.getText('url.atlassian'),$action.getText('hitcounter.confluence'),$action.getText('url.atlassian'),$action.getText('hitcounter.confluence'), $action.getText('url.atlassian'),$action.getText('hitcounter.open.source')])<br>
+                      $action.getText('licensefooter.personal',[$action.getText('url.atlassian'),$action.getText('hitcounter.personal')])<br>
                     </div>
                 #elseif ($license.licenseType.niceName == "Confluence: Community")
                     <div class="license license-community">
@@ -463,8 +516,9 @@ decorator=printable" rel="nofollow"><img src="$req.contextPath/images/icons/prin
 #macro(poweredby)
   	<div id="poweredby" class="smalltext">
 		$action.getText('powered.by.atlassian.confluence',[$action.getText('url.atlassian.software.confluence.footer'), "$generalUtil.versionNumber","${generalUtil.buildNumber}", "${generalUtil.buildDateString}"])
-		-
 		<a href="$action.getText('url.bug.feature.request')" class="smalltext">$action.getText('bug.feature.request')</a>
+		-
+		<a href="$action.getText('url.footer.atlassian.news')" class="smalltext">$action.getText('footer.atlassian.news')</a>
 		-
 		<a href="$req.contextPath/administrators.action">$action.getText('contact.administrators')</a>
         <br/>
@@ -630,7 +684,7 @@ decorator=printable" rel="nofollow"><img src="$req.contextPath/images/icons/prin
 
 #macro(standardHeaderWithStylesheetAction $stylesheetAction)
     ##infoPanelInit() we  now initialize the info panel in the content decorator
-
+    
     <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
     <META HTTP-EQUIV="Expires" CONTENT="-1">
     <script language="javascript">
@@ -974,6 +1028,7 @@ decorator=printable" rel="nofollow"><img src="$req.contextPath/images/icons/prin
             <th width="135" class="permissionTab">$action.getText("permissions.PERSONALSPACE")</th>
             <th width="135" class="permissionTab">$action.getText("permissions.CREATESPACE")</th>
             <th width="135" class="permissionTab">$action.getText("permissions.ADMINISTRATECONFLUENCE")</th>
+            <th width="135" class="permissionTab">$action.getText("permissions.SYSTEMADMINISTRATOR")</th>
         </tr>
 #end
 
@@ -1338,7 +1393,7 @@ decorator=printable" rel="nofollow"><img src="$req.contextPath/images/icons/prin
         #if ($action.hasPreviousVersion($page))
           <a href="$req.contextPath/pages/viewpage.action?pageId=$action.getPageIdOfVersionBefore($page)&navigatingVersions=true">&lt;&lt; $action.getText('view.previous.version')</a> |
         #end
-          <a href="$req.contextPath/pages/viewpreviouspageversions.action?pageId=$page.originalVersion.id">$action.getText('view.page.history.smalls')</a>
+          <a href="$req.contextPath/pages/viewpreviousversions.action?pageId=$page.originalVersion.id">$action.getText('view.page.history.smalls')</a>
         #if ($action.hasNextVersion($page))
           | <a href="$req.contextPath/pages/viewpage.action?pageId=$action.getPageIdOfVersionAfter($page)&navigatingVersions=true">$action.getText('view.next.version') &gt;&gt;</a>
         #end
@@ -1354,7 +1409,7 @@ decorator=printable" rel="nofollow"><img src="$req.contextPath/images/icons/prin
   <div id="versionComment" class="noteMacro" style="display:none; padding: 5px;">
       <b>$action.getText('comment.name'):</b>
       $page.renderedVersionComment<br />
-      <span class="smalltext"><a href="$req.contextPath/pages/viewpreviouspageversions.action?pageId=$page.id">$action.getText('view.page.history')</a></span>
+      <span class="smalltext"><a href="$req.contextPath/pages/viewpreviousversions.action?pageId=$page.id">$action.getText('view.page.history')</a></span>
   </div>
 
     <script>
@@ -1592,15 +1647,15 @@ decorator=printable" rel="nofollow"><img src="$req.contextPath/images/icons/prin
 #end
 
 #macro (profilePictureSpacer)
-    <img src="$req.contextPath/images/border/spacer.gif" border="0" width="48" height="48" alt="">
+    <img class="userLogo" src="$req.contextPath/images/border/spacer.gif" border="0" width="48" height="48" alt="">
 #end
 
 #macro (addProfilePictureHint)
-    <a href="$req.contextPath/users/editmyprofilepicture.action" title="$action.getText("add.a.profile.picture")"><img src="$req.contextPath/images/icons/profilepics/add_profile_pic.png" alt="$action.getText("add.a.profile.picture")" align="absmiddle" border="0" width="48" height="48"></a>
+    <a class="userLogoLink" href="$req.contextPath/users/editmyprofilepicture.action" title="$action.getText("add.a.profile.picture")"><img class="userLogo" src="$req.contextPath/images/icons/profilepics/add_profile_pic.png" alt="$action.getText("add.a.profile.picture")" align="absmiddle" border="0" width="48" height="48"></a>
 #end
 
 #macro (userLogo $username)
-    <a href="$req.contextPath/display/$username"><img src="#logo($username)" align="absmiddle" border="0" width="48" height="48"></a>
+    <a class="userLogoLink" href="$req.contextPath/display/$username"><img class="userLogo" src="#logo($username)" align="absmiddle" border="0" width="48" height="48"></a>
 #end
 
 #* ----------------------------------------------- SIMPLE LINK MACROS -----------------------------------------------
