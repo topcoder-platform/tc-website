@@ -55,6 +55,8 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     private static final User guest = SimpleUser.createGuest();
     private static final String[] groups = new String[]{UserAccessor.GROUP_CONFLUENCE_USERS};
 
+    private Principal user;
+
     public boolean login(HttpServletRequest request, HttpServletResponse response,
                          String userName, String password) throws AuthenticatorException {
         return login(request, response, userName, password, false);
@@ -280,21 +282,22 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     public Principal getUser(HttpServletRequest request, HttpServletResponse response) {
         //log.debug("XXX getUser(request, response) called");
         long start = System.currentTimeMillis();
-        Principal ret = null;
-        try {
-            WebAuthentication authentication = getAuth(request, response);
-            if (!authentication.getActiveUser().isAnonymous()) {
-                com.atlassian.user.User user = checkAndAddUser(authentication.getActiveUser().getUserName());
-                checkAndAddEmail(user, authentication.getActiveUser().getId());
-                checkAndAddAdmin(authentication.getActiveUser().getUserName(), user);
-                ret = user;
-            }
+        if (user==null) {
+            try {
+                WebAuthentication authentication = getAuth(request, response);
+                if (!authentication.getActiveUser().isAnonymous()) {
+                    com.atlassian.user.User u = checkAndAddUser(authentication.getActiveUser().getUserName());
+                    checkAndAddEmail(u, authentication.getActiveUser().getId());
+                    checkAndAddAdmin(authentication.getActiveUser().getUserName(), u);
+                    user = u;
+                }
 
-        } catch (Exception e) {
-            log.warn(e.getMessage(), e);
+            } catch (Exception e) {
+                log.warn(e.getMessage(), e);
+            }
         }
         log.info("getUser(request, response) took " + (System.currentTimeMillis() - start) + " ms");
-        return ret;
+        return user;
     }
 
     private WebAuthentication getAuth(HttpServletRequest request, HttpServletResponse response) throws Exception {
