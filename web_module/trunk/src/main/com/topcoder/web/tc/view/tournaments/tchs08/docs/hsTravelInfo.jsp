@@ -98,10 +98,12 @@
     <td class="value"><input type="text" name="a33" size="10"/></td>
 </tr>
 
+<%--
 <tr class="light">
     <td class="valueR" ><input type="hidden" name="q34" value="Passport Number"/>Passport #:</td>
     <td class="value"><input type="text" name="a34" size="15"/></td>
 </tr>
+--%>
 
 <tr class="light">
     <td class="valueR"><input type="hidden" name="q35" value="School"/>School:</td>
