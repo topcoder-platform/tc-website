@@ -48,42 +48,40 @@
             <h3>Registration</h3>
             <p>Registration for the 2008 TopCoder High School Tournament will open at 9:00 AM EST on Monday, December 17, 2007, and will close at 5:00 PM EST on Thursday, January 10, 2008. In order to compete in the tournament, competitors must have registered prior to 5:00 PM EST on Thursday, January 10, 2008. In order to be eligible to compete in any portion of the TCHS Tournament, competitors must be a registered TopCoder High School member and have registered separately for the Tournament. There is no limit to the number of registrants for the tournament; however each individual may only register once.</p>
             
-            <h3>Online Elimination Rounds</h3
+            <h3>Online Elimination Rounds</h3>
             <p>All members who have competed in at least three (3) rated TCHS SRMs between July 12, 2007 and January 12, 2008 and who have registered for the tournament are eligible to compete in Online Round 1.</p>
             <p>Everyone who competes in an online round must register for each round in the TopCoder Competition Arena no later than five (5) minutes prior to the start of the online round. TopCoder will communicate each Online Round in Eastern Standard Time (UTC/GMT -5). Contestants may be located and competing in time zones other than Eastern Standard Time and must adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.</p>
             <p>All competitors will be randomly assigned to virtual competition rooms. Rooms will be created such that each room has a maximum of 25 competitors. The number of rooms in each round is (the # of competitors who advanced to the round)/25.</p>
             <p>The dates and times of the online rounds of competition are as follows:</p>
-            <div id="sample_table">
-                <table width="100%" cellpadding="0" cellspacing="0" class="stat">
-                    <tr>
-                        <th>Round of Competition</th>
-                        <th>Date and Time *</th>
-                        <th># of Participants</th>
-                        <th># of Advancers</th>
-                    </tr>
-                    <tr class="light">
-                        <td>Online Round 1</td>
-                        <td>Saturday, January 12, 2008<br />Register: 10:00 - 12:55 PM<br />START: 1:00 PM</td>
-                        <td>All Registered Participants</td>
-                        <td>500</td>
-                    </tr>
-                    <tr class="dark">
-                        <td>Online Round 2</td>
-                        <td>Saturday, January 19, 2008<br />Register: 10:00 - 12:55 PM<br />START: 1:00 PM</td>
-                        <td>Up to 500</td>
-                        <td>100</td>
-                    </tr>
-                    <tr class="light">
-                        <td>Online Round 3</td>
-                        <td>Saturday, January 26, 2008<br />Register: 10:00 - 12:55 PM<br />START: 1:00 PM</td>
-                        <td>Up to 100</td>
-                        <td>50</td>
-                    </tr>
-                    <tr class="dark">
-                        <td colspan="4">*All times are listed as Eastern Standard Time (GMT/UTC -5)<br /><br />NOTE: In the event that a round must be cancelled for any reason, the round will take place the following day at the same time.</td>
-                    </tr>
-                </table>
-            </div><%-- #sample_table --%>
+            <table width="100%" cellpadding="0" cellspacing="0" class="stat">
+                <tr>
+                    <th>Round of Competition</th>
+                    <th>Date and Time *</th>
+                    <th># of Participants</th>
+                    <th># of Advancers</th>
+                </tr>
+                <tr class="light">
+                    <td>Online Round 1</td>
+                    <td>Saturday, January 12, 2008<br />Register: 10:00 - 12:55 PM<br />START: 1:00 PM</td>
+                    <td>All Registered Participants</td>
+                    <td>500</td>
+                </tr>
+                <tr class="dark">
+                    <td>Online Round 2</td>
+                    <td>Saturday, January 19, 2008<br />Register: 10:00 - 12:55 PM<br />START: 1:00 PM</td>
+                    <td>Up to 500</td>
+                    <td>100</td>
+                </tr>
+                <tr class="light">
+                    <td>Online Round 3</td>
+                    <td>Saturday, January 26, 2008<br />Register: 10:00 - 12:55 PM<br />START: 1:00 PM</td>
+                    <td>Up to 100</td>
+                    <td>50</td>
+                </tr>
+                <tr class="dark">
+                    <td colspan="4">*All times are listed as Eastern Standard Time (GMT/UTC -5)<br /><br />NOTE: In the event that a round must be cancelled for any reason, the round will take place the following day at the same time.</td>
+                </tr>
+            </table>
             
             <h3>Scoring and Advancing during Online Rounds</h3>
             <p>After each Online Round, the highest scorers from across all rooms will be identified and will advance to the next online round. Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of each Online Round is as follows:</p>
@@ -99,7 +97,6 @@
                     <li>If a tie still remains, then by best rating at the start of the tournament.</li>
                     <li>If a tie still remains, all tied coders will advance to the next round.</li>
                 </ul>
-            <p>
             
             <h3>Competition Round Structure</h3>
             <p>Each online and onsite round of competition consists of three phases: Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of TopCoder High School Single Round Matches. The rules in place for TCHS Single Round Matches as of January 12, 2008 will also apply to the online and onsite rounds of TCHS08.)</p>
@@ -127,18 +124,17 @@
             
             <h3>Championship Round</h3>
             <p>TopCoder will determine the room assignments for the Championship round prior to the start of the round. The date and time of the onsite Championship round are as follows:</p>
-            <div id="sample_table">
-                <table width="100%" cellpadding="0" cellspacing="0" class="stat">
-                    <tr>
-                        <th>Round of Competition</th>
-                        <th>Date and Time (Eastern Daylight Time)</th>
-                    </tr>
-                    <tr class="light">
-                        <td>Championship Round</td>
-                        <td>Saturday, March 15, 2008 at 10:00 AM</td>
-                    </tr>
-                </table>
-            </div><%-- #sample_table --%>
+            <table width="100%" cellpadding="0" cellspacing="0" class="stat">
+                <tr>
+                    <th>Round of Competition</th>
+                    <th>Date and Time (Eastern Daylight Time)</th>
+                </tr>
+                <tr class="light">
+                    <td>Championship Round</td>
+                    <td>Saturday, March 15, 2008 at 10:00 AM</td>
+                </tr>
+            </table>
+            
             <p>The Championship Round will be a single round of fifty (50) coders.  The winning individual in the Championship Round will be the competitor with the highest score in the round. In the event of a tie in the Championship Round, the tie will be resolved in the following manner (in order):</p>
                 <ul>
                     <li>Total points acquired (higher is better) during Online Rounds #1, #2 and #3 of the 2008 TCHS Tournament</li>
