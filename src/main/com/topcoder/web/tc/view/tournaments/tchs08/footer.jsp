@@ -16,7 +16,7 @@
         <p><strong>Online Round 2</strong><br />January 19, 2008<br />at 1:00 PM EST</p><br />
         <p><strong>Online Round 3</strong><br />January 26, 2008<br />at 1:00 PM EST</p><br />
         <p><strong>Finals</strong><br />Saturday, March 15<br />at 10:00 AM EDT<br />at Purdue University</p><br />
-    <div>
+    </div>
 
     <div class="clear"></div>
     
