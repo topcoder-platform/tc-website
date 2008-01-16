@@ -127,6 +127,7 @@
                 <%--------------- TERTIARY NAVIGATION ---------------%>
                 <ul id="menunav3">
                     <li>&nbsp;</li>
+                    <li>&nbsp;</li>
                     <% if (tabLev1.equals("overview")) {%>
                         <% if (tabLev2.equals("joinus")) {%>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=onsiteSchedule"<% if (tabLev3.equals("onsiteschedule")) {%> class="on"<% } %>>Onsite Schedule</a></li>
