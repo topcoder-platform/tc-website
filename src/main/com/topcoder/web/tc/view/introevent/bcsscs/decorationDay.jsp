@@ -36,18 +36,20 @@
                <jsp:param name="title" value="Introduction Event"/>
             </jsp:include>
 
-            <div style="float:right; margin-top: 6px;"><A href="/tc?module=Static&d1=help&d2=index"><img src="/i/introevent/tryMoreAlgo.png" alt="Try some more Algorithm Competitions?" /></A></div>
+            <div style="float:right; margin-top: 6px;"><A href="/tc?module=Static&amp;d1=help&amp;d2=index"><img src="/i/introevent/tryMoreAlgo.png" alt="Try some more Algorithm Competitions?" /></A></div>
             <div align="left" style="margin-bottom: 20px;">
                 <img src="/i/introevent/bcsLogo.png" alt="" />
             </div>
-            <h2>Problem Statement for TheDiceGame</h2>
+            <h2>Problem Statement for DecorationDay</h2>
 
+            <%--
             <div>
             <strong>
             Problem Statement 
-            | <A href="/tc?module=Static&d1=introevent&d2=bcsscs&d3=theDiceGameSol" class="bcLink">Solution</A>
+            | <A href="/tc?module=Static&amp;d1=introevent&damp;2=bcsscs&amp;d3=decorationDaySol" class="bcLink">Solution</A>
             </strong>
             </div>
+            --%>
             
             <table>
                 <tbody>
@@ -57,8 +59,8 @@
                     <tr>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td>
-                            <p>Little John has one standard die with numbers one to six on its sides. Each time he throws the die, he gets as many candies from his mom as the number on the top of the die. John's goal is to collect at least <strong>candies</strong> candies. Then he will eat them all and became a little fat boy.</p>
-                            <p>Return the expected number of throws needed for John to achieve his goal.</p>
+                            <p>Partuki and Haverta are playing a game. Partuki places several groups of coins in front of Haverta, and asks her to select one or more of the groups. The groups must be selected so that counts of coins in them do not share any common divisors greater than 1. For example, you could choose a group of 4 coins, a group of 3 coins, and a group of 2 coins because 4, 3 and 2 share no common divisors greater than 1. However, you could not chose a group of 4 coins and a group of 2 coins because 4 and 2 share the common divisor 2.</p>
+                            <p>You are given a int[] <strong>groups</strong>, each element of which is the number of coins in a single group. Determine the number of different ways in which Haverta can make a valid selection, and return this number modulo 10000003.</p>
                         </td>
                     </tr>
                     <tr>
@@ -74,23 +76,23 @@
                                 <tbody>
                                     <tr>
                                         <td>Class:</td>
-                                        <td>TheDiceGame</td>
+                                        <td>DecorationDay</td>
                                     </tr>
                                     <tr>
                                         <td>Method:</td>
-                                        <td>expectedThrows</td>
+                                        <td>howMany</td>
                                     </tr>
                                     <tr>
                                         <td>Parameters:</td>
-                                        <td>int</td>
+                                        <td>int[]</td>
                                     </tr>
                                     <tr>
                                         <td>Returns:</td>
-                                        <td>double</td>
+                                        <td>int</td>
                                     </tr>
                                     <tr>
                                         <td>Method signature:</td>
-                                        <td>double expectedThrows(int candies)</td>
+                                        <td>int howMany(int[] groups)</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">(be sure your method is public)</td>
@@ -109,21 +111,15 @@
                         <td colspan="2">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td colspan="2"><h3>Notes</h3></td>
-                    </tr>
-                    <tr>
-                        <td align="center" valign="top">-</td>
-                        <td>The returned value must be accurate to within a relative or absolute value of 1E-9.</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">&nbsp;</td>
-                    </tr>
-                    <tr>
                         <td colspan="2"><h3>Constraints</h3></td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td><strong>candies</strong> will be between 1 and 1000000, inclusive.</td>
+                        <td><strong>groups</strong> will contain between 1 and 50 elements, inclusive.</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">-</td>
+                        <td>Each elements of <strong>groups</strong> will be between 1 and 100000, inclusive.</td>
                     </tr>
                     <tr>
                         <td colspan="2"><h3>Examples</h3></td>
@@ -143,7 +139,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>1</pre>
+                                                            <pre>{2, 4, 3}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -152,7 +148,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 1.0</pre>
+                                            <pre>Returns: 3</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -160,7 +156,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">John needs only one throw to get at least one candy.</td>
+                                                        <td colspan="2">There are 3 valid selections - {2, 3}, {4, 3} and {2, 4, 3}.</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -185,7 +181,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>2</pre>
+                                                            <pre>{2, 2, 2, 4}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -194,7 +190,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 1.1666666666666667</pre>
+                                            <pre>Returns: 0</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -202,7 +198,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">After the first throw, there is a probability of 1/6 that John will need an additional throw.</td>
+                                                        <td colspan="2">Groups in any valid selection share the common divisor 2, so there are no valid selections.</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -227,7 +223,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>7</pre>
+                                                            <pre>{2, 6, 15}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -236,7 +232,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 2.5216263717421126</pre>
+                                            <pre>Returns: 2</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -244,7 +240,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">&nbsp;</td>
+                                                        <td colspan="2">Haverta can choose {2, 15} or {2, 6, 15}.</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -269,7 +265,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>47</pre>
+                                                            <pre>{2, 5, 98872, 23298, 32872, 23111}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -278,7 +274,97 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 13.90476189046144</pre>
+                                            <pre>Returns: 45</pre>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2">&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" nowrap="true">4)</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <pre>{2, 2, 3}</pre>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <pre>Returns: 3</pre>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2">Here there are three ways to make a selection:
+                                                            <pre>
+pile 0 (2 coins) and pile 2 (3 coins); 
+pile 1 (2 coins) and pile 2 (3 coins); 
+all three piles.
+</pre>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" nowrap="true">5)</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <pre>{1}</pre>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <pre>Returns: 1</pre>
                                         </td>
                                     </tr>
                                     <tr>
