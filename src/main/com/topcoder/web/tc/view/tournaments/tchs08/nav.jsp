@@ -8,8 +8,9 @@
     <h1><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=overview" title="2008 TopCoder High School"><img src="/i/tournament/tchs08/logo_tchs.gif" width="155" height="130" alt="2008 TopCoder High School" /></a></h1>
     
     <h3 id="powered"><a href="/" title="Powered by TopCoder"><img src="/i/tournament/tchs08/logo_tc.gif" width="151" height="22" alt="TopCoder" /></a></h3>
-
+    <%--
     <div class="message"><a href="/tchs08?module=ViewRegistration">REGISTER</a></div>    
+    --%>
 
     <ul id="nav">
         <li id="nav_overview"><a title="TCHS08 Overview" onfocus="this.blur();" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=overview"<% if (tabLev1.equals("overview")) {%> class="active"<% } %>>Overview</a></li>
@@ -24,3 +25,5 @@
     </ul>
     
 </div>
+
+    <div id="main"><div id="mainwrapper">

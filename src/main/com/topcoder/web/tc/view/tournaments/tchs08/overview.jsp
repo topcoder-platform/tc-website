@@ -20,14 +20,14 @@
     <jsp:param name="tabLev3" value=""/>
     </jsp:include>
     
-    <div id="main"><div id="mainwrapper">
+    
     
         <div id="title">
             <h2>2008 TopCoder High School Tournament</h2>
         </div><%-- #title --%>
         
         <div id="content">
-            <p>The 2<sup>nd</sup> annual installment of the TopCoder High School Tournament is here! In keeping with TopCoder's competitive model, the tournament will bring together some of the most talented high school students in quest of bragging rights, scholarships and prizes worth at least $50,000. We are excited to be returning to <a href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=purdue">Purdue University</a> to watch the best of the best battle it out once again.</p>
+            <p>The 2<sup>nd</sup> annual installment of the TopCoder High School Tournament is here! In keeping with TopCoder's competitive model, the tournament will bring together some of the most talented high school students in quest of bragging rights, scholarships and prizes worth at least $50,000. We are excited to be returning to <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=purdue">Purdue University</a> to watch the best of the best battle it out once again.</p>
     
             <h3>Important Dates:</h3>
             <p>Registration opens: December 17, 2007<br />
@@ -42,7 +42,7 @@
             
             <h3>TCHS Prize Purse:</h3>
             <p>A prize purse of at least $50,000 in scholarships and prizes will be awarded.</p>
-            <p>See the <a href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=rules">official rules and regulations</a> for full details.</p>
+            <p>See the <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=rules">official rules and regulations</a> for full details.</p>
             
         </div><%-- #content --%>
         

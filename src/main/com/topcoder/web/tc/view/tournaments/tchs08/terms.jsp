@@ -27,7 +27,7 @@
     <jsp:param name="tabLev3" value=""/>
     </jsp:include>
     
-    <div id="main"><div id="mainwrapper">
+    
     
         <div id="title">
             <h2>Registration</h2>
