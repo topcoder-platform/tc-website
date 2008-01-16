@@ -90,6 +90,9 @@
                                     $action.getText("signup.for.an.account")
                                 </p>
                             #end
+                            <p>
+                                <a href="/reg/">Register</a>
+                            </p>
                         #end
                     </div>
 
