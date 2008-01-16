@@ -51,37 +51,37 @@ return false;
         <div class="myTCBody">
       <br/>
       <div align=center>
-      <A href="/tc?module=ContractingPreferences"><img src="/i/contracting/contracting_logo.gif" border=0/></A>
+      <a href="/tc?module=ContractingPreferences"><img src="/i/contracting/contracting_logo.gif" border=0/></a>
       </div>
 
          <span valign=top>
          <table border="0" cellpadding="10" cellspacing="0" align="right">
             <tr>
                <td align="center" class="bodyText">
-               <A href="/tc?module=ContractingPreferences"><img src="/i/contracting/register.gif" alt="Register here" border=0/></A>
+               <a href="/tc?module=ContractingPreferences"><img src="/i/contracting/register.gif" alt="Register here" border=0/></a>
                <%--
                <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol"><img src="/i/contracting/aol_logo.gif" alt="AOL" border=0/></A>
+               <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aol"><img src="/i/contracting/aol_logo.gif" alt="AOL" border=0/></a>
                --%>
                <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=nsa"><img src="/i/contracting/nsa_logo.gif" alt="NSA" border=0/></A>
+               <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa"><img src="/i/contracting/nsa_logo.gif" alt="NSA" border=0/></a>
                <hr noshade="noshade" size="1" />
                <%--
-               <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs"><img src="/i/contracting/ubs_logo.gif" alt="UBS" border=0/></A>
+               <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=ubs"><img src="/i/contracting/ubs_logo.gif" alt="UBS" border=0/></a>
                <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drw"><img src="/i/contracting/drwLogo.png" alt="DRW" border=0/></A>
+               <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=drw"><img src="/i/contracting/drwLogo.png" alt="DRW" border=0/></a>
                <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=sponsors&d2=yodlee"><img src="/i/contracting/yodleeLogo.png" alt="Yodlee" border=0/></A>
+               <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=yodlee"><img src="/i/contracting/yodleeLogo.png" alt="Yodlee" border=0/></a>
+               <hr noshade="noshade" size="1" />
+               <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=sponsorpatrons&amp;d4=db"><img src="/i/contracting/dbLogo.png" alt="Deutsche Bank" border=0/></a>
                <hr noshade="noshade" size="1" />
                --%>
-               <A href="/tc?module=Static&d1=sponsors&d2=bt"><img src="/i/contracting/btLogo.png" alt="British Telecom" border=0/></A>
+               <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=bt"><img src="/i/contracting/btLogo.png" alt="British Telecom" border=0/></a>
                <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=lilly"><img src="/i/contracting/lillyLogo.png" alt="Eli Lilly" border=0/></A>
+               <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly"><img src="/i/contracting/lillyLogo.png" alt="Eli Lilly" border=0/></a>
                <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorpatrons&d4=db"><img src="/i/contracting/dbLogo.png" alt="Deutsche Bank" border=0/></A>
-               <hr noshade="noshade" size="1" />
-               <i>Click one of the<br>companies above for more info<br>on their job openings,<br>and be sure to check out <br>the careers available at<br>
-               <A href="/tc?module=Static&d1=about&d2=jobs"><img src="/i/contracting/topcoder_logo.gif" alt="TopCoder" border=0/></A>
+               <em>Click one of the<br />companies above for more info<br />on their job openings,<br />and be sure to check out <br />the careers available at<br /></em>
+               <a href="/tc?module=Static&amp;d1=about&amp;d2=jobs"><img src="/i/contracting/topcoder_logo.gif" alt="TopCoder" border=0/></a>
                <hr noshade="noshade" size="1" />
                </td>
             </tr>
