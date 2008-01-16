@@ -55,8 +55,6 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     private static final User guest = SimpleUser.createGuest();
     private static final String[] groups = new String[]{UserAccessor.GROUP_CONFLUENCE_USERS};
 
-    private Principal user;
-
     public boolean login(HttpServletRequest request, HttpServletResponse response,
                          String userName, String password) throws AuthenticatorException {
         return login(request, response, userName, password, false);
@@ -282,6 +280,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     public Principal getUser(HttpServletRequest request, HttpServletResponse response) {
         //log.debug("XXX getUser(request, response) called");
         long start = System.currentTimeMillis();
+        Principal user = getPrincipalFromRequest(request);
         if (user==null) {
             try {
                 WebAuthentication authentication = getAuth(request, response);
@@ -289,7 +288,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                     com.atlassian.user.User u = checkAndAddUser(authentication.getActiveUser().getUserName());
                     checkAndAddEmail(u, authentication.getActiveUser().getId());
                     checkAndAddAdmin(authentication.getActiveUser().getUserName(), u);
-                    user = u;
+                    setPrincipalInRequest(u, request);
                 }
 
             } catch (Exception e) {
@@ -298,6 +297,17 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         }
         log.info("getUser(request, response) took " + (System.currentTimeMillis() - start) + " ms");
         return user;
+    }
+
+    private static final String USER_KEY = "ukey";
+    //cache user in request
+    private Principal getPrincipalFromRequest(HttpServletRequest request) {
+        return (Principal)request.getAttribute(USER_KEY);
+    }
+    private void setPrincipalInRequest(Principal p,HttpServletRequest request) {
+        if (p!=null) {
+            request.setAttribute(USER_KEY, p);
+        }
     }
 
     private WebAuthentication getAuth(HttpServletRequest request, HttpServletResponse response) throws Exception {
