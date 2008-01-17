@@ -137,7 +137,7 @@
 
 <p>
                             <strong>Reminder, you will not advance as an onsite finalist unless all above
-                            items are completed by 5:00 PM EDT on Friday, May 18, 2007.</strong>
+                            items are completed by 5:00 PM EDT on Monday, February 18, 2007.</strong>
 </p>
 
 <p>If you have questions, please contact <a href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</a>.</p>
