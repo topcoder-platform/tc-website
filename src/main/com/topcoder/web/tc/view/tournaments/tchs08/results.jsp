@@ -6,44 +6,42 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("tchs08_alg_adv_overview"); %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/coders.css"/>
-    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tchs08.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/tournaments/tchs08.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
     <title>TopCoder High School 2008</title>
 </head>
 <body>
 
-<div align="center" style="background: transparent;">
-<div class="content">
-<img src="/i/tournament/tchs08/contentN.png" alt="contentN" style="display: block;"/>
+<div id="wrapper">
 
-<jsp:include page="links.jsp">
+    <jsp:include page="nav.jsp" >
     <jsp:param name="tabLev1" value="resultsInd"/>
     <jsp:param name="tabLev2" value=""/>
     <jsp:param name="tabLev3" value=""/>
-</jsp:include>
-
-<div class="contentSpacer">
-    <h2>Results</h2>
+    </jsp:include>
+    
+    
+    
+        <div id="title">
+            <h2>Results</h2>
+        </div><%-- #title --%>
+        
+        <div id="content">
 
 <%--
 <p>
     Online Rounds
-    | <A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=bracketInd">Finals</A>
+    | <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=bracketInd">Finals</A>
 </p>
 --%>
 
-    <table cellspacing="0" cellpadding="0" class="stat" style="width: 625px;">
+    <table cellspacing="0" cellpadding="0" class="stat">
         <thead>
-            <tr>
-                <td class="title" colspan="8">
-                    Results
-                </td>
-            </tr>
             <tr>
                 <td class="header">
                     Handle
@@ -113,13 +111,12 @@
         </tbody>
     </table>
 
-</div>
-<div class="footer">
-    Copyright &#169; 2000-2008, TopCoder, Inc. All rights reserved.
-</div>
-<img src="/i/tournament/tchs08/contentS.png" alt="contentS" style="display: block;"/>
-</div>
-</div>
+</div><%-- #content --%>
+        
+        <jsp:include page="footer.jsp" />
+
+
+</div><%-- #wrapper --%>
 
 </body>
 </html>
