@@ -37,7 +37,7 @@
 
 
 <strong>Travel Information - must be submitted by 5:00 PM EST (GMT/UTC -5) on
-    Monday, February 28, 2008</strong>
+    Monday, February 18, 2008</strong>
 
 <p>
     <b><u>ROOMING INFORMATION:</u></b><br/>
@@ -51,7 +51,7 @@
 
 <p>
    A room at the Union Club Hotel at Purdue University will be confirmed for your arrival on Friday, March 14
-    and departure on Sunday March 20, 2008. Registration will take place
+    and departure on Sunday March 16, 2008. Registration will take place
     between 10:00 AM and 5:00 PM on Friday, March 14. At registration you will receive your TopCoder bag, program and name badge.
     You will receive more information about registration
     in your agenda, which TopCoder will email to you after your flight is booked. If you have any special requests, please indicate
@@ -180,7 +180,7 @@
 
 <tr>
     <td class="sidebarText" align="right">
-        <input type="hidden" name="q45" value="March 14, 2008 - preferred departure time"/>March 14, 2008 -
+        <input type="hidden" name="q45" value="March 16, 2008 - preferred departure time"/>March 16, 2008 -
         Preferred departure time from Indiana:
     </td>
     <td class="sidebarText" align="left"><select name="a45">
