@@ -34,7 +34,7 @@
 <h2>Please read all instructions carefully before proceeding.</h2>
 
 <p>
-    Congratulations on your performance in the 2008 TopCoder&#174; TopCoder High School Tournament.
+    Congratulations on your performance in the 2008 TopCoder&#174; High School Tournament.
 </p>
 
 <p><strong>To be completed by 5:00PM EST (GMT/UTC -5) Monday, February 18, 2008:</strong></p>
@@ -137,7 +137,7 @@
 
 <p>
                             <strong>Reminder, you will not advance as an onsite finalist unless all above
-                            items are completed by 5:00 PM EDT on Monday, February 18, 2007.</strong>
+                            items are completed by 5:00 PM EDT on Monday, February 18, 2008.</strong>
 </p>
 
 <p>If you have questions, please contact <a href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</a>.</p>
