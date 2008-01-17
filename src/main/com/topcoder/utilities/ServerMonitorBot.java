@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- * @author rfairfax
+ * @author rfairfax,dok
  */
 public class ServerMonitorBot {
 
@@ -305,7 +305,7 @@ public class ServerMonitorBot {
                         em.addToAddress(addresses[i], TCSEmailMessage.TO);
                         em.setSubject("Server Error");
                         em.setBody(errors[i]);
-                        em.setFromAddress("rfairfax@topcoder.com");
+                        em.setFromAddress("serice@topcoder.com");
                         EmailEngine.send(em);
                     errors[i]="";
                 } catch (Exception e) {
