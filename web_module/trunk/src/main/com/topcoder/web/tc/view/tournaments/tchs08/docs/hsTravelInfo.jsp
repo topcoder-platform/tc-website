@@ -36,8 +36,9 @@
 <h3>Please read all instructions carefully before proceeding.</h3>
 
 
-<strong>Travel Information - must be submitted by 5:00 PM EST (GMT/UTC -5) on
+<p><strong>Travel Information - must be submitted by 5:00 PM EST (GMT/UTC -5) on
     Monday, February 18, 2008</strong>
+</p>
 
 <p>
     <b><u>ROOMING INFORMATION:</u></b><br/>
@@ -51,7 +52,7 @@
 
 <p>
    A room at the Union Club Hotel at Purdue University will be confirmed for your arrival on Friday, March 14
-    and departure on Sunday March 16, 2008. Registration will take place
+    and departure on Sunday, March 16, 2008. Registration will take place
     between 10:00 AM and 5:00 PM on Friday, March 14. At registration you will receive your TopCoder bag, program and name badge.
     You will receive more information about registration
     in your agenda, which TopCoder will email to you after your flight is booked. If you have any special requests, please indicate
@@ -61,6 +62,22 @@
     <b>At the TCHS, you will be sharing a hotel room with another competitor.</b> Please
         fill in the appropriate space with your roommate preference if you have one. We will do our
         best to accommodate your request.</p>
+
+<b><u>AIRLINE INFORMATION:</u></b>
+
+<p>As soon as you send in this form, TopCoder will secure airline reservations based upon your registration information
+    and will email a travel itinerary to you by Friday, March 7, 2008. Please be advised that once airlines tickets are
+    confirmed, any changes are subject to penalty fees at your own expense.
+    </p>
+
+<p>TopCoder will provide air travel arrangements for each competitor.  The flight reserved by and paid for by TopCoder is
+    for arrival on March 14, 2008 and departure on March 16, 2008. Unless there are extenuating circumstances, which DO
+    NOT include personal holiday/vacation, flights will not be booked for dates other than those stated. Extended
+    flights and/or hotel room nights are your responsibility to coordinate with airlines directly and TopCoder will only
+    reimburse you the cost of a flight for the dates stated above. Please be sure to state any special requests below.</p>
+
+<p>If by some unfortunate circumstance you miss your connection flight, please proceed directly to the airline desk for
+    immediate resolution and to rebook your flight. Contacting TopCoder may delay your travel.</p>
 
 
 <b><u>AIRPORT TRANSPORTATION:</u></b>
