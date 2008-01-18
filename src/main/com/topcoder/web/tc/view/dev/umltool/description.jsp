@@ -53,9 +53,9 @@
                 <p align="center">
                     <strong>
                     Introduction
-                    | <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=download&node=<%=node==null?"":node%>" class="bcLink">Download</a>
+                    | <a href="/wiki/display/tc/UML+Tool+-+Installation" class="bcLink">Download</a> (Requires login)
                     | <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=2479" class="bcLink">Discuss the UML Tool</a>
-                    | <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=credits&node=<%=node==null?"":node%>" class="bcLink">Credits</a>
+                    | <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=credits&amp;node=<%=node==null?"":node%>" class="bcLink">Credits</a>
                     </strong>
                 </p>
 
@@ -63,12 +63,13 @@
                 We're proud to introduce the new TopCoder UML Tool: An easy to use, consistent modeling tool for use in Design and Development competitions. The new tool was built to model sequence, class, use case, and activity diagrams. On top of that, all those elements can have documentation easily attached to them.
                 </p>
 
-                <div align="center">
-                    <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=download" class="bigButton" style="width: 140px; margin: 40px;">Download Now</a>
+                <div align="center" style="margin: 40px;">
+                    <div><a href="/wiki/display/tc/UML+Tool+-+Installation" class="bigButton" style="width: 140px;">Download Now</a></div>
+                    <div>(Requires login)</div>
                 </div>
 
                 <p>
-                Where did this tool come from? On May 23, 2006, TopCoder founder Jack Hughes <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=511139">posted a message</a> in the Component Competition forum, writing:
+                Where did this tool come from? On May 23, 2006, TopCoder founder Jack Hughes <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=511139">posted a message</a> in the Component Competition forum, writing:
                 </p>
                 <p>
                 "We have decided to build our own UML tool. After considering various options, we think that this approach will allow us to develop a tool that is closely aligned with our members' needs when working within the TC process."
@@ -89,10 +90,10 @@
                 The net result of all this work: An easy to use, consistent UML modeling tool for use in Design and Development competitions. The new tool was built to model sequence, class, use case, and activity diagrams, and all items in the diagrams can have documentation easily attached to them. Going forward, the UML Tool will be used as a replacement to the Gentleware Poseidon tool currently in use.
                 </p>
                 <p>
-                Though it is now available for download, of course, the work isn't entirely over. "I anticipate the tool being heavily modified by designers and developers alike and tailored to individual needs," says Ghostar. "This flexibility will greatly enhance the speed at which the entire TopCoder process will work; I know I have a few planned features I'd like to implement that will make <a href="/tc?module=Static&d1=features&d2=081307">my life as a designer</a> a lot easier."
+                Though it is now available for download, of course, the work isn't entirely over. "I anticipate the tool being heavily modified by designers and developers alike and tailored to individual needs," says Ghostar. "This flexibility will greatly enhance the speed at which the entire TopCoder process will work; I know I have a few planned features I'd like to implement that will make <a href="/tc?module=Static&amp;d1=features&amp;d2=081307">my life as a designer</a> a lot easier."
                 </p>
                 <p>
-                Interested in trying it out? <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=download">Download the TopCoder UML Tool</a> now.
+                Interested in trying it out? <a href="/wiki/display/tc/UML+Tool+-+Installation">Download the TopCoder UML Tool</a> now.
                 </p>
 
             </div>
