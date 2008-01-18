@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />01.18.08<br />3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=primalityTesting">Primality Testing : Non-deterministic Algorithms</A></span><br /><br />
+      Primality testing of a number is perhaps the most common problem concerning number theory that topcoders deal with. A prime number is a natural number which has exactly two distinct natural number divisors: 1 and itself. This article discusses some of the popular probabilistic methods such as Fermat's test, Rabin-Miller test, Solovay-Strassen test.</td>
+         <td class="newsPhoto"><img src="/i/m/innocentboy_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="22419265" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=primalityTesting">details</A> | 
+         <tc-webtag:forumLink forumID="519109" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.18.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">TCHS08 Online Round 2</A></span><br /><br />
@@ -158,18 +174,5 @@
         <A href="/tc?module=Static&d1=pressroom&d2=pr_010708">details</a> | 
         <tc-webtag:forumLink forumID="518782" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />01.03.08<br />4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='/tc' />">Registration Open for Three More Architecture Competitions</A></span><br /><br />
-        As part of these Architecture Competitions members have been tasked to create an architecture based on a complete prototype and an application requirement specification. The prototype and application requirement specification are part of a much larger enterprise suite of applications, which when assembled together comprise "Project Phoenix". For each milestone that is completed, you will receive $200.00 in addition to the compensation you would receive if you were to win the 1st or 2nd place. Even if you do not make any placements, you will still receive the full $200.00 for EACH milestone that is submitted.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="518483" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
