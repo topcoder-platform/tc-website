@@ -12,7 +12,7 @@
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
     <title>2008 TopCoder Open - Computer Programming Tournament</title>
@@ -41,13 +41,11 @@
 </script>
 </head>
 
-<body>
+<body id="page_sub">
 
 <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result"); %>
 
-<div align="center" style="background: transparent;">
-    <div id="containAll">
-    <div id="content">
+<div id="wrapper">
 
         <jsp:include page="../nav.jsp" >
         <jsp:param name="tabLev1" value="<%=EventType.ALGORITHM_TOURNAMENT_ID%>"/>
@@ -55,8 +53,7 @@
         <jsp:param name="tabLev3" value="qualification"/>
         </jsp:include>
 
-            <div id="pageBody">
-                <h1><span>Qualification</span></h1>
+        <h2>Qualification</h2>
 
                 <form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AlgorithmQualification"/>
@@ -68,12 +65,12 @@
 
                 <c:choose>
                     <c:when test="${full}">
-                        | <a href="/tco08?module=AlgorithmQualification&full=false">Pages</a>
+                        | <a href="/tco08?module=AlgorithmQualification&amp;full=false">Pages</a>
                         | Full view
                     </c:when>
                     <c:otherwise>
                         | Page view
-                        | <a href="/tco08?module=AlgorithmQualification&full=true">Full view</a>
+                        | <a href="/tco08?module=AlgorithmQualification&amp;full=true">Full view</a>
                     </c:otherwise>
                 </c:choose>
 
@@ -89,19 +86,19 @@
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 400px;">
                 <thead>
                     <tr>
-                        <td class="header" width="40%">
+                        <th>
                             <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
                             <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
-                        </td>
-                        <td class="headerC" width="20%">
+                        </th>
+                        <th>
                             <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round_name")%>"/>">Round</a>
-                        </td>
-                        <td class="headerR" width="20%">
+                        </th>
+                        <th>
                             <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
-                        </td>
-                        <td class="headerR" width="20%">
+                        </th>
+                        <th>
                             <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("points")%>"/>">Points</a>
-                        </td>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -126,7 +123,7 @@
                                <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
                                | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                             
-                               <br>
+                               <br />
                             
                                View &#160;
                                <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
@@ -137,10 +134,11 @@
                         </div>
                     </c:if>
                 </form>
-            </div>
-    </div>
-    <jsp:include page="../footer.jsp" />
-    </div>
-</div>
+    </div><%-- #content --%>
+
+<jsp:include page="../footer.jsp" />
+
+</div><%-- #wrapper --%>
+
 </body>
 </html>
