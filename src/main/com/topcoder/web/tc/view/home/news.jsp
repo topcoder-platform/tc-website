@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.18.08<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">TCHS08 Online Round 2</A></span><br /><br />
+        The second round of the 2008 TCHS tournament starts at 1:00 PM EST (UTC/GMT -5) on Saturday, January 19. Don't miss the action!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">details</a> | 
+        <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=590134">discuss this</A> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />01.18.08<br />10:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -93,7 +106,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.11.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">TCHS Online Round 1</A></span><br /><br />
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">TCHS08 Online Round 1</A></span><br /><br />
         The first round of the 2008 TCHS tournament starts tomorrow at 1:00 PM EST (UTC/GMT -5).  Don't miss the action as high school students square to start the tournament.</td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -158,18 +171,5 @@
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="518483" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />01.03.08<br />12:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='/tc' />">CFO.com: Gaming the System</A></span><br /><br />
-        <tc-webtag:handle coderId="20437508" context="design"/> is on fire: three consecutive wins for nearly 1,700 points have moved the Russian into fourth place, and he's gaining on two Americans, <tc-webtag:handle coderId="7390772" context="design"/> and <tc-webtag:handle coderId="11797255" context="design"/>, who don't seem to have much fight left in them. But <tc-webtag:handle coderId="20437508" context="design"/> remains nearly 300 points shy of the top spot, held by <tc-webtag:handle coderId="11789293" context="design"/>, the four-event Chinese ace who has never finished out of the money. Welcome to the Matrix, corporate edition, where to survive and thrive you must stay plugged in. <a target="_blank" href="/i/pressroom/pdfs/cfo_20080103.pdf">PDF</a> version available.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="518764" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
    
