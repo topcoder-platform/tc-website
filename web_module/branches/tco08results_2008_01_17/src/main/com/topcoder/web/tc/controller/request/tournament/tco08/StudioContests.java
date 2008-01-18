@@ -1,22 +1,23 @@
 /*
-* StudioLeaderboard
+* StudioUserContestsBase
 *
 * Created Jul 31, 2007
 */
 package com.topcoder.web.tc.controller.request.tournament.tco08;
 
-import com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase;
+import com.topcoder.web.tc.controller.request.tournament.StudioUserContestsBase;
+
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class StudioLeaderboard extends StudioLeaderboardBase {
+public class StudioContests extends StudioUserContestsBase {
 
     private int[] placementPoints = new int[]{17, 15, 13, 10, 7};
 
     /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase#getContestPrefix()
+     * @see com.topcoder.web.tc.controller.request.tournament.StudioUserContestsBase#getContestPrefix()
      */
     @Override
     protected String getContestPrefix() {
@@ -24,7 +25,7 @@ public class StudioLeaderboard extends StudioLeaderboardBase {
     }
     
     /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase#getMaxContests()
+     * @see com.topcoder.web.tc.controller.request.tournament.StudioUserContestsBase#getMaxContests()
      */
     @Override
     protected int getMaxContests() {
@@ -32,7 +33,7 @@ public class StudioLeaderboard extends StudioLeaderboardBase {
     }
     
     /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase#getPlacementPoints()
+     * @see com.topcoder.web.tc.controller.request.tournament.StudioUserContestsBase#getPlacementPoints()
      */
     @Override
     protected int getPlacementPoints(int contestPlace) {
@@ -41,5 +42,4 @@ public class StudioLeaderboard extends StudioLeaderboardBase {
         }
         return 0;
     }
-    
 }

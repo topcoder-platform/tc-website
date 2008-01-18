@@ -117,7 +117,7 @@
                         <li><a href="/tco08?module=ViewRegistration&amp;et=7"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
                         <li><a href="/tco08?module=Registrants&amp;et=7"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <!--  ToDo: change contest and event -->
-                        <li><a href="/tco08?module=StudioLeaderboard&amp;eid=3004"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a></li>
+                        <li><a href="/tco08?module=StudioLeaders&amp;eid=3004"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a></li>
                         <%--
                         <li><a href=""<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
                         --%>
@@ -195,7 +195,7 @@
                     <% } else if (tabLev1.equals(EventType.STUDIO_TOURNAMENT_ID.toString())) { %>
                         <% if (tabLev2.equals("advancers")) {%>
                             <!--  ToDo: change contest and event -->
-                            <li><a href="/tco08?module=StudioLeaderboard&amp;eid=3004"<% if (tabLev3.equals("leaderboard")) {%> class="on"<% } %>>Leaderboard</a></li>
+                            <li><a href="/tco08?module=StudioLeaders&amp;eid=3004"<% if (tabLev3.equals("leaderboard")) {%> class="on"<% } %>>Leaderboard</a></li>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=bracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=summary"<% if (tabLev3.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
                         <% } %>
