@@ -223,6 +223,9 @@ TopCoder, in its sole discretion, reserves the right to disqualify any person ta
 operation of the Web site, the competition process, or is otherwise in violation of the rules. TopCoder reserves the
 right to cancel, terminate or modify the competition if it is not capable of completion as planned for any reason,
 including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.
+<br/><br/>
+
+TopCoder does not require assignment of winning submissions in this competition.
 <br/><br/><br/>
 
 <b>Participants</b><br/>
