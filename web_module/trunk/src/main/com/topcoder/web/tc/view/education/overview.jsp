@@ -39,12 +39,12 @@
 <br /><br />
 <span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
+<li><a href="/tc?module=Static&d1=tutorials&d2=primalityTesting"><strong>Primality Testing : Non-deterministic Algorithms</strong></a>, by <tc-webtag:handle coderId="22419265" context="algorithm"/><br />
+Primality testing of a number is perhaps the most common problem concerning number theory that topcoders deal with. A prime number is a natural number which has exactly two distinct natural number divisors: 1 and itself. This article discusses some of the popular probabilistic methods such as Fermat's test, Rabin-Miller test, Solovay-Strassen test.</li>
 <li><a href="/tc?module=Static&d1=features&d2=010408"><strong>Linear recurrences</strong></a>, by <tc-webtag:handle coderId="251074" context="algorithm"/><br />
 I started writing this as an article about series and recurrence relations, but linear recurrences kept coming up in all the examples I used, so I decided to focus on them explicitly. A linear recurrence is a sequence of vectors defined by the equation <em>x<sub>i+1</sub></em> = <em>Mx<sub>i</sub></em>, for some constant matrix <em>M</em>.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions2"><strong>The Best Questions for Would-be C++ Programmers, Part 2</strong></a>, by <tc-webtag:handle coderId="22630158" context="algorithm"/><br />
 In the second part of this installment we'll tackle some questions regarding more advanced features of the language (the experienced C++ programmers will consider some of these more on the basic side). So let's get to it and work on the second part of this "interview".</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions"><strong>The Best Questions for Would-be C++ Programmers, Part 1</strong></a>, by <tc-webtag:handle coderId="22630158" context="algorithm"/><br />
-It seems that an almost obligatory and very important part of the recruitment process is "the test." "The test" can provide information both for the interviewer and the candidate. I've had my fair share of interviews, more or less successful, and I would like to share with you my experience regarding some questions I had to face.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br />
 <ul>
