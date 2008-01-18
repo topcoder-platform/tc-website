@@ -1,7 +1,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <%@ page import="com.topcoder.web.common.model.EventType" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
     <title>2008 TopCoder Open - Computer Programming Tournament</title>
@@ -11,11 +11,9 @@
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
     <jsp:include page="../../script.jsp" />
 </head>
-<body>
+<body id="page_sub">
 
-<div align="center" style="background: transparent;">
-    <div id="containAll">
-    <div id="content">
+<div id="wrapper">
 
         <jsp:include page="../nav.jsp" >
         <jsp:param name="tabLev1" value="<%=EventType.ALGORITHM_TOURNAMENT_ID%>"/>
@@ -23,24 +21,23 @@
         <jsp:param name="tabLev3" value="qualification"/>
         </jsp:include>
 
-            <div id="pageBody">
-                        <h1><span>Advancers</span></h1>
+        <h2>Advancers</h2>
 
 <div align="center">
 <table cellspacing="0" cellpadding="0" class="stat" style="width: 400px">
 <thead>
     <tr>
-        <td class="title" colspan="3">
+        <th>
         Algorithm Advancers - Byes
-        </td>
+        </th>
     </tr>
     <tr>
-        <td class="header">
+        <th>
         Handle
-        </td>
-        <td class="headerR">
+        </th>
+        <th>
         Rating
-        </td>
+        </th>
     </tr>
 </thead>
 <tbody>
@@ -52,10 +49,11 @@
 </table>
 </div>
 
-            </div>
-    </div>
-    <jsp:include page="../footer.jsp" />
-    </div>
-</div>
+    </div><%-- #content --%>
+
+<jsp:include page="../footer.jsp" />
+
+</div><%-- #wrapper --%>
+
 </body>
 </html>
