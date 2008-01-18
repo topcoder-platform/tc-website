@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />01.18.08<br />10:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm388">SRM 388 - Problem Set &amp; Analysis</A></span><br /><br />
+      The match started with registration troubles, which may have played a hand in limiting the registration to <q>only</q> 1424 contestants in spite of the prize money. Fortunately, <tc-webtag:handle coderId="7267401" context="algorithm"/> worked his usual magic and the match was able to proceed.</td>
+         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm388">details</A> | 
+         <tc-webtag:forumLink forumID="518888" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />01.15.08<br />6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/wiki/display/tc/Bug+Races">Introducing the TopCoder Bug Races!</A></span><br /><br />
@@ -154,19 +170,6 @@
    <tr><td class="newsLinksCell">
         <A target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="518764" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />01.02.08<br />1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=pressroom&d2=pr_010208">TopCoder Expands With New Headquarters in Connecticut</A></span><br /><br />
-        New office location provides more than 11,000 square feet of space, and includes plenty of room for growth as TopCoder looks to continue adding top talent on the hiring front. The location also means a significantly greater presence for the company, located in a new professional development park just outside of Hartford, Conn.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=pressroom&d2=pr_010208">details</a> | 
-        <tc-webtag:forumLink forumID="518711" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
    
