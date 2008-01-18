@@ -64,16 +64,16 @@
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
                 <tc-webtag:hiddenInput name="<%=AdvancersBase.FULL_LIST%>"/>
                 <div align="center">
-                <a href="/tc?module=AlgorithmQualification">Reset sorting</a>
+                <a href="/tco08?module=AlgorithmQualification">Reset sorting</a>
 
                 <c:choose>
                     <c:when test="${full}">
-                        | <a href="/tc?module=AlgorithmQualification&full=false">Pages</a>
+                        | <a href="/tco08?module=AlgorithmQualification&full=false">Pages</a>
                         | Full view
                     </c:when>
                     <c:otherwise>
                         | Page view
-                        | <a href="/tc?module=AlgorithmQualification&full=true">Full view</a>
+                        | <a href="/tco08?module=AlgorithmQualification&full=true">Full view</a>
                     </c:otherwise>
                 </c:choose>
 
@@ -90,17 +90,17 @@
                 <thead>
                     <tr>
                         <td class="header" width="40%">
-                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
+                            <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
                             <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                         </td>
                         <td class="headerC" width="20%">
-                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round_name")%>"/>">Round</a>
+                            <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round_name")%>"/>">Round</a>
                         </td>
                         <td class="headerR" width="20%">
-                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
+                            <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
                         </td>
                         <td class="headerR" width="20%">
-                            <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("points")%>"/>">Points</a>
+                            <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("points")%>"/>">Points</a>
                         </td>
                     </tr>
                 </thead>

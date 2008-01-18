@@ -45,10 +45,10 @@
                 </tr>
                 <tr>
                     <td class="headerC" rowspan="2" width="1%">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaders<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioLeaderboardBase.RANK_COL%>"/>">Rank</A>
+                        <A href="/tco08?<%=Constants.MODULE_KEY%>=StudioLeaders<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioLeaderboardBase.RANK_COL%>"/>">Rank</A>
                     </td>
                     <td class="header" rowspan="2">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaders<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioLeaderboardBase.HANDLE_COL%>"/>">Handle</A>
+                        <A href="/tco08?<%=Constants.MODULE_KEY%>=StudioLeaders<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioLeaderboardBase.HANDLE_COL%>"/>">Handle</A>
                     </td>
                     <td class="headerC" colspan="2" nowrap="nowrap" style="border-right: 1px solid #999999;">
                         Completed
@@ -59,13 +59,13 @@
                 </tr>
                 <tr>
                     <td class="headerC">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaders<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioLeaderboardBase.COMPLETED_CONTESTS_COL%>"/>">Contests</A>
+                        <A href="/tco08?<%=Constants.MODULE_KEY%>=StudioLeaders<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioLeaderboardBase.COMPLETED_CONTESTS_COL%>"/>">Contests</A>
                     </td>
                     <td class="headerC" style="border-right: 1px solid #999999;">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaders<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioLeaderboardBase.COMPLETED_POINTS_COL%>"/>">Points</A>
+                        <A href="/tco08?<%=Constants.MODULE_KEY%>=StudioLeaders<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioLeaderboardBase.COMPLETED_POINTS_COL%>"/>">Points</A>
                     </td>
                     <td class="headerC">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaders<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioLeaderboardBase.CURRENT_CONTESTS_COL%>"/>">Contests</A>
+                        <A href="/tco08?<%=Constants.MODULE_KEY%>=StudioLeaders<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioLeaderboardBase.CURRENT_CONTESTS_COL%>"/>">Contests</A>
                     </td>
                 </tr>
             </thead>
@@ -92,7 +92,7 @@
                             </strong>
                         </td>
                         <td class="valueC">
-                            <a href="tc?${module}=StudioContests&amp;complete=1&amp;${eventId}=${param[eventId]}&amp;${userId}=${resultRow.userId}"/>
+                            <a href="tco08?${module}=StudioContests&amp;complete=1&amp;${eventId}=${param[eventId]}&amp;${userId}=${resultRow.userId}"/>
                                 <c:choose>
                                     <c:when test="${resultRow.completedContests > 0}">
                                         ${resultRow.completedContests}
@@ -132,7 +132,7 @@
                             </c:choose>
                         </td>
                         <td class="valueC">
-                            <a href="tc?${module}=StudioContests&amp;complete=0&amp;${eventId}=${param[eventId]}&amp;${userId}=${resultRow.userId}">
+                            <a href="tco08?${module}=StudioContests&amp;complete=0&amp;${eventId}=${param[eventId]}&amp;${userId}=${resultRow.userId}">
                                 <c:choose>
                                     <c:when test="${resultRow.currentContests > 0}">
                                         ${resultRow.currentContests}

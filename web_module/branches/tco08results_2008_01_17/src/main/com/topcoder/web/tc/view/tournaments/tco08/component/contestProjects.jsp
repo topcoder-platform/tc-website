@@ -57,7 +57,7 @@
 
             <div id="pageBody">
 
-                    <h1><span><a href="/tc?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />">
+                    <h1><span><a href="/tco08?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />">
                       <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
                   </a> -
                   Components</span></h1>
@@ -88,10 +88,10 @@
                                 *
                                 <% } %>
                                 | 
-                                <A href="/tc?module=ProjectDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</A>
+                                <A href="/tco08?module=ProjectDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</A>
                                 <% if (isComplete) { %>
                                 |
-                                <A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">contest
+                                <A href="/tco08?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">contest
                                     details</A>
                                 <% } %>
                             </td>

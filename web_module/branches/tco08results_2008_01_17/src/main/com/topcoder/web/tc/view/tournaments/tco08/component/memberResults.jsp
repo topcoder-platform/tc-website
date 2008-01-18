@@ -59,7 +59,7 @@
 
             <div id="pageBody">
 
-                    <h1><span><A href="/tc?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
+                    <h1><span><A href="/tco08?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
                     <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
                 </A> -
                 <tc-webtag:handle context='<%=tab%>' coderId='<%=rscUser.getIntItem(0, "coder_id")%>' darkBG='true' /></span></h1>
@@ -92,7 +92,7 @@
                             *
                             <% } %>
                             <% if (isComplete) { %>
-                            | <A href="/tc?module=CompContestDetails&pj=<%=result.getProjectId()%>">contest details</A>
+                            | <A href="/tco08?module=CompContestDetails&pj=<%=result.getProjectId()%>">contest details</A>
                             <% } %>
 
                         </td>

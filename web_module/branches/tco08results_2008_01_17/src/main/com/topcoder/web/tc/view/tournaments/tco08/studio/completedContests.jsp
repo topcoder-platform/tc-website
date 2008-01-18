@@ -43,27 +43,27 @@
                                 </tr>
                                 <tr>
                                     <td class="header">
-                                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.CONTEST_NAME_COL%>"/>">Contest</A>
+                                        <A href="/tco08?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.CONTEST_NAME_COL%>"/>">Contest</A>
                                     </td>
                                     <td class="headerC">
-                                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.START_DATE_COL%>"/>">Start
+                                        <A href="/tco08?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.START_DATE_COL%>"/>">Start
                                             Date</A>
                                     </td>
                                     <td class="headerC">
-                                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.END_DATE_COL%>"/>">End
+                                        <A href="/tco08?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.END_DATE_COL%>"/>">End
                                             Date</A>
                                     </td>
                                     <td class="headerC">
-                                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.REGISTRANTS_COL%>"/>">Registrants</A>
+                                        <A href="/tco08?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.REGISTRANTS_COL%>"/>">Registrants</A>
                                     </td>
                                     <td class="headerC">
-                                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.SUBMISSIONS_COL%>"/>">Submissions</A>
+                                        <A href="/tco08?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.SUBMISSIONS_COL%>"/>">Submissions</A>
                                     </td>
                                     <td class="headerC">
-                                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.PLACED_COL%>"/>">Placed</A>
+                                        <A href="/tco08?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.PLACED_COL%>"/>">Placed</A>
                                     </td>
                                     <td class="headerC">
-                                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.POINTS_COL%>"/>">Points</A>
+                                        <A href="/tco08?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.POINTS_COL%>"/>">Points</A>
                                     </td>
                                 </tr>
                             </thead>

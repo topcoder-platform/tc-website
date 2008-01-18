@@ -73,16 +73,16 @@
                 <tc-webtag:hiddenInput name="<%=AdvancersBase.FULL_LIST%>"/>
 
                 <div align="center">
-                <a href="/tc?module=MarathonAdvancers">Reset sorting</a>
+                <a href="/tco08?module=MarathonAdvancers">Reset sorting</a>
 
                 <c:choose>
                     <c:when test="${full}">
-                        | <a href="/tc?module=MarathonAdvancers&full=false">Pages</a>
+                        | <a href="/tco08?module=MarathonAdvancers&full=false">Pages</a>
                         | Full view
                     </c:when>
                     <c:otherwise>
                         | Page view
-                        | <a href="/tc?module=MarathonAdvancers&full=true">Full view</a>
+                        | <a href="/tco08?module=MarathonAdvancers&full=true">Full view</a>
                     </c:otherwise>
                 </c:choose>
 
@@ -100,29 +100,29 @@
                 <tr><td class="title" colspan="7">Marathon Match Advancers</td></tr>
                 <tr>
                     <td class="headerC">
-                        <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
+                        <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
                     </td>
                     <td class="header" nowrap="nowrap">
-                        <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
+                        <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
                         <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                     </td>
                     <td class="headerR">
-                        <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
+                        <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
                     </td>
                     <td class="headerC" width="25%">
-                        <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round1_sort")%>"/>">Round 1</a><br />
+                        <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round1_sort")%>"/>">Round 1</a><br />
                         <c:if test = "${not empty round1_id}"><a href="${details_link}${round1_id}">details</a></c:if>
                     </td>
                     <td class="headerC" width="25%">
-                        <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round2_sort")%>"/>">Round 2</a><br />
+                        <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round2_sort")%>"/>">Round 2</a><br />
                         <c:if test = "${not empty round2_id}"><a href="${details_link}${round2_id}">details</a></c:if>
                     </td>
                     <td class="headerC" width="25%">
-                        <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round3_sort")%>"/>">Round 3</a><br />
+                        <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round3_sort")%>"/>">Round 3</a><br />
                         <c:if test = "${not empty round3_id}"><a href="${details_link}${round3_id}">details</a></c:if>
                     </td>
                     <td class="headerC" width="25%">
-                        <a href="/tc?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("finals_sort")%>"/>">Final</a><br />
+                        <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("finals_sort")%>"/>">Final</a><br />
                         <c:if test = "${not empty finals_id}"><a href="${details_link}${finals_id}">details</a></c:if>
                     </td>
                 </tr>

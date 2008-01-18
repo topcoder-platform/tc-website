@@ -61,7 +61,7 @@
 
             <div id="pageBody">
 
-                    <h1><span><A href="/tc?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
+                    <h1><span><A href="/tco08?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
                    <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
                </A> -
                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>">
@@ -69,7 +69,7 @@
                </A>
                <%if (!isComplete) {%>*<%}%></span></h1>
                 <% if (isComplete) { %>
-                <A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=rscProject%>"/>">contest
+                <A href="/tco08?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=rscProject%>"/>">contest
                     details</span></h1>
                 <% } %>
 

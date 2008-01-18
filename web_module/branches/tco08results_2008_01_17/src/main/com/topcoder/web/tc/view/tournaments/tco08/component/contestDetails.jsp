@@ -55,7 +55,7 @@
             <div id="pageBody">
 
                     <h1><span><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/> -
-                    <a href="/tc?module=ContestProjects&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">View
+                    <a href="/tco08?module=ContestProjects&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">View
                     Components</a></span></h1>
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
@@ -87,7 +87,7 @@
                         <td class="valueC"><%=result.getSubmissionCount()%>
                         </td>
                         <td class="valueC">
-                            <a href="/tc?module=MemberResults&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a>
+                            <a href="/tco08?module=MemberResults&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a>
                         </td>
                     </tr>
                     <% }%>
