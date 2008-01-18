@@ -92,7 +92,7 @@
                             *
                             <% } %>
                             <% if (isComplete) { %>
-                            | <A href="/tco08?module=CompContestDetails&pj=<%=result.getProjectId()%>">contest details</A>
+                            | <A href="/tc?module=CompContestDetails&pj=<%=result.getProjectId()%>">contest details</A>
                             <% } %>
 
                         </td>

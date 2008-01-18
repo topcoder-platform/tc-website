@@ -69,7 +69,7 @@
                </A>
                <%if (!isComplete) {%>*<%}%></span></h1>
                 <% if (isComplete) { %>
-                <A href="/tco08?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=rscProject%>"/>">contest
+                <A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=rscProject%>"/>">contest
                     details</span></h1>
                 <% } %>
 
