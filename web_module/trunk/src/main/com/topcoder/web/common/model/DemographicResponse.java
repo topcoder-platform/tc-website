@@ -7,9 +7,6 @@ import java.io.Serializable;
 public class DemographicResponse extends Base {
     protected static final Logger log = Logger.getLogger(DemographicResponse.class);
     private Identifier id = new Identifier();
-    private User user;
-    private DemographicQuestion question;
-    private DemographicAnswer answer;
     private String response;
 
     public Identifier getId() {
@@ -21,30 +18,30 @@ public class DemographicResponse extends Base {
     }
 
     public User getUser() {
-        return user;
+        return id.getUser();
     }
 
     public DemographicResponse() {
     }
 
     public void setUser(User user) {
-        this.user = user;
+        this.id.setUser(user);
     }
 
     public DemographicQuestion getQuestion() {
-        return question;
+        return id.getQuestion();
     }
 
     public void setQuestion(DemographicQuestion question) {
-        this.question = question;
+        this.id.setQuestion(question);
     }
 
     public DemographicAnswer getAnswer() {
-        return answer;
+        return id.getAnswer();
     }
 
     public void setAnswer(DemographicAnswer answer) {
-        this.answer = answer;
+        this.id.setAnswer(answer);
     }
 
     public String getResponse() {
@@ -62,20 +59,13 @@ public class DemographicResponse extends Base {
         } else {
             try {
                 DemographicResponse oa = (DemographicResponse) o;
-                //log.debug(" compare " + oa.getQuestion().getId() + " " + question.getId() + " " + oa.getAnswer().getId() + " " + getAnswer().getId());
-                boolean sameUser = (oa.getUser().getId() == null && getUser().getId() == null) ||
-                        (oa.getUser().getId() != null && getUser().getId() != null && oa.getUser().getId().equals(getUser().getId()));
-                boolean sameQuestion = (oa.getQuestion().getId() == null && getQuestion().getId() == null) ||
-                        (oa.getQuestion().getId() != null && getQuestion().getId() != null && oa.getQuestion().getId().equals(getQuestion().getId()));
-                boolean sameAnswer = (oa.getAnswer().getId() == null && getAnswer().getId() == null) ||
-                        (oa.getAnswer().getId() != null && getAnswer().getId() != null && oa.getAnswer().getId().equals(getAnswer().getId()));
+                boolean sameId = getId().equals(oa.getId());
                 boolean sameResponse = true;
                 if (getQuestion().isFreeForm()) {
                     sameResponse = (oa.getResponse() == null && getResponse() == null) ||
                             (oa.getResponse() != null && oa.getResponse().equals(getResponse()));
                 }
-                boolean ret = sameUser && sameQuestion && sameAnswer && sameResponse;
-                return ret;
+                return sameId&&sameResponse;
             } catch (ClassCastException e) {
                 return false;
             }
@@ -167,9 +157,16 @@ public class DemographicResponse extends Base {
             } else {
                 try {
                     DemographicResponse.Identifier oa = (DemographicResponse.Identifier) o;
-                    return (oa.user.getId().equals(user.getId()) &&
-                            oa.question.getId().equals(question.getId()) &&
-                            oa.answer.getId().equals(answer.getId()));
+
+                    //log.debug(" compare " + oa.getQuestion().getId() + " " + question.getId() + " " + oa.getAnswer().getId() + " " + getAnswer().getId());
+                    boolean sameUser = (oa.getUser().getId() == null && getUser().getId() == null) ||
+                            (oa.getUser().getId() != null && getUser().getId() != null && oa.getUser().getId().equals(getUser().getId()));
+                    boolean sameQuestion = (oa.getQuestion().getId() == null && getQuestion().getId() == null) ||
+                            (oa.getQuestion().getId() != null && getQuestion().getId() != null && oa.getQuestion().getId().equals(getQuestion().getId()));
+                    boolean sameAnswer = (oa.getAnswer().getId() == null && getAnswer().getId() == null) ||
+                            (oa.getAnswer().getId() != null && getAnswer().getId() != null && oa.getAnswer().getId().equals(getAnswer().getId()));
+                    boolean ret = sameUser && sameQuestion && sameAnswer;
+                    return ret;
                 } catch (ClassCastException e) {
                     return false;
                 }
