@@ -179,13 +179,13 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             PrincipalMgrLocal pmr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
             UserPrincipal p = pmr.getUser(userName);
             if (p.getId() == guest.getId()) {
-                log.info("getUser(userName) took " + (System.currentTimeMillis() - start) + " ms");
+                //log.info("getUser(userName) took " + (System.currentTimeMillis() - start) + " ms");
                 return null;
             } else {
                 DefaultUser du = new DefaultUser(p.getName());
                 du.setName(p.getName());
                 du.setFullName(du.getName());
-                log.info("getUser(userName) took " + (System.currentTimeMillis() - start) + " ms");
+                //log.info("getUser(userName) took " + (System.currentTimeMillis() - start) + " ms");
                 return du;
             }
         } catch (NoSuchUserException e) {
@@ -230,7 +230,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             cUser = getUserAccessor().addUser(userName.toLowerCase(), "", "", userName, groups);
         }
 
-        log.info("checkAndAddUser(userName) took " + (System.currentTimeMillis() - start) + " ms");
+        //log.info("checkAndAddUser(userName) took " + (System.currentTimeMillis() - start) + " ms");
         return cUser;
 
     }
@@ -245,7 +245,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         } else if (!isTCAdmin && isConfluenceAdmin) {
             getUserAccessor().removeMembership(GROUP_TOPCODER_STAFF, cUser.getName());
         }
-        log.info("checkAddAddAdmin(userNaem, user) took " + (System.currentTimeMillis() - start) + " ms");
+        //log.info("checkAddAddAdmin(userNaem, user) took " + (System.currentTimeMillis() - start) + " ms");
 
     }
 
@@ -256,8 +256,8 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         dataRequest.setProperty(DataAccessConstants.COMMAND, "user_email");
         dataRequest.setProperty("uid", String.valueOf(userId));
         ResultSetContainer rsc = dai.getData(dataRequest).get("user_email");
-        log.debug("email for user " + userId + " " + rsc.toString());
-        log.info("getEmail(userId) took " + (System.currentTimeMillis() - start) + " ms");
+        //log.debug("email for user " + userId + " " + rsc.toString());
+        //log.info("getEmail(userId) took " + (System.currentTimeMillis() - start) + " ms");
         return rsc.getStringItem(0, "address");
 
     }
@@ -274,7 +274,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                 getUserAccessor().saveUser(user);
             }
         }
-        log.info("checkAndAddEmail(user, tcUserId) took " + (System.currentTimeMillis() - start) + " ms");
+        //log.info("checkAndAddEmail(user, tcUserId) took " + (System.currentTimeMillis() - start) + " ms");
     }
 
     public Principal getUser(HttpServletRequest request, HttpServletResponse response) {
@@ -289,13 +289,14 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                     checkAndAddEmail(u, authentication.getActiveUser().getId());
                     checkAndAddAdmin(authentication.getActiveUser().getUserName(), u);
                     setPrincipalInRequest(u, request);
+                    user = u;
                 }
 
             } catch (Exception e) {
                 log.warn(e.getMessage(), e);
             }
         }
-        log.info("getUser(request, response) took " + (System.currentTimeMillis() - start) + " ms");
+        log.info(user==null?"anon":user.getName() + "getUser(request, response) took " + (System.currentTimeMillis() - start) + " ms");
         return user;
     }
 
