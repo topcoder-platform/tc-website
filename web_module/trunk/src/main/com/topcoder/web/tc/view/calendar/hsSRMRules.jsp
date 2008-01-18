@@ -135,6 +135,8 @@ binding and conclusive in all matters.
     including
     infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.</p>
 
+<p>TopCoder does not require assignment of winning submissions in this competition.</p>
+
 
 <b>Participants</b><br/>
 The SRM is open to all TCHS members who are between the ages of 13 and 20, inclusive, pursuing a secondary school
