@@ -212,6 +212,10 @@
                &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions"><strong>Part 1</strong></a><br>
                &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=tenBestQuestions2"><strong>Part 2</strong></a><br>
             </td></tr>
+            <tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="22419265" context="algorithm"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=primalityTesting"><strong>Primality Testing : Non-deterministic Algorithms</strong></a>
+            </td></tr>
            <tr valign="top">
                <td class="bodyText" colspan="2"><br><a href="/tc?module=Static&d1=help&d2=writeForTC">Write algorithm tutorials for TopCoder.com</a></td>
             </tr>
