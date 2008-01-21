@@ -33,7 +33,7 @@
                         <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
                             <thead>
                                 <tr>
-                                    <th colspan="7">
+                                    <th colspan="8">
                                         <span class="coderText"> ${handle}</span> &gt;
                                         Completed
                                     </th>
@@ -61,6 +61,9 @@
                                     </th>
                                     <th class="headerC">
                                         <a href="/tco08?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.POINTS_COL%>"/>">Points</a>
+                                    </th>
+                                    <th class="headerC">
+                                        View submission
                                     </th>
                                 </tr>
                             </thead>
@@ -90,6 +93,16 @@
                                         </td>
                                         <td class="valueC">
                                             ${resultRow.points}
+                                        </td>
+                                        <td class="valueC">
+                                            <c:choose>
+                                                <c:when test="${(not empty resultRow.submissionId) and (resultRow.submissionId > 0)}">
+                                                    <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;sbmid=${resultRow.submissionId}">
+                                                        View submission
+                                                    </A>
+                                                </c:when>
+                                                <c:otherwise>&nbsp;</c:otherwise>
+                                            </c:choose>
                                         </td>
                                     </tr>
                                 <%even = !even;%>
