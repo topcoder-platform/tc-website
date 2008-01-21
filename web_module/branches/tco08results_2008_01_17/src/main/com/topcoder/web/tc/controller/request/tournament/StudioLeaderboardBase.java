@@ -183,8 +183,7 @@ public abstract class StudioLeaderboardBase extends Base {
                 row.setCompletedPoints(tmp);
                 
                 if (placementPoints > 0) {
-                    List<Integer> tmpPlacements = row.getCompletedPoints();
-                    tmpPlacements = row.getPlacements();
+                    List<Integer> tmpPlacements = row.getPlacements();
                     tmpPlacements.add(contestPlace);
                     row.setPlacements(tmpPlacements);
                 }
