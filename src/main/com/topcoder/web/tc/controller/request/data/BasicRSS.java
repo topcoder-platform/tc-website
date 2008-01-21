@@ -38,7 +38,7 @@ public class BasicRSS extends Static {
                 title = title.substring("rss".length());
             }
             title = title.trim();
-            getRequest().setAttribute("title", r.getContentHandle().replace("_", " "));
+            getRequest().setAttribute("title", title);
 
             //for now we'll assume they're gettin data from the warehouse, perhaps that'll change later
             Map<String, ResultSetContainer> m = new CachedDataAccess(MaxAge.HOUR, getDataSource(ds)).getData(r);
