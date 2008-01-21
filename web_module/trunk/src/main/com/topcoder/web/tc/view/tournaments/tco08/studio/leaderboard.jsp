@@ -71,7 +71,7 @@
                     <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                         <td class="valueC">
                             <c:choose>
-                                <c:when test="${resultRow.rank <= 8}">
+                                <c:when test="${resultRow.rank <= 12}">
                                     <span class="bigGreen">${resultRow.rank}</span>
                                 </c:when>
                                 <c:otherwise>
@@ -98,7 +98,7 @@
                         </td>
                         <td class="valueC" style="border-right: 1px solid #999999;">
                             <c:choose>
-                                <c:when test="${resultRow.rank <= 8}">
+                                <c:when test="${resultRow.rank <= 12}">
                                     <span class="bigGreen">
                                         <c:choose>
                                             <c:when test="${resultRow.bestPoints > 0}">
