@@ -93,7 +93,7 @@
                     </c:if>
                 </div>
                 <br /><br />
-            <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
+            <table cellpadding="0" cellspacing="0" class="stat" width="100%;">
             <thead>
                 <tr><th colspan="7">Marathon Match Advancers</th></tr>
                 <tr>
@@ -107,19 +107,19 @@
                     <th class="headerR">
                         <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
                     </th>
-                    <th class="headerC" width="25%">
+                    <th class="headerC">
                         <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round1_sort")%>"/>">Round 1</a><br />
                         <c:if test = "${not empty round1_id}"><a href="${details_link}${round1_id}">details</a></c:if>
                     </th>
-                    <th class="headerC" width="25%">
+                    <th class="headerC">
                         <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round2_sort")%>"/>">Round 2</a><br />
                         <c:if test = "${not empty round2_id}"><a href="${details_link}${round2_id}">details</a></c:if>
                     </th>
-                    <th class="headerC" width="25%">
+                    <th class="headerC">
                         <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round3_sort")%>"/>">Round 3</a><br />
                         <c:if test = "${not empty round3_id}"><a href="${details_link}${round3_id}">details</a></c:if>
                     </th>
-                    <th class="headerC" width="25%">
+                    <th class="headerC">
                         <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("finals_sort")%>"/>">Final</a><br />
                         <c:if test = "${not empty finals_id}"><a href="${details_link}${finals_id}">details</a></c:if>
                     </th>
