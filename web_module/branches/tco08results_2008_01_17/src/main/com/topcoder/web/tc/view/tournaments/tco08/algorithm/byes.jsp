@@ -27,7 +27,7 @@
 <table cellspacing="0" cellpadding="0" class="stat" style="width: 400px">
 <thead>
     <tr>
-        <th>
+        <th colspan="2">
         Algorithm Advancers - Byes
         </th>
     </tr>
