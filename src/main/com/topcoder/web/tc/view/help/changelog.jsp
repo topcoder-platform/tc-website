@@ -44,9 +44,10 @@
 
 
 <p>
-    5.14.1 - 2008.01.xx
+    5.14.1 - 2008.01.21
     <ul>
         <li>TCO08 minisite results pages -pulky</li>
+        <li>Infrastructure to do RSS feeds -dok</li>
     </ul>
 </p>
 
