@@ -64,20 +64,19 @@
                </a>
                <%if (!isComplete) {%>*<%}%></h2>
                 <% if (isComplete) { %>
-                <a href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=rscProject%>"/>">contest
-                    details</span></h1>
+                <a href="/tc?module=CompContestDetails&amp;pj=<rsc:item name="project_id" set="<%=rscProject%>"/>">contest details</a>
                 <% } %>
 
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
-                <thead>
-                    <tr><td class="title" colspan="5"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></td></tr>
+                
+                    <tr><th colspan="5"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></th></tr>
                     <tr>
-                        <td class="header" nowrap="nowrap">Competitor</td>
-                        <td class="headerC" nowrap="nowrap">Submission Date</td>
-                        <td class="headerC">Place</td>
-                        <td class="headerC">Placement Points</td>
-                        <td class="headerC">Score</td>
+                        <th class="header" nowrap="nowrap">Competitor</th>
+                        <th class="headerC" nowrap="nowrap">Submission Date</th>
+                        <th class="headerC">Place</th>
+                        <th class="headerC">Placement Points</th>
+                        <th class="headerC">Score</th>
                     </tr>
                     <%for (int i = 0; i < lst.size(); i++) { %>
                     <tr class="<%=(i%2==0 ? "light" : "dark")%>">
@@ -95,6 +94,7 @@
                         </td>
                     </tr>
                     <% }%>
+                
                 </table>
                 <%if (!isComplete) {%>
                 <br /><br />
