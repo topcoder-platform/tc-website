@@ -3,7 +3,7 @@
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.util.ApplicationServer,
                  java.util.Map" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
     <title>2008 TopCoder Open - Computer Programming Tournament</title>
@@ -18,14 +18,9 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 
-<body>
+<body id="page_sub">
 
-
-<body>
-
-<div align="center" style="background: transparent;">
-    <div id="containAll">
-    <div id="content">
+<div id="wrapper">
 
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_projects"); %>
@@ -55,12 +50,10 @@
 %>
 
 
-            <div id="pageBody">
-
-                    <h1><span><a href="/tco08?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />">
+                  <h2><a href="/tco08?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />">
                       <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
                   </a> -
-                  Components</span></h1>
+                  Components</h2>
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
@@ -113,10 +106,11 @@
                 <% } %>
 
 
-            </div>
-    </div>
-    <jsp:include page="../footer.jsp" />
-    </div>
-</div>
+    </div><%-- #content --%>
+
+<jsp:include page="../footer.jsp" />
+
+</div><%-- #wrapper --%>
+
 </body>
 </html>
