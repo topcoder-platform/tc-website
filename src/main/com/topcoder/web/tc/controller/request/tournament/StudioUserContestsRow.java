@@ -22,8 +22,9 @@ public class StudioUserContestsRow {
     private Integer submissions;
     private Integer placed;
     private Integer points;
+    private Long submissionId;
     
-    public StudioUserContestsRow(Long contestId, String contestName, Timestamp startDate, Timestamp endDate, String handle, Integer registrants, Integer submissions, Integer placed, Integer points) {
+    public StudioUserContestsRow(Long contestId, String contestName, Timestamp startDate, Timestamp endDate, String handle, Integer registrants, Integer submissions, Integer placed, Integer points, Long submissionId) {
         super();
         this.contestId = contestId;
         this.contestName = contestName;
@@ -34,6 +35,7 @@ public class StudioUserContestsRow {
         this.submissions = submissions;
         this.placed = placed;
         this.points = points;
+        this.submissionId = submissionId;
     }
 
     public Long getContestId() {
@@ -91,6 +93,11 @@ public class StudioUserContestsRow {
         this.submissions = submissions;
     }
         
-    
-    
+    public Long getSubmissionId() {
+        return submissionId;
+    }
+    public void setSubmissionId(Long submissionId) {
+        this.submissionId = submissionId;
+    }
+        
 }

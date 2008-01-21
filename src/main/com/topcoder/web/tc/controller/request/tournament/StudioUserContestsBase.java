@@ -203,7 +203,8 @@ public abstract class StudioUserContestsBase extends Base {
                         rsr.getIntItem("registrants"), 
                         rsr.getIntItem("submissions"), 
                         contestPlace, 
-                        getPlacementPoints(contestPlace));
+                        getPlacementPoints(contestPlace),
+                        rsr.getLongItem("submission_id"));
                 
                 results.add(row);
             }
