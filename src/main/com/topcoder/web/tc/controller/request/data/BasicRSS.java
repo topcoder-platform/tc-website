@@ -28,7 +28,7 @@ public class BasicRSS extends Static {
 
         String ds = String.valueOf(Constants.DW_DATASOURCE_ID);
         if (hasParameter(Constants.DATASOURCE_ID)) {
-            ds = getDataSource(getRequest().getParameter(Constants.DATASOURCE_ID));
+            ds = getRequest().getParameter(Constants.DATASOURCE_ID);
         }
 
         RSSResource resource = new RSSResource(r.getContentHandle(), ds);
