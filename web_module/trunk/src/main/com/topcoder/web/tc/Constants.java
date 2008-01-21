@@ -354,6 +354,8 @@ public class Constants implements WebConstants {
 
     public static String RSVP_TO_ADDRESS;
 
+    public static final String DATASOURCE_ID = "dsid";
+
     static {
         initialize();
     }
