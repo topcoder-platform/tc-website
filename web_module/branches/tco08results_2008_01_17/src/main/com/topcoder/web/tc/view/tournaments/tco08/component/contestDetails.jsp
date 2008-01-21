@@ -19,8 +19,6 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 
-<body>
-
 <body id="page_sub">
 
 <div id="wrapper">
@@ -57,17 +55,17 @@
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
-                    <tr><td class="title" colspan="6"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></td></tr>
+                    <tr><th colspan="6"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></th></tr>
                     <tr>
-                        <td class="header">Handle</td>
-                        <td class="headerC">Placement Points</td>
-                        <td class="headerC">Complete Projects</td>
-                        <td class="headerC" nowrap="nowrap">Projects<br />In Progess</td>
-                        <td class="headerC">Projects Submitted</td>
-                        <td class="headerC">Results</td>
+                        <th class="header">Handle</th>
+                        <th class="headerC">Placement Points</th>
+                        <th class="headerC">Complete Projects</th>
+                        <th class="headerC" nowrap="nowrap">Projects<br />In Progess</th>
+                        <th class="headerC">Projects Submitted</th>
+                        <th class="headerC">Results</th>
                     </tr>
                 </thead>
-                </tbody>
+                
                     <%for (int i = 0; i < lst.size(); i++) { %>
                     <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                         <% UserContestDetail result = (UserContestDetail) lst.get(i); %>
@@ -84,12 +82,11 @@
                         <td class="valueC"><%=result.getSubmissionCount()%>
                         </td>
                         <td class="valueC">
-                            <a href="/tco08?module=MemberResults&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a>
+                            <a href="/tco08?module=MemberResults&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&amp;cr=<%=result.getUserID()%>">results</a>
                         </td>
                     </tr>
                     <% }%>
-                    </tr>
-                </tbody>
+
                 </table>
                 <br /><br />
                 <%if (!isComplete) {%>

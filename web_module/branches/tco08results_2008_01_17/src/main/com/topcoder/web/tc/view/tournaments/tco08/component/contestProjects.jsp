@@ -57,14 +57,14 @@
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
-                    <tr><td class="title" colspan="3"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></td></tr>
+                    <tr><th colspan="3"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></th></tr>
                     <tr>
-                        <td class="header">Component</td>
-                        <td class="headerC">Start Date</td>
-                        <td class="headerC">End Date</td>
+                        <th class="header">Component</th>
+                        <th class="headerC">Start Date</th>
+                        <th class="headerC">End Date</th>
                     </tr>
                 </thead>
-                </tbody>
+                
                     <%boolean even = false;%>
                     <rsc:iterator list="<%=rsc%>" id="resultRow">
                         <tr class="<%=even?"dark":"light"%>">
@@ -81,10 +81,10 @@
                                 *
                                 <% } %>
                                 | 
-                                <a href="/tco08?module=ProjectDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</a>
+                                <a href="/tco08?module=ProjectDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</a>
                                 <% if (isComplete) { %>
                                 |
-                                <a href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">contest
+                                <a href="/tc?module=CompContestDetails&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">contest
                                     details</a>
                                 <% } %>
                             </td>
@@ -97,7 +97,7 @@
                         </tr>
                     <%even=!even;%>
                     </rsc:iterator>
-                </tbody>
+                
                 </table>
                 <br /><br />
                 <%if (!isComplete) {%>

@@ -60,16 +60,16 @@
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
-                    <tr><td class="title" colspan="5"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></td></tr>
+                    <tr><th colspan="5"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></th></tr>
                     <tr>
-                        <td class="header" nowrap="nowrap">Component Name</td>
-                        <td class="headerC">Submit Date</td>
-                        <td class="headerC">Points</td>
-                        <td class="headerC">Placed</td>
-                        <td class="headerC">Placement Points</td>
+                        <th class="header" nowrap="nowrap">Component Name</th>
+                        <th class="headerC">Submit Date</th>
+                        <th class="headerC">Points</th>
+                        <th class="headerC">Placed</th>
+                        <th class="headerC">Placement Points</th>
                     </tr>
                 </thead>
-                </tbody>
+                
                     <%for (int i = 0; i < lst.size(); i++) { %>
                     <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                         <% UserContestResult result = (UserContestResult) lst.get(i); %>
@@ -86,11 +86,11 @@
                             *
                             <% } %>
                             <% if (isComplete) { %>
-                            | <a href="/tc?module=CompContestDetails&pj=<%=result.getProjectId()%>">contest details</a>
+                            | <a href="/tc?module=CompContestDetails&amp;pj=<%=result.getProjectId()%>">contest details</a>
                             <% } %>
 
                         </td>
-                        <td class="valueC" nowrap=nowrap>
+                        <td class="valueC" nowrap="nowrap">
                             <tc-webtag:format object="<%=result.getSubmitTimestamp()%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
                         </td>
                         <td class="valueC"><%=result.getScore()%>
