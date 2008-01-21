@@ -33,6 +33,11 @@ public class BasicRSS extends Static {
 
         RSSResource resource = new RSSResource(r.getContentHandle(), ds);
         if (new TCSAuthorization(SecurityHelper.getUserSubject(getUser().getId())).hasPermission(resource)) {
+            String title = r.getContentHandle().replace("_", " ");
+            if (title.toLowerCase().startsWith("rss")) {
+                title = title.substring("rss".length());
+            }
+            title = title.trim();
             getRequest().setAttribute("title", r.getContentHandle().replace("_", " "));
 
             //for now we'll assume they're gettin data from the warehouse, perhaps that'll change later
