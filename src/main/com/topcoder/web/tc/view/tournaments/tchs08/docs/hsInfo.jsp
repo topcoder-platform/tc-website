@@ -124,7 +124,7 @@
     </li>
     <li>
         <p><strong>Travel Waiver</strong></p>
-        <p>Must be completed for all competitors under the age of 18. TopCoder must receive the original signed Travel
+        <p>Must be completed for all competitors. TopCoder must receive the original signed Travel
             Waiver. The document must be postmarked by February 18, 2008, and must be sent in such a manner that it
             will arrive at TopCoder no later than March 7, 2008.
         </p>
