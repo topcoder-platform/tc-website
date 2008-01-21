@@ -33,6 +33,8 @@ public class BasicRSS extends Static {
 
         RSSResource resource = new RSSResource(r.getContentHandle(), ds);
         if (new TCSAuthorization(SecurityHelper.getUserSubject(getUser().getId())).hasPermission(resource)) {
+            getRequest().setAttribute("title", r.getContentHandle().replace("_", " "));
+
             //for now we'll assume they're gettin data from the warehouse, perhaps that'll change later
             Map<String, ResultSetContainer> m = new CachedDataAccess(MaxAge.HOUR, getDataSource(ds)).getData(r);
             getRequest().setAttribute("results", m);
