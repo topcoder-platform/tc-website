@@ -211,6 +211,10 @@
         not capable of completion as planned for any reason, including infection by computer virus, bugs,
         tampering, unauthorized intervention or technical failures of any sort.
         </p>
+        
+        <p align="justify">
+        TopCoder does not require assignment of winning submissions in this competition.
+        </p>
 
         <div class="sectionHeader">Eligibility</div>
 
