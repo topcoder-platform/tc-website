@@ -90,11 +90,11 @@ public class StudioLeaders extends StudioLeaderboardBase {
                     }
                     if (result == 0) {
                         // check if it's because they are tied or they have different # of placements
-                        if (!it0.hasNext()) {
+                        if (!it0.hasNext() && it1.hasNext()) {
                             log.debug("return 1");
                             return 1;
                         }
-                        if (!it1.hasNext()) {
+                        if (!it1.hasNext() && it0.hasNext()) {
                             log.debug("return -1");
                             return -1;
                         }
