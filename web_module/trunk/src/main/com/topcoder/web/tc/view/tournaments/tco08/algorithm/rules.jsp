@@ -124,7 +124,7 @@
                 <tr class="dark">
                     <td>Online Round 1</td>
                     <td>Saturday, February 16<br />Reg: 10:00 AM - 12:55 PM<br />START: 1:00 PM</td>
-                    <td>Up to 1800**</td>
+                    <td>Up to 1800</td>
                     <td>900</td>
                 </tr>
                 <tr class="light">
