@@ -4,7 +4,7 @@
                  com.topcoder.web.tc.model.UserContestDetail,
                  java.util.List,
                  java.util.Map" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
     <title>2008 TopCoder Open - Computer Programming Tournament</title>
@@ -21,10 +21,9 @@
 
 <body>
 
-<div align="center" style="background: transparent;">
-    <div id="containAll">
-    <div id="content">
+<body id="page_sub">
 
+<div id="wrapper">
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); %>
 <% List lst = (List) request.getAttribute("results");%>
 <%
@@ -52,11 +51,9 @@
     }
 %>
 
-            <div id="pageBody">
-
-                    <h1><span><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/> -
+                    <h2><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/> -
                     <a href="/tco08?module=ContestProjects&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">View
-                    Components</a></span></h1>
+                    Components</a></h2>
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
@@ -65,7 +62,7 @@
                         <td class="header">Handle</td>
                         <td class="headerC">Placement Points</td>
                         <td class="headerC">Complete Projects</td>
-                        <td class="headerC" nowrap="nowrap">Projects<br>In Progess</td>
+                        <td class="headerC" nowrap="nowrap">Projects<br />In Progess</td>
                         <td class="headerC">Projects Submitted</td>
                         <td class="headerC">Results</td>
                     </tr>
@@ -94,17 +91,18 @@
                     </tr>
                 </tbody>
                 </table>
-                <br><br>
+                <br /><br />
                 <%if (!isComplete) {%>
                 * Contains results from projects still in progress, results subject to change
-                <br><br>
+                <br /><br />
                 <% } %>
 
 
-            </div>
-    </div>
-    <jsp:include page="../footer.jsp" />
-    </div>
-</div>
+    </div><%-- #content --%>
+
+<jsp:include page="../footer.jsp" />
+
+</div><%-- #wrapper --%>
+
 </body>
 </html>

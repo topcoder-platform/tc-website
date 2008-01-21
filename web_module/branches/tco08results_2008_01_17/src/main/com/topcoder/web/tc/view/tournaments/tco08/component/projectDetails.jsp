@@ -5,7 +5,7 @@
                  com.topcoder.web.tc.model.ProjectDetail,
                  java.util.List,
                  java.util.Map" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
     <title>2008 TopCoder Open - Computer Programming Tournament</title>
@@ -20,13 +20,9 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 
-<body>
+<body id="page_sub">
 
-<body>
-
-<div align="center" style="background: transparent;">
-    <div id="containAll">
-    <div id="content">
+<div id="wrapper">
 
 <% ResultSetContainer rscProject = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("project_details"); %>
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); %>
@@ -59,17 +55,16 @@
     }
 %>
 
-            <div id="pageBody">
 
-                    <h1><span><A href="/tco08?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
+                    <h2><a href="/tco08?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
                    <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
-               </A> -
-               <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>">
+               </a> -
+               <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>">
                    <rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/>
-               </A>
-               <%if (!isComplete) {%>*<%}%></span></h1>
+               </a>
+               <%if (!isComplete) {%>*<%}%></h2>
                 <% if (isComplete) { %>
-                <A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=rscProject%>"/>">contest
+                <a href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=rscProject%>"/>">contest
                     details</span></h1>
                 <% } %>
 
@@ -90,7 +85,7 @@
                         <td class="value">
                             <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=tab%>' darkBG='true' />
                         </td>
-                        <td class="valueC" nowrap="nowrap"><tc-webtag:format object="<%=result.getSubmitTimestamp()%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z"/>
+                        <td class="valueC" nowrap="nowrap"><tc-webtag:format object="<%=result.getSubmitTimestamp()%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
                         </td>
                         <td class="valueC"><%=result.getPlaced()%>
                         </td>
@@ -102,16 +97,17 @@
                     <% }%>
                 </table>
                 <%if (!isComplete) {%>
-                <br><br>
+                <br /><br />
                 * This project is still in progress, results subject to change
                 <% } %>
-                <br><br>
+                <br /><br />
 
 
-            </div>
-    </div>
-    <jsp:include page="../footer.jsp" />
-    </div>
-</div>
+    </div><%-- #content --%>
+
+<jsp:include page="../footer.jsp" />
+
+</div><%-- #wrapper --%>
+
 </body>
 </html>

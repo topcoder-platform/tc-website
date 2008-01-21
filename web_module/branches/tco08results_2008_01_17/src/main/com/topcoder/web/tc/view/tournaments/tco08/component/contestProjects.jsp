@@ -70,9 +70,9 @@
                         <tr class="<%=even?"dark":"light"%>">
                             <td class="value" nowrap="nowrap">
                                 <% if (resultRow.getIntItem("viewable") == 1) { %>
-                                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>">
+                                <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>">
                                     <rsc:item name="component_name" row="<%=resultRow%>"/>
-                                </A>
+                                </a>
                                 <% } else { %>
                                 <rsc:item name="component_name" row="<%=resultRow%>"/>
                                 <% } %>
@@ -81,28 +81,28 @@
                                 *
                                 <% } %>
                                 | 
-                                <A href="/tco08?module=ProjectDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</A>
+                                <a href="/tco08?module=ProjectDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</a>
                                 <% if (isComplete) { %>
                                 |
-                                <A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">contest
-                                    details</A>
+                                <a href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">contest
+                                    details</a>
                                 <% } %>
                             </td>
                             <td class="valueC" nowrap="nowrap">
-                                <rsc:item name="start_date" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" row="<%=resultRow%>"/>
+                                <rsc:item name="start_date" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" row="<%=resultRow%>"/>
                             </td>
                             <td class="valueC" nowrap="nowrap">
-                                <rsc:item name="end_date" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" row="<%=resultRow%>"/>
+                                <rsc:item name="end_date" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" row="<%=resultRow%>"/>
                             </td>
                         </tr>
                     <%even=!even;%>
                     </rsc:iterator>
                 </tbody>
                 </table>
-                <br><br>
+                <br /><br />
                 <%if (!isComplete) {%>
                 * This project is still in progress, results subject to change
-                <br><br>
+                <br /><br />
                 <% } %>
 
 

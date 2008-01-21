@@ -5,7 +5,7 @@
                  com.topcoder.web.tc.model.UserContestResult,
                  java.util.List,
                  java.util.Map" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
     <title>2008 TopCoder Open - Computer Programming Tournament</title>
@@ -20,13 +20,9 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 
-<body>
+<body id="page_sub">
 
-<body>
-
-<div align="center" style="background: transparent;">
-    <div id="containAll">
-    <div id="content">
+<div id="wrapper">
 
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); %>
 <% ResultSetContainer rscUser = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("user_details"); %>
@@ -57,12 +53,10 @@
     }
 %>
 
-            <div id="pageBody">
-
-                    <h1><span><A href="/tco08?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
+                    <h2><a href="/tco08?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
                     <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
-                </A> -
-                <tc-webtag:handle context='<%=tab%>' coderId='<%=rscUser.getIntItem(0, "coder_id")%>' darkBG='true' /></span></h1>
+                </a> -
+                <tc-webtag:handle context='<%=tab%>' coderId='<%=rscUser.getIntItem(0, "coder_id")%>' darkBG='true' /></h2>
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
@@ -81,9 +75,9 @@
                         <% UserContestResult result = (UserContestResult) lst.get(i); %>
                         <td class="value" nowrap="nowrap">
                             <% if (result.isViewable()) { %>
-                            <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=result.getCompID()%>"><%=
+                            <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=result.getCompID()%>"><%=
                                 result.getComponent()%>
-                            </A>
+                            </a>
                             <% } else { %>
                             <%=result.getComponent()%>
                             <% }%>
@@ -92,12 +86,12 @@
                             *
                             <% } %>
                             <% if (isComplete) { %>
-                            | <A href="/tc?module=CompContestDetails&pj=<%=result.getProjectId()%>">contest details</A>
+                            | <a href="/tc?module=CompContestDetails&pj=<%=result.getProjectId()%>">contest details</a>
                             <% } %>
 
                         </td>
                         <td class="valueC" nowrap=nowrap>
-                            <tc-webtag:format object="<%=result.getSubmitTimestamp()%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z"/>
+                            <tc-webtag:format object="<%=result.getSubmitTimestamp()%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
                         </td>
                         <td class="valueC"><%=result.getScore()%>
                         </td>
@@ -108,17 +102,18 @@
                     </tr>
                     <% } %>
                 </table>
-                <br><br>
+                <br /><br />
                 <%if (!isComplete) {%>
                 * This project is still in progress, results subject to change
-                <br><br>
+                <br /><br />
                 <% } %>
 
 
-            </div>
-    </div>
-    <jsp:include page="../footer.jsp" />
-    </div>
-</div>
+    </div><%-- #content --%>
+
+<jsp:include page="../footer.jsp" />
+
+</div><%-- #wrapper --%>
+
 </body>
 </html>
