@@ -29,10 +29,6 @@
 
         <h2>Leaderboard</h2>
 
-        <p><strong>NOTE:</strong> this ranking does not consider the
-            <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=rules#scoring">tiebreaker
-                rules</a>.</p>
-
         <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
             <thead>
                 <tr>
