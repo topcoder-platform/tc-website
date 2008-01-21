@@ -3,7 +3,6 @@ package com.topcoder.web.studio.controller.request;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Prize;
 import com.topcoder.web.studio.model.Submission;
 
 import javax.servlet.ServletOutputStream;
@@ -31,6 +30,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
         boolean isOwner = s.getSubmitter().getId().equals(getUser().getId());
 
+/*
         boolean isWinner = false;
         for (Prize p : s.getPrizes()) {
             //we figure out the winner based on prizes because we'll consider that the "annoucing" of the winner, when the prize is set.
@@ -39,6 +39,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 break;
             }
         }
+*/
         boolean isOver = new Date().after(s.getContest().getEndTime());
 
         if (!isOver && !isOwner) {
