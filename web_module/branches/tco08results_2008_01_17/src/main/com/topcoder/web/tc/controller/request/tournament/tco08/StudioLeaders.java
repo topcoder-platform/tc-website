@@ -56,8 +56,14 @@ public class StudioLeaders extends StudioLeaderboardBase {
     protected Comparator<StudioLeaderBoardRow> getComparator() {
         return new Comparator<StudioLeaderBoardRow>() {
             public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
+                
                 int result = arg1.getBestPoints().compareTo(arg0.getBestPoints());
                 if (result == 0) {
+                    log.debug("same points");
+                    log.debug("user0: " + arg0.getHandleLower());
+                    log.debug("user1: " + arg1.getHandleLower());
+                    log.debug("user0 getBestPoints: " + arg0.getBestPoints());
+                    log.debug("user1 getBestPoints: " + arg1.getBestPoints());
                     // The competitor who has the most higher-placed submissions among 
                     // those submissions used to develop the cumulative placement score 
                     // for the tied competitors shall advance.
@@ -74,18 +80,25 @@ public class StudioLeaders extends StudioLeaderboardBase {
                         Integer place0 = it0.next();
                         Integer place1 = it1.next();
 
+                        log.debug(i + ") place0 - " + place0 + ", place1 - " + place1);
+
                         result = place0.compareTo(place1);
-                        
+
+                        log.debug("= " + result);
+
                         i++;
                     }
                     if (result == 0) {
                         // check if it's because they are tied or they have different # of placements
                         if (!it0.hasNext()) {
+                            log.debug("return 1");
                             return 1;
                         }
                         if (!it1.hasNext()) {
+                            log.debug("return -1");
                             return -1;
                         }
+                        log.debug("return 0");
                     }
                     
                 }
