@@ -10,7 +10,7 @@
 
 <channel>
     <title>${title} RSS Feed</title>
-    <link><%=sessionInfo.getAbsoluteServletPath()%></link>
+    <link>${sessionInfo.absoluteServletPath}</link>
     <description>Most recent forum messages</description>
     <language>en-us</language>
     <pubDate><fmt:formatDate value="<%=new Date()%>" pattern="E, d MMM yyyy HH:mm:ss"/></pubDate>
