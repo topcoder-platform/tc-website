@@ -63,7 +63,7 @@
                                         <a href="/tco08?<%=Constants.MODULE_KEY%>=StudioContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=StudioUserContestsBase.POINTS_COL%>"/>">Points</a>
                                     </th>
                                     <th class="headerC">
-                                        View submission
+                                        Submission
                                     </th>
                                 </tr>
                             </thead>
@@ -97,9 +97,9 @@
                                         <td class="valueC">
                                             <c:choose>
                                                 <c:when test="${(not empty resultRow.submissionId) and (resultRow.submissionId > 0)}">
-                                                    <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;sbmid=${resultRow.submissionId}">
-                                                        View submission
-                                                    </A>
+                                                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;sbmid=${resultRow.submissionId}">
+                                                        <img src="/i/tournament/tco08/magnify.png" alt="View submission" title="View submission" />
+                                                    </a>
                                                 </c:when>
                                                 <c:otherwise>&nbsp;</c:otherwise>
                                             </c:choose>
