@@ -21,6 +21,7 @@ public class StudioLeaderBoardRow {
     private String handle;
     private Integer completedContests;
     private List<Integer> completedPoints;
+    private List<Integer> placements;    
     private Integer currentContests;
     private Integer bestPoints;
         
@@ -35,6 +36,7 @@ public class StudioLeaderBoardRow {
         this.handle = handle;
         this.completedContests = 0;
         this.completedPoints = new ArrayList<Integer>();
+        this.placements = new ArrayList<Integer>();
         this.currentContests = 0;
     }
     
@@ -92,6 +94,11 @@ public class StudioLeaderBoardRow {
         this.handle = handle;
     }
 
-    
-    
+    public List<Integer> getPlacements() {
+        return new ArrayList<Integer>(placements);
+    }
+
+    public void setPlacements(List<Integer> placements) {
+        this.placements = placements;
+    }
 }

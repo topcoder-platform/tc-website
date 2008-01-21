@@ -179,6 +179,9 @@ public abstract class StudioLeaderboardBase extends Base {
                 List<Integer> tmp = row.getCompletedPoints();
                 tmp.add(getPlacementPoints(contestPlace));
                 row.setCompletedPoints(tmp);
+                tmp = row.getPlacements();
+                tmp.add(contestPlace);
+                row.setPlacements(tmp);
             } else {
                 row.setCurrentContests(row.getCurrentContests() + 1);
             }
@@ -203,27 +206,38 @@ public abstract class StudioLeaderboardBase extends Base {
      * @param results the list of StudioLeaderBoardRow elements
      */
     private void generateRank(List<StudioLeaderBoardRow> results) {
-        Collections.sort(results, new Comparator<StudioLeaderBoardRow>() {
-            public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
-                return arg1.getBestPoints().compareTo(arg0.getBestPoints());
-            }
-        });
+        Comparator<StudioLeaderBoardRow> comparator  = getComparator(); 
+        Collections.sort(results, comparator);
+
         boolean first = true;
-        int prevPoints = 0;
+        StudioLeaderBoardRow prevRow = null;
         int rank = 1;
         for (StudioLeaderBoardRow row : results) {
             if (!first) {
-                if (!row.getBestPoints().equals(prevPoints)) {
+                if (comparator.compare(row, prevRow) != 0) {
                     rank++;
                 }
             }
             row.setRank(rank);
-            prevPoints = row.getBestPoints();
+            prevRow = row;
             first = false;
         }
     }
     
-    
+
+    /**
+     * Protected method to define the comparision between competitors results before ranking 
+     * 
+     * @return a StudioLeaderBoardRow comparator
+     */
+    protected Comparator<StudioLeaderBoardRow> getComparator() {
+        return new Comparator<StudioLeaderBoardRow>() {
+            public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
+                return arg1.getBestPoints().compareTo(arg0.getBestPoints());
+            }
+        };  
+    }
+
     /**
      * Private helper method to sort the results 
      * 
