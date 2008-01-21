@@ -69,23 +69,21 @@ public class StudioLeaders extends StudioLeaderboardBase {
                     Iterator<Integer> it0 = arg0Placements.iterator();
                     Iterator<Integer> it1 = arg1Placements.iterator();
                     
-                    Integer place0 = it0.next();
-                    Integer place1 = it1.next();
                     int i = 0;
-                    while (place0 != null && place1 != null && result == 0 && i < getMaxContests()) {
+                    while (it0.hasNext() && it1.hasNext() && result == 0 && i < getMaxContests()) {
+                        Integer place0 = it0.next();
+                        Integer place1 = it1.next();
+
                         result = place0.compareTo(place1);
-                        
-                        place0 = it0.next();
-                        place1 = it1.next();
                         
                         i++;
                     }
                     if (result == 0) {
                         // check if it's because they are tied or they have different # of placements
-                        if (place0 == null) {
+                        if (!it0.hasNext()) {
                             return 1;
                         }
-                        if (place1 == null) {
+                        if (!it1.hasNext()) {
                             return -1;
                         }
                     }
