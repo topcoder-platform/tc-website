@@ -176,12 +176,17 @@ public abstract class StudioLeaderboardBase extends Base {
             
             if (rsr.getIntItem("completed") == 1) {
                 row.setCompletedContests(row.getCompletedContests() + 1);
+                
+                int placementPoints = getPlacementPoints(contestPlace); 
                 List<Integer> tmp = row.getCompletedPoints();
-                tmp.add(getPlacementPoints(contestPlace));
+                tmp.add(placementPoints);
                 row.setCompletedPoints(tmp);
-                tmp = row.getPlacements();
-                tmp.add(contestPlace);
-                row.setPlacements(tmp);
+                
+                if (placementPoints > 0) {
+                    tmp = row.getPlacements();
+                    tmp.add(contestPlace);
+                    row.setPlacements(tmp);
+                }
             } else {
                 row.setCurrentContests(row.getCurrentContests() + 1);
             }
