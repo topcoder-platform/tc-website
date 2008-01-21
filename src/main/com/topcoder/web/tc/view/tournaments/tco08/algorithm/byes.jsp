@@ -43,7 +43,7 @@
 <tbody>
 
 <!-- here comes the list of byes -->
-<tr class="light"><td class="value"><tc-webtag:handle coderId="7267401" context="algorithm" /></td><td class="valueR"></td></tr>
+<tr class="light"><td><tc-webtag:handle coderId="7267401" context="algorithm" /></td><td class="valueR"></td></tr>
     
 </tbody>
 </table>
