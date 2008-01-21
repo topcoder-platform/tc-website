@@ -5,7 +5,6 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
-
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
 
 <channel>
@@ -20,8 +19,8 @@
 <rsc:iterator list="${results[param.c]}" id="resultRow">
  <item>
            <title>${resultRow.map['title']}</title>
-           <link>${resultRow.map['title']}</link>
-           <description><![CDATA[${resultRow.map['title']}]]></description>
+           <link>${resultRow.map['link']}</link>
+           <description><![CDATA[${resultRow.map['description']}]]></description>
            <% if (resultRow.isValidColumn("pub_date")) {%>
                 <rsc:item name="pub_date" row="<%=resultRow%>" format="E, d MMM yyyy HH:mm:ss"/>
            <% } else { %>
