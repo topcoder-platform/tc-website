@@ -429,6 +429,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            Rock star coders
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='homepage_index' />">...more</a><br />[January 22]<br /><br />
+            
             TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum
             <a href="/tc?module=Static&d1=pressroom&d2=pr_010708">...more</a><br />[January 7]<br /><br />
             
@@ -443,9 +446,6 @@
             
             Eight business technology trends to watch
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.mckinseyquarterly.com/article_abstract_visitor.aspx?ar=2080&l2=13&l3=11' refer='homepage_index' />">...more</a><br />[December 12]<br /><br />
-            
-            Should your company 'crowdsource' its next project?
-            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9050920&pageNumber=1' refer='homepage_index' />">...more</a><br />[December 6]<br /><br />
             
 
 

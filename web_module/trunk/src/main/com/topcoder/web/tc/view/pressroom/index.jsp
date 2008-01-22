@@ -95,6 +95,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- Computerworld: Rock star coders begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='pr_index' />"><img src="/i/pressroom/computerworld.gif" alt="Computerworld logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='pr_index' />">Rock star coders</a></h3>
+                        <p>For rock star programmers, it's not only just about brains but how you use them and get along with others  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='pr_index' />">[January 22]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Computerworld: Rock star coders end --%>
+                
                 <%-- TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
