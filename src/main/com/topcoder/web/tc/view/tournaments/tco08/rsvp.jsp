@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <title>2007 TopCoder Open - Computer Programming Tournament</title>
+    <title>2008 TopCoder Open - Computer Programming Tournament</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../../script.jsp" />
@@ -93,18 +93,18 @@ a:hover, a:active {
             </div>
  
     <p>
-    We invite you to attend the TCO07 to marvel at the four competition tracks of<br>Algorithm, Component Design &amp; Development, Marathon Match and Studio Design,<br>and participate in educational Developer Forums and Customer Round Table.
+    We invite you to attend the TCO08 to marvel at the four competition tracks of<br>Algorithm, Component Design &amp; Development, Marathon Match and Studio Design,<br>and participate in educational Developer Forums and Customer Round Table.
     </p>
     <p>
     Please also join us for the TopCoder Casino Night Cocktail Party.
     </p>
     
                 <div style="margin: 20px 0px 20px 0px;">
-                    <%--<img src="/i/tournament/tco07/rsvp/events.png" alt="" />--%>
+                    <%--<img src="/i/tournament/tco08/rsvp/events.png" alt="" />--%>
                 </div>
                 
                 <div>
-                    <%--<A href="/tco07"><img src="/i/tournament/tco07/rsvp/schedule.png" alt="" /></A>--%>
+                    <%--<A href="/tco0"><img src="/i/tournament/tco08/rsvp/schedule.png" alt="" /></A>--%>
                 </div>
     <p>
     Rooms are available at The Mirage for all attendees, please mention TopCoder.
@@ -113,11 +113,11 @@ a:hover, a:active {
     </p>
     
                 <div style="margin: 20px 0px 20px 0px;">
-                    <%--<img src="/i/tournament/tco07/rsvp/line.png" alt="" />--%>
+                    <%--<img src="/i/tournament/tco08/rsvp/line.png" alt="" />--%>
                 </div>
     
                 <div style="margin: 20px 0px 20px 0px;">
-                    <%--<img src="/i/tournament/tco07/rsvp/topics.png" alt="" />--%>
+                    <%--<img src="/i/tournament/tco08/rsvp/topics.png" alt="" />--%>
                 </div>
     
     <h1>
@@ -187,8 +187,8 @@ a:hover, a:active {
                     <img src="/i/tournament/tco08/rsvpRequest.png" alt="" />
                 </div>
     
-                <form name="submitRsvp" method="post" action="/tc">
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCO07SubmitRsvp"/>
+                <form name="submitRsvp" method="post" action="/tco08">
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitRsvp"/>
     
                 <table cellpadding="4" cellspacing="0">
                 <tbody>
