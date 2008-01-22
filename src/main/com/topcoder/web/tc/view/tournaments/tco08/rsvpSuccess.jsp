@@ -1,5 +1,5 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -93,10 +93,14 @@ a:hover, a:active {
             </div>
  
             <p style="margin: 40px 0px 60px 0px;">
-            <%-- IF THE RESPONSE WAS YES --%>
-                <strong>Thank you for your response. We look forward to seeing you in Las Vegas.</strong>
-            <%-- IF THE RESPONSE WAS NO --%>
-                <strong>Thank you for your response.  We're sorry we won't see you in Las Vegas in May.  We look forward to seeing you at a future TopCoder event.</strong>
+            <c:choose>
+                <c:when test="${attending}">
+                    <strong>Thank you for your response. We look forward to seeing you in Las Vegas.</strong>
+                </c:when>
+                <c:otherwise>
+                    <strong>Thank you for your response.  We're sorry we won't see you in Las Vegas in May.  We look forward to seeing you at a future TopCoder event.</strong>
+                </c:otherwise>
+            </c:choose>
             </p>
     
         </div>
