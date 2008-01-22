@@ -15,17 +15,15 @@
 <!--  Leave empty if the round doesn't exist or it's not finished -->
 
 <c:set value="stat?c=round_overview&er=5&rd=" var="details_link"/>
-<c:set var="round1A_id" value=""/>
-<c:set var="round1B_id" value=""/>
-<c:set var="round1C_id" value=""/>
-<c:set var="round2_id" value=""/>
-<c:set var="round3_id" value=""/>
-<c:set var="round4_id" value=""/>
-<c:set var="semi1_id" value=""/>
-<c:set var="semi2_id" value=""/>
-<c:set var="semi3_id" value=""/>
-<c:set var="wildcard_id" value=""/>
-<c:set var="finals_id" value=""/>
+<c:set var="round1_id" value="12011"/>
+<c:set var="round2_id" value="12012"/>
+<c:set var="round3_id" value="12013"/>
+<c:set var="round4_id" value="12014"/>
+<c:set var="semi1_id" value="12015"/>
+<c:set var="semi2_id" value="12016"/>
+<c:set var="semi3_id" value="12017"/>
+<c:set var="wildcard_id" value="12018"/>
+<c:set var="finals_id" value="12019"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -113,11 +111,8 @@
                         </th>
                         <th>
                             <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round1_sort")%>"/>">Round 1</a>
-                            <br />details: 
-                            <br />
-                            <c:if test = "${not empty round1A_id}"><a href="${details_link}${round1A_id}">A</a></c:if>
-                            <c:if test = "${not empty round1B_id}"><a href="${details_link}${round1B_id}">B</a></c:if>
-                            <c:if test = "${not empty round1C_id}"><a href="${details_link}${round1C_id}">C</a></c:if>
+                            <br /><c:if test = "${not empty round1_id}"><a href="${details_link}${round1_id}">details</a></c:if>
+                            <br />&nbsp;
                         </th>
                         <th>
                             <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round2_sort")%>"/>">Round 2</a>
