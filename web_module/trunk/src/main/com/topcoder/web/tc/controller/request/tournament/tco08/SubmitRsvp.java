@@ -23,6 +23,7 @@ public class SubmitRsvp extends Base {
             
             sendEmail(attending, name, email, company, guests);
             
+            getRequest().setAttribute("attending", new Boolean(!attending.equalsIgnoreCase("not")));
             setNextPage("/tournaments/tco08/rsvpSuccess.jsp");
             setIsNextPageInContext(true);
         } else {
