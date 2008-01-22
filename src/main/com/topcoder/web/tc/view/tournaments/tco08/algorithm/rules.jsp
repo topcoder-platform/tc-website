@@ -64,7 +64,7 @@
                 <li>Registered for the Algorithm Competition; and</li>
                 <li>Met all other Algorithm Competition and Tournament eligibility criteria.</li>
             </ul>
-            <p><strong>Qualification Spots</strong> - All competitors who do not receive an automatic berth and who meet all of the Algorithm Competition and Tournament eligibility criteria can compete for one of the remaining 1,650 qualification spots in the Algorithm Competition. Three (3) Qualification Rounds will be held and the top 550 scoring competitors from each Qualification Round will win a spot in Online Round 1. The competitors who receive an automatic berth into Online Round 1 will not be allowed to compete in any of the Qualification Rounds. Those competitors who have already competed in and/or qualified for the Algorithm Competition may not compete in future Qualification Rounds.</p>
+            <p><strong>Qualification Spots</strong> - All competitors who do not receive an automatic berth and who meet all of the Algorithm Competition and Tournament eligibility criteria can compete for one of the remaining 1,650 qualification spots in the Algorithm Competition. Three (3) Qualification Rounds will be held and the top 550 scoring competitors from each Qualification Round will win a spot in Online Round 1. The competitors who receive an automatic berth into Online Round 1 will not be allowed to compete in any of the Qualification Rounds. Those competitors who have already qualified for the Algorithm Competition may not compete in future Qualification Rounds.</p>
             <p>The schedule and details of the Qualification Rounds are as follows:</p>
             <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                 <tr>
