@@ -16,11 +16,13 @@
 <!--  Leave empty if the round doesn't exist or it's not finished -->
 
 <c:set value="/longcontest/?module=ViewOverview&amp;rd=" var="details_link"/>
-<c:set var="round1_id" value=""/>
-<c:set var="round2_id" value=""/>
-<c:set var="round3_id" value=""/>
-<c:set var="finals_id" value=""/>
-
+<!-- 
+<c:set var="round1_id" value="11130"/>
+<c:set var="round2_id" value="11131"/>
+<c:set var="round3_id" value="11132"/>
+<c:set var="finals_id" value="12020"/>
+ -->
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
