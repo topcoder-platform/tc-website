@@ -7,26 +7,22 @@
 <table width="530" border="0" cellspacing="0" cellpadding="4">
 
    <tr><td class="prHead">
+         <%--
          <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/computerworld.gif" width="67" height="18" alt="ComputerWorld" border="0" /></div>
-          <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic">Microsoft launches 'mashup' competition for developers</A> [February 14]
+         --%>
+         <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/cfo_20080103.pdf">Gaming the System</a> [PDF] [January 3]
    </td></tr>
    <tr><td class="prHead">
-         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/ieeesoftware_logo.png" width="67" height="25" alt="IEEE Software logo" border="0" /></div>
-         <A href="http://www.topcoder.com/pdfs/press_room/ieeeSoftware_20061206.pdf">Programming Contests Show Impressive Growth</A> [PDF] [December 6]
+         <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/mckinsey_20071212.pdf">Eight business technology trends to watch</a> [PDF] [December 12]
    </td></tr>
    <tr><td class="prHead">
-         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/success_logo.png" width="67" height="21" alt="Success Magazine" border="0" /></div>
-         <A href="http://www.topcoder.com/pdfs/press_room/success200612.pdf">Maverick Rules for Success</A> [PDF] [November]
+         <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/computerworld_20071206.pdf">Should your company 'crowdsource' its next project?</a> [PDF] [December 6]
    </td></tr>
    <tr><td class="prHead">
-         <A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_113006" target="_blank">AOL and TopCoder Announce Web AIM Mashup Competition</A> [November 30]
+         <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/rdn_20071204.pdf">Contested Code</a> [PDF] [December 4]
    </td></tr>
    <tr><td class="prHead">
-         <A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_112906" target="_blank">TopCoder to Present Keynote Address: Future of Virtual Communities as Business; at Gartner CIO Summit 2006</A> [November 29]
-   </td></tr>
-   <tr><td class="prHead">
-         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/csmonitor_logo.jpg" width="80" height="32" alt="Christian Science Monitor" border="0" /></div>
-         <A href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm" target="_blank">How to build software? Henry Ford, meet eBay.</A> [November 1]
+         <a target="_blank" href="http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026">TopCoder Finds Tech Top Guns</a> [October 31]
    </td></tr>
 
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>

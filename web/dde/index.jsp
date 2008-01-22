@@ -85,6 +85,7 @@
                 </tr>
                 <tr>
                     <td valign="top" align="left" colspan="2">
+                    <%--
                     <map name="morris_promo">
                     <area shape="rect" alt="Application Development Methodology" coords="53,64,238,78" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/applDevMethod.mp4" />
                     <area shape="rect" alt="Requirements and Specifications" coords="53,79,238,92" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/reqSpecs.mp4" />
@@ -96,6 +97,8 @@
                     <area shape="rect" alt="Using Competition to Build Software II" coords="53,163,238,176" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/usingCompetitionII.mp4" />      
                     </map>
                     <img src="/images/promos/promo_morris.jpg" alt="Mike Morris Promo" border="0" usemap="#morris_promo"/>
+                    --%>
+                    <a href="http://software.topcoder.com/media/misc3x2.jsp"><img src="/images/promos/promo_jackBIF3.png" alt="Jack Hughes at BIF-3" width="530" height="188" border="0" /></a>
                     </td>
                 </tr>
 				<%	InitialContext context = new InitialContext();
