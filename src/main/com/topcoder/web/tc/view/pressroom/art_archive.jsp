@@ -73,6 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='art_archive' />">Rock star coders <br /><small style="margin-left:10px;">[January 22 - Computerworld]</small></a></dd>
                     <dd>Gaming the System [January 3 - CFO.com] <br /><a target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='art_archive' />">original article</a> | <a target="_blank" href="/i/pressroom/pdfs/cfo_20080103.pdf">PDF</a></dd>
                     </dl>
                 </div>
