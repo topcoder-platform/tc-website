@@ -178,6 +178,8 @@ public class Constants {
         DB_LIST.add(new DatabaseBean(DBMS.CORP_OLTP_DATASOURCE_NAME, "Corporate"));
         DB_LIST.add(new DatabaseBean(DBMS.SCREENING_OLTP_DATASOURCE_NAME, "Screening"));
         DB_LIST.add(new DatabaseBean(DBMS.STUDIO_DATASOURCE_NAME, "TC Studio"));
+        DB_LIST.add(new DatabaseBean("java:/PIPELINE", "Pipeline"));
+/*
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_OLTP", "Google"));
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_DW", "Google DW"));
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_CHINA_OLTP", "Google China"));
@@ -186,6 +188,7 @@ public class Constants {
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_INDIA_DW", "Google India DW"));
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_EUROPE_OLTP", "Google Europe"));
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_EUROPE_DW", "Google Europe DW"));
+*/
     }
 
 }
