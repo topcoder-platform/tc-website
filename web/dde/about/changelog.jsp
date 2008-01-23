@@ -52,6 +52,12 @@
                     <tr><td align="left" colspan="2" class="bodyText">
                         <H3>TopCoder Software Web Site Change Log</H3>
                         <p>
+                            2.0.9 - 2008.01.xx
+                            <ul>
+                                <li>Fix "select" link in the subscription page -pulky</li>
+                            </ul>
+                        </p>
+                        <p>
                             2.0.8 - 2007.08.xx
                             <ul>
                                 <li>Fix catalog page so that contributers don't include security reviewers -dok</li>
