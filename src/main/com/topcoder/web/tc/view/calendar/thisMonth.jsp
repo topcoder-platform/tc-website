@@ -36,7 +36,11 @@
 <jsp:param name="title" value="January 2008"/>
 </jsp:include>
 
-<div style="float:right;white-space:nowrap;">All times are <A target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</A> unless stated otherwise.  &#160; &#160; </div>
+<div style="float:right;white-space:nowrap;" align="right">
+    All times are <A target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</A> unless stated otherwise.<br />
+    <a href="/tc?module=BasicRSS&c=rss_Upcoming_Competitions&dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
+    Stay informed with our <a href="/tc?module=BasicRSS&c=rss_Upcoming_Competitions&dsid=29">upcoming events RSS feed</a>.
+</div>
 
 <strong><A href="/tc?module=Static&d1=calendar&d2=dec_07" class="prevNext">&lt; prev</A> | <A href="/tc?module=Static&d1=calendar&d2=feb_08" class="prevNext">next &gt;</A></strong>
 <jsp:include page="dropdown.jsp" >
