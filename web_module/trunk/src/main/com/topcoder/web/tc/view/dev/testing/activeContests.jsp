@@ -124,7 +124,7 @@
 
 <div align="right" style="padding-top: 10px">
     <a href="/tc?module=BasicRSS&c=rss_Upcoming_Competitions&dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
-    Stay informed with our <a href="/tc?module=BasicRSS&c=rss_Upcoming_Competitions&dsid=29">upcoming events RSS feed</a>.
+    Stay informed with our <a href="/tc?module=BasicRSS&c=rss_Upcoming_Contests&dsid=29">upcoming events RSS feed</a>.
 </div>
 
 </td>
