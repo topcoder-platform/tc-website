@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.23.08<br />12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early">Last Call for TCHS08 Visa Letter Requests</a></span><br /><br />
+        The last day to request a visa inviation letter for the 2008 TopCoder High School tournament is approaching.  Competitors have until Friday, January 25 at 5:00 PM EST (GMT/UTC -5) to request a visa inviation letter.  If you are competing in the final round, it is in your best interest to request a letter before the deadline.  Please <a href="mailto:jdamato@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">email</a> <tc-webtag:handle coderId="14999860" /> with any questions.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=598655">discuss this</a> | 
+        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />01.22.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='/tc' />">Rock star coders</a></span><br /><br />
@@ -158,21 +171,5 @@
          <a href="/tc?module=Static&d1=match_editorials&d2=srm386">details</a> | 
          <tc-webtag:forumLink forumID="518781" message="discuss this" /> | 
          <a href="/tc?module=Static&d1=match_editorials&d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />01.07.08<br />3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=features&d2=010408">Linear recurrences</a></span><br /><br />
-      I started writing this as an article about series and recurrence relations, but linear recurrences kept coming up in all the examples I used, so I decided to focus on them explicitly. A linear recurrence is a sequence of vectors defined by the equation <em>x<sub>i+1</sub></em> = <em>Mx<sub>i</sub></em>, for some constant matrix <em>M</em>.</td>
-         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <a href="/tc?module=Static&d1=features&d2=010408">details</a> | 
-         <tc-webtag:forumLink forumID="518788" message="discuss this" /> | 
-         <a href="/tc?module=Static&d1=features&d2=archive">archive</a>
    </td></tr>
    
