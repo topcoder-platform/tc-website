@@ -33,7 +33,7 @@
 
 <!-- Middle Column begins -->
         <td width="100%">
-            <form name="f" action="${sessionInfo.servletPath}" method="post">
+            <form name="f" action="/tcs" method="post">
                 <input type="hidden" name="module" value="RequestPermission">
                 <div align="center">
                     <table cellpadding="4" cellspacing="0">
