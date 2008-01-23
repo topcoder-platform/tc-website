@@ -81,37 +81,37 @@
                     <td>Week 1 of<br />Online Competition</td>
                     <td>January 24, 2008 9:00 AM</td>
                     <td>72 Hours</td>
-                    <td>January 28, 2008 9:00 AM</td>
+                    <td>January 31, 2008 9:00 AM</td>
                 </tr>
                 <tr class="light">
                     <td>Week 2 of<br />Online Competition</td>
                     <td>January 31, 2008 9:00 AM</td>
                     <td>72 Hours</td>
-                    <td>February 4, 2008 9:00 AM</td>
+                    <td>February 7, 2008 9:00 AM</td>
                 </tr>
                 <tr class="dark">
                     <td>Week 3 of<br />Online Competition</td>
                     <td>February 7, 2008 9:00 AM</td>
                     <td>72 Hours</td>
-                    <td>February 11, 2008 9:00 AM</td>
+                    <td>February 14, 2008 9:00 AM</td>
                 </tr>
                 <tr class="light">
                     <td>Week 4 of<br />Online Competition</td>
                     <td>February 14, 2008 9:00 AM</td>
                     <td>72 Hours</td>
-                    <td>February 18, 2008 9:00 AM</td>
+                    <td>February 21, 2008 9:00 AM</td>
                 </tr>
                 <tr class="dark">
                     <td>Week 5 of<br />Online Competition</td>
                     <td>February 21, 2008 9:00 AM</td>
                     <td>72 Hours</td>
-                    <td>February 25, 2008 9:00 AM</td>
+                    <td>February 28, 2008 9:00 AM</td>
                 </tr>
                 <tr class="light">
                     <td>Week 6 of<br />Online Competition</td>
                     <td>February 28, 2008 9:00 AM</td>
                     <td>72 Hours</td>
-                    <td>March 3, 2008 9:00 AM</td>
+                    <td>March 6, 2008 9:00 AM</td>
                 </tr>
                 <tr class="dark">
                     <td colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -5). Click <a target="_blank" href="<tc-webtag:linkTracking link='http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=15&year=2007&hour=9&min=0&sec=0&p1=179' refer='tco08_componentRules' />">here</a> for your time zone.</td>
