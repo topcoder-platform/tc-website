@@ -41,7 +41,12 @@
                         <tr>
                             <td>
                                 <strong>Enter Code:</strong><br/>
-                                <input type="text" name="code" value ="" size="32" maxlength="32">
+                                <input type="text"  onkeypress="submitEnter(event,document.f)" name="code" value ="" size="32" maxlength="32">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <td nowrap class="bodyText">&#160;&#160;<a href="javascript:document.f.submit()">Submit</a></td>
                             </td>
                         </tr>
                     </tbody>
