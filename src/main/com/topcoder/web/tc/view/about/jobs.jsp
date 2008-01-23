@@ -66,8 +66,6 @@
                             <li><a href="/tc?module=Static&d1=about&d2=software_application_architect">TopCoder Software Application Architect</a></li>
                             <li><a href="/tc?module=Static&d1=about&d2=frontend_designer">TopCoder Software Front-End Designer/Developer</a></li>
                             <li><a href="/tc?module=Static&d1=about&d2=tcs_salesdirector">TopCoder Salesperson</a></li>
-                            <li><a href="/tc?module=Static&d1=about&d2=int_project_manager">Internal Project Manager</a></li>
-                            <li><a href="/tc?module=Static&d1=about&d2=int_developer">Internal Developer</A></li>
                         </ul>
                     </td>
                 </tr>
