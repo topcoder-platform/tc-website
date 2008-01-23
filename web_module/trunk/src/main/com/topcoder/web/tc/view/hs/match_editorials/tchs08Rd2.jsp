@@ -49,7 +49,7 @@
     <A href="/tc?module=HSRoundOverview&rd=11151&snid=2&er=5">Match Overview</A><br />
 
 <tc-webtag:forumLink forumID="519104" message="Discuss this match" /></div>
-<span class="bodySubtitle">TCHS08 Online Round 2</span><br />Saturday, January 19, 2007
+<span class="bodySubtitle">TCHS08 Online Round 2</span><br />Saturday, January 19, 2008
 <br /><br />
 
 
