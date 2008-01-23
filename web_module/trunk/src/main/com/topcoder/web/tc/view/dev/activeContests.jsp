@@ -168,7 +168,12 @@
         <% even = !even;%>
     </rsc:iterator>
 </table>
-<br/>
+
+<div align="right" style="padding-top: 10px">
+    <a href="/tc?module=BasicRSS&c=rss_Upcoming_Competitions&dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
+    Stay informed with our <a href="/tc?module=BasicRSS&c=rss_Upcoming_Competitions&dsid=29">upcoming events RSS feed</a>.
+</div>
+
 <% } else {   // Development %>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
@@ -284,7 +289,12 @@
         <% even = !even;%>
     </rsc:iterator>
 </table>
-<br/>
+
+<div align="right" style="padding-top: 10px">
+    <a href="/tc?module=BasicRSS&c=rss_Upcoming_Competitions&dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
+    Stay informed with our <a href="/tc?module=BasicRSS&c=rss_Upcoming_Competitions&dsid=29">upcoming events RSS feed</a>.
+</div>
+
 <% } %>
 
 <p align="left">* And that's before royalty payments. The more Component
