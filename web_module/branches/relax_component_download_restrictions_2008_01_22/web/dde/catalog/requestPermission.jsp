@@ -41,7 +41,7 @@
                         <tr>
                             <td>
                                 <strong>Enter Code:</strong><br/>
-                                <input type="text"  onkeypress="submitEnter(event,document.f)" name="code" value ="" size="32" maxlength="32">
+                                <input type="text" name="code" value ="" size="32" maxlength="32">
                             </td>
                         </tr>
                         <tr>

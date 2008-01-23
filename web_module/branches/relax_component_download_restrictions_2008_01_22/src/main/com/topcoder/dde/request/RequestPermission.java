@@ -31,7 +31,9 @@ public class RequestPermission extends BaseProcessor {
 
             String code = StringUtils.checkNull(getRequest().getParameter("code"));
             
-            if (! "".equals(code)) {    
+            log.debug("code: " + code);
+            
+            if (!"".equals(code)) {    
                 ResultSetContainer rsc = getData(code);            
 
                 if (rsc.size() > 0) {
