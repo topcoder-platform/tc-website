@@ -200,7 +200,7 @@
                         <td class="value">
                             <p><a href="/tc?module=ViewReferrals">Referrals</a></p>
                             <p><a href="/tc?module=Static&amp;d1=card&amp;d2=description">Cards/Badges</a></p>
-                            <p><a href="/wiki/display/~<handle>">Wiki space</a></p>
+                            <%--<p><a href="/wiki/display/~<handle>">Wiki space</a></p>--%>
                         </td>
                     </tr>
                 </tbody>
