@@ -13,9 +13,6 @@
 <channel>
     <title>${fn:trim(title)}</title>
     <link><c:out value="${fn:trim(sessionInfo.absoluteServletPath)}" escapeXml="true"/></link>
-<%--
-    <description>Most recent forum messages</description>
---%>
     <language>en-us</language>
     <pubDate><fmt:formatDate value="<%=new Date()%>" pattern="E, d MMM yyyy HH:mm:ss"/></pubDate>
 
@@ -24,15 +21,6 @@
            <title><c:out value="${fn:trim(resultRow.map['title'])}" escapeXml="true"/></title>
            <link><c:out value="${fn:trim(resultRow.map['link'])}" escapeXml="true"/></link>
            <description><c:out value="${fn:trim(resultRow.map['description'])}" escapeXml="true"/></description>
-
-<%--
-           <% if (resultRow.isValidColumn("pub_date")) {%>
-                <pubDate><rsc:item name="pub_date" row="<%=resultRow%>" format="E, d MMM yyyy HH:mm:ss"/></pubDate>
-           <% } else { %>
-                <fmt:formatDate value="<%=new Date()%>" pattern="E, d MMM yyyy HH:mm:ss"/>
-           <% } %>
-
---%>
        </item>
     </rsc:iterator>
 
