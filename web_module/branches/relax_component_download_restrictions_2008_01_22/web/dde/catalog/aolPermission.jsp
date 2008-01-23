@@ -33,8 +33,9 @@
 
 <!-- Middle Column begins -->
         <td width="100%" align="center">
-            This is the landing page for the AOL people.
+            <p>
             <br/><br/>
+            This is the landing page for the AOL people.
             <br/><br/>
             Here we can explain what is the code for and that they need to be registered
             <br/><br/>
@@ -44,6 +45,7 @@
             If user is not logged in:<br/>
             If you are new to TopCoder, you can register <a href="https://www.dev.topcoder.com/reg/?module=Main&rt=5">Here</a>.<br/>
             If you have a TopCoder account, please login <a href="/tcs?module=RequestPermission">Here</a> before entering the code.<br/>
+            </p>
         </td>
 <!-- Middle Column ends -->
 
