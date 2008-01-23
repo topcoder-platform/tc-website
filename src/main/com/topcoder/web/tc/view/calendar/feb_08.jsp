@@ -38,8 +38,8 @@
 
 <div style="float:right;white-space:nowrap;" align="right">
     All times are <A target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</A> unless stated otherwise.<br />
+    Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
     <a href="/tc?module=BasicRSS&c=rss_Upcoming_Contests&dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
-    Stay informed with our <a href="/tc?module=BasicRSS&c=rss_Upcoming_Contests&dsid=29">upcoming events RSS feed</a>.
 </div>
 
 <strong><A href="/tc?module=Static&d1=calendar&d2=jan_08" class="prevNext">&lt; prev</A> | <A href="/tc?module=Static&d1=calendar&d2=mar_08" class="prevNext">next &gt;</A></strong>
