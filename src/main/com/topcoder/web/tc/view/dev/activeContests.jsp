@@ -170,8 +170,8 @@
 </table>
 
 <div align="right" style="padding-top: 10px">
+    Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
     <a href="/tc?module=BasicRSS&c=rss_Upcoming_Contests&dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
-    Stay informed with our <a href="/tc?module=BasicRSS&c=rss_Upcoming_Contests&dsid=29">upcoming events RSS feed</a>.
 </div>
 
 <% } else {   // Development %>
@@ -291,8 +291,8 @@
 </table>
 
 <div align="right" style="padding-top: 10px">
+    Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
     <a href="/tc?module=BasicRSS&c=rss_Upcoming_Contests&dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
-    Stay informed with our <a href="/tc?module=BasicRSS&c=rss_Upcoming_Contests&dsid=29">upcoming events RSS feed</a>.
 </div>
 
 <% } %>
