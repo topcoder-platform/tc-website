@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>Request permission</title>
@@ -40,8 +41,15 @@
             <br/><br/>
             Here we can explain what is the code for and that they need to be registered in order to download components
             <br/><br/>
-            Bla bla bla...
+            Bla bla bla... ${sessionInfo.isLoggedIn} - ${sessionInfo.loggedIn}
             <br/><br/>
+            <c:choose>
+                <c:when test="${sessionInfo.isLoggedIn}">
+                </c:when>
+                <c:otherwise>
+                </c:otherwise>
+            </c:choose>
+            
             If user is logged in:<br/>
             <a href="/tcs?module=RequestPermission">Continue and submit code</a>
             <br/><br/>
