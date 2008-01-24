@@ -14,7 +14,7 @@ public class RequestPermissionView extends BaseProcessor {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
-            setNextPage("/catalog/requestPermission.jsp");
+            setNextPage("/util/requestPermission.jsp");
             setIsNextPageInContext(true);
         }
     }

@@ -48,12 +48,12 @@ public class RequestPermissionSubmit extends BaseProcessor {
                         setIsNextPageInContext(true);
                     } else {
                         getRequest().setAttribute("message", "Invalid code entered");
-                        setNextPage("/catalog/requestPermission.jsp");
+                        setNextPage("/util/requestPermission.jsp");
                         setIsNextPageInContext(true);
                     }
                 } else {
                     getRequest().setAttribute("message", "You must enter a valid code");
-                    setNextPage("/catalog/requestPermission.jsp");
+                    setNextPage("/util/requestPermission.jsp");
                     setIsNextPageInContext(true);
                 }
             } else {
