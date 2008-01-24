@@ -6,6 +6,9 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
+
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+
 <html>
 
 <head>
@@ -57,8 +60,14 @@
                 This is the landing page for the AOL people.
                 <br/><br/>
                 Here we can explain what is the code for and that they need to be registered in order to download components
+                <jsp:getProperty name="sessionInfo" property="servletPath"/> -
                 <br/><br/>
                 Bla bla bla... ${sessionInfo.isLoggedIn} - ${sessionInfo.loggedIn} - ${sessionInfo.servletPath}
+                ${sessionInfo.isAnonymous} - 1 <jsp:getProperty name="sessionInfo" property="anonymous"/> -
+                ${sessionInfo.isAdmin} -  2 <jsp:getProperty name="sessionInfo" property="admin"/> -
+                ${sessionInfo.serverName} - 3 <jsp:getProperty name="sessionInfo" property="serverName"/> -
+                ${sessionInfo.queryString} - 4 <jsp:getProperty name="sessionInfo" property="queryString"/> -
+                ${sessionInfo.date} - 5 <jsp:getProperty name="sessionInfo" property="date"/> -
                 <br/><br/>
                 <c:choose>
                     <c:when test="${sessionInfo.loggedIn}">
