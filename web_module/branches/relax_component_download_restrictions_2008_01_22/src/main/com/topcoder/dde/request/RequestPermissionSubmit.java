@@ -45,7 +45,7 @@ public class RequestPermissionSubmit extends BaseProcessor {
                         principalMgr.addUserToGroup(principalMgr.getGroup(rsr.getLongItem("group_id")), principalMgr.getUser(getUser().getId()), new TCSubject(0));
     
                         setNextPage(rsr.getStringItem("next_page"));
-                        setIsNextPageInContext(false);
+                        setIsNextPageInContext(true);
                     } else {
                         getRequest().setAttribute("message", "Invalid code entered");
                         setNextPage("/catalog/requestPermission.jsp");
