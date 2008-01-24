@@ -275,7 +275,7 @@ public class ReliabilityRating {
                     " order by ci.create_time asc";
 
     private class ReliabilityHistory {
-        private List history = new ArrayList(10000);
+        private List<ReliabilityInstance> history = new ArrayList<ReliabilityInstance>(10000);
 
         private ReliabilityHistory(Connection conn, long userId, long phaseId, int historyLength) throws SQLException {
 
@@ -309,7 +309,7 @@ public class ReliabilityRating {
                 double fullNewRel;
                 int fullReliableCount = 0;
                 for (int i = 0; i < size; i++) {
-                    if (((ReliabilityInstance) history.get(i)).isReliable()) {
+                    if (history.get(i).isReliable()) {
                         fullReliableCount++;
                     }
                     fullNewRel = (double) fullReliableCount / (double) (i + 1);
@@ -323,7 +323,7 @@ public class ReliabilityRating {
                         //iterate through the records that count based on the
                         //history length and calculate the reliability information
                         projectCount++;
-                        cur = (ReliabilityInstance) history.get(j);
+                        cur = history.get(j);
                         if (cur.isReliable()) {
                             reliableCount++;
                         }
@@ -331,13 +331,13 @@ public class ReliabilityRating {
                     }
 
                     if (i > 0) {
-                        ((ReliabilityInstance) history.get(i)).setRecentOldReliability(
-                                ((ReliabilityInstance) history.get(i - 1)).getRecentNewReliability());
-                        ((ReliabilityInstance) history.get(i)).setOldReliability(
-                                ((ReliabilityInstance) history.get(i - 1)).getNewReliability());
+                        history.get(i).setRecentOldReliability(
+                                history.get(i - 1).getRecentNewReliability());
+                        history.get(i).setOldReliability(
+                                history.get(i - 1).getNewReliability());
                     }
-                    ((ReliabilityInstance) history.get(i)).setRecentNewReliability(newRel);
-                    ((ReliabilityInstance) history.get(i)).setNewReliability(fullNewRel);
+                    history.get(i).setRecentNewReliability(newRel);
+                    history.get(i).setNewReliability(fullNewRel);
 
                 }
 
