@@ -41,7 +41,7 @@
             <br/><br/>
             Here we can explain what is the code for and that they need to be registered in order to download components
             <br/><br/>
-            Bla bla bla... ${sessionInfo.isLoggedIn} - ${sessionInfo.loggedIn}
+            Bla bla bla... ${sessionInfo.isLoggedIn} - ${sessionInfo.loggedIn} - ${sessionInfo.servletPath}
             <br/><br/>
             <c:choose>
                 <c:when test="${sessionInfo.isLoggedIn}">
