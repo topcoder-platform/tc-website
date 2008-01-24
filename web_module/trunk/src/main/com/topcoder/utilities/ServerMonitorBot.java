@@ -305,7 +305,7 @@ public class ServerMonitorBot {
                         em.addToAddress(addresses[i], TCSEmailMessage.TO);
                         em.setSubject("Server Error");
                         em.setBody(errors[i]);
-                        em.setFromAddress("serice@topcoder.com");
+                        em.setFromAddress("service@topcoder.com");
                         EmailEngine.send(em);
                     errors[i]="";
                 } catch (Exception e) {
