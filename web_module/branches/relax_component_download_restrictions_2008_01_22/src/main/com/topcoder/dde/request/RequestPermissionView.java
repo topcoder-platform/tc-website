@@ -14,7 +14,6 @@ public class RequestPermissionView extends BaseProcessor {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
-            getRequest().setAttribute("message", "You must enter a valid code");
             setNextPage("/catalog/requestPermission.jsp");
             setIsNextPageInContext(true);
         }
