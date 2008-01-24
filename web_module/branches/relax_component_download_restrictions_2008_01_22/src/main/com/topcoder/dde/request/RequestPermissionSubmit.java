@@ -65,7 +65,7 @@ public class RequestPermissionSubmit extends BaseProcessor {
     private ResultSetContainer getData(String code) throws TCWebException {
         try {
             Request r = new Request();
-            String queryName = "code_groups";
+            String queryName = "code_details";
 
             r.setContentHandle(queryName);
             r.setProperty("code", code);
