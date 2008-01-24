@@ -1,6 +1,5 @@
 package com.topcoder.dde.request;
 
-import java.util.Arrays;
 import java.util.Map;
 
 import com.topcoder.security.TCSubject;
@@ -22,40 +21,43 @@ import com.topcoder.web.common.TCWebException;
  * @author  pulky
  * @version  $Revision$ $Date$
  */
-public class RequestPermission extends BaseProcessor {
+public class RequestPermissionSubmit extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
 
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
-
-            String code = StringUtils.checkNull(getRequest().getParameter("code"));
-            
-            log.debug("code: " + code);
-            
-            if (!"".equals(code)) {    
-                ResultSetContainer rsc = getData(code);            
-
-                if (rsc.size() > 0) {
-                    PrincipalMgrRemoteHome principalMgrHome = (PrincipalMgrRemoteHome)
-                    getInitialContext().lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-                    PrincipalMgrRemote principalMgr = principalMgrHome.create();
-
-                    ResultSetRow rsr = rsc.iterator().next();
-                    principalMgr.addUserToGroup(principalMgr.getGroup(rsr.getLongItem("group_id")), principalMgr.getUser(getUser().getId()), new TCSubject(0));
-
-                    setNextPage(rsr.getStringItem("next_page"));
-                    setIsNextPageInContext(false);
+            if ("POST".equals(getRequest().getMethod())) {
+                String code = StringUtils.checkNull(getRequest().getParameter("code"));
+                
+                log.debug("code: " + code);
+                
+                if (!"".equals(code)) {    
+                    ResultSetContainer rsc = getData(code);            
+    
+                    if (rsc.size() > 0) {
+                        PrincipalMgrRemoteHome principalMgrHome = (PrincipalMgrRemoteHome)
+                        getInitialContext().lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                        PrincipalMgrRemote principalMgr = principalMgrHome.create();
+    
+                        ResultSetRow rsr = rsc.iterator().next();
+                        principalMgr.addUserToGroup(principalMgr.getGroup(rsr.getLongItem("group_id")), principalMgr.getUser(getUser().getId()), new TCSubject(0));
+    
+                        setNextPage(rsr.getStringItem("next_page"));
+                        setIsNextPageInContext(false);
+                    } else {
+                        getRequest().setAttribute("message", "Invalid code entered");
+                        setNextPage("/catalog/requestPermission.jsp");
+                        setIsNextPageInContext(true);
+                    }
                 } else {
-                    getRequest().setAttribute("message", "Invalid code entered");
+                    getRequest().setAttribute("message", "You must enter a valid code");
                     setNextPage("/catalog/requestPermission.jsp");
                     setIsNextPageInContext(true);
                 }
             } else {
-                getRequest().setAttribute("message", "You must enter a valid code");
-                setNextPage("/catalog/requestPermission.jsp");
-                setIsNextPageInContext(true);
+                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
         }
     }

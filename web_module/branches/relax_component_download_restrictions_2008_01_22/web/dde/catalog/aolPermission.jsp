@@ -63,13 +63,13 @@
                 <br/><br/>
                 <c:choose>
                     <c:when test="${sessionInfo.loggedIn}">
-                        <a href="/tcs?module=RequestPermission">Continue and submit code</a>
+                        <a href="/tcs?module=RequestPermissionView">Continue and submit code</a>
                     </c:when>
                     <c:otherwise>
                         You must be logged in in order to download... bla bla bla...
                         <br/>
                         If you are new to TopCoder, you can register <a href="https://www.dev.topcoder.com/reg/?module=Main&rt=5">Here</a>.<br/>
-                        If you have a TopCoder account, please login <a href="/tcs?module=RequestPermission">Here</a> before entering the code.<br/>
+                        If you have a TopCoder account, please login <a href="/tcs?module=RequestPermissionView">Here</a> before entering the code.<br/>
                     </c:otherwise>
                 </c:choose>
                 <br/><br/>

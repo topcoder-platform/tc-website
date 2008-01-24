@@ -52,13 +52,13 @@
         <td width="99%" align="center">
             <div style="width:510px; margin-bottom: 40px;" align="left">
                 <form name="f" action="/tcs" method="post">
-                    <input type="hidden" name="module" value="RequestPermission">
+                    <input type="hidden" name="module" value="RequestPermissionSubmit">
                     <div align="center">
                         <table cellpadding="4" cellspacing="0">
                         <tbody>
                             <tr>
                                 <td>
-                                    <c:if test="${message not empty}">
+                                    <c:if test="${not empty message}">
                                         ERROR - ${message}
                                     </c:if>
                                 </td>
