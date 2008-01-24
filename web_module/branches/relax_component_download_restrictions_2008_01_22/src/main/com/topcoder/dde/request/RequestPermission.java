@@ -1,5 +1,6 @@
 package com.topcoder.dde.request;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import com.topcoder.security.TCSubject;
@@ -40,20 +41,22 @@ public class RequestPermission extends BaseProcessor {
                     PrincipalMgrRemoteHome principalMgrHome = (PrincipalMgrRemoteHome)
                     getInitialContext().lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
                     PrincipalMgrRemote principalMgr = principalMgrHome.create();
-            
-                    for (ResultSetRow rsr : rsc) {
-                        principalMgr.addUserToGroup(principalMgr.getGroup(rsr.getLongItem("group_id")), principalMgr.getUser(getUser().getId()), new TCSubject(0));
-                    }
+
+                    ResultSetRow rsr = rsc.iterator().next();
+                    principalMgr.addUserToGroup(principalMgr.getGroup(rsr.getLongItem("group_id")), principalMgr.getUser(getUser().getId()), new TCSubject(0));
+
+                    setNextPage(rsr.getStringItem("next_page"));
+                    setIsNextPageInContext(false);
                 } else {
-                    // if the code is not found, throw permission exception
-                    throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+                    getRequest().setAttribute("message", "Invalid code entered");
+                    setNextPage("/catalog/requestPermission.jsp");
+                    setIsNextPageInContext(true);
                 }
-                
-                setNextPage("/catalog/index.jsp");
             } else {
+                getRequest().setAttribute("message", "You must enter a valid code");
                 setNextPage("/catalog/requestPermission.jsp");
+                setIsNextPageInContext(true);
             }
-            setIsNextPageInContext(false);
         }
     }
 
