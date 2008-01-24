@@ -12,7 +12,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../../script.jsp" />
 
-<style TYPE="text/css">
+<style type="text/css">
 html{ 
 margin:0px;
 padding:0px;
@@ -94,7 +94,7 @@ a:hover, a:active {
 <div align="center" style="background: transparent;">
     <div id="content">
 
-            <script language="JavaScript">
+            <script type="text/javascript">
             var s='<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="480" height="640" id="commercial" align="middle">'
             + '<param name="allowScriptAccess" value="always" />'
             + '<param name="movie" value="/flash/tournament/tco08/commercial.swf" />'
