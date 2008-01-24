@@ -9,7 +9,7 @@
 <html>
 
 <head>
-    <title>Request permission</title>
+    <title>Permission granted</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css">
 
@@ -47,24 +47,9 @@
             <div style="width:510px; margin-bottom: 40px;" align="left">
                 <table align="left">
                 <tr><td>
+                Permission granted. 
                 <br/><br/>
-                This is the landing page for the AOL people.
-                <br/><br/>
-                Here we can explain what is the code for and that they need to be registered in order to download components
-                <br/><br/>
-                Bla bla bla... <br/>
-                <br/><br/>
-                <c:choose>
-                    <c:when test="${sessionInfo.loggedIn}">
-                        <a href="/tcs?module=RequestPermissionView">Continue and submit code</a>
-                    </c:when>
-                    <c:otherwise>
-                        You must be logged in in order to download... bla bla bla...
-                        <br/>
-                        If you are new to TopCoder, you can register <a href="https://www.dev.topcoder.com/reg/?module=Main&rt=5">Here</a>.<br/>
-                        If you have a TopCoder account, please login <a href="/tcs?module=RequestPermissionView">Here</a> before entering the code.<br/>
-                    </c:otherwise>
-                </c:choose>
+                Now you can download components <a href="/catalog/index.jsp">Here</a><br/>.
                 <br/><br/>
                 </td></tr>
                 </table>
