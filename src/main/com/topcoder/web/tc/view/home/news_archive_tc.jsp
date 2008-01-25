@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%"> 
+<tr class="bodyText"><td nowrap="nowrap">01.25.08 2:00 PM - </td><td width="100%"><A href="/wiki/display/tc/Bug+Races">Off to the Races</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.15.08 6:00 PM - </td><td width="100%"><A href="/wiki/display/tc/Bug+Races">Introducing the TopCoder Bug Races!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.03.08 4:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=architecture&d2=beta">Registration Open for Three More Architecture Competitions</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.19.07 9:00 AM - </td><td width="100%">TopCoder Has Moved</td></tr>

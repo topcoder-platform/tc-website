@@ -62,9 +62,9 @@
 <img src="/i/home/tchs08ANDarchComp.png" alt="TCHS08" usemap="#tchs08" style="display: block;" />
 --%>
 
-<%-- TCO08 --%>
+<%-- TCO08 
 <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='/tc' />"><img src="/i/home/tco08registerBanner.png" alt="2008 TopCoder Open" /></a>
-
+--%>
 
 <%-- UML Tool 
 <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />"><img src="/i/home/umltoolRelease.jpg" alt="UML Tool Release" /></a>
@@ -73,3 +73,6 @@
 <%-- Architecture 
 <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='/tc' />"><img src="/i/home/architectureBeta.jpg" alt="Architecture Competition" /></a>
 --%>
+
+<%-- The Bug Races --%>
+<a href="/wiki/display/tc/Bug+Races"><img src="/i/home/theBugRaces3_banner.png" alt="The Bug Races" /></a>
