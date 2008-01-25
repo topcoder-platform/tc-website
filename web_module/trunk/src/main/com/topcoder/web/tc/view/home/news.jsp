@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />01.25.08<br />2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/wiki/display/tc/Bug+Races">Off to the Races</a></span><br /><br />
+        If you haven't been to the Bug Races yet, now's the time. TopCoder has launched new competitions, which is your chance to make quick fixes for quick cash. We'll be posting new bugs almost daily, so be sure to check out the <a href="/wiki/display/tc/Active+Bug+Races">Active Races</a> page, or subscribe to the Bug Races RSS feed to get all the latest postings immediately.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/wiki/display/tc/Bug+Races">details</a> | 
+        <tc-webtag:forumLink forumID="519026" message="discuss this" /> | 
+        <a href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.25.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">TCHS08 Online Round 3</a></span><br /><br />
@@ -158,18 +171,5 @@
          <a href="/tc?module=Static&d1=match_editorials&d2=srm387">details</a> | 
          <tc-webtag:forumLink forumID="518802" message="discuss this" /> | 
          <a href="/tc?module=Static&d1=match_editorials&d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.14.08<br />9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='/tc' />">2008 TopCoder Open is here</a></span><br /><br />
-        The 2008 TCO is here!  Five new Champions will be crowned this time in Las Vegas.  Register now for your chance to be one of them.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
    </td></tr>
    
