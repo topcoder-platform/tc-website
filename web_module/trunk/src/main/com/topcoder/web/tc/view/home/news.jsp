@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />01.25.08<br />3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=features&d2=012508">Meet the December 2007 Coders of the Month</a></span><br /><br />
+      We caught up with December's Coders of the Month, as well as December's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</td>
+         <td class="newsPhoto">&nbsp;</td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <a href="/tc?module=Static&d1=features&d2=012508">details</a> | 
+         <tc-webtag:forumLink forumID="519228" message="discuss this" /> | 
+         <a href="/tc?module=Static&d1=features&d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />01.25.08<br />2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/wiki/display/tc/Bug+Races">Off to the Races</a></span><br /><br />
@@ -72,7 +88,7 @@
    
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />01.18.08<br />3:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br />01.18.08<br />3:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=tutorials&d2=primalityTesting">Primality Testing : Non-deterministic Algorithms</a></span><br /><br />
@@ -155,21 +171,5 @@
          <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd1">details</a> | 
          <tc-webtag:forumLink forumID="518887" message="discuss this" /> | 
          <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />01.14.08<br />1:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=match_editorials&d2=srm387">SRM 387 - Problem Set &amp; Analysis</a></span><br /><br />
-      After two matches, competitors have finally remembered what solving Div1 Hard during the match looks like. This match proved to be of average difficulty. The success rate for almost all problems was pretty good.</td>
-         <td class="newsPhoto"><img src="/i/m/Relja_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20641244" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <a href="/tc?module=Static&d1=match_editorials&d2=srm387">details</a> | 
-         <tc-webtag:forumLink forumID="518802" message="discuss this" /> | 
-         <a href="/tc?module=Static&d1=match_editorials&d2=archive">archive</a>
    </td></tr>
    
