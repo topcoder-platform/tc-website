@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText">&nbsp;</td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=012508"><strong>Meet the December 2007 Coders of the Month</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Jan 25, 2008</td> 
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="251074" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=010408"><strong>Linear recurrences</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Jan 4, 2008</td> 
