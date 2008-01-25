@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.25.08<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">TCHS08 Online Round 3</a></span><br /><br />
+        The final round of the 2008 TCHS tournament starts at 1:00 PM EST (UTC/GMT -5) on Saturday, January 26. We're down to the final group so don't miss it!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=590134">discuss this</a> | 
+        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />01.23.08<br />12:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -157,19 +170,6 @@
    <tr><td class="newsLinksCell">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.11.08<br />1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">TCHS08 Online Round 1</a></span><br /><br />
-        The first round of the 2008 TCHS tournament starts tomorrow at 1:00 PM EST (UTC/GMT -5).  Don't miss the action as high school students square to start the tournament.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=590134">discuss this</a> | 
         <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
    </td></tr>
    
