@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">01.25.08 1:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule">TCHS08 Online Round 3</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.23.08 12:00 PM - </td><td width="100%"><A href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early">Last Call for TCHS08 Visa Letter Requests</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.18.08 1:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule">TCHS08 Online Round 2</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.14.08 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=about">2008 TopCoder Open is here</A></td></tr>
