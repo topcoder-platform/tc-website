@@ -37,6 +37,6 @@
         <a href="/tc" class="footerLinks">Developer Center</a>&nbsp;&nbsp;|&nbsp;&nbsp;
         <a href="/corp/?module=Static&amp;d1=corp&amp;d2=index" class="footerLinks">Corporate Services</a>
     </p>
-    <p id="copyright">Copyright &copy; 2000-2007, TopCoder, Inc. All rights reserved.</p>
+    <p id="copyright">Copyright &copy; 2000-2008, TopCoder, Inc. All rights reserved.</p>
 
 </div><%-- #footer --%>
