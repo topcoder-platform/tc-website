@@ -89,7 +89,12 @@
                                             ${resultRow.submissions}
                                         </td>
                                         <td class="valueC">
-                                            ${resultRow.placed}
+                                            <c:choose>
+                                                <c:when test="${resultRow.points > 0}">
+                                                    ${resultRow.placed}
+                                                </c:when>
+                                                <c:otherwise>-</c:otherwise>
+                                            </c:choose>
                                         </td>
                                         <td class="valueC">
                                             ${resultRow.points}
