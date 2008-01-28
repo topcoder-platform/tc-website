@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.28.08<br />5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description">End of TCO08 Marathon Match Registration</a></span><br /><br />
+        Don't Forget!  TCO08 Marathon Match Registration ends Tuesday, January 29 at 5:00 PM EST.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description">details</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />01.25.08<br />3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -155,21 +168,5 @@
         <a href="/tc?module=MatchDetails&rd=11122">details</a> | 
         <tc-webtag:forumLink forumID="516666" message="discuss this" /> | 
         <a href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />01.14.08<br />3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd1">TCHS08 Online Round 1 - Problem Set &amp; Analysis</a></span><br /><br />
-      The 2008 TCHS tournament started with Round 1 with 191 competitors. This giving all the posibility to advance with a positive score, which most of the competitors were able to do. For high rated highschoolers the first round was a warm up round.</td>
-         <td class="newsPhoto"><img src="/i/m/vlad_D_big5.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="13298470" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd1">details</a> | 
-         <tc-webtag:forumLink forumID="518887" message="discuss this" /> | 
-         <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</a>
    </td></tr>
    
