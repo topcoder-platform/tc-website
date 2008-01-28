@@ -46,7 +46,7 @@ public class MemberContactEnable extends ShortHibernateProcessor {
                 up.setId(new UserPreference.Identifier(user, p));
             }
 
-            up.setValue(String.valueOf(true));
+            up.setValue("yes");
 
             HashSet<String> s = new HashSet<String>();
             s.add("user_preference");
