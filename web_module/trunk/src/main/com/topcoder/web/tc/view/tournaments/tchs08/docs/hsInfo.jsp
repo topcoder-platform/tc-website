@@ -124,9 +124,10 @@
     </li>
     <li>
         <p><strong>Travel Waiver</strong></p>
-        <p>Must be completed for all competitors. TopCoder must receive the original signed Travel
-            Waiver. The document must be postmarked by February 18, 2008, and must be sent in such a manner that it
-            will arrive at TopCoder no later than March 7, 2008.
+        <p>Must be completed for all competitors. TopCoder must receive the original signed Travel Waiver. The document
+            must be postmarked by February 18, 2008, and must be sent in such a manner that it will arrive at TopCoder no
+            later than March 7, 2008.   Please select the correct travel waiver.  If you will be 18 as of Friday, March
+            14 than please select the 18+ waiver.
         </p>
         <p>
             <a href="/pdfs/tournaments/tchs08/TopCoder_High_School_travel_waiver_minor.pdf">Download this version if you are under 18 years old.</a>
