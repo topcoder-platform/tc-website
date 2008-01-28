@@ -1,6 +1,9 @@
 package com.topcoder.web.tc.controller.request.membercontact;
 
+import java.util.HashSet;
+
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -44,6 +47,11 @@ public class MemberContactEnable extends ShortHibernateProcessor {
             }
 
             up.setValue(String.valueOf(true));
+
+            HashSet<String> s = new HashSet<String>();
+            s.add("user_preference");
+            s.add("user_preference_all");
+            CacheClearer.removelike(s);
 
             setNextPage(Constants.MEMBER_CONTACT_ENABLE_SUCCEEDED);
             setIsNextPageInContext(true);
