@@ -69,21 +69,6 @@
         <%--
         <div align="center" style="margin-bottom: 5px;"><a href="/tc?module=Static&d1=about&d2=contactus"><img src="/i/home/contactus.png" alt="Contact us" /></a></div>
         --%>
-        <%-- TCO07  fri 
-        <map name="tco07">
-        <area shape="rect" alt="" coords="313,36,343,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoFinals" />
-        <area shape="rect" alt="" coords="346,36,376,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary" />
-        <area shape="rect" alt="" coords="379,36,409,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary" />
-        <area shape="rect" alt="" coords="412,36,442,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=summary" />
-        <area shape="rect" alt="" coords="445,36,475,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=summary" />
-
-        <area shape="rect" alt="" coords="1,5,287,146" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about" />
-        <area shape="rect" alt="" coords="300,109,361,130" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies" />
-        <area shape="rect" alt="" coords="375,109,430,130" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=photos" />
-        <area shape="rect" alt="" coords="442,109,489,130" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=overview" />
-        </map>
-        <img src="/i/home/tco07champions.png" alt="2007 TopCoder Open" usemap="#tco07" style="display: block;" />
-        --%>
         
         <%-- TCCC07 
         <map name="tccc07">
@@ -118,8 +103,6 @@
         
         <%-- TCO08 --%>
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='homepage' />"><img src="/i/home/tco08registerBanner.png" alt="2008 TopCoder Open" /></a>
-        
-
 
         <%-- Architecture 
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='homepage' />"><img src="/i/home/architectureBeta.jpg" alt="Architecture Competition" /></a>
@@ -170,10 +153,9 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN 
-                <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-                --%>
-                
+                <%-- DIGITAL RUN --%>
+                <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digital_run_20080128.png" alt="The Digital Run" border="0" style="display:block;"/></A>
+                                
                 <%-- DIGITAL RUN ASSEMBLY CUP 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></A>
                 --%>
@@ -190,13 +172,9 @@
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunTotalPrizes.png" alt="The Digital Run Total Prizes" border="0" style="display:block;"/></A>
                 --%>
 
-                <%-- DIGITAL RUN 2008 
-                <A href="/tc?module=Static&d1=digital_run&d2=2008&d3=description"><img src="/i/home/dig_run_2008.png" alt="The Digital Run 2008" border="0" style="display:block;"/></A>
-                --%>
-
-                <%-- TCHS08 --%>
+                <%-- TCHS08 
                 <A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule"><img src="/i/home/tchs08Rd3promo.png" alt="TCHS08" border="0" style="display:block;"/></A>
-                
+                --%>
                 
                 <%-- TCO07
                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07sm.png" alt="TCO07" border="0" style="display:block;"/></A>
