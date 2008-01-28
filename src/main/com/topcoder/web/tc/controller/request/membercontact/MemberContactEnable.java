@@ -51,7 +51,7 @@ public class MemberContactEnable extends ShortHibernateProcessor {
             HashSet<String> s = new HashSet<String>();
             s.add("user_preference");
             s.add("user_preference_all");
-            CacheClearer.removelike(s);
+            CacheClearer.removelike(s); 
 
             setNextPage(Constants.MEMBER_CONTACT_ENABLE_SUCCEEDED);
             setIsNextPageInContext(true);
