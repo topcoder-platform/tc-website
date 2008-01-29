@@ -4,6 +4,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Software Competition News" border="0" /><br>01.29.08<br>4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=592">RSS Feeds for Software Active Contests</a>
+        </span><br><br>
+        You can now see available contests with ease by using our new active contests RSS feeds.  Given the expanded functionality these RSS feeds offer, we won't be sending out the standard email notifications to announce active contests any longer.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=592">details</A> | 
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=205768&mc=26755">discuss this</A> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.28.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description">End of TCO08 Marathon Match Registration</a></span><br /><br />
@@ -155,18 +170,5 @@
         <a href="/wiki/display/tc/Bug+Races">details</a> | 
         <tc-webtag:forumLink forumID="519026" message="discuss this" /> | 
         <a href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />01.15.08<br />10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=MatchDetails&rd=11122">SRM 388 sponsored by BT</a></span><br /><br />
-        British Telecom (BT) is sponsoring SRM 388 with $5,000 in prizes!  Be sure to check out their <a href="/tc?module=Static&d1=sponsors&d2=bt">job opportunities</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=MatchDetails&rd=11122">details</a> | 
-        <tc-webtag:forumLink forumID="516666" message="discuss this" /> | 
-        <a href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</a>
    </td></tr>
    
