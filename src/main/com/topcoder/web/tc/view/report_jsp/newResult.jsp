@@ -11,6 +11,11 @@
 <%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="module" value="<%= Constants.MODULE_KEY %>"/>
+<c:set var="moduleEquals" value="${module}="/>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 
 <html>
   <head>
@@ -68,7 +73,7 @@
             <TR>
                 <TD colspan="<%=rs.getColumns().length%>" ALIGN="left">
                     <FONT size="4"><b><%=query.getStringItem("name")%> Results</b></FONT>
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=CSVResults&amp;<%=DataAccessConstants.COMMAND%>=<%=command%>&amp;db=${param['db']}&amp;<%=CSVResults.QUERY_NAME%>=<%=query.getStringItem("name")%>">Download as CSV (Excel)</a>
+                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=CSVResults<c:forEach items="${param}" var="entry"><c:if test="${!fn:startsWith(entry, moduleEquals)}">&amp;${entry}</c:if></c:forEach>&amp;<%=CSVResults.QUERY_NAME%>=<%=query.getStringItem("name")%>">Download as CSV (Excel)</a>
                     </TD>
             </TR>
             <TR>
