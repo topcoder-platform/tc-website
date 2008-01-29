@@ -49,6 +49,7 @@
         <li>Fixed [TCWEB-73] False disabled member contact on member contact page -pulky</li>
         <li>TCO08 RSVP page -pulky</li>
         <li>Add report for TCO '08 reg -dok</li>
+        <li>Cache report results for 15 minutes -dok</li>
     </ul>
 </p>
 
