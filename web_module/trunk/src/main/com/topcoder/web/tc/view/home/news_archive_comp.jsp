@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">01.29.08 4:30 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=592">RSS Feeds for Software Active Contests</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.21.07 9:30 AM - </td><td width="100%"><A href="/tc?module=Static&d1=digital_run&d2=2008&d3=description">Digital Run 2008 Stage 1 Starts Soon</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.29.07 5:30 PM - </td><td width="100%"><A href="http://forums.topcoder.com/?module=Announcement&annID=466">The TopCoder UML Tool 1.0.0 is Released, Required</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.02.07 7:30 PM - </td><td width="100%">TCCC07 Component <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=devSummary">Development</A> Finals: Round 3</td></tr>

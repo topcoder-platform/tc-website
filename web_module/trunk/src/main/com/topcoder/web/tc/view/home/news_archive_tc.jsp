@@ -60,7 +60,7 @@
 <tr class="bodyText"><td nowrap="nowrap">08.09.07 2:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=umltool&d3=description">Introducing the TopCoder UML Tool</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.25.07 4:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=sponsors&d2=btChat20070721">BT SRM 359 chat session transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.19.07 3:00 PM - </td><td width="100%"><A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1007">British Telecom Mashup Design Competition open for registration</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">07.17.07 12:30 PM - </td><td width="100%"><A href="http://csf.topcoder.com/">Microsoft CSF Competitions – Winners Announced!</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">07.17.07 12:30 PM - </td><td width="100%"><A href="http://csf.topcoder.com/">Microsoft CSF Competitions - Winners Announced!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.09.07 6:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=calendar&d2=thisMonth">Marathon Matches added to Event Calendar</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.18.07 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=help&d2=assignmentDocFaq">New Assignment requirements for TopCoder competitions</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.12.07 3:10 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=17349">What does finding a clue sound like to you?</A></td></tr>
