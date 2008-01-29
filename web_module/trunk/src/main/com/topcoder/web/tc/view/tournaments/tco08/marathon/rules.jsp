@@ -52,7 +52,7 @@
             
             <a name="registration"></a>
             <h3>Registration</h3>
-            <p>Registration for the Competition will open at 9:00 AM EST on Monday, January 14, 2008, and will close at 9:00 AM EST on Tuesday, January 29, 2008. In order to be eligible to compete in the Competition, competitors must register separately for the Competition. There is no limit to the number of registrants for the Competition, however each competitor may only register once.</p>
+            <p>Registration for the Competition will open at 9:00 AM EST on Monday, January 14, 2008, and will close at 5:00 PM EST on Tuesday, January 29, 2008. In order to be eligible to compete in the Competition, competitors must register separately for the Competition. There is no limit to the number of registrants for the Competition, however each competitor may only register once.</p>
             
             <a name="structure"></a>
             <h3>Online Elimination Rounds</h3>
