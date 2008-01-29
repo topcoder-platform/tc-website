@@ -1,14 +1,15 @@
 package com.topcoder.web.tc.controller.request.report;
 
 import com.topcoder.common.web.data.report.Constants;
-import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.tc.controller.request.Base;
 
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +32,7 @@ public class CSVResults extends Base {
                 throw new NavigationException("you forgot to make a request");
             } else {
                 String queryName = getRequest().getParameter(QUERY_NAME);
-                DataAccessInt dai = new DataAccess(
+                DataAccessInt dai = new CachedDataAccess(MaxAge.QUARTER_HOUR,
                         dataRequest.getProperty(Constants.DB_KEY, DBMS.OLTP_DATASOURCE_NAME));
                 ResultSetContainer rsc = dai.getData(dataRequest).get(queryName);
 
