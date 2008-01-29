@@ -1,11 +1,30 @@
 package com.topcoder.web.tc.controller.request.report;
 
-import com.topcoder.common.web.data.report.*;
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.common.web.data.report.Constants;
+import com.topcoder.common.web.data.report.FloatResult;
+import com.topcoder.common.web.data.report.IntResult;
+import com.topcoder.common.web.data.report.Parameter;
+import com.topcoder.common.web.data.report.Query;
+import com.topcoder.common.web.data.report.Report;
+import com.topcoder.common.web.data.report.ReportNode;
+import com.topcoder.common.web.data.report.ResultItem;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.QueryDataAccess;
+import com.topcoder.shared.dataAccess.QueryRequest;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.tc.controller.request.Base;
 
 import java.util.ArrayList;
@@ -50,7 +69,7 @@ public class Legacy extends Base {
                     if (dataRequest.getContentHandle() == null || dataRequest.getContentHandle().equals("")) {
                         response_addr = Constants.NEW_REPORT_HOME_ADDR;
                     } else {
-                        DataAccessInt dai = new DataAccess(
+                        DataAccessInt dai = new CachedDataAccess(MaxAge.QUARTER_HOUR,
                                 dataRequest.getProperty(Constants.DB_KEY, DBMS.OLTP_DATASOURCE_NAME));
                         Map dataMap = null;
                         dataMap = dai.getData(dataRequest);
