@@ -9,7 +9,7 @@
 <html>
 
 <head>
-    <title>Request permission</title>
+    <title>TopCoder :: Component Catalog Access</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css">
 
@@ -45,29 +45,33 @@
 <!-- Center Column begins -->
         <td width="99%" align="center">
             <div style="width:510px; margin-bottom: 40px;" align="left">
-                <table align="left">
-                <tr><td>
-                <br/><br/>
-                This is the landing page for the AOL people.
-                <br/><br/>
-                Here we can explain what is the code for and that they need to be registered in order to download components
-                <br/><br/>
-                Bla bla bla... <br/>
-                <br/><br/>
+                <div align="center" style="margin: 40px;">
+                    <img src="/i/catalog/needCode.png" alt="Sorry"/>
+                </div>
+
+                <p>
+                    TopCoder restricts component catalog access to current competitors who need the catalog to build new components, and those with <strong>an access code</strong>.
+                </p>
+
                 <c:choose>
                     <c:when test="${sessionInfo.loggedIn}">
-                        <a href="/tcs?module=RequestPermissionView">Continue and submit code</a>
+                        <p align="center">
+                            Do you have an access code?
+                        </p>
+
+                        <p align="center">
+                            <a href="/tcs?module=RequestPermissionView">Yes, I have a code.</a>
+                        </p>
                     </c:when>
                     <c:otherwise>
-                        You must be logged in in order to download... bla bla bla...
-                        <br/>
-                        If you are new to TopCoder, you can register <a href="https://www.dev.topcoder.com/reg/?module=Main&rt=5">Here</a>.<br/>
-                        If you have a TopCoder account, please login <a href="/tcs?module=RequestPermissionView">Here</a> before entering the code.<br/>
+                        <p align="center">
+                            You have to log in first:
+                        </p>
+                        <p align="center">
+                            <a href="/tcs?module=RequestPermissionView">Log in</a> | <a href="https://www.dev.topcoder.com/reg/?module=Main&rt=5">Register</a>
+                        </p>
                     </c:otherwise>
                 </c:choose>
-                <br/><br/>
-                </td></tr>
-                </table>
             </div>
         </td>
 <!-- Center Column begins -->

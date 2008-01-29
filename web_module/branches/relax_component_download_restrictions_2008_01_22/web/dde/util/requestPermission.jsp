@@ -8,7 +8,7 @@
 <html>
 
 <head>
-    <title>Request permission</title>
+    <title>TopCoder :: Component Catalog Access</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css">
 
@@ -44,31 +44,35 @@
 <!-- Center Column begins -->
         <td width="99%" align="center">
             <div style="width:510px; margin-bottom: 40px;" align="left">
+                <div align="center" style="margin: 40px;">
+                    <img src="/i/catalog/needCode.png" alt="Sorry"/>
+                </div>
+
+                <p>
+                    TopCoder restricts component catalog access to current competitors who need the catalog to build new components, and those with <strong>an access code</strong>.
+                </p>
+
+                <p align="center">
+                    Do you have an access code?
+                </p>
+
                 <form name="f" action="/tcs" method="post">
                     <input type="hidden" name="module" value="RequestPermissionSubmit">
                     <div align="center">
-                        <table cellpadding="4" cellspacing="0">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <c:if test="${not empty message}">
-                                        ERROR - ${message}
-                                    </c:if>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>Enter Code:</strong><br/>
-                                    <input type="text" name="code" value ="" size="32" maxlength="32">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <td nowrap class="bodyText">&#160;&#160;<a href="javascript:document.f.submit()">Submit</a></td>
-                                </td>
-                            </tr>
-                        </tbody>
-                        </table>
+                        <p align="center" class="bigRed">
+                            <c:if test="${not empty message}">
+                                ERROR - ${message}
+                            </c:if>
+                        </p>
+                        <p align="center">
+                            <strong>Your access code:</strong>
+                        </p>
+                        <div>
+                            <input type="text" name="code" value ="" size="32" maxlength="32">
+                        </div>
+                        <p align="center">
+                            <a href="javascript:document.f.submit()">Submit</a>
+                        </p>
                     </div>
                 </form>            
             </div>

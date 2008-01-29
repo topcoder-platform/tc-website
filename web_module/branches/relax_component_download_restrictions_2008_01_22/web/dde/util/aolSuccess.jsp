@@ -9,7 +9,7 @@
 <html>
 
 <head>
-    <title>Permission granted</title>
+    <title>TopCoder :: Component Catalog Access</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css">
 
@@ -45,14 +45,15 @@
 <!-- Center Column begins -->
         <td width="99%" align="center">
             <div style="width:510px; margin-bottom: 40px;" align="left">
-                <table align="left">
-                <tr><td>
-                Permission granted. 
-                <br/><br/>
-                Now you can download components <a href="/catalog/index.jsp">Here</a><br/>.
-                <br/><br/>
-                </td></tr>
-                </table>
+
+                <div align="center" style="margin: 40px;">
+                    <img src="/i/catalog/haveCode.png" alt="Sorry"/>
+                </div>
+
+                <p align="center">
+                    That's it.  You can now <a href"/catalog/index.jsp">download components</a>.
+                </p>
+
             </div>
         </td>
 <!-- Center Column begins -->
