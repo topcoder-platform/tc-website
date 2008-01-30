@@ -99,7 +99,7 @@
                 </tr>
             </table>
             <br />
-            <p>The format for each Qualification Round will be the same as algorithm competitions held outside the Tournament and is outlined in the Competition Round Structure section.  At the conclusion of their qualification attempt, competitors will be rated based on their performance against other competitors in the same round. All qualifying competitors will be assigned seeds for the Algorithm Competition based on their Algorithm rating following the Qualification Rounds.</p>
+            <p>The format for each Qualification Round will be the same as algorithm competitions held outside the Tournament and is outlined in the Competition Round Structure section.  In order to advance to Online Round 1, a competitor must finish the Qualification Round with a point total greater than zero.  At the conclusion of their qualification attempt, competitors will be rated based on their performance against other competitors in the same round. All qualifying competitors will be assigned seeds for the Algorithm Competition based on their Algorithm rating following the Qualification Rounds.</p>
             <p>In the event of a tie for any advancing position during the Qualification Round, the tie will be resolved in the following manner:</p>
             <ol>
                 <li>By reference to the competitors' algorithm competition rating (higher is better) prior to the Qualification Round.</li>
