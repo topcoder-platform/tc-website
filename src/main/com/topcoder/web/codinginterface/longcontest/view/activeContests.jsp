@@ -9,6 +9,7 @@
         import="com.topcoder.web.codinginterface.longcontest.model.LongContest"
 
         %>
+<%@ page import="com.topcoder.web.common.model.algo.RoundType" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
@@ -73,6 +74,7 @@
                     <td class="headerC" nowrap="nowrap">End Time</td>
                 </tr>
 
+                <c:set value="<%=RoundType.MARATHON%>" var="mmRoundType"/>
                 <%boolean even = true;%>
                 <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
                     <tr class="<%=even?"light":"dark"%>">
@@ -80,9 +82,16 @@
                             <% pageContext.setAttribute("sponsorImage", ((LongContest) contest).getSponsorImage());%>
                             <div style="float: right; margin-left: 4px;">
                                 <ci:sponsorImage image="sponsorImage" alt="Sponsor" border="0" ifNull=""/></div>
-                                    <a href="/tc?module=MatchDetails&amp;<%=Constants.ROUND_ID%>=${contest.roundID}" >
-                                        <mm:contest roundTypeId="${contest.roundTypeId}" contestName="${contest.contestName}" roundName="${contest.roundName}" />
-                                    </a>
+                                    <c:choose>
+                                        <c:when test="${mmRoundType==contest.roundTypeId}">
+                                            <a href="/tc?module=MatchDetails&amp;<%=Constants.ROUND_ID%>=${contest.roundID}" >
+                                                <mm:contest roundTypeId="${contest.roundTypeId}" contestName="${contest.contestName}" roundName="${contest.roundName}" />
+                                            </a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <mm:contest roundTypeId="${contest.roundTypeId}" contestName="${contest.contestName}" roundName="${contest.roundName}" />
+                                        </c:otherwise>
+                                    </c:choose>
                             <div style="margin: 6px 10px;">
                                 <logic:notEqual name="contest" property="forumId" value="0">
                                     <tc-webtag:forumLink forumID="<%=((LongContest)contest).getForumId()%>" message="discuss"/> |
