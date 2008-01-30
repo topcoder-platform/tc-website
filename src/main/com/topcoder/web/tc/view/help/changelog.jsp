@@ -44,7 +44,7 @@
 
 
 <p>
-    5.14.2 - 2008.01.xx
+    5.14.2 - 2008.01.30
     <ul>
         <li>Fixed [TCWEB-73] False disabled member contact on member contact page -pulky</li>
         <li>TCO08 RSVP page -pulky</li>
