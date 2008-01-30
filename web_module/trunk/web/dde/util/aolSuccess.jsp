@@ -47,11 +47,11 @@
             <div style="width:510px; margin-bottom: 40px;" align="left">
 
                 <div align="center" style="margin: 40px;">
-                    <img src="/i/catalog/haveCode.png" alt="Sorry"/>
+                    <img src="/i/catalog/aolCode.png" alt="Sorry"/>
                 </div>
 
                 <p align="center">
-                    That's it.  You can now <a href"/catalog/index.jsp">download components</a>.
+                    That's it.  You can now <a href="/catalog/index.jsp">download components</a>.
                 </p>
 
             </div>

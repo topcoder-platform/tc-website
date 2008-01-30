@@ -46,11 +46,11 @@
         <td width="99%" align="center">
             <div style="width:510px; margin-bottom: 40px;" align="left">
                 <div align="center" style="margin: 40px;">
-                    <img src="/i/catalog/needCode.png" alt="Sorry"/>
+                    <img src="/i/catalog/aolCode.png" alt="Sorry"/>
                 </div>
 
                 <p>
-                    TopCoder restricts component catalog access to current competitors who need the catalog to build new components, and those with <strong>an access code</strong>.
+                    Before you can download software from the TopCoder Component Catalog, you will need to provide the <strong>an access code</strong> that you should have been given.
                 </p>
 
                 <c:choose>
@@ -65,7 +65,7 @@
                     </c:when>
                     <c:otherwise>
                         <p align="center">
-                            You have to log in first:
+                            You need to log in before continuing:
                         </p>
                         <p align="center">
                             <a href="/tcs?module=RequestPermissionView">Log in</a> | <a href="https://www.dev.topcoder.com/reg/?module=Main&rt=5">Register</a>
