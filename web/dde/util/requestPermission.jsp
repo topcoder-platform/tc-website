@@ -45,11 +45,11 @@
         <td width="99%" align="center">
             <div style="width:510px; margin-bottom: 40px;" align="left">
                 <div align="center" style="margin: 40px;">
-                    <img src="/i/catalog/needCode.png" alt="Sorry"/>
+                    <img src="/i/catalog/aolCode.png" alt="Sorry"/>
                 </div>
 
                 <p>
-                    TopCoder restricts component catalog access to current competitors who need the catalog to build new components, and those with <strong>an access code</strong>.
+                    Before you can download software from the TopCoder Component Catalog, you will need to provide the <strong>an access code</strong> that you should have been given.
                 </p>
 
                 <p align="center">
