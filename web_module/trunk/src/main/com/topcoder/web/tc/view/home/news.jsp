@@ -30,19 +30,6 @@
    
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.30.08<br />10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description">End of TCO08 Algorithm Registration</a></span><br /><br />
-        Only 2 Days to left Register!  Algorithm Registration ends at 5:00 PM EST on Friday, February 1, 2008.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Software Competition News" border="0" /><br>01.29.08<br>4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=592">RSS Feeds for Software Active Contests</a>
