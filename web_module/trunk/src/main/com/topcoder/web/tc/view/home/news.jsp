@@ -4,6 +4,32 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.30.08<br />2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/longcontest/?module=ViewActiveContests">TCO08  Marathon Round 1 Now Underway</A></span><br /><br />
+        Round 1 is up and running.  Good luck to all the competitors.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/longcontest/?module=ViewActiveContests">details</a> | 
+        <tc-webtag:forumLink forumID="519311" message="discuss this" /> | 
+        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.30.08<br />10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description">End of TCO08 Algorithm Registration</a></span><br /><br />
+        Only 2 Days to left Register!  Algorithm Registration ends at 5:00 PM EST on Friday, February 1, 2008.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description">details</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.30.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description">End of TCO08 Algorithm Registration</a></span><br /><br />
@@ -155,20 +181,4 @@
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=590134">discuss this</a> | 
         <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
    </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />01.18.08<br />10:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=match_editorials&d2=srm388">SRM 388 - Problem Set &amp; Analysis</a></span><br /><br />
-      The match started with registration troubles, which may have played a hand in limiting the registration to <q>only</q> 1424 contestants in spite of the prize money. Fortunately, <tc-webtag:handle coderId="7267401" context="algorithm"/> worked his usual magic and the match was able to proceed.</td>
-         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <a href="/tc?module=Static&d1=match_editorials&d2=srm388">details</a> | 
-         <tc-webtag:forumLink forumID="518888" message="discuss this" /> | 
-         <a href="/tc?module=Static&d1=match_editorials&d2=archive">archive</a>
-   </td></tr>
-   
+  
