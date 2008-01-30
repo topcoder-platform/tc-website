@@ -50,6 +50,7 @@
         <li>TCO08 RSVP page -pulky</li>
         <li>Add report for TCO '08 reg -dok</li>
         <li>Cache report results for 15 minutes -dok</li>
+        <li>Don't link from a contest name on mm active contests to the details page if it's a tournament round -dok</li>
     </ul>
 </p>
 

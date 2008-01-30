@@ -52,7 +52,7 @@
                     <tr><td align="left" colspan="2" class="bodyText">
                         <H3>TopCoder Software Web Site Change Log</H3>
                         <p>
-                            2.0.9 - 2008.01.xx
+                            2.0.9 - 2008.01.30
                             <ul>
                                 <li>Added code page for AOL -pulky</li>
                                 <li>Fix "select" link in the subscription page -pulky</li>
