@@ -39,7 +39,8 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">01.28.08 5:00 PM - </td><td width="100%"><A href="/tco08?module=ViewRegistration&et=9">End of TCO08 Marathon Match Registration</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">01.30.08 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description">End of TCO08 Algorithm Registration</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">01.28.08 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description">End of TCO08 Marathon Match Registration</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.25.08 1:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule">TCHS08 Online Round 3</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.23.08 12:00 PM - </td><td width="100%"><A href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early">Last Call for TCHS08 Visa Letter Requests</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.18.08 1:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule">TCHS08 Online Round 2</A></td></tr>
