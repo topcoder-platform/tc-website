@@ -54,6 +54,7 @@
                         <p>
                             2.0.9 - 2008.01.xx
                             <ul>
+                                <li>Added code page for AOL -pulky</li>
                                 <li>Fix "select" link in the subscription page -pulky</li>
                             </ul>
                         </p>
