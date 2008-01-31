@@ -49,23 +49,31 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%"><br />
 
-                        <p><img src="/i/about/man_computer.jpg" alt="" width="200" height="151" border="0" align="left"  style="margin-left: 0px; margin-top: 0px; margin-right: 7px; margin-bottom: 7px;" />TopCoder, Inc. organizes and hosts online and onsite programming competitions for a global community of members. TopCoder members
-                        extend across all professional and collegiate levels. The attraction of competition and the associated rewards create a powerful community of
-                        programmers. Corporate partners access this member base for employment, software development and sponsorship. </p>
+                        <p><img src="/i/about/man_computer.jpg" alt="" width="200" height="151" border="0" align="left"  style="margin-left: 0px; margin-top: 0px; margin-right: 7px; margin-bottom: 7px;" />
+                        TopCoder, Inc. provides a variety of service offerings.  We are the recognized leader in organizing and hosting online and onsite programming 
+                        competitions for a global community of members.  Our software development methodology is building cutting edge enterprise software solutions 
+                        for Fortune 500 clients by utilizing the largest and most diverse global workforce on the market, and our recruiting operation provides corporations 
+                        with an unparalleled level of talent which is evaluated through our programming competitions.</p>
 
-                        <p>Incorporated in 2001, TopCoder, Inc. is fast becoming the standard by which talent and software are measured.  Our small staff is young,
-                        enthusiastic and welcomes the challenges of charting new territory within the industry.  The Company has been built with integrity as our
-                        cornerstone, and we value honesty at every level &#150; from our employees and our clients alike.</p>
+                        <p>TopCoder members extend across all professional and collegiate levels. The attraction of competition and the associated rewards create the most 
+                        powerful community of programmers in the world. Corporate partners access this member base for value in terms of employment, software development 
+                        and sponsorship.</p>
 
-                        <p>Through our high-quality software, cutting-edge recruiting offerings, and world-renowned programming tournaments, we are committed
-                        to excellence.  We expect the same commitment and drive from our current and future employees.</p>
-                       <h3>Currently available positions:</h3>
+                        <p>Incorporated in 2001, TopCoder, Inc. has become the standard by which talent and software are measured. Our small staff is young, enthusiastic 
+                        and welcomes the challenges of charting new territory within the industry. The Company has been built with integrity as our cornerstone, and we value 
+                        professional and ethical standards at every level - from our employees and our clients alike.</p>
+
+                        <p>Through our revolutionary software development methodology, cutting-edge recruiting offerings, and world-renowned programming tournaments, we are 
+                        committed to excellence. We expect the same commitment and drive from our current and future employees.</p>
+
+                        <p>If you are interested in joining this fast growing company, please view our open positions below and apply <a href="mailto:jobs@topcoder.com">here</a>.</p>
+                        <h3>Currently available positions:</h3>
                         <ul>
-                            <li><a href="/tc?module=Static&d1=about&d2=deployment_engineer">Deployment Engineer</a></li>
-                            <li><a href="/tc?module=Static&d1=about&d2=project_manager">TopCoder Software Project Manager</a></li>
-                            <li><a href="/tc?module=Static&d1=about&d2=software_application_architect">TopCoder Software Application Architect</a></li>
-                            <li><a href="/tc?module=Static&d1=about&d2=frontend_designer">TopCoder Software Front-End Designer/Developer</a></li>
-                            <li><a href="/tc?module=Static&d1=about&d2=tcs_salesdirector">TopCoder Salesperson</a></li>
+                            <li><a href="/tc?module=Static&amp;d1=about&amp;d2=deployment_engineer">Deployment Engineer</a></li>
+                            <li><a href="/tc?module=Static&amp;d1=about&amp;d2=project_manager">TopCoder Software Project Manager</a></li>
+                            <li><a href="/tc?module=Static&amp;d1=about&amp;d2=software_application_architect">TopCoder Software Application Architect</a></li>
+                            <li><a href="/tc?module=Static&amp;d1=about&amp;d2=frontend_designer">TopCoder Software Front-End Designer/Developer</a></li>
+                            <li><a href="/tc?module=Static&amp;d1=about&amp;d2=tcs_salesdirector">TopCoder Salesperson</a></li>
                         </ul>
                     </td>
                 </tr>
