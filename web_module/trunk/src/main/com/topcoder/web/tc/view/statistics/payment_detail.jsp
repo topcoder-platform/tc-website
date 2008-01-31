@@ -264,7 +264,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                 <% } else if (resultRow.getIntItem("payment_type_id") == 18 && resultRow.getItem("reference_id").getResultData() != null) {%>
                 <A href="/tc?module=RookieBoard&ph=112&seid=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">DR Stage details</A>
                 <% } else if (resultRow.getIntItem("payment_type_id") == 21 && resultRow.getItem("reference_id").getResultData() != null) {%>
-                <A href="/longcontest/?module=ViewOverview&rd=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Marathon details</A>
+                <A href="/longcontest/stats/?module=ViewOverview&rd=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Marathon details</A>
                 <% }%>
                 </TD>
                 </tr>
