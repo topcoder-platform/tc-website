@@ -82,7 +82,9 @@
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a></li>
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a></li>
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=rules"<% if (tabLev2.equals("rules")) {%> class="on"<% } %>>Rules</a></li>
+                        <%--
                         <li><a href="/tco08?module=ViewRegistration&amp;et=6"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
+                        --%>
                         <li><a href="/tco08?module=Registrants&amp;et=6"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <%--
                         <li><a href="/tco08?module=AlgorithmAdvancers"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a></li>

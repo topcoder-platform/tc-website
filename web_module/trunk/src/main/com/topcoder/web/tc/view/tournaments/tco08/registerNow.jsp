@@ -33,17 +33,17 @@
             <img src="/i/tournament/tco08/forWhichCompetition.png" alt="For which competition would you like to register?" />
             </div>
             
-            
+            <%--
             <p align="center" style="margin-bottom: 40px;">
             <strong><a href="/tco08?module=ViewRegistration&amp;et=6">Algorithm Competition</a></strong>
             </p>
+            --%>
             
-            <%--
             <p class="grayedOut" align="center" style="margin-bottom: 40px;">
             <strong>Algorithm Competition</strong>
             <br />Sorry, registration for this competition has closed.
             </p>
-            --%>
+            
             
             <p align="center" style="margin-bottom: 40px;">
             <strong><a href="/tco08?module=ViewRegistration&amp;et=5">Component Design &amp; Development Competition</a></strong>
