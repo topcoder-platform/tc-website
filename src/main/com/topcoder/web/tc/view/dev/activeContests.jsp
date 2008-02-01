@@ -320,7 +320,9 @@
 
 <!-- Right Column Begins -->
 <td width="180">
-    <jsp:include page="right.jsp"/>
+    <jsp:include page="../public_right.jsp">
+        <jsp:param name="level1" value="default"/>
+    </jsp:include>
 </td>
 <!-- Right Column Ends -->
 
