@@ -74,6 +74,7 @@
       <td class="value">2
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=11124">SRM 390</A></strong><br />
+         <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly">Eli Lilly</A><br />
          12:00 NOON
          </div>
       </td>
@@ -200,6 +201,7 @@
       <td class="value">26
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=11125">SRM 391</A></strong><br />
+         <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=nsa">NSA</A><br />
          9:00 PM
          </div>
       </td>
