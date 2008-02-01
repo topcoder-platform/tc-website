@@ -44,6 +44,7 @@
    <tr><td valign="middle" class="bodyText" colspan="2">
    <strong>January</strong>
    </td></tr>
+   <tr><td class="bodyText">01.24.08</td><td class="bodyText" nowrap="0" width="100%">SRM 389 - <a href="/tc?module=Static&d1=match_editorials&d2=srm389">Problem Set &amp; Analysis</a></td></tr>
    <tr><td class="bodyText">01.15.08</td><td class="bodyText" nowrap="0" width="100%">SRM 388 - <a href="/tc?module=Static&d1=match_editorials&d2=srm388">Problem Set &amp; Analysis</a></td></tr>
    <tr><td class="bodyText">01.09.08</td><td class="bodyText" nowrap="0" width="100%">SRM 387 - <a href="/tc?module=Static&d1=match_editorials&d2=srm387">Problem Set &amp; Analysis</a></td></tr>
    <tr><td class="bodyText">01.05.08</td><td class="bodyText" nowrap="0" width="100%">SRM 386 - <a href="/tc?module=Static&d1=match_editorials&d2=srm386">Problem Set &amp; Analysis</a></td></tr>
