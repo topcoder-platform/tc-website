@@ -435,23 +435,26 @@
     </tr>
     <tr>
         <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">January Events:</A></td>
+        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">February Events:</A></td>
     </tr>
     <tr>
         <td class="homeArrow">&#160; </td>
         <td class="homeText"><br />
-            <strong>01.05</strong> - SRM 386 - 12 NOON<br /><br />
-            <strong>01.09</strong> - SRM 387 - 9 PM<br /><br />
-            <strong>01.09</strong> - MM 28 - 12 NOON - 2 weeks<br /><br />
-            <strong>01.12</strong> - TCHS Online Round 1 - 1 PM<br /><br />
-            <strong>01.15</strong> - SRM 388 - 11 AM<br /><br />
-            <strong>01.19</strong> - TCHS Online Round 2 - 1 PM<br /><br />
-            <strong>01.24</strong> - SRM 389 - 7 AM<br /><br />
-            <strong>01.24</strong> - TCO CDDC Week 1 Projects - 9 AM<br /><br />
-            <strong>01.26</strong> - TCHS Online Round 3 - 1 PM<br /><br />
-            <strong>01.30</strong> - MM 29 - 12 NOON - 1 week<br /><br />
-            <strong>01.30</strong> - TCO Marathon Round 1 - 12 NOON<br /><br />
-            <strong>01.31</strong> - TCO CDDC Week 2 Projects - 9 AM<br /><br />
+            <strong>02.02</strong> - SRM 390 - 12 NOON<br /><br />
+            <strong>02.05</strong> - TCO Algo Qual Round 1 - 9 PM<br /><br />
+            <strong>02.07</strong> - TCO CDDC Week 3 Projects - 9 AM<br /><br />
+            <strong>02.09</strong> - TCO Algo Qual Round 2 - 1 PM<br /><br />
+            <strong>02.12</strong> - TCO Algo Qual Round 3 - 7 AM<br /><br />
+            <strong>02.13</strong> - MM 30 - 12 NOON - 1 week<br /><br />
+            <strong>02.13</strong> - TCO Marathon Round 2 - 12 NOON<br /><br />
+            <strong>02.14</strong> - TCO CDDC Week 4 Projects - 9 AM<br /><br />
+            <strong>02.16</strong> - TCO Algo Round 1 - 1 PM<br /><br />
+            <strong>02.21</strong> - TCO CDDC Week 5 Projects - 9 AM<br /><br />
+            <strong>02.23</strong> - TCO Algo Round 2 - 1 PM<br /><br />
+            <strong>02.26</strong> - SRM 391 - 9 PM<br /><br />
+            <strong>02.27</strong> - MM 31 - 12 NOON - 2 weeks<br /><br />
+            <strong>02.27</strong> - TCO Marathon Round 3 - 12 NOON<br /><br />
+            <strong>02.28</strong> - TCO CDDC Week 6 Projects - 9 AM<br /><br />
             <%--<strong>01.13</strong> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br /><br />--%>
         </td>
     </tr>
