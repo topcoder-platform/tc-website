@@ -113,7 +113,7 @@
                 </tr>
                 <tr class="dark">
                     <td>Championship Round</td>
-                    <td>Thursday, May 15 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=15&year=2008&hour=13&min=30&sec=0&p1=127' refer='tco08_algoSchedule' />">1:30 PM***</a></td>
+                    <td>Thursday, May 15 <br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=15&year=2008&hour=10&min=00&sec=0&p1=127' refer='tco08_algoSchedule' />">10:00 AM***</a></td>
                     <td>10</td>
                     <td>&nbsp;</td>
                 </tr>
