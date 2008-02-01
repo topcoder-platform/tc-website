@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.01.08<br />3:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly">Eli Lilly chat before SRM 390</A></span><br /><br />
+        Join Eli Lilly representatives before <a href="/tc?module=MatchDetails&rd=11124">SRM 390</a> to chat about their exciting career opportunities at their office all over the world.  The chat session will begin at 11:00 AM EST (GMT/UTC -5).</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly">details</a> | 
+        <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
+        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.01.08<br />2:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -154,21 +167,5 @@
         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="519158" message="discuss this" /> | 
         <a href="/tc?module=Static&d1=pressroom&d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br />01.18.08<br />3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=tutorials&d2=primalityTesting">Primality Testing : Non-deterministic Algorithms</a></span><br /><br />
-      Primality testing of a number is perhaps the most common problem concerning number theory that topcoders deal with. A prime number is a natural number which has exactly two distinct natural number divisors: 1 and itself. This article discusses some of the popular probabilistic methods such as Fermat's test, Rabin-Miller test, Solovay-Strassen test.</td>
-         <td class="newsPhoto"><img src="/i/m/innocentboy_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="22419265" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <a href="/tc?module=Static&d1=tutorials&d2=primalityTesting">details</a> | 
-         <tc-webtag:forumLink forumID="519109" message="discuss this" /> | 
-         <a href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</a>
    </td></tr>
    
