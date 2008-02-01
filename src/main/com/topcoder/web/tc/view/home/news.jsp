@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.01.08<br />2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=match_editorials&d2=srm389">SRM 389 - Problem Set &amp; Analysis</a></span><br /><br />
+      SRM 389 was a relatively easy problem set compared to recent matches. The solution to all of the problems could be coded quite quickly once you figured out the correct algorithm to use, and the constraints were not large enough to present much difficulty.</td>
+         <td class="newsPhoto"><img src="/i/m/legakis_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="287269" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <a href="/tc?module=Static&d1=match_editorials&d2=srm389">details</a> | 
+         <tc-webtag:forumLink forumID="519159" message="discuss this" /> | 
+         <a href="/tc?module=Static&d1=match_editorials&d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.30.08<br />2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/longcontest/?module=ViewActiveContests">TCO08  Marathon Round 1 Now Underway</A></span><br /><br />
@@ -156,16 +172,3 @@
          <a href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.18.08<br />1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">TCHS08 Online Round 2</a></span><br /><br />
-        The second round of the 2008 TCHS tournament starts at 1:00 PM EST (UTC/GMT -5) on Saturday, January 19. Don't miss the action!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=590134">discuss this</a> | 
-        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
-   </td></tr>
-  
