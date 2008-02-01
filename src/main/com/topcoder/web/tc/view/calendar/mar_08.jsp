@@ -95,6 +95,7 @@
          </div>
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=11126">SRM 392</A></strong><br />
+         <A href="/tc?module=Static&d1=sponsors&d2=bt">BT</A><br />
          7:00 AM
          </div>
       </td>
@@ -178,6 +179,7 @@
       <td class="value">26
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=11129">SRM 395</A></strong><br />
+         <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=nsa">NSA</A><br />
          9:00 PM
          </div>
       </td>
