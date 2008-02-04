@@ -86,8 +86,8 @@
                         <li><a href="/tco08?module=ViewRegistration&amp;et=6"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
                         --%>
                         <li><a href="/tco08?module=Registrants&amp;et=6"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
+                        <li><a href="/tco08?module=AlgorithmQualification"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a></li>
                         <%--
-                        <li><a href="/tco08?module=AlgorithmAdvancers"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a></li>
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=algoSemi01"<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
                         --%>
                         
@@ -161,11 +161,11 @@
                     
                     <% } else if (tabLev1.equals(EventType.ALGORITHM_TOURNAMENT_ID.toString())) { %>
                         <% if (tabLev2.equals("advancers")) {%>
-                            <%--
                             <li><a href="/tco08?module=AlgorithmQualification"<% if (tabLev3.equals("qualification")) {%> class="on"<% } %>>Qualification</a></li>
+                            <%--
                             <li><a href="/tco08?module=AlgorithmAdvancers"<% if (tabLev3.equals("overview")) {%> class="on"<% } %>>Overview</a></li>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=bracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>
-                            --%>                        
+                            --%>
                         <% } else if (tabLev2.equals("summary")) { %>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=algoSemi01"<% if (tabLev3.equals("room1")) {%> class="on"<% } %>>Room 1</a></li>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=algoSemi02"<% if (tabLev3.equals("room2")) {%> class="on"<% } %>>Room 2</a></li>
