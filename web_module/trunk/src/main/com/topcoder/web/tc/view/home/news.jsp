@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.04.08<br />10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tco08?module=AlgorithmQualification">TCO08 Algorithm Qualification Byes</A></span><br /><br />
+        See who automatically made it to TCO Round 1. The Algorithm Byes are up!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tco08?module=AlgorithmQualification">details</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.01.08<br />3:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly">Eli Lilly chat before SRM 390</A></span><br /><br />
@@ -154,18 +167,5 @@
         <a href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=598655">discuss this</a> | 
         <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />01.22.08<br />5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='/tc' />">Rock star coders</a></span><br /><br />
-        As Web 2.0 start-ups drive a demand for unusual coding talent, and the idea of being a rock star programmer sounds flashy and down right sexy, companies that actively seek out famous, talented coding experts are also looking for attributes that can belie the title, such as humility, a spirit of cooperation, dedication and honesty. <tc-webtag:handle coderId="272072" context="algorithm"/> and <tc-webtag:handle coderId="144400" context="algorithm"/> are included in this story from Computerworld.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="519158" message="discuss this" /> | 
-        <a href="/tc?module=Static&d1=pressroom&d2=index">archive</a>
    </td></tr>
    
