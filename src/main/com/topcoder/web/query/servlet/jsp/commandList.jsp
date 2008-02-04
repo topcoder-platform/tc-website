@@ -1,7 +1,6 @@
 <%@  page
   language="java"
-  import= "com.topcoder.web.query.common.*,
-           com.topcoder.web.query.request.*"
+  import= "com.topcoder.web.query.common.Constants"
 %>
 <%@ taglib uri="query-taglib.tld" prefix="query"%>
 <jsp:useBean id="CommandList" scope="request" class="com.topcoder.web.query.request.CommandList" />
@@ -24,7 +23,7 @@
       </td>
       <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
       <td class="statText" width="100%" bgcolor="#000000" valign="top">
-        <table width="60%" border="0" cellpadding="0" cellspacing="0">
+        <table width="80%" border="0" cellpadding="0" cellspacing="0">
           <tr><td class="errorText" colspan="4"><query:error id="err" name="<%=Constants.GROUP_ID_PARAM%>"><%=err%></query:error></td></tr>
           <tr>
             <td class="statTextBig" colspan="2"><%=Constants.COMMAND_LIST_NAME%></td>

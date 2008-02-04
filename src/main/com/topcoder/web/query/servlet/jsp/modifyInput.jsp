@@ -1,7 +1,6 @@
 <%@  page
   language="java"
-  import= "com.topcoder.web.query.common.*,
-           com.topcoder.web.query.request.*"
+  import= "com.topcoder.web.query.common.Constants"
 %>
 <%@ taglib uri="query-taglib.tld" prefix="query"%>
 <jsp:useBean id="ModifyInput" scope="request" class="com.topcoder.web.query.request.ModifyInput" />
@@ -24,7 +23,7 @@
         </td>
       <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
       <td class="statText" width="100%" bgcolor="#000000" valign="top" ALIGN="left">
-        <table width="60%" border="0" cellpadding="0" cellspacing="0">
+        <table width="80%" border="0" cellpadding="0" cellspacing="0">
           <FORM ACTION="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="ModInputForm" >
             <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_INPUT_TASK%>">
             <INPUT TYPE="hidden" NAME="<%=Constants.INPUT_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyInput" property="inputId"/>">

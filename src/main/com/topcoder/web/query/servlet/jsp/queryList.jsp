@@ -1,7 +1,6 @@
 <%@  page
   language="java"
-  import= "com.topcoder.web.query.common.*,
-           com.topcoder.web.query.request.*"
+  import= "com.topcoder.web.query.common.Constants"
 %>
 <%@ taglib uri="query-taglib.tld" prefix="query"%>
 <jsp:useBean id="QueryList" scope="request" class="com.topcoder.web.query.request.QueryList" />
@@ -25,7 +24,7 @@
       </td>
       <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
       <td class="statText" width="100%" bgcolor="#000000" valign="top">
-        <table width="60%" border="0" cellpadding="0" cellspacing="0">
+        <table width="80%" border="0" cellpadding="0" cellspacing="0">
           <tr><td class="statTextBig" colspan="2"><%=Constants.QUERY_LIST_NAME%></td></tr>
           <tr>
             <td class="statText" ALIGN="right">DB:&#160;</td>
