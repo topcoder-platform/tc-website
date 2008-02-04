@@ -26,11 +26,11 @@ function find(n) {
 <%-- Member Profiles, Search Pages, and Private Label Events Pages begins --%>
 <% if ((level1.equals("default")) | (level1.equals("profile")) | (level1.equals("search")) | (level1.equals("tournament")) | (level1.equals("privatelabel"))) { %>
 
-
-<div class="rightColContent">
-    <br /><br />
-</div>
-<%-- Member Profiles, Search Pages, and Private Label Events Pages ends --%>
+    <div align="center">
+<%-- Lilly
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly"><img src="/i/tournament/tco08/right_Lilly.png" alt="Lilly" /></a>
+--%>
+    </div>
 
 <%-- 2004 TCO begins --%>
 <% } else if (level1.equals("tco04")) { %>
