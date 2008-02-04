@@ -228,7 +228,7 @@
    </tc-webtag:iterator>
 </table>
 
-<%  Group admins = forumFactory.getGroupManager().getGroup("TopCoder Admins");
+<%  Group admins = forumFactory.getGroupManager().getGroup("TopCoder Staff");
     Group architects = forumFactory.getGroupManager().getGroup("TopCoder Architects");
     if ((admins != null && admins.isMember(historyUser)) || 
         (architects != null && architects.isMember(historyUser))) { %>
