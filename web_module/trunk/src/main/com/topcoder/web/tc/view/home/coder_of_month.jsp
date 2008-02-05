@@ -13,46 +13,47 @@
 
 <div class="leftColContent">
    <div style="padding-left:3px;">
-   <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br />- December</div>
+   <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br />- January</div>
    <table cellpadding="0" cellspacing="0" border="0" width="165">
    <tr>
-      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/neal_wu_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/blueblimp_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</A></strong><br />
-         <tc-webtag:handle coderId="22663117" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br />
+         <tc-webtag:handle coderId="22504795" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br />
          <span class="small">
-         TCHS SRM 49: 2218<br />
-         TCHS SRM 48: 2120<br />
-         TCHS SRM 46: 2053
+         SRM 390: 2407<br />
+         SRM 389: 2539<br />
+         SRM 388: 2473
          </span><br /><br />
       </td>
    </tr>
    <tr>
-      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/AleaActaEst_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/d000hg_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</A></strong><br />
-         <tc-webtag:handle coderId="252022" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br /> 
+         <tc-webtag:handle coderId="21464956" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br /> 
          <span class="small">
-         Four 1st place<br />
-         Four 2nd place<br />
-         Three 3rd place
+         Three 1st place<br />
+         One 2nd place<br />
          </span><br /><br />
       </td>
    </tr>
    <tr>
-      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/elkhawajah_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</A></strong><br />
-         <tc-webtag:handle coderId="20284684" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br />
+         <tc-webtag:handle coderId="20224338" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br />
          <span class="small">
-         4 wins<br /><br />
+         Two 1st place<br />
+         Two 2nd place<br />
+         One 3rd place
          </span><br /><br />
       </td>
    </tr>
    </table>
-   <%-- On/Off --%>
+   <%-- On/Off 
    <div><A class="cotmFeature" href="/tc?module=Static&d1=features&d2=012508">Read Their Interviews</A></div>
-   
+   --%>
    </div>
 </div>
 
