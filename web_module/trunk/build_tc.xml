@@ -652,6 +652,9 @@
             <fileset dir="${jars.dir}/tcs/object_factory/2.0.1">
                 <include name="object_factory.jar"/>
             </fileset>
+            <fileset dir="${jars.dir}/tcs/json_object/1.0">
+                <include name="json_object.jar"/>
+            </fileset>
             <fileset dir="${jars.dir}/tcs">
                 <include name="logging_wrapper.jar"/>
             </fileset>
