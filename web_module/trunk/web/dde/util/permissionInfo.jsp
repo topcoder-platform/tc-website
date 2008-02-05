@@ -46,7 +46,7 @@
         <td width="99%" align="center">
             <div style="width:510px; margin-bottom: 40px;" align="left">
                 <div align="center" style="margin: 40px;">
-                    <img src="/i/catalog/aolCode.png" alt="AOL Software Components"/>
+                    <img src="/i/catalog/genCode.png" alt="TopCoder Software Components"/>
                 </div>
 
                 <p>
