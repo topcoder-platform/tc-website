@@ -5,7 +5,6 @@
     <property name="testclasses" value="${build}/testcases"/>
     <property name="lib.dir" value="lib"/>
     <property name="jars.dir" value="${lib.dir}/jars"/>
-    <property name="confluence.jars" value="${jars.dir}/confluence-2.6.1"/>
     <property name="bin" value="lib/bin"/>
     <property name="src.dir" value="src"/>
     <property name="java" value="${src.dir}/main"/>
@@ -21,8 +20,12 @@
     <property name="jboss_deploy" value="${jboss_home}/server/wiki/deploy"/>
     <property name="jboss_lib" value="${jboss_home}/server/wiki/lib"/>
     <property name="jboss_conf" value="${jboss_home}/server/wiki/conf"/>
-    <property name="confluence_home" value="../confluence-2.7"/>
-    <property name="confluence_war_name" value="confluence-2.7.war"/>
+    <property name="confluence.version" value="2.7"/>
+    <property name="confluence.jars" value="${jars.dir}/confluence-${confluence.version}"/>
+    <property name="confluence_home" value="../confluence-${confluence.version}"/>
+    <property name="confluence_war_name" value="confluence-${confluence.version}.war"/>
+    <property name="confluence_jar_name" value="confluence-${confluence.version}.jar"/>
+    <property name="confluence_jar" value="${confluence.jars}/${confluence_jar_name}"/>
     <property name="shared.build" value="${basedir}/../shared"/>
     <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
     <property environment="env"/>
@@ -176,10 +179,12 @@
 
     </target>
 
-    <target name="deploy">
+    <target name="deploy" depends="copy-to-confluence,move-conf,move-lib,setup-pdf-header-footer">
+<!--
         <antcall target="copy-to-confluence"/>
         <antcall target="move-conf"/>
         <antcall target="move-lib"/>
+-->
         <copy todir="${jboss_deploy}" file="${build}/ears/security.ear" overwrite="yes"/>
 <!--
         <exec executable="build.sh" dir="/home/wiki/confluence-2.5.6"/>
@@ -195,6 +200,18 @@
 
     </target>
 
+
+    <target name="setup-pdf-header-footer">
+        <unjar src="${confluence_jar}" dest="${build}/tempconfluence"/>
+        <copy file="${resources}/wiki/common_footer_fop.vm" tofile="${build}/tempconfluence/com/atlassian/confluence/importexport/common_footer_fop.vm" overwrite="true"/>
+        <copy file="${resources}/wiki/common_header_fop.vm" tofile="${build}/tempconfluence/com/atlassian/confluence/importexport/common_header_fop.vm" overwrite="true"/>
+        <jar destfile="${bin}/${confluence_jar_name}">
+            <fileset dir="${build}/tempconfluence/">
+                <include name="**/*"/>
+            </fileset>
+        </jar>
+        <copy file="${bin}/${confluence_jar_name}" tofile="${confluence_home}/confluence/WEB-INF/lib/${confluence_jar_name}"/>
+    </target>
 
 
 </project>
