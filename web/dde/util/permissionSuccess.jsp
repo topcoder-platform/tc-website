@@ -45,33 +45,15 @@
 <!-- Center Column begins -->
         <td width="99%" align="center">
             <div style="width:510px; margin-bottom: 40px;" align="left">
+
                 <div align="center" style="margin: 40px;">
-                    <img src="/i/catalog/aolCode.png" alt="AOL Software Components"/>
+                    <img src="/i/catalog/genCode.png" alt="TopCoder Software Components"/>
                 </div>
 
-                <p>
-                    Before you can download software from the TopCoder Component Catalog, you will need to provide the <strong>an access code</strong> that you should have been given.
+                <p align="center">
+                    That's it.  You can now <a href="/catalog/index.jsp">download components</a>.
                 </p>
 
-                <c:choose>
-                    <c:when test="${sessionInfo.loggedIn}">
-                        <p align="center">
-                            Do you have an access code?
-                        </p>
-
-                        <p align="center">
-                            <a href="/tcs?module=RequestPermissionView">Yes, I have a code.</a>
-                        </p>
-                    </c:when>
-                    <c:otherwise>
-                        <p align="center">
-                            You need to log in before continuing:
-                        </p>
-                        <p align="center">
-                            <a href="/tcs?module=RequestPermissionView">Log in</a> | <a href="https://www.dev.topcoder.com/reg/?module=Main&rt=5">Register</a>
-                        </p>
-                    </c:otherwise>
-                </c:choose>
             </div>
         </td>
 <!-- Center Column begins -->
