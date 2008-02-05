@@ -27,8 +27,11 @@ function find(n) {
 <% if ((level1.equals("default")) | (level1.equals("profile")) | (level1.equals("search")) | (level1.equals("tournament")) | (level1.equals("privatelabel"))) { %>
 
     <div align="center">
+<%-- NSA --%>
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa"><img src="/i/tournament/tco08/right_nsa.png" alt="NSA" /></a>
+
 <%-- Lilly
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly"><img src="/i/tournament/tco08/right_Lilly.png" alt="Lilly" /></a>
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly"><img src="/i/tournament/tco08/right_lilly.png" alt="Lilly" /></a>
 --%>
     </div>
 
