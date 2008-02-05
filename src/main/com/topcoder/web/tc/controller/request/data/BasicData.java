@@ -1,12 +1,5 @@
 package com.topcoder.web.tc.controller.request.data;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpUtils;
-
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
@@ -20,6 +13,12 @@ import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.DataResource;
+
+import javax.servlet.http.HttpUtils;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author  dok
@@ -36,13 +35,18 @@ public class BasicData extends Base {
         if (new TCSAuthorization(SecurityHelper.getUserSubject(getUser().getId())).hasPermission(resource)) {
             //for now we'll assume they're gettin data from the warehouse, perhaps that'll change later
             Map m = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
-            ResultSetContainer rsc = null;
-            String key = null;
+            ResultSetContainer rsc;
+            String key;
             Iterator it = m.keySet().iterator();
             //we're just giving them one thing at a time so the command should only have
             //one query associated with it.
 
-            getResponse().setContentType("text/xml");
+            boolean isJSON = String.valueOf(true).equalsIgnoreCase(getRequest().getParameter("json"));
+            if (isJSON) {
+                getResponse().setContentType("application/json");
+            } else {
+                getResponse().setContentType("text/xml");
+            }
 
             if (it.hasNext()) {
                 key = (String)it.next();
@@ -53,7 +57,11 @@ public class BasicData extends Base {
                         key.equals("dd_development_rating_history")) {
                     ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "payment", "coder_id", getHideUsersList() ,getResponse().getOutputStream());
                 } else {
-                    ResultSetContainerConverter.writeXML(rsc, r.getContentHandle(), getResponse().getOutputStream());
+                    if (isJSON) {
+                        ResultSetContainerConverter.writeJSON(rsc, r.getContentHandle(), getResponse().getOutputStream());
+                    } else {
+                        ResultSetContainerConverter.writeXML(rsc, r.getContentHandle(), getResponse().getOutputStream());
+                    }
                 }
             }
 

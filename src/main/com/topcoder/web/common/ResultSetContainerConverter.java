@@ -1,10 +1,13 @@
 package com.topcoder.web.common;
 
-import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.topcoder.json.object.JSONArray;
+import com.topcoder.json.object.JSONObject;
+import com.topcoder.json.object.io.StandardJSONEncoder;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.AttributesImpl;
 
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
@@ -12,12 +15,11 @@ import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.sax.SAXTransformerFactory;
 import javax.xml.transform.sax.TransformerHandler;
 import javax.xml.transform.stream.StreamResult;
-
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.AttributesImpl;
-
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author  dok
@@ -25,7 +27,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
  * Create Date: May 13, 2005
  */
 public class ResultSetContainerConverter {
-    public static final void writeXML(ResultSetContainer rsc, String name, OutputStream os) throws TransformerConfigurationException, SAXException {
+    public static void writeXML(ResultSetContainer rsc, String name, OutputStream os) throws TransformerConfigurationException, SAXException {
 
         StreamResult streamResult = new StreamResult(os);
         SAXTransformerFactory tf = (SAXTransformerFactory) SAXTransformerFactory.newInstance();
@@ -55,7 +57,7 @@ public class ResultSetContainerConverter {
         hd.endDocument();
     }
 
-    public static final void writeXMLhidingPayments(ResultSetContainer rsc, String name, String paymentCol, String keyColName, List<Long> hideKeyList, OutputStream os) throws TransformerConfigurationException, SAXException {
+    public static void writeXMLhidingPayments(ResultSetContainer rsc, String name, String paymentCol, String keyColName, List<Long> hideKeyList, OutputStream os) throws TransformerConfigurationException, SAXException {
 
         StreamResult streamResult = new StreamResult(os);
         SAXTransformerFactory tf = (SAXTransformerFactory) SAXTransformerFactory.newInstance();
@@ -91,8 +93,53 @@ public class ResultSetContainerConverter {
         hd.endDocument();
     }
 
+    public static void writeJSON(ResultSetContainer rsc, String name, OutputStream os) {
+        JSONObject ret = new JSONObject();
+        JSONArray jsonArray = new JSONArray();
+        ret.setArray(name, jsonArray);
+        TCResultItem item;
+        JSONArray jrow;
+        JSONObject obj;
+        for (ResultSetContainer.ResultSetRow row : rsc) {
+            jrow = new JSONArray();
+            jsonArray.addArray(jrow);
+            for (int i=0; i<rsc.getColumnCount(); i++) {
+                item = row.getItem(i);
+                obj = new JSONObject();
+                jrow.addJSONObject(obj);
+                if (item.getResultData()==null) {
+                    obj.setNull(rsc.getColumnName(i));
+                } else {
+                    //we wont' deal with types right now.  not sure that it matters...we'll see as this evolves
+                    obj.setString(rsc.getColumnName(i), row.getStringItem(i));
+/*
+                    switch (item.getType()) {
+                        case TCResultItem.INT: obj.setInt(rsc.getColumnName(i), row.getIntItem(i)); break;
+                        case TCResultItem.LONG: obj.setLong(rsc.getColumnName(i), row.getLongItem(i)); break;
+                        case TCResultItem.BIGINTEGER: obj.setBigInteger(rsc.getColumnName(i), (BigInteger)row.getItem(i).getResultData()); break;
+                        case TCResultItem.FLOAT: obj.setFloat(rsc.getColumnName(i), row.getFloatItem(i)); break;
+                        case TCResultItem.DOUBLE: obj.setDouble(rsc.getColumnName(i), row.getDoubleItem(i)); break;
+                        case TCResultItem.BIGDECIMAL: obj.setBigDecimal(rsc.getColumnName(i), (BigDecimal)row.getItem(i).getResultData()); break;
+                        case TCResultItem.BOOLEAN: obj.setBoolean(rsc.getColumnName(i), row.getBooleanItem(i)); break;
+                        case TCResultItem.STRING: obj.setString(rsc.getColumnName(i), row.getStringItem(i)); break;
+                        case TCResultItem.DATE: obj.setDate(rsc.getColumnName(i), row.getIntItem(i)); break;
+                        case TCResultItem.TIME: obj.setTime(rsc.getColumnName(i), row.getIntItem(i)); break;
+                        case TCResultItem.DATETIME: obj.setDateTime(rsc.getColumnName(i), row.getIntItem(i)); break;
+                    }
+*/
+                }
+            }
+        }
+        PrintWriter pw = new PrintWriter(os);
+        pw.print(new StandardJSONEncoder().encode(ret));
+        
 
-    private static final void addElement(TransformerHandler hd,
+    }
+
+    
+
+
+    private static void addElement(TransformerHandler hd,
                                          String name, String value, Attributes atts) throws SAXException {
         String temp = value == null ? "" : value;
         hd.startElement("", "", name, atts);
@@ -102,7 +149,7 @@ public class ResultSetContainerConverter {
     }
 
 
-    public static final String getXML(ResultSetContainer rsc, String name) throws TransformerConfigurationException, SAXException {
+    public static String getXML(ResultSetContainer rsc, String name) throws TransformerConfigurationException, SAXException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         writeXML(rsc, name, baos);
         return baos.toString();
