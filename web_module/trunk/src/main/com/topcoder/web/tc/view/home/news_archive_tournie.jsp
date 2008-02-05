@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">02.05.08 9:30 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 1</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.04.08 10:30 AM - </td><td width="100%"><A href="/tco08?module=AlgorithmQualification">TCO08 Algorithm Qualification Byes</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.01.08 3:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly">Eli Lilly chat before SRM 390</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.30.08 2:00 PM - </td><td width="100%"><A href="/longcontest/?module=ViewActiveContests">TCO08  Marathon Round 1 Now Underway</A></td></tr>

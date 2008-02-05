@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.05.08<br />9:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 1</A></span><br /><br />
+        TCO Qualification Round 1 is set for Tuesday, February 5 at 9:00 PM EST.  See you in the arena!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">details</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.04.08<br />10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tco08?module=AlgorithmQualification">TCO08 Algorithm Qualification Byes</A></span><br /><br />
@@ -154,18 +167,5 @@
          <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd2">details</a> | 
          <tc-webtag:forumLink forumID="519104" message="discuss this" /> | 
          <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.23.08<br />12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early">Last Call for TCHS08 Visa Letter Requests</a></span><br /><br />
-        The last day to request a visa inviation letter for the 2008 TopCoder High School tournament is approaching.  Competitors have until Friday, January 25 at 5:00 PM EST (GMT/UTC -5) to request a visa inviation letter.  If you are competing in the final round, it is in your best interest to request a letter before the deadline.  Please <a href="mailto:jdamato@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">email</a> <tc-webtag:handle coderId="14999860" /> with any questions.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=598655">discuss this</a> | 
-        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
    </td></tr>
    
