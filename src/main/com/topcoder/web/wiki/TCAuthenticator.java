@@ -296,7 +296,10 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                 log.warn(e.getMessage(), e);
             }
         }
-        log.info((user==null?"anon":user.getName()) + " getUser(request, response) took " + (System.currentTimeMillis() - start) + " ms");
+        long time = System.currentTimeMillis() - start;
+        if (time>100) {
+            log.info((user==null?"anon":user.getName()) + " getUser(request, response) took " + (System.currentTimeMillis() - start) + " ms");
+        }
         return user;
     }
 
