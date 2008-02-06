@@ -151,8 +151,6 @@ public class ResultSetContainerConverter {
         long start = System.currentTimeMillis();
         JSONObject ret = new JSONObject();
         JSONArray jsonArray = new JSONArray();
-        ret.setArray("data", jsonArray);
-        ret.setString("feedname", name);
         TCResultItem item;
         JSONArray jrow;
         JSONObject obj;
@@ -161,14 +159,12 @@ public class ResultSetContainerConverter {
                 log.debug("got a row " + row.getItem(0));
             }
             jrow = new JSONArray();
-            jsonArray.addArray(jrow);
             for (int i=0; i<rsc.getColumnCount(); i++) {
                 if (log.isDebugEnabled()) {
                     log.debug("got a col " + i);
                 }
                 item = row.getItem(i);
                 obj = new JSONObject();
-                jrow.addJSONObject(obj);
                 if (item.getResultData()==null) {
                     if (log.isDebugEnabled()) {
                         log.debug("item was null");
@@ -178,8 +174,20 @@ public class ResultSetContainerConverter {
                     //we wont' deal with types right now.  not sure that it matters...we'll see as this evolves
                     obj.setString(rsc.getColumnName(i), row.getStringItem(i));
                 }
+                if (log.isDebugEnabled()) {
+                    log.debug("add object to row");
+                }
+                jrow.addJSONObject(obj);
             }
+            if (log.isDebugEnabled()) {
+                log.debug("add row to result");
+            }
+            jsonArray.addArray(jrow);
+
         }
+        ret.setArray("data", jsonArray);
+        ret.setString("feedname", name);
+
         PrintWriter pw = new PrintWriter(os);
         pw.print(new StandardJSONEncoder().encode(ret));
         if (log.isDebugEnabled()) {
