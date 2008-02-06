@@ -50,7 +50,7 @@
                 </div>
 
                 <p>
-                    Before you can download software from the TopCoder Component Catalog, you will need to provide the <strong>an access code</strong> that you should have been given.
+                    Before you can download software from the TopCoder Component Catalog, you will need to provide <strong>an access code</strong> that you should have been given.
                 </p>
 
                 <c:choose>
