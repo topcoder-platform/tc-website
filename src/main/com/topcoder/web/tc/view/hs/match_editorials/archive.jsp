@@ -45,6 +45,7 @@
     <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
     <tr><td valign="middle" class="bodyText" colspan="2">
     <strong>January</strong></td></tr>
+    <tr><td class="bodyText">01.26.08</td><td class="bodyText" nowrap="0" width="100%">TCHS08 Online Round 3 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd3">Problem Set &amp; Analysis</a></td></tr>
     <tr><td class="bodyText">01.19.08</td><td class="bodyText" nowrap="0" width="100%">TCHS08 Online Round 2 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd2">Problem Set &amp; Analysis</a></td></tr>
     <tr><td class="bodyText">01.12.08</td><td class="bodyText" nowrap="0" width="100%">TCHS08 Online Round 1 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd1">Problem Set &amp; Analysis</a></td></tr>
 </table>
