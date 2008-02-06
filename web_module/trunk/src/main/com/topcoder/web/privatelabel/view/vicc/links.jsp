@@ -29,6 +29,7 @@
                 <% } else { %>
                 <td class="nav"><A href="/pl/?module=Static&d1=vicc&d2=login"><img src="/i/events/vicc/tabs/ver_L2_registrationOff.gif" alt="" border="0"/></A></td>
                 <% } %>
+                <%--
                 <% if (tabLev2.equals("results")) {%>
                 <td class="nav"><A href="/pl/?module=Static&d1=vicc&d2=resultsFinals"><img src="/i/events/vicc/tabs/ver_L2_resultsOn.gif" alt="" border="0"/></A>
                 </td>
@@ -36,6 +37,7 @@
                 <td class="nav"><A href="/pl/?module=Static&d1=vicc&d2=resultsFinals"><img src="/i/events/vicc/tabs/ver_L2_resultsOff.gif" alt="" border="0"/></A>
                 </td>
                 <% } %>
+                --%>
                 <%--
                            <% if (tabLev2.equals("registrants")) {%>
                                <td class="nav"><A href="/tc?module=TCO05AlgRegistrants"><img src="/i/events/vicc/tabs/L2_registrantsOn.gif" alt="" border="0" /></A></td>
