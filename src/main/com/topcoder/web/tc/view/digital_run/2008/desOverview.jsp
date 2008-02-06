@@ -138,7 +138,7 @@ Each component posted for a design competition will carry a point value - equiva
 <br /><br />
 If more than seven (7) submissions pass review, the competitors who place in 8th position or below will not receive any placement points.
 <br /><br />
-Up to 100% of placement points may be deducted for bugs or late final fixes. 20% of placement point will be deducted for every (24) hours a final fix or component forum issue is late. On a case-by-case basis, as determined by TopCoder staff, additional placement points may be deducted for bugs found in components within 30 days of completion.
+Up to 100% of placement points may be deducted for bugs or late final fixes. 20% of a placement point will be deducted for every (24) hours a final fix or component forum issue is late. On a case-by-case basis, as determined by TopCoder staff, additional placement points may be deducted for bugs found in components within 30 days of completion.
 <br /><br />
 </div>
 
