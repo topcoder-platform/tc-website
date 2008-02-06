@@ -14,7 +14,6 @@ import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.DataResource;
 
-import javax.servlet.http.HttpUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -29,7 +28,8 @@ public class BasicData extends Base {
 
     protected void businessProcessing() throws Exception {
         Request r = new Request();
-        r.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
+        r.setProperties(getRequest().getParameterMap());
+
 
         DataResource resource = new DataResource(r.getContentHandle());
         if (new TCSAuthorization(SecurityHelper.getUserSubject(getUser().getId())).hasPermission(resource)) {
@@ -52,10 +52,18 @@ public class BasicData extends Base {
                 key = (String)it.next();
                 rsc = (ResultSetContainer)m.get(key);
                 if (key.equals("dd_round_results")) {
-                    ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "paid", "coder_id", getHideUsersList() ,getResponse().getOutputStream());
+                    if (isJSON) {
+                        ResultSetContainerConverter.writeJSONhidingPayments(rsc, r.getContentHandle(), "paid", "coder_id", getHideUsersList() ,getResponse().getOutputStream());
+                    } else {
+                        ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "paid", "coder_id", getHideUsersList() ,getResponse().getOutputStream());
+                    }
                 } else if (key.equals("dd_design_rating_history") ||
                         key.equals("dd_development_rating_history")) {
-                    ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "payment", "coder_id", getHideUsersList() ,getResponse().getOutputStream());
+                    if (isJSON) {
+                        ResultSetContainerConverter.writeJSONhidingPayments(rsc, r.getContentHandle(), "payment", "coder_id", getHideUsersList() ,getResponse().getOutputStream());
+                    } else {
+                        ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "payment", "coder_id", getHideUsersList() ,getResponse().getOutputStream());
+                    }
                 } else {
                     if (isJSON) {
                         ResultSetContainerConverter.writeJSON(rsc, r.getContentHandle(), getResponse().getOutputStream());

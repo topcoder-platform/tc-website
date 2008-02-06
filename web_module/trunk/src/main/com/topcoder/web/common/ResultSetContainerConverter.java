@@ -18,7 +18,6 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -43,11 +42,9 @@ public class ResultSetContainerConverter {
 
         hd.startElement("", "", name, emptyAtts);
 
-        ResultSetContainer.ResultSetRow row = null;
-        for (Iterator it= rsc.iterator(); it.hasNext();) {
-            row = (ResultSetContainer.ResultSetRow)it.next();
+        for (ResultSetContainer.ResultSetRow row : rsc) {
             hd.startElement("", "", "row", emptyAtts);
-            for (int i=0; i<rsc.getColumnCount(); i++) {
+            for (int i = 0; i < rsc.getColumnCount(); i++) {
                 addElement(hd, rsc.getColumnName(i), row.getStringItem(i), emptyAtts);
             }
             hd.endElement("", "", "row");
@@ -72,14 +69,12 @@ public class ResultSetContainerConverter {
         AttributesImpl emptyAtts = new AttributesImpl();
 
         hd.startElement("", "", name, emptyAtts);
-        boolean hidePaymentColumn = false;
-        ResultSetContainer.ResultSetRow row = null;
-        for (Iterator it= rsc.iterator(); it.hasNext();) {
-            row = (ResultSetContainer.ResultSetRow)it.next();
+        boolean hidePaymentColumn;
+        for (ResultSetContainer.ResultSetRow row: rsc) {
             hd.startElement("", "", "row", emptyAtts);
             Long keyCol = row.getLongItem(keyColName);
             hidePaymentColumn = hideKeyList.contains(keyCol);
-            for (int i=0; i<rsc.getColumnCount(); i++) {
+            for (int i = 0; i < rsc.getColumnCount(); i++) {
                 if (!hidePaymentColumn || !rsc.getColumnName(i).equals(paymentCol)) {
                     addElement(hd, rsc.getColumnName(i), row.getStringItem(i), emptyAtts);
                 } else {
@@ -93,16 +88,21 @@ public class ResultSetContainerConverter {
         hd.endDocument();
     }
 
-    public static void writeJSON(ResultSetContainer rsc, String name, OutputStream os) {
+
+    public static void writeJSONhidingPayments(ResultSetContainer rsc, String name,
+                                               String paymentCol, String keyColName,
+                                               List<Long> hideKeyList, OutputStream os) {
         JSONObject ret = new JSONObject();
         JSONArray jsonArray = new JSONArray();
         ret.setArray(name, jsonArray);
         TCResultItem item;
         JSONArray jrow;
         JSONObject obj;
+        boolean hidePaymentColumn;
         for (ResultSetContainer.ResultSetRow row : rsc) {
             jrow = new JSONArray();
             jsonArray.addArray(jrow);
+            Long keyCol = row.getLongItem(keyColName);
             for (int i=0; i<rsc.getColumnCount(); i++) {
                 item = row.getItem(i);
                 obj = new JSONObject();
@@ -110,8 +110,15 @@ public class ResultSetContainerConverter {
                 if (item.getResultData()==null) {
                     obj.setNull(rsc.getColumnName(i));
                 } else {
+                    hidePaymentColumn = hideKeyList.contains(keyCol);
+                    if (!hidePaymentColumn || !rsc.getColumnName(i).equals(paymentCol)) {
+                        obj.setString(rsc.getColumnName(i), row.getStringItem(i));
+                    } else {
+                        obj.setString(rsc.getColumnName(i), "*hidden*");
+                    }
+
                     //we wont' deal with types right now.  not sure that it matters...we'll see as this evolves
-                    obj.setString(rsc.getColumnName(i), row.getStringItem(i));
+                    //probably the first thing we do is add a formatter for dates, times and datetimes
 /*
                     switch (item.getType()) {
                         case TCResultItem.INT: obj.setInt(rsc.getColumnName(i), row.getIntItem(i)); break;
@@ -137,6 +144,34 @@ public class ResultSetContainerConverter {
     }
 
     
+    public static void writeJSON(ResultSetContainer rsc, String name, OutputStream os) {
+        JSONObject ret = new JSONObject();
+        JSONArray jsonArray = new JSONArray();
+        ret.setArray(name, jsonArray);
+        TCResultItem item;
+        JSONArray jrow;
+        JSONObject obj;
+        for (ResultSetContainer.ResultSetRow row : rsc) {
+            jrow = new JSONArray();
+            jsonArray.addArray(jrow);
+            for (int i=0; i<rsc.getColumnCount(); i++) {
+                item = row.getItem(i);
+                obj = new JSONObject();
+                jrow.addJSONObject(obj);
+                if (item.getResultData()==null) {
+                    obj.setNull(rsc.getColumnName(i));
+                } else {
+                    //we wont' deal with types right now.  not sure that it matters...we'll see as this evolves
+                    obj.setString(rsc.getColumnName(i), row.getStringItem(i));
+                }
+            }
+        }
+        PrintWriter pw = new PrintWriter(os);
+        pw.print(new StandardJSONEncoder().encode(ret));
+
+
+    }
+
 
 
     private static void addElement(TransformerHandler hd,
