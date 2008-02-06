@@ -5,6 +5,7 @@ import com.topcoder.json.object.JSONObject;
 import com.topcoder.json.object.io.StandardJSONEncoder;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
+import com.topcoder.shared.util.logging.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.AttributesImpl;
@@ -26,6 +27,7 @@ import java.util.List;
  * Create Date: May 13, 2005
  */
 public class ResultSetContainerConverter {
+    private static Logger log = Logger.getLogger(ResultSetContainerConverter.class);
     public static void writeXML(ResultSetContainer rsc, String name, OutputStream os) throws TransformerConfigurationException, SAXException {
 
         StreamResult streamResult = new StreamResult(os);
@@ -94,7 +96,8 @@ public class ResultSetContainerConverter {
                                                List<Long> hideKeyList, OutputStream os) {
         JSONObject ret = new JSONObject();
         JSONArray jsonArray = new JSONArray();
-        ret.setArray(name, jsonArray);
+        ret.setArray("data", jsonArray);
+        ret.setString("feedname", name);
         TCResultItem item;
         JSONArray jrow;
         JSONObject obj;
@@ -145,13 +148,18 @@ public class ResultSetContainerConverter {
 
     
     public static void writeJSON(ResultSetContainer rsc, String name, OutputStream os) {
+        long start = System.currentTimeMillis();
         JSONObject ret = new JSONObject();
         JSONArray jsonArray = new JSONArray();
-        ret.setArray(name, jsonArray);
+        ret.setArray("data", jsonArray);
+        ret.setString("feedname", name);
         TCResultItem item;
         JSONArray jrow;
         JSONObject obj;
         for (ResultSetContainer.ResultSetRow row : rsc) {
+            if (log.isDebugEnabled()) {
+                log.debug("got a row " + row.getItem(0));
+            }
             jrow = new JSONArray();
             jsonArray.addArray(jrow);
             for (int i=0; i<rsc.getColumnCount(); i++) {
@@ -168,7 +176,9 @@ public class ResultSetContainerConverter {
         }
         PrintWriter pw = new PrintWriter(os);
         pw.print(new StandardJSONEncoder().encode(ret));
-
+        if (log.isDebugEnabled()) {
+            log.debug("took " + (System.currentTimeMillis()-start) + " ms");
+        }
 
     }
 
