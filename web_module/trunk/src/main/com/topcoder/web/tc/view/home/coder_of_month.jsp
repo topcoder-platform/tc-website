@@ -21,9 +21,9 @@
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</A></strong><br />
          <tc-webtag:handle coderId="22504795" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br />
          <span class="small">
-         SRM 390: 2407<br />
          SRM 389: 2539<br />
-         SRM 388: 2473
+         SRM 388: 2473<br />
+         SRM 387: 2476
          </span><br /><br />
       </td>
    </tr>
