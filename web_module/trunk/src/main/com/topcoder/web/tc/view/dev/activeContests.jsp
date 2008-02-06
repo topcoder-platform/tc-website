@@ -63,6 +63,12 @@
     </tr>
 </table>
 
+<div align="right" style="padding-top: 10px">
+    Competition opportunities via RSS - <a href="/tc?module=BasicRSS&amp;c=rss_Design_Registration_Open&amp;dsid=28">Subscribe Now</a>
+    <a href="/tc?module=BasicRSS&amp;c=rss_Design_Registration_Open&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
+    <br /><br />
+</div>
+
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td class="title" colspan="9">Active Component Design Contests</td>
@@ -186,6 +192,13 @@
         </td>
     </tr>
 </table>
+
+<div align="right" style="padding-top: 10px">
+    Competition opportunities via RSS - <a href="/tc?module=BasicRSS&amp;c=rss_Development_Registration_Open&amp;dsid=28">Subscribe Now</a>
+    <a href="/tc?module=BasicRSS&amp;c=rss_Development_Registration_Open&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
+    <br /><br />
+</div>
+
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td class="title" colspan="9">Active Component Development Contests</td>
