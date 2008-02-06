@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.06.08<br />9:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd3">TCHS08 Online Round 3 - Problem Set &amp; Analysis</a></span><br /><br />
+      The round started smoothly with very straightforward easy and a medium that also turned out to be not as medium as we expected. <tc-webtag:handle coderId="11972352" context="hs_algorithm"/> was the first to submit all three problems, but shortly he was overtaken by <tc-webtag:handle coderId="22285847" context="hs_algorithm"/> and <tc-webtag:handle coderId="20812309" context="hs_algorithm"/>.</td>
+         <td class="newsPhoto"><img src="/i/m/mateuszek_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="11801002" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd3">details</a> | 
+         <tc-webtag:forumLink forumID="519249" message="discuss this" /> | 
+         <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.05.08<br />9:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 1</A></span><br /><br />
@@ -151,21 +167,5 @@
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=590134">discuss this</a> | 
         <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />01.23.08<br />12:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd2">TCHS08 Online Round 2 - Problem Set &amp; Analysis</a></span><br /><br />
-      The online round 2 of TCHS tournament 2008 was a bit more exciting than round 1, because non-zero score was not enough to advance this time. It turned out that even two solved problems did not guarantee advancement.</td>
-         <td class="newsPhoto"><img src="/i/m/andrewzta_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="11829284" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd2">details</a> | 
-         <tc-webtag:forumLink forumID="519104" message="discuss this" /> | 
-         <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</a>
    </td></tr>
    
