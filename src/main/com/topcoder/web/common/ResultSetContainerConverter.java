@@ -163,10 +163,16 @@ public class ResultSetContainerConverter {
             jrow = new JSONArray();
             jsonArray.addArray(jrow);
             for (int i=0; i<rsc.getColumnCount(); i++) {
+                if (log.isDebugEnabled()) {
+                    log.debug("got a col " + i);
+                }
                 item = row.getItem(i);
                 obj = new JSONObject();
                 jrow.addJSONObject(obj);
                 if (item.getResultData()==null) {
+                    if (log.isDebugEnabled()) {
+                        log.debug("item was null");
+                    }
                     obj.setNull(rsc.getColumnName(i));
                 } else {
                     //we wont' deal with types right now.  not sure that it matters...we'll see as this evolves
