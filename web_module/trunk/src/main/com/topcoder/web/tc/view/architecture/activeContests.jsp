@@ -47,6 +47,12 @@
     <a href="/wiki/display/tc/How+to+Compete+in+Architecture+Competitions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
 </div>
 
+<div align="right" style="padding-top: 10px">
+    Competition opportunities via RSS - <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28">Subscribe Now</a>
+    <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
+    <br /><br />
+</div>
+
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td class="title" colspan="8">Active Software Architecture Contests</td>
