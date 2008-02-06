@@ -154,46 +154,36 @@ public class ResultSetContainerConverter {
         JSONObject ret = new JSONObject();
         JSONArray jsonArray = new JSONArray();
         TCResultItem item;
-        JSONArray jrow;
+        JSONObject jrow;
+/*
+        JSONArray colNames = new JSONArray();
         JSONObject obj;
-        for (ResultSetContainer.ResultSetRow row : rsc) {
-            if (log.isDebugEnabled()) {
-                log.debug("got a row " + row.getItem(0));
-            }
-            jrow = new JSONArray();
-            for (int i=0; i<rsc.getColumnCount(); i++) {
-                if (log.isDebugEnabled()) {
-                    log.debug("got a col " + i);
-                }
-                item = row.getItem(i);
-                obj = new JSONObject();
-                if (item.getResultData()==null) {
-                    if (log.isDebugEnabled()) {
-                        log.debug("item was null");
-                    }
-                    obj.setNull(rsc.getColumnName(i));
-                } else {
-                    //we wont' deal with types right now.  not sure that it matters...we'll see as this evolves
-                    obj.setString(rsc.getColumnName(i), row.getStringItem(i));
-                }
-                if (log.isDebugEnabled()) {
-                    log.debug("add object to row");
-                }
-                jrow.addJSONObject(obj);
-            }
-            if (log.isDebugEnabled()) {
-                log.debug("add row to result");
-            }
-            jsonArray.addArray(jrow);
-
-        }
+*/
         ret.setArray("data", jsonArray);
         ret.setString("feedname", name);
+/*
+        ret.setArray("columnNames", colNames);
+
+        for (ResultColumn c : rsc.getColumns()) {
+            colNames.addString(c.getName());
+        }
+*/
+
+        for (ResultSetContainer.ResultSetRow row : rsc) {
+            jrow = new JSONObject();
+            jsonArray.addJSONObject(jrow);
+            for (int i=0; i<rsc.getColumnCount(); i++) {
+                item = row.getItem(i);
+                if (item.getResultData()==null) {
+                    jrow.setNull(rsc.getColumnName(i));
+                } else {
+                    //we wont' deal with types right now.  not sure that it matters...we'll see as this evolves
+                    jrow.setString(rsc.getColumnName(i), row.getStringItem(i));
+                }
+            }
+        }
 
         String res = new StandardJSONEncoder().encode(ret);
-        if (log.isDebugEnabled()) {
-            log.debug(res);
-        }
         DataOutputStream dos = new DataOutputStream(os);
         dos.writeBytes(res);
         if (log.isDebugEnabled()) {
