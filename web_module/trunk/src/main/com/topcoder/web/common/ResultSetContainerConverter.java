@@ -17,8 +17,9 @@ import javax.xml.transform.sax.SAXTransformerFactory;
 import javax.xml.transform.sax.TransformerHandler;
 import javax.xml.transform.stream.StreamResult;
 import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.util.List;
 
 /**
@@ -93,7 +94,7 @@ public class ResultSetContainerConverter {
 
     public static void writeJSONhidingPayments(ResultSetContainer rsc, String name,
                                                String paymentCol, String keyColName,
-                                               List<Long> hideKeyList, OutputStream os) {
+                                               List<Long> hideKeyList, OutputStream os) throws IOException {
         JSONObject ret = new JSONObject();
         JSONArray jsonArray = new JSONArray();
         ret.setArray("data", jsonArray);
@@ -140,14 +141,15 @@ public class ResultSetContainerConverter {
                 }
             }
         }
-        PrintWriter pw = new PrintWriter(os);
-        pw.print(new StandardJSONEncoder().encode(ret));
-        
+        String res = new StandardJSONEncoder().encode(ret);
+        DataOutputStream dos = new DataOutputStream(os);
+        dos.writeBytes(res);
+
 
     }
 
     
-    public static void writeJSON(ResultSetContainer rsc, String name, OutputStream os) {
+    public static void writeJSON(ResultSetContainer rsc, String name, OutputStream os) throws IOException {
         long start = System.currentTimeMillis();
         JSONObject ret = new JSONObject();
         JSONArray jsonArray = new JSONArray();
@@ -188,12 +190,12 @@ public class ResultSetContainerConverter {
         ret.setArray("data", jsonArray);
         ret.setString("feedname", name);
 
-        PrintWriter pw = new PrintWriter(os);
         String res = new StandardJSONEncoder().encode(ret);
         if (log.isDebugEnabled()) {
             log.debug(res);
         }
-        pw.print(new StandardJSONEncoder().encode(ret));
+        DataOutputStream dos = new DataOutputStream(os);
+        dos.writeBytes(res);
         if (log.isDebugEnabled()) {
             log.debug("took " + (System.currentTimeMillis()-start) + " ms");
         }
