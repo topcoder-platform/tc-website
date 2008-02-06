@@ -189,6 +189,10 @@ public class ResultSetContainerConverter {
         ret.setString("feedname", name);
 
         PrintWriter pw = new PrintWriter(os);
+        String res = new StandardJSONEncoder().encode(ret);
+        if (log.isDebugEnabled()) {
+            log.debug(res);
+        }
         pw.print(new StandardJSONEncoder().encode(ret));
         if (log.isDebugEnabled()) {
             log.debug("took " + (System.currentTimeMillis()-start) + " ms");
