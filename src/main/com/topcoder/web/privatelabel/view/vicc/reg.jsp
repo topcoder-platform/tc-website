@@ -32,7 +32,7 @@
 <span class="bigTitle">Registration</span>
 <br/><br/>
 
-Register for the VeriSign Code Fest:<br/><br/>
+Register for the VeriSign Code Fest.  Please use your VeriSign email address when registering:<br/><br/>
 
 <form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>" method="POST" name="regForm">
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.VICC_REG_CONFIRM%>"/>

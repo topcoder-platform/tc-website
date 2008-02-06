@@ -39,22 +39,25 @@
             <div class="bodySpacer">
 
                 <span class="bigTitle">Registration</span>
-                <br/><br/>
+                <br /><br />
                 If you are not already a registered competitor, click
                 <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=<%=Constants.VICC_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a>
                 to register
                 an account for the VeriSign Code Fest.
-                <br/><br/>
+                <br /><br />
 
-                <b>Update your registration information</b><br/>
-                If you have already registered for the VeriSign Code Fest and would like 
-                to update your registration information, please login below:
-                <br/><br/>
+                <strong>Update your registration information</strong><br />
+                If you have already registered for the VeriSign Code Fest and would like to update your registration information, please login below.  Please make sure your VeriSign email is the one you have in your profile.
+                <br /><br />
 
-                 <b>Note: If you participated in the TopCoder VeriSign Sponsor Track 2006 competition or the VeriSign 2006 Internal Coding Competition, 
-                 you do NOT need to register a new account. You may use your existing account credentials to login to the Competition Arena.</b>
+                <strong>Note: If you participated in the 2007 VeriSign Code Fest, you do NOT need to register a new account. You may use your existing account credentials to login to the Competition Arena.</strong>
+                <br /><br />
+                 
+                 
+                <strong>Forgot your password?</strong><br />
+                If you cannot remember your password click <a href="/pl/?module=VICCCredentials&cm=17942">here</a> and we can help you restore your account.
 
-                <br/><br/>
+                <br /><br />
 
                 <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.VICC_LOGIN%>">
@@ -88,7 +91,7 @@
 
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-                <br/><br/>
+                <br /><br />
 
         </td>
 

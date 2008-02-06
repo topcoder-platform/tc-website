@@ -1,4 +1,4 @@
-<br/>
+<br />
 <table valign="top" class="sidebarBox" align="right" cellspacing="0" cellpadding="0">
     <tr>
         <td align="center" class="sidebarTitle" style="padding: 5px 5px 5px 5px;">
@@ -10,20 +10,17 @@
     </tr>
     <tr>
         <td align="left" nowrap="nowrap" class="sidebarText" style="padding: 0px 10px 0px 10px;">
-            <b>SRM 1</b><br/>
-            Tuesday, December 19, 2006
-            <br/><br/>
-            <b>SRM 2</b><br/>
-            Friday, February 16, 2007
-            <br/><br/>
-            <b>TopCoder Sponsor Track</b><br/>
-            April 3 - April 14, 2007
-            <br/><br/>
-            <b>SRM 3</b><br/>
-            Tuesday, June 12, 2007
-            <br/><br/>
-            <b>Championship Round</b><br/>
-            Tuesday, August 14, 2007
+            <strong>SRM 1</strong><br />
+            Tuesday, March 4, 2008
+            <br /><br />
+            <strong>SRM 2</strong><br />
+            Thursday, April 17, 2008
+            <br /><br />
+            <strong>SRM 3</strong><br />
+            Tuesday, June 3, 2008
+            <br /><br />
+            <strong>Championship Round</strong><br />
+            Tuesday, August 12, 2008
         </td>
     </tr>
     <tr>
@@ -31,20 +28,19 @@
     </tr>
     <tr>
         <td align="left" nowrap="nowrap" class="sidebarText" style="padding: 0px 10px 10px 10px;">
-            <b>Cash Prizes!<br/>
-                SRMs</b><br/>
-            1st Place - $1,500<br/>
-            2nd Place - $750<br/>
+            <strong>Cash Prizes!<br />
+                SRMs</strong><br />
+            1st Place - $1,500<br />
+            2nd Place - $750<br />
             3rd Place - $500
-            <br/><br/>
-            <b>Finals<br/>
-            Grand Prize $5,000</b><br/>
-            2nd Place - $3,500<br/>
-            3rd Place - $2,000<br/>
-            4th Place - $500<br/>
-            5th Place - $500
-            <br/><br/>
-            Learn <A href="/pl/?module=Static&d1=vicc&d2=description#prizes">more</a><br/>
+            <br /><br />
+            <strong>Finals<br />
+            Grand Prize $5,000</strong><br />
+            2nd Place - $3,500<br />
+            3rd Place - $2,000<br />
+            4th Place - $500
+            <br /><br />
+            Learn <A href="/pl/?module=Static&d1=vicc&d2=description#prizes">more</a><br />
         </td>
     </tr>
 </table>
