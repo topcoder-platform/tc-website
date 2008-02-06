@@ -69,52 +69,14 @@
             <p>Both the design and development competitions will have six (6) weeks of online competition and one (1) onsite Championship Round. Each competitor participating in an online round must submit his/her design and/or development submission for components by the submission deadline.  All start time will be communicated as Eastern Standard Time (UTC/GMT -5) unless otherwise noted.</p>
             <table width="100%" cellpadding="0" cellspacing="0" class="stat">
                 <tr>
-                    <th colspan="4">Online Competition</th>
-                </tr>
-                <tr>
-                    <th>&nbsp;</th>
-                    <th>All Projects Posted*</th>
-                    <th>Registration Period</th>
-                    <th>Submission Deadline*</th>
+                    <th>Schedule</th>
+                    <th>Posted On or After</th>
+                    <th colspan="2">Submission Deadline On or Before</th>
                 </tr>
                 <tr class="dark">
-                    <td>Week 1 of<br />Online Competition</td>
-                    <td>January 24, 2008 9:00 AM</td>
-                    <td>72 Hours</td>
-                    <td>January 31, 2008 9:00 AM</td>
-                </tr>
-                <tr class="light">
-                    <td>Week 2 of<br />Online Competition</td>
-                    <td>January 31, 2008 9:00 AM</td>
-                    <td>72 Hours</td>
-                    <td>February 7, 2008 9:00 AM</td>
-                </tr>
-                <tr class="dark">
-                    <td>Week 3 of<br />Online Competition</td>
-                    <td>February 7, 2008 9:00 AM</td>
-                    <td>72 Hours</td>
-                    <td>February 14, 2008 9:00 AM</td>
-                </tr>
-                <tr class="light">
-                    <td>Week 4 of<br />Online Competition</td>
-                    <td>February 14, 2008 9:00 AM</td>
-                    <td>72 Hours</td>
-                    <td>February 21, 2008 9:00 AM</td>
-                </tr>
-                <tr class="dark">
-                    <td>Week 5 of<br />Online Competition</td>
-                    <td>February 21, 2008 9:00 AM</td>
-                    <td>72 Hours</td>
-                    <td>February 28, 2008 9:00 AM</td>
-                </tr>
-                <tr class="light">
-                    <td>Week 6 of<br />Online Competition</td>
-                    <td>February 28, 2008 9:00 AM</td>
-                    <td>72 Hours</td>
-                    <td>March 6, 2008 9:00 AM</td>
-                </tr>
-                <tr class="dark">
-                    <td colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -5). Click <a target="_blank" href="<tc-webtag:linkTracking link='http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=15&year=2007&hour=9&min=0&sec=0&p1=179' refer='tco08_componentRules' />">here</a> for your time zone.</td>
+                    <td>Online Round</td>
+                    <td>January 24, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=1&day=24&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">9:00 AM</a></td>
+                    <td>March 6, 2008<br />at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=3&day=6&year=2008&hour=9&min=0&sec=0&p1=98' refer='tco08_compSchedule' />">9:00 AM</a></td>
                 </tr>
             </table>
             <br />
