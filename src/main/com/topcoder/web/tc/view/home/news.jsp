@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />02.07.08<br />3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=features&d2=020708">Computerworld's "Rock star coders" profile: SnapDragon</a></span><br /><br />
+      On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='/tc' />">article</a> about various TopCoders and how programming has affected their lives.  Our first interview is of <tc-webtag:handle coderId="272072" context="algorithm"/>.</td>
+         <td class="newsPhoto">&nbsp;</td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <a href="/tc?module=Static&d1=features&d2=020708">details</a> | 
+         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=602169&start=0">discuss this</a> | 
+         <a href="/tc?module=Static&d1=features&d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.07.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tco08?module=AlgorithmQualification&full=true">TCO08 Algorithm Qualification Round 1 results</A></span><br /><br />
@@ -154,18 +170,5 @@
          <a href="/tc?module=Static&d1=features&d2=012508">details</a> | 
          <tc-webtag:forumLink forumID="519228" message="discuss this" /> | 
          <a href="/tc?module=Static&d1=features&d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />01.25.08<br />2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/wiki/display/tc/Bug+Races">Off to the Races</a></span><br /><br />
-        If you haven't been to the Bug Races yet, now's the time. TopCoder has launched new competitions, which is your chance to make quick fixes for quick cash. We'll be posting new bugs almost daily, so be sure to check out the <a href="/wiki/display/tc/Active+Bug+Races">Active Races</a> page, or subscribe to the Bug Races RSS feed to get all the latest postings immediately.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/wiki/display/tc/Bug+Races">details</a> | 
-        <tc-webtag:forumLink forumID="519026" message="discuss this" /> | 
-        <a href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</a>
    </td></tr>
    
