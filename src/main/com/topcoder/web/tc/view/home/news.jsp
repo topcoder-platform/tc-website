@@ -7,7 +7,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.07.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tco08?module=AlgorithmQualification&full=true">TCO08 Algorithm Qualification Round 1 results</A></span><br /><br />
-        The results of the first qualification round of the TCO08 Algorithm Competition are complete!  See who advanced to round 2.</td>
+        The results of the first qualification round of the TCO08 Algorithm Competition are complete!  See who advanced to round 1.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tco08?module=AlgorithmQualification&full=true">details</a> | 
