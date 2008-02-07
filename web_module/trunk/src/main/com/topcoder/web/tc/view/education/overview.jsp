@@ -40,7 +40,7 @@
 <span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
 <li><a href="/tc?module=Static&d1=features&d2=020708"><strong>Computerworld's "Rock star coders" profile: SnapDragon</strong></a>&nbsp;<br />
-On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='overview' />">article</a> about various TopCoders and how programming has affected their lives.  Our first interview is of <tc-webtag:handle coderId="272072" context="algorithm"/>.</li>
+On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='overview' />">article</a> about various TopCoders and how programming has affected their lives.  The following is the full Computerworld interview with <tc-webtag:handle coderId="272072" context="algorithm"/>, from which portions were used in the article.</li>
 <li><a href="/tc?module=Static&d1=features&d2=012508"><strong>Meet the December 2007 Coders of the Month</strong></a>&nbsp;<br />
 We caught up with December's Coders of the Month, as well as December's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=primalityTesting"><strong>Primality Testing : Non-deterministic Algorithms</strong></a>, by <tc-webtag:handle coderId="22419265" context="algorithm"/><br />
