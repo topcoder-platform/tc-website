@@ -104,8 +104,16 @@
     </target>
 
     <target name="create-detached-package">
+<!--
         <ant antfile="move.xml" target="package-studio"/>
-        
+-->
+        <mkdir dir="${build}/tempdist"/>
+        <unjar src="studio.jar" dest="${build}/tempdist"/>
+        <copy todir="${build}/tempdist">
+            <fileset dir="${java}">
+                <include name="com/topcoder/web/studio/**/*"/>
+            </fileset>
+        </copy>
     </target>
 
 
