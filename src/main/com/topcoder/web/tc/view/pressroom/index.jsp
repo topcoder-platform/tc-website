@@ -69,7 +69,7 @@
                     <span style="padding-left:125px;"><a href="#linktonews"><img src="/i/pressroom/featured_tco07.png" width="440" height="136" ></a></span>
                     --%>
                     <div style="padding-left:90px;">
-                        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='pr_index' />"><img src="/i/home/tco08registerBanner.png" alt="2008 TopCoder Open" /></a>
+                        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='pr_index' />"><img src="/i/home/tco08compRegBanner.png" alt="2008 TopCoder Open" /></a>
                     </div>
                 </div>
                 <%--

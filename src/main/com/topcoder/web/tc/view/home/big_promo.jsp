@@ -44,7 +44,7 @@
 --%>
 
 <%-- TCO08 --%>
-<a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='/tc' />"><img src="/i/home/tco08registerBanner.png" alt="2008 TopCoder Open" /></a>
+<a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='/tc' />"><img src="/i/home/tco08compRegBanner.png" alt="2008 TopCoder Open" /></a>
 
 <%-- UML Tool 
 <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />"><img src="/i/home/umltoolRelease.jpg" alt="UML Tool Release" /></a>
