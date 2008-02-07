@@ -98,7 +98,7 @@
                     </map>
                     <img src="/images/promos/promo_morris.jpg" alt="Mike Morris Promo" border="0" usemap="#morris_promo"/>
                     --%>
-                    <a href="http://software.topcoder.com/media/misc3x2.jsp"><img src="/i/promos/promo_jackBIF3.png" alt="Jack Hughes at BIF-3" width="530" height="188" border="0" /></a>
+                    <a href="http://software.topcoder.com/media/misc3x2.jsp"><img src="/i/promos/promo_jackBIF3_2.png" alt="Jack Hughes at BIF-3" width="530" height="188" border="0" /></a>
                     </td>
                 </tr>
 				<%	InitialContext context = new InitialContext();
