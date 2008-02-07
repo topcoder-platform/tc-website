@@ -8,7 +8,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=features&d2=020708">Computerworld's "Rock star coders" profile: SnapDragon</a></span><br /><br />
-      On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='/tc' />">article</a> about various TopCoders and how programming has affected their lives.  Our first interview is of <tc-webtag:handle coderId="272072" context="algorithm"/>.</td>
+      On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='/tc' />">article</a> about various TopCoders and how programming has affected their lives.  The following is the full Computerworld interview with <tc-webtag:handle coderId="272072" context="algorithm"/>, from which portions were used in the article.  We'll be posting the full interviews with <tc-webtag:handle coderId="119676" context="algorithm"/> and <tc-webtag:handle coderId="10574855" context="algorithm"/> in the coming days.</td>
          <td class="newsPhoto">&nbsp;</td></tr></table>
       </td>
    </tr>
