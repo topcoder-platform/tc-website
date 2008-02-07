@@ -11,7 +11,6 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentType;
 import com.topcoder.web.studio.controller.request.PactsServicesLocator;
-import com.topcoder.web.tc.Constants;
 
 /**
  * This processor handles the request for the assignment document history for a particular
@@ -50,8 +49,8 @@ public class AssignmentDocumentHistory extends BaseProcessor {
 
             if ("".equals(endRank)) {
                 endRank = String.valueOf(Integer.parseInt(startRank) + 30 - 1);
-            } else if (Integer.parseInt(endRank) - Integer.parseInt(startRank) > Constants.MAX_HISTORY) {
-                endRank = String.valueOf(Integer.parseInt(startRank) + Constants.MAX_HISTORY);
+            } else if (Integer.parseInt(endRank) - Integer.parseInt(startRank) > 200) {
+                endRank = String.valueOf(Integer.parseInt(startRank) + 200);
             }
             setDefault(DataAccessConstants.END_RANK, endRank);
 

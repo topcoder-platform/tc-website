@@ -13,7 +13,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
-import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
+import com.topcoder.web.studio.Constants;
 
 import java.util.Arrays;
 
@@ -63,7 +63,7 @@ public class Login extends ShortHibernateProcessor {
                         log.debug("status: " + status);
                         if (Arrays.binarySearch(WebConstants.ACTIVE_STATI, status) >= 0) {
                             //check if they have an active email address
-                            if (getEmailStatus(sub.getUserId()) != EmailActivate.ACTIVE_STATUS) {
+                            if (getEmailStatus(sub.getUserId()) != Constants.EMAIL_ACTIVE_STATUS) {
                                 getAuthentication().logout();
                                 log.debug("inactive email");
                                 setNextPage("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=authentication&d2=emailActivate");
