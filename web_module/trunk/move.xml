@@ -244,12 +244,12 @@
         <cvs command="update -Pd" package="build_studio.xml"/>
         <cvs command="update -Pd" package="build_tc.xml"/>
 
-        <exec dir="../shared" executable="cvs">
-            <arg line="update -dP"/>
+        <exec dir="../" executable="cvs">
+            <arg line="checkout shared"/>
         </exec>
 
-        <exec dir="../external-artifacts" executable="cvs">
-            <arg line="update -dP"/>
+        <exec dir="../" executable="cvs">
+            <arg line="checkout external-artifacts"/>
         </exec>
 
 
