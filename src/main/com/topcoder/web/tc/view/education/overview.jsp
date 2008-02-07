@@ -39,12 +39,12 @@
 <br /><br />
 <span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=020708"><strong>Computerworld's "Rock star coders" profile: SnapDragon</strong></a>&nbsp;<br />
+On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='overview' />">article</a> about various TopCoders and how programming has affected their lives.  Our first interview is of <tc-webtag:handle coderId="272072" context="algorithm"/>.</li>
 <li><a href="/tc?module=Static&d1=features&d2=012508"><strong>Meet the December 2007 Coders of the Month</strong></a>&nbsp;<br />
 We caught up with December's Coders of the Month, as well as December's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=primalityTesting"><strong>Primality Testing : Non-deterministic Algorithms</strong></a>, by <tc-webtag:handle coderId="22419265" context="algorithm"/><br />
 Primality testing of a number is perhaps the most common problem concerning number theory that topcoders deal with. A prime number is a natural number which has exactly two distinct natural number divisors: 1 and itself. This article discusses some of the popular probabilistic methods such as Fermat's test, Rabin-Miller test, Solovay-Strassen test.</li>
-<li><a href="/tc?module=Static&d1=features&d2=010408"><strong>Linear recurrences</strong></a>, by <tc-webtag:handle coderId="251074" context="algorithm"/><br />
-I started writing this as an article about series and recurrence relations, but linear recurrences kept coming up in all the examples I used, so I decided to focus on them explicitly. A linear recurrence is a sequence of vectors defined by the equation <em>x<sub>i+1</sub></em> = <em>Mx<sub>i</sub></em>, for some constant matrix <em>M</em>.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br />
 <ul>
