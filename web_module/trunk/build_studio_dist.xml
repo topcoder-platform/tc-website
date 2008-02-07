@@ -1,0 +1,128 @@
+<project name="topcoder" default="main" basedir=".">
+    <property name="Name" value="TopCoder"/>
+    <property name="build" value="build"/>
+    <property name="war.dir" value="${build}/wars"/>
+    <property name="ear.dir" value="${build}/ears"/>
+    <property name="ejb_jars" value="${build}/ejb_jars"/>
+    <property name="classes" value="${build}/classes"/>
+    <property name="testclasses" value="${build}/testcases"/>
+    <property name="bin" value="lib/bin"/>
+    <property name="shared" value="../shared/src/main"/>
+    <property name="resources" value="resources"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="jars.dir" value="${lib.dir}/jars"/>
+    <property name="jive.dir" value="lib/jars/jive"/>
+    <property name="src.dir" value="src"/>
+    <property name="shared.build" value="${basedir}/../shared"/>
+    <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
+    <property name="java" value="${src.dir}/main"/>
+    <property name="shared.jar" value="${bin}/shared.jar"/>
+    <property name="jboss_home" value="../jboss-4.0.4.GA"/>
+    <property name="jboss_deploy" value="${jboss_home}/server/default/deploy"/>
+    <property name="jboss_lib" value="${jboss_home}/server/default/lib"/>
+    <property name="jboss_conf" value="${jboss_home}/server/default/conf"/>
+    <property name="testjava" value="${src.dir}/testcases"/>
+    <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="build.javadocs" value="${build}/javadocs"/>
+    <property environment="env"/>
+
+    <property name="deprecation" value="true"/>
+    <property name="debug" value="true"/>
+    <property name="junitsummary" value="on"/>
+
+    <target name="main" depends="compile">
+    </target>
+
+
+    <path id="class.path">
+        <pathelement location="${classes}"/>
+        <pathelement location="${testclasses}"/>
+        <pathelement location="${resources}"/>
+        <pathelement location="${resources}/hibernate"/>
+        <pathelement location="${shared.jar}"/>
+        <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+        <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+        <pathelement location="${jars.dir}/activation.jar"/>
+
+        <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
+        <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
+        <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+        <pathelement location="${jars.dir}/jboss/xalan.jar"/>
+        <pathelement location="${jars.dir}/jboss/xercesImpl.jar"/>
+        <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
+        <pathelement location="${jars.dir}/jboss/mail.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
+        <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
+        <pathelement location="${jars.dir}/httpunit.jar"/>
+
+        <pathelement location="${build}/ejb_jars/PactsClientServices.jar"/>
+
+        <pathelement location="${jars.dir}/axis.jar"/>
+
+        <pathelement location="${jive.dir}/jivebase.jar"/>
+        <pathelement location="${jive.dir}/jiveforums.jar"/>
+        <pathelement location="${jive.dir}/xwork.jar"/>
+        <pathelement location="${jive.dir}/htmlparser.jar"/>
+
+        <!-- TCS Components -->
+        <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
+        <pathelement location="${jars.dir}/object_formatter.jar"/>
+        <pathelement location="${jars.dir}/idgenerator.jar"/>
+        <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+        <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
+        <pathelement location="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
+        <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
+        <!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
+        <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+
+
+        <!-- hibernate files -->
+        <pathelement location="${jars.dir}/hibernate-3.2/hibernate3.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/commons-logging-1.0.4.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/ehcache-1.2.3.jar"/>
+        <pathelement location="${jive.dir}/velocity-dep.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/cglib-2.1.3.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/asm.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/ant-antlr-1.6.5.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/antlr-2.7.6.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-commons-annotations.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
+
+    </path>
+    <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
+    <property name="class.path" refid="class.path"/>
+
+    <target name="init">
+        <mkdir dir="${classes}"/>
+        <mkdir dir="${testclasses}"/>
+        <mkdir dir="${bin}"/>
+        <mkdir dir="${ejb_jars}"/>
+        <mkdir dir="${war.dir}"/>
+        <mkdir dir="${ear.dir}"/>
+    </target>
+
+    <target name="create-detached-package">
+        <ant antfile="move.xml" target="package-studio"/>
+        
+    </target>
+
+
+    <target name="compile">
+
+    </target>
+
+
+</project>
+
+
+
+
+
+
+
+
+
+
+
