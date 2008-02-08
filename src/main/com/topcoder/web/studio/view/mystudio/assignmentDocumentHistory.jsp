@@ -66,16 +66,16 @@
 
 <h1>Assignment Documents</h1>
     <div align="right">
-        <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">What is an Assignment Document?</a><br /><br />
+        <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">What is an Assignment Document?</a><br /><br />
     </div>
 
         <c:if test="${full_list}" >
-            <div class="tableTabOff" style="margin-left: 20px;"><a href="/?module=AssignmentDocumentHistory&amp;full_list=false">Current</a></div>
-            <div class="tableTabOn"><a href="/?module=AssignmentDocumentHistory&amp;full_list=true">All</a></div>
+            <div class="tableTabOff" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory&amp;full_list=false">Current</a></div>
+            <div class="tableTabOn"><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory&amp;full_list=true">All</a></div>
         </c:if>
         <c:if test="${not full_list}" >
-            <div class="tableTabOn" style="margin-left: 20px;"><a href="/?module=AssignmentDocumentHistory&amp;full_list=false">Current</a></div>
-            <div class="tableTabOff"><a href="/?module=AssignmentDocumentHistory&amp;full_list=true">All</a></div>
+            <div class="tableTabOn" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory&amp;full_list=false">Current</a></div>
+            <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory&amp;full_list=true">All</a></div>
         </c:if>
 
     <br clear="all"/>
@@ -145,7 +145,7 @@
                             <c:choose>
                                 <c:when test="${ad.status.id == AFFIRMED_STATUS_ID}">
                                     <td class="valueC">
-                                        <a href="/?module=AssignmentDocumentDetails&amp;assignment_document_id=${ad.id}">
+                                        <a href="${sessionInfo.servletPath}?module=AssignmentDocumentDetails&amp;assignment_document_id=${ad.id}">
                                             Affirmed on<br /><fmt:formatDate value="${ad.affirmedDate}" pattern="MM.dd.yyyy"/>
                                         </a>                
                                     </td>
@@ -153,19 +153,19 @@
                                 </c:when>
                                 <c:when test="${ad.status.id == PENDING_STATUS_ID}">
                                     <td class="valueC">
-                                        <strong><a href="/?module=AssignmentDocumentDetails&amp;assignment_document_id=${ad.id}">
+                                        <strong><a href="${sessionInfo.servletPath}?module=AssignmentDocumentDetails&amp;assignment_document_id=${ad.id}">
                                             Affirm now
                                         </a></strong>
                                     </td>
                                     <td class="valueC">
-                                        <strong><a href="/?module=AssignmentDocumentDetails&amp;assignment_document_id=${ad.id}">
+                                        <strong><a href="${sessionInfo.servletPath}?module=AssignmentDocumentDetails&amp;assignment_document_id=${ad.id}">
                                              <c:out value="${ad.daysLeftToExpire}"/> days
                                         </a></strong>            
                                     </td>
                                 </c:when>
                                 <c:otherwise>
                                     <td class="valueC">
-                                        <a href="/?module=AssignmentDocumentDetails&amp;assignment_document_id=${ad.id}" class="bigRed">
+                                        <a href="${sessionInfo.servletPath}?module=AssignmentDocumentDetails&amp;assignment_document_id=${ad.id}" class="bigRed">
                                             Expired
                                         </a>
                                     </td>

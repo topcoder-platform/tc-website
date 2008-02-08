@@ -31,16 +31,16 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-<div class="linkBox"><a href="/?module=Static&amp;d1=oldcontests&amp;d2=archive">back to archive</a></div>
+<div class="linkBox"><a href="${sessionInfo.servletPath}?module=Static&amp;d1=oldcontests&amp;d2=archive">back to archive</a></div>
 <h1>TCO05 Logo Contest</h1>
 
 <div align="left" style="padding-bottom: 10px;">
 View Submissions
- | <a href="/?module=Static&amp;d1=oldcontests&amp;d2=tco05Finals">Finals</a>
+ | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=oldcontests&amp;d2=tco05Finals">Finals</a>
 </div>
 
 <div class="pagingBox">
-<a href="/?module=Static&amp;d1=oldcontests&amp;d2=tco05Submissions4"><< prev</a>
+<a href="${sessionInfo.servletPath}?module=Static&amp;d1=oldcontests&amp;d2=tco05Submissions4"><< prev</a>
  | next >>
 </div>
 
@@ -64,7 +64,7 @@ document.writeln( '<tr><td class="space" colspan="3">&nbsp;</td></tr>
     <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
 </div>
 <div class="pagingBox">
-<a href="/?module=Static&amp;d1=oldcontests&amp;d2=tco05Submissions4"><< prev</a>
+<a href="${sessionInfo.servletPath}?module=Static&amp;d1=oldcontests&amp;d2=tco05Submissions4"><< prev</a>
  | next >>
 </div>
 

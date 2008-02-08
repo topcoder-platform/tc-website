@@ -42,11 +42,11 @@
 <div align="right"><strong>Need help? Learn how to
     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get
         started</a>.<br />
-    Got <a href="/?module=Static&amp;d1=support&amp;d2=generalFaq">questions</a>?</strong>
+    Got <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">questions</a>?</strong>
 </div>
 
-<div class="tableTabOff" style="margin-left: 20px;"><a href="/?module=ViewActiveContests">Active Contests</a></div>
-<div class="tableTabOn"><a href="/?module=ViewPastContests">Past Contests</a></div>
+<div class="tableTabOff" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a></div>
+<div class="tableTabOn"><a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a></div>
 <br  clear="all"/>
 
 <div class="statHolder">
@@ -108,7 +108,7 @@
                         <c:if test="${resultRow.map['forum_id']!=null}">| <studio:forumLink forumID="${resultRow.map['forum_id']}" message="discuss"/></c:if>
                         <% if (resultRow.getBooleanItem("results_available")) { %>
                         |
-                        <a href="/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">winners</a>
+                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">winners</a>
                         <% } %>
                     </div>
                 </td>
@@ -143,7 +143,7 @@
                     <%--
                                     <td class="valueC">
                                         <% if (resultRow.getBooleanItem("results_available")) { %>
-                                        <a href="/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">winners</a>
+                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">winners</a>
                                         <% } else {%>
                                         &#160;
                                         <% } %>
@@ -165,7 +165,7 @@
     <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
 </div>
 
-<div align="right" style="padding-top: 10px;"><strong>Would you like to see some of our <a href="/?module=Static&amp;d1=oldcontests&amp;d2=archive">older logo design contests</a>?</strong></div>
+<div align="right" style="padding-top: 10px;"><strong>Would you like to see some of our <a href="${sessionInfo.servletPath}?module=Static&amp;d1=oldcontests&amp;d2=archive">older logo design contests</a>?</strong></div>
 
                         <br clear="all"/>
                     </div>                

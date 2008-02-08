@@ -36,7 +36,7 @@
                         <h3>Documentation:</h3>
         
                         <p>
-                            <a href="/?module=AssignmentDocumentHistory">Assignment Documents</a>
+                            <a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Assignment Documents</a>
                         </p>
         
                         <h3>Tools</h3>

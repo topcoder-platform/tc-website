@@ -9,9 +9,9 @@
 <% } %>
     <div>
         <a href="/">Home</a>
-        | <a href="/?module=Static&amp;d1=contactUs">Contact Us</a>
-        | <a href="/?module=Static&amp;d1=about&amp;d2=privacy">Privacy</a>
-        | <a href="/?module=Static&amp;d1=about&amp;d2=terms">Terms</a>
+        | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=contactUs">Contact Us</a>
+        | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=about&amp;d2=privacy">Privacy</a>
+        | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=about&amp;d2=terms">Terms</a>
     </div>
 </div>
 

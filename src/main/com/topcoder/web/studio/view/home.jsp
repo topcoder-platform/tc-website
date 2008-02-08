@@ -144,9 +144,9 @@
 
                 <!-- news box -->
                 <div style="width: 525px; height: 150px; margin-bottom: 20px; background: transparent;">
-                    <a href="/?module=ViewActiveContests"><img src="/i/v2/home/studiov3.png" alt="Welcome to TopCoder Studio" /></a>
+                    <a href="${sessionInfo.servletPath}?module=ViewActiveContests"><img src="/i/v2/home/studiov3.png" alt="Welcome to TopCoder Studio" /></a>
                     <%--
-                    <a href="/?module=ViewActiveContests"><img src="/i/v2/home/widgetWednesday.png" alt="Widget Wednesday" /></a>
+                    <a href="${sessionInfo.servletPath}?module=ViewActiveContests"><img src="/i/v2/home/widgetWednesday.png" alt="Widget Wednesday" /></a>
                     --%>
                 </div>
 
@@ -154,9 +154,9 @@
                     <table cellpadding="0" cellspacing="0" width="100%">
                     <tbody>
                         <tr>
-                            <td width="50%" align="left"><a href="/?module=ViewActiveContests"><img src="/i/v2/home_icon_contests.png" alt="Active Contests" /></a></td>
-                            <td width="50%" align="left"><a href="/?module=Static&amp;d1=contactUs"><img src="/i/v2/home_icon_projects.png" alt="Help" /></a></td>
-                            <td><a href="/?module=Static&amp;d1=support&amp;d2=getStarted"><img src="/i/v2/home_icon_help.png" alt="Help" /></a></td>
+                            <td width="50%" align="left"><a href="${sessionInfo.servletPath}?module=ViewActiveContests"><img src="/i/v2/home_icon_contests.png" alt="Active Contests" /></a></td>
+                            <td width="50%" align="left"><a href="${sessionInfo.servletPath}?module=Static&amp;d1=contactUs"><img src="/i/v2/home_icon_projects.png" alt="Help" /></a></td>
+                            <td><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted"><img src="/i/v2/home_icon_help.png" alt="Help" /></a></td>
                         </tr>
                     </tbody>
                     </table>                            
@@ -223,7 +223,7 @@
                                         i++; %>
                                 </rsc:iterator>
                                 <tr>
-                                    <td class="btnRight" colspan="6"><div><a href="/?module=ViewPastContests"><img src="/i/v2/btn_more.png" alt="More..." /></a></div></td>
+                                    <td class="btnRight" colspan="6"><div><a href="${sessionInfo.servletPath}?module=ViewPastContests"><img src="/i/v2/btn_more.png" alt="More..." /></a></div></td>
                                 </tr>
                             </tbody>
                         </table>
