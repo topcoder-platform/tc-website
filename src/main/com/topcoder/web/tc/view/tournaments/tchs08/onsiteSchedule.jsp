@@ -55,7 +55,13 @@
                         <td>12:30 PM - 1:30 PM Lunch</td>
                     </tr>
                     <tr class="light">
+                        <td>1:30 PM - 2:30 PM Purdue Presentation</td>
+                    </tr>
+                    <tr class="dark">
                         <td>6:30 PM - 8:30 PM Awards Ceremony &amp; Dinner</td>
+                    </tr>
+                    <tr class="light">
+                        <td>9:00 PM - 11:00 PM Bowling Tournament &amp; Party</td>
                     </tr>
                     <tr>
                         <th>Sunday, March 16, 2008</th>
