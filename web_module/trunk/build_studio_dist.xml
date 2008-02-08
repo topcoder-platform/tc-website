@@ -219,7 +219,7 @@
         <antcall target="expand-studio"/>
         <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jboss-cache.jar"/>
         <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jgroups.jar"/>
-        <copy todir="${jboss_deploy}" file="${resources}treecache-service.xml"/>
+        <copy todir="${jboss_deploy}" file="${resources}/treecache-service.xml"/>
     </target>
 
 
