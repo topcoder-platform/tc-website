@@ -78,6 +78,9 @@
 
         <ant antfile="build_cache.xml" target="build-cache-admin"/>
 
+        <ant antfile="build_tc.xml" target="package-EJB-QueryServicesBean"/>
+        <ant antfile="build_tc.xml" target="war-query"/>
+
         <mkdir dir="${build}/tempdist"/>
         <unjar src="studio.jar" dest="${build}/tempdist"/>
         <delete file="${build}/tempdist/build_studio.xml"/>
@@ -165,6 +168,16 @@
                 <include name="cacheadmin.sar"/>
             </fileset>
         </copy>
+        <copy todir="${build}/tempdist/build/wars">
+            <fileset dir="${war.dir}">
+                <include name="query.war"/>
+            </fileset>
+        </copy>
+        <copy todir="${build}/tempdist/build/ejb_jars">
+            <fileset dir="${ejb_jars}">
+                <include name="QueryServices.jar"/>
+            </fileset>
+        </copy>
 
         <copy todir="${build}/tempdist/resources/taglib">
             <fileset dir="${resources}/taglib">
@@ -232,6 +245,8 @@
         <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jgroups.jar"/>
         <copy todir="${jboss_deploy}" file="${resources}/treecache-service.xml"/>
         <copy todir="${jboss_deploy}" file="${sar.dir}/cacheadmin.sar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/QueryServices.jar"/>
+        <copy todir="${jboss_deploy}" file="${war.dir}/query.war"/>
     </target>
 
 
