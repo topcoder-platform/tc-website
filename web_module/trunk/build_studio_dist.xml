@@ -143,12 +143,14 @@
                 <include name="hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
 
 
+<!--
                 <include name="jive/htmlparser.jar"/>
                 <include name="jive/jivebase.jar"/>
                 <include name="jive/jiveforums.jar"/>
                 <include name="jive/velocity-dep.jar"/>
                 <include name="jive/xwork.jar"/>
                 <include name="jive/webwork.jar"/>
+-->
 
             </fileset>
         </copy>
@@ -221,7 +223,9 @@
         <war warfile="${war.dir}/studio.war" webxml="${resources}/studio/web.xml">
             <classes dir="${classes}">
                 <include name="com/topcoder/web/studio/**/*.class"/>
+<!--
                 <include name="com/topcoder/web/forums/**/*.class"/>
+-->
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
@@ -235,9 +239,11 @@
             <fileset dir="${java}/com/topcoder/web/studio/view">
                 <include name="**/*.jsp"/>
             </fileset>
+<!--
             <fileset dir="${java}/com/topcoder/web/forums/view/studio">
                 <include name="*.*"/>
             </fileset>
+-->
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="style.jsp"/>
             </fileset>
@@ -265,14 +271,18 @@
     <target name="expand-studio">
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
+<!--
         <copy todir="${jboss_lib}" file="${bin}/tcjive.jar"/>
+-->
         <copy todir="${jboss_lib}" file="${ejb_jars}/security.jar"/>
+<!--
         <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
+-->
 
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
