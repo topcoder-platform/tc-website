@@ -214,7 +214,7 @@
     </target>
 
 
-    <target name="deploy" depends="compile">
+    <target name="deploy" depends="war-studio">
         <antcall target="expand-studio"/>
     </target>
 
