@@ -44,6 +44,7 @@
    <tr><td valign="middle" class="bodyText" colspan="2">
    <strong>February</strong>
    </td></tr>
+   <tr><td class="bodyText">02.05.08</td><td class="bodyText" nowrap="0" width="100%">TCO08 - Qualification Round 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tco08qualRd1">Problem Set &amp; Analysis</a></td></tr>
    <tr><td class="bodyText">02.02.08</td><td class="bodyText" nowrap="0" width="100%">SRM 390 - <a href="/tc?module=Static&d1=match_editorials&d2=srm390">Problem Set &amp; Analysis</a></td></tr>
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    
