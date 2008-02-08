@@ -187,6 +187,7 @@
                 <include name="DBMS.properties"/>
                 <include name="DataAccess.properties"/>
                 <include name="EmailEngineConfig.properties"/>
+                <include name="treecache-service.xml"/>
 
                 <include name="com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
                 <include name="com/topcoder/security/Util.properties"/>
@@ -218,6 +219,7 @@
         <antcall target="expand-studio"/>
         <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jboss-cache.jar"/>
         <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jgroups.jar"/>
+        <copy todir="${jboss_deploy}" file="${resources}treecache-service.xml"/>
     </target>
 
 
