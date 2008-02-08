@@ -210,6 +210,7 @@ TopCoder's accomplished management team includes some of the most successful pro
     </p>
 </div>
 
+<%--
 <div class="bioEven">
     <div class="photo"><img src="/i/about/management/mluce.jpg" alt="" /></div>
     <h2>MaryBeth Luce</h2>
@@ -219,8 +220,9 @@ TopCoder's accomplished management team includes some of the most successful pro
     MaryBeth Luce manages new corporate initiatives, events, recruiting and TopCoder's Asian operations centered in Beijing, China. She joined TopCoder in April of 2001 as the Finance and Human Resources Manager. Prior to joining TopCoder, Luce worked as a Senior Business Assurance Associate at PricewaterhouseCoopers LLC, the world's largest professional services firm. Luce holds a Bachelor of Business Administration degree in Accounting from the University of Notre Dame.
     </p>
 </div>
+--%>
 
-<div class="bioOdd">
+<div class="bioEven">
     <div class="photo"><img src="/i/about/management/thorgan.jpg" alt="" /></div>
     <h2>Tanya Horgan, CPA</h2>
     <h3><i>Vice President, Finance</i></h3>
@@ -230,7 +232,7 @@ TopCoder's accomplished management team includes some of the most successful pro
     </p>
 </div>
 
-<div class="bioEven">
+<div class="bioOdd">
     <div class="photo"><img src="/i/about/management/dmessinger.jpg" alt="" /></div>
     <h2>Dave Messinger</h2>
     <h3><i>Chief Architect</i></h3>
@@ -243,7 +245,7 @@ TopCoder's accomplished management team includes some of the most successful pro
     </p>
 </div>
 
-<div class="bioOdd">
+<div class="bioEven">
     <div class="photo"><img src="/i/about/management/tjefts.jpg" alt="" /></div>
     <h2>Tony Jefts</h2>
     <h3><i>Director of Software Operations</i></h3>
