@@ -118,7 +118,6 @@
                 <include name="standard.jar"/>
 
 
-
                 <include name="tcs/file_upload/2.0/file_upload.jar"/>
                 <include name="tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
                 <include name="tcs/data_validation/1.0/data_validation.jar"/>
@@ -167,19 +166,19 @@
             <fileset dir="${resources}/studio">
                 <include name="jboss-web.xml"/>
                 <include name="hibernate.cfg.xml"/>
-             </fileset>
+            </fileset>
         </copy>
 
         <copy todir="${build}/tempdist/resources/hibernate">
-             <fileset dir="${resources}/hibernate">
-                 <include name="com/topcoder/web/common/model/**/*.xml"/>
-                 <include name="com/topcoder/web/studio/model/**/*.xml"/>
-                 <include name="com/topcoder/web/common/voting/**/*.xml"/>
-              </fileset>
-         </copy>
+            <fileset dir="${resources}/hibernate">
+                <include name="com/topcoder/web/common/model/**/*.xml"/>
+                <include name="com/topcoder/web/studio/model/**/*.xml"/>
+                <include name="com/topcoder/web/common/voting/**/*.xml"/>
+            </fileset>
+        </copy>
 
         <copy todir="${build}/tempdist/resources">
-             <fileset dir="${resources}">
+            <fileset dir="${resources}">
 
                 <include name="cache.properties"/>
                 <include name="ApplicationServer.properties"/>
@@ -192,12 +191,8 @@
                 <include name="com/topcoder/util/config/ConfigManager.properties"/>
                 <include name="com/topcoder/servlet/request/FileUpload.xml"/>
 
-             </fileset>
+            </fileset>
         </copy>
-
-
-
-
 
 
     </target>
@@ -220,9 +215,6 @@
     <target name="deploy" depends="compile">
         <antcall target="expand-studio"/>
     </target>
-
-
-
 
 
     <target name="war-studio" depends="compile">
@@ -311,13 +303,13 @@
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
-<!--
-        <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
--->
+        <!--
+                <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
+        -->
 
-<!--
-        <copy todir="${jboss_conf}" file="${resources}/forums/studio/jive_init.xml"/>
--->
+        <!--
+                <copy todir="${jboss_conf}" file="${resources}/forums/studio/jive_init.xml"/>
+        -->
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
@@ -341,13 +333,6 @@
             </fileset>
         </copy>
     </target>
-
-
-
-
-
-
-
 
 
 </project>
