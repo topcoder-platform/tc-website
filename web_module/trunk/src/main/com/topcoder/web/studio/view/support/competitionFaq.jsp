@@ -36,8 +36,8 @@
                 <h1>Competition FAQs</h1>
                 
                 <div style="float: right; text-align: left; margin-left: 10px;">
-                    <a href="/?module=Static&amp;d1=support&amp;d2=getStarted">Getting Started</a>
-                    <br /><a href="/?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
+                    <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted">Getting Started</a>
+                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
                     <br />Competition FAQs
                 </div>
 

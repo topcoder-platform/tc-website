@@ -39,7 +39,7 @@
                 We may revise these Terms of Use at any time without prior notice by updating this page and such revisions will be effective upon posting to this page.  Please check this page periodically for any changes.  Your continued use of this Web site following the posting of any revisions to these Terms of Use will mean you accept those changes.  We reserve the right to alter, suspend or discontinue any aspect of www.topcoder.com, including your access to it.  Unless explicitly stated, any new features will be subject to these Terms of Use.
                 <br /><br />
                 <h2>Privacy</h2>
-                See our complete <a href="/?module=Static&d1=about&d2=privacy">privacy policy</a>.
+                See our complete <a href="${sessionInfo.servletPath}?module=Static&d1=about&d2=privacy">privacy policy</a>.
                 <br /><br />
                 <h2>Provisions Applicable to Chinese Citizens and Expatriates Residing in China</h2>
                 TopCoder hereby incorporates into these Terms of Use and Privacy Policy the provisions of China's Decision on Safeguarding the Security of the Internet (the "Decision").

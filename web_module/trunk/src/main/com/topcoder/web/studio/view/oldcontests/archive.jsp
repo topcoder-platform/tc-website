@@ -41,17 +41,17 @@ In the past, TopCoder has held contests to design logos for our online programmi
 <tbody>
     <tr>
         <td align="center">
-        <a href="/?module=Static&amp;d1=oldcontests&amp;d2=tccc06Finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0449.gif" alt="" /></a>
+        <a href="${sessionInfo.servletPath}?module=Static&amp;d1=oldcontests&amp;d2=tccc06Finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0449.gif" alt="" /></a>
         </td>
     </tr>
     <tr>
         <td align="center" style="padding-bottom: 100px;">
-        <a href="/?module=Static&amp;d1=oldcontests&amp;d2=tco06Finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/logo_submissions/0056.jpg" alt="" /></a>
+        <a href="${sessionInfo.servletPath}?module=Static&amp;d1=oldcontests&amp;d2=tco06Finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/logo_submissions/0056.jpg" alt="" /></a>
         </td>
     </tr>
     <tr>
         <td align="center">
-        <a href="/?module=Static&amp;d1=oldcontests&amp;d2=tco05Finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/085.gif" alt=""  /></a>
+        <a href="${sessionInfo.servletPath}?module=Static&amp;d1=oldcontests&amp;d2=tco05Finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/085.gif" alt=""  /></a>
         </td>
     </tr>
         </tbody>

@@ -37,8 +37,8 @@
                     
                     <div style="float: right; text-align: left; margin: 0px 0px 10px 10px;">
                         Getting Started
-                        <br /><a href="/?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
-                        <br /><a href="/?module=Static&amp;d1=support&amp;d2=competitionFaq">Competition FAQs</a>
+                        <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
+                        <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=competitionFaq">Competition FAQs</a>
                     </div>
             
                     <h3>Creative and exciting projects that pay off big.</h3>
@@ -62,7 +62,7 @@
                     </div>
                     <strong>TopCoder Studio posts project as a new contest</strong>:
                     Once the project documentation has been completed by the client and formatted appropriately by
-                    TopCoder Studio, it is posted on the <a href="/?module=ViewActiveContests">Contests page</a>.
+                    TopCoder Studio, it is posted on the <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Contests page</a>.
                     All TopCoder Studio members will be alerted via email when new contests are posted.
                     <br /><br />
                     
@@ -73,7 +73,7 @@
                     Anyone interested in participating in TopCoder Studio can read through the Contests page - no
                     prior registration is necessary. If there is a contest that you think a friend, co-worker or
                     fellow creative type might be interested in, send them a link to the
-                    <a href="/?module=ViewActiveContests">Contests page</a>.
+                    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Contests page</a>.
                     <br /><br />
                     
                     <div style="float:left; margin: 0px 6px 4px 0px;">
@@ -132,7 +132,7 @@
                     Details.
                     <br /><br />
                     
-                    Get started now by checking out the current <a href="/?module=ViewActiveContests">Contests</a>!
+                    Get started now by checking out the current <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Contests</a>!
                     
                     <br /><br />
                     Questions about the process can be directed to <a href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</a>.

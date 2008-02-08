@@ -48,11 +48,11 @@
 
                         <h1>Assignment Documents</h1>
                         
-                        <p align="right"><a href="/?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">Printer friendly version</a></p>
+                        <p align="right"><a href="${sessionInfo.servletPath}?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">Printer friendly version</a></p>
                         <div align="center">
                         
                         <iframe  width="100%" height="400" marginWidth="5" style="margin-bottom: 10px;"
-                            src="/?module=Static&d1=mystudio&d2=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
+                            src="${sessionInfo.servletPath}?module=Static&d1=mystudio&d2=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
                         
                         <c:if test="${assignment_document.status.id == PENDING_STATUS_ID}">
                             <form action="/" method="post">

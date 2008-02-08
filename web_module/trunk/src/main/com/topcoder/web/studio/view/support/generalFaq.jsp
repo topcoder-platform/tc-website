@@ -36,9 +36,9 @@
                         <h1>General FAQs</h1>
                         
                         <div style="float: right; text-align: left; margin: 0px 0px 10px 10px;">
-                            <a href="/?module=Static&amp;d1=support&amp;d2=getStarted">Getting Started</a>
+                            <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted">Getting Started</a>
                             <br />General FAQs
-                            <br /><a href="/?module=Static&amp;d1=support&amp;d2=competitionFaq">Competition FAQs</a>
+                            <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=competitionFaq">Competition FAQs</a>
                         </div>
         
                         <h3>What software should I use?</h3>

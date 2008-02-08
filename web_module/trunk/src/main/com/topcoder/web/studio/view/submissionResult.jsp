@@ -44,7 +44,7 @@
                 <div class="linkBox"><studio:forumLink forumID="${submission.contest.forumId}"/></div>
                 
                 <div class="breadcrumb">
-                    <a href="/?<%=Constants.MODULE_KEY%>=ViewPastContests">Past Contests</a> &gt;
+                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests">Past Contests</a> &gt;
                     ${submission.contest.name}
                 </div>
 

@@ -46,7 +46,7 @@
 </div>
 
 <div class="breadcrumb">
-    <a href="/?<%=Constants.MODULE_KEY%>=ViewPastContests">Past Contests</a> &gt;
+    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests">Past Contests</a> &gt;
     ${contest.name}
 </div>
 
@@ -171,7 +171,7 @@
         i++; %>
 </rsc:iterator>
 <tr>
-    <td class="btnRight" colspan="9"><div><a href="/?<%=Constants.MODULE_KEY%>=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="small">...view all submissions</a></div></td>
+    <td class="btnRight" colspan="9"><div><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="small">...view all submissions</a></div></td>
 </tr>
 
 </tbody>
