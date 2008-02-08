@@ -4,6 +4,7 @@
     <property name="build" value="build"/>
     <property name="war.dir" value="${build}/wars"/>
     <property name="ear.dir" value="${build}/ears"/>
+    <property name="sar.dir" value="${build}/sars"/>
     <property name="ejb_jars" value="${build}/ejb_jars"/>
     <property name="classes" value="${build}/classes"/>
     <property name="testclasses" value="${build}/testcases"/>
@@ -68,11 +69,15 @@
         <mkdir dir="${ejb_jars}"/>
         <mkdir dir="${war.dir}"/>
         <mkdir dir="${ear.dir}"/>
+        <mkdir dir="${sar.dir}"/>
     </target>
 
     <target name="create-detached-package">
         <delete dir="${build}/tempdist"/>
         <ant antfile="move.xml" target="package-studio"/>
+
+        <ant antfile="build_cache.xml" target="build-cache-admin"/>
+
         <mkdir dir="${build}/tempdist"/>
         <unjar src="studio.jar" dest="${build}/tempdist"/>
         <delete file="${build}/tempdist/build_studio.xml"/>
@@ -155,6 +160,12 @@
             </fileset>
         </copy>
 
+        <copy todir="${build}/tempdist/build/sars">
+            <fileset dir="${sar.dir}">
+                <include name="cacheadmin.sar"/>
+            </fileset>
+        </copy>
+
         <copy todir="${build}/tempdist/resources/taglib">
             <fileset dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
@@ -220,6 +231,7 @@
         <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jboss-cache.jar"/>
         <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jgroups.jar"/>
         <copy todir="${jboss_deploy}" file="${resources}/treecache-service.xml"/>
+        <copy todir="${jboss_deploy}" file="${sar.dir}/cacheadmin.sar"/>
     </target>
 
 
