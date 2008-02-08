@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.08.08<br />11:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=match_editorials&d2=srm390">SRM 390 - Problem Set &amp; Analysis</a></span><br /><br />
+      Being the last SRM before TCO, the match attracted 1361 competitors. However, the problems in both division were not easy. The success rate for two DPs in both divisions was surprisingly low, making the challenge phase very eventful.</td>
+         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="11907556" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <a href="/tc?module=Static&d1=match_editorials&d2=srm390">details</a> | 
+         <tc-webtag:forumLink forumID="519365" message="discuss this" /> | 
+         <a href="/tc?module=Static&d1=match_editorials&d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.08.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 2</A></span><br /><br />
@@ -154,18 +170,5 @@
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=592">details</A> | 
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=205768&mc=26755">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.28.08<br />5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description">End of TCO08 Marathon Match Registration</a></span><br /><br />
-        Don't Forget!  TCO08 Marathon Match Registration ends Tuesday, January 29 at 5:00 PM EST.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
    </td></tr>
    
