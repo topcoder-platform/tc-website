@@ -775,7 +775,7 @@ at the beginning and at the end of the given range.
 <p>
 A similar approach was used in
 <tc-webtag:handle coderId="14927744" context="algorithm"/>'s
-<a href=" &amp;&amp; /stat?c=problem_solution&rm=268831&rd=12007&pm=8600&cr=14927744">fastest solution</a>.
+<a href="/stat?c=problem_solution&rm=268831&rd=12007&pm=8600&cr=14927744">fastest solution</a>.
 </p>
 
 <h4>Generating</h4>
