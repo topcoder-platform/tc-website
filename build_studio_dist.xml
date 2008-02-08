@@ -72,9 +72,7 @@
 
     <target name="create-detached-package">
         <delete dir="${build}/tempdist"/>
-<!--
         <ant antfile="move.xml" target="package-studio"/>
--->
         <mkdir dir="${build}/tempdist"/>
         <unjar src="studio.jar" dest="${build}/tempdist"/>
         <delete file="${build}/tempdist/build_studio.xml"/>
