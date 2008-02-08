@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.08.08<br />10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 2</A></span><br /><br />
+        TCO Qualification Round 2 is set for Saturday, February 9 at 1:00 PM EST.  See you in the arena!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">details</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />02.07.08<br />3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -154,21 +167,5 @@
         <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=description">details</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />01.25.08<br />3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=features&d2=012508">Meet the December 2007 Coders of the Month</a></span><br /><br />
-      We caught up with December's Coders of the Month, as well as December's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</td>
-         <td class="newsPhoto">&nbsp;</td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <a href="/tc?module=Static&d1=features&d2=012508">details</a> | 
-         <tc-webtag:forumLink forumID="519228" message="discuss this" /> | 
-         <a href="/tc?module=Static&d1=features&d2=archive">archive</a>
    </td></tr>
    
