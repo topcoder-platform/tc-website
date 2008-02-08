@@ -216,6 +216,8 @@
 
     <target name="deploy" depends="war-studio">
         <antcall target="expand-studio"/>
+        <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jboss-cache.jar"/>
+        <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jgroups.jar"/>
     </target>
 
 
