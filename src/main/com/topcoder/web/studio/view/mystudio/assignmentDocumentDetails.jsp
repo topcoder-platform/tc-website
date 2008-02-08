@@ -55,7 +55,7 @@
                             src="${sessionInfo.servletPath}?module=Static&d1=mystudio&d2=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
                         
                         <c:if test="${assignment_document.status.id == PENDING_STATUS_ID}">
-                            <form action="/" method="post">
+                            <form action="${sessionInfo.servletPath}" method="post">
                                 <input type="hidden" name="<%=Constants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
                                 <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
                                 <input type="submit" value="Affirm"/>

@@ -85,7 +85,7 @@
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tbody>
         
-            <form name="f" action="/" method="get">
+            <form name="f" action="${sessionInfo.servletPath}" method="get">
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AssignmentDocumentHistory"/>
             <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
             <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>

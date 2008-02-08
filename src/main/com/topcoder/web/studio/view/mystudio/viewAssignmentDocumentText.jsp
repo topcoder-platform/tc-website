@@ -27,7 +27,7 @@
 </head>
 
 <body class="termsBody" style="margin:5px;">
-<c:import url="/">
+<c:import url="${sessionInfo.servletPath}">
     <c:param name="<%=Constants.MODULE_KEY%>" value="ViewAssignmentDocumentText"/>
     <c:param name="<%=Constants.ASSIGNMENT_DOCUMENT_ID%>" value="<%=request.getParameter(Constants.ASSIGNMENT_DOCUMENT_ID)%>"/>
 </c:import>

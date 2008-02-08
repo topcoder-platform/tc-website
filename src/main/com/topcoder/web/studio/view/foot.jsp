@@ -8,7 +8,7 @@
 <div id="footer">
 <% } %>
     <div>
-        <a href="/">Home</a>
+        <a href="${sessionInfo.servletPath}">Home</a>
         | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=contactUs">Contact Us</a>
         | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=about&amp;d2=privacy">Privacy</a>
         | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=about&amp;d2=terms">Terms</a>
