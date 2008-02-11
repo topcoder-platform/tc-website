@@ -44,9 +44,10 @@
 
 
 <p>
-    5.14.3 - 2008.02.XX
+    5.14.3 - 2008.02.11
     <ul>
         <li>Add JSON output option for data feeds -dok</li>
+        <li>Remove the requirement for reliability from registering for components -TonyJ</li>
     </ul>
 </p>
 
