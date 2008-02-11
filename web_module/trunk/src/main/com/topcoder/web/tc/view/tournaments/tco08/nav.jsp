@@ -108,8 +108,8 @@
                         <li><a href="/tco08?module=ViewRegistration&amp;et=9"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
                         --%>
                         <li><a href="/tco08?module=Registrants&amp;et=9"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
-                        <%--
                         <li><a href="/tco08?module=MarathonAdvancers"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a></li>
+                        <%--
                         <li><a href=""<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
                         --%>
                         
