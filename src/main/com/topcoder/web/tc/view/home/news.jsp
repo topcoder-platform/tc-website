@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.11.08<br />5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 3</A></span><br /><br />
+        TCO08 Qualification Round 3 is set for Tuesday, February 12 at 7:00 AM EST.  See you in the arena!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">details</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />02.11.08<br />3:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -81,7 +94,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.08.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 2</A></span><br /><br />
-        TCO Qualification Round 2 is set for Saturday, February 9 at 1:00 PM EST.  See you in the arena!</td>
+        TCO08 Qualification Round 2 is set for Saturday, February 9 at 1:00 PM EST.  See you in the arena!</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">details</a> | 
@@ -139,7 +152,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.05.08<br />9:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 1</A></span><br /><br />
-        TCO Qualification Round 1 is set for Tuesday, February 5 at 9:00 PM EST.  See you in the arena!</td>
+        TCO08 Qualification Round 1 is set for Tuesday, February 5 at 9:00 PM EST.  See you in the arena!</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">details</a> | 
@@ -152,24 +165,11 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.04.08<br />10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tco08?module=AlgorithmQualification">TCO08 Algorithm Qualification Byes</A></span><br /><br />
-        See who automatically made it to TCO Round 1. The Algorithm Byes are up!</td>
+        See who automatically made it to TCO08 Round 1. The Algorithm Byes are up!</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tco08?module=AlgorithmQualification">details</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.01.08<br />3:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly">Eli Lilly chat before SRM 390</A></span><br /><br />
-        Join Eli Lilly representatives before <a href="/tc?module=MatchDetails&rd=11124">SRM 390</a> to chat about their exciting career opportunities at their office all over the world.  The chat session will begin at 11:00 AM EST (GMT/UTC -5).</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly">details</a> | 
-        <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
         <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
    </td></tr>
    
