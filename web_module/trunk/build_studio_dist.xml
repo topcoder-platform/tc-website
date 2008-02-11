@@ -98,11 +98,7 @@
                 <include name="${java}/com/topcoder/web/jsp/style.jsp"/>
             </fileset>
         </copy>
-        <copy todir="${build}/tempdist">
-            <fileset dir=".">
-                <include name="build_studio_dist.xml"/>
-            </fileset>
-        </copy>
+        <copy tofile="${build}/tempdist/build.xml" file="build_studio_dist.xml"/>
 
         <copy todir="${build}/tempdist/depsrc/src/main">
             <fileset dir="${shared}">
