@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.11.08<br />12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tco08?module=AlgorithmQualification&full=true">TCO08 Algorithm Qualification Round 2 results</A></span><br /><br />
+        The results of qualification round 2 of the TCO08 Algorithm Competition are complete! See who advanced to round 1.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tco08?module=AlgorithmQualification&full=true">details</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.08.08<br />12:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -157,19 +170,6 @@
    <tr><td class="newsLinksCell">
         <a href="/longcontest/?module=ViewActiveContests">details</a> | 
         <tc-webtag:forumLink forumID="519311" message="discuss this" /> | 
-        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />01.30.08<br />10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description">End of TCO08 Algorithm Registration</a></span><br /><br />
-        Only 2 Days to left Register!  Algorithm Registration ends at 5:00 PM EST on Friday, February 1, 2008.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=description">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
    </td></tr>
    
