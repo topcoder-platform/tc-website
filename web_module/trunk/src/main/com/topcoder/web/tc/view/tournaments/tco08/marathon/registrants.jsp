@@ -1,12 +1,12 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
-<%@ page import="com.topcoder.web.common.model.EventType, com.topcoder.shared.dataAccess.*, 
-                 com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants, com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.web.common.model.EventType" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
@@ -123,7 +123,6 @@ String eventType = (String) request.getAttribute("et"); %>
 </form>
 
 
-    </div><%-- #content --%>
 
 <jsp:include page="../footer.jsp" />
 
