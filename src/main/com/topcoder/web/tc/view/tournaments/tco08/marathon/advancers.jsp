@@ -1,3 +1,4 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants, com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.model.EventType,
@@ -15,16 +16,14 @@
 <!--  To set up a new contest, please complete the corresponding rounds ids for each part of the competition -->
 <!--  Leave empty if the round doesn't exist or it's not finished -->
 
-<c:set value="/longcontest/?module=ViewOverview&amp;rd=" var="details_link"/>
+<c:set value="/longcontest/stats/?module=ViewOverview&amp;rd=" var="details_link"/>
 <!-- 
 <c:set var="round1_id" value="11130"/>
 <c:set var="round2_id" value="11131"/>
 <c:set var="round3_id" value="11132"/>
 <c:set var="finals_id" value="12020"/>
  -->
- 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>2008 TopCoder Open - Computer Programming Tournament</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -163,7 +162,6 @@
                     </c:if>
                 </form>
             
-    </div><%-- #content --%>
 
 <jsp:include page="../footer.jsp" />
 
