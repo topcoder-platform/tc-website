@@ -218,6 +218,11 @@
             </fileset>
         </copy>
 
+        <jar destfile="${build}/tempdist/studio_dist.jar" update="true">
+            <fileset dir="${build}/tempdist">
+                <include name="**"/>
+            </fileset>
+        </jar>
 
     </target>
 
