@@ -15,7 +15,7 @@
 <!--  To set up a new contest, please complete the corresponding rounds ids for each part of the competition -->
 <!--  Leave empty if the round doesn't exist or it's not finished -->
 
-<c:set value="/longcontest/?module=ViewOverview&rd=" var="details_link"/>
+<c:set value="/longcontest/stats/?module=ViewOverview&rd=" var="details_link"/>
 <c:set var="round1_id" value="10500"/>
 <c:set var="round2_id" value="10501"/>
 <c:set var="round3_id" value=""/>
