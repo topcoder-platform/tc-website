@@ -7,6 +7,10 @@
 <table width="530" border="0" cellspacing="0" cellpadding="4">
 
    <tr><td class="prHead">
+         <a target="_blank" href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1">Rock star coders</a> [January 22]
+   </td></tr>
+   
+   <tr><td class="prHead">
          <%--
          <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/computerworld.gif" width="67" height="18" alt="ComputerWorld" border="0" /></div>
          --%>
