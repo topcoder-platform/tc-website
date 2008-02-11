@@ -134,11 +134,11 @@
 <%-- Banners --%>
 <tr>
     <td class="homeLeftBan">
-        <A href="/tc"><img src="/i/home/tab_developercenter.gif" alt="Developer Center" border="0" style="display:block;"/></A>
+        <A href="/tc"><img src="/i/home/tab_compete.png" alt="Compete" border="0" style="display:block;"/></A>
     </td>
     <td class="homeGutter" rowspan=2>&#160;</td>
     <td class="homeCentBan">
-        <A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/tab_corporateservices.gif" alt="Corporate Services" border="0" style="display:block;"/></A>
+        <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/"><img src="/i/home/tab_software.png" alt="Software" border="0" style="display:block;"/></A>
     </td>
     <td class="homeGutter" rowspan=2>&#160;</td>
     <td class="homeRightBan">
