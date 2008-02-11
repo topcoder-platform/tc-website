@@ -220,7 +220,12 @@
 
         <jar destfile="${build}/tempdist/studio_dist.jar" update="true">
             <fileset dir="${build}/tempdist">
-                <include name="**"/>
+                <include name="build/**"/>
+                <include name="depsrc/**"/>
+                <include name="lib/**"/>
+                <include name="resources/**"/>
+                <include name="src/**"/>
+                <include name="build.xml"/>
             </fileset>
         </jar>
 
