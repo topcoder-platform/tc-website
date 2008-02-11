@@ -122,7 +122,7 @@ String eventType = (String) request.getAttribute("et"); %>
 
 </form>
 
-
+</div><%-- #content --%>
 
 <jsp:include page="../footer.jsp" />
 

@@ -161,7 +161,7 @@
                         </div>
                     </c:if>
                 </form>
-            
+            </div><%-- #content --%>
 
 <jsp:include page="../footer.jsp" />
 

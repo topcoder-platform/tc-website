@@ -96,7 +96,8 @@
             
         </div><%-- .sub_content --%>
         
-    
+    </div><%-- #content --%>
+
 <jsp:include page="../footer.jsp" />
 
 </div><%-- #wrapper --%>
