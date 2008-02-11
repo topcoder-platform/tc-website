@@ -218,7 +218,8 @@
             </fileset>
         </copy>
 
-        <jar destfile="${build}/tempdist/studio_dist.jar" update="true">
+        <delete file="${build}/tempdist/studio_dist.jar"/>
+        <jar destfile="${build}/tempdist/studio_dist.jar">
             <fileset dir="${build}/tempdist">
                 <include name="build/**"/>
                 <include name="depsrc/**"/>
