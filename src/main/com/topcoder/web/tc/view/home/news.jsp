@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />02.11.08<br />3:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=ProjectDetail&pj=30003583">Take Another Shot at a TopCoder Architecture Competition</a></span><br /><br />
+      TopCoder has reposted the Studio Service Architecture Competition and registration is open now. Prize money has been raised to $1800 for first place, $900 for second. This competition is part of the TopCoder Direct Cockpit project, which you can read more about <a href="/wiki/display/projects/TopCoder+Direct+Cockpit">here</a>, or for more information on TopCoder Architecture Competitions in general, visit the <a href="/wiki/display/tc/Architecture+Overview">overview page</a> in the wiki.</td>
+         <td class="newsPhoto">&nbsp;</td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <a href="/tc?module=ProjectDetail&pj=30003583">details</a> | 
+         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=2948">discuss this</a> | 
+         <a href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.11.08<br />2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tco08?module=MarathonAdvancers">TCO08 Marathon Round 1 results are up!</A></span><br /><br />
@@ -155,21 +171,5 @@
         <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly">details</a> | 
         <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
         <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.01.08<br />2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=match_editorials&d2=srm389">SRM 389 - Problem Set &amp; Analysis</a></span><br /><br />
-      SRM 389 was a relatively easy problem set compared to recent matches. The solution to all of the problems could be coded quite quickly once you figured out the correct algorithm to use, and the constraints were not large enough to present much difficulty.</td>
-         <td class="newsPhoto"><img src="/i/m/legakis_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="287269" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <a href="/tc?module=Static&d1=match_editorials&d2=srm389">details</a> | 
-         <tc-webtag:forumLink forumID="519159" message="discuss this" /> | 
-         <a href="/tc?module=Static&d1=match_editorials&d2=archive">archive</a>
    </td></tr>
    
