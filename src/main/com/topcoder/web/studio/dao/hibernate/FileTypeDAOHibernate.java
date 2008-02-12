@@ -18,7 +18,7 @@ public class FileTypeDAOHibernate extends GenericBase<StudioFileType, Integer> i
     public List<StudioFileType> getFileTypes() {
         List ret;
         StringBuffer query = new StringBuffer(100);
-        query.append("FROM StudioFileType ft");
+        query.append("FROM com.topcoder.web.studio.model.StudioFileType ft");
         query.append(" ORDER BY ft.sort");
         Query q = getSession().createQuery(query.toString());
         ret = q.list();
@@ -27,8 +27,8 @@ public class FileTypeDAOHibernate extends GenericBase<StudioFileType, Integer> i
 
     public StudioFileType find(String mimeType) {
         StringBuffer query = new StringBuffer(100);
-        query.append("from StudioFileType f");
-        query.append(" where LOWER(f.mimeTypes.description) = LOWER(?)");
+        query.append("from com.topcoder.web.studio.model.StudioFileType f join com.topcoder.web.studio.model.MimeType m");
+        query.append(" where LOWER(m.description) = LOWER(?)");
         Query q = getSession().createQuery(query.toString());
         q.setString(0, mimeType);
         return (StudioFileType) q.uniqueResult();
