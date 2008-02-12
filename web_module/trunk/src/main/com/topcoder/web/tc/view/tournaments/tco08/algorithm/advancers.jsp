@@ -35,6 +35,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+<script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
     <jsp:include page="../../script.jsp" />
 
     <script type="text/javascript">

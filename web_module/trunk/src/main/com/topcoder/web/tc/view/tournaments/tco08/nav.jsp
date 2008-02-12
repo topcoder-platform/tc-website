@@ -36,10 +36,14 @@
 
 <div id="sidebar">
 
+    <div align="center" style="padding: 0 0 20px 0;">
+    <a href="javascript:arena();"><img src="/i/tournament/tco08/launchArena.png" alt="Launch Arena" /></a>
+    </div>
+    
     <div id="date">
     <h3><tc-webtag:format object="<%=new Date()%>" format="EEEE, MMMM d, yyyy" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/></h3>
     </div>
-    
+
     <div align="center"><p style="font-size:12px; color:#ed1c24;"><strong>Sponsors and Event Patrons</strong></p></div><br />
     <ul id="sponsors">
         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly"><img src="/i/tournament/tco08/lilly_logo_nav.png" width="186" height="80" alt="Eli Lilly" /></a></li>
