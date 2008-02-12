@@ -3,7 +3,13 @@ package com.topcoder.web.studio.dao;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.TCHibernateTestCase;
-import com.topcoder.web.studio.model.*;
+import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.FilePath;
+import com.topcoder.web.studio.model.ReviewStatus;
+import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.SubmissionReview;
+import com.topcoder.web.studio.model.SubmissionStatus;
+import com.topcoder.web.studio.model.SubmissionType;
 
 /**
  * @author dok
@@ -26,6 +32,7 @@ public class SubmissionReviewDAOTestCase extends TCHibernateTestCase {
         p.setPath("stuff");
         s.setPath(p);
         s.setType(StudioDAOUtil.getFactory().getSubmissionTypeDAO().find(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE));
+        s.setStatus(StudioDAOUtil.getFactory().getSubmissionStatusDAO().find(SubmissionStatus.ACTIVE));
         StudioDAOUtil.getFactory().getSubmissionDAO().saveOrUpdate(s);
 
         SubmissionReview sr = new SubmissionReview();
