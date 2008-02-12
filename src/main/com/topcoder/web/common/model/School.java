@@ -113,7 +113,7 @@ public class School extends Base {
     }
 
     /**
-     * @param UserSchool the UserSchool to set
+     * @param userSchools the UserSchool to set
      */
     public void setUserSchools(Set<UserSchool> userSchools) {
         this.userSchools = userSchools;
