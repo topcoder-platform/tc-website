@@ -85,8 +85,9 @@
         <unjar src="studio.jar" dest="${build}/tempdist"/>
         <delete file="${build}/tempdist/build_studio.xml"/>
         <delete file="${build}/tempdist/move.xml"/>
+        <unjar src="webserver.jar" dest="${build}/tempdist"/>
         <delete dir="${build}/tempdist/META-INF"/>
-
+        
         <copy todir="${build}/tempdist/depsrc">
             <fileset dir=".">
                 <include name="${java}/com/topcoder/web/common/**/*"/>
