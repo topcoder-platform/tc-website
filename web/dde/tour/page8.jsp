@@ -67,8 +67,7 @@
     </div>
 </div>
 
-<%-- CrazyEgg heatmap code --%>
-<script type="text/javascript" src="http://cetrk.com/pages/scripts/0004/0536.js"> </script>
+<jsp:include page="foot.jsp" />
 
 </body>
 
