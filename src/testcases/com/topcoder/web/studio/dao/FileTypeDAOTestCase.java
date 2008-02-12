@@ -1,6 +1,6 @@
 package com.topcoder.web.studio.dao;
 
-import com.topcoder.web.reg.TCHibernateTestCase;
+import com.topcoder.web.studio.TCHibernateTestCase;
 
 /**
  * @author dok
