@@ -227,6 +227,9 @@
                 <include name="lib/**"/>
                 <include name="resources/**"/>
                 <include name="src/**"/>
+                <include name="i/**"/>
+                <include name="js/**"/>
+                <include name="css/**"/>
                 <include name="build.xml"/>
             </fileset>
         </jar>
