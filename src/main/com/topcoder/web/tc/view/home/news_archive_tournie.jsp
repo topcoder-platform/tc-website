@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">02.12.08 12:00 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=602680&mc=25#928522">TCO08 Qualification Round 3 rescheduled</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.11.08 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 3</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.11.08 2:00 PM - </td><td width="100%"><A href="/tco08?module=MarathonAdvancers">TCO08 Marathon Round 1 results are up!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.11.08 12:00 PM - </td><td width="100%"><A href="/tco08?module=AlgorithmQualification&full=true">TCO08 Algorithm Qualification Round 2 results</A></td></tr>

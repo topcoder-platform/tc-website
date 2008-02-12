@@ -4,6 +4,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.12.08<br />12:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=602680&mc=25#928522">TCO08 Qualification Round 3 rescheduled</a></span><br /><br />
+      TCO08 Qualification Round 3 has been rescheduled for Wednesday, February 13 at 7:00 AM EST.  Read more about this <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=602680&mc=25#928522">here</a>.</td>
+         <td class="newsPhoto">&nbsp;</td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=602680&mc=25#928522">discuss this</a> | 
+         <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.12.08<br />10:45 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -161,18 +176,5 @@
          <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd3">details</a> | 
          <tc-webtag:forumLink forumID="519249" message="discuss this" /> | 
          <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.05.08<br />9:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 1</A></span><br /><br />
-        TCO08 Qualification Round 1 is set for Tuesday, February 5 at 9:00 PM EST.  See you in the arena!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
    </td></tr>
    
