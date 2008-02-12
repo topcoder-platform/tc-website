@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.12.08<br />10:45 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=match_editorials&d2=tco08qualRd2">TCO08 Qualification Round 2 - Problem Set &amp; Analysis</a></span><br /><br />
+      This problemset was more traditional than the last one. At least a fast 250 and a successful challenge were required to advance. Nobody managed to do it with only challenges, some even failed to do it with slow solutions to the 500.</td>
+         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="21547660" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <a href="/tc?module=Static&d1=match_editorials&d2=tco08qualRd2">details</a> | 
+         <tc-webtag:forumLink forumID="519495" message="discuss this" /> | 
+         <a href="/tc?module=Static&d1=match_editorials&d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.11.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 3</A></span><br /><br />
@@ -156,19 +172,6 @@
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.04.08<br />10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tco08?module=AlgorithmQualification">TCO08 Algorithm Qualification Byes</A></span><br /><br />
-        See who automatically made it to TCO08 Round 1. The Algorithm Byes are up!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tco08?module=AlgorithmQualification">details</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
    </td></tr>
