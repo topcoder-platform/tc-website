@@ -25,10 +25,10 @@ public class FileTypeDAOHibernate extends GenericBase<StudioFileType, Integer> i
         return ret;
     }
 
-    public StudioFileType find(String mimeType) {
+    public StudioFileType find(String mimeType) { 
         StringBuffer query = new StringBuffer(100);
-        query.append("from com.topcoder.web.studio.model.StudioFileType f join com.topcoder.web.studio.model.MimeType m");
-        query.append(" where LOWER(m.description) = LOWER(?)");
+        query.append("select f from com.topcoder.web.studio.model.StudioFileType f join f.mimeTypes m");
+        query.append(" where lower(m.description) = lower(?)");
         Query q = getSession().createQuery(query.toString());
         q.setString(0, mimeType);
         return (StudioFileType) q.uniqueResult();
