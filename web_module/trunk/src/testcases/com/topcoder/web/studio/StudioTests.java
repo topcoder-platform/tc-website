@@ -1,6 +1,14 @@
 package com.topcoder.web.studio;
 
+import com.topcoder.web.studio.dao.ContestDAOTestCase;
+import com.topcoder.web.studio.dao.ContestRegistrationDAOTestCase;
+import com.topcoder.web.studio.dao.FileTypeDAOTestCase;
+import com.topcoder.web.studio.dao.MimeTypeDAOTestCase;
+import com.topcoder.web.studio.dao.ReviewStatusDAOTestCase;
 import com.topcoder.web.studio.dao.SubmissionDAOTestCase;
+import com.topcoder.web.studio.dao.SubmissionReviewDAOTestCase;
+import com.topcoder.web.studio.dao.SubmissionTypeDAOTestCase;
+import com.topcoder.web.studio.validation.*;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -14,7 +22,6 @@ public class StudioTests extends TCHibernateTestCase {
         final TestSuite suite = new TestSuite();
 
         suite.addTest(new TestSuite(SubmissionDAOTestCase.class));
-        /*
 
                 suite.addTest(new TestSuite(MimeTypeDAOTestCase.class));
                 suite.addTest(new TestSuite(ContestDAOTestCase.class));
@@ -35,7 +42,6 @@ public class StudioTests extends TCHibernateTestCase {
                 suite.addTest(new TestSuite(MaxHeightValidatorTestCase.class));
                 suite.addTest(new TestSuite(FileTypeValidatorTestCase.class));
                 suite.addTest(new TestSuite(MaxSubmissionsValidatorTestCase.class));
-        */
         return suite;
     }
 }
