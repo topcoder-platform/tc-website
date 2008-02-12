@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competitions News" border="0" /><br />02.12.08<br />5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/registration/actions/Registration.do?method=openRegistrations">Some Assembly Required</A></span><br /><br />
+        Now's your chance to get quick DR points from any of 15 "Mini-Assembly" competitions TopCoder is running over the next week. Less work than traditional assembly contests, these small plugins have short timelines and we've doubled the prize money to $1000 each – plus, now they count towards Digital Run! Check out the active <a href="/registration/actions/Registration.do?method=openRegistrations">"Athena Plugin"</a> competitions to register for current contests, and be sure to check the <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Competitions</a> page for Mini-Assembly contests coming tomorrow and the next few days.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/registration/actions/Registration.do?method=openRegistrations">details</a> | 
+        <tc-webtag:forumLink forumID="519564" message="discuss this" /> | 
+        <a href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.12.08<br />12:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
