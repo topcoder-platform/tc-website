@@ -191,7 +191,7 @@
                 <include name="tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
                 <include name="object_formatter.jar"/>
                 <include name="ifxjdbc.jar"/>
-                <include name="${jars.dir}/log4j-1.2.7.jar"/>
+                <include name="log4j-1.2.7.jar"/>
 
                 <include name="commons-discovery-0.2.jar"/>
                 <include name="wsdl4j-1.5.1.jar"/>
