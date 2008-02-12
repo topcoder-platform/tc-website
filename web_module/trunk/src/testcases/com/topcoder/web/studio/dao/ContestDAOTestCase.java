@@ -1,6 +1,5 @@
 package com.topcoder.web.studio.dao;
 
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.studio.TCHibernateTestCase;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestConfig;
@@ -36,7 +35,7 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setStartTime(new Timestamp(new Date().getTime()));
         c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60));
         c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
-        c.setFileTypes(new HashSet(DAOUtil.getFactory().getFileTypeDAO().getFileTypes()));
+        c.setFileTypes(new HashSet(StudioDAOUtil.getFactory().getFileTypeDAO().getFileTypes()));
 
 
         StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
