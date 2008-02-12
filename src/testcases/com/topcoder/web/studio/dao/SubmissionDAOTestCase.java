@@ -6,6 +6,7 @@ import com.topcoder.web.studio.TCHibernateTestCase;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.FilePath;
 import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.SubmissionStatus;
 import com.topcoder.web.studio.model.SubmissionType;
 
 /**
@@ -78,6 +79,7 @@ public class SubmissionDAOTestCase extends TCHibernateTestCase {
         s.setPath(p);
         s.setRank(new Integer(1));
         s.setType(StudioDAOUtil.getFactory().getSubmissionTypeDAO().find(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE));
+        s.setStatus(StudioDAOUtil.getFactory().getSubmissionStatusDAO().find(SubmissionStatus.ACTIVE));
 
         StudioDAOUtil.getFactory().getSubmissionDAO().saveOrUpdate(s);
 
