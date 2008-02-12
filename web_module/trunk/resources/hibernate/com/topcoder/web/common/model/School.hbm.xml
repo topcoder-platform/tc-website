@@ -25,15 +25,6 @@
             <key column="school_id" not-null="true"/>
             <one-to-many class="UserSchool"/>
         </set>
-        <!-- just putting this in here becuse hibernate expects it to be mapped on both sides see
-        http://opensource.atlassian.com/projects/hibernate/browse/HHH-749
-        it's supposed to be fixed, but doesn't seem so.  perhaps this is a slightly differen error that is still out there.
-        -->
-        <set name="currentSchools" cascade="none" inverse="true">
-            <key column="school_id" not-null="true"/>
-            <one-to-many class="CurrentSchool"/>
-        </set>
-
 
     </class>
 </hibernate-mapping>
