@@ -25,11 +25,11 @@ public class ContestRegistrationDAOTestCase extends TCHibernateTestCase {
         c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60));
         c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
         StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
-        User dok = DAOUtil.getFactory().getUserDAO().find(new Long(132456));
+        User dok = DAOUtil.getFactory().getUserDAO().find((long) 132456);
         ContestRegistration cr = new ContestRegistration();
         cr.setContest(c);
         cr.setUser(dok);
-        cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(Constants.CONTEST_TERMS_OF_USE_ID)));
+        cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(Constants.CONTEST_TERMS_OF_USE_ID));
         cr.getId().setContest(c);
         cr.getId().setUser(dok);
 
@@ -49,15 +49,17 @@ public class ContestRegistrationDAOTestCase extends TCHibernateTestCase {
         c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60));
         c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
         StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
-        User dok = DAOUtil.getFactory().getUserDAO().find(new Long(132456));
+        User dok = DAOUtil.getFactory().getUserDAO().find((long) 132456);
         ContestRegistration cr = new ContestRegistration();
         cr.setContest(c);
         cr.setUser(dok);
-        cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(Constants.CONTEST_TERMS_OF_USE_ID)));
+        cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(Constants.CONTEST_TERMS_OF_USE_ID));
         cr.getId().setContest(c);
         cr.getId().setUser(dok);
 
         StudioDAOUtil.getFactory().getContestRegistrationDAO().saveOrUpdate(cr);
+        tearDown();
+        setUp();
 
         ContestRegistration new1 = StudioDAOUtil.getFactory().getContestRegistrationDAO().find(c, dok);
         assertFalse("new contest reg entry not created", new1 == null);
