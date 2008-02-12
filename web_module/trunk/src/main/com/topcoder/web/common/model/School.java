@@ -21,6 +21,8 @@ public class School extends Base {
     private User user;
 
     private Set<UserSchool> userSchools;
+    //see mapping file for more information about why this is here
+    private Set<CurrentSchool> currentSchools;
 
     public School() {
         this.userSchools = new HashSet<UserSchool>();
@@ -113,7 +115,7 @@ public class School extends Base {
     }
 
     /**
-     * @param UserSchool the UserSchool to set
+     * @param userSchools the UserSchools to set
      */
     public void setUserSchools(Set<UserSchool> userSchools) {
         this.userSchools = userSchools;
@@ -128,4 +130,12 @@ public class School extends Base {
         this.user = user;
     }
 
+
+    protected Set<CurrentSchool> getCurrentSchools() {
+        return currentSchools;
+    }
+
+    protected void setCurrentSchools(Set<CurrentSchool> currentSchools) {
+        this.currentSchools = currentSchools;
+    }
 }
