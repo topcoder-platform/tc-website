@@ -255,8 +255,14 @@
         <copy todir="${jboss_deploy}" file="${sar.dir}/cacheadmin.sar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/QueryServices.jar"/>
         <copy todir="${jboss_deploy}" file="${war.dir}/query.war"/>
+        <antcall target="copy-static"/>
     </target>
 
+    <target name="copy-static">
+        <copy todir="${jboss_deploy}/studio.war/i" file="${build}/tempdist/i"/>
+        <copy todir="${jboss_deploy}/studio.war/i" file="${build}/tempdist/js"/>
+        <copy todir="${jboss_deploy}/studio.war/i" file="${build}/tempdist/css"/>
+    </target>
 
     <target name="war-studio" depends="compile">
         <war warfile="${war.dir}/studio.war" webxml="${resources}/studio/web.xml">
