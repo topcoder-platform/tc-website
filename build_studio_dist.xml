@@ -98,9 +98,11 @@
             <fileset dir=".">
                 <include name="${java}/com/topcoder/web/studio/**/*"/>
                 <include name="${java}/com/topcoder/web/jsp/style.jsp"/>
+                <include name="${testjava}/com/topcoder/web/studio/**/*"/>
             </fileset>
         </copy>
         <copy tofile="${build}/tempdist/build.xml" file="build_studio_dist.xml"/>
+        
 
 <!--
         <copy todir="${build}/tempdist/depsrc/src/main">
@@ -409,6 +411,48 @@
                 <include name="Studio.properties"/>
             </fileset>
         </copy>
+    </target>
+
+    <target name="compile_tests" depends="compile">
+
+        <javac
+                srcdir="${testjava}"
+                destdir="${testclasses}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.5"
+                target="1.5"
+                >
+            <include name="com/topcoder/web/studio/**"/>
+        </javac>
+    </target>
+
+    <target name="run_studio_tests" depends="compile_tests" description="run junit tests">
+        <junit printsummary="${junitsummary}" fork="yes">
+            <classpath>
+                <pathelement location="resources/studio/"/>
+                <pathelement path="${class.path}"/>
+            </classpath>
+            <formatter type="xml"/>
+            <test name="com.topcoder.web.studio.StudioTests" todir="${testclasses}"/>
+        </junit>
+
+        <junitreport todir="${testclasses}">
+            <fileset dir="${testclasses}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${testclasses}/html"/>
+        </junitreport>
+    </target>
+
+    <target name="assembly_submission">
+        <jar destfile="submission.jar">
+            <fileset dir=".">
+                <include name="resources/**"/>
+                <include name="src/**"/>
+            </fileset>
+        </jar>
     </target>
 
 
