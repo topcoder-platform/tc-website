@@ -263,9 +263,23 @@
     </target>
 
     <target name="copy-static">
-        <copy todir="${jboss_deploy}/studio.war/i" file="i"/>
-        <copy todir="${jboss_deploy}/studio.war/js" file="js"/>
-        <copy todir="${jboss_deploy}/studio.war/css" file="css"/>
+        <copy todir="${jboss_deploy}/studio.war/i">
+            <fileset dir="i">
+                <include name="**"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${jboss_deploy}/studio.war/js">
+            <fileset dir="js">
+                <include name="**"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${jboss_deploy}/studio.war/css">
+            <fileset dir="css">
+                <include name="**"/>
+            </fileset>
+        </copy>
     </target>
 
     <target name="war-studio" depends="compile">
