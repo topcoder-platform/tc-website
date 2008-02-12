@@ -102,11 +102,13 @@
         </copy>
         <copy tofile="${build}/tempdist/build.xml" file="build_studio_dist.xml"/>
 
+<!--
         <copy todir="${build}/tempdist/depsrc/src/main">
             <fileset dir="${shared}">
                 <include name="com/topcoder/shared/**/*"/>
             </fileset>
         </copy>
+-->
         <copy todir="${build}/tempdist/lib/jars">
             <fileset dir="${jars.dir}">
                 <include name="jboss/javax.servlet.jar"/>
