@@ -4,9 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.13.08<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/longcontest/?module=ViewActiveContests">TCO08 Marathon Round 2 Now Underway</a></span><br /><br />
+        With the first round complete, we've narrowed down the field to the top 300 competitors.  Check out the leaderboard thourghout the round <a href="/longcontest/?module=ViewActiveContests">here</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/longcontest/?module=ViewActiveContests">details</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competitions News" border="0" /><br />02.12.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="/registration/actions/Registration.do?method=openRegistrations">Some Assembly Required</A></span><br /><br />
+        <a href="/registration/actions/Registration.do?method=openRegistrations">Some Assembly Required</a></span><br /><br />
         Now's your chance to get quick DR points from any of 15 "Mini-Assembly" competitions TopCoder is running over the next week. Less work than traditional assembly contests, these small plugins have short timelines and we've doubled the prize money to $1000 each – plus, now they count towards Digital Run! Check out the active <a href="/registration/actions/Registration.do?method=openRegistrations">"Athena Plugin"</a> competitions to register for current contests, and be sure to check the <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Competitions</a> page for Mini-Assembly contests coming tomorrow and the next few days.</td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -50,7 +63,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.11.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 3</A></span><br /><br />
+        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 3</a></span><br /><br />
         TCO08 Qualification Round 3 is set for Tuesday, February 12 at 7:00 AM EST.  See you in the arena!</td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -63,7 +76,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.11.08<br />2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tco08?module=MarathonAdvancers">TCO08 Marathon Round 1 results are up!</A></span><br /><br />
+        <a href="/tco08?module=MarathonAdvancers">TCO08 Marathon Round 1 results are up!</a></span><br /><br />
         Check out who made it to Round 2!</td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -76,7 +89,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.11.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tco08?module=AlgorithmQualification&full=true">TCO08 Algorithm Qualification Round 2 results</A></span><br /><br />
+        <a href="/tco08?module=AlgorithmQualification&full=true">TCO08 Algorithm Qualification Round 2 results</a></span><br /><br />
         The results of Qualification Round 2 of the TCO08 Algorithm Competition are complete! See who advanced to Round 1.</td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -121,7 +134,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.08.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 2</A></span><br /><br />
+        <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 2</a></span><br /><br />
         TCO08 Qualification Round 2 is set for Saturday, February 9 at 1:00 PM EST.  See you in the arena!</td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -150,28 +163,12 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.07.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tco08?module=AlgorithmQualification&full=true">TCO08 Algorithm Qualification Round 1 results</A></span><br /><br />
+        <a href="/tco08?module=AlgorithmQualification&full=true">TCO08 Algorithm Qualification Round 1 results</a></span><br /><br />
         The results of the first qualification round of the TCO08 Algorithm Competition are complete!  See who advanced to Round 1.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tco08?module=AlgorithmQualification&full=true">details</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.06.08<br />9:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd3">TCHS08 Online Round 3 - Problem Set &amp; Analysis</a></span><br /><br />
-      The round started smoothly with very straightforward easy and a medium that also turned out to be not as medium as we expected. <tc-webtag:handle coderId="11972352" context="hs_algorithm"/> was the first to submit all three problems, but shortly he was overtaken by <tc-webtag:handle coderId="22285847" context="hs_algorithm"/> and <tc-webtag:handle coderId="20812309" context="hs_algorithm"/>.</td>
-         <td class="newsPhoto"><img src="/i/m/mateuszek_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="11801002" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs08Rd3">details</a> | 
-         <tc-webtag:forumLink forumID="519249" message="discuss this" /> | 
-         <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</a>
    </td></tr>
    
