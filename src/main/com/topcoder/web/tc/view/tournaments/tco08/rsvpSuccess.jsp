@@ -12,7 +12,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../../script.jsp" />
 
-<style TYPE="text/css">
+<style type="text/css">
 html{ 
 margin:0px;
 padding:0px;
@@ -89,7 +89,7 @@ a:hover, a:active {
         <div id="contentIn">
 
             <div align="center" style="margin: 20px;">
-                <img src="/i/tournament/tco08/rsvpBanner.png" alt="2008 TopCoder Open" />
+                <a target="_blank" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about"><img src="/i/tournament/tco08/rsvpBanner.png" alt="2008 TopCoder Open" /></a>
             </div>
  
             <p style="margin: 40px 0px 60px 0px;">
