@@ -12,7 +12,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../../script.jsp" />
 
-<style TYPE="text/css">
+<style type="text/css">
 html{ 
 margin:0px;
 padding:0px;
@@ -42,6 +42,8 @@ font-size: 125%;
 p{
 padding: 0px;
 margin: 0px 0px 10px 0px;
+width:65%;
+text-align:justify;
 }
 
 td, th{ 
@@ -78,6 +80,10 @@ a:hover, a:active {
     text-decoration: underline;
     color: #FFF;
 }
+
+table {
+    text-align:left;
+}
 </style>
 
 </head>
@@ -89,28 +95,47 @@ a:hover, a:active {
         <div id="contentIn">
 
             <div align="center" style="margin: 20px;">
-                <img src="/i/tournament/tco08/rsvpBanner.png" alt="2008 TopCoder Open" />
+                <a target="_blank" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about"><img src="/i/tournament/tco08/rsvpBanner.png" alt="2008 TopCoder Open" /></a>
             </div>
- 
-    <p>
-    We invite you to attend the TCO08 to marvel at the four competition tracks of<br>Algorithm, Component Design &amp; Development, Marathon Match and Studio Design,<br>and participate in educational Developer Forums and Customer Round Table.
-    </p>
-    <p>
-    Please also join us for the TopCoder Casino Night Cocktail Party.
-    </p>
+
+    <p><strong>This event is jam packed with four competitions:  Algorithm, Component Design &amp; Development, Marathon and Studio Design.  Don't miss the finals LIVE, beginning on Tuesday!</strong></p>
+    <p><strong>TopCoder is also providing informative and thought provoking Developer and Corporate Forums.  Learn more about TopCoder and software development at these forums as well as interact with some of the best minds in the business.</strong></p>
+    
+    <h1><strong>The Corporate Forums include speakers:</strong></h1>
+    <p><em>*Nic Perez</em>, Technical Director of Competitive Software Development, AOL&reg;<br />
+    <em>*Grady Bryant</em>, Vice President of Research &amp; Development, VeriSign&reg;<br />
+    <em>*Ron Burkhart</em>, CFO, On Point Technology</p>
+    
+    <h1><strong>Topics for the Developer Forums include:</strong></h1>
+    <p><em>*Quality through Review</em><br />
+    A Walk-through of the review mechanism, ensuring our building of the highest quality components with Sean Campion, TopCoder Project Manager</p>
+    <p><em>*From Assembly to Architecture</em><br />
+    Explore the process of creating architectural designs through our new Architecture Competitions with Greg Eldridge, TopCoder Architect</p>
+    <p><em>*TopCoder Direct and Cockpit and Widget Innerworkings</em><br />
+    We'll discuss a new evolution of TopCoder which will bring vast new opportunities for communication, collaboration and compensation to the community.  The second part of this will be a workshop to build your own widget, or write up the specifications for a new widget and/or service for TopCoder to build for you.</p>
+    
+    <p>See a complete and detailed schedule <a target="_blank" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=rsvpSchedule">here</a>.</p>
+    
+    <h1><strong>*Don't miss Jack Hughes, Chairman of TopCoder as our<br />Keynote Speaker on Thursday afternoon!</strong></h1>
+    
+    <h1><strong>Sit in our roundtable discussions:</strong></h1>
+    <p><strong>TopCoder 101</strong>: An introduction to our model and process.  Any questions about what we do or who we are?  TopCoder staff will be there to answer all your questions.</p>
+    <p><strong>Business Transformation and TopCoder Return on Investment</strong>:  A review of how TopCoder's innovative approach to application development can improve overall business performance and the business value of IT.  This session will cover the dimensions of value of an enterprise Virtual Development Center (VDC), the multi-phased transformation process and a sample commercial business case and ROI model.  Lead by Brian Wyatt, TopCoder Vice President of Business Development and Dan Houlihan, TopCoder Sr. Vice President of Financial Services.</p>
+    
+    <h1><strong>TopCoder will also host a TopCoder Casino Night<br />Cocktail Party at the event.</strong><br />
+    The money isn't real, but the thrill is!</h1>
     
                 <div style="margin: 20px 0px 20px 0px;">
                     <%--<img src="/i/tournament/tco08/rsvp/events.png" alt="" />--%>
                 </div>
                 
                 <div>
-                    <%--<A href="/tco0"><img src="/i/tournament/tco08/rsvp/schedule.png" alt="" /></A>--%>
+                    <%--<a href="/tco0"><img src="/i/tournament/tco08/rsvp/schedule.png" alt="" /></a>--%>
                 </div>
-    <p>
-    Rooms are available at The Mirage for all attendees, please mention TopCoder.
-    <br>Contact Jessie D'Amato Ford for additional questions.
-    <br>Phone:  866-TOP-CODE   Email:  <A href="mailto:jford@topcoder.com">jford@topcoder.com</A>
-    </p>
+
+    <p>Rooms are available at The Mirage for all attendees.  Click <a target="_blank" href="<tc-webtag:linkTracking link='https://reservations.mgmmirage.com/bookingengine.aspx?host=group&pid=160&code=topcod08' refer='tco08_rsvp' />">here</a> to book a room.
+    <br />Contact Jessie D'Amato Ford for additional questions.
+    <br />Phone:  866-TOP-CODE   Email:  <a href="mailto:jford@topcoder.com">jford@topcoder.com</a></p>
     
                 <div style="margin: 20px 0px 20px 0px;">
                     <%--<img src="/i/tournament/tco08/rsvp/line.png" alt="" />--%>
@@ -120,64 +145,7 @@ a:hover, a:active {
                     <%--<img src="/i/tournament/tco08/rsvp/topics.png" alt="" />--%>
                 </div>
     
-    <h1>
-    1:00 PM - 2:00 PM<br>Protecting System Information Utilizing<br>
-    TopCoder's Software Methodology
-    </h1>
-    
-    <p>
-    Presented by TopCoder Direct
-    </p>
-    
-    <h1>
-    2:00 PM - 3:00 PM<br>Talent, Skills and the Global Economy
-    </h1>
-    
-    <p>
-    Featuring TopCoder Founder<br>
-    Jack Hughes
-    </p>
-    
-    <h1>
-    3:00 PM - 4:00 PM<br>Social Networking
-    </h1>
-    
-    <p>
-    Featuring Marcien Jenckes<br>
-    Senior Vice President of Messaging and Social Media, AOL
-    </p>
-    
-    <h1>
-    4:00 PM - 5:00 PM<br>Virtual Workforce
-    </h1>
-    
-    <p>
-    Featuring Grady Bryant<br>
-    Vice President of Research &amp; Development, VeriSign
-    </p>
-    
-    <h1>
-    5:00 PM - 6:00 PM<br>Evolving Business Systems from<br>
-    Spreadsheets to Enterprise Software
-    </h1>
-    
-    <p>
-    Featuring Hugh Scott<br>
-    Vice President, Direct Energy
-    </p>
-    
-    <h1>
-    Special Guest
-    </h1>
-    
-    <p>
-    Polly LaBarre, co-author of Mavericks at  Work
-    </p>
-    
-    <p>
-    Don't forget to join us after the Customer Round Table<br>
-    for the TopCoder Casino Night Party!
-    </p>
+    <p>Please note that the fees associated with travel and accommodations are the responsibility of the attendee.</p>
     
                 <div style="margin: 20px 0px 20px 0px;">
                     <img src="/i/tournament/tco08/rsvpBar.png" alt="" />
@@ -197,9 +165,9 @@ a:hover, a:active {
                             &nbsp;
                         </td>
                         <td>
-                            <input name="attending" value="" type="radio" checked> I will be attending
-                            <br>
-                            <input name="attending" value="not " type="radio"> I will not be attending
+                            <input name="attending" value="" type="radio" checked="checked" /> I will be attending
+                            <br />
+                            <input name="attending" value="not " type="radio" /> I will not be attending
                         </td>
                     </tr>
                     <tr>
@@ -207,7 +175,7 @@ a:hover, a:active {
                             Your Name:
                         </td>
                         <td>
-                            <input type="text" size="30" name="name">
+                            <input type="text" size="30" name="name" />
                         </td>
                     </tr>
                     <tr>
@@ -215,7 +183,7 @@ a:hover, a:active {
                             Your Email:
                         </td>
                         <td>
-                            <input type="text" size="30" name="email">
+                            <input type="text" size="30" name="email" />
                         </td>
                     </tr>
                     <tr>
@@ -223,7 +191,7 @@ a:hover, a:active {
                             Company:
                         </td>
                         <td>
-                            <input type="text" size="30" name="company">
+                            <input type="text" size="30" name="company" />
                         </td>
                     </tr>
                     <tr>
@@ -231,7 +199,7 @@ a:hover, a:active {
                             Guests:
                         </td>
                         <td>
-                            <input type="text" size="30" name="guests">
+                            <input type="text" size="30" name="guests" />
                         </td>
                     </tr>
                 </tbody>
