@@ -140,7 +140,7 @@ a:hover, a:active {
                 </tr>
                 <tr class="dark">
                     <td>7:00 PM</td>
-                    <td>Welcome Reception at Hofbrauhaus Las Vegas</td>
+                    <td>Welcome Reception at <a target="_blank" href="<tc-webtag:linkTracking link='http://www.hofbrauhauslasvegas.com/' refer='tco08_rsvp' />">Hofbrauhaus Las Vegas</a></td>
                 </tr>
                 <tr>
                     <th colspan="2">Wednesday, May 14, 2008</th>

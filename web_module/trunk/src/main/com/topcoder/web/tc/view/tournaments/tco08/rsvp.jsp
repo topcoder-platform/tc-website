@@ -120,7 +120,9 @@ table {
     
     <h1><strong>Sit in our roundtable discussions:</strong></h1>
     <p><strong>TopCoder 101</strong>: An introduction to our model and process.  Any questions about what we do or who we are?  TopCoder staff will be there to answer all your questions.</p>
-    <p><strong>Business Transformation and TopCoder Return on Investment</strong>:  A review of how TopCoder's innovative approach to application development can improve overall business performance and the business value of IT.  This session will cover the dimensions of value of an enterprise Virtual Development Center (VDC), the multi-phased transformation process and a sample commercial business case and ROI model.  Lead by Brian Wyatt, TopCoder Vice President of Business Development and Dan Houlihan, TopCoder Sr. Vice President of Financial Services.</p>
+    <p><strong>Business Transformation and TopCoder Return on Investment</strong>:  Lead by Brian Wyatt, TopCoder Vice President of Business Development and Dan Houlihan, TopCoder Sr. Vice President of Financial Services.  A review of how TopCoder's innovative approach to application development can improve overall business performance and the business value of IT.  This session will cover the dimensions of value of an enterprise Virtual Development Center (VDC), the multi-phased transformation process and a sample commercial business case and ROI model.</p>
+    
+    <h1><strong>Start off the event with as at a Welcome Reception at<br /><a target="_blank" href="<tc-webtag:linkTracking link='http://www.hofbrauhauslasvegas.com/' refer='tco08_rsvp' />">Hofbrauhaus Las Vegas</a>.</strong></h1>
     
     <h1><strong>TopCoder will also host a TopCoder Casino Night<br />Cocktail Party at the event.</strong><br />
     The money isn't real, but the thrill is!</h1>
