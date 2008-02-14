@@ -1,15 +1,10 @@
 package com.topcoder.web.common.model;
 
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /*
 * @author dok
@@ -71,8 +66,8 @@ public class UserSchool extends Base {
     }
 
     //@ManyToOne()
-    //@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @ManyToOne()
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinColumn(name = "school_id", nullable = false)
     public School getSchool() {
         return school;
