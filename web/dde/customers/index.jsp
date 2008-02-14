@@ -61,17 +61,17 @@
             
 
 
-<!-- AOL begins -->
+<!-- Caliper begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/clients/aol_logo.png" alt="AOL" border="0" /></td>
+                    <td width="170"><img src="/images/clients/caliper_logo.gif" alt="Caliper" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">AOL and its subsidiaries operate a leading network of Web brands and the largest Internet access subscription service in the United States. Web brands include the AOL.com&#174; website, AIM&#174;, MapQuest&#174; and Netscape&#174;. AOL offers a range of digital services in the areas of education, safety and security, communications and music. The company also has operations in Europe and Canada. AOL LLC is a majority-owned subsidiary of Time Warner Inc. and is based in Dulles, Virginia.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://developer.aol.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                    <td width="99%" class="bodyText">Caliper has advised more than 25,000 companies - including FedEx, Avis and some of the fastest growing smaller firms - on Employee Selection, Employee Development, Team Building and Organizational Development. <br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.calipercorp.com/" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
-<!-- AOL ends -->
+<!-- Caliper ends -->
 
              <hr width="100%" size="1px" noshade>
              
@@ -157,7 +157,19 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Other Customers</td></tr></table>
 
 
+<!-- AOL begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/aol_logo.png" alt="AOL" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">AOL and its subsidiaries operate a leading network of Web brands and the largest Internet access subscription service in the United States. Web brands include the AOL.com&#174; website, AIM&#174;, MapQuest&#174; and Netscape&#174;. AOL offers a range of digital services in the areas of education, safety and security, communications and music. The company also has operations in Europe and Canada. AOL LLC is a majority-owned subsidiary of Time Warner Inc. and is based in Dulles, Virginia.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://developer.aol.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- AOL ends -->
 
+             <hr width="100%" size="1px" noshade>
              
 <!-- Borders begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -187,19 +199,7 @@
 
              <hr width="100%" size="1px" noshade>
              
-<!-- Caliper begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr valign="top">
-                    <td width="170"><img src="/images/clients/caliper_logo.gif" alt="Caliper" border="0" /></td>
-                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">Caliper has advised more than 25,000 companies - including FedEx, Avis and some of the fastest growing smaller firms - on Employee Selection, Employee Development, Team Building and Organizational Development. <br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www.calipercorp.com/" refer="customer_index"/>" target="_blank">homepage</A>
-                     </td>
-                </tr>
-            </table>
-<!-- Caliper ends -->
 
-             <hr width="100%" size="1px" noshade>
              
 <!-- Detroit Edison begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
