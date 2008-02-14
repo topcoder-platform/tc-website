@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.14.08<br />10:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        TCO08 Component <a href="/tco08?module=ContestDetails&amp;ct=460&amp;eid=3006">Design</a> &amp; <a href="/tco08?module=ContestDetails&amp;ct=461&amp;eid=3006">Development</a> Competition Week 4</span><br /><br />
+        The 2008 TCO Component <a href="/tco08?module=ContestDetails&amp;ct=460&amp;eid=3006">Design</a> and <a href="/tco08?module=ContestDetails&amp;ct=461&amp;eid=3006">Development</a> Competition are starting week 4.  The race is on for the top 12 spots in each track.  Check out the leaderboard for updates.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tco08?module=ContestDetails&amp;ct=460&amp;eid=3006">design</a> | 
+        <a href="/tco08?module=ContestDetails&amp;ct=461&amp;eid=3006">development</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />02.13.08<br />4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         Downtime for scheduled maintenance: Wednesday, February 13</span><br /><br />
@@ -153,21 +167,5 @@
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&d4=schedule">details</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />02.07.08<br />3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=features&amp;d2=020708">Computerworld's "Rock star coders" profile: SnapDragon</a></span><br /><br />
-      On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='/tc' />">article</a> about various TopCoders and how programming has affected their lives.  The following is the full Computerworld interview with <tc-webtag:handle coderId="272072" context="algorithm"/>, from which portions were used in the article.  We'll be posting the full interviews with <tc-webtag:handle coderId="119676" context="design"/> and <tc-webtag:handle coderId="10574855" context="algorithm"/> in the coming days.</td>
-         <td class="newsPhoto">&nbsp;</td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <a href="/tc?module=Static&amp;d1=features&amp;d2=020708">details</a> | 
-         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=602169&start=0">discuss this</a> | 
-         <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
    </td></tr>
    
