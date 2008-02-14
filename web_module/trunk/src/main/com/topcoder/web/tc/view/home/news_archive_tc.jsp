@@ -40,7 +40,8 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%"> 
-<tr class="bodyText"><td nowrap="nowrap">12.14.07 1:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewPastContests">Happy Valentines Day from TopCoder!</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">02.14.08 6:00 PM - </td><td width="100%">Downtime for scheduled maintenance: Thursday, February 14</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">02.14.08 1:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewPastContests">Happy Valentines Day from TopCoder!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.13.08 4:00 PM - </td><td width="100%">Downtime for scheduled maintenance: Wednesday, February 13</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.25.08 2:00 PM - </td><td width="100%"><a href="/wiki/display/tc/Bug+Races">Off to the Races</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.15.08 6:00 PM - </td><td width="100%"><a href="/wiki/display/tc/Bug+Races">Introducing the TopCoder Bug Races!</a></td></tr>

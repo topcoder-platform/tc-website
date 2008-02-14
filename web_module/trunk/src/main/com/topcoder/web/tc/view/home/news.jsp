@@ -4,6 +4,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />02.14.08<br />6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        Downtime for scheduled maintenance: Thursday, February 14</span><br /><br />
+        We're giving you members an opportunity to enjoy your <span class="bigRed">Valentines Day</span>!  The TopCoder sites and the Arena will be down again for scheduled maintenance between 10:00 PM and 11:30 PM EST but don't worry, we will be back.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=603196">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />02.14.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://studio.topcoder.com/?module=ViewPastContests">Happy Valentines Day from TopCoder!</a></span><br /><br />
@@ -11,12 +23,12 @@
         This image was produced by TopCoder Studio competitor <a href="/tc?module=MemberProfile&amp;cr=22690288" class="coderTextBlack">djackmania</a> as part of one of four TopCoder Wall Art Contests. There have been so many great submissions to these contests, many of which will be printed and hung in the office space of TopCoder headquarters. Take a moment to browse the submissions and see the amazing work being done at TopCoder Studio! Click the image to view it full size.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <a href="http://studio.topcoder.com/?module=ViewPastContests">details</a> | 
-        <a href="http://studio.topcoder.com/?module=ViewSubmissions&amp;ct=2152">wall art 1</a> | 
-        <a href="http://studio.topcoder.com/?module=ViewSubmissions&amp;ct=2163">wall art 2</a> | 
-        <a href="http://studio.topcoder.com/?module=ViewSubmissions&amp;ct=2167">wall art 3</a> | 
-        <a href="http://studio.topcoder.com/?module=ViewSubmissions&amp;ct=2171">wall art 4</a> | 
-        <a href="http://studio.topcoder.com/forums?module=ThreadList&amp;forumID=117">discuss this</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewPastContests">details</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewSubmissions&amp;ct=2152">wall art 1</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewSubmissions&amp;ct=2163">wall art 2</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewSubmissions&amp;ct=2167">wall art 3</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewSubmissions&amp;ct=2171">wall art 4</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&amp;forumID=117">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
    
@@ -155,22 +167,6 @@
    <tr><td class="newsLinksCell">
          <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08qualRd1">details</a> | 
          <tc-webtag:forumLink forumID="519414" message="discuss this" /> | 
-         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.08.08<br />11:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm390">SRM 390 - Problem Set &amp; Analysis</a></span><br /><br />
-      Being the last SRM before TCO, the match attracted 1361 competitors. However, the problems in both division were not easy. The success rate for two DPs in both divisions was surprisingly low, making the challenge phase very eventful.</td>
-         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="11907556" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm390">details</a> | 
-         <tc-webtag:forumLink forumID="519365" message="discuss this" /> | 
          <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
    
