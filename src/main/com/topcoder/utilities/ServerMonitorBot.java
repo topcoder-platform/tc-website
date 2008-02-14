@@ -10,14 +10,7 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,7 +48,7 @@ public class ServerMonitorBot {
     private final static PollInfo[] sites = {
             new PollInfo(true, "http://www.topcoder.com", "tc", 30)
             , new PollInfo(true, "http://software.topcoder.com", "software", 30)
-            , new PollInfo(true, "http://forums.topcoder.com", "forums", 45)
+            , new PollInfo(true, "http://forums.topcoder.com", "forums", 60)
             , new PollInfo(true, "http://studio.topcoder.com", "studio", 30)
             , new PollInfo(true, "http://www.topcoder.com/wiki", "wiki", 30)
             , new PollInfo(true, "http://www.topcoder.com/time", "time tracker", 30)
