@@ -14,7 +14,7 @@
          <%--
          <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/computerworld.gif" width="67" height="18" alt="ComputerWorld" border="0" /></div>
          --%>
-         <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/cfo_20080103.pdf">Gaming the System</a> [PDF] [January 3]
+         <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/cfo_20080103_v2.pdf">Gaming the System</a> [PDF] [January 3]
    </td></tr>
    <tr><td class="prHead">
          <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/mckinsey_20071212.pdf">Eight business technology trends to watch</a> [PDF] [December 12]
