@@ -128,7 +128,7 @@
                     </div>
                     <div class="pr_headlines">
                         <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='pr_index' />">Gaming the System</a></h3>
-                        <p>How a small outsourcing firm uses competition to unite its global community.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='pr_index' />">[January 3]</a> | <a target="_blank" href="/i/pressroom/pdfs/cfo_20080103.pdf">PDF</a></small></p>
+                        <p>How a small outsourcing firm uses competition to unite its global community.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='pr_index' />">[January 3]</a> | <a target="_blank" href="/i/pressroom/pdfs/cfo_20080103_v2.pdf">PDF</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
