@@ -659,7 +659,7 @@
     <tr>
         <td class="name">
             <c:if test="${cf:contains(reqFields, coderType)}">*</c:if>
-            Coder Type:
+            Student/Professional:
         </td>
         <td class="value">
             <tc-webtag:objectSelect name="${coderType}" list="${coderTypes}" valueField="id" textField="description"/>
