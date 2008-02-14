@@ -15,7 +15,7 @@ import java.util.List;
 public class ContestDAOHibernate extends Base implements ContestDAO {
     public List getContests() {
         StringBuffer query = new StringBuffer(100);
-        query.append("from Contest");
+        query.append("from com.topcoder.web.studio.model.Contest");
         query.append(" order by start_time desc");
         Query q = session.createQuery(query.toString());
 
