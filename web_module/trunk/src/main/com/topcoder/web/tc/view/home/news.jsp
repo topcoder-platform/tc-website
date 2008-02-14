@@ -18,7 +18,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />02.14.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="http://studio.topcoder.com/?module=ViewPastContests">Happy Valentines Day from TopCoder!</a></span><br /><br />
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewPastContests">Happy Valentines Day from TopCoder!</a></span><br /><br />
         <span style="margin:5px 5px 5px 125px;"><a target="_blank" href="/i/home/TCLovers.jpg" alt="djackmania TCLovers"><img src="/i/home/TCLovers_175.png" alt="djackmania TCLovers" /></a></span><br />
         This image was produced by TopCoder Studio competitor <a href="/tc?module=MemberProfile&amp;cr=22690288" class="coderTextBlack">djackmania</a> as part of one of four TopCoder Wall Art Contests. There have been so many great submissions to these contests, many of which will be printed and hung in the office space of TopCoder headquarters. Take a moment to browse the submissions and see the amazing work being done at TopCoder Studio! Click the image to view it full size.</td>
    </tr>
