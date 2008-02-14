@@ -8,12 +8,7 @@ import com.topcoder.web.common.model.*;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author dok
@@ -184,9 +179,9 @@ public class Confirm extends Base {
                     //the add method takes care of that logic.
                     teacherSchool.setPrimary(true);
                     teacherSchool.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.TEACHER));
+                    teacherSchool.setSchool(s);
+                    u.addSchool(teacherSchool);
                 }
-                teacherSchool.setSchool(s);
-                u.addSchool(teacherSchool);
             }
 
 
@@ -203,9 +198,9 @@ public class Confirm extends Base {
                     //the add method takes care of that logic.
                     studentSchool.setPrimary(true);
                     studentSchool.setAssociationType(getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.STUDENT));
+                    studentSchool.setSchool(s);
+                    u.addSchool(studentSchool);
                 }
-                studentSchool.setSchool(s);
-                u.addSchool(studentSchool);
             }
 
             if (log.isDebugEnabled()) {
