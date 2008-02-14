@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html>
 <head>
@@ -42,6 +44,12 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+<p>
+    5.14.4 - 2008.02.xx
+    <ul>
+        <li>Fix bug in registration where someone couldn't update their school to a school that they're creating -dok</li>
+    </ul>
+</p>
 
 <p>
     5.14.3 - 2008.02.11
