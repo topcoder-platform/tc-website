@@ -394,8 +394,12 @@
             <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2104"><img src="/i/home/tccc07_logo_design_promo.png" alt="TCCC07 Logo Design Contest" border="0" style="display:block;"/></A>
             --%> 
              
-            <%-- TopCoder on 2007 Inc. 500 --%>
+            <%-- TopCoder on 2007 Inc. 500 
             <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=pressroom&d2=pr_082707' refer='homepage_promo' />"><img src="/i/home/tc_inc500_promo.png" alt="TopCoder on 2007 Inc. 500" /></A>
+            --%>
+            
+            <%-- CFO: Gaming the System --%>
+            <A target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/cfo_20080103_v2.pdf' refer='homepage_promo' />"><img src="/i/home/cfoGamingTheSystem_promo.png" alt="CFO Magazine: Gaming the System" /></A>
             
             
         </td>
