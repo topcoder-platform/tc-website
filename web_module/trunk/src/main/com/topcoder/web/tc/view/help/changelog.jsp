@@ -45,7 +45,15 @@
 </jsp:include>
 
 <p>
-    5.14.4 - 2008.02.xx
+    5.14.5 - 2008.02.xx
+    <ul>
+        <li>Add TCO08 travel info site -dok</li>
+    </ul>
+</p>
+
+
+<p>
+    5.14.4 - 2008.02.14
     <ul>
         <li>Fix bug in registration where someone couldn't update their school to a school that they're creating -dok</li>
     </ul>
