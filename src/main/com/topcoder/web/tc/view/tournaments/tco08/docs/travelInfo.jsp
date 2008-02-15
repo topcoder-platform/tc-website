@@ -67,6 +67,7 @@ May 12, 2008 arrivals:
 <li>Algorithm Competitors</li>
 <li>Component Development Competitors</li>
 <li>Review Board Members</li>
+</ul>
 <p>
 The check-in time is 3:00PM and check out time is 11:00AM. If you have any special requests, please indicate them on
     the travel form below. The cost of your sleeping room and applicable taxes will be charged to the TopCoder master
