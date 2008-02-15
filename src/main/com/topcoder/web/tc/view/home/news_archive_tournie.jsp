@@ -39,10 +39,8 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<%-- Post at 1 PM and 3 PM 
 <tr class="bodyText"><td nowrap="nowrap">02.15.08 3:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=601138">TCHS08 Finalists documents due. Act now!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.15.08 1:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&d4=schedule">TCO08 Algorithm Round 1</a></td></tr>
---%>
 <tr class="bodyText"><td nowrap="nowrap">02.14.08 10:45 AM - </td><td width="100%">TCO08 Component <a href="/tco08?module=ContestDetails&amp;ct=460&amp;eid=3006">Design</a> &amp; <a href="/tco08?module=ContestDetails&amp;ct=461&amp;eid=3006">Development</a> Competition Week 4</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.13.08 1:00 PM - </td><td width="100%"><a href="/longcontest/?module=ViewActiveContests">TCO08 Marathon Round 2 Now Underway</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.12.08 12:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=602680&mc=25#928522">TCO08 Qualification Round 3 rescheduled</a></td></tr>
