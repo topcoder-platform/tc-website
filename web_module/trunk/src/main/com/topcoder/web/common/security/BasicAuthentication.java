@@ -31,6 +31,7 @@ import java.util.StringTokenizer;
  * Uses the TCS security component to process login requests, and HTTP cookies or a Persistor to store a User.
  *
  * @author Greg Paul, Ambrose Feinstein
+ * @version $Id$
  */
 public class BasicAuthentication implements WebAuthentication {
 
@@ -47,16 +48,21 @@ public class BasicAuthentication implements WebAuthentication {
     protected String dataSource;
     private boolean knownUser;
 
-    public static final Resource CORP_SITE = new SimpleResource("corp");
     public static final Resource MAIN_SITE = new SimpleResource("main");
-    public static final Resource REG_SITE = new SimpleResource("reg");
-    public static final Resource EP_SITE = new SimpleResource("ep");
-    public static final Resource HS_SITE = new SimpleResource("hs");
+    /*
+    just use main site now, with SSO
+        public static final Resource CORP_SITE = new SimpleResource("corp");
+        public static final Resource REG_SITE = new SimpleResource("reg");
+        public static final Resource EP_SITE = new SimpleResource("ep");
+        public static final Resource HS_SITE = new SimpleResource("hs");
+    */
     public static final Resource PRIVATE_LABEL_SITE = new SimpleResource("pl");
     public static final Resource TECH_ASSESS_SITE = new SimpleResource("techassess");
-    public static final Resource LONG_CONTEST_SITE = new SimpleResource("lc");
-    public static final Resource STUDIO_SITE = new SimpleResource("studio");
-    public static final Resource PACTS_INTERNAL_SITE = new SimpleResource("pacts");
+    /*  juse use main site now, with SSO
+        public static final Resource LONG_CONTEST_SITE = new SimpleResource("lc");
+        public static final Resource STUDIO_SITE = new SimpleResource("studio");
+    */
+    //public static final Resource PACTS_INTERNAL_SITE = new SimpleResource("pacts");
     public static final Resource CSF_SITE = new SimpleResource("csf");
     public static final Resource ORACLE_SITE = new SimpleResource("oracle");
     //we'll use this key to provide a way to keep someone logged in accross sessions.
@@ -185,7 +191,7 @@ public class BasicAuthentication implements WebAuthentication {
         setCookie(uid, rememberUser);
         setUserInPersistor(makeUser(uid));
         setBigSessionCookie(uid);
-        addGeneralCookie(LOGGED_OUT, String.valueOf(false), Integer.MAX_VALUE);
+        addGeneralCookie(defaultCookiePath.getName() + "_" + LOGGED_OUT, String.valueOf(false), Integer.MAX_VALUE);
     }
 
     /**
@@ -202,7 +208,7 @@ public class BasicAuthentication implements WebAuthentication {
         clearCookie();
         clearBigCookie();
         setUserInPersistor(guest);
-        addGeneralCookie(LOGGED_OUT, String.valueOf(true), Integer.MAX_VALUE);
+        addGeneralCookie(defaultCookiePath.getName() + "_" + LOGGED_OUT, String.valueOf(true), Integer.MAX_VALUE);
     }
 
     private void addGeneralCookie(String name, String value, int time) {
@@ -218,7 +224,7 @@ public class BasicAuthentication implements WebAuthentication {
     private Boolean loggedOut = null;
 
     private boolean isLoggedOut() {
-        final String LOGOUT_KEY = LOGGED_OUT + "_" + ApplicationServer.ENVIRONMENT;
+        final String LOGOUT_KEY = defaultCookiePath.getName() + "_" + LOGGED_OUT + "_" + ApplicationServer.ENVIRONMENT;
         if (loggedOut == null) {
             Cookie[] ca = request.getCookies();
             for (int i = 0; ca != null && i < ca.length; i++) {
@@ -453,11 +459,6 @@ public class BasicAuthentication implements WebAuthentication {
     public User checkCookie() {
         //log.debug("checkCookie called...");
         Cookie[] ca = request.getCookies();
-/*
-        if (log.isDebugEnabled()) {
-            log.debug(cookieList());
-        }
-*/
         for (int i = 0; ca != null && i < ca.length; i++) {
             //log.debug(ca[i].getName() + " " + ca[i].getValue());
             if (ca[i].getName().equals(defaultCookiePath.getName() + "_" + USER_COOKIE_NAME + "_" + ApplicationServer.ENVIRONMENT)) {
@@ -492,6 +493,10 @@ public class BasicAuthentication implements WebAuthentication {
     /**
      * Add a cookie that will work across domains to help us preserve
      * a user http session between web applications and domains.
+     * <p/>
+     * Only do this for the "MAIN_SITE".  for example, ignore
+     * other sites like privatelablel.  sites with a different user base
+     * should not participate in the SSO session
      *
      * @param uid
      * @throws Exception
@@ -500,39 +505,51 @@ public class BasicAuthentication implements WebAuthentication {
         if (log.isDebugEnabled()) {
             log.debug("set sso cookie for " + uid);
         }
-        addGeneralCookie(BIG_SESSION_KEY, uid + "|" + hashForUser(uid), SSO_TIMEOUT_SECONDS);
+        if (MAIN_SITE.equals(defaultCookiePath)) {
+            addGeneralCookie(defaultCookiePath.getName() + "_" + BIG_SESSION_KEY, uid + "|" + hashForUser(uid), SSO_TIMEOUT_SECONDS);
+        }
     }
 
     /**
      * Remove any cookie previously set on the client by the method above.
+     * <p/>
+     * Only do this for the "MAIN_SITE".  for example, ignore
+     * other sites like privatelablel.  sites with a different user base
+     * should not participate in the SSO session
      */
     private void clearBigCookie() {
-        addGeneralCookie(BIG_SESSION_KEY, "", 0);
+        if (MAIN_SITE.equals(defaultCookiePath)) {
+            addGeneralCookie(defaultCookiePath.getName() + "_" + BIG_SESSION_KEY, "", 0);
+        }
     }
 
+    /**
+     * Only do this for the "MAIN_SITE".  for example, ignore
+     * other sites like privatelablel.  sites with a different user base
+     * should not participate in the SSO session
+     *
+     * @return the user if found
+     */
     private User checkBigSession() {
-        Cookie[] ca = request.getCookies();
-/*
-        if (log.isDebugEnabled()) {
-            log.debug(cookieList());
-        }
-*/
+        if (MAIN_SITE.equals(defaultCookiePath)) {
+            Cookie[] ca = request.getCookies();
 
-        for (int i = 0; ca != null && i < ca.length; i++) {
-            //log.debug(ca[i].getName() + " " + ca[i].getValue());
-            if (ca[i].getName().equals(BIG_SESSION_KEY + "_" + ApplicationServer.ENVIRONMENT)) {
+            for (int i = 0; ca != null && i < ca.length; i++) {
+                //log.debug(ca[i].getName() + " " + ca[i].getValue());
+                if (ca[i].getName().equals(defaultCookiePath.getName() + "_" + BIG_SESSION_KEY + "_" + ApplicationServer.ENVIRONMENT)) {
 
-                try {
-                    StringTokenizer st = new StringTokenizer(ca[i].getValue(), "|");
-                    long uid = Long.parseLong(st.nextToken());
-                    if (uid < 1) continue;
-                    String hash = hashForUser(uid);
-                    if (!hash.equals(st.nextToken())) continue;
-                    return makeUser(uid);
+                    try {
+                        StringTokenizer st = new StringTokenizer(ca[i].getValue(), "|");
+                        long uid = Long.parseLong(st.nextToken());
+                        if (uid < 1) continue;
+                        String hash = hashForUser(uid);
+                        if (!hash.equals(st.nextToken())) continue;
+                        return makeUser(uid);
 
-                } catch (Exception e) {
-                    log.warn("exception parsing cookie", e);
-                    /* junk in the cookie, ignore it */
+                    } catch (Exception e) {
+                        log.warn("exception parsing cookie", e);
+                        /* junk in the cookie, ignore it */
+                    }
                 }
             }
         }
