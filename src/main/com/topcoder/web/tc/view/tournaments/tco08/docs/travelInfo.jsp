@@ -258,7 +258,7 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
 </tr>
 <tr>
     <td class="sidebarText" align="right" colspan="2">
-        <textarea cols="80" rows="10" name="a49"/>
+        <textarea cols="80" rows="10" name="a49"></textarea>
     </td>
 </tr>
 
@@ -271,7 +271,7 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
 </tr>
 <tr>
     <td class="valueC" colspan="2">
-        <textarea cols="50" rows="10" name="a143"/>
+        <textarea cols="50" rows="10" name="a143"></textarea>
     </td>
 </tr>
 
