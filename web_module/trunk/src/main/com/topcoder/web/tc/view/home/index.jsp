@@ -285,7 +285,7 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/home/tcs_client_AOL.png" alt="TopCoder &amp; AOL" border="0" style="display:block;"/></A>
+                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/home/tcs_client_aol.png" alt="TopCoder &amp; Caliper" border="0" style="display:block;"/></A>
             </td>
         </tr>
     </table>
