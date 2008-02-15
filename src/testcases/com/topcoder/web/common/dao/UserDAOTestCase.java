@@ -6,11 +6,7 @@ import com.topcoder.web.reg.TCHibernateTestCase;
 import com.topcoder.web.reg.TestUtils;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author dok
@@ -19,6 +15,69 @@ import java.util.Set;
  */
 public class UserDAOTestCase extends TCHibernateTestCase {
     protected static final Logger log = Logger.getLogger(UserDAOTestCase.class);
+
+    public void testTransisetSchoolUpdate() {
+        User u = DAOUtil.getFactory().getUserDAO().find("Petr", true);
+        School s = new School();
+        String newName = "name" + System.currentTimeMillis();
+        s.setName(newName);
+
+        s.setAddress(u.getCoder().getCurrentSchool().getSchool().getAddress());
+
+        s.setType(DAOUtil.getFactory().getSchoolTypeDAO().find(SchoolType.COLLEGE));
+
+        u.addCreatedSchool(s);
+
+
+
+        UserSchool us = new UserSchool();
+        us.setSchool(s);
+        us.setPrimary(true);
+        us.setAssociationType(DAOUtil.getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.STUDENT));
+
+        u.addSchool(us);
+
+        DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
+
+        tearDown();
+        setUp();
+        User u1 = DAOUtil.getFactory().getUserDAO().find(u.getId());
+        boolean found = false;
+        for (UserSchool s1 : u1.getSchools()) {
+            if (s1.getSchool().getName().equals(newName)) {
+                found=true;
+            }
+        }
+        assertTrue("new school not associated", found);
+
+    }
+
+    public void testExistingSchoolUpdate() {
+        User u = DAOUtil.getFactory().getUserDAO().find("Petr", true);
+
+
+        UserSchool us = new UserSchool();
+        us.setSchool(u.getCoder().getCurrentSchool().getSchool());
+        us.setPrimary(true);
+        us.setAssociationType(DAOUtil.getFactory().getSchoolAssociationTypeDAO().find(SchoolAssociationType.STUDENT));
+
+        u.addSchool(us);
+
+        DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
+
+        tearDown();
+        setUp();
+        User u1 = DAOUtil.getFactory().getUserDAO().find(u.getId());
+        boolean found = false;
+        for (UserSchool s1 : u1.getSchools()) {
+            if (s1.getSchool().getName().equals(u.getCoder().getCurrentSchool().getSchool().getName())) {
+                found=true;
+            }
+        }
+        assertTrue("new school not associated", found);
+
+    }
+
 
 
     public void testTransientDemogUpdate() {
