@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />02.18.08<br />12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=ViewSurvey&amp;sid=21981">What is your awareness of AMD products and developer program?</a></span><br /><br />
+        AMD wants to know your familiarity with their services. Fill out this survey and you will have a chance to win a great prize from AMD. AMD will be randomly selecting more than 20 members who have completed the survey who will win an AMD prize.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=ViewSurvey&amp;sid=21981">details</a> | 
+        <tc-webtag:forumLink forumID="519712" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.15.08<br />3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=601138">TCHS08 Finalists documents due. Act now!</a></span><br /><br />
@@ -151,47 +164,5 @@
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&d4=schedule">details</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.11.08<br />2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tco08?module=MarathonAdvancers">TCO08 Marathon Round 1 results are up!</a></span><br /><br />
-        Check out who made it to Round 2!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tco08?module=MarathonAdvancers">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.11.08<br />12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tco08?module=AlgorithmQualification&full=true">TCO08 Algorithm Qualification Round 2 results</a></span><br /><br />
-        The results of Qualification Round 2 of the TCO08 Algorithm Competition are complete! See who advanced to Round 1.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tco08?module=AlgorithmQualification&full=true">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.08.08<br />12:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08qualRd1">TCO08 Qualification Round 1 - Problem Set &amp; Analysis</a></span><br /><br />
-      Formula One has got its light signals, Soccer World Cup has the first whistle, for Olympic Games there is a great opening ceremony. The Algorithm competition of TCO 2008 was launched in a less spectacular way: by a small gray window stating that the coding phase has started.</td>
-         <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08qualRd1">details</a> | 
-         <tc-webtag:forumLink forumID="519414" message="discuss this" /> | 
-         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
    
