@@ -4,6 +4,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />02.18.08<br />3:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        Downtime for scheduled maintenance: Monday, February 18</span><br /><br />
+        The TopCoder sites and the Arena will be down for scheduled maintenance between 10:00 PM and 11:30 PM EST. We apologize for any inconvenience.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=603601">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.18.08<br />3:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tco08?module=AlgorithmAdvancers&amp;full=true">See Who Advanced from Algorithm Round 1 of the TCO08</a></span><br /><br />
@@ -148,21 +160,5 @@
    <tr><td class="newsLinksCell">
          <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=602680&mc=25#928522">discuss this</a> | 
          <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.12.08<br />10:45 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08qualRd2">TCO08 Qualification Round 2 - Problem Set &amp; Analysis</a></span><br /><br />
-      This problemset was more traditional than the last one. At least a fast 250 and a successful challenge were required to advance. Nobody managed to do it with only challenges, some even failed to do it with slow solutions to the 500.</td>
-         <td class="newsPhoto">&nbsp;<br />by <tc-webtag:handle coderId="21547660" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08qualRd2">details</a> | 
-         <tc-webtag:forumLink forumID="519495" message="discuss this" /> | 
-         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
    
