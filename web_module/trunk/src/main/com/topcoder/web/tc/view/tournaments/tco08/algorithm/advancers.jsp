@@ -15,8 +15,8 @@
 <!--  Leave empty if the round doesn't exist or it's not finished -->
 
 <c:set value="stat?c=round_overview&er=5&rd=" var="details_link"/>
-<!-- 
 <c:set var="round1_id" value="12011"/>
+<!-- 
 <c:set var="round2_id" value="12012"/>
 <c:set var="round3_id" value="12013"/>
 <c:set var="round4_id" value="12014"/>
