@@ -1323,7 +1323,10 @@ public class TCLoadTCS extends TCLoad {
                         "    , pr.current_reliability_ind " +
                         "    , pr.reliable_submission_ind " +
                         "    , pr.rating_order " +
-                        "    , NVL ((select max(cvd.price) " +
+                        // first we try get the awarded points from project_info (DR points type)
+                        // then, we try to get it from comp_version_dates
+                        // finally, we get it from project_info (Payments type)
+                        "    , NVL((select value from project_info pi_dr where pi_dr.project_info_type_id = 30 and pi_dr.project_id = p.project_id), NVL ((select max(cvd.price) " +
                         "             from comp_version_dates cvd  " +
                         "             , project_info pi_ci " +
                         "             where pi_ci.value = cvd.comp_vers_id " +
@@ -1331,7 +1334,7 @@ public class TCLoadTCS extends TCLoad {
                         "             and pi_ci.project_id = p.project_id  " +
                         "             and pi_ci.project_info_type_id = 1), " +
                         "          (select value from project_info pi_am where pi_am.project_info_type_id = 16 and pi_am.project_id = p.project_id) " +
-                        "                ) as amount  " +
+                        "                )) as amount  " +
                         "     , (select value from project_info where project_id = p.project_id and project_info_type_id = 26) as dr_ind " +
                         "    from project_result pr" +
                         "       ,project p" +
