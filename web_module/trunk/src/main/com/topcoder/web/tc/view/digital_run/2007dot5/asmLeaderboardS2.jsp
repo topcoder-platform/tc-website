@@ -14,13 +14,6 @@
     <jsp:include page="../../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
-    <script language="JavaScript" type="text/javascript">
-    <!--
-    function postPopUpText(myText) {
-        document.getElementById("popUpText").innerHTML = myText;
-    }
-    //-->
-    </script>
 </head>
 
 <body>
@@ -78,8 +71,8 @@
     <tr class="light">
 <td class="valueC">1</td>
 <td class="value B"><tc-webtag:handle coderId="21271044" /></td>
-<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
-<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
+<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
+<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">10025.00</td>
 <td class="valueR">$20,000.00</td>
 <td class="valueR">$22,303.59</td>
@@ -88,8 +81,8 @@
     <tr class="light">
 <td class="valueC">2</td>
 <td class="value B"><tc-webtag:handle coderId="299180" /></td>
-<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
-<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
+<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
+<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">7000.00</td>
 <td class="valueR">$8,500.00</td>
 <td class="valueR">$15,573.58</td>
@@ -98,8 +91,8 @@
     <tr class="light">
 <td class="valueC">3</td>
 <td class="value B"><tc-webtag:handle coderId="22629228" /></td>
-<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
-<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
+<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
+<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">4550.00</td>
 <td class="valueR">$8,500.00</td>
 <td class="valueR">$10,122.83</td>
@@ -108,7 +101,7 @@
     <tr class="light">
 <td class="valueC">4</td>
 <td class="value B"><tc-webtag:handle coderId="13372008" /></td>
-<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
+<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">4200.00</td>
 <td class="valueR">$3,000.00</td>
@@ -118,7 +111,7 @@
     <tr class="light">
 <td class="valueC">5</td>
 <td class="value B"><tc-webtag:handle coderId="8499822" /></td>
-<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'myPopUp')" onmouseout="popHide()" border="0" /></div></td>
+<td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">3000.00</td>
 <td class="valueR">$2,000.00</td>
@@ -165,10 +158,6 @@
 <p class="small" align="left">
     Updated Feb 18, 2008
 </p>
-
-<div class="popUp" id="myPopUp">
-    <div id="popUpText">&nbsp;</div>
-</div>
 
             </div>
         </td>
