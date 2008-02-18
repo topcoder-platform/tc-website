@@ -49,11 +49,12 @@
                 <jsp:param name="title" value="Assembly Cup Series Leaderboard"/>
             </jsp:include>
 
+<div align="right"><a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2007dot5&amp;d3=asmLeaderboardS2">Stage 2 Leaderboard</a></div><br />
 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
 <tbody>
     <tr>
         <td class="title" colspan="8">
-            Assembly Cup Series Leaderboard
+            Assembly Cup Series Leaderboard (Stage 1)
         </td>
     </tr>
     <tr>

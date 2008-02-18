@@ -72,7 +72,7 @@ function menu_goto( menuform )
 <td align="left" style="padding-left:10px;" valign="top">
 <span class="subtitle" class="bcLink">Assembly Cup</span> <span class="bigRed">NEW!</span><br>
 <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=asmOverview" class="bcLink">Details</A><br>
-<A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=asmLeaderboardS1" class="bcLink">Current Leaderboard</A><br>
+<A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=asmLeaderboardS2" class="bcLink">Current Leaderboard</A><br>
 
 </td>
 </tr>
