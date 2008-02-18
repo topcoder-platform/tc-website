@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.18.08<br />3:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tco08?module=AlgorithmAdvancers&amp;full=true">See Who Advanced from Algorithm Round 1 of the TCO08</a></span><br /><br />
+        The advancers from Algorithm Round 1 are now available.  Congratulations to those who have advanced!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tco08?module=AlgorithmAdvancers&amp;full=true">details</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />02.18.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=ViewSurvey&amp;sid=21981">What is your awareness of AMD products and developer program?</a></span><br /><br />
@@ -151,18 +164,5 @@
          <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08qualRd2">details</a> | 
          <tc-webtag:forumLink forumID="519495" message="discuss this" /> | 
          <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.11.08<br />5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&d4=schedule">TCO08 Algorithm Qualification Round 3</a></span><br /><br />
-        TCO08 Qualification Round 3 is set for Tuesday, February 12 at 7:00 AM EST.  See you in the arena!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&d4=schedule">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
