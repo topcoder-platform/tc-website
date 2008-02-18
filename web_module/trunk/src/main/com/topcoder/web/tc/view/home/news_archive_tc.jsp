@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%"> 
+<tr class="bodyText"><td nowrap="nowrap">02.18.08 12:00 PM - </td><td width="100%"><a href="/tc?module=ViewSurvey&amp;sid=21981">What is your awareness of AMD products and developer program?</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.14.08 6:00 PM - </td><td width="100%">Downtime for scheduled maintenance: Thursday, February 14</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.14.08 1:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewPastContests">Happy Valentines Day from TopCoder!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.13.08 4:00 PM - </td><td width="100%">Downtime for scheduled maintenance: Wednesday, February 13</td></tr>
