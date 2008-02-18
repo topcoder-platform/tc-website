@@ -48,6 +48,7 @@
     5.14.5 - 2008.02.xx
     <ul>
         <li>Add TCO08 travel info site -dok</li>
+        <li>Changed DR to be able to adjust how many points a project is worth -pulky</li>
     </ul>
 </p>
 
