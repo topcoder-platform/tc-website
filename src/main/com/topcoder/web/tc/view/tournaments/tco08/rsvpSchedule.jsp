@@ -158,18 +158,22 @@ a:hover, a:active {
                     <td>TopCoder 101</td>
                 </tr>
                 <tr class="dark">
+                    <td>1:00 PM - 1:45 PM</td>
+                    <td>Crowd Sourcing Collaboration and Innovation</td>
+                </tr>
+                <tr class="light">
                     <td>2:00 PM - 2:45 PM</td>
                     <td>Developer Forum:  TC Direct &amp; Cockpit and Widget Innerworkings</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td>3:00 PM - 3:45 PM</td>
                     <td>Corporate Forum:  Grady Bryant from VeriSign</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>4:00 PM - 4:45 PM</td>
                     <td>Developer Forum: Quality Through Review</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td>6:00 PM - 8:00 PM</td>
                     <td>Casino Night Cocktail Party</td>
                 </tr>
