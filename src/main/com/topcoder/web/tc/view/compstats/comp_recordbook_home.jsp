@@ -7,10 +7,9 @@
 <html>
 <head>
     <title>TopCoder Statistics</title>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-    <link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
 </head>
 
 <body>

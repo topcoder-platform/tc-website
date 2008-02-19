@@ -9,7 +9,6 @@
 <html>
 <head>
 <title>TopCoder Employment Opportunities</title>
-<link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>

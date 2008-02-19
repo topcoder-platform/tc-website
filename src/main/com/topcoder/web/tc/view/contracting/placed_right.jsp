@@ -13,7 +13,6 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
-<link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
 <table class="stat" cellpadding="0" cellspacing="0" width="170">
     <tbody>
     <tr valign="middle">

@@ -5,10 +5,9 @@
 <head>
 <title>TopCoder Statistics</title>
 <script language="JavaScript" type="text/javascript" src="/js/popup.js"></script>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-<link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
 </head>
 
 <body>

@@ -6,8 +6,9 @@
                  com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<link type="text/css" rel="stylesheet" href="/css/tcStyles.css">
-<link type="text/css" rel="stylesheet" href="/css/tcReg.css">
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_reg"/>
+    </jsp:include>
 
 <html>
 <head>
