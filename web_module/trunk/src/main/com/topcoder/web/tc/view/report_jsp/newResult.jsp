@@ -21,7 +21,9 @@
   <head>
     <title>TopCoder Reporting II</title>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-      <link type="text/css" rel="stylesheet" href="/css/tcStyles.css">
+		<jsp:include page="/style.jsp">
+			<jsp:param name="key" value="tc_stats"/>
+		</jsp:include>
       <style type="text/css">
 
       table tr.odd  {

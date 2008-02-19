@@ -23,7 +23,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>PACTS - Payment List</title>
-    <link type="text/css" rel="stylesheet" href="/css/tcStyles.css">
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
 </head>
 <body>
 <script type="text/javascript">
