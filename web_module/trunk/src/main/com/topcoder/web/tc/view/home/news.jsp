@@ -44,11 +44,11 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.18.08<br />3:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tco08?module=AlgorithmAdvancers&amp;full=true">See Who Advanced from Algorithm Round 1 of the TCO08</a></span><br /><br />
+        <a href="/tco08?module=AlgorithmAdvancers">See Who Advanced from Algorithm Round 1 of the TCO08</a></span><br /><br />
         The advancers from Algorithm Round 1 are now available.  Congratulations to those who have advanced!</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <a href="/tco08?module=AlgorithmAdvancers&amp;full=true">details</a> | 
+        <a href="/tco08?module=AlgorithmAdvancers">details</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
