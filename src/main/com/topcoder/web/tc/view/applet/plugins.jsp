@@ -130,6 +130,22 @@
                         <a href="/contest/classes/CodeProcessor/CodeProcessor.jar" class="statText">CodeProcessor.jar Plugin</a></p>
 
                         <hr width="100%" noshade="noshade" color="#666666" />
+                    
+                        <p class="statText">
+                        Plugin Name: <strong>CodeProcessor v2.0</strong><br />
+                        Description: Plugin that will allow you to write pre/post processing source code scripts for use with other editor plugins<br />
+                        Author: Pops<br />
+                        Date: 1/10/2003<br />
+                        <a href="/contest/classes/CodeProcessorV2/How%20to%20use%20CodeProcessor%20v2.htm" class="statText">Documentation</a><br />
+                        <a href="/contest/classes/CodeProcessorV2/CodeProcessor%20v2.00%20release%20notes.htm" class="statText">Release Notes</a><br />
+                        Version: 2.0<br />
+                        EntryPoint: codeprocessor.EntryPoint (case sensitive)<br />
+                        ClassPath: CodeProcessor.jar<br />
+                        <a href="/contest/classes/CodeProcessorV2/CodeProcessor.jar" class="statText">CodeProcessor.jar Plugin</a></br>
+                        <b>Note:  This plug-in has not been tested or verified by TopCoder staff. TopCoder will only distribute it as-is and will not guarantee its function or efficiency. Sources are included in the JAR distribution to facilitate verification and enhancement.</b>
+                        </p>
+                        
+                        <hr width="100%" noshade="noshade" color="#666666" />
                         
                         <p class="statText">
                         Plugin Name: <strong>PopsEdit</strong><br />
