@@ -1,0 +1,20 @@
+<fo:static-content flow-name="xsl-region-after">
+        <fo:block>
+               <fo:leader leader-pattern="rule" leader-length="100%"/>
+        </fo:block>
+        <fo:table width="100%" table-layout="fixed" font-family="serif" font-size="9pt">
+                   <fo:table-column column-width="14cm"/>
+                   <fo:table-column column-width="3cm"/>
+                   <fo:table-body>
+                           <fo:table-row>
+                                   <fo:table-cell color="grey">
+                                              <fo:block>Created on $generalUtil.formatDateTime($exportDate)</fo:block>
+                                              <fo:block>Copyright TopCoder, Inc. 2008</fo:block>
+                                   </fo:table-cell>
+                                   <fo:table-cell color="grey">
+                                          <fo:block text-align="end">Page <fo:page-number/></fo:block>
+                                   </fo:table-cell>
+                           </fo:table-row>
+                   </fo:table-body>
+    </fo:table>
+</fo:static-content>
