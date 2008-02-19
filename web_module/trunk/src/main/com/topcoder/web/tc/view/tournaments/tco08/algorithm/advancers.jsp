@@ -161,7 +161,14 @@
 <td class="valueC">${resultRow.map["seed"]}</td>
 <td class="value"><tc-webtag:handle coderId="${resultRow.map['coder_id']}" context="algorithm"/></td>
 <td class="valueC">${resultRow.map["rating"]}</td>
-<td class="valueC"><img src="/i/tournament/tco08/icon${resultRow.map['round1'] == 'Advanced  ' ? 'Advanced' : resultRow.map['round1']}.png" alt="${resultRow.map["round1"]}" /></td>
+<td class="valueC">
+<c:choose>
+<c:when test="${not empty resultRow.map['round1']}">
+    <img src="/i/tournament/tco08/icon${resultRow.map['round1'] == 'Advanced  ' ? 'Advanced' : resultRow.map['round1']}.png" alt="${resultRow.map["round1"]}" />
+</c:when>
+<c:otherwise>-</c:otherwise>
+</c:choose>
+</td>
 <td class="valueC"><img src="/i/tournament/tco08/icon${resultRow.map['round2'] == 'Advanced  ' ? 'Advanced' : resultRow.map['round2']}.png" alt="${resultRow.map["round2"]}" /></td>
 <td class="valueC"><img src="/i/tournament/tco08/icon${resultRow.map['round3'] == 'Advanced  ' ? 'Advanced' : resultRow.map['round3']}.png" alt="${resultRow.map["round3"]}" /></td>
 <td class="valueC"><img src="/i/tournament/tco08/icon${resultRow.map['round4'] == 'Advanced  ' ? 'Advanced' : resultRow.map['round4']}.png" alt="${resultRow.map["round4"]}" /></td>
