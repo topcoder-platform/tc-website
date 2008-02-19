@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.19.07<br />2:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08qualRd3">TCO08 - Qualification Round 3 - Problem Set &amp; Analysis</a></span><br /><br />
+      1051 coders fiercely competed for their last chance to advance to round 1 in the final qualification match of the 2008 TCO.  The match was won by <tc-webtag:handle coderId="15718818" context="algorithm"/> with fast submissions on all three problems and no help from the challenge phase.</td>
+         <td class="newsPhoto"><img src="/i/m/eleusive_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8369955" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08qualRd3">details</a> | 
+        <tc-webtag:forumLink forumID="519586" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />02.19.08<br />10:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021808">TopCoder Software Component Catalog Surpasses 1,000 Reusable Java &amp; .NET Components</a></span><br /><br />
@@ -145,18 +161,5 @@
    <tr><td class="newsLinksCell">
         <tc-webtag:forumLink forumID="519599" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.13.08<br />1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/longcontest/?module=ViewActiveContests">TCO08 Marathon Round 2 Now Underway</a></span><br /><br />
-        With the first round complete, we've narrowed down the field to the top 300 competitors.  Check out the leaderboard thourghout the round <a href="/longcontest/?module=ViewActiveContests">here</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/longcontest/?module=ViewActiveContests">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
