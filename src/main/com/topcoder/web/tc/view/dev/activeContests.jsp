@@ -19,7 +19,6 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
-    <script type="text/javascript" src="/js/popup.js"></script>
 </head>
 
 <body>
@@ -71,32 +70,40 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="9">Active Component Design Contests</td>
+        <td class="title" colspan="10">Active Component Design Contests</td>
     </tr>
     <tr>
         <td class="headerC">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Catalog</a>
         </td>
-        <td class="header" width="100%">
+        <td class="header" width="40%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Component</a>
         </td>
         <td class="header">&#160;</td>
-        <td class="headerC" style="width: 80px;">
+        <td class="headerC" width="10%">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Register
+                by</a></td>
+        <td class="headerC" width="10%">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a>
+        </td>
+        <td class="headerC" width="10%">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Payment*</a>
+        </td>
+        <td class="headerC" width="10%">
+            <div align="center">
+                <a href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/interface/emblem/digitalrun.png" alt="" onmouseover="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+            </div>
+            <div align="center">
+                <a href="SORT BY POINTS">Points</a>
+            </div>
+        </td>
+        <td class="headerC" width="10%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Registrants</a><br/>
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rated</a>/
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Unrated</a>
         </td>
-        <td class="headerC" style="width: 130px;">
-            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Registration
-                Ends</a></td>
-        <td class="headerC" style="width: 80px;">
+        <td class="headerC" width="10%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Submissions</a>
-        </td>
-        <td class="headerR" style="width: 65px;">
-            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Payment*</a>
-        </td>
-        <td class="headerC" style="width: 130px;">
-            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a>
         </td>
     </tr>
 
@@ -131,15 +138,28 @@
             </td>
             <td class="value">
                 <% if (resultRow.getIntItem("tourny_project") > 0) { %>
-                <div id="popUp<rsc:item name="project_id" row="<%=resultRow%>"/>" class="popUp">
-                    <div>Eligible for the TCO08 CDDC</div>
-                </div>
                 <div align="center">
-                    <a href='/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description'><img class="emblem" src="/i/tournament/tco08/emblem.png" alt="" border="0" onmouseover="popUp(this,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()"/></a>
+                    <a href='/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description'><img class="emblem" src="/i/tournament/tco08/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TCO08 CDDC'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
                 <% } else { %>
                 &nbsp;
                 <% } %>
+            </td>
+            <td class="valueC" nowrap="nowrap">
+                <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
+                    <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy'<br />'HH:mm z"/>
+                <% } else { %>
+                    <rsc:item name="reg_end_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
+                <% } %>
+            </td>
+            <td class="valueC" nowrap="nowrap">
+                <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
+            </td>
+            <td class="valueC">
+                <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/>
+            </td>
+            <td class="valueC">
+                1000
             </td>
             <td class="valueC">
                 <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
@@ -152,23 +172,8 @@
                 </a>
                 <% } %>
             </td>
-            <td class="valueC" nowrap="nowrap">
-                <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
-                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
-                <% } else { %>
-                <strong>
-                    <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
-                </strong>
-                <% } %>
-            </td>
             <td class="valueC">
                 <rsc:item name="total_submissions" row="<%=resultRow%>"/>
-            </td>
-            <td class="valueR">
-                <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/>
-            </td>
-            <td class="valueC" nowrap="nowrap">
-                <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
             </td>
         </tr>
         <% even = !even;%>
@@ -180,7 +185,7 @@
     <a href="/tc?module=BasicRSS&c=rss_Upcoming_Contests&dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
 
-<% } else {   // Development %>
+<% } else { %>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
     <tr>
@@ -201,32 +206,40 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="9">Active Component Development Contests</td>
+        <td class="title" colspan="10">Active Component Development Contests</td>
     </tr>
     <tr>
-        <td class="header" style="width: 55px;">
+        <td class="header";">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Catalog</a>
         </td>
-        <td class="header" width="100%">
+        <td class="header" width="40%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Component</a>
         </td>
         <td class="header">&#160;</td>
-        <td class="headerC" style="width: 80px;">
+        <td class="headerC" width="10%">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Register
+                by</a></td>
+        <td class="headerC" width="10%">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a>
+        </td>
+        <td class="headerC" width="10%">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Payment*</a>
+        </td>
+        <td class="headerC" width="10%">
+            <div align="center">
+                <a href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/interface/emblem/digitalrun.png" alt="" onmouseover="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+            </div>
+            <div align="center">
+                <a href="SORT BY POINTS">Points</a>
+            </div>
+        </td>
+        <td class="headerC" width="10%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Registrants</a><br/>
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rated</a>/
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Unrated</a>
         </td>
-        <td class="headerC" style="width: 130px;">
-            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Registration
-                Ends</a></td>
-        <td class="headerC" style="width: 80px;">
+        <td class="headerC" width="10%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Submissions</a>
-        </td>
-        <td class="headerR" style="width: 65px;">
-            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Payment*</a>
-        </td>
-        <td class="headerC" style="width: 130px;">
-            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a>
         </td>
     </tr>
 
@@ -261,13 +274,28 @@
             </td>
             <td class="value">
                 <% if (resultRow.getIntItem("tourny_project") > 0) { %>
-                <div id="popUp<rsc:item name="project_id" row="<%=resultRow%>"/>" class="popUp">
-                    <div>Eligible for the TCO08 CDDC</div>
-                </div>
                 <div align="center">
-                    <a href='/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description'><img class="emblem" src="/i/tournament/tco08/emblem.png" alt="" border="0" onmouseover="popUp(this,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()"/></a>
+                    <a href='/tc?module=Static&d1=tournaments&d2=tco08&d3=component&d4=description'><img class="emblem" src="/i/tournament/tco08/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TCO08 CDDC'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
                 <% } %>
+            </td>
+            <td class="valueC" nowrap="nowrap">
+                <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
+                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy'<br />'HH:mm z"/>
+                <% } else { %>
+                <strong>
+                    <rsc:item name="reg_end_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
+                </strong>
+                <% } %>
+            </td>
+            <td class="valueC" nowrap="nowrap">
+                <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
+            </td>
+            <td class="valueC">
+                <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/>
+            </td>
+            <td class="valueC">
+                1000
             </td>
             <td class="valueC">
                 <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
@@ -280,23 +308,8 @@
                 </a>
                 <% } %>
             </td>
-            <td class="valueC" nowrap="nowrap">
-                <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
-                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
-                <% } else { %>
-                <strong>
-                    <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
-                </strong>
-                <% } %>
-            </td>
             <td class="valueC">
                 <rsc:item name="total_submissions" row="<%=resultRow%>"/>
-            </td>
-            <td class="valueC">
-                <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/>
-            </td>
-            <td class="valueC" nowrap="nowrap">
-                <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
             </td>
         </tr>
         <% even = !even;%>
@@ -316,11 +329,6 @@
     pay out to our winners! Please note
     that custom components do not get added to the catalog and therefore do not have royalties.</p>
 
-<%--
-<div style="float: left; padding-right: 5px;"><img src="/i/tournament/tco06/emblem.gif" alt="TCO06 Component Contest" border="0" /></div>
-<p align="left">This component is eligible for for the 2006 TopCoder Open CDDC</p>
---%>
-
 <p><br/></p>
 
 
@@ -338,10 +346,6 @@
     </jsp:include>
 </td>
 <!-- Right Column Ends -->
-
-<!-- Gutter -->
-<td width="2"><img src="/i/clear.gif" width="2" height="1" border="0"></td>
-<!-- Gutter Ends -->
 
 </tr>
 </table>
