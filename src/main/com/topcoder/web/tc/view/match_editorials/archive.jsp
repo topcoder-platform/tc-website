@@ -44,6 +44,7 @@
    <tr><td valign="middle" class="bodyText" colspan="2">
    <strong>February</strong>
    </td></tr>
+   <tr><td class="bodyText">02.16.08</td><td class="bodyText" nowrap="0" width="100%">TCO08 - Online Round 1 - <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd1">Problem Set &amp; Analysis</a></td></tr>
    <tr><td class="bodyText">02.13.08</td><td class="bodyText" nowrap="0" width="100%">TCO08 - Qualification Round 3 - <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08qualRd3">Problem Set &amp; Analysis</a></td></tr>
    <tr><td class="bodyText">02.09.08</td><td class="bodyText" nowrap="0" width="100%">TCO08 - Qualification Round 2 - <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08qualRd2">Problem Set &amp; Analysis</a></td></tr>
    <tr><td class="bodyText">02.05.08</td><td class="bodyText" nowrap="0" width="100%">TCO08 - Qualification Round 1 - <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08qualRd1">Problem Set &amp; Analysis</a></td></tr>

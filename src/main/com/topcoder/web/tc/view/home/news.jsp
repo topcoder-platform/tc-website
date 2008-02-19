@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.19.07<br />3:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd1">TCO08 - Online Round 1 - Problem Set &amp; Analysis</a></span><br /><br />
+      This Saturday more than 1,500 coders logged into the arena to compete in the first round of this year's TCO. With 900 places for advancers, the strategy to advance was clear: slow and steady. In the end, the number of coders with positive scores was a bit lower than 900, and thus everyone with a positive score advanced to the next round.</td>
+         <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd1">details</a> | 
+        <tc-webtag:forumLink forumID="519631" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.19.07<br />2:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -149,17 +165,5 @@
         <a href="/tco08?module=ContestDetails&amp;ct=461&amp;eid=3006">development</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />02.13.08<br />4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        Downtime for scheduled maintenance: Wednesday, February 13</span><br /><br />
-        The TopCoder sites and the Arena will be down for scheduled maintenance between 10:00 PM and 11:30 PM EST.  We apologize for any inconvenience.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <tc-webtag:forumLink forumID="519599" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
    

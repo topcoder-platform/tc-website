@@ -47,7 +47,7 @@
     <A href="/stat?c=round_overview&er=5&rd=12008">Match Overview</A><br />
     <tc-webtag:forumLink forumID="519495" message="Discuss this match" />
 </div>
-<span class="bodySubtitle">TCO08 Qualification Round 2</span><br />Saturday, February 9, 2008
+<span class="bodySubtitle">2008 TopCoder Open<br />Qualification Round 2</span><br />Saturday, February 9, 2008
 <br /><br />
 
 
