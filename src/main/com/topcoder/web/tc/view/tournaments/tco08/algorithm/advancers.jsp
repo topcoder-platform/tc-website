@@ -9,6 +9,8 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<script type="text/javascript" src="/js/popup.js"></script>
+
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <!--  To set up a new contest, please complete the corresponding rounds ids for each part of the competition -->
@@ -98,7 +100,11 @@
                         </div>
                     </c:if>
                 </div>
-                <br /><br />
+                <div align="center" style="margin: 20px 0 10px 0;">
+                    <img src="/i/tournament/tco08/iconAdvanced.png" alt="Advanced" /> = Advanced 
+                    &nbsp;&nbsp;&nbsp;&nbsp;<img src="/i/tournament/tco08/iconEliminated.png" alt="Eliminated" /> = Eliminated 
+                    &nbsp;&nbsp;&nbsp;&nbsp;- = Did not compete
+                </div>
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
                     <tr>
