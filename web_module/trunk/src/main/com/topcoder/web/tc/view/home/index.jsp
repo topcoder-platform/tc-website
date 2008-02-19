@@ -493,6 +493,7 @@ document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
 </script>
 <script type="text/javascript">
 var pageTracker = _gat._getTracker("UA-3257193-1");
+_udn="topcoder.com";
 pageTracker._initData();
 pageTracker._trackPageview();
 </script>
