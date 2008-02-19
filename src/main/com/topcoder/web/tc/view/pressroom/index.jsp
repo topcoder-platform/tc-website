@@ -39,18 +39,18 @@
 
     <%-- pr_header begin --%>
     <div id="pr_header">
-        <h1><a onfocus="this.blur();" href="/tc?module=Static&d1=pressroom&d2=index" name="pr_top">Press Room</a></h1>
+        <h1><a onfocus="this.blur();" href="/tc?module=Static&amp;d1=pressroom&amp;d2=index" name="pr_top">Press Room</a></h1>
     </div>
     <%-- pr_header end --%>
     
     <%-- pr_menu begin --%>
     <div id="pr_menu">
         <ul>
-            <li id="pr_menuactive"><a href="/tc?module=Static&d1=pressroom&d2=index" title="Current News"><span>Current News</span></a></li>
-            <li><a href="/tc?module=Static&d1=pressroom&d2=pr_archive" title="Press Release Archive"><span>Press Release Archive</span></a></li>
-            <li><a href="/tc?module=Static&d1=pressroom&d2=mediaResources" title="Media Resources"><span>Media</span></a></li>
-            <li><a href="/tc?module=Static&d1=pressroom&d2=mediaRequestForm" title="Media Request Form"><span>Media Request Form</span></a></li>
-            <li><a href="/tc?module=Static&d1=pressroom&d2=art_archive" title="Articles Archive"><span>Articles Archive</span></a></li>
+            <li id="pr_menuactive"><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index" title="Current News"><span>Current News</span></a></li>
+            <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_archive" title="Press Release Archive"><span>Press Release Archive</span></a></li>
+            <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=mediaResources" title="Media Resources"><span>Media</span></a></li>
+            <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm" title="Media Request Form"><span>Media Request Form</span></a></li>
+            <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_archive" title="Articles Archive"><span>Articles Archive</span></a></li>
         </ul>
     </div>
     <%-- pr_menu end --%>
@@ -69,7 +69,7 @@
                     <span style="padding-left:125px;"><a href="#linktonews"><img src="/i/pressroom/featured_tco07.png" width="440" height="136" ></a></span>
                     --%>
                     <div style="padding-left:90px;">
-                        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='pr_index' />"><img src="/i/home/tco08compRegBanner.png" alt="2008 TopCoder Open" /></a>
+                        <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&d3=about' refer='pr_index' />"><img src="/i/home/tco08compRegBanner.png" alt="2008 TopCoder Open" /></a>
                     </div>
                 </div>
                 <%--
@@ -95,6 +95,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021808"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021808">TopCoder Software Component Catalog Surpasses 1,000 Reusable Java and .NET Components</a></h3>
+                        <p>Customers Leverage TopCoder Components to Increase Pre-Built Software an Average 50 Percent for New Applications-Yielding Substantially Shorter Development Timelines and Decreased Costs  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021808">[February 18]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum end --%>
+                
                 <%-- Computerworld: Rock star coders begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
@@ -111,11 +124,11 @@
                 <%-- TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_010708"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_010708"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_010708">TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum</a></h3>
-                        <p>Jack Hughes, TopCoder Chairman and Founder, to Share Insight on Using Online Professional Communities to Accomplish Work  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_010708">[January 7]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_010708">TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum</a></h3>
+                        <p>Jack Hughes, TopCoder Chairman and Founder, to Share Insight on Using Online Professional Communities to Accomplish Work  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_010708">[January 7]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -137,11 +150,11 @@
                 <%-- TopCoder Expands With New Headquarters in Connecticut begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_010208"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_010208"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_010208">TopCoder Expands With New Headquarters in Connecticut</a></h3>
-                        <p>Global Leader in Programming Contests and Software Methodology Stays Centered in Glastonbury  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_010208">[January 2]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_010208">TopCoder Expands With New Headquarters in Connecticut</a></h3>
+                        <p>Global Leader in Programming Contests and Software Methodology Stays Centered in Glastonbury  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_010208">[January 2]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -243,11 +256,11 @@
                 <%-- CNews begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=art_110807"><img src="/i/pressroom/cnews_logo.png" alt="CNews" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_110807"><img src="/i/pressroom/cnews_logo.png" alt="CNews" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=art_110807">Russian programmer twice the best worldwide</a></h3>
-                        <p>Having won, Peter Mitrichev (<tc-webtag:handle coderId="10574855" context="algorithm"/>) is now the first in the TopCoder world rating.  <small><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=art_110807">[November 8]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_110807">Russian programmer twice the best worldwide</a></h3>
+                        <p>Having won, Peter Mitrichev (<tc-webtag:handle coderId="10574855" context="algorithm"/>) is now the first in the TopCoder world rating.  <small><a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_110807">[November 8]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -269,11 +282,11 @@
                 <%-- Students from Russian Federation, China, Indonesia and United States Win 2007 TopCoder Collegiate Challenge begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_110507"><img src="/i/pressroom/tccc07_logo.png" alt="2007 TopCoder Collegiate Challenge" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_110507"><img src="/i/pressroom/tccc07_logo.png" alt="2007 TopCoder Collegiate Challenge" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_110507">Students from Russian Federation, China, Indonesia and United States Win 2007 TopCoder Collegiate Challenge</a></h3>
-                        <p>Top Ranked Winners Bring Home International Honors and $260,000 Prize Money from Global Software Development Competition at Disney World  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_110507">[November 5]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_110507">Students from Russian Federation, China, Indonesia and United States Win 2007 TopCoder Collegiate Challenge</a></h3>
+                        <p>Top Ranked Winners Bring Home International Honors and $260,000 Prize Money from Global Software Development Competition at Disney World  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_110507">[November 5]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -347,11 +360,11 @@
                 <%-- TopCoder Announces 2008 TopCoder Open begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_100107"><img src="/i/pressroom/tco08_logo.png" alt="TopCoder Open 2008" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100107"><img src="/i/pressroom/tco08_logo.png" alt="TopCoder Open 2008" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_100107">TopCoder Open to Feature World's Elite Software Developers in Competitive Programming's Top Tournament</a></h3>
-                        <p>Las Vegas to Host New Software Symposium as TopCoder's Annual Computing Contest Expands;  120 to Compete for Top Honors and Share of $260,000 in Prize Money May 11-15, 2008.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_100107">[October 1]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100107">TopCoder Open to Feature World's Elite Software Developers in Competitive Programming's Top Tournament</a></h3>
+                        <p>Las Vegas to Host New Software Symposium as TopCoder's Annual Computing Contest Expands;  120 to Compete for Top Honors and Share of $260,000 in Prize Money May 11-15, 2008.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100107">[October 1]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -360,11 +373,11 @@
                 <%-- TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_092407"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_092407"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_092407">TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit</a></h3>
-                        <p>TopCoder Chairman and Founder Jack Hughes will speak at the prestigious Business Innovation Factory's third Collaborative Innovation Summit (BIF-3), an intense, energetic, story-based conversation between America's most engaging public and private sector innovators.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_092407">[September 24]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_092407">TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit</a></h3>
+                        <p>TopCoder Chairman and Founder Jack Hughes will speak at the prestigious Business Innovation Factory's third Collaborative Innovation Summit (BIF-3), an intense, energetic, story-based conversation between America's most engaging public and private sector innovators.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_092407">[September 24]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -373,11 +386,11 @@
                 <%-- TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_082707"><img src="/i/pressroom/incDOTcom_logo.gif" alt="Inc.com" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082707"><img src="/i/pressroom/incDOTcom_logo.gif" alt="Inc.com" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_082707">TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America</a></h3>
-                        <p>Inc. Magazine's "Inc. 500" ranks the fastest-growing privately held companies in the United States based on year-over-year sales growth. TopCoder is ranked 45 on this year's list, thanks to sales growth of more than 2,000 percent from 2003 to 2006.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_082707">[August 27]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082707">TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America</a></h3>
+                        <p>Inc. Magazine's "Inc. 500" ranks the fastest-growing privately held companies in the United States based on year-over-year sales growth. TopCoder is ranked 45 on this year's list, thanks to sales growth of more than 2,000 percent from 2003 to 2006.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082707">[August 27]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -386,11 +399,11 @@
                 <%-- Lilly & Deutsche Bank Announced as New Sponsors & NSA Returns as Patron of TCCC07 begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_082407"><img src="/i/pressroom/tccc07_logo.png" alt="2007 TopCoder Collegiate Challenge" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082407"><img src="/i/pressroom/tccc07_logo.png" alt="2007 TopCoder Collegiate Challenge" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_082407">Lilly &amp; Deutsche Bank Announced as New Sponsors &amp; NSA Returns as Patron of TCCC07</a></h3>
-                        <p>Lilly and Deutsche Bank Onboard with Leading Collegiate Programming Contest National Security Agency Continues Patronage of Fifth Major Event  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_082407">[August 24]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082407">Lilly &amp; Deutsche Bank Announced as New Sponsors &amp; NSA Returns as Patron of TCCC07</a></h3>
+                        <p>Lilly and Deutsche Bank Onboard with Leading Collegiate Programming Contest National Security Agency Continues Patronage of Fifth Major Event  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082407">[August 24]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -412,11 +425,11 @@
                 <%-- Fox TV: "Top Computer Programmers Compete" begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=art_080207"><img src="/i/pressroom/foxTVchicago_logo.png" alt="Fox TV Chicago logo" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_080207"><img src="/i/pressroom/foxTVchicago_logo.png" alt="Fox TV Chicago logo" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=art_080207">Fox TV: "Top Computer Programmers Compete"</a></h3>
-                        <p>The Chicago Fox TV affiliate recently ran a story on TopCoder featuring an interview with <tc-webtag:handle coderId="144400" context="algorithm"/>.  <small><a href="/tc?module=Static&d1=pressroom&d2=art_080207">[August 2]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_080207">Fox TV: "Top Computer Programmers Compete"</a></h3>
+                        <p>The Chicago Fox TV affiliate recently ran a story on TopCoder featuring an interview with <tc-webtag:handle coderId="144400" context="algorithm"/>.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_080207">[August 2]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -425,11 +438,11 @@
                 <%-- TopCoder Announces New Collaboration Initiatives begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_071807"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_071807"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_071807">TopCoder Announces New Collaboration Initiatives</a></h3>
-                        <p>TopCoder today announced a series of collaboration initiatives to further enhance its ability to work with its clients and community.  These plans will move forward under the direction of Ira Heffan, who was recently named General Counsel.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_071807">[July 18]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_071807">TopCoder Announces New Collaboration Initiatives</a></h3>
+                        <p>TopCoder today announced a series of collaboration initiatives to further enhance its ability to work with its clients and community.  These plans will move forward under the direction of Ira Heffan, who was recently named General Counsel.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_071807">[July 18]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -464,11 +477,11 @@
                 <%-- TCO07 Live Coverage begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_062507"><img src="/i/pressroom/tco07_logo.png" alt="TCO07" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_062507"><img src="/i/pressroom/tco07_logo.png" alt="TCO07" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_062507">Live Coverage of 2007 TopCoder Open to Feature Broadcast Team, Interviews and Behind-the-Scenes Action</a></h3>
-                        <p>The TopCoder Open, which will be presented live by at <a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='pr_062507' />">http://dev.aol.com</a> on June 29, will be hosted by sportscasting celebrity Jeremy Schaap, Google's John Dethridge, a former TopCoder champion and five time onsite finalist, and Ken Vogel, a 2002 quarter finalist and currently a director in equities IT with UBS. The webcast will also include live views of the arena, entertaining profiles and interviews.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_062507">[June 25]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_062507">Live Coverage of 2007 TopCoder Open to Feature Broadcast Team, Interviews and Behind-the-Scenes Action</a></h3>
+                        <p>The TopCoder Open, which will be presented live by at <a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='pr_062507' />">http://dev.aol.com</a> on June 29, will be hosted by sportscasting celebrity Jeremy Schaap, Google's John Dethridge, a former TopCoder champion and five time onsite finalist, and Ken Vogel, a 2002 quarter finalist and currently a director in equities IT with UBS. The webcast will also include live views of the arena, entertaining profiles and interviews.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_062507">[June 25]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -490,11 +503,11 @@
                 <%-- TopCoder Community Helps Research Led by Harvard Business School Professor begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_061307"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_061307"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_061307">TopCoder Community Helps Research Led by Harvard Business School Professor</a></h3>
-                        <p>TopCoder announced that its global community of members will help Professor Karim Lakhani of the Harvard Business School with his research agenda by providing access to their skills in innovative software development.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_061307">[June 13]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_061307">TopCoder Community Helps Research Led by Harvard Business School Professor</a></h3>
+                        <p>TopCoder announced that its global community of members will help Professor Karim Lakhani of the Harvard Business School with his research agenda by providing access to their skills in innovative software development.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_061307">[June 13]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -503,11 +516,11 @@
                 <%-- AOL to Webcast TopCoder Open 2007 Finals Live on June 29 begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_060507"><img src="/i/pressroom/tco07_logo.png" alt="TCO07" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060507"><img src="/i/pressroom/tco07_logo.png" alt="TCO07" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_060507">AOL to Webcast TopCoder Open 2007 Finals Live on June 29</a></h3>
-                        <p>TopCoder and AOL today announced that the 2007 TopCoder&#174; Open will be webcast live at the AOL&#174; Developer site (<a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='pr_060507' />">http://dev.aol.com</a>) on Friday, June 29. Coverage of the TCO07 finals from the Mirage Resort in Las Vegas begins at 21:00 GMT.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_060507">[June 7]</a> - <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=trailer&title=Trailer">Watch the trailer!</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060507">AOL to Webcast TopCoder Open 2007 Finals Live on June 29</a></h3>
+                        <p>TopCoder and AOL today announced that the 2007 TopCoder&#174; Open will be webcast live at the AOL&#174; Developer site (<a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='pr_060507' />">http://dev.aol.com</a>) on Friday, June 29. Coverage of the TCO07 finals from the Mirage Resort in Las Vegas begins at 21:00 GMT.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060507">[June 7]</a> - <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&d3=movieStream&clip=trailer&title=Trailer">Watch the trailer!</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -516,11 +529,11 @@
                 <%-- TopCoder Announces Enhanced Focus on Financial Services Industry begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_060607"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060607"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_060607">TopCoder Announces Enhanced Focus on Financial Services Industry</a></h3>
-                        <p>TopCoder announced a strategic move to provide an enhanced response to the specific needs of the financial services industry. The company today detailed its plans to increase focus on financial services applications and software solutions through a series of initiatives under the guidance of industry veteran Dan Houlihan.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_060607">[June 6]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060607">TopCoder Announces Enhanced Focus on Financial Services Industry</a></h3>
+                        <p>TopCoder announced a strategic move to provide an enhanced response to the specific needs of the financial services industry. The company today detailed its plans to increase focus on financial services applications and software solutions through a series of initiatives under the guidance of industry veteran Dan Houlihan.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060607">[June 6]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -529,11 +542,11 @@
                 <%-- Yodlee to Sponsor TopCoder Single Round Match Series begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_052207"><img src="/i/pressroom/yodlee_logo.png" alt="Yodlee" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_052207"><img src="/i/pressroom/yodlee_logo.png" alt="Yodlee" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_052207">Yodlee to Sponsor TopCoder Single Round Match Series</a></h3>
-                        <p>TopCoder today announced that Yodlee, a leader in online banking solutions, will sponsor a series of three SRMs beginning on May 29th and continuing on June 14th and July 12th. Each match will offer prize purses of $5,000 for a total of $15,000 in cash payouts over the three part series.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_052207">[May 23]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_052207">Yodlee to Sponsor TopCoder Single Round Match Series</a></h3>
+                        <p>TopCoder today announced that Yodlee, a leader in online banking solutions, will sponsor a series of three SRMs beginning on May 29th and continuing on June 14th and July 12th. Each match will offer prize purses of $5,000 for a total of $15,000 in cash payouts over the three part series.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_052207">[May 23]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -542,11 +555,11 @@
                 <%-- Russian and Croatian High School Programmers Win TopCoder Championship at Purdue University begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_052307"><img src="/i/pressroom/tchs07.png" alt="TCHS07" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_052307"><img src="/i/pressroom/tchs07.png" alt="TCHS07" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_052307">Russian and Croatian High School Programmers Win TopCoder Championship at Purdue University</a></h3>
-                        <p>First World Championship for TopCoder High School Members Sees Eastern Europe Prevail in Individual and Team Tournaments  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_052307">[May 21]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_052307">Russian and Croatian High School Programmers Win TopCoder Championship at Purdue University</a></h3>
+                        <p>First World Championship for TopCoder High School Members Sees Eastern Europe Prevail in Individual and Team Tournaments  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_052307">[May 21]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -555,11 +568,11 @@
                 <%-- TopCoder Appoints Russ Malz Vice President of Sales begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_040907"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040907"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_040907">TopCoder Appoints Russ Malz Vice President of Sales</a></h3>
-                        <p>TopCoder announced the appointment of Russ Malz as Vice President of Sales. In this role, Malz will be responsible for aligning TopCoder's capabilities with the growing corporate demand for high quality application development, and shaping the TopCoder competitive methodology platform to the enterprise market.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_040907">[April 9]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040907">TopCoder Appoints Russ Malz Vice President of Sales</a></h3>
+                        <p>TopCoder announced the appointment of Russ Malz as Vice President of Sales. In this role, Malz will be responsible for aligning TopCoder's capabilities with the growing corporate demand for high quality application development, and shaping the TopCoder competitive methodology platform to the enterprise market.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040907">[April 9]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -568,11 +581,11 @@
                 <%-- TopCoder Appoints Jiazhi Wu VP of Technology for China begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_040307"><img src="/i/pressroom/china_20061027.gif" alt="TopCoder &amp; China" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040307"><img src="/i/pressroom/china_20061027.gif" alt="TopCoder &amp; China" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_040307">TopCoder Appoints Jiazhi Wu VP of Technology for China</a></h3>
-                        <p>TopCoder announced it has hired Jiazhi Wu as Vice President of Technology for the company's operations in China. Wu, known by his handle "WishingBone", will oversee the development of systems and application development for all competitions and technologies and be responsible for introducing and training new members in China to the TopCoder software process.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_040307">[April 3]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040307">TopCoder Appoints Jiazhi Wu VP of Technology for China</a></h3>
+                        <p>TopCoder announced it has hired Jiazhi Wu as Vice President of Technology for the company's operations in China. Wu, known by his handle "WishingBone", will oversee the development of systems and application development for all competitions and technologies and be responsible for introducing and training new members in China to the TopCoder software process.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040307">[April 3]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -594,11 +607,11 @@
                 <%-- TopCoder Announces TopCoder Open 2007 Sponsored by AOL begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_022207"><img src="/i/pressroom/tco07_logo.png" alt="TCO07" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022207"><img src="/i/pressroom/tco07_logo.png" alt="TCO07" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_022207">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</a></h3>
-                        <p>Top 80 Programmers from Around the World to Compete for $260,000 in Prizes June 27th through 29th at The Mirage, Las Vegas.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_022207">[February 22]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022207">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</a></h3>
+                        <p>Top 80 Programmers from Around the World to Compete for $260,000 in Prizes June 27th through 29th at The Mirage, Las Vegas.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022207">[February 22]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -633,11 +646,11 @@
                 <%-- TCHS07 begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_021307"><img src="/i/pressroom/tchs07.png" alt="TCHS07" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021307"><img src="/i/pressroom/tchs07.png" alt="TCHS07" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_021307">Registration Opens for First TopCoder High School Global Programming Tournament</a></h3>
-                        <p>The TopCoder High School Tournament follows in the full tradition of the company's flagship TopCoder Open and TopCoder Collegiate Challenge professional and collegiate events by providing a world class platform for high school students.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_021307">[February 13]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021307">Registration Opens for First TopCoder High School Global Programming Tournament</a></h3>
+                        <p>The TopCoder High School Tournament follows in the full tradition of the company's flagship TopCoder Open and TopCoder Collegiate Challenge professional and collegiate events by providing a world class platform for high school students.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021307">[February 13]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -646,11 +659,11 @@
                 <%-- MS CSF begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_021207"><img src="/i/pressroom/csflogo.png" alt="Microsoft CSF Logo" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021207"><img src="/i/pressroom/csflogo.png" alt="Microsoft CSF Logo" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_021207">Connected Services Sandbox Launches</a></h3>
-                        <p>TopCoder has announced the launch of the Connected Services Sandbox competition series for Microsoft and BT. TopCoder will manage the competitions to help promote the development of innovative customer solutions that merge traditional telecommunications offerings.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_021207">[February 12]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021207">Connected Services Sandbox Launches</a></h3>
+                        <p>TopCoder has announced the launch of the Connected Services Sandbox competition series for Microsoft and BT. TopCoder will manage the competitions to help promote the development of innovative customer solutions that merge traditional telecommunications offerings.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021207">[February 12]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -674,11 +687,11 @@
                 <%-- TCO06 VeriSign begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_121905"><img src="/i/pressroom/verisign_logo.gif" alt="VeriSign" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_121905"><img src="/i/pressroom/verisign_logo.gif" alt="VeriSign" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_121905">TopCoder Welcomes VeriSign as Return Sponsor of 2006 TopCoder Open in Las Vegas</a></h3>
-                        <p>"We are proud to be a returning sponsor of the 2006 TopCoder Open, which provides companies like VeriSign a pool of talented professional and academic minds to choose the next-generation of employees that will develop advanced services and technologies."  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_121905">[December 19]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_121905">TopCoder Welcomes VeriSign as Return Sponsor of 2006 TopCoder Open in Las Vegas</a></h3>
+                        <p>"We are proud to be a returning sponsor of the 2006 TopCoder Open, which provides companies like VeriSign a pool of talented professional and academic minds to choose the next-generation of employees that will develop advanced services and technologies."  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_121905">[December 19]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -739,11 +752,11 @@
                 <%-- DES/DEV $1 million begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_112105"><img src="/i/pressroom/milestone_million.gif" alt="Milestone: $1 Million" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_112105"><img src="/i/pressroom/milestone_million.gif" alt="Milestone: $1 Million" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_112105">TopCoder Payouts to Winners of Design and Development Competitions Surpass $1 Million</a></h3>
-                        <p>"The strength of TopCoder, simply put, is the TopCoder community - that's what makes us unique and successful," said Jack Hughes, Chairman and Founder of TopCoder, Inc.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_112105">[November 21]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_112105">TopCoder Payouts to Winners of Design and Development Competitions Surpass $1 Million</a></h3>
+                        <p>"The strength of TopCoder, simply put, is the TopCoder community - that's what makes us unique and successful," said Jack Hughes, Chairman and Founder of TopCoder, Inc.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_112105">[November 21]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -778,11 +791,11 @@
                 <%-- TCO06 begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_102105"><img src="/i/pressroom/lasvegas_logo.gif" alt="Las Vegas" border="0" /></a>
+                        <a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102105"><img src="/i/pressroom/lasvegas_logo.gif" alt="Las Vegas" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_102105">TopCoder Selects Aladdin Resort in Las Vegas for TopCoder Open 2006</a></h3>
-                        <p>TopCoder today announced that the world famous Aladdin Resort and Casino in Las Vegas, Nevada will host its 2006 flagship event, the TopCoder Open, May 3rd through 5th, 2006.  <small><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_102105">[October 21]</a></small></p>
+                        <h3><a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102105">TopCoder Selects Aladdin Resort in Las Vegas for TopCoder Open 2006</a></h3>
+                        <p>TopCoder today announced that the world famous Aladdin Resort and Casino in Las Vegas, Nevada will host its 2006 flagship event, the TopCoder Open, May 3rd through 5th, 2006.  <small><a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102105">[October 21]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -791,11 +804,11 @@
                 <%-- TCO05 Winners begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_101705"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_101705"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_101705">Champions Announced In 2005 TopCoder&#174; Open Sponsored by Sun Microsystems</a></h3>
-                        <p>Eryk Kopczy&#241;ski of Poland, Nikolay Archak of the Russian Federation, and Qi Liu of China have won the Algorithm, Design and Development Component tournaments of the 2005 TopCoder Open sponsored by Sun, held at the Santa Clara Marriott in Santa Clara, CA on October 14th.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_101705">[October 17]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_101705">Champions Announced In 2005 TopCoder&#174; Open Sponsored by Sun Microsystems</a></h3>
+                        <p>Eryk Kopczy&#241;ski of Poland, Nikolay Archak of the Russian Federation, and Qi Liu of China have won the Algorithm, Design and Development Component tournaments of the 2005 TopCoder Open sponsored by Sun, held at the Santa Clara Marriott in Santa Clara, CA on October 14th.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_101705">[October 17]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -830,11 +843,11 @@
                 <%-- TCO05 Alg Finalists begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_092805"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_092805"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_092805">Onsite Finalists Announced In 2005 TopCoder Open Sponsored by Sun Microsystems</a></h3>
-                        <p>The 61 TopCoder onsite finalists represent 19 countries including China, Poland, the Russian Federation, South Africa, Japan, Australia and Argentina as well as the US.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_092805">[September 28]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_092805">Onsite Finalists Announced In 2005 TopCoder Open Sponsored by Sun Microsystems</a></h3>
+                        <p>The 61 TopCoder onsite finalists represent 19 countries including China, Poland, the Russian Federation, South Africa, Japan, Australia and Argentina as well as the US.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_092805">[September 28]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -856,11 +869,11 @@
                 <%-- PCWK begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=art_091205"><img src="/i/pressroom/pcwk_logo.gif" alt="PCWK" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_091205"><img src="/i/pressroom/pcwk_logo.gif" alt="PCWK" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=art_091205">Poland Takes the Lead</a> [Translation]</h3>
-                        <p>Poland has just left the US behind and taken first place in TopCoder's country ranking. Warsaw University occupies the first place in university ranking (University of Wroclaw is 13th, Jagiellonian University is 14th).  <small><a href="/tc?module=Static&d1=pressroom&d2=art_091205">[September 12]</a> - <a target="_blank" href="http://www.pcworld.pl/news/82941.html">original article</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_091205">Poland Takes the Lead</a> [Translation]</h3>
+                        <p>Poland has just left the US behind and taken first place in TopCoder's country ranking. Warsaw University occupies the first place in university ranking (University of Wroclaw is 13th, Jagiellonian University is 14th).  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_091205">[September 12]</a> - <a target="_blank" href="http://www.pcworld.pl/news/82941.html">original article</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -882,11 +895,11 @@
                 <%-- TCO05 Component Finalists begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_090205"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_090205"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_090205">TopCoder&#174; Announces First Software Developer Conference at 2005 TopCoder Open</a></h3>
-                        <p>Attendees will be invited to participate in an open forum with lead technologists from TopCoder, clients and TopCoder Open finalists discussing real world examples.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_090205">[September 2]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_090205">TopCoder&#174; Announces First Software Developer Conference at 2005 TopCoder Open</a></h3>
+                        <p>Attendees will be invited to participate in an open forum with lead technologists from TopCoder, clients and TopCoder Open finalists discussing real world examples.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_090205">[September 2]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -908,11 +921,11 @@
                 <%-- TCO05 Component Finalists begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_082405"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082405"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_082405">TopCoder&#174; Announces 16 Finalists in Component Tournament of 2005 TopCoder Open</a></h3>
-                        <p>"We've seen a dramatic growth in the component division - more than twice the number of participants registered this year compared to last year and that really shows it's the hottest area of interest in TopCoder competitions," said Rob Hughes, President and COO of TopCoder.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_082405">[August 24]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082405">TopCoder&#174; Announces 16 Finalists in Component Tournament of 2005 TopCoder Open</a></h3>
+                        <p>"We've seen a dramatic growth in the component division - more than twice the number of participants registered this year compared to last year and that really shows it's the hottest area of interest in TopCoder competitions," said Rob Hughes, President and COO of TopCoder.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082405">[August 24]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -960,11 +973,11 @@
                 <%-- TCO05 Yahoo! begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_071105"><img src="/i/pressroom/yahoo_logo.gif" alt="Yahoo!" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_071105"><img src="/i/pressroom/yahoo_logo.gif" alt="Yahoo!" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_071105">TopCoder&#174; Announces Return of Premier Sponsor to 2005 TopCoder Open</a></h3>
-                        <p>"Yahoo! truly sees that we are at the dawn of a new era in recruiting in terms of world-class talent and world-wide distribution of that talent," said Rob Hughes, President and COO of TopCoder. "Yahoo!'s return as a longtime sponsor of TopCoder events shows the quality and reach of our member base."  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_071105">[July 11]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_071105">TopCoder&#174; Announces Return of Premier Sponsor to 2005 TopCoder Open</a></h3>
+                        <p>"Yahoo! truly sees that we are at the dawn of a new era in recruiting in terms of world-class talent and world-wide distribution of that talent," said Rob Hughes, President and COO of TopCoder. "Yahoo!'s return as a longtime sponsor of TopCoder events shows the quality and reach of our member base."  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_071105">[July 11]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -973,11 +986,11 @@
                 <%-- TCO05 VeriSign begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_070705"><img src="/i/pressroom/verisign_logo.gif" alt="VeriSign" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_070705"><img src="/i/pressroom/verisign_logo.gif" alt="VeriSign" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_070705">VeriSign Sponsors 2005 TopCoder Open</a></h3>
-                        <p>"With rapid advances in technology occurring everyday, companies are looking for the next generation of leaders to author the code that will provide the backbone for advanced applications."  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_070705">[July 7]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_070705">VeriSign Sponsors 2005 TopCoder Open</a></h3>
+                        <p>"With rapid advances in technology occurring everyday, companies are looking for the next generation of leaders to author the code that will provide the backbone for advanced applications."  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_070705">[July 7]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -986,11 +999,11 @@
                 <%-- TCO05 Sun begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_062705"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05 Sponsored by Sun" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_062705"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05 Sponsored by Sun" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_062705">TopCoder Announces Sun Microsystems as Title Sponsor for 2005 TopCoder Open</a></h3>
-                        <p>"Sun is excited that this year's TopCoder Open Component Competition will introduce a Java-centric theme," said Dan Roberts, Group Manager Development Tools Marketing at Sun Microsystems.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_062705">[June 27]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_062705">TopCoder Announces Sun Microsystems as Title Sponsor for 2005 TopCoder Open</a></h3>
+                        <p>"Sun is excited that this year's TopCoder Open Component Competition will introduce a Java-centric theme," said Dan Roberts, Group Manager Development Tools Marketing at Sun Microsystems.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_062705">[June 27]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -999,11 +1012,11 @@
                 <%-- SRM Prizes begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_062005"><img src="/i/pressroom/tc_srm_prizes.gif" alt="TC SRM Prizes" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_062005"><img src="/i/pressroom/tc_srm_prizes.gif" alt="TC SRM Prizes" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_062005">TopCoder&#174; Announces Return of Cash Prizes to Weekly Online Programming Contests</a></h3>
-                        <p>$5,000 Purse at Stake During Select Matches as TopCoder Opens Sponsorship of Highly Popular Single Round Series.  <small><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_062005">[June 20]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_062005">TopCoder&#174; Announces Return of Cash Prizes to Weekly Online Programming Contests</a></h3>
+                        <p>$5,000 Purse at Stake During Select Matches as TopCoder Opens Sponsorship of Highly Popular Single Round Series.  <small><a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_062005">[June 20]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1012,11 +1025,11 @@
                 <%-- Caliper begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_060705"><img src="/i/pressroom/caliper_logo.gif" alt="Caliper" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060705"><img src="/i/pressroom/caliper_logo.gif" alt="Caliper" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_060705">Caliper Hires TopCoder Software&#153; to Enhance Organizational Development Platform &amp; Services</a></h3>
-                        <p>Leading Personality Assessment Firm Employs TopCoder's Reusable Component-Based Methodology to Support IT Functions Across the Enterprise.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_060705">[June 7]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060705">Caliper Hires TopCoder Software&#153; to Enhance Organizational Development Platform &amp; Services</a></h3>
+                        <p>Leading Personality Assessment Firm Employs TopCoder's Reusable Component-Based Methodology to Support IT Functions Across the Enterprise.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060705">[June 7]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1077,11 +1090,11 @@
                 <%-- TWST begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=art_051205"><img src="/i/pressroom/twst_logo.gif" alt="The Wall Street Transcript" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_051205"><img src="/i/pressroom/twst_logo.gif" alt="The Wall Street Transcript" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=art_051205">Interview with Jack Hughes</a></h3>
-                        <p>The following is an interview The Wall Street Transcript had with Jack Hughes.  <small><a href="/tc?module=Static&d1=pressroom&d2=art_051205">[April 22]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_051205">Interview with Jack Hughes</a></h3>
+                        <p>The following is an interview The Wall Street Transcript had with Jack Hughes.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_051205">[April 22]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1090,11 +1103,11 @@
                 <%-- JavaOne begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_050205"><img src="/i/pressroom/javaone_event.gif" alt="JavaOne" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_050205"><img src="/i/pressroom/javaone_event.gif" alt="JavaOne" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_050205">TopCoder&#174;-Powered Coding Challenge to Feature at Sun's 2005 JavaOne<sup>SM</sup> Conference</a></h3>
-                        <p>TopCoder today announced that they are again teaming up with Sun Microsystems, Inc. (Nasdaq: SUNW) to host the JavaOne Coding Challenge at the tenth annual 2005 JavaOne conference, scheduled for June 27 - 30th at Moscone Center in San Francisco.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_050205">[May 2]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_050205">TopCoder&#174;-Powered Coding Challenge to Feature at Sun's 2005 JavaOne<sup>SM</sup> Conference</a></h3>
+                        <p>TopCoder today announced that they are again teaming up with Sun Microsystems, Inc. (Nasdaq: SUNW) to host the JavaOne Coding Challenge at the tenth annual 2005 JavaOne conference, scheduled for June 27 - 30th at Moscone Center in San Francisco.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_050205">[May 2]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1103,11 +1116,11 @@
                 <%-- CHE begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=art_040805"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_040805"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=art_040805">Code Warriors</a></h3>
-                        <p>Young computer programmers battle for fame, money, and the love of algorithms  <small><a href="/tc?module=Static&d1=pressroom&d2=art_040805">[April 8]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_040805">Code Warriors</a></h3>
+                        <p>Young computer programmers battle for fame, money, and the love of algorithms  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_040805">[April 8]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1116,11 +1129,11 @@
                 <%-- BusinessWeek begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=art_042205"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_042205"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=art_042205">How Google Searches - For Talent</a></h3>
-                        <p>"It's a dog-eat-dog world," says Robert Hughes, president of TopCoder Inc., the Glastonbury (Conn.) testing company that runs the Code Jams. "Wherever the best talent is, Google wants them."  <small><a href="/tc?module=Static&d1=pressroom&d2=art_042205">[April 20]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_042205">How Google Searches - For Talent</a></h3>
+                        <p>"It's a dog-eat-dog world," says Robert Hughes, president of TopCoder Inc., the Glastonbury (Conn.) testing company that runs the Code Jams. "Wherever the best talent is, Google wants them."  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_042205">[April 20]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1181,11 +1194,11 @@
                 <%-- TCCC05 begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_031405a"><img src="/i/pressroom/tccc05_logo.gif" alt="TCCC05" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031405a"><img src="/i/pressroom/tccc05_logo.gif" alt="TCCC05" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_031405a">Champions Announced In 2005 TCCC Sponsored by Yahoo!&#174;</a></h3>
-                        <p>TopCoder today announced that Mathijs Vogelzang of the University of Groningen, The Netherlands, Adrian Nicolae Carcu of  the Babes-Bolyai Computer Science University, Romania, and Gary Linscott of Queens University, Canada have won the Algorithm, Design and Development Component tournaments of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo!  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_031405a">[March 14]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031405a">Champions Announced In 2005 TCCC Sponsored by Yahoo!&#174;</a></h3>
+                        <p>TopCoder today announced that Mathijs Vogelzang of the University of Groningen, The Netherlands, Adrian Nicolae Carcu of  the Babes-Bolyai Computer Science University, Romania, and Gary Linscott of Queens University, Canada have won the Algorithm, Design and Development Component tournaments of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo!  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031405a">[March 14]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1194,11 +1207,11 @@
                 <%-- Logic Library begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_031405b"><img src="/i/pressroom/logiclib_logo.gif" alt="Logic Library" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031405b"><img src="/i/pressroom/logiclib_logo.gif" alt="Logic Library" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_031405b">LogicLibrary Teams with TopCoder to Accelerate SOA Deployments</a></h3>
-                        <p>"As developers turn to SOA, reusable components are becoming the building blocks of applications because of their ability to reduce costs, streamline projects and improve productivity."  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_031405b">[March 14]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031405b">LogicLibrary Teams with TopCoder to Accelerate SOA Deployments</a></h3>
+                        <p>"As developers turn to SOA, reusable components are becoming the building blocks of applications because of their ability to reduce costs, streamline projects and improve productivity."  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031405b">[March 14]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1207,11 +1220,11 @@
                 <%-- TCCC05 begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_022205"><img src="/i/pressroom/tccc05_logo.gif" alt="TCCC05" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022205"><img src="/i/pressroom/tccc05_logo.gif" alt="TCCC05" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_022205">Semifinalists Announced for 2005 TCCC Sponsored by Yahoo!&#174;</a></h3>
-                        <p>TopCoder today announced the 31 International onsite semifinalists who have advanced to the Championship rounds of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo!  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_022205">[February 22]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022205">Semifinalists Announced for 2005 TCCC Sponsored by Yahoo!&#174;</a></h3>
+                        <p>TopCoder today announced the 31 International onsite semifinalists who have advanced to the Championship rounds of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo!  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022205">[February 22]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1220,11 +1233,11 @@
                 <%-- NVIDIA TCCC begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_021605"><img src="/i/pressroom/nvidia_badge.gif" alt="NVIDIA" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021605"><img src="/i/pressroom/nvidia_badge.gif" alt="NVIDIA" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_021605">NVIDIA Corporation Returns as Premier Sponsor of 2005 TopCoder&#174; Collegiate Challenge</a></h3>
-                        <p>TopCoder announced NVIDIA Corporation (Nasdaq: NVDA), a worldwide leader in graphics and digital media processors, as Premier sponsor of its 2005 TopCoder Collegiate Challenge (TCCC 05).  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_021605">[February 16]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021605">NVIDIA Corporation Returns as Premier Sponsor of 2005 TopCoder&#174; Collegiate Challenge</a></h3>
+                        <p>TopCoder announced NVIDIA Corporation (Nasdaq: NVDA), a worldwide leader in graphics and digital media processors, as Premier sponsor of its 2005 TopCoder Collegiate Challenge (TCCC 05).  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021605">[February 16]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1233,11 +1246,11 @@
                 <%-- Devloper Subscriptions begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_021505"><img src="/i/pressroom/tcs_logo.gif" alt="TCS" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021505"><img src="/i/pressroom/tcs_logo.gif" alt="TCS" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_021505">TopCoder Software&#153; Opens Access to Reusable Java&#153; and .NET&#153; Component Catalogs</a></h3>
-                        <p>TopCoder Software today announced TopCoder Software is providing individual member developers free subscriptions to its full catalog of software components.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_021505">[February 15]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021505">TopCoder Software&#153; Opens Access to Reusable Java&#153; and .NET&#153; Component Catalogs</a></h3>
+                        <p>TopCoder Software today announced TopCoder Software is providing individual member developers free subscriptions to its full catalog of software components.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021505">[February 15]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1246,11 +1259,11 @@
                 <%-- Newsweek Polska begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=art_021305"><img src="/i/pressroom/nw_polska_logo.gif" alt="Newsweek Poland" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_021305"><img src="/i/pressroom/nw_polska_logo.gif" alt="Newsweek Poland" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=art_021305">Program for life</a></h3>
-                        <p>They get their Ph.D.'s at the age of twenty. At thirty they become professors in America. Warsaw University graduates are some of the best computer scientists in the world.  <small><a href="/tc?module=Static&d1=pressroom&d2=art_021305">[February 13]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_021305">Program for life</a></h3>
+                        <p>They get their Ph.D.'s at the age of twenty. At thirty they become professors in America. Warsaw University graduates are some of the best computer scientists in the world.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_021305">[February 13]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1259,11 +1272,11 @@
                 <%-- GICJ05 begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_020905"><img src="/i/pressroom/gicj05_logo.gif" alt="GICJ05" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_020905"><img src="/i/pressroom/gicj05_logo.gif" alt="GICJ05" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_020905">Google Code Jam Comes to India</a></h3>
-                        <p>The Google India Code Jam is an extension of Google's annual Code Jam competition and celebrates the art of computer science, demonstrating to software professionals everywhere the value Google places on excellent coding.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_020905">[February 9]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_020905">Google Code Jam Comes to India</a></h3>
+                        <p>The Google India Code Jam is an extension of Google's annual Code Jam competition and celebrates the art of computer science, demonstrating to software professionals everywhere the value Google places on excellent coding.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_020905">[February 9]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1272,11 +1285,11 @@
                 <%-- 50,000 begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_020705"><img src="/i/pressroom/50k_promo.gif" alt="50,000" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_020705"><img src="/i/pressroom/50k_promo.gif" alt="50,000" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_020705">TC Community Surpasses 50,000 Worldwide Nears 10,000 Rated Member Mark</a></h3>
-                        <p>In less than four years since the organization's inception, TopCoder programming tournaments have awarded more than $2 million in prize money to some of the best collegiate and professional programmers from 187 countries around the globe.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_020705">[February 7]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_020705">TC Community Surpasses 50,000 Worldwide Nears 10,000 Rated Member Mark</a></h3>
+                        <p>In less than four years since the organization's inception, TopCoder programming tournaments have awarded more than $2 million in prize money to some of the best collegiate and professional programmers from 187 countries around the globe.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_020705">[February 7]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1298,11 +1311,11 @@
                 <%-- ADT begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=art_020105"><img src="/i/pressroom/adt_logo.gif" alt="ADT" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_020105"><img src="/i/pressroom/adt_logo.gif" alt="ADT" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=art_020105">DE-CODER: The kings of coding</a></h3>
-                        <p>"Tomek" and "Pops" may be unfamiliar names to you, but in the world of coding competitions, they're as big as rock stars.  Now they're at the top of the stack, according to their peers who participate in online programming contests at TopCoder.com, a mecca for those willing to publicly test their programming chops.  <small><a href="/tc?module=Static&d1=pressroom&d2=art_020105">[February 1]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_020105">DE-CODER: The kings of coding</a></h3>
+                        <p>"Tomek" and "Pops" may be unfamiliar names to you, but in the world of coding competitions, they're as big as rock stars.  Now they're at the top of the stack, according to their peers who participate in online programming contests at TopCoder.com, a mecca for those willing to publicly test their programming chops.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_020105">[February 1]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1311,11 +1324,11 @@
                 <%-- CRPF begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_012505"><img src="/i/pressroom/crpf_logo.gif" alt="CRPF" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_012505"><img src="/i/pressroom/crpf_logo.gif" alt="CRPF" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_012505">TCS Delivers for International Consortium of Spinal Cord Injury Researchers</a></h3>
-                        <p>TopCoder today announced it has successfully deployed a high-quality, web-based application to disseminate critical microarray data between the Christopher Reeve Paralysis Foundation's (CRPF) Research Consortium on Spinal Cord Injury and the general scientific community.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_012505">[January 25]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_012505">TCS Delivers for International Consortium of Spinal Cord Injury Researchers</a></h3>
+                        <p>TopCoder today announced it has successfully deployed a high-quality, web-based application to disseminate critical microarray data between the Christopher Reeve Paralysis Foundation's (CRPF) Research Consortium on Spinal Cord Injury and the general scientific community.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_012505">[January 25]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -1324,11 +1337,11 @@
                 <%-- TCCC05 MOTOROLA begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&d1=pressroom&d2=pr_011805"><img src="/i/pressroom/motorola_logo.gif" alt="Motorola" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_011805"><img src="/i/pressroom/motorola_logo.gif" alt="Motorola" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_011805">TopCoder&#174; Announces Motorola as Premier Sponsor of 2005 TopCoder Collegiate Challenge</a></h3>
-                        <p>TopCoder today announced Motorola, Inc., (NYSE: MOT), a global leader in wireless, broadband and automotive communications technologies, as a premier sponsor for its 2005 TopCoder Collegiate Challenge (TCCC 05).  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_011805">[January 18]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_011805">TopCoder&#174; Announces Motorola as Premier Sponsor of 2005 TopCoder Collegiate Challenge</a></h3>
+                        <p>TopCoder today announced Motorola, Inc., (NYSE: MOT), a global leader in wireless, broadband and automotive communications technologies, as a premier sponsor for its 2005 TopCoder Collegiate Challenge (TCCC 05).  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_011805">[January 18]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>

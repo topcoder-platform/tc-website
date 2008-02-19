@@ -416,6 +416,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            TopCoder Software Component Catalog Surpasses 1,000 Reusable Java and .NET Components
+            <a href="/tc?module=Static&d1=pressroom&d2=pr_021808">...more</a><br />[February 18]<br /><br />
+            
             Rock star coders
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='homepage_index' />">...more</a><br />[January 22]<br /><br />
             
@@ -430,9 +433,6 @@
             
             Coder contests drive app development [PODCAST]
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.networkworld.com/podcasts/panorama/2007/122007pan-topcoder.html' refer='homepage_index' />">...more</a><br />[December 21]<br /><br />
-            
-            Eight business technology trends to watch
-            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.mckinseyquarterly.com/article_abstract_visitor.aspx?ar=2080&l2=13&l3=11' refer='homepage_index' />">...more</a><br />[December 12]<br /><br />
             
 
 

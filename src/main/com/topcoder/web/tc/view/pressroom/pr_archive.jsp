@@ -73,6 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_021808">TopCoder Software Component Catalog Surpasses 1,000 Reusable Java and .NET Components <br /><small style="margin-left:10px;">[February 18]</small></a></dd>
                     <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_010708">TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum <br /><small style="margin-left:10px;">[January 7]</small></a></dd>
                     <dd><a href="/tc?module=Static&d1=pressroom&d2=pr_010208">TopCoder Expands With New Headquarters in Connecticut <br /><small style="margin-left:10px;">[January 2]</small></a></dd>
                     </dl>

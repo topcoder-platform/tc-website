@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />02.19.08<br />10:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021808">TopCoder Software Component Catalog Surpasses 1,000 Reusable Java &amp; .NET Components</a></span><br /><br />
+        Customers Leverage TopCoder Components to Increase Pre-Built Software an Average 50 Percent for New Applications-Yielding Substantially Shorter Development Timelines and Decreased Costs.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021808">details</a> | 
+        <tc-webtag:forumLink forumID="519749" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />02.18.08<br />6:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/wiki/display/tc/TopCoder+UML+Tool+Source+Code">TC UML Tool Source Code is in Your Hands Now</a></span><br /><br />
@@ -145,18 +158,5 @@
         <a href="/longcontest/?module=ViewActiveContests">details</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competitions News" border="0" /><br />02.12.08<br />5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/registration/actions/Registration.do?method=openRegistrations">Some Assembly Required</a></span><br /><br />
-        Now's your chance to get quick DR points from any of 15 "Mini-Assembly" competitions TopCoder is running over the next week. Less work than traditional assembly contests, these small plugins have short timelines and we've doubled the prize money to $1000 each – plus, now they count towards Digital Run! Check out the active <a href="/registration/actions/Registration.do?method=openRegistrations">"Athena Plugin"</a> competitions to register for current contests, and be sure to check the <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Competitions</a> page for Mini-Assembly contests coming tomorrow and the next few days.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/registration/actions/Registration.do?method=openRegistrations">details</a> | 
-        <tc-webtag:forumLink forumID="519564" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
    
