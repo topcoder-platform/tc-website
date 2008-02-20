@@ -47,13 +47,20 @@
                 <p>TopCoder is the recognised leader in identifying, evaluating and mobilising effective software development resources. Through its proprietary programming competitions and rating system, TopCoder recognises and promotes the abilities of the best programmers around the world. </p>
 
                 <div style="margin-bottom: 20px;">
+                    <h2>February 2008</h2>
+                    <strong>GuitarChords</strong>
+                    <br /><a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=guitarChords">Problem statement</a>
+                    | Solution posted with next month's problem!
+                    <%--
+                    | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=guitarChordsSol">Solution</a>
+                    --%>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
                     <h2>January 2008</h2>
                     <strong>DecorationDay</strong>
                     <br /><a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=decorationDay">Problem statement</a>
-                    | Solution posted with next month's problem!
-                    <%--
                     | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=decorationDaySol">Solution</a>
-                    --%>
                 </div>
                 
                 <div style="margin-bottom: 20px;">
