@@ -96,7 +96,6 @@
                         	</tr>
                         	<tr>
                         		<td colspan="4" align="center"><img src="/i/corp/tcesclient_citigroup.gif" width="132" height="50" alt="Citigroup" border="0" align="center"><img src="/i/corp/clear.gif" width="20" height="1" alt="" border="0">
-                        		<img src="/i/corp/tcesclient_espn.gif" width="132" height="50" alt="ESPN" border="0" align="center"><img src="/i/corp/clear.gif" width="20" height="1" alt="" border="0">
                         		<img src="/i/corp/tcesclient_ubs.gif" width="132" height="50" alt="UBS" border="0" align="center"></td>
                         	</tr>
                         </table>
