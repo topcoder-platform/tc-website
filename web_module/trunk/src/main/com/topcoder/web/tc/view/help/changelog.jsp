@@ -49,6 +49,7 @@
     <ul>
         <li>Add TCO08 travel info site -dok</li>
         <li>Changed DR to be able to adjust how many points a project is worth -pulky</li>
+        <li>Added DR points to design and development active pages -pulky</li>
     </ul>
 </p>
 
