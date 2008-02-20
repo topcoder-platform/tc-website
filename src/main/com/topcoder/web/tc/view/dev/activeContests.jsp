@@ -94,7 +94,7 @@
                 <a href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/interface/emblem/digitalrun.png" alt="" onmouseover="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
             </div>
             <div align="center">
-                <a href="SORT BY POINTS">Points</a>
+                <a href=<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true"/>">Points</a>
             </div>
         </td>
         <td class="headerC" width="10%">
@@ -159,7 +159,7 @@
                 <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/>
             </td>
             <td class="valueC">
-                1000
+                <rsc:item name="dr_points" row="<%=resultRow%>" format="######"/>
             </td>
             <td class="valueC">
                 <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
@@ -230,7 +230,7 @@
                 <a href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/interface/emblem/digitalrun.png" alt="" onmouseover="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
             </div>
             <div align="center">
-                <a href="SORT BY POINTS">Points</a>
+                <a href=<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true"/>">Points</a>
             </div>
         </td>
         <td class="headerC" width="10%">
@@ -295,7 +295,7 @@
                 <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/>
             </td>
             <td class="valueC">
-                1000
+                <rsc:item name="dr_points" row="<%=resultRow%>" format="######"/>
             </td>
             <td class="valueC">
                 <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
