@@ -94,7 +94,7 @@
                 <a href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/interface/emblem/digitalrun.png" alt="" onmouseover="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
             </div>
             <div align="center">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="16" includeParams="true"/>">Points</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true"/>">Points</a>
             </div>
         </td>
         <td class="headerC" width="10%">
@@ -230,7 +230,7 @@
                 <a href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/interface/emblem/digitalrun.png" alt="" onmouseover="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
             </div>
             <div align="center">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="16" includeParams="true"/>">Points</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true"/>">Points</a>
             </div>
         </td>
         <td class="headerC" width="10%">
