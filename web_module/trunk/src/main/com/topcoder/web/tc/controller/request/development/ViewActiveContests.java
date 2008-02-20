@@ -52,7 +52,7 @@ public class ViewActiveContests extends Base {
             s.addDefault(6, "desc");  // Submissions
             s.addDefault(1, "desc");  // Payment    
             s.addDefault(0, "desc");  // Submit by  
-            s.addDefault(15, "desc"); // dr points   
+            s.addDefault(16, "desc"); // dr points   
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
             
             setNextPage("/dev/activeContests.jsp");
