@@ -27,6 +27,7 @@ public interface WebConstants {
     public static final String PROJECT_ID_KEY = "pj";
     public static final String USER_NAME = "username";
     public static final String PASSWORD = "password";
+    public static final String IMAGE_TYPE = "it";
 
     public static final String FULL_NAME = "flnm";
 
