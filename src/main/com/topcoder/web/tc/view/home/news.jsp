@@ -4,6 +4,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />02.20.08<br />7:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/registration/actions/Registration.do?method=openRegistrations">Increased Assembly Prize Money</a></span><br /><br />
+        Congratulations go to <tc-webtag:handle coderId="21271044" /> for winning <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2007dot5&amp;d3=asmLeaderboardS2">Stage 2</a> in the Assembly Cup Series of the 2007.5 Digital Run, earning 10025.00 points and $42,303.59 in total prizes. <tc-webtag:handle coderId="299180" /> and <tc-webtag:handle coderId="22629228" /> followed with 7000.00 points and 4550.00 points respectively.<br /><br />
+        We've also doubled the prizes for the <a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003681">Castor Installer Client Prototype Conversion</a> and the <a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003682">Castor Installer Web Prototype Conversion</a> <strong>AND</strong> we've increased the prizes for the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewProjectDetails.do?method=viewProjectDetails&amp;pid=30003776">Athena PMCv2 Plugin Assembly Part A v1.0</a> and the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewProjectDetails.do?method=viewProjectDetails&amp;pid=30003777">Athena PMCv2 Plugin Assembly Part B v1.0</a> from $4,000 to $6,000. The <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewProjectDetails.do?method=viewProjectDetails&amp;pid=30003778">Athena PMCv2 Plugin Assembly Part C v1.0</a> has also been increased from $3,000 to $4,500. Be sure to check them out!
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/registration/actions/Registration.do?method=openRegistrations">details</a> | 
+        <tc-webtag:forumLink forumID="519798" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.19.07<br />3:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -151,19 +166,5 @@
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewSubmissions&amp;ct=2171">wall art 4</a> | 
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&amp;forumID=117">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.14.08<br />10:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        TCO08 Component <a href="/tco08?module=ContestDetails&amp;ct=460&amp;eid=3006">Design</a> &amp; <a href="/tco08?module=ContestDetails&amp;ct=461&amp;eid=3006">Development</a> Competition Week 4</span><br /><br />
-        The 2008 TCO Component <a href="/tco08?module=ContestDetails&amp;ct=460&amp;eid=3006">Design</a> and <a href="/tco08?module=ContestDetails&amp;ct=461&amp;eid=3006">Development</a> Competition are starting week 4.  The race is on for the top 12 spots in each track.  Check out the leaderboard for updates.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tco08?module=ContestDetails&amp;ct=460&amp;eid=3006">design</a> | 
-        <a href="/tco08?module=ContestDetails&amp;ct=461&amp;eid=3006">development</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
