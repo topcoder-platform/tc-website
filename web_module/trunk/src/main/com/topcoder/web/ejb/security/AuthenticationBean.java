@@ -6,6 +6,7 @@ import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.security.login.LoginLocal;
 import com.topcoder.security.login.LoginRemote;
 
+import javax.ejb.Stateless;
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
 
@@ -14,7 +15,7 @@ import java.rmi.RemoteException;
  * @version $Id$
  *          Create Date: Feb 21, 2008
  */
-//@Stateless
+@Stateless
 public class AuthenticationBean implements AuthenticationRemote, AuthenticationLocal {
 
     public AuthenticatedUser login(String userName, String password) throws InvalidCredentialsException, GeneralAuthenticationException {
