@@ -479,8 +479,8 @@
             <A href="/tc?module=Static&d1=about&d2=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</A>
             <br />
-            <A href="/tc" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
-            <A href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A></td>
+            <A href="/tc" class="footerLinks">Competitions</A>&#160;&#160;|&#160;&#160;
+            <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" class="footerLinks">Software</A></td>
         <tr>
             <td class="copyright" colspan="5">Copyright &#169; 2001-2008, TopCoder, Inc. All rights reserved.</td>
         </tr>
