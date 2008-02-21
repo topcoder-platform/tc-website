@@ -342,7 +342,7 @@
 <!-- Right Column Begins -->
 <td width="180">
     <jsp:include page="../public_right.jsp">
-        <jsp:param name="level1" value="default"/>
+        <jsp:param name="level1" value="branded"/>
     </jsp:include>
 </td>
 <!-- Right Column Ends -->

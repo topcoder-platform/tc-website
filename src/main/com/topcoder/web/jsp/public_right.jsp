@@ -26,6 +26,12 @@ function find(n) {
 <%-- Member Profiles, Search Pages, and Private Label Events Pages begins --%>
 <% if ((level1.equals("default")) | (level1.equals("profile")) | (level1.equals("search")) | (level1.equals("tournament")) | (level1.equals("privatelabel"))) { %>
 
+    <div style="width:150px;">
+        &nbsp;
+    </div>
+
+<% } else if (level1.equals("branded")) { %>
+
     <div align="center">
 <%-- NSA --%>
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa"><img src="/i/tournament/tco08/right_nsa.png" alt="NSA" /></a>

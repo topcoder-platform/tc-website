@@ -1,4 +1,4 @@
-<%@ page language="java" %>
+page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -121,7 +121,7 @@
 <!-- Right Column Begins -->
 <td width="180">
     <jsp:include page="../public_right.jsp">
-        <jsp:param name="level1" value="default"/>
+        <jsp:param name="level1" value="branded"/>
     </jsp:include>
 </td>
 
