@@ -11,8 +11,8 @@
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=privacy" class="footerLinks">Privacy</a>&#160;&#160;|&#160;&#160;
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=terms" class="footerLinks">Terms</a>
             <br />
-            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc" class="footerLinks">Developer Center</a>&#160;&#160;|&#160;&#160;
-            <a href="http://<%=ApplicationServer.SERVER_NAME%>/corp/?module=Static&amp;d1=corp&amp;d2=index" class="footerLinks">Corporate Services</a>        </td>
+            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc" class="footerLinks">Competitions</a>&#160;&#160;|&#160;&#160;
+            <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" class="footerLinks">Software</a>        </td>
     </tr>
     <tr><td width="100%" class="copyright">Copyright &#169; 2001-2008, TopCoder, Inc. All rights reserved.</td></tr>
 </tbody>
