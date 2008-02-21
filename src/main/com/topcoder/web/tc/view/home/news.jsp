@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />02.21.08<br />3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=022108">Computerworld's "Rock star coders" profile: Pops</a></span><br /><br />
+        On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='/tc' />">article</a> about various TopCoders and how programming has affected their lives. Our second interview is of <tc-webtag:handle coderId="119676" context="design"/>.
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=022108">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=604090">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />02.20.08<br />7:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/registration/actions/Registration.do?method=openRegistrations">Increased Assembly Prize Money</a></span><br /><br />
@@ -150,16 +164,3 @@
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />02.14.08<br />6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        Downtime for scheduled maintenance: Thursday, February 14</span><br /><br />
-        We're giving you members an opportunity to enjoy your <span class="bigRed">Valentines Day</span>!  The TopCoder sites and the Arena will be down again for scheduled maintenance between 10:00 PM and 11:30 PM EST but don't worry, we will be back.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=603196">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-   
