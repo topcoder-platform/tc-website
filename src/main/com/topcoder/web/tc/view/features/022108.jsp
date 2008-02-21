@@ -72,7 +72,7 @@
 
 <br clear="all">
 
-<p><em>On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='feature_020708' />">article</a> about various TopCoders and how programming has affected their lives.  The following is the full Computerworld interview with <tc-webtag:handle coderId="119676" context="design"/>, from which portions were used in the article.</em></p>
+<p><em>On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='feature_022108' />">article</a> about various TopCoders and how programming has affected their lives.  The following is the full Computerworld interview with <tc-webtag:handle coderId="119676" context="design"/>, from which portions were used in the article.</em></p>
 
 <br />
 <p><strong>Q: How did you become a coder?</strong><br />
