@@ -6,10 +6,10 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.CachedDataAccess;
-import com.topcoder.web.common.NavigationException;
 
 import javax.servlet.ServletOutputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,41 +25,44 @@ import java.util.Map;
  */
 public class SponsorImage extends BaseProcessor {
     protected void businessProcessing() throws Exception {
-        FileInputStream fis;
-        try {
-            Request dataRequest = new Request();
-            dataRequest.setContentHandle("sponsor_image");
-            dataRequest.setProperties(getRequest().getParameterMap());
-            DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-            Map<String, ResultSetContainer> resultMap = dai.getData(dataRequest);
-            ResultSetContainer companyImages = resultMap.get("Sponsor_Image");
-            ResultSetContainer roundImages = resultMap.get("round_sponsor");
+        Request dataRequest = new Request();
+        dataRequest.setContentHandle("sponsor_image");
+        dataRequest.setProperties(getRequest().getParameterMap());
+        DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+        Map<String, ResultSetContainer> resultMap = dai.getData(dataRequest);
+        ResultSetContainer companyImages = resultMap.get("Sponsor_Image");
+        ResultSetContainer roundImages = resultMap.get("round_sponsor");
 
-            //we don't track the correct mime type right now, so we just hard code to gif (because we only use gif's)
-            getResponse().setContentType("image/gif");
-            ServletOutputStream os = getResponse().getOutputStream();
-            if (roundImages.isEmpty()) {
-                fis = new FileInputStream(roundImages.getItem(getNextIndex(dataRequest.toString(), roundImages.size()), "file_path").toString());
-            } else {
-                fis = new FileInputStream(companyImages.getItem(getNextIndex(dataRequest.toString(), companyImages.size()), "file_path").toString());
-            }
-            int b;
-            while ((b = fis.read()) >= 0) {
-                os.write(b);
-            }
+        if (!roundImages.isEmpty()) {
+            writeImage(roundImages, dataRequest.getCacheKey());
+        } else if (!companyImages.isEmpty()) {
+            writeImage(companyImages, dataRequest.getCacheKey());
+        } else {
+            log.info("no image found for " + dataRequest.toString());
             getResponse().flushBuffer();
-        } catch (Exception e) {
-            throw new NavigationException(e);
         }
+    }
+
+    private void writeImage(ResultSetContainer rsc, String key) throws IOException {
+        FileInputStream fis = new FileInputStream(rsc.getItem(getNextIndex(key, rsc.size()), "file_path").toString());
+        //we don't track the correct mime type right now, so we just hard code to gif (because we only use gif's)
+        getResponse().setContentType("image/gif");
+        ServletOutputStream os = getResponse().getOutputStream();
+        int b;
+        while ((b = fis.read()) >= 0) {
+            os.write(b);
+        }
+        getResponse().flushBuffer();
+
     }
 
 
     private static Map<String, Integer> localCache = new HashMap<String, Integer>();
 
-    private static synchronized int getNextIndex(String key, int size) throws Exception {
+    private static synchronized int getNextIndex(String key, int size) {
         Integer val;
 
-        if (size < 1) throw new Exception("size must be greater than 0: " + size);
+        if (size < 1) throw new RuntimeException("size must be greater than 0: " + size);
 
         val = localCache.get(key);
         if (val == null) {
