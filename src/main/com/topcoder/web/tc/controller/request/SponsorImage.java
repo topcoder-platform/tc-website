@@ -41,6 +41,7 @@ public class SponsorImage extends BaseProcessor {
         } else {
             log.info("no image found for " + dataRequest.toString());
             getResponse().setStatus(HttpServletResponse.SC_NOT_FOUND);
+            getResponse().flushBuffer();
         }
     }
 
