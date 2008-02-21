@@ -40,6 +40,7 @@
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr class="bodyText"><td nowrap="nowrap">02.20.08 7:00 PM - </td><td width="100%"><A href="/registration/actions/Registration.do?method=openRegistrations">Increased Assembly Prize Money</A><br></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">02.20.08 7:00 PM - </td><td width="100%"><A href="/tc?module=Static&amp;d1=digital_run&amp;d2=2007dot5&amp;d3=asmLeaderboardS2">2007.5 Digital Run: Assembly Cup Stage 2 Winners</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.18.08 6:30 PM - </td><td width="100%"><A href="/wiki/display/tc/TopCoder+UML+Tool+Source+Code">TC UML Tool Source Code is in Your Hands Now</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.12.08 5:00 PM - </td><td width="100%"><A href="/registration/actions/Registration.do?method=openRegistrations">Some Assembly Required</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.29.08 4:30 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=592">RSS Feeds for Software Active Contests</A><br></td></tr>
