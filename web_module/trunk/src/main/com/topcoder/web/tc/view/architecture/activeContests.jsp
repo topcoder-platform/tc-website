@@ -60,15 +60,15 @@
    <tr>
       <td class="header" width="100%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Contest</a></td>
       <td class="header">&#160;</td>
+      <td class="headerC" style="width: 130px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Registration Ends</a></td>
+      <td class="headerC" style="width: 130px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a></td>
+      <td class="headerR" style="width: 65px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Payment</a></td>
       <td class="headerC" style="width: 80px;">
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Registrants</a><br />
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rated</a>/
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Unrated</a>
       </td>
-      <td class="headerC" style="width: 130px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Registration Ends</a></td>
       <td class="headerC" style="width: 80px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Submissions</a></td>
-      <td class="headerR" style="width: 65px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Payment</a></td>
-      <td class="headerC" style="width: 130px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a></td>
    </tr>
 
     <% boolean even = false; %>
@@ -81,6 +81,17 @@
             </td>
             <td class="value">
             </td>
+            <td class="valueC" nowrap="nowrap">
+                <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
+                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy'<br />'HH:mm z"/>
+                <% } else { %>
+                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
+                <% } %>
+            </td>
+            <td class="valueC" nowrap="nowrap">
+                <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy'<br />'HH:mm z"/></td>
+            <td class="valueR">
+                <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
             <td class="valueC">
          <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
          <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
@@ -90,20 +101,9 @@
          </a>
          <% } %>
             </td>
-            <td class="valueC" nowrap="nowrap">
-                <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
-                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
-                <% } else { %>
-                <strong><rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/></strong>
-                <% } %>
-            </td>
             <td class="valueC">
                 <rsc:item name="total_submissions" row="<%=resultRow%>"/>
             </td>
-            <td class="valueR">
-                <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
-            <td class="valueC" nowrap="nowrap">
-                <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/></td>
         </tr>
     <% even = !even;%>
     </rsc:iterator>
