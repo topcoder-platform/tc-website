@@ -8,6 +8,7 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.CachedDataAccess;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
@@ -39,7 +40,7 @@ public class SponsorImage extends BaseProcessor {
             writeImage(companyImages, dataRequest.getCacheKey());
         } else {
             log.info("no image found for " + dataRequest.toString());
-            getResponse().flushBuffer();
+            getResponse().setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
     }
 
