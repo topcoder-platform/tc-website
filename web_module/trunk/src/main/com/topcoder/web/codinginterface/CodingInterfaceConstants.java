@@ -3,9 +3,9 @@ package com.topcoder.web.codinginterface;
 import com.topcoder.web.common.WebConstants;
 
 /**
- * @author  dok
- * @version  $Revision$ $Date$
- * Create Date: Jan 21, 2005
+ * @author dok
+ * @version $Revision$ $Date$
+ *          Create Date: Jan 21, 2005
  */
 public interface CodingInterfaceConstants extends WebConstants {
 
@@ -23,7 +23,6 @@ public interface CodingInterfaceConstants extends WebConstants {
     public static final String TEST_ARGUMENT_INPUT = "argInput";
     public static final String TEST_ARGUMENT_DIMENSION = "argDim";
     public static final String MESSAGE = "mess";
-    public static final String IMAGE_TYPE = "it";
     public static final String SPONSOR_IMAGE = "sponsor_image";
     public static final String TERMS = "terms";
     //public static final String SUCCESS_FLAG = "suc";
