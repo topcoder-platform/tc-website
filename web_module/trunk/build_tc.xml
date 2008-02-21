@@ -1,4 +1,5 @@
 <project name="topcoder" default="main" basedir=".">
+    <property environment="env"/>
     <property name="Name" value="TopCoder"/>
     <property name="build" value="build"/>
     <property name="war.dir" value="${build}/wars"/>
