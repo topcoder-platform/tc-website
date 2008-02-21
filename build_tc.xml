@@ -96,10 +96,10 @@
         <pathelement location="${jars.dir}/itext-1.1.jar"/>
 
         <!-- hibernate files -->
+        <pathelement location="${jive.dir}/velocity-dep.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.2/hibernate3.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.2/commons-logging-1.0.4.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.2/ehcache-1.2.3.jar"/>
-        <pathelement location="${jive.dir}/velocity-dep.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.2/cglib-2.1.3.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.2/asm.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.2/ant-antlr-1.6.5.jar"/>
@@ -257,7 +257,7 @@
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/payments/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/assignmentdocuments/*.class"/>
-           <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
         </jar>
     </target>
 
@@ -342,6 +342,12 @@
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/userservices/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/userservices" includes="*.xml"/>
             <metainf dir="${java}/com/topcoder/web/ejb/userservices" includes="wsdl/*.wsdl"/>
+        </jar>
+    </target>
+
+    <target name="package-EJB-SecurityBean" depends="compile">
+        <jar jarfile="${ejb_jars}/Security.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/security/*.class"/>
         </jar>
     </target>
 
@@ -674,7 +680,7 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
 
-    	<copy todir="${jboss_lib}">
+        <copy todir="${jboss_lib}">
             <fileset dir="${jars.dir}/tcs">
                 <include name="catalog.jar"/>
                 <include name="base_exception.jar"/>
