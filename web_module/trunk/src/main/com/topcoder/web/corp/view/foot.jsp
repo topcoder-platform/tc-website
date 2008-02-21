@@ -13,8 +13,8 @@
         <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</a></td></tr>
 
 <!-- Member sites -->
-    <tr><td width="100%" class="footer"><a href="/tc" class="footerLinks">Developer Center</a>&#160;&#160;|&#160;&#160;
-    <a href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</a>
+    <tr><td width="100%" class="footer"><a href="/tc" class="footerLinks">Competitions</a>&#160;&#160;|&#160;&#160;
+    <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" class="footerLinks">Corporate Services</a>
 <!-- Main Navigation bar ends -->
 
     <tr><td height="4" class="footerStripe"><img src="/i/corp/clear.gif" width="10" height="4" border="0"/></td></tr>
