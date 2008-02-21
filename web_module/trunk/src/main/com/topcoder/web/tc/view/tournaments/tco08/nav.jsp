@@ -90,7 +90,7 @@
                         <li><a href="/tco08?module=ViewRegistration&amp;et=6"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
                         --%>
                         <li><a href="/tco08?module=Registrants&amp;et=6"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
-                        <li><a href="/tco08?module=AlgorithmQualification"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a></li>
+                        <li><a href="/tco08?module=AlgorithmAdvancers"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a></li>
                         <%--
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=algoSemi01"<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
                         --%>
