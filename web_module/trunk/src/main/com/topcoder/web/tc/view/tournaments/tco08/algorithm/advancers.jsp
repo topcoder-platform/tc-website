@@ -8,6 +8,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <script type="text/javascript" src="/js/popup.js"></script>
 
@@ -17,8 +18,8 @@
 <!--  Leave empty if the round doesn't exist or it's not finished -->
 
 <c:set value="stat?c=round_overview&er=5&rd=" var="details_link"/>
+<%-- 
 <c:set var="round1_id" value="12011"/>
-<!-- 
 <c:set var="round2_id" value="12012"/>
 <c:set var="round3_id" value="12013"/>
 <c:set var="round4_id" value="12014"/>
@@ -27,7 +28,7 @@
 <c:set var="semi3_id" value="12017"/>
 <c:set var="wildcard_id" value="12018"/>
 <c:set var="finals_id" value="12019"/>
- -->
+ --%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -167,20 +168,13 @@
 <td class="valueC">${resultRow.map["seed"]}</td>
 <td class="value"><tc-webtag:handle coderId="${resultRow.map['coder_id']}" context="algorithm"/></td>
 <td class="valueC">${resultRow.map["rating"]}</td>
-<td class="valueC">
-<c:choose>
-<c:when test="${not empty resultRow.map['round1']}">
-    <img src="/i/tournament/tco08/icon${resultRow.map['round1'] == 'Advanced  ' ? 'Advanced' : resultRow.map['round1']}.png" alt="${resultRow.map["round1"]}" />
-</c:when>
-<c:otherwise>-</c:otherwise>
-</c:choose>
-</td>
-<td class="valueC"><img src="/i/tournament/tco08/icon${resultRow.map['round2'] == 'Advanced  ' ? 'Advanced' : resultRow.map['round2']}.png" alt="${resultRow.map["round2"]}" /></td>
-<td class="valueC"><img src="/i/tournament/tco08/icon${resultRow.map['round3'] == 'Advanced  ' ? 'Advanced' : resultRow.map['round3']}.png" alt="${resultRow.map["round3"]}" /></td>
-<td class="valueC"><img src="/i/tournament/tco08/icon${resultRow.map['round4'] == 'Advanced  ' ? 'Advanced' : resultRow.map['round4']}.png" alt="${resultRow.map["round4"]}" /></td>
-<td class="valueC"><img src="/i/tournament/tco08/icon${resultRow.map['semi'] == 'Advanced  ' ? 'Advanced' : resultRow.map['semi']}.png" alt="${resultRow.map["semi"]}" /></td>
-<td class="valueC"><img src="/i/tournament/tco08/icon${resultRow.map['wildcard'] == 'Advanced  ' ? 'Advanced' : resultRow.map['wildcard']}.png" alt="${resultRow.map["wildcard"]}" /></td>
-<td class="valueC"><img src="/i/tournament/tco08/icon${resultRow.map['final'] == 'Advanced  ' ? 'Advanced' : resultRow.map['final']}.png" alt="${resultRow.map["final"]}" /></td>
+<td class="valueC"><c:choose><c:when test="${empty round1_id}">&nbsp;</c:when><c:when test="${not empty resultRow.map['round1']}"><img src="/i/tournament/tco08/icon${fn:trim(resultRow.map['round1'])}.png" alt="${resultRow.map["round1"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
+<td class="valueC"><c:choose><c:when test="${empty round2_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round1'] or resultRow.map['round1'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['round2']}"><img src="/i/tournament/tco08/icon${fn:trim(resultRow.map['round2'])}.png" alt="${resultRow.map["round2"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
+<td class="valueC"><c:choose><c:when test="${empty round3_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round2'] or resultRow.map['round2'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['round3']}"><img src="/i/tournament/tco08/icon${fn:trim(resultRow.map['round3'])}.png" alt="${resultRow.map["round3"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
+<td class="valueC"><c:choose><c:when test="${empty round4_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round3'] or resultRow.map['round3'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['round4']}"><img src="/i/tournament/tco08/icon${fn:trim(resultRow.map['round4'])}.png" alt="${resultRow.map["round4"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
+<td class="valueC"><c:choose><c:when test="${empty semi3_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round4'] or resultRow.map['round4'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['semi']}"><img src="/i/tournament/tco08/icon${fn:trim(resultRow.map['semi'])}.png" alt="${resultRow.map["semi"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
+<td class="valueC"><c:choose><c:when test="${empty wildcard_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['semi'] or resultRow.map['semi'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['wildcard']}"><img src="/i/tournament/tco08/icon${fn:trim(resultRow.map['wildcard'])}.png" alt="${resultRow.map["wildcard"]}" /></c:when><c:otherwise>&nbsp;</c:otherwise></c:choose></td>
+<td class="valueC"><c:choose><c:when test="${empty finals_id}">&nbsp;</c:when><c:when test="${not empty resultRow.map['final']}"><img src="/i/tournament/tco08/icon${fn:trim(resultRow.map['final'])}.png" alt="${resultRow.map["final"]}" /></c:when><c:otherwise>&nbsp;</c:otherwise></c:choose></td>
 </tr>
 <%even = !even;%>
 </rsc:iterator>
