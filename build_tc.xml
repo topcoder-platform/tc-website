@@ -345,12 +345,6 @@
         </jar>
     </target>
 
-    <target name="package-EJB-SecurityBean" depends="compile">
-        <jar jarfile="${ejb_jars}/Security.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/security/*.class"/>
-        </jar>
-    </target>
-
     <target name="package-EJB-SchoolBean" depends="compile">
         <jar jarfile="${ejb_jars}/School.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
