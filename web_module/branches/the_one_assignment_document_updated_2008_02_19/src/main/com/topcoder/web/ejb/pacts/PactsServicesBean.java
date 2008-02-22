@@ -1926,8 +1926,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         // validate
-        if (ad.getSubmissionTitle() == null || ad.getSubmissionTitle().trim().length() == 0) {
-            throw new IllegalArgumentException("Assignment Document's submission title cannot be null or empty");
+        if (!ad.getType().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
+            if (ad.getSubmissionTitle() == null || ad.getSubmissionTitle().trim().length() == 0) {
+                throw new IllegalArgumentException("Assignment Document's submission title cannot be null or empty");
+            }
         }
 
         if (ad.getType() == null) {
@@ -1945,12 +1947,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Boolean hasHardCopy = hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(),
                 ad.getType().getId().longValue());
 
-        if (ad.getExpireDate() == null) {
-            Calendar dueDateCal = Calendar.getInstance();
-            dueDateCal.add(Calendar.DAY_OF_YEAR, hasHardCopy.booleanValue() ? ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD : ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD);
-            ad.setExpireDate(new Timestamp(dueDateCal.getTimeInMillis()));
+        if (!ad.getType().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
+            if (ad.getExpireDate() == null) {
+                Calendar dueDateCal = Calendar.getInstance();
+                dueDateCal.add(Calendar.DAY_OF_YEAR, hasHardCopy.booleanValue() ? ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD : ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD);
+                ad.setExpireDate(new Timestamp(dueDateCal.getTimeInMillis()));
+            }
         }
-
+        
         if (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) && ad.getAffirmedDate() == null) {
             Calendar dueDateCal = Calendar.getInstance();
             ad.setAffirmedDate(new Timestamp(dueDateCal.getTimeInMillis()));
@@ -2004,8 +2008,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 if (!oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
                         (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID))) {
                     // notify the payment status manager the new affirmed assignment document
-                    (new PaymentStatusManager()).affirmedIPTransfer(ad);
+                    if (!ad.getType().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
+                        (new PaymentStatusManager()).affirmedIPTransfer(ad);
+                    } else {
+                        (new PaymentStatusManager()).signedGlobalAD(ad.getUser().getId());
+                    }
                 }
+                
+                if (oldAssignmentDocumentInstance.getType().equals(AssignmentDocumentType.GLOBAL_TYPE_ID) &&
+                        !ad.getType().equals(oldAssignmentDocumentInstance.getType())) {
+                    throw new IllegalArgumentException("Cannot change the type of a global assignment document");
+                }
+
             }
 
             if (ad.getText() == null || ad.getText().trim().length() == 0) {
@@ -2090,6 +2104,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             if (!hasHardCopy && ad.isHardCopy()) {
                 (new PaymentStatusManager()).hardCopyIPTransfer(ad.getUser().getId(), ad.getComponentProject() == null ? TC_STUDIO_PAYMENT : COMPONENT_PAYMENT);
+            }
+
+            if (ad.getType().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
+                (new PaymentStatusManager()).signedGlobalAD(ad.getUser().getId());
             }
 
             return ad;
@@ -4609,6 +4627,30 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return 0;
     }
 
+    /**
+     * Get if the payment type requires globalAD.
+     *
+     * @param paymentTypeId type id of the payment
+     * @return true if the payment type requires global AD.
+     */
+    public boolean requiresGlobalAD(int paymentTypeId) throws SQLException {
+        StringBuffer query = new StringBuffer(100);
+        query.append(" SELECT global_ad_ind ");
+        query.append(" FROM payment_type_lu ");
+        query.append(" WHERE payment_type_id = " + paymentTypeId);
+
+        ResultSetContainer rsc = runSelectQuery(query.toString());
+
+        if (rsc.getRowCount() != 1) {
+            throw new IllegalArgumentException("Payment type not found: " + paymentTypeId);
+        }
+
+        if (rsc.getItem(0, "global_ad_ind").getResultData() != null) {
+            return (rsc.getIntItem(0, "global_ad_ind") == 0) ? false : true;
+        }
+
+        return false;
+    }
     public boolean hasTaxForm(long userId) throws SQLException {
 
         // Change to also check for tax forms on file
@@ -4627,6 +4669,30 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         return ret;
+    }
+
+
+    public boolean hasGlobalAD(long userId) throws SQLException {
+        if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
+            StringBuffer query = new StringBuffer(300);
+            query.append("SELECT COUNT(*) FROM assignment_document WHERE user_id = " + userId);
+            query.append(" and assignment_document_type_id = " + AssignmentDocumentType.GLOBAL_TYPE_ID);
+            query.append(" and assignment_document_status_id = " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID);
+    
+            boolean ret = false;
+    
+            Connection c = null;
+            try {
+                c = DBMS.getConnection(trxDataSource);
+                ResultSetContainer rsc = runSelectQuery(c, query.toString());
+                ret = Integer.parseInt(rsc.getItem(0, 0).toString()) > 0;
+            } finally {
+                close(c);
+            }
+            return ret;
+        } else {
+            return false;
+        }
     }
 
 

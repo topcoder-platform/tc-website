@@ -198,7 +198,11 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     int requiresClient(int paymentTypeId) throws SQLException;
 
+    boolean requiresGlobalAD(int paymentTypeId) throws SQLException;
+
     boolean hasTaxForm(long userId) throws SQLException;
+
+    boolean hasGlobalAD(long userId) throws SQLException;
 
     Payment getEmptyPayment(long userId) throws SQLException;
 

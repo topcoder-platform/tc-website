@@ -85,8 +85,8 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
      */
     @Override
     public void expiredIPTransfer(BasePayment payment) {
-        if (!reasons.contains(AvailableStatusReason.EXPIRED_IP_TRANSFER_REASON.getStatusReason())) {
-            reasons.add(AvailableStatusReason.EXPIRED_IP_TRANSFER_REASON.getStatusReason());
+        if (!reasons.contains(AvailableStatusReason.EXPIRED_AD_REASON.getStatusReason())) {
+            reasons.add(AvailableStatusReason.EXPIRED_AD_REASON.getStatusReason());
         }
     }
 

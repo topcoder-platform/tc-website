@@ -164,6 +164,38 @@ public class PaymentStatusManager {
     }
 
     /**
+     * This method notifies all on hold payments of the new signed global AD  
+     * 
+     * @param userId the if of the user that got a new tax form 
+     * @throws EventFailureException if any operation fails
+     */
+    public void signedGlobalAD(long userId) throws EventFailureException {
+        log.debug("hardCopyIPTransfer called for userId: " + userId);
+        try {
+            // every on hold payment should be notified of the new signed global AD.
+            Map criteria = new HashMap();
+            criteria.put(PactsConstants.USER_ID, String.valueOf(userId));
+            criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId()));
+
+            List<BasePayment> payments = dib.findCoderPayments(criteria);
+            log.debug("need to notify " + payments.size() + " payments");
+            
+            // notify the status manager and update each payment
+            for (BasePayment payment : payments) {
+                payment.getCurrentStatus().signedGlobalAD(payment);
+                dib.updatePayment(payment);
+
+                // if the payment changed its status, notify the possible childrens
+                if (!payment.getCurrentStatus().equals(this)) {
+                    notifyChildPayments("new", payment);
+                }
+            }            
+        } catch (Exception e) {
+            throw new EventFailureException(e);
+        }
+    }
+
+    /**
      * This method notifies the corresponding payment of the affirmed affidavit.  
      * 
      * @param paymentId the payment related to the affirmed affidavit

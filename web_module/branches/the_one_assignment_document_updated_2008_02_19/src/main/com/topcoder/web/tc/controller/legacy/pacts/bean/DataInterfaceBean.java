@@ -1354,9 +1354,19 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.hasTaxForm(userId);
     }
 
+    public boolean hasGlobalAD(long userId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.hasGlobalAD(userId);
+    }
+
     public int requiresClient(int paymentTypeId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.requiresClient(paymentTypeId);
+    }
+
+    public boolean requiresGlobalAD(int paymentTypeId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.requiresGlobalAD(paymentTypeId);
     }
 
     /**

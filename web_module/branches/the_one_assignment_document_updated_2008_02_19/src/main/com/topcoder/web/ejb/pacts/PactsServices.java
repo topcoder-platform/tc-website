@@ -191,6 +191,8 @@ public interface PactsServices extends EJBObject {
 
     boolean hasTaxForm(long userId) throws RemoteException, SQLException;
 
+    boolean hasGlobalAD(long userId) throws RemoteException, SQLException;
+
     Payment getEmptyPayment(long userId) throws RemoteException, SQLException;
 
     Map findRounds(String search, int[] roundTypes) throws RemoteException, SQLException;

@@ -31,11 +31,17 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
     protected void businessProcessing() throws Exception {
         long userId = 0;
         long assignmentDocumentId = 0;
+        Long assignmentDocumentTypeId;
         Date expireDate = null;
         Date affirmedDate = null;
         
         try {
             assignmentDocumentId = getLongParameter(ASSIGNMENT_DOCUMENT_ID);
+        } catch (IllegalArgumentException iae) {
+        }
+
+        try {
+            assignmentDocumentTypeId = getLongParameter("assignment_document_type_id");
         } catch (IllegalArgumentException iae) {
         }
 
@@ -51,7 +57,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
         if (hasParameter("expire_date") && getRequest().getParameter("expire_date").trim().length() != 0) {
             expireDate = checkDate("expire_date", "Please enter a valid expire date");
         }
-
+        
         if (hasParameter("affirmed_date") && getRequest().getParameter("affirmed_date").trim().length() != 0) {
             affirmedDate = checkDate("affirmed_date", "Please enter a valid affirmed date");
         }

@@ -32,10 +32,11 @@ public class PaymentStatusReason implements java.io.Serializable {
     public enum AvailableStatusReason {
         NO_TAX_FORM_REASON (new PaymentStatusReason(10l, "Waiting for tax form")),
         NO_AFFIRMED_AFFIDAVIT_REASON (new PaymentStatusReason(11l, "Waiting for affirmed affidavit")),
-        NO_AFFIRMED_IP_TRANSFER_REASON (new PaymentStatusReason(12l, "Waiting for affirmed assignment document")),
-        NO_HARD_COPY_IP_TRANSFER_REASON (new PaymentStatusReason(13l, "Waiting for hard copy assignment document")),
+        NO_AFFIRMED_AD_REASON (new PaymentStatusReason(12l, "Waiting for affirmed assignment document")),
+        NO_HARD_COPY_AD_REASON (new PaymentStatusReason(13l, "Waiting for signed assignment document")),
+        NO_SIGNED_GLOBAL_AD_REASON (new PaymentStatusReason(14l, "Waiting for signed assignment document")),
         EXPIRED_AFFIDAVIT_REASON (new PaymentStatusReason(50l, "Expired affidavit")),
-        EXPIRED_IP_TRANSFER_REASON (new PaymentStatusReason(51l, "Expired assignment document")),
+        EXPIRED_AD_REASON (new PaymentStatusReason(51l, "Expired assignment document")),
         ACCOUNT_STATUS_REASON (new PaymentStatusReason(52l, "Account status")),
         ATTACHED_TO_PARENT_REASON (new PaymentStatusReason(100l, "Attached to parent"));
 
