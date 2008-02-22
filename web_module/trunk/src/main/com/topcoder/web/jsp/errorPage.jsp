@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.BaseServlet" %>
 <%@ page import="com.topcoder.web.common.TCWebException" %>
 <%@ page import="java.util.Date" %>
