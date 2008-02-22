@@ -4049,8 +4049,19 @@ public class TCLoadTCS extends TCLoad {
                     } else {
                         update.setNull(7, Types.INTEGER);
                     }
-                    update.setBytes(8, DBMS.serializeTextString(rs.getString("appeal_text")));
-                    update.setBytes(9, DBMS.serializeTextString(rs.getString("appeal_response")));
+                    String appealText = rs.getString("appeal_text");
+                    if (appealText == null) {
+                        update.setNull(8, Types.BLOB);
+                    } else {
+                        update.setBytes(8, DBMS.serializeTextString(appealText));
+                    }
+
+                    String appeal_response = rs.getString("appeal_response");
+                    if (appeal_response == null) {
+                        update.setNull(9, Types.BLOB);
+                    } else {
+                        update.setBytes(9, DBMS.serializeTextString(appeal_response));
+                    }
 
                     String successfulInd = rs.getString("successful_ind");
                     if (successfulInd == null) {
@@ -4085,8 +4096,17 @@ public class TCLoadTCS extends TCLoad {
                             insert.setNull(7, Types.INTEGER);
                         }
 
-                        insert.setBytes(8, DBMS.serializeTextString(rs.getString("appeal_text")));
-                        insert.setBytes(9, DBMS.serializeTextString(rs.getString("appeal_response")));
+                        if (appealText == null) {
+                            insert.setNull(8, Types.BLOB);
+                        } else {
+                            insert.setBytes(8, DBMS.serializeTextString(appealText));
+                        }
+
+                        if (appeal_response == null) {
+                            insert.setNull(9, Types.BLOB);
+                        } else {
+                            insert.setBytes(9, DBMS.serializeTextString(appeal_response));
+                        }
 
                         insert.setLong(10, rs.getLong("appeal_id"));
                         if (successfulInd == null) {
