@@ -133,7 +133,7 @@
                 debug="${debug}"
                 source="1.5"
                 target="1.5" memoryMaximumSize="380m" memoryInitialSize="380m" fork="true">
-            <include name="com/topcoder/ejb/security/**"/>
+            <include name="com/topcoder/web/ejb/security/**"/>
         </javac>
         <property name="compile_set" value="true"/>
     </target>
