@@ -14,8 +14,20 @@ import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestConfig;
 import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.ContestStatus;
+import com.topcoder.web.studio.model.ContestType;
 import com.topcoder.web.studio.model.StudioFileType;
-import com.topcoder.web.studio.validation.*;
+import com.topcoder.web.studio.validation.BooleanValidator;
+import com.topcoder.web.studio.validation.ContestNameValidator;
+import com.topcoder.web.studio.validation.ContestOverviewValidator;
+import com.topcoder.web.studio.validation.EndTimeValidator;
+import com.topcoder.web.studio.validation.FileTypeValidator;
+import com.topcoder.web.studio.validation.MaxHeightValidator;
+import com.topcoder.web.studio.validation.MaxSubmissionsValidator;
+import com.topcoder.web.studio.validation.MaxWidthValidator;
+import com.topcoder.web.studio.validation.MinHeightValidator;
+import com.topcoder.web.studio.validation.MinWidthValidator;
+import com.topcoder.web.studio.validation.PrizeDescriptionValidator;
+import com.topcoder.web.studio.validation.StartTimeValidator;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -26,7 +38,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * @author dok
+ * @author dok, TCSDEVELOPER
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 17, 2006
  */
@@ -91,6 +103,11 @@ public class EditContest extends Base {
             } else {
                 log.debug("new contest");
                 contest = new Contest();
+
+                // Since TopCoder Studio Modifications Assembly - Save the ID of a user who have created the contest
+                // (Req# 5.4)
+                long createUserId = getUser().getId();
+                contest.setCreateUserId(createUserId);
             }
             SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
             contest.setName(name);
@@ -129,6 +146,19 @@ public class EditContest extends Base {
             contest.setFileTypes(fts);
             if (!"".equals(StringUtils.checkNull(eventId))) {
                 contest.setEvent(DAOUtil.getFactory().getEventDAO().find(new Long(eventId)));
+            }
+
+            // Since TopCoder Studio Modifications Assembly (Req# 5.4)
+            // Set the Require Preview Image and Require Preview File properties based on the contest type
+            ContestType contestType = contest.getType();
+            if (contestType != null) {
+                // Set Require Preview Image property
+                ContestProperty imagePreviewProperty = dao.find(ContestProperty.REQUIRE_PREVIEW_IMAGE);
+                setContestProperty(contest, imagePreviewProperty, contestType.getPreviewImageRequired());
+
+                // Set Require Preview File property
+                ContestProperty filePreviewProperty = dao.find(ContestProperty.REQUIRE_PREVIEW_FILE);
+                setContestProperty(contest, filePreviewProperty, contestType.getPreviewFileRequired());
             }
 
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
@@ -290,5 +320,23 @@ public class EditContest extends Base {
             }
         }
 
+    }
+
+    /**
+     * <p>Sets the specified boolean property of specified contest to specified value.</p>
+     *
+     * @param contest a <code>Contest</code> providing the date for contest being added/updated.
+     * @param property a <code>ContestProperty</code> providing the contest property to set.
+     * @param value a <code>boolean</code> providing the value of specified contest property to be set. 
+     * @since TopCoder Studio Modifications Assembly (Req# 5.4)
+     */
+    private void setContestProperty(Contest contest, ContestProperty property, boolean value) {
+        ContestConfig config = contest.getConfig(property);
+        if (config == null) {
+            config = new ContestConfig();
+            config.setProperty(property);
+            contest.addConfig(config);
+        }
+        config.setValue(value ? "t" : "f");
     }
 }

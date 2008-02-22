@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
+<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -139,21 +140,53 @@
             <c:choose>
                 <c:when test="${resultRow.map['show_submissions']}">
                     <c:choose>
-                        <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
-                            <div align="center">
-                                <strong>ID:</strong> <rsc:item name="submission_id" row="<%=resultRow%>"/>
-                                <div style="overflow: hidden; width: 300px;">
-                                    <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
-                                </div>
-                            </div>
+                        <c:when test="<%=resultRow.getIntItem("contest_channel_id") == ContestChannel.STUDIO_ADMINISTRATOR_V1.intValue()%>">
+                            <c:choose>
+                                <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
+                                    <div align="center">
+                                        <strong>ID:</strong> <rsc:item name="submission_id" row="<%=resultRow%>"/>
+                                        <div style="overflow: hidden; width: 300px;">
+                                            <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
+                                        </div>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <div align="center">
+                                        <strong>ID:</strong> <rsc:item name="submission_id" row="<%=resultRow%>"/>
+                                        <br />
+                                        <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                                            <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
+                                        </a>
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
                         </c:when>
                         <c:otherwise>
+                            <%-- Since TopCoder Modifications Assembly Req# 5.9, 5.10 --%>
                             <div align="center">
                                 <strong>ID:</strong> <rsc:item name="submission_id" row="<%=resultRow%>"/>
                                 <br />
+                            <c:if test="<%=resultRow.getBooleanItem("require_preview_image") || resultRow.getBooleanItem("require_preview_file")%>">
                                 <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                    <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
+                            </c:if>
+                            <c:choose>
+                                <c:when test="<%=resultRow.getBooleanItem("require_preview_image")%>">
+                                    <img src="${sessionInfo.servletPath}?module=DownloadSubmission&amp;sbt=small&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:choose>
+                                        <c:when test="<%=resultRow.getBooleanItem("require_preview_file")%>">
+                                            <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <img src="/i/v2/interface/magnifyFade.png" alt=""/>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:otherwise>
+                            </c:choose>
+                            <c:if test="<%=resultRow.getBooleanItem("require_preview_image") || resultRow.getBooleanItem("require_preview_file")%>">
                                 </a>
+                            </c:if>
                             </div>
                         </c:otherwise>
                     </c:choose>

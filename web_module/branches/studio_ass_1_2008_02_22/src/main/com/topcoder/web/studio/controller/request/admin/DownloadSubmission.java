@@ -3,19 +3,40 @@ package com.topcoder.web.studio.controller.request.admin;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.ContestType;
+import com.topcoder.web.studio.model.MimeType;
+import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.ContestChannel;
+import com.topcoder.web.studio.util.SubmissionPresentationFilter;
+import com.topcoder.web.studio.validation.SubmissionValidator;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.FileInputStream;
+import java.util.Set;
 
 /**
- * @author dok
+ * @author dok, TCSDEVELOPER
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
 public class DownloadSubmission extends Base {
 
+    /**
+     * <p>A <code>String</code> array listing the supported types of alternate presentations of submission.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.11)
+     */
+    private static final String[] ALTERNATE_SUBMISSION_TYPES = {"tiny", "small", "medium", "full", "original"};
+
+    /**
+     *
+     *
+     * @throws Exception if an unexpected error occurs.
+     */
     protected void dbProcessing() throws Exception {
         Long submissionId;
 
@@ -24,18 +45,77 @@ public class DownloadSubmission extends Base {
         } catch (NumberFormatException e) {
             throw new NavigationException("Invalid Submission Specified");
         }
+        
+        // Since TopCoder Studio Modifications Assembly Req# 5.11
+        String targetFileName;
+        String destFileName;
+        String contentType = "application/zip";
 
+        // Determine the type of requested submission presentation
+        String submissionType = getRequest().getParameter(Constants.SUBMISSION_ALT_TYPE);
+        if (submissionType == null) {
+            submissionType = "full";
+        } else {
+            // Validate that the correct type of presentation is requested
+            boolean valid = false;
+            for (int i = 0; !valid && (i < ALTERNATE_SUBMISSION_TYPES.length); i++) {
+                valid = (ALTERNATE_SUBMISSION_TYPES[i].equalsIgnoreCase(submissionType));
+            }
+            if (!valid) {
+                throw new NavigationException("Invalid Submission Presentation Type Specified");
+            }
+        }
+
+        // Determine the contest channel - the old contests must be processed as in previous version
         Submission s = StudioDAOUtil.getFactory().getSubmissionDAO().find(submissionId);
+        Contest contest = s.getContest();
+        ContestChannel contestChannel = contest.getChannel();
+        if (!submissionType.equalsIgnoreCase("original")
+            && !ContestChannel.STUDIO_ADMINISTRATOR_V1.equals(contestChannel.getId())) {
+            // The alternate presentation is requested
+            
+            // Determine if the "image" presentation must be used in case the "full" presentation is requested but
+            // contest does not require preview file. So the admin may get the non-watermarked image
+            boolean previewFileRequired = false;
+            ContestType contestType = contest.getType();
+            if (contestType != null) {
+                previewFileRequired = contestType.getPreviewFileRequired();
+            }
+            if ("full".equalsIgnoreCase(submissionType) && !previewFileRequired) {
+                submissionType = "image";
+            }
+
+            // Locate the file corresponding to requested alternate presentation
+            File dir = new File(s.getPath().getPath());
+            String[] fileNames = dir.list(new SubmissionPresentationFilter(submissionType, s.getId()));
+            if (fileNames.length < 1) {
+                throw new NavigationException("Requested Submission Presentation Does Not Exist");
+            } else {
+                // tiny, small, medium and full (but full only if preview file required for contest; otherwise - image)
+                targetFileName = s.getPath().getPath() + fileNames[0];
+                destFileName = fileNames[0];
+                StudioFileType fileType = SubmissionValidator.getFileType(destFileName);
+                Set<MimeType> mimeTypes = fileType.getMimeTypes();
+                for (MimeType mimeType : mimeTypes) {
+                    contentType = mimeType.getDescription();
+                    break;
+                }
+            }
+        } else {
+            // The original submission is requested
+            targetFileName = s.getPath().getPath() + s.getSystemFileName();
+            destFileName = s.getId() + s.getOriginalFileName().substring(s.getOriginalFileName().lastIndexOf('.'));
+            contentType = s.getMimeType().getDescription();
+        }
 
         //create the file input stream first so that if there is a problem, we'll get the error and be able to go
         //to an error page.  if we work with the output stream, we won't be able to do that.
-        FileInputStream fis = new FileInputStream(s.getPath().getPath() + s.getSystemFileName());
+        FileInputStream fis = new FileInputStream(targetFileName);
 
         //stream it out via the response
-        getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getId() + s.getOriginalFileName().substring(s.getOriginalFileName().lastIndexOf('.')) + "\"");
-        getResponse().setContentType(s.getMimeType().getDescription());
+        getResponse().addHeader("content-disposition", "inline; filename=\"" + destFileName + "\"");
+        getResponse().setContentType(contentType);
         ServletOutputStream sos = getResponse().getOutputStream();
-
 
         int b;
         int size = 0;
@@ -46,7 +126,5 @@ public class DownloadSubmission extends Base {
         getResponse().addHeader("Content-Length", String.valueOf(size));
         getResponse().setStatus(HttpServletResponse.SC_OK);
         getResponse().flushBuffer();
-
-
     }
 }

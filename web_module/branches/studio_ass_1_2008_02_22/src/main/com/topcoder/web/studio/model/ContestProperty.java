@@ -3,7 +3,7 @@ package com.topcoder.web.studio.model;
 import com.topcoder.web.common.model.Base;
 
 /**
- * @author dok
+ * @author dok, TCSDEVELOPER
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 28, 2006
  */
@@ -18,6 +18,20 @@ public class ContestProperty extends Base {
     public static final Integer MAX_HEIGHT = 7;
     public static final Integer MAX_SUBMISSIONS = 8;
     public static final Integer VIEWABLE_SUBMITTERS = 9;
+
+    /**
+     * <p>An <code>Integer</code> referencing the <code>Requires Preview Image</code> contest property.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.4)
+     */
+    public static final Integer REQUIRE_PREVIEW_IMAGE = 10;
+
+    /**
+     * <p>An <code>Integer</code> referencing the <code>Requires Preview File</code> contest property.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.4)
+     */
+    public static final Integer REQUIRE_PREVIEW_FILE = 11;
 
 
     private Integer id;

@@ -3,6 +3,8 @@ package com.topcoder.web.studio;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.HibernateUtils;
 import junit.framework.TestCase;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  * @author dok
@@ -13,7 +15,11 @@ public class TCHibernateTestCase extends TestCase {
     protected static final Logger log = Logger.getLogger(TCHibernateTestCase.class);
 
     public void tearDown() {
-        HibernateUtils.getSession().flush();
+        Session session = HibernateUtils.getSession();
+        Transaction transaction = session.getTransaction();
+        if (transaction != null && transaction.isActive()) {
+            session.flush();
+        }
         HibernateUtils.commit();
         HibernateUtils.close();
     }

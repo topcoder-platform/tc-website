@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -112,6 +113,13 @@
                                 <div>&nbsp;</div>
                             </td>
                             <td class="value">
+                                <%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
+                                <c:choose>
+                                    <c:when test="<%=resultRow.getIntItem("contest_channel_id") == ContestChannel.TOPCODER_DIRECT.intValue()%>">
+                                        <img src="i/tcdirectEmblem.png" alt="" width="26" height="18"/>
+                                    </c:when>
+                                    <c:otherwise><img src="i/studioEmblem.png" alt="" width="26" height="18"/></c:otherwise>
+                                </c:choose>
                                 <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
                                     <rsc:item name="name" row="<%=resultRow%>"/>
                                 </a>

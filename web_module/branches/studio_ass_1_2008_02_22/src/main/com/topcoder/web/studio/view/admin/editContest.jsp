@@ -64,7 +64,7 @@
 <h1>Edit Contest Details</h1>
 
 
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
+<form action="${sessionInfo.servletPath}" method="POST" name="editForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditContest"/>
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
@@ -419,7 +419,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
     <div class="header">Documentation</div>
 
-    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removeDocForm">
+    <form action="${sessionInfo.servletPath}" method="POST" name="removeDocForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveDocument"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
         <tc-webtag:hiddenInput name="<%=Constants.DOCUMENT_ID%>"/>
@@ -440,7 +440,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
     <c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
     <c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
-    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addDocumentForm"
+    <form action="${sessionInfo.servletPath}" method="POST" name="addDocumentForm"
           enctype="multipart/form-data">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
@@ -465,7 +465,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 <c:set value="<%=PrizeType.CONTEST%>" var="contestPrize"/>
 <div class="header">Prizes</div>
 
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removePrizeForm">
+<form action="${sessionInfo.servletPath}" method="POST" name="removePrizeForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemovePrize"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.PRIZE_ID%>"/>
@@ -489,7 +489,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 <c:set value="<%=Constants.PRIZE_PLACE%>" var="prizePlace"/>
 <c:set value="<%=Constants.PRIZE_VALUE%>" var="prizeValue"/>
 <c:set value="<%=Constants.PRIZE_TYPE_ID%>" var="prizeType"/>
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addPrizeForm">
+<form action="${sessionInfo.servletPath}" method="POST" name="addPrizeForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddPrize"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
@@ -541,7 +541,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 <div class="header">After Contest</div>
 
 
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="sendToReviewForm">
+<form action="${sessionInfo.servletPath}" method="POST" name="sendToReviewForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSendToReview"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
     <button name="submit" value="submit" type="submit">
@@ -551,7 +551,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 </form>
 
 <c:if test="${resultsReady}">
-    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="loadromReviewForm">
+    <form action="${sessionInfo.servletPath}" method="POST" name="loadromReviewForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminLoadFromReview"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
         <button name="submit" value="submit" type="submit">

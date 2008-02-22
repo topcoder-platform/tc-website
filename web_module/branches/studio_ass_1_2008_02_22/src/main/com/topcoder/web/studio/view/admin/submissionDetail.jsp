@@ -83,10 +83,9 @@
 
                 <h1>Submission Detail</h1>
 
-                <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="reviewForm">
+                <form action="${sessionInfo.servletPath}" method="POST" name="reviewForm">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSubmitReview"/>
                     <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
-
 
                     <c:choose>
                         <c:when test="${submission.mimeType.fileType.imageFile}">
@@ -128,7 +127,7 @@
                 <c:if test="${submissionReview.status.id==passedStatus}">
                     <div class="header">Contest Results</div>
 
-                    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="prizeRemoveForm">
+                    <form action="${sessionInfo.servletPath}" method="POST" name="prizeRemoveForm">
                         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveSubmissionPrize"/>
                         <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
                         <tc-webtag:hiddenInput name="<%=Constants.PRIZE_ID%>"/>
@@ -163,7 +162,7 @@
 
 
 
-                    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="placedForm">
+                    <form action="${sessionInfo.servletPath}" method="POST" name="placedForm">
                         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddSubmissionPrize"/>
                         <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
 
