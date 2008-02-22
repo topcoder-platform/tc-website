@@ -34,7 +34,6 @@
     <property name="jboss_deploy_hasingleton" value="${jboss_home}/server/all/deploy-hasingleton"/>
     <property name="jboss_lib" value="${jboss_home}/server/all/lib"/>
     <property name="jboss_conf" value="${jboss_home}/server/all/conf"/>
-    <property environment="env"/>
 
     <property name="deprecation" value="true"/>
     <property name="debug" value="true"/>

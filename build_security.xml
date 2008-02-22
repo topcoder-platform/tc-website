@@ -30,7 +30,6 @@
     <property name="jboss_deploy" value="${jboss_home}/server/default/deploy"/>
     <property name="jboss_lib" value="${jboss_home}/server/default/lib"/>
     <property name="jboss_conf" value="${jboss_home}/server/default/conf"/>
-    <property environment="env"/>
 
     <property name="deprecation" value="true"/>
     <property name="debug" value="true"/>
