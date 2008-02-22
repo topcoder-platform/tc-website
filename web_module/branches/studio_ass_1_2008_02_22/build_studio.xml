@@ -1,4 +1,5 @@
 <project name="topcoder" default="main" basedir=".">
+    <property environment="env"/>
     <property name="Name" value="TopCoder"/>
     <property name="build" value="build"/>
     <property name="war.dir" value="${build}/wars"/>
@@ -15,6 +16,7 @@
     <property name="src.dir" value="src"/>
     <property name="shared.build" value="${basedir}/../shared"/>
     <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
+    <property name="external.jars.dir" location="../external-artifacts"/>
     <property name="java" value="${src.dir}/main"/>
     <property name="shared.jar" value="${bin}/shared.jar"/>
     <property name="jboss_home" value="../jboss-4.0.4.GA"/>
@@ -24,7 +26,6 @@
     <property name="testjava" value="${src.dir}/testcases"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
     <property name="build.javadocs" value="${build}/javadocs"/>
-    <property environment="env"/>
 
     <property name="deprecation" value="true"/>
     <property name="debug" value="true"/>
@@ -74,7 +75,14 @@
         <pathelement location="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
         <!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
+<!--
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+-->
+        <pathelement location="${external.jars.dir}/base_exception-2.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/configuration_api-2.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/image_overlay-1.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/image_resizing-1.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/image_manipulation-1.0.0.jar"/>
 
 
         <!-- hibernate files -->
@@ -239,7 +247,7 @@
         <delete dir="${jboss_home}/server/default/deploy/studio.war/META-INF"/>
     </target>
 
-    <target name="deploy-studio" depends="war-studio,build-security">
+    <target name="deploy" depends="war-studio,build-security">
         <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
