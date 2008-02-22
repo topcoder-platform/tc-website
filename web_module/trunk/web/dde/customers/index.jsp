@@ -78,6 +78,49 @@
             <br><br>
             <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Case Studies</td></tr></table>
 
+<!-- retail client begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/siteMgmtCon_retailClient.gif" alt="Retail Client" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">The client is a leader in the design, marketing and distribution of premium lifestyle products. TopCoder created the Site Management Console (SMC), a client-server application that allows users to create “Launch Plans” for online stores. The application allows users to create over 35 different types of events and manage them in a calendar similar to Microsoft Outlook&reg;.<br><br>
+                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/siteMgmtCon_RetailClient.pdf&refer=customer_index" target="_blank">case study</A>
+                     </td>
+                </tr>
+            </table>
+<!-- retail client ends -->
+
+             <hr width="100%" size="1px" noshade>
+            
+<!-- sports entertainment network begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/scalable_sportsEntCo.gif" alt="Sports Entertainment Network" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">TopCoder successfully completed a research application for one of the world’s leading multimedia sports entertainment companies. In this particular project, TopCoder designed and built an application that embraces the client’s strategic vision of retiring the current suite of research applications and creating a unified platform upon which all current and future application needs can be successfully deployed.<br><br>
+                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/scalable_sportsEntCo.pdf&refer=customer_index" target="_blank">case study</A>
+                     </td>
+                </tr>
+            </table>
+<!-- sports entertainment network ends -->
+
+             <hr width="100%" size="1px" noshade>
+            
+<!-- Direct Energy begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/directenergy_logo.gif" alt="Direct Energy" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">Direct Energy, one of the largest energy and related services providers in North America, required a mechanism for their credit risk group to assist in managing the credit request process. TopCoder’s solution was a web-based Credit Analysis Tool that allows access by all the sales coordinators and credit departments, regardless of location, and at the same time allows the credit risk department to evaluate input preliminary contract information.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.directenergy.com/" refer="customer_index"/>" target="_blank">homepage</A> | 
+                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/direct_energy_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
+                     </td>
+                </tr>
+            </table>
+<!-- Direct Energy ends -->
+
+             <hr width="100%" size="1px" noshade>
+            
 <!-- ABB begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
