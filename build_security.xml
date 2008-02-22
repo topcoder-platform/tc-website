@@ -152,11 +152,16 @@
     </target>
 
 
-    <target name="deploy" depends="compile">
+    <target name="deploy" depends="compile, package-EJB-SecurityBean">
         <antcall target="move-libs"/>
         <antcall target="move-conf"/>
         <antcall target="deploy-security"/>
 
+        <copy todir="${jboss_deploy}">
+            <fileset dir="${ejb_jars}">
+                <include name="Security.jar"/>
+            </fileset>
+        </copy>
     </target>
 
 
@@ -181,11 +186,13 @@
         </copy>
     </target>
     <target name="move-libs">
+<!--
         <copy todir="${jboss_lib}">
             <fileset dir="${bin}">
                 <include name="tcwebcommon.jar"/>
             </fileset>
         </copy>
+-->
         <copy todir="${jboss_lib}" file="${shared.jar}"/>
         <!--
                 <copy todir="${jboss_lib}">
