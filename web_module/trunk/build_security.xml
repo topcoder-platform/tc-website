@@ -248,22 +248,16 @@
                 <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
         -->
 
-        <!--
                 <copy todir="${jboss_lib}">
                     <fileset dir="${jars.dir}/tcs">
                         <include name="base_exception.jar"/>
-                        <include name="catalog.jar"/>
-                        <include name="user.jar"/>
                     </fileset>
                 </copy>
-        -->
-        <!--
                 <copy todir="${jboss_lib}">
                     <fileset dir="${ejb_jars}">
                         <include name="security.jar"/>
                     </fileset>
                 </copy>
-        -->
 
     </target>
 
