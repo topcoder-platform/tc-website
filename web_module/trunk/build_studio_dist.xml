@@ -26,7 +26,6 @@
     <property name="testjava" value="${src.dir}/testcases"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
     <property name="build.javadocs" value="${build}/javadocs"/>
-    <property environment="env"/>
 
     <property name="deprecation" value="true"/>
     <property name="debug" value="true"/>
