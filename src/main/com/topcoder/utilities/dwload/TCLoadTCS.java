@@ -4049,8 +4049,8 @@ public class TCLoadTCS extends TCLoad {
                     } else {
                         update.setNull(7, Types.INTEGER);
                     }
-                    update.setBytes(8, DBMS.serializeTextString(DBMS.getTextString(rs, "appeal_text")));
-                    update.setBytes(9, DBMS.serializeTextString(DBMS.getTextString(rs, "appeal_response")));
+                    update.setBytes(8, DBMS.serializeTextString(rs.getString("appeal_text")));
+                    update.setBytes(9, DBMS.serializeTextString(rs.getString("appeal_response")));
 
                     String successfulInd = rs.getString("successful_ind");
                     if (successfulInd == null) {
@@ -4085,8 +4085,8 @@ public class TCLoadTCS extends TCLoad {
                             insert.setNull(7, Types.INTEGER);
                         }
 
-                        insert.setBytes(8, DBMS.serializeTextString(DBMS.getTextString(rs, "appeal_text")));
-                        insert.setBytes(9, DBMS.serializeTextString(DBMS.getTextString(rs, "appeal_response")));
+                        insert.setBytes(8, DBMS.serializeTextString(rs.getString("appeal_text")));
+                        insert.setBytes(9, DBMS.serializeTextString(rs.getString("appeal_response")));
 
                         insert.setLong(10, rs.getLong("appeal_id"));
                         if (successfulInd == null) {
