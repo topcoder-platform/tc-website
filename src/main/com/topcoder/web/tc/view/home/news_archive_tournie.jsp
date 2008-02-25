@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">02.25.08 5:00 PM - </td><td width="100%"><a href="/tco08?module=AlgorithmAdvancers">See Who Advanced from Algorithm Round 2 of the TCO08</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.22.08 1:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=schedule">TCO08 Algorithm Round 2</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.18.08 3:15 PM - </td><td width="100%"><a href="/tco08?module=AlgorithmAdvancers">See Who Advanced from Algorithm Round 1 of the TCO08</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.15.08 3:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=601138">TCHS08 Finalists documents due. Act now!</a></td></tr>
