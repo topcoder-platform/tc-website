@@ -383,7 +383,8 @@ public class Submit extends BaseSubmissionDataProcessor {
                     session.flush();
                 }
                 HibernateUtils.commit();
-                HibernateUtils.close();
+//                HibernateUtils.close();
+                HibernateUtils.closeSession();
             }
         }
 
