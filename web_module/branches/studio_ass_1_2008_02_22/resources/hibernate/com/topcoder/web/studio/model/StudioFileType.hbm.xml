@@ -15,5 +15,6 @@
         <property name="sort"/>
         <property name="imageFile" type="boolean" column="image_file_ind"/>
         <property name="extension"/>
+        <property name="bundledFile" type="boolean" column="bundled_file_ind"/>
     </class>
 </hibernate-mapping>
