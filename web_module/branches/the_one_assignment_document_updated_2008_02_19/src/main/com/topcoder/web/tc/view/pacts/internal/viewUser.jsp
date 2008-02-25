@@ -244,7 +244,7 @@
         <a href="${pacts:updateUserAccrual(user.header.id)}">Edit user accrual amount</a>
         <br/>
         
-        <c:if test="${has_global_ad}">
+        <c:if test="${not has_global_ad}">
             <a href="${pacts:addGlobalAD(user.header.id)}">Add Global AD</a>
             <br/>
         </c:if>
