@@ -193,7 +193,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     void createAffidavitTemplate(int affidavitTypeId, String text) throws  SQLException;
 
-    void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text);
+    void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text, String name);
 
     public List<AssignmentDocumentTemplate> getAssignmentDocumentTemplate(long assignmentDocumentTypeId, boolean onlyCurrent);
 

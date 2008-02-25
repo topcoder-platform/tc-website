@@ -5313,7 +5313,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    public void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text) {
+    public void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text, String name) {
         Connection conn = null;
         PreparedStatement ps = null;
 
@@ -5332,8 +5332,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.close();
 
             StringBuffer query = new StringBuffer(1024);
-            query.append("insert into assignment_document_template (assignment_document_template_id, assignment_document_type_id, assignment_document_template_text, cur_version)");
-            query.append("values (?, ?, ?, 1)");
+            query.append("insert into assignment_document_template (assignment_document_template_id, assignment_document_type_id, assignment_document_template_text, assignment_document_template_name, cur_version)");
+            query.append("values (?, ?, ?, ?, 1)");
 
             long assignmentDocumentTemplateId = IdGeneratorClient.getSeqId("ASSIGNMENT_DOCUMENT_TEMPLATE_SEQ");
 
@@ -5341,6 +5341,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setLong(1, assignmentDocumentTemplateId);
             ps.setInt(2, assignmentdocumentTypeId);
             ps.setBytes(3, text == null ? null : DBMS.serializeTextString(text));
+            ps.setString(4, name);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {

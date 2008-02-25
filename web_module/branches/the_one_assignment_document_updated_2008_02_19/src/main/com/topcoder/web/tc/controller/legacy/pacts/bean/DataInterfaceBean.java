@@ -1524,9 +1524,9 @@ public class DataInterfaceBean implements PactsConstants {
         ps.createAffidavitTemplate(affidavitTypeId, text);
     }
 
-    public void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text) throws RemoteException {
+    public void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text, String name) throws RemoteException {
         PactsServicesLocal ps = getEjbHandle();
-        ps.createAssignmentDocumentTemplate(assignmentdocumentTypeId, text);
+        ps.createAssignmentDocumentTemplate(assignmentdocumentTypeId, text, name);
     }
 
     public List<AssignmentDocumentTemplate> getAssignmentDocumentTemplate(long assignmentDocumentTypeId, boolean onlyCurrent) throws RemoteException {
