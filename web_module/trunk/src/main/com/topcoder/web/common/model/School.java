@@ -80,6 +80,7 @@ public class School extends Base {
         return viewable.booleanValue();
     }
 
+/*
     public boolean equals(Object o) {
         if (o == null) {
             return false;
@@ -95,6 +96,28 @@ public class School extends Base {
                 return false;
             }
         }
+    }
+*/
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof School)) return false;
+
+        School school = (School) o;
+
+        if (id != null ? !id.equals(school.id) : school.id != null) return false;
+        if (name != null ? !name.equals(school.name) : school.name != null) return false;
+        if (type != null ? !type.equals(school.type) : school.type != null) return false;
+
+        return true;
+    }
+
+    public int hashCode() {
+        int result;
+        result = (id != null ? id.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        return result;
     }
 
     public Date getModifyDate() {
