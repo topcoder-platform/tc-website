@@ -69,7 +69,7 @@
                 <p align="center">
                     <strong>
                     <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=description&node=<%=node==null?"":node%>" class="bcLink">Introduction</a>
-                    | <a href="/wiki/display/tc/UML+Tool+-+Installation" class="bcLink">Download</a> (Requires login)
+                    | <a href="/wiki/display/tc/TopCoder+UML+Tool" class="bcLink">Download</a> (Requires login)
                     | <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=2479" class="bcLink">Discuss the UML Tool</a>
                     | Credits
                     </strong>

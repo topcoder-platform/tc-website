@@ -51,7 +51,7 @@
                 </div>
 
                 <p align="center">
-                    We've moved this page to <a href="/wiki/display/tc/UML+Tool+-+Installation">the wiki</a>.
+                    We've moved this page to <a href="/wiki/display/tc/TopCoder+UML+Tool">the wiki</a>.
                 </p>
                 
             </div>
