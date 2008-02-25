@@ -174,13 +174,13 @@ function loaded() {
                 </td>
             </c:if>
         </tr>
-        <tr id="submissionTitle">        
+        <tr>        
             <td><b>Submission title:</b></td>
             <td>
                 <tc-webtag:textInput name="submission_title" id="submission_title" editable="true" /> 
             </td>
         </tr>
-        <tr id="status">        
+        <tr>        
             <td><b>Status:</b></td>
             <td>
                 <SELECT CLASS="dropdown" NAME="assignment_document_status_id">
@@ -202,7 +202,7 @@ function loaded() {
                 </td>
             </tr>
         </c:if>
-        <tr id="hardCopy">
+        <tr>
             <td><b>Hard Copy:</b>
             </td>
             <td>        
@@ -210,7 +210,7 @@ function loaded() {
                 <tc-webtag:chkBox name="assignment_document_hard_copy"/>
             </td>
         </tr>
-        <tr id="expirationDate">
+        <tr>
             <td><b>Expiration Date:</b></td><td>
             <tc-webtag:textInput name="expire_date" id="expire_date" size="12" editable="true" /> 
                 <button id="trigger_expire_date">Set</button> If left empty it is set to current date + <%=PactsConstants.ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD%> (has hard copy) or current date + <%=PactsConstants.ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD%> days (no hard copy)

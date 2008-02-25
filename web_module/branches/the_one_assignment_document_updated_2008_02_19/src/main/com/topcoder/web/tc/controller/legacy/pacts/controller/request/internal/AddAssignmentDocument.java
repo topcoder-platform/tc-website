@@ -31,17 +31,11 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
     protected void businessProcessing() throws Exception {
         long userId = 0;
         long assignmentDocumentId = 0;
-        Long assignmentDocumentTypeId;
         Date expireDate = null;
         Date affirmedDate = null;
         
         try {
             assignmentDocumentId = getLongParameter(ASSIGNMENT_DOCUMENT_ID);
-        } catch (IllegalArgumentException iae) {
-        }
-
-        try {
-            assignmentDocumentTypeId = getLongParameter("assignment_document_type_id");
         } catch (IllegalArgumentException iae) {
         }
 
@@ -57,7 +51,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
         if (hasParameter("expire_date") && getRequest().getParameter("expire_date").trim().length() != 0) {
             expireDate = checkDate("expire_date", "Please enter a valid expire date");
         }
-        
+
         if (hasParameter("affirmed_date") && getRequest().getParameter("affirmed_date").trim().length() != 0) {
             affirmedDate = checkDate("affirmed_date", "Please enter a valid affirmed date");
         }
@@ -65,7 +59,9 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
         DataInterfaceBean dib = new DataInterfaceBean();
 
         // Give the JSP the list of assignment document Types
-        List assignmentDocumentTypes = dib.getAssignmentDocumentTypes();
+        List<AssignmentDocumentType> assignmentDocumentTypes = dib.getAssignmentDocumentTypes();
+        // We can't use this page for Global Assignment Documents
+        assignmentDocumentTypes.remove(new AssignmentDocumentType(AssignmentDocumentType.GLOBAL_TYPE_ID));
         getRequest().setAttribute(ASSIGNMENT_DOCUMENT_TYPE_LIST, assignmentDocumentTypes);
 
         // Give the JSP the list of assignment document status
@@ -75,6 +71,11 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
         String submissionTitle = getRequest().getParameter("submission_title");
         if (hasParameter("submission_title") && submissionTitle.trim().length() == 0) {
             addError("error", "Please enter a text for the submission title.");
+        }
+
+        if (hasParameter("assignment_document_type_id") && 
+                getRequest().getParameter("assignment_document_type_id").equals(AssignmentDocumentType.GLOBAL_TYPE_ID.toString())) {
+            addError("error", "Invalid assignment document type.");
         }
 
         if (hasParameter("submission_title")) {

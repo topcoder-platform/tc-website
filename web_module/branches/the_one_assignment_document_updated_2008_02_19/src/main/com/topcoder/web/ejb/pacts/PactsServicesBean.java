@@ -1302,8 +1302,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return The list of assignment document types
      * @throws SQLException If there is some problem retrieving the data
      */
-    public List getAssignmentDocumentTypes() throws SQLException {
-        List assignmentDocumentTypes = new ArrayList();
+    public List<AssignmentDocumentType> getAssignmentDocumentTypes() throws SQLException {
+        List<AssignmentDocumentType> assignmentDocumentTypes = new ArrayList<AssignmentDocumentType>();
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT assignment_document_type_id, assignment_document_type_desc FROM assignment_document_type_lu ORDER BY 2");
 
@@ -1838,11 +1838,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad) {
-        AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(null, assignmentDocumentTypeId);
+        AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(null, assignmentDocumentTypeId, true).get(0);
 
         return adt.transformTemplate(ad, prepareUserAssignmentDocumentInfo(ad.getUser().getId(), ad.getSubmissionTitle()));
     }
 
+    public List<AssignmentDocumentTemplate> getAssignmentDocumentTemplate(long assignmentDocumentTypeId, boolean onlyCurrent) {
+        return getAssignmentDocumentTemplate(null, assignmentDocumentTypeId, onlyCurrent);
+    }
+    
     /**
      * Returns an assignment document template
      *
@@ -1851,11 +1855,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return The required assignment document template
      * @throws SQLException If there is some problem retrieving the data
      */
-    public AssignmentDocumentTemplate getAssignmentDocumentTemplate(Connection conn, long assignmentDocumentTypeId) {
+    public List<AssignmentDocumentTemplate> getAssignmentDocumentTemplate(Connection conn, long assignmentDocumentTypeId, boolean onlyCurrent) {
         boolean closeConnection = false;
         PreparedStatement ps = null;
         ResultSet rs = null;
         ResultSetContainer rsc = null;
+        List<AssignmentDocumentTemplate> adtl = new ArrayList<AssignmentDocumentTemplate>();
 
         try {
             if (conn == null) {
@@ -1871,28 +1876,35 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             sb.append("assignment_document_template_text ");
             sb.append("from 'informix'.assignment_document_template ");
             sb.append("where assignment_document_type_id = ? ");
-            sb.append("and cur_version = 1 ");
+            if (onlyCurrent) {
+                sb.append("and cur_version = 1 ");
+            }
+            sb.append("order by assignment_document_template_name ");
 
             ps = conn.prepareStatement(sb.toString());
 
             ps.setLong(1, assignmentDocumentTypeId);
             rs = ps.executeQuery();
 
-            if (!rs.next()) {
+            while (rs.next()) {
+                AssignmentDocumentTemplate adt = new AssignmentDocumentTemplate();
+                adt.setId(new Long(rs.getLong("assignment_document_template_id")));
+                adt.setName(rs.getString("assignment_document_template_id"));
+
+                byte[] bytes = rs.getBytes("assignment_document_template_text");
+                if (bytes == null)
+                    adt.setText("");
+                else
+                    adt.setText(new String(bytes));
+                
+                adtl.add(adt);
+            }
+
+            if (adtl.size() == 0) {
                 throw new IllegalUpdateException("Couldn't find an assigment document for id: " + assignmentDocumentTypeId);
             }
 
-            AssignmentDocumentTemplate adt = new AssignmentDocumentTemplate();
-            adt.setId(new Long(rs.getLong("assignment_document_template_id")));
-
-
-            byte[] bytes = rs.getBytes("assignment_document_template_text");
-            if (bytes == null)
-                adt.setText("");
-            else
-                adt.setText(new String(bytes));
-
-            return adt;
+            return adtl;
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
             throw (new EJBException(e.getMessage(), e));
@@ -2029,7 +2041,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         (oldAssignmentDocumentInstance == null ||
                                 !oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID)))) {
 
-                    AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(c, ad.getType().getId().longValue());
+                    AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(c, ad.getType().getId().longValue(), true).get(0);
                     ad.setText(adt.transformTemplate(ad, prepareUserAssignmentDocumentInfo(ad.getUser().getId(), ad.getSubmissionTitle())));
                     updateText = true;
                 }

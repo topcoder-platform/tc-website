@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.pacts;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,8 @@ import javax.ejb.EJBLocalObject;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocument;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentTemplate;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentType;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.EventFailureException;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
@@ -71,7 +74,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
     // Type listings and other miscellaneous retrieval
     Map getAffidavitTypes() throws SQLException;
 
-    List getAssignmentDocumentTypes() throws SQLException;
+    List<AssignmentDocumentType> getAssignmentDocumentTypes() throws SQLException;
 
     List getAssignmentDocumentStatus() throws SQLException;
 
@@ -191,6 +194,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
     void createAffidavitTemplate(int affidavitTypeId, String text) throws  SQLException;
 
     void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text);
+
+    public List<AssignmentDocumentTemplate> getAssignmentDocumentTemplate(long assignmentDocumentTypeId, boolean onlyCurrent);
 
     boolean hasNotarizedAffidavit(long userId, int affidavitTypeId) throws SQLException;
 

@@ -25,6 +25,8 @@ import com.topcoder.web.ejb.pacts.PactsServices;
 import com.topcoder.web.ejb.pacts.PactsServicesBean;
 import com.topcoder.web.ejb.pacts.PactsServicesLocal;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocument;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentTemplate;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentType;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.EventFailureException;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
@@ -407,7 +409,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws RemoteException If there is some communication problem with the EJB
      * @throws SQLException    If there is some problem retrieving the data
      */
-    public List getAssignmentDocumentTypes() throws RemoteException, SQLException {
+    public List<AssignmentDocumentType> getAssignmentDocumentTypes() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getAssignmentDocumentTypes();
     }
@@ -1514,6 +1516,11 @@ public class DataInterfaceBean implements PactsConstants {
     public void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text) throws RemoteException {
         PactsServicesLocal ps = getEjbHandle();
         ps.createAssignmentDocumentTemplate(assignmentdocumentTypeId, text);
+    }
+
+    public List<AssignmentDocumentTemplate> getAssignmentDocumentTemplate(long assignmentDocumentTypeId, boolean onlyCurrent) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getAssignmentDocumentTemplate(assignmentDocumentTypeId, onlyCurrent);
     }
 
 

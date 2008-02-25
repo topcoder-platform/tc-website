@@ -2417,6 +2417,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         search.put(USER_ID, request.getParameter(USER_ID));
         request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(HAS_GLOBAL_AD, dib.hasGlobalAD(u.getHeader().getId()));
         request.setAttribute(PACTS_INTERNAL_RESULT, u);
 
         forward(INTERNAL_USER_JSP, request, response);

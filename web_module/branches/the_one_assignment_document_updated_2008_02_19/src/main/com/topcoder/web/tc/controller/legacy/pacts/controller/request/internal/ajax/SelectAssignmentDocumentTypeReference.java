@@ -51,7 +51,6 @@ public class SelectAssignmentDocumentTypeReference extends BaseProcessor impleme
                     getRequest().setAttribute("reference_description", "Enter search text for studio contest name:");
                 }
             }
-            getRequest().setAttribute("assignment_document_type_id", getRequest().getParameter("assignment_document_type_id"));
             if (hasParameter("search_list")) {
                 getRequest().setAttribute("search_list", StringUtils.htmlEncode(getRequest().getParameter("search_list")));
             }

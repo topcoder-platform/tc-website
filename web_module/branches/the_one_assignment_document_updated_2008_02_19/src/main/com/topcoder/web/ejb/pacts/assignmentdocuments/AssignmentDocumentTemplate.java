@@ -25,9 +25,10 @@ public class AssignmentDocumentTemplate implements Serializable, Cloneable {
      * serialization for this object, i.e. when data members are changed.
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     private Long id;
+    private String name;
     private String text;
 
     public AssignmentDocumentTemplate() {
@@ -49,6 +50,20 @@ public class AssignmentDocumentTemplate implements Serializable, Cloneable {
      */
     public void setText(String text) {
         this.text = text;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param text the text to set
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
