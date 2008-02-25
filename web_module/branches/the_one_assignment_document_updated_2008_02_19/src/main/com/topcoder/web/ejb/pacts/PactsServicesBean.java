@@ -2011,7 +2011,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         // validate
-        if (!ad.getType().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
+        if (!ad.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
             if (ad.getSubmissionTitle() == null || ad.getSubmissionTitle().trim().length() == 0) {
                 throw new IllegalArgumentException("Assignment Document's submission title cannot be null or empty");
             }
@@ -2032,7 +2032,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Boolean hasHardCopy = hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(),
                 ad.getType().getId().longValue());
 
-        if (!ad.getType().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
+        if (!ad.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
             if (ad.getExpireDate() == null) {
                 Calendar dueDateCal = Calendar.getInstance();
                 dueDateCal.add(Calendar.DAY_OF_YEAR, hasHardCopy.booleanValue() ? ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD : ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD);
@@ -2093,14 +2093,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 if (!oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
                         (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID))) {
                     // notify the payment status manager the new affirmed assignment document
-                    if (!ad.getType().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
+                    if (!ad.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
                         (new PaymentStatusManager()).affirmedIPTransfer(ad);
                     } else {
                         (new PaymentStatusManager()).signedGlobalAD(ad.getUser().getId());
                     }
                 }
                 
-                if (oldAssignmentDocumentInstance.getType().equals(AssignmentDocumentType.GLOBAL_TYPE_ID) &&
+                if (oldAssignmentDocumentInstance.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID) &&
                         !ad.getType().equals(oldAssignmentDocumentInstance.getType())) {
                     throw new IllegalArgumentException("Cannot change the type of a global assignment document");
                 }
@@ -2196,7 +2196,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 (new PaymentStatusManager()).hardCopyIPTransfer(ad.getUser().getId(), ad.getComponentProject() == null ? TC_STUDIO_PAYMENT : COMPONENT_PAYMENT);
             }
 
-            if (ad.getType().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
+            if (ad.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
                 (new PaymentStatusManager()).signedGlobalAD(ad.getUser().getId());
             }
 
