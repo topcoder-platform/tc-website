@@ -28,12 +28,12 @@ public class AddGlobalADSubmit extends PactsBaseProcessor implements PactsConsta
         }
 
         try {
-            templateId = getLongParameter("assignment_document_status_id");
+            templateId = getLongParameter("assignment_document_template_id");
         } catch (IllegalArgumentException iae) {
         }            
 
         if (templateId == 0) {
-            throw new IllegalArgumentException("Missing parameter assignment_document_status_id");
+            throw new IllegalArgumentException("Missing parameter assignment_document_template_id");
         }
 
         DataInterfaceBean dib = new DataInterfaceBean();
