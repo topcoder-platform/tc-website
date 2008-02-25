@@ -102,7 +102,7 @@
         --%>
         
         <%-- TCO08 --%>
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=about' refer='homepage' />"><img src="/i/home/tco08compRegBanner.png" alt="2008 TopCoder Open" /></a>
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=nsa' refer='homepage' />"><img src="/i/home/tco08nsaBanner.png" alt="2008 TopCoder Open" /></a>
 
         <%-- Architecture 
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=architecture&d2=beta' refer='homepage' />"><img src="/i/home/architectureBeta.jpg" alt="Architecture Competition" /></a>
@@ -285,7 +285,7 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/home/tcs_client_verisign.png" alt="TopCoder &amp; VeriSign" border="0" style="display:block;"/></A>
+                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/home/tcs_client_directenergy.png" alt="TopCoder &amp; Direct Energy" border="0" style="display:block;"/></A>
             </td>
         </tr>
     </table>
