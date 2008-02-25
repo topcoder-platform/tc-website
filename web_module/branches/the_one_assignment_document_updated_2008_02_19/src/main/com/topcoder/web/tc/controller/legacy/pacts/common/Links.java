@@ -22,7 +22,7 @@ public class Links implements PactsConstants {
     }
     
     public static String addGlobalAD(long userId) {
-        return createLink("addGlobalAD", USER_ID, userId + "");
+        return createLink("AddGlobalAD", USER_ID, userId + "");
     }
     
     public static String addAssignmentDocument(long userId) {

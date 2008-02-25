@@ -2439,9 +2439,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         if (u.length != 1) {
             request.setAttribute(PACTS_INTERNAL_RESULT, u);
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            request.setAttribute(HAS_GLOBAL_AD, dib.hasGlobalAD(u[0].getId()));
-
             forward(INTERNAL_USER_LIST_JSP, request, response);
         } else {
             InternalDispatchUserProfile upb = new InternalDispatchUserProfile(request, response);
@@ -2451,6 +2448,9 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             Map search = new HashMap();
             search.put(USER_ID, "" + u[0].getId());
             request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
+
+            DataInterfaceBean dib = new DataInterfaceBean();
+            request.setAttribute(HAS_GLOBAL_AD, dib.hasGlobalAD(u[0].getId()));
 
             forward(INTERNAL_USER_JSP, request, response);
         }

@@ -1901,7 +1901,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             if (adtl.size() == 0) {
-                throw new IllegalUpdateException("Couldn't find an assigment document for id: " + assignmentDocumentTypeId);
+                throw new IllegalUpdateException("Couldn't find an assigment document type for id: " + assignmentDocumentTypeId);
             }
 
             return adtl;

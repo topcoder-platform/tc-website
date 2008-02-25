@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentStatus;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentTemplate;
+import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentType;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
@@ -28,7 +29,7 @@ public class AddGlobalAD extends PactsBaseProcessor implements PactsConstants {
 
         DataInterfaceBean dib = new DataInterfaceBean();
 
-        List<AssignmentDocumentTemplate> adtl = dib.getAssignmentDocumentTemplate(userId, false);
+        List<AssignmentDocumentTemplate> adtl = dib.getAssignmentDocumentTemplate(AssignmentDocumentType.GLOBAL_TYPE_ID, false);
         getRequest().setAttribute(ASSIGNMENT_DOCUMENT_TEMPLATE_LIST, adtl);
 
         List assignmentDocumentStatus = dib.getAssignmentDocumentStatus();
