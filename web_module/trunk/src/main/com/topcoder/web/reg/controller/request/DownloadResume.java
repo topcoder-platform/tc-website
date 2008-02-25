@@ -3,8 +3,6 @@ package com.topcoder.web.reg.controller.request;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Coder;
 import com.topcoder.web.common.model.Resume;
 import com.topcoder.web.common.model.User;
@@ -15,13 +13,17 @@ import java.util.Set;
 
 /**
  * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
+ * @version $Id$
  *          Create Date: Aug 22, 2006
  */
-public class DownloadResume extends ShortHibernateProcessor {
-    protected void dbProcessing() throws Exception {
-        if (userLoggedIn()) {
-            User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+public class DownloadResume extends Base {
+    //public class DownloadResume extends ShortHibernateProcessor {
+
+    protected void registrationProcessing() throws Exception {
+        if (getRegUser() == null) {
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
+        } else if (isNewRegistration() || userLoggedIn()) {
+            User u = getRegUser();
             Coder c = u.getCoder();
             if (c == null) {
                 throw new NavigationException("Sorry, your account does not include a resume.");
