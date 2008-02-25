@@ -317,6 +317,7 @@ public class Submit extends BaseSubmissionDataProcessor {
          * representations of the submission.</p>
          */
         public void run() {
+            log.debug("begin file processing");
             HibernateUtils.begin();
             try {
                 BundledFileAnalyzer analyzer = SubmissionValidator.getBundledFileParser(submission.getMimeType());
@@ -386,6 +387,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 //                HibernateUtils.close();
                 HibernateUtils.closeSession();
             }
+            log.debug("end file processing");
         }
 
         /**
@@ -435,7 +437,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 
             // Resize the original image if necessary
             if (mustResize) {
-                File tempFile = File.createTempFile("studio", "tmp", new File(Constants.ROOT_STORAGE_PATH));
+                File tempFile = File.createTempFile("studio", "tmp", new File(Constants.ROOT_STORAGE_PATH+System.getProperty("file.separator")+Constants.SUBMISSIONS_DIRECTORY_NAME));
                 tempFile.deleteOnExit();
                 writeFile(tempFile.getPath(), imageContent);
 
