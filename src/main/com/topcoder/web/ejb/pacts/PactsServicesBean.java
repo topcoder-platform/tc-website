@@ -1967,7 +1967,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 try {
                     findComponentProjectById(ad.getComponentProject().getId().longValue());
                 } catch (Exception e) {
-                    throw new IllegalArgumentException("Assignment Document's component project doesn't exists");
+                    throw new IllegalArgumentException("Assignment Document's component project doesn't exists " + ad.getComponentProject());
                 }
             }
         }
@@ -6255,7 +6255,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Replaces null strings with "", others are returned untouched.
      */
-    private static String checkNull(String s) {
+    private String checkNull(String s) {
         return s == null ? "" : s;
     }
 
