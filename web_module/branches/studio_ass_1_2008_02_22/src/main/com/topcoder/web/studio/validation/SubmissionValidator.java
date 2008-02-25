@@ -83,9 +83,9 @@ public class SubmissionValidator implements Validator {
                 fileParser.analyze(new ByteArrayInputStream(arr), false);
                 boolean nativeSubmissionProvided = fileParser.isNativeSubmissionAvailable();
                 boolean previewImageProvided = (contestType == null) || !contestType.getPreviewImageRequired()
-                                               || fileParser.isPreviewImageAvailable();
+                        || fileParser.isPreviewImageAvailable();
                 boolean previewFileProvided = (contestType == null) || !contestType.getPreviewFileRequired()
-                                              || fileParser.isPreviewFileAvailable();
+                        || fileParser.isPreviewFileAvailable();
                 if (!nativeSubmissionProvided) {
                     return new BasicResult(false, "No native submission provided with the submission");
                 }
@@ -120,6 +120,9 @@ public class SubmissionValidator implements Validator {
         if (mt == null) {
             log.info("didn't find mime type " + submission.getContentType());
             String ext = submission.getRemoteFileName().substring(submission.getRemoteFileName().lastIndexOf('.') + 1);
+            if (log.isDebugEnabled()) {
+                log.debug("extension is " + ext);
+            }
             for (StudioFileType ft : StudioDAOUtil.getFactory().getFileTypeDAO().getFileTypes()) {
                 if (ft.getExtension().equals(ext)) {
                     mt = ft.getMimeTypes().iterator().next();
@@ -135,7 +138,7 @@ public class SubmissionValidator implements Validator {
      * @param mimeType a <code>MimeType</code> providing the type of submission file.
      * @return a <code>BundledFileAnalyzer</code> which could be used for parsing the provided bundled file.
      * @throws IllegalArgumentException if specified mime type does not correspond to bundled files or there is no
-     *         parser mapped to specified mime type.
+     *                                  parser mapped to specified mime type.
      * @since TopCoder Studio Modifications Assembly (Req# 5.6)
      */
     public static BundledFileAnalyzer getBundledFileParser(MimeType mimeType) {
@@ -143,7 +146,7 @@ public class SubmissionValidator implements Validator {
         Integer fileTypeId = fileType.getId();
         if (!fileType.isBundledFile()) {
             throw new IllegalArgumentException("The file type [" + fileTypeId + "] does not correspond to bundled "
-                                               + "files");
+                    + "files");
         }
         if (StudioFileType.ZIP_ARCHIVE_TYPE_ID.equals(fileTypeId)) {
             return new ZipFileAnalyzer();
@@ -158,12 +161,12 @@ public class SubmissionValidator implements Validator {
      * <p>Calculates the name for the file with the aletrnate representation of specified type for specified
      * submission.</p>
      *
-     * @param contest a <code>Contest</code> representing the contest which the submission belongs to.
-     * @param user a <code>User</code> representing the user who have submitted the submission.
-     * @param submission a <code>Submission</code> representing the submission submitted to server.
+     * @param contest          a <code>Contest</code> representing the contest which the submission belongs to.
+     * @param user             a <code>User</code> representing the user who have submitted the submission.
+     * @param submission       a <code>Submission</code> representing the submission submitted to server.
      * @param originalFileName a <code>String</code> providing the original name for the file.
-     * @param type a <code>String</code> specifying the type of file to be created ("tiny", "small", "medium" or
-     *        "full").
+     * @param type             a <code>String</code> specifying the type of file to be created ("tiny", "small", "medium" or
+     *                         "full").
      * @return a <code>String</code> providing the path to file with content of specified type for specified
      *         submission.
      * @since TopCoder Studio Modifications Assembly (Req# 5.7)
