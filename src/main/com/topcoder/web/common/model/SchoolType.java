@@ -9,8 +9,8 @@ public class SchoolType extends Base {
     private Integer id;
     private String description;
 
-    public static final Integer HIGH_SCHOOL = new Integer(2);
-    public static final Integer COLLEGE = new Integer(1);
+    public static final Integer HIGH_SCHOOL = 2;
+    public static final Integer COLLEGE = 1;
 
     public SchoolType() {
 
@@ -24,4 +24,23 @@ public class SchoolType extends Base {
         return description;
     }
 
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SchoolType)) return false;
+
+        SchoolType that = (SchoolType) o;
+
+        if (!description.equals(that.description)) return false;
+        if (!id.equals(that.id)) return false;
+
+        return true;
+    }
+
+    public int hashCode() {
+        int result;
+        result = id.hashCode();
+        result = 31 * result + description.hashCode();
+        return result;
+    }
 }
