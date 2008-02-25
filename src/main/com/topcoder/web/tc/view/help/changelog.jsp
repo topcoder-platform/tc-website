@@ -45,6 +45,13 @@
 </jsp:include>
 
 <p>
+    5.14.6 - 2008.02.xx
+<ul>
+    <li>Fix bug in registration process where downloading the resume would make it impossible to save your changes -dok</li>
+</ul>
+</p>
+
+<p>
     5.14.5 - 2008.02.21
 <ul>
     <li>Add TCO08 travel info site -dok</li>
