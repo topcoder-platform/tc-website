@@ -231,8 +231,11 @@ public class SubmissionValidator implements Validator {
                 log.debug("mimetype was null");
             } else if (mimeType.getFileType() == null) {
                 log.debug("file type was null");
+            } else {
+                log.debug("flag for bundled file " + mimeType.getFileType().getBundledFile());
             }
         }
+
         return mimeType.getFileType().isBundledFile();
     }
 }
