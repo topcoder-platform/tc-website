@@ -1873,7 +1873,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer sb = new StringBuffer(100);
             sb.append("select ");
             sb.append("assignment_document_template_id, ");
-            sb.append("assignment_document_template_text ");
+            sb.append("assignment_document_template_text, ");
+            sb.append("assignment_document_template_name ");
             sb.append("from 'informix'.assignment_document_template ");
             sb.append("where assignment_document_type_id = ? ");
             if (onlyCurrent) {
@@ -1889,7 +1890,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             while (rs.next()) {
                 AssignmentDocumentTemplate adt = new AssignmentDocumentTemplate();
                 adt.setId(new Long(rs.getLong("assignment_document_template_id")));
-                adt.setName(rs.getString("assignment_document_template_id"));
+                adt.setName(rs.getString("assignment_document_template_name"));
 
                 byte[] bytes = rs.getBytes("assignment_document_template_text");
                 if (bytes == null)

@@ -34,7 +34,7 @@
             <td><a href="${pacts:viewUser(user.id)}"><c:out value="${user.handle}" /></a></td>          
         </tr>
         <tr>        
-            <td><b>Use template:</b></td>
+            <td><b>Global AD template:</b></td>
             <td>
                 <SELECT CLASS="dropdown" NAME="assignment_document_template_id">
                     <c:forEach items="${assignment_document_template_list}" var="templateItem">
@@ -59,7 +59,7 @@
         </tr>
 </table>
 
-<input type="submit" value="Save accrual amount">
+<input type="submit" value="Save Global AD">
 
 </form>
 
