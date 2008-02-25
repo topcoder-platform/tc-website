@@ -64,6 +64,7 @@ public class SubmissionValidator implements Validator {
             return new BasicResult(false, "Communication error when receiving submission.");
         } catch (IOException e) {
             log.warn("Communication error when receiving submission.", e);
+            return new BasicResult(false, "Communication error when receiving submission.");
         }
 
         if (ret == 0) {
@@ -128,6 +129,9 @@ public class SubmissionValidator implements Validator {
                     mt = ft.getMimeTypes().iterator().next();
                 }
             }
+        }
+        if (log.isDebugEnabled()) {
+            log.debug("found mimetype " + mt);
         }
         return mt;
     }
@@ -222,6 +226,13 @@ public class SubmissionValidator implements Validator {
      * @since TopCoder Studio Modifications Assembly (Req# 5.6)
      */
     private static boolean isBundledFile(MimeType mimeType) {
+        if (log.isDebugEnabled()) {
+            if (mimeType == null) {
+                log.debug("mimetype was null");
+            } else if (mimeType.getFileType() == null) {
+                log.debug("file type was null");
+            }
+        }
         return mimeType.getFileType().isBundledFile();
     }
 }
