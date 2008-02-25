@@ -53,7 +53,7 @@
                 <p align="center">
                     <strong>
                     Introduction
-                    | <a href="/wiki/display/tc/UML+Tool+-+Installation" class="bcLink">Download</a> (Requires login)
+                    | <a href="/wiki/display/tc/TopCoder+UML+Tool" class="bcLink">Download</a> (Requires login)
                     | <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=2479" class="bcLink">Discuss the UML Tool</a>
                     | <a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=credits&amp;node=<%=node==null?"":node%>" class="bcLink">Credits</a>
                     </strong>
@@ -64,7 +64,7 @@
                 </p>
 
                 <div align="center" style="margin: 40px;">
-                    <div><a href="/wiki/display/tc/UML+Tool+-+Installation" class="bigButton" style="width: 140px;">Download Now</a></div>
+                    <div><a href="/wiki/display/tc/TopCoder+UML+Tool" class="bigButton" style="width: 140px;">Download Now</a></div>
                     <div>(Requires login)</div>
                 </div>
 
@@ -93,7 +93,7 @@
                 Though it is now available for download, of course, the work isn't entirely over. "I anticipate the tool being heavily modified by designers and developers alike and tailored to individual needs," says Ghostar. "This flexibility will greatly enhance the speed at which the entire TopCoder process will work; I know I have a few planned features I'd like to implement that will make <a href="/tc?module=Static&amp;d1=features&amp;d2=081307">my life as a designer</a> a lot easier."
                 </p>
                 <p>
-                Interested in trying it out? <a href="/wiki/display/tc/UML+Tool+-+Installation">Download the TopCoder UML Tool</a> now.
+                Interested in trying it out? <a href="/wiki/display/tc/TopCoder+UML+Tool">Download the TopCoder UML Tool</a> now.
                 </p>
 
             </div>
