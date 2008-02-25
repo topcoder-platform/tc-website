@@ -103,10 +103,7 @@ public abstract class Base extends ShortHibernateProcessor {
             setDefault(Constants.PROJECT_ID_KEY, contest.getProject().getId());
         }
 
-        // Since TopCoder Studio Modifications Assembly - a workaround for incomplete database schema
-        // see: http://forums.topcoder.com/?module=Thread&threadID=603475
-//        getRequest().setAttribute("resultsReady", onlineReviewResultsReady(contest.getId()));
-        getRequest().setAttribute("resultsReady", false);
+        getRequest().setAttribute("resultsReady", onlineReviewResultsReady(contest.getId()));
 
     }
 
