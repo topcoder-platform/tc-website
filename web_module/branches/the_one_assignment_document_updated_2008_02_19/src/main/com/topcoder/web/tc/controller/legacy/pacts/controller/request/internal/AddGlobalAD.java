@@ -32,9 +32,6 @@ public class AddGlobalAD extends PactsBaseProcessor implements PactsConstants {
         List<AssignmentDocumentTemplate> adtl = dib.getAssignmentDocumentTemplate(AssignmentDocumentType.GLOBAL_TYPE_ID, false);
         getRequest().setAttribute(ASSIGNMENT_DOCUMENT_TEMPLATE_LIST, adtl);
 
-        List assignmentDocumentStatus = dib.getAssignmentDocumentStatus();
-        getRequest().setAttribute(ASSIGNMENT_DOCUMENT_STATUS_LIST, assignmentDocumentStatus);
-
         getRequest().setAttribute("user", new UserProfileHeader(dib.getUserProfileHeader(userId)));
 
         setDefault("assignment_document_status_id", String.valueOf(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));

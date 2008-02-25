@@ -1920,6 +1920,78 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    public AssignmentDocumentTemplate getAssignmentDocumentTemplate(long assignmentDocumentTemplateId) {
+        return getAssignmentDocumentTemplate(null, assignmentDocumentTemplateId);
+    }
+    
+    /**
+     * Returns an assignment document template
+     *
+     * @param conn                     the Connection to use
+     * @param assignmentDocumentTypeId the Assignment Document's type id
+     * @return The required assignment document template
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public AssignmentDocumentTemplate getAssignmentDocumentTemplate(Connection conn, long assignmentDocumentTemplateId) {
+        boolean closeConnection = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ResultSetContainer rsc = null;
+
+        try {
+            if (conn == null) {
+                closeConnection = true;
+                conn = DBMS.getConnection();
+            }
+
+            log.debug("get the assignment document template from the db");
+
+            StringBuffer sb = new StringBuffer(100);
+            sb.append("select ");
+            sb.append("assignment_document_template_id, ");
+            sb.append("assignment_document_template_text, ");
+            sb.append("assignment_document_template_name ");
+            sb.append("from 'informix'.assignment_document_template ");
+            sb.append("where assignment_document_template_id = ? ");
+
+            ps = conn.prepareStatement(sb.toString());
+
+            ps.setLong(1, assignmentDocumentTemplateId);
+            rs = ps.executeQuery();
+
+            if (!rs.next()) {
+                throw new IllegalUpdateException("Couldn't find an assigment document template for id: " + assignmentDocumentTemplateId);
+            }
+            
+            AssignmentDocumentTemplate adt = new AssignmentDocumentTemplate();
+            adt.setId(new Long(rs.getLong("assignment_document_template_id")));
+            adt.setName(rs.getString("assignment_document_template_name"));
+
+            byte[] bytes = rs.getBytes("assignment_document_template_text");
+            if (bytes == null)
+                adt.setText("");
+            else
+                adt.setText(new String(bytes));
+                
+            return adt;
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw (new EJBException(e.getMessage(), e));
+        } catch (Exception e) {
+            throw (new EJBException(e.getMessage(), e));
+        } finally {
+            close(rs);
+            close(ps);
+            if (closeConnection) {
+                close(conn);
+            }
+        }
+    }
+
+    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
+            return addAssignmentDocument(ad, null);
+    }
+    
     /**
      * Inserts or updates an assignment document to the DB
      *
@@ -1928,7 +2000,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws DeleteAffirmedAssignmentDocumentException
      *          If there's an attempt to delete an affirmed assignment document
      */
-    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
+    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad, Long assignmentDocumentTemplateId) throws DeleteAffirmedAssignmentDocumentException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection c = null;
@@ -2042,7 +2114,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         (oldAssignmentDocumentInstance == null ||
                                 !oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID)))) {
 
-                    AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(c, ad.getType().getId().longValue(), true).get(0);
+                    AssignmentDocumentTemplate adt;
+                    if (assignmentDocumentTemplateId != null) {
+                        adt = getAssignmentDocumentTemplate(c, assignmentDocumentTemplateId);
+                    } else {
+                        adt = getAssignmentDocumentTemplate(c, ad.getType().getId().longValue(), true).get(0);
+                    }
                     ad.setText(adt.transformTemplate(ad, prepareUserAssignmentDocumentInfo(ad.getUser().getId(), ad.getSubmissionTitle())));
                     updateText = true;
                 }

@@ -45,18 +45,6 @@
                 </SELECT>
             </td>
         </tr>
-        <tr>        
-            <td><b>Status:</b></td>
-            <td>
-                <SELECT CLASS="dropdown" NAME="assignment_document_status_id">
-                    <c:forEach items="${assignment_document_status_list}" var="statusItem">
-                        <OPTION value='${statusItem.id}' <c:if test="${statusItem.id == defaultStatusId}">selected</c:if>>
-                            ${statusItem.description}
-                        </OPTION>
-                    </c:forEach>
-                </SELECT>
-            </td>
-        </tr>
 </table>
 
 <input type="submit" value="Save Global AD">

@@ -447,6 +447,17 @@ public class DataInterfaceBean implements PactsConstants {
     }
 
     /**
+     * adds the provided assignment document
+     *
+     * @return The added assignment document
+     * @throws RemoteException If there is some communication problem with the EJB
+     */
+    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad, Long assignmentDocumentTemplateId) throws RemoteException, DeleteAffirmedAssignmentDocumentException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.addAssignmentDocument(ad, assignmentDocumentTemplateId);
+    }
+
+    /**
      * Returns the list of all assignment document status.
      *
      * @return The list of assignment document status
