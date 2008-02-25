@@ -74,7 +74,7 @@
         <table id="datatable" border="1" cellpadding="0" cellspacing="0" class="stat" width="100%">
             <TR>
                 <TD colspan="<%=rs.getColumns().length%>" ALIGN="left">
-                    <FONT size="4"><b><%=query.getStringItem("name")%> Results</b></FONT>
+                    <FONT size="4"><b><%=query.getStringItem("name")%> Results (<%=rs.size()%>)</b></FONT>
                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=CSVResults<c:forEach items="${param}" var="entry"><c:if test="${!fn:startsWith(entry, moduleEquals)}">&amp;${entry}</c:if></c:forEach>&amp;<%=CSVResults.QUERY_NAME%>=<%=query.getStringItem("name")%>">Download as CSV (Excel)</a>
                     </TD>
             </TR>
