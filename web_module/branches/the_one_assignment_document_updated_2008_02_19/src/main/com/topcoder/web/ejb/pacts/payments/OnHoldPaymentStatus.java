@@ -392,7 +392,15 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
                  
                  if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG) &&
                          dib.requiresGlobalAD(payment.getPaymentType())) {
-                     reasons.add(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason());
+
+                     // if component or studio payment and there is an old ad and hard copy, 
+                     // don't make it stay on hold because the global ad
+                     if (!((payment.getPaymentType() == BasePayment.COMPONENT_PAYMENT ||
+                             payment.getPaymentType() == BasePayment.TC_STUDIO_PAYMENT) && 
+                             reasons.contains(AvailableStatusReason.NO_AFFIRMED_AD_REASON.getStatusReason()) &&
+                             reasons.contains(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason()))) {
+                         reasons.add(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason());
+                     }
                  }                 
              } else {
                  log.debug("The user has a signed global AD.");
