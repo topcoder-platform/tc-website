@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />02.26.08<br />9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022608">TopCoder UML Design Tool Free to Developers</a></span><br /><br />
+        The source code for the TopCoder UML tool is open for anyone to extend or enhance for their own purposes. To download TopCoder's free UML tool or to view source code and detailed development documentation (including specifications, architecture and components), visit: <a href="/wiki/display/tc/TopCoder+UML+Tool">http://www.topcoder.com/wiki/display/tc/TopCoder+UML+Tool</a></td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022608">details</a> | 
+        <tc-webtag:forumLink forumID="519895" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />02.25.08<br />9:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003815">Mobile Development on Three Platforms</a></span><br /><br />
@@ -152,18 +165,5 @@
    <tr><td class="newsLinksCell">
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=603601">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.18.08<br />3:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tco08?module=AlgorithmAdvancers">See Who Advanced from Algorithm Round 1 of the TCO08</a></span><br /><br />
-        The advancers from Algorithm Round 1 are now available.  Congratulations to those who have advanced!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tco08?module=AlgorithmAdvancers">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
