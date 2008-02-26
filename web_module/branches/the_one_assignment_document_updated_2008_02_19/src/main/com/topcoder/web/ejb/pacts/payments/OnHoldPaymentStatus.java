@@ -397,8 +397,8 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
                      // don't make it stay on hold because the global ad
                      if (!((payment.getPaymentType() == BasePayment.COMPONENT_PAYMENT ||
                              payment.getPaymentType() == BasePayment.TC_STUDIO_PAYMENT) && 
-                             reasons.contains(AvailableStatusReason.NO_AFFIRMED_AD_REASON.getStatusReason()) &&
-                             reasons.contains(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason()))) {
+                             !reasons.contains(AvailableStatusReason.NO_AFFIRMED_AD_REASON.getStatusReason()) &&
+                             !reasons.contains(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason()))) {
                          reasons.add(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason());
                      }
                  }                 
