@@ -8,6 +8,8 @@ import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.UserPreference;
+import com.topcoder.web.ejb.userservices.UserServices;
+import com.topcoder.web.ejb.userservices.UserServicesLocator;
 
 
 /**
@@ -23,26 +25,16 @@ public class Helper {
     public static String BANNED = "banned";
 
     /**
-     * Returns whether a user is rated in either algorithm or component competitions.
+     * Returns whether a user is rated in any discipline.
      *
      * @param userId the user to check.
      * @return whether a user is rated in either algorithm or component competitions.
      * @throws Exception
      */
     public static boolean isRated(long userId) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("coder_all_ratings");
 
-        r.setProperty("cr", userId + "");
-
-        DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-        ResultSetContainer ratings = (ResultSetContainer) dai.getData(r).get("coder_all_ratings");
-
-        return ratings.getIntItem(0, "algorithm_rating") > 0 ||
-                ratings.getIntItem(0, "design_rating") > 0 ||
-                ratings.getIntItem(0, "development_rating") > 0 ||
-                ratings.getIntItem(0, "marathon_match_rating") > 0 ||
-                ratings.getIntItem(0, "hs_algorithm_rating") > 0;
+        UserServices us = UserServicesLocator.getService();
+        return us.isRated(userId);
     }
 
     /**
