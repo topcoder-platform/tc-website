@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.26.08<br />6:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">NSA chat before SRM 391</a></span><br /><br />
+        NSA representatives will be in the NSA Chat lobby at 8:00 PM EST to discuss their exciting career opportunities.  See more about <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">NSA here</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">details</a> | 
+        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />02.26.08<br />12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         Downtime for scheduled maintenance: Tuesday, February 26</span><br /><br />
@@ -152,17 +165,4 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08qualRd3">details</a> | 
         <tc-webtag:forumLink forumID="519586" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />02.19.08<br />10:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021808">TopCoder Software Component Catalog Surpasses 1,000 Reusable Java &amp; .NET Components</a></span><br /><br />
-        Customers Leverage TopCoder Components to Increase Pre-Built Software an Average 50 Percent for New Applications-Yielding Substantially Shorter Development Timelines and Decreased Costs.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021808">details</a> | 
-        <tc-webtag:forumLink forumID="519749" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
