@@ -31,8 +31,7 @@
                         </td> 
                     </tr>
                     <tr>        
-                        <td><b>Template name:</b></td>
-                        <td>
+                        <td><b>Template name:</b>
                             <tc-webtag:textInput name="assignment_document_template_name" id="assignment_document_template_name" editable="true" maxlength="50"/> 
                         </td>
                     </tr>
