@@ -37,7 +37,7 @@
                         <td>9:00 AM - 5:00 PM Registration &amp; Hotel Check In</td>
                     </tr>
                     <tr class="dark">
-                        <td>7:00 PM - 9:00 PM Welcome Reception</td>
+                        <td>8:00 PM - 9:30 PM Welcome Reception</td>
                     </tr>
                     <tr>
                         <th>Saturday, March 15, 2008</th>
