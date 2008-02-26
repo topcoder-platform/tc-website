@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />02.25.08<br />9:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003815">Mobile Development on Three Platforms</a></span><br /><br />
+        Today, the Aura client handles presentation and UI for mobile devices running BREW.  Both Windows Mobile and Symbian will soon be added to the list of supported platforms as the client is refactored and ported using the MML Adapter components (recently developed by you).  Show off your C++ skills and mobile prowess in this assembly competition.  Don't have an MS Visual Studio license?  No problem!  Windows Mobile support will be required only during the final fix phase and a free license will be awarded to the first place team - in addition to the $5,000 in prize money.
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003815">details</a> | 
+        <tc-webtag:forumLink forumID="519894" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.25.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tco08?module=AlgorithmAdvancers">See Who Advanced from Algorithm Round 2 of the TCO08</a></span><br /><br />
@@ -153,16 +167,3 @@
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />02.18.08<br />12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=ViewSurvey&amp;sid=21981">What is your awareness of AMD products and developer program?</a></span><br /><br />
-        AMD wants to know your familiarity with their services. Fill out this survey and you will have a chance to win a great prize from AMD. AMD will be randomly selecting more than 20 members who have completed the survey who will win an AMD prize.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=ViewSurvey&amp;sid=21981">details</a> | 
-        <tc-webtag:forumLink forumID="519712" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-
