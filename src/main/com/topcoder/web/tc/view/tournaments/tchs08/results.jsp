@@ -33,12 +33,11 @@
         
         <div id="content">
 
-<%--
-<p>
-    Online Rounds
-    | <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=bracketInd">Finals</A>
-</p>
---%>
+        <p>
+            Online Rounds
+            | <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=bracketInd">Finals</a>
+        </p>
+
 
     <table cellspacing="0" cellpadding="0" class="stat">
         <thead>
@@ -55,9 +54,11 @@
                 <td class="headerC" nowrap="nowrap">
                     Round 3
                 </td>
+                <%--
                 <td class="headerC">
                     Semifinals
                 </td>
+                --%>
                 <td class="headerC">
                     Finals
                 </td>
@@ -91,6 +92,7 @@
 <rsc:item name="round3" row="<%=resultRow%>"/>
 <% } %>
 </td>
+<%--
 <td class="valueC">
 <% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
 <span class="bigRed"><rsc:item name="semi" row="<%=resultRow%>"/></span>
@@ -98,6 +100,7 @@
 <rsc:item name="semi" row="<%=resultRow%>"/>
 <% } %>
 </td>
+--%>
 <td class="valueC">
 <% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
 <span class="bigRed"><rsc:item name="final" row="<%=resultRow%>"/></span>
