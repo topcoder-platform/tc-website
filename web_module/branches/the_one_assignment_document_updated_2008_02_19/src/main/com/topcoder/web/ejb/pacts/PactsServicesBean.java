@@ -4736,7 +4736,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         if (rsc.getItem(0, "global_ad_ind").getResultData() != null) {
-            return (rsc.getIntItem(0, "global_ad_ind") == 0) ? false : true;
+            return (rsc.getBooleanItem(0, "global_ad_ind"));
         }
 
         return false;
