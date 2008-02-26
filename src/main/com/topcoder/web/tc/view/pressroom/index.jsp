@@ -95,7 +95,20 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
-                <%-- TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum begin --%>
+                <%-- TopCoder UML Design Tool Free to Developers begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022608"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022608">TopCoder UML Design Tool Free to Developers</a></h3>
+                        <p>Community Built and Tested Unified Modeling Language Tool Provides Custom Flexibility &amp; Interoperability for Global Community of Programmers  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022608">[February 26]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder UML Design Tool Free to Developers end --%>
+                
+                <%-- TopCoder Software Component Catalog Surpasses 1,000 Reusable Java and .NET Components begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
                         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021808"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
@@ -106,7 +119,7 @@
                     </div>
                     <div class="pr_clear"></div>
                 </div>
-                <%-- TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum end --%>
+                <%-- TopCoder Software Component Catalog Surpasses 1,000 Reusable Java and .NET Components end --%>
                 
                 <%-- Computerworld: Rock star coders begin --%>
                 <div class="pr_newsitem">
