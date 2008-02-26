@@ -4,6 +4,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />02.26.08<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        Downtime for scheduled maintenance: Tuesday, February 26</span><br /><br />
+        The TopCoder sites and the Arena will be down for scheduled maintenance between 11:45 PM and 1:15 AM EST. We apologize for any inconvenience.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=603601">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.26.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=registerNow">Only 2 days left to Register for the TCO08 Component Competition</a></span><br /><br />
@@ -153,17 +165,4 @@
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021808">details</a> | 
         <tc-webtag:forumLink forumID="519749" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />02.18.08<br />6:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/wiki/display/tc/TopCoder+UML+Tool+Source+Code">TC UML Tool Source Code is in Your Hands Now</a></span><br /><br />
-        You asked for it, and now you’ve got it! Today TopCoder has made all source code and documentation for the TC UML Tool publicly available. The tool designed and developed by the TopCoder community is now in your hands to make modifications and enhancements as you see fit. Check out the wiki for more information. Have fun!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/wiki/display/tc/TopCoder+UML+Tool+Source+Code">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=603658">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
