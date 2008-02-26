@@ -2,60 +2,47 @@
                  java.util.Map" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@ page import="com.topcoder.web.common.model.EventType" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>2007 TopCoder Open - Computer Programming Tournament</title>
+    <title>2008 TopCoder Open - Computer Programming Tournament</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" href="/css/tournaments/tco07.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
     <jsp:include page="../../script.jsp"/>
 </head>
-<body>
+<body id="page_sub">
 <%ResultSetContainer info = (ResultSetContainer) ((Map) request.getAttribute("info")).get("Affidavit_Info");%>
 
-<div align="center" style="background: transparent;">
-<div id="content">
-
-<jsp:include page="../header.jsp"/>
-
-<table cellpadding="0" cellspacing="0" id="spacer">
-<tbody>
-<tr>
-<td id="navSpacer">
+<div id="wrapper">
 
     <jsp:include page="../nav.jsp">
-        <jsp:param name="tabLev1" value="overview"/>
-        <jsp:param name="tabLev2" value="joinus"/>
-        <jsp:param name="tabLev3" value=""/>
+    <jsp:param name="tabLev1" value="overview"/>
+    <jsp:param name="tabLev2" value="joinus"/>
+    <jsp:param name="tabLev3" value=""/>
     </jsp:include>
 
-</td>
-<td id="bodySpacer" width="100%">
-<div id="pageBody">
 
+        <h2>Important Information Needed</h2>
+            
+            <div class="sub_content">
+                <h3>Please read all instructions carefully before proceeding.</h3>
 
-<h1><span>Important Information Needed</span></h1>
-<h2>Please read all instructions carefully before proceeding.</h2>
-
-
-<h2>Travel Information - must be submitted by 5:00 PM EDT (GMT/UTC -4) on on Wednesday, March 26,
-    2008 (we appreciate a quick response)</h2>
+                <p><span class="bigRed">Travel Information - must be submitted by 5:00 PM EDT (GMT/UTC -4) on Wednesday, March 26, 2008 (we appreciate a quick response)</span></p>
 
 <p>
-    <B><U>HOTEL INFORMATION:</U></B><br/>
-    <br/>
-    <a href="http://www.mirage.com/" target="blank">The Mirage</a><br/>
-    3400 S. Las Vegas Blvd.<br/>
-    Las Vegas, NV 89109<br/>
+    <strong><u>HOTEL INFORMATION:</u></strong><br />
+    <a target="blank" href="http://www.mirage.com/">The Mirage</a><br />
+    3400 S. Las Vegas Blvd.<br />
+    Las Vegas, NV 89109<br />
     USA<br />
-    702-791-7111<br/>
+    702-791-7111<br />
 </p>
 
-<p>A hotel room will be confirmed for your arrival on Sunday, May 11 or Monday, May 12 and departure on May 15 or May 16, 2008.
-    </p>
+<p>A hotel room will be confirmed for your arrival on Sunday, May 11 or Monday, May 12 and departure on May 15 or May 16, 2008.</p>
 May 11, 2008 arrivals:
 <ul>
 <li>Component Design Competitors</li>
@@ -79,7 +66,7 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
     accommodate your request.
 </p>
 
-<B><U>AIRLINE INFORMATION:</U></B>
+<strong><u>AIRLINE INFORMATION:</u></strong>
 
 <p>As soon as you send in this form, TopCoder will secure airline reservations based upon your registration information
     and will email a travel itinerary to you by Friday, May 2, 2008. Please be advised that once airlines tickets are
@@ -96,7 +83,7 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
     immediate resolution and to rebook your flight. Contacting TopCoder may delay your travel. </p>
 
 
-<B><U>AIRPORT TRANSPORTATION:</U></B>
+<strong><u>AIRPORT TRANSPORTATION:</u></strong>
 
 <p>
 
@@ -104,14 +91,14 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
     Further information on where to meet them upon your arrival at the airport will also be indicated on your agenda.</p>
 
 
-<h2 align="center">Travel Form</h2>
-<form name="questForm" method="POST" action="${sessionInfo.secureAbsoluteServletPath}">
-<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO07TravelInfoSubmit"/>
+<h3>Travel Form</h3>
+<form name="questForm" method="post" action="${sessionInfo.secureAbsoluteServletPath}">
+<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO08TravelInfoSubmit"/>
 <table border="0" cellspacing="3" cellpadding="0" width="100%" class="bodyText">
 <%--
 
 <tr>
-    <td class="sidebarText" colspan="2"><U><B>COMPETITOR INFORMATION:</B></U><br/></td>
+    <td class="sidebarText" colspan="2"><u><strong>COMPETITOR INFORMATION:</strong></u><br /></td>
 </tr>
 --%>
 
@@ -125,7 +112,7 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
 </tr>
 --%>
 
-<!--
+<%--
 <tr>
     <td class="sidebarText" align="right"><input type="hidden" name="q33" value="Date of Birth"/>Date of Birth:</td>
     <td class="sidebarText" align="left"><input type="text" name="a33" size="10"/></td>
@@ -141,15 +128,15 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
     <td class="sidebarText" align="right"><input type="hidden" name="q35" value="School"/>School:</td>
     <td class="sidebarText" align="left"><input type="text" name="a35" size="15"/></td>
 </tr>
--->
+--%>
 
 
 <tr>
-    <td class="sidebarText" colspan="2"><U><B>Emergency contact:</B></U></td>
+    <td class="sidebarText" colspan="2"><u><strong>Emergency contact:</strong></u></td>
 </tr>
 <tr>
     <td class="sidebarText" align="right"><input type="hidden" name="q36" value="Emergency contact Name"/>Name:</td>
-    <td class="sidebarText" align="left"><input type="text" name="a36" size="30"/><br/></td>
+    <td class="sidebarText" align="left"><input type="text" name="a36" size="30"/><br /></td>
 </tr>
 
 <tr>
@@ -165,7 +152,7 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
 </tr>
 
 <tr>
-    <td class="sidebarText" colspan="2"><U><B>Media Information:</B></U></td>
+    <td class="sidebarText" colspan="2"><u><strong>Media Information:</strong></u></td>
 </tr>
 
 <tr>
@@ -190,7 +177,7 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
 </tr>
 
 <tr>
-    <td class="sidebarText" colspan="2"><U><B>TRAVEL INFORMATION:</B></U></td>
+    <td class="sidebarText" colspan="2"><u><strong>TRAVEL INFORMATION:</strong></u></td>
 </tr>
 <tr>
     <td class="sidebarText" align="right"><input type="hidden" name="q42" value="Departure City/Airport"/>Departure
@@ -277,7 +264,7 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
 
 
 <tr>
-    <td class="sidebarText" colspan="2"><U><B>Introduction Information:</B></U></td>
+    <td class="sidebarText" colspan="2"><u><strong>Introduction Information:</strong></u></td>
 </tr>
 
 <tr>
@@ -303,39 +290,35 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
 </tr>
 
 <tr>
-    <td class="bigRed" colspan="2" align="center">
+    <td colspan="2" align="center"><span class="bigRed">
         IMPORTANT: As soon as you submit this form, your flight will be booked. Please make sure you have noted any
-        special travel information in the box above pertinent to your flight.
+        special travel information in the box above pertinent to your flight.</span>
     </td>
 </tr>
 <tr>
-    <td class="sidebarText" colspan="2" ALIGN="center"><input type="submit" name="submit" value=" Submit "/></td>
+    <td class="sidebarText" colspan="2" align="center"><input type="submit" name="submit" value=" Submit "/></td>
 </tr>
 <tr>
-    <td class="sidebarText"><br/></td>
-    <td class="sidebarText"><br/></td>
+    <td class="sidebarText"><br /></td>
+    <td class="sidebarText"><br /></td>
 </tr>
 <tr>
     <td class="sidebarText" colspan="2">
-        <br/><br/>
+        <br /><br />
         <font color="#ff0000">PLEASE NOTE:</font>
         Guests are invited to attend the TCO08. However, all
         costs (hotel, travel, meals, etc.) are at the guest's own expense.
-        <br/><br/>
+        <br /><br />
     </td>
 </tr>
 </table>
 </form>
 
 </div>
-</td>
-</tr>
-</tbody>
-</table>
-
+</div>
 
 <jsp:include page="../footer.jsp"/>
-</div>
+
 </div>
 
 </body>
