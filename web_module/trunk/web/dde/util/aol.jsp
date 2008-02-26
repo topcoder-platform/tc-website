@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.dde.util.ApplicationServer" %>
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -68,7 +69,7 @@
                             You need to log in before continuing:
                         </p>
                         <p align="center">
-                            <a href="/tcs?module=RequestPermissionView">Log in</a> | <a href="https://www.dev.topcoder.com/reg/?module=Main&rt=5">Register</a>
+                            <a href="/tcs?module=RequestPermissionView">Log in</a> | <a href="https://<%=ApplicationServer.TC_SERVER%>/reg/?module=Main&rt=5">Register</a>
                         </p>
                     </c:otherwise>
                 </c:choose>
@@ -108,6 +109,5 @@
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
 
-</form>
 </body>
 </html>
