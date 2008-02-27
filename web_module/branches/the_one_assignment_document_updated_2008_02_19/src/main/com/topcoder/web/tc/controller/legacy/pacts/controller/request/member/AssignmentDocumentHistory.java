@@ -67,6 +67,10 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
             setDefault(DataAccessConstants.SORT_COLUMN, sortCol + "");
             setDefault(DataAccessConstants.SORT_DIRECTION, sortAscending + "");
             
+            if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
+                getRequest().setAttribute("has_global_ad", dib.hasGlobalAD(getUser().getId()));
+            }
+            
             getRequest().setAttribute(ASSIGNMENT_DOCUMENTS, result);
             getRequest().setAttribute(CODER, getUser().getId() + "");
         	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));

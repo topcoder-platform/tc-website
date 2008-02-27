@@ -98,7 +98,9 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             // now crop
             payments = cropResult(payments, Integer.parseInt(startRank), Integer.parseInt(endRank));
             
-            removeDuplicateReasons(payments);
+            if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
+                removeDuplicateReasons(payments);
+            }
             
             setDefault(DataAccessConstants.SORT_COLUMN, sortCol + "");
             setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));

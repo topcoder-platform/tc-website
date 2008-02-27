@@ -113,7 +113,10 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     // sort payments
                     sortResult(payments, sortCol, invert);
                 }                    
-                removeDuplicateReasons(payments);
+
+                if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
+                    removeDuplicateReasons(payments);
+                }
 
                 getRequest().setAttribute(PAYMENTS, payments);
                 getRequest().setAttribute(RELIABILITY, reliability);

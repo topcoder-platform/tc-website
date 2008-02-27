@@ -170,7 +170,7 @@ public class PaymentStatusManager {
      * @throws EventFailureException if any operation fails
      */
     public void signedGlobalAD(long userId) throws EventFailureException {
-        log.debug("hardCopyIPTransfer called for userId: " + userId);
+        log.debug("signedGlobalAD called for userId: " + userId);
         try {
             // every on hold payment should be notified of the new signed global AD.
             Map criteria = new HashMap();
