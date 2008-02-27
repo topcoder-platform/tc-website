@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">02.27.08 10:00 AM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=bracketInd">TCHS08 Finalists Announced!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.26.08 6:15 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">NSA chat before SRM 391</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.26.08 10:00 AM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=registerNow">Only 2 days left to Register for the TCO08 Component Competition</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.25.08 5:00 PM - </td><td width="100%"><a href="/tco08?module=AlgorithmAdvancers">See Who Advanced from Algorithm Round 2 of the TCO08</a></td></tr>
