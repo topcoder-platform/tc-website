@@ -186,13 +186,11 @@
         </copy>
     </target>
     <target name="move-libs">
-<!--
         <copy todir="${jboss_lib}">
             <fileset dir="${bin}">
                 <include name="tcwebcommon.jar"/>
             </fileset>
         </copy>
--->
         <copy todir="${jboss_lib}" file="${shared.jar}"/>
         <!--
                 <copy todir="${jboss_lib}">
@@ -248,16 +246,16 @@
                 <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
         -->
 
-                <copy todir="${jboss_lib}">
-                    <fileset dir="${jars.dir}/tcs">
-                        <include name="base_exception.jar"/>
-                    </fileset>
-                </copy>
-                <copy todir="${jboss_lib}">
-                    <fileset dir="${ejb_jars}">
-                        <include name="security.jar"/>
-                    </fileset>
-                </copy>
+        <copy todir="${jboss_lib}">
+            <fileset dir="${jars.dir}/tcs">
+                <include name="base_exception.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss_lib}">
+            <fileset dir="${ejb_jars}">
+                <include name="security.jar"/>
+            </fileset>
+        </copy>
 
     </target>
 
