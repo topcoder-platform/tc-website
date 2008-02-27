@@ -4,7 +4,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <style type="text/css">
-    .cotmFeature { padding:0px 0px 20px 18px; color:#ffffff; font-weight:bold; font-size:12px; }
+    .cotmFeature { padding:0px 0px 20px 16px; color:#ffffff; font-weight:bold; font-size:12px; }
     a:link.cotmFeature , a:visited.cotmFeature { text-decoration:none; color:#ffffff; }
     a:hover.cotmFeature, a:active.cotmFeature { text-decoration:underline; color:#cccccc; }
 </style>
@@ -52,9 +52,9 @@
       </td>
    </tr>
    </table>
-   <%-- On/Off 
-   <div><A class="cotmFeature" href="/tc?module=Static&d1=features&d2=012508">Read Their Interviews</A></div>
-   --%>
+   <%-- On/Off --%>
+   <div><a class="cotmFeature" href="/tc?module=Static&amp;d1=features&amp;d2=022708">Read Their Interviews</a></div>
+   
    </div>
 </div>
 
