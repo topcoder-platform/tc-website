@@ -39,12 +39,12 @@
 <br /><br />
 <span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
+<li><a href="/tc?module=Static&amp;d1=features&amp;d2=022708"><strong>Meet the January 2008 Coders of the Month</strong></a>&nbsp;<br />
+We caught up with January's Coders of the Month, as well as January's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</li>
+<li><a href="/tc?module=Static&d1=features&d2=022108"><strong>Computerworld's "Rock star coders" profile: Pops</strong></a>&nbsp;<br />
+On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&amp;articleId=9057899&amp;source=NLT_AM&amp;nlid=1' refer='overview' />">article</a> about various TopCoders and how programming has affected their lives.  The following is the full Computerworld interview with <tc-webtag:handle coderId="119676" context="design"/>, from which portions were used in the article.</li>
 <li><a href="/tc?module=Static&d1=features&d2=020708"><strong>Computerworld's "Rock star coders" profile: SnapDragon</strong></a>&nbsp;<br />
-On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='overview' />">article</a> about various TopCoders and how programming has affected their lives.  The following is the full Computerworld interview with <tc-webtag:handle coderId="272072" context="algorithm"/>, from which portions were used in the article.</li>
-<li><a href="/tc?module=Static&d1=features&d2=012508"><strong>Meet the December 2007 Coders of the Month</strong></a>&nbsp;<br />
-We caught up with December's Coders of the Month, as well as December's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=primalityTesting"><strong>Primality Testing : Non-deterministic Algorithms</strong></a>, by <tc-webtag:handle coderId="22419265" context="algorithm"/><br />
-Primality testing of a number is perhaps the most common problem concerning number theory that topcoders deal with. A prime number is a natural number which has exactly two distinct natural number divisors: 1 and itself. This article discusses some of the popular probabilistic methods such as Fermat's test, Rabin-Miller test, Solovay-Strassen test.</li>
+On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&amp;articleId=9057899&amp;source=NLT_AM&amp;nlid=1' refer='overview' />">article</a> about various TopCoders and how programming has affected their lives.  The following is the full Computerworld interview with <tc-webtag:handle coderId="272072" context="algorithm"/>, from which portions were used in the article.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br />
 <ul>
