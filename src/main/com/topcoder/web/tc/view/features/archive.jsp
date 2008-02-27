@@ -45,6 +45,11 @@
             </tr>
             <tr valign="top">
                <td class="bodyText">&nbsp;</td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=022708"><strong>Meet the January 2008 Coders of the Month</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Feb 27, 2008</td> 
+            </tr>
+            <tr valign="top">
+               <td class="bodyText">&nbsp;</td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=022108"><strong>Computerworld's "Rock star coders" profile: Pops</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Feb 21, 2008</td> 
             </tr>
