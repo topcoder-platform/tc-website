@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.27.08<br />1:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd2">TCO08 - Online Round 2 - Problem Set &amp; Analysis</a></span><br /><br />
+      The second round of this year's TopCoder Open used a rather easy problemset. More than 80 coders scored more than 1,000 points each. However, many top rated coders overlooked a tricky case in the hard problem. Some of the "big names" later discovered the case and resubmitted their solutions. The random numbers generator slightly influenced this round as well, by putting five targets into a single room.</td>
+         <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd2">details</a> | 
+        <tc-webtag:forumLink forumID="519799" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.27.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=bracketInd">TCHS08 Finalists Announced!</a></span><br /><br />
@@ -148,20 +164,3 @@
         <tc-webtag:forumLink forumID="519823" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.19.07<br />3:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd1">TCO08 - Online Round 1 - Problem Set &amp; Analysis</a></span><br /><br />
-      This Saturday more than 1,500 coders logged into the arena to compete in the first round of this year's TCO. With 900 places for advancers, the strategy to advance was clear: slow and steady. In the end, the number of coders with positive scores was a bit lower than 900, and thus everyone with a positive score advanced to the next round.</td>
-         <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd1">details</a> | 
-        <tc-webtag:forumLink forumID="519631" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-
