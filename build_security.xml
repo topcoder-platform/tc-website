@@ -192,6 +192,12 @@
             </fileset>
         </copy>
         <copy todir="${jboss_lib}" file="${shared.jar}"/>
+
+        <copy todir="${jboss_lib}">
+            <fileset dir="${jars.dir}">
+                <include name="ifxjdbc.jar"/>
+            </fileset>
+        </copy>
         <!--
                 <copy todir="${jboss_lib}">
                     <fileset dir="${jars.dir}">
