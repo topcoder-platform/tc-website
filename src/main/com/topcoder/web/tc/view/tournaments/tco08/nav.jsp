@@ -49,14 +49,7 @@
         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly"><img src="/i/tournament/tco08/lilly_logo_nav.png" width="186" height="80" alt="Eli Lilly" /></a></li>
         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa"><img src="/i/tournament/tco08/nsa_logo_nav.png" width="186" height="80" alt="NSA" /></a></li>
         <%--
-        <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
-        <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
-        <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
-        <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
-        <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
-        <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
-        <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
-        <li><a href="#"><img src="/i/tournament/tco08/ads.png" alt="Sponsors Name" width="168" height="58" alt="Ads" /></a></li>
+        <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign"><img src="/i/tournament/tco08/verisign_logo_nav.png" width="186" height="80" alt="VeriSign" /></a></li>
         --%>
     </ul>
         
@@ -157,8 +150,9 @@
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly"<% if (tabLev3.equals("lilly")) {%> class="on"<% } %>>Lilly</a></li>
                             <%--
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=db"<% if (tabLev3.equals("db")) {%> class="on"<% } %>>Deutsche Bank</a></li>
-                            --%>
                             
+                            <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign"<% if (tabLev3.equals("verisign")) {%> class="on"<% } %>>VeriSign</a></li>
+                            --%>
                         <% } else if (tabLev2.equals("eventpatrons")) { %>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa"<% if (tabLev3.equals("nsa")) {%> class="on"<% } %>>NSA</a></li>
                     <% } %>
