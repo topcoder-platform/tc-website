@@ -18,7 +18,7 @@ public class AuthenticationServiceLocator extends EJB3Locator<Authentication> {
     private static final AuthenticationServiceLocator locator = new AuthenticationServiceLocator();
 
     private AuthenticationServiceLocator() {
-        super(ApplicationServer.SECURITY_PROVIDER_URL, true);
+        super(ApplicationServer.SECURITY_PROVIDER_URL);
     }
 
     public static Authentication getServices() throws CreateException, NamingException, RemoteException {
