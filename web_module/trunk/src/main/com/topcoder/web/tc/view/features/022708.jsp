@@ -199,7 +199,7 @@ As same as the above answer.</p>
 Admins. They answered many questions very kindly. They help me a lot indeed.</p>
 
 <p><strong>What is your most stressful TopCoder moment?</strong><br />
-I submitted my prototype files for the TopCoder Cockpit Report Widget Prototype just 3 minutes before the deadline. I won this contest luckily.</p>
+I submitted my prototype files for the <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2170">TopCoder Cockpit Report Widget Prototype</a> just 3 minutes before the deadline. I won this contest luckily.</p>
 
 <p><strong>What do you do for fun outside of TopCoder?</strong><br />
 I like travel very much. Watching movie is another big fun for me.<br /><br />Thank you very much!</p>
