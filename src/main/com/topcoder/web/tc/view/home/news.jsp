@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />02.27.08<br />4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=022708">Meet the January 2008 Coders of the Month</a></span><br /><br />
+        We caught up with January's Coders of the Month, as well as January's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=022708">details</a> | 
+        <tc-webtag:forumLink forumID="520004" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.27.08<br />1:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -151,16 +165,3 @@
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />02.20.08<br />7:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2007dot5&amp;d3=asmLeaderboardS2">2007.5 Digital Run: Assembly Cup Stage 2 Winners</a></span><br /><br />
-        Congratulations go to <tc-webtag:handle coderId="21271044" /> for winning <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2007dot5&amp;d3=asmLeaderboardS2">Stage 2</a> in the Assembly Cup Series of the 2007.5 Digital Run, earning 10025.00 points and $42,303.59 in total prizes. <tc-webtag:handle coderId="299180" /> and <tc-webtag:handle coderId="22629228" /> followed suit with 7000.00 points and 4550.00 points respectively.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2007dot5&amp;d3=asmLeaderboardS2">details</a> | 
-        <tc-webtag:forumLink forumID="519823" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
