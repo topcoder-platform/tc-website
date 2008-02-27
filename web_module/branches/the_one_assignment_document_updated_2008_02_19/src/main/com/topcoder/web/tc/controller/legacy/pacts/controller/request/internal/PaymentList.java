@@ -112,8 +112,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 if (results.length != 1) {
                     // sort payments
                     sortResult(payments, sortCol, invert);
-                    removeDuplicateReasons(payments);
                 }                    
+                removeDuplicateReasons(payments);
+
                 getRequest().setAttribute(PAYMENTS, payments);
                 getRequest().setAttribute(RELIABILITY, reliability);
                 getRequest().setAttribute(GROUP_RELIABILITY, Boolean.valueOf(groupRel));
@@ -229,16 +230,10 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         }
         
         for (PaymentHeader ph : result) {
-            log.debug("payment : " + ph.getId());
-            log.debug("hard copy : " + ph.getCurrentStatus().getReasons().contains(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason()));
-            log.debug("signed GAD : " + ph.getCurrentStatus().getReasons().contains(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason()));
             if (ph.getCurrentStatus().getReasons().contains(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason()) &&
                     ph.getCurrentStatus().getReasons().contains(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason())) {
                 ph.getCurrentStatus().getReasons().remove(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason());
-                log.debug("removing GAD");
             }
-            log.debug("hard copy : " + ph.getCurrentStatus().getReasons().contains(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason()));
-            log.debug("signed GAD : " + ph.getCurrentStatus().getReasons().contains(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason()));
         }
     }
 
