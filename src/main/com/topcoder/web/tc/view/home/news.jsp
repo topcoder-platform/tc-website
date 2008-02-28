@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />02.28.08<br />12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022808">World's Elite High School Programmers to Compete in Live TopCoder High School Tournament</a></span><br /><br />
+        49 Students Earn Tournament Berth after Months of Online Competition - Finalists to be Flown to Purdue University for Live Finals March 15</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022808">details</a> | 
+        <tc-webtag:forumLink forumID="520017" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />02.27.08<br />4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=features&amp;d2=022708">Meet the January 2008 Coders of the Month</a></span><br /><br />
@@ -150,18 +163,3 @@
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=604090">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />02.20.08<br />7:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/registration/actions/Registration.do?method=openRegistrations">Increased Assembly Prize Money</a></span><br /><br />
-        We've doubled the prizes for the <a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003681">Castor Installer Client Prototype Conversion</a> and the <a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003682">Castor Installer Web Prototype Conversion</a> <strong>AND</strong> we've increased the prizes for the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewProjectDetails.do?method=viewProjectDetails&amp;pid=30003776">Athena PMCv2 Plugin Assembly Part A v1.0</a> and the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewProjectDetails.do?method=viewProjectDetails&amp;pid=30003777">Athena PMCv2 Plugin Assembly Part B v1.0</a> from $4,000 to $6,000. The <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewProjectDetails.do?method=viewProjectDetails&amp;pid=30003778">Athena PMCv2 Plugin Assembly Part C v1.0</a> has also been increased from $3,000 to $4,500. Be sure to check them out!
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/registration/actions/Registration.do?method=openRegistrations">details</a> | 
-        <tc-webtag:forumLink forumID="519798" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-
