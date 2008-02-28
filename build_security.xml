@@ -172,6 +172,7 @@
             <fileset dir="${resources}">
                 <include name="ApplicationServer.properties"/>
                 <include name="DBMS.properties"/>
+                <include name="cache.properties"/>
             </fileset>
         </copy>
         <mkdir dir="${jboss_conf}/com/topcoder/security"/>
