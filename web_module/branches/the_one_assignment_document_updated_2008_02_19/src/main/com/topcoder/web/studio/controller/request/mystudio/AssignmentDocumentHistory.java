@@ -1,5 +1,6 @@
 package com.topcoder.web.studio.controller.request.mystudio;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -55,9 +56,18 @@ public class AssignmentDocumentHistory extends BaseProcessor {
             }
             setDefault(DataAccessConstants.END_RANK, endRank);
 
-            // gets, sorts and crops data.
-            List result = PactsServicesLocator.getService().getAssignmentDocumentByUserId(getUser().getId(), 
-                    AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID.longValue(), !fullList);
+            boolean hasGlobalAd = false;
+            if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                hasGlobalAd = PactsServicesLocator.getService().hasGlobalAD(getUser().getId());
+            }
+
+            // if the user has global AD, we don't need to show anything in the "current" tab
+            List result = new ArrayList(); 
+            if (!hasGlobalAd) {
+                // gets, sorts and crops data.
+                result = PactsServicesLocator.getService().getAssignmentDocumentByUserId(getUser().getId(), 
+                        AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID.longValue(), !fullList);
+            }
             
             sortResult(result, sortCol, sortAscending);
             result = cropResult(result, Integer.parseInt(startRank), Integer.parseInt(endRank));
@@ -67,7 +77,7 @@ public class AssignmentDocumentHistory extends BaseProcessor {
             setDefault(DataAccessConstants.SORT_DIRECTION, sortAscending + "");
             
             if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
-                getRequest().setAttribute("has_global_ad", PactsServicesLocator.getService().hasGlobalAD(getUser().getId()));
+                getRequest().setAttribute("has_global_ad", hasGlobalAd);
             }
 
             getRequest().setAttribute(ASSIGNMENT_DOCUMENTS, result);
