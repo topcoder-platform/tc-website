@@ -170,6 +170,7 @@
     <target name="move-conf">
         <copy todir="${jboss_conf}">
             <fileset dir="${resources}">
+                <include name="ApplicationServer.properties"/>
                 <include name="DBMS.properties"/>
             </fileset>
         </copy>
