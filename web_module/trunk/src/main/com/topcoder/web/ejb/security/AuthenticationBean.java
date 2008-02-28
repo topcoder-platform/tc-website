@@ -8,7 +8,9 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.email.EmailLocal;
 import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.user.UserLocal;
 
 import javax.ejb.Stateless;
 import javax.naming.InitialContext;
@@ -70,7 +72,7 @@ public class AuthenticationBean implements AuthenticationRemote, AuthenticationL
 
     private char getStatus(long userId, InitialContext ctx) throws Exception {
         char result;
-        User user = (User) BaseProcessor.createLocalEJB(ctx, User.class);
+        UserLocal user = (UserLocal) BaseProcessor.createLocalEJB(ctx, User.class);
         result = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
         return result;
 
@@ -78,7 +80,7 @@ public class AuthenticationBean implements AuthenticationRemote, AuthenticationL
 
     private int getEmailStatus(long userId, InitialContext ctx) throws Exception {
         int result;
-        Email email = (Email) BaseProcessor.createLocalEJB(ctx, Email.class);
+        EmailLocal email = (EmailLocal) BaseProcessor.createLocalEJB(ctx, Email.class);
         result = email.getStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
                 DBMS.COMMON_OLTP_DATASOURCE_NAME);
         return result;
