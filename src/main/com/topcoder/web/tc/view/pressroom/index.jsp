@@ -412,11 +412,11 @@
                 <%-- TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082707"><img src="/i/pressroom/incDOTcom_logo.gif" alt="Inc.com" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082707"><img src="/i/pressroom/inc500_logo.png" alt="Inc. 500 logo" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
                         <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082707">TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America</a></h3>
-                        <p>Inc. Magazine's "Inc. 500" ranks the fastest-growing privately held companies in the United States based on year-over-year sales growth. TopCoder is ranked 45 on this year's list, thanks to sales growth of more than 2,000 percent from 2003 to 2006.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082707">[August 27]</a></small></p>
+                        <p>Inc. Magazine's "Inc. 500" ranks the fastest-growing privately held companies in the United States based on year-over-year sales growth. TopCoder is ranked 45 on this year's list, thanks to sales growth of more than 2,000 percent from 2003 to 2006.  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082707">[August 27]</a> | <a target="_blank" href="/i/pressroom/pdfs/inc500_20070827.pdf">PDF</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>

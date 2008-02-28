@@ -102,7 +102,10 @@
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_110507">Students from Russian Federation, China, Indonesia and United States Win 2007 TopCoder Collegiate Challenge <br /><small style="margin-left:10px;">[November 5]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100107">TopCoder Open to Feature World's Elite Software Developers in Competitive Programming's Top Tournament <br /><small style="margin-left:10px;">[October 1]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_092407">TopCoder to Join Walt Mossberg and Bill Taylor Speaking at BIF-3 Collaborative Innovation Summit <br /><small style="margin-left:10px;">[September 24]</small></a></dd>
-                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082707">TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America <br /><small style="margin-left:10px;">[August 27]</small></a></dd>
+                    <%--
+                    <dd><a href=""> <br /><small style="margin-left:10px;">[August 27]</small></a></dd>
+                    --%>
+                    <dd>TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America [August 27]<br /><small style="margin-left:10px;"><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082707">original press release</a> | <a target="_blank" href="/i/pressroom/pdfs/inc500_20070827.pdf">PDF</a></small></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082407">Lilly &amp; Deutsche Bank Announced as New Sponsors &amp; NSA Returns as Patron of 2007 TopCoder Collegiate Challenge <br /><small style="margin-left:10px;">[August 24]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_071807">TopCoder Announces New Collaboration Initiatives for Working with Clients and Community <br /><small style="margin-left:10px;">[July 18]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_062507">Live Coverage of 2007 TopCoder Open to Feature Broadcast Team, Interviews and Behind-the-Scenes Action <br /><small style="margin-left:10px;">[June 25]</small></a></dd>
