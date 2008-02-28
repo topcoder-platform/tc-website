@@ -10,5 +10,5 @@ package com.topcoder.web.ejb.security;
  *          Create Date: Feb 21, 2008
  */
 public interface Authentication {
-    AuthenticatedUser login(String userName, String password) throws InvalidCredentialsException, GeneralAuthenticationException;
+    AuthenticatedUser login(String userName, String password) throws InvalidCredentialsException, GeneralSecurityException, InactiveEmailStatusException, UnactiveUserStatusException, InactiveUserStatusException;
 }
