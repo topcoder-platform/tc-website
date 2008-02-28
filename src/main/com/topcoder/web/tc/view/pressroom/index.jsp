@@ -69,7 +69,7 @@
                     <span style="padding-left:125px;"><a href="#linktonews"><img src="/i/pressroom/featured_tco07.png" width="440" height="136" ></a></span>
                     --%>
                     <div style="padding-left:90px;">
-                        <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&d3=about' refer='pr_index' />"><img src="/i/home/tco08compRegBanner.png" alt="2008 TopCoder Open" /></a>
+                        <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&d3=about' refer='pr_index' />"><img src="/i/home/tco08registerBanner.png" alt="2008 TopCoder Open" /></a>
                     </div>
                 </div>
                 <%--
@@ -94,6 +94,19 @@
             
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
+                <%-- World's Elite High School Programmers to Compete in Live TopCoder High School Tournament begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022808"><img src="/i/pressroom/tchs08_logo.png" alt="TCHS08 logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022808">World's Elite High School Programmers to Compete in Live TopCoder High School Tournament</a></h3>
+                        <p>49 Students Earn Tournament Berth after Months of Online Competition - Finalists to be Flown to Purdue University for Live Finals March 15  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022808">[February 28]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- World's Elite High School Programmers to Compete in Live TopCoder High School Tournament end --%>
                 
                 <%-- TopCoder UML Design Tool Free to Developers begin --%>
                 <div class="pr_newsitem">
