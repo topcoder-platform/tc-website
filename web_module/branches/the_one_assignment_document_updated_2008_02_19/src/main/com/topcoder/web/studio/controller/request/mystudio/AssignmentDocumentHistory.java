@@ -63,7 +63,7 @@ public class AssignmentDocumentHistory extends BaseProcessor {
 
             // if the user has global AD, we don't need to show anything in the "current" tab
             List result = new ArrayList(); 
-            if (!hasGlobalAd) {
+            if (!(hasGlobalAd && !fullList)) {
                 // gets, sorts and crops data.
                 result = PactsServicesLocator.getService().getAssignmentDocumentByUserId(getUser().getId(), 
                         AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID.longValue(), !fullList);
