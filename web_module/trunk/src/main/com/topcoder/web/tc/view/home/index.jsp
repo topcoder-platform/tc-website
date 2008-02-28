@@ -420,6 +420,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            World's Elite High School Programmers to Compete in Live TopCoder High School Tournament
+            <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022808">...more</a><br />[February 28]<br /><br />
+            
             TopCoder UML Design Tool Free to Developers
             <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022608">...more</a><br />[February 26]<br /><br />
             
@@ -434,9 +437,6 @@
             
             Gaming the System
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.cfo.com/article.cfm/10345535/c_10346944?f=magazine_alsoinside' refer='homepage_index' />">...more</a><br />[January 3]<br /><br />
-            
-            TopCoder Expands With New Headquarters in Connecticut
-            <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_010208">...more</a><br />[January 2]<br /><br />
             
 
 
