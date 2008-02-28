@@ -199,6 +199,9 @@
             <fileset dir="${jars.dir}">
                 <include name="ifxjdbc.jar"/>
             </fileset>
+            <fileset dir="${jars.dir}/tcs/id_generator/3.0">
+                <include name="id_generator.jar"/>
+            </fileset>
         </copy>
         <!--
                 <copy todir="${jboss_lib}">
@@ -214,9 +217,6 @@
                         <include name="tc.jar"/>
                         <include name="TestServices.jar"/>
                         <include name="asyncservices.jar"/>
-                    </fileset>
-                    <fileset dir="${jars.dir}/tcs/id_generator/3.0">
-                        <include name="id_generator.jar"/>
                     </fileset>
                     <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
                         <include name="db_connection_factory.jar"/>
