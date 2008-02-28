@@ -34,7 +34,7 @@
         <a href="/tc?module=Static&amp;d1=about&amp;d2=terms" class="footerLinks">Terms</a>
     </p>
     <p>
-        <a href="/tc" class="footerLinks">Developer Center</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="/tc" class="footerLinks">Competitions</a>&nbsp;&nbsp;|&nbsp;&nbsp;
         <a href="/corp/?module=Static&amp;d1=corp&amp;d2=index" class="footerLinks">Corporate Services</a>
     </p>
     <p id="copyright">Copyright &copy; 2000-2008, TopCoder, Inc. All rights reserved.</p>
