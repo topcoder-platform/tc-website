@@ -5,10 +5,11 @@ import com.topcoder.web.tc.Constants;
 
 /**
  * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
+ * @version $Id$
  *          Create Date: Jan 21, 2008
  */
 public class RSSResource implements Resource {
+    private static final long serialVersionUID = 666L;
 
     private String name = null;
 
@@ -16,6 +17,7 @@ public class RSSResource implements Resource {
         this.name = new StringBuilder().append("RSS:").append(name).append(" ").
                 append(Constants.DATASOURCE_ID).append(": ").append(dataSource).toString();
     }
+
     public String getName() {
         return this.name;
     }
