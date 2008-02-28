@@ -9,7 +9,8 @@ import com.topcoder.web.tc.Constants;
  *          Create Date: Jan 21, 2008
  */
 public class RSSResource implements Resource {
-    private static final long serialVersionUID = 666L;
+
+    private static final long serialVersionUID = -5269933442169106811L;
 
     private String name = null;
 
