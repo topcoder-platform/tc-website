@@ -45,17 +45,17 @@
             <br />Sorry, registration for this competition has closed.
             </p>
             
-            
+            <%--
             <p align="center" style="margin-bottom: 40px;">
             <strong><a href="/tco08?module=ViewRegistration&amp;et=5">Component Design &amp; Development Competition</a></strong>
             </p>
+            --%>
             
-            <%--
             <p class="grayedOut" align="center" style="margin-bottom: 40px;">
-            <strong>Component Design &amp;amp; Development Competition</strong>
+            <strong>Component Design &amp; Development Competition</strong>
             <br />Sorry, registration for this competition has closed.
             </p>
-            --%>
+            
             
             <%--
             <p align="center" style="margin-bottom: 40px;">
