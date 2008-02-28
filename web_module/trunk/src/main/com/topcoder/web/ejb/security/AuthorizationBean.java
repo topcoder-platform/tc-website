@@ -1,15 +1,16 @@
 package com.topcoder.web.ejb.security;
 
 import com.topcoder.security.NoSuchUserException;
-import com.topcoder.security.admin.PrincipalMgrLocal;
 import com.topcoder.security.policy.GenericPermission;
 import com.topcoder.security.policy.PolicyLocal;
 import com.topcoder.shared.security.Resource;
-import com.topcoder.web.common.security.Constants;
+import com.topcoder.web.common.SecurityHelper;
 
+import javax.ejb.CreateException;
 import javax.ejb.Stateless;
 import javax.naming.NamingException;
 import java.lang.reflect.InvocationTargetException;
+import java.rmi.RemoteException;
 
 /**
  * @author dok
@@ -21,9 +22,8 @@ public class AuthorizationBean implements AuthorizationLocal, AuthorizationRemot
     public boolean hasPermission(long userId, Resource resource) {
         try {
             PolicyLocal pl = (PolicyLocal) com.topcoder.web.common.security.Constants.createLocalEJB(PolicyLocal.class);
-            PrincipalMgrLocal pmgr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
             try {
-                return pl.checkPermission(pmgr.getUserSubject(userId), new GenericPermission(resource.getName()));
+                return pl.checkPermission(SecurityHelper.getUserSubject(userId), new GenericPermission(resource.getName()));
             } catch (NoSuchUserException e) {
                 return false;
             }
@@ -37,6 +37,11 @@ public class AuthorizationBean implements AuthorizationLocal, AuthorizationRemot
             throw new GeneralSecurityException(e);
         } catch (IllegalAccessException e) {
             throw new GeneralSecurityException(e);
+        } catch (CreateException e) {
+            throw new GeneralSecurityException(e);
+        } catch (RemoteException e) {
+            throw new GeneralSecurityException(e);
         }
+
     }
 }
