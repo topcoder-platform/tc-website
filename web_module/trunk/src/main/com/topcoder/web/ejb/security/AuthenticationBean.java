@@ -1,6 +1,5 @@
 package com.topcoder.web.ejb.security;
 
-import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.security.login.LoginLocal;
@@ -25,7 +24,7 @@ import java.util.Arrays;
 @Stateless
 public class AuthenticationBean implements AuthenticationRemote, AuthenticationLocal {
 
-    public AuthenticatedUser login(String userName, String password) throws InvalidCredentialsException, GeneralAuthenticationException {
+    public AuthenticatedUser login(String userName, String password) throws InvalidCredentialsException, GeneralSecurityException, InactiveEmailStatusException, UnactiveUserStatusException, InactiveUserStatusException {
         try {
             LoginLocal ll = (LoginLocal) com.topcoder.web.common.security.Constants.createLocalEJB(LoginLocal.class);
             TCSubject sub = ll.login(userName, password);
@@ -56,14 +55,14 @@ public class AuthenticationBean implements AuthenticationRemote, AuthenticationL
 
         } catch (AuthenticationException e) {
             throw new InvalidCredentialsException();
-        } catch (GeneralSecurityException e) {
-            throw new GeneralAuthenticationException(e);
+        } catch (com.topcoder.security.GeneralSecurityException e) {
+            throw new GeneralSecurityException(e);
         } catch (NamingException e) {
-            throw new GeneralAuthenticationException(e);
+            throw new GeneralSecurityException(e);
         } catch (RemoteException e) {
-            throw new GeneralAuthenticationException(e);
+            throw new GeneralSecurityException(e);
         } catch (Exception e) {
-            throw new GeneralAuthenticationException(e);
+            throw new GeneralSecurityException(e);
         }
 
     }
