@@ -4,11 +4,18 @@ import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.security.login.LoginLocal;
-import com.topcoder.security.login.LoginRemote;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.user.User;
 
 import javax.ejb.Stateless;
+import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
+import java.util.Arrays;
 
 /**
  * @author dok
@@ -21,68 +28,31 @@ public class AuthenticationBean implements AuthenticationRemote, AuthenticationL
     public AuthenticatedUser login(String userName, String password) throws InvalidCredentialsException, GeneralAuthenticationException {
         try {
             LoginLocal ll = (LoginLocal) com.topcoder.web.common.security.Constants.createLocalEJB(LoginLocal.class);
-            LoginRemote login;
-            TCSubject sub;
-            if (ll == null) {
-                login = (LoginRemote) com.topcoder.web.common.security.Constants.createEJB(LoginRemote.class);
-                sub = login.login(userName, password);
-            } else {
-                sub = ll.login(userName, password);
-            }
+            TCSubject sub = ll.login(userName, password);
 
             AuthenticatedUser ret = new AuthenticatedUser(sub.getUserId(), userName);
+
+            InitialContext ctx = null;
+            try {
+                ctx = TCContext.getInitial();
+                char status = getStatus(sub.getUserId(), ctx);
+                if (Arrays.binarySearch(WebConstants.ACTIVE_STATI, status) >= 0) {
+                    //check if they have an active email address
+                    if (getEmailStatus(ret.getUserId(), ctx) != WebConstants.EMAIL_ACTIVE_STATUS) {
+                        throw new InactiveEmailStatusException("Inactive Email status for " + ret.getUserName() + " " + status);
+                    }
+                } else {
+                    if (Arrays.binarySearch(WebConstants.UNACTIVE_STATI, status) >= 0) {
+                        throw new UnactiveUserStatusException("Unactive User status for " + ret.getUserName() + " " + status);
+                    } else {
+                        throw new InactiveUserStatusException("Inactive User status for " + ret.getUserName() + " " + status);
+                    }
+                }
+            } finally {
+                TCContext.close(ctx);
+            }
+
             return ret;
-
-/*
-
-            char status = getStatus(sub.getUserId());
-            if (log.isDebugEnabled()) {
-                log.debug("status: " + status);
-            }
-            if (Arrays.binarySearch(Constants.ACTIVE_STATI, status) >= 0) {
-                //check if they have an active email address
-                if (getEmailStatus(sub.getUserId()) != EmailActivate.ACTIVE_STATUS) {
-                    getAuthentication().logout();
-                    if (log.isDebugEnabled()) {
-                        log.debug("inactive email");
-                    }
-                    setNextPage(Constants.EMAIL_ACTIVATE);
-                    setIsNextPageInContext(true);
-                    return;
-                } else {
-                    if (log.isDebugEnabled()) {
-                        log.debug("user active");
-                    }
-                    String dest = determineNextPage();
-                    setNextPage(dest);
-                    setIsNextPageInContext(false);
-                    if (log.isDebugEnabled()) {
-                        log.debug("on successful login, going to " + getNextPage());
-                    }
-                    getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
-                    doLegacyCrap(getRequest());
-                    return;
-                }
-            } else {
-                getAuthentication().logout();
-                if (Arrays.binarySearch(Constants.INACTIVE_STATI, status) >= 0) {
-                    if (log.isDebugEnabled()) {
-                        log.debug("user inactive");
-                    }
-                    throw new LoginException("Sorry, your account is not active.  " +
-                            "If you believe this is an error, please contact TopCoder.");
-                } else if (Arrays.binarySearch(Constants.UNACTIVE_STATI, status) >= 0) {
-                    if (log.isDebugEnabled()) {
-                        log.debug("user unactive");
-                    }
-                    getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Your account is not active.  " +
-                            "Please review the activation email that was sent to you after registration.");
-                } else {
-                    throw new NavigationException("Invalid account status");
-                }
-            }
-*/
-
 
         } catch (AuthenticationException e) {
             throw new InvalidCredentialsException();
@@ -97,4 +67,23 @@ public class AuthenticationBean implements AuthenticationRemote, AuthenticationL
         }
 
     }
+
+
+    private char getStatus(long userId, InitialContext ctx) throws Exception {
+        char result;
+        User user = (User) BaseProcessor.createLocalEJB(ctx, User.class);
+        result = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        return result;
+
+    }
+
+    private int getEmailStatus(long userId, InitialContext ctx) throws Exception {
+        int result;
+        Email email = (Email) BaseProcessor.createLocalEJB(ctx, Email.class);
+        result = email.getStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
+                DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        return result;
+    }
+
+
 }
