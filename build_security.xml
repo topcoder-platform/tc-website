@@ -152,7 +152,7 @@
     </target>
 
 
-    <target name="deploy" depends="compile, package-EJB-SecurityBean">
+    <target name="deploy" depends="compile, package-EJB-SecurityBean, build-ejbs">
         <antcall target="move-libs"/>
         <antcall target="move-conf"/>
         <antcall target="deploy-security"/>
@@ -160,6 +160,8 @@
         <copy todir="${jboss_deploy}">
             <fileset dir="${ejb_jars}">
                 <include name="Security.jar"/>
+                <include name="User.jar"/>
+                <include name="Email.jar"/>
             </fileset>
         </copy>
     </target>
@@ -277,6 +279,11 @@
 
     <target name="build-security">
         <ant antfile="build_tc.xml" target="build-security"/>
+    </target>
+
+    <target name="build-ejbs">
+        <ant antfile="build_tc.xml" target="package-EJB-UserBean"/>
+        <ant antfile="build_tc.xml" target="package-EJB-EmailBean"/>
     </target>
 
 
