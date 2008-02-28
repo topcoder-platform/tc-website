@@ -56,6 +56,9 @@ public class Constants implements WebConstants {
     public static int VIEW_SUBMISSIONS_SCROLL_SIZE;
     public static int ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE;
 
+    // Flag to turn on/off the global AD feature
+    public static String GLOBAL_AD_FLAG;
+
     static {
         initialize();
     }

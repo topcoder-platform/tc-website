@@ -155,6 +155,9 @@
                             </a>                
                         </td>
                         <td class="valueC">&nbsp;</td>
+                        <td class="valueC">
+                            <c:out value="${ad.status.description}"/>
+                        </td>
                     </c:when>
                     <c:when test="${ad.status.id == PENDING_STATUS_ID}">
                         <c:choose>

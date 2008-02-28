@@ -315,9 +315,15 @@ public class PaymentStatusManager {
             
             // if no payment is found, do nothing
             if (payments.size() == 1) {
+                BasePayment payment = payments.get(0);
+
+                // if the user has global AD, the payment should not be canceled.
+                if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG) &&
+                        dib.hasGlobalAD(payment.getCoderId())) {
+                    return;
+                }
                 
                 // notify the status manager and update the payment
-                BasePayment payment = payments.get(0);
                 payment.getCurrentStatus().expiredIPTransfer(payment);
                 dib.updatePayment(payment);
     
