@@ -155,34 +155,36 @@
                                     </td>
                                 </c:when>
                                 <c:when test="${ad.status.id == PENDING_STATUS_ID}">
-                                    <c:when test="${not empty has_global_ad && has_global_ad}">
-                                        <td class="valueC">
-                                            <strong>
+                                    <c:choose>
+                                        <c:when test="${not empty has_global_ad && has_global_ad}">
+                                            <td class="valueC">
+                                                <strong>
+                                                    No need to Affirm *
+                                                </strong>
+                                            </td>
+                                            <td class="valueC">
+                                                &nbsp;
+                                            </td>
+                                            <td class="valueC">
                                                 No need to Affirm *
-                                            </strong>
-                                        </td>
-                                        <td class="valueC">
-                                            &nbsp;
-                                        </td>
-                                        <td class="valueC">
-                                            No need to Affirm *
-                                        </td>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <td class="valueC">
-                                            <strong><a href="${sessionInfo.servletPath}?module=AssignmentDocumentDetails&amp;assignment_document_id=${ad.id}">
-                                                Affirm now
-                                            </a></strong>
-                                        </td>
-                                        <td class="valueC">
-                                            <strong><a href="${sessionInfo.servletPath}?module=AssignmentDocumentDetails&amp;assignment_document_id=${ad.id}">
-                                                 <c:out value="${ad.daysLeftToExpire}"/> days
-                                            </a></strong>            
-                                        </td>
-                                        <td class="valueC">
-                                            <c:out value="${ad.status.description}"/>
-                                        </td>
-                                    </c:otherwise>
+                                            </td>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <td class="valueC">
+                                                <strong><a href="${sessionInfo.servletPath}?module=AssignmentDocumentDetails&amp;assignment_document_id=${ad.id}">
+                                                    Affirm now
+                                                </a></strong>
+                                            </td>
+                                            <td class="valueC">
+                                                <strong><a href="${sessionInfo.servletPath}?module=AssignmentDocumentDetails&amp;assignment_document_id=${ad.id}">
+                                                     <c:out value="${ad.daysLeftToExpire}"/> days
+                                                </a></strong>            
+                                            </td>
+                                            <td class="valueC">
+                                                <c:out value="${ad.status.description}"/>
+                                            </td>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </c:when>
                                 <c:otherwise>
                                     <td class="valueC">
