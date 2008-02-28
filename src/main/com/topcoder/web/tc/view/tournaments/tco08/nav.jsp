@@ -90,7 +90,9 @@
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a></li>
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a></li>
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=rules"<% if (tabLev2.equals("rules")) {%> class="on"<% } %>>Rules</a></li>
+                        <%--
                         <li><a href="/tco08?module=ViewRegistration&amp;et=5"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
+                        --%>
                         <li><a href="/tco08?module=Registrants&amp;et=5"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <li><a href="/tco08?module=ContestDetails&amp;ct=460&amp;eid=3006"<% if (tabLev2.equals("design")) {%> class="on"<% } %>>Design</a></li>
                         <li><a href="/tco08?module=ContestDetails&amp;ct=461&amp;eid=3006"<% if (tabLev2.equals("development")) {%> class="on"<% } %>>Development</a></li>
