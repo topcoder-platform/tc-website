@@ -412,7 +412,7 @@
                 <%-- TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082707"><img src="/i/pressroom/inc500_logo.png" alt="Inc. 500 logo" border="0" /></a>
+                        <a target="_blank" href="/i/pressroom/pdfs/inc500_20070827.pdf"><img src="/i/pressroom/inc500_logo.png" alt="Inc. 500 logo" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
                         <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082707">TopCoder Named to Inc. Magazine's 500 Fastest-Growing Private Companies in America</a></h3>
