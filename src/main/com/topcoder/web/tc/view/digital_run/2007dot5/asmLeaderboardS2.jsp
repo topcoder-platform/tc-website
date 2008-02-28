@@ -70,7 +70,7 @@
 
     <tr class="light">
 <td class="valueC">1</td>
-<td class="value B"><tc-webtag:handle coderId="21271044" /></td>
+<td class="value B"><tc-webtag:handle coderId="21271044" /></td><%-- superZZ --%>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">10025.00</td>
@@ -80,7 +80,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">2</td>
-<td class="value B"><tc-webtag:handle coderId="299180" /></td>
+<td class="value B"><tc-webtag:handle coderId="299180" /></td><%-- isv --%>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">7000.00</td>
@@ -90,7 +90,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">3</td>
-<td class="value B"><tc-webtag:handle coderId="22629228" /></td>
+<td class="value B"><tc-webtag:handle coderId="22629228" /></td><%-- rainday --%>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Performers</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueR">4550.00</td>
@@ -100,7 +100,7 @@
     </tr>
     <tr class="light">
 <td class="valueC">4</td>
-<td class="value B"><tc-webtag:handle coderId="13372008" /></td>
+<td class="value B"><tc-webtag:handle coderId="13372008" /></td><%-- Ricepig --%>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">4200.00</td>
@@ -110,27 +110,17 @@
     </tr>
     <tr class="light">
 <td class="valueC">5</td>
-<td class="value B"><tc-webtag:handle coderId="8499822" /></td>
+<td class="value B"><tc-webtag:handle coderId="10529347" /></td><%-- xor_freecity --%>
 <td class="valueC"><div align="center"><img src="/i/interface/emblem/prize.gif" alt="" onmouseover="postPopUpText('globalPopupText','Cash prize for placing in the <strong>Top Five</strong>'); popUp(this,'globalPopup')" onmouseout="popHide()" border="0" /></div></td>
 <td class="valueC">&nbsp;</td>
-<td class="valueR">3000.00</td>
+<td class="valueR">2475.00</td>
 <td class="valueR">$2,000.00</td>
 <td class="valueR">&nbsp;</td>
 <td class="valueR">$2,000.00</td>
     </tr>
     <tr class="light">
 <td class="valueC">6</td>
-<td class="value B"><tc-webtag:handle coderId="10529347" /></td>
-<td class="valueC">&nbsp;</td>
-<td class="valueC">&nbsp;</td>
-<td class="valueR">2475.00</td>
-<td class="valueR">&nbsp;</td>
-<td class="valueR">&nbsp;</td>
-<td class="valueR">$0.00</td>
-    </tr>
-    <tr class="light">
-<td class="valueC">7</td>
-<td class="value B"><tc-webtag:handle coderId="10651566" /></td>
+<td class="value B"><tc-webtag:handle coderId="10651566" /></td><%-- hotblue --%>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">2450.00</td>
@@ -139,8 +129,28 @@
 <td class="valueR">$0.00</td>
     </tr>
     <tr class="light">
+<td class="valueC">7</td>
+<td class="value B"><tc-webtag:handle coderId="22680363" /></td><%-- velorien --%>
+<td class="valueC">&nbsp;</td>
+<td class="valueC">&nbsp;</td>
+<td class="valueR">1950.00</td>
+<td class="valueR">&nbsp;</td>
+<td class="valueR">&nbsp;</td>
+<td class="valueR">$0.00</td>
+    </tr>
+    <tr class="light">
 <td class="valueC">8</td>
-<td class="value B"><tc-webtag:handle coderId="15604762" /></td>
+<td class="value B"><tc-webtag:handle coderId="8499822" /></td><%-- romanoTC --%>
+<td class="valueC">&nbsp;</td>
+<td class="valueC">&nbsp;</td>
+<td class="valueR">1050.00</td>
+<td class="valueR">&nbsp;</td>
+<td class="valueR">&nbsp;</td>
+<td class="valueR">$0.00</td>
+    </tr>
+    <tr class="light">
+<td class="valueC">9</td>
+<td class="value B"><tc-webtag:handle coderId="15604762" /></td><%-- Yeung --%>
 <td class="valueC">&nbsp;</td>
 <td class="valueC">&nbsp;</td>
 <td class="valueR">1000.00</td>
@@ -156,7 +166,7 @@
     future projects may affect the final results.
 </p>
 <p class="small" align="left">
-    Updated Feb 18, 2008
+    Updated Feb 28, 2008
 </p>
 
             </div>
