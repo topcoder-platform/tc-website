@@ -1,6 +1,6 @@
 package com.topcoder.web.common;
 
-import com.topcoder.security.NoSuchUserException;
+import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
@@ -16,9 +16,11 @@ import com.topcoder.web.common.cache.address.AddressFactory;
 import com.topcoder.web.common.cache.address.CacheAddress;
 import com.topcoder.web.common.security.TCSAuthorization;
 
+import javax.ejb.CreateException;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
+import java.rmi.RemoteException;
 
 /**
  * @author dok
@@ -32,12 +34,12 @@ public class SecurityHelper {
     public static final String KEY_PREFIX = "user_subject:";
 
     public static TCSubject getUserSubject(long l, boolean forceLoadFromDb)
-            throws Exception, NoSuchUserException, NamingException {
+            throws GeneralSecurityException, NamingException, CreateException, RemoteException {
         return getUserSubject(l, forceLoadFromDb, null);
     }
 
     public static TCSubject getUserSubject(long l, boolean forceLoadFromDb, String dataSource)
-            throws Exception, NoSuchUserException, NamingException {
+            throws GeneralSecurityException, NamingException, CreateException, RemoteException {
         //log.debug("get " + l + " from db " + forceLoadFromDb);
         TCSubject ret = null;
 
@@ -80,20 +82,18 @@ public class SecurityHelper {
                 //log.debug("ret was not null");
             }
             return ret;
-        } catch (Exception e) {
-            throw e;
         } finally {
             TCContext.close(ctx);
         }
     }
 
     public static TCSubject getUserSubject(long l)
-            throws Exception, NoSuchUserException, NamingException {
+            throws GeneralSecurityException, NamingException, CreateException, RemoteException {
         return getUserSubject(l, false);
     }
 
     public static TCSubject getUserSubject(long l, String dataSource)
-            throws Exception, NoSuchUserException, NamingException {
+            throws GeneralSecurityException, NamingException, CreateException, RemoteException {
         return getUserSubject(l, false, dataSource);
     }
 
