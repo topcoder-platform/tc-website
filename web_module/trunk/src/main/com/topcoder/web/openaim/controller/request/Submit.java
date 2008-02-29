@@ -1,5 +1,14 @@
 package com.topcoder.web.openaim.controller.request;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Date;
+
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
+
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.MultipartRequest;
@@ -20,18 +29,12 @@ import com.topcoder.web.openaim.model.Contest;
 import com.topcoder.web.openaim.model.ContestStatus;
 import com.topcoder.web.openaim.model.FilePath;
 import com.topcoder.web.openaim.model.MimeType;
+import com.topcoder.web.openaim.model.ReviewStatus;
 import com.topcoder.web.openaim.model.Submission;
+import com.topcoder.web.openaim.model.SubmissionReview;
 import com.topcoder.web.openaim.model.SubmissionStatus;
 import com.topcoder.web.openaim.model.SubmissionType;
 import com.topcoder.web.openaim.validation.SubmissionValidator;
-
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Date;
 
 /**
  * @author dok
@@ -171,6 +174,14 @@ public class Submit extends BaseSubmissionDataProcessor {
                         }
                     }
 
+                    // We won't have reviews, so this automatically passes the submission. 
+                    SubmissionReview review = new SubmissionReview();
+                    review.setNew(true);
+                    review.setReviewer(factory.getUserDAO().find(Constants.ADMIN_USER_ID));
+                    review.setStatus(cFactory.getReviewStatusDAO().find(ReviewStatus.PASSED));
+                    review.setText("Automatic pass");
+                    review.setSubmission(s);
+                    cFactory.getSubmissionReviewDAO().saveOrUpdate(review);
 
                     StringBuffer nextPage = new StringBuffer(50);
                     nextPage.append(getSessionInfo().getServletPath());
@@ -178,10 +189,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                     nextPage.append(Constants.SUBMISSION_ID + "=").append(s.getId());
                     setNextPage(nextPage.toString());
                     setIsNextPageInContext(false);
-
-
                 }
-
             }
 
         } else {
