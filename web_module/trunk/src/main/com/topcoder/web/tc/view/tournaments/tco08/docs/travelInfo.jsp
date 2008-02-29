@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.tc.Constants" %>
+                 com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -107,8 +108,8 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
 
 
 <h3>Travel Form</h3>
-<form name="questForm" method="post" action="${sessionInfo.secureAbsoluteServletPath}" onsubmit="return verify();">
-<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO08TravelInfoSubmit"/>
+<form name="questForm" method="post" action="https://<%=ApplicationServer.SERVER_NAME%>/tchs08" onsubmit="return verify();">
+<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TravelInfoSubmit"/>
 <table border="0" cellspacing="3" cellpadding="0" width="100%" class="bodyText">
 <%--
 
