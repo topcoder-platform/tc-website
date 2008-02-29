@@ -108,7 +108,7 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
 
 
 <h3>Travel Form</h3>
-<form name="questForm" method="post" action="https://<%=ApplicationServer.SERVER_NAME%>/tchs08" onsubmit="return verify();">
+<form name="questForm" method="post" action="https://<%=ApplicationServer.SERVER_NAME%>/tco08" onsubmit="return verify();">
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TravelInfoSubmit"/>
 <table border="0" cellspacing="3" cellpadding="0" width="100%" class="bodyText">
 <%--
