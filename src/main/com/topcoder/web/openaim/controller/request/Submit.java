@@ -180,7 +180,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                     log.debug("reviewer: " + Constants.ADMIN_USER_ID);
                     log.debug("reviewer found: " + factory.getUserDAO().find(new Long(Constants.ADMIN_USER_ID)) != null);
                     log.debug("reviewer found (2): " + factory.getUserDAO().find(new Long(132456l)) != null);
-                    review.setReviewer(factory.getUserDAO().find(Constants.ADMIN_USER_ID));
+                    review.setReviewer(factory.getUserDAO().find(new Long(Constants.ADMIN_USER_ID)));
                     review.setStatus(cFactory.getReviewStatusDAO().find(ReviewStatus.PASSED));
                     review.setText("Automatic pass");
                     review.setSubmission(s);
