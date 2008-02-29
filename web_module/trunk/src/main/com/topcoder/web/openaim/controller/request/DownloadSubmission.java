@@ -8,7 +8,6 @@ import com.topcoder.web.openaim.model.Submission;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
-import java.util.Date;
 
 /**
  * @author dok
@@ -40,12 +39,13 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             }
         }
 */
+/*
         boolean isOver = new Date().after(s.getContest().getEndTime());
 
         if (!isOver && !isOwner) {
             throw new NavigationException("Submissions are not available until the contest is over.");
         }
-
+*/
 
 /*
    we used link to winners on the home page and let people downloa the winning submission...not anymore

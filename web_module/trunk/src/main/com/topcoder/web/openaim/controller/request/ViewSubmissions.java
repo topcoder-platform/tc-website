@@ -38,9 +38,11 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         setDefault(Constants.CONTEST_ID, c.getId());
 
         boolean isOver = new Date().after(c.getEndTime());
+/*
         if (!isOver) {
             throw new NavigationException("Submissions are not available until the contest is over.");
         }
+*/
 
         if (!String.valueOf(true).equals(c.getViewableSubmissions().getValue())) {
             throw new NavigationException("Submissions are not available for this contest");
@@ -58,7 +60,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
             r.setProperty(Constants.SUBMISSION_RANK, c.getMaxSubmissions().getValue());
         }
 
-        getRequest().setAttribute("hasScores", c.getProject()!=null);
+        getRequest().setAttribute("hasScores", c.getProject() != null);
 
         String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String dir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
