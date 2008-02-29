@@ -1,6 +1,5 @@
 package com.topcoder.web.openaim.controller.request;
 
-import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
@@ -21,15 +20,6 @@ public class Home extends BaseProcessor {
         DataAccessInt dai = new CachedDataAccess(DBMS.OPENAIM_DATASOURCE_NAME);
         getRequest().setAttribute(r.getContentHandle(), dai.getData(r));
 
-        if (userIdentified()) {
-            DataAccess tco08Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
-            Request tco08Request = new Request();
-            tco08Request.setProperty("cr", String.valueOf(getUser().getId()));
-
-            tco08Request.setContentHandle("tco08openaim_info");
-            getRequest().setAttribute("tco08openaim_info",
-                    tco08Dai.getData(tco08Request).get("tco08openaim_info"));
-        }
 
         setNextPage("/home.jsp");
         setIsNextPageInContext(true);
