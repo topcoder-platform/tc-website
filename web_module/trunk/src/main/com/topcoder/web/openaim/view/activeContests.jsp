@@ -136,6 +136,7 @@
                                 <rsc:item name="registrants" row="<%=resultRow%>"/>
                             </td>
                             <td class="valueC">
+<%--
                                 <c:choose>
                                     <c:when test="<%=resultRow.getBooleanItem("show_submissions")%>">
                                         <a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
@@ -143,9 +144,12 @@
                                         </a>
                                     </c:when>
                                     <c:otherwise>
+--%>
                                         <rsc:item name="submission_count" row="<%=resultRow%>"/>
+<%--
                                     </c:otherwise>
                                 </c:choose>
+--%>
                             </td>
         
                             <td class="valueC" nowrap="nowrap">
