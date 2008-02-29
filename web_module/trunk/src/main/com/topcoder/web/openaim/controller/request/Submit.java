@@ -177,6 +177,9 @@ public class Submit extends BaseSubmissionDataProcessor {
                     // We won't have reviews, so this automatically passes the submission. 
                     SubmissionReview review = new SubmissionReview();
                     review.setNew(true);
+                    log.debug("reviewer: " + Constants.ADMIN_USER_ID);
+                    log.debug("reviewer found: " + factory.getUserDAO().find(Constants.ADMIN_USER_ID) != null);
+                    log.debug("reviewer found (2): " + factory.getUserDAO().find(132456l) != null);
                     review.setReviewer(factory.getUserDAO().find(Constants.ADMIN_USER_ID));
                     review.setStatus(cFactory.getReviewStatusDAO().find(ReviewStatus.PASSED));
                     review.setText("Automatic pass");
