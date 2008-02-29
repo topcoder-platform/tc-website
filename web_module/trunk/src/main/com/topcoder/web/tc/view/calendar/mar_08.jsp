@@ -37,12 +37,12 @@
 </jsp:include>
 
 <div style="float:right;white-space:nowrap;" align="right">
-    All times are <A target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</A> unless stated otherwise.<br />
+    All times are <A target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</a> unless stated otherwise.<br />
     Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
     <a href="/tc?module=BasicRSS&c=rss_Upcoming_Contests&dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
 
-<strong><A href="/tc?module=Static&d1=calendar&d2=feb_08" class="prevNext">&lt; prev</A> <%--| <A href="/tc?module=Static&d1=calendar&d2=apr_08" class="prevNext">next &gt;</A></strong>--%>
+<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=feb_08" class="prevNext">&lt; prev</a> <%--| <a href="/tc?module=Static&amp;d1=calendar&amp;d2=apr_08" class="prevNext">next &gt;</a></strong>--%>
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="mar_08"/>
 </jsp:include>
@@ -68,7 +68,7 @@
       <td class="value">1
          <div class="tco08">
          <div class="emblem"><img src="/i/tournament/tco08/emblem.png" alt="TCO08" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">Algo Round 3</A></strong><br />
+         <strong><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=schedule">Algo Round 3</a></strong><br />
          1:00 PM 
          </div>
       </td>
@@ -80,7 +80,7 @@
       <td class="value">3
          <div class="tco08">
          <div class="emblem"><img src="/i/tournament/tco08/emblem.png" alt="TCO08" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=schedule">Studio Registration Closes</A></strong><br />
+         <strong><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=schedule">Studio Registration Closes</a></strong><br />
          5:00 PM
          </div>
       </td>
@@ -90,12 +90,12 @@
       </td>
       <td class="value">6
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br />
+         <strong><a href="/tc?module=ViewActiveContests&amp;ph=112">Des</a> &amp; <a href="/tc?module=ViewActiveContests&amp;ph=113">Dev</a> contests posted</strong><br />
          9:00 AM
          </div>
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=11126">SRM 392</A></strong><br />
-         <A href="/tc?module=Static&d1=sponsors&d2=bt">BT</A><br />
+         <strong><a href="/tc?module=MatchDetails&amp;rd=11126">SRM 392</a></strong><br />
+         <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=bt">BT</a><br />
          7:00 AM
          </div>
       </td>
@@ -104,7 +104,7 @@
       <td class="value">8
          <div class="tco08">
          <div class="emblem"><img src="/i/tournament/tco08/emblem.png" alt="TCO08" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=algorithm&d4=schedule">Algo Round 4</A></strong><br />
+         <strong><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=schedule">Algo Round 4</a></strong><br />
          1:00 PM 
          </div>
       </td>
@@ -117,7 +117,8 @@
       </td>
       <td class="value">11
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=11127">SRM 393</A></strong><br />
+         <strong><a href="/tc?module=MatchDetails&amp;rd=11127">SRM 393</a></strong><br />
+         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign">VeriSign</a><br />
          11:00 AM
          </div>
       </td>
@@ -125,7 +126,7 @@
       </td>
       <td class="value">13
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br />
+         <strong><a href="/tc?module=ViewActiveContests&amp;ph=112">Des</a> &amp; <a href="/tc?module=ViewActiveContests&amp;ph=113">Dev</a> contests posted</strong><br />
          9:00 AM
          </div>
       </td>
@@ -134,7 +135,7 @@
       <td class="value">15
          <div class="tchs08">
          <div class="emblem"><img src="/i/tournament/tchs08/emblem.png" alt="TCHS08" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs08&d3=onsiteSchedule">Onsite Finals</A></strong><br />
+         <strong><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=onsiteSchedule">Onsite Finals</a></strong><br />
          10:00 AM 
          </div>
       </td>
@@ -151,7 +152,7 @@
       </td>
       <td class="value">20
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br />
+         <strong><a href="/tc?module=ViewActiveContests&amp;ph=112">Des</a> &amp; <a href="/tc?module=ViewActiveContests&amp;ph=113">Dev</a> contests posted</strong><br />
          9:00 AM
          </div>
       </td>
@@ -163,7 +164,7 @@
       </td>
       <td class="value">22
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=11128">SRM 394</A></strong><br />
+         <strong><a href="/tc?module=MatchDetails&amp;rd=11128">SRM 394</a></strong><br />
          12:00 NOON
          </div>
       </td>
@@ -178,14 +179,14 @@
       </td>
       <td class="value">26
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=11129">SRM 395</A></strong><br />
-         <A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=nsa">NSA</A><br />
+         <strong><a href="/tc?module=MatchDetails&amp;rd=11129">SRM 395</a></strong><br />
+         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">NSA</a><br />
          9:00 PM
          </div>
       </td>
       <td class="value">27
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br />
+         <strong><a href="/tc?module=ViewActiveContests&amp;ph=112">Des</a> &amp; <a href="/tc?module=ViewActiveContests&amp;ph=113">Dev</a> contests posted</strong><br />
          9:00 AM
          </div>
       </td>
