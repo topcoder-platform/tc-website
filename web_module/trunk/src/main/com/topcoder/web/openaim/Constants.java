@@ -33,7 +33,7 @@ public class Constants implements WebConstants {
     public static final String DOCUMENT_ID = "docid";
     public static final String DOCUMENT_TYPE_ID = "doctid";
     public static final String DOCUMENT = "doc";
-    public static final long CONTEST_ADMIN_ROLE_ID = 2040;
+    public static final long CONTEST_ADMIN_ROLE_ID = 2070;
     public static final String FILE_TYPE = "ft_";
     public static final String SUBMISSION_RANK = "srank";
     public static final String REG_CONFIRM = "rconfirm";
@@ -52,7 +52,8 @@ public class Constants implements WebConstants {
     public static String DOCUMENTS_DIRECTORY_NAME;
     public static int VIEW_SUBMISSIONS_SCROLL_SIZE;
     public static int ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE;
-
+    public static long ADMIN_USER_ID;
+    
     static {
         initialize();
     }
