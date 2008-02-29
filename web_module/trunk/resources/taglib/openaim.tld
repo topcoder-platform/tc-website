@@ -16,22 +16,6 @@
     <uri>openaim.tld</uri>
 
     <tag>
-        <name>handle</name>
-        <tag-class>com.topcoder.web.openaim.view.tags.HandleTag</tag-class>
-        <body-content>empty</body-content>
-        <attribute>
-            <name>coderId</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
-            <name>styleClass</name>
-            <required>false</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-    </tag>
-
-    <tag>
         <name>forumLink</name>
         <tag-class>com.topcoder.web.openaim.view.tags.ForumLinkTag</tag-class>
         <body-content>empty</body-content>
