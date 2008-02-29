@@ -21,7 +21,7 @@
     <jsp:include page="../nav.jsp" >
     <jsp:param name="tabLev1" value="overview"/>
     <jsp:param name="tabLev2" value="joinus"/>
-    <jsp:param name="tabLev3" value=""/>p
+    <jsp:param name="tabLev3" value=""/>
     </jsp:include>
 
 
