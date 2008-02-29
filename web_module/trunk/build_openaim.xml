@@ -1,4 +1,5 @@
 <project name="topcoder" default="main" basedir=".">
+    <property environment="env"/>
     <property name="Name" value="TopCoder"/>
     <property name="build" value="build"/>
     <property name="war.dir" value="${build}/wars"/>
@@ -17,14 +18,13 @@
     <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
     <property name="java" value="${src.dir}/main"/>
     <property name="shared.jar" value="${bin}/shared.jar"/>
-    <property name="jboss_home" value="../jboss-4.0.4.GA"/>
+    <property name="jboss_home" value="${env.JBOSS_HOME}"/>
     <property name="jboss_deploy" value="${jboss_home}/server/default/deploy"/>
     <property name="jboss_lib" value="${jboss_home}/server/default/lib"/>
     <property name="jboss_conf" value="${jboss_home}/server/default/conf"/>
     <property name="testjava" value="${src.dir}/testcases"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
     <property name="build.javadocs" value="${build}/javadocs"/>
-    <property environment="env"/>
 
     <property name="deprecation" value="true"/>
     <property name="debug" value="true"/>
@@ -234,15 +234,15 @@
         <delete dir="${jboss_home}/server/default/deploy/openaim.war/META-INF"/>
     </target>
 
-    <target name="deploy-openaim" depends="war-openaim,build-security">
+    <target name="deploy" depends="war-openaim,build-security">
         <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
 
-        <antcall target="expand-openaim"/>
+        <antcall target="expand"/>
     </target>
 
-    <target name="expand-openaim">
+    <target name="expand">
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcjive.jar"/>
@@ -407,13 +407,6 @@
         </ear>
     </target>
 
-
-    <target name="create-assembly-dist">
-
-        <!--
-        copy common, sahred, and openaim source
-        -->
-    </target>
 
 </project>
 
