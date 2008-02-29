@@ -12,6 +12,21 @@
     <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
     <jsp:include page="../../script.jsp"/>
+    <script language="JavaScript" type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
+    <script language="JavaScript" type="text/javascript"><!--
+    function verify() {
+        var elarr = document.questForm.elements;
+        for (var i=0; i<elarr.length; i++) {
+            if (jQuery.trim(elarr[i].value)=='') {
+                alert("Please be sure to fill in all fields.");
+                return false;
+            }
+        }
+        return true;
+    }
+    //-->
+    </script>
+
 </head>
 <body id="page_sub">
 <%ResultSetContainer info = (ResultSetContainer) ((Map) request.getAttribute("info")).get("Affidavit_Info");%>
@@ -92,7 +107,7 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
 
 
 <h3>Travel Form</h3>
-<form name="questForm" method="post" action="${sessionInfo.secureAbsoluteServletPath}">
+<form name="questForm" method="post" action="${sessionInfo.secureAbsoluteServletPath}" onsubmit="return verify();">
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO08TravelInfoSubmit"/>
 <table border="0" cellspacing="3" cellpadding="0" width="100%" class="bodyText">
 <%--
