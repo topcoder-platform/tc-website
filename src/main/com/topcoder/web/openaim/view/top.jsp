@@ -1,8 +1,22 @@
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.common.BaseServlet" %>
+<%@ page import="com.topcoder.web.common.StringUtils" %>
 <%@ page import="com.topcoder.web.openaim.Constants" %>
 <%@ page import="com.topcoder.web.openaim.controller.request.Login" %>
+<%@ page import="com.topcoder.web.openaim.model.ContestProperty" %>
+<%@ page import="com.topcoder.web.openaim.model.PrizeType" %>
+<%@ page import="com.topcoder.web.openaim.model.ReviewStatus" %>
+<%@ page import="com.topcoder.web.openaim.model.SubmissionStatus" %>
+<%@ page import="com.topcoder.web.openaim.model.SubmissionType" %>
+<%@ page import="java.util.Calendar" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.util.GregorianCalendar" %>
+<%@ page import="java.util.Map" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="openaim.tld" prefix="openaim" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%
     String section = request.getParameter("section") == null ? "" : request.getParameter("section");
@@ -51,7 +65,7 @@
         <c:otherwise>
             <div class="loginBox">
                 <div class="loggedIn">
-                    <div class="handleE">Hello, <openaim:handle coderId="${sessionInfo.userId}"/></div>
+                    <div class="handleE">Hello, <tc-webtag:handle coderId="${sessionInfo.userId}"/></div>
                     <div class="handleW">&nbsp;</div>
                     <br clear="all"/>
                     <a href="http://<%=ApplicationServer.OPENAIM_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Logout</a>

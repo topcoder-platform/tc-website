@@ -3,6 +3,7 @@
 <%@ page import="com.topcoder.web.openaim.Constants" %>
 <%@ page import="java.util.Map" %>
 <%@ taglib uri="openaim.tld" prefix="openaim" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="openaim_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -51,7 +52,7 @@
                 <h1>Scores</h1>
 
 <div align="center" style="font-size: 32px; font-weight: bold;">
-    <openaim:handle coderId="${submission.submitter.id}"/>
+    <tc-webtag:handle coderId="${submission.submitter.id}"/>
 </div>
 
 <div align="center" style="margin-bottom: 10px; font-weight: bold;">
@@ -93,7 +94,7 @@
     <tr>
         <rsc:iterator list="<%=reviews%>" id="resultRow">
             <td width="25%" align="center" style="font-size: 18px; font-weight: bold;">
-                <openaim:handle coderId="${resultRow.map['reviewer_id']}"/>
+                <tc-webtag:handle coderId="${resultRow.map['reviewer_id']}"/>
             </td>
         </rsc:iterator>
         <td width="25%" align="center" style="font-size: 18px; font-weight: bold;">
