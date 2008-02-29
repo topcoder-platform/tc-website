@@ -171,7 +171,7 @@
         </td>
         <c:if test="${contest.configMap[viewSubmitters]}">
             <td class="value">
-                <openaim:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
+                <tc-webtag:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
             </td>
         </c:if>
         <td class="valueC">

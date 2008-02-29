@@ -93,7 +93,7 @@
                             </c:when>
                             <c:otherwise>
                                 <div style="margin-top: 20px;">Hello</div>
-                                <div style="font-size: 18px;"><openaim:handle coderId="${sessionInfo.userId}"/></div>
+                                <div style="font-size: 18px;"><tc-webtag:handle coderId="${sessionInfo.userId}"/></div>
                                 <div>
                                 <a href="http://<%=ApplicationServer.OPENAIM_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Log out</a>
                                 | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update my profile</a>
@@ -117,7 +117,7 @@
                         <img src="/i/m/nophoto.jpg" alt="" style="position: absolute; top: 20px; left: 5px; width: 55px; height: 61px; border: 1px solid #bebebe;" />
                         <div style="text-align: center; padding: 15px 10px 0 71px; margin: 0;">
                             <strong>January 2008</strong>
-                            <br /><openaim:handle coderId="22705851"/>: Won $1,850 in six contests
+                            <br /><tc-webtag:handle coderId="22705851"/>: Won $1,850 in six contests
                             <%--
                             2008
                             FEBRUARY:  
@@ -196,7 +196,7 @@
                                     <tr class="<%=even?"light":"dark"%>">
                                         <td class="valueW"><div>&nbsp;</div></td>
                                         <td class="value">
-                                            <openaim:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
+                                            <tc-webtag:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
                                         </td>
                                         <td class="valueR">
                                             <c:choose>

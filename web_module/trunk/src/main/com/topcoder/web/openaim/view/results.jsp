@@ -111,7 +111,7 @@
             </c:choose>
         </td>
         <td class="value">
-            <openaim:handle coderId="<%=resultRow.getLongItem("submitter_id")%>"/>
+            <tc-webtag:handle coderId="<%=resultRow.getLongItem("submitter_id")%>"/>
         </td>
         <td class="valueC">
             <rsc:item name="reg_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
