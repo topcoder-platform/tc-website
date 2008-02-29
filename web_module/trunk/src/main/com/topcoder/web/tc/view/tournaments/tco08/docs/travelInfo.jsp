@@ -1,10 +1,9 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 java.util.Map" %>
-<%@ page import="com.topcoder.web.tc.Constants" %>
+                 com.topcoder.web.tc.Constants" %>
+<%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ page import="com.topcoder.web.common.model.EventType" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>2008 TopCoder Open - Computer Programming Tournament</title>
@@ -31,7 +30,7 @@
             <div class="sub_content">
                 <h3>Please read all instructions carefully before proceeding.</h3>
 
-                <p><span class="bigRed">Travel Information - must be submitted by 5:00 PM EDT (GMT/UTC -4) on Wednesday, March 26, 2008 (we appreciate a quick response)</span></p>
+                <p><h4><span class="bigRed">Travel Information - must be submitted by 5:00 PM EDT (GMT/UTC -4) on Wednesday, March 26, 2008 (we appreciate a quick response)</span></h4></p>
 
 <p>
     <strong><u>HOTEL INFORMATION:</u></strong><br />
@@ -42,7 +41,7 @@
     702-791-7111<br />
 </p>
 
-<p>A hotel room will be confirmed for your arrival on Sunday, May 11 or Monday, May 12 and departure on May 15 or May 16, 2008.</p>
+<p>A hotel room will be confirmed for your arrival on Sunday, May 11 or Monday, May 12 and departure on Thursday, May 15 or Friday, May 16, 2008.</p>
 May 11, 2008 arrivals:
 <ul>
 <li>Component Design Competitors</li>
@@ -54,6 +53,7 @@ May 12, 2008 arrivals:
 <li>Algorithm Competitors</li>
 <li>Component Development Competitors</li>
 <li>Review Board Members</li>
+    <li>Digital Run winners</li>
 </ul>
 <p>
 The check-in time is 3:00PM and check out time is 11:00AM. If you have any special requests, please indicate them on
@@ -69,7 +69,7 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
 <strong><u>AIRLINE INFORMATION:</u></strong>
 
 <p>As soon as you send in this form, TopCoder will secure airline reservations based upon your registration information
-    and will email a travel itinerary to you by Friday, May 2, 2008. Please be advised that once airlines tickets are
+    and will email a travel itinerary to you by Friday, May 2, 2008. Please be advised that once airline tickets are
     confirmed, any changes are subject to penalty fees at your own expense.</p>
 
 <p>TopCoder will provide air travel arrangements for each competitor. The flight reserved by and paid for by TopCoder is

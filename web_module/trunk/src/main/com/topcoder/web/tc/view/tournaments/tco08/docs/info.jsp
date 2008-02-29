@@ -1,9 +1,8 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ page import="com.topcoder.web.common.model.EventType" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>2008 TopCoder Open - Computer Programming Tournament</title>
@@ -22,7 +21,7 @@
     <jsp:include page="../nav.jsp" >
     <jsp:param name="tabLev1" value="overview"/>
     <jsp:param name="tabLev2" value="joinus"/>
-    <jsp:param name="tabLev3" value=""/>
+    <jsp:param name="tabLev3" value=""/>p
     </jsp:include>
 
 
@@ -33,7 +32,7 @@
                 <h3>Please read all instructions carefully before proceeding.</h3>
 
                 <p>
-                    Congratulations on your performance in the 2008 TopCoder&#174; Open.
+                    Congratulations on your performance in the 2008 TopCoder Open.
                 </p>
                 
                 <p><strong>To be completed by 5:00PM EDT (GMT/UTC -4) Wednesday, March 26, 2008:</strong></p>
@@ -47,17 +46,17 @@
                     </li>
                     <li>
                         <p><strong>Confirmation of attendance/proof of travel documents</strong> - Please email <a href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</a>
-                            to confirm your attendance onsite. For anyone that has advanced as a finalist in 
-                            more than one competition, please note which competition you will compete in onsite. If you require a passport
-                            and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the
-                            necessary documents.
+                            to confirm your attendance onsite. If you have advanced as a finalist in more than one competition, please note in your
+                            confirmation if you will compete in both and please choose which competition you will compete in if the two competitions
+                            overlap onsite. If you require a passport and/or visa to visit the United States, you must show proof of your documents
+                            via a scanned copy of the necessary documents.  This proof can be emailed.
                 
                         </p>
                     </li>
                     <li>
                         <p>
                             <strong>QUESTIONNAIRE</strong> - View the <a href="/tc?module=ViewSurvey&amp;sid=22020">2008
-                            TopCoder Open Questionnaire</a>. NOTE: All questions are mandatoryand may be included in the 2008 TCO Program or
+                            TopCoder Open Questionnaire</a>. NOTE: All questions are mandatory and may be included in the 2008 TCO Program or
                             used in onsite introductions, at TopCoder's sole discretion.
                         </p>
                     </li>
