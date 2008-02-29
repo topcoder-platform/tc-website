@@ -121,7 +121,6 @@
         <mapping resource="com/topcoder/web/openaim/model/SubmissionStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/openaim/model/SubmissionType.hbm.xml"/>
 
-<!--
         <mapping resource="com/topcoder/web/common/voting/Candidate.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/CandidateInfo.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/CandidateProperty.hbm.xml"/>
@@ -129,7 +128,6 @@
         <mapping resource="com/topcoder/web/common/voting/ElectionStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/RankBallot.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/Vote.hbm.xml"/>
--->
 
         <mapping class="com.topcoder.web.common.model.educ.Professor"/>
         <mapping class="com.topcoder.web.common.model.educ.ProfessorStatus"/>
