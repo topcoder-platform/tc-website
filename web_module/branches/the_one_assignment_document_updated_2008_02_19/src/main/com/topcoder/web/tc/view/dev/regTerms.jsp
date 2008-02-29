@@ -152,7 +152,7 @@
                      Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
                      </span><br><br>
                     <% }%>
-                    <c:if test="${not empty has_global_ad and not has_global_ad}"></c:if>
+                    <c:if test="${not empty has_global_ad and not has_global_ad}">
                         <span class="errorText">
                          You have not yet signed the Assignment Document that is required in order to submit for this contest.  Please go <a href="">here</a> to read more about Assignment Documents and what you need to do.  You will not be able to submit for this contest without first sending in the signed Assignment Document.
                          </span><br><br>
