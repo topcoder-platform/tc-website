@@ -45,7 +45,7 @@
             <div class="sub_content">
                 <h3>Please read all instructions carefully before proceeding.</h3>
 
-                <p><h4><span class="bigRed">Travel Information - must be submitted by 5:00 PM EDT (GMT/UTC -4) on Wednesday, March 26, 2008 (we appreciate a quick response)</span></h4></p>
+                <h4><span class="bigRed">Travel Information - must be submitted by 5:00 PM EDT (GMT/UTC -4) on Wednesday, March 26, 2008 (we appreciate a quick response)</span></h4>
 
 <p>
     <strong><u>HOTEL INFORMATION:</u></strong><br />
