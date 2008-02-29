@@ -56,6 +56,11 @@
                         <!-- resulting page from click has value at the end of the URL, which is pointless.  Feel free to use any html/js element/method but i want the nice looking button -->
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
                     <br/></tc-webtag:errorIterator></span>
+                        <c:if test="${not empty has_global_ad and not has_global_ad}">
+                            <span class="bigRed">
+                                 You have not yet signed the Assignment Document that is required in order to submit for this contest.  Please go <a href="/?module=Static&d1=support&d2=assignmentDocFaq">here</a> to read more about Assignment Documents and what you need to do.  You will not be able to submit for this contest without first sending in the signed Assignment Document.
+                            <br/></span>
+                        </c:if>
                         <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>"/>I agree
                         <br /><br />
                         <input type="image" src="/i/v2/interface/btnSubmit.png" />
