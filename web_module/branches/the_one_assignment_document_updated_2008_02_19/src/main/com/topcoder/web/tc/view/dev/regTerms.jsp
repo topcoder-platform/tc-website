@@ -2,6 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% List questionInfo = (List) request.getAttribute("questionInfo");
    int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue();
 %>
@@ -151,6 +152,11 @@
                      Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
                      </span><br><br>
                     <% }%>
+                    <c:if test="${not empty has_global_ad and not has_global_ad}"></c:if>
+                        <span class="errorText">
+                         You have not yet signed the Assignment Document that is required in order to submit for this contest.  Please go <a href="">here</a> to read more about Assignment Documents and what you need to do.  You will not be able to submit for this contest without first sending in the signed Assignment Document.
+                         </span><br><br>
+                    </c:if>
                     <span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
                         <br/></tc-webtag:errorIterator></span>
 
