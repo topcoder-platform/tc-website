@@ -59,7 +59,7 @@ Div2 competitors confronted easy level 1 and level 2 problems but a very tough l
 In Div1 more than 20 competitors solved all three problems successfully. <tc-webtag:handle coderId="22629574" context="algorithm"/> got his first SRM win by a small gap of less than 4 points, followed by <tc-webtag:handle coderId="14946025" context="algorithm"/> and <tc-webtag:handle coderId="272072" context="algorithm"/>. They all got their places mostly thanks to their fast 1000 points solutions.
 </p>
 <p>
-In Div2 nobody solved all three problems just like the previous SRM due to the tough level 3 problem. <tc-webtag:handle coderId="22682913" context="algorithm"/> won with a very high score for level 1 and 2 problems and a plus of 100 points in challenge phase. <tc-webtag:handle coderId="22674888" context="algorithm"/> got the second place with a 200 points plus in challenge phase and <tc-webtag:handle coderId="22682913" context="algorithm"/> got the third place with 100 points plus in challenge phase.
+In Div2 nobody solved all three problems just like the previous SRM due to the tough level 3 problem. <tc-webtag:handle coderId="22682913" context="algorithm"/> won with a very high score for level 1 and 2 problems and a plus of 100 points in challenge phase. <tc-webtag:handle coderId="22674888" context="algorithm"/> got the second place with a 200 points plus in challenge phase and <tc-webtag:handle coderId="20056044" context="algorithm"/> got the third place with 100 points plus in challenge phase.
 </p>
  
  
