@@ -45,8 +45,10 @@
             
             <div class="sub_content">
                 <h3>Please read all instructions carefully before proceeding.</h3>
-
+                
+                <br />
                 <h4><span class="bigRed">Travel Information - must be submitted by 5:00 PM EDT (GMT/UTC -4) on Wednesday, March 26, 2008 (we appreciate a quick response)</span></h4>
+                <br />
 
 <p>
     <strong><u>HOTEL INFORMATION:</u></strong><br />
@@ -152,19 +154,19 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
 </tr>
 <tr>
     <td class="sidebarText" align="right"><input type="hidden" name="q36" value="Emergency contact Name"/>Name:</td>
-    <td class="sidebarText" align="left"><input type="text" name="a36" size="30"/><br /></td>
+    <td class="sidebarText" align="left"><input type="text" name="a36" size="40"/><br /></td>
 </tr>
 
 <tr>
     <td class="sidebarText" align="right"><input type="hidden" name="q37" value="Emergency contact Phone"/>Phone:</td>
-    <td class="sidebarText" align="left"><input type="text" name="a37" size="15"/></td>
+    <td class="sidebarText" align="left"><input type="text" name="a37" size="20"/></td>
 </tr>
 
 <tr>
     <td class="sidebarText" align="right"><input type="hidden" name="q38" value="Emergency contact Relationship"/>
         Relationship:
     </td>
-    <td class="sidebarText" align="left"><input type="text" name="a38" size="30"/></td>
+    <td class="sidebarText" align="left"><input type="text" name="a38" size="40"/></td>
 </tr>
 
 <tr>
@@ -179,17 +181,17 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
 
 <tr>
     <td class="sidebarText" align="right"><input type="hidden" name="q39" value="Newspapers"/>Newspapers:</td>
-    <td class="sidebarText" align="left"><input type="text" name="a39" size="50"/></td>
+    <td class="sidebarText" align="left"><input type="text" name="a39" size="40"/></td>
 </tr>
 
 <tr>
     <td class="sidebarText" align="right"><input type="hidden" name="q40" value="Radio"/>Radio:</td>
-    <td class="sidebarText" align="left"><input type="text" name="a40" size="50"/></td>
+    <td class="sidebarText" align="left"><input type="text" name="a40" size="40"/></td>
 </tr>
 
 <tr>
     <td class="sidebarText" align="right"><input type="hidden" name="q41" value="TV"/>TV:</td>
-    <td class="sidebarText" align="left"><input type="text" name="a41" size="50"/></td>
+    <td class="sidebarText" align="left"><input type="text" name="a41" size="40"/></td>
 </tr>
 
 <tr>
@@ -199,7 +201,7 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
     <td class="sidebarText" align="right"><input type="hidden" name="q42" value="Departure City/Airport"/>Departure
         City/Airport:
     </td>
-    <td class="sidebarText" align="left"><input type="text" name="a42" size="50"/></td>
+    <td class="sidebarText" align="left"><input type="text" name="a42" size="40"/></td>
 </tr>
 
 <tr>
@@ -261,7 +263,7 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
 </tr>
 <tr>
     <td class="sidebarText" align="right" colspan="2">
-        <textarea cols="80" rows="10" name="a49"></textarea>
+        <textarea cols="70" rows="10" name="a49"></textarea>
     </td>
 </tr>
 
@@ -274,7 +276,7 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
 </tr>
 <tr>
     <td class="valueC" colspan="2">
-        <textarea cols="50" rows="10" name="a143"></textarea>
+        <textarea cols="70" rows="10" name="a143"></textarea>
     </td>
 </tr>
 
