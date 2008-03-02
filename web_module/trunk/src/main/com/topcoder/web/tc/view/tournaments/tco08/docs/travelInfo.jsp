@@ -262,12 +262,23 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
     </td>
 </tr>
 <tr>
-    <td class="sidebarText" align="right" colspan="2">
+    <td class="sidebarText" align="center" colspan="2">
         <textarea cols="70" rows="10" name="a49"></textarea>
     </td>
 </tr>
 
-
+<tr>
+    <td class="sidebarText" align="center" colspan="2">
+        <input type="hidden" name="q143" value="Meals Considerations"/>
+        If you have any special considerations regarding meals or need special assistance, please note that here:
+    </td>
+</tr>
+<tr>
+    <td class="sidebarText" align="center" colspan="2">
+        <textarea cols="70" rows="10" name="a143"></textarea>
+    </td>
+</tr>
+<%--
 <tr>
     <td class="value" align="center" colspan="2">
         <input type="hidden" name="q143" value="Meals Considerations"/>
@@ -279,6 +290,7 @@ At the TCO08, all competitors (with exception of the Review Board) will be shari
         <textarea cols="70" rows="10" name="a143"></textarea>
     </td>
 </tr>
+--%>
 
 
 <tr>
