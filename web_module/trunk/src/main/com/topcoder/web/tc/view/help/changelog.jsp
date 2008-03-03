@@ -48,6 +48,7 @@
     5.14.6 - 2008.02.xx
 <ul>
     <li>Fix bug in registration process where downloading the resume would make it impossible to save your changes -dok</li>
+    <li>Fix bug in TCO08 studio leaderboard where it was counting the top 5 submissions rather than 6 -pulky</li>
 </ul>
 </p>
 
