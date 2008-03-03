@@ -69,9 +69,10 @@
 
             <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
             <c:set value="<%=RegistrationType.TEACHER_ID%>" var="teacherType"/>
+            <c:set value="<%=RegistrationType.OPENAIM_ID%>" var="openAIM"/>
             <% int i = 0;%>
             <c:forEach items="${registrationTypeList}" var="type">
-                <c:if test="${(type.id==teacherType && !isNewReg) || type.id!=teacherType}">
+                <c:if test="${type.id!=openAIM && ((type.id==teacherType && !isNewReg) || type.id!=teacherType)}">
                     <c:set value="${regType}${type.id}" var="regTypeKey"/>
                     <c:choose>
                         <c:when test="${requestScope[defaults][regTypeKey]==null}">
