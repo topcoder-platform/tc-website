@@ -11,7 +11,7 @@
     <property name="war_dir" value="${build}/wars"/>
     <property name="techassess_war_dir" value="${jboss_home}/server/default/deploy/techassess.war/"/>
 
-    <target name="jar-classes" depends="">
+    <target name="jar-classes" >
         <jar destfile="./lib/bin/classes.jar" update="true">
             <fileset dir="./build/classes">
                 <include name="**"/>
@@ -19,7 +19,7 @@
         </jar>
     </target>
 
-    <target name="package-topcoder" depends="">
+    <target name="package-topcoder" >
 
         <!--
                 <delete dir="src"/>
@@ -82,7 +82,7 @@
 
     </target>
 
-    <target name="package-techassess" depends="">
+    <target name="package-techassess" >
         <!--
                 <delete dir="src"/>
                 <delete dir="resources"/>
@@ -131,7 +131,7 @@
         <delete dir="${tempMoveDir}"/>
     </target>
 
-    <target name="package-software" depends="">
+    <target name="package-software" >
         <cvs command="update -Pd"/>
         <exec dir="../shared" executable="cvs">
             <arg line="update -dP"/>
@@ -173,7 +173,7 @@
         </jar>
     </target>
 
-    <target name="package-forums-full" depends="">
+    <target name="package-forums-full" >
         <antcall target="package-forums"/>
         <ant antfile="build_forums.xml" target="build-security"/>
 
@@ -186,7 +186,7 @@
         </jar>
     </target>
 
-    <target name="package-forums" depends="">
+    <target name="package-forums" >
         <!--
                 <delete dir="src"/>
         -->
@@ -233,7 +233,7 @@
         </jar>
     </target>
 
-    <target name="package-studio" depends="">
+    <target name="package-studio" >
 
         <delete dir="build"/>
         <delete file="studio.jar"/>
@@ -273,7 +273,49 @@
 
     </target>
 
-    <target name="package-csf" depends="">
+
+    <target name="package-openaim" >
+
+        <delete dir="build"/>
+        <delete file="openaim.jar"/>
+
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
+        <cvs command="update -Pd" package="build_openaim.xml"/>
+        <cvs command="update -Pd" package="build_tc.xml"/>
+
+        <exec dir="../" executable="cvs">
+            <arg line="checkout shared"/>
+        </exec>
+
+        <exec dir="../" executable="cvs">
+            <arg line="checkout external-artifacts"/>
+        </exec>
+
+
+        <ant antfile="build_openaim.xml" target="deploy"/>
+        <ant antfile="build_openaim.xml" target="build-security"/>
+
+        <jar destfile="openaim.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/*.jar"/>
+                <include name="build/wars/*.war"/>
+                <include name="build/ears/*.ear"/>
+                <include name="resources/openaim/**"/>
+                <include name="resources/forums/filter/**"/>
+                <include name="resources/longcontest/**"/>
+                <include name="resources/OpenAIM.properties"/>
+                <include name="move.xml"/>
+                <include name="build_openaim.xml"/>
+                <include name="lib/bin/*.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
+
+
+    <target name="package-csf" >
 
         <delete dir="build"/>
         <delete file="csf.jar"/>
@@ -313,7 +355,7 @@
     </target>
 
 
-    <target name="deploy-techassess" depends="">
+    <target name="deploy-techassess" >
         <!-- create backup -->
         <tstamp/>
         <property name="backupDirectory" value="backup/techassess/${DSTAMP}-${TSTAMP}"/>
@@ -359,7 +401,7 @@
 
 
 
-        <target name="package-oracle" depends="">
+        <target name="package-oracle" >
 
         <delete dir="build"/>
         <delete file="oracle.jar"/>
