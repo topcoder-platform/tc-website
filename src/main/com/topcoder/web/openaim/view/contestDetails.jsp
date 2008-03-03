@@ -275,7 +275,7 @@ All submissions are required to be submitted by the End Date.
             </div>
         </div>
 
-        <jsp:include page="foot.jsp"/>
+        <jsp:include page="tcFoot.jsp"/>
 
     </div>
 </body>
