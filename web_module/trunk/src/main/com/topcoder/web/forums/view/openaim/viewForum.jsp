@@ -80,7 +80,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder OpenAIM</title>
+    <title>TopCoder :: OpenAIM Contest</title>
 
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_openaim_forums"/>
@@ -88,21 +88,20 @@
 </head>
 
 <body>
-    <!-- wrapper -->
-    <div id="wrapper">
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="top.jsp"/>
-            <jsp:include page="topNav.jsp">
-                <jsp:param name="node" value="forums"/>
-            </jsp:include>
-        </div>
-        <!-- container -->
-        <div id="container">
-            <!-- content -->
-            <div id="content">
-                <div class="contentTop">
-                    <div class="contentMiddle">
+
+<jsp:include page="tcTop.jsp"/>
+
+<div align="center">
+    <div id="aimFrame">
+        <div id="aimFrameN">
+            <div id="aimFrameS">
+
+                <jsp:include page="openaimTop.jsp"/>
+
+                <div class="content" align="right">
+                    <div class="contentTexture">
+                        <jsp:include page="topNav.jsp"/>
+                        <div class="siteBoxFull">
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
@@ -278,15 +277,17 @@
 
 
 
-                        <br clear="all"/>
-                    </div>                
-                    <div class="contentBottom"></div>
+                        </div>
+                        <div style="clear: both;">&nbsp;</div>
+                    </div>
                 </div>
+
             </div>
         </div>
-
-        <jsp:include page="foot.jsp"/>
-
     </div>
+</div>
+
+<jsp:include page="tcFoot.jsp"/>
+
 </body>
 </html>
