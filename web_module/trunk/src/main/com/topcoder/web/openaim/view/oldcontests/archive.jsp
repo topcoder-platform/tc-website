@@ -8,7 +8,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder OpenAIM</title>
+    <title>TopCoder :: OpenAIM Contest</title>
 
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_openaim"/>
@@ -20,7 +20,7 @@
     <div id="wrapper">
         <!-- header -->
         <div id="header">
-            <jsp:include page="../top.jsp"/>
+            <jsp:include page="../tcTop.jsp"/>
             <jsp:include page="../topNav.jsp">
                 <jsp:param name="node" value="contests"/>
             </jsp:include>

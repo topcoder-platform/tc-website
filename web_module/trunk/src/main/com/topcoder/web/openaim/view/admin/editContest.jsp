@@ -15,7 +15,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder OpenAIM</title>
+    <title>TopCoder :: OpenAIM Contest</title>
     <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
@@ -32,7 +32,7 @@
     <div id="wrapper">
         <!-- header -->
         <div id="header">
-            <jsp:include page="../top.jsp"/>
+            <jsp:include page="../tcTop.jsp"/>
             <jsp:include page="../topNav.jsp">
                 <jsp:param name="node" value="contests"/>
             </jsp:include>
