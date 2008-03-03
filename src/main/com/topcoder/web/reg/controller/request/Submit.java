@@ -111,10 +111,11 @@ public class Submit extends Base {
                     RegistrationType min = dao.getMinimalType();
                     RegistrationType studio = dao.getStudioType();
                     RegistrationType teacher = dao.getTeacherType();
+                    RegistrationType openAIM = dao.getOpenAIMType();
 
                     closeConversation();
                     try {
-                        sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min, studio, teacher);
+                        sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min, studio, teacher, openAIM);
                     } catch (Exception e) {
                         //we don't want whatever happened to affect the registration.
                         e.printStackTrace();
@@ -231,7 +232,7 @@ public class Submit extends Base {
 
     private void sendEmail(String activationCode, String email, Set regTypes, RegistrationType comp,
                            RegistrationType tcs, RegistrationType hs, RegistrationType corp,
-                           RegistrationType min, RegistrationType studio, RegistrationType teacher) throws Exception {
+                           RegistrationType min, RegistrationType studio, RegistrationType teacher, RegistrationType openAIM) throws Exception {
 
 
         TCSEmailMessage mail = new TCSEmailMessage();
