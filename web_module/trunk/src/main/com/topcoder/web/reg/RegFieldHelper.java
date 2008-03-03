@@ -9,7 +9,6 @@ import com.topcoder.web.common.model.User;
 
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -28,6 +27,7 @@ public class RegFieldHelper {
     private static Set<String> mainSoftwareFields = new HashSet<String>();
     private static Set<String> mainStudioFields = new HashSet<String>();
     private static Set<String> mainTeacherFields = new HashSet<String>();
+    private static Set<String> mainOpenAIMFields = new HashSet<String>();
 
     private static Set<String> secondaryHSFields = new HashSet<String>();
     private static Set<String> secondaryCompStudentFields = new HashSet<String>();
@@ -38,6 +38,8 @@ public class RegFieldHelper {
     private static Set<String> secondaryStudioStudentFields = new HashSet<String>();
     private static Set<String> secondaryStudioProFields = new HashSet<String>();
     private static Set<String> secondaryTeacherFields = new HashSet<String>();
+    private static Set<String> secondaryOpenAIMStudentFields = new HashSet<String>();
+    private static Set<String> secondaryOpenAIMProFields = new HashSet<String>();
 
     private static Set<String> requiredMainHSFields = new HashSet<String>();
     private static Set<String> requiredMainCompFields = new HashSet<String>();
@@ -46,6 +48,7 @@ public class RegFieldHelper {
     private static Set<String> requiredMainSoftwareFields = new HashSet<String>();
     private static Set<String> requiredMainStudioFields = new HashSet<String>();
     private static Set<String> requiredMainTeacherFields = new HashSet<String>();
+    private static Set<String> requiredMainOpenAIMFields = new HashSet<String>();
 
     private static Set<String> requiredSecondaryHSFields = new HashSet<String>();
     private static Set<String> requiredSecondaryCompStudentFields = new HashSet<String>();
@@ -56,6 +59,8 @@ public class RegFieldHelper {
     private static Set<String> requiredSecondaryStudioStudentFields = new HashSet<String>();
     private static Set<String> requiredSecondaryStudioProFields = new HashSet<String>();
     private static Set<String> requiredSecondaryTeacherFields = new HashSet<String>();
+    private static Set<String> requiredSecondaryOpenAIMStudentFields = new HashSet<String>();
+    private static Set<String> requiredSecondaryOpenAIMProFields = new HashSet<String>();
 
 
     static {
@@ -426,6 +431,83 @@ public class RegFieldHelper {
     }
 
 
+    static {
+        mainOpenAIMFields.add(Constants.GIVEN_NAME);
+        mainOpenAIMFields.add(Constants.SURNAME);
+        mainOpenAIMFields.add(Constants.ADDRESS1);
+        mainOpenAIMFields.add(Constants.ADDRESS2);
+        mainOpenAIMFields.add(Constants.ADDRESS3);
+        mainOpenAIMFields.add(Constants.CITY);
+        mainOpenAIMFields.add(Constants.STATE_CODE);
+        mainOpenAIMFields.add(Constants.POSTAL_CODE);
+        mainOpenAIMFields.add(Constants.PROVINCE);
+        mainOpenAIMFields.add(Constants.COUNTRY_CODE);
+        mainOpenAIMFields.add(Constants.PHONE_NUMBER);
+        mainOpenAIMFields.add(Constants.HANDLE);
+        mainOpenAIMFields.add(Constants.PASSWORD);
+        mainOpenAIMFields.add(Constants.PASSWORD_CONFIRM);
+        mainOpenAIMFields.add(Constants.SECRET_QUESTION);
+        mainOpenAIMFields.add(Constants.SECRET_QUESTION_RESPONSE);
+        mainOpenAIMFields.add(Constants.EMAIL);
+        mainOpenAIMFields.add(Constants.EMAIL_CONFIRM);
+        mainOpenAIMFields.add(Constants.NOTIFICATION);
+        mainOpenAIMFields.add(Constants.COMP_COUNTRY_CODE);
+        mainOpenAIMFields.add(Constants.CODER_TYPE);
+        mainOpenAIMFields.add(Constants.TIMEZONE);
+
+        requiredMainOpenAIMFields.add(Constants.GIVEN_NAME);
+        requiredMainOpenAIMFields.add(Constants.SURNAME);
+        requiredMainOpenAIMFields.add(Constants.ADDRESS1);
+        requiredMainOpenAIMFields.add(Constants.CITY);
+        requiredMainOpenAIMFields.add(Constants.COUNTRY_CODE);
+        requiredMainOpenAIMFields.add(Constants.HANDLE);
+        requiredMainOpenAIMFields.add(Constants.PASSWORD);
+        requiredMainOpenAIMFields.add(Constants.PASSWORD_CONFIRM);
+        requiredMainOpenAIMFields.add(Constants.SECRET_QUESTION);
+        requiredMainOpenAIMFields.add(Constants.SECRET_QUESTION_RESPONSE);
+        requiredMainOpenAIMFields.add(Constants.EMAIL);
+        requiredMainOpenAIMFields.add(Constants.EMAIL_CONFIRM);
+        requiredMainOpenAIMFields.add(Constants.COMP_COUNTRY_CODE);
+        requiredMainOpenAIMFields.add(Constants.CODER_TYPE);
+        requiredMainOpenAIMFields.add(Constants.TIMEZONE);
+
+        secondaryOpenAIMStudentFields.add(Constants.DEMOG_PREFIX);
+        secondaryOpenAIMStudentFields.add(Constants.VISIBLE_SCHOOL);
+        secondaryOpenAIMStudentFields.add(Constants.SCHOOL_NAME);
+        secondaryOpenAIMStudentFields.add(Constants.SCHOOL_CITY);
+        secondaryOpenAIMStudentFields.add(Constants.SCHOOL_ID);
+        secondaryOpenAIMStudentFields.add(Constants.SCHOOL_PROVINCE);
+        secondaryOpenAIMStudentFields.add(Constants.SCHOOL_STATE);
+        secondaryOpenAIMStudentFields.add(Constants.SCHOOL_COUNTRY);
+        secondaryOpenAIMStudentFields.add(Constants.SCHOOL_TYPE);
+        secondaryOpenAIMStudentFields.add(Constants.REFERRAL);
+        secondaryOpenAIMStudentFields.add(Constants.REFERRAL_CODER);
+        secondaryOpenAIMStudentFields.add(Constants.REFERRAL_OTHER);
+
+
+        requiredSecondaryOpenAIMStudentFields.add(Constants.VISIBLE_SCHOOL);
+        requiredSecondaryOpenAIMStudentFields.add(Constants.SCHOOL_NAME);
+        requiredSecondaryOpenAIMStudentFields.add(Constants.SCHOOL_CITY);
+        requiredSecondaryOpenAIMStudentFields.add(Constants.SCHOOL_ID);
+        requiredSecondaryOpenAIMStudentFields.add(Constants.SCHOOL_COUNTRY);
+        requiredSecondaryOpenAIMStudentFields.add(Constants.SCHOOL_TYPE);
+        requiredSecondaryOpenAIMStudentFields.add(Constants.REFERRAL);
+
+        secondaryOpenAIMProFields.add(Constants.DEMOG_PREFIX);
+        secondaryOpenAIMProFields.add(Constants.TITLE);
+        secondaryOpenAIMProFields.add(Constants.COMPANY_NAME);
+        secondaryOpenAIMProFields.add(Constants.REFERRAL);
+        secondaryOpenAIMProFields.add(Constants.REFERRAL_CODER);
+        secondaryOpenAIMProFields.add(Constants.REFERRAL_OTHER);
+
+        requiredSecondaryOpenAIMProFields.add(Constants.TITLE);
+        requiredSecondaryOpenAIMProFields.add(Constants.COMPANY_NAME);
+        requiredSecondaryOpenAIMProFields.add(Constants.REFERRAL);
+
+
+    }
+
+
     /**
      * Figure out what registration fields are relevant for the given set of registration types
      * and whether or not they're updating information, or creating it.
@@ -531,6 +613,13 @@ public class RegFieldHelper {
                         ret.addAll(mainTeacherFields);
                         //ret.add(Constants.PHOTO);
                     }
+                } else if (curr.getId().equals(RegistrationType.OPENAIM_ID)) {
+                    if (required) {
+                        ret.addAll(requiredMainOpenAIMFields);
+                    } else {
+                        ret.addAll(mainOpenAIMFields);
+                        ret.add(Constants.PHOTO);
+                    }
                 }
             } else if (regTypes.contains(curr) && !currentTypes.contains(curr)) {
                 //the user creating a registration for the specified type
@@ -577,6 +666,12 @@ public class RegFieldHelper {
                     } else {
                         ret.addAll(mainTeacherFields);
                     }
+                } else if (curr.getId().equals(RegistrationType.OPENAIM_ID)) {
+                    if (required) {
+                        ret.addAll(requiredMainOpenAIMFields);
+                    } else {
+                        ret.addAll(mainOpenAIMFields);
+                    }
                 }
             }
         }
@@ -593,7 +688,7 @@ public class RegFieldHelper {
     /**
      * @param regTypes the reg types the user is registering for
      * @param user     the user
-     * @param required whether or not the caller wants to return the list of required fields or the list of all fields
+     * @param required whether or not the call222er wants to return the list of required fields or the list of all fields
      * @return the fields
      */
     private static Set<String> getSecondaryFieldSet(Set regTypes, User user, boolean required) {
@@ -602,13 +697,11 @@ public class RegFieldHelper {
 
         RegistrationTypeDAO dao = DAOUtil.getFactory().getRegistrationTypeDAO();
 
-        List allRegTypes = dao.getRegistrationTypes();
+        List<RegistrationType> allRegTypes = dao.getRegistrationTypes();
         RegistrationType corp = dao.getCorporateType();
         RegistrationType tcs = dao.getSoftwareType();
-        RegistrationType curr;
         CoderType ct;
-        for (Iterator it = allRegTypes.iterator(); it.hasNext();) {
-            curr = (RegistrationType) it.next();
+        for (RegistrationType curr : allRegTypes) {
             if (regTypes.contains(curr) && currentTypes.contains(curr)) {
                 //must be an update
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
@@ -665,7 +758,7 @@ public class RegFieldHelper {
                         if (required) {
                             ret.addAll(requiredSecondaryStudioProFields);
                         } else {
-                            ret.addAll(secondaryCompProFields);
+                            ret.addAll(secondaryStudioProFields);
                         }
                         if (regTypes.contains(corp) || regTypes.contains(tcs)) {
                             //remove these because if they are registering for competitions as a pro
@@ -676,9 +769,9 @@ public class RegFieldHelper {
                     } else
                     if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT))) {
                         if (required) {
-                            ret.addAll(requiredSecondaryCompStudentFields);
+                            ret.addAll(requiredSecondaryStudioStudentFields);
                         } else {
-                            ret.addAll(secondaryCompStudentFields);
+                            ret.addAll(secondaryStudioStudentFields);
                         }
                     } else {
                         throw new RuntimeException("Invalid coder type " + user.getCoder().getCoderType().getId());
@@ -688,6 +781,29 @@ public class RegFieldHelper {
                         ret.addAll(requiredSecondaryTeacherFields);
                     } else {
                         ret.addAll(secondaryTeacherFields);
+                    }
+                } else if (curr.getId().equals(RegistrationType.OPENAIM_ID)) {
+                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL))) {
+                        if (required) {
+                            ret.addAll(requiredSecondaryOpenAIMProFields);
+                        } else {
+                            ret.addAll(secondaryOpenAIMProFields);
+                        }
+                        if (regTypes.contains(corp) || regTypes.contains(tcs)) {
+                            //remove these because if they are registering for competitions as a pro
+                            //and they are corporate, they answered these questions on the first page already
+                            ret.remove(Constants.COMPANY_NAME);
+                            ret.remove(Constants.TITLE);
+                        }
+                    } else
+                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT))) {
+                        if (required) {
+                            ret.addAll(requiredSecondaryOpenAIMStudentFields);
+                        } else {
+                            ret.addAll(secondaryOpenAIMStudentFields);
+                        }
+                    } else {
+                        throw new RuntimeException("Invalid coder type " + user.getCoder().getCoderType().getId());
                     }
                 }
 
@@ -778,6 +894,34 @@ public class RegFieldHelper {
                     } else {
                         ret.addAll(secondaryTeacherFields);
                     }
+                } else if (curr.getId().equals(RegistrationType.OPENAIM_ID)) {
+                    ct = user.getCoder().getCoderType();
+                    if (ct == null) {
+                        throw new RuntimeException("User had no coder type");
+                    } else {
+                        if (ct.getId().equals(CoderType.PROFESSIONAL)) {
+                            if (required) {
+                                ret.addAll(requiredSecondaryOpenAIMProFields);
+                            } else {
+                                ret.addAll(secondaryOpenAIMProFields);
+                            }
+                            if (regTypes.contains(corp) || regTypes.contains(tcs)) {
+                                //remove these because if they are registering for competitions as a pro
+                                //and they are corporate, they answered these questions on the first page already
+                                ret.remove(Constants.COMPANY_NAME);
+                                ret.remove(Constants.TITLE);
+                            }
+                        } else if (ct.getId().equals(CoderType.STUDENT)) {
+                            if (required) {
+                                ret.addAll(requiredSecondaryOpenAIMStudentFields);
+                            } else {
+                                ret.addAll(secondaryOpenAIMStudentFields);
+                            }
+                        } else {
+                            throw new RuntimeException("Invalid coder type " + ct.getId());
+                        }
+                    }
+
                 }
             }
 
