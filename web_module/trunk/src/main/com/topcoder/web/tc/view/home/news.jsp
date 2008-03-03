@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.03.08<br />12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tco08?module=AlgorithmAdvancers">See Who Advanced from Algorithm Round 3 of the TCO08</a></span><br /><br />
+        The advancers from Algorithm Round 3 are now available. Congratulations to those who have advanced!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tco08?module=AlgorithmAdvancers">details</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.29.08<br />6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=schedule">TCO08 Algorithm Round 3</a></span><br /><br />
@@ -153,16 +167,3 @@
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.25.08<br />5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tco08?module=AlgorithmAdvancers">See Who Advanced from Algorithm Round 2 of the TCO08</a></span><br /><br />
-        The advancers from Algorithm Round 3 are now available. Congratulations to those who have advanced!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tco08?module=AlgorithmAdvancers">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
