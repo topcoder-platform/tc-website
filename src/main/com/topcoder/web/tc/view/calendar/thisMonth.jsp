@@ -96,6 +96,7 @@
          <div class="srm">
          <strong><a href="/tc?module=MatchDetails&amp;rd=11126">SRM 392</a></strong><br />
          <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=bt">BT</a><br />
+         $5,000<br />
          7:00 AM
          </div>
       </td>
