@@ -184,14 +184,14 @@
                     <a href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkBold"><img src="/i/v2/interface/btnAnnouncement.png" alt="" border="0"/> <%=announcement.getSubject()%>
                     </a></div>
             </td>
-            <td class="rtThreadCell"><openaim:handle coderId="<%=announcement.getUser().getID()%>"/></td>
+            <td class="rtThreadCell"><tc-webtag:handle coderId="<%=announcement.getUser().getID()%>"/></td>
             <td class="rtThreadCell">&nbsp;</td>
             <td class="rtThreadCell">&nbsp;</td>
             <td class="rtThreadCell">
                 <b><a href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkNew">
                     <tc-webtag:format object="${announcement.startDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a></b>
             </td>
-            <td class="rtThreadCell"><openaim:handle coderId="<%=announcement.getUser().getID()%>"/></td>
+            <td class="rtThreadCell"><tc-webtag:handle coderId="<%=announcement.getUser().getID()%>"/></td>
         </tr>
     </tc-webtag:iterator>
     <% } %>
@@ -244,7 +244,7 @@
                 <% } %>
                 <% } %></td>
             <% if (thread.getRootMessage().getUser() != null) { %>
-            <td class="rtThreadCell"><openaim:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
+            <td class="rtThreadCell"><tc-webtag:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
             <% } else { %>
             <td class="rtThreadCell">&nbsp;</td>
             <% } %>
@@ -255,7 +255,7 @@
                     <tc-webtag:format object="${thread.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a></b>
             </td>
             <% if (lastPost.getUser() != null) { %>
-            <td class="rtThreadCell"><openaim:handle coderId="<%=lastPost.getUser().getID()%>"/></td>
+            <td class="rtThreadCell"><tc-webtag:handle coderId="<%=lastPost.getUser().getID()%>"/></td>
             <% } else { %>
             <td class="rtThreadCell">&nbsp;</td>
             <% } %>

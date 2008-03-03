@@ -1,4 +1,4 @@
-<%@ page import="com.jivesoftware.base.JiveGlobals,
+<%@ page import="com.jivescoftware.base.JiveGlobals,
                  com.jivesoftware.forum.ForumMessage,
                  com.jivesoftware.forum.Query,
                  com.jivesoftware.forum.action.util.Page,
