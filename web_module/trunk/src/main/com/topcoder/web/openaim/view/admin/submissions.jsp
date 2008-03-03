@@ -124,7 +124,7 @@ Show submissions by (Enter Handle):
     <div class="container">
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
 <tbody>
-<tr><td class="title" colspan="12">Submissions</td></tr><tr>
+<tr><td class="title" colspan="11">Submissions</td></tr><tr>
     <td class="headerW">
         <div>&nbsp;</div>
     </td>
@@ -176,6 +176,7 @@ Show submissions by (Enter Handle):
             </c:otherwise>
         </c:choose>
     </td>
+        <%--
     <td class="headerC">
         <c:choose>
             <c:when test="${unMarkedOnly}">
@@ -186,6 +187,7 @@ Show submissions by (Enter Handle):
             </c:otherwise>
         </c:choose>
     </td>
+    --%>
     <td class="headerC">
         <c:choose>
             <c:when test="${unMarkedOnly}">
@@ -210,7 +212,7 @@ Show submissions by (Enter Handle):
 </tr>
 <% boolean even = true;%>
 <rsc:iterator list="<%=submissions%>" id="resultRow">
-    <tr><td class="space" colspan="12">&nbsp;</td></tr>
+    <tr><td class="space" colspan="11">&nbsp;</td></tr>
     <tr class="<%=even?"light":"dark"%>">
         <td class="valueW">
             <div>&nbsp;</div>
@@ -268,6 +270,7 @@ Show submissions by (Enter Handle):
                 </c:otherwise>
             </c:choose>
         </td>
+        <%--
         <td class="valueC">
             <c:choose>
                 <c:when test="${unMarkedOnly}">
@@ -278,6 +281,7 @@ Show submissions by (Enter Handle):
                 </c:otherwise>
             </c:choose>
         </td>
+        --%>
         <td class="valueC">
         <c:choose>
             <c:when test="${unMarkedOnly}">
