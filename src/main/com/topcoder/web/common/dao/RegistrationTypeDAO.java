@@ -29,5 +29,7 @@ public interface RegistrationTypeDAO {
 
     RegistrationType getTeacherType();
 
+    RegistrationType getOpenAIMType();
+
 
 }
