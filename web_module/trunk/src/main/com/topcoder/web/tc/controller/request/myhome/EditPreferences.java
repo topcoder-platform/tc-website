@@ -1,11 +1,5 @@
 package com.topcoder.web.tc.controller.request.myhome;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.web.common.PermissionException;
@@ -17,23 +11,28 @@ import com.topcoder.web.common.model.PreferenceGroup;
 import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.UserPreference;
-import com.topcoder.web.tc.Constants;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author pulky
- * @version $Revision$Date: 
+ * @version $Revision$Date:
  *          Create Date: Jun 08, 2007
  */
 public class EditPreferences extends ShortHibernateProcessor {
 
     protected void dbProcessing() throws Exception {
         boolean askHighSchool = false;
-        
+
         if (!userIdentified()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-        User u  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+        User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
         log.debug("group param: " + getRequest().getParameter("group"));
         PreferenceGroup group = DAOUtil.getFactory().getPreferenceGroupDAO().find(new Integer(Integer.parseInt(getRequest().getParameter("group"))));
         log.debug("PreferenceGroup: " + group.getDescription());
@@ -43,7 +42,8 @@ public class EditPreferences extends ShortHibernateProcessor {
         // for users with either competition or studio
         // this cannot be changed by high school users
         if ((u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getCompetitionType()) ||
-                u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getStudioType())) &&
+                u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getStudioType()) &&
+                        u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getOpenAIMType())) &&
                 !u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getHighSchoolType())
                 && u.getCoder().getCurrentSchool() != null) {
             log.debug("ask for showing high school");
@@ -79,7 +79,7 @@ public class EditPreferences extends ShortHibernateProcessor {
             }
         }
 
-        setDefault("group",  getRequest().getParameter("group"));
+        setDefault("group", getRequest().getParameter("group"));
         getRequest().setAttribute("preferenceList", preferenceList);
 
         if ("POST".equals(getRequest().getMethod())) {
@@ -94,7 +94,7 @@ public class EditPreferences extends ShortHibernateProcessor {
                 } else {
                     UserPreference up = new UserPreference();
                     up.setNew(true);
-                    up.setId(new UserPreference.Identifier(u,p));
+                    up.setId(new UserPreference.Identifier(u, p));
                     up.setValue(pref);
                     u.addUserPreference(up);
                 }
@@ -105,7 +105,7 @@ public class EditPreferences extends ShortHibernateProcessor {
                 if (showSchool == "") {
                     addError("err_show_school", "You must choose one of the options below");
                 }
-                u.getCoder().getCurrentSchool().setViewable("show".equals(showSchool));           
+                u.getCoder().getCurrentSchool().setViewable("show".equals(showSchool));
             }
             if (!hasErrors()) {
                 DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
@@ -120,7 +120,7 @@ public class EditPreferences extends ShortHibernateProcessor {
                 setNextPage("/my_home/index.jsp");
 //                setNextPage("/tc?" + Constants.MODULE_KEY + "=MyHome");
             } else {
-                setNextPage("/my_home/privacy.jsp");                
+                setNextPage("/my_home/privacy.jsp");
             }
         } else {
             setNextPage("/my_home/privacy.jsp");
