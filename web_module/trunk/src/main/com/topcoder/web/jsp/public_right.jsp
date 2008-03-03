@@ -33,12 +33,12 @@ function find(n) {
 <% } else if (level1.equals("branded")) { %>
 
     <div align="center">
-<%-- NSA --%>
+<%-- NSA 
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa"><img src="/i/tournament/tco08/right_nsa.png" alt="NSA" /></a>
-
-<%-- Lilly 
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly"><img src="/i/tournament/tco08/right_lilly.png" alt="Lilly" /></a>
 --%>
+<%-- Lilly --%>
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly"><img src="/i/tournament/tco08/right_lilly.png" alt="Lilly" /></a>
+
     </div>
 
 <%-- 2004 TCO begins --%>
