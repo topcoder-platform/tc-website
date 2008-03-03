@@ -208,7 +208,7 @@ Show submissions by (Enter Handle):
 </tr>
 <% boolean even = true;%>
 <rsc:iterator list="<%=submissions%>" id="resultRow">
-    <tr><td class="space" colspan="13">&nbsp;</td></tr>
+    <tr><td class="space" colspan="12">&nbsp;</td></tr>
     <tr class="<%=even?"light":"dark"%>">
         <td class="valueW">
             <div>&nbsp;</div>
@@ -286,6 +286,7 @@ Show submissions by (Enter Handle):
             </c:otherwise>
         </c:choose>
         </td>
+        <%--
         <c:if test="${currentTime>contest.endTime}">
             <td class="valueC">
                 <c:choose>
@@ -308,6 +309,7 @@ Show submissions by (Enter Handle):
                 </c:choose>
             </td>
         </c:if>
+        --%>
         <td class="valueE">
             <div>&nbsp;</div>
         </td>
