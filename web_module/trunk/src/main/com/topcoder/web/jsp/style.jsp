@@ -58,5 +58,5 @@
 <link type="text/css" rel="stylesheet" href="/css/ep/main.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <% } else if (key.equals("tc_openaim")) { %>
-<link type="text/css" rel="stylesheet" href="http://studio.topcoder.com/css/v2/main.css" />
+<link type="text/css" rel="stylesheet" href="/css/openaim/main.css" />
 <% } %>
