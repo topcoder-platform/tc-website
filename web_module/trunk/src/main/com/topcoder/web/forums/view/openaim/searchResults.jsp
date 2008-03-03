@@ -103,7 +103,7 @@
                     <a href="?module=Thread&threadID=<%=message.getForumThread().getID()%>" class="rtbcLink">(view
                         thread)</a></div></td>
             <td class="rtThreadCell"><%if (message.getUser() != null) {%>
-                <openaim:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
+                <tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
             <td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
             <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(message.getForumThread())%></td>
             <td class="rtThreadCell"><b><tc-webtag:format object="${result.message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b></td>

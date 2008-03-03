@@ -97,7 +97,7 @@
                         <% if (message.getParentMessage() != null) { %>
                         (response to
                         <a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</a><%if (message.getParentMessage().getUser() != null) {%>
-                        by <openaim:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
+                        by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
                         <% } %>
                     </td>
                 </tr>
@@ -108,7 +108,7 @@
                             <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
                             <br />
                             <% } %>
-                            <span class="bodyText"><%if (message.getUser() != null) {%><openaim:handle coderId="<%=message.getUser().getID()%>"/><%}%></span>
+                            <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span>
                             <br /><%if (message.getUser() != null) {%><a href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></a><%}%>
                         </div>
                     </td>
@@ -131,7 +131,7 @@
                     <% if (message.getParentMessage() != null) { %>
                     (response to
                     <a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</a><%if (message.getParentMessage().getUser() != null) {%>
-                    by <openaim:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
+                    by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
                     <% } %>
                 </a>
             </td>
@@ -143,7 +143,7 @@
                     <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
                     <br />
                     <% } %>
-                    <span class="bodyText"><%if (message.getUser() != null) {%><openaim:handle coderId="<%=message.getUser().getID()%>"/><%}%></span>
+                    <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span>
                     <br /><%if (message.getUser() != null) {%><a href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=forumFactory.getUserMessageCount(message.getUser())%>
                     posts</a><%}%>
                 </div>

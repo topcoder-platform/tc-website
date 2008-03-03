@@ -201,7 +201,7 @@
                                 <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
                                 <br />
                                 <% } %>
-                                <span class="bodyText"><openaim:handle coderId="<%=user.getID()%>"/></span><br />
+                                <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br />
                                 <a href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></a>
                             </div></td>
                             <td class="rtTextCell100">
@@ -254,7 +254,7 @@
                         <% if (message.getParentMessage() != null) { %>
                         (response to
                         <a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</a>
-                        by <openaim:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>)
+                        by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>)
                         <% } %>
                     </a></td></tr>
                     <%     if (message.getAttachmentCount() > 0) { %>
@@ -276,7 +276,7 @@
                             <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
                             <br />
                             <% } %>
-                            <span class="bodyText"><openaim:handle coderId="<%=message.getUser().getID()%>"/></span><br />
+                            <span class="bodyText"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></span><br />
                             <a href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></a>
                         </div></td>
                         <td class="rtTextCell100">
