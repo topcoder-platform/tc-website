@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<div style="clear:both;">
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tbody>
     <tr>
@@ -17,3 +18,4 @@
     <tr><td width="100%" class="copyright">Copyright &#169; 2001-2008, TopCoder, Inc. All rights reserved.</td></tr>
 </tbody>
 </table>
+</div>
