@@ -16,40 +16,51 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder :: OpenAIM Contest</title>
+
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_openaim"/>
     </jsp:include>
+
     <script type="text/javascript" src="/js/v2/popup.js"></script>
+
+    <script type="text/javascript">
+        function preloadTabs() {
+            var img = new Image();
+            img.src = '../i/events/openaim/tabs/registerOn.png';
+            img.src = '../i/events/openaim/tabs/submitOn.png';
+            img.src = '../i/events/openaim/tabs/apisOn.png';
+            img.src = '../i/events/openaim/tabs/discussOn.png';
+        }
+    </script>
+
 </head>
 
 <body>
-    <!-- wrapper -->
-    <div id="wrapper">
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="top.jsp"/>
-            <jsp:include page="topNav.jsp">
-                <jsp:param name="node" value="contests"/>
-            </jsp:include>
-        </div>
-        <!-- container -->
-        <div id="container">
-            <!-- content -->
-            <div id="content">
-                <div class="contentTop">
-                    <div class="contentMiddle">
+
+<jsp:include page="tcTop.jsp"/>
+
+<div align="center">
+    <div id="aimFrame">
+        <div id="aimFrameN">
+            <div id="aimFrameS">
+
+                <jsp:include page="openaimTop.jsp"/>
+
+                <div class="contentWithLeft" align="right">
+                    <div class="contentTexture">
+
+                        <jsp:include page="leftBox.jsp"/>
+
+                        <jsp:include page="topNav.jsp"/>
+
+                        <div class="siteBoxHalf">
 
 <h1>Active Contests</h1>
 
-<div align="right"><strong>Need help? Learn how to
-    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get
-        started</a>.<br />
-    Got <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">questions</a>?</strong>
-</div>
-
+<%--
 <div class="tableTabOn" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a></div>
 <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a></div>
-<br  clear="all"/>
+--%>
 
 <div class="statHolder">
     <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
@@ -57,7 +68,6 @@
     <div class="container">
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tbody>
-            <tr><td class="title" colspan="10">Active Contests</td></tr>
             <tr>
                 <td class="headerW">
                     <div>&nbsp;</div>
@@ -87,7 +97,6 @@
             </tr>
             <c:choose>
                 <c:when test="${fn:length(contests)==0}">
-                    <tr><td class="space" colspan="6">&nbsp;</td></tr>
                     <tr class="light">
                         <td class="valueW">
                             <div>&nbsp;</div>
@@ -106,7 +115,6 @@
         
                     <% boolean even = true;%>
                     <rsc:iterator list="<%=contests%>" id="resultRow">
-                        <tr><td class="space" colspan="6">&nbsp;</td></tr>
                         <tr class="<%=even?"light":"dark"%>">
                             <td class="valueW">
                                 <div>&nbsp;</div>
@@ -176,20 +184,17 @@
     <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
 </div>
 
-
-<div id="popTCO08" class="popUp">
-    <div>Eligible for the TCO08 SDC</div>
-</div>
-
-                        <br clear="all"/>
-                    </div>                
-                    <div class="contentBottom"></div>
+                        </div>
+                        <div style="clear: both;">&nbsp;</div>
+                    </div>
                 </div>
+
             </div>
         </div>
-
-        <jsp:include page="foot.jsp"/>
-
     </div>
+</div>
+
+<jsp:include page="tcFoot.jsp"/>
+
 </body>
 </html>
