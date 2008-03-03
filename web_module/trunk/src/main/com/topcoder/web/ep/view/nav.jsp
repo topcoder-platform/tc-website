@@ -13,7 +13,7 @@
               <li>|</li>
               <li><a href="/education/reports/?module=Home"<% if (node.equals("reports")) {%> class="on"<% } %>><span>Reports</span></a></li>
               <li>|</li>
-              <li><a href="#"<% if (node.equals("help")) {%> class="on"<% } %>><span>Help</span></a></li>
+              <li><a target="_blank" href="/wiki/pages/viewpageattachments.action?pageId=6259167"<% if (node.equals("help")) {%> class="on"<% } %>><span>Help</span></a></li>
          </ul>
     </div>
 </div>
@@ -25,9 +25,9 @@
               <li>|</li>
               <li><a href="/education/"<% if (node.equals("home")) {%> class="on"<% } %>><span>Manage classes</span></a></li>
               <li>|</li>
-              <li><a href="/education/reports/?module=Home"<% if (node.equals("reports")) {%> class="on"<% } %>><span>Status & Scores</span></a></li>
+              <li><a href="/education/reports/?module=Home"<% if (node.equals("reports")) {%> class="on"<% } %>><span>Status &amp; Scores</span></a></li>
               <li>|</li>
-              <li><a target="_blank" href="/wiki/pages/viewpageattachments.action?pageId=6259167"<% if (node.equals("help")) {%> class="on"<% } %>><span>Help</span></a></li>
+              <li><a href="#"<% if (node.equals("help")) {%> class="on"<% } %>><span>Help</span></a></li>
          </ul>
     </div>
 </div>
