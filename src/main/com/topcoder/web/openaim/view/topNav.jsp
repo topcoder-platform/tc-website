@@ -2,7 +2,15 @@
     String node = request.getParameter("node") == null ? "" : request.getParameter("node");
 %>
 
-<!-- menubar -->
+<div class="navBox">
+    <a class="navTab" href=""><img src="/i/events/openaim/tabs/discuss.png" alt="discuss" onmouseover="this.src='/i/events/openaim/tabs/discussOn.png';"  onmouseout="this.src='/i/events/openaim/tabs/discuss.png';" /></a>
+    <a class="navTab" href=""><img src="/i/events/openaim/tabs/apis.png" alt="apis" onmouseover="this.src='/i/events/openaim/tabs/apisOn.png';"  onmouseout="this.src='/i/events/openaim/tabs/apis.png';" /></a>
+    <a class="navTab" href=""><img src="/i/events/openaim/tabs/learn.png" alt="learn" onmouseover="this.src='/i/events/openaim/tabs/learnOn.png';"  onmouseout="this.src='/i/events/openaim/tabs/learn.png';" /></a>
+    <a class="navTab" href=""><img src="/i/events/openaim/tabs/submit.png" alt="submit" onmouseover="this.src='/i/events/openaim/tabs/submitOn.png';"  onmouseout="this.src='/i/events/openaim/tabs/submit.png';" /></a>
+    <a class="navTab" href="/openaim/?module=ViewContestDetails&ct=1000"><img src="/i/events/openaim/tabs/register.png" alt="Register" onmouseover="this.src='/i/events/openaim/tabs/registerOn.png';"  onmouseout="this.src='/i/events/openaim/tabs/register.png';" /></a>
+</div>
+
+<%--
 <div id="menubar">
     <div id="nav">
         <ul>
@@ -14,3 +22,4 @@
         </ul>
     </div>
 </div>
+--%>
