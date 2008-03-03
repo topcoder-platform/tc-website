@@ -153,9 +153,9 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN 
+                <%-- DIGITAL RUN --%>
                 <A href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/digital_run_20080128.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-                --%>
+                
                 
                 <%-- DIGITAL RUN ASSEMBLY CUP 
                 <A href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></A>
@@ -177,9 +177,9 @@
                 <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=onlineSchedule"><img src="/i/home/tchs08Rd3promo.png" alt="TCHS08" border="0" style="display:block;"/></A>
                 --%>
                 
-                <%-- TCO08 --%>
+                <%-- TCO08 
                 <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa"><img src="/i/home/tco08nsaPromo.png" alt="TCO08 brought to you by NSA" border="0" style="display:block;"/></A>
-                
+                --%>
                 
                 <%-- TCO07
                <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=about"><img src="/i/home/tco07sm.png" alt="TCO07" border="0" style="display:block;"/></A>
