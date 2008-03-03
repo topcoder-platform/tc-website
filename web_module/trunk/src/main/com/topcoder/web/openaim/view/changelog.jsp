@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <jsp:include page="foot.jsp"/>
+        <jsp:include page="tcFoot.jsp"/>
 
     </div>
 </body>

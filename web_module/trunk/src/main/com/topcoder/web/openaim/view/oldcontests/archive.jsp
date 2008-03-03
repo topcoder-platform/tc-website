@@ -68,7 +68,7 @@ In the past, TopCoder has held contests to design logos for our online programmi
             </div>
         </div>
 
-        <jsp:include page="../foot.jsp"/>
+        <jsp:include page="../tcFoot.jsp"/>
 
     </div>
 </body>
