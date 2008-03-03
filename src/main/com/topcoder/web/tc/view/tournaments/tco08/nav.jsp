@@ -18,9 +18,9 @@
         <li id="switcher_tournament"><a href="#" class="active"><span>The Tournament</span></a></li>
         <li id="switcher_symposium"><a href="#"><span>The Software Symposium</span></a></li>
     </ul> #switcher --%>
-    
+    <%--
     <a style="position: absolute; top: 15px; left: 350px;" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=registerNow"><img src="/i/tournament/tco08/registerNow.png" alt="REGISTER NOW!" /></a>
-    
+    --%>
     
     <%---- PRIMARY NAVIGATION ----%>
     <ul id="nav">
@@ -114,7 +114,9 @@
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a></li>
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a></li>
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=rules"<% if (tabLev2.equals("rules")) {%> class="on"<% } %>>Rules</a></li>
+                        <%--
                         <li><a href="/tco08?module=ViewRegistration&amp;et=7"<% if (tabLev2.equals("register")) {%> class="on"<% } %>>Register</a></li>
+                        --%>
                         <li><a href="/tco08?module=Registrants&amp;et=7"<% if (tabLev2.equals("registrants")) {%> class="on"<% } %>>Registrants</a></li>
                         <li><a href="/tco08?module=StudioLeaders&amp;eid=3008"<% if (tabLev2.equals("advancers")) {%> class="on"<% } %>>Advancers</a></li>
                         <%--
