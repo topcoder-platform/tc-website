@@ -34,7 +34,7 @@ public class StudioLeaders extends StudioLeaderboardBase {
      */
     @Override
     protected int getMaxContests() {
-        return 5;
+        return 6;
     }
     
     /* (non-Javadoc)
