@@ -64,9 +64,10 @@
 <img src="/i/home/newCompetitionsBanner.png" alt="New Competitions Available" usemap="#newComp" style="display: block;" />
 --%>
 
-<%-- The Bug Races 
-<a href="/wiki/display/tc/Bug+Races"><img src="/i/home/theBugRaces3_banner.png" alt="The Bug Races" /></a>
---%>
+<%-- The Bug Races --%>
+<a href="/wiki/display/tc/Bug+Races"><img src="/i/home/theBugRaces2_banner.png" alt="The Bug Races" /></a>
 
-<%-- Mobile Development on Three Platforms --%>
+
+<%-- Mobile Development on Three Platforms 
 <a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003815"><img src="/i/home/aolMobileAssembly_banner.png" alt="Mobile Development on Three Platforms" /></a>
+--%>
