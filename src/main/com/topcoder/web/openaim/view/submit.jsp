@@ -68,7 +68,7 @@
     <div id="wrapper">
         <!-- header -->
         <div id="header">
-            <jsp:include page="top.jsp"/>
+            <jsp:include page="tcTop.jsp"/>
             <jsp:include page="topNav.jsp">
                 <jsp:param name="node" value="contests"/>
             </jsp:include>
