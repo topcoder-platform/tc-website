@@ -117,10 +117,10 @@
 <tbody>
     <c:choose>
         <c:when test="${contest.configMap[viewSubmitters]}">
-            <tr><td class="title" colspan="7">Submissions</td></tr>
+            <tr><td class="title" colspan="6">Submissions</td></tr>
         </c:when>
         <c:otherwise>
-            <tr><td class="title" colspan="6">Submissions</td></tr>
+            <tr><td class="title" colspan="5">Submissions</td></tr>
         </c:otherwise>
     </c:choose>
 <tr>
@@ -142,9 +142,11 @@
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("create_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
             Submitted</a>
     </td>
+        <%--
     <td class="headerR">
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("final_score")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Score</a>
     </td>
+        --%>
     <td class="headerC">
         Submission
     </td>
@@ -159,10 +161,10 @@
 <rsc:iterator list="<%=submissions%>" id="resultRow">
     <c:choose>
         <c:when test="${contest.configMap[viewSubmitters]}">
-            <tr><td class="space" colspan="7">&nbsp;</td></tr>
+            <tr><td class="space" colspan="6">&nbsp;</td></tr>
         </c:when>
         <c:otherwise>
-            <tr><td class="space" colspan="6">&nbsp;</td></tr>
+            <tr><td class="space" colspan="5">&nbsp;</td></tr>
         </c:otherwise>
     </c:choose>
     <tr class="<%=even?"light":"dark"%>">
@@ -184,6 +186,7 @@
 
         <c:choose>
             <c:when test="${resultRow.map['review_status_id']==passed}">
+                <%--
                 <td class="valueR">
                     <c:choose>
                         <c:when test="${hasScores}">
@@ -196,6 +199,7 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
+                --%>
                 <td class="valueC">
 
                     <c:choose>
