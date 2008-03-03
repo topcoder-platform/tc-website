@@ -43,16 +43,11 @@
     <div id="aimFrame">
         <div id="aimFrameN">
             <div id="aimFrameS">
-
                 <jsp:include page="openaimTop.jsp"/>
-
                 <div class="contentWithLeft" align="right">
                     <div class="contentTexture">
-
                         <jsp:include page="leftBox.jsp"/>
-
                         <jsp:include page="topNav.jsp"/>
-
                         <div class="siteBoxHalf">
 
 <h1>Active Contests</h1>

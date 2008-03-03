@@ -15,30 +15,43 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder :: OpenAIM Contest</title>
+
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_openaim"/>
     </jsp:include>
+
+    <script type="text/javascript" src="/js/v2/popup.js"></script>
+
+    <script type="text/javascript">
+        function preloadTabs() {
+            var img = new Image();
+            img.src = '../i/events/openaim/tabs/registerOn.png';
+            img.src = '../i/events/openaim/tabs/submitOn.png';
+            img.src = '../i/events/openaim/tabs/apisOn.png';
+            img.src = '../i/events/openaim/tabs/discussOn.png';
+        }
+    </script>
     <script type="text/javascript" src="/js/arena.js"></script>
+
 </head>
 
 <body>
-    <!-- wrapper -->
-    <div id="wrapper">
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="tcTop.jsp"/>
-            <jsp:include page="topNav.jsp">
-                <jsp:param name="node" value="contests"/>
-            </jsp:include>
-        </div>
-        <!-- container -->
-        <div id="container">
-            <!-- content -->
-            <div id="content">
-                <div class="contentTop">
-                    <div class="contentMiddle">
+
+<jsp:include page="tcTop.jsp"/>
+
+<div align="center">
+    <div id="aimFrame">
+        <div id="aimFrameN">
+            <div id="aimFrameS">
+                <jsp:include page="openaimTop.jsp"/>
+                <div class="contentWithLeft" align="right">
+                    <div class="contentTexture">
+                        <jsp:include page="leftBox.jsp"/>
+                        <jsp:include page="topNav.jsp"/>
+                        <div class="siteBoxHalf">
 
 
+<%--
 <div class="linkBox">
     <openaim:forumLink forumID="${contest.forumId}"/>
 </div>
@@ -54,11 +67,9 @@
     </c:choose>
     ${contest.name}
 </div>
+--%>
 
 <h1>Contest Details</h1>
-
-<div align="center">
-<div style="width:510px;" align="left">
 
 <c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
     <div align="center">
@@ -142,7 +153,7 @@
     </div>
 </c:if>
 
-<div class="header">Project Overview</div>
+<h2>Project Overview</h2>
 ${contest.overview.value}
 <br /><br />
 
@@ -165,7 +176,7 @@ ${contest.overview.value}
 </c:if>
 
 
-<div class="header">Payment</div>
+<h2>Payment</h2>
 ${contest.prizeDescription.value}
 <br /><br />
 
@@ -199,7 +210,7 @@ ${contest.prizeDescription.value}
 </c:choose>
 
 
-<div class="header">Eligibility</div>
+<h2>Eligibility</h2>
 
 <p>You must be a TopCoder OpenAIM member, at least 18 years of age, meeting all of the membership requirements.
     In addition, you must fit into one of the following categories.
@@ -228,7 +239,7 @@ ${contest.prizeDescription.value}
 
 <br /><br />
 
-<div class="header">Timeline</div>
+<h2>Timeline</h2>
 All submissions are required to be submitted by the End Date.
 <br /><br />
 
@@ -252,31 +263,17 @@ All submissions are required to be submitted by the End Date.
     </table>
 </div>
 
-<br /><br />
-<!-- 
-<c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
-    <div class="header">Upload Your Submission</div>
-    If you are ready to submit your design for this contest, click the button below.
-    <br /><br />
-
-    <div align="center">
-        <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="btn_submit">
-            &nbsp;</a>
-    </div>
-</c:if>
- -->
-</div>
-</div>
-
-                        <br clear="all"/>
-                    </div>                
-                    <div class="contentBottom"></div>
+                        </div>
+                        <div style="clear: both;">&nbsp;</div>
+                    </div>
                 </div>
+
             </div>
         </div>
-
-        <jsp:include page="tcFoot.jsp"/>
-
     </div>
+</div>
+
+<jsp:include page="tcFoot.jsp"/>
+
 </body>
 </html>

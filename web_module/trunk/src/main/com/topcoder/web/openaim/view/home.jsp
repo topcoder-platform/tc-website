@@ -44,16 +44,11 @@
     <div id="aimFrame">
         <div id="aimFrameN">
             <div id="aimFrameS">
-
                 <jsp:include page="openaimTop.jsp"/>
-
                 <div class="contentWithLeft" align="right">
                     <div class="contentTexture">
-
                         <jsp:include page="leftBox.jsp"/>
-
                         <jsp:include page="topNav.jsp"/>
-
                         <div class="newsBox">
                             <iframe src="http://openaimblog.aol.com/" marginheight="0" marginwidth="0"></iframe>
                         </div>
