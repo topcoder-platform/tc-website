@@ -59,4 +59,9 @@
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <% } else if (key.equals("tc_openaim")) { %>
 <link type="text/css" rel="stylesheet" href="/css/openaim/main.css" />
+<link type="text/css" rel="stylesheet" href="/css/coders.css" />
+<% } else if (key.equals("tc_openaim_forums")) { %>
+<link type="text/css" rel="stylesheet" href="/css/openaim/forums.css" />
+<link type="text/css" rel="stylesheet" href="/css/openaim/main.css" />
+<link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <% } %>
