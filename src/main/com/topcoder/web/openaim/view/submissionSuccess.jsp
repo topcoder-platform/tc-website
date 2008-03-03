@@ -17,7 +17,7 @@
     <script type="text/javascript" src="/js/fat.js"></script>
     <script type="text/javascript" src="/js/v2/popup.js"></script>
 
-    <title>TopCoder OpenAIM</title>
+    <title>TopCoder :: OpenAIM Contest</title>
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_openaim"/>
     </jsp:include>
