@@ -236,7 +236,7 @@
                 <% if (activeMessage.getParentMessage() != null) { %>
                 (response to
                 <a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</a><%if (activeMessage.getParentMessage().getUser() != null) {%>
-                by <openaim:handle coderId="<%=activeMessage.getParentMessage().getUser().getID()%>"/><%}%>)
+                by <tc-webtag:handle coderId="<%=activeMessage.getParentMessage().getUser().getID()%>"/><%}%>)
                 <% } %>
                 <% if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) {
                     int[] ratings = ForumsUtil.getRatings(ratingManager, activeMessage);
@@ -275,7 +275,7 @@
                     <img src="<%=activeMessage.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
                     <br />
                     <% } %>
-                    <span class="bodyText"><%if (activeMessage.getUser() != null) {%><openaim:handle coderId="<%=activeMessage.getUser().getID()%>"/><%}%></span>
+                    <span class="bodyText"><%if (activeMessage.getUser() != null) {%><tc-webtag:handle coderId="<%=activeMessage.getUser().getID()%>"/><%}%></span>
                     <br /><%if (activeMessage.getUser() != null) {%><a href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(activeMessage.getUser()), "post")%></a><%}%>
                 </div>
             </td>
@@ -319,7 +319,7 @@
         </a></td>
     <% } %>
     <td class="rtThreadCell"><%if (message.getUser() != null) {%>
-        <openaim:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
+        <tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
     <td class="rtThreadCell"><strong>
     	<tc-webtag:format object="${message.creationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></strong></td>
 </tr>

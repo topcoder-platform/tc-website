@@ -192,7 +192,7 @@
                 <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>
             </b></td>
             <% if (message.getUser() != null) { %>
-            <td class="rtThreadCell"><openaim:handle coderId="<%=message.getUser().getID()%>"/></td>
+            <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
             <% } else { %>
             <td class="rtThreadCell">&nbsp;</td>
             <% } %>
@@ -248,7 +248,7 @@
                 <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>
             </b></td>
             <% if (message.getUser() != null) { %>
-            <td class="rtThreadCell"><openaim:handle coderId="<%=message.getUser().getID()%>"/></td>
+            <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
             <% } else { %>
             <td class="rtThreadCell">&nbsp;</td>
             <% } %>
