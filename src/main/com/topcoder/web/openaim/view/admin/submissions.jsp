@@ -124,7 +124,7 @@ Show submissions by (Enter Handle):
     <div class="container">
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
 <tbody>
-<tr><td class="title" colspan="13">Submissions</td></tr><tr>
+<tr><td class="title" colspan="12">Submissions</td></tr><tr>
     <td class="headerW">
         <div>&nbsp;</div>
     </td>
@@ -196,11 +196,13 @@ Show submissions by (Enter Handle):
             </c:otherwise>
         </c:choose>
     </td>
+        <%--
         <c:if test="${currentTime>contest.endTime}">
     <td class="headerC">
         OR
     </td>
         </c:if>
+    --%>
 
     <td class="headerE">
         <div>&nbsp;</div>
