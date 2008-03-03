@@ -58,7 +58,7 @@
     <div class="container">
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
 <tbody>
-<tr><td class="title" colspan="9">Winners</td></tr><tr>
+<tr><td class="title" colspan="8">Winners</td></tr><tr>
     <td class="headerW">
         <div>&nbsp;</div>
     </td>
@@ -77,9 +77,11 @@
     <td class="headerR">
         Prize
     </td>
+        <%--
     <td class="headerR">
         Score
     </td>
+    --%>
     <td class="headerC">
         Submission
     </td>
@@ -95,7 +97,7 @@
 
 <c:set var="bonusPrize" value="<%=PrizeType.BONUS%>"/>
 <rsc:iterator list="<%=results%>" id="resultRow">
-    <tr><td class="space" colspan="9">&nbsp;</td></tr>
+    <tr><td class="space" colspan="8">&nbsp;</td></tr>
     <tr class="<%=even?"light":"dark"%>">
         <td class="valueW">
             <div>&nbsp;</div>
@@ -122,6 +124,7 @@
         <td class="valueR">
             <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
         </td>
+        <%--
         <td class="valueR">
 
             <c:choose>
@@ -135,6 +138,7 @@
                 </c:otherwise>
             </c:choose>
         </td>
+        --%>
         <td class="valueC">
             <c:choose>
                 <c:when test="${resultRow.map['show_submissions']}">
