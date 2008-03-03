@@ -109,7 +109,7 @@
             <tr>
                 <td colspan="2" style="padding-bottom:3px;">
                     <strong><a href="?module=Main" class="rtbcLink">Forums</a> > Post History:
-                        <openaim:handle coderId="<%=historyUser.getID()%>"/>
+                        <tc-webtag:handle coderId="<%=historyUser.getID()%>"/>
                         (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>)
                     </strong>
                 </td>
@@ -158,7 +158,7 @@
                     <% if (message.getParentMessage() != null) { %>
                     (response to
                     <a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</a><%if (message.getParentMessage().getUser() != null) {%>
-                    by <openaim:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>
+                    by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>
                     (<a href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getParentMessage().getUser().getID()%>" alt="Post history for <%=message.getParentMessage().getUser().getUsername()%>" class="rtbcLink"/>history
                 </a>)<%}%>)
                 <% } %></td>
