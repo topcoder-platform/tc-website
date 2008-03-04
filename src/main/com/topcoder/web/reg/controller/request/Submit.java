@@ -273,6 +273,11 @@ public class Submit extends Base {
             msgText.append("You may utilize your activated TopCoder Studio user name and password in order to access the TopCoder Studio web site.  Your user name and password will also provide you with access to the Active Contests posted on the TopCoder Studio website, where you can compete in design projects, as well as to the Forums, where you can read about and discuss the projects.\n\n");
         }
 
+        if (regTypes.contains(openAIM)) {
+            msgText.append("Your newly created TopCoder account will provide you with the ability to compete in the TopCoder Open AIM Competition.  Please check out the competition area to learn how to compete. http://www.topcoder.com/openaim/");
+        }
+
+
         if (regTypes.contains(hs)) {
             msgText.append("TOPCODER HIGH SCHOOL COMPETITIONS\n\n");
             msgText.append("Participating in TopCoder High School competitions (held weekly) will allow you to establish a TopCoder rating.  Competing in a single rated event is all it takes to become a rated member, however the TopCoder High School tournament requires that you and/or your team have participated in at least four rated events.  You can view a schedule of High School events here:\n\n");
