@@ -5,7 +5,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>OpenAIM Developer Challenge :: Powered by TopCoder</title>
+    <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
 
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_openaim"/>
@@ -29,7 +29,7 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-<h1>OpenAIM Website Changelog</h1>
+<h1>Open AIM Website Changelog</h1>
 
 
 <p>

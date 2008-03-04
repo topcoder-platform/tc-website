@@ -19,3 +19,5 @@
 </tbody>
 </table>
 </div>
+
+<%-- GOOGLE ANALYTICS --%>

@@ -16,7 +16,7 @@
     <script type="text/javascript" src="/js/taconite-parser.js"></script>
     <script type="text/javascript" src="/js/fat.js"></script>
 
-    <title>OpenAIM Developer Challenge :: Powered by TopCoder</title>
+    <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_openaim"/>
     </jsp:include>

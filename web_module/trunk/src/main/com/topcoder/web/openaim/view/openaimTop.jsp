@@ -5,9 +5,9 @@
 
                 <div id="topBox">
                     <div class="logo">
-                        <img src="../i/events/openaim/openaim_logo.png" alt="OpenAIM" usemap="#logos" />
+                        <img src="../i/events/openaim/openaim_logo.png" alt="Open AIM" usemap="#logos" />
                     </div>
                     <div class="slogan">
-                        <img src="../i/events/openaim/slogan.png" alt="OpenAIM" />
+                        <img src="../i/events/openaim/slogan.png" alt="Open AIM" />
                     </div>
                 </div>

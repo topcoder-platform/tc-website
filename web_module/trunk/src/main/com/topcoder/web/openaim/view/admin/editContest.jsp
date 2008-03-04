@@ -15,7 +15,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>OpenAIM Developer Challenge :: Powered by TopCoder</title>
+    <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
     <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
@@ -388,9 +388,9 @@ var overviewText = getValue("document.editForm", "${overviewText}");
 
 <script language="javascript" type="text/javascript">
     <!--
-var defaultPrizeDesc= "TopCoder OpenAIM will compensate the member with the first place submission, as selected "+
+var defaultPrizeDesc= "TopCoder Open AIM will compensate the member with the first place submission, as selected "+
 "by the client.  The payment will be distributed in one full installment once the final vector-based version of " +
-"the winning submission has been received by TopCoder OpenAIM.";
+"the winning submission has been received by TopCoder Open AIM.";
 var prizeDesc = getValue("document.editForm", "${prizeDesc}");
                        if ( prizeDesc==null || prizeDesc.length==0) {
                          putValue("document.editForm", "${prizeDesc}", defaultPrizeDesc);

@@ -14,7 +14,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>OpenAIM Developer Challenge :: Powered by TopCoder</title>
+    <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
 
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_openaim"/>
@@ -143,7 +143,7 @@
                 </tr>
                 <tr>
                     <td colspan="3" style="padding-top: 10px;" align="center">
-                        Register to get info necessary to submit your design.<br />
+                        <br />
                     </td>
                     </c:otherwise>
                     </c:choose>
@@ -161,8 +161,8 @@ ${contest.overview.value}
     <c:if test="${fn:length(contest.documents)>0}">
         <strong>Documentation</strong><br />
         <%--
-            To view this project's documentation, you must be a registered TopCoder OpenAIM member. If you are <strong>
-            already a registered TopCoder member</strong> you still need to add TopCoder OpenAIM to your registration by
+            To view this project's documentation, you must be a registered TopCoder Open AIM member. If you are <strong>
+            already a registered TopCoder member</strong> you still need to add TopCoder Open AIM to your registration by
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">updating your profile</a>.
             <br /><br />
         --%>
@@ -212,7 +212,7 @@ ${contest.prizeDescription.value}
 
 <h2>Eligibility</h2>
 
-<p>You must be a TopCoder OpenAIM member, at least 18 years of age, meeting all of the membership requirements.
+<p>You must be a TopCoder Open AIM member, at least 18 years of age, meeting all of the membership requirements.
     In addition, you must fit into one of the following categories.
 </p>
 

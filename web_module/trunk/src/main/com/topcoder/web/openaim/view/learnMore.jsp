@@ -5,7 +5,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>OpenAIM Developer Challenge :: Powered by TopCoder</title>
+    <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
 
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_openaim"/>
@@ -42,10 +42,10 @@
 </p>
 
 <p>
-    To mark the launch of OpenAIM 2.0, AOL has teamed up with TopCoder to put the OpenAIM APIs in the hands of the best developers in the world. Now's your chance to show us what youve got for a piece of $100,000 in prize money!
+    To mark the launch of Open AIM 2.0, AOL has teamed up with TopCoder to put the Open AIM APIs in the hands of the best developers in the world. Now's your chance to show us what youve got for a piece of $100,000 in prize money!
 </p>
 <p>
-    TopCoder will award nine $10,000 prizes and 20 $500 prizes for the most creative, successful and ingenious submissions - plus we'll give a TopCoder/OpenAIM T-Shirt to anyone who submits. Winning submissions will also be featured on the AOL Developer Network Homepage (link: http://dev.aol.com) and gallery.aim.com. We'll put your app within the reach of millions of AIM users.
+    We will award nine (9) $10,000 prizes and twenty (20) $500 prizes for the most creative, successful and ingenious submissions - plus we'll give a TopCoder/Open AIM T-Shirt to anyone who submits. Winning submissions will also be featured on the <a href="http://dev.aol.com"AOL Developer Network Homepage</a> and gallery.aim.com. We'll put your app within the reach of millions of AIM users.
 </p>
 <p>
     Additionally, Open AIM will give participants an easy way to generate income through AIM Money, a new advertising revenue sharing platform expected to debut in April. 
@@ -56,19 +56,19 @@
 
 <h2>How to Compete</h2>
 <p>
-    Be sure to read the full contest rules and terms & conditions here. (link)
+    Be sure to read the full contest <a href="/openaim/?module=Static&d1=rules">rules and terms & conditions</a>.
 </p>
 <p>
-    If you are not already a TopCoder member, register to become one here (link) , then register for the OpenAIM Developer Challenge. (link)
+    <a href="/reg/?module=Main&rt=8">Register as a TopCoder member</a> THEN <a href="/openaim/?module=ViewContestDetails&ct=1002">register for the Open AIM Developer Challenge</A>.
 </p>
 <p>
-    Check out the APIs at dev.aol.com (link: http://dev.aol.com/apis) and get a usage key (link: http://dev.aol.com/openAIM) - your unique identifier giving you access to the AIM network. The keys let AOL know how popular your Plugin or Custom Client is. 
+    Check out the APIs at <a href="http://dev.aol.com/apis">dev.aol.com</a> and get a <a href="http://dev.aol.com/openAIM">usage key</a> - your unique identifier giving you access to the AIM network. The keys let AOL know how popular your Plugin or Custom Client is.
+</p>
+<p align="center">
+    <a href="http://developer.aim.com/faq#keys">Learn more about AIM keys</a>
 </p>
 <p>
-    Click Here to learn more about AIM keys.  (http://developer.aim.com/faq#keys)
-</p>
-<p>
-    Then, build your mashup, widget, game or custom application and put it where we can see it. Upload it to the AIM Gallery (link: http://gallery.aim.com/), put it on your own site or blog, or any one of the social network sites such as Facebook, MySpace, Friendster, BEBO, Cyworld, Skyblog, Hi5, Orkut, or Live Journal.
+    Then, build your mashup, widget, game or custom application and put it where we can see it. Upload it to the <a href="http://gallery.aim.com/">AIM Gallery</a>, put it on your own site or blog, or any one of the social network sites such as Facebook, MySpace, Friendster, BEBO, Cyworld, Skyblog, Hi5, Orkut, or Live Journal.
 </p>
 <p>
     Your application must incorporate at least two of the five most popular and valuable AIM features below into their web-based or downloadable AIM software and mashups. Developers have the flexibility to choose and match the value-added feature that best fits with their application and desired user experiences.
@@ -86,7 +86,7 @@
     You may enter as many submissions as you like, but each application may only be submitted once.
 </p>
 <p align="center">
-    <a href="">Full Official Contest Rules and Terms & Conditions</a>
+    <a href="/openaim/?module=Static&d1=rules">Full Official Contest Rules and Terms & Conditions</a>
 </p>
 
 <h2>How to Submit</h2>
@@ -117,7 +117,7 @@
 </p>
 
 <p align="center">
-    <a href="">Full Official Contest Rules and Terms & Conditions</a>
+    <a href="/openaim/?module=Static&d1=rules">Full Official Contest Rules and Terms & Conditions</a>
 </p>
 
 <h2>How Your App will be Scored</h2>
@@ -132,7 +132,7 @@
 </ul>
 
 <p align="center">
-    <a href="">Full Official Contest Rules and Terms & Conditions</a>
+    <a href="/openaim/?module=Static&d1=rules">Full Official Contest Rules and Terms & Conditions</a>
 </p>
 
 <h2>What You Can Build</h2>
@@ -154,7 +154,7 @@
 </ul>
 
 <p align="center">
-    <a href="">Full Official Contest Rules and Terms & Conditions</a>
+    <a href="/openaim/?module=Static&d1=rules">Full Official Contest Rules and Terms & Conditions</a>
 </p>
 
 

@@ -14,7 +14,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>OpenAIM Developer Challenge :: Powered by TopCoder</title>
+    <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
 
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_openaim"/>
@@ -60,7 +60,7 @@
                         viewing.
                         <br /><br />
                         If you have a question or comment, please email
-                        <a href="service@topcoder.com?subject=TopCoder OpenAIM Error">service@topcoder.com</a>
+                        <a href="service@topcoder.com?subject=TopCoder Open AIM Error">service@topcoder.com</a>
                                                  and be sure to include this timestamp: <%=new Date().toString()%>.
                     </div>
                     <%=new Date().toString()%>

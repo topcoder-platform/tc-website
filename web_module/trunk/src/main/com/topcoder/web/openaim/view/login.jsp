@@ -11,7 +11,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>OpenAIM Developer Challenge :: Powered by TopCoder</title>
+    <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
 
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_openaim"/>
@@ -78,7 +78,7 @@
                             and we can help you restore your account.</p>
 
                         <br /><br />
-                        <strong>New to TopCoder OpenAIM?</strong><br />
+                        <strong>New to TopCoder Open AIM?</strong><br />
                         <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now</a>. After you complete
                         the
                         registration process,
