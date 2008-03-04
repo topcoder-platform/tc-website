@@ -21,6 +21,8 @@
 </head>
 
 <body>
+
+<%--
     <!-- wrapper -->
     <div id="wrapper">
         <!-- header -->
@@ -79,14 +81,6 @@
             <td class="headerC">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("passing_submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Passed Screening</a>
             </td>
-<%--
-            <td class="headerC">
-                &nbsp;
-            </td>
-            <td class="headerC">
-                &nbsp;
-            </td>
---%>
             <td class="headerE"><div>&nbsp;</div></td>
         </tr>
         <% boolean even = true;
@@ -140,18 +134,6 @@
                 <td class="valueC">
                     <rsc:item name="passing_submission_count" row="<%=resultRow%>"/>
                 </td>
-                    <%--
-                                    <td class="valueC">
-                                        <% if (resultRow.getBooleanItem("results_available")) { %>
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">winners</a>
-                                        <% } else {%>
-                                        &#160;
-                                        <% } %>
-                                    </td>
-                                    <td class="valueC" nowrap="nowrap">
-                                        <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">contest details</a>
-                                    </td>
-                    --%>
                 <td class="valueE">
                     <div>&nbsp;</div>
                 </td>
@@ -177,5 +159,6 @@
         <jsp:include page="tcFoot.jsp"/>
 
     </div>
+--%>
 </body>
 </html>
