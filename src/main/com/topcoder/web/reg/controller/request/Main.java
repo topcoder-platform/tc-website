@@ -31,6 +31,11 @@ public class Main extends Base {
 
     protected void registrationProcessing() throws Exception {
 
+        //we'll just make them log in if we know who they are but they're not logged in.
+        if (!userLoggedIn() && userIdentified()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
+
         //if someone is registering for just one thing, they might include that type in the request.
         String regTypeParam = StringUtils.checkNull(getRequest().getParameter(Constants.REGISTRATION_TYPE));
 
