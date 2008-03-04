@@ -50,7 +50,7 @@ public class OpenAIMServlet extends BaseServlet {
         log.error("caught exception, forwarding to error page", e);
         if (e instanceof PermissionException) {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-            request.setAttribute(MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.  Please confirm that you are a member of TopCoder OpenAIM.");
+            request.setAttribute(MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.");
         } else if (e instanceof NavigationException) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             request.setAttribute(MESSAGE_KEY, e.getMessage());
