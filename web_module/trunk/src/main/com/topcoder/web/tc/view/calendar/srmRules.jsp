@@ -1,11 +1,18 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="java.util.Arrays" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 <%
-    ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow) (((ResultSetContainer) request.getAttribute("rsc")).get(0));
-    int round_id = rsr.getIntItem("round_id");
+    ResultSetContainer.ResultSetRow rsr = (((ResultSetContainer) request.getAttribute("rsc")).get(0));
+    long roundId = rsr.getLongItem("round_id");
+    long[] regularPrizeRounds = {7223,8004 ,8005,7227,8007,8080,8069,8074,8083,9812,9815,9816,9820,9822,9997,9992,9999,
+            10004,9995,10005,10002,10659,10663,10665,10669,10674,10664,10666,10669,10712,10710,10675,10711,10766,10770,
+            10773,10778,10787,11122,11126};
+    //sort it just for insurance, we're going to use binary search later
+    Arrays.sort(regularPrizeRounds);
+    
 
 %>
 
@@ -44,14 +51,7 @@
     <jsp:param name="title" value="SRM Official Rules & Qualification"/>
 </jsp:include>
 
-<% if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 || round_id == 8007 ||
-        round_id == 8080 || round_id == 8069 || round_id == 8074 || round_id == 8083 || round_id == 9812 ||
-        round_id == 9815 || round_id == 9816 || round_id == 9820 || round_id == 9822 || round_id == 9997 ||
-        round_id == 9992 || round_id == 9999 || round_id == 10004 || round_id == 9995 || round_id == 10005 ||
-        round_id == 10002 || round_id == 10659 || round_id == 10663 || round_id == 10665 || round_id == 10669 ||
-        round_id == 10674 || round_id == 10664 || round_id == 10666 || round_id == 10669 || round_id == 10712 || round_id == 10710 ||
-    round_id == 10675 || round_id == 10711 || round_id == 10766 || round_id == 10770 || round_id == 10787 ||
-    round_id == 10778 || round_id == 11122) { %>
+<% if (Arrays.binarySearch(regularPrizeRounds, roundId)>=0) { %>
                                 <span class="bigRed">
                                     <b>
                                         <rsc:item name="contest_name" row="<%=rsr%>"/>

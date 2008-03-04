@@ -2,27 +2,23 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.common.StringUtils" %>
+<%@ page import="java.util.TreeSet" %>
+<%@ page import="java.util.Arrays" %>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%
-    /*
-    String contest_name = (String)request.getAttribute("contest_name");
-    String path = StringUtils.checkNull((String)request.getAttribute("path"));
-    String link = StringUtils.checkNull((String)request.getAttribute("link"));
-    int width = ((Integer)request.getAttribute("width")).intValue();
-    int height = ((Integer)request.getAttribute("height")).intValue();
-    String date = StringUtils.checkNull((String)request.getAttribute("date"));
-    String reg_begin = StringUtils.checkNull((String)request.getAttribute("reg_begin"));
-    String reg_end = StringUtils.checkNull((String)request.getAttribute("reg_end"));
-    String coding_begin = StringUtils.checkNull((String)request.getAttribute("coding_begin"));
-    int forum_id = ((Integer)request.getAttribute("forum_id")).intValue();
-    */
-
-    ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow) (((ResultSetContainer) request.getAttribute("rsc")).get(0));
-    int round_id = rsr.getIntItem("round_id");
+    ResultSetContainer.ResultSetRow rsr = (((ResultSetContainer) request.getAttribute("rsc")).get(0));
+    long roundId = rsr.getLongItem("round_id");
     String time = StringUtils.checkNull((String) request.getAttribute("time"));
+
+    long[] regularPrizeRounds = {7223,8004 ,8005,7227,8007,8080,8069,8074,8083,9812,9815,9816,9820,9822,9997,9992,9999,
+            10004,9995,10005,10002,10659,10663,10665,10669,10674,10664,10666,10669,10712,10710,10675,10711,10766,10770,
+            10773,10778,10787,11122,11126};
+    //sort it just for insurance, we're going to use binary search later
+    Arrays.sort(regularPrizeRounds);
+
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -129,7 +125,7 @@
     <a HREF="<%="http://www.timeanddate.com/worldclock/fixedtime.html?" + time+"&amp;p1=179"%>">here</a>
     to see when coding begins in other time zones.<br/></center>
 
-<% if (round_id == 10004) { %>
+<% if (roundId == 10004) { %>
 <hr />
 <p>In memoriam: <tc-webtag:handle coderId="13377493"/></p>
 
@@ -152,11 +148,11 @@ Please join us in this tribute to one of our own.</p>
 </strong>
     <br/><br/></center>
 <% } %>
-<% if (round_id == 8075) { %>
+<% if (roundId == 8075) { %>
 <br/>
 TopCoder Employment Services is placing members in the Tampa Bay, FL area. <A HREF="/tc?module=ContractingPreferences">Click
     here to register.</A><br/><br/>
-<% } else if (round_id == 8070 || round_id == 8073 || round_id == 8076) { %>
+<% } else if (roundId == 8070 || roundId == 8073 || roundId == 8076) { %>
 <br/>
 <b>If you're a member of <A href="/tc?module=Static&amp;d1=sponsors&amp;d2=sap">SAP Developer Network</A> AND take part
     in
@@ -174,10 +170,10 @@ TopCoder Employment Services is placing members in the Tampa Bay, FL area. <A HR
 For Official Contest Rules on how to win a 60GB Apple iPod click
 <A href="javascript:openWin('/tc?module=Static&amp;d1=sponsors&amp;d2=sap_ipod_rules','rules',545,655)">here</A>.<br/>
 <br/>
-<% } else if (round_id == 4710) { %>
+<% } else if (roundId == 4710) { %>
 <b>For information on how to win an Intel&#174; Centrino(TM) mobile technology-based notebook computer click
     <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">here</a></b><br/><br/>
-<% } else if (round_id == 5856) { %>
+<% } else if (roundId == 5856) { %>
 <p>
     If you're a member of
     <a href="/?t=sponsor&amp;c=link&amp;link=http://www.intel.com/IDS&amp;refer=srm_details" target="_blank">Intel
@@ -231,7 +227,7 @@ For Official Contest Rules on how to win a 60GB Apple iPod click
 <p><b>For Official Contest Rules on how to win an Intel&#174; Centrino(TM) Mobile Technology-based Tablet PC click
     <a href="Javascript:openWin('/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=intel&amp;d4=tablet_rules','comp',545,655)">here</a></b>
 </p><br/>
-<% } else if (round_id == 5075) { %>
+<% } else if (roundId == 5075) { %>
 In celebration of SRM 200, TopCoder will hold 10 random drawings at the conclusion of the challenge phase. In order to
 be eligible to be randomly chosen for a prize, you must both register for SRM 200 during the registration period and
 participate in the match.<br/>
@@ -245,7 +241,7 @@ The prizes to be given away are: <br/>
 A given competitor will only be eligible to win, at most, one random drawing.
 <br/>
 <br/>
-<% } else if (round_id == 5849) { %>
+<% } else if (roundId == 5849) { %>
 <table>
     <tr>
         <td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
@@ -292,7 +288,7 @@ A given competitor will only be eligible to win, at most, one random drawing.
     </tr>
 </table>
 <br/>
-<% } else if (round_id == 5853) { %>
+<% } else if (roundId == 5853) { %>
 <table>
     <tr>
         <td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
@@ -332,7 +328,7 @@ A given competitor will only be eligible to win, at most, one random drawing.
     </tr>
 </table>
 <br/>
-<% } else if (round_id == 5857) { %>
+<% } else if (roundId == 5857) { %>
 <table>
     <tr>
         <td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
@@ -365,7 +361,7 @@ A given competitor will only be eligible to win, at most, one random drawing.
     </tr>
 </table>
 <br/>
-<% } else if (round_id == 5860) { %>
+<% } else if (roundId == 5860) { %>
 <table>
     <tr>
         <td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
@@ -391,7 +387,7 @@ A given competitor will only be eligible to win, at most, one random drawing.
     </tr>
 </table>
 <br/>
-<% } else if (round_id == 5864) { %>
+<% } else if (roundId == 5864) { %>
 <table>
     <tr>
         <td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
@@ -440,7 +436,7 @@ A given competitor will only be eligible to win, at most, one random drawing.
     </TD>
 </TR>
 
-<% if (round_id == 8070 || round_id == 8073 || round_id == 8076) { %>
+<% if (roundId == 8070 || roundId == 8073 || roundId == 8076) { %>
 <TR>
     <TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
         <font size="3"><b>***TopCoder will be giving away $5,000 per match sponsored by SAP. There will also be a raffle
@@ -518,20 +514,13 @@ A given competitor will only be eligible to win, at most, one random drawing.
         </UL>
         <BR/><BR/>
 
-        <A CLASS="bodyText" href="/tc?module=MatchDetails&rd=<%=round_id%>&c=rules"><B>Click here for complete rules
+        <A CLASS="bodyText" href="/tc?module=MatchDetails&rd=<%=roundId%>&c=rules"><B>Click here for complete rules
             &amp;
             regulations</B></A>
     </TD>
 </TR>
 
-<% } else if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 || round_id == 8007 ||
-        round_id == 8080 || round_id == 8069 || round_id == 8074 || round_id == 8083 || round_id == 9812 ||
-        round_id == 9815 || round_id == 9816 || round_id == 9820 || round_id == 9822 || round_id == 9997 ||
-        round_id == 9992 || round_id == 9999 || round_id == 10004 || round_id == 9995 || round_id == 10005 ||
-        round_id == 10002 || round_id == 10659 || round_id == 10663 || round_id == 10665 || round_id == 10669 ||
-        round_id == 10674 || round_id == 10664 || round_id == 10666 || round_id == 10669 || round_id == 10712 || round_id == 10710 ||
-	round_id == 10675 || round_id == 10711 || round_id == 10766 || round_id == 10770 || round_id == 10773 ||
-	round_id == 10778 || round_id == 10787 || round_id == 11122) { %>
+<% } else if (Arrays.binarySearch(regularPrizeRounds, roundId)>=0) { %>
 <TR>
     <TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
         <font size="3"><b>Total Prize Purse of $5,000 !!!</b></font><br/><br/>
