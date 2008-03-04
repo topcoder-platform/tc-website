@@ -116,11 +116,12 @@
                     <div id="homeDOTMBox">
                         <img src="/i/m/nophoto.jpg" alt="" style="position: absolute; top: 20px; left: 5px; width: 55px; height: 61px; border: 1px solid #bebebe;" />
                         <div style="text-align: center; padding: 15px 10px 0 71px; margin: 0;">
-                            <strong>January 2008</strong>
-                            <br /><studio:handle coderId="22705851"/>: Won $1,850 in six contests
+                            <strong>February 2008</strong>
+                            <br /><studio:handle coderId="22418135"/>: Won $1,400 in four contests
                             <%--
                             2008
-                            FEBRUARY:  
+                            MARCH:     
+                            FEBRUARY:  22418135
                             JANUARY:   22705851
                             2007
                             DECEMBER:  22690288
