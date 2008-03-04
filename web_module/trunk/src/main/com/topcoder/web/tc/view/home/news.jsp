@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.04.08<br />10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_030408">AOL Selects TopCoder Enterprise Software Development Platform</a></span><br /><br />
+        AOL has subscribed to TopCoder's Enterprise Software Development Platform  - a "Software Factory" approach based upon TopCoder's component-based methodology. With the subscription, companies are now able to better access the skills and on-demand power of the TopCoder community.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_030408">details</a> | 
+        <tc-webtag:forumLink forumID="520145" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.03.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tco08?module=AlgorithmAdvancers">See Who Advanced from Algorithm Round 3 of the TCO08</a></span><br /><br />
@@ -151,19 +164,5 @@
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022608">details</a> | 
         <tc-webtag:forumLink forumID="519895" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />02.25.08<br />9:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003815">Mobile Development on Three Platforms</a></span><br /><br />
-        Today, the Aura client handles presentation and UI for mobile devices running BREW.  Both Windows Mobile and Symbian will soon be added to the list of supported platforms as the client is refactored and ported using the MML Adapter components (recently developed by you).  Show off your C++ skills and mobile prowess in this assembly competition.  Don't have an MS Visual Studio license?  No problem!  Windows Mobile support will be required only during the final fix phase and a free license will be awarded to the first place team - in addition to the $5,000 in prize money.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003815">details</a> | 
-        <tc-webtag:forumLink forumID="519894" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
 
