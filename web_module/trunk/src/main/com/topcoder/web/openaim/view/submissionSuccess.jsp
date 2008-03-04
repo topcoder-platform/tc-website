@@ -17,7 +17,7 @@
     <script type="text/javascript" src="/js/fat.js"></script>
     
 
-    <title>TopCoder :: OpenAIM Contest</title>
+    <title>OpenAIM Developer Challenge :: Powered by TopCoder</title>
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_openaim"/>
     </jsp:include>
