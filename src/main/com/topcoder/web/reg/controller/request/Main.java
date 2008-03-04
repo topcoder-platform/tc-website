@@ -35,8 +35,12 @@ public class Main extends Base {
         String regTypeParam = StringUtils.checkNull(getRequest().getParameter(Constants.REGISTRATION_TYPE));
 
         if (!"".equals(regTypeParam)) {
-            setRegUser(new User());
-            setNewRegistration(true);
+            if (userLoggedIn()) {
+                setNewRegistration(false);
+            } else {
+                setRegUser(new User());
+                setNewRegistration(true);
+            }
             if (log.isDebugEnabled()) {
                 log.debug("got a reg type of " + regTypeParam);
             }
@@ -64,13 +68,17 @@ public class Main extends Base {
             } else {
                 //if it's not a post, they must be coming in directly, so lets see if they have made
                 //a request to register.  it could be that they are just editing some information in the
-                //session, but they could also be registering for the first time, and hitting this page directly
+                //session (click edit on the confirm page, but they could also be registering for the first time,
+                //and hitting this page directly, or hitting this page directly in an attempt to add a registration
                 if (!"".equals(regTypeParam)) {
                     if (!StringUtils.isNumber(regTypeParam)) {
                         throw new NavigationException("Invalid registration type specified.");
                     } else {
                         List<RegistrationType> types = regTypeDAO.getRegistrationTypes();
                         HashSet<RegistrationType> requestedTypes = new HashSet<RegistrationType>();
+                        if (userLoggedIn()) {
+                            requestedTypes.addAll(getRegUser().getRegistrationTypes());
+                        }
                         for (RegistrationType rt : types) {
                             if (log.isDebugEnabled()) {
                                 log.debug("check " + rt.getDescription());
@@ -82,7 +90,7 @@ public class Main extends Base {
                                 requestedTypes.add(rt);
                             }
                         }
-                        if (types.isEmpty()) {
+                        if (requestedTypes.isEmpty()) {
                             throw new NavigationException("Invalid request, no registratoin type specified.");
                         } else {
                             setRequestedTypes(requestedTypes);
