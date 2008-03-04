@@ -61,10 +61,10 @@
     <script type="text/javascript">
         function preloadTabs() {
             var img = new Image();
-            img.src = '../i/events/openaim/tabs/registerOn.png';
-            img.src = '../i/events/openaim/tabs/submitOn.png';
-            img.src = '../i/events/openaim/tabs/apisOn.png';
-            img.src = '../i/events/openaim/tabs/discussOn.png';
+            img.src = '/i/events/openaim/tabs/registerOn.png';
+            img.src = '/i/events/openaim/tabs/submitOn.png';
+            img.src = '/i/events/openaim/tabs/apisOn.png';
+            img.src = '/i/events/openaim/tabs/discussOn.png';
         }
     </script>
 
