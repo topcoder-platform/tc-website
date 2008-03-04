@@ -20,7 +20,7 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_openaim"/>
     </jsp:include>
-    <script type="text/javascript" src="/js/v2/popup.js"></script>
+    
     <script language="javascript" type="text/javascript">
         <!--
         function changeRank(newRank, submissionId) {
@@ -54,33 +54,43 @@
         </c:forEach>
             ajaxRequest.sendRequest();
         }
-        new Image().src = "/i/layout/processing.gif";
+        new Image().src = "/i/events/openaim/interface/processing.gif";
         function showProcessing() {
-            document.getElementById("submitButton").innerHTML = '<img src="/i/layout/processing.gif" alt=""/>';
+            document.getElementById("submitButton").innerHTML = '<img src="/i/events/openaim/interface/processing.gif" alt=""/>';
         }
 
         // -->
     </script>
+
+    <script type="text/javascript">
+        function preloadTabs() {
+            var img = new Image();
+            img.src = '../i/events/openaim/tabs/registerOn.png';
+            img.src = '../i/events/openaim/tabs/submitOn.png';
+            img.src = '../i/events/openaim/tabs/apisOn.png';
+            img.src = '../i/events/openaim/tabs/discussOn.png';
+        }
+    </script>
+
 </head>
 
 <body>
-    <!-- wrapper -->
-    <div id="wrapper">
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="tcTop.jsp"/>
-            <jsp:include page="topNav.jsp">
-                <jsp:param name="node" value="contests"/>
-            </jsp:include>
-        </div>
-        <!-- container -->
-        <div id="container">
-            <!-- content -->
-            <div id="content">
-                <div class="contentTop">
-                    <div class="contentMiddle">
 
+<jsp:include page="tcTop.jsp"/>
 
+<div align="center">
+    <div id="aimFrame">
+        <div id="aimFrameN">
+            <div id="aimFrameS">
+
+                <jsp:include page="openaimTop.jsp"/>
+
+                <div class="content" align="right">
+                    <div class="contentTexture">
+                        <jsp:include page="topNav.jsp"/>
+                        <div class="siteBoxFull">
+
+<%--
 <div class="linkBox">
     <openaim:forumLink forumID="${contest.forumId}"/>
 </div>
@@ -89,6 +99,7 @@
     <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt;
     ${contest.name}
 </div>
+--%>
 
 <h1>Submit Your Design</h1>
 
@@ -191,7 +202,7 @@
     <div class="container">
         <table class="stat" cellpadding="0" cellspacing="0">
             <thead>
-                <tr><td class="title" colspan="10">My Favorites</td></tr>
+                <tr><td class="title" colspan="10">My Submissions<td></tr>
                 <tr>
                     <td class="headerW">
                         <div>&nbsp;</div>
@@ -237,15 +248,18 @@
     </form>
 </div>
 
-                        <br clear="all"/>
-                    </div>                
-                    <div class="contentBottom"></div>
+
+                        </div>
+                        <div style="clear: both;">&nbsp;</div>
+                    </div>
                 </div>
+
             </div>
         </div>
-
-        <jsp:include page="tcFoot.jsp"/>
-
     </div>
+</div>
+
+<jsp:include page="tcFoot.jsp"/>
+
 </body>
 </html>
