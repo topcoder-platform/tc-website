@@ -15,11 +15,13 @@
 <%@ page import="java.util.GregorianCalendar" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.text.DecimalFormat" %>
+<%@ page import="com.topcoder.web.common.SessionInfo" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="openaim.tld" prefix="openaim" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%
+    SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     String section = request.getParameter("section") == null ? "" : request.getParameter("section");
 %>
 
