@@ -153,7 +153,7 @@
     <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img alt="RSS" border="none" src="/i/events/openaim/interface/btnRSS.png"/></a>
 </div>
 <span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.<br />
-The five most recent forums are displayed for each category other than Round Tables. Click a category's name to view its complete forum list.</span>
+<!--The five most recent forums are displayed for each category other than Round Tables. Click a category's name to view its complete forum list.--></span>
 
 
 
