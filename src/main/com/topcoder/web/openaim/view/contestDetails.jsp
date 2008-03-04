@@ -122,10 +122,10 @@
                     <c:choose>
                     <c:when test="${registered}">
                     <td style="padding: 10px 5px 10px 20px;" align="right">
-                        <img src="/i/v2/interface/btnRegisterNA.png" alt="Register" />
+                        <img src="/i/events/openaim/interface/btnRegisterNA.png" alt="Register" />
                     </td>
                     <td style="padding: 10px 0px 10px 5px;" align="right">
-                        <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/v2/interface/btnSubmit.png" alt="Submit" /></a>
+                        <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/events/openaim/interface/btnSubmit.png" alt="Submit" /></a>
                     </td>
                 </tr>
                 <tr>
@@ -135,10 +135,10 @@
                     </c:when>
                     <c:otherwise>
                     <td style="padding: 10px 5px 10px 20px;" align="right">
-                        <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/v2/interface/btnRegister.png" alt="Register" /></a>
+                        <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/events/openaim/interface/btnRegister.png" alt="Register" /></a>
                     </td>
                     <td style="padding: 10px 0px 10px 5px;" align="right">
-                        <img src="/i/v2/interface/btnSubmitNA.png" alt="Submit" />
+                        <img src="/i/events/openaim/interface/btnSubmitNA.png" alt="Submit" />
                     </td>
                 </tr>
                 <tr>

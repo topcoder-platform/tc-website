@@ -71,9 +71,9 @@
                         <!-- resulting page from click has value at the end of the URL, which is pointless.  Feel free to use any html/js element/method but i want the nice looking button -->
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
                     <br/></tc-webtag:errorIterator></span>
-                        <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>"/>I agree
+                        <input type="checkbox" name="<%=Constants.TERMS_AGREE%>"/>I agree
                         <br /><br />
-                        <input type="image" src="/i/v2/interface/btnSubmit.png" />
+                        <input type="image" src="/i/events/openaim/interface/btnSubmit.png" />
                         <br /><br />
 
 

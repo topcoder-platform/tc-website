@@ -126,7 +126,7 @@
                 </p>
 
                 <p id="submitButton">
-                    <input type="image" src="/i/v2/interface/btnSubmit.png" />
+                    <input type="image" src="/i/events/openaim/interface/btnSubmit.png" />
                 </p>
             </form>
         </div>
@@ -199,7 +199,7 @@
                     <td class="headerC">
                         Ranking
                         <div>
-                            <a href="#" onclick="batchUpdate();return false;"><img src="/i/v2/interface/btnUpdateRanking.png" alt="Update ranking" /></a>
+                            <a href="#" onclick="batchUpdate();return false;"><img src="/i/events/openaim/interface/btnUpdateRanking.png" alt="Update ranking" /></a>
                         </div>
                     </td>
                     <td class="header" colspan="2" width="33%">

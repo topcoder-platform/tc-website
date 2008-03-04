@@ -234,11 +234,11 @@
                             </td>
                         </tr>
                         <tr><td class="rtFooter">
-                            <input type="image" src="/i/v2/interface/btnPost.png" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
-                            <input type="image" src="/i/v2/interface/btnPreview.png" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
+                            <input type="image" src="/i/events/openaim/interface/btnPost.png" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
+                            <input type="image" src="/i/events/openaim/interface/btnPreview.png" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
                         	<%	if (forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) { %>
 	                        	<%	if (!postMode.equals("Edit")) { %>
-									<input type="image" src="/i/v2/interface/btnAttachFiles.png" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
+									<input type="image" src="/i/events/openaim/interface/btnAttachFiles.png" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
 								<%	} %>
 							<%	} %>
 							<%	String cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID(); 
@@ -247,7 +247,7 @@
 								} else if (thread != null) {
 									cancelLink = "?module=Thread&"+ForumConstants.THREAD_ID+"="+thread.getID();
 								} %>
-							<a href="<%=cancelLink%>"><img src="/i/v2/interface/btnCancel.png" alt="Cancel"/></a>
+							<a href="<%=cancelLink%>"><img src="/i/events/openaim/interface/btnCancel.png" alt="Cancel"/></a>
                         </td></tr>
                     </form>
                 </table>
