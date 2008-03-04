@@ -6,18 +6,17 @@
         <div class="descN">
             <div class="descS">
                 <div class="descBuff">
+
                     <p>
-                        AOL has joined with TopCoder to put OpenAIM into the hands of the best developers in the world. AIM is unlocked like never before, and now’s your chance to go nuts with it and show us what you got for a piece of $100,000 in prize money!
+                        To mark the launch of OpenAIM 2.0, AOL has teamed up with TopCoder to put the OpenAIM APIs in the hands of the best developers in the world. Now's your chance to show us what you've got for a piece of $100,000 in prize money.
                     </p>
                     <p>
-                        To enter, register for the contest here, check out the APIs at dev.aol.com and build your mashup, widget or custom application. Upload it to the AIM Gallery, your Facebook or MySpace page, or your own website or blog. Submit a link to it here, then tell a friend – in fact, tell a hundred friends - because a major percentage of your score will be based on how many people use your app!
+                        To enter, <strong><a href="/reg/?module=Main&rt=8">register as a TopCoder member</a></strong>, <strong><a href="">register for the contest</a></strong>, check out the <strong><a href="http://dev.aol.com/api/openaim">APIs at dev.aol.com</a></strong> and build your mashup, widget or custom application. Put it on your Facebook or MySpace page, your own website or blog, or even upload it to the AIM Gallery. <strong><a href="">Submit a link to it</a></strong>, then tell a friend - in fact, tell a hundred friends - because a major percentage of your score will be based on how many people use your app.
                     </p>
                     <p>
-                        TopCoder will award nine $10,000 prizes and 20 $500 prizes for the most creative, successful, unique and ingenious submissions – plus we’ll give a TopCoder/OpenAIM T-Shirt to anyone who submits. And if you think that’s great, just wait until the revenue sharing plan AOL will announce next month! (maybe)
+                        For full contest rules and details <strong><a href="/openaim/?module=Static&d1=learnMore">read more here</a></strong>. Good luck, and have fun!
                     </p>
-                    <p>
-                        For full contest rules and details read more here. Good luck, and have fun!
-                    </p>
+
                 </div>
             </div>
         </div>
