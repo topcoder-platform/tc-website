@@ -1,3 +1,4 @@
+<%-- don't need this, there's only one category
 <%@ page import="com.jivesoftware.forum.ForumCategory,
 				 com.jivesoftware.forum.ForumFactory,
 				 com.topcoder.web.common.StringUtils,
@@ -14,4 +15,4 @@
 		if (!leftNavName.equals("")) { %>
 			<a class="<%=(unreadCategories.indexOf(leftNavName)<0)?"rtLinkOld":"rtLinkBold"%>" href="?module=Category&categoryID=<%=category.getID()%>"><%=category.getName()%></a><br />
 		<%	} %>
-<%	} %>
+<%	} %>--%>
