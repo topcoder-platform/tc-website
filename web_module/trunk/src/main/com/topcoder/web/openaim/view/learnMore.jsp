@@ -171,5 +171,8 @@
 
 <jsp:include page="tcFoot.jsp"/>
 
+<%-- CRAZYEGG HEATMAPS --%>
+<script type="text/javascript" src="http://cetrk.com/pages/scripts/0004/0536.js"> </script>
+
 </body>
 </html>

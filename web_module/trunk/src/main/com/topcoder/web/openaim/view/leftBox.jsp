@@ -1,6 +1,6 @@
 <div class="leftBox" align="center">
     <div class="titleBox">
-        <img src="../i/events/openaim/whatIsThisContest.png" alt="What is this contest?" />
+        <img src="/i/events/openaim/whatIsThisContest.png" alt="What is this contest?" />
     </div>
     <div class="descBox">
         <div class="descN">
