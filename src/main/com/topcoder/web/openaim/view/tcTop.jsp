@@ -14,6 +14,7 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.GregorianCalendar" %>
 <%@ page import="java.util.Map" %>
+<%@ page import="java.text.DecimalFormat" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="openaim.tld" prefix="openaim" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -50,8 +51,7 @@
 </div>
 
 <div class="memberCountBox">
-Member Count: ###,### -
-&nbsp;Month Day, Year
+Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> - <jsp:include page="/date_time.jsp" />
 </div>
 
 

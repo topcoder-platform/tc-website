@@ -212,6 +212,7 @@
             </fileset>
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="style.jsp"/>
+                <include name="date_time.jsp"/>
             </fileset>
             <webinf dir="${resources}/openaim">
                 <include name="jboss-web.xml"/>
