@@ -263,6 +263,7 @@
                 <include name="build/ears/*.ear"/>
                 <include name="resources/studio/**"/>
                 <include name="resources/forums/filter/**"/>
+                <include name="resources/forums/studio/**"/>
                 <include name="resources/Studio.properties"/>
                 <include name="move.xml"/>
                 <include name="build_studio.xml"/>
@@ -303,6 +304,7 @@
                 <include name="build/ears/*.ear"/>
                 <include name="resources/openaim/**"/>
                 <include name="resources/forums/filter/**"/>
+                <include name="resources/forums/openaim/**"/>
                 <include name="resources/OpenAIM.properties"/>
                 <include name="move.xml"/>
                 <include name="build_openaim.xml"/>
