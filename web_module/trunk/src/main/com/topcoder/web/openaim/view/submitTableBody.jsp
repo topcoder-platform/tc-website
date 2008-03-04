@@ -53,7 +53,7 @@ ${submission.originalFileName}
 <div>View submission</div>
 </div>
 <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
-<img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()"/>
+<img src="/i/events/openaim/interface/magnify.png" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()"/>
 </a>
 </td>
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
@@ -78,15 +78,15 @@ Pending
 <c:when test="${submission.review.status.id==failed}">
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div align="center" style="margin: 2px;">
-<img src="/i/v2/interface/btnMoveUpNA.png" alt="Move up"/>
+<img src="/i/events/openaim/interface/btnMoveUpNA.png" alt="Move up"/>
 </div>
 <div align="center" style="margin: 2px;">
-<img src="/i/v2/interface/btnMoveDownNA.png" alt="Move down"/>
+<img src="/i/events/openaim/interface/btnMoveDownNA.png" alt="Move down"/>
 </div>
 </td>
 <td colspan="2" class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div align="center">
-<img src="/i/v2/interface/btnMoveToTopNA.png" alt="Move to top"/>
+<img src="/i/events/openaim/interface/btnMoveToTopNA.png" alt="Move to top"/>
 </div>
 </td>
 </c:when>
@@ -95,11 +95,11 @@ Pending
 <div align="center" style="margin: 2px;">
 <c:choose>
 <c:when test="${submission.rank==1}">
-<img src="/i/v2/interface/btnMoveUpNA.png" alt="Move up"/>
+<img src="/i/events/openaim/interface/btnMoveUpNA.png" alt="Move up"/>
 </c:when>
 <c:otherwise>
 <a href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/v2/interface/btnMoveUp.png" alt="Move up" />
+<img src="/i/events/openaim/interface/btnMoveUp.png" alt="Move up" />
 </a>
 </c:otherwise>
 </c:choose>
@@ -107,11 +107,11 @@ Pending
 <div align="center" style="margin: 2px;">
 <c:choose>
 <c:when test="${submission.rank==maxRank}">
-<img src="/i/v2/interface/btnMoveDownNA.png" alt="Move down"/>
+<img src="/i/events/openaim/interface/btnMoveDownNA.png" alt="Move down"/>
 </c:when>
 <c:otherwise>
 <a href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/v2/interface/btnMoveDown.png" alt="Move down" />
+<img src="/i/events/openaim/interface/btnMoveDown.png" alt="Move down" />
 </a>
 </c:otherwise>
 </c:choose>
@@ -121,11 +121,11 @@ Pending
 <div align="center">
 <c:choose>
 <c:when test="${submission.rank==1}">
-<img src="/i/v2/interface/btnMoveToTopNA.png" alt="Move to top"/>
+<img src="/i/events/openaim/interface/btnMoveToTopNA.png" alt="Move to top"/>
 </c:when>
 <c:otherwise>
 <a href="#" onclick="changeRank(1, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/v2/interface/btnMoveToTop.png" alt="Move to top" />
+<img src="/i/events/openaim/interface/btnMoveToTop.png" alt="Move to top" />
 </a>
 </c:otherwise>
 </c:choose>
@@ -134,7 +134,7 @@ Pending
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div align="center">
 <a href="#" onclick="remove(${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/v2/interface/btnRemove.png" alt="Remove" />
+<img src="/i/events/openaim/interface/btnRemove.png" alt="Remove" />
 </a>
 </div>
 </td>

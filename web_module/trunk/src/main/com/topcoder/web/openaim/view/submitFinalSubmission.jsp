@@ -78,7 +78,7 @@
                     <input type="file" name="<%=Constants.SUBMISSION%>">
                 </p>
                 <p id="submitButton">
-                    <input type="image" src="/i/v2/interface/btnSubmit.png" />
+                    <input type="image" src="/i/events/openaim/interface/btnSubmit.png" />
                 </p>
             </div>
         </form>

@@ -211,7 +211,7 @@
                         <c:otherwise>
                             <div align="center">
                                 <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                    <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()" />
+                                    <img src="/i/events/openaim/interface/magnify.png" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()" />
                                 </a>
                             </div>
                         </c:otherwise>

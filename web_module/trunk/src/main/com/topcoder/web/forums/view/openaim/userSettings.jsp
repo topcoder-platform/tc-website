@@ -455,7 +455,7 @@ function toggleTabs(anchor,id) {
 
 <div>
    <div style="float:right;">
-   <input type="image" src="/i/v2/interface/btnSave.png"/>
+   <input type="image" src="/i/events/openaim/interface/btnSave.png"/>
    </div>
 </div>
 </form>

@@ -118,7 +118,7 @@
 
                                     <tr>
                                         <td colspan="2" align="center">
-                                            <input type="image" src="/i/v2/interface/btnLogin.png"/>
+                                            <input type="image" src="/i/events/openaim/interface/btnLogin.png"/>
                                         </td>
                                     </tr>
                                 </table>

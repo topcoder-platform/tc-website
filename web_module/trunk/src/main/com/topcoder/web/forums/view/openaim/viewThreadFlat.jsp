@@ -360,11 +360,11 @@
         ></a>
         <%  } %>
 </b><br /><br />
-    <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/v2/interface/btnRSS.png"/></a>
+    <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/events/openaim/interface/btnRSS.png"/></a>
 </div>
 <% } else { %>
 <div style="float:right; text-align:right;">
-    <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/v2/interface/btnRSS.png"/></a>
+    <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/events/openaim/interface/btnRSS.png"/></a>
 </div>
 <% } %>
 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>

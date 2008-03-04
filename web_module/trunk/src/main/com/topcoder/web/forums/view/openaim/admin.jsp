@@ -88,7 +88,7 @@
    --%>
 </table>
 <div align="right">
-<input type="image" src="/i/v2/interface/btnUpdate.png" alt="Update" />
+<input type="image" src="/i/events/openaim/interface/btnUpdate.png" alt="Update" />
 </div></form>
             
 

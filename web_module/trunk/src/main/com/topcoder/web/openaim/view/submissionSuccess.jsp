@@ -113,7 +113,7 @@
                 <br /><br />
 
                 <div align="center">
-                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onFocus="this.blur();"><img src="/i/v2/interface/btnSubmitAnother.png" alt="submit another" /></a>
+                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onFocus="this.blur();"><img src="/i/events/openaim/interface/btnSubmitAnother.png" alt="submit another" /></a>
                 </div>
             </div>
         </div>
@@ -171,7 +171,7 @@
                                     <td class="headerC">
                                         Ranking
                                         <div>
-                                            <a href="#" onClick="batchUpdate();return false;"><img src="/i/v2/interface/btnUpdateRanking.png" alt="Update ranking" /></a>
+                                            <a href="#" onClick="batchUpdate();return false;"><img src="/i/events/openaim/interface/btnUpdateRanking.png" alt="Update ranking" /></a>
                                         </div>
                                     </td>
                                     <td class="header" colspan="2" width="33%">

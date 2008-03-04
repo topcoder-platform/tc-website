@@ -141,14 +141,14 @@
 				<br />
 				
 				<%-- Attach Files & Post Message --%>
-				<input type="image" src="/i/v2/interface/btnAttachFiles.png" class="rtButton" alt="Attach Files" onClick="form1.module.value='Attach'"/>
+				<input type="image" src="/i/events/openaim/interface/btnAttachFiles.png" class="rtButton" alt="Attach Files" onClick="form1.module.value='Attach'"/>
 				
 				<%-- Cancel --%>
 				<%	if (postMode.equals("Edit")) {
 						String urlNext = sessionInfo.getServletPath() + "?module=Message&" + ForumConstants.MESSAGE_ID + "=" + message.getID(); %> 
-						<a href="<%=urlNext%>"><img src="/i/v2/interface/btnCancel.png" class="rtButton" alt="Cancel"/></a>
+						<a href="<%=urlNext%>"><img src="/i/events/openaim/interface/btnCancel.png" class="rtButton" alt="Cancel"/></a>
 				<%	} else { %>
-						<input type="image" src="/i/v2/interface/btnCancel.png" class="rtButton" alt="Cancel" onClick="form1.module.value='Post'"/>
+						<input type="image" src="/i/events/openaim/interface/btnCancel.png" class="rtButton" alt="Cancel" onClick="form1.module.value='Post'"/>
 				<%	} %>
 				
 				</form>

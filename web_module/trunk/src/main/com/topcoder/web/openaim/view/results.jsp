@@ -156,14 +156,14 @@
                                 <strong>ID:</strong> <rsc:item name="submission_id" row="<%=resultRow%>"/>
                                 <br />
                                 <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                    <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
+                                    <img src="/i/events/openaim/interface/magnify.png" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
                                 </a>
                             </div>
                         </c:otherwise>
                     </c:choose>
                 </c:when>
                 <c:otherwise>
-                    <img src="/i/v2/interface/magnifyFade.png" alt="" />
+                    <img src="/i/events/openaim/interface/magnifyFade.png" alt="" />
                 </c:otherwise>
             </c:choose>
         </td>
