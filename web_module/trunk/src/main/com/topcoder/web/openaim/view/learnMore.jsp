@@ -45,14 +45,16 @@
     To mark the launch of Open AIM 2.0, AOL has teamed up with TopCoder to put the Open AIM APIs in the hands of the best developers in the world. Now's your chance to show us what youve got for a piece of $100,000 in prize money!
 </p>
 <p>
-    We will award nine (9) $10,000 prizes and twenty (20) $500 prizes for the most creative, successful and ingenious submissions - plus we'll give a TopCoder/Open AIM T-Shirt to anyone who submits. Winning submissions will also be featured on the <a href="http://dev.aol.com"AOL Developer Network Homepage</a> and gallery.aim.com. We'll put your app within the reach of millions of AIM users.
+    We will award nine (9) $10,000 prizes and twenty (20) $500 prizes for the most creative, successful and ingenious submissions - plus we'll give a TopCoder/Open AIM T-Shirt to anyone who submits. Winning submissions will also be featured on the <a href="http://dev.aol.com">AOL Developer Network Homepage</a> and <a href="http://gallery.aim.com/">gallery.aim.com</a>. We'll put your app within the reach of millions of AIM users.
 </p>
 <p>
     Additionally, Open AIM will give participants an easy way to generate income through AIM Money, a new advertising revenue sharing platform expected to debut in April. 
 </p>
+<%--
 <p align="center">
     <a href="">Read the AOL/TopCoder announcement</a>
 </p>
+--%>
 
 <h2>How to Compete</h2>
 <p>
