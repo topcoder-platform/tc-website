@@ -12,6 +12,23 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder :: OpenAIM Contest</title>
+
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_openaim"/>
+    </jsp:include>
+
+    <script type="text/javascript" src="/js/v2/popup.js"></script>
+
+    <script type="text/javascript">
+        function preloadTabs() {
+            var img = new Image();
+            img.src = '../i/events/openaim/tabs/registerOn.png';
+            img.src = '../i/events/openaim/tabs/submitOn.png';
+            img.src = '../i/events/openaim/tabs/apisOn.png';
+            img.src = '../i/events/openaim/tabs/discussOn.png';
+        }
+    </script>
+    <script type="text/javascript" src="/js/arena.js"></script>
     <script type="text/javascript">
         function submitEnter(e) {
             var keycode;
@@ -24,9 +41,7 @@
             } else return true;
         }
     </script>
-    <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_openaim"/>
-    </jsp:include>
+
 </head>
 
 <%
@@ -37,21 +52,20 @@
 
 
 <body>
-    <!-- wrapper -->
-    <div id="wrapper">
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="tcTop.jsp"/>
-            <jsp:include page="topNav.jsp">
-                <jsp:param name="node" value=""/>
-            </jsp:include>
-        </div>
-        <!-- container -->
-        <div id="container">
-            <!-- content -->
-            <div id="content">
-                <div class="contentTop">
-                    <div class="contentMiddle">
+
+<jsp:include page="tcTop.jsp"/>
+
+<div align="center">
+    <div id="aimFrame">
+        <div id="aimFrameN">
+            <div id="aimFrameS">
+
+                <jsp:include page="openaimTop.jsp"/>
+
+                <div class="content" align="right">
+                    <div class="contentTexture">
+                        <jsp:include page="topNav.jsp"/>
+                        <div class="siteBoxFull">
 
                 <h1>Login</h1>
 
@@ -73,8 +87,8 @@
                         <br /><br />
 
                         <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}">
-                            <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
-                            <input type="hidden" name="module" value="Login">
+                            <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>" />
+                            <input type="hidden" name="module" value="Login" />
 
                             <div align="center">
                                 <span class="bigRed"><%= message %></span>
@@ -84,7 +98,7 @@
                                             Handle:
                                         </td>
                                         <td class="value">
-                                            <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                                            <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -92,12 +106,12 @@
                                             Password:
                                         </td>
                                         <td class="value">
-                                            <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" size="12" onkeypress="submitEnter(event)">
+                                            <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" size="12" onkeypress="submitEnter(event)" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" align="center">
-                                            <input type="checkbox" name="<%=Login.REMEMBER_USER%>">
+                                            <input type="checkbox" name="<%=Login.REMEMBER_USER%>" />
                                             Remember
                                             Me</td>
                                     </tr>
@@ -121,15 +135,17 @@
                 </div>
 
 
-                        <br clear="all"/>
-                    </div>                
-                    <div class="contentBottom"></div>
+                        </div>
+                        <div style="clear: both;">&nbsp;</div>
+                    </div>
                 </div>
+
             </div>
         </div>
-
-        <jsp:include page="tcFoot.jsp"/>
-
     </div>
+</div>
+
+<jsp:include page="tcFoot.jsp"/>
+
 </body>
 </html>
