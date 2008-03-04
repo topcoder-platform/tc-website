@@ -21,7 +21,7 @@
     
     <script language="javascript" type="text/javascript">
         function showProcessing() {
-            document.getElementById("submitButton").innerHTML='<img src="/i/layout/processing.gif" alt=""/>';
+            document.getElementById("submitButton").innerHTML='<img src="/i/events/openaim/interface/processing.gif" alt=""/>';
         }
     </script>
 </head>
