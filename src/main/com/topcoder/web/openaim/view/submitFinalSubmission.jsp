@@ -18,7 +18,7 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_openaim"/>
     </jsp:include>
-    <script type="text/javascript" src="/js/v2/popup.js"></script>
+    
     <script language="javascript" type="text/javascript">
         function showProcessing() {
             document.getElementById("submitButton").innerHTML='<img src="/i/layout/processing.gif" alt=""/>';

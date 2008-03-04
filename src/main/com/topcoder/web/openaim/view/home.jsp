@@ -22,7 +22,7 @@
         <jsp:param name="key" value="tc_openaim"/>
     </jsp:include>
 
-    <script type="text/javascript" src="/js/v2/popup.js"></script>
+    
 
     <script type="text/javascript">
         function preloadTabs() {
@@ -52,6 +52,7 @@
                         <div class="newsBox">
                             <iframe src="http://openaimblog.aol.com/" marginheight="0" marginwidth="0"></iframe>
                         </div>
+                        <div style="clear: both;">&nbsp;</div>
                     </div>
                 </div>
 

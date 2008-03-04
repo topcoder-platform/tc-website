@@ -21,7 +21,7 @@
         <jsp:param name="key" value="tc_openaim"/>
     </jsp:include>
 
-    <script type="text/javascript" src="/js/v2/popup.js"></script>
+    
 
     <script type="text/javascript">
         function preloadTabs() {
