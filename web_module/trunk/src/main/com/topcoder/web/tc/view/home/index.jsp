@@ -123,7 +123,7 @@
 </tr>
 <tr>
     <td align="center" colspan="3">
-        <A href="<tc-webtag:linkTracking link='http://software.topcoder.com/tcs?module=Static&amp;d1=tour&amp;d2=page1' refer='homepage' />"><img src="/i/home/webuildsoftwareV4.png" alt="" style="display: block;" /></A>
+        <A href="<tc-webtag:linkTracking link='http://software.topcoder.com/tcs?module=Static&d1=tour&d2=page1' refer='homepage' />"><img src="/i/home/webuildsoftwareV4.png" alt="" style="display: block;" /></A>
     </td>
 </tr>
 </tbody>
