@@ -42,7 +42,11 @@
 <div id="globalPopup" class="popUp"><div id="globalPopupText"></div></div>
 
 
-<div style="position: absolute; right:0px; top:31px;"><a href="/tc?module=MyHome"><img src="/i/interface/myTopCoder.png" alt="My TopCoder" style="display:block;"/></a></div>
+<% if ( !sessionInfo.isAnonymous() ) { %>
+<div style="position: absolute; right:0px; top:31px;"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome"><img src="/i/interface/myTopCoder.png" alt="My TopCoder" style="display:block;"/></a></div>
+<% } else { %>
+<div style="position: absolute; right:0px; top:31px;"><a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/?module=Main&rt=8"><img src="/i/interface/register_now.gif" alt="Register Now" style="display:block;"/></a></div>
+<%}%>
 
 <div align="center" style="margin: 0px 290px 0px 280px;">
    <div id="outerLogo">
