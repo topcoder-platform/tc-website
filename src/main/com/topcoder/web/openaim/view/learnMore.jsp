@@ -64,7 +64,7 @@
     Be sure to read the full contest <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">rules and terms & conditions</a>.
 </p>
 <p>
-    <a href="/reg/?module=Main&amp;rt=8">Register as a TopCoder member</a> THEN <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;ct=1002">register for the Open AIM Developer Challenge</A>.
+    <a href="/reg/?module=Main&amp;rt=8">Register as a TopCoder member</a> THEN <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;ct=1001">register for the Open AIM Developer Challenge</A>.
 </p>
 <p>
     Check out the APIs at <a href="http://dev.aol.com/apis">dev.aol.com</a> and get a <a href="http://dev.aol.com/openAIM">usage key</a> - your unique identifier giving you access to the AIM network. The keys let AOL know how popular your Plugin or Custom Client is.
