@@ -274,7 +274,7 @@ public class Submit extends Base {
         }
 
         if (regTypes.contains(openAIM)) {
-            msgText.append("Your newly created TopCoder account will provide you with the ability to compete in the TopCoder Open AIM Competition.  Please check out the competition area to learn how to compete. http://www.topcoder.com/openaim/");
+            msgText.append("Your newly created TopCoder account will provide you with the ability to compete in the TopCoder Open AIM Competition.  Please check out the competition area to learn how to compete. http://" + ApplicationServer.OPENAIM_SERVER_NAME+"\n\n");
         }
 
 
