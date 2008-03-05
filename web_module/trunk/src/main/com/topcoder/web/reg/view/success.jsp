@@ -205,6 +205,11 @@
     <br><br>
 </c:if>
 
+<c:set value="<%=RegistrationType.OPENAIM_ID%>" var="openAIM"/>
+<c:if test="${cf:contains(requestScope[regTypes], openAIM)}">
+    
+</c:if>
+
 <div class="regHead">As a Registered TopCoder Member</div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
     <tr>
