@@ -45,6 +45,13 @@
 </jsp:include>
 
 <p>
+    5.14.7 - 2008.03.04
+<ul>
+    <li>Tweaks to registration for OpenAIM site -dok</li>
+</ul>
+</p>
+
+<p>
     5.14.6 - 2008.03.03
 <ul>
     <li>Fix bug in registration process where downloading the resume would make it impossible to save your changes -dok</li>
