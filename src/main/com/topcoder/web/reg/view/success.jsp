@@ -207,7 +207,18 @@
 
 <c:set value="<%=RegistrationType.OPENAIM_ID%>" var="openAIM"/>
 <c:if test="${cf:contains(requestScope[regTypes], openAIM)}">
-    
+    <div class="regHead">As an Open AIM Developer Challenge Competitor</div>
+    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
+        <tr>
+            <td class="image">
+                <A href="/openaim"><img src="/i/registration/openaim.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
+            </td>
+            <td class="text" width="100%">
+                Thousands of dollars (and hundreds of t-shirts) await the developers who can most <a href="/openaim">creatively use the AOL Instant Messenger APIs</a> in an original application.</a></td>
+        </tr>
+    </table>
+
+    <br><br>
 </c:if>
 
 <div class="regHead">As a Registered TopCoder Member</div>
