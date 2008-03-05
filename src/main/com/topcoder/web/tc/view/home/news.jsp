@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />03.05.08<br />3:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=MatchDetails&amp;rd=11126">BT sponsored SRM with $5,000 in prizes!</a></span><br /><br />
+        British Telecom (BT) is hiring!  Check out more information about BT jobs <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=bt">here</a>.  BT representatives will be in the Arena one hour prior to SRM 392.  Don't miss your chance to chat with them.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=MatchDetails&amp;rd=11126">details</a> | 
+        <tc-webtag:forumLink forumID="516666" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_alg">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />03.05.08<br />11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">Introducing the Open AIM Developer Challenge</a></span><br /><br />
@@ -152,17 +165,5 @@
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">details</a> | 
         <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />02.26.08<br />12:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        Downtime for scheduled maintenance: Tuesday, February 26</span><br /><br />
-        The TopCoder sites and the Arena will be down for scheduled maintenance between 11:45 PM and 1:15 AM EST. We apologize for any inconvenience.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=603601">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
    
