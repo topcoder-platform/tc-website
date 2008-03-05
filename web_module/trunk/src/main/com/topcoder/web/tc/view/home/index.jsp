@@ -424,6 +424,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            AOL, Lilly and VeriSign Return as Sponsors &amp; NSA Returns as Patron of 2008 TopCoder Open
+            <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_030508">...more</a><br />[March 5]<br /><br />
+            
             AOL Selects TopCoder Enterprise Software Development Platform
             <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_030408">...more</a><br />[March 4]<br /><br />
             
@@ -438,9 +441,6 @@
             
             Rock star coders
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='homepage_index' />">...more</a><br />[January 22]<br /><br />
-            
-            TopCoder to Speak on Collaboration at Mid-Atlantic CIO Forum
-            <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_010708">...more</a><br />[January 7]<br /><br />
             
 
 
