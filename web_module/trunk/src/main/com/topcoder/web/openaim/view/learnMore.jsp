@@ -47,9 +47,11 @@
 <p>
     We will award nine (9) $10,000 prizes and twenty (20) $500 prizes for the most creative, successful and ingenious submissions - plus we'll give a TopCoder/Open AIM T-Shirt to anyone who submits. Winning submissions will also be featured on the <a href="http://dev.aol.com">AOL Developer Network Homepage</a> and <a href="http://gallery.aim.com/">gallery.aim.com</a>. We'll put your app within the reach of millions of AIM users.
 </p>
+<%--
 <p>
     Additionally, Open AIM will give participants an easy way to generate income through AIM Money, a new advertising revenue sharing platform expected to debut in April. 
 </p>
+--%>
 <%--
 <p align="center">
     <a href="">Read the AOL/TopCoder announcement</a>
@@ -150,8 +152,10 @@
 <ul>
     <li><strong>Public Access to the OSCAR Protocol:</strong> As part of the new openness, AOL is publishing at http://dev.aol.com/openaim the OSCAR protocol, AOLs proprietary instant messaging and presence information protocol used by AIM. This will enable developers to build fully-compatible, full-featured and secure AIM services for use on platforms that also host other chat services both on the desktop and on mobile devices. Were also giving developers freedom of choice to connect to the AIM network using APIs in either AOL-provided libraries or open-source libraries.</li>
     <li><strong>Relaxed Usage Limits:</strong> Per-day and per-month usage limits have been removed to offer developers more flexibility. Users can now also use the new Open AIM SDK and APIs to build AIM chat services designed for international use.</li>
+<%--
     <li><strong>Revenue Share:</strong> Developers will have an opportunity to earn advertising revenue through a new revenue share platform called AIM Money that is expected to launch next month. More details on this exciting new program are available at http://dev.aol.com/openaim.</li>
-    <li><strong>Support for Third-Party Chat Services:</strong> Developers can use the Open AIM SDK and APIs to create one unified instant messaging application that supports multiple chat services so that users can organize all their buddies in one place. Popular chat services meebo and trillian have signed on to build the AIM APIs into their web-based applications.</li>
+--%>
+    <li><strong>Support for Third-Party Chat Services:</strong> Developers can use the Open AIM SDK and APIs to create one unified instant messaging application that supports multiple chat services so that users can organize all their buddies in one place.</li>
     <li><strong>Enterprise & Mobile Applications:</strong> Third-party developers can use the existing SDK and APIs to build custom software designed for enterprise use as well as for AIM users who access the messaging network from their cell phones. We have also put in place protections in our license agreements to ensure that mobile applications built on the AIM platform remain free and open in line with the Open AIM program goals.</li>
     <li><strong>Open-Source Opportunities:</strong> Open AIM APIs are now accessible for open-source software use.</li>
 </ul>
