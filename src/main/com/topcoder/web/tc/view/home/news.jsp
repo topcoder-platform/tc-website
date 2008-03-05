@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.05.08<br />10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_030508">AOL, Lilly and VeriSign Return as Sponsors &amp; NSA Returns as Patron of 2008 TopCoder Open</a></span><br /><br />
+        Competitive Programming's Top Tournament Underway with Continued Support of AOL, Lilly, NSA and VeriSign; Expanded Field of 120 Finalists to Compete for $260,000 Prize Money in Las Vegas.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_030508">details</a> | 
+        <tc-webtag:forumLink forumID="520184" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.04.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_030408">AOL Selects TopCoder Enterprise Software Development Platform</a></span><br /><br />
@@ -153,16 +166,3 @@
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />02.26.08<br />9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022608">TopCoder UML Design Tool Free to Developers</a></span><br /><br />
-        The source code for the TopCoder UML tool is open for anyone to extend or enhance for their own purposes. To download TopCoder's free UML tool or to view source code and detailed development documentation (including specifications, architecture and components), visit: <a href="/wiki/display/tc/TopCoder+UML+Tool">http://www.topcoder.com/wiki/display/tc/TopCoder+UML+Tool</a></td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022608">details</a> | 
-        <tc-webtag:forumLink forumID="519895" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-
