@@ -361,17 +361,13 @@
 
 
 <script language="javascript" type="text/javascript">
-    <!--
-var defaultOverview= "General description of the contest goes here. Give background info, overview about what the client " +
-"is seeking, and general look and feel info.\n\n" +
-"Entries must be your original work, and must not infringe on the copyright or licenses of others. Stock art, clip art, " +
-"templates and other design elements from other sources are prohibited unless specifically permitted in the " +
-"Specification Document."
+var defaultOverview= "[Copy Project Overview info from Spec into this area. Do not copy files needed]\n\n"+
+"<p><b>Entries must be your original work, and must not infringe on the copyright or licenses of others. Stock art, clip art, " +
+    "templates and other design elements from other sources are prohibited unless specifically permitted in the Specification Document.</b></p>";
 var overviewText = getValue("document.editForm", "${overviewText}");
                        if ( overviewText==null || overviewText.length==0) {
                          putValue("document.editForm", "${overviewText}", defaultOverview);
                         }
-                -->
 </script>
 
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.PRIZE_DESCRIPTION%>" var="prizeDesc"/>
@@ -387,15 +383,17 @@ var overviewText = getValue("document.editForm", "${overviewText}");
 </p>
 
 <script language="javascript" type="text/javascript">
-    <!--
-var defaultPrizeDesc= "TopCoder Studio will compensate the member with the first place submission, as selected "+
-"by the client.  The payment will be distributed in one full installment once the final vector-based version of " +
-"the winning submission has been received by TopCoder Studio.";
+var defaultPrizeDesc= "<b>Selection of Winner:</B><br /> "+
+"After the submission phase ends, all entries will be screened against the Required Elements listed in the Spec Doc. All passing submissions are then reviewed by the TopCoder project manager and information architect as well as the Client. Winners are selected based on how well they have met the goals of this competition. "+
+"<p><b>Prize Structure:</b><br /> "+
+"The contest will award cash prizes totaling [MONEY HERE] to up to [two (2) competitors]. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner(s). </p> "+
+"<p><b>Final Fixes:</b><br /> "+
+"The Client may require the winner to enter into a Final Fixes Phase after the contest has ended. This phase will require the winner to make final changes (specific to the Spec Doc) to the final deliverables before payment can be released.</p> "+
+"<p><span style=" color:red;"><b>Final Deliverables From Winner:</b><br /> The payment will be distributed in one full installment once the final version of the winning submission has been received by TopCoder Studio</span>. Final deliverables include [ENTER HERE FROM SPEC]</p>";
 var prizeDesc = getValue("document.editForm", "${prizeDesc}");
                        if ( prizeDesc==null || prizeDesc.length==0) {
                          putValue("document.editForm", "${prizeDesc}", defaultPrizeDesc);
                         }
-                -->
 </script>
 
 <p>
