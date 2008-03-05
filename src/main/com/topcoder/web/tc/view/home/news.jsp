@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />03.05.08<br />11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">Introducing the Open AIM Developer Challenge</a></span><br /><br />
+        TopCoder has teamed up with AOL to launch the <a target="_blank" href="<tc-webtag:linkTracking link='http://corp.aol.com/press_releases/2008/03/aol-announces-open-aim-20-developer-program' refer='/tc' />">Open AIM Developer Challenge</a> that will run from March 5 through May 6, 2008. There will be $100,000 in prizes and the winners will be announced at the TopCoder Open in Las Vegas on May 15. More details can be found at <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">http://www.topcoder.com/openaim</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">details</a> | 
+        <a href="/openaim/forums">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.05.08<br />10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_030508">AOL, Lilly and VeriSign Return as Sponsors &amp; NSA Returns as Patron of 2008 TopCoder Open</a></span><br /><br />
@@ -151,18 +164,5 @@
    <tr><td class="newsLinksCell">
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=603601">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.26.08<br />10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=registerNow">Only 2 days left to Register for the TCO08 Component Competition</a></span><br /><br />
-        Registration closes on Thursday, February 28 at 9:00 AM EST.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=registerNow">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
