@@ -140,6 +140,7 @@
                             <strong>In the table below</strong> you can rank your submissions. <br />
                             --%>
 
+                            <%--
                              <c:choose>
                                  <c:when test="${not empty contest.maxSubmissions.value}">
                                      Up to ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
@@ -150,10 +151,11 @@
                                      for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.
                                  </c:when>
                              <c:otherwise>
-                                 <%--<nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
-                             this contest.--%>
+                                 <nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
+                             this contest.
                              </c:otherwise>
                              </c:choose>
+                            --%>
 
                              </div>
                      </c:when>

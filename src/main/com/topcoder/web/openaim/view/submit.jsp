@@ -166,6 +166,7 @@
                     <strong>In the table below</strong> you can rank your submissions. <br />
                     --%>
 
+                            <%--
                              <c:choose>
                                  <c:when test="${not empty contest.maxSubmissions.value}">
                                      Up to ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
@@ -180,6 +181,7 @@
                              this contest.
                              </c:otherwise>
                              </c:choose>
+                            --%>
                     </div>
             </c:when>
             <c:otherwise>
