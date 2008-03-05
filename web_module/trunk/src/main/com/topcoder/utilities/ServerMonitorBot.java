@@ -10,7 +10,14 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,7 +35,7 @@ public class ServerMonitorBot {
             "mobile_on_call@topcoder.com",
             "email_on_call@topcoder.com"};
     private String[] testingAddresses = {
-            "dok@topcoder.com","dok@topcoder.com"
+            "dok@topcoder.com", "dok@topcoder.com"
     };
 
     private final static int SHORT_LIST = 0;
@@ -52,6 +59,7 @@ public class ServerMonitorBot {
             , new PollInfo(true, "http://studio.topcoder.com", "studio", 30)
             , new PollInfo(true, "http://www.topcoder.com/wiki", "wiki", 30)
             , new PollInfo(true, "http://www.topcoder.com/time", "time tracker", 30)
+            , new PollInfo(true, "http://www.topcoder.com/openaim", "open aim", 30)
             , new PollInfo(true, "http://www.topcoder.com/bugs", "bug tracker", 30)
     };
 
@@ -98,7 +106,7 @@ public class ServerMonitorBot {
             } else {
                 tempInfo.setTotal(tempInfo.getTotal() + 1);
                 if (!site.isAlive()) {
-                    tempInfo.setFailure(tempInfo.getFailure()+1);
+                    tempInfo.setFailure(tempInfo.getFailure() + 1);
                 }
             }
         }
@@ -147,7 +155,7 @@ public class ServerMonitorBot {
             buf.append("|");
             buf.append(in.getFailure());
             buf.append("|");
-            buf.append((1-((float)in.getFailure()/in.getTotal()))*100);
+            buf.append((1 - ((float) in.getFailure() / in.getTotal())) * 100);
             buf.append("% up time");
             pw.println(buf.toString());
 
@@ -291,16 +299,16 @@ public class ServerMonitorBot {
         } else {
             addresses = this.addresses;
         }
-        for (int i=0; i<errors.length; i++) {
+        for (int i = 0; i < errors.length; i++) {
             if (!errors[i].equals("")) {
                 try {
-                        TCSEmailMessage em = new TCSEmailMessage();
-                        em.addToAddress(addresses[i], TCSEmailMessage.TO);
-                        em.setSubject("Server Error");
-                        em.setBody(errors[i]);
-                        em.setFromAddress("service@topcoder.com");
-                        EmailEngine.send(em);
-                    errors[i]="";
+                    TCSEmailMessage em = new TCSEmailMessage();
+                    em.addToAddress(addresses[i], TCSEmailMessage.TO);
+                    em.setSubject("Server Error");
+                    em.setBody(errors[i]);
+                    em.setFromAddress("service@topcoder.com");
+                    EmailEngine.send(em);
+                    errors[i] = "";
                 } catch (Exception e) {
                     log.error("HERE" + e.getClass());
                     e.printStackTrace();
