@@ -27,10 +27,11 @@ crappy looking to save space on the transmission
 <td class="valueW"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div>&#160;</div>
 </td>
+<%--
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <c:choose>
 <c:when test="${submission.review.status.id==failed}">
-<%-- doesn't matter what goes in here, we're not populating it because it failed--%>
+<!-- doesn't matter what goes in here, we're not populating it because it failed-->
 <input type="text" maxlength="3" size="2" disabled="disabled"/>
 </c:when>
 <c:otherwise>
@@ -38,6 +39,7 @@ crappy looking to save space on the transmission
 </c:otherwise>
 </c:choose>
 </td>
+--%>
 <td class="value"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <c:choose>
 <c:when test="${submission.rank == null || submission.rank>contest.maxSubmissions.value}">
@@ -59,6 +61,7 @@ ${submission.originalFileName}
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <tc-webtag:format object="${submission.createDate}" format="EEEE, MMMM d, yyyy '<br />' HH:mm z" timeZone="${sessionInfo.timezone}"/>
 </td>
+<%--
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <c:choose>
 <c:when test="${submission.review.status==null}">
@@ -140,6 +143,7 @@ Pending
 </td>
 </c:otherwise>
 </c:choose>
+--%>
 <td class="valueE"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div>&#160;</div>
 </td>
