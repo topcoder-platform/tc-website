@@ -193,7 +193,7 @@ The judges will have the sole authority and discretion to select the winner(s). 
 </p>
 
 <p>
-SELECTION OF WINNER(S)/ AWARDING OF PRIZE(S):   
+<strong>SELECTION OF WINNER(S)/ AWARDING OF PRIZE(S):</strong>   
 </p>
 
 <p>
