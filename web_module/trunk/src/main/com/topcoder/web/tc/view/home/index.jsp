@@ -108,8 +108,12 @@
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=architecture&amp;d2=beta' refer='homepage' />"><img src="/i/home/architectureBeta.jpg" alt="Architecture Competition" /></a>
         --%>
         
-        <%-- UML Tool --%>
+        <%-- UML Tool 
         <a href="<tc-webtag:linkTracking link='/wiki/display/tc/TopCoder+UML+Tool' refer='homepage' />"><img src="/i/home/umltool20080226.jpg" alt="UML Tool Release" /></a>
+        --%>
+        
+        <%-- OpenAIM --%>
+        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />"><img src="/i/home/openaim.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
         
     </td>
     <td align="right" valign="top">

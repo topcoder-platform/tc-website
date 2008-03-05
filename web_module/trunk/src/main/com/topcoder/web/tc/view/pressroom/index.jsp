@@ -69,7 +69,11 @@
                     <span style="padding-left:125px;"><a href="#linktonews"><img src="/i/pressroom/featured_tco07.png" width="440" height="136" ></a></span>
                     --%>
                     <div style="padding-left:90px;">
+                        <%-- UML Tool 
                         <a href="<tc-webtag:linkTracking link='/wiki/display/tc/TopCoder+UML+Tool' refer='pr_index' />"><img src="/i/home/umltool20080226.jpg" alt="UML Tool Release" /></a>
+                        --%>
+                        <%-- OpenAIM --%>
+                        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />"><img src="/i/home/openaim.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
                     </div>
                 </div>
                 <%--
