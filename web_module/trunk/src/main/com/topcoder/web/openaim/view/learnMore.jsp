@@ -132,7 +132,7 @@
 <ul>
 <li><strong>Usage (20%):</strong> Usage will be determined based on usage statistics.  It is strictly prohibited to manufacture or attempt to manufacture usage in any way.  Usage and activity shall be subject to audit by TopCoder and/or AOL.</li>
 <li><strong>Innovation (20%):</strong> Determined by the Competition judges</li>
-<li><strong>Best Use of APIs:</strong>  Best use of the functionality provided by the Specified Technology (20%)</li>
+<li><strong>Best Use of APIs (20%):</strong>  Best use of the functionality provided by the Specified Technology</li>
 <li><strong>AOL favorite (20%):</strong> Popularity among AOL staff</li>
 <li><strong>TopCoder Community Favorite (20%):</strong> Popularity among the TopCoder Community</li>
 </ul>
