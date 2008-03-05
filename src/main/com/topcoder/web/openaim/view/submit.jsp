@@ -84,11 +84,11 @@
             <div id="aimFrameS">
 
                 <jsp:include page="openaimTop.jsp"/>
-
-                <div class="content" align="right">
+                <div class="contentWithLeft" align="right">
                     <div class="contentTexture">
+                        <jsp:include page="leftBox.jsp"/>
                         <jsp:include page="topNav.jsp"/>
-                        <div class="siteBoxFull">
+                        <div class="siteBoxHalf">
 
 <%--
 <div class="linkBox">
@@ -162,7 +162,9 @@
         <c:choose>
             <c:when test="${contest.startTime > bigStart}">
                 <div align="center">
+                    <%--
                     <strong>In the table below</strong> you can rank your submissions. <br />
+                    --%>
 
                              <c:choose>
                                  <c:when test="${not empty contest.maxSubmissions.value}">
@@ -202,24 +204,27 @@
     <div class="container">
         <table class="stat" cellpadding="0" cellspacing="0">
             <thead>
-                <tr><td class="title" colspan="9">My Submissions<td></tr>
+                <tr><td class="title" colspan="4">My Submissions<td></tr>
                 <tr>
                     <td class="headerW">
                         <div>&nbsp;</div>
                     </td>
+<%--
                     <td class="headerC">
                         Ranking
                         <div>
                             <a href="#" onclick="batchUpdate();return false;"><img src="/i/events/openaim/interface/btnUpdateRanking.png" alt="Update ranking" /></a>
                         </div>
                     </td>
-                    <td class="header" colspan="2" width="33%">
+--%>
+                    <td class="header" colspan="2" width="50%">
                         Submission
                     </td>
-                    <td class="headerC" width="33%">
+                    <td class="headerC" width="50%">
                         Date Submitted
                     </td>
-                    <td class="headerC" width="33%">
+<%--
+                    <td class="headerC">
                         Passed / Failed
                     </td>
                     <td class="headerC" nowrap>
@@ -231,6 +236,7 @@
                     <td class="headerC">
                         Remove
                     </td>
+--%>
                     <td class="headerE">
                         <div>&nbsp;</div>
                     </td>
