@@ -73,7 +73,7 @@
                         <a href="<tc-webtag:linkTracking link='/wiki/display/tc/TopCoder+UML+Tool' refer='pr_index' />"><img src="/i/home/umltool20080226.jpg" alt="UML Tool Release" /></a>
                         --%>
                         <%-- OpenAIM --%>
-                        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />"><img src="/i/home/openaim.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
+                        <a href="<tc-webtag:linkTracking link='/openaim/' refer='pr_index' />"><img src="/i/home/openaim.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
                     </div>
                 </div>
                 <%--
@@ -98,6 +98,19 @@
             
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
+                <%-- AOL, Lilly and VeriSign Return as Sponsors &amp; NSA Returns as Patron of 2008 TopCoder Open begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_030508"><img src="/i/pressroom/tco08_logo.png" alt="TopCoder Open 2008" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_030508">AOL, Lilly and VeriSign Return as Sponsors &amp; NSA Returns as Patron of 2008 TopCoder Open</a></h3>
+                        <p>Competitive Programming's Top Tournament Underway with Continued Support of AOL, Lilly, NSA and VeriSign; Expanded Field of 120 Finalists to Compete for $260,000 Prize Money in Las Vegas  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_030508">[March 5]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- AOL, Lilly and VeriSign Return as Sponsors &amp; NSA Returns as Patron of 2008 TopCoder Open end --%>
                 
                 <%-- AOL Selects TopCoder Enterprise Software Development Platform begin --%>
                 <div class="pr_newsitem">
