@@ -8,8 +8,14 @@ import java.io.Serializable;
  *          Create Date: Feb 21, 2008
  */
 public class AuthenticatedUser implements Serializable {
+
     private String userName;
     private Long userId;
+    private static final long serialVersionUID = -4504131195466365739L;
+
+
+    public AuthenticatedUser() {
+    }
 
     AuthenticatedUser(Long userId, String userName) {
         this.userId = userId;
@@ -23,4 +29,6 @@ public class AuthenticatedUser implements Serializable {
     public Long getUserId() {
         return userId;
     }
+    
+
 }
