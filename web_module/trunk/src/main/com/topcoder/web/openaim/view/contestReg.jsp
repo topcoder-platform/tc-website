@@ -56,7 +56,7 @@
                 <h1>Contest Registration</h1>
 
                 <div align="center">
-                    Please read through the following terms and then click <strong>"I Agree"</strong> when you're done.
+                    Please read through the following terms, check off <strong>"I agree"</strong>, and click Submit when you're done.
                     <br /><br />
 
                     <form name="terms" method="POST" action="${sessionInfo.servletPath}">
