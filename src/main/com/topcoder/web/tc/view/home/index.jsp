@@ -113,7 +113,7 @@
         --%>
         
         <%-- OpenAIM --%>
-        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />"><img src="/i/home/openaim.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
+        <a href="<tc-webtag:linkTracking link='/openaim/' refer='homepage' />"><img src="/i/home/openaim.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
         
     </td>
     <td align="right" valign="top">
