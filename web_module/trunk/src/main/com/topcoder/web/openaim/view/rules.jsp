@@ -43,7 +43,7 @@ Registration and participation by developers in the Open AIM Developer Challenge
 </p>
 
 <p>
-GENERAL
+<strong>GENERAL</strong>
 </p>
 
 <p>
@@ -55,7 +55,7 @@ If You do not agree to abide by these Terms and Conditions, please do not partic
 </p>
 
 <p>
-OVERVIEW  
+<strong>OVERVIEW</strong>  
 </p>
 
 <p>
@@ -67,7 +67,7 @@ TopCoder and the Corporate Participant reserve the right to limit the participat
 </p>
 
 <p>
-ELIGIBILITY
+<strong>ELIGIBILITY</strong>
 </p>
 
 <p>
@@ -100,7 +100,7 @@ Employees of TopCoder, the Corporate Participant, their affiliated companies, an
 </p>
 
 <p>
-HOW TO ENTER: 
+<strong>HOW TO ENTER:</strong>
 </p>
 
 <p>
@@ -157,7 +157,7 @@ How to participate
 </ol>
 
 <p>
-JUDGING CRITERIA: 
+<strong>JUDGING CRITERIA: </strong>
 </p>
 
 <p>
@@ -209,7 +209,7 @@ Winners of this competition will be contacted via e-mail.  Unless otherwise prov
 </p>
 
 <p>
-PRIVACY  
+<strong>PRIVACY</strong>  
 </p>
 
 <p>
@@ -217,7 +217,7 @@ All information is collected in the United States, and the use of any personally
 </p>
 
 <p>
-ORIGINAL WORK/LEGAL COMPLIANCE
+<strong>ORIGINAL WORK/LEGAL COMPLIANCE</strong>
 </p>
 
 <p>
@@ -225,7 +225,7 @@ By submitting an entry, You represent that such entry is your own, original work
 </p>
 
 <p>
-PERMISSION TO DISPLAY AND LINK TO SUBMISSION.  
+<strong>PERMISSION TO DISPLAY AND LINK TO SUBMISSION.</strong>  
 </p>
 
 <p>
@@ -237,7 +237,7 @@ You waive any right to inspect or approve the use or modification of your winnin
 </p>
 
 <p>
-NO ADDITIONAL RIGHTS FROM SUBMISSION.  
+<strong>NO ADDITIONAL RIGHTS FROM SUBMISSION.</strong>  
 </p>
 
 <p>
@@ -245,7 +245,7 @@ By participating in the Competition, You acknowledge and agree that it is possib
 </p>
 
 <p>
-CONDUCT OF COMPETITION.  
+<strong>CONDUCT OF COMPETITION.</strong>  
 </p>
 
 <p>
@@ -257,7 +257,7 @@ CAUTION: ANY ATTEMPT TO DELIBERATELY DAMAGE ANY WEBSITE OR UNDERMINE THE LEGITIM
 </p>
 
 <p>
-DISCLAIMER 
+<strong>DISCLAIMER</strong> 
 </p>
 
 <p>
@@ -281,7 +281,7 @@ In those states which do not allow the limitation of liability or exclusion of l
 </p>
 
 <p>
-THIRD PARTY SERVICES/COPYRIGHT NOTICE: 
+<strong>THIRD PARTY SERVICES/COPYRIGHT NOTICE:</strong> 
 </p>
 
 <p>
@@ -289,7 +289,7 @@ You agree to be bound by all applicable terms and conditions governing access to
 </p>
 
 <p>
-WARRANTY AND INDEMNIFICATION: 
+<strong>WARRANTY AND INDEMNIFICATION: </strong>
 </p>
 
 <p>
@@ -297,7 +297,7 @@ You must not cheat, and must submit your own, original work.  You warrant to Top
 </p>
 
 <p>
-TAXES/EXPENSES: 
+<strong>TAXES/EXPENSES:</strong> 
 </p>
 
 <p>
@@ -305,7 +305,7 @@ You are solely responsible for any and all taxes, costs, and expenses associated
 </p>
 
 <p>
-MISCELLANEOUS
+<strong>MISCELLANEOUS</strong>
 </p>
 
 <p>
