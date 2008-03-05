@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">03.05.08 11:00 AM - </td><td width="100%"><A href="/openaim/">Introducing the Open AIM Developer Challenge</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.25.08 9:00 PM - </td><td width="100%"><A href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003815">Mobile Development on Three Platforms</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.20.08 7:00 PM - </td><td width="100%"><A href="/registration/actions/Registration.do?method=openRegistrations">Increased Assembly Prize Money</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.20.08 7:00 PM - </td><td width="100%"><A href="/tc?module=Static&amp;d1=digital_run&amp;d2=2007dot5&amp;d3=asmLeaderboardS2">2007.5 Digital Run: Assembly Cup Stage 2 Winners</A><br></td></tr>
