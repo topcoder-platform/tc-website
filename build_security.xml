@@ -88,6 +88,7 @@
         <pathelement location="${jars.dir}/itext-1.1.jar"/>
 
         <pathelement location="${external.jars.dir}/jboss-4.2.2-ejb3x.jar"/>
+        <pathelement location="${external.jars.dir}/jboss-4.2.2-jaxws.jar"/>
 
         <!-- hibernate files -->
         <!--
