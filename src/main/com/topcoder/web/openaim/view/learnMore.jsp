@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -60,10 +61,10 @@
 
 <h2>How to Compete</h2>
 <p>
-    Be sure to read the full contest <a href="/openaim/?module=Static&amp;d1=rules">rules and terms & conditions</a>.
+    Be sure to read the full contest <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">rules and terms & conditions</a>.
 </p>
 <p>
-    <a href="/reg/?module=Main&amp;rt=8">Register as a TopCoder member</a> THEN <a href="/openaim/?module=ViewContestDetails&amp;ct=1002">register for the Open AIM Developer Challenge</A>.
+    <a href="/reg/?module=Main&amp;rt=8">Register as a TopCoder member</a> THEN <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;ct=1002">register for the Open AIM Developer Challenge</A>.
 </p>
 <p>
     Check out the APIs at <a href="http://dev.aol.com/apis">dev.aol.com</a> and get a <a href="http://dev.aol.com/openAIM">usage key</a> - your unique identifier giving you access to the AIM network. The keys let AOL know how popular your Plugin or Custom Client is.
@@ -90,7 +91,7 @@
     You may enter as many submissions as you like, but each application may only be submitted once.
 </p>
 <p align="center">
-    <a href="/openaim/?module=Static&amp;d1=rules">Full Official Contest Rules and Terms & Conditions</a>
+    <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">Full Official Contest Rules and Terms & Conditions</a>
 </p>
 
 <h2>How to Submit</h2>
@@ -121,7 +122,7 @@
 </p>
 
 <p align="center">
-    <a href="/openaim/?module=Static&amp;d1=rules">Full Official Contest Rules and Terms & Conditions</a>
+    <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">Full Official Contest Rules and Terms & Conditions</a>
 </p>
 
 <h2>How Your App will be Scored</h2>
@@ -137,7 +138,7 @@
 </ul>
 
 <p align="center">
-    <a href="/openaim/?module=Static&amp;d1=rules">Full Official Contest Rules and Terms & Conditions</a>
+    <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">Full Official Contest Rules and Terms & Conditions</a>
 </p>
 
 <h2>What You Can Build</h2>
@@ -161,7 +162,7 @@
 </ul>
 
 <p align="center">
-    <a href="/openaim/?module=Static&amp;d1=rules">Full Official Contest Rules and Terms & Conditions</a>
+    <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">Full Official Contest Rules and Terms & Conditions</a>
 </p>
 
 
