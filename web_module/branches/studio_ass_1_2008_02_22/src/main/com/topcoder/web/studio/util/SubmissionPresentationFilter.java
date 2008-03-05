@@ -10,7 +10,7 @@ import java.io.FilenameFilter;
  * <p>A filename filter to be used for finding the file for specified type of alternate presentation of specified
  * submission.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly (Req# 5.8, 5.11)
  */

@@ -5,6 +5,7 @@ package com.topcoder.web.studio.util;
 
 import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.validation.SubmissionValidator;
+import com.topcoder.web.studio.Constants;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -17,7 +18,7 @@ import java.util.zip.ZipInputStream;
 /**
  * <p>An analyzer for <code>ZIP</code> archives. Maps to {@link StudioFileType#ZIP_ARCHIVE_TYPE_ID} file type.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly (Req# 5.7)
  */
@@ -211,7 +212,8 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
                 if (!entry.isDirectory()) {
                     String entryName = entry.getName();
                     // Check if the non-empty native submission is provided
-                    if (!this.nativeSubmissionProvided && entryName.startsWith("source/")) {
+                    if (!this.nativeSubmissionProvided
+                        && entryName.startsWith(Constants.SUBMISSION_SOURCE_PATH + "/")) {
                         long entrySize = entry.getSize();
                         if (entrySize > 0) {
                             this.nativeSubmissionProvided = true;
@@ -224,7 +226,7 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
                                 this.nativeSubmissionProvided = true;
                             }
                         }
-                    } else if (entryName.startsWith("submission/")) {
+                    } else if (entryName.startsWith(Constants.SUBMISSION_PATH + "/")) {
                         StudioFileType fileType = SubmissionValidator.getFileType(entry.getName());
                         if (fileType != null) {
                             if (!this.previewImageProvided && fileType.isImageFile()) {

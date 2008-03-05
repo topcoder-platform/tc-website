@@ -66,7 +66,7 @@
         <c:choose>
             <c:when test="${submission.contest.viewableSubmissions.value}">
                 <c:choose>
-                    <c:when test="${submission.contest.channel.id eq 3}"> <%-- ContestChannel.STUDIO_ADMINISTRATOR_V1 --%>
+                    <c:when test="${submission.contest.channel.id eq 3}">
                         <c:choose>
                             <c:when test="${submission.mimeType.fileType.imageFile}">
                                 <studio_tags:submissionDisplay submissionId="${submission.id}" width="${submission.width}" height="${submission.height}"/>
@@ -86,7 +86,7 @@
                         </c:if>
                         <c:choose>
                             <c:when test="${contestType.previewImageRequired}">
-                                <img src="${sessionInfo.servletPath}?module=DownloadSubmission&amp;sbt=small&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
+                                <img src="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=small&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
                             </c:when>
                             <c:otherwise>
                                 <c:choose>

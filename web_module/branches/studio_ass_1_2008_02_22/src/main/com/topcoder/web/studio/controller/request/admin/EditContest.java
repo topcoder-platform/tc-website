@@ -38,7 +38,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * @author dok, TCSDEVELOPER
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 17, 2006
  */
@@ -150,6 +150,8 @@ public class EditContest extends Base {
 
             // Since TopCoder Studio Modifications Assembly (Req# 5.4)
             // Set the Require Preview Image and Require Preview File properties based on the contest type
+            // TODO : This should be revised when the front-end is updated to allow to set the contest type and channel
+            // as well as to override the preview required flags on contest basis
             ContestType contestType = contest.getType();
             if (contestType != null) {
                 // Set Require Preview Image property

@@ -3,7 +3,7 @@ package com.topcoder.web.studio.model;
 import com.topcoder.web.common.model.Base;
 
 /**
- * @author dok, TCSDEVELOPER
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 28, 2006
  */

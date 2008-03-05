@@ -3,9 +3,9 @@
  */
 package com.topcoder.web.studio.dao.hibernate;
 
+import com.topcoder.web.common.dao.hibernate.GenericBase;
 import com.topcoder.web.studio.dao.ContestChannelDAO;
 import com.topcoder.web.studio.model.ContestChannel;
-import com.topcoder.web.common.dao.hibernate.Base;
 
 import java.util.List;
 
@@ -13,11 +13,11 @@ import java.util.List;
  * <p>A default implementation of {@link ContestChannelDAO} interface built on top of <code>Hibernate ORM</code>
  * framework.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly (Req# 5.2)
  */
-public class ContestChannelDAOHibernate extends Base implements ContestChannelDAO {
+public class ContestChannelDAOHibernate extends GenericBase<ContestChannel, Integer> implements ContestChannelDAO {
 
     /**
      * <p>Constructs new <code>ContestChannelDAOHibernate</code> instance. This implementation does nothing.</p>
@@ -33,7 +33,7 @@ public class ContestChannelDAOHibernate extends Base implements ContestChannelDA
      *         <code>null</code> if there is no such contest channel found.
      */
     public ContestChannel find(Integer id) {
-        return (ContestChannel) super.find(ContestChannel.class, id);
+        return super.find(id);
     }
 
     /**
@@ -42,6 +42,6 @@ public class ContestChannelDAOHibernate extends Base implements ContestChannelDA
      * @return a <code>List</code> listing all existing studio contest channels.
      */
     public List<ContestChannel> getContestChannels() {
-        return findAll(ContestChannel.class);
+        return findAll();
     }
 }

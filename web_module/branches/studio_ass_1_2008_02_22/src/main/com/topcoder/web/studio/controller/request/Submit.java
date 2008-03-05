@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2005-2008 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.image.size.ImageException;
@@ -45,8 +48,6 @@ import com.topcoder.web.studio.model.SubmissionStatus;
 import com.topcoder.web.studio.model.SubmissionType;
 import com.topcoder.web.studio.util.BundledFileAnalyzer;
 import com.topcoder.web.studio.validation.SubmissionValidator;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
@@ -55,16 +56,59 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.FileInputStream;
 import java.util.Date;
 
 /**
- * @author dok
+ * <p>A request processor to be used for servicing the requests for uploading the submissions to server. The main
+ * purpose of this processor is to validate the submission and store it in local file system. Also generates the
+ * alternate presentations for the submission and generates the passing review for those submissions which come from
+ * <code>TopCoder Direct</code> contests.</p>
+ *
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
 public class Submit extends BaseSubmissionDataProcessor {
+
+    /**
+     * <p>An <code>int</code> providing the maximum size (in pixels) for the <code>tiny</code> presentations of the
+     * preview images.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    private static final int TINY_IMAGE_SIZE = 120;
+
+    /**
+     * <p>An <code>int</code> providing the maximum size (in pixels) for the <code>small</code> presentations of the
+     * preview images.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    private static final int SMALL_IMAGE_SIZE = 300;
+
+    /**
+     * <p>An <code>int</code> providing the maximum size (in pixels) for the <code>medium</code> presentations of the
+     * preview images.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    private static final int MEDIUM_IMAGE_SIZE = 555;
+
+    /**
+     * <p>A <code>File</code> referencing the uploaded submission as stored in the local file system.</p>
+     */
     private File f = null;
 
+    /**
+     * <p>Implements the business logic for request processing.</p>
+     *
+     * <p>Validates the submission submitted by the user to server and stores it in local file system. Launches a
+     * separate thread for generating the alternate presentations of the submission. Also for submissions from <code>
+     * TopCoder Direct</code> contests generates the passing review.</p>
+     *
+     * @throws Exception if an unexpected error occurs.
+     */
     protected void dbProcessing() throws Exception {
         if (userLoggedIn()) {
             Long contestId;
@@ -106,16 +150,20 @@ public class Submit extends BaseSubmissionDataProcessor {
                 UploadedFile submissionFile = r.getUploadedFile(Constants.SUBMISSION);
 
                 //do validation
-                ValidationResult submissionResult = new SubmissionValidator(c).validate(new ObjectInput(submissionFile));
+                ValidationResult submissionResult
+                        = new SubmissionValidator(c).validate(new ObjectInput(submissionFile));
                 if (!submissionResult.isValid()) {
                     addError(Constants.SUBMISSION, submissionResult.getMessage());
                 }
 
-                ValidationResult rankResult = new IntegerValidator("Please input a valid integer for rank.").validate(new StringInput(rank));
+                StringInput rankInput = new StringInput(rank);
+                ValidationResult rankResult
+                        = new IntegerValidator("Please input a valid integer for rank.").validate(rankInput);
                 if (!rankResult.isValid()) {
                     addError(Constants.SUBMISSION_RANK, rankResult.getMessage());
                 }
 
+                String remoteFileName = submissionFile.getRemoteFileName();
                 if (hasErrors()) {
                     setDefault(Constants.CONTEST_ID, contestId.toString());
                     setDefault(Constants.SUBMISSION_RANK, rank);
@@ -127,7 +175,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                     MimeType mt = SubmissionValidator.getMimeType(submissionFile);
                     Submission s = new Submission();
                     s.setContest(c);
-                    s.setOriginalFileName(submissionFile.getRemoteFileName());
+                    s.setOriginalFileName(remoteFileName);
                     s.setSubmitter(u);
                     s.setMimeType(mt);
                     s.setStatus(cFactory.getSubmissionStatusDAO().find(SubmissionStatus.ACTIVE));
@@ -152,7 +200,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                         directory.mkdirs();
                     }
 
-                    String ext = submissionFile.getRemoteFileName().substring(submissionFile.getRemoteFileName().lastIndexOf('.'));
+                    String ext = remoteFileName.substring(remoteFileName.lastIndexOf('.'));
 
                     //root/submissions/contest_id/user_id/time.pdf
                     s.setPath(p);
@@ -230,12 +278,17 @@ public class Submit extends BaseSubmissionDataProcessor {
         }
     }
 
+    /**
+     * <p>Handles the case when an exception has been raised while processing the request. Attempts to delete the
+     * uploaded file with submission from the local file system.</p>
+     */
     protected void exceptionCallBack() {
         if (f != null) {
             try {
                 f.delete();
             } catch (Throwable e) {
-                log.error("Error attempting to remove file (" + f.getPath() + f.getName() + ") after exception: " + e.getMessage());
+                log.error("Error attempting to remove file (" + f.getPath() + f.getName() + ") after exception: "
+                          + e.getMessage());
             }
         }
     }
@@ -245,9 +298,9 @@ public class Submit extends BaseSubmissionDataProcessor {
      * contest.</p>
      *
      * @param contest a <code>Contest</code> representing the contest which the submission belongs to.
-     * @param submission a <code>Submission</code> providing the details for the submission. 
+     * @param submission a <code>Submission</code> providing the details for the submission.
      * @param submissionFile an <code>UploadedFile</code> representing the submission.
-     * @param submitter a <code>User</code> representing the submitter. 
+     * @param submitter a <code>User</code> representing the submitter.
      * @since TopCoder Studio Modifications Assembly (Req# 5.7)
      */
     private void generateAlternateRepresentations(Contest contest, Submission submission, UploadedFile submissionFile,
@@ -261,7 +314,7 @@ public class Submit extends BaseSubmissionDataProcessor {
      * <p>A class implementing the thread job for generating the alternate representations for the submission submitted
      * by user to server.</p>
      *
-     * @author TCSDEVELOPER
+     * @author isv
      * @version 1.0
      * @since TopCoder Studio Modifications Assembly (Req# 5.7)
      */
@@ -317,7 +370,6 @@ public class Submit extends BaseSubmissionDataProcessor {
          * representations of the submission.</p>
          */
         public void run() {
-            log.debug("begin file processing");
             HibernateUtils.begin();
             try {
                 BundledFileAnalyzer analyzer = SubmissionValidator.getBundledFileParser(submission.getMimeType());
@@ -331,7 +383,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                                                                                 analyzer.getPreviewFilePath(), "full");
                     writeFile(fullName, previewFileContent);
                 }
-                
+
                 // Generate "tiny", "small", "medium" representation from preview image if it is provided
                 // Generate "full" representation from preview image if it is provided but preview file is not provided
                 if (analyzer.isPreviewImageAvailable()) {
@@ -351,10 +403,18 @@ public class Submit extends BaseSubmissionDataProcessor {
                                                                                  this.submission,
                                                                                  analyzer.getPreviewImagePath(),
                                                                                  "image");
+                    String watermarkedImageName
+                            = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter, this.submission,
+                                                                        analyzer.getPreviewImagePath(), "imagew");
                     writeFile(imageName, imageContent);
-                    createWatermarkCopy(tinyName, false, 120, imageContent, analyzer.getPreviewImageFileType());
-                    createWatermarkCopy(smallName, true, 300, imageContent, analyzer.getPreviewImageFileType());
-                    createWatermarkCopy(mediumName, true, 555, imageContent, analyzer.getPreviewImageFileType());
+                    createWatermarkCopy(watermarkedImageName, true, -1, imageContent,
+                                        analyzer.getPreviewImageFileType());
+                    createWatermarkCopy(tinyName, false, TINY_IMAGE_SIZE, imageContent,
+                                        analyzer.getPreviewImageFileType());
+                    createWatermarkCopy(smallName, true, SMALL_IMAGE_SIZE, imageContent,
+                                        analyzer.getPreviewImageFileType());
+                    createWatermarkCopy(mediumName, true, MEDIUM_IMAGE_SIZE, imageContent,
+                                        analyzer.getPreviewImageFileType());
                     if (!analyzer.isPreviewFileAvailable()) {
                         String fullName = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter,
                                                                                     this.submission,
@@ -364,30 +424,29 @@ public class Submit extends BaseSubmissionDataProcessor {
                     }
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
+                          e);
             } catch (PersistenceException e) {
-                e.printStackTrace();
+                log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
+                          e);
             } catch (FileDoesNotExistException e) {
-                e.printStackTrace();
+                log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
+                          e);
             } catch (ImageException e) {
-                e.printStackTrace();
+                log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
+                          e);
             } catch (ImagePersistenceException e) {
-                e.printStackTrace();
+                log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
+                          e);
             } catch (UnsupportedFormatException e) {
-                e.printStackTrace();
+                log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
+                          e);
             } catch (ImageOverlayProcessingException e) {
-                e.printStackTrace();
+                log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
+                          e);
             } finally {
-                Session session = HibernateUtils.getSession();
-                Transaction transaction = session.getTransaction();
-                if (transaction != null && transaction.isActive()) {
-                    session.flush();
-                }
-                HibernateUtils.commit();
-//                HibernateUtils.close();
                 HibernateUtils.closeSession();
             }
-            log.debug("end file processing");
         }
 
         /**
@@ -399,15 +458,15 @@ public class Submit extends BaseSubmissionDataProcessor {
          *        <code>-1</code> if original image size must be used.
          * @param imageContent a <code>byte</code> array providing the content of original image.
          * @param imageFileType a <code>StudioFileType</code> representing the file type for the image to be
-         *        watermarked. 
+         *        watermarked.
          * @throws IOException if an I/O error occurs while reading or writting image content.
          * @throws ImageException if original image can not be resized to specified size.
          * @throws ImagePersistenceException if original image can not be resized to specified size.
          * @throws UnsupportedFormatException if original image can not be resized to specified size.
          * @throws ImageOverlayProcessingException if original image can not be resized to specified size.
          */
-        private void createWatermarkCopy(String path, boolean watermark, int maxSize, byte[] imageContent,
-                                         StudioFileType imageFileType) throws IOException, ImageException,
+        private void createWatermarkCopy(final String path, boolean watermark, int maxSize, final byte[] imageContent,
+                                         final StudioFileType imageFileType) throws IOException, ImageException,
                                                                               ImagePersistenceException,
                                                                               UnsupportedFormatException,
                                                                               ImageOverlayProcessingException {
@@ -428,52 +487,90 @@ public class Submit extends BaseSubmissionDataProcessor {
             }
 
             // Determine whether the original image must be resized or not
-            boolean mustResize = false;
+            boolean mustResizeWidth = false;
+            boolean mustResizeHeight = false;
             if (maxSize != -1) {
                 Image image = manager.loadImage(imageFormat, new ByteArrayInputStream(imageContent));
                 int imageWidth = image.getWidth();
-                mustResize = (imageWidth > maxSize);
+                int imageHeight = image.getHeight();
+                mustResizeWidth = (imageWidth > maxSize);
+                mustResizeHeight = (imageHeight > maxSize);
             }
 
-            // Resize the original image if necessary
-            if (mustResize) {
-                File tempFile = File.createTempFile("studio", "tmp", new File(Constants.ROOT_STORAGE_PATH+System.getProperty("file.separator")+Constants.SUBMISSIONS_DIRECTORY_NAME));
-                tempFile.deleteOnExit();
-                writeFile(tempFile.getPath(), imageContent);
+            // A file which will hold the resized/watermarked image once the whole process succeeds
+            File processedImageFile = new File(path);
 
-                ImageResizer resizer = new ImageResizer(tempFile);
-                File resizedPath = new File(path);
-                resizer.scaleToWidth(resizedPath, maxSize);
-                
+            // Create temporary file to write the resized and watermarked image content to
+            final File tempFile = File.createTempFile("studio", "tmp", new File(Constants.TEMPORARY_STORAGE_PATH));
+            tempFile.deleteOnExit();
+
+            try {
+                // Resize the original image if necessary
+                if (mustResizeWidth || mustResizeHeight) {
+                    // Create temporary file with original image content
+                    File fileToResize = File.createTempFile("studio", "tmp",
+                                                            new File(Constants.TEMPORARY_STORAGE_PATH));
+                    fileToResize.deleteOnExit();
+                    writeFile(fileToResize.getPath(), imageContent);
+
+                    try {
+                        // Resize by width first if necessary
+                        if (mustResizeWidth) {
+                            ImageResizer resizer = new ImageResizer(fileToResize);
+                            resizer.scaleToWidth(tempFile, maxSize);
+                            // Check again if resizing by height is still necessary
+                            Image image = manager.loadImage(imageFormat, tempFile);
+                            int imageHeiht = image.getHeight();
+                            mustResizeHeight = (imageHeiht > maxSize);
+                            if (mustResizeHeight) {
+                                fileToResize.delete();
+                                copyFiles(tempFile, fileToResize);
+                                tempFile.delete();
+                            }
+                        }
+
+                        // Resize by height if necessary
+                        if (mustResizeHeight) {
+                            ImageResizer resizer = new ImageResizer(fileToResize);
+                            resizer.scaleToHeight(tempFile, maxSize);
+                        }
+                    } finally {
+                        fileToResize.delete();
+                    }
+                } else {
+                    writeFile(tempFile.getPath(), imageContent);
+                }
+
+                // Watermark the original image if necessary
+                if (watermark) {
+                    Image overlayImage = manager.loadImage(Constants.WATERMARK_FILE_TYPE,
+                                                           Constants.WATERMARK_FILE_PATH);
+                    Image targetImage = manager.loadImage(imageFormat, tempFile);
+
+                    TransparencySpecification transSpec = new TransparencySpecification();
+                    transSpec.setColorTransparency(Constants.WATERMARK_OVERLAY_IMAGE_RED,
+                                                   Constants.WATERMARK_OVERLAY_IMAGE_GREEN,
+                                                   Constants.WATERMARK_OVERLAY_IMAGE_BLUE,
+                                                   Constants.WATERMARK_OVERLAY_IMAGE_TRANSPARENCY);
+                    transSpec.setImageTransparency(Constants.WATERMARK_BASE_IMAGE_TRANSPARENCY);
+                    OverlaySpecification overlaySpec = new OverlaySpecification(transSpec,
+                                                                                OverlayType.SCALE_FIT_OVERLAY_IMAGE,
+                                                                                0, 0);
+                    Watermarker watermarker = new Watermarker(manager, overlayImage, overlaySpec);
+                    Image watermarkedImage = watermarker.watermarkImage(targetImage);
+                    manager.storeImage(watermarkedImage, Constants.WATERMARK_FILE_TYPE, tempFile);
+
+                    // Need to change the extension of the watermarked file as originally it corresponds to type of base
+                    // image but the watermarked image is in overlay image format
+                    int pos = path.lastIndexOf(".");
+                    processedImageFile
+                            = new File(path.substring(0, pos + 1) + Constants.WATERMARK_FILE_TYPE.toLowerCase());
+                }
+
+                // Once the whole process succeeds then copy the temporary file to target file
+                copyFiles(tempFile, processedImageFile);
+            } finally {
                 tempFile.delete();
-            } else {
-                writeFile(path, imageContent);
-            }
-            
-            // Watermark the original image if necessary
-            if (watermark) {
-                Image overlayImage = manager.loadImage(Constants.WATERMARK_FILE_TYPE, Constants.WATERMARK_FILE_PATH);
-                Image targetImage = manager.loadImage(imageFormat, path);
-
-                TransparencySpecification transspec = new TransparencySpecification();
-                transspec.setColorTransparency(Constants.WATERMARK_OVERLAY_IMAGE_RED,
-                                               Constants.WATERMARK_OVERLAY_IMAGE_GREEN,
-                                               Constants.WATERMARK_OVERLAY_IMAGE_BLUE,
-                                               Constants.WATERMARK_OVERLAY_IMAGE_TRANSPARENCY);
-                transspec.setImageTransparency(Constants.WATERMARK_BASE_IMAGE_TRANSPARENCY);
-                OverlaySpecification overlaySpec = new OverlaySpecification(transspec,
-                                                                            OverlayType.SCALE_FIT_OVERLAY_IMAGE, 0, 0);
-                Watermarker watermarker = new Watermarker(manager, overlayImage, overlaySpec);
-                Image watermarkedImage = watermarker.watermarkImage(targetImage);
-
-                File imagePath = new File(path);
-                manager.storeImage(watermarkedImage, Constants.WATERMARK_FILE_TYPE, imagePath);
-
-                // Need to change the extension of the watermarked file as originally it corresponds to type of base
-                // image but the watermarked image is in overlay image format
-                int pos = path.lastIndexOf(".");
-                File newImagePath = new File(path.substring(0, pos + 1) + Constants.WATERMARK_FILE_TYPE.toLowerCase());
-                imagePath.renameTo(newImagePath);
             }
         }
 
@@ -484,7 +581,7 @@ public class Submit extends BaseSubmissionDataProcessor {
          * @param content a <code>byte</code> array providing the content of the file to be written.
          * @throws IOException if an I/O error occurs while writting file content to disk.
          */
-        private void writeFile(String path, byte[] content) throws IOException {
+        private static void writeFile(String path, byte[] content) throws IOException {
             if (log.isDebugEnabled()) {
                 log.debug("creating file: " + path);
             }
@@ -494,6 +591,33 @@ public class Submit extends BaseSubmissionDataProcessor {
             } finally {
                 fos.flush();
                 fos.close();
+            }
+        }
+
+        /**
+         * <p>Copies the specified file to specified one.</p>
+         *
+         * @param from a <code>File</code> to be copied.
+         * @param to a <code>File</code> referencing the new location of the copy.
+         * @throws IOException if an I/O error occurs while writting file content to disk.
+         */
+        private static void copyFiles(File from, File to) throws IOException {
+            if (log.isDebugEnabled()) {
+                log.debug("copying file: " + from.getPath() + " to " + to.getPath());
+            }
+            FileInputStream fis = new FileInputStream(from);
+            FileOutputStream fos = new FileOutputStream(to, false);
+
+            try {
+                byte[] buf = new byte[4096];
+                int count = -1;
+                while ((count = fis.read(buf)) != -1) {
+                    fos.write(buf, 0, count);
+                }
+            } finally {
+                fos.flush();
+                fos.close();
+                fis.close();
             }
         }
     }

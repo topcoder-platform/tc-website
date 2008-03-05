@@ -4,6 +4,7 @@
 package com.topcoder.web.studio.dao;
 
 import com.topcoder.web.studio.model.ContestType;
+import com.topcoder.web.common.dao.GenericDAO;
 
 import java.util.List;
 
@@ -14,11 +15,11 @@ import java.util.List;
  * <p>Currently the interface defines the method for getting the list of all existing contest types and looking up for
  * a particular contest type referenced by the provided ID.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly (Req# 5.1)
  */
-public interface ContestTypeDAO {
+public interface ContestTypeDAO extends GenericDAO<ContestType, Integer> {
 
     /**
      * <p>Looks up for the studio contest type matching the specified ID.</p>

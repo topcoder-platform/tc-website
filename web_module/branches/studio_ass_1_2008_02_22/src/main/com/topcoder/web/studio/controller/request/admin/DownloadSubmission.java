@@ -4,11 +4,11 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ContestType;
+import com.topcoder.web.studio.model.ContestChannel;
+import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.MimeType;
 import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.ContestChannel;
 import com.topcoder.web.studio.util.SubmissionPresentationFilter;
 import com.topcoder.web.studio.validation.SubmissionValidator;
 
@@ -16,10 +16,12 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
+import java.text.MessageFormat;
+import java.util.Map;
 import java.util.Set;
 
 /**
- * @author dok, TCSDEVELOPER
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
@@ -62,7 +64,8 @@ public class DownloadSubmission extends Base {
                 valid = (ALTERNATE_SUBMISSION_TYPES[i].equalsIgnoreCase(submissionType));
             }
             if (!valid) {
-                throw new NavigationException("Invalid Submission Presentation Type Specified");
+                throw new NavigationException(MessageFormat.format(Constants.ERROR_MSG_INVALID_PRESENTATION_TYPE,
+                                                                   submissionType));
             }
         }
 
@@ -76,11 +79,8 @@ public class DownloadSubmission extends Base {
             
             // Determine if the "image" presentation must be used in case the "full" presentation is requested but
             // contest does not require preview file. So the admin may get the non-watermarked image
-            boolean previewFileRequired = false;
-            ContestType contestType = contest.getType();
-            if (contestType != null) {
-                previewFileRequired = contestType.getPreviewFileRequired();
-            }
+            Map<Integer,String> contestConfig = contest.getConfigMap();
+            boolean previewFileRequired = Boolean.parseBoolean(contestConfig.get(ContestProperty.REQUIRE_PREVIEW_FILE));
             if ("full".equalsIgnoreCase(submissionType) && !previewFileRequired) {
                 submissionType = "image";
             }
@@ -89,7 +89,8 @@ public class DownloadSubmission extends Base {
             File dir = new File(s.getPath().getPath());
             String[] fileNames = dir.list(new SubmissionPresentationFilter(submissionType, s.getId()));
             if (fileNames.length < 1) {
-                throw new NavigationException("Requested Submission Presentation Does Not Exist");
+                throw new NavigationException(MessageFormat.format(Constants.ERROR_MSG_PRESENTATION_NOT_FOUND,
+                                                                   submissionType));
             } else {
                 // tiny, small, medium and full (but full only if preview file required for contest; otherwise - image)
                 targetFileName = s.getPath().getPath() + fileNames[0];

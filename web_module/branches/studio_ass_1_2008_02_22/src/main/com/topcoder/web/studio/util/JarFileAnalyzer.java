@@ -12,7 +12,7 @@ import java.util.jar.JarInputStream;
 /**
  * <p>An analyzer for <code>Java</code> archives. Maps to {@link StudioFileType#JAR_ARCHIVE_TYPE_ID} file type.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly (Req# 5.6, 5.7)
  */

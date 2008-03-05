@@ -36,8 +36,4 @@ public class MimeType extends Base {
         this.fileType = fileType;
     }
 
-    public String toString() {
-        return new StringBuilder(100).append(getClass().getName()).append(" id: ").
-                append(id).append(" desc: ").append(description).toString();
-    }
 }

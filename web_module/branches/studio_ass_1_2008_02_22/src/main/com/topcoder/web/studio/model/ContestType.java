@@ -9,7 +9,7 @@ import com.topcoder.web.common.model.Base;
  * <p>A POJO class used for representing the contest types. Maintains the contest type ID, description and two flags
  * indicating whether the image or file preview is required for contest type or not.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly (Req# 5.1)
  */
@@ -31,12 +31,12 @@ public class ContestType extends Base {
     public static final Integer LOGO = 3;
 
     /**
-     * <p>An <code>Integer</code> maitaining the ID of this contest type.</p>
+     * <p>An <code>Integer</code> maintaining the ID of this contest type.</p>
      */
     private Integer id = null;
 
     /**
-     * <p>A <code>String</code> maitaining the textual description of this contest type.</p>
+     * <p>A <code>String</code> maintaining the textual description of this contest type.</p>
      */
     private String description = null;
 

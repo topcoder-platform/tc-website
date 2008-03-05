@@ -3,7 +3,7 @@ package com.topcoder.web.studio.dao.hibernate;
 import com.topcoder.web.studio.dao.*;
 
 /**
- * @author dok, TCSDEVELOPER
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 17, 2006
  */

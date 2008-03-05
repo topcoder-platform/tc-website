@@ -13,7 +13,7 @@ import java.io.InputStream;
  * application. Such analyzers are provided with a content of the bundled file and are responsible for parsing that
  * content in accordance with file type specific format and retrieving any necessary details.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly (Req# 5.6, 5.7)
  */

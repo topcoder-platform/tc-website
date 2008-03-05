@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 import java.util.MissingResourceException;
 
 /**
- * @author dok, TCSDEVELOPER
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jun 22, 2006
  */
@@ -119,6 +119,86 @@ public class Constants implements WebConstants {
      * @since TopCoder Studio Modifications Assembly (Req# 5.7)
      */
     public static int WATERMARK_OVERLAY_IMAGE_BLUE;
+
+    /**
+     * <p>A <code>String</code> providing the path to a directory where the temporary files can be put to (for example,
+     * such files are used while generating the watermarked copies of images).</p>  
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    public static String TEMPORARY_STORAGE_PATH;
+
+    /**
+     * <p>A <code>String</code> providing the path to a directory in submission archive where the source files for the
+     * submission can be located.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    public static String SUBMISSION_SOURCE_PATH;
+
+    /**
+     * <p>A <code>String</code> providing the path to a directory in submission archive where the submission files can
+     * be located.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    public static String SUBMISSION_PATH;
+
+    /**
+     * <p>A <code>String</code> providing the message for the exception to be thrown in case the submitted file does not
+     * represent the bundled file.</p>
+     * 
+     * @since TopCoder Studio Modifications Assembly
+     */
+    public static String ERROR_MSG_NOT_BUNDLED_FILE;
+
+    /**
+     * <p>A <code>String</code> providing the message for the exception to be thrown in case the submitted file does not
+     * represent the bundled file.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly
+     */
+    public static String ERROR_MSG_NO_BUNDLED_FILE_PARSER;
+
+    /**
+     * <p>A <code>String</code> providing the message for the exception to be thrown in case the requested type of
+     * alternate representation of the submission is not recognized.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly
+     */
+    public static String ERROR_MSG_INVALID_PRESENTATION_TYPE;
+
+    /**
+     * <p>A <code>String</code> providing the message for the exception to be thrown in case the requested alternate
+     * representation of the submission does not exist.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly
+     */
+    public static String ERROR_MSG_PRESENTATION_NOT_FOUND;
+
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to users in case the submission validation fails
+     * in case there is no native submission provided.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly
+     */
+    public static String ERROR_MSG_NO_NATIVE_SUBMISSION;
+
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to users in case the submission validation fails
+     * in case there is no preview image provided.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly
+     */
+    public static String ERROR_MSG_NO_PREVIEW_IMAGE;
+
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to users in case the submission validation fails
+     * in case there is no preview file provided.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly
+     */
+    public static String ERROR_MSG_NO_PREVIEW_FILE;
 
     static {
         initialize();

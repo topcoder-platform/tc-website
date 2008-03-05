@@ -8,7 +8,7 @@ import com.topcoder.web.common.model.Base;
 /**
  * <p>A POJO class used for representing the contest channels. Maintains the contest channel ID and description.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly (Req# 5.2)
  */

@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2005-2008 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.validation;
 
 import com.topcoder.servlet.request.FileDoesNotExistException;
@@ -10,10 +13,10 @@ import com.topcoder.web.common.validation.ValidationInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.FileTypeDAO;
+import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ContestType;
+import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.MimeType;
 import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Submission;
@@ -23,23 +26,52 @@ import com.topcoder.web.studio.util.ZipFileAnalyzer;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.text.MessageFormat;
 import java.util.List;
+import java.util.Map;
 
 /**
- * @author dok, TCSDEVELOPER
+ * <p>A validator for the submission files submitted by the users to server in context of specific contest. Implements
+ * the logic for validating the submissions for providing non-empty source files as well as preview images or preview
+ * files based on contest settings.</p>
+ *
+ * <p>Also provides a set of helpful static utility methods which could be used for determining the types of submitted
+ * files, getting the file parsers based on file types, etc.</p>
+ *
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 29, 2006
  */
 public class SubmissionValidator implements Validator {
+
+    /**
+     * <p>A <code>Logger</code> to be used for logging the events occurring in the course of submission validations.</p>
+     */
     protected static final Logger log = Logger.getLogger(SubmissionValidator.class);
 
+    /**
+     * <p>A <code>Contest</code> representing the contest which the submissions to be validated by this validator belong
+     * to.</p>
+     */
     private Contest contest;
 
+    /**
+     * <p>Constructs new <code>SubmissionValidator</code> instance to be used for validating the submissions in context
+     * of specified contest.</p>
+     *
+     * @param contest a <code>Contest</code> which the submissions to be validated by this validator belong to. 
+     */
     public SubmissionValidator(Contest contest) {
         this.contest = contest;
     }
 
-
+    /**
+     * <p>Validates the specified input which is expected to provide the {@link UploadedFile} containing the submission
+     * submitted by the user to server.</p>
+     *
+     * @param input a <code>ValidationInput</code> representing the submission to be validated.
+     * @return a <code>ValidationResult</code> providing the result of submission validation. 
+     */
     public ValidationResult validate(ValidationInput input) {
         UploadedFile submission = (UploadedFile) input.getInput();
 
@@ -64,7 +96,6 @@ public class SubmissionValidator implements Validator {
             return new BasicResult(false, "Communication error when receiving submission.");
         } catch (IOException e) {
             log.warn("Communication error when receiving submission.", e);
-            return new BasicResult(false, "Communication error when receiving submission.");
         }
 
         if (ret == 0) {
@@ -78,26 +109,28 @@ public class SubmissionValidator implements Validator {
             // Since TopCoder Studio Modifications Assembly - additional validation logic is applied for bundled
             // files. Req# 5.6
             BundledFileAnalyzer fileParser = getBundledFileParser(mt);
-            ContestType contestType = this.contest.getType();
+            Map<Integer,String> contestConfig = this.contest.getConfigMap();
+            boolean previewImageRequired
+                    = Boolean.parseBoolean(contestConfig.get(ContestProperty.REQUIRE_PREVIEW_IMAGE));
+            boolean previewFileRequired
+                    = Boolean.parseBoolean(contestConfig.get(ContestProperty.REQUIRE_PREVIEW_FILE));
 
             try {
                 fileParser.analyze(new ByteArrayInputStream(arr), false);
                 boolean nativeSubmissionProvided = fileParser.isNativeSubmissionAvailable();
-                boolean previewImageProvided = (contestType == null) || !contestType.getPreviewImageRequired()
-                        || fileParser.isPreviewImageAvailable();
-                boolean previewFileProvided = (contestType == null) || !contestType.getPreviewFileRequired()
-                        || fileParser.isPreviewFileAvailable();
+                boolean previewImageProvided = !previewImageRequired || fileParser.isPreviewImageAvailable();
+                boolean previewFileProvided = !previewFileRequired || fileParser.isPreviewFileAvailable();
                 if (!nativeSubmissionProvided) {
-                    return new BasicResult(false, "No native submission provided with the submission");
+                    return new BasicResult(false, Constants.ERROR_MSG_NO_NATIVE_SUBMISSION);
                 }
                 if (!previewImageProvided) {
-                    return new BasicResult(false, "No preview image provided with the submission");
+                    return new BasicResult(false, Constants.ERROR_MSG_NO_PREVIEW_IMAGE);
                 }
                 if (!previewFileProvided) {
-                    return new BasicResult(false, "No preview file provided with the submission");
+                    return new BasicResult(false, Constants.ERROR_MSG_NO_PREVIEW_FILE);
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error("Could not validate the input due to I/O error", e);
                 return new BasicResult(false, "Communication error when receiving submission.");
             }
         }
@@ -121,17 +154,11 @@ public class SubmissionValidator implements Validator {
         if (mt == null) {
             log.info("didn't find mime type " + submission.getContentType());
             String ext = submission.getRemoteFileName().substring(submission.getRemoteFileName().lastIndexOf('.') + 1);
-            if (log.isDebugEnabled()) {
-                log.debug("extension is " + ext);
-            }
             for (StudioFileType ft : StudioDAOUtil.getFactory().getFileTypeDAO().getFileTypes()) {
                 if (ft.getExtension().equals(ext)) {
                     mt = ft.getMimeTypes().iterator().next();
                 }
             }
-        }
-        if (log.isDebugEnabled()) {
-            log.debug("found mimetype " + mt);
         }
         return mt;
     }
@@ -142,35 +169,35 @@ public class SubmissionValidator implements Validator {
      * @param mimeType a <code>MimeType</code> providing the type of submission file.
      * @return a <code>BundledFileAnalyzer</code> which could be used for parsing the provided bundled file.
      * @throws IllegalArgumentException if specified mime type does not correspond to bundled files or there is no
-     *                                  parser mapped to specified mime type.
+     *         parser mapped to specified mime type.
      * @since TopCoder Studio Modifications Assembly (Req# 5.6)
      */
     public static BundledFileAnalyzer getBundledFileParser(MimeType mimeType) {
         StudioFileType fileType = mimeType.getFileType();
         Integer fileTypeId = fileType.getId();
         if (!fileType.isBundledFile()) {
-            throw new IllegalArgumentException("The file type [" + fileTypeId + "] does not correspond to bundled "
-                    + "files");
+            throw new IllegalArgumentException(MessageFormat.format(Constants.ERROR_MSG_NOT_BUNDLED_FILE, fileTypeId));
         }
         if (StudioFileType.ZIP_ARCHIVE_TYPE_ID.equals(fileTypeId)) {
             return new ZipFileAnalyzer();
         } else if (StudioFileType.JAR_ARCHIVE_TYPE_ID.equals(fileTypeId)) {
             return new JarFileAnalyzer();
         } else {
-            throw new IllegalArgumentException("There is no parser for bundled file type [" + fileTypeId + "]");
+            throw new IllegalArgumentException(MessageFormat.format(Constants.ERROR_MSG_NO_BUNDLED_FILE_PARSER,
+                                                                    fileTypeId));
         }
     }
 
     /**
-     * <p>Calculates the name for the file with the aletrnate representation of specified type for specified
+     * <p>Calculates the name for the file with the alternate representation of specified type for specified
      * submission.</p>
      *
-     * @param contest          a <code>Contest</code> representing the contest which the submission belongs to.
-     * @param user             a <code>User</code> representing the user who have submitted the submission.
-     * @param submission       a <code>Submission</code> representing the submission submitted to server.
+     * @param contest a <code>Contest</code> representing the contest which the submission belongs to.
+     * @param user a <code>User</code> representing the user who have submitted the submission.
+     * @param submission a <code>Submission</code> representing the submission submitted to server.
      * @param originalFileName a <code>String</code> providing the original name for the file.
-     * @param type             a <code>String</code> specifying the type of file to be created ("tiny", "small", "medium" or
-     *                         "full").
+     * @param type a <code>String</code> specifying the type of file to be created ("tiny", "small", "medium" or
+     *        "full").
      * @return a <code>String</code> providing the path to file with content of specified type for specified
      *         submission.
      * @since TopCoder Studio Modifications Assembly (Req# 5.7)
@@ -211,7 +238,7 @@ public class SubmissionValidator implements Validator {
         int pos = fileName.lastIndexOf('.');
         String extension = fileName.substring(pos + 1);
         for (StudioFileType fileType : fileTypes) {
-            if (extension.equals(fileType.getExtension())) {
+            if (extension.equalsIgnoreCase(fileType.getExtension())) {
                 return fileType;
             }
         }
@@ -226,16 +253,6 @@ public class SubmissionValidator implements Validator {
      * @since TopCoder Studio Modifications Assembly (Req# 5.6)
      */
     private static boolean isBundledFile(MimeType mimeType) {
-        if (log.isDebugEnabled()) {
-            if (mimeType == null) {
-                log.debug("mimetype was null");
-            } else if (mimeType.getFileType() == null) {
-                log.debug("file type was null");
-            } else {
-                log.debug("flag for bundled file " + mimeType.getFileType().getBundledFile());
-            }
-        }
-
         return mimeType.getFileType().isBundledFile();
     }
 }
