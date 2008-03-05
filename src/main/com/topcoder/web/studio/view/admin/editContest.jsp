@@ -389,7 +389,7 @@ var defaultPrizeDesc= "<b>Selection of Winner:</B><br /> "+
 "The contest will award cash prizes totaling [MONEY HERE] to up to [two (2) competitors]. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner(s). </p> "+
 "<p><b>Final Fixes:</b><br /> "+
 "The Client may require the winner to enter into a Final Fixes Phase after the contest has ended. This phase will require the winner to make final changes (specific to the Spec Doc) to the final deliverables before payment can be released.</p> "+
-"<p><span style=" color:red;"><b>Final Deliverables From Winner:</b><br /> The payment will be distributed in one full installment once the final version of the winning submission has been received by TopCoder Studio</span>. Final deliverables include [ENTER HERE FROM SPEC]</p>";
+"<p><span style=\" color:red;\"><b>Final Deliverables From Winner:</b><br /> The payment will be distributed in one full installment once the final version of the winning submission has been received by TopCoder Studio</span>. Final deliverables include [ENTER HERE FROM SPEC]</p>";
 var prizeDesc = getValue("document.editForm", "${prizeDesc}");
                        if ( prizeDesc==null || prizeDesc.length==0) {
                          putValue("document.editForm", "${prizeDesc}", defaultPrizeDesc);
