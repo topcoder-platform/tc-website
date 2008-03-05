@@ -46,7 +46,7 @@ crappy looking to save space on the transmission
 ${submission.originalFileName}
 </c:when>
 <c:otherwise>
-<nobr><img src="/i/v2/selection.png" alt="Selection" /> ${submission.originalFileName}</nobr>
+<nobr><%--<img src="/i/v2/selection.png" alt="Selection" />--%>${submission.originalFileName}</nobr>
 </c:otherwise>
 </c:choose>
 </td>
@@ -55,7 +55,7 @@ ${submission.originalFileName}
 <div>View submission</div>
 </div>
 <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
-<img src="/i/events/openaim/interface/magnify.png" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()"/>
+<img src="/i/events/openaim/interface/magnify.png" alt="" onmouseover="postPopUpText('globalPopupText','View submission'); popUp(this,'globalPopup');" onmouseout="popHide()"/>
 </a>
 </td>
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
