@@ -383,12 +383,12 @@ var overviewText = getValue("document.editForm", "${overviewText}");
 </p>
 
 <script language="javascript" type="text/javascript">
-var defaultPrizeDesc= "<b>Selection of Winner:</B><br /> "+
-"After the submission phase ends, all entries will be screened against the Required Elements listed in the Spec Doc. All passing submissions are then reviewed by the TopCoder project manager and information architect as well as the Client. Winners are selected based on how well they have met the goals of this competition. "+
-"<p><b>Prize Structure:</b><br /> "+
-"The contest will award cash prizes totaling [MONEY HERE] to up to [two (2) competitors]. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner(s). </p> "+
-"<p><b>Final Fixes:</b><br /> "+
-"The Client may require the winner to enter into a Final Fixes Phase after the contest has ended. This phase will require the winner to make final changes (specific to the Spec Doc) to the final deliverables before payment can be released.</p> "+
+var defaultPrizeDesc= "<b>Selection of Winner:</B><br /> \n\n"+
+"After the submission phase ends, all entries will be screened against the Required Elements listed in the Spec Doc. All passing submissions are then reviewed by the TopCoder project manager and information architect as well as the Client. Winners are selected based on how well they have met the goals of this competition.  \n\n"+
+"<p><b>Prize Structure:</b><br />  \n\n"+
+"The contest will award cash prizes totaling [MONEY HERE] to up to [two (2) competitors]. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner(s). </p>  \n\n"+
+"<p><b>Final Fixes:</b><br />  \n\n"+
+"The Client may require the winner to enter into a Final Fixes Phase after the contest has ended. This phase will require the winner to make final changes (specific to the Spec Doc) to the final deliverables before payment can be released.</p>  \n\n"+
 "<p><span style=\" color:red;\"><b>Final Deliverables From Winner:</b><br /> The payment will be distributed in one full installment once the final version of the winning submission has been received by TopCoder Studio</span>. Final deliverables include [ENTER HERE FROM SPEC]</p>";
 var prizeDesc = getValue("document.editForm", "${prizeDesc}");
                        if ( prizeDesc==null || prizeDesc.length==0) {
