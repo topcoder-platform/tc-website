@@ -124,13 +124,14 @@
 
 <h2>How Your App will be Scored</h2>
 
-<p>Submissions will be judged by the Competition judging team. Submissions will be evaluated using a scorecard that includes the following criteria:</p>
+<p>Submissions will be judged by the Competition judging team. Submissions will be evaluated using a scorecard that includes the following criteria: </p>
 
 <ul>
-    <li><strong>Usage:</strong> Usage will be determined based on usage statistics.  It is strictly prohibited to attempt to manufacture usage in any way.  Usage and activity shall be subject to audit by TopCoder and/or Sponsor.</li>
-    <li><strong>Innovation:</strong> As determined by the Competition judges.</li>
-    <li><strong>AOL Favorite:</strong> Popularity among AOL staff.</li>
-    <li><strong>TopCoder Member Favorite:</strong> Popularity among TopCoder members.</li>
+<li><strong>Usage (20%):</strong> Usage will be determined based on usage statistics.  It is strictly prohibited to manufacture or attempt to manufacture usage in any way.  Usage and activity shall be subject to audit by TopCoder and/or AOL.</li>
+<li><strong>Innovation (20%):</strong> Determined by the Competition judges</li>
+<li><strong>Best Use of APIs:</strong>  Best use of the functionality provided by the Specified Technology (20%)</li>
+<li><strong>AOL favorite (20%):</strong> Popularity among AOL staff</li>
+<li><strong>TopCoder Community Favorite (20%):</strong> Popularity among the TopCoder Community</li>
 </ul>
 
 <p align="center">
