@@ -13,6 +13,7 @@ import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserLocal;
 
 import javax.ejb.Stateless;
+import javax.jws.WebMethod;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
@@ -26,6 +27,7 @@ import java.util.Arrays;
 @Stateless
 public class AuthenticationBean implements AuthenticationRemote, AuthenticationLocal {
 
+    @WebMethod
     public AuthenticatedUser login(String userName, String password) throws InvalidCredentialsException, GeneralSecurityException, InactiveEmailStatusException, UnactiveUserStatusException, InactiveUserStatusException {
         try {
             LoginLocal ll = (LoginLocal) com.topcoder.web.common.security.Constants.createLocalEJB(LoginLocal.class);
