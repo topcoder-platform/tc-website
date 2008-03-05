@@ -202,7 +202,7 @@
     <div class="container">
         <table class="stat" cellpadding="0" cellspacing="0">
             <thead>
-                <tr><td class="title" colspan="10">My Submissions<td></tr>
+                <tr><td class="title" colspan="9">My Submissions<td></tr>
                 <tr>
                     <td class="headerW">
                         <div>&nbsp;</div>
