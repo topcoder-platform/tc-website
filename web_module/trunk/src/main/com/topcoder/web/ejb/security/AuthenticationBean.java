@@ -14,6 +14,8 @@ import com.topcoder.web.ejb.user.UserLocal;
 
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
+import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
@@ -25,6 +27,7 @@ import java.util.Arrays;
  *          Create Date: Feb 21, 2008
  */
 @Stateless
+@WebService(endpointInterface = "com.topcoder.web.ejb.security.AuthenticationRemote")
 public class AuthenticationBean implements AuthenticationRemote, AuthenticationLocal {
 
     @WebMethod
