@@ -9,6 +9,6 @@
                         <img src="/i/events/openaim/openaim_logo.png" alt="Open AIM" usemap="#logos" />
                     </div>
                     <div class="slogan">
-                        <img src="/i/events/openaim/slogan.png" alt="Open AIM" />
+                        <a href="http://dev.aol.com/aim"><img src="/i/events/openaim/slogan.png" alt="Open AIM" /></a>
                     </div>
                 </div>

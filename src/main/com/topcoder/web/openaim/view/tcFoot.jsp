@@ -20,6 +20,9 @@
 </table>
 </div>
 
+<%-- CRAZYEGG HEATMAPS --%>
+<script type="text/javascript" src="http://cetrk.com/pages/scripts/0004/0536.js"></script>
+
 <%-- GOOGLE ANALYTICS --%>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
