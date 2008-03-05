@@ -39,8 +39,9 @@ public class AuthenticationBean implements AuthenticationRemote, AuthenticationL
                 char status = getStatus(sub.getUserId(), ctx);
                 if (Arrays.binarySearch(WebConstants.ACTIVE_STATI, status) >= 0) {
                     //check if they have an active email address
-                    if (getEmailStatus(ret.getUserId(), ctx) != WebConstants.EMAIL_ACTIVE_STATUS) {
-                        throw new InactiveEmailStatusException("Inactive Email status for " + ret.getUserName() + " " + status);
+                    int emailStatus = getEmailStatus(ret.getUserId(), ctx);
+                    if (emailStatus != WebConstants.EMAIL_ACTIVE_STATUS) {
+                        throw new InactiveEmailStatusException("Inactive Email status for " + ret.getUserName() + " " + emailStatus);
                     }
                 } else {
                     if (Arrays.binarySearch(WebConstants.UNACTIVE_STATI, status) >= 0) {
