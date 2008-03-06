@@ -1,0 +1,6 @@
+<fo:static-content flow-name="xsl-region-before">
+    <fo:block text-align="center" font-family="$generalUtil.getDefaultFontFamily()" color="#000000">
+            <fo:external-graphic width="auto" height="auto" src="http://www.topcoder.com/i/home/topcoder.png" />
+    </fo:block>
+</fo:static-content>
+
