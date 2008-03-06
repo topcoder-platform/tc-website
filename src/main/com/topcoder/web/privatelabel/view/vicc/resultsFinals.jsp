@@ -23,16 +23,16 @@
 <div class="bodySpacer">
 
 <span class="bigTitle">VTS Finals </span>
-<br/><br/>
-Congratulations to the Top Five Finalists who will be participating in the VTS Finals on August 14th:
-<br><br>
+<br /><br />
+Congratulations to the Top Five Finalists who will be participating in the VTS Finals on August 12th:
+<br /><br />
 <%--
-H2O<br>
-jdubb<br>
-relic<br>
-suomi<br>
+H2O<br />
+jdubb<br />
+relic<br />
+suomi<br />
 vdods
-<br><br>
+<br /><br />
 Check back in August to find who the winner will be!
 --%>
 <%--
@@ -41,19 +41,19 @@ Check back in August to find who the winner will be!
                <td class="sidebarTitle">Finalist</td><td class="sidebarTitle">Winner</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText"><b>H2O</b></td><td class="sidebarText"><b>&#160;</b></td> 
+               <td class="sidebarText"><strong>H2O</strong></td><td class="sidebarText"><strong>&#160;</strong></td> 
             </tr>
             <tr valign="top">
-               <td class="sidebarText"><b>jdubb</b></td><td class="sidebarText"><b>&#160;</b></td>
+               <td class="sidebarText"><strong>jdubb</strong></td><td class="sidebarText"><strong>&#160;</strong></td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText"><b>relic</b></td><td class="sidebarText"><b>&#160;</b></td> 
+               <td class="sidebarText"><strong>relic</strong></td><td class="sidebarText"><strong>&#160;</strong></td> 
             </tr>
             <tr valign="top">
-               <td class="sidebarText"><b>suomi</b></td><td class="sidebarText"><b>&#160;</b></td>
+               <td class="sidebarText"><strong>suomi</strong></td><td class="sidebarText"><strong>&#160;</strong></td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText"><b>vdods</b></td><td class="sidebarText"><b>&#160;</b></td>
+               <td class="sidebarText"><strong>vdods</strong></td><td class="sidebarText"><strong>&#160;</strong></td>
             </tr>
          </table>
 --%>
@@ -62,24 +62,21 @@ Check back in August to find who the winner will be!
                <td class="sidebarTitle">Finalists</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText"><b>H2O</b></td>
+               <td class="sidebarText"><strong>H2O</strong></td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText"><b>jdubb</b></td>
+               <td class="sidebarText"><strong>&nbsp;</strong></td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText"><b>relic</b></td>
+               <td class="sidebarText"><strong>&nbsp;</strong></td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText"><b>suomi</b></td>
-            </tr>
-            <tr valign="top">
-               <td class="sidebarText"><b>vdods</b></td>
+               <td class="sidebarText"><strong>&nbsp;</strong></td>
             </tr>
          </table>
 
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <br/><br/><br/><br/><br/>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br />
             To find out more detailed information about the VeriSign&#174; Code Fest, including a list of the
             prizes, please read the <a href="/pl/?&module=Static&d1=vicc&d2=rules">Terms and Conditions</a>.
         </div>    
