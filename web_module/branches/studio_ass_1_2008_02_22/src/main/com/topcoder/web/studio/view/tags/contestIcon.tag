@@ -1,14 +1,10 @@
 <%@ tag import="com.topcoder.web.studio.model.ContestChannel" %>
-<%@ tag import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ tag body-content="empty" %>
 <%@ attribute name="row" required="true" type="java.lang.Object"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
-<%
-    ResultSetContainer.ResultSetRow item = (ResultSetContainer.ResultSetRow) row;
-%>
 <c:set value="<%=ContestChannel.TOPCODER_DIRECT%>" var="direct"/>
 <c:choose>
     <c:when test="${row.map['contest_channel_id']==direct}">
