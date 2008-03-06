@@ -18,7 +18,7 @@
 <body>
 
 <jsp:include page="../top.jsp" >
-    <jsp:param name="level1" value=""/>
+    <jsp:param name="level1" value="long"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -27,7 +27,7 @@
 <%-- Left Column Begins--%>
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="node" value=""/>
+                <jsp:param name="node" value="long_amd_fest"/>
             </jsp:include>
         </td>
 <%-- Left Column Ends --%>
@@ -51,7 +51,8 @@
         <p align="center">
             Overview&#160;&#160;|&#160;&#160;
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdInstructions">How to Compete</a>&#160;&#160;|&#160;&#160;
-            <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdRules">Rules</a>
+            <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdRules">Rules</a>&#160;&#160;|&#160;&#160;
+            <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
         </p>
         
         <span class="bigTitle">Overview</span>
