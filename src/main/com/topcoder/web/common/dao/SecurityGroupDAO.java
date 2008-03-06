@@ -1,18 +1,18 @@
 package com.topcoder.web.common.dao;
 
 
-import com.topcoder.web.common.model.SecurityGroup;
-import com.topcoder.web.common.model.User;
-
 import java.util.List;
 import java.util.Set;
+
+import com.topcoder.web.common.model.SecurityGroup;
+import com.topcoder.web.common.model.User;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: May 19, 2006
  */
-public interface SecurityGroupDAO {
+public interface SecurityGroupDAO extends GenericDAO<SecurityGroup, Long> {
     List<SecurityGroup> getSecurityGroups(Set registrationTypes);
 
     public boolean hasInactiveHSGroup(User u);
