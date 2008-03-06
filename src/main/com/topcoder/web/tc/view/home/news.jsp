@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />03.06.08<br />12:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd3">TCO08 - Online Round 3 - Problem Set &amp; Analysis</a></span><br /><br />
+      Participation in this round was a requirement for getting a TCO08 t-shirt in the algorithm competition. 295 of the 300 advancers from round 2 were excited about the opportunity although the potential magical properties of the t-shirts have not been confirmed.</td>
+         <td class="newsPhoto"><%--<img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="21547660" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd3">details</a> | 
+        <tc-webtag:forumLink forumID="520052" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />03.05.08<br />3:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=MatchDetails&amp;rd=11126">BT sponsored SRM with $5,000 in prizes!</a></span><br /><br />
@@ -150,20 +166,6 @@
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=bracketInd">details</a> | 
         <tc-webtag:forumLink forumID="519982" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.26.08<br />6:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">NSA chat before SRM 391</a></span><br /><br />
-        NSA representatives will be in the NSA Chat lobby at 8:00 PM EST to discuss their exciting career opportunities.  See more about NSA <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">here</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">details</a> | 
-        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
