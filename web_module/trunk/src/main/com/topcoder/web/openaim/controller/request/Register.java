@@ -81,7 +81,7 @@ public class Register extends ShortHibernateProcessor {
                             OpenAIMDAOUtil.getFactory().getContestRegistrationDAO().saveOrUpdate(cr);
 
                             // add user to the OpenAIM group
-                            SecurityGroup openAimSg = factory.getSecurityGroupDAO().find(Constants.OPEN_AIM_SECURITY_GROUP_ID);
+                            SecurityGroup openAimSg = factory.getSecurityGroupDAO().find(new Long(Constants.OPEN_AIM_SECURITY_GROUP_ID));
                             if (!u.getSecurityGroups().contains(openAimSg)) {
                                 UserGroup ug = new UserGroup();
                                 ug.setUser(u);
