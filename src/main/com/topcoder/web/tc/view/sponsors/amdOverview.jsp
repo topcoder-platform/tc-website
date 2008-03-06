@@ -46,7 +46,6 @@
         <br /><br />
         --%>
 
-        <br />
         <p align="center">
             Overview&#160;&#160;|&#160;&#160;
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdInstructions">How to Compete</a>&#160;&#160;|&#160;&#160;

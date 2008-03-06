@@ -37,7 +37,6 @@
         <div align="center"><img src="/i/sponsor/amd_logo.png" border="0px" alt="AMD Logo" /></div>
         <br /><br />
 
-        <br />
         <p align="center">
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdOverview">Overview</a>&#160;&#160;|&#160;&#160;
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdInstructions">How to Compete</a>&#160;&#160;|&#160;&#160;
