@@ -76,8 +76,6 @@ public interface DAOFactory {
 
     SecurityGroupDAO getSecurityGroupDAO();
 
-    UserGroupDAO getUserGroupDAO();
-
     StateDAO getStateDAO();
 
     SubmissionDAO getSubmissionDAO();

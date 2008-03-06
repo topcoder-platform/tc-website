@@ -1,6 +1,15 @@
 package com.topcoder.web.common;
 
+import java.rmi.RemoteException;
+
+import javax.ejb.CreateException;
+import javax.naming.Context;
+import javax.naming.NamingException;
+import javax.rmi.PortableRemoteObject;
+
 import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.NoSuchGroupException;
+import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
@@ -15,12 +24,6 @@ import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.cache.address.AddressFactory;
 import com.topcoder.web.common.cache.address.CacheAddress;
 import com.topcoder.web.common.security.TCSAuthorization;
-
-import javax.ejb.CreateException;
-import javax.naming.Context;
-import javax.naming.NamingException;
-import javax.rmi.PortableRemoteObject;
-import java.rmi.RemoteException;
 
 /**
  * @author dok
@@ -120,5 +123,24 @@ public class SecurityHelper {
             throw new RuntimeException(e);
         }
     }
+    
+    public static void addUserToGroup(long userId, long groupId) throws NamingException, RemoteException, CreateException, NoSuchGroupException, NoSuchUserException, GeneralSecurityException {
+        Context ctx = null;
+        try {
+            ctx = TCContext.getContext(
+                    ApplicationServer.SECURITY_CONTEXT_FACTORY,
+                    ApplicationServer.SECURITY_PROVIDER_URL);
+            PrincipalMgrRemoteHome pmgrHome = (PrincipalMgrRemoteHome) PortableRemoteObject
+                    .narrow(
+                            ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME),
+                            PrincipalMgrRemoteHome.class);
+            PrincipalMgrRemote pmgr = pmgrHome.create();
+
+            pmgr.addUserToGroup(pmgr.getGroup(groupId), pmgr.getUser(userId), new TCSubject(0));
+        } finally {
+            TCContext.close(ctx);
+        }
+    }
+
 
 }
