@@ -148,10 +148,6 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new SecurityGroupDAOHibernate();
     }
 
-    public UserGroupDAO getUserGroupDAO() {
-        return new UserGroupDAOHibernate();
-    }
-
     public StateDAO getStateDAO() {
         return new StateDAOHibernate();
     }

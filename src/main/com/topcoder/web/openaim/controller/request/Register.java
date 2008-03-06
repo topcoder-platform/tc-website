@@ -1,14 +1,14 @@
 package com.topcoder.web.openaim.controller.request;
 
+import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.UserGroup;
 import com.topcoder.web.openaim.Constants;
 import com.topcoder.web.openaim.dao.OpenAIMDAOFactory;
 import com.topcoder.web.openaim.dao.OpenAIMDAOUtil;
@@ -81,6 +81,8 @@ public class Register extends ShortHibernateProcessor {
                             OpenAIMDAOUtil.getFactory().getContestRegistrationDAO().saveOrUpdate(cr);
 
                             // add user to the OpenAIM group
+                            SecurityHelper.addUserToGroup(u.getId(), Constants.OPEN_AIM_SECURITY_GROUP_ID);
+/*
                             SecurityGroup openAimSg = factory.getSecurityGroupDAO().find(new Long(Constants.OPEN_AIM_SECURITY_GROUP_ID));
                             if (!u.getSecurityGroups().contains(openAimSg)) {
                                 UserGroup ug = new UserGroup();
@@ -90,7 +92,7 @@ public class Register extends ShortHibernateProcessor {
                                 ug.setCreateUserId(new Long(Constants.ADMIN_USER_ID));
 
                                 factory.getUserGroupDAO().saveOrUpdate(ug);
-                            }
+                            }*/
                             
                         } else {
                             addError(Constants.REG_CONFIRM, "");
