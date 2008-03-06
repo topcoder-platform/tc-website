@@ -153,6 +153,10 @@ public class DAOFactoryQueryTool implements DAOFactory {
         throw new RuntimeException("Not supported");
     }
 
+    public UserGroupDAO getUserGroupDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
     public StateDAO getStateDAO() {
         throw new RuntimeException("Not supported");
     }
