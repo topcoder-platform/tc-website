@@ -9,8 +9,9 @@
 <%
     ResultSetContainer.ResultSetRow item = (ResultSetContainer.ResultSetRow) row;
 %>
+<c:set value="<%=ContestChannel.TOPCODER_DIRECT%>" var="direct"/>
 <c:choose>
-    <c:when test="<%=item.getIntItem("contest_channel_id") == ContestChannel.TOPCODER_DIRECT.intValue()%>">
+    <c:when test="${row.map['contest_channel_id']==direct}">
         <img src="i/tcdirectEmblem.png" alt="" width="26" height="18"/>
     </c:when>
     <c:otherwise><img src="i/studioEmblem.png" alt="" width="26" height="18"/></c:otherwise>
