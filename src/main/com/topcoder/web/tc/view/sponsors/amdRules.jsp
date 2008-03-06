@@ -16,7 +16,7 @@
 <body>
 
 <jsp:include page="../top.jsp" >
-    <jsp:param name="level1" value=""/>
+    <jsp:param name="level1" value="long"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -25,7 +25,7 @@
 <%-- Left Column Begins--%>
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="node" value=""/>
+                <jsp:param name="node" value="long_amd_fest"/>
             </jsp:include>
         </td>
 <%-- Left Column Ends --%>
@@ -40,7 +40,8 @@
         <p align="center">
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdOverview">Overview</a>&#160;&#160;|&#160;&#160;
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdInstructions">How to Compete</a>&#160;&#160;|&#160;&#160;
-            Rules
+            Rules&#160;&#160;|&#160;&#160;
+            <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
         </p>
         
         <p><span class="bigTitle">Official Rules &amp; Regulations</span></p>
@@ -76,27 +77,27 @@
                     <td class="header C">Registration</td>
                     <td class="header R">Deadline</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td class="value">Competition 1</td>
                     <td class="value C">March 12, 2008<br />12:00 Noon EDT</td>
                     <td class="value R">March 31, 2008<br />12:00 Noon EDT</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td class="value">Competition 2</td>
                     <td class="value C">May 21, 2008<br />12:00 Noon EDT</td>
                     <td class="value R">June 6, 2008<br />12:00 Noon EDT</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td class="value">Competition 3</td>
                     <td class="value C">September 10, 2008<br />12:00 Noon EDT</td>
                     <td class="value R">September 29, 2008<br />12:00 Noon EDT</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td class="value">Competition 4</td>
                     <td class="value C">November 26, 2008<br />12:00 Noon EST</td>
                     <td class="value R">December 15, 2008<br />12:00 Noon EST</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td class="value" colspan="3">*Please note the change in Daylight Saving Time in November for deadlines.</td>
                 </tr>
             </tbody>
@@ -110,23 +111,23 @@
                     <td class="header">Place</td>
                     <td class="header R">Prize</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td class="value">1st Place </td>
                     <td class="value R">$2,500</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td class="value">2nd Place </td>
                     <td class="value R">$1,000</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td class="value">3rd Place </td>
                     <td class="value R">$750</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td class="value">4th Place </td>
                     <td class="value R">$500</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td class="value">5th Place </td>
                     <td class="value R">$250</td>
                 </tr>
