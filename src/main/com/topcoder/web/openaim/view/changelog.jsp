@@ -31,6 +31,13 @@
 
 <h1>Open AIM Website Changelog</h1>
 
+<p>
+    1.0.1 - 2008.03.xx
+    <ul>
+        <li>Contest registration updated to assign registrants to the OpenAIM group</li>
+    </ul>
+
+</p>
 
 <p>
     1.0.0 - 2008.03.xx
