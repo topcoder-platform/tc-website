@@ -38,7 +38,7 @@ Congratulations to the winners from SRM 1:
                <td class="sidebarText"><strong>First</strong></td> 
                <td class="sidebarText"><strong>H2O</strong></td>
                <td class="sidebarText"><strong>553.78</strong></td>
-               <td class="sidebarText">$1,500 and a trip to VTS Finals</td>
+               <td class="sidebarText"><strong>$1,500 and a trip to VTS Finals</strong></td>
             </tr>
             <tr valign="top">
                <td class="sidebarText">Second</td> 
