@@ -78,7 +78,7 @@
     </tr>
 </table>
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                See the official <a href="/pl/?module=Static&d1=vicc&d2=rules">rules and regulations</a> for more
+                See the official <a href="/pl/?module=Static&amp;d1=vicc&amp;d2=rules">rules and regulations</a> for more
                 details.
             </div>
         </td>
