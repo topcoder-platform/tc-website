@@ -35,7 +35,7 @@
         <p>At the nation's top cryptologic organization, you can work with the best and the brightest, using your intelligence to solve some of the nation's most difficult challenges. Your solutions can play a major role in shaping the course of world history.</p>
         <p>NSA has exciting career opportunities available in Computer/Electrical Engineering, Computer Science, Mathematics, Foreign Language, Intelligence Analysis, Cryptanalysis, and Signals Analysis. You'll enjoy an incredible benefits package, competitive pay, and the satisfaction of making the world a safer place.</p>
         <p>U.S. citizenship is required. NSA is an Equal Opportunity Employer.<br />For more information about the career opportunities available at NSA:</p>
-        <p><a href="/tc?module=JobHit&amp;jid=430&amp;jt=1" class="button" style="width:70px;">Apply Now</a></p>
+        <p><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsaConfirm" class="button" style="width:70px;">Apply Now</a></p>
         
     </div><%-- #content --%>
 

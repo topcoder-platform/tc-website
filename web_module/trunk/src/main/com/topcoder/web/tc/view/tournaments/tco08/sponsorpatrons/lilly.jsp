@@ -38,9 +38,9 @@
         <p>Lilly, Answers that Matter</p>
         
         <div align="center">
-            <p style="float:left; width:90px; padding:10px;"><a href="/tc?module=JobHit&amp;jid=427&amp;jt=1" class="button" style="width:90px;">Apply Now<br />for US Jobs</a></p>
-            <p style="float:left; width:90px; padding:10px;"><a href="/tc?module=JobHit&amp;jid=428&amp;jt=1" class="button" style="width:90px;">Apply Now<br />for EU Jobs</a></p>
-            <p style="float:left; width:90px; padding:10px;"><a href="/tc?module=JobHit&amp;jid=429&amp;jt=1" class="button" style="width:90px;">Apply Now<br />for Pacific Jobs</a></p>
+            <p style="float:left; width:90px; padding:10px;"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyConfirmUS" class="button" style="width:90px;">Apply Now<br />for US Jobs</a></p>
+            <p style="float:left; width:90px; padding:10px;"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyConfirmEU" class="button" style="width:90px;">Apply Now<br />for EU Jobs</a></p>
+            <p style="float:left; width:90px; padding:10px;"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyConfirmPac" class="button" style="width:90px;">Apply Now<br />for Pacific Jobs</a></p>
         </div>
 
     </div><%-- #content --%>
