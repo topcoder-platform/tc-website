@@ -139,8 +139,12 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                         log.debug("content-disposition = inline; filename=\"" + s.getOriginalFileName() + "\"");
                     }
                 } else {
+                    if (log.isDebugEnabled()) {
+                        log.debug("content-disposition = inline; filename=\"" + destFileName + "\"");
+                    }
                     response.addHeader("content-disposition", "inline; filename=\"" + destFileName + "\"");
                 }
+                response.setHeader("Cache-Control", "");
 
                 response.setContentType(contentType);
                 ServletOutputStream sos = response.getOutputStream();
@@ -150,7 +154,9 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                     sos.write(b);
                     size++;
                 }
-                response.addHeader("Content-Length", String.valueOf(size));
+                //response.addHeader("Content-Length", String.valueOf(size));
+                
+
                 response.setStatus(HttpServletResponse.SC_OK);
                 response.flushBuffer();
                 log.debug("flushed");
