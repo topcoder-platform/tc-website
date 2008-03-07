@@ -212,6 +212,9 @@ public class BasicAuthentication implements WebAuthentication {
     }
 
     private void addGeneralCookie(String name, String value, int time) {
+        if (log.isDebugEnabled()) {
+            log.debug("add cookie " + name + "_" + ApplicationServer.ENVIRONMENT + " = " + value);
+        }
         Cookie c = new Cookie(name + "_" + ApplicationServer.ENVIRONMENT, value);
         c.setMaxAge(time);
         c.setDomain(ApplicationServer.SSO_DOMAIN);
