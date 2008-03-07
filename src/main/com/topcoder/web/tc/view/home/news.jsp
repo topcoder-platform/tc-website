@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.07.08<br />4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=ViewSurvey&amp;sid=22051">Vote for the TCO08 T-shirts</a></span><br /><br />
+        It's time to vote for this year's TCO t-shirt design!  The top five submissions were selected so it's up to our members to choose the best one from the group.  Voting ends Tuesday, March 11 so hurry and make your vote count.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=ViewSurvey&amp;sid=22051">details</a> | 
+        <tc-webtag:forumLink forumID="520233" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.07.08<br />1:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=schedule">TCO08 Algorithm Round 4</a></span><br /><br />
@@ -153,18 +166,3 @@
         <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.27.08<br />1:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd2">TCO08 - Online Round 2 - Problem Set &amp; Analysis</a></span><br /><br />
-      The second round of this year's TopCoder Open used a rather easy problemset. More than 80 coders scored more than 1,000 points each. However, many top rated coders overlooked a tricky case in the hard problem. Some of the "big names" later discovered the case and resubmitted their solutions. The random numbers generator slightly influenced this round as well, by putting five targets into a single room.</td>
-         <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd2">details</a> | 
-        <tc-webtag:forumLink forumID="519799" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
