@@ -154,7 +154,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                     sos.write(b);
                     size++;
                 }
-                //response.addHeader("Content-Length", String.valueOf(size));
+                response.addHeader("Content-Length", String.valueOf(size));
                 
 
                 response.setStatus(HttpServletResponse.SC_OK);
