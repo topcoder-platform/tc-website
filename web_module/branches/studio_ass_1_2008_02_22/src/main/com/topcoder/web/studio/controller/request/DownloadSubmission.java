@@ -135,6 +135,9 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 if (isOwner && "original".equalsIgnoreCase(submissionType)) {
                     response.addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName()
                                                                    + "\"");
+                    if (log.isDebugEnabled()) {
+                        log.debug("content-disposition = inline; filename=\"" + s.getOriginalFileName() + "\"");
+                    }
                 } else {
                     response.addHeader("content-disposition", "inline; filename=\"" + destFileName + "\"");
                 }
@@ -150,6 +153,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 response.addHeader("Content-Length", String.valueOf(size));
                 response.setStatus(HttpServletResponse.SC_OK);
                 response.flushBuffer();
+                log.debug("flushed");
             } else {
                 throw new NavigationException("Sorry, you can not download submissions for this contest.");
             }
