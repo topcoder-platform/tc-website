@@ -144,6 +144,8 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                     }
                     response.addHeader("content-disposition", "inline; filename=\"" + destFileName + "\"");
                 }
+                //resetting the cache-control header to empty.  IE freaks out and doesn't save when the
+                //cache-control header is set the way we do for an uncached response.
                 response.setHeader("Cache-Control", "");
 
                 response.setContentType(contentType);
@@ -155,8 +157,6 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                     size++;
                 }
                 response.addHeader("Content-Length", String.valueOf(size));
-                
-
                 response.setStatus(HttpServletResponse.SC_OK);
                 response.flushBuffer();
                 log.debug("flushed");
@@ -200,7 +200,11 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                                                                + origFileName.substring(origFileName.lastIndexOf('.'))
                                                                + "\"");
             }
+            //resetting the cache-control header to empty.  IE freaks out and doesn't save when the
+            //cache-control header is set the way we do for an uncached response.
+            response.setHeader("Cache-Control", "");
             response.setContentType(s.getMimeType().getDescription());
+
             ServletOutputStream sos = response.getOutputStream();
             int b;
             int size = 0;
