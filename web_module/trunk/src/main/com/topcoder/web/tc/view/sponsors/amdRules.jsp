@@ -49,7 +49,7 @@
         <p>No purchase necessary to enter or win. Void where prohibited.</p>
         
         <p><span class="bodySubtitle">Overview</span><br />
-        The AMD Multicore ThreadFest ("Competition") will take place between March 10, 2008 and December 31, 2008 and will consist of four (4) rounds (each a "Round"). Each Round will award a total prize purse of $5,000. TopCoder members must register for each Round . Registration may occur at any time between the opening of registration for that Round  to the deadline for submissions for that Round.  All competitors who have registered for the current Round will immediately be given access to the competition problem statement for that Round.</p>
+        The AMD Multicore Threadfest ("Competition") will take place between March 10, 2008 and December 31, 2008 and will consist of four (4) rounds (each a "Round"). Each Round will award a total prize purse of $5,000. TopCoder members must register for each Round . Registration may occur at any time between the opening of registration for that Round  to the deadline for submissions for that Round.  All competitors who have registered for the current Round will immediately be given access to the competition problem statement for that Round.</p>
         
         <p><span class="bodySubtitle">Eligibility</span><br />
         The competition is open to all TopCoder members who are at least 18 years of age as of the start date of each Round.</p>
