@@ -61,17 +61,17 @@
             
 
 
-<!--IMS Health begins -->
+<!-- Caliper begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/clients/ims_logo.gif" alt="IMS Health" border="0" /></td>
+                    <td width="170"><img src="/images/clients/caliper_logo.gif" alt="Caliper" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">IMS is the global source for pharmaceutical market intelligence, providing critical information, analysis and services that drive decisions and shape strategies. Just about every major pharmaceutical and biotech company in the world is a customer of IMS. The company's unique mix of experience and expertise makes it the right choice for help in optimizing portfolios, ensuring successful launches, managing brands, and improving the effectiveness of sales teams. A key component of the company's market intelligence is its ability to capture and analyze detailed information on prescriptions. TopCoder is working with IMS to build an automated application that improves this process.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www.imshealth.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                    <td width="99%" class="bodyText">Caliper has advised more than 25,000 companies - including FedEx, Avis and some of the fastest growing smaller firms - on Employee Selection, Employee Development, Team Building and Organizational Development. <br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.calipercorp.com/" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
-<!-- IMS Health ends -->
+<!-- Caliper ends -->
 
              <hr width="100%" size="1px" noshade>
              
@@ -242,19 +242,7 @@
 
              <hr width="100%" size="1px" noshade>
              
-<!-- Caliper begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr valign="top">
-                    <td width="170"><img src="/images/clients/caliper_logo.gif" alt="Caliper" border="0" /></td>
-                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">Caliper has advised more than 25,000 companies - including FedEx, Avis and some of the fastest growing smaller firms - on Employee Selection, Employee Development, Team Building and Organizational Development. <br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www.calipercorp.com/" refer="customer_index"/>" target="_blank">homepage</A>
-                     </td>
-                </tr>
-            </table>
-<!-- Caliper ends -->
 
-             <hr width="100%" size="1px" noshade>
              
 <!-- Detroit Edison begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -340,7 +328,19 @@ ESPN ends
 
              <hr width="100%" size="1px" noshade>
              
+<!--IMS Health begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/ims_logo.gif" alt="IMS Health" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">IMS is the global source for pharmaceutical market intelligence, providing critical information, analysis and services that drive decisions and shape strategies. Just about every major pharmaceutical and biotech company in the world is a customer of IMS. The company's unique mix of experience and expertise makes it the right choice for help in optimizing portfolios, ensuring successful launches, managing brands, and improving the effectiveness of sales teams. A key component of the company's market intelligence is its ability to capture and analyze detailed information on prescriptions. TopCoder is working with IMS to build an automated application that improves this process.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.imshealth.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- IMS Health ends -->
 
+             <hr width="100%" size="1px" noshade>
              
 <!-- NEJ begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
