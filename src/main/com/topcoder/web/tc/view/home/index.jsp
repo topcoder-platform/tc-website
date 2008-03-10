@@ -428,6 +428,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            AMD and TopCoder Will Host Series of Competitions to Advance Multi-Threaded Software Development
+            <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031008">...more</a><br />[March 10]<br /><br />
+            
             AOL, Lilly and VeriSign Return as Sponsors &amp; NSA Returns as Patron of 2008 TopCoder Open
             <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_030508">...more</a><br />[March 5]<br /><br />
             
@@ -442,9 +445,6 @@
             
             TopCoder Software Component Catalog Surpasses 1,000 Reusable Java and .NET Components
             <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021808">...more</a><br />[February 18]<br /><br />
-            
-            Rock star coders
-            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='homepage_index' />">...more</a><br />[January 22]<br /><br />
             
 
 

@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.10.08<br />10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031008">AMD and TopCoder Will Host Series of Competitions to Advance Multi-Threaded Software Development</a></span><br /><br />
+        Starting March 12, the "<a href="<tc-webtag:linkTracking link='/threadfest' refer='/tc' />">Multicore Threadfest</a>" sponsored by AMD will offer $20,000 in total prizes over the course of four quarterly coding competitions focused on advancing multi-threading application development for multi-core processor architectures. The competitions will provide a forum for the TopCoder and general software development community to demonstrate advanced multi-threading principles, techniques and best practices.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031008">details</a> | 
+        <tc-webtag:forumLink forumID="520259" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.07.08<br />4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=ViewSurvey&amp;sid=22051">Vote for the TCO08 T-shirts</a></span><br /><br />
@@ -151,18 +164,3 @@
         <tc-webtag:forumLink forumID="520017" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />02.27.08<br />4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=022708">Meet the January 2008 Coders of the Month</a></span><br /><br />
-        We caught up with January's Coders of the Month, as well as January's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=022708">details</a> | 
-        <tc-webtag:forumLink forumID="520004" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
-   </td></tr>
-   
