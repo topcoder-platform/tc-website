@@ -99,6 +99,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- AMD and TopCoder Host a Series of Competitions to Advance Multi-Threaded Software Development begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031008"><img src="/i/pressroom/amd_logo.gif" alt="TopCoder Open 2008" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031008">AMD and TopCoder Host a Series of Competitions to Advance Multi-Threaded Software Development</a></h3>
+                        <p>Beginning March 12, "Multicore Threadfest" Offers $20,000 Prize Purse and Recognition through Innovation  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031008">[March 10]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- AMD and TopCoder Host a Series of Competitions to Advance Multi-Threaded Software Development end --%>
+                
                 <%-- AOL, Lilly and VeriSign Return as Sponsors &amp; NSA Returns as Patron of 2008 TopCoder Open begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
