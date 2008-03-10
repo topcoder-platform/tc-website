@@ -428,6 +428,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br />
 
+            SD Times: Not Your Father's Outsourcing
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.sdtimes.com/content/article.aspx?ArticleID=31779' refer='homepage' />">...more</a><br />[March 10]<br /><br />
+            
             AMD and TopCoder Will Host Series of Competitions to Advance Multi-Threaded Software Development
             <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031008">...more</a><br />[March 10]<br /><br />
             
@@ -442,9 +445,6 @@
             
             TopCoder UML Design Tool Free to Developers
             <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022608">...more</a><br />[February 26]<br /><br />
-            
-            TopCoder Software Component Catalog Surpasses 1,000 Reusable Java and .NET Components
-            <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_021808">...more</a><br />[February 18]<br /><br />
             
 
 

@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.10.08<br />3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.sdtimes.com/content/article.aspx?ArticleID=31779' refer='/tc' />">SD Times: Not Your Father's Outsourcing</a></span><br /><br />
+        "It's 2008, and this is not your father's definition of outsourcing. Two companies with updated views about software development engagements are showing that many of the pitfalls of sending work away to be done can be overcome."</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.sdtimes.com/content/article.aspx?ArticleID=31779' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="520266" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.10.08<br />10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031008">AMD and TopCoder Will Host Series of Competitions to Advance Multi-Threaded Software Development</a></span><br /><br />
@@ -150,17 +163,4 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm391">details</a> | 
         <tc-webtag:forumLink forumID="519980" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />02.28.08<br />12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022808">World's Elite High School Programmers to Compete in Live TopCoder High School Tournament</a></span><br /><br />
-        49 Students Earn Tournament Berth after Months of Online Competition - Finalists to be Flown to Purdue University for Live Finals March 15</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_022808">details</a> | 
-        <tc-webtag:forumLink forumID="520017" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
