@@ -43,8 +43,8 @@ public final class DatabaseUtil {
                            "contest_result", "submission", "contest_document_xref", "document", "image", "path",
                            "contest_registration", "contest_config", "contest_file_type_xref", "contest_prize_xref",
                            "contest", "prize"};
-        String[] userTables = {"email", "common_oltp:user_group_xref", "informixoltp:coder",
-                               "common_oltp:security_user", "common_oltp:user"};
+        String[] userTables = {"email", "comp1_common_oltp:user_group_xref", "comp1_informixoltp:coder",
+                               "comp1_common_oltp:security_user", "comp1_common_oltp:user"};
         String[] userIdColumns = {"user_id", "login_id", "coder_id", "login_id", "user_id"};
 
         Connection con = null;
