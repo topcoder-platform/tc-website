@@ -90,7 +90,7 @@ public final class DatabaseUtil {
 
         String line = null;
         try {
-            reader = new BufferedReader(new FileReader("./resources/modifications/test_files/testData.sql"));
+            reader = new BufferedReader(new FileReader("./test_files/studio/testData.sql"));
 
             con = factory.createConnection();
             con.setAutoCommit(true);
