@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.10.08<br />5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign">VeriSign chat before SRM 393</a></span><br /><br />
+        As Sponsor of the TCO08 VeriSign will be hosting a chat session one hour prior to <a href="/tc?module=MatchDetails&rd=11127">SRM 393</a>.  The topic of the chat will be <em>High Availability, High Volume Systems</em>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign">details</a> | 
+        <tc-webtag:forumLink forumID="520279" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.10.08<br />3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.sdtimes.com/content/article.aspx?ArticleID=31779' refer='/tc' />">SD Times: Not Your Father's Outsourcing</a></span><br /><br />
@@ -147,20 +160,4 @@
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=schedule">details</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />02.29.08<br />10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm391">SRM 391 - Problem Set &amp; Analysis</a></span><br /><br />
-      This SRM attracted 1064 competitors. Div1 competitors confronted problems of relatively math flavor, while Div2 competitors confronted easy level 1 and level 2 problems but a very tough level 3, which lead to no correct submission for it during the contest.</td>
-         <td class="newsPhoto"><%--<img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="15166995" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm391">details</a> | 
-        <tc-webtag:forumLink forumID="519980" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
