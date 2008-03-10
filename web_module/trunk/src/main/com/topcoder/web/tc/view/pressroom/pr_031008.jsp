@@ -72,7 +72,7 @@ Held throughout 2008 beginning on March 12, these unique coding competitions are
 </p>
 
 <p>
-For additional details about Multicore Threadfest and TopCoder, please visit <a target="_blank" href="<tc-webtag:linkTracking link='/threadfest' refer='pr_031008' />">http://www.topcoder.com/threadfest</a>.
+For additional details about Multicore Threadfest and TopCoder, please visit <a href="<tc-webtag:linkTracking link='/threadfest' refer='pr_031008' />">http://www.topcoder.com/threadfest</a>.
 </p>
 
 <p>
