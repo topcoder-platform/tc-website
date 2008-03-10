@@ -37,11 +37,13 @@ import com.topcoder.web.studio.model.ContestTypeTestCase;
 import com.topcoder.web.studio.model.ContestTestCase;
 import com.topcoder.web.studio.model.ContestChannelTestCase;
 import com.topcoder.web.studio.util.SubmissionPresentationFilterTestCase;
+import com.topcoder.web.studio.util.ZipFileAnalyzerTestCase;
+import com.topcoder.web.studio.util.JarFileAnalyzerTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
- * @author dok, TCSDEVELOPER
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 17, 2006
  */
@@ -95,6 +97,8 @@ public class StudioTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(SubmissionValidatorTestCase.class));
 
         suite.addTest(new TestSuite(SubmissionPresentationFilterTestCase.class));
+        suite.addTest(new TestSuite(ZipFileAnalyzerTestCase.class));
+        suite.addTest(new TestSuite(JarFileAnalyzerTestCase.class));
 
         return suite;
     }

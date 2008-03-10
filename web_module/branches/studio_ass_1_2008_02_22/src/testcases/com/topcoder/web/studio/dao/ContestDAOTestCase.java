@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author dok, TCSDEVELOPER
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 17, 2006
  */
