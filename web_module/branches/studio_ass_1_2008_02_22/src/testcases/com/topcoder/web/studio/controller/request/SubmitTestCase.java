@@ -148,7 +148,8 @@ public class SubmitTestCase extends TCHibernateTestCase {
         // Test setup
         long contestId = 1;
         long userId = 1;
-        String newLine = System.getProperties().getProperty("line.separator");
+        //String newLine = System.getProperties().getProperty("line.separator");
+        String newLine = "\n";
         String newLine2 = newLine + newLine;
 
         byte[] submitted = readSubmissionFile();
