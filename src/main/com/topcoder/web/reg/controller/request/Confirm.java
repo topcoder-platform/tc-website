@@ -8,7 +8,12 @@ import com.topcoder.web.common.model.*;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author dok
@@ -228,7 +233,7 @@ public class Confirm extends Base {
             if (cs != null) {
                 cs.setSchool(s);
 
-                if (getFactory().getSchoolTypeDAO().find(SchoolType.HIGH_SCHOOL).equals(u.getCoder().getCurrentSchool().getSchool().getType())) {
+                if (SchoolType.HIGH_SCHOOL.equals(s.getType().getId())) {
                     //high school people have to show their school
                     u.getCoder().getCurrentSchool().setViewable(Boolean.TRUE);
                 } else {
