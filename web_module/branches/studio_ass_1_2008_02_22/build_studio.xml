@@ -74,6 +74,7 @@
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <pathelement location="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
+        <pathelement location="${jars.dir}/tcs/guid_generator/1.0/guid_generator.jar"/>
         <!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
         <!--
                 <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
