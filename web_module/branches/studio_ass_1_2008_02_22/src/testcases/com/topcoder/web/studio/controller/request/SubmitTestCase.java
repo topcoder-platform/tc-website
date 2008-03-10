@@ -32,6 +32,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -49,6 +50,12 @@ public class SubmitTestCase extends TCHibernateTestCase {
      * released in {@link #tearDown()} method.</p>
      */
     private Submit testedInstance = null;
+
+    /**
+     * <p>A <code>List</code> containing the IDs of submissions which might have been added during the tests and which
+     * have to be deleted after test is finished.</p>
+     */
+    private List<Long> addedSubmissions = null;
 
     /**
      * <p>Constructs new <code>SubmitTestCase</code> instance with specified test name.</p>
@@ -94,6 +101,8 @@ public class SubmitTestCase extends TCHibernateTestCase {
         this.testedInstance = new Submit();
         this.testedInstance.setResponse(new SimpleResponse(new MockHttpServletResponse()));
         this.testedInstance.setAuthentication(new MockWebAuthentication());
+
+        this.addedSubmissions = new ArrayList<Long>();
         super.setUp();
     }
 
@@ -110,10 +119,18 @@ public class SubmitTestCase extends TCHibernateTestCase {
         try {
             DBConnectionFactoryImpl connectionFactory
                 = new DBConnectionFactoryImpl("com.topcoder.db.connectionfactory.DBConnectionFactoryImpl");
+            DatabaseUtil.deleteTableRecords(connectionFactory, "submission_review", "submission_id",
+                                            this.addedSubmissions);
+            DatabaseUtil.deleteTableRecords(connectionFactory, "contest_result", "submission_id",
+                                            this.addedSubmissions);
+            DatabaseUtil.deleteTableRecords(connectionFactory, "submission_prize_xref", "submission_id",
+                                            this.addedSubmissions);
+            DatabaseUtil.deleteTableRecords(connectionFactory, "submission", "submission_id", this.addedSubmissions);
             DatabaseUtil.clearTables(connectionFactory);
         } catch (Exception e) {
             throw new IllegalArgumentException("The tearDown() fails", e);
         }
+        this.addedSubmissions = null;
     }
 
     /**
@@ -131,17 +148,19 @@ public class SubmitTestCase extends TCHibernateTestCase {
         // Test setup
         long contestId = 1;
         long userId = 1;
+        String newLine = System.getProperties().getProperty("line.separator");
+        String newLine2 = newLine + newLine;
 
         byte[] submitted = readSubmissionFile();
-        String content = "--AaB03x\r\n"
-                         + "content-disposition: form-data; name=\"ct\"\r\n\r\n" + contestId + "\r\n"
-                         + "--AaB03x\r\n"
-                         + "content-disposition: form-data; name=\"srank\"\r\n\r\n999\r\n"
-                         + "--AaB03x\r\n"
-                         + "content-disposition: form-data; name=\"sbm\"; filename=\"submission.zip\"\r\n"
-                         + "Content-Type: application/zip\r\nContent-Transfer-Encoding: binary\r\n\r\n"
-                         + new String(submitted) + "\r\n"
-                         + "--AaB03x--\r\n";
+        String content = "--AaB03x" + newLine
+                         + "content-disposition: form-data; name=\"ct\"" + newLine2 + contestId + newLine
+                         + "--AaB03x" + newLine
+                         + "content-disposition: form-data; name=\"srank\"" + newLine2 + "999" + newLine
+                         + "--AaB03x" + newLine
+                         + "content-disposition: form-data; name=\"sbm\"; filename=\"submission.zip\"" + newLine
+                         + "Content-Type: application/zip" + newLine + "Content-Transfer-Encoding: binary" + newLine2
+                         + new String(submitted) + newLine
+                         + "--AaB03x--" + newLine;
         ByteArrayInputStream bais = new ByteArrayInputStream(content.getBytes());
         MockHttpServletRequest.setMethodResult("getInputStream", new ServletInputStreamImpl(bais));
 
@@ -168,6 +187,7 @@ public class SubmitTestCase extends TCHibernateTestCase {
         Assert.assertEquals("Incorrect number of submissions added", 1, submissions.size());
 
         Submission submission = submissions.get(0);
+        this.addedSubmissions.add(submission.getId());
         SubmissionReview review = submission.getReview();
         Assert.assertNotNull("The automatic screening review is not added", review);
         Assert.assertEquals("Incorrect text of automatic submission review",
@@ -191,17 +211,19 @@ public class SubmitTestCase extends TCHibernateTestCase {
         // Test setup
         long contestId = 2;
         long userId = 1;
+        String newLine = System.getProperties().getProperty("line.separator");
+        String newLine2 = newLine + newLine;
 
         byte[] submitted = readSubmissionFile();
-        String content = "--AaB03x\r\n"
-                         + "content-disposition: form-data; name=\"ct\"\r\n\r\n" + contestId + "\r\n"
-                         + "--AaB03x\r\n"
-                         + "content-disposition: form-data; name=\"srank\"\r\n\r\n999\r\n"
-                         + "--AaB03x\r\n"
-                         + "content-disposition: form-data; name=\"sbm\"; filename=\"submission.zip\"\r\n"
-                         + "Content-Type: application/zip\r\nContent-Transfer-Encoding: binary\r\n\r\n"
-                         + new String(submitted) + "\r\n"
-                         + "--AaB03x--\r\n";
+        String content = "--AaB03x" + newLine
+                         + "content-disposition: form-data; name=\"ct\"" + newLine2 + contestId + newLine
+                         + "--AaB03x" + newLine
+                         + "content-disposition: form-data; name=\"srank\"" + newLine2 + "999" + newLine
+                         + "--AaB03x" + newLine
+                         + "content-disposition: form-data; name=\"sbm\"; filename=\"submission.zip\"" + newLine
+                         + "Content-Type: application/zip" + newLine + "Content-Transfer-Encoding: binary" + newLine2
+                         + new String(submitted) + newLine
+                         + "--AaB03x--" + newLine;
         ByteArrayInputStream bais = new ByteArrayInputStream(content.getBytes());
         MockHttpServletRequest.setMethodResult("getInputStream", new ServletInputStreamImpl(bais));
 
@@ -227,6 +249,7 @@ public class SubmitTestCase extends TCHibernateTestCase {
         Assert.assertEquals("Incorrect number of submissions added", 1, submissions.size());
 
         Submission submission = submissions.get(0);
+        this.addedSubmissions.add(submission.getId());
         SubmissionReview review = submission.getReview();
         Assert.assertNull("The automatic screening review is added by mistake", review);
     }
@@ -238,7 +261,7 @@ public class SubmitTestCase extends TCHibernateTestCase {
      * @throws IOException if an I/O error occurs while reading the image file content.
      */
     private byte[] readSubmissionFile() throws IOException {
-        InputStream content = new FileInputStream("test_files/studio/submission.zip");
+        InputStream content = new FileInputStream("./test_files/studio/submission.zip");
         ByteArrayOutputStream baos;
         try {
             baos = new ByteArrayOutputStream();

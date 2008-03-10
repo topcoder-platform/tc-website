@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * <p>A helper utility class providing various methods for getting the data from the test database. Such data is usually
@@ -37,35 +38,44 @@ public final class DatabaseUtil {
      * @param factory a <code>DBConnectionFactory</code> to be used for obtaining connections to target database.
      * @throws SQLException if an SQL error occurs.
      * @throws DBConnectionException if connection to test database could not be established.
+     * @throws IOException if an I/O error occurs while reading from file with test data.
+     * @throws FileNotFoundException if the file with SQL script with test data is not found.
      */
-    public static void clearTables(DBConnectionFactory factory) throws SQLException, DBConnectionException {
-        String[] tables = {"submission_review", "submission_review_audit", "submission_audit", "submission_prize_xref",
-                           "contest_result", "submission", "contest_document_xref", "document", "image", "path",
-                           "contest_registration", "contest_config", "contest_file_type_xref", "contest_prize_xref",
-                           "contest", "prize"};
-        String[] userTables = {"email", "comp1_common_oltp:user_group_xref", "comp1_informixoltp:coder",
-                               "comp1_common_oltp:security_user", "comp1_common_oltp:user"};
-        String[] userIdColumns = {"user_id", "login_id", "coder_id", "login_id", "user_id"};
-
+    public static void clearTables(DBConnectionFactory factory) throws SQLException, DBConnectionException,
+                                                                       IOException {
         Connection con = null;
         PreparedStatement ps = null;
+        BufferedReader reader = null;
+
+        String line = null;
         try {
+            reader = new BufferedReader(new FileReader("./test_files/studio/testCleanup.sql"));
+
             con = factory.createConnection();
             con.setAutoCommit(true);
-            for (int i = 0; i < tables.length; i++) {
-                String table = tables[i];
-                ps = con.prepareStatement("DELETE FROM " + table);
-                ps.executeUpdate();
-                ps.close();
-            }
-            for (int i = 0; i < userTables.length; i++) {
-                String table = userTables[i];
-                String idColumn = userIdColumns[i];
-                ps = con.prepareStatement("DELETE FROM " + table + " WHERE " + idColumn + " BETWEEN 1 AND 10");
-                ps.executeUpdate();
-                ps.close();
+
+            while ((line = reader.readLine()) != null) {
+                line = line.trim();
+                if ((line.length() > 0) && (!line.startsWith("--"))) {
+                    if (line.endsWith(";")) {
+                        line = line.substring(0, line.length() - 1);
+                    }
+                    ps = con.prepareStatement(line);
+                    ps.executeUpdate();
+                    ps.close();
+                }
             }
         } finally {
+            if (line != null) {
+                System.out.println("Failed to execute SQL statement : " + line);
+            }
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    // Ignore
+                }
+            }
             if (con != null) {
                 con.close();
             }
@@ -108,7 +118,54 @@ public final class DatabaseUtil {
             }
         } finally {
             if (line != null) {
-                System.out.println("Last SQL statement : " + line);
+                System.out.println("Failed to execute SQL statement : " + line);
+            }
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    // Ignore
+                }
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+    }
+
+    /**
+     * <p>Deletes the records referenced by the specified IDs looked up in specified column from the specified database
+     * table.</p>
+     *
+     * @param factory a <code>DBConnectionFactory</code> to be used for obtaining connections to target database.
+     * @param tableName a <code>String</code> providing the name of the database table to delete records from.
+     * @param idColumn a <code>String</code> providing the name of the column in specified table which serves for
+     *        purpose of identifying the records.
+     * @param ids a <code>List</code> providing the IDs of the records to be deleted from the specified table. 
+     * @throws SQLException if an SQL error occurs.
+     * @throws DBConnectionException if connection to test database could not be established.
+     * @throws IOException if an I/O error occurs while reading from file with test data.
+     * @throws FileNotFoundException if the file with SQL script with test data is not found.
+     */
+    public static void deleteTableRecords(DBConnectionFactory factory, String tableName, String idColumn,
+                                          List<Long> ids) throws SQLException, DBConnectionException, IOException {
+        Connection con = null;
+        PreparedStatement ps = null;
+        BufferedReader reader = null;
+
+        String line = null;
+        try {
+            con = factory.createConnection();
+            con.setAutoCommit(true);
+            
+            ps = con.prepareStatement("DELETE FROM " + tableName + " WHERE " + idColumn + " = ?");
+            for (Long id : ids) {
+                ps.setLong(1, id);
+                ps.executeUpdate();
+            }
+        } finally {
+            if (line != null) {
+                System.out.println("Failed to execute SQL statement : " + line);
             }
             if (reader != null) {
                 try {
