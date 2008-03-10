@@ -153,9 +153,9 @@ public class SubmitTestCase extends TCHibernateTestCase {
 
         byte[] submitted = readSubmissionFile();
         String content = "--AaB03x" + newLine
-                         + "content-disposition: form-data; name=\"ct\"" + newLine2 + contestId + newLine
+                         + "content-disposition: form-data; name=\"ct\"" + newLine2 + newLine2 + contestId + newLine
                          + "--AaB03x" + newLine
-                         + "content-disposition: form-data; name=\"srank\"" + newLine2 + "999" + newLine
+                         + "content-disposition: form-data; name=\"srank\"" + newLine2 + newLine2 + "999" + newLine
                          + "--AaB03x" + newLine
                          + "content-disposition: form-data; name=\"sbm\"; filename=\"submission.zip\"" + newLine
                          + "Content-Type: application/zip" + newLine + "Content-Transfer-Encoding: binary" + newLine2
@@ -216,9 +216,9 @@ public class SubmitTestCase extends TCHibernateTestCase {
 
         byte[] submitted = readSubmissionFile();
         String content = "--AaB03x" + newLine
-                         + "content-disposition: form-data; name=\"ct\"" + newLine2 + contestId + newLine
+                         + "content-disposition: form-data; name=\"ct\"" + newLine2 + newLine2 + contestId + newLine
                          + "--AaB03x" + newLine
-                         + "content-disposition: form-data; name=\"srank\"" + newLine2 + "999" + newLine
+                         + "content-disposition: form-data; name=\"srank\"" + newLine2 + newLine2 + "999" + newLine
                          + "--AaB03x" + newLine
                          + "content-disposition: form-data; name=\"sbm\"; filename=\"submission.zip\"" + newLine
                          + "Content-Type: application/zip" + newLine + "Content-Transfer-Encoding: binary" + newLine2
