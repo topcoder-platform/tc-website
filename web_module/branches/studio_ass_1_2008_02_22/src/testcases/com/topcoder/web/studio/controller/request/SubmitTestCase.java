@@ -149,7 +149,7 @@ public class SubmitTestCase extends TCHibernateTestCase {
         long contestId = 1;
         long userId = 1;
         String newLine = System.getProperties().getProperty("line.separator");
-        String newLine2 = newLine + newLine;
+        String newLine2 = newLine;
 
         byte[] submitted = readSubmissionFile();
         String content = "--AaB03x" + newLine
@@ -158,7 +158,7 @@ public class SubmitTestCase extends TCHibernateTestCase {
                          + "content-disposition: form-data; name=\"srank\"" + newLine2 + newLine2 + "999" + newLine
                          + "--AaB03x" + newLine
                          + "content-disposition: form-data; name=\"sbm\"; filename=\"submission.zip\"" + newLine
-                         + "Content-Type: application/zip" + newLine + "Content-Transfer-Encoding: binary" + newLine2
+                         + "Content-Type: application/zip" + newLine + "Content-Transfer-Encoding: binary" + newLine2+ newLine2
                          + new String(submitted) + newLine
                          + "--AaB03x--" + newLine;
         ByteArrayInputStream bais = new ByteArrayInputStream(content.getBytes());
@@ -212,7 +212,7 @@ public class SubmitTestCase extends TCHibernateTestCase {
         long contestId = 2;
         long userId = 1;
         String newLine = System.getProperties().getProperty("line.separator");
-        String newLine2 = newLine + newLine;
+        String newLine2 = newLine;
 
         byte[] submitted = readSubmissionFile();
         String content = "--AaB03x" + newLine
@@ -221,7 +221,7 @@ public class SubmitTestCase extends TCHibernateTestCase {
                          + "content-disposition: form-data; name=\"srank\"" + newLine2 + newLine2 + "999" + newLine
                          + "--AaB03x" + newLine
                          + "content-disposition: form-data; name=\"sbm\"; filename=\"submission.zip\"" + newLine
-                         + "Content-Type: application/zip" + newLine + "Content-Transfer-Encoding: binary" + newLine2
+                         + "Content-Type: application/zip" + newLine + "Content-Transfer-Encoding: binary" + newLine2+ newLine2
                          + new String(submitted) + newLine
                          + "--AaB03x--" + newLine;
         ByteArrayInputStream bais = new ByteArrayInputStream(content.getBytes());
