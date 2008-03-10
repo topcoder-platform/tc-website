@@ -99,6 +99,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- Not Your Father's Outsourcing begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.sdtimes.com/content/article.aspx?ArticleID=31779' refer='pr_index' />"><img src="/i/pressroom/sd_times_logo.gif" alt="SD Times logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.sdtimes.com/content/article.aspx?ArticleID=31779' refer='pr_index' />">Not Your Father's Outsourcing</a></h3>
+                        <p>"It's 2008, and this is not your father's definition of outsourcing. Two companies with updated views about software development engagements are showing that many of the pitfalls of sending work away to be done can be overcome."  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.sdtimes.com/content/article.aspx?ArticleID=31779' refer='pr_index' />">[March 10]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Not Your Father's Outsourcing end --%>
+                
                 <%-- AMD and TopCoder Host a Series of Competitions to Advance Multi-Threaded Software Development begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
