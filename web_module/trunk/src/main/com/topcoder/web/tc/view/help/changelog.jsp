@@ -45,6 +45,13 @@
 </jsp:include>
 
 <p>
+    5.14.8 - 2008.03.xx
+<ul>
+    <li>Adjust logic to make sure that high schools are set as viewable in reg -dok</li>
+</ul>
+</p>
+
+<p>
     5.14.7 - 2008.03.04
 <ul>
     <li>Tweaks to registration for OpenAIM site -dok</li>
