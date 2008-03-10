@@ -82,12 +82,13 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
                 ad = (AssignmentDocument) adList.get(0);
             }
 
-            getRequest().setAttribute("assignment_document", ad);
-            Boolean hasHardCopy = PactsServicesLocator.getService()
-                    .hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId(), ad.getType().getId());
-
-            getRequest().setAttribute("has_hard_copy", hasHardCopy);
-
+            if (!"on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                getRequest().setAttribute("assignment_document", ad);
+                Boolean hasHardCopy = PactsServicesLocator.getService()
+                        .hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId(), ad.getType().getId());
+    
+                getRequest().setAttribute("has_hard_copy", hasHardCopy);
+            }
 
             setDefault(Constants.CONTEST_ID, contestId.toString());
 //            setDefault(Constants.SUBMISSION_RANK, "1");
