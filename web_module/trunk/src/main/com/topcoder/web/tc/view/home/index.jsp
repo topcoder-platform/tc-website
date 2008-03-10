@@ -157,9 +157,9 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN --%>
+                <%-- DIGITAL RUN 
                 <A href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/digital_run_20080128.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-                
+                --%>
                 
                 <%-- DIGITAL RUN ASSEMBLY CUP 
                 <A href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></A>
@@ -224,6 +224,10 @@
                <%-- UML Tool 
                <A href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></A>
                 --%>
+                
+                <%-- AMD Multicore Threadfest --%>
+               <A href="<tc-webtag:linkTracking link='/threadfest' refer='homepage_promo' />"><img src="/i/home/amdMCT_promo.png" alt="AMD Multicore Threadfest" /></A>
+                
             </td>
         </tr>
     </table>
