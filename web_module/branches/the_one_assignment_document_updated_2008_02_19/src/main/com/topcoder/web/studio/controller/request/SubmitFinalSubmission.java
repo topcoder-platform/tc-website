@@ -85,13 +85,20 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     addError(Constants.SUBMISSION, submissionResult.getMessage());
                 }
 
-                if (!"on".equals(getRequest().getParameter(Constants.ACCEPT_AD))) {
-                    addError(Constants.ACCEPT_AD_ERROR, "You must accept the Assignment Document in order to upload your final submission");
-                }
-
                 boolean hasGlobalAd = true;
+                AssignmentDocument ad = null;
+                Boolean hasHardCopy = null;
                 if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
                     hasGlobalAd = PactsServicesLocator.getService().hasGlobalAD(getUser().getId());
+                } else {
+                    if (!"on".equals(getRequest().getParameter(Constants.ACCEPT_AD))) {
+                        addError(Constants.ACCEPT_AD_ERROR, "You must accept the Assignment Document in order to upload your final submission");
+                    }
+
+                    List adList = PactsServicesLocator.getService().getAssignmentDocumentByUserIdStudioContestId(u.getId(), c.getId());
+                    ad = (AssignmentDocument) adList.get(0);
+                    hasHardCopy = PactsServicesLocator.getService()
+                            .hasHardCopyAssignmentDocumentByUserId(ad.getType().getId(), ad.getUser().getId());
                 }
 
                 // maybe change for a custom error page
@@ -99,20 +106,13 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     throw new NavigationException("You cannot submit because you don't have a Global AD on file");
                 }
 
-                List adList = PactsServicesLocator.getService()
-                        .getAssignmentDocumentByUserIdStudioContestId(u.getId(), c.getId());
-
-                AssignmentDocument ad = (AssignmentDocument) adList.get(0);
-
-                Boolean hasHardCopy = PactsServicesLocator.getService()
-                        .hasHardCopyAssignmentDocumentByUserId(ad.getType().getId(), ad.getUser().getId());
-
                 if (hasErrors()) {
-                    getRequest().setAttribute("assignment_document", ad);
-                    getRequest().setAttribute("has_hard_copy", hasHardCopy);
-                    getRequest().setAttribute(Constants.ACCEPT_AD, getRequest().getParameter(Constants.ACCEPT_AD));
-
-                    setDefault(Constants.ACCEPT_AD, String.valueOf("on".equals(getRequest().getParameter(Constants.ACCEPT_AD))));
+                    if (!"on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                        getRequest().setAttribute("assignment_document", ad);
+                        getRequest().setAttribute("has_hard_copy", hasHardCopy);
+                        getRequest().setAttribute(Constants.ACCEPT_AD, getRequest().getParameter(Constants.ACCEPT_AD));
+                        setDefault(Constants.ACCEPT_AD, String.valueOf("on".equals(getRequest().getParameter(Constants.ACCEPT_AD))));
+                    }
 
                     setDefault(Constants.CONTEST_ID, contestId.toString());
                     loadSubmissionData(u, c, dao, SubmissionType.FINAL_SUBMISSION_TYPE);
@@ -120,11 +120,13 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     setNextPage("/submitFinalSubmission.jsp");
                     setIsNextPageInContext(true);
                 } else {
-                    // affirm the AD.
-                    if (ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
-                        PactsServicesLocator.getService().affirmAssignmentDocument(ad);
+                    if (!"on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                        // affirm the AD.
+                        if (ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
+                            PactsServicesLocator.getService().affirmAssignmentDocument(ad);
+                        }
                     }
-
+                    
                     // accept the file
 
                     MimeType mt = SubmissionValidator.getMimeType(submissionFile);
