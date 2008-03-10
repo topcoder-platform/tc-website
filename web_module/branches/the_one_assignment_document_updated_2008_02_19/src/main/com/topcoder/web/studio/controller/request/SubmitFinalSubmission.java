@@ -89,6 +89,16 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     addError(Constants.ACCEPT_AD_ERROR, "You must accept the Assignment Document in order to upload your final submission");
                 }
 
+                boolean hasGlobalAd = true;
+                if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                    hasGlobalAd = PactsServicesLocator.getService().hasGlobalAD(getUser().getId());
+                }
+
+                // maybe change for a custom error page
+                if (!hasGlobalAd) {
+                    throw new NavigationException("You cannot submit because you don't have a Global AD on file");
+                }
+
                 List adList = PactsServicesLocator.getService()
                         .getAssignmentDocumentByUserIdStudioContestId(u.getId(), c.getId());
 

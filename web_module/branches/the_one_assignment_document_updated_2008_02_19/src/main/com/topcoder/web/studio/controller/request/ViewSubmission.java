@@ -14,6 +14,7 @@ import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.SubmissionType;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author dok
@@ -45,6 +46,16 @@ public class ViewSubmission extends BaseSubmissionDataProcessor {
 
             if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
                 throw new NavigationException("User not registered for the contest");
+            }
+
+            boolean hasGlobalAd = true;
+            if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                hasGlobalAd = PactsServicesLocator.getService().hasGlobalAD(getUser().getId());
+            }
+
+            // maybe change for a custom error page
+            if (!hasGlobalAd) {
+                throw new NavigationException("You cannot submit because you don't have a Global AD on file");
             }
 
             setDefault(Constants.CONTEST_ID, contestId.toString());
