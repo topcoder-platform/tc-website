@@ -20,8 +20,8 @@ DELETE FROM contest WHERE contest_id BETWEEN 1 AND 11;
 DELETE FROM prize WHERE prize_id BETWEEN 1 AND 33;
 
 DELETE FROM email WHERE user_id = 1;
-DELETE FROM common_oltp:user_group_xref WHERE login_id = 1;
-DELETE FROM informixoltp:coder WHERE coder_id = 1;
-DELETE FROM common_oltp:security_user WHERE login_id = 1;
-DELETE FROM common_oltp:user WHERE user_id = 1;
+DELETE FROM comp1_common_oltp:user_group_xref WHERE login_id = 1;
+DELETE FROM comp1_informixoltp:coder WHERE coder_id = 1;
+DELETE FROM comp1_common_oltp:security_user WHERE login_id = 1;
+DELETE FROM comp1_common_oltp:user WHERE user_id = 1;
 

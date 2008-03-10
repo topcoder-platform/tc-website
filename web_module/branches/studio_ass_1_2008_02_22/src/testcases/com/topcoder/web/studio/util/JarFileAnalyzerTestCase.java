@@ -59,7 +59,7 @@ public class JarFileAnalyzerTestCase extends TCHibernateTestCase {
      * @throws Exception if an unexpected error occurs.
      */
     public void testAnalyze_RetrieveFiles() throws Exception {
-        String path = "resources/modifications/test_files/";
+        String path = "test_files/studio/";
         String[] fileNames = {"nativeempty.jar", "noimage.jar", "nonative.jar", "nosubmission.jar", "tcs.jar"};
         boolean[] expectedNativeAvailable = {false, true, false, true, true};
         boolean[] expectedImageAvailable = {true, false, true, true, true};
@@ -99,7 +99,7 @@ public class JarFileAnalyzerTestCase extends TCHibernateTestCase {
      * @throws Exception if an unexpected error occurs.
      */
     public void testAnalyze_NoRetrieveFiles() throws Exception {
-        String path = "resources/modifications/test_files/";
+        String path = "test_files/studio/";
         String[] fileNames = {"nativeempty.jar", "noimage.jar", "nonative.jar", "nosubmission.jar", "tcs.jar"};
         boolean[] expectedNativeAvailable = {false, true, false, true, true};
         boolean[] expectedImageAvailable = {true, false, true, true, true};

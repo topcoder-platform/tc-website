@@ -238,7 +238,7 @@ public class SubmitTestCase extends TCHibernateTestCase {
      * @throws IOException if an I/O error occurs while reading the image file content.
      */
     private byte[] readSubmissionFile() throws IOException {
-        InputStream content = new FileInputStream("./resources/modifications/test_files/submission.zip");
+        InputStream content = new FileInputStream("test_files/studio/submission.zip");
         ByteArrayOutputStream baos;
         try {
             baos = new ByteArrayOutputStream();

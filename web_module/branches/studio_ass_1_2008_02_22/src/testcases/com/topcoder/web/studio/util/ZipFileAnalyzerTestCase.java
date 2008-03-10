@@ -60,7 +60,7 @@ public class ZipFileAnalyzerTestCase extends TCHibernateTestCase {
      * @throws Exception if an unexpected error occurs.
      */
     public void testAnalyze_RetrieveFiles() throws Exception {
-        String path = "resources/modifications/test_files/";
+        String path = "test_files/studio/";
         String[] fileNames = {"nativeempty.zip", "noimage.zip", "nonative.zip", "nosubmission.zip", "tcs.zip"};
         boolean[] expectedNativeAvailable = {false, true, false, true, true};
         boolean[] expectedImageAvailable = {true, false, true, true, true};
@@ -100,7 +100,7 @@ public class ZipFileAnalyzerTestCase extends TCHibernateTestCase {
      * @throws Exception if an unexpected error occurs.
      */
     public void testAnalyze_NoRetrieveFiles() throws Exception {
-        String path = "resources/modifications/test_files/";
+        String path = "test_files/studio/";
         String[] fileNames = {"nativeempty.zip", "noimage.zip", "nonative.zip", "nosubmission.zip", "tcs.zip"};
         boolean[] expectedNativeAvailable = {false, true, false, true, true};
         boolean[] expectedImageAvailable = {true, false, true, true, true};
@@ -140,7 +140,7 @@ public class ZipFileAnalyzerTestCase extends TCHibernateTestCase {
      * @throws Exception if an unexpected error occurs.
      */
     public void testAnalyze_RetrieveFiles_Stream() throws Exception {
-        String path = "resources/modifications/test_files/";
+        String path = "test_files/studio/";
         String[] fileNames = {"nativeempty.zip", "noimage.zip", "nonative.zip", "nosubmission.zip", "tcs.zip"};
         boolean[] expectedNativeAvailable = {false, true, false, true, true};
         boolean[] expectedImageAvailable = {true, false, true, true, true};
@@ -180,7 +180,7 @@ public class ZipFileAnalyzerTestCase extends TCHibernateTestCase {
      * @throws Exception if an unexpected error occurs.
      */
     public void testAnalyze_NoRetrieveFiles_Stream() throws Exception {
-        String path = "resources/modifications/test_files/";
+        String path = "test_files/studio/";
         String[] fileNames = {"nativeempty.zip", "noimage.zip", "nonative.zip", "nosubmission.zip", "tcs.zip"};
         boolean[] expectedNativeAvailable = {false, true, false, true, true};
         boolean[] expectedImageAvailable = {true, false, true, true, true};
