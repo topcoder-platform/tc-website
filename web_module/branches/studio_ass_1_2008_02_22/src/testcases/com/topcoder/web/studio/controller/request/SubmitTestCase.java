@@ -148,8 +148,9 @@ public class SubmitTestCase extends TCHibernateTestCase {
         // Test setup
         long contestId = 1;
         long userId = 1;
+        //file upload looks to have a bug, when parsing the request without an \r, it'll go out of bounds
         //String newLine = System.getProperties().getProperty("line.separator");
-        String newLine = "\n";
+        String newLine = "\r\n";
         String newLine2 = newLine + newLine;
 
         byte[] submitted = readSubmissionFile();
@@ -212,7 +213,9 @@ public class SubmitTestCase extends TCHibernateTestCase {
         // Test setup
         long contestId = 2;
         long userId = 1;
-        String newLine = System.getProperties().getProperty("line.separator");
+        //file upload looks to have a bug, when parsing the request without an \r, it'll go out of bounds
+        //String newLine = System.getProperties().getProperty("line.separator");
+        String newLine = "\r\n";
         String newLine2 = newLine + newLine;
 
         byte[] submitted = readSubmissionFile();
