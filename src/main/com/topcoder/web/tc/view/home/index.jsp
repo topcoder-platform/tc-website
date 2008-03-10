@@ -197,13 +197,13 @@
                 <img src="/i/home/mmtco4_verisign.png" alt="TCO07 Marathon Match 4 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
                 --%>
 
-                <%-- SRM SPONSOR 
+                <%-- SRM SPONSOR --%>
                 <map name="mm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=11126" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&amp;d1=sponsors&amp;d2=bt" />
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=11127" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign" />
                 </map>
-                <img src="/i/home/srm392_bt.png" alt="SRM 392 brought to you by BT" border="0" style="display:block;" usemap="#mm"/>
-                --%>
+                <img src="/i/home/srm393_verisign.png" alt="SRM 393 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
+                
 
                 <%-- LICENSE ID 
                 <A href="<tc-webtag:linkTracking link='http://studio.topcoder.com/?module=ViewContestDetails&ct=2093' refer='homepage' />"><img src="/i/home/licenseIDProject.jpg" alt="License ID Project" border="0" style="display:block;"/></A>
@@ -225,9 +225,9 @@
                <A href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></A>
                 --%>
                 
-                <%-- AMD Multicore Threadfest --%>
+               <%-- AMD Multicore Threadfest 
                <A href="<tc-webtag:linkTracking link='/threadfest' refer='homepage_promo' />"><img src="/i/home/amdMCT_promo.png" alt="AMD Multicore Threadfest" /></A>
-                
+               --%>
             </td>
         </tr>
     </table>
