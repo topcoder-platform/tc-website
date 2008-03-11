@@ -166,6 +166,7 @@
       <td class="value">22
          <div class="srm">
          <strong><a href="/tc?module=MatchDetails&amp;rd=11128">SRM 394</a></strong><br />
+         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=aol">AOL</a><br />
          12:00 NOON
          </div>
       </td>
