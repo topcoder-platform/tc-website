@@ -27,6 +27,12 @@
         
         <h2>Eli Lilly</h2>
         
+        <div style="float: right;">
+            <h3 style="border-bottom: 1px solid #b7b3b3;">Chat Session Transcripts</h3>
+            <strong>
+                <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080202">SRM 390</a><br />
+            </strong>
+        </div>
         <div style="padding-bottom:10px;">
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.elililly.com/' refer='tco08_lilly' />"><img alt="TCO08 Sponsored by Eli Lilly" src="/i/tournament/tco08/lilly_logo.png" /></a>
         </div>
