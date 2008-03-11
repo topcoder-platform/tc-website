@@ -184,16 +184,21 @@
                 <img src="/i/home/mmtco4_verisign.png" alt="TCO07 Marathon Match 4 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
                 --%>
 
-                <%-- SRM SPONSOR --%>
+                <%-- SRM SPONSOR 
                 <map name="mm">
                 <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=11127" />
                 <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign" />
                 </map>
                 <img src="/i/home/srm393_verisign.png" alt="SRM 393 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
-                
-               <%-- UML Tool 
-               <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></A>
                 --%>
+                
+                <%-- UML Tool 
+                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></A>
+                --%>
+                
+                <%-- AMD Multicore Threadfest --%>
+                <A href="<tc-webtag:linkTracking link='/threadfest' refer='homepage_promo' />"><img src="/i/home/amdMCT_promo.png" alt="AMD Multicore Threadfest" /></A>
+                
             </td>
         </tr>
     </table>
