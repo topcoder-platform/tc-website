@@ -1036,7 +1036,8 @@ public class DataInterfaceBean implements PactsConstants {
             else if (key.equals(HAS_ACTIVE_CONTRACTS) ||
                     key.equals(HAS_PENDING_AFFIDAVITS) ||
                     key.equals(HAS_TAX_FORMS_ON_FILE) ||
-                    key.equals(IS_OWED_MONEY))
+                    key.equals(IS_OWED_MONEY) ||
+                    key.equals(HAS_GLOBAL_AD))
                 inputOk = validateInput(value, BOOLEAN);
             else
                 throw new UnsupportedSearchException("Search by " + key + " not supported");
