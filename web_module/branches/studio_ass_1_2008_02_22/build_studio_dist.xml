@@ -17,6 +17,7 @@
     <property name="src.dir" value="src"/>
     <property name="shared.build" value="${basedir}/../shared"/>
     <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
+    <property name="external.jars.dir" location="../external-artifacts"/>
     <property name="java" value="${src.dir}/main"/>
     <property name="shared.jar" value="${bin}/shared.jar"/>
     <property name="jboss_home" value="${env.JBOSS_HOME}"/>
@@ -96,6 +97,13 @@
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
 
+        <pathelement location="${external.jars.dir}/base_exception-2.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/configuration_api-2.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/image_overlay-1.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/image_resizing-1.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/image_manipulation-1.0.0.jar"/>
+
+
 
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
@@ -142,14 +150,6 @@
         </copy>
         <copy tofile="${build}/tempdist/build.xml" file="build_studio_dist.xml"/>
         
-
-<!--
-        <copy todir="${build}/tempdist/depsrc/src/main">
-            <fileset dir="${shared}">
-                <include name="com/topcoder/shared/**/*"/>
-            </fileset>
-        </copy>
--->
         <copy todir="${build}/tempdist/lib/jars">
             <fileset dir="${jars.dir}">
                 <include name="jboss/javax.servlet.jar"/>
@@ -202,18 +202,16 @@
                 <include name="hibernate-annotations-3.3.0.GA/hibernate-commons-annotations.jar"/>
                 <include name="hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
                 <include name="hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
+            </fileset>
+        </copy>
 
-
-
-<!--
-                <include name="jive/htmlparser.jar"/>
-                <include name="jive/jivebase.jar"/>
-                <include name="jive/jiveforums.jar"/>
-                <include name="jive/velocity-dep.jar"/>
-                <include name="jive/xwork.jar"/>
-                <include name="jive/webwork.jar"/>
--->
-
+        <copy todir="${build}/tempdist/lib/jars">
+            <fileset dir="${external.jars.dir}">
+                <include name="base_exception-2.0.0.jar"/>
+                <include name="configuration_api-2.0.0.jar"/>
+                <include name="image_overlay-1.0.0.jar"/>
+                <include name="image_resizing-1.0.0.jar"/>
+                <include name="image_manipulation-1.0.0.jar"/>
             </fileset>
         </copy>
 
@@ -265,6 +263,7 @@
                 <include name="DBMS.properties"/>
                 <include name="DataAccess.properties"/>
                 <include name="EmailEngineConfig.properties"/>
+                <include name="Studio.properties"/>
                 <include name="treecache-service.xml"/>
 
                 <include name="com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
@@ -302,6 +301,13 @@
                 debug="${debug}"
                 source="1.5"
                 target="1.5" memoryMaximumSize="380m" memoryInitialSize="380m" fork="true">
+            <include name="com/topcoder/common/**"/>
+            <include name="com/topcoder/ejb/**"/>
+            <include name="com/topcoder/security/**"/>
+            <include name="com/topcoder/web/common/**"/>
+            <include name="com/topcoder/web/ejb/BaseEJB.java"/>
+            <include name="com/topcoder/web/studio/**"/>
+            
         </javac>
         <property name="compile_set" value="true"/>
     </target>
@@ -342,9 +348,6 @@
         <war warfile="${war.dir}/studio.war" webxml="${resources}/studio/web.xml">
             <classes dir="${classes}">
                 <include name="com/topcoder/web/studio/**/*.class"/>
-<!--
-                <include name="com/topcoder/web/forums/**/*.class"/>
--->
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
@@ -358,11 +361,6 @@
             <fileset dir="${java}/com/topcoder/web/studio/view">
                 <include name="**/*.jsp"/>
             </fileset>
-<!--
-            <fileset dir="${java}/com/topcoder/web/forums/view/studio">
-                <include name="*.*"/>
-            </fileset>
--->
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="style.jsp"/>
             </fileset>
@@ -390,19 +388,7 @@
     <target name="expand-studio">
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
-<!--
-        <copy todir="${jboss_lib}" file="${bin}/tcjive.jar"/>
--->
         <copy todir="${jboss_lib}" file="${ejb_jars}/security.jar"/>
-<!--
-        <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
--->
-
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/data_validation/1.0/data_validation.jar"/>
@@ -428,18 +414,7 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
 
-<!--
-        <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
-        <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
--->
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
-        <!--
-                <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
-        -->
-
-        <!--
-                <copy todir="${jboss_conf}" file="${resources}/forums/studio/jive_init.xml"/>
-        -->
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
