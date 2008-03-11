@@ -414,12 +414,20 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
 
+        <copy todir="${jboss_lib}" file="${jars.dir}/base_exception-2.0.0.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/configuration_api-2.0.0.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/image_overlay-1.0.0.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/image_resizing-1.0.0.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/image_manipulation-1.0.0.jar"/>
+
+
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/EmailEngineConfig.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/Studio.properties"/>
 
         <copy todir="${jboss_conf}/com/topcoder/db/connectionfactory/"
               file="${resources}/com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
@@ -432,11 +440,6 @@
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>
         <delete dir="${jboss_home}/server/default/deploy/studio.war/META-INF"/>
-        <copy todir="${jboss_conf}">
-            <fileset dir="${resources}">
-                <include name="Studio.properties"/>
-            </fileset>
-        </copy>
     </target>
 
     <target name="compile_tests" depends="compile">
