@@ -38,7 +38,7 @@
             <td>
                 <SELECT CLASS="dropdown" NAME="assignment_document_template_id">
                     <c:forEach items="${assignment_document_template_list}" var="templateItem">
-                        <OPTION value='${templateItem.id}'>
+                        <OPTION value='${templateItem.id}' <c:if test="${templateItem.current}">selected="selected"</c:if>>
                             ${templateItem.name}
                         </OPTION>
                     </c:forEach>

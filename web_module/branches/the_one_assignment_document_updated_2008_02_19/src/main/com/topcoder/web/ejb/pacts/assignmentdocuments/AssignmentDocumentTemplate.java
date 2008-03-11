@@ -30,6 +30,7 @@ public class AssignmentDocumentTemplate implements Serializable, Cloneable {
     private Long id;
     private String name;
     private String text;
+    private Boolean current;
 
     public AssignmentDocumentTemplate() {
     }
@@ -78,6 +79,20 @@ public class AssignmentDocumentTemplate implements Serializable, Cloneable {
      */
     public void setId(Long id) {
         this.id = id;
+    }
+
+    /**
+     * sets the current
+     */
+    public void setCurrent(Boolean current) {
+        this.current = current;
+    }
+
+    /**
+     * @return the current
+     */
+    public Boolean isCurrent() {
+        return current;
     }
 
     public String transformTemplate(AssignmentDocument ad, XMLDocument tc) {

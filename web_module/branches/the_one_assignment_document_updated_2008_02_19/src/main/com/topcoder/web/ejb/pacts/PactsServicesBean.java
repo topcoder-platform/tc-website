@@ -1874,7 +1874,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             sb.append("select ");
             sb.append("assignment_document_template_id, ");
             sb.append("assignment_document_template_text, ");
-            sb.append("assignment_document_template_name ");
+            sb.append("assignment_document_template_name, ");
+            sb.append("cur_version ");
             sb.append("from 'informix'.assignment_document_template ");
             sb.append("where assignment_document_type_id = ? ");
             if (onlyCurrent) {
@@ -1898,6 +1899,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 else
                     adt.setText(new String(bytes));
                 
+                adt.setCurrent(rs.getBoolean("cur_version"));
                 adtl.add(adt);
             }
 
@@ -1950,7 +1952,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             sb.append("select ");
             sb.append("assignment_document_template_id, ");
             sb.append("assignment_document_template_text, ");
-            sb.append("assignment_document_template_name ");
+            sb.append("assignment_document_template_name, ");
+            sb.append("cur_version ");
             sb.append("from 'informix'.assignment_document_template ");
             sb.append("where assignment_document_template_id = ? ");
 
@@ -1973,6 +1976,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             else
                 adt.setText(new String(bytes));
                 
+            adt.setCurrent(rs.getBoolean("cur_version"));
+
             return adt;
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
