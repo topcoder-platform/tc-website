@@ -285,6 +285,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                                         && checkParam(BOOL_TYPE, request.getParameter(HAS_PENDING_AFFIDAVITS), false, pp)
                                         && checkParam(BOOL_TYPE, request.getParameter(HAS_TAX_FORMS_ON_FILE), false, pp)
                                         && checkParam(BOOL_TYPE, request.getParameter(IS_OWED_MONEY), false, pp)
+                                        && checkParam(BOOL_TYPE, request.getParameter(HAS_GLOBAL_AD), false, pp)
                                         && pp.get()) {
 
                             doUserList(request, response);
