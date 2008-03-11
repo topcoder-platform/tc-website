@@ -91,7 +91,7 @@ public class AssignmentDocumentTemplate implements Serializable, Cloneable {
     /**
      * @return the current
      */
-    public Boolean isCurrent() {
+    public Boolean getCurrent() {
         return current;
     }
 
