@@ -103,6 +103,12 @@
         <pathelement location="${external.jars.dir}/image_resizing-1.0.0.jar"/>
         <pathelement location="${external.jars.dir}/image_manipulation-1.0.0.jar"/>
 
+        <!-- duplicating this so that it's in the path when it's build with external libs and with-->
+        <pathelement location="${jars.dir}/base_exception-2.0.0.jar"/>
+        <pathelement location="${jars.dir}/configuration_api-2.0.0.jar"/>
+        <pathelement location="${jars.dir}/image_overlay-1.0.0.jar"/>
+        <pathelement location="${jars.dir}/image_resizing-1.0.0.jar"/>
+        <pathelement location="${jars.dir}/image_manipulation-1.0.0.jar"/>
 
 
     </path>
