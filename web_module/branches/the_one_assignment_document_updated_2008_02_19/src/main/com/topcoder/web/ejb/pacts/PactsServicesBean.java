@@ -3232,6 +3232,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                             PaymentStatus.OWED_PAYMENT_STATUS.getId() + "," +
                             PaymentStatus.ACCRUING_PAYMENT_STATUS.getId() + "))");
                     orClauses.add(clause.toString());
+                } else if (key.equals(HAS_GLOBAL_AD)) {
+                    boolean wantExists = makeBoolean(value);
+                    StringBuffer clause = new StringBuffer(300);
+                    if (!wantExists) {
+                        clause.append("NOT ");
+                    }
+                    clause.append("EXISTS (SELECT 1 FROM assignment_document ad ");
+                    clause.append("        WHERE ad.user_id = u.user_id");
+                    clause.append("        AND ad.assignment_document_type_id = " + AssignmentDocumentType.GLOBAL_TYPE_ID);
+                    clause.append("        AND ad.assignment_document_status_id = " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID + ")");
+                    orClauses.add(clause.toString());
                 }
             }
         } catch (Exception e) {
