@@ -125,7 +125,7 @@
       </td>
       <td class="value">12
          <div class="amd">
-         <strong><A href="/tc?module=Static&d1=sponsors&d2=amdOverview">AMD Multicore Threadfest Competition 1</A></strong><br />
+         <strong><A href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdOverview">AMD Multicore Threadfest Competition 1</A></strong><br />
          12:00 NOON<br />
          2 weeks
          </div>
