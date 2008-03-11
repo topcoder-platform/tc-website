@@ -297,7 +297,12 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
+                <%-- Client Promo List 
                 <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/home/tcs_client_caliper.png" alt="TopCoder &amp; Caliper" border="0" style="display:block;"/></A>
+                --%>
+                <%-- AMD Multicore Threadfest --%>
+                <A href="<tc-webtag:linkTracking link='/threadfest' refer='homepage_promo' />"><img src="/i/home/amdMCT_promo.png" alt="AMD Multicore Threadfest" /></A>
+               
             </td>
         </tr>
     </table>
