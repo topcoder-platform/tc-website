@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />03.12.08<br />10:15 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm392">SRM 392 - Problem Set &amp; Analysis</a></span><br /><br />
+      Division 1 was won by <tc-webtag:handle coderId="19849563" context="algorithm"/> who showed the best time on both the 500-pointer and the 1000-pointer. The second place went to <tc-webtag:handle coderId="7442498" context="algorithm"/>, and the third was gained by <tc-webtag:handle coderId="10574855" context="algorithm"/>, thanks to his two successful challenges.</td>
+         <td class="newsPhoto"><img src="/i/m/darnley_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="21971539" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm392">details</a> | 
+        <tc-webtag:forumLink forumID="520162" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.12.08<br />9:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early">Last Call for TCO08 Visa Letter Requests</a></span><br /><br />
@@ -147,17 +163,3 @@
         <tc-webtag:forumLink forumID="520145" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.03.08<br />12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tco08?module=AlgorithmAdvancers">See Who Advanced from Algorithm Round 3 of the TCO08</a></span><br /><br />
-        The advancers from Algorithm Round 3 are now available. Congratulations to those who have advanced!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tco08?module=AlgorithmAdvancers">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
