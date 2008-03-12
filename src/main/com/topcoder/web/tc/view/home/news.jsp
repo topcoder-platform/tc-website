@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />03.12.08<br />3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">Event Calendar updated through July 2008</a></span><br /><br />
+        There are more SRMs in the Event Calendar scheduled through July!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">details</a> | 
+        <tc-webtag:forumLink forumID="520312" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />03.12.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/threadfest' refer='/tc' />">AMD Multicore Threadfest Competition 1</a></span><br /><br />
@@ -149,17 +162,4 @@
         <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">details</a> | 
         <a href="/openaim/forums">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.05.08<br />10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_030508">AOL, Lilly and VeriSign Return as Sponsors &amp; NSA Returns as Patron of 2008 TopCoder Open</a></span><br /><br />
-        Competitive Programming's Top Tournament Underway with Continued Support of AOL, Lilly, NSA and VeriSign; Expanded Field of 120 Finalists to Compete for $260,000 Prize Money in Las Vegas.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_030508">details</a> | 
-        <tc-webtag:forumLink forumID="520184" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
