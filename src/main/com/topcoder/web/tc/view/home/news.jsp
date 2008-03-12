@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.12.08<br />9:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early">Last Call for TCO08 Visa Letter Requests</a></span><br /><br />
+        TCO08 Visa Letter Requests end today at 5:00 PM EST!  For more information or help with visa letters, see <a href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early">here</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early">details</a> | 
+        <tc-webtag:forumLink forumID="520311" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.10.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign">VeriSign chat before SRM 393</a></span><br /><br />
@@ -148,16 +161,3 @@
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />02.29.08<br />6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=schedule">TCO08 Algorithm Round 3</a></span><br /><br />
-        TCO08 Algorithm Round 3 is set for Saturday, March 1 at 1:00 PM EST.  See you in the arena!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=schedule">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
