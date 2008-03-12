@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">03.12.08 5:00 PM - </td><td width="100%"><a target="_blank" href="/pdfs/tournaments/TCHS08_Program_View.pdf">TCHS08 Program Now Available!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.12.08 9:30 AM - </td><td width="100%"><a href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early">Last Call for TCO08 Visa Letter Requests</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.10.08 5:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign">VeriSign chat before SRM 393</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.07.08 4:00 PM - </td><td width="100%"><a href="/tc?module=ViewSurvey&amp;sid=22051">Vote for the TCO08 T-shirts</a></td></tr>
