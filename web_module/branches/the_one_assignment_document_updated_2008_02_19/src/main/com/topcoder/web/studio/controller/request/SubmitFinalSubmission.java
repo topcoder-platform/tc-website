@@ -103,97 +103,99 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
 
                 // maybe change for a custom error page
                 if (!hasGlobalAd) {
-                    throw new NavigationException("You cannot submit because you don't have a Global AD on file");
-                }
-
-                if (hasErrors()) {
-                    if (!"on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
-                        getRequest().setAttribute("assignment_document", ad);
-                        getRequest().setAttribute("has_hard_copy", hasHardCopy);
-                        getRequest().setAttribute(Constants.ACCEPT_AD, getRequest().getParameter(Constants.ACCEPT_AD));
-                        setDefault(Constants.ACCEPT_AD, String.valueOf("on".equals(getRequest().getParameter(Constants.ACCEPT_AD))));
-                    }
-
-                    setDefault(Constants.CONTEST_ID, contestId.toString());
-                    loadSubmissionData(u, c, dao, SubmissionType.FINAL_SUBMISSION_TYPE);
-                    getRequest().setAttribute("contest", c);
-                    setNextPage("/submitFinalSubmission.jsp");
-                    setIsNextPageInContext(true);
-                } else {
-                    if (!"on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
-                        // affirm the AD.
-                        if (ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
-                            PactsServicesLocator.getService().affirmAssignmentDocument(ad);
-                        }
-                    }
-                    
-                    // accept the file
-
-                    MimeType mt = SubmissionValidator.getMimeType(submissionFile);
-                    Submission s = new Submission();
-                    s.setContest(c);
-                    s.setOriginalFileName(submissionFile.getRemoteFileName());
-                    s.setSubmitter(u);
-                    s.setMimeType(mt);
-                    s.setStatus(cFactory.getSubmissionStatusDAO().find(SubmissionStatus.ACTIVE));
-
-                    StringBuffer buf = new StringBuffer(80);
-                    buf.append(Constants.ROOT_STORAGE_PATH);
-                    buf.append(System.getProperty("file.separator"));
-                    buf.append(Constants.SUBMISSIONS_DIRECTORY_NAME);
-                    buf.append(System.getProperty("file.separator"));
-                    buf.append(c.getId());
-                    buf.append(System.getProperty("file.separator"));
-                    buf.append(u.getHandle().toLowerCase());
-                    buf.append("_");
-                    buf.append(u.getId());
-                    buf.append(System.getProperty("file.separator"));
-
-                    FilePath p = new FilePath();
-                    p.setPath(buf.toString());
-
-                    File directory = new File(buf.toString());
-                    if (!directory.exists()) {
-                        directory.mkdirs();
-                    }
-
-                    String ext = submissionFile.getRemoteFileName().substring(submissionFile.getRemoteFileName().lastIndexOf('.'));
-
-                    //root/submissions/contest_id/user_id/time.pdf
-                    s.setPath(p);
-                    s.setSystemFileName(System.currentTimeMillis() + ext);
-                    s.setType(cFactory.getSubmissionTypeDAO().find(SubmissionType.FINAL_SUBMISSION_TYPE));
-
-                    if (log.isDebugEnabled()) {
-                        log.debug("creating file: " + p.getPath() + s.getSystemFileName());
-                    }
-                    f = new File(p.getPath() + s.getSystemFileName());
-
-                    FileOutputStream fos = new FileOutputStream(f);
-                    byte[] fileBytes = new byte[(int) submissionFile.getSize()];
-                    submissionFile.getInputStream().read(fileBytes);
-                    fos.write(fileBytes);
-                    fos.close();
-
-                    if (mt.getFileType().isImageFile()) {
-                        ImageInputStream iis = ImageIO.createImageInputStream(new ByteArrayInputStream(fileBytes));
-                        BufferedImage image = ImageIO.read(iis);
-                        s.setWidth(image.getWidth());
-                        s.setHeight(image.getHeight());
-                    }
-
-                    dao.saveOrUpdate(s);
-
-                    StringBuffer nextPage = new StringBuffer(50);
-                    nextPage.append(getSessionInfo().getServletPath());
-                    nextPage.append("?" + Constants.MODULE_KEY + "=ViewFinalSubmissionSuccess&");
-                    nextPage.append(Constants.SUBMISSION_ID + "=").append(s.getId());
-                    setNextPage(nextPage.toString());
+                    //throw new NavigationException("You cannot submit because you don't have a Global AD on file");
+                    setNextPage("/noGadErrorPage.jsp");
                     setIsNextPageInContext(false);
-
-
+                } else {
+    
+                    if (hasErrors()) {
+                        if (!"on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                            getRequest().setAttribute("assignment_document", ad);
+                            getRequest().setAttribute("has_hard_copy", hasHardCopy);
+                            getRequest().setAttribute(Constants.ACCEPT_AD, getRequest().getParameter(Constants.ACCEPT_AD));
+                            setDefault(Constants.ACCEPT_AD, String.valueOf("on".equals(getRequest().getParameter(Constants.ACCEPT_AD))));
+                        }
+    
+                        setDefault(Constants.CONTEST_ID, contestId.toString());
+                        loadSubmissionData(u, c, dao, SubmissionType.FINAL_SUBMISSION_TYPE);
+                        getRequest().setAttribute("contest", c);
+                        setNextPage("/submitFinalSubmission.jsp");
+                        setIsNextPageInContext(true);
+                    } else {
+                        if (!"on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                            // affirm the AD.
+                            if (ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
+                                PactsServicesLocator.getService().affirmAssignmentDocument(ad);
+                            }
+                        }
+                        
+                        // accept the file
+    
+                        MimeType mt = SubmissionValidator.getMimeType(submissionFile);
+                        Submission s = new Submission();
+                        s.setContest(c);
+                        s.setOriginalFileName(submissionFile.getRemoteFileName());
+                        s.setSubmitter(u);
+                        s.setMimeType(mt);
+                        s.setStatus(cFactory.getSubmissionStatusDAO().find(SubmissionStatus.ACTIVE));
+    
+                        StringBuffer buf = new StringBuffer(80);
+                        buf.append(Constants.ROOT_STORAGE_PATH);
+                        buf.append(System.getProperty("file.separator"));
+                        buf.append(Constants.SUBMISSIONS_DIRECTORY_NAME);
+                        buf.append(System.getProperty("file.separator"));
+                        buf.append(c.getId());
+                        buf.append(System.getProperty("file.separator"));
+                        buf.append(u.getHandle().toLowerCase());
+                        buf.append("_");
+                        buf.append(u.getId());
+                        buf.append(System.getProperty("file.separator"));
+    
+                        FilePath p = new FilePath();
+                        p.setPath(buf.toString());
+    
+                        File directory = new File(buf.toString());
+                        if (!directory.exists()) {
+                            directory.mkdirs();
+                        }
+    
+                        String ext = submissionFile.getRemoteFileName().substring(submissionFile.getRemoteFileName().lastIndexOf('.'));
+    
+                        //root/submissions/contest_id/user_id/time.pdf
+                        s.setPath(p);
+                        s.setSystemFileName(System.currentTimeMillis() + ext);
+                        s.setType(cFactory.getSubmissionTypeDAO().find(SubmissionType.FINAL_SUBMISSION_TYPE));
+    
+                        if (log.isDebugEnabled()) {
+                            log.debug("creating file: " + p.getPath() + s.getSystemFileName());
+                        }
+                        f = new File(p.getPath() + s.getSystemFileName());
+    
+                        FileOutputStream fos = new FileOutputStream(f);
+                        byte[] fileBytes = new byte[(int) submissionFile.getSize()];
+                        submissionFile.getInputStream().read(fileBytes);
+                        fos.write(fileBytes);
+                        fos.close();
+    
+                        if (mt.getFileType().isImageFile()) {
+                            ImageInputStream iis = ImageIO.createImageInputStream(new ByteArrayInputStream(fileBytes));
+                            BufferedImage image = ImageIO.read(iis);
+                            s.setWidth(image.getWidth());
+                            s.setHeight(image.getHeight());
+                        }
+    
+                        dao.saveOrUpdate(s);
+    
+                        StringBuffer nextPage = new StringBuffer(50);
+                        nextPage.append(getSessionInfo().getServletPath());
+                        nextPage.append("?" + Constants.MODULE_KEY + "=ViewFinalSubmissionSuccess&");
+                        nextPage.append(Constants.SUBMISSION_ID + "=").append(s.getId());
+                        setNextPage(nextPage.toString());
+                        setIsNextPageInContext(false);
+    
+    
+                    }
                 }
-
             }
 
         } else {

@@ -55,15 +55,16 @@ public class ViewSubmission extends BaseSubmissionDataProcessor {
 
             // maybe change for a custom error page
             if (!hasGlobalAd) {
-                throw new NavigationException("You cannot submit because you don't have a Global AD on file");
+                // throw new NavigationException("You cannot submit because you don't have a Global AD on file");
+                setNextPage("/noGadErrorPage.jsp");
+                setIsNextPageInContext(false);
+            } else {
+                setDefault(Constants.CONTEST_ID, contestId.toString());
+                setDefault(Constants.SUBMISSION_RANK, "1");
+                loadSubmissionData(u, c, cFactory.getSubmissionDAO(), SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE);
+                setNextPage("/submit.jsp");
+                setIsNextPageInContext(true);
             }
-
-            setDefault(Constants.CONTEST_ID, contestId.toString());
-            setDefault(Constants.SUBMISSION_RANK, "1");
-            loadSubmissionData(u, c, cFactory.getSubmissionDAO(), SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE);
-            setNextPage("/submit.jsp");
-            setIsNextPageInContext(true);
-
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
