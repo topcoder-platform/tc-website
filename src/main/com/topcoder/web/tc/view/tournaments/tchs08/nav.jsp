@@ -14,7 +14,7 @@
 
     <ul id="nav">
         <li id="nav_overview"><a title="TCHS08 Overview" onfocus="this.blur();" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=overview"<% if (tabLev1.equals("overview")) {%> class="active"<% } %>>Overview</a></li>
-        <li id="nav_program"><a title="Download Tournament Program (PDF)" onfocus="this.blur();" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=program"<% if (tabLev1.equals("program")) {%> class="active"<% } %>>Tournament Program</a></li>
+        <li id="nav_program"><a title="Download Tournament Program (PDF)" onfocus="this.blur();" target="_blank" href="/pdfs/tournaments/TCHS08_Program_View.pdf"<% if (tabLev1.equals("program")) {%> class="active"<% } %>>Tournament Program</a></li>
         <li id="nav_online"><a title="View Online Schedule" onfocus="this.blur();" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=onlineSchedule"<% if (tabLev1.equals("onlineSchedule")) {%> class="active"<% } %>>Online Schedule</a></li>
         <li id="nav_onsite"><a title="View Onsite Schedule" onfocus="this.blur();" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=onsiteSchedule"<% if (tabLev1.equals("onsiteSchedule")) {%> class="active"<% } %>>Onsite Schedule</a></li>
         <li id="nav_rules"><a title="TCHS08 Rules" onfocus="this.blur();" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=rules"<% if (tabLev1.equals("rules")) {%> class="active"<% } %>>Rules</a></li>
