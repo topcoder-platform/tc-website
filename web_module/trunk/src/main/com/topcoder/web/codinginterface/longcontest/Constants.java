@@ -58,9 +58,11 @@ public class Constants implements CodingInterfaceConstants {
     public static int LONG_ROUND_TOURNAMENT_TYPE_ID;
     public static int INTEL_LONG_PRACTICE_ROUND_TYPE_ID;
     public static int INTEL_LONG_ROUND_TYPE_ID;
+    public static int AMD_LONG_PRACTICE_ROUND_TYPE_ID;
+    public static int AMD_LONG_ROUND_TYPE_ID;
 
     public static String WIN_STREAK_TYPE;
-    
+
     public static String LOGIN_JSP;
     public static String PAGE_VIEW_REG;
     public static String RP_SUBMIT;
@@ -99,14 +101,13 @@ public class Constants implements CodingInterfaceConstants {
     public static final String RESULTS_AVAILABLE = "resav";
     public static String PAGE_MATCH_LIST;
     public static String PAGE_MATCH_WINNERS;
-    public static String PAGE_CODER_RANK;    
-    public static String PAGE_SCHOOL_CODER_RANK;    
+    public static String PAGE_CODER_RANK;
+    public static String PAGE_SCHOOL_CODER_RANK;
     public static String PAGE_COUNTRY_RANK;
     public static String PAGE_RECORDBOOK;
     public static String PAGE_SCHOOL_RANK;
 
-    
-    
+
     static {
         initialize();
     }
