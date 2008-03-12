@@ -70,6 +70,8 @@
 
 <div class="header">Contest Details</div>
 
+<p>Created by HANDLE</p>
+
 <table cellpadding="0" cellspacing="0" class="input">
 <tbody>
 <tr>
@@ -84,6 +86,69 @@
     </td>
     <td class="value" width="100%">
         <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+        <span class="bigRed">ERROR<br/></span>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Client Name:
+    </td>
+    <td class="value" width="100%">
+        <input name="TEMP" type="text">
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+        <span class="bigRed">ERROR<br/></span>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Contest Type:
+    </td>
+    <td class="value" width="100%">
+        <select name="">
+            <option value=""></option>
+            <option value="">Apparel</option>
+            <option value="">Application Screens</option>
+            <option value="">Icon</option>
+            <option value="">Logo</option>
+            <option value="">FLASH</option>
+            <option value="">Other</option>
+            <option value="">Presentation</option>
+            <option value="">Print - Branding/ Collateral</option>
+            <option value="">Print - Advertisement</option>
+            <option value="">Print - Marketing</option>
+            <option value="">Prototype</option>
+            <option value="">Sound</option>
+            <option value="">Web Elements</option>
+            <option value="">Web Screens</option>
+        </select>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+        <span class="bigRed">ERROR<br/></span>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Medium: (Check all that apply)
+    </td>
+    <td class="value" width="100%">
+        <div><INPUT name="" type="checkbox" value="" /> Apparel</div>
+        <div><INPUT name="" type="checkbox" value="" /> Brochure</div>
+        <div><INPUT name="" type="checkbox" value="" /> Computer Screen</div>
+        <div><INPUT name="" type="checkbox" value="" /> Email Newsletter</div>
+        <div><INPUT name="" type="checkbox" value="" /> Poster</div>
+        <div><INPUT name="" type="checkbox" value="" /> Print</div>
+        <div><INPUT name="" type="checkbox" value="" /> Sign/Banner</div>
+        <div><INPUT name="" type="checkbox" value="" /> Stationery</div>
+        <div><INPUT name="" type="checkbox" value="" /> Web</div>
     </td>
 </tr>
 <tr>
@@ -110,7 +175,7 @@
 </tr>
 <tr>
     <td class="name" nowrap="nowrap">
-        Contest Start<br/>(Eastern Time):
+        Contest Start (Eastern Time):
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
@@ -125,7 +190,7 @@
 </tr>
 <tr>
     <td class="name" nowrap="nowrap">
-        Contest End<br/>(Eastern Time):
+        Contest End (Eastern Time):
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
@@ -203,6 +268,73 @@
     </td>
 </tr>
 
+<tr>
+    <td colspan="2">
+        <span class="bigRed">ERROR<br/></span>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Submission File(s) Format:
+    </td>
+    <td class="value">
+        <select name="" size="4" multiple="true">
+        <option value="">MS Word</option>
+        <option value="">Plain Text</option>
+        <option value="">Adobe Acrobat PDF</option>
+        <option value="">Postscript</option>
+        <option value="">HTML</option>
+        <option value="">Rich Text</option>
+        <option value="">JPEG Image</option>
+        <option value="">GIF Image</option>
+        <option value="">PNG Image</option>
+        <option value="">BMP Image</option>
+        <option value="">MS Excel</option>
+        <option value="">ZIP Archive</option>
+        <option value="">MP3</option>
+        <option value="">Java Archive</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2">
+        <p>
+            <span class="bigRed">ERROR<br/></span>
+            <strong>Notes on Submission File(s):</strong> <br/><br/>
+            <textarea cols="80" rows="3" name=""></textarea>
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2">
+        <span class="bigRed">ERROR<br/></span>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Final File(s) Format:
+    </td>
+    <td class="value">
+        <select name="" size="4" multiple="true">
+        <option value="">PSD</option>
+        <option value="">PSD</option>
+        <option value="">AI</option>
+        <option value="">EPS</option>
+        <option value="">TIFF</option>
+        <option value="">JPG</option>
+        <option value="">PDF</option>
+        <option value="">PNG</option>
+        <option value="">HTML</option>
+        <option value="">CSS</option>
+        <option value="">GIF</option>
+        <option value="">FLA</option>
+        <option value="">SWF</option>
+        <option value="">INDD</option>
+        </select>
+    </td>
+</tr>
 
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MIN_HEIGHT%>" var="minHeight"/>
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MAX_HEIGHT%>" var="maxHeight"/>
@@ -265,6 +397,35 @@
     </td>
 </tr>
 
+<tr>
+    <td colspan="2">
+        <p>
+            <span class="bigRed">ERROR<br/></span>
+            <strong>Other Notes on Size:</strong> <br/><br/>
+            <textarea cols="80" rows="3" name=""></textarea>
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2">
+        <p>
+            <span class="bigRed">ERROR<br/></span>
+            <strong>Notes on Fonts:</strong> <br/><br/>
+            <textarea cols="80" rows="3" name=""></textarea>
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2">
+        <p>
+            <span class="bigRed">ERROR<br/></span>
+            <strong>Notes on Color Palettes:</strong> <br/><br/>
+            <textarea cols="80" rows="3" name=""></textarea>
+        </p>
+    </td>
+</tr>
 
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.VIEWABLE_SUBMISSIONS%>" var="viewSubmissions"/>
 
@@ -312,7 +473,7 @@
 </tr>
 <tr>
     <td class="name">
-        Max # of submissions (leave empty if there should be no max):
+        Max # of submissions<br />(leave empty if there should be no max):
     </td>
     <td class="value">
         <tc-webtag:textInput name="${maxSubmissions}" size="4"/>
