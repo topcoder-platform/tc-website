@@ -56,7 +56,7 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
             if (!hasGlobalAd) {
                 //throw new NavigationException("You cannot submit because you don't have a Global AD on file");
                 setNextPage("/noGadErrorPage.jsp");
-                setIsNextPageInContext(false);
+                setIsNextPageInContext(true);
             } else {
     
                 List adList = PactsServicesLocator.getService()
