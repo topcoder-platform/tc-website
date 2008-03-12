@@ -6,7 +6,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.12.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a target="_blank" href="/pdfs/tournaments/TCHS08_Program_View.pdf">TCHS08 Program Now Available!</a></span><br /><br />
+        <a target="_blank" href="/pdfs/tournaments/TCHS08_Program_View.pdf">TCHS08 Program Now Available!</a> [PDF - 375kb]</span><br /><br />
         Take a look at the TCHS08 tournament <a target="_blank" href="/pdfs/tournaments/TCHS08_Program_View.pdf">program</a> and learn more about the finalists.  Don't forget the <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=onsiteSchedule">finals</a> are on Saturday.</td>
    </tr>
    <tr><td class="newsLinksCell">
