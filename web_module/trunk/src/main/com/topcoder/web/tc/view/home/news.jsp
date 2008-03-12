@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.12.08<br />5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="_blank" href="/pdfs/tournaments/TCHS08_Program_View.pdf">TCHS08 Program Now Available!</a></span><br /><br />
+        Take a look at the TCHS08 tournament <a target="_blank" href="/pdfs/tournaments/TCHS08_Program_View.pdf">program</a> and learn more about the finalists.  Don't forget the <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=onsiteSchedule">finals</a> are on Saturday.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a target="_blank" href="/pdfs/tournaments/TCHS08_Program_View.pdf">details</a> | 
+        <tc-webtag:forumLink forumID="520326" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />03.12.08<br />4:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -152,17 +166,4 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd3">details</a> | 
         <tc-webtag:forumLink forumID="520052" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />03.05.08<br />3:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=MatchDetails&amp;rd=11126">BT sponsored SRM with $5,000 in prizes!</a></span><br /><br />
-        British Telecom (BT) is hiring!  Check out more information about BT jobs <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=bt">here</a>.  BT representatives will be in the Arena one hour prior to SRM 392.  Don't miss your chance to chat with them.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=MatchDetails&amp;rd=11126">details</a> | 
-        <tc-webtag:forumLink forumID="516666" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_alg">archive</a>
    </td></tr>
