@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />03.06.08<br />4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd4">TCO08 - Online Round 4 - Problem Set &amp; Analysis</a></span><br /><br />
+      Round 4 of the 2008 TopCoder Open saw 147 of the best competitors battling for 72 spots at the onsite finals in Las Vegas. Excitement was high. There were at least twice as many observers as coders in the Arena – some rooting for the their fellow countrymen, some for their favorite coder.</td>
+         <td class="newsPhoto"><%--<img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="20635649" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd4">details</a> | 
+        <tc-webtag:forumLink forumID="520246" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />03.12.08<br />3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">Event Calendar updated through July 2008</a></span><br /><br />
@@ -149,17 +165,4 @@
         <a href="/tc?module=MatchDetails&amp;rd=11126">details</a> | 
         <tc-webtag:forumLink forumID="516666" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_alg">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />03.05.08<br />11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">Introducing the Open AIM Developer Challenge</a></span><br /><br />
-        TopCoder has teamed up with AOL to launch the <a target="_blank" href="<tc-webtag:linkTracking link='http://corp.aol.com/press_releases/2008/03/aol-announces-open-aim-20-developer-program' refer='/tc' />">Open AIM Developer Challenge</a> that will run from March 5 through May 6, 2008. There will be $100,000 in prizes and the winners will be announced at the TopCoder Open in Las Vegas on May 15. More details can be found at <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">http://www.topcoder.com/openaim</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">details</a> | 
-        <a href="/openaim/forums">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
