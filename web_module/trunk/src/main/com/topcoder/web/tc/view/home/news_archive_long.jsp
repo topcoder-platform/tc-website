@@ -40,7 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">03.12.08 12:00 PM - </td><td width="100%"><a href="<tc-webtag:linkTracking link='/threadfest' refer='/tc' />">AMD Multicore Threadfest Competition 1</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">03.12.08 12:00 PM - </td><td width="100%"><a href="/threadfest">AMD Multicore Threadfest Competition 1</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.02.07 7:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=summary">TCCC07 Marathon Match Finals</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.09.07 4:00 PM - </td><td width="100%"><A href="/tc?module=MatchDetails&rd=10930">Prizes Added to Marathon Match 24</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.26.07 2:00 PM - </td><td width="100%"><A href="http://forums.topcoder.com/?module=Thread&threadID=588630">Marathon Match support added to the Arena</A></td></tr>
