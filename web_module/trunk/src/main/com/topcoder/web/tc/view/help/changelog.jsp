@@ -8,7 +8,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder - Help</title>
-    <jsp:include page="/script.jsp"/>
+    <jsp:include page="/script.jsp"/>a
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_main"/>
     </jsp:include>
@@ -45,9 +45,10 @@
 </jsp:include>
 
 <p>
-    5.14.8 - 2008.03.xx
+    5.14.8 - 2008.03.12
 <ul>
     <li>Adjust logic to make sure that high schools are set as viewable in reg -dok</li>
+    <li>Adjust logic so that AMD Marathon matches work - dok</li>
 </ul>
 </p>
 
