@@ -231,8 +231,11 @@
     </ul>
 
 <div class="header">How to Submit</div>
-    TEXT
-<br /><br />
+<ul>
+<li>You must upload your submission as a single file (see the file requirements) and it should be finalized, not a work in progress.</li>
+<li>If your submission wins, your original files must meet the Final Deliverables requirements listed above before payment can be released.</li>
+<li>You may submit as many times as you'd like during the submission phase, but only the number of files listed above in the Required Elements that you rank the highest will be considered.  On the submission page, you will see a table of all the designs you have submitted, ranked by YOUR preference.  You can change the order of submissions on that table at any time during the submission phase. If you make revisions to your design, please delete submissions you are replacing.</li>
+</ul>
 
 <div class="header">Winner Selection</div>
     TEXT
