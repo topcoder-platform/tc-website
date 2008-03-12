@@ -39,18 +39,18 @@
 
     <%-- pr_header begin --%>
     <div id="pr_header">
-        <h1><a onfocus="this.blur();" href="/tc?module=Static&d1=pressroom&d2=index" name="pr_top">Press Room</a></h1>
+        <h1><a onfocus="this.blur();" href="/tc?module=Static&amp;d1=pressroom&amp;d2=index" name="pr_top">Press Room</a></h1>
     </div>
     <%-- pr_header end --%>
 
     <%-- pr_menu begin --%>
     <div id="pr_menu">
         <ul>
-        <li><a href="/tc?module=Static&d1=pressroom&d2=index" title="Current News"><span>Current News</span></a></li>
-        <li><a href="/tc?module=Static&d1=pressroom&d2=pr_archive" title="Press Release Archive"><span>Press Release Archive</span></a></li>
-        <li><a href="/tc?module=Static&d1=pressroom&d2=mediaResources" title="Media Resources"><span>Media</span></a></li>
-        <li><a href="/tc?module=Static&d1=pressroom&d2=mediaRequestForm" title="Media Request Form"><span>Media Request Form</span></a></li>
-        <li id="pr_menuactive"><a href="/tc?module=Static&d1=pressroom&d2=art_archive" title="Articles Archive"><span>Articles Archive</span></a></li>
+        <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index" title="Current News"><span>Current News</span></a></li>
+        <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_archive" title="Press Release Archive"><span>Press Release Archive</span></a></li>
+        <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=mediaResources" title="Media Resources"><span>Media</span></a></li>
+        <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm" title="Media Request Form"><span>Media Request Form</span></a></li>
+        <li id="pr_menuactive"><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_archive" title="Articles Archive"><span>Articles Archive</span></a></li>
         </ul>
     </div>
     <%-- pr_menu end --%>
@@ -103,15 +103,15 @@
                     <dd>Contested Code [December 4 - Redmond Developer News] <br /><a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/features/article.aspx?editorialsid=2387' refer='art_archive' />">original article</a> | <a target="_blank" href="/i/pressroom/pdfs/rdn_20071204.pdf">PDF</a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.russiatoday.ru/news/news/16968' refer='art_archive' />">Russian computer whiz crowned world's best <br /><small style="margin-left:10px;">[November 15 - Russia Today]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://thedaily.washington.edu/article/2007/11/9/uwSeniorWinsNationalCodingCompetition' refer='art_archive' />">UW senior wins national coding competition <br /><small style="margin-left:10px;">[November 9 - The Daily | University of Washington]</small></a></dd>
-                    <dd>Russian programmer twice the best worldwide [November 8 - CNews] <br /><a href="/tc?module=Static&d1=pressroom&d2=art_110807">English translation</a>&#160;|&#160;<a target="_blank" href="<tc-webtag:linkTracking link='http://www.cnews.ru/news/top/index.shtml?2007/11/07/273856' refer='art_archive' />">original article</a></dd>
+                    <dd>Russian programmer twice the best worldwide [November 8 - CNews] <br /><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_110807">English translation</a>&#160;|&#160;<a target="_blank" href="<tc-webtag:linkTracking link='http://www.cnews.ru/news/top/index.shtml?2007/11/07/273856' refer='art_archive' />">original article</a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://seattletimes.nwsource.com/html/localnews/2003991315_coder03m.html' refer='art_archive' />">Skilled at code, he wins a load <br /><small style="margin-left:10px;">[November 6 - The Seattle Times]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/community/news/lakebuenavista/orl-topcoder0207nov02,0,4540773.story' refer='art_archive' />">Computer coders vie for $260,000 in prize money (with video) <br /><small style="margin-left:10px;">[November 2 - Orlando Sentinel]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.orlandosentinel.com/business/orl-bk-topcoder110107,0,3810238.story?coll=orl_tab01_layout' refer='art_archive' />">Local eliminated, but TopCoder Collegiate Challenge continues <br /><small style="margin-left:10px;">[November 1 - Orlando Sentinel]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.nytimes.com/idg/IDG_002570DE00740E1800257384005A2F1F.html?ref=technology' refer='art_archive' />">College Coders Vie for Cash in Contest <br /><small style="margin-left:10px;">[November 1 - The New York Times]</small></a></dd>
-                    <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='art_archive' />">TopCoder Finds Tech Top Guns <br /><small style="margin-left:10px;">[October 31 - Investor's Business Daily]</small></a></dd>
+                    <dd>TopCoder Finds Tech Top Guns [October 31 - Investor's Business Daily] <br /><a target="_blank" href="<tc-webtag:linkTracking link='http://www.thefreelibrary.com/TopCoder+Finds+Tech+Top+Guns-a01610910252' refer='art_archive' />">article</a> | <a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='art_archive' />">original article</a><%-- | <a target="_blank" href="/i/pressroom/pdfs/mckinsey_20071212.pdf">PDF</a>--%></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=coder31m&date=20071031&query=michael+skinner' refer='art_archive' />">Whose mouse is mightiest? UW code whiz hopes it's his <br /><small style="margin-left:10px;">[October 31 - The Seattle Times]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.publicbroadcasting.net/wnpr/news.newsmain?action=article&ARTICLE_ID=1139736' refer='art_archive' />">6 State companies among fastest growing <br /><small style="margin-left:10px;">[August 23 - WNPR]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_080207">Fox TV: "Top Computer Programmers Compete" <br /><small style="margin-left:10px;">[August 2 - Fox TV Chicago]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_080207">Fox TV: "Top Computer Programmers Compete" <br /><small style="margin-left:10px;">[August 2 - Fox TV Chicago]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='/pdfs/press_room/computerworld_20070709.pdf' refer='art_archive' />">Programming's Crack Competitor <br /><small style="margin-left:10px;">[PDF] [July 11 - Computerworld]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='art_archive' />">Bill Taylor on big ideas <br /><small style="margin-left:10px;">[July 10 - Guardian Unlimited]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com.au/index.php/id;1241090047;fp;2;fpid;1' refer='art_archive' />">Outsourcing the eBay way <br /><small style="margin-left:10px;">[June 15 - Computerworld]</small></a></dd>
@@ -144,7 +144,7 @@
                     <dd><a target="_blank" href="/pdfs/press_room/ieeeSoftware_20061206.pdf">Programming Contests Show Impressive Growth <br /><small style="margin-left:10px;">[PDF] [December 6 - IEEE Software]</small></a></dd>
                     <dd><a target="_blank" href="/pdfs/press_room/success200612.pdf">Maverick Rules for Success <br /><small style="margin-left:10px;">[PDF] [November - Success]</small></a></dd>
                     <dd><a target="_blank" href="http://www.internetnews.com/dev-news/article.php/3644456">Who is the Top Coder? <br /><small style="margin-left:10px;">[November 17 - internetnews.com]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_110206">A Growing Cadre Of Code Warriors <br /><small style="margin-left:10px;">[November 2 - BusinessWeek]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_110206">A Growing Cadre Of Code Warriors <br /><small style="margin-left:10px;">[November 2 - BusinessWeek]</small></a></dd>
                     <dd><a target="_blank" href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm">How to build software? Henry Ford, meet eBay. <br /><small style="margin-left:10px;">[November 1 - Christian Science Monitor]</small></a></dd>
                     <dd><a target="_blank" href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/">The New American Idol&#8230; The Coder <br /><small style="margin-left:10px;">[October 24 - gigaOm]</small></a></dd>
                     <dd><a target="_blank" href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878"><em>Wall Street &amp; Technology</em> on TopCoder and UBS <br /><small style="margin-left:10px;">[October 23 - Wall Street &amp; Technology]</small></a></dd>
@@ -152,7 +152,7 @@
                     <dd>TopCoder featured on public radio's "Open Source" [PODCAST] &#160; [October 4 - Open Source] <br /><a target="_blank" href="/audio/open_source_060928_24kb.mp3">lo 6.8mb</a> &#160;|&#160;<a target="_blank" href="/audio/open_source_060928_48kb.mp3">hi 13.8mb</a> &#160;|&#160;<a target="_blank" href="/i/downloads/mavericks_at_work.pdf">Mavericks at Work excerpt</a> [PDF]</dd>
                     <dd><em>Mass High Tech</em> features TopCoder staff &#160; [July 12 - Mass High Tech] <br /><a target="_blank" href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus1.html">Code Commanders</a>&#160;|&#160;<a target="_blank" href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus6.html">TheFaxman Codeth</a>&#160;|&#160;<a target="_blank" href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus8.html">Identifying Best Developers</a></dd>
                     <dd><a target="_blank" href="http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3">Java Posse - Interviews from TopCoder and Java One <br /><small style="margin-left:10px;">[PODCAST] [July 5 - Java Posse]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_051606">Gartner cites TopCoder as model for "Web 2.0" community <br /><small style="margin-left:10px;">[May 16 - Gartner]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_051606">Gartner cites TopCoder as model for "Web 2.0" community <br /><small style="margin-left:10px;">[May 16 - Gartner]</small></a></dd>
                     <dd><a target="_blank" href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html">Idol or idle: which one are you? <br /><small style="margin-left:10px;">[May 15 - IT Week]</small></a></dd>
                     <dd><a target="_blank" href="/movies/press/cnbc_051506.mov">CNBC's Jane's Addiction and Squawk Box at the TCO06 <br /><small style="margin-left:10px;">[MOVIE] [May 15 - CNBC TV]</small></a></dd>
                     <dd><a target="_blank" href="http://media31b.libsyn.com/bXdveMh1nHzGfGd1mHluo2%2BlkXWb/podcasts/dickwall/JavaPosse053.mp3">Java Posse - Listener Feedback and TopCoder Interviews <br /><small style="margin-left:10px;">[PODCAST] [May 15 - Java Posse]</small></a></dd>
@@ -167,7 +167,7 @@
                     <dd><a target="_blank" href="http://www.adtmag.com/article.aspx?id=18109">SOA vendors partner with LogicLibrary to create integrated governance platform <br /><small style="margin-left:10px;">[March 14 - ADT]</small></a></dd>
                     <dd><a target="_blank" href="http://www.wallstreetandtech.com/showArticle.jhtml?articleID=181502379">UBS Sponsors TopCoder Open <br /><small style="margin-left:10px;">[March 13 - Wall Street &amp; Technology]</small></a></dd>
                     <dd><a target="_blank" href="http://www.dnaindia.com/report.asp?NewsID=1017289&CatID=2">Code jockey contest returns to IT hub <br /><small style="margin-left:10px;">[March 13 - DNA India]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_031006">Exclusive: Interview with Pat Conley, VP VeriSign O&amp;I and TopCoder Member <br /><small style="margin-left:10px;">[March 10]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_031006">Exclusive: Interview with Pat Conley, VP VeriSign O&amp;I and TopCoder Member <br /><small style="margin-left:10px;">[March 10]</small></a></dd>
                     <dd><a target="_blank" href="http://thepost.baker.ohiou.edu/show_news.php?article=N3&date=030806">Gurus compete in coding competition <br /><small style="margin-left:10px;">[March 8 - The Post Online]</small></a></dd>
                     <dd><a target="_blank" href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com">SJSU codes a win <br /><small style="margin-left:10px;">[February 16 - Spartan Daily]</small></a></dd>
                     <dd><a target="_blank" href="http://webreprints.djreprints.com/1404341094425.html">Programming Contest Pits World's Top Geeks In Battles Over Coding <br /><small style="margin-left:10px;">[February 8 - Wall Street Journal]</small></a></dd>
@@ -205,7 +205,7 @@
                     <dd><a target="_blank" href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982">Sorrowful state of software <br /><small style="margin-left:10px;">[October 17 - MHT]</small></a></dd>
                     <dd><a target="_blank" href="http://www.carynews.com/enterprise/story/2805639p-9249369c.html">Ready, again, for TopCoder battle <br /><small style="margin-left:10px;">[September 28 - CN]</small></a></dd>
                     <dd><a target="_blank" href="/pdfs/press_room/dndj_082005.pdf">Engineering + Reuse = Savings <br /><small style="margin-left:10px;">[August - DNDJ]</small></a></dd>
-                    <dd>Poland Takes the Lead [September 12 - PCWK] <br /><a href="/tc?module=Static&d1=pressroom&d2=art_091205">English translation</a>&#160;|&#160;<a target="_blank" href="http://www.pcworld.pl/news/82941.html">original article</a></dd>
+                    <dd>Poland Takes the Lead [September 12 - PCWK] <br /><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_091205">English translation</a>&#160;|&#160;<a target="_blank" href="http://www.pcworld.pl/news/82941.html">original article</a></dd>
                     <dd><a target="_blank" href="http://www.adtmag.com/article.asp?id=11752">Components for SOAs and Other App Dev Projects <br /><small style="margin-left:10px;">[September 7 - ADT]</small></a></dd>
                     <dd><a target="_blank" href="http://timesofindia.indiatimes.com/articleshow/1212895.cms">Wanna codejam? May the best techie win <br /><small style="margin-left:10px;">[August 28 - Times of India]</small></a></dd>
                     <dd><a target="_blank" href="/pdfs/press_room/cnn_072105.pdf">On your marks, get set, code! <br /><small style="margin-left:10px;">[July 21]</small></a></dd>
@@ -213,15 +213,15 @@
                     <dd><a target="_blank" href="http://www.sourcingmag.com/home/home.aspx?i=18_6/3/2005_cn_507_2_00_00">How To Hire Best-of-Breed Programmers for Your Project <br /><small style="margin-left:10px;">[June 2 - Sourcing Mag]</small></a></dd>
                     <dd><a target="_blank" href="http://www.queensjournal.ca/articlephp/point-vol133/issue1/news/story1">Computer programmer wins big <br /><small style="margin-left:10px;">[May 24 - QU The Journal]</small></a></dd>
                     <dd><a target="_blank" href="http://www.boilerstation.com/planet/stories/200505160purdue_planet1116219600.shtml">Purdue computer programmer making his mark in competitions <br /><small style="margin-left:10px;">[May 16 - Boiler Station]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_051205">Interview with Jack Hughes <br /><small style="margin-left:10px;">[April 22 - The Wall Street Transcript]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_042205">How Google Searches - For Talent <br /><small style="margin-left:10px;">[April 22 - BusinessWeek]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_051205">Interview with Jack Hughes <br /><small style="margin-left:10px;">[April 22 - The Wall Street Transcript]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_042205">How Google Searches - For Talent <br /><small style="margin-left:10px;">[April 22 - BusinessWeek]</small></a></dd>
                     <dd><a target="_blank" href="http://www.sys-con.com/story/?storyid=49134">LogicLibrary Checks Out TopCoder to Enable SOA <br /><small style="margin-left:10px;">[April 9 - .NET Developer's Journal]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_040805">Code Warriors <br /><small style="margin-left:10px;">[April 8 - Chronicle of Higher Education]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_040805">Code Warriors <br /><small style="margin-left:10px;">[April 8 - Chronicle of Higher Education]</small></a></dd>
                     <dd><a target="_blank" href="/i/pressroom/040105.pdf">University computer whiz wins big at tech tourney <br /><small style="margin-left:10px;">[April 1 - Barrhaven Independent]</small></a></dd>
                     <dd><a target="_blank" href="http://www.computeruser.com/articles/2404,1,1,1,0401,05.html">Do you have what it takes? <br /><small style="margin-left:10px;">[April - ComputerUser]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_021305">Program for life <br /><small style="margin-left:10px;">[February 13 - NewsWeek Poland]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_021305">Program for life <br /><small style="margin-left:10px;">[February 13 - NewsWeek Poland]</small></a></dd>
                     <dd><a target="_blank" href="http://www.wired.com/news/medtech/0,1286,66458,00.html?tw=wn_tophead_1">Software Taming Gene Data Pool <br /><small style="margin-left:10px;">[February 2 - Wired]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_020105">DE-CODER: The kings of coding <br /><small style="margin-left:10px;">[February 1 - ADT]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_020105">DE-CODER: The kings of coding <br /><small style="margin-left:10px;">[February 1 - ADT]</small></a></dd>
                     <dd><a target="_blank" href="http://www.computerworld.com/industrytopics/financial/story/0,10801,98834,00.html">Code Reuse Pays Off for ING <br /><small style="margin-left:10px;">[January 10 - Computerworld]</small></a></dd>
                     </dl>
                 </div>
@@ -244,16 +244,16 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_120304">Top coders seek bigger prize than cash <br /><small style="margin-left:10px;">[December 3 - SCMP]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_120304">Top coders seek bigger prize than cash <br /><small style="margin-left:10px;">[December 3 - SCMP]</small></a></dd>
                     <dd><a target="_blank" href="/i/pressroom/cnn_110404.pdf">Brain teasers help Google recruit workers <br /><small style="margin-left:10px;">[November 4 - CNN]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_102504">Google's creative search for elite programmers <br /><small style="margin-left:10px;">[October 25 - Miami Herald]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_101904">Google holds coding contest <br /><small style="margin-left:10px;">[October 19 - SJ Mercury]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_102504">Google's creative search for elite programmers <br /><small style="margin-left:10px;">[October 25 - Miami Herald]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_101904">Google holds coding contest <br /><small style="margin-left:10px;">[October 19 - SJ Mercury]</small></a></dd>
                     <dd><a target="_blank" href="/i/pressroom/tendances_tomek.pdf">Dream Job and Juicy Premiums for Young, Crackshot Programmers <br /><small style="margin-left:10px;">[Translation] [October]</small></a></dd>
                     <dd><a target="_blank" href="http://www.newsforge.com/article.pl?sid=04/09/30/187225">Coders win, winners code <br /><small style="margin-left:10px;">[October 5 - NewsForge]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_100304">Triple Threat <br /><small style="margin-left:10px;">[October - Software Development Magazine]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_100304">Triple Threat <br /><small style="margin-left:10px;">[October - Software Development Magazine]</small></a></dd>
                     <dd><a target="_blank" href="http://www.brainerddispatch.com/stories/100204/bus_1002040018.shtml">Hometown hero <br /><small style="margin-left:10px;">[October 2 - Brainerd Dispatch]</small></a></dd>
                     <dd><a target="_blank" href="http://searchcio.techtarget.com/originalContent/0,289142,sid19_gci1006375,00.html">Outsourcing trend touches independents, too <br /><small style="margin-left:10px;">[September 15 - Search CIO]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_081004">Better than You: King of code <br /><small style="margin-left:10px;">[August 10 - Red Herring]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_081004">Better than You: King of code <br /><small style="margin-left:10px;">[August 10 - Red Herring]</small></a></dd>
                     <dd><a target="_blank" href="http://www.devx.com/Java/Article/21602">The Smart Choice for Smart Clients: J2EE or .NET? <br /><small style="margin-left:10px;">[July 27 - devX]</small></a></dd>
                     <dd><a target="_blank" href="http://www.computerworld.com/managementtopics/outsourcing/story/0,10801,94452,00.html">BearingPoint Move Raises China's Profile <br /><small style="margin-left:10px;">[July 12 - Computerworld]</small></a></dd>
                     <dd><a target="_blank" href="http://builder.com.com/5100-6370_14-5260946.html">CNET engineer wins JavaOne Coding Challenge <br /><small style="margin-left:10px;">[July 9 - Builder.com]</small></a></dd>
@@ -261,10 +261,10 @@
                     <dd><a target="_blank" href="/i/pressroom/FastCompany0704.pdf">"There are good people everywhere" <br /><small style="margin-left:10px;">[July - Fast Company]</small></a></dd>
                     <dd><a target="_blank" href="http://www.masshightech.com/displayarticledetail.asp?art_id=65934">Focus on software talent <br /><small style="margin-left:10px;">[June 21 - Mass High Tech]</small></a></dd>
                     <dd><a target="_blank" href="http://java.sun.com/developer/technicalArticles/Programming/TopCoder2004/">Who's the Best Coder? <br /><small style="margin-left:10px;">[June - Sun]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_060104">Cracking the Hiring Code <br /><small style="margin-left:10px;">[June 1 - Workforce Management]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_060104">Cracking the Hiring Code <br /><small style="margin-left:10px;">[June 1 - Workforce Management]</small></a></dd>
                     <dd><a target="_blank" href="http://online.wsj.com/article_email/0,,SB108605863196125506-IVjeoNllaV3nJunZXSGcaaBm4,00.html">Win in a Corporate Competition, Land on Square That Offers a Job <br /><small style="margin-left:10px;">[June 1 - WSJ]</small></a></dd>
                     <dd><a target="_blank" href="http://www.upi.com/view.cfm?StoryID=20040525-104135-2776r">The Web: Search engine wars flare online <br /><small style="margin-left:10px;">[May 26 - UPI]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_042904">And The Champion Coders Are... <br /><small style="margin-left:10px;">[April 29 - BusinessWeek]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_042904">And The Champion Coders Are... <br /><small style="margin-left:10px;">[April 29 - BusinessWeek]</small></a></dd>
                     <dd><a target="_blank" href="http://biz.yahoo.com/prnews/040422/dcth080_1.html">ASA Honors Po-Shen Loh <br /><small style="margin-left:10px;">[April 22 - Yahoo!]</small></a></dd>
                     <dd><a target="_blank" href="http://www.tmcnet.com/usubmit/2004/Apr/1033792.htm">Java Technology Spreads Like Wildfire at JavaOne <br /><small style="margin-left:10px;">[April 21 - TMCNET]</small></a></dd>
                     <dd><a target="_blank" href="http://www.businessweek.com/technology/content/apr2004/tc20040413_3592_tc146.htm">Hiring Techies Is as Tricky as Ever <br /><small style="margin-left:10px;">[April 13 - BusinessWeek]</small></a></dd>
@@ -336,12 +336,12 @@
                     <dd><a target="_blank" href="http://www.informationweek.com/story/IWK20021018S0027">FBI Tries E-Recruiting <br /><small style="margin-left:10px;">[October 21 - InformationWeek]</small></a></dd>
                     <dd><a target="_blank" href="http://www.informationweek.com/story/IWK20021014S0002">A Chance To Win A Contest And A Job <br /><small style="margin-left:10px;">[October 14 - InformationWeek]</small></a></dd>
                     <dd><a target="_blank" href="http://www.business2.com/articles/mag/0,1640,42225,00.html">Show Me the C++ <br /><small style="margin-left:10px;">[August 7 - Business2.0]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_050102">And the winner is&#8230; <br /><small style="margin-left:10px;">[May 1 - Dr. Dobb's]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_041002">Computer wiz takes on high on-line stakes <br /><small style="margin-left:10px;">[April 10 - Contra Costa Times]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_050102">And the winner is&#8230; <br /><small style="margin-left:10px;">[May 1 - Dr. Dobb's]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_041002">Computer wiz takes on high on-line stakes <br /><small style="margin-left:10px;">[April 10 - Contra Costa Times]</small></a></dd>
                     <dd><a target="_blank" href="http://www.stanforddaily.com/tempo?page=content&id=7865&repository=0001_article">Students advance to TopCoders finals <br /><small style="margin-left:10px;">[April 8 - The Stanford Daily]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_040602">Georgia Tech computer science major to compete in TopCoder... <br /><small style="margin-left:10px;">[April 6 - Marietta Daily Journal]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_040502">Coder wins big in contests <br /><small style="margin-left:10px;">[April 5 - Denver Business Journal]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_040102">Digital Playground <br /><small style="margin-left:10px;">[April 1 - The Plain Dealer]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_040602">Georgia Tech computer science major to compete in TopCoder... <br /><small style="margin-left:10px;">[April 6 - Marietta Daily Journal]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_040502">Coder wins big in contests <br /><small style="margin-left:10px;">[April 5 - Denver Business Journal]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_040102">Digital Playground <br /><small style="margin-left:10px;">[April 1 - The Plain Dealer]</small></a></dd>
                     <dd><a target="_blank" href="http://www.informationweek.com/story/IWK20020228S0016">Software Jocks Vie For The Prize <br /><small style="margin-left:10px;">[March 4 - InformationWeek]</small></a></dd>
                     <dd><a target="_blank" href="http://www.informationweek.com/story/IWK20020227S0002">Cultivating Next-Generation IT Talent <br /><small style="margin-left:10px;">[February 27 - InformationWeek]</small></a></dd>
                     <dd><a target="_blank" href="http://www.stanforddaily.com/tempo?page=content&id=7592&repository=0001_article">Annual coding competition features student entrants <br /><small style="margin-left:10px;">[February 22 - The Stanford Daily]</small></a></dd>
@@ -366,45 +366,45 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_122001">Whiz cracks contest code <br /><small style="margin-left:10px;">[December 20 - Rocky Mountain News]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_121801">Sun Sponsors Collegiate Developer Tournament <br /><small style="margin-left:10px;">[December 18 - Web Services Report]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_121701">Sun Microsystems Launches New Way to Reach Java Community... <br /><small style="margin-left:10px;">[December 17 - Java Boutique]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_121001">Students to compete in Java, C++ <br /><small style="margin-left:10px;">[December 10 - CNET]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_121001b">Sun Microsystems Named Exclusive Sponsor of Computer Challenge <br /><small style="margin-left:10px;">[December 10 - BrandWeek]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_121001c">Five Thoughts about Hiring IT Professionals <br /><small style="margin-left:10px;">[December 10 - Darwin]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_112601">College student outpaces rivals to win contest <br /><small style="margin-left:10px;">[November 26 - Houston Chronicle]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_111201">Chips &amp; Drivers: It's a digital shootout at Java corral&#8230; <br /><small style="margin-left:10px;">[November 12 - Mass High Tech]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_111201b">Wright second in TopCoder event <br /><small style="margin-left:10px;">[November 12 - Lafayette News]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_122001">Whiz cracks contest code <br /><small style="margin-left:10px;">[December 20 - Rocky Mountain News]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_121801">Sun Sponsors Collegiate Developer Tournament <br /><small style="margin-left:10px;">[December 18 - Web Services Report]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_121701">Sun Microsystems Launches New Way to Reach Java Community... <br /><small style="margin-left:10px;">[December 17 - Java Boutique]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_121001">Students to compete in Java, C++ <br /><small style="margin-left:10px;">[December 10 - CNET]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_121001b">Sun Microsystems Named Exclusive Sponsor of Computer Challenge <br /><small style="margin-left:10px;">[December 10 - BrandWeek]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_121001c">Five Thoughts about Hiring IT Professionals <br /><small style="margin-left:10px;">[December 10 - Darwin]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_112601">College student outpaces rivals to win contest <br /><small style="margin-left:10px;">[November 26 - Houston Chronicle]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_111201">Chips &amp; Drivers: It's a digital shootout at Java corral&#8230; <br /><small style="margin-left:10px;">[November 12 - Mass High Tech]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_111201b">Wright second in TopCoder event <br /><small style="margin-left:10px;">[November 12 - Lafayette News]</small></a></dd>
                     <dd><a target="_blank" href="http://www.informationweek.com/story/IWK20011111S0004">Programmer Wows 'Em <br /><small style="margin-left:10px;">[November 12 - InformationWeek]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_110901">Tech student makes TopCoder semifinals <br /><small style="margin-left:10px;">[November 9 - Technique]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_110901b">In Depth: High tech survivors <br /><small style="margin-left:10px;">[November 9 - The Business Journal]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_110901">Tech student makes TopCoder semifinals <br /><small style="margin-left:10px;">[November 9 - Technique]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_110901b">In Depth: High tech survivors <br /><small style="margin-left:10px;">[November 9 - The Business Journal]</small></a></dd>
                     <dd><a target="_blank" href="http://www.informationweek.com/story/IWK20011108S0013">College Junior Wins Programming Contest--And $100K <br /><small style="margin-left:10px;">[November 8 - InformationWeek]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_110701">TopCoders return rich, triumphant <br /><small style="margin-left:10px;">[November 7 - Stanford Daily]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_110601">Grad Student Emerges at TopCoder '01 <br /><small style="margin-left:10px;">[November 6 - Cornell Daily Sun]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_110401">'TopCoder' Outwits His Rivals <br /><small style="margin-left:10px;">[November 4 - Hartford Courant]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_110101">Performance Metrics - Code for Cash <br /><small style="margin-left:10px;">[November 1 - CIO]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_103101">Computer Wizard a Finalist for $100,000 Prize <br /><small style="margin-left:10px;">[October 31 - University of Central Florida]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_102601">Colorado native among nation's top programmers <br /><small style="margin-left:10px;">[October 26 - The Denver Business Journal]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_102401">TopCoders battle for top prize <br /><small style="margin-left:10px;">[October 24 - Stanford Daily]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_101801">Oberlin College Student Competes in TopCoder Tournament <br /><small style="margin-left:10px;">[October 18 - Oberlin Online]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_101201">Geekletes descend upon programming contest <br /><small style="margin-left:10px;">[October 12 - San Francisco Business Times]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_092601">Students compute, compete for dollars on Web site <br /><small style="margin-left:10px;">[September 26 - Daily Nebraskan]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_091201">'Not a typical computer nerd' <br /><small style="margin-left:10px;">[September 12 - The Wenatchee World]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_091001">The new rules <br /><small style="margin-left:10px;">[September 10 - The Boston Globe]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_090401">TopCoder Inc. offers challenge to top programmers <br /><small style="margin-left:10px;">[September 4 - Mass High Tech]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_090101">If You Build It, They Will Come&#8230; <br /><small style="margin-left:10px;">[September 1 - Software Development]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_083001">Coding competition for cash <br /><small style="margin-left:10px;">[August 30 - Geek.com]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_082401">Programmers Compete For Cash and Recognition <br /><small style="margin-left:10px;">[August 24 - Idea Marketers]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_072701">EECS students excel in computing competitions <br /><small style="margin-left:10px;">[July 27 - Michigan Engineering]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_071601">Virginia Tech student places 5th in national computer programming&#8230; <br /><small style="margin-left:10px;">[July 16 - Virginia Tech]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_071201">Marut Competes in Top Coder Contest <br /><small style="margin-left:10px;">[July 12 - WPI]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_070201">Gladiator geeks&#8230; <br /><small style="margin-left:10px;">[July 2 - Avid ProNet]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_062601">Test your mettle at TopCoder.com <br /><small style="margin-left:10px;">[June 26 - TechRepublic]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_062501">EECS Students Winners in TopCoder Collegiate Challenge <br /><small style="margin-left:10px;">[June 25 - University of Michigan]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_061801">Code warrior hits big time <br /><small style="margin-left:10px;">[June 18 - Mass High Tech]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_060801">Erin native wins $100,000 in contest <br /><small style="margin-left:10px;">[June 8 - Star-Gazette]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_052901">You Are the Fastest Coder <br /><small style="margin-left:10px;">[May 2 - PC Magazine]</small></a></dd>
-                    <dd><a href="/tc?module=Static&d1=pressroom&d2=art_042401">A Game Of Their Own <br /><small style="margin-left:10px;">[April 24 - Hartfore Courant]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_110701">TopCoders return rich, triumphant <br /><small style="margin-left:10px;">[November 7 - Stanford Daily]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_110601">Grad Student Emerges at TopCoder '01 <br /><small style="margin-left:10px;">[November 6 - Cornell Daily Sun]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_110401">'TopCoder' Outwits His Rivals <br /><small style="margin-left:10px;">[November 4 - Hartford Courant]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_110101">Performance Metrics - Code for Cash <br /><small style="margin-left:10px;">[November 1 - CIO]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_103101">Computer Wizard a Finalist for $100,000 Prize <br /><small style="margin-left:10px;">[October 31 - University of Central Florida]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_102601">Colorado native among nation's top programmers <br /><small style="margin-left:10px;">[October 26 - The Denver Business Journal]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_102401">TopCoders battle for top prize <br /><small style="margin-left:10px;">[October 24 - Stanford Daily]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_101801">Oberlin College Student Competes in TopCoder Tournament <br /><small style="margin-left:10px;">[October 18 - Oberlin Online]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_101201">Geekletes descend upon programming contest <br /><small style="margin-left:10px;">[October 12 - San Francisco Business Times]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_092601">Students compute, compete for dollars on Web site <br /><small style="margin-left:10px;">[September 26 - Daily Nebraskan]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_091201">'Not a typical computer nerd' <br /><small style="margin-left:10px;">[September 12 - The Wenatchee World]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_091001">The new rules <br /><small style="margin-left:10px;">[September 10 - The Boston Globe]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_090401">TopCoder Inc. offers challenge to top programmers <br /><small style="margin-left:10px;">[September 4 - Mass High Tech]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_090101">If You Build It, They Will Come&#8230; <br /><small style="margin-left:10px;">[September 1 - Software Development]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_083001">Coding competition for cash <br /><small style="margin-left:10px;">[August 30 - Geek.com]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_082401">Programmers Compete For Cash and Recognition <br /><small style="margin-left:10px;">[August 24 - Idea Marketers]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_072701">EECS students excel in computing competitions <br /><small style="margin-left:10px;">[July 27 - Michigan Engineering]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_071601">Virginia Tech student places 5th in national computer programming&#8230; <br /><small style="margin-left:10px;">[July 16 - Virginia Tech]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_071201">Marut Competes in Top Coder Contest <br /><small style="margin-left:10px;">[July 12 - WPI]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_070201">Gladiator geeks&#8230; <br /><small style="margin-left:10px;">[July 2 - Avid ProNet]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_062601">Test your mettle at TopCoder.com <br /><small style="margin-left:10px;">[June 26 - TechRepublic]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_062501">EECS Students Winners in TopCoder Collegiate Challenge <br /><small style="margin-left:10px;">[June 25 - University of Michigan]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_061801">Code warrior hits big time <br /><small style="margin-left:10px;">[June 18 - Mass High Tech]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_060801">Erin native wins $100,000 in contest <br /><small style="margin-left:10px;">[June 8 - Star-Gazette]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_052901">You Are the Fastest Coder <br /><small style="margin-left:10px;">[May 2 - PC Magazine]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_042401">A Game Of Their Own <br /><small style="margin-left:10px;">[April 24 - Hartfore Courant]</small></a></dd>
                     </dl>
                 </div>
 
