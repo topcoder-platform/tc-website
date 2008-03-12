@@ -130,6 +130,7 @@
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=marathon&d4=schedule">MM</A></strong>,
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=schedule">SDC</A></strong><br />
          9:00 AM
+         </div>
       </td>
       <td class="value">15
          <div class="srm">

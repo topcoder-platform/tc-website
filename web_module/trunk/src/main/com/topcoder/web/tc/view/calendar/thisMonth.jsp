@@ -37,12 +37,12 @@
 </jsp:include>
 
 <div style="float:right;white-space:nowrap;" align="right">
-    All times are <A target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</A> unless stated otherwise.<br />
+    All times are <A target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</a> unless stated otherwise.<br />
     Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
     <a href="/tc?module=BasicRSS&amp;c=rss_Upcoming_Contests&amp;dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
 
-<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=feb_08" class="prevNext">&lt; prev</a> <%--| <a href="/tc?module=Static&amp;d1=calendar&amp;d2=apr_08" class="prevNext">next &gt;</a></strong>--%>
+<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=feb_08" class="prevNext">&lt; prev</a> | <a href="/tc?module=Static&amp;d1=calendar&amp;d2=apr_08" class="prevNext">next &gt;</a></strong>
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="mar_08"/>
 </jsp:include>
@@ -125,7 +125,7 @@
       </td>
       <td class="value">12
          <div class="amd">
-         <strong><A href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdOverview">AMD Multicore Threadfest Competition 1</A></strong><br />
+         <strong><a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdOverview">AMD Multicore Threadfest Competition 1</a></strong><br />
          12:00 NOON<br />
          2 weeks
          </div>
