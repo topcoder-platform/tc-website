@@ -83,8 +83,8 @@ A: These days, working at Google, I seldom have time to practice for coding comp
 A: Honestly, as a contest veteran (with ACM and TopCoder victories under my belt) it's not hard at all getting a well-paying programming job.  Programming doesn't come naturally to humans, and there are a lot of bad programmers out there who are only in the field for the money.  Companies will pay very generously to identify and nab the proven good ones.  As TopCoder's well aware. :)</p>
 <p><strong>Q: Toughest job or coding challenge you've met.</strong><br />
 A: My real-life work is more tedious, and less challenging, than the difficult, but abstract, problems I see on programming contests.  So I'd say coming 3rd in the ACM World Finals is the result I'm most proud of.</p>
-<p><strong>Q: What do you love about coding?</strong></p>
-<p>A: Coding competitions.  The satisfaction of getting a tough problem, thinking through the theory, implementing a program, and then learning you've solved it perfectly is fantastic.  Contests isolate the essence of what's fun in coding.</p>
+<p><strong>Q: What do you love about coding?</strong><br />
+A: Coding competitions.  The satisfaction of getting a tough problem, thinking through the theory, implementing a program, and then learning you've solved it perfectly is fantastic.  Contests isolate the essence of what's fun in coding.</p>
 <p><strong>Q: What do you hate about coding?</strong><br />
 A: "Software engineering".  Most real-world programming doesn't involve any new algorithm, doesn't require any cleverness; it merely involves implementing some known solution and making sure it's robustly commented and tested.  It requires self-discipline simply because it's so boring!</p>
 <p><strong>Q: What hobbies/interests do you have other than coding?</strong><br />
