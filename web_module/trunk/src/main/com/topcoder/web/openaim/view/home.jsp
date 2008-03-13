@@ -22,7 +22,7 @@
         <jsp:param name="key" value="tc_openaim"/>
     </jsp:include>
 
-    
+    <script src="http://<%=ApplicationServer.SERVER_NAME%>/js/tcscript.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         function preloadTabs() {
@@ -50,7 +50,7 @@
                         <jsp:include page="leftBox.jsp"/>
                         <jsp:include page="topNav.jsp"/>
                         <div class="newsBox">
-                            <iframe src="http://openaimblog.aol.com/" marginheight="0" marginwidth="0"></iframe>
+                            <iframe src="http://openaimblog.aol.com/<c:out value="${param['myframe']}" default="" escapeXml="true"/>" marginheight="0" marginwidth="0"></iframe>
                         </div>
                         <div style="clear: both;">&nbsp;</div>
                     </div>
