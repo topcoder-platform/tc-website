@@ -21,6 +21,33 @@
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/jquery.textarearesizer.compressed-1.0.4.js"></script>
+
+    <script type="text/javascript">
+            /* jQuery textarea resizer plugin usage */
+            $(document).ready(function() {
+                    $('textarea.resizable:not(.processed)').TextAreaResizer();
+            });
+    </script>
+    <style type="text/css">
+            div.grippie {
+                    background:#EEEEEE url(/i/layout/grippie.png) no-repeat scroll center 2px;
+                    border-color:#DDDDDD;
+                    border-style:solid;
+                    border-width:0pt 1px 1px;
+                    cursor:s-resize;
+                    height:9px;
+                    overflow:hidden;
+            }
+            .resizable-textarea textarea {
+                    display:block;
+                    margin-bottom:0pt;
+                    width:95%;
+                    height: 20%;
+            }
+    </style>
+
+
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
@@ -302,7 +329,7 @@
         <p>
             <span class="bigRed">ERROR<br/></span>
             <strong>Notes on Submission File(s):</strong> <br/><br/>
-            <textarea cols="80" rows="3" name=""></textarea>
+            <textarea class="resizeable" cols="80" rows="2" name=""></textarea>
         </p>
     </td>
 </tr>
@@ -402,7 +429,7 @@
         <p>
             <span class="bigRed">ERROR<br/></span>
             <strong>Other Notes on Size:</strong> <br/><br/>
-            <textarea cols="80" rows="3" name=""></textarea>
+            <textarea class="resizeable" cols="80" rows="2" name=""></textarea>
         </p>
     </td>
 </tr>
@@ -412,7 +439,7 @@
         <p>
             <span class="bigRed">ERROR<br/></span>
             <strong>Notes on Fonts:</strong> <br/><br/>
-            <textarea cols="80" rows="3" name=""></textarea>
+            <textarea class="resizeable" cols="80" rows="2" name=""></textarea>
         </p>
     </td>
 </tr>
@@ -422,7 +449,7 @@
         <p>
             <span class="bigRed">ERROR<br/></span>
             <strong>Notes on Color Palettes:</strong> <br/><br/>
-            <textarea cols="80" rows="3" name=""></textarea>
+            <textarea class="resizeable" cols="80" rows="2" name=""></textarea>
         </p>
     </td>
 </tr>
@@ -517,7 +544,7 @@
     <strong>Contest Overview:</strong> You may include HTML, the content entered here is exactly what will be inserted
     into the contest
     details page.<br/><br/>
-    <tc-webtag:textArea name="${overviewText}" rows="8" cols="80"/>
+    <tc-webtag:textArea name="${overviewText}" rows="2" cols="80" styleClass="resizeable"/>
 </p>
 
 
@@ -544,7 +571,7 @@ var overviewText = getValue("document.editForm", "${overviewText}");
     into the contest
     details page.
     <br/><br/>
-    <tc-webtag:textArea name="${prizeDesc}" rows="8" cols="80"/>
+    <tc-webtag:textArea name="${prizeDesc}" rows="3" cols="80" styleClass="resizeable"/>
 </p>
 
 <script language="javascript" type="text/javascript">
