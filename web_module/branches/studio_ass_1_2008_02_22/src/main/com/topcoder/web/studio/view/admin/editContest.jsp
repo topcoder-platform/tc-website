@@ -21,6 +21,7 @@
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
     <script language="javascript" type="text/javascript" src="/js/jquery.textarearesizer.compressed-1.0.4.js"></script>
 
     <script type="text/javascript">
