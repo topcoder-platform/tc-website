@@ -329,7 +329,7 @@
         <p>
             <span class="bigRed">ERROR<br/></span>
             <strong>Notes on Submission File(s):</strong> <br/><br/>
-            <textarea class="resizeable" cols="80" rows="2" name=""></textarea>
+            <textarea class="resizable" cols="80" rows="2" name=""></textarea>
         </p>
     </td>
 </tr>
@@ -429,7 +429,7 @@
         <p>
             <span class="bigRed">ERROR<br/></span>
             <strong>Other Notes on Size:</strong> <br/><br/>
-            <textarea class="resizeable" cols="80" rows="2" name=""></textarea>
+            <textarea class="resizable" cols="80" rows="2" name=""></textarea>
         </p>
     </td>
 </tr>
@@ -439,7 +439,7 @@
         <p>
             <span class="bigRed">ERROR<br/></span>
             <strong>Notes on Fonts:</strong> <br/><br/>
-            <textarea class="resizeable" cols="80" rows="2" name=""></textarea>
+            <textarea class="resizable" cols="80" rows="2" name=""></textarea>
         </p>
     </td>
 </tr>
@@ -449,7 +449,7 @@
         <p>
             <span class="bigRed">ERROR<br/></span>
             <strong>Notes on Color Palettes:</strong> <br/><br/>
-            <textarea class="resizeable" cols="80" rows="2" name=""></textarea>
+            <textarea class="resizable" cols="80" rows="2" name=""></textarea>
         </p>
     </td>
 </tr>
@@ -544,7 +544,7 @@
     <strong>Contest Overview:</strong> You may include HTML, the content entered here is exactly what will be inserted
     into the contest
     details page.<br/><br/>
-    <tc-webtag:textArea name="${overviewText}" rows="2" cols="80" styleClass="resizeable"/>
+    <tc-webtag:textArea name="${overviewText}" rows="2" cols="80" styleClass="resizable"/>
 </p>
 
 
@@ -571,7 +571,7 @@ var overviewText = getValue("document.editForm", "${overviewText}");
     into the contest
     details page.
     <br/><br/>
-    <tc-webtag:textArea name="${prizeDesc}" rows="3" cols="80" styleClass="resizeable"/>
+    <tc-webtag:textArea name="${prizeDesc}" rows="3" cols="80" styleClass="resizable"/>
 </p>
 
 <script language="javascript" type="text/javascript">
