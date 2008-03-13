@@ -2127,6 +2127,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     }
                     ad.setText(adt.transformTemplate(ad, prepareUserAssignmentDocumentInfo(ad.getUser().getId(), ad.getSubmissionTitle())));
                     updateText = true;
+
+                    // for GADs, set the template name (GAD version) as the submission title
+                    if (ad.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
+                        ad.setSubmissionTitle(adt.getName());
+                    }
                 }
             }
 
