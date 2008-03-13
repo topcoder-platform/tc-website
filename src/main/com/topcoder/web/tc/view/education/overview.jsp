@@ -39,23 +39,23 @@
 <br /><br />
 <span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
+<li><a href="/tc?module=Static&amp;d1=features&amp;d2=031308"><strong>Computerworld's "Rock star coders" profile: Petr</strong></a>&nbsp;<br />
+On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='feature_031308' />">article</a> about various TopCoders and how programming has affected their lives.  The following is the full Computerworld interview with <tc-webtag:handle coderId="10574855" context="algorithm"/>, our final member in this series, from which portions were used in the article.</li>
 <li><a href="/tc?module=Static&amp;d1=features&amp;d2=022708"><strong>Meet the January 2008 Coders of the Month</strong></a>&nbsp;<br />
 We caught up with January's Coders of the Month, as well as January's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</li>
-<li><a href="/tc?module=Static&d1=features&d2=022108"><strong>Computerworld's "Rock star coders" profile: Pops</strong></a>&nbsp;<br />
+<li><a href="/tc?module=Static&amp;d1=features&amp;d2=022108"><strong>Computerworld's "Rock star coders" profile: Pops</strong></a>&nbsp;<br />
 On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&amp;articleId=9057899&amp;source=NLT_AM&amp;nlid=1' refer='overview' />">article</a> about various TopCoders and how programming has affected their lives.  The following is the full Computerworld interview with <tc-webtag:handle coderId="119676" context="design"/>, from which portions were used in the article.</li>
-<li><a href="/tc?module=Static&d1=features&d2=020708"><strong>Computerworld's "Rock star coders" profile: SnapDragon</strong></a>&nbsp;<br />
-On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&amp;articleId=9057899&amp;source=NLT_AM&amp;nlid=1' refer='overview' />">article</a> about various TopCoders and how programming has affected their lives.  The following is the full Computerworld interview with <tc-webtag:handle coderId="272072" context="algorithm"/>, from which portions were used in the article.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br />
 <ul>
-<li><A href="/tc?module=Static&d1=features&d2=100506"><strong>TopCoder @ Work: Incorporating new technologies</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br />
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=100506"><strong>TopCoder @ Work: Incorporating new technologies</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br />
 The situation: The boss has just returned from a technology conference, no doubt full of torturous new ideas. You perspire in your seat, waiting for the inevitable conversation. What twisted brand of innovation will he force upon your project today? Last year's mandatory integration of XML over HTTP launched the development team into long weekends of unpaid overtime, as "unanticipated" browser compatibility issues plagued your flagship product.</ul>
 <br />
 <span class="bodySubtitle">Tell us what you'd like to learn!</span><br />
 Got ideas for educational content you'd like to see? Post your idea in <A href="http://forums.topcoder.com/?module=ThreadList&forumID=505803">the forum</A> for members to discuss, or send an email with your idea to <A href="mailto:editorial@topcoder.com">editorial@topcoder.com</A>.
 <br /><br />
 <span class="bodySubtitle">Write for TopCoder!</span><br />
-Got knowledge you'd like to share? Check out our <A href="/tc?module=Static&d1=help&d2=writeForTC">writing guidelines</A> for suggested topics and payment details, or send an email with your idea to <A href="mailto:editorial@topcoder.com">editorial@topcoder.com</A>.
+Got knowledge you'd like to share? Check out our <A href="/tc?module=Static&amp;d1=help&amp;d2=writeForTC">writing guidelines</A> for suggested topics and payment details, or send an email with your idea to <A href="mailto:editorial@topcoder.com">editorial@topcoder.com</A>.
 <br /><br />
 
         </td>
