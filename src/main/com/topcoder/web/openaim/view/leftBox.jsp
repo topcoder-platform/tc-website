@@ -21,4 +21,12 @@
             </div>
         </div>
     </div>
+
+    <div class="catBox">
+        <strong>Browse:</strong>
+        <a href="/openaim/?myframe=category%2fnews%2f">news</a>,
+        <a href="/openaim/?myframe=category%2fall-submissions%2f">all submissions</a>,
+        <a href="/openaim/?myframe=category%2fplugins%2f">plugins</a>
+    </div>
+
 </div>
