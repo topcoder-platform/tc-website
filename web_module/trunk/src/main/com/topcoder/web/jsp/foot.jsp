@@ -8,6 +8,7 @@
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=index" class="footerLinks">About TopCoder</a>&#160;&#160;|&#160;&#160;
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=index" class="footerLinks">Press Room</a>&#160;&#160;|&#160;&#160;
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=contactus" class="footerLinks">Contact Us</a>&#160;&#160;|&#160;&#160;
+            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=jobs" class="footerLinks">Careers</a>&#160;&#160;|&#160;&#160;
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=privacy" class="footerLinks">Privacy</a>&#160;&#160;|&#160;&#160;
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=terms" class="footerLinks">Terms</a>
             <br />
