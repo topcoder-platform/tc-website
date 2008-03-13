@@ -45,6 +45,15 @@
 </jsp:include>
 
 <p>
+    5.14.8 - 2008.03.13
+<ul>
+    <li>Add page that describes how to build a member photo - dok</li>
+    <li>Fix bug in registration where if someone selects a school where we don't know if it's a college
+        or high school, the user can not register - dok</li>
+</ul>
+</p>
+
+<p>
     5.14.8 - 2008.03.12
 <ul>
     <li>Adjust logic to make sure that high schools are set as viewable in reg -dok</li>
