@@ -233,7 +233,7 @@ public class Confirm extends Base {
             if (cs != null) {
                 cs.setSchool(s);
 
-                if (SchoolType.HIGH_SCHOOL.equals(s.getType().getId())) {
+                if (s.getType() != null && SchoolType.HIGH_SCHOOL.equals(s.getType().getId())) {
                     //high school people have to show their school
                     u.getCoder().getCurrentSchool().setViewable(Boolean.TRUE);
                 } else {
