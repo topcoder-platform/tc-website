@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <html>
 
@@ -41,7 +43,7 @@
                 </jsp:include>
 
             <div align="center" style="margin: 20px;">
-                <a href="mailto:memberphotos@topcoder.com?subject=" class="button" style="width: 120px;">Submit a photo</a>
+                <a href="mailto:memberphotos@topcoder.com?subject=${user.activationCode}%20|%20[%20${user.handle}%20]%20|%20${user.id}%20<c:if test="${user.coder.memberPhoto!=null}">RE</c:if>SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT" class="button" style="width: 120px;">Submit a photo</a>
             </div>
 
             <h3>You can process your own photo</h3>
