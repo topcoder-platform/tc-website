@@ -416,11 +416,11 @@
                 <%-- Investor's Business Daily begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.thefreelibrary.com/TopCoder+Finds+Tech+Top+Guns-a01610910252' refer='pr_index' />"><img src="/i/pressroom/investorsBusinessDaily_logo.png" alt="Investor's Business Daily" border="0" /></a>
+                        <a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/ibd_20071031.pdf' refer='pr_index' />"><img src="/i/pressroom/investorsBusinessDaily_logo.png" alt="Investor's Business Daily" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
                         <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.thefreelibrary.com/TopCoder+Finds+Tech+Top+Guns-a01610910252' refer='pr_index' />">TopCoder Finds Tech Top Guns</a></h3>
-                        <p>When 120 student software programmers descend on Walt Disney World in Florida on Tuesday, they won't meet Mickey Mouse.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.thefreelibrary.com/TopCoder+Finds+Tech+Top+Guns-a01610910252' refer='pr_index' />">[October 31]</a> | <a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='pr_index' />">original article</a></small></p>
+                        <p>When 120 student software programmers descend on Walt Disney World in Florida on Tuesday, they won't meet Mickey Mouse.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.thefreelibrary.com/TopCoder+Finds+Tech+Top+Guns-a01610910252' refer='pr_index' />">[October 31]</a> | <a target="_blank" href="<tc-webtag:linkTracking link='http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026' refer='pr_index' />">original article</a> | <a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/ibd_20071031.pdf' refer='pr_index' />">PDF</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
