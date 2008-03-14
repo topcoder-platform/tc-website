@@ -22,4 +22,18 @@ public interface Authorization {
      * @return true if the user has access, false otherwise
      */
     boolean hasPermission(long userId, Resource resource);
+
+    /**
+     * Check if the user associated with the given userId has access to the given resource.
+     * If the userId is invalid, we'll return quietly with false
+     * <p/>
+     * This method is provided so that it can be exposed as a web service.
+     * Currently, we don't have an easy way to marshal an interface ({@link Resource}).
+     * The string is expected to be the value that would be returned by <code>Resource.getName</code>
+     *
+     * @param userId   the userId for the user
+     * @param resource the resource we're checking for entitlment
+     * @return true if the user has access, false otherwise
+     */
+    boolean hasPermision(long userId, String resource);
 }
