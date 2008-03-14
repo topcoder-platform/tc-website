@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.model;
 
 import com.topcoder.shared.security.Resource;
+import com.topcoder.web.tc.Constants;
 
 /**
  * @author dok
@@ -15,6 +16,11 @@ public class DataResource implements Resource {
 
     public DataResource(String name) {
         this.name = "DataDump:" + name;
+    }
+    
+    public DataResource(String name, String dataSource) {
+        this.name = new StringBuilder().append("DataDump:").append(name).append(" ").
+                append(Constants.DATASOURCE_ID).append(": ").append(dataSource).toString();
     }
 
     public String getName() {
