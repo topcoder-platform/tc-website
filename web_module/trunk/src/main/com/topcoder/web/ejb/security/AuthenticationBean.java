@@ -15,7 +15,6 @@ import com.topcoder.web.ejb.user.UserLocal;
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
@@ -31,7 +30,8 @@ import java.util.Arrays;
 public class AuthenticationBean implements AuthenticationRemote, AuthenticationLocal {
 
     @WebMethod
-    public AuthenticatedUser login(String userName, String password) throws InvalidCredentialsException, GeneralSecurityException, InactiveEmailStatusException, UnactiveUserStatusException, InactiveUserStatusException {
+    public AuthenticatedUser login(String userName, String password) throws InvalidCredentialsException,
+            GeneralSecurityException, InactiveEmailStatusException, UnactiveUserStatusException, InactiveUserStatusException {
         try {
             LoginLocal ll = (LoginLocal) com.topcoder.web.common.security.Constants.createLocalEJB(LoginLocal.class);
             TCSubject sub = ll.login(userName, password);
