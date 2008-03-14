@@ -42,7 +42,6 @@ public class BasicData extends Base {
         
         DataResource resource = new DataResource(r.getContentHandle(), ds);
         if (new TCSAuthorization(SecurityHelper.getUserSubject(getUser().getId())).hasPermission(resource)) {
-            //for now we'll assume they're gettin data from the warehouse, perhaps that'll change later
             Map m = getDataAccess(getDataSource(ds), true).getData(r);
             ResultSetContainer rsc;
             String key;
@@ -103,18 +102,14 @@ public class BasicData extends Base {
         return hideList;
     }
 
-	private String getDataSource(String id) throws Exception
-	{
+	private String getDataSource(String id) throws Exception {
 		Request r = new Request();
 		r.setContentHandle("datasource_info");
 		r.setProperty(Constants.DATASOURCE_ID, id);
 		ResultSetContainer rsc = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r).get("datasource_info");
-		if (rsc.isEmpty())
-		{
+		if (rsc.isEmpty()) {
 			throw new NavigationException("Invalid request, unknown datasource");
-		}
-		else
-		{
+		} else {
 			return rsc.get(0).getStringItem("datasource_name");
 		}
 	}
