@@ -40,7 +40,7 @@ public class BasicData extends Base {
             ds = getRequest().getParameter(Constants.DATASOURCE_ID);
         }
         
-        DataResource resource = new DataResource(r.getContentHandle());
+        DataResource resource = new DataResource(r.getContentHandle(), ds);
         if (new TCSAuthorization(SecurityHelper.getUserSubject(getUser().getId())).hasPermission(resource)) {
             //for now we'll assume they're gettin data from the warehouse, perhaps that'll change later
             Map m = getDataAccess(getDataSource(ds), true).getData(r);
