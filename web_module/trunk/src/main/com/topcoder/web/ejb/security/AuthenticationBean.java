@@ -13,7 +13,6 @@ import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserLocal;
 
 import javax.ejb.Stateless;
-import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -29,7 +28,6 @@ import java.util.Arrays;
 @WebService(endpointInterface = "com.topcoder.web.ejb.security.AuthenticationRemote")
 public class AuthenticationBean implements AuthenticationRemote, AuthenticationLocal {
 
-    @WebMethod
     public AuthenticatedUser login(String userName, String password) throws InvalidCredentialsException,
             InactiveEmailStatusException, UnactiveUserStatusException, InactiveUserStatusException {
         try {

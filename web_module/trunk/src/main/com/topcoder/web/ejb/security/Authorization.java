@@ -22,9 +22,6 @@ public interface Authorization {
      * @param resource the resource we're checking for entitlment
      * @return true if the user has access, false otherwise
      */
-    //wish i could put this in the remote interface since the webservice will be servicing remote clients
-    //but I couldn't get it working...
-    //@WebMethod(exclude = true)
     boolean hasPermission(long userId, Resource resource);
 
     /**
@@ -39,8 +36,5 @@ public interface Authorization {
      * @param resource the resource we're checking for entitlment
      * @return true if the user has access, false otherwise
      */
-    //wish i could put this in the remote interface since the webservice will be servicing remote clients
-    //but I couldn't get it working...
-    //@WebMethod
     boolean hasPermision(long userId, String resource);
 }
