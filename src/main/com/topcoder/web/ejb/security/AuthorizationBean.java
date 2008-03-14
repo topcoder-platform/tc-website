@@ -11,8 +11,6 @@ import com.topcoder.web.common.SecurityHelper;
 
 import javax.ejb.CreateException;
 import javax.ejb.Stateless;
-import javax.jws.WebMethod;
-import javax.jws.WebService;
 import javax.naming.NamingException;
 import java.lang.reflect.InvocationTargetException;
 import java.rmi.RemoteException;
@@ -23,12 +21,9 @@ import java.rmi.RemoteException;
  *          Create Date: Feb 28, 2008
  */
 @Stateless
-@WebService(endpointInterface = "com.topcoder.web.ejb.security.AuthorizationRemote")
 public class AuthorizationBean implements AuthorizationLocal, AuthorizationRemote {
     private static final Logger log = Logger.getLogger(SecurityHelper.class);
 
-    //don't want to expose this method as part of the web service
-    @WebMethod(exclude = true)
     public boolean hasPermission(long userId, Resource resource) {
         try {
             PolicyLocal pl = (PolicyLocal) com.topcoder.web.common.security.Constants.createLocalEJB(PolicyLocal.class);
@@ -70,7 +65,6 @@ public class AuthorizationBean implements AuthorizationLocal, AuthorizationRemot
         }
     }
 
-    @WebMethod
     public boolean hasPermision(long userId, String resource) {
         return hasPermission(userId, new SimpleResource(resource));
     }
