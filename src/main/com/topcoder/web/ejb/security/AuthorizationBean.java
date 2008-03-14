@@ -14,7 +14,6 @@ import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.naming.NamingException;
-import javax.xml.bind.annotation.XmlTransient;
 import java.lang.reflect.InvocationTargetException;
 import java.rmi.RemoteException;
 
@@ -29,7 +28,7 @@ public class AuthorizationBean implements AuthorizationLocal, AuthorizationRemot
     private static final Logger log = Logger.getLogger(SecurityHelper.class);
 
     //don't want to expose this method as part of the web service
-    @XmlTransient
+    @WebMethod(exclude = true)
     public boolean hasPermission(long userId, Resource resource) {
         try {
             PolicyLocal pl = (PolicyLocal) com.topcoder.web.common.security.Constants.createLocalEJB(PolicyLocal.class);
