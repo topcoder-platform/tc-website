@@ -14,9 +14,10 @@ import javax.jws.soap.SOAPBinding;
  *          Create Date: Feb 28, 2008
  */
 @Remote
-@WebService
+@WebService(name = "Authorization", serviceName = "Authorization", portName = "AuthorizationPort")
 @SOAPBinding(style = SOAPBinding.Style.RPC)
-public interface AuthorizationRemote extends Authorization {
+//extend java.rmi.Remote so that we can use this for a dynamic proxy
+public interface AuthorizationRemote extends Authorization, java.rmi.Remote {
 
     @WebMethod(exclude = true)
     boolean hasPermission(long userId, Resource resource);
