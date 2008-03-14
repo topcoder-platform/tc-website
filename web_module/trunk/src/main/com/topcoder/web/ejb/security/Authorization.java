@@ -2,8 +2,6 @@ package com.topcoder.web.ejb.security;
 
 import com.topcoder.shared.security.Resource;
 
-import javax.ejb.Local;
-import javax.ejb.Remote;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
@@ -17,10 +15,11 @@ import javax.jws.soap.SOAPBinding;
  * @version $Id$
  *          Create Date: Feb 28, 2008
  */
-@Remote
+
+//wish i could put this in the remote interface since the webservice will be servicing remote clients
+//but I couldn't get it working...
 @WebService(endpointInterface = "com.topcoder.web.ejb.security.AuthorizationRemote")
 @SOAPBinding(style = SOAPBinding.Style.RPC)
-@Local
 public interface Authorization {
 
     /**
