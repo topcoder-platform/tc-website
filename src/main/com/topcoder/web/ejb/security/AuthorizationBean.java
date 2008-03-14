@@ -5,12 +5,12 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.security.policy.GenericPermission;
 import com.topcoder.security.policy.PolicyLocal;
 import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.SecurityHelper;
 
 import javax.ejb.CreateException;
 import javax.ejb.Stateless;
-import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.naming.NamingException;
 import java.lang.reflect.InvocationTargetException;
@@ -26,7 +26,6 @@ import java.rmi.RemoteException;
 public class AuthorizationBean implements AuthorizationLocal, AuthorizationRemote {
     private static final Logger log = Logger.getLogger(SecurityHelper.class);
 
-    @WebMethod
     public boolean hasPermission(long userId, Resource resource) {
         try {
             PolicyLocal pl = (PolicyLocal) com.topcoder.web.common.security.Constants.createLocalEJB(PolicyLocal.class);
@@ -66,6 +65,11 @@ public class AuthorizationBean implements AuthorizationLocal, AuthorizationRemot
         } catch (RemoteException e) {
             throw new GeneralSecurityException(e);
         }
-
     }
+
+    public boolean hasPermision(long userId, String resource) {
+        return hasPermission(userId, new SimpleResource(resource));
+    }
+
+
 }
