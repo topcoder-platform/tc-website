@@ -18,8 +18,7 @@ import java.rmi.RemoteException;
 @WebService
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 //extend java.rmi.Remote so that we can use this for a dynamic proxy
-//public interface AuthorizationRemote extends Authorization, java.rmi.Remote {
-public interface AuthorizationRemote extends java.rmi.Remote {
+public interface AuthorizationRemote extends Authorization, java.rmi.Remote {
 
     @WebMethod(exclude = true)
     boolean hasPermission(long userId, Resource resource) throws RemoteException;
