@@ -2,6 +2,8 @@ package com.topcoder.web.ejb.security;
 
 import com.topcoder.shared.security.Resource;
 
+import javax.jws.WebMethod;
+
 /**
  * Just a simple interface in the spirit of the EJB Business Methods Interface pattern that will contain all the methods
  * we want.  It'll be extended by the Local and Remote interfaces basically just so that we only have to modify
@@ -21,6 +23,7 @@ public interface Authorization {
      * @param resource the resource we're checking for entitlment
      * @return true if the user has access, false otherwise
      */
+    @WebMethod(exclude = true)
     boolean hasPermission(long userId, Resource resource);
 
     /**
