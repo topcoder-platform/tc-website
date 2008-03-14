@@ -71,6 +71,8 @@ padding: 40px 10px;
  background: transparent url(/i/tournament/tco08/rsvpBGBottom.png) bottom center no-repeat;
 }
 
+span.bigRed{ color: #ff0000; font-weight: bold; text-decoration: none; }
+
 a:link, a:visited {
     text-decoration: none;
     color: #ac1414;
@@ -114,7 +116,7 @@ table {
     <p><em>*TopCoder Direct and Cockpit and Widget Innerworkings</em><br />
     We'll discuss a new evolution of TopCoder which will bring vast new opportunities for communication, collaboration and compensation to the community.  The second part of this will be a workshop to build your own widget, or write up the specifications for a new widget and/or service for TopCoder to build for you.</p>
     
-    <p>See a complete and detailed schedule <a target="_blank" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=rsvpSchedule">here</a>.</p>
+    <h1><span class="bigRed">See a complete and detailed schedule <a target="_blank" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=rsvpSchedule">here</a>.</span></h1>
     
     <h1><strong>*Don't miss Jack Hughes, Chairman of TopCoder as our<br />Keynote Speaker on Thursday afternoon!</strong></h1>
     
