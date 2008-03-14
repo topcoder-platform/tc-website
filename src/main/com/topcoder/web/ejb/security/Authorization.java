@@ -2,10 +2,6 @@ package com.topcoder.web.ejb.security;
 
 import com.topcoder.shared.security.Resource;
 
-import javax.jws.WebMethod;
-import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
-
 /**
  * Just a simple interface in the spirit of the EJB Business Methods Interface pattern that will contain all the methods
  * we want.  It'll be extended by the Local and Remote interfaces basically just so that we only have to modify
@@ -16,10 +12,6 @@ import javax.jws.soap.SOAPBinding;
  *          Create Date: Feb 28, 2008
  */
 
-//wish i could put this in the remote interface since the webservice will be servicing remote clients
-//but I couldn't get it working...
-@WebService(endpointInterface = "com.topcoder.web.ejb.security.AuthorizationRemote")
-@SOAPBinding(style = SOAPBinding.Style.RPC)
 public interface Authorization {
 
     /**
@@ -30,7 +22,9 @@ public interface Authorization {
      * @param resource the resource we're checking for entitlment
      * @return true if the user has access, false otherwise
      */
-    @WebMethod(exclude = true)
+    //wish i could put this in the remote interface since the webservice will be servicing remote clients
+    //but I couldn't get it working...
+    //@WebMethod(exclude = true)
     boolean hasPermission(long userId, Resource resource);
 
     /**
@@ -45,6 +39,8 @@ public interface Authorization {
      * @param resource the resource we're checking for entitlment
      * @return true if the user has access, false otherwise
      */
-    @WebMethod
+    //wish i could put this in the remote interface since the webservice will be servicing remote clients
+    //but I couldn't get it working...
+    //@WebMethod
     boolean hasPermision(long userId, String resource);
 }

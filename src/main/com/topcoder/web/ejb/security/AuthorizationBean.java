@@ -11,6 +11,8 @@ import com.topcoder.web.common.SecurityHelper;
 
 import javax.ejb.CreateException;
 import javax.ejb.Stateless;
+import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
 import javax.naming.NamingException;
 import java.lang.reflect.InvocationTargetException;
 import java.rmi.RemoteException;
@@ -21,6 +23,8 @@ import java.rmi.RemoteException;
  *          Create Date: Feb 28, 2008
  */
 @Stateless
+@WebService(endpointInterface = "com.topcoder.web.ejb.security.AuthorizationRemote")
+@SOAPBinding(style = SOAPBinding.Style.RPC)
 public class AuthorizationBean implements AuthorizationLocal, AuthorizationRemote {
 
     private static final Logger log = Logger.getLogger(SecurityHelper.class);
