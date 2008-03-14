@@ -7,6 +7,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
+import java.rmi.RemoteException;
 
 /**
  * @author dok
@@ -20,11 +21,11 @@ import javax.jws.soap.SOAPBinding;
 public interface AuthorizationRemote extends Authorization, java.rmi.Remote {
 
     @WebMethod(exclude = true)
-    boolean hasPermission(long userId, Resource resource);
+    boolean hasPermission(long userId, Resource resource) throws RemoteException;
 
     @WebMethod
-    boolean hasPermision(@WebParam(name = "userId")long userId,
-                         @WebParam(name = "resource")String resource);
+    boolean hasPermission(@WebParam(name = "userId")long userId,
+                          @WebParam(name = "resource")String resource) throws RemoteException;
 
 
 }

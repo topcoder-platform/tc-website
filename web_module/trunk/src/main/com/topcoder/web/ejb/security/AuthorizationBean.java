@@ -71,7 +71,7 @@ public class
         }
     }
 
-    public boolean hasPermision(long userId, String resource) {
+    public boolean hasPermission(long userId, String resource) {
         return hasPermission(userId, new SimpleResource(resource));
     }
 
