@@ -44,6 +44,15 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+
+<p>
+    5.14.9 - 2008.03xx
+<ul>
+    <li>Make it possible to direct data feeds at different datasources -dok</li>
+    <%-- update security_perms set permission = permission || ' dsid: 27' where permission like 'DataDump%';--%>
+</ul>
+</p>
+
 <p>
     5.14.8 - 2008.03.13
 <ul>
