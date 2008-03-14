@@ -14,7 +14,7 @@ import java.rmi.RemoteException;
  *          Create Date: Feb 28, 2008
  */
 
-public interface Authorization {
+public interface Authorization extends java.rmi.Remote {
 
     /**
      * Check if the user associated with the given userId has access to the given resource.
