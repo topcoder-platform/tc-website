@@ -196,9 +196,13 @@
                 <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></A>
                 --%>
                 
-                <%-- AMD Multicore Threadfest --%>
-                <A href="<tc-webtag:linkTracking link='/threadfest' refer='homepage_promo' />"><img src="/i/home/amdMCT_promo.png" alt="AMD Multicore Threadfest" /></A>
+                <%-- TCHS08 --%>
+                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onsiteSchedule' refer='homepage_promo' />"><img src="/i/home/tchs08Finals_promo.png" alt="TCHS08" /></A>
                 
+                
+                <%-- AMD Multicore Threadfest 
+                <A href="<tc-webtag:linkTracking link='/threadfest' refer='homepage_promo' />"><img src="/i/home/amdMCT_promo.png" alt="AMD Multicore Threadfest" /></A>
+                --%>
             </td>
         </tr>
     </table>
