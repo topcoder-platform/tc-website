@@ -4,6 +4,7 @@ import com.topcoder.shared.security.Resource;
 
 import javax.ejb.Remote;
 import javax.jws.WebMethod;
+import javax.jws.WebService;
 
 /**
  * @author dok
@@ -11,6 +12,7 @@ import javax.jws.WebMethod;
  *          Create Date: Feb 28, 2008
  */
 @Remote
+@WebService
 public interface AuthorizationRemote extends Authorization {
 
     @WebMethod(exclude = true)
