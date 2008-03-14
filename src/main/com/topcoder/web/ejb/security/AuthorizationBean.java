@@ -21,7 +21,9 @@ import java.rmi.RemoteException;
  *          Create Date: Feb 28, 2008
  */
 @Stateless
-public class AuthorizationBean implements AuthorizationLocal, AuthorizationRemote {
+public class AuthorizationBean implements Authorization {
+//    public class AuthorizationBean implements AuthorizationLocal, AuthorizationRemote {
+
     private static final Logger log = Logger.getLogger(SecurityHelper.class);
 
     public boolean hasPermission(long userId, Resource resource) {
