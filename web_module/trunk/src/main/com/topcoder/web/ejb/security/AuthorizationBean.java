@@ -23,7 +23,7 @@ import java.rmi.RemoteException;
  */
 @Stateless
 @WebService(endpointInterface = "com.topcoder.web.ejb.security.AuthorizationRemote",
-        name = "Authorization", serviceName = "Authorization", portName = "AuthorizationPort")
+        name = "Authorization", serviceName = "AuthorizationService", portName = "AuthorizationServicePort")
 public class
         AuthorizationBean implements AuthorizationLocal, AuthorizationRemote {
 
