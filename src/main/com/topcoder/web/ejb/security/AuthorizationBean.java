@@ -12,7 +12,6 @@ import javax.ejb.CreateException;
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
 import javax.naming.NamingException;
 import java.lang.reflect.InvocationTargetException;
 import java.rmi.RemoteException;
@@ -28,7 +27,7 @@ public class AuthorizationBean implements AuthorizationLocal, AuthorizationRemot
     private static final Logger log = Logger.getLogger(SecurityHelper.class);
 
     @WebMethod
-    public boolean hasPermission(long userId, Resource resource) {
+    public boolean hasPermission(long userId, Resource resource) throws GeneralSecurityException {
         try {
             PolicyLocal pl = (PolicyLocal) com.topcoder.web.common.security.Constants.createLocalEJB(PolicyLocal.class);
             boolean ret;
