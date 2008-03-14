@@ -31,7 +31,7 @@ public class AuthenticationBean implements AuthenticationRemote, AuthenticationL
 
     @WebMethod
     public AuthenticatedUser login(String userName, String password) throws InvalidCredentialsException,
-            GeneralSecurityException, InactiveEmailStatusException, UnactiveUserStatusException, InactiveUserStatusException {
+            InactiveEmailStatusException, UnactiveUserStatusException, InactiveUserStatusException {
         try {
             LoginLocal ll = (LoginLocal) com.topcoder.web.common.security.Constants.createLocalEJB(LoginLocal.class);
             TCSubject sub = ll.login(userName, password);

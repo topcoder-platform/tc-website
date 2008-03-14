@@ -4,7 +4,7 @@ package com.topcoder.web.ejb.security;
  * For wrapping exceptions, generally we don't really know what happened.  Most likely
  * this is a configuration or run time system failure, so we should be extending EJBException.
  * However, the webservice stack can't figure out how to marshal it, so I'm going to use
- * Exception to get things moving.
+ * RuntimeException to get things moving.
  * <p/>
  * Caused by: com.sun.xml.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions
  * java.lang.StackTraceElement does not have a no-arg default constructor.
@@ -21,7 +21,7 @@ package com.topcoder.web.ejb.security;
  *          Create Date: Feb 21, 2008
  */
 
-public class GeneralSecurityException extends Exception {
+public class GeneralSecurityException extends RuntimeException {
 //    public class GeneralSecurityException extends EJBException {
 
 

@@ -20,8 +20,6 @@ public interface Authorization {
      * @param userId   the userId for the user
      * @param resource the resource we're checking for entitlment
      * @return true if the user has access, false otherwise
-     * @throws GeneralSecurityException we're forced to throw this checked exception right now.  See
-     *                                  {@link GeneralSecurityException} docs for more information.
      */
-    boolean hasPermission(long userId, Resource resource) throws GeneralSecurityException;
+    boolean hasPermission(long userId, Resource resource);
 }

@@ -27,7 +27,7 @@ public class AuthorizationBean implements AuthorizationLocal, AuthorizationRemot
     private static final Logger log = Logger.getLogger(SecurityHelper.class);
 
     @WebMethod
-    public boolean hasPermission(long userId, Resource resource) throws GeneralSecurityException {
+    public boolean hasPermission(long userId, Resource resource) {
         try {
             PolicyLocal pl = (PolicyLocal) com.topcoder.web.common.security.Constants.createLocalEJB(PolicyLocal.class);
             boolean ret;
