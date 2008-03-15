@@ -281,51 +281,6 @@
 
 <tr>
     <td colspan="2">
-        <tc-webtag:errorIterator id="err" name="${fileType}"><span class="bigRed">${err}
-            <br/></span></tc-webtag:errorIterator>
-    </td>
-</tr>
-<tr>
-    <td class="name">
-        Allowed Submission File Types:
-    </td>
-    <td class="value">
-        <tc-webtag:objectSelect name='${fileType}' size="4" useTopValue="false" multiple="true" list="${fileTypes}"
-                                valueField="id" textField="description"/>
-    </td>
-</tr>
-
-<tr>
-    <td colspan="2">
-        <span class="bigRed">ERROR<br/></span>
-    </td>
-</tr>
-<tr>
-    <td class="name">
-        Submission File(s) Format:
-    </td>
-    <td class="value">
-        <select name="" size="4" multiple="true">
-        <option value="">MS Word</option>
-        <option value="">Plain Text</option>
-        <option value="">Adobe Acrobat PDF</option>
-        <option value="">Postscript</option>
-        <option value="">HTML</option>
-        <option value="">Rich Text</option>
-        <option value="">JPEG Image</option>
-        <option value="">GIF Image</option>
-        <option value="">PNG Image</option>
-        <option value="">BMP Image</option>
-        <option value="">MS Excel</option>
-        <option value="">ZIP Archive</option>
-        <option value="">MP3</option>
-        <option value="">Java Archive</option>
-        </select>
-    </td>
-</tr>
-
-<tr>
-    <td colspan="2">
         <p>
             <span class="bigRed">ERROR<br/></span>
             <strong>Notes on Submission File(s):</strong> <br/><br/>
@@ -336,7 +291,8 @@
 
 <tr>
     <td colspan="2">
-        <span class="bigRed">ERROR<br/></span>
+        <tc-webtag:errorIterator id="err" name="${fileType}"><span class="bigRed">${err}
+            <br/></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -344,22 +300,8 @@
         Final File(s) Format:
     </td>
     <td class="value">
-        <select name="" size="4" multiple="true">
-        <option value="">PSD</option>
-        <option value="">PSD</option>
-        <option value="">AI</option>
-        <option value="">EPS</option>
-        <option value="">TIFF</option>
-        <option value="">JPG</option>
-        <option value="">PDF</option>
-        <option value="">PNG</option>
-        <option value="">HTML</option>
-        <option value="">CSS</option>
-        <option value="">GIF</option>
-        <option value="">FLA</option>
-        <option value="">SWF</option>
-        <option value="">INDD</option>
-        </select>
+        <tc-webtag:objectSelect name='${fileType}' size="4" useTopValue="false" multiple="true" list="${fileTypes}"
+                                valueField="id" textField="description"/>
     </td>
 </tr>
 
