@@ -66,7 +66,7 @@ Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())
         <c:otherwise>
             <div class="topBar">
                 <div style="float: right; margin: 5px 0px 0px 0px;">
-                    Hello, <tc-webtag:handle coderId="${sessionInfo.userId}"/>
+                    Hello, <tc-webtag:handle coderId="${sessionInfo.userId}" darkBG="true"/>
                         | <a class="gMetal" href="http://<%=ApplicationServer.OPENAIM_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Logout</a>
                 </div>
             </div>
