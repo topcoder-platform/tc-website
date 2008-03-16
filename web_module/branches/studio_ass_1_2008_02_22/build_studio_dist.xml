@@ -494,6 +494,7 @@
             <fileset dir=".">
                 <include name="resources/**"/>
                 <include name="src/**"/>
+                <include name="test_files/**"/>
             </fileset>
         </jar>
     </target>
