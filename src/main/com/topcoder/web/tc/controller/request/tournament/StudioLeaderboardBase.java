@@ -219,11 +219,15 @@ public abstract class StudioLeaderboardBase extends Base {
         int rank = 1;
         for (StudioLeaderBoardRow row : results) {
             if (!first) {
-                if (comparator.compare(row, prevRow) != 0) {
-                    rank++;
+                if (comparator.compare(row, prevRow) == 0) {
+                    row.setRank(prevRow.getRank());
+                } else {
+                    row.setRank(rank);
                 }
+            } else {
+                row.setRank(rank);
             }
-            row.setRank(rank);
+            rank++;
             prevRow = row;
             first = false;
         }
