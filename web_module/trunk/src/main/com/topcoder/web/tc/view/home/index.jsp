@@ -197,7 +197,7 @@
                 --%>
                 
                 <%-- TCHS08 --%>
-                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=bracketInd' refer='homepage_promo' />"><img src="/i/home/tchs08Winner_promo.png" alt="TCHS08" /></A>
+                <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=bracketInd' refer='homepage_promo' />"><img src="/i/home/tchs08Champion_promo.png" alt="TCHS08" /></A>
                 
                 
                 <%-- AMD Multicore Threadfest 
