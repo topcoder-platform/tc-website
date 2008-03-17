@@ -70,29 +70,50 @@
             <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
             <c:set value="<%=RegistrationType.TEACHER_ID%>" var="teacherType"/>
             <c:set value="<%=RegistrationType.OPENAIM_ID%>" var="openAIM"/>
+            <c:set value="<%=RegistrationType.HIGH_SCHOOL_ID%>" var="highSchool"/>
             <% int i = 0;%>
             <c:forEach items="${registrationTypeList}" var="type">
-                <c:if test="${type.id!=openAIM && ((type.id==teacherType && !isNewReg) || type.id!=teacherType)}">
-                    <c:set value="${regType}${type.id}" var="regTypeKey"/>
-                    <c:choose>
-                        <c:when test="${requestScope[defaults][regTypeKey]==null}">
-                            <tc-webtag:chkBox name="${regTypeKey}"/>
-                        </c:when>
-                        <c:otherwise><img src="/i/interface/cbox_grayedout.gif" alt=""/>
-                            <tc-webtag:hiddenInput name="${regTypeKey}" value="on"/>
-                        </c:otherwise>
-                    </c:choose>
-                    ${type.name} <br><A href="javascript:void(0)" onmouseover="popUp(this,'popUp<%=i%>')"
-                                        onmouseout="popHide()">tell
-                    me more...</A><br>
+                <c:set value="${regType}${type.id}" var="regTypeKey"/>
+                <c:choose>
+                    <c:when test="${type.id!=openAIM && ((type.id==teacherType && !isNewReg) || type.id!=teacherType)}">
+                        <c:choose>
+                            <c:when test="${requestScope[defaults][regTypeKey]==null}">
+                                <tc-webtag:chkBox name="${regTypeKey}"/>
+                            </c:when>
+                            <c:otherwise><img src="/i/interface/cbox_grayedout.gif" alt=""/>
+                                <tc-webtag:hiddenInput name="${regTypeKey}" value="on"/>
+                            </c:otherwise>
+                        </c:choose>
+                        ${type.name} <br /><A href="javascript:void(0)" onmouseover="popUp(this,'popUp<%=i%>')" onmouseout="popHide()">tell me more...</A><br />
 
-                    <div id="popUp<%=i%>" class="popUp">
-                        <div style="width: 400px; white-space: normal;">${type.description}</div>
-                    </div>
+                        <div id="popUp<%=i%>" class="popUp">
+                            <div style="width: 400px; white-space: normal;">${type.description}</div>
+                        </div>
+                    </c:when>
+                    <c:when test="${type.id==highSchool}">
+                        <c:choose>
+                            <c:when test="${requestScope[defaults][regTypeKey]==null}">
+                                ${type.name} <br /><A href="javascript:void(0)" onmouseover="popUp(this,'popUp<%=i%>')" onmouseout="popHide()">tell me more...</A><br />
+            
+                                <div id="popUp<%=i%>" class="popUp">
+                                    <div style="width: 400px; white-space: normal;">TopCoder High School Registration is not currently open, we are still getting ready for the new season.  You may register for TopCoder Competitions now, and look for more information from TopCoder when registration for the new season starts.</div>
+                                </div>
+                            </c:when>
+                            <c:otherwise><img src="/i/interface/cbox_grayedout.gif" alt=""/>
+                                <tc-webtag:hiddenInput name="${regTypeKey}" value="on"/>
+                                ${type.name} <br /><A href="javascript:void(0)" onmouseover="popUp(this,'popUp<%=i%>')" onmouseout="popHide()">tell me more...</A><br />
 
-                    <br><br>
-                    <%i++;%>
-                </c:if>
+                                <div id="popUp<%=i%>" class="popUp">
+                                    <div style="width: 400px; white-space: normal;">${type.description}</div>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:when>
+                    <c:otherwise>
+                    </c:otherwise>
+                </c:choose>
+                <br /><br />
+                <%i++;%>
             </c:forEach>
 
             <div align="center">
@@ -102,17 +123,17 @@
 
         </form>
 
-        <br><br>
+        <br /><br />
         Please read the <A href="/tc?module=Static&d1=about&d2=privacy">Privacy Policy</A>
-        <br><br>
+        <br /><br />
         All registered TopCoder members have the ability to read and post in our forums, as well as browse sections of
         the site that require login, such as detailed competition statistics.
-        <br><br>
+        <br /><br />
         You can always add to your registered capabilities later by clicking "Update My Profile".
     </div>
 </div>
 
-<br><br>
+<br /><br />
 
 </body>
 </html>
