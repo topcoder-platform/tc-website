@@ -3,8 +3,11 @@ package com.topcoder.web.reg.controller.request;
 import com.topcoder.servlet.request.FileDoesNotExistException;
 import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.UploadedFile;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.LongHibernateProcessor;
 import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
@@ -40,19 +43,39 @@ public abstract class Base extends LongHibernateProcessor {
     private DAOFactory factory = null;
 
     protected void dbProcessing() throws Exception {
-        getRequest().setAttribute(Constants.NEW_REG_FLAG, isNewRegistration());
+
+        //if they're our user, make them log in
+        if (!userLoggedIn() && userIdentified()) {
+            if ("POST".equals(getRequest().getMethod())) {
+                throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
+            } else {
+                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            }
+        }
+
+        if (getNewRegistration() == null) {
+            boolean newReg = !userLoggedIn();
+            if (!userLoggedIn() && getRequest().getParameter(Constants.NEW_REG) != null) {
+                newReg = String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.NEW_REG));
+            }
+            setNewRegistration(newReg);
+        }
         registrationProcessing();
 
     }
 
     protected boolean isNewRegistration() {
-        Boolean ret = (Boolean) getRequest().getSession().getAttribute(Constants.NEW_REG_FLAG);
+        Boolean ret = getNewRegistration();
         return ret == null ? Boolean.FALSE : ret;
     }
 
     protected void setNewRegistration(boolean newReg) {
         getRequest().setAttribute(Constants.NEW_REG_FLAG, newReg);
         getRequest().getSession().setAttribute(Constants.NEW_REG_FLAG, newReg);
+    }
+
+    private Boolean getNewRegistration() {
+        return (Boolean) getRequest().getSession().getAttribute(Constants.NEW_REG_FLAG);
     }
 
     /**

@@ -31,30 +31,21 @@ public class Main extends Base {
 
     protected void registrationProcessing() throws Exception {
 
-        //we'll just make them log in if we know who they are but they're not logged in.
-        if (!userLoggedIn() && userIdentified()) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        }
-
-        //if someone is registering for just one thing, they might include that type in the request.
-        String regTypeParam = StringUtils.checkNull(getRequest().getParameter(Constants.REGISTRATION_TYPE));
-
-        if (!"".equals(regTypeParam)) {
-            if (userLoggedIn()) {
-                setNewRegistration(false);
-            } else {
-                setRegUser(new User());
-                setNewRegistration(true);
-            }
-            if (log.isDebugEnabled()) {
-                log.debug("got a reg type of " + regTypeParam);
-            }
-        }
-
         if (getRegUser() == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
         } else if (isNewRegistration() || userLoggedIn()) {
             User u = getRegUser();
+            //if someone is registering for just one thing, they might include that type in the request.
+            String regTypeParam = StringUtils.checkNull(getRequest().getParameter(Constants.REGISTRATION_TYPE));
+            if (!"".equals(regTypeParam) && u == null) {
+                //this is a new registration, they're just starting here, so create an empty user for them.
+                u = new User();
+                setRegUser(u);
+                if (log.isDebugEnabled()) {
+                    log.debug("got a reg type of " + regTypeParam);
+                }
+            }
+
             RegistrationTypeDAO regTypeDAO = getFactory().getRegistrationTypeDAO();
             //if it's a post, they're coming from the selection page, and they should have selected
             //some types, so add them.

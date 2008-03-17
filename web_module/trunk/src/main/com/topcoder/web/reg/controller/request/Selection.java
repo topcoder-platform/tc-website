@@ -7,8 +7,6 @@ import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.Constants;
 
-import java.util.Iterator;
-
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -18,12 +16,6 @@ public class Selection extends Base {
 
     protected void registrationProcessing() throws Exception {
 
-        boolean newReg = !userLoggedIn();
-        if (!userLoggedIn() && getRequest().getParameter(Constants.NEW_REG) != null) {
-            newReg = String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.NEW_REG));
-        }
-        setNewRegistration(newReg);
-
         //set up the user object we're gonna use
         User u = getRegUser();
         if (u == null) {
@@ -31,9 +23,8 @@ public class Selection extends Base {
             setRegUser(u);
         }
 
-
-        log.debug("new reg " + newReg);
-        if (newReg) {
+        log.debug("new reg " + isNewRegistration());
+        if (isNewRegistration()) {
             getRequest().setAttribute("registrationTypeList", getFactory().getRegistrationTypeDAO().getRegistrationTypes());
             setNextPage("/selection.jsp");
             setIsNextPageInContext(true);
@@ -41,10 +32,7 @@ public class Selection extends Base {
             if (userLoggedIn()) {
                 //they're updating their info, and they're logged in, so here we go
                 getRequest().setAttribute("registrationTypeList", getFactory().getRegistrationTypeDAO().getRegistrationTypes());
-                RegistrationType rt;
-                for (Iterator it = new UserDAOHibernate().find(new Long(getUser().getId())).getRegistrationTypes().iterator(); it.hasNext();)
-                {
-                    rt = (RegistrationType) it.next();
+                for (RegistrationType rt : new UserDAOHibernate().find(new Long(getUser().getId())).getRegistrationTypes()) {
                     setDefault(Constants.REGISTRATION_TYPE + rt.getId(), String.valueOf(true));
                 }
                 setNextPage("/selection.jsp");
