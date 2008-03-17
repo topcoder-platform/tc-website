@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.17.08<br />3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031708">China, US &amp; Poland Take Honors in TCHS Tournament at Purdue University</a></span><br /><br />
+        Annual world championship for TopCoder High School members sees Chinese student win $15,000 in algorithm programming competition.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031708">details</a> | 
+        <tc-webtag:forumLink forumID="520427" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />03.17.08<br />1:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -152,17 +165,4 @@
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign">details</a> | 
         <tc-webtag:forumLink forumID="520279" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.10.08<br />3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.sdtimes.com/content/article.aspx?ArticleID=31779' refer='/tc' />">SD Times: Not Your Father's Outsourcing</a></span><br /><br />
-        "It's 2008, and this is not your father's definition of outsourcing. Two companies with updated views about software development engagements are showing that many of the pitfalls of sending work away to be done can be overcome."</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.sdtimes.com/content/article.aspx?ArticleID=31779' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="520266" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
