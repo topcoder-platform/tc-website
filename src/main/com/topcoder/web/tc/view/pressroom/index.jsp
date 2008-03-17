@@ -99,6 +99,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- China, US and Poland Take Honors in TopCoder High School Tournament at Purdue University begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031708"><img src="/i/pressroom/tchs08_logo.png" alt="TCHS08 logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031708">China, US and Poland Take Honors in TopCoder High School Tournament at Purdue University</a></h3>
+                        <p>Annual World Championship for TopCoder High School Members Sees Chinese Student Win $15,000 in Algorithm Programming Competition  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031708">[March 17]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- China, US and Poland Take Honors in TopCoder High School Tournament at Purdue University end --%>
+                
                 <%-- Not Your Father's Outsourcing begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
