@@ -31,9 +31,7 @@ public class Main extends Base {
 
     protected void registrationProcessing() throws Exception {
 
-        if (getRegUser() == null) {
-            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
-        } else if (isNewRegistration() || userLoggedIn()) {
+        if (isNewRegistration() || userLoggedIn()) {
             User u = getRegUser();
             //if someone is registering for just one thing, they might include that type in the request.
             String regTypeParam = StringUtils.checkNull(getRequest().getParameter(Constants.REGISTRATION_TYPE));
