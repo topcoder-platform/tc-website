@@ -75,6 +75,25 @@
             <c:forEach items="${registrationTypeList}" var="type">
                 <c:set value="${regType}${type.id}" var="regTypeKey"/>
                 <c:choose>
+                    <c:when test="${type.id==highSchool}">
+                        <c:choose>
+                            <c:when test="${requestScope[defaults][regTypeKey]==null}">
+                                ${type.name} <br /><A href="javascript:void(0)" onmouseover="popUp(this,'popUp<%=i%>')" onmouseout="popHide()">tell me more...</A><br />
+
+                                <div id="popUp<%=i%>" class="popUp">
+                                    <div style="width: 400px; white-space: normal;">TopCoder High School Registration is not currently open, we are still getting ready for the new season.  You may register for TopCoder Competitions now, and look for more information from TopCoder when registration for the new season starts.</div>
+                                </div>
+                            </c:when>
+                            <c:otherwise><img src="/i/interface/cbox_grayedout.gif" alt=""/>
+                                <tc-webtag:hiddenInput name="${regTypeKey}" value="on"/>
+                                ${type.name} <br /><A href="javascript:void(0)" onmouseover="popUp(this,'popUp<%=i%>')" onmouseout="popHide()">tell me more...</A><br />
+
+                                <div id="popUp<%=i%>" class="popUp">
+                                    <div style="width: 400px; white-space: normal;">${type.description}</div>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:when>
                     <c:when test="${type.id!=openAIM && ((type.id==teacherType && !isNewReg) || type.id!=teacherType)}">
                         <c:choose>
                             <c:when test="${requestScope[defaults][regTypeKey]==null}">
@@ -90,27 +109,6 @@
                             <div style="width: 400px; white-space: normal;">${type.description}</div>
                         </div>
                     </c:when>
-                    <c:when test="${type.id==highSchool}">
-                        <c:choose>
-                            <c:when test="${requestScope[defaults][regTypeKey]==null}">
-                                ${type.name} <br /><A href="javascript:void(0)" onmouseover="popUp(this,'popUp<%=i%>')" onmouseout="popHide()">tell me more...</A><br />
-            
-                                <div id="popUp<%=i%>" class="popUp">
-                                    <div style="width: 400px; white-space: normal;">TopCoder High School Registration is not currently open, we are still getting ready for the new season.  You may register for TopCoder Competitions now, and look for more information from TopCoder when registration for the new season starts.</div>
-                                </div>
-                            </c:when>
-                            <c:otherwise><img src="/i/interface/cbox_grayedout.gif" alt=""/>
-                                <tc-webtag:hiddenInput name="${regTypeKey}" value="on"/>
-                                ${type.name} <br /><A href="javascript:void(0)" onmouseover="popUp(this,'popUp<%=i%>')" onmouseout="popHide()">tell me more...</A><br />
-
-                                <div id="popUp<%=i%>" class="popUp">
-                                    <div style="width: 400px; white-space: normal;">${type.description}</div>
-                                </div>
-                            </c:otherwise>
-                        </c:choose>
-                    </c:when>
-                    <c:otherwise>
-                    </c:otherwise>
                 </c:choose>
                 <br /><br />
                 <%i++;%>
