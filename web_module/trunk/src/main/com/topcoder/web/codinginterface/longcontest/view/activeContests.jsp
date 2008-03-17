@@ -55,14 +55,13 @@
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
 
-            <%-- MM Promo On/Off--%>
-            <div style="margin: 6px 0px;">
-                <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdOverview"><img src="/i/longcontest/amdMCTacPromo.png" alt="AMD Multicore Threadfest" /></a>
-            </div>
-            
-            
             <div align="right" style="margin: 6px 0px;">
                 <a href="/longcontest/?module=Static&amp;d1=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
+            </div>
+            
+            <%-- MM Promo On/Off--%>
+            <div align="right" style="margin: 6px 0px;">
+                <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdOverview"><img src="/i/longcontest/amdMCTacPromo.png" alt="AMD Multicore Threadfest" /></a>
             </div>
             
 
