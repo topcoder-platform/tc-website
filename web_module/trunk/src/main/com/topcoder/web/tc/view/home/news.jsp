@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.17.08<br />10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=bracketInd">TCHS08 Champion is ahyangyi</a></span><br /><br />
+        Congrats to <tc-webtag:handle coderId="20812309" context="algorithm"/> for becoming the TCHS08 tournament Champion with an imperssive match in the Finals.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=bracketInd">details</a> | 
+        <tc-webtag:forumLink forumID="519982" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.14.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=onsiteSchedule">TCHS08 Finals are set for Saturday, March 15 at 10:00 AM EDT</a></span><br /><br />
@@ -149,17 +162,4 @@
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031008">details</a> | 
         <tc-webtag:forumLink forumID="520259" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.07.08<br />4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=ViewSurvey&amp;sid=22051">Vote for the TCO08 T-shirts</a></span><br /><br />
-        It's time to vote for this year's TCO t-shirt design!  The top five submissions were selected so it's up to our members to choose the best one from the group.  Voting ends Tuesday, March 11 so hurry and make your vote count.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=ViewSurvey&amp;sid=22051">details</a> | 
-        <tc-webtag:forumLink forumID="520233" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
