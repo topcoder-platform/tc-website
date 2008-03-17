@@ -30,7 +30,7 @@
 </p>
 
 <p align="center">
-    The teams are sorted alphabetically.
+    The teams are sorted by score.
 </p>
 
 <div align="center" style="margin:20px;">

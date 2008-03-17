@@ -30,7 +30,7 @@
 </p>
 
 <p align="center">
-    The finalists are sorted alphabetically.
+    The finalists are sorted by score.
 </p>
 
 <div align="center" style="margin:20px;">
