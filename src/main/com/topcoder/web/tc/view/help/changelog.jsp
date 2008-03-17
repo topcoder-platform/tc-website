@@ -48,6 +48,7 @@
 <p>
     5.14.9 - 2008.03xx
 <ul>
+    <li>Fixed [TCWEB-118] Studio Tournament results doesn't rank correctly -pulky</li>
     <li>Make it possible to direct data feeds at different datasources -dok</li>
     <%-- update security_perms set permission = permission || ' dsid: 27' where permission like 'DataDump%';--%>
 </ul>
