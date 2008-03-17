@@ -26,7 +26,10 @@
         <strong>Browse:</strong>
         <a href="/openaim/?myframe=category%2fnews%2f">news</a>,
         <a href="/openaim/?myframe=category%2fall-submissions%2f">all submissions</a>,
-        <a href="/openaim/?myframe=category%2fplugins%2f">plugins</a>
+        <a href="/openaim/?myframe=category%2fplugins%2f">plugins</a>,
+        <a href="/openaim/?myframe=category%2fvoice%2f">voice</a>,
+        <a href="/openaim/?myframe=category%2fweb-applications%2f">web applications</a>,
+        <a href="/openaim/?myframe=category%2fvideo%2f">video</a>
     </div>
 
 </div>
