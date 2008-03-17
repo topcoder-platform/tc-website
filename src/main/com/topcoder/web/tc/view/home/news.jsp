@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />03.17.08<br />1:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm393">SRM 393 - Problem Set &amp; Analysis</a></span><br /><br />
+      This match was marked by <tc-webtag:handle coderId="10574855" context="algorithm"/> achieving a new record high TopCoder rating of 3756, 3 points higher than the record he set nearly a year ago. Congratulations, <tc-webtag:handle coderId="10574855" context="algorithm"/>!</td>
+         <td class="newsPhoto"><img src="/i/m/StevieT_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="21911760" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm393">details</a> | 
+        <tc-webtag:forumLink forumID="520289" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.17.08<br />10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=bracketInd">TCHS08 Champion is ahyangyi</a></span><br /><br />
@@ -148,18 +164,5 @@
    <tr><td class="newsLinksCell">
         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.sdtimes.com/content/article.aspx?ArticleID=31779' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="520266" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.10.08<br />10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031008">AMD and TopCoder Will Host Series of Competitions to Advance Multi-Threaded Software Development</a></span><br /><br />
-        Starting March 12, the "<a href="<tc-webtag:linkTracking link='/threadfest' refer='/tc' />">Multicore Threadfest</a>" sponsored by AMD will offer $20,000 in total prizes over the course of four quarterly coding competitions focused on advancing multi-threading application development for multi-core processor architectures. The competitions will provide a forum for the TopCoder and general software development community to demonstrate advanced multi-threading principles, techniques and best practices.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031008">details</a> | 
-        <tc-webtag:forumLink forumID="520259" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
