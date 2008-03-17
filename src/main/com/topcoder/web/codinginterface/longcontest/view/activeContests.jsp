@@ -55,9 +55,28 @@
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
 
+            <%-- Promo On/Off 
+            <div style="position:absolute; margin: 6px 0px;">
+                <div style="float:left; width:290px; height:20px;>
+                    <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdOverview"><img src="/i/longcontest/amdMCTacPromo.png" alt="AMD Multicore Threadfest" /></a>
+                </div>
+                
+                <div style="float:right; width:252px; height:20px;">
+                    <a href="/longcontest/?module=Static&amp;d1=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
+                </div>
+            </div>
+            --%>
+            
+            <%-- Promo On/Off--%>
+            <div style="margin: 6px 0px;">
+                <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdOverview"><img src="/i/longcontest/amdMCTacPromo.png" alt="AMD Multicore Threadfest" /></a>
+            </div>
+            
+            
             <div align="right" style="margin: 6px 0px;">
                 <a href="/longcontest/?module=Static&amp;d1=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
             </div>
+            
 
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat">
 
