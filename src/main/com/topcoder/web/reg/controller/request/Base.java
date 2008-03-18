@@ -57,14 +57,15 @@ public abstract class Base extends LongHibernateProcessor {
             boolean newReg = !userLoggedIn();
             if (!userLoggedIn() && getRequest().getParameter(Constants.NEW_REG) != null) {
                 newReg = String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.NEW_REG));
-                if (!newReg) {
-                    //they must be attempting to update their info, so send them to login
-                    throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-                }
             }
             setNewRegistration(newReg);
-
         }
+
+        if (!isNewRegistration() && !userLoggedIn()) {
+            //they must be attempting to update their info, so send them to login
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
+
         registrationProcessing();
 
     }
