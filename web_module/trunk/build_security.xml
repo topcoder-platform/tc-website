@@ -132,7 +132,7 @@
     </target>
 
 
-    <target name="deploy" depends="compile, package-EJB-SecurityBean, build-ejbs">
+    <target name="deploy" depends="compile, package-EJB-SecurityBean, build-ejbs, build-security">
         <antcall target="expand"/>
     </target>
 
@@ -198,7 +198,7 @@
     </target>
 
 
-    <target name="deploy-security" depends="build-security">
+    <target name="deploy-security">
         <copy todir="${jboss_deploy}">
             <fileset dir="${ear.dir}">
                 <include name="security.ear"/>
