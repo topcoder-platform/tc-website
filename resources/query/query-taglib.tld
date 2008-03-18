@@ -1,22 +1,26 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
-  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<?xml version="1.0"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
 
-<taglib>
-    <tlibversion>1.0</tlibversion>
-    <jspversion>1.1</jspversion>
-    <shortname>TopCoder Query Tags</shortname>
-    <info>
-    </info>
+    <description>
+        Query Tool tags
+    </description>
+
+    <tlib-version>1.0</tlib-version>
+
+    <short-name>query</short-name>
+
+    <uri>query-taglib.tld</uri>
+    
+
 
     <tag>
         <name>listIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.common.tag.ListIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info>
-            Tag to iterate through a List
-        </info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.common.tag.ListIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -31,12 +35,9 @@
 
     <tag>
         <name>queryInputIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.query.servlet.jsp.tag.QueryInputIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info>
-            Tag to iterate through a List of query inputs
-        </info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.query.servlet.jsp.tag.QueryInputIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -51,12 +52,9 @@
 
     <tag>
         <name>queryIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.query.servlet.jsp.tag.QueryIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info>
-            Tag to iterate through a List of querys
-        </info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.query.servlet.jsp.tag.QueryIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -71,12 +69,9 @@
 
     <tag>
         <name>DBIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.query.servlet.jsp.tag.DBIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info>
-            Tag to iterate through a List of database items
-        </info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.query.servlet.jsp.tag.DBIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -91,12 +86,9 @@
 
     <tag>
         <name>resultSetRowIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.query.servlet.jsp.tag.ResultSetRowIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info>
-            Tag to iterate through a ResultSetContainer
-        </info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.query.servlet.jsp.tag.ResultSetRowIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -111,12 +103,9 @@
 
     <tag>
         <name>commandQueryIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.query.servlet.jsp.tag.CommandQueryIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info>
-            Tag to iterate through a list of command queries
-        </info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.query.servlet.jsp.tag.CommandQueryIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -131,11 +120,8 @@
 
     <tag>
         <name>resultSetItem</name>
-        <tagclass>com.topcoder.web.query.servlet.jsp.tag.ResultSetItemTag</tagclass>
-        <bodycontent>empty</bodycontent>
-        <info>
-            Tag to get the value of a TCResultItem
-        </info>
+        <tag-class>com.topcoder.web.query.servlet.jsp.tag.ResultSetItemTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>row</name>
             <required>true</required>
@@ -150,12 +136,9 @@
 
     <tag>
         <name>error</name>
-        <tagclass>com.topcoder.web.common.tag.ErrorIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.common.tag.ListIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info>
-            Tag to get an errors associated with a key
-        </info>
+        <tag-class>com.topcoder.web.common.tag.ErrorIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.common.tag.ListIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -170,11 +153,8 @@
 
     <tag>
         <name>commandGroupSelect</name>
-        <info>
-            Generates an html select box with command groups
-        </info>
-        <tagclass>com.topcoder.web.query.servlet.jsp.tag.CommandGroupSelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.query.servlet.jsp.tag.CommandGroupSelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -235,11 +215,8 @@
 
     <tag>
         <name>dataTypeSelect</name>
-        <info>
-            Generates an html select box with data types
-        </info>
-        <tagclass>com.topcoder.web.query.servlet.jsp.tag.DataTypeSelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.query.servlet.jsp.tag.DataTypeSelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -284,11 +261,8 @@
 
     <tag>
         <name>inputSelect</name>
-        <info>
-            Generates an html select box with inputs
-        </info>
-        <tagclass>com.topcoder.web.query.servlet.jsp.tag.InputSelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.query.servlet.jsp.tag.InputSelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -339,11 +313,8 @@
 
     <tag>
         <name>querySelect</name>
-        <info>
-            Generates an html select box with queries
-        </info>
-        <tagclass>com.topcoder.web.query.servlet.jsp.tag.QuerySelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.query.servlet.jsp.tag.QuerySelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -393,11 +364,8 @@
 
     <tag>
         <name>booleanSelect</name>
-        <info>
-            Generates an html select box with dbs
-        </info>
-        <tagclass>com.topcoder.web.query.servlet.jsp.tag.BooleanSelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.query.servlet.jsp.tag.BooleanSelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
