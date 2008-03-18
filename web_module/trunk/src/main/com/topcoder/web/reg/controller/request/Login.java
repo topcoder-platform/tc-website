@@ -30,7 +30,7 @@ public class Login extends ShortHibernateProcessor {
     public static final String PASSWORD = "password";
     public static final String REMEMBER_USER = "rem";
 
-    protected void dbProcessing() throws TCWebException {
+    protected void dbProcessing() throws Exception {
 
         /* may be null */
         String username = getRequest().getParameter(USER_NAME);
