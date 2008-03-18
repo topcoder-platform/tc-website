@@ -428,7 +428,7 @@
 
     <servlet-mapping>
         <servlet-name>query</servlet-name>
-        <url-pattern>query</url-pattern>
+        <url-pattern>/query</url-pattern>
     </servlet-mapping>
 
 
