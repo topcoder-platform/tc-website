@@ -20,6 +20,8 @@ public class RegServlet extends BaseServlet {
     private final static Logger log = Logger.getLogger(RegServlet.class);
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
+        if (log.isDebugEnabled())
+            log.debug("hasPermission called " + auth.getActiveUser().getUserName() + " " + r.getName());
         return true;
     }
 
@@ -35,7 +37,7 @@ public class RegServlet extends BaseServlet {
         return new TCSAuthorization(SecurityHelper.getUserSubject(user.getId(), DBMS.JTS_OLTP_DATASOURCE_NAME));
     }
 
-        protected TCSubject getUser(long id) throws Exception {
+    protected TCSubject getUser(long id) throws Exception {
         return SecurityHelper.getUserSubject(id, DBMS.JTS_OLTP_DATASOURCE_NAME);
     }
 }
