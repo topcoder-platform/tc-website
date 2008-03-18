@@ -468,7 +468,6 @@
             <fileset dir=".">
                 <include name="build/ejb_jars/*.jar"/>
                 <include name="build/ears/*.ear"/>
-                <include name="resources/CSF.properties"/>
                 <include name="move.xml"/>
                 <include name="build_security.xml"/>
                 <include name="lib/bin/*.jar"/>
