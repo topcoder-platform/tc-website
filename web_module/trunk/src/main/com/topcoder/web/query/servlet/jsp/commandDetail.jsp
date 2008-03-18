@@ -4,6 +4,7 @@
            com.topcoder.web.query.request.*,
            com.topcoder.web.common.SessionInfo"
 %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="query-taglib.tld" prefix="query"%>
 <jsp:useBean id="CommandDetail" scope="request" class="com.topcoder.web.query.request.CommandDetail" />
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
@@ -36,7 +37,8 @@
             </td>
           </tr>
           <tr><td><img src="/i/clear.gif" width="1" height="8"></td></tr>
-          <tr><td class="statText" colspan="2" ALIGN="center">Command: <jsp:getProperty name="CommandDetail" property="commandDesc"/></td></tr>
+          <tr><td class="statText" colspan="2" ALIGN="center">Command: <jsp:getProperty name="CommandDetail" property="commandDesc"/>
+          <a class="statText" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LegacyReport&t=new_report&c=${CommandDetail.commandDesc}&db=${CommandDetail.db}">view results</a></td></tr>
           <tr><td><img src="/i/clear.gif" width="1" height="8"></td></tr>
             <tr><td class="statText" colspan="2" ALIGN="center">
               <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetail" property="db"/>&<%=Constants.COMMAND_ID_PARAM%>=<jsp:getProperty name="CommandDetail" property="commandId"/>" class="statText">
