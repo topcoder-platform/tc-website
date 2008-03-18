@@ -46,10 +46,11 @@
 
 
 <p>
-    5.14.9 - 2008.03xx
+    5.14.9 - 2008.03.17
 <ul>
     <li>Fixed [TCWEB-118] Studio Tournament results doesn't rank correctly -pulky</li>
     <li>Make it possible to direct data feeds at different datasources -dok</li>
+    <li>Fix bug in registration where someone with a cookie would get an error rather than being asked to login -dok</li>
     <%-- update security_perms set permission = permission || ' dsid: 27' where permission like 'DataDump%';--%>
 </ul>
 </p>
