@@ -441,5 +441,46 @@
 
     </target>
 
+
+
+    <target name="package-security" >
+
+        <delete dir="build"/>
+        <delete file="security.jar"/>
+
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
+        <cvs command="update -Pd" package="build_security.xml"/>
+
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="cvs">
+            <arg line="update -dP"/>
+        </exec>
+
+
+        <ant antfile="build_security.xml" target="deploy"/>
+
+        <jar destfile="security.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/*.jar"/>
+                <include name="build/ears/*.ear"/>
+                <include name="resources/CSF.properties"/>
+                <include name="move.xml"/>
+                <include name="build_security.xml"/>
+                <include name="lib/bin/*.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
+
+
+
+
+
+
 </project>
 
