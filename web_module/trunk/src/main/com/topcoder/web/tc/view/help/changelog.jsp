@@ -44,6 +44,13 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+<p>
+    5.14.10 - 2008.03.xx
+<ul>
+    <li>Upgrade query system to servlet spec 2.4 -dok</li>
+    <li>Add link to query tool command results in reporting tool -dok</li>
+</ul>
+</p>
 
 <p>
     5.14.9 - 2008.03.17
