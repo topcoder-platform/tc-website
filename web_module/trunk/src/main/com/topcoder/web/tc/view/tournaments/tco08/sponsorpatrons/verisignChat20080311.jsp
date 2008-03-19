@@ -30,9 +30,7 @@
         <div style="padding-bottom:10px;">
             <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign"><img alt="TCO08 Sponsored by VeriSign" src="/i/tournament/tco08/verisign_logo.png" /></a>
         </div>
-        <%--
-        <div align="right"><tc-webtag:forumLink forumID="516707" message="Discuss this" /></div><br />
-        --%>
+        <div align="right"><tc-webtag:forumLink forumID="520512" message="Discuss this" /></div><br />
         <table width="100%" cellpadding="0" cellspacing="0" class="stat">
             <tr>
                 <th colspan="2">Chat transcript from SRM 393</th>

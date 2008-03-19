@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.19.08<br />3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisignChat20080311">VeriSign SRM 393 Chat Transcript Available</a></span><br /><br />
+        Before SRM 393, VeriSign representatives were in the Arena to discuss <em>High Availability, High Volume Systems</em>. See the transcript <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisignChat20080311">here</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisignChat20080311">details</a> | 
+        <tc-webtag:forumLink forumID="520512" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.17.08<br />3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031708">China, US &amp; Poland Take Honors in TCHS Tournament at Purdue University</a></span><br /><br />
@@ -151,18 +164,5 @@
    <tr><td class="newsLinksCell">
         <a href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early">details</a> | 
         <tc-webtag:forumLink forumID="520311" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.10.08<br />5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign">VeriSign chat before SRM 393</a></span><br /><br />
-        As Sponsor of the TCO08 VeriSign will be hosting a chat session one hour prior to <a href="/tc?module=MatchDetails&rd=11127">SRM 393</a>.  The topic of the chat will be <em>High Availability, High Volume Systems</em>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign">details</a> | 
-        <tc-webtag:forumLink forumID="520279" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
