@@ -15,7 +15,7 @@ import javax.jws.soap.SOAPBinding;
 @Remote
 @WebService
 @SOAPBinding(style = SOAPBinding.Style.RPC)
-public interface AuthenticationRemote extends Authentication {
+public interface AuthenticationRemote extends Authentication, java.rmi.Remote {
 
     @WebMethod
     @WebResult(name = "userId")
