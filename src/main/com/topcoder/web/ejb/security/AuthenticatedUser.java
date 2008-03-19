@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.security;
 
+import javax.xml.bind.annotation.XmlElement;
 import java.io.Serializable;
 
 /**
@@ -9,8 +10,12 @@ import java.io.Serializable;
  */
 public class AuthenticatedUser implements Serializable {
 
+    @XmlElement(namespace="", name="userName")
     private String userName;
+
+    @XmlElement(namespace="", name="userId")
     private Long userId;
+    
     private static final long serialVersionUID = -4504131195466365739L;
 
 
