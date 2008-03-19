@@ -37,9 +37,8 @@
         <br /><br />
         <div style="float: right;">
         <h3 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h3>
-            <strong>
-                <A style="text-decoration:none;" href="/tc?module=Static&d1=sponsors&d2=btChat20070721">SRM 359</A>
-            </strong>
+            <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=sponsors&amp;d2=btChat20080306">SRM 392</a></strong><br />
+            <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=sponsors&amp;d2=btChat20070721">SRM 359</a></strong>
         </div>
         <br /><br />
 
@@ -58,9 +57,10 @@
         <p>The Dalian Technology and Service Centre is now home to BT employees in software development and customer service. The service centre provides software development capabilities as well as a variety of support services to BT customers in Japan, Korea, China and Hong Kong.</p>
         <p>Become part of our exciting future at BT. You will be on the forefront in the creation of new and exciting products in a number of areas, and play a key role in the development of compelling and useful software in a swiftly changing industry.</p>
         <p>There are positions for extraordinary coders with BT, offering competitive pay and benefits and we are keen to talk to individuals who want to join with us in China and be part of the future of technology and services in an ever evolving sector.</p>
-        <p><a href="/tc?module=JobHit&jid=401&jt=1" class="button" style="width: 70px;">Apply Now</a></p>
+        <p><a href="/tc?module=JobHit&amp;jid=401&amp;jt=1" class="button" style="width: 70px;">Apply Now</a></p>
         <p>&nbsp;</p>
-
+        
+        </div>
         </td>
 <!-- Center Column Ends -->
 
@@ -73,7 +73,7 @@
 <!-- Right Column Ends -->
 
 <!-- Gutter -->
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
 <!-- Gutter Ends -->
     </tr>
 </table>
