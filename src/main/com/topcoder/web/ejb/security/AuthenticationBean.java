@@ -25,7 +25,8 @@ import java.util.Arrays;
  *          Create Date: Feb 21, 2008
  */
 @Stateless
-@WebService(endpointInterface = "com.topcoder.web.ejb.security.AuthenticationRemote")
+@WebService(endpointInterface = "com.topcoder.web.ejb.security.AuthenticationRemote",
+        name = "AuthenticationService", serviceName = "AuthenticationService", portName = "AuthenticationServicePort")
 public class AuthenticationBean implements AuthenticationRemote, AuthenticationLocal {
 
     public AuthenticatedUser login(String userName, String password) throws InvalidCredentialsException,
