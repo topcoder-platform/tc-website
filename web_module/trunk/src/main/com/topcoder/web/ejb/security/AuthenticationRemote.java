@@ -16,11 +16,11 @@ import javax.jws.soap.SOAPBinding;
 @WebService
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 public interface AuthenticationRemote extends Authentication {
-    @WebMethod
 
-    @WebResult(name = "AuthenticatedUser")
-    AuthenticatedUser login(@WebParam(name = "userName")String userName,
-                            @WebParam(name = "password")String password) throws InvalidCredentialsException,
+    @WebMethod
+    @WebResult(name = "userId")
+    long login(@WebParam(name = "userName")String userName,
+               @WebParam(name = "password")String password) throws InvalidCredentialsException,
             InactiveEmailStatusException, UnactiveUserStatusException, InactiveUserStatusException;
 
 
