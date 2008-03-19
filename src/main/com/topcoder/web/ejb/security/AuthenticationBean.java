@@ -29,11 +29,12 @@ import java.util.Arrays;
         name = "AuthenticationService", serviceName = "AuthenticationService", portName = "AuthenticationServicePort")
 public class AuthenticationBean implements AuthenticationRemote, AuthenticationLocal {
 
-    public AuthenticatedUser login(String userName, String password) throws InvalidCredentialsException,
+    public long login(String userName, String password) throws InvalidCredentialsException,
             InactiveEmailStatusException, UnactiveUserStatusException, InactiveUserStatusException {
         try {
             LoginLocal ll = (LoginLocal) com.topcoder.web.common.security.Constants.createLocalEJB(LoginLocal.class);
-            TCSubject sub = ll.login(userName, password);
+            TCSubject sub =
+                    ll.login(userName, password);
 
             AuthenticatedUser ret = new AuthenticatedUser(sub.getUserId(), userName);
 
@@ -58,7 +59,7 @@ public class AuthenticationBean implements AuthenticationRemote, AuthenticationL
                 TCContext.close(ctx);
             }
 
-            return ret;
+            return ret.getUserId();
 
         } catch (AuthenticationException e) {
             throw new InvalidCredentialsException();

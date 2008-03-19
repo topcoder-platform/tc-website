@@ -10,6 +10,6 @@ package com.topcoder.web.ejb.security;
  *          Create Date: Feb 21, 2008
  */
 public interface Authentication {
-    AuthenticatedUser login(String userName, String password) throws InvalidCredentialsException,
+    long login(String userName, String password) throws InvalidCredentialsException,
             InactiveEmailStatusException, UnactiveUserStatusException, InactiveUserStatusException;
 }
