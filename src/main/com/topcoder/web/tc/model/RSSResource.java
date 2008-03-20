@@ -14,7 +14,7 @@ public class RSSResource implements Resource {
 
     private String name = null;
 
-    public RSSResource(String name, String dataSource) {
+    public RSSResource(String name, int dataSource) {
         this.name = new StringBuilder().append("RSS:").append(name).append(" ").
                 append(Constants.DATASOURCE_ID).append(": ").append(dataSource).toString();
     }
