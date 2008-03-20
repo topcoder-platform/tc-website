@@ -35,11 +35,11 @@ public class BasicData extends Base {
         r.setProperties(getRequest().getParameterMap());
 
         // Set datasource name to th default value
-        String ds = String.valueOf(Constants.DW_DATASOURCE_ID);
+        int ds = Constants.DW_DATASOURCE_ID;
         // If the datasource name is provided in request,
         // The name is set to request parameter value.
         if (hasParameter(Constants.DATASOURCE_ID)) {
-            ds = getRequest().getParameter(Constants.DATASOURCE_ID);
+            ds = new Integer(getRequest().getParameter(Constants.DATASOURCE_ID));
         }
 
         DataResource resource = new DataResource(r.getContentHandle(), ds);
@@ -53,32 +53,36 @@ public class BasicData extends Base {
             //we're just giving them one thing at a time so the command should only have
             //one query associated with it.
 
-            //todo make this a format parameter so that we can be a bit can more easily change in the future.
-            boolean isJSON = String.valueOf(true).equalsIgnoreCase(getRequest().getParameter("json"));
-            if (isJSON) {
+            String type = getRequest().getParameter(Constants.DATA_RETURN_TYPE);
+            if (String.valueOf(true).equalsIgnoreCase(getRequest().getParameter("json"))) {
+                //this is to provide some backward compatibility.  we don't really want people to use it anymore
+                type = "json";
+            }
+            if ("json".equalsIgnoreCase(type)) {
                 getResponse().setContentType("application/json");
             } else {
                 getResponse().setContentType("text/xml");
             }
 
+
             if (it.hasNext()) {
                 key = (String) it.next();
                 rsc = m.get(key);
                 if (key.equals("dd_round_results")) {
-                    if (isJSON) {
+                    if ("json".equalsIgnoreCase(type)) {
                         ResultSetContainerConverter.writeJSONhidingPayments(rsc, r.getContentHandle(), "paid", "coder_id", getHideUsersList(), getResponse().getOutputStream());
                     } else {
                         ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "paid", "coder_id", getHideUsersList(), getResponse().getOutputStream());
                     }
                 } else if (key.equals("dd_design_rating_history") ||
                         key.equals("dd_development_rating_history")) {
-                    if (isJSON) {
+                    if ("json".equalsIgnoreCase(type)) {
                         ResultSetContainerConverter.writeJSONhidingPayments(rsc, r.getContentHandle(), "payment", "coder_id", getHideUsersList(), getResponse().getOutputStream());
                     } else {
                         ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "payment", "coder_id", getHideUsersList(), getResponse().getOutputStream());
                     }
                 } else {
-                    if (isJSON) {
+                    if ("json".equalsIgnoreCase(type)) {
                         ResultSetContainerConverter.writeJSON(rsc, r.getContentHandle(), getResponse().getOutputStream());
                     } else {
                         ResultSetContainerConverter.writeXML(rsc, r.getContentHandle(), getResponse().getOutputStream());
@@ -107,11 +111,11 @@ public class BasicData extends Base {
         return hideList;
     }
 
-    private String getDataSource(String id) throws Exception {
+    public static String getDataSource(int id) throws Exception {
         Request r = new Request();
         r.setContentHandle("datasource_info");
-        r.setProperty(Constants.DATASOURCE_ID, id);
-        ResultSetContainer rsc = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r).get("datasource_info");
+        r.setProperty(Constants.DATASOURCE_ID, String.valueOf(id));
+        ResultSetContainer rsc = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("datasource_info");
         if (rsc.isEmpty()) {
             throw new NavigationException("Invalid request, unknown datasource");
         } else {
