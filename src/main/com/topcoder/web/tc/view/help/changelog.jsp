@@ -8,7 +8,8 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder - Help</title>
-    <jsp:include page="/script.jsp"/>a
+    <jsp:include page="/script.jsp"/>
+    a
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_main"/>
     </jsp:include>
@@ -49,6 +50,8 @@
 <ul>
     <li>Upgrade query system to servlet spec 2.4 -dok</li>
     <li>Add link to query tool command results in reporting tool -dok</li>
+    <li>Fix bug in a number of data feeds where their data sources weren't set -dok</li>
+    <li>Change cache time for data feeds to 3 hours rather than 3 days -dok</li>
 </ul>
 </p>
 
@@ -57,7 +60,8 @@
 <ul>
     <li>Fixed [TCWEB-118] Studio Tournament results doesn't rank correctly -pulky</li>
     <li>Make it possible to direct data feeds at different datasources -dok</li>
-    <li>Fix bug in registration where someone with a cookie would get an error rather than being asked to login -dok</li>
+    <li>Fix bug in registration where someone with a cookie would get an error rather than being asked to login -dok
+    </li>
     <%-- update security_perms set permission = permission || ' dsid: 27' where permission like 'DataDump%';--%>
 </ul>
 </p>
@@ -67,7 +71,8 @@
 <ul>
     <li>Add page that describes how to build a member photo - dok</li>
     <li>Fix bug in registration where if someone selects a school where we don't know if it's a college
-        or high school, the user can not register - dok</li>
+        or high school, the user can not register - dok
+    </li>
 </ul>
 </p>
 
@@ -89,7 +94,8 @@
 <p>
     5.14.6 - 2008.03.03
 <ul>
-    <li>Fix bug in registration process where downloading the resume would make it impossible to save your changes -dok</li>
+    <li>Fix bug in registration process where downloading the resume would make it impossible to save your changes -dok
+    </li>
     <li>Fix bug in TCO08 studio leaderboard where it was counting the top 5 submissions rather than 6 -pulky</li>
 </ul>
 </p>
