@@ -243,7 +243,7 @@ public class Constants implements WebConstants {
     public static int REVIEWER_TERMS_ID;
     public static int PROJECT_TERMS_ID;
     public static int ARCHITECTURE_TERMS_ID;
-    
+
     public static int TOURNAMENT_COMPONENT;
     //public static int ACTIVE_REVIEWER;
 
@@ -356,6 +356,7 @@ public class Constants implements WebConstants {
 
     public static final String DATASOURCE_ID = "dsid";
     public static final int DW_DATASOURCE_ID = 27;
+    public static final String DATA_RETURN_TYPE = "drt";
 
     static {
         initialize();
