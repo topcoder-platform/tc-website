@@ -7,7 +7,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />03.20.08<br />11:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=calendar&amp;d2=apr_08">Seven Marathon Matches added to Event Calendar</a></span><br /><br />
-        Check out the event calendar to see the Marathon Matches added through July 2008.</td>
+        Check out the Event Calendar to see the Marathon Matches added through July 2008.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&amp;d1=calendar&amp;d2=apr_08">details</a> | 
