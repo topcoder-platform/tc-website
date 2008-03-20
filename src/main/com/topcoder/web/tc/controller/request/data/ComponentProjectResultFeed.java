@@ -28,7 +28,7 @@ public class ComponentProjectResultFeed extends Base {
         r.setContentHandle("dd_project_data");
         r.setProperty(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
 
-        DataResource resource = new DataResource(r.getContentHandle());
+        DataResource resource = new DataResource(r.getContentHandle(), Constants.TCS_DW_DATASOURCE_ID);
         if (new TCSAuthorization(getUser()).hasPermission(resource)) {
             DataAccessInt da = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, false);
             CommandRunner cmd = new CommandRunner(da, r);
@@ -36,7 +36,7 @@ public class ComponentProjectResultFeed extends Base {
             DataFeeder df = new DataFeeder("project_details");
 
             // Add general project information
-            RSCDataFeed projectInfo = new RSCDataFeed(null, "project_info", cmd, "dd_project_info"); 
+            RSCDataFeed projectInfo = new RSCDataFeed(null, "project_info", cmd, "dd_project_info");
             AllColumns ac = new AllColumns("N/A");
             ac.replace(new Column("component", "component_name", "id", "component_id"));
             ac.replace(new Column("winner", "winner", "id", "winner_id"));
@@ -44,23 +44,23 @@ public class ComponentProjectResultFeed extends Base {
             projectInfo.add(ac);
 
             df.add(projectInfo);
-            
+
             // Add reviewer information
-            RSCDataFeed reviewers = new RSCDataFeed("reviewers", "reviewer", cmd, "dd_reviewers_for_project"); 
+            RSCDataFeed reviewers = new RSCDataFeed("reviewers", "reviewer", cmd, "dd_reviewers_for_project");
             ac = new AllColumns("N/A");
             ac.replace(new Column("reviewer", "reviewer", "id", "reviewer_id"));
             ac.replace(new Column("reviewer_role", "review_resp_desc", "id", "review_resp_id"));
             reviewers.add(ac);
-            
+
             df.add(reviewers);
 
             // Add submission information
-            RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_submissions"); 
+            RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_submissions");
             ac = new AllColumns("N/A");
             ac.replace(new Column("coder", "coder", "id", "user_id"));
-           
+
             submissions.add(ac);
-            
+
             Request reqReview = new Request();
             reqReview.setContentHandle("dd_project_review");
             reqReview.setProperty(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
@@ -68,14 +68,14 @@ public class ComponentProjectResultFeed extends Base {
             RSCParamDataFeed reviews = new RSCParamDataFeed("reviews", "review", da, reqReview, "dd_project_review");
             reviews.addParam("cr", "user_id");
 
-            ac = new AllColumns("N/A");           
+            ac = new AllColumns("N/A");
             ac.replace(new Column("reviewer", "reviewer_handle", "id", "reviewer_id"));
             ac.replace(new Column("reviewer_role", "review_resp_desc", "id", "review_resp_id"));
             reviews.add(ac);
             submissions.addChild(reviews);
 
             df.add(submissions);
-            
+
             getResponse().setContentType("text/xml");
 
             df.writeXML(getResponse().getOutputStream());

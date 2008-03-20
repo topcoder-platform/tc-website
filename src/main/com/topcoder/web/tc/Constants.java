@@ -355,8 +355,6 @@ public class Constants implements WebConstants {
     public static String RSVP_TO_ADDRESS;
 
     public static final String DATASOURCE_ID = "dsid";
-    public static final int DW_DATASOURCE_ID = 27;
-    public static final int TCS_DW_DATASOURCE_ID = 31;
     public static final String DATA_RETURN_TYPE = "drt";
 
     static {
