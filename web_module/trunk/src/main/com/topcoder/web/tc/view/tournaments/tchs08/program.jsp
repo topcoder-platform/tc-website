@@ -28,7 +28,7 @@
         
         <div id="content">
             <div>&nbsp;</div>
-            <div align="center"><strong>Coming Soon</strong></div>
+            <div align="center"><strong><a target="_blank" href="/pdfs/tournaments/TCHS08_Program_View.pdf">Download Tournament Program [PDF - 375kb]</a></strong></div>
             
         </div><%-- #content --%>
         
