@@ -39,12 +39,12 @@
 <br /><br />
 <span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
+<li><a href="/tc?module=Static&amp;d1=features&amp;d2=032008"><strong>Meet the February 2008 Coders of the Month: oninkxronda</strong></a>&nbsp;<br />
+We caught up with <tc-webtag:handle coderId="22418135" />, February's Studio Designer of the Month, to learn a little bit more about him, his proudest TopCoder moments, and anything else he wishes to share with the community.</li>
 <li><a href="/tc?module=Static&amp;d1=features&amp;d2=031308"><strong>Computerworld's "Rock star coders" profile: Petr</strong></a>&nbsp;<br />
 On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9057899&source=NLT_AM&nlid=1' refer='overview' />">article</a> about various TopCoders and how programming has affected their lives.  The following is the full Computerworld interview with <tc-webtag:handle coderId="10574855" context="algorithm"/>, our final member in this series, from which portions were used in the article.</li>
 <li><a href="/tc?module=Static&amp;d1=features&amp;d2=022708"><strong>Meet the January 2008 Coders of the Month</strong></a>&nbsp;<br />
 We caught up with January's Coders of the Month, as well as January's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</li>
-<li><a href="/tc?module=Static&amp;d1=features&amp;d2=022108"><strong>Computerworld's "Rock star coders" profile: Pops</strong></a>&nbsp;<br />
-On January 22, 2008, Computerworld ran an <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&amp;articleId=9057899&amp;source=NLT_AM&amp;nlid=1' refer='overview' />">article</a> about various TopCoders and how programming has affected their lives.  The following is the full Computerworld interview with <tc-webtag:handle coderId="119676" context="design"/>, from which portions were used in the article.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br />
 <ul>
