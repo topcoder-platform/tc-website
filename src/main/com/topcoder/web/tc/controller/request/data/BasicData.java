@@ -53,6 +53,7 @@ public class BasicData extends Base {
             //we're just giving them one thing at a time so the command should only have
             //one query associated with it.
 
+            //todo make this a format parameter so that we can be a bit can more easily change in the future.
             boolean isJSON = String.valueOf(true).equalsIgnoreCase(getRequest().getParameter("json"));
             if (isJSON) {
                 getResponse().setContentType("application/json");
