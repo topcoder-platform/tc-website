@@ -1,11 +1,11 @@
 package com.topcoder.web.tc.controller.request.data;
 
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.tc.Constants;
 
 
 /**
- * @author  cucu
+ * @author cucu
  */
 public class LongRatingDistribution extends RatingDistribution {
 
@@ -15,8 +15,8 @@ public class LongRatingDistribution extends RatingDistribution {
         return r;
     }
 
-    protected String getDb() {
-        return DBMS.DW_DATASOURCE_NAME;
+    protected int getDb() {
+        return Constants.DW_DATASOURCE_ID;
     }
 
 }

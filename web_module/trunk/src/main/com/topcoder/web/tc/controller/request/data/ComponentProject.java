@@ -3,7 +3,6 @@ package com.topcoder.web.tc.controller.request.data;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.datafeed.AllColumns;
 import com.topcoder.web.common.datafeed.Column;
 import com.topcoder.web.common.datafeed.CommandRunner;
@@ -27,14 +26,14 @@ public class ComponentProject extends Base {
         r.setContentHandle("dd_project_data");
         r.setProperty(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
 
-        DataResource resource = new DataResource(r.getContentHandle());
+        DataResource resource = new DataResource(r.getContentHandle(), Constants.TCS_DW_DATASOURCE_ID);
         if (new TCSAuthorization(getUser()).hasPermission(resource)) {
             CommandRunner cmd = new CommandRunner(getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true), r);
-            
+
             DataFeeder df = new DataFeeder("project_details");
-            
+
             // Add general project information
-            RSCDataFeed projectInfo = new RSCDataFeed(null, "project_info", cmd, "dd_project_info"); 
+            RSCDataFeed projectInfo = new RSCDataFeed(null, "project_info", cmd, "dd_project_info");
             AllColumns ac = new AllColumns();
             ac.replace(new Column("component", "component_name", "id", "component_id"));
             ac.replace(new Column("winner", "winner", "id", "winner_id"));
@@ -42,33 +41,33 @@ public class ComponentProject extends Base {
             projectInfo.add(ac);
 
             df.add(projectInfo);
-            
+
             // Add reviewer information
-            RSCDataFeed reviewers = new RSCDataFeed("reviewers", "reviewer", cmd, "dd_reviewers_for_project"); 
+            RSCDataFeed reviewers = new RSCDataFeed("reviewers", "reviewer", cmd, "dd_reviewers_for_project");
             ac = new AllColumns();
             ac.replace(new Column("reviewer", "reviewer", "id", "reviewer_id"));
             ac.replace(new Column("review_resp", "review_resp_desc", "id", "review_resp_id"));
             reviewers.add(ac);
-            
+
             df.add(reviewers);
 
             // Add submission information
-            RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_submissions"); 
+            RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_submissions");
             ac = new AllColumns();
             ac.replace(new Column("coder", "coder", "id", "user_id"));
             ac.replace(new Column("score1", "score1", "review_resp_id", "score1_review_resp_id"));
             ac.replace(new Column("score2", "score2", "review_resp_id", "score2_review_resp_id"));
             ac.replace(new Column("score3", "score3", "review_resp_id", "score3_review_resp_id"));
-           
+
             submissions.add(ac);
             df.add(submissions);
 
             getResponse().setContentType("text/xml");
 
             df.writeXML(getResponse().getOutputStream());
-            
+
             getResponse().flushBuffer();
-            
+
 
         } else {
             throw new PermissionException(getUser(), resource);

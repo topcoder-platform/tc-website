@@ -166,4 +166,8 @@ public interface WebConstants {
 
     public static final int ACTIVE_EMAIL_STATUS = 1;
 
+    public static final int DW_DATASOURCE_ID = 27;
+    public static final int TCS_DW_DATASOURCE_ID = 31;
+
+
 }

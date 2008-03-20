@@ -1,13 +1,13 @@
 package com.topcoder.web.tc.controller.request.data;
 
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.tc.Constants;
 
 
 /**
- * @author  dok
- * @version  $Revision$ $Date$
- * Create Date: Jul 26, 2005
+ * @author dok
+ * @version $Revision$ $Date$
+ *          Create Date: Jul 26, 2005
  */
 public class AlgRatingDistribution extends RatingDistribution {
 
@@ -17,8 +17,8 @@ public class AlgRatingDistribution extends RatingDistribution {
         return r;
     }
 
-    protected String getDb() {
-        return DBMS.DW_DATASOURCE_NAME;
+    protected int getDb() {
+        return Constants.DW_DATASOURCE_ID;
     }
 
 }

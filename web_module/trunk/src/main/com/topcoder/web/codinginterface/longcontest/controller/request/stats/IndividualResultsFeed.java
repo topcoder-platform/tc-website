@@ -17,9 +17,10 @@ import com.topcoder.web.common.datafeed.RSCDataFeed;
 import com.topcoder.web.common.datafeed.Value;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.model.DataResource;
+
 /**
  * Data feed to show history and results for a coder in a round.
- * 
+ *
  * @author cucu
  */
 public class IndividualResultsFeed extends Base {
@@ -28,7 +29,7 @@ public class IndividualResultsFeed extends Base {
     protected void longContestProcessing() throws Exception {
         String roundId = getRequest().getParameter(Constants.ROUND_ID);
         String coderId = getRequest().getParameter(Constants.CODER_ID);
-        
+
         try {
             Integer.parseInt(coderId);
             Integer.parseInt(roundId);
@@ -41,12 +42,12 @@ public class IndividualResultsFeed extends Base {
         r.setProperty(Constants.CODER_ID, coderId);
         r.setProperty(Constants.ROUND_ID, roundId);
 
-        DataResource resource = new DataResource(r.getContentHandle());
-        
+        DataResource resource = new DataResource(r.getContentHandle(), Constants.DW_DATASOURCE_ID);
+
         if (new TCSAuthorization(getUser()).hasPermission(resource)) {
             DataAccessInt da = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
             CommandRunner cmd = new CommandRunner(da, r);
-            
+
             String handle = "N/A";
             ResultSetContainer rsc = cmd.getData().get("dd_marathon_individual_results");
             if (rsc.size() > 0) {
@@ -56,9 +57,9 @@ public class IndividualResultsFeed extends Base {
 
             df.add(new Value("round_id", roundId));
             df.add(new Value("coder_id", coderId));
-            df.add(new Value("handle", handle));           
-            
-            RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_marathon_submission_history"); 
+            df.add(new Value("handle", handle));
+
+            RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_marathon_submission_history");
             AllColumns acSubm = new AllColumns("");
             acSubm.replace(new Column("time", "time", null, null, new DateFormatter()));
 
@@ -66,11 +67,11 @@ public class IndividualResultsFeed extends Base {
 
             df.add(submissions);
 
-            
-            RSCDataFeed testcases = new RSCDataFeed("testcases", "testcase", cmd, "dd_marathon_individual_results"); 
+
+            RSCDataFeed testcases = new RSCDataFeed("testcases", "testcase", cmd, "dd_marathon_individual_results");
             AllColumns ac = new AllColumns("");
             ac.skip("handle");
-          
+
             testcases.add(ac);
 
             df.add(testcases);
@@ -86,5 +87,5 @@ public class IndividualResultsFeed extends Base {
             throw new PermissionException(getUser(), resource);
         }
     }
-    
+
 }
