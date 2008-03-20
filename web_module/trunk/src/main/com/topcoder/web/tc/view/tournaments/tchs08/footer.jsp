@@ -8,7 +8,7 @@
         </ul>
     </div> #sponsors --%>
     
-    <div style="float: right; margin-right: 10px;"><strong><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=photos">TOURNAMENT PHOTOS!</a></strong></div>
+    <div style="float: right; text-align: right; margin-right: 10px;"><strong>CHECK OUT<br /><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=photos">PHOTOS</a> AND <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=movieStream">MOVIES</a><br/>FROM THE EVENT!</strong></div>
 
     <div id="impDates">
         <h2>Important Dates</h2>
