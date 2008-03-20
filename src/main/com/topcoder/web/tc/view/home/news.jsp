@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />03.20.08<br />11:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=calendar&amp;d2=apr_08">Seven Marathon Matches added to Event Calendar</a></span><br /><br />
+        Check out the event calendar to see the Marathon Matches added through July 2008.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=calendar&amp;d2=apr_08">details</a> | 
+        <tc-webtag:forumLink forumID="520539" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />03.20.08<br />9:15 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2201">How's Your Javascript?</a></span><br /><br />
@@ -149,20 +162,4 @@
         <a href="<tc-webtag:linkTracking link='/threadfest' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="520259" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />03.12.08<br />10:15 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm392">SRM 392 - Problem Set &amp; Analysis</a></span><br /><br />
-      Division 1 was won by <tc-webtag:handle coderId="19849563" context="algorithm"/> who showed the best time on both the 500-pointer and the 1000-pointer. The second place went to <tc-webtag:handle coderId="7442498" context="algorithm"/>, and the third was gained by <tc-webtag:handle coderId="10574855" context="algorithm"/>, thanks to his two successful challenges.</td>
-         <td class="newsPhoto"><img src="/i/m/darnley_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="21971539" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm392">details</a> | 
-        <tc-webtag:forumLink forumID="520162" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
