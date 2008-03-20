@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />03.20.08<br />2:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/registration/actions/Registration.do?method=openRegistrations">Two Assembly Comps Launched with over $10,000 in Prizes</a></span><br /><br />
+        The Castor <a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003988">Installer Client</a> and <a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003989">Web Assembly</a> competitions are now open for registration. Both of these applications have been converted into working prototypes and now need to be integrated with the backend components. For more information, please look at the <a href="/registration/actions/Registration.do?method=openRegistrations">assembly registration site</a>. Good Luck!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/registration/actions/Registration.do?method=openRegistrations">details</a> | 
+        <tc-webtag:forumLink forumID="520543" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />03.20.08<br />11:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=calendar&amp;d2=apr_08">Seven Marathon Matches added to Event Calendar</a></span><br /><br />
@@ -149,17 +162,4 @@
         <a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">details</a> | 
         <tc-webtag:forumLink forumID="520312" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />03.12.08<br />12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/threadfest' refer='/tc' />">AMD Multicore Threadfest Competition 1</a></span><br /><br />
-        The First Competition of the AMD Multicore Threadfest has begun!  Check out all the info <a href="<tc-webtag:linkTracking link='/threadfest' refer='/tc' />">here</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/threadfest' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="520259" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
    </td></tr>
