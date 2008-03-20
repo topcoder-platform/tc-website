@@ -130,15 +130,15 @@ a:hover, a:active {
                     <th>Time</th>
                     <th>Event</th>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>3:00 PM - 3:30 PM</td>
                     <td>TopCoder 101</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td>4:00 PM - 4:45 PM</td>
                     <td>Developer Forum:  From Assembly to Architecture</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>7:00 PM</td>
                     <td>Welcome Reception at <a target="_blank" href="<tc-webtag:linkTracking link='http://www.hofbrauhauslasvegas.com/' refer='tco08_rsvp' />">Hofbrauhaus Las Vegas</a></td>
                 </tr>
@@ -149,31 +149,31 @@ a:hover, a:active {
                     <th>Time</th>
                     <th>Event</th>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>12:15 PM</td>
                     <td>Lunch time Member discussions</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td>1:00 PM - 1:30 PM</td>
                     <td>TopCoder 101</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>1:00 PM - 1:45 PM</td>
                     <td>Crowd Sourcing Collaboration and Innovation</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td>2:00 PM - 2:45 PM</td>
                     <td>Developer Forum:  TC Direct &amp; Cockpit and Widget Innerworkings</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>3:00 PM - 3:45 PM</td>
                     <td>Corporate Forum:  Grady Bryant from VeriSign</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td>4:00 PM - 4:45 PM</td>
                     <td>Developer Forum: Quality Through Review</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>6:00 PM - 8:00 PM</td>
                     <td>Casino Night Cocktail Party</td>
                 </tr>
@@ -184,18 +184,20 @@ a:hover, a:active {
                     <th>Time</th>
                     <th>Event</th>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>9:00 AM - 9:45 AM</td>
                     <td>Corporate Forum:  Ron Burkhart from On Point Technology</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td>10:30 AM - 11:15 AM</td>
                     <td>Corporate Forum:  Nic Perez from AOL</td>
                 </tr>
+                <%--
                 <tr class="dark">
                     <td>11:30 AM - 12:00 PM</td>
                     <td>Business Transformation Discussion</td>
                 </tr>
+                --%>
                 <tr class="light">
                     <td>12:15 PM</td>
                     <td>Lunch time Member discussions</td>
