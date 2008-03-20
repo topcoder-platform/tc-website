@@ -2,9 +2,7 @@ package com.topcoder.web.tc.controller.request.data;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.CachedDataAccess;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.cache.MaxAge;
@@ -26,9 +24,9 @@ public class BasicRSS extends Static {
         Request r = new Request();
         r.setProperties(getRequest().getParameterMap());
 
-        String ds = String.valueOf(Constants.DW_DATASOURCE_ID);
+        int ds = Constants.DW_DATASOURCE_ID;
         if (hasParameter(Constants.DATASOURCE_ID)) {
-            ds = getRequest().getParameter(Constants.DATASOURCE_ID);
+            ds = new Integer(getRequest().getParameter(Constants.DATASOURCE_ID));
         }
 
         RSSResource resource = new RSSResource(r.getContentHandle(), ds);
@@ -41,10 +39,10 @@ public class BasicRSS extends Static {
             getRequest().setAttribute("title", title);
 
             //for now we'll assume they're gettin data from the warehouse, perhaps that'll change later
-            Map<String, ResultSetContainer> m = new CachedDataAccess(MaxAge.HOUR, getDataSource(ds)).getData(r);
+            Map<String, ResultSetContainer> m = new CachedDataAccess(MaxAge.HOUR, BasicData.getDataSource(ds)).getData(r);
             getRequest().setAttribute("results", m);
 
-            if (hasParameter(Constants.STATIC_PREFIX +1)) {
+            if (hasParameter(Constants.STATIC_PREFIX + 1)) {
                 super.businessProcessing();
             } else {
                 setNextPage("/rss/default.jsp");
@@ -53,19 +51,6 @@ public class BasicRSS extends Static {
 
         } else {
             throw new PermissionException(getUser(), resource);
-        }
-    }
-
-
-    private String getDataSource(String id) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("datasource_info");
-        r.setProperty(Constants.DATASOURCE_ID, id);
-        ResultSetContainer rsc = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r).get("datasource_info");
-        if (rsc.isEmpty()) {
-            throw new NavigationException("Invalid request, unknown datasource");
-        } else {
-            return rsc.get(0).getStringItem("datasource_name");
         }
     }
 
