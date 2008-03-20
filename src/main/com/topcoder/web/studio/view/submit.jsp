@@ -97,7 +97,9 @@
         <p>Thank you for accepting the terms of the contest. Please use the form below to upload your
             submission:</p>
 
+<%--
         <p>The maximum file size per submission is 2MB.</p>
+--%>
 
         <p>Only the following file types will be accepted:</p>
         <ul>
