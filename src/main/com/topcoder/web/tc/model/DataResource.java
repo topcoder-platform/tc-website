@@ -14,11 +14,7 @@ public class DataResource implements Resource {
     private String name = null;
     private static final long serialVersionUID = -77874237629417264L;
 
-    public DataResource(String name) {
-        this.name = "DataDump:" + name;
-    }
-    
-    public DataResource(String name, String dataSource) {
+    public DataResource(String name, int dataSource) {
         this.name = new StringBuilder().append("DataDump:").append(name).append(" ").
                 append(Constants.DATASOURCE_ID).append(": ").append(dataSource).toString();
     }
