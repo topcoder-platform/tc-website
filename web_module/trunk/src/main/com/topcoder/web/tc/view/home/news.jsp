@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />03.20.08<br />5:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=032008">Meet the February 2008 Coders of the Month: oninkxronda</a></span><br /><br />
+        We caught up with <tc-webtag:handle coderId="22418135" />, February's Studio Designer of the Month, to learn a little bit more about him, his proudest TopCoder moments, and anything else he wishes to share with the community.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=032008">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=607889">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />03.20.08<br />2:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/registration/actions/Registration.do?method=openRegistrations">Two Assembly Comps Launched with over $10,000 in Prizes</a></span><br /><br />
@@ -149,17 +162,4 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd4">details</a> | 
         <tc-webtag:forumLink forumID="520246" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />03.12.08<br />3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">Event Calendar updated through July 2008</a></span><br /><br />
-        There are more SRMs in the Event Calendar scheduled through July!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">details</a> | 
-        <tc-webtag:forumLink forumID="520312" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
