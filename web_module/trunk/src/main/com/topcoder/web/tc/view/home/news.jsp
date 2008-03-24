@@ -6,7 +6,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.24.08<br />4:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/qandas/article.aspx?editorialsid=123' refer='/tc' />">Open Counsel</a></span><br /><br />
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/qandas/article.aspx?editorialsid=123' refer='/tc' />">Redmond Developer News - Open Counsel</a></span><br /><br />
         TopCoder's Ira Heffan is the featured Q&amp;A in the current edition of <em>Redmond Developer News</em>. Heffan discusses Microsoft's announcement to make its technology more open.</td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -19,7 +19,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.24.08<br />4:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_032408">Multicore boom needs new developer skills</a></span><br /><br />
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_032408">washingtonpost.com - Multicore boom needs new developer skills</a></span><br /><br />
         Microsoft exec warns of "a worldwide shortage of people experienced in parallel computing experience."</td>
    </tr>
    <tr><td class="newsLinksCell">
