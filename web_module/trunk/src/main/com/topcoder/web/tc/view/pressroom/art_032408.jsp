@@ -39,7 +39,7 @@
                         <jsp:param name="title" value="Article"/>
                     </jsp:include>
 
-<div align="right"><tc-webtag:forumLink forumID="516841" message="Discuss this press release" /></div>
+<div align="right"><tc-webtag:forumLink forumID="520558" message="Discuss this press release" /></div>
                         
 <div align="center">
 <p><span class="bodyTitle">Multicore boom needs new developer skills</span><br>
