@@ -119,7 +119,7 @@
                     </div>
                     <div class="pr_headlines">
                         <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_032408">Multicore boom needs new developer skills</a></h3>
-                        <p>Microsoft exec warns of "a worldwide shortage of people experienced in parallel computing experience."  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_032408">[March 24]</a></small></p>
+                        <p>Microsoft exec warns of "a worldwide shortage of people experienced in parallel computing experience."  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_032408">[March 24]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
