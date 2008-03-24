@@ -1,4 +1,5 @@
 <project name="topcoder" default="main" basedir=".">
+    <property environment="env"/>
     <property name="Name" value="TopCoder"/>
     <property name="build" value="build"/>
     <property name="war.dir" value="${build}/wars"/>
@@ -9,6 +10,7 @@
     <property name="lib.dir" value="lib"/>
     <property name="jars.dir" value="${lib.dir}/jars"/>
     <property name="jive.dir" value="lib/jars/jive"/>
+    <property name="external.jars.dir" location="../external-artifacts"/>
     <property name="struts.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
     <property name="bin" value="lib/bin"/>
     <property name="src.dir" value="src"/>
@@ -23,11 +25,10 @@
     <property name="shared.build" value="${basedir}/../shared"/>
     <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
     <property name="web" value="src/main/com/topcoder/web"/>
-    <property name="jboss_home" value="../jboss-4.0.4.GA"/>
-    <property name="jboss_deploy" value="${jboss_home}/server/default/deploy"/>
-    <property name="jboss_lib" value="${jboss_home}/server/default/lib"/>
-    <property name="jboss_conf" value="${jboss_home}/server/default/conf"/>
-    <property environment="env"/>
+    <property name="jboss_home" value="${env.JBOSS_HOME}"/>
+    <property name="jboss_deploy" value="${jboss_home}/server/forums/deploy"/>
+    <property name="jboss_lib" value="${jboss_home}/server/forums/lib"/>
+    <property name="jboss_conf" value="${jboss_home}/server/forums/conf"/>
 
     <property name="deprecation" value="true"/>
     <property name="debug" value="true"/>
@@ -39,63 +40,24 @@
 
     <path id="class.path">
         <pathelement location="${classes}"/>
-        <pathelement location="${testclasses}"/>
-        <pathelement location="${resources}"/>
-        <pathelement location="${resources}/hibernate"/>
         <pathelement location="${shared.jar}"/>
-        <pathelement location="${images}"/>
-        <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
-        <pathelement location="${jars.dir}/ifxjdbc.jar"/>
-        <pathelement location="${jars.dir}/bfograph.jar"/>
-        <pathelement location="${jars.dir}/activation.jar"/>
-        <pathelement location="${jars.dir}/httpunit.jar"/>
+        <pathelement location="${common.jar}"/>
 
-        <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
-        <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
-        <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
-        <pathelement location="${jars.dir}/jboss/xalan.jar"/>
-        <pathelement location="${jars.dir}/jboss/xercesImpl.jar"/>
-        <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
-        <pathelement location="${jars.dir}/jboss/mail.jar"/>
-        <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
-        <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
-        <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
+        <pathelement location="${external.jars.dir}/jbossall-client-4.2.2.jar"/>
+        <pathelement location="${external.jars.dir}/servlet-api-2.4.jar"/>
+        <pathelement location="${external.jars.dir}/jsp-api-2.0.jar"/>
 
-        <pathelement location="${jive.dir}/jivebase.jar"/>
-        <pathelement location="${jive.dir}/jiveforums.jar"/>
-        <pathelement location="${jive.dir}/xwork.jar"/>
-        <pathelement location="${jive.dir}/htmlparser.jar"/>
+        <pathelement location="${external.jars.dir}/htmllexer-jive-4.2.5.jar"/>
+        <pathelement location="${external.jars.dir}/htmlparser-jive-4.2.5.jar"/>
+        <pathelement location="${external.jars.dir}/file_upload-2.0.jar"/>
+        <pathelement location="${external.jars.dir}/id_generator-3.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/base_exception-2.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/jivebase-4.2.5.jar"/>
+        <pathelement location="${external.jars.dir}/jiveforums-4.2.5.jar"/>
 
-        <pathelement location="${jars.dir}/tcs/alerts_wrapper/1.0/java_alerts_wrapper.jar"/>
-        <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
-        <pathelement location="${jars.dir}/tcs/object_factory/2.0.1/object_factory.jar"/>
+        <!--only used for conversion -->
+        <pathelement location="${external.jars.dir}/activation-1.1.jar"/>
 
-        <!-- TCS Components -->
-        <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
-        <pathelement location="${jars.dir}/object_formatter.jar"/>
-        <pathelement location="${jars.dir}/idgenerator.jar"/>
-        <!-- needed for shared.jar -->
-        <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
-        <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
-        <pathelement location="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
-        <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
-
-        <!-- TCS Other -->
-        <pathelement location="${jars.dir}/tcs/catalog.jar"/>
-        <pathelement location="${jars.dir}/tcs/user.jar"/>
-
-        <!-- hibernate files -->
-        <pathelement location="${jars.dir}/hibernate-3.2/hibernate3.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.2/commons-logging-1.0.4.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.2/ehcache-1.2.3.jar"/>
-        <pathelement location="${jive.dir}/velocity-dep.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.2/cglib-2.1.3.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.2/asm.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.2/ant-antlr-1.6.5.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.2/antlr-2.7.6.jar"/>
-        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-commons-annotations.jar"/>
-        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
-        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
@@ -116,25 +78,7 @@
     </target>
 
     <target name="compile" depends="init,compile_shared">
-        <javac
-                srcdir="${java}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.5"
-                target="1.5"
-                >
-            <include name="com/topcoder/common/**"/>
-            <include name="com/topcoder/ejb/**"/>
-            <include name="com/topcoder/security/**"/>
-            <include name="com/topcoder/utilities/**"/>
-            <include name="com/topcoder/web/**"/>
-        </javac>
-        <antcall target="jar_common"/>
-    </target>
-
-    <target name="compile_forums" depends="init,compile_shared">
+        <ant antfile="build_common.xml" target="build-dist"/>
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -145,47 +89,10 @@
                 target="1.5"
                 >
             <include name="com/topcoder/web/forums/**"/>
-            <include name="com/topcoder/web/common/**"/>
-            <include name="com/topcoder/security/**"/>
-            <include name="com/topcoder/common/web/data/**"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
             <include name="com/topcoder/web/ejb/email/**"/>
             <include name="com/topcoder/web/ejb/user/**"/>
-        </javac>
-        <antcall target="jar_common"/>
-    </target>
-
-    <target name="compile_forumData" depends="init,compile_shared">
-        <javac
-                srcdir="${java}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.5"
-                target="1.5"
-                >
-            <include name="com/topcoder/utilities/forumConvert/**"/>
-        </javac>
-    </target>
-
-    <target name="compile_TCJive" depends="init,compile_shared">
-        <javac
-                srcdir="${java}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.5"
-                target="1.5"
-                >
-            <include name="com/topcoder/web/forums/model/TCUser.java"/>
-            <include name="com/topcoder/web/forums/model/TCUserManager.java"/>
-            <include name="com/topcoder/web/forums/model/Common.java"/>
-            <include name="com/topcoder/web/forums/model/TCAuthFactory.java"/>
-            <include name="com/topcoder/web/forums/model/TCAuthToken.java"/>
-            <include name="com/topcoder/web/forums/util/filter/*.java"/>
         </javac>
     </target>
 
@@ -196,20 +103,11 @@
     </target>
 
 
-    <target name="jar_common">
-        <jar jarfile="${common.jar}">
-            <fileset dir="${classes}">
-                <include name="com/topcoder/web/common/**/*.class"/>
-                <include name="com/topcoder/common/**/*.class"/>
-            </fileset>
-        </jar>
-    </target>
-
     <!-- ==========
          JBoss EJBs
          ========== -->
 
-    <target name="package-EJB-MessageHistoryBean" depends="compile_forums">
+    <target name="package-EJB-MessageHistoryBean" depends="compile">
         <jar jarfile="${ejb_jars}/messagehistory.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/messagehistory/*.class"/>
@@ -217,7 +115,7 @@
         </jar>
     </target>
 
-    <target name="package-EJB-ForumPollBean" depends="compile_forums">
+    <target name="package-EJB-ForumPollBean" depends="compile">
         <jar jarfile="${ejb_jars}/forumpoll.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forumpoll/*.class"/>
@@ -225,7 +123,7 @@
         </jar>
     </target>
 
-    <target name="package-EJB-ForumsBean" depends="compile_forums">
+    <target name="package-EJB-ForumsBean" depends="compile">
         <jar jarfile="${ejb_jars}/forums.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forums/*.class"/>
@@ -233,7 +131,7 @@
         </jar>
     </target>
 
-    <target name="package-EJB-UserBean" depends="compile_forums">
+    <target name="package-EJB-UserBean" depends="compile">
         <jar jarfile="${ejb_jars}/User.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/*.class"/>
@@ -241,7 +139,7 @@
         </jar>
     </target>
 
-    <target name="package-EJB-EmailBean" depends="compile_forums">
+    <target name="package-EJB-EmailBean" depends="compile">
         <jar jarfile="${ejb_jars}/Email.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/email/*.class"/>
@@ -254,8 +152,8 @@
          End JBoss EJBs
          ============== -->
 
-    <target name="package-TCJive" depends="compile_TCJive">
-        <jar jarfile="${jars.dir}/tcjive.jar">
+    <target name="package-TCJive" depends="compile">
+        <jar jarfile="${bin}/tcjive.jar">
             <fileset dir="${classes}/">
                 <include name="com/topcoder/web/forums/model/TCUser.class"/>
                 <include name="com/topcoder/web/forums/model/TCUserManager.class"/>
@@ -270,50 +168,10 @@
         </jar>
     </target>
 
-    <target name="deploy-security" depends="build-security">
-        <copy todir="${jboss_deploy}">
-            <fileset dir="${ear.dir}">
-                <include name="security.ear"/>
-            </fileset>
-        </copy>
+    <target name="build-security">
+        <ant antfile="build_tc.xml" target="build-security"/>
     </target>
 
-    <target name="build-security" depends="compile_shared">
-        <javac
-                srcdir="${java}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.5"
-                target="1.5"
-                >
-            <include name="com/topcoder/security/**"/>
-        </javac>
-        <jar jarfile="${ejb_jars}/security.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/security/**"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/**"/>
-            <metainf dir="${resources}/security/conf" includes="*.xml" excludes="application.xml"/>
-        </jar>
-
-        <ear earfile="${ear.dir}/security.ear" appxml="${resources}/security/conf/application.xml">
-            <fileset dir="${jars.dir}">
-                <include name="configmanager2.jar"/>
-            </fileset>
-            <fileset dir="${jars.dir}/tcs/id_generator/3.0">
-                <include name="id_generator.jar"/>
-            </fileset>
-            <fileset dir="${jars.dir}/tcs">
-                <include name="base_exception.jar"/>
-            </fileset>
-            <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
-                <include name="db_connection_factory.jar"/>
-            </fileset>
-            <fileset dir="${ejb_jars}">
-                <include name="security.jar"/>
-            </fileset>
-        </ear>
-    </target>
 
     <target name="build-forums">
         <antcall target="war-forums"/>
@@ -325,7 +183,7 @@
         <antcall target="package-EJB-EmailBean"/>
     </target>
 
-    <target name="war-forums" depends="compile_forums">
+    <target name="war-forums" depends="compile">
         <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/tc/web.xml">
             <fileset dir="${java}/com/topcoder/web/forums/view/tc">
                 <include name="*.*"/>
@@ -361,23 +219,18 @@
                 <include name="standard.jar"/>
             </lib>
         </war>
-        <antcall target="expand-forums"/>
-    </target>
-
-    <target name="expand-forums">
-        <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/forums.war/META-INF"/>
     </target>
 
     <target name="expand">
-        <antcall target="expand-forums"/>
+        <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
+        <delete dir="${jboss_deploy}/forums.war/META-INF"/>
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/User.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/Email.jar"/>
 
-        <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
+        <copy todir="${jboss_deploy}" file="${external.jars.dir}/jive4.war"/>
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
         <antcall target="move-conf"/>
         <antcall target="move-libs"/>
@@ -439,9 +292,30 @@
 
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${common.jar}"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcjive.jar"/>
+        <copy todir="${jboss_lib}" file="${bin}/tcjive.jar"/>
 
     </target>
+
+
+
+
+
+
+
+    <target name="compile_forumData" depends="init,compile_shared">
+        <javac
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.5"
+                target="1.5"
+                >
+            <include name="com/topcoder/utilities/forumConvert/**"/>
+        </javac>
+    </target>
+
 
     <target name="run-ForumConverter" depends="compile_forumData">
         <java classname="com.topcoder.utilities.forumConvert.ForumConverter" fork="true">
