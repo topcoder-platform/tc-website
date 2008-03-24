@@ -99,7 +99,7 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
-                <%-- Redmond Developer News - Open Counsel begin 
+                <%-- Redmond Developer News - Open Counsel begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
                         <a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/qandas/article.aspx?editorialsid=123' refer='pr_index' />"><img src="/i/pressroom/rdn_logo.png" alt="Redmond Developer News" border="0" /></a>
@@ -110,7 +110,7 @@
                     </div>
                     <div class="pr_clear"></div>
                 </div>
-                 Redmond Developer News - Open Counsel end --%>
+                <%-- Redmond Developer News - Open Counsel end --%>
                 
                 <%-- Multicore boom needs new developer skills begin --%>
                 <div class="pr_newsitem">
