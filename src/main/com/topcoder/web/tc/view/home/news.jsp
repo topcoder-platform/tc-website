@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.24.08<br />4:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_032408">Multicore boom needs new developer skills</a></span><br /><br />
+        Microsoft exec warns of "a worldwide shortage of people experienced in parallel computing experience."</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_032408">details</a> | 
+        <tc-webtag:forumLink forumID="520558" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />03.20.08<br />5:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=features&amp;d2=032008">Meet the February 2008 Coders of the Month: oninkxronda</a></span><br /><br />
@@ -146,20 +159,4 @@
         <a target="_blank" href="/pdfs/tournaments/TCHS08_Program_View.pdf">details</a> | 
         <tc-webtag:forumLink forumID="520326" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />03.12.08<br />4:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd4">TCO08 - Online Round 4 - Problem Set &amp; Analysis</a></span><br /><br />
-      Round 4 of the 2008 TopCoder Open saw 147 of the best competitors battling for 72 spots at the onsite finals in Las Vegas. Excitement was high. There were at least twice as many observers as coders in the Arena – some rooting for the their fellow countrymen, some for their favorite coder.</td>
-         <td class="newsPhoto"><%--<img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="20635649" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=tco08rd4">details</a> | 
-        <tc-webtag:forumLink forumID="520246" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>

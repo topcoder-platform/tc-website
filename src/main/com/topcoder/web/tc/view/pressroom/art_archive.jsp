@@ -73,9 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
-                    <%--
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/qandas/article.aspx?editorialsid=123' refer='art_archive' />">Open Counsel <br /><small style="margin-left:10px;">[March 24 - Redmond Developer News]</small></a></dd>
-                    --%>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_032408">Multicore boom needs new developer skills <br /><small style="margin-left:10px;">[March 24 - washingtonpost.com]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.networkworld.com/news/2008/031708-china-us-and-poland-take.html' refer='art_archive' />">China, US and Poland take high-school coding prizes <br /><small style="margin-left:10px;">[March 17 - Network World]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.sdtimes.com/content/article.aspx?ArticleID=31779' refer='art_archive' />">Not Your Father's Outsourcing <br /><small style="margin-left:10px;">[March 10 - SD Times]</small></a></dd>
