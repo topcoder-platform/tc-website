@@ -106,7 +106,7 @@
                     </div>
                     <div class="pr_headlines">
                         <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/qandas/article.aspx?editorialsid=123' refer='pr_index' />">Open Counsel</a></h3>
-                        <p>TopCoder's Ira Heffan is the featured Q&A in the current edition of <em>Redmond Developer News</em>. Heffan discusses Microsoft's announcement to make its technology more open.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/qandas/article.aspx?editorialsid=123' refer='pr_index' />">[March 24]</a></small></p>
+                        <p>TopCoder's Ira Heffan is the featured Q&amp;A in the current edition of <em>Redmond Developer News</em>. Heffan discusses Microsoft's announcement to make its technology more open.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/qandas/article.aspx?editorialsid=123' refer='pr_index' />">[March 24]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
