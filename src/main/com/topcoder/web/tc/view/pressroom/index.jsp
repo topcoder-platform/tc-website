@@ -99,6 +99,45 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- Redmond Developer News - Open Counsel begin 
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/qandas/article.aspx?editorialsid=123' refer='pr_index' />"><img src="/i/pressroom/rdn_logo.png" alt="Redmond Developer News" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/qandas/article.aspx?editorialsid=123' refer='pr_index' />">Open Counsel</a></h3>
+                        <p>TopCoder's Ira Heffan is the featured Q&A in the current edition of <em>Redmond Developer News</em>. Heffan discusses Microsoft's announcement to make its technology more open.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/qandas/article.aspx?editorialsid=123' refer='pr_index' />">[March 24]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                 Redmond Developer News - Open Counsel end --%>
+                
+                <%-- Multicore boom needs new developer skills begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_032408"><img src="/i/pressroom/washingtonPostDOTcom_logo.png" alt="washingtonpost.com logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_032408">Multicore boom needs new developer skills</a></h3>
+                        <p>Microsoft exec warns of "a worldwide shortage of people experienced in parallel computing experience."  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_032408">[March 24]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Multicore boom needs new developer skills end --%>
+                
+                <%-- Network World - China, US and Poland take high-school coding prizes begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.networkworld.com/news/2008/031708-china-us-and-poland-take.html' refer='pr_index' />"><img src="/i/pressroom/networkWorld_logo.png" alt="Network World logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.networkworld.com/news/2008/031708-china-us-and-poland-take.html' refer='pr_index' />">China, US and Poland take high-school coding prizes</a></h3>
+                        <p>A Chinese student has won top honors in the TopCoder online programming competition hosted by Purdue University in Indiana, beating 48 other elite competitors from the U.S., China, Russia, Poland, India and other nations.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.networkworld.com/news/2008/031708-china-us-and-poland-take.html' refer='pr_index' />">[March 17]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Network World - China, US and Poland take high-school coding prizes end --%>
+                
                 <%-- China, US and Poland Take Honors in TopCoder High School Tournament at Purdue University begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
