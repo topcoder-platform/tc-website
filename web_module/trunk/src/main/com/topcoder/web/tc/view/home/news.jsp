@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.24.08<br />4:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/qandas/article.aspx?editorialsid=123' refer='/tc' />">Open Counsel</a></span><br /><br />
+        TopCoder's Ira Heffan is the featured Q&amp;A in the current edition of <em>Redmond Developer News</em>. Heffan discusses Microsoft's announcement to make its technology more open.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/qandas/article.aspx?editorialsid=123' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="520559" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.24.08<br />4:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_032408">Multicore boom needs new developer skills</a></span><br /><br />
@@ -146,17 +159,4 @@
         <a href="/tc?module=Static&amp;d1=features&amp;d2=031308">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=606881">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.12.08<br />5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="_blank" href="/pdfs/tournaments/TCHS08_Program_View.pdf">TCHS08 Program Now Available!</a> [PDF - 375kb]</span><br /><br />
-        Take a look at the TCHS08 tournament <a target="_blank" href="/pdfs/tournaments/TCHS08_Program_View.pdf">program</a> and learn more about the finalists.  Don't forget the <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=onsiteSchedule">finals</a> are on Saturday.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a target="_blank" href="/pdfs/tournaments/TCHS08_Program_View.pdf">details</a> | 
-        <tc-webtag:forumLink forumID="520326" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
