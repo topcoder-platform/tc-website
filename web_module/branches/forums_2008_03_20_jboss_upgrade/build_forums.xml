@@ -257,47 +257,34 @@
 
 
     <target name="move-libs">
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/data_validation/1.0/data_validation.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_system_server/1.0/file_system_server.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/guid_generator/1.0/guid_generator.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/heartbeat/1.0/heartbeat.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/ip_server/2.0.1/ip_server.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/file_upload-2.0.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/configuration_manager-2.1.5.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/data_validation-1.0.0.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/file_system_server-1.0.0.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/guid_generator-1.0.0.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/heartbeat-1.0.0.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/ip_server-2.0.1.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/typesafe_enum-1.0.0.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/object_formatter-1.0.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/id_generator-3.0.0.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/base_exception-2.0.0.jar"/>
 
-        <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/jivebase-4.2.5.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/jiveforums-4.2.5.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/htmlparser-jive-4.2.5.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/velocity-dep-jive-4.2.5.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/webwork-jive-4.2.5.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/xwork-jive-4.2.5.jar"/>
 
-        <copy todir="${jboss_lib}" file="${jars.dir}/jboss/jgroups.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/jboss/jboss-cache.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/ifxjdbc.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
-
-        <copy todir="${jboss_lib}">
-            <fileset dir="${jars.dir}/tcs/id_generator/3.0">
-                <include name="id_generator.jar"/>
-            </fileset>
-        </copy>
-
-        <copy todir="${jboss_lib}">
-            <fileset dir="${jars.dir}/tcs">
-                <include name="base_exception.jar"/>
-            </fileset>
-        </copy>
+        <copy todir="${jboss_lib}" file="${jboss_home}server/all/lib/jgroups.jar"/>
+        <copy todir="${jboss_lib}" file="${jboss_home}server/all/lib/jboss-cache-jdk50-4.2.2.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/ifxjdbc-3.00.JC3.jar"/>
 
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${common.jar}"/>
         <copy todir="${jboss_lib}" file="${bin}/tcjive.jar"/>
 
     </target>
-
-
-
 
 
 
