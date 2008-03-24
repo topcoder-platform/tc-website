@@ -276,8 +276,8 @@
         <copy todir="${jboss_lib}" file="${external.jars.dir}/webwork-jive-4.2.5.jar"/>
         <copy todir="${jboss_lib}" file="${external.jars.dir}/xwork-jive-4.2.5.jar"/>
 
-        <copy todir="${jboss_lib}" file="${jboss_home}server/all/lib/jgroups.jar"/>
-        <copy todir="${jboss_lib}" file="${jboss_home}server/all/lib/jboss-cache-jdk50-4.2.2.jar"/>
+        <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jgroups.jar"/>
+        <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jboss-cache-jdk50-4.2.2.jar"/>
         <copy todir="${jboss_lib}" file="${external.jars.dir}/ifxjdbc-3.00.JC3.jar"/>
 
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
