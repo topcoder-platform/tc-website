@@ -202,6 +202,7 @@
                 <include name="build/ears/security.ear"/>
                 <include name="build/ejb_jars/Email.jar"/>
                 <include name="build/ejb_jars/forums.jar"/>
+                <include name="build/ejb_jars/security.jar"/>
                 <include name="lib/bin/shared.jar"/>
                 <include name="lib/bin/tcwebcommon.jar"/>
                 <include name="lib/bin/tcjive.jar"/>
