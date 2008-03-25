@@ -79,13 +79,17 @@
             <tc-webtag:format object="${contest.endTime}" format="EEEE, MMMM d, yyyy '<br />at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
         </td>
     </tr>
+    <c:if test="${contest.winnerAnnouncementTime ne null}"> 
     <tr>
         <td class="field">
             Winner(s) Announced:
         </td>
         <td class="value">
+            <tc-webtag:format object="${contest.winnerAnnouncementTime}"
+                              format="EEEE, MMMM d, yyyy '<br />at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
         </td>
     </tr>
+    </c:if>
 </tbody>
 </table>
     </div>
@@ -116,10 +120,14 @@
     </div>
     <div class="section">Submission File Format(s):</div>
     <div class="padder">
-        <p>Your submission must be a .zip file.</p>
-        <p>Preview Image: .jpg file</p>
-        <p>This image is a graphical representation of your submission.  It's up to you to properly portray the substance of your submission in the image.</p>
+        <studio:formatField text="${contest.submissionFileFormat.value}"/>
     </div>
+
+    <c:if test="${not empty contest.otherFileTypes.value}">
+        <div class="section">Other File Types:</div>
+        <div class="padder"><p align="center"><studio:formatField text="${contest.otherFileTypes.value}"/></p></div>
+    </c:if>
+
     <div class="section">Submission Limit:</div>
     <div class="padder">
         <p align="center"><strong>1</strong> submission</p>
@@ -134,11 +142,11 @@
     </tr>
     <tr>
         <td class="field">Contest Type:</td>
-        <td class="value">Logo</td>
+        <td class="value">Logo TODO </td>
     </tr>
     <tr>
         <td class="field">Design Medium:</td>
-        <td class="value">Print/Web</td>
+        <td class="value">${contest.mediumNamesList}</td>
     </tr>
 <c:choose>
     <c:when test="${fn:length(contest.prizes)==1}">
@@ -215,20 +223,45 @@
 </c:if>
 
 <div class="header">Contest Summary</div>
-    ${contest.overview.value}
+    <studio:formatField text="${contest.overview.value}"/>
 <br /><br />
 
 <div class="header">Full Description & Project Guide</div>
-    TEXT
+<studio:formatField text="${contest.fullDescription.value}"/>
 <br /><br />
 
+<c:if test="${not empty contest.sizeRequirements.value or not empty contest.fontRequirements.value 
+             or not empty contest.colorRequirements.value or not empty contest.contentRequirements.value
+             or not empty contest.otherRequirements.value}">
 <div class="header">Requirements & Restrictions</div>
-    <ul>
+<ul>
+    <c:if test="${not empty contest.sizeRequirements.value}">
     <li>
-    <strong>Requirement title:</strong>
-    Description.
+        <strong>Size Requirements:</strong> <studio:formatField text="${contest.sizeRequirements.value}"/>
     </li>
-    </ul>
+    </c:if>
+    <c:if test="${not empty contest.fontRequirements.value}">
+    <li>
+        <strong>Font Requirements:</strong> <studio:formatField text="${contest.fontRequirements.value}"/>
+    </li>
+    </c:if>
+    <c:if test="${not empty contest.colorRequirements.value}">
+    <li>
+        <strong>Color Requirements:</strong> <studio:formatField text="${contest.colorRequirements.value}"/>
+    </li>
+    </c:if>
+    <c:if test="${not empty contest.contentRequirements.value}">
+    <li>
+        <strong>Content Requirements:</strong> <studio:formatField text="${contest.contentRequirements.value}"/>
+    </li>
+    </c:if>
+    <c:if test="${not empty contest.otherRequirements.value}">
+    <li>
+        <strong>Other Requirements:</strong> <studio:formatField text="${contest.otherRequirements.value}"/>
+    </li>
+    </c:if>
+</ul>
+</c:if>
 
 <div class="header">How to Submit</div>
 <ul>
@@ -238,7 +271,7 @@
 </ul>
 
 <div class="header">Winner Selection</div>
-    TEXT
+    <studio:formatField text="${contest.winnerSelection.value}"/>
 <br /><br />
 
 <div class="header">Prize Payment</div>
@@ -246,19 +279,9 @@
 <br /><br />
 
 <div class="header">Eligibility</div>
+    <studio:formatField text="${contest.eligibility.value}"/>
 
-<p>You must be a TopCoder Studio member, at least 18 years of age, meeting all of the membership requirements.
-    In addition, you must fit into one of the following categories.
-</p>
-
-<p>If you reside in the United States, you must be either:</p>
-<ul>
-    <li>A US Citizen</li>
-    <li>A Lawful Permanent Resident of the US</li>
-    <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card
-        permitting unrestricted employment in the U.S.
-    </li>
-</ul>
+<%--
 <c:choose>
 <c:when test="${contest.id==2048}"></c:when>
 <c:otherwise>
@@ -270,6 +293,7 @@
     </c:otherwise>
     </c:choose>
 </ul>
+--%>
 
                         <br clear="all"/>
                     </div>                

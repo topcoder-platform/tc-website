@@ -34,6 +34,6 @@
             <key column="submission_id" not-null="true"/>
             <many-to-many column="prize_id" class="Prize"/>
         </set>
-
+        <property name="hasPreviewImage" column="has_preview_image"/>
     </class>
 </hibernate-mapping>

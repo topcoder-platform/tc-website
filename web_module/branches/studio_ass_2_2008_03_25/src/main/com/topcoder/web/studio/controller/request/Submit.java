@@ -57,6 +57,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.ByteArrayOutputStream;
 import java.util.Date;
 
 /**
@@ -65,7 +67,7 @@ import java.util.Date;
  * alternate presentations for the submission and generates the passing review for those submissions which come from
  * <code>TopCoder Direct</code> contests.</p>
  *
- * @author dok, isv
+ * @author dok, isv, TCSDEVELOPER
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
@@ -244,6 +246,16 @@ public class Submit extends BaseSubmissionDataProcessor {
 
                             s.setReview(review);
                         }
+                    }
+
+                    // Since TopCoder Studio Modifications Assembly v2 - analyze whether the submission has preview
+                    // image provided or not. Req# 5.3
+                    BundledFileAnalyzer analyzer = SubmissionValidator.getBundledFileParser(s.getMimeType());
+                    analyzer.analyze(submissionFile.getInputStream(), true);
+                    if (analyzer.isPreviewImageAvailable()) {
+                        s.setHasPreviewImage(true);
+                    } else {
+                        s.setHasPreviewImage(false);
                     }
 
                     if (maxRank == null) {
@@ -470,9 +482,6 @@ public class Submit extends BaseSubmissionDataProcessor {
                                                                               ImagePersistenceException,
                                                                               UnsupportedFormatException,
                                                                               ImageOverlayProcessingException {
-
-            ImageOverlayManager manager = new ImageOverlayManager();
-
             // Map the image file type to image type supported by the Image Overlay components
             String imageFormat = null;
             String extension = imageFileType.getExtension();
@@ -486,17 +495,6 @@ public class Submit extends BaseSubmissionDataProcessor {
                                                    + "Overlay component");
             }
 
-            // Determine whether the original image must be resized or not
-            boolean mustResizeWidth = false;
-            boolean mustResizeHeight = false;
-            if (maxSize != -1) {
-                Image image = manager.loadImage(imageFormat, new ByteArrayInputStream(imageContent));
-                int imageWidth = image.getWidth();
-                int imageHeight = image.getHeight();
-                mustResizeWidth = (imageWidth > maxSize);
-                mustResizeHeight = (imageHeight > maxSize);
-            }
-
             // A file which will hold the resized/watermarked image once the whole process succeeds
             File processedImageFile = new File(path);
 
@@ -505,48 +503,24 @@ public class Submit extends BaseSubmissionDataProcessor {
             tempFile.deleteOnExit();
 
             try {
-                // Resize the original image if necessary
-                if (mustResizeWidth || mustResizeHeight) {
-                    // Create temporary file with original image content
-                    File fileToResize = File.createTempFile("studio", "tmp",
-                                                            new File(Constants.TEMPORARY_STORAGE_PATH));
-                    fileToResize.deleteOnExit();
-                    writeFile(fileToResize.getPath(), imageContent);
-
-                    try {
-                        // Resize by width first if necessary
-                        if (mustResizeWidth) {
-                            ImageResizer resizer = new ImageResizer(fileToResize);
-                            resizer.scaleToWidth(tempFile, maxSize);
-                            // Check again if resizing by height is still necessary
-                            Image image = manager.loadImage(imageFormat, tempFile);
-                            int imageHeiht = image.getHeight();
-                            mustResizeHeight = (imageHeiht > maxSize);
-                            if (mustResizeHeight) {
-                                fileToResize.delete();
-                                copyFiles(tempFile, fileToResize);
-                                tempFile.delete();
-                            }
-                        }
-
-                        // Resize by height if necessary
-                        if (mustResizeHeight) {
-                            ImageResizer resizer = new ImageResizer(fileToResize);
-                            resizer.scaleToHeight(tempFile, maxSize);
-                        }
-                    } finally {
-                        fileToResize.delete();
-                    }
-                } else {
-                    writeFile(tempFile.getPath(), imageContent);
-                }
+                ImageOverlayManager manager = new ImageOverlayManager();
+                
+                // Resize the original image if necessary to fit into specified dimension
+                Image targetImage
+                        = resizeIfNecessary(maxSize, maxSize, imageFormat, imageContent);
 
                 // Watermark the original image if necessary
                 if (watermark) {
-                    Image overlayImage = manager.loadImage(Constants.WATERMARK_FILE_TYPE,
-                                                           Constants.WATERMARK_FILE_PATH);
-                    Image targetImage = manager.loadImage(imageFormat, tempFile);
+                    // Get the overlay image and resize it if necessary to fit into target image dimension
+                    byte[] overlayImageContent = readContent(new FileInputStream(Constants.WATERMARK_FILE_PATH));
+                    Image overlayImage
+                            = resizeOverlayImage(targetImage, Constants.WATERMARK_FILE_TYPE, overlayImageContent);
 
+                    // Evaluate the offsets to place the overlay image over the target image
+                    int widthOffset = Math.max(0, (targetImage.getWidth() - overlayImage.getWidth()) / 2);
+                    int heightOffset = Math.max(0, (targetImage.getHeight() - overlayImage.getHeight()) / 2);
+
+                    // Watermark the original image
                     TransparencySpecification transSpec = new TransparencySpecification();
                     transSpec.setColorTransparency(Constants.WATERMARK_OVERLAY_IMAGE_RED,
                                                    Constants.WATERMARK_OVERLAY_IMAGE_GREEN,
@@ -554,8 +528,8 @@ public class Submit extends BaseSubmissionDataProcessor {
                                                    Constants.WATERMARK_OVERLAY_IMAGE_TRANSPARENCY);
                     transSpec.setImageTransparency(Constants.WATERMARK_BASE_IMAGE_TRANSPARENCY);
                     OverlaySpecification overlaySpec = new OverlaySpecification(transSpec,
-                                                                                OverlayType.SCALE_FIT_OVERLAY_IMAGE,
-                                                                                0, 0);
+                                                                                OverlayType.CROP_OVERLAY_IMAGE,
+                                                                                widthOffset, heightOffset);
                     Watermarker watermarker = new Watermarker(manager, overlayImage, overlaySpec);
                     Image watermarkedImage = watermarker.watermarkImage(targetImage);
                     manager.storeImage(watermarkedImage, Constants.WATERMARK_FILE_TYPE, tempFile);
@@ -565,10 +539,11 @@ public class Submit extends BaseSubmissionDataProcessor {
                     int pos = path.lastIndexOf(".");
                     processedImageFile
                             = new File(path.substring(0, pos + 1) + Constants.WATERMARK_FILE_TYPE.toLowerCase());
+                    // Once the whole process succeeds then copy the temporary file to target file
+                    copyFiles(tempFile, processedImageFile);
+                } else {
+                    manager.storeImage(targetImage, imageFormat, processedImageFile);
                 }
-
-                // Once the whole process succeeds then copy the temporary file to target file
-                copyFiles(tempFile, processedImageFile);
             } finally {
                 tempFile.delete();
             }
@@ -595,6 +570,55 @@ public class Submit extends BaseSubmissionDataProcessor {
         }
 
         /**
+         * <p>Writes the specified content to specified file on disk.</p>
+         *
+         * @param path a <code>String</code> providing the name of the file.
+         * @param content an <code>InputStream</code> providing the content of the file to be written.
+         * @throws IOException if an I/O error occurs while writting file content to disk.
+         * @since TopCoder Studio Modifications Assembly v2 (Req# 5.10)
+         */
+/*
+        private static void writeFile(String path, InputStream content) throws IOException {
+            if (log.isDebugEnabled()) {
+                log.debug("creating file: " + path);
+            }
+            byte[] buffer = new byte[4096];
+            FileOutputStream fos = new FileOutputStream(path, false);
+            try {
+                int count;
+                while ((count = content.read(buffer)) != -1) {
+                    fos.write(buffer, 0, count);
+                }
+            } finally {
+                fos.flush();
+                fos.close();
+            }
+        }
+*/
+
+        /**
+         * <p>Reads the content of specified stream into byte array.</p>
+         *
+         * @param content an <code>InputStream</code> providing the content of the file to be written.
+         * @return a <code>byte</code> array providing the content read from specified string. 
+         * @throws IOException if an I/O error occurs while writting file content to disk.
+         * @since TopCoder Studio Modifications Assembly v2 (Req# 5.10)
+         */
+        private static byte[] readContent(InputStream content) throws IOException {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            byte[] buffer = new byte[4096];
+            try {
+                int count;
+                while ((count = content.read(buffer)) != -1) {
+                    baos.write(buffer, 0, count);
+                }
+            } finally {
+                content.close();
+            }
+            return baos.toByteArray();
+        }
+
+        /**
          * <p>Copies the specified file to specified one.</p>
          *
          * @param from a <code>File</code> to be copied.
@@ -618,6 +642,143 @@ public class Submit extends BaseSubmissionDataProcessor {
                 fos.flush();
                 fos.close();
                 fis.close();
+            }
+        }
+
+        /**
+         * <p>Resizes the specified image to specified width and height (if necessary) keeping the original image aspect
+         * ratio.</p>
+         *
+         * @param maxWidth an <code>int</code> providing the maximum width (in pixels) of the created copy or
+         *        <code>-1</code> if original image width must be used.
+         * @param maxHeight an <code>int</code> providing the maximum height (in pixels) of the created copy or
+         *        <code>-1</code> if original image height must be used.
+         * @param imageFormat a <code>String</code> referencing the type of the image.
+         * @param imageContent an <code>InputStream</code> providing the content of the image.
+         * @return an <code>Image</code> providing the content of the specified image possibly resized to specified
+         *         width and height. 
+         * @throws IOException if an I/O error occurs while reading or writting image content.
+         * @throws ImageException if original image can not be resized to specified size.
+         * @throws ImagePersistenceException if original image can not be resized to specified size.
+         * @throws UnsupportedFormatException if original image can not be resized to specified size.
+         * @since TopCoder Studio Modifications Assembly v2 (Req# 5.10)
+         */
+        private static Image resizeIfNecessary(int maxWidth, int maxHeight, String imageFormat,
+                                               byte[] imageContent) throws ImagePersistenceException,
+                                                                                UnsupportedFormatException, IOException,
+                                                                                ImageException {
+            ImageOverlayManager manager = new ImageOverlayManager();
+            boolean mustResizeWidth = false;
+            boolean mustResizeHeight = false;
+            if (maxWidth != -1 || maxHeight != -1) {
+                Image image = manager.loadImage(imageFormat, new ByteArrayInputStream(imageContent));
+                int imageWidth = image.getWidth();
+                int imageHeight = image.getHeight();
+                if (maxWidth != -1) {
+                    mustResizeWidth = (imageWidth > maxWidth);
+                }
+                if (maxHeight != -1) {
+                    mustResizeHeight = (imageHeight > maxHeight);
+                }
+            }
+
+            // Create temporary file to write the resized image content to
+            final File tempFile = File.createTempFile("studio", "tmp", new File(Constants.TEMPORARY_STORAGE_PATH));
+            tempFile.deleteOnExit();
+
+            try {
+                // Resize the image if necessary
+                if (mustResizeWidth || mustResizeHeight) {
+                    // Create temporary file with original image content
+                    File fileToResize
+                            = File.createTempFile("studio", "tmp", new File(Constants.TEMPORARY_STORAGE_PATH));
+                    fileToResize.deleteOnExit();
+                    writeFile(fileToResize.getPath(), imageContent);
+
+                    try {
+                        // Resize by width first if necessary
+                        if (mustResizeWidth) {
+                            ImageResizer resizer = new ImageResizer(fileToResize);
+                            resizer.scaleToWidth(tempFile, maxWidth);
+                            // Check again if resizing by height is still necessary
+                            Image image = manager.loadImage(imageFormat, tempFile);
+                            int imageHeight = image.getHeight();
+                            if (maxHeight != -1) {
+                                mustResizeHeight = (imageHeight > maxHeight);
+                            }
+                            if (mustResizeHeight) {
+                                fileToResize.delete();
+                                copyFiles(tempFile, fileToResize);
+                                tempFile.delete();
+                            }
+                        }
+
+                        // Resize by height if necessary
+                        if (mustResizeHeight) {
+                            ImageResizer resizer = new ImageResizer(fileToResize);
+                            resizer.scaleToHeight(tempFile, maxHeight);
+                        }
+                        
+                        return manager.loadImage(imageFormat, tempFile);
+                    } finally {
+                        fileToResize.delete();
+                    }
+                } else {
+                    return manager.loadImage(imageFormat, new ByteArrayInputStream(imageContent));
+                }
+            } finally {
+                tempFile.delete();
+            }
+        }
+
+        /**
+         * <p>Resizes the specified image to specified width and height (if necessary) keeping the original image aspect
+         * ratio.</p>
+         *
+         * @param targetImage a <code>Image</code> representing the original image to be watermarked.
+         * @param overlayImageFormat a <code>String</code> referencing the type of the overlay image.
+         * @param overlayImageCOntent an <code>InputStream</code> providing the content of the overlay image.
+         * @return an <code>Image</code> providing the content of the specified image possibly resized to specified
+         *         width and height.
+         * @throws IOException if an I/O error occurs while reading or writting image content.
+         * @throws ImageException if original image can not be resized to specified size.
+         * @throws ImagePersistenceException if original image can not be resized to specified size.
+         * @throws UnsupportedFormatException if original image can not be resized to specified size.
+         * @since TopCoder Studio Modifications Assembly v2 (Req# 5.10)
+         */
+        private static Image resizeOverlayImage(Image targetImage, String overlayImageFormat,
+                                                byte[] overlayImageCOntent) throws ImagePersistenceException,
+                                                                                   UnsupportedFormatException,
+                                                                                   IOException,
+                                                                                   ImageException {
+            ImageOverlayManager manager = new ImageOverlayManager();
+            Image overlayImage = manager.loadImage(overlayImageFormat, new ByteArrayInputStream(overlayImageCOntent));
+
+            double widthAspect = overlayImage.getWidth() * 1.00 / targetImage.getWidth();
+            double heightAspect = overlayImage.getHeight() * 1.00 / targetImage.getHeight();
+
+            // Create temporary file to write the resized overlay image content to
+            final File tempFile = File.createTempFile("studio", "tmp", new File(Constants.TEMPORARY_STORAGE_PATH));
+            tempFile.deleteOnExit();
+
+            // Create temporary file with original overlay image content
+            File fileToResize
+                    = File.createTempFile("studio", "tmp", new File(Constants.TEMPORARY_STORAGE_PATH));
+            fileToResize.deleteOnExit();
+
+            try {
+                writeFile(fileToResize.getPath(), overlayImageCOntent);
+
+                ImageResizer resizer = new ImageResizer(fileToResize);
+                if (widthAspect > heightAspect) {
+                    resizer.scaleToWidth(tempFile, targetImage.getWidth());
+                } else {
+                    resizer.scaleToHeight(tempFile, targetImage.getHeight());
+                }
+                return manager.loadImage(overlayImageFormat, tempFile);
+            } finally {
+                fileToResize.delete();
+                tempFile.delete();
             }
         }
     }

@@ -6,18 +6,18 @@
 <hibernate-configuration>
 
     <!-- Uncomment this block when executing ant run_studio_tests task -->
+<!--
                 <session-factory>
                     <property name="connection.username">informix</property>
                     <property name="connection.password">topcoder</property>
                     <property name="connection.url">jdbc:informix-sqli://tcsdesigner:1526/studio_oltp:INFORMIXSERVER=tcs</property>
                     <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
+-->
 
    <!-- Uncomment this block when executing ant deploy task -->
-<!--
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
         <property name="connection.datasource">java:/JTS_STUDIO_OLTP</property>
--->
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
@@ -116,6 +116,7 @@
         <mapping resource="com/topcoder/web/studio/model/DocumentType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/FilePath.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/MimeType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/Medium.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/Prize.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/PrizeType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ReviewStatus.hbm.xml"/>

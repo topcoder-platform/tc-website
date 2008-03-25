@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 /**
  * <p>A mock implementation of {@link HttpServletRequest} class to be used for testing. Overrides the protected methods
@@ -71,7 +72,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public boolean isRequestedSessionIdFromCookie() {
 
         String methodName = "isRequestedSessionIdFromCookie";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -98,7 +98,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public boolean isRequestedSessionIdFromURL() {
 
         String methodName = "isRequestedSessionIdFromURL";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -125,7 +124,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public boolean isRequestedSessionIdFromUrl() {
 
         String methodName = "isRequestedSessionIdFromUrl";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -152,7 +150,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public boolean isRequestedSessionIdValid() {
 
         String methodName = "isRequestedSessionIdValid";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -179,7 +176,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getAuthType() {
 
         String methodName = "getAuthType";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -206,7 +202,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getContextPath() {
 
         String methodName = "getContextPath";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -233,7 +228,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getMethod() {
 
         String methodName = "getMethod";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -260,7 +254,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getPathInfo() {
 
         String methodName = "getPathInfo";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -287,7 +280,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getPathTranslated() {
 
         String methodName = "getPathTranslated";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -314,7 +306,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getQueryString() {
 
         String methodName = "getQueryString";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -341,7 +332,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getRemoteUser() {
 
         String methodName = "getRemoteUser";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -368,7 +358,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getRequestURI() {
 
         String methodName = "getRequestURI";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -395,7 +384,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getRequestedSessionId() {
 
         String methodName = "getRequestedSessionId";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -422,7 +410,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getServletPath() {
 
         String methodName = "getServletPath";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -449,7 +436,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public int getIntHeader(String string0) {
 
         String methodName = "getIntHeader_String";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         arguments.put("1", string0);
         saveArguments(methodName, arguments);
@@ -477,7 +463,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public long getDateHeader(String string0) {
 
         String methodName = "getDateHeader_String";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         arguments.put("1", string0);
         saveArguments(methodName, arguments);
@@ -505,7 +490,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public boolean isUserInRole(String string0) {
 
         String methodName = "isUserInRole_String";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         arguments.put("1", string0);
         saveArguments(methodName, arguments);
@@ -533,7 +517,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public StringBuffer getRequestURL() {
 
         String methodName = "getRequestURL";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -560,7 +543,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public Principal getUserPrincipal() {
 
         String methodName = "getUserPrincipal";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -587,7 +569,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public Enumeration getHeaderNames() {
 
         String methodName = "getHeaderNames";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -614,7 +595,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public Cookie[] getCookies() {
 
         String methodName = "getCookies";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -641,7 +621,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public HttpSession getSession() {
 
         String methodName = "getSession";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -668,7 +647,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public HttpSession getSession(boolean boolean0) {
 
         String methodName = "getSession_boolean";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         arguments.put("1", Boolean.valueOf(boolean0));
         saveArguments(methodName, arguments);
@@ -696,7 +674,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getHeader(String string0) {
 
         String methodName = "getHeader_String";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         arguments.put("1", string0);
         saveArguments(methodName, arguments);
@@ -724,7 +701,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public Enumeration getHeaders(String string0) {
 
         String methodName = "getHeaders_String";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         arguments.put("1", string0);
         saveArguments(methodName, arguments);
@@ -752,7 +728,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public int getContentLength() {
 
         String methodName = "getContentLength";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -779,7 +754,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public int getLocalPort() {
 
         String methodName = "getLocalPort";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -806,7 +780,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public int getRemotePort() {
 
         String methodName = "getRemotePort";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -833,7 +806,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public int getServerPort() {
 
         String methodName = "getServerPort";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -860,7 +832,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public boolean isSecure() {
 
         String methodName = "isSecure";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -888,7 +859,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public BufferedReader getReader() throws IOException {
 
         String methodName = "getReader";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -923,7 +893,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getCharacterEncoding() {
 
         String methodName = "getCharacterEncoding";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -950,7 +919,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getContentType() {
 
         String methodName = "getContentType";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -977,7 +945,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getLocalAddr() {
 
         String methodName = "getLocalAddr";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -1004,7 +971,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getLocalName() {
 
         String methodName = "getLocalName";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -1031,7 +997,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getProtocol() {
 
         String methodName = "getProtocol";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -1058,7 +1023,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getRemoteAddr() {
 
         String methodName = "getRemoteAddr";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -1085,7 +1049,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getRemoteHost() {
 
         String methodName = "getRemoteHost";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -1112,7 +1075,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getScheme() {
 
         String methodName = "getScheme";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -1139,7 +1101,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getServerName() {
 
         String methodName = "getServerName";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -1166,7 +1127,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public void removeAttribute(String string0) {
 
         String methodName = "removeAttribute_String";
-        System.out.println("MockRequest : " + methodName + " : "  + string0);
         HashMap arguments = new HashMap();
         arguments.put("1", string0);
         saveArguments(methodName, arguments);
@@ -1192,7 +1152,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public void setCharacterEncoding(String string0) throws UnsupportedEncodingException {
 
         String methodName = "setCharacterEncoding_String";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         arguments.put("1", string0);
         saveArguments(methodName, arguments);
@@ -1225,7 +1184,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public Enumeration getAttributeNames() {
 
         String methodName = "getAttributeNames";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -1252,7 +1210,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public Enumeration getLocales() {
 
         String methodName = "getLocales";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -1279,7 +1236,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public Enumeration getParameterNames() {
 
         String methodName = "getParameterNames";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -1290,8 +1246,8 @@ public class MockHttpServletRequest implements HttpServletRequest {
             if (exception != null) {
                 throw new RuntimeException("The test may not be configured properly", exception);
             } else {
-
-                return (Enumeration) methodResults.get(methodName);
+                String names = (String) methodResults.get(methodName);
+                return new StringTokenizer(names);
             }
         }
     }
@@ -1306,7 +1262,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public Locale getLocale() {
 
         String methodName = "getLocale";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -1333,7 +1288,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public Map getParameterMap() {
 
         String methodName = "getParameterMap";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -1361,7 +1315,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public ServletInputStream getInputStream() throws IOException {
 
         String methodName = "getInputStream";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         saveArguments(methodName, arguments);
 
@@ -1396,7 +1349,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public Object getAttribute(String string0) {
 
         String methodName = "getAttribute_String";
-        System.out.println("MockRequest : " + methodName + " : " + string0);
         HashMap arguments = new HashMap();
         arguments.put("1", string0);
         saveArguments(methodName, arguments);
@@ -1428,7 +1380,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public void setAttribute(String string0, Object object0) {
 
         String methodName = "setAttribute_String_Object";
-        System.out.println("MockRequest : " + methodName + " : "  + string0 + " -> " + object0);
         HashMap arguments = new HashMap();
         arguments.put("1", string0);
         arguments.put("2", object0);
@@ -1453,7 +1404,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
      */
     public String getParameter(String string0) {
         String methodName = "getParameter_String";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         arguments.put("1", string0);
         saveArguments(methodName, arguments);
@@ -1489,7 +1439,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String getRealPath(String string0) {
 
         String methodName = "getRealPath_String";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         arguments.put("1", string0);
         saveArguments(methodName, arguments);
@@ -1517,7 +1466,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public String[] getParameterValues(String string0) {
 
         String methodName = "getParameterValues_String";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         arguments.put("1", string0);
         saveArguments(methodName, arguments);
@@ -1529,8 +1477,16 @@ public class MockHttpServletRequest implements HttpServletRequest {
             if (exception != null) {
                 throw new RuntimeException("The test may not be configured properly", exception);
             } else {
-
-                return (String[]) methodResults.get(methodName);
+                if (methodResults.containsKey(methodName)) {
+                    return (String[]) methodResults.get(methodName);
+                } else {
+                    Map argsResults = methodArgumentResults.get(methodName);
+                    if (argsResults != null) {
+                        return (String[]) argsResults.get(string0);
+                    } else {
+                        return null;
+                    }
+                }
             }
         }
     }
@@ -1545,7 +1501,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     public RequestDispatcher getRequestDispatcher(String string0) {
 
         String methodName = "getRequestDispatcher_String";
-        System.out.println("MockRequest : " + methodName);
         HashMap arguments = new HashMap();
         arguments.put("1", string0);
         saveArguments(methodName, arguments);

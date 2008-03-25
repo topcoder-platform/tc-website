@@ -25,6 +25,34 @@ public class ContestPropertyDAOTestCase extends TCHibernateTestCase {
     private ContestPropertyDAO testedInstance = null;
 
     /**
+     * <p>An <code>Integer</code> array listinf the IDs of pre-defined contest properties.</p>
+     */
+    private final Integer[] ids = {ContestProperty.CONTEST_OVERVIEW_TEXT, ContestProperty.PRIZE_DESCRIPTION,
+                                   ContestProperty.VIEWABLE_SUBMISSIONS, ContestProperty.MIN_WIDTH,
+                                   ContestProperty.MAX_WIDTH, ContestProperty.MIN_HEIGHT, ContestProperty.MAX_HEIGHT,
+                                   ContestProperty.MAX_SUBMISSIONS, ContestProperty.VIEWABLE_SUBMITTERS,
+                                   ContestProperty.REQUIRE_PREVIEW_IMAGE, ContestProperty.REQUIRE_PREVIEW_FILE,
+                                   ContestProperty.OTHER_FILE_TYPES, ContestProperty.FULL_DESCRIPTION,
+                                   ContestProperty.COLOR_REQUIREMENTS, ContestProperty.FONT_REQUIREMENTS,
+                                   ContestProperty.SIZE_REQUIREMENTS, ContestProperty.CONTENT_REQUIREMENTS,
+                                   ContestProperty.OTHER_REQUIREMENTS, ContestProperty.SUBMISSION_FILE_FORMAT,
+                                   ContestProperty.WINNER_SELECTION, ContestProperty.ELIGIBILITY,
+                                   ContestProperty.CLIENT};
+
+    /**
+     * <p>A <code>String</code> array listinf the descriptions of pre-defined contest properties.</p>
+     */
+    private final String[] descriptions = {"Contest Overview Text", "Prize Description", "Viewable Submissions Flag",
+                                            "Minimum Submission Image Width", "Maximum Submission Image Width",
+                                            "Minimum Submission Image Height", "Maximum Submission Image Height",
+                                            "Maximum Submissions", "Viewable Submitters", "Requires Preview Image",
+                                            "Requires Preview File",
+                                            "Other File Types", "Full Description", "Color Requirements",
+                                            "Font Requirements", "Size Requirements", "Content Requirements",
+                                            "Other Requirements", "Submission File Format", "Winner Selection",
+                                            "Eligibility", "Client"};
+
+    /**
      * <p>Constructs new <code>ContestPropertyDAOTestCase</code> instance with specified test name.</p>
      *
      * @param name a <code>String</code> providing the name of the test.
@@ -56,17 +84,7 @@ public class ContestPropertyDAOTestCase extends TCHibernateTestCase {
      * {@link ContestProperty} instances matching the provided IDs.</p>
      */
     public void testFind_Integer() {
-        int contestPropertiesCnt = 11;
-        Integer[] ids = {ContestProperty.CONTEST_OVERVIEW_TEXT, ContestProperty.PRIZE_DESCRIPTION,
-                         ContestProperty.VIEWABLE_SUBMISSIONS, ContestProperty.MIN_WIDTH,  ContestProperty.MAX_WIDTH,
-                         ContestProperty.MIN_HEIGHT,  ContestProperty.MAX_HEIGHT,  ContestProperty.MAX_SUBMISSIONS,
-                         ContestProperty.VIEWABLE_SUBMITTERS,  ContestProperty.REQUIRE_PREVIEW_IMAGE,
-                         ContestProperty.REQUIRE_PREVIEW_FILE};
-        String[] descriptions = {"Contest Overview Text", "Prize Description", "Viewable Submissions Flag",
-                                 "Minimum Submission Image Width", "Maximum Submission Image Width",
-                                 "Minimum Submission Image Height", "Maximum Submission Image Height",
-                                 "Maximum Submissions", "Viewable Submitters", "Requires Preview Image",
-                                 "Requires Preview File"};
+        int contestPropertiesCnt = this.ids.length;
 
         for (int i = 0; i < contestPropertiesCnt; i++) {
             ContestProperty property = this.testedInstance.find(ids[i]);
@@ -97,17 +115,7 @@ public class ContestPropertyDAOTestCase extends TCHibernateTestCase {
      * properties.</p>
      */
     public void testGetContestTypes() {
-        int contestPropertiesCnt = 11;
-        Integer[] ids = {ContestProperty.CONTEST_OVERVIEW_TEXT, ContestProperty.PRIZE_DESCRIPTION,
-                         ContestProperty.VIEWABLE_SUBMISSIONS, ContestProperty.MIN_WIDTH,  ContestProperty.MAX_WIDTH,
-                         ContestProperty.MIN_HEIGHT,  ContestProperty.MAX_HEIGHT,  ContestProperty.MAX_SUBMISSIONS,
-                         ContestProperty.VIEWABLE_SUBMITTERS,  ContestProperty.REQUIRE_PREVIEW_IMAGE,
-                         ContestProperty.REQUIRE_PREVIEW_FILE};
-        String[] descriptions = {"Contest Overview Text", "Prize Description", "Viewable Submissions Flag",
-                                 "Minimum Submission Image Width", "Maximum Submission Image Width",
-                                 "Minimum Submission Image Height", "Maximum Submission Image Height",
-                                 "Maximum Submissions", "Viewable Submitters", "Requires Preview Image",
-                                 "Requires Preview File"};
+        int contestPropertiesCnt = this.ids.length;
 
         List properties = this.testedInstance.getProperties();
         Assert.assertEquals("Wrong number of contest properties is retrieved", contestPropertiesCnt, properties.size());

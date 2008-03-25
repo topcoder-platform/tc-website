@@ -14,6 +14,7 @@ import com.topcoder.web.studio.model.DocumentType;
 import com.topcoder.web.studio.model.FilePath;
 import com.topcoder.web.studio.model.Prize;
 import com.topcoder.web.studio.model.PrizeType;
+import com.topcoder.web.studio.model.Medium;
 import junit.framework.Assert;
 
 import java.sql.Timestamp;
@@ -85,6 +86,7 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60));
         c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
         c.setFileTypes(new HashSet(StudioDAOUtil.getFactory().getFileTypeDAO().getFileTypes()));
+        c.setWinnerAnnouncementTime(new Timestamp(c.getEndTime().getTime() + 1000 * 60 * 60));
 
         ContestChannel channel
                 = StudioDAOUtil.getFactory().getContestChannelDAO().find(ContestChannel.STUDIO_ADMINISTRATOR);
@@ -92,6 +94,13 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
 
         ContestType type = StudioDAOUtil.getFactory().getContestTypeDAO().find(ContestType.STORYBOARD);
         c.setType(type);
+
+        MediumDAO mediumDAO = StudioDAOUtil.getFactory().getMediumDAO();
+        Set<Medium> mediums = new HashSet<Medium>();
+        mediums.add(mediumDAO.find(Medium.APPAREL));
+        mediums.add(mediumDAO.find(Medium.BROCHURE));
+        mediums.add(mediumDAO.find(Medium.COMPUTER_SCREEN));
+        c.setMediums(mediums);
 
         Integer directProjectId = 493294;
         c.setDirectProjectId(directProjectId);
@@ -113,7 +122,6 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         previewFileConf.setValue("f");
         c.addConfig(previewFileConf);
 
-
         StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
         Contest c1 = StudioDAOUtil.getFactory().getContestDAO().find(c.getId());
         assertTrue("did not create contest", c1 != null);
@@ -125,6 +133,11 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         Assert.assertEquals("The create user ID is not set correctly", createUserId, c1.getCreateUserId());
         assertContestProperty(c1, previewImageProperty, "t");
         assertContestProperty(c1, previewFileProperty, "f");
+
+        // Since TopCoder Studio Modifications v2 Assembly
+        Assert.assertEquals("The winner announcement time is not set correctly",
+                            c.getWinnerAnnouncementTime(), c1.getWinnerAnnouncementTime());
+        assertMediums(mediums, c1.getMediums());
     }
 
     /**
@@ -141,6 +154,7 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setStartTime(new Timestamp(new Date().getTime()));
         c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60 * 24 * 20));
         c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
+        c.setWinnerAnnouncementTime(new Timestamp(c.getEndTime().getTime() + 1000 * 60 * 60));
 
         ContestConfig conf1 = new ContestConfig();
         conf1.setProperty(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.CONTEST_OVERVIEW_TEXT));
@@ -179,6 +193,13 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         Long createUserId = 5927478327L;
         c.setCreateUserId(createUserId);
 
+        MediumDAO mediumDAO = StudioDAOUtil.getFactory().getMediumDAO();
+        Set<Medium> mediums = new HashSet<Medium>();
+        mediums.add(mediumDAO.find(Medium.WEB));
+        mediums.add(mediumDAO.find(Medium.POSTER));
+        mediums.add(mediumDAO.find(Medium.COMPUTER_SCREEN));
+        c.setMediums(mediums);
+
         ContestProperty previewImageProperty
                 = StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.REQUIRE_PREVIEW_IMAGE);
         ContestConfig previewImageConf = new ContestConfig();
@@ -214,6 +235,12 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         Long newCreateUserId = 947623848L;
         c1.setCreateUserId(newCreateUserId);
 
+        mediumDAO = StudioDAOUtil.getFactory().getMediumDAO();
+        Set<Medium> newMediums = new HashSet<Medium>();
+        newMediums.add(mediumDAO.find(Medium.LARGE_PRINT));
+        newMediums.add(mediumDAO.find(Medium.COMPUTER_SCREEN));
+        c1.setMediums(newMediums);
+
         previewImageConf = getConfig(c1, previewImageProperty);
         previewImageConf.setValue("f");
 
@@ -233,6 +260,11 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         Assert.assertEquals("The create user ID is not set correctly", newCreateUserId, c2.getCreateUserId());
         assertContestProperty(c2, previewImageProperty, "f");
         assertContestProperty(c2, previewFileProperty, "t");
+
+        // Since TopCoder Studio Modifications v2 Assembly
+        Assert.assertEquals("The winner announcement time is not set correctly",
+                            c.getWinnerAnnouncementTime(), c2.getWinnerAnnouncementTime());
+        assertMediums(newMediums, c2.getMediums());
     }
 
     /**
@@ -250,6 +282,7 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setStartTime(new Timestamp(new Date().getTime()));
         c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60 * 24 * 20));
         c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
+        c.setWinnerAnnouncementTime(new Timestamp(c.getEndTime().getTime() + 1000 * 60 * 60));
 
         ContestConfig conf1 = new ContestConfig();
         conf1.setProperty(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.CONTEST_OVERVIEW_TEXT));
@@ -288,6 +321,13 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         Long createUserId = 5927478327L;
         c.setCreateUserId(createUserId);
 
+        MediumDAO mediumDAO = StudioDAOUtil.getFactory().getMediumDAO();
+        Set<Medium> mediums = new HashSet<Medium>();
+        mediums.add(mediumDAO.find(Medium.STATIONARY));
+        mediums.add(mediumDAO.find(Medium.EMAIL_NEWSLETTER));
+        mediums.add(mediumDAO.find(Medium.COMPUTER_SCREEN));
+        c.setMediums(mediums);
+
         ContestProperty previewImageProperty
                 = StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.REQUIRE_PREVIEW_IMAGE);
         ContestConfig previewImageConf = new ContestConfig();
@@ -315,6 +355,11 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         Assert.assertEquals("The create user ID is not set correctly", createUserId, c1.getCreateUserId());
         assertContestProperty(c1, previewImageProperty, "f");
         assertContestProperty(c1, previewFileProperty, "t");
+
+        // Since TopCoder Studio Modifications v2 Assembly
+        Assert.assertEquals("The winner announcement time is not set correctly",
+                            c.getWinnerAnnouncementTime(), c1.getWinnerAnnouncementTime());
+        assertMediums(mediums, c1.getMediums());
     }
 
     /**
@@ -332,6 +377,7 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setStartTime(new Timestamp(new Date().getTime()));
         c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60 * 24 * 20));
         c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
+        c.setWinnerAnnouncementTime(new Timestamp(c.getEndTime().getTime() + 1000 * 60 * 60));
 
         Document d = new Document();
         d.setMimeType(StudioDAOUtil.getFactory().getMimeTypeDAO().find(new Integer(1)));
@@ -371,6 +417,11 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         previewFileConf.setValue("f");
         c.addConfig(previewFileConf);
 
+        MediumDAO mediumDAO = StudioDAOUtil.getFactory().getMediumDAO();
+        Set<Medium> mediums = new HashSet<Medium>();
+        mediums.add(mediumDAO.find(Medium.APPAREL));
+        c.setMediums(mediums);
+
         StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
         Contest c1 = StudioDAOUtil.getFactory().getContestDAO().find(c.getId());
         Document found = null;
@@ -386,6 +437,11 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         Assert.assertEquals("The create user ID is not set correctly", createUserId, c1.getCreateUserId());
         assertContestProperty(c1, previewImageProperty, "f");
         assertContestProperty(c1, previewFileProperty, "f");
+        
+        // Since TopCoder Studio Modifications v2 Assembly
+        Assert.assertEquals("The winner announcement time is not set correctly",
+                            c.getWinnerAnnouncementTime(), c1.getWinnerAnnouncementTime());
+        assertMediums(mediums, c1.getMediums());
     }
 
     public void testLoad() {
@@ -459,5 +515,28 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
             }
         }
         return null;
+    }
+
+    /**
+     * <p>Verifies that the specified contest submission medium types are equal.</p>
+     *
+     * @param expected a <code>Set</code> providing the expected data for the medium types.
+     * @param actual a <code>Set</code> providing the actual data for the medium types.
+     * @since TopCoder Studio Modifications Assembly v2
+     */
+    private void assertMediums(Set<Medium> expected, Set<Medium> actual) {
+        Assert.assertNotNull("The medium types are not set", actual);
+        Assert.assertEquals("The medium types are not set correctly", expected.size(), actual.size());
+        for (Medium expectedMedium : expected) {
+            boolean found = false;
+            for (Medium actualMedium : actual) {
+                if (expectedMedium.getId().equals(actualMedium.getId())) {
+                    found = true;
+                    Assert.assertEquals("The medium type is not set correctly",
+                                        expectedMedium.getDescription(), actualMedium.getDescription());
+                }
+            }
+            Assert.assertTrue("The specific medium is not set", found);
+        }
     }
 }

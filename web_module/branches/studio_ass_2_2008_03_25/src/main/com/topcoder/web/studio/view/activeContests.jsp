@@ -108,7 +108,7 @@
                 <c:otherwise>
         
                     <% boolean even = true;%>
-                    <rsc:iterator list="<%=contests%>" id="resultRow">
+                    <rsc:iterator list="${contests}" id="resultRow">
                         <tr><td class="space" colspan="6">&nbsp;</td></tr>
                         <tr class="<%=even?"light":"dark"%>">
                             <td class="valueW">
@@ -141,7 +141,19 @@
                                 <rsc:item name="registrants" row="<%=resultRow%>"/>
                             </td>
                             <td class="valueC">
-                                <rsc:item name="submission_count" row="<%=resultRow%>"/>
+                                <%-- Since TopCoder Studio Modifications v2 Assembly - the submissions for active
+                                     TopCoder Direct contests may be viewable --%>
+                                <c:set var="TopCoderDirectChannelId" value="<%=ContestChannel.TOPCODER_DIRECT%>"/>
+                                <c:choose>
+                                    <c:when test="${TopCoderDirectChannelId eq resultRow.map['contest_channel_id'] and resultRow.map['show_submissions']}">
+                                        <a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
+                                            <rsc:item name="submission_count" row="<%=resultRow%>"/>
+                                        </a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <rsc:item name="submission_count" row="<%=resultRow%>"/>
+                                    </c:otherwise>
+                                </c:choose>
                             </td>
         
                             <td class="valueC" nowrap="nowrap">

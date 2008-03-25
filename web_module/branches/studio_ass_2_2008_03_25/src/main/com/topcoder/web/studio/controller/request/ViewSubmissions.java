@@ -14,11 +14,12 @@ import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.ContestChannel;
 
 import java.util.Date;
 
 /**
- * @author dok
+ * @author dok, TCSDEVELOPER
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 31, 2006
  */
@@ -37,8 +38,12 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         getRequest().setAttribute("contest", c);
         setDefault(Constants.CONTEST_ID, c.getId());
 
+        // Update Since TopCoder Studio Modifications v2 - the submissions (if viewable) can be viewed for TopCoder
+        // Direct contests even if such constests are still running
+        ContestChannel channel = c.getChannel();
+        boolean isTopCoderDirect = ContestChannel.TOPCODER_DIRECT.equals(channel.getId());
         boolean isOver = new Date().after(c.getEndTime());
-        if (!isOver) {
+        if (!isOver && !isTopCoderDirect) {
             throw new NavigationException("Submissions are not available until the contest is over.");
         }
 

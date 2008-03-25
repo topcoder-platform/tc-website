@@ -3,6 +3,7 @@ package com.topcoder.web.studio;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.imaging.overlay.ImagePersistenceHandler;
 
 import java.lang.reflect.Field;
@@ -58,7 +59,7 @@ public class Constants implements WebConstants {
     public static int ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE;
 
     /**
-     * <p>A <code>String</code> providing the name of request paramater to specify the type of alternate representation
+     * <p>A <code>String</code> providing the name of request parameter to specify the type of alternate representation
      * of the submission to be viewed/downloaded.</p>
      *
      * @since TopCoder Studio Modifications Assembly (Req# 5.11)
@@ -199,6 +200,68 @@ public class Constants implements WebConstants {
      * @since TopCoder Studio Modifications Assembly
      */
     public static String ERROR_MSG_NO_PREVIEW_FILE;
+
+    /**
+     * <p>An <code>int</code> providing the maximum allowed length for the values of {@link ContestProperty#CLIENT}
+     * property of a contest.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.1)
+     */
+    public static int MAX_CLIENT_NAME_LENGTH;
+
+    /**
+     * <p>An <code>int</code> providing the maximum allowed length for the values of configuration property of a
+     * contest.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1)
+     */
+    public static int MAX_CONTEST_CONFIG_VALUE_LENGTH;
+
+    /**
+     * <p>An <code>int</code> providing the maximum allowed length for the values of contest document descriptions.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.7)
+     */
+    public static int MAX_DOCUMENT_DESC_VALUE_LENGTH;
+
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the time of announcing a winner for
+     * the contest.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.2)
+     */
+    public static final String WINNER_ANNOUNCEMENT_TIME = "watm";
+
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the intended medium types for the
+     * submissions for the contests.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.5)
+     */
+    public static final String MEDIUM = "mt_";
+
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the type of the contest.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.4)
+     */
+    public static final String CONTEST_TYPE = "ctt";
+
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the channel of the contest.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.5)
+     */
+    public static final String CONTEST_CHANNEL = "cc";
+
+
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the description of the uploaded
+     * document.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.7)
+     */
+    public static final String DOC_DESC = "docdesc";
 
     static {
         initialize();

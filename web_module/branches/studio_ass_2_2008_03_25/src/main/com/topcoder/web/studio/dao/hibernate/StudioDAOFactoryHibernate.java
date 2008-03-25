@@ -85,4 +85,15 @@ public class StudioDAOFactoryHibernate implements StudioDAOFactory {
     public ContestChannelDAO getContestChannelDAO() {
         return new ContestChannelDAOHibernate();
     }
+
+    /**
+     * <p>Gets the DAO to be used for accessing/managing contest submission medium types.</p>
+     *
+     * @return a <code>MediumDAO</code> to be used for accessing/managing contest submission medium types in underlying
+     *         persistent data store.
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.5)
+     */
+    public MediumDAO getMediumDAO() {
+        return new MediumDAOHibernate();
+    }
 }

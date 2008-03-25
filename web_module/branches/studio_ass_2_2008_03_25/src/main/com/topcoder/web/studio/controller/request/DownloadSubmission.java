@@ -23,7 +23,7 @@ import java.util.Map;
 import java.text.MessageFormat;
 
 /**
- * @author dok, isv
+ * @author dok, isv, TCSDEVELOPER
  * @version $Revision$ Date: 2005/01/01 00:00:00 Create Date: Aug 29, 2006
  */
 public class DownloadSubmission extends BaseSubmissionDataProcessor {
@@ -57,35 +57,47 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         }
 
         if (!isStudioAdminV1) {
-            boolean isOwner = s.getSubmitter().getId().equals(getUser().getId());
+            long currentUserId = getUser().getId();
+            boolean isOwner = s.getSubmitter().getId().equals(currentUserId);
             boolean isOver = new Date().after(s.getContest().getEndTime());
 
-            if (!isOver && !isOwner && !isTopCoderDirect) {
+            // Determine the type of requested submission presentation, "full" is the default type
+            String submissionType = getRequest().getParameter(Constants.SUBMISSION_ALT_TYPE);
+            if (submissionType == null) {
+                submissionType = "full";
+            } else {
+                // Validate that the correct type of presentation is requested
+                boolean valid = false;
+                for (int i = 0; !valid && (i < ALTERNATE_SUBMISSION_TYPES.length); i++) {
+                    valid = (ALTERNATE_SUBMISSION_TYPES[i].equalsIgnoreCase(submissionType));
+                }
+                if (!valid) {
+                    throw new NavigationException(
+                            MessageFormat.format(Constants.ERROR_MSG_INVALID_PRESENTATION_TYPE, submissionType));
+                }
+            }
+            // Since TopCoder Studio Modifications v2 Assembly (Req# 5.11)- the contest creator may download the
+            // submission if it already has been purchased
+            boolean originalSubmissionRequested = "original".equalsIgnoreCase(submissionType);
+            boolean isPurchaser = originalSubmissionRequested && (contest.getCreateUserId() == currentUserId)
+                                  && (com.topcoder.web.studio.controller.request.admin.DeleteSubmission.isSubmissionPurchased(String.valueOf(submissionId)));
+            if (!isOver && !isOwner && !isTopCoderDirect && !isPurchaser) {
                 throw new NavigationException("Submissions are not available until the contest is over.");
             }
 
+            // Allow to download submission only if the contest submissions are viewable and any of following conditions
+            // is met:
+            // 1. The non-original submission is requested and user is a submitter or contest is over or contest is
+            //    TC Direct contest
+            // 2. The original submission is requested and user is either a submitter
+            // 3. The original submission is requested and user is contest creator and submission is purchased
             if ("true".equals(s.getContest().getViewableSubmissions().getValue())
-                && (isOwner || isTopCoderDirect || isOver)) {
+                && ((isOwner || isTopCoderDirect || isOver) && !originalSubmissionRequested
+                    || originalSubmissionRequested && (isPurchaser || isOwner))) {
                 // Since TopCoder Studio Modifications Assembly Req# 5.8
                 String targetFileName;
                 String destFileName;
                 String contentType = "application/zip";
-
-                // Determine the type of requested submission presentation, "full" is the default type
-                String submissionType = getRequest().getParameter(Constants.SUBMISSION_ALT_TYPE);
-                if (submissionType == null) {
-                    submissionType = "full";
-                } else {
-                    // Validate that the correct type of presentation is requested
-                    boolean valid = false;
-                    for (int i = 0; !valid && (i < ALTERNATE_SUBMISSION_TYPES.length); i++) {
-                        valid = (ALTERNATE_SUBMISSION_TYPES[i].equalsIgnoreCase(submissionType));
-                    }
-                    if (!valid) {
-                        throw new NavigationException(
-                                MessageFormat.format(Constants.ERROR_MSG_INVALID_PRESENTATION_TYPE, submissionType));
-                    }
-                }
 
                 // Determine if the "imagew" presentation must be used in case the "full" presentation is requested but
                 // contest does not require preview file. So the user may get the watermarked image
@@ -97,7 +109,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 }
 
                 // Determine tha name of requested file and it's mime type
-                if (!submissionType.equalsIgnoreCase("original")) {
+                if (!originalSubmissionRequested) {
                     // Thealternate presentation is requested
 
                     // Locate the file corresponding to requested alternate presentation
@@ -132,7 +144,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 log.debug("not done");
 
                 TCResponse response = getResponse();
-                if (isOwner && "original".equalsIgnoreCase(submissionType)) {
+                if (isOwner && originalSubmissionRequested) {
                     response.addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName()
                                                                    + "\"");
                     if (log.isDebugEnabled()) {

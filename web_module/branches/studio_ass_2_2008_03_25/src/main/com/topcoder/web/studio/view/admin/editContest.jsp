@@ -3,7 +3,11 @@
 <%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
+<%--
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+--%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -20,38 +24,30 @@
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
-    <script language="javascript" type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
-    <script language="javascript" type="text/javascript" src="/js/jquery.textarearesizer.compressed-1.0.4.js"></script>
-
-    <script type="text/javascript">
-            /* jQuery textarea resizer plugin usage */
-            $(document).ready(function() {
-                    $('textarea.resizable:not(.processed)').TextAreaResizer();
-            });
-    </script>
-    <style type="text/css">
-            div.grippie {
-                    background:#EEEEEE url(/i/layout/grippie.png) no-repeat scroll center 2px;
-                    border-color:#DDDDDD;
-                    border-style:solid;
-                    border-width:0pt 1px 1px;
-                    cursor:s-resize;
-                    height:9px;
-                    overflow:hidden;
-            }
-            .resizable-textarea textarea {
-                    display:block;
-                    margin-bottom:0pt;
-                    width:95%;
-                    height: 20%;
-            }
-    </style>
-
-
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-
+    <script type="text/javascript" xml:space="preserve">
+        var contestTypeImageFlag = new Array();
+        var contestTypeFileFlag = new Array();
+        contestTypeImageFlag[0] = '';
+        contestTypeFileFlag[0] = '';
+        <c:forEach items="${contestTypes}" var="type" varStatus="index">
+            contestTypeImageFlag[${index.index + 1}] = '${type.previewImageRequired ? 'true' : 'false'}';
+            contestTypeFileFlag[${index.index + 1}] = '${type.previewFileRequired ? 'true' : 'false'}';
+        </c:forEach>
+        function chooseType() {
+            var formName = "document.editForm";
+            var selectedType = getSelectedOption(formName, "<%=Constants.CONTEST_TYPE%>");
+            setSelectedOption(formName, '<%=Constants.CONTEST_PROPERTY + ContestProperty.REQUIRE_PREVIEW_IMAGE%>', contestTypeImageFlag[selectedType.index]);
+            setSelectedOption(formName, '<%=Constants.CONTEST_PROPERTY + ContestProperty.REQUIRE_PREVIEW_FILE%>', contestTypeFileFlag[selectedType.index]);
+        }
+        function updateDocument(docId) {
+            var formName = "document.removeDocForm";
+            putValue(formName, '<%=Constants.MODULE_KEY%>', 'AdminUpdateDocument');
+            putValue(formName, '<%=Constants.DOCUMENT_ID%>', '' + docId);
+        }
+    </script>
 </head>
 
 <body>
@@ -97,7 +93,9 @@
 
 <div class="header">Contest Details</div>
 
-<p>Created by HANDLE</p>
+<%-- Since TopCoder Studio Modifications v2 Assembly (Req# 5.13) - displaying the username for the creator
+     of the contest --%>
+<p>Created by ${contestCreatorHandle}</p>
 
 <table cellpadding="0" cellspacing="0" class="input">
 <tbody>
@@ -115,9 +113,12 @@
         <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
     </td>
 </tr>
+
+<%-- Since TopCoder Studio Modifications Assembly v2 (Req# 5.1.1) - the client name is added --%>
 <tr>
     <td colspan="2">
-        <span class="bigRed">ERROR<br/></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_PROPERTY + ContestProperty.CLIENT%>">
+            <span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -125,12 +126,15 @@
         Client Name:
     </td>
     <td class="value" width="100%">
-        <input name="TEMP" type="text">
+        <tc-webtag:textInput name="<%=Constants.CONTEST_PROPERTY + ContestProperty.CLIENT%>"/>
     </td>
 </tr>
+
+<%-- Since TopCoder Studio Modifications Assembly v2 (Req# 5.4) - the contest types are added --%>
 <tr>
     <td colspan="2">
-        <span class="bigRed">ERROR<br/></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_TYPE%>">
+            <span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -138,28 +142,35 @@
         Contest Type:
     </td>
     <td class="value" width="100%">
-        <select name="">
-            <option value=""></option>
-            <option value="">Apparel</option>
-            <option value="">Application Screens</option>
-            <option value="">Icon</option>
-            <option value="">Logo</option>
-            <option value="">FLASH</option>
-            <option value="">Other</option>
-            <option value="">Presentation</option>
-            <option value="">Print - Branding/ Collateral</option>
-            <option value="">Print - Advertisement</option>
-            <option value="">Print - Marketing</option>
-            <option value="">Prototype</option>
-            <option value="">Sound</option>
-            <option value="">Web Elements</option>
-            <option value="">Web Screens</option>
-        </select>
+        <tc-webtag:objectSelect name="<%=Constants.CONTEST_TYPE%>" list="${contestTypes}" valueField="id"
+                                onChange="chooseType()" textField="description"/>
+    </td>
+</tr>
+
+<%-- Since TopCoder Studio Modifications Assembly v2 (Req# 5.5) - the contest channels are added --%>
+<tr>
+    <td colspan="2">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_CHANNEL%>">
+            <span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
+    <td class="name">
+        Contest Channel:
+    </td>
+    <td class="value" width="100%">
+        <tc-webtag:objectSelect name="<%=Constants.CONTEST_CHANNEL%>" list="${contestChannels}" valueField="id"
+                                textField="description" useTopValue="false"/>
+    </td>
+</tr>
+
+<%-- Since TopCoder Studio Modifications Assembly v2 (Req# 5.1.5) - the intended medium types are added --%>
+<c:set var="mediumTypePrefix" value="<%=Constants.MEDIUM%>"/>
+<c:set var="mediumTypes" value="${requestScope['mediums']}"/>
+<tr>
     <td colspan="2">
-        <span class="bigRed">ERROR<br/></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.MEDIUM%>">
+            <span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -167,17 +178,12 @@
         Medium: (Check all that apply)
     </td>
     <td class="value" width="100%">
-        <div><INPUT name="" type="checkbox" value="" /> Apparel</div>
-        <div><INPUT name="" type="checkbox" value="" /> Brochure</div>
-        <div><INPUT name="" type="checkbox" value="" /> Computer Screen</div>
-        <div><INPUT name="" type="checkbox" value="" /> Email Newsletter</div>
-        <div><INPUT name="" type="checkbox" value="" /> Poster</div>
-        <div><INPUT name="" type="checkbox" value="" /> Print</div>
-        <div><INPUT name="" type="checkbox" value="" /> Sign/Banner</div>
-        <div><INPUT name="" type="checkbox" value="" /> Stationery</div>
-        <div><INPUT name="" type="checkbox" value="" /> Web</div>
+        <c:forEach items="${mediumTypes}" var="medium">
+            <div><tc-webtag:chkBox name="${mediumTypePrefix}${medium.id}"/> ${medium.description}</div>
+        </c:forEach>
     </td>
 </tr>
+
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_STATUS_ID%>"> <span class="bigRed">${err}
@@ -224,6 +230,23 @@
         <button id="trigger<%=Constants.END_TIME%>">Set</button>
     </td>
 </tr>
+
+<tr>
+    <td colspan="2">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.WINNER_ANNOUNCEMENT_TIME%>"><span class="bigRed">${err}
+            <br/></span></tc-webtag:errorIterator>
+    </td>
+</tr>
+<tr>
+    <td class="name" nowrap="nowrap">
+        Winner(s) Announced (Eastern Time):
+    </td>
+    <td class="value">
+        <tc-webtag:textInput name="<%=Constants.WINNER_ANNOUNCEMENT_TIME%>" id="<%=Constants.WINNER_ANNOUNCEMENT_TIME%>"/>
+        <button id="trigger<%=Constants.WINNER_ANNOUNCEMENT_TIME%>">Set</button>
+    </td>
+</tr>
+
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.FORUM_ID%>"><span class="bigRed">${err}
@@ -235,8 +258,7 @@
         Forum:
     </td>
     <td class="value">
-        <tc-webtag:rscSelect name="<%=Constants.FORUM_ID%>"
-                             list="<%=(ResultSetContainer)request.getAttribute("forums")%>" fieldText="name"
+        <tc-webtag:rscSelect name="<%=Constants.FORUM_ID%>" list="${forums}" fieldText="name"
                              fieldValue="forum_id" selectedValue="${contest.forumId}"/>
     </td>
 </tr>
@@ -270,25 +292,19 @@
         Project:
     </td>
     <td class="value">
-        <tc-webtag:rscSelect name="${projectId}"
-                             list="<%=(ResultSetContainer)request.getAttribute("projects")%>" fieldText="project_name"
+        <tc-webtag:rscSelect name="${projectId}" list="${projects}" fieldText="project_name"
                              fieldValue="project_id"/>
     </td>
 </tr>
 
+<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.OTHER_FILE_TYPES%>"
+                                 title="Other File Types:"/>
+<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.FULL_DESCRIPTION%>"
+                                 title="Full Description:"/>
+<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.SUBMISSION_FILE_FORMAT%>"
+                                 title="Notes on Submission File(s):"/>
 
 <c:set value="<%=Constants.FILE_TYPE%>" var="fileType"/>
-
-<tr>
-    <td colspan="2">
-        <p>
-            <span class="bigRed">ERROR<br/></span>
-            <strong>Notes on Submission File(s):</strong> <br/><br/>
-            <textarea class="resizable" cols="80" rows="2" name=""></textarea>
-        </p>
-    </td>
-</tr>
-
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="${fileType}"><span class="bigRed">${err}
@@ -305,6 +321,45 @@
     </td>
 </tr>
 
+<%-- Since TopCoder Studio Modifications Assembly v2 (Req# 5.6) - the Require Preview Image flag is added --%>
+<c:set value="<%=Constants.CONTEST_PROPERTY + ContestProperty.REQUIRE_PREVIEW_IMAGE%>" var="reqPreviewImage"/>
+<tr>
+    <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${reqPreviewImage}">${err}
+                    <br/></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Require Preview Image?:
+    </td>
+    <td class="value">
+        <tc-webtag:listSelect name="${reqPreviewImage}" useTopValue="true" list="${requirePreviewImageAnswers}"/>
+    </td>
+</tr>
+
+<%-- Since TopCoder Studio Modifications Assembly v2 (Req# 5.6) - the Require Preview File flag is added --%>
+<c:set value="<%=Constants.CONTEST_PROPERTY + ContestProperty.REQUIRE_PREVIEW_FILE%>" var="reqPreviewFile"/>
+<tr>
+    <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${reqPreviewFile}">${err}
+                    <br/></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Require Preview File?:
+    </td>
+    <td class="value">
+        <tc-webtag:listSelect name="${reqPreviewFile}" useTopValue="true" list="${requirePreviewFileAnswers}"/>
+    </td>
+</tr>
+
+
+<%-- Since TopCoder Studio Modifications v2 Assembly (Req.# 5.1.3, 5.1.4)
+     - the width and height are replaced with size requirements --%>
+
+<%--
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MIN_HEIGHT%>" var="minHeight"/>
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MAX_HEIGHT%>" var="maxHeight"/>
 <tr>
@@ -365,36 +420,22 @@
         <tc-webtag:textInput name="${maxWidth}" size="4"/>
     </td>
 </tr>
+--%>
 
-<tr>
-    <td colspan="2">
-        <p>
-            <span class="bigRed">ERROR<br/></span>
-            <strong>Other Notes on Size:</strong> <br/><br/>
-            <textarea class="resizable" cols="80" rows="2" name=""></textarea>
-        </p>
-    </td>
-</tr>
-
-<tr>
-    <td colspan="2">
-        <p>
-            <span class="bigRed">ERROR<br/></span>
-            <strong>Notes on Fonts:</strong> <br/><br/>
-            <textarea class="resizable" cols="80" rows="2" name=""></textarea>
-        </p>
-    </td>
-</tr>
-
-<tr>
-    <td colspan="2">
-        <p>
-            <span class="bigRed">ERROR<br/></span>
-            <strong>Notes on Color Palettes:</strong> <br/><br/>
-            <textarea class="resizable" cols="80" rows="2" name=""></textarea>
-        </p>
-    </td>
-</tr>
+<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.SIZE_REQUIREMENTS%>"
+                                 title="Other Notes on Size:"/>
+<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.FONT_REQUIREMENTS%>"
+                                 title="Notes on Fonts:"/>
+<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.COLOR_REQUIREMENTS%>"
+                                 title="Notes on Color Palettes:"/>
+<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.CONTENT_REQUIREMENTS%>"
+                                 title="Content Requirements:"/>
+<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.OTHER_REQUIREMENTS%>"
+                                 title="Other Requirements:"/>
+<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.ELIGIBILITY%>"
+                                 title="Eligibility:"/>
+<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.WINNER_SELECTION%>"
+                                 title="Notes on Winners Selection:"/>
 
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.VIEWABLE_SUBMISSIONS%>" var="viewSubmissions"/>
 
@@ -475,6 +516,16 @@
         cache       : true
     }
             );
+    Calendar.setup(
+    {
+        inputField  : "<%=Constants.WINNER_ANNOUNCEMENT_TIME%>",         // ID of the input field
+        ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+        button      : "trigger<%=Constants.WINNER_ANNOUNCEMENT_TIME%>",      // ID of the button
+        showsTime    : true,
+        singleClick  : false,
+        cache       : true
+    }
+            );
 </script>
 
 
@@ -486,18 +537,22 @@
     <strong>Contest Overview:</strong> You may include HTML, the content entered here is exactly what will be inserted
     into the contest
     details page.<br/><br/>
-    <tc-webtag:textArea name="${overviewText}" rows="2" cols="80" styleClass="resizable"/>
+    <tc-webtag:textArea name="${overviewText}" rows="8" cols="80"/>
 </p>
 
 
 <script language="javascript" type="text/javascript">
-var defaultOverview= "[Copy Project Overview info from Spec into this area. Do not copy files needed]\n\n"+
-"<p><b>Entries must be your original work, and must not infringe on the copyright or licenses of others. Stock art, clip art, " +
-    "templates and other design elements from other sources are prohibited unless specifically permitted in the Specification Document.</b></p>";
+    <!--
+var defaultOverview= "General description of the contest goes here. Give background info, overview about what the client " +
+"is seeking, and general look and feel info.\n\n" +
+"Entries must be your original work, and must not infringe on the copyright or licenses of others. Stock art, clip art, " +
+"templates and other design elements from other sources are prohibited unless specifically permitted in the " +
+"Specification Document."
 var overviewText = getValue("document.editForm", "${overviewText}");
                        if ( overviewText==null || overviewText.length==0) {
                          putValue("document.editForm", "${overviewText}", defaultOverview);
                         }
+                -->
 </script>
 
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.PRIZE_DESCRIPTION%>" var="prizeDesc"/>
@@ -509,21 +564,19 @@ var overviewText = getValue("document.editForm", "${overviewText}");
     into the contest
     details page.
     <br/><br/>
-    <tc-webtag:textArea name="${prizeDesc}" rows="3" cols="80" styleClass="resizable"/>
+    <tc-webtag:textArea name="${prizeDesc}" rows="8" cols="80"/>
 </p>
 
 <script language="javascript" type="text/javascript">
-var defaultPrizeDesc= "<b>Selection of Winner:</B><br /> \n\n"+
-"After the submission phase ends, all entries will be screened against the Required Elements listed in the Spec Doc. All passing submissions are then reviewed by the TopCoder project manager and information architect as well as the Client. Winners are selected based on how well they have met the goals of this competition.  \n\n"+
-"<p><b>Prize Structure:</b><br />  \n\n"+
-"The contest will award cash prizes totaling [MONEY HERE] to up to [two (2) competitors]. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner(s). </p>  \n\n"+
-"<p><b>Final Fixes:</b><br />  \n\n"+
-"The Client may require the winner to enter into a Final Fixes Phase after the contest has ended. This phase will require the winner to make final changes (specific to the Spec Doc) to the final deliverables before payment can be released.</p>  \n\n"+
-"<p><span style=\" color:red;\"><b>Final Deliverables From Winner:</b><br /> The payment will be distributed in one full installment once the final version of the winning submission has been received by TopCoder Studio</span>. Final deliverables include [ENTER HERE FROM SPEC]</p>";
+    <!--
+var defaultPrizeDesc= "TopCoder Studio will compensate the member with the first place submission, as selected "+
+"by the client.  The payment will be distributed in one full installment once the final vector-based version of " +
+"the winning submission has been received by TopCoder Studio.";
 var prizeDesc = getValue("document.editForm", "${prizeDesc}");
                        if ( prizeDesc==null || prizeDesc.length==0) {
                          putValue("document.editForm", "${prizeDesc}", defaultPrizeDesc);
                         }
+                -->
 </script>
 
 <p>
@@ -545,6 +598,10 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
     <br/><br/>
 
+    <c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
+    <c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
+    <c:set value="<%=Constants.DOC_DESC%>" var="docDesc"/>
+    
     <div class="header">Documentation</div>
 
     <form action="${sessionInfo.servletPath}" method="POST" name="removeDocForm">
@@ -554,9 +611,15 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
         <p>
             <c:forEach items="${contest.documents}" var="document">
-                ${document.type.description}
+                <tc-webtag:errorIterator id="err" name="${docType}_${document.id}"><span class="bigRed">${err}</span><br/></tc-webtag:errorIterator>
+                <tc-webtag:objectSelect name="${docType}_${document.id}" list="${docTypes}" valueField="id" textField="description" useTopValue="false"/>
+                <tc-webtag:errorIterator id="err" name="${docType}_${document.id}"><span class="bigRed">${err}</span><br/></tc-webtag:errorIterator>
+                <tc-webtag:textInput name="${docDesc}_${document.id}" maxlength="<%=Constants.MAX_DOCUMENT_DESC_VALUE_LENGTH%>"/>
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
                         ${document.originalFileName}</a>
+                <button onClick="updateDocument(${document.id})">
+                    Save
+                </button>
                 <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
                     Remove
                 </button>
@@ -566,8 +629,6 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
     </form>
 
 
-    <c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
-    <c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
     <form action="${sessionInfo.servletPath}" method="POST" name="addDocumentForm"
           enctype="multipart/form-data">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
@@ -579,6 +640,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
         <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
             <br/></tc-webtag:errorIterator></span>
             <tc-webtag:objectSelect name="${docType}" list="${docTypes}" valueField="id" textField="description"/>
+            <tc-webtag:textInput name="${docDesc}"/>
             <input type="file" name="${doc}">
             <button name="submit" value="submit" type="submit">Add</button>
             <br/><br/>

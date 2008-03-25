@@ -3,11 +3,11 @@
 --
 
 -- User #1
-INSERT INTO comp1_common_oltp:user (user_id, first_name, last_name, handle, status, timezone_id) VALUES (1, 'dok', 'dok', 'dok_test', 'A', 143);
-INSERT INTO comp1_common_oltp:security_user VALUES (1, 'dok_test', '4EjPjy6o+/C+dqNPnxIy9A==', null);
-INSERT INTO comp1_informixoltp:coder (coder_id, member_since, coder_type_id) VALUES (1, current, 2);
-INSERT INTO comp1_common_oltp:user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES (1, 1, 14, 1);
-INSERT INTO comp1_common_oltp:user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES (2, 1, 2000118, 1);
+INSERT INTO common_oltp:user (user_id, first_name, last_name, handle, status, timezone_id) VALUES (1, 'dok', 'dok', 'dok_test', 'A', 143);
+INSERT INTO common_oltp:security_user VALUES (1, 'dok_test', '4EjPjy6o+/C+dqNPnxIy9A==', null);
+INSERT INTO informixoltp:coder (coder_id, member_since, coder_type_id) VALUES (1, current, 2);
+INSERT INTO common_oltp:user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES (1, 1, 14, 1);
+INSERT INTO common_oltp:user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES (2, 1, 2000118, 1);
 INSERT INTO email (user_id, email_id, email_type_id, address, primary_ind, status_id) VALUES (1, 1,1, 'fake@fake.com', 1, 1);
 
 -- Contest #1 - TopCoder Direct channel
@@ -136,7 +136,7 @@ INSERT INTO contest_result (submission_id, contest_id, create_date, placed, fina
 INSERT INTO submission_review (submission_id, reviewer_id, text, review_status_id, modify_date) VALUES (1, 1, 'Pass', 1, CURRENT);
 
 
--- Contest #5 - Studio Administrator channel, Logo, closed, requires file
+-- Contest #5 - Studio Administrator channel, Logo, closed, requires file 
 INSERT INTO contest (contest_id,name,start_time,end_time,contest_status_id,contest_channel_id,contest_type_id,tc_direct_project_id,create_user_id) VALUES (5,'TC Studio Administrator #5','2008-02-01 17:04:25','2008-02-20 16:11:00',2,1,2,103,1);
 
 INSERT INTO contest_config (contest_id,property_id,property_value) VALUES (5, 1, 'Sample contest #5 used by unit tests');
@@ -212,9 +212,10 @@ INSERT INTO contest_result (submission_id, contest_id, create_date, placed, fina
 
 INSERT INTO submission_review (submission_id, reviewer_id, text, review_status_id, modify_date) VALUES (3, 1, 'Pass', 1, CURRENT);
 
+INSERT INTO submission_payment (submission_id, payment_status_id, price) VALUES (3, 1, 100.00);
 
 -- Contest #7 - Studio Administrator channel V1, Storyboard, open, requires preview file
-INSERT INTO contest (contest_id,name,start_time,end_time,contest_status_id,contest_channel_id,contest_type_id,tc_direct_project_id,create_user_id) VALUES (7,'TC Studio Administrator #7','2008-02-01 17:04:25','2009-02-20 16:11:00',2,3,1,103,1);
+INSERT INTO contest (contest_id,name,start_time,end_time,contest_status_id,contest_channel_id,contest_type_id,tc_direct_project_id,create_user_id) VALUES (7,'TC Studio Administrator #7','2008-02-01 17:04:25','2009-02-20 16:11:00',2,3,1,103,132456);
 
 INSERT INTO contest_config (contest_id,property_id,property_value) VALUES (7, 1, 'Sample contest #7 used by unit tests');
 INSERT INTO contest_config (contest_id,property_id,property_value) VALUES (7, 2, 'Prize description for sample contest #7');
@@ -252,6 +253,7 @@ INSERT INTO contest_result (submission_id, contest_id, create_date, placed, fina
 
 INSERT INTO submission_review (submission_id, reviewer_id, text, review_status_id, modify_date) VALUES (4, 132456, 'Pass', 1, CURRENT);
 
+INSERT INTO submission_payment (submission_id, payment_status_id, price) VALUES (4, 1, 100.00);
 
 -- Contest #8 - TopCoder Direct channel, closed
 INSERT INTO contest (contest_id,name,start_time,end_time,contest_status_id, contest_channel_id,contest_type_id,tc_direct_project_id,create_user_id) VALUES (8,'TC Direct Contest #8','2008-02-01 17:04:25','2008-02-20 16:11:00',2,2,1,100,132456);
@@ -292,6 +294,8 @@ INSERT INTO contest_result (submission_id, contest_id, create_date, placed, fina
 
 INSERT INTO submission_review (submission_id, reviewer_id, text, review_status_id, modify_date) VALUES (5, 132456, 'Pass', 1, CURRENT);
 
+INSERT INTO submission_payment (submission_id, payment_status_id, price) VALUES (5, 2, 100.00);
+
 -- Contest #9 - TopCoder Direct channel, running
 INSERT INTO contest (contest_id,name,start_time,end_time,contest_status_id, contest_channel_id,contest_type_id,tc_direct_project_id,create_user_id) VALUES (9,'TC Direct Contest #9','2008-02-01 17:04:25','2009-02-20 16:11:00',2,2,1,100,132456);
 
@@ -324,6 +328,8 @@ INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date
 INSERT INTO path (path_id, path, modify_date) VALUES (6, 'studiofiles/submissions/9/dok_test_1/', CURRENT);
 
 INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (6,1,9,CURRENT,'tcs.zip', 'tcs_submission.zip', 6, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
+
+INSERT INTO submission_payment (submission_id, payment_status_id, price) VALUES (6, 2, 100.00);
 
 -- Contest #10 - Studio Administrator channel, closed
 INSERT INTO contest (contest_id,name,start_time,end_time,contest_status_id,contest_channel_id,contest_type_id,tc_direct_project_id,create_user_id) VALUES (10,'TC Studio Administrator #10','2008-02-01 17:04:25','2008-02-20 16:11:00',2,1,2,102,132456);
@@ -364,6 +370,7 @@ INSERT INTO contest_result (submission_id, contest_id, create_date, placed, fina
 
 INSERT INTO submission_review (submission_id, reviewer_id, text, review_status_id, modify_date) VALUES (7, 132456, 'Pass', 1, CURRENT);
 
+INSERT INTO submission_payment (submission_id, payment_status_id, price) VALUES (7, 3, 100.00);
 
 -- Contest #11 - Studio Administrator channel, running
 INSERT INTO contest (contest_id,name,start_time,end_time,contest_status_id,contest_channel_id,contest_type_id,tc_direct_project_id,create_user_id) VALUES (11,'TC Studio Administrator #11','2008-02-01 17:04:25','2009-02-20 16:11:00',2,1,2,102,132456);
@@ -398,3 +405,49 @@ INSERT INTO path (path_id, path, modify_date) VALUES (8, 'studiofiles/submission
 
 INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (8,1,11,CURRENT,'tcs.zip', 'tcs_submission.zip', 8, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
 
+INSERT INTO submission_payment (submission_id, payment_status_id, price) VALUES (8, 3, 100.00);
+
+-- Contest #12 - Studio Administrator, Storyboard, open, requires preview file
+INSERT INTO contest (contest_id,name,start_time,end_time,contest_status_id,contest_channel_id,contest_type_id,tc_direct_project_id,create_user_id) VALUES (12,'TC Studio Administrator #12','2008-02-01 17:04:25','2009-02-20 16:11:00',2,1,1,103,132456);
+
+INSERT INTO contest_config (contest_id,property_id,property_value) VALUES (12, 1, 'Sample contest #12 used by unit tests');
+INSERT INTO contest_config (contest_id,property_id,property_value) VALUES (12, 2, 'Prize description for sample contest #12');
+INSERT INTO contest_config (contest_id,property_id,property_value) VALUES (12, 3, 'true');
+INSERT INTO contest_config (contest_id,property_id,property_value) VALUES (12, 4, null);
+INSERT INTO contest_config (contest_id,property_id,property_value) VALUES (12, 5, null);
+INSERT INTO contest_config (contest_id,property_id,property_value) VALUES (12, 6, null);
+INSERT INTO contest_config (contest_id,property_id,property_value) VALUES (12, 7, null);
+INSERT INTO contest_config (contest_id,property_id,property_value) VALUES (12, 8, null);
+INSERT INTO contest_config (contest_id,property_id,property_value) VALUES (12, 9, 'true');
+INSERT INTO contest_config (contest_id,property_id,property_value) VALUES (12, 10, 'false');
+INSERT INTO contest_config (contest_id,property_id,property_value) VALUES (12, 11, 'true');
+
+INSERT INTO contest_file_type_xref (contest_id,file_type_id,create_date) VALUES (12, 14, CURRENT);
+INSERT INTO contest_file_type_xref (contest_id,file_type_id,create_date) VALUES (12, 16, CURRENT);
+
+INSERT INTO prize (prize_id,place,amount,prize_type_id,create_date) VALUES (34, 1, 100.00, 1, CURRENT);
+INSERT INTO prize (prize_id,place,amount,prize_type_id,create_date) VALUES (35, 2, 50.00, 1, CURRENT);
+INSERT INTO prize (prize_id,place,amount,prize_type_id,create_date) VALUES (36, 3, 25.00, 1, CURRENT);
+
+INSERT INTO contest_prize_xref (contest_id,prize_id,create_date) VALUES (12, 34, CURRENT);
+INSERT INTO contest_prize_xref (contest_id,prize_id,create_date) VALUES (12, 35, CURRENT);
+INSERT INTO contest_prize_xref (contest_id,prize_id,create_date) VALUES (12, 36, CURRENT);
+
+INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (12, 1, 1, CURRENT);
+INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (12, 132456, 1, CURRENT);
+
+INSERT INTO path (path_id, path, modify_date) VALUES (9, 'studiofiles/submissions/12/dok_test_1/', CURRENT);
+INSERT INTO path (path_id, path, modify_date) VALUES (10, 'studiofiles/documents/12/', CURRENT);
+
+INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (9,1,12,CURRENT,'tcs.zip', '9_full.zip', 9, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
+
+INSERT INTO submission_prize_xref (submission_id, prize_id, create_date) VALUES (9, 34, CURRENT);
+
+INSERT INTO contest_result (submission_id, contest_id, create_date, placed, final_score) VALUES (9, 12, CURRENT, 1, 98.00);
+
+INSERT INTO submission_review (submission_id, reviewer_id, text, review_status_id, modify_date) VALUES (9, 132456, 'Pass', 1, CURRENT);
+
+INSERT INTO submission_payment (submission_id, payment_status_id, price) VALUES (9, 1, 100.00);
+
+INSERT INTO document (document_id,path_id,original_file_name,system_file_name,document_type_id,create_date,mime_type_id,description) VALUES (1, 10, 'specification.pdf', 'specification.pdf', 1, CURRENT, 4, 'A contest specification');
+INSERT INTO contest_document_xref (contest_id, document_id, create_date) VALUES (12, 1, CURRENT);

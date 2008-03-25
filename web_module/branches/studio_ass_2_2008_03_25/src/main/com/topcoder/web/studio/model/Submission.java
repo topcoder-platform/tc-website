@@ -31,6 +31,12 @@ public class Submission extends Base {
     private com.topcoder.web.common.model.comp.Submission ORSubmission;
     private Set<Prize> prizes = new TreeSet<Prize>();
 
+    /**
+     * <p>A <code>boolean</code> flag indicating whether the submission has the preview image provided or not.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.3)
+     */
+    private boolean hasPreviewImage = false;
 
     public Long getId() {
         return id;
@@ -186,5 +192,25 @@ public class Submission extends Base {
         if (log.isDebugEnabled()) {
             log.debug("after size " + prizes.size());
         }
+    }
+
+    /**
+     * <p>Gets the flag indicating whether the submission has the preview image provided or not.</p>
+     *
+     * @return <code>true</code> if submission has preview image provided; <code>false</code> otherwise.
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.2)
+     */
+    public boolean getHasPreviewImage() {
+        return this.hasPreviewImage;
+    }
+
+    /**
+     * <p>Sets the flag indicating whether the submission has the preview image provided or not.</p>
+     *
+     * @param hasPreviewImage <code>true</code> if submission has preview image provided; <code>false</code> otherwise.
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.2)
+     */
+    public void setHasPreviewImage(boolean hasPreviewImage) {
+        this.hasPreviewImage = hasPreviewImage;
     }
 }

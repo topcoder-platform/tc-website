@@ -7,12 +7,13 @@ import junit.framework.TestCase;
 import junit.framework.Assert;
 import com.topcoder.web.studio.dao.ContestTypeDAO;
 import com.topcoder.web.studio.dao.ContestChannelDAO;
+import com.topcoder.web.studio.dao.MediumDAO;
 
 /**
  * <p>A unit test for {@link StudioDAOFactoryHibernate} class.</p>
  *
- * @author isv
- * @version 1.0
+ * @author isv, TCSDEVELOPER
+ * @version 2.0
  * @since TopCoder Studio Modifications Assembly (Req# 5.1, 5.2)
  */
 public class StudioDAOFactoryHibernateTestCase extends TestCase {
@@ -80,6 +81,23 @@ public class StudioDAOFactoryHibernateTestCase extends TestCase {
             Assert.assertNotNull("The factory does not return ContestChannelDAO", dao);
             Assert.assertEquals("The factory does not return ContestChannelDAO of correct type",
                                 ContestChannelDAOHibernate.class.getName(), dao.getClass().getName());
+        }
+    }
+
+    /**
+     * <p>Accuracy test. Tests the {@link StudioDAOFactoryHibernate#getMediumDAO()} method for accuracy.</p>
+     *
+     * <p>Verifies that the method returns the {@link MediumDAO} implementation of {@link MediumDAOHibernate} type on
+     * each method call. The tested method is called <code>100</code> times.</p>
+     * 
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.5)
+     */
+    public void testGetMediumDAO() {
+        for (int i = 0; i < 100; i++) {
+            MediumDAO dao = this.testedInstance.getMediumDAO();
+            Assert.assertNotNull("The factory does not return MediumDAO", dao);
+            Assert.assertEquals("The factory does not return MediumDAO of correct type",
+                                MediumDAOHibernate.class.getName(), dao.getClass().getName());
         }
     }
 }

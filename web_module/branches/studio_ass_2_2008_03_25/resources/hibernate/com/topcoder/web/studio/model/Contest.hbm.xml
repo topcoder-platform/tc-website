@@ -47,5 +47,10 @@
         <many-to-one name="type" column="contest_type_id" class="ContestType"/>
         <property name="directProjectId" column="tc_direct_project_id"/>
         <property name="createUserId" column="create_user_id"/>
+        <property name="winnerAnnouncementTime" column="winner_announcement_time"/>
+        <set name="mediums" table="contest_medium_xref" cascade="all">
+            <key column="contest_id" not-null="true"/>
+            <many-to-many column="medium_id" class="Medium"/>
+        </set>
     </class>
 </hibernate-mapping>

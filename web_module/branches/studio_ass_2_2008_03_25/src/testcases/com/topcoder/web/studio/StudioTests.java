@@ -4,7 +4,13 @@
 package com.topcoder.web.studio;
 
 import com.topcoder.web.studio.controller.request.admin.DownloadSubmissionTestCase;
+import com.topcoder.web.studio.controller.request.admin.EditContestTestCase;
+import com.topcoder.web.studio.controller.request.admin.AddDocumentTestCase;
+import com.topcoder.web.studio.controller.request.admin.SaveDocumentTestCase;
+import com.topcoder.web.studio.controller.request.admin.DeleteSubmissionTestCase;
+import com.topcoder.web.studio.controller.request.admin.ViewContestTestCase;
 import com.topcoder.web.studio.controller.request.SubmitTestCase;
+import com.topcoder.web.studio.controller.request.ViewSubmissionsTestCase;
 import com.topcoder.web.studio.dao.ContestDAOTestCase;
 import com.topcoder.web.studio.dao.SubmissionTypeDAOTestCase;
 import com.topcoder.web.studio.dao.SubmissionDAOTestCase;
@@ -16,10 +22,12 @@ import com.topcoder.web.studio.dao.FileTypeDAOTestCase;
 import com.topcoder.web.studio.dao.SubmissionReviewDAOTestCase;
 import com.topcoder.web.studio.dao.MimeTypeDAOTestCase;
 import com.topcoder.web.studio.dao.ContestTypeDAOTestCase;
+import com.topcoder.web.studio.dao.MediumDAOTestCase;
 import com.topcoder.web.studio.dao.hibernate.ContestTypeDAOHibernateTestCase;
 import com.topcoder.web.studio.dao.hibernate.ContestChannelDAOHibernateTestCase;
 import com.topcoder.web.studio.dao.hibernate.ContestPropertyDAOHibernateTestCase;
 import com.topcoder.web.studio.dao.hibernate.StudioDAOFactoryHibernateTestCase;
+import com.topcoder.web.studio.dao.hibernate.MediumDAOHibernateTestCase;
 import com.topcoder.web.studio.validation.ContestNameValidatorTestCase;
 import com.topcoder.web.studio.validation.FileTypeValidatorTestCase;
 import com.topcoder.web.studio.validation.MaxHeightValidatorTestCase;
@@ -32,13 +40,23 @@ import com.topcoder.web.studio.validation.EndTimeValidatorTestCase;
 import com.topcoder.web.studio.validation.MinWidthValidatorTestCase;
 import com.topcoder.web.studio.validation.MaxSubmissionsValidatorTestCase;
 import com.topcoder.web.studio.validation.SubmissionValidatorTestCase;
+import com.topcoder.web.studio.validation.ClientNameValidatorTestCase;
+import com.topcoder.web.studio.validation.WinnerAnnouncementTimeValidatorTestCase;
+import com.topcoder.web.studio.validation.MediumValidatorTestCase;
+import com.topcoder.web.studio.validation.ContestConfigValueValidatorTestCase;
+import com.topcoder.web.studio.validation.ContestTypeValidatorTestCase;
+import com.topcoder.web.studio.validation.ContestChannelValidatorTestCase;
 import com.topcoder.web.studio.model.StudioFileTypeTestCase;
 import com.topcoder.web.studio.model.ContestTypeTestCase;
 import com.topcoder.web.studio.model.ContestTestCase;
 import com.topcoder.web.studio.model.ContestChannelTestCase;
+import com.topcoder.web.studio.model.MediumTestCase;
+import com.topcoder.web.studio.model.SubmissionTestCase;
+import com.topcoder.web.studio.model.DocumentTestCase;
 import com.topcoder.web.studio.util.SubmissionPresentationFilterTestCase;
 import com.topcoder.web.studio.util.ZipFileAnalyzerTestCase;
 import com.topcoder.web.studio.util.JarFileAnalyzerTestCase;
+import com.topcoder.web.studio.view.tags.FieldRendererTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -99,6 +117,26 @@ public class StudioTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(SubmissionPresentationFilterTestCase.class));
         suite.addTest(new TestSuite(ZipFileAnalyzerTestCase.class));
         suite.addTest(new TestSuite(JarFileAnalyzerTestCase.class));
+
+        // Since TopCoder Studio Modifications v2
+        suite.addTest(new TestSuite(ClientNameValidatorTestCase.class));
+        suite.addTest(new TestSuite(WinnerAnnouncementTimeValidatorTestCase.class));
+        suite.addTest(new TestSuite(EditContestTestCase.class));
+        suite.addTest(new TestSuite(MediumTestCase.class));
+        suite.addTest(new TestSuite(MediumDAOTestCase.class));
+        suite.addTest(new TestSuite(MediumDAOHibernateTestCase.class));
+        suite.addTest(new TestSuite(MediumValidatorTestCase.class));
+        suite.addTest(new TestSuite(ContestConfigValueValidatorTestCase.class));
+        suite.addTest(new TestSuite(DeleteSubmissionTestCase.class));
+        suite.addTest(new TestSuite(SubmissionTestCase.class));
+        suite.addTest(new TestSuite(ContestTypeValidatorTestCase.class));
+        suite.addTest(new TestSuite(ContestChannelValidatorTestCase.class));
+        suite.addTest(new TestSuite(ViewContestTestCase.class));
+        suite.addTest(new TestSuite(FieldRendererTestCase.class));
+        suite.addTest(new TestSuite(DocumentTestCase.class));
+        suite.addTest(new TestSuite(AddDocumentTestCase.class));
+        suite.addTest(new TestSuite(SaveDocumentTestCase.class));
+        suite.addTest(new TestSuite(ViewSubmissionsTestCase.class));
 
         return suite;
     }
