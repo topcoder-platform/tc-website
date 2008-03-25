@@ -100,6 +100,9 @@
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
 
+        <!-- only for tests -->
+        <pathelement location="${external.jars.dir}/mockejb-0.6-beta2.jar"/>
+
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
@@ -373,7 +376,6 @@
             <classpath>
                 <pathelement location="resources/studio/"/>
                 <pathelement path="${class.path}"/>
-                <pathelement location="${external.jars.dir}/mockejb-0.6-beta2.jar"/>
             </classpath>
             <formatter type="xml"/>
             <test name="com.topcoder.web.studio.StudioTests" todir="${testclasses}"/>
