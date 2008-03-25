@@ -46,6 +46,9 @@
 
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
+        <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
         <pathelement location="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
 
@@ -65,6 +68,8 @@
         <pathelement location="${jars.dir}/hibernate-3.2/ant-antlr-1.6.5.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.2/antlr-2.7.6.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.2/commons-collections-2.1.1.jar"/>
+
+        <pathelement location="${external.jars.dir}/mockejb-0.6-beta2.jar"/>
 
         <pathelement location="${jars.dir}/object_formatter.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
@@ -114,7 +119,6 @@
         <pathelement location="${external.jars.dir}/jai_core-1.1.3.jar"/>
 
 
-
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
@@ -144,7 +148,7 @@
         <delete file="${build}/tempdist/move.xml"/>
         <unjar src="webserver.jar" dest="${build}/tempdist"/>
         <delete dir="${build}/tempdist/META-INF"/>
-        
+
         <copy todir="${build}/tempdist/depsrc">
             <fileset dir=".">
                 <include name="${java}/com/topcoder/web/common/**/*"/>
@@ -159,7 +163,7 @@
             </fileset>
         </copy>
         <copy tofile="${build}/tempdist/build.xml" file="build_studio_dist.xml"/>
-        
+
         <copy todir="${build}/tempdist/lib/jars">
             <fileset dir="${jars.dir}">
                 <include name="jboss/javax.servlet.jar"/>
@@ -186,7 +190,7 @@
                 <include name="hibernate-3.2/antlr-2.7.6.jar"/>
                 <include name="hibernate-3.2/commons-collections-2.1.1.jar"/>
 
-                
+
                 <include name="tcs/id_generator/3.0/id_generator.jar"/>
                 <include name="tcs/file_upload/2.0/file_upload.jar"/>
                 <include name="tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
@@ -319,7 +323,7 @@
             <include name="com/topcoder/web/common/**"/>
             <include name="com/topcoder/web/ejb/BaseEJB.java"/>
             <include name="com/topcoder/web/studio/**"/>
-            
+
         </javac>
         <property name="compile_set" value="true"/>
     </target>
