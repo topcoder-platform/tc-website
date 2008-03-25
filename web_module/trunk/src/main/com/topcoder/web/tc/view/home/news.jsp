@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.25.08<br />5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://blogs.zdnet.com/enterprisealley/?p=124' refer='/tc' />">ZDNet - TopCoder: breaking the development cost rules</a></span><br /><br />
+        The company takes the idea of community, applies a heavy dose of competition for skills and then applies that formula to the business of development.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://blogs.zdnet.com/enterprisealley/?p=124' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="520572" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />03.25.08<br />3:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -147,19 +160,6 @@
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=bracketInd">details</a> | 
-        <tc-webtag:forumLink forumID="519982" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.14.08<br />10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=onsiteSchedule">TCHS08 Finals are set for Saturday, March 15 at 10:00 AM EDT</a></span><br /><br />
-        The top 49 TCHS08 finalists are gearing up for an intense final round at Purdue University.  Watch live from the Arena.  Best of luck to the finalists!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=onsiteSchedule">details</a> | 
         <tc-webtag:forumLink forumID="519982" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
