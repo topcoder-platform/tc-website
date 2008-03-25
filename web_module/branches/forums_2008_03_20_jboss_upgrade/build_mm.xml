@@ -155,7 +155,7 @@
     </target>
 
 
-    <target name="war-longcontest" depends="compile">
+    <target name="war" depends="compile">
         <jar jarfile="${long.jar}">
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/tc/model/*.class"/>
@@ -200,20 +200,23 @@
         </war>
     </target>
 
-    <target name="deploy-longcontest" depends="war-longcontest">
+    <target name="deploy" depends="war">
         <antcall target="package-EJB-RoundRegistrationBean"/>
         <ant antfile="build_tc.xml" target="package-EJB-CoderBean"/>
         <ant antfile="build_tc.xml" target="package-EJB-UserBean"/>
         <ant antfile="build_tc.xml" target="package-EJB-EmailBean"/>
 
-        <antcall target="expand-longcontest"/>
+        <antcall target="expand"/>
     </target>
 
-    <target name="expand-longcontest">
+    <target name="expand">
         <copy todir="${jboss_deploy}">
             <fileset dir="${ejb_jars}">
                 <include name="RoundRegistration.jar"/>
-                <include name="LongCompResult.jar"/>
+                <include name="User.jar"/>
+                <include name="Coder.jar"/>
+                <include name="Email.jar"/>
+
             </fileset>
         </copy>
         <unwar src="${war.dir}/longcontest.war" dest="${jboss_deploy}/longcontest.war/"
