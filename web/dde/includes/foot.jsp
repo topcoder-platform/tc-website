@@ -12,8 +12,8 @@
 
 <!-- Member sites -->
     <tr><td width="100%" class="footer">
-        <a href="http://<%=ApplicationServer.TC_SERVER%>/tc" class="footerLinks">Competition</a>&#160;&#160;|&#160;&#160;
-        <a href="http://<%=ApplicationServer.TC_SERVER%>/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</a>
+        <a href="http://<%=ApplicationServer.TC_SERVER%>/tc" class="footerLinks">Competitions</a>&#160;&#160;|&#160;&#160;
+        <a href="/" class="footerLinks">Software</a>
 <!-- Main Navigation bar ends -->
 
     <tr><td height="4" class="footerStripe"><img src="/i/clear.gif" width="10" height="4" border="0"/></td></tr>
