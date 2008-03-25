@@ -1,9 +1,5 @@
 package com.topcoder.web.studio.controller.request.mystudio;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
@@ -11,6 +7,10 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentType;
 import com.topcoder.web.studio.controller.request.PactsServicesLocator;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * This processor handles the request for the assignment document history for a particular

@@ -43,6 +43,9 @@
         <many-to-one name="status" column="contest_status_id" class="ContestStatus"/>
         <many-to-one name="event" column="event_id" class="com.topcoder.web.common.model.Event"/>
         <many-to-one name="project" column="project_id" class="com.topcoder.web.common.model.comp.Project" cascade="none"/>
-
+        <many-to-one name="channel" column="contest_channel_id" class="ContestChannel"/>
+        <many-to-one name="type" column="contest_type_id" class="ContestType"/>
+        <property name="directProjectId" column="tc_direct_project_id"/>
+        <property name="createUserId" column="create_user_id"/>
     </class>
 </hibernate-mapping>

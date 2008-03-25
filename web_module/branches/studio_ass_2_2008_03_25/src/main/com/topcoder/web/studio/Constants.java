@@ -3,13 +3,14 @@ package com.topcoder.web.studio;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.WebConstants;
+import com.topcoder.imaging.overlay.ImagePersistenceHandler;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.MissingResourceException;
 
 /**
- * @author dok
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jun 22, 2006
  */
@@ -55,6 +56,149 @@ public class Constants implements WebConstants {
     public static String DOCUMENTS_DIRECTORY_NAME;
     public static int VIEW_SUBMISSIONS_SCROLL_SIZE;
     public static int ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE;
+
+    /**
+     * <p>A <code>String</code> providing the name of request paramater to specify the type of alternate representation
+     * of the submission to be viewed/downloaded.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.11)
+     */
+    public static final String SUBMISSION_ALT_TYPE = "sbt";
+
+    /**
+     * <p>A <code>String</code> providing the path to a file to be used for watermarking the images.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    public static String WATERMARK_FILE_PATH;
+    
+    /**
+     * <p>A <code>String</code> referencing the type of a file to be used for watermarking the images. Must be mapped to
+     * values introduced by {@link ImagePersistenceHandler} interface.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    public static String WATERMARK_FILE_TYPE;
+
+    /**
+     * <p>An <code>int</code> specifying the transparency for the base image when performing watermarking. Must be in
+     * range [-1, 100]</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    public static int WATERMARK_BASE_IMAGE_TRANSPARENCY;
+
+    /**
+     * <p>An <code>int</code> specifying the transparency for the overlay image when performing watermarking. Must be in
+     * range [-1, 100]</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    public static int WATERMARK_OVERLAY_IMAGE_TRANSPARENCY;
+
+    /**
+     * <p>An <code>int</code> specifying the value of red color when performing the watermarking. Must be in range
+     * [0, 255]</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    public static int WATERMARK_OVERLAY_IMAGE_RED;
+
+    /**
+     * <p>An <code>int</code> specifying the value of green color when performing the watermarking. Must be in range
+     * [0, 255]</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    public static int WATERMARK_OVERLAY_IMAGE_GREEN;
+    
+    /**
+     * <p>An <code>int</code> specifying the value of blue color when performing the watermarking. Must be in range
+     * [0, 255]</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    public static int WATERMARK_OVERLAY_IMAGE_BLUE;
+
+    /**
+     * <p>A <code>String</code> providing the path to a directory where the temporary files can be put to (for example,
+     * such files are used while generating the watermarked copies of images).</p>  
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    public static String TEMPORARY_STORAGE_PATH;
+
+    /**
+     * <p>A <code>String</code> providing the path to a directory in submission archive where the source files for the
+     * submission can be located.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    public static String SUBMISSION_SOURCE_PATH;
+
+    /**
+     * <p>A <code>String</code> providing the path to a directory in submission archive where the submission files can
+     * be located.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    public static String SUBMISSION_PATH;
+
+    /**
+     * <p>A <code>String</code> providing the message for the exception to be thrown in case the submitted file does not
+     * represent the bundled file.</p>
+     * 
+     * @since TopCoder Studio Modifications Assembly
+     */
+    public static String ERROR_MSG_NOT_BUNDLED_FILE;
+
+    /**
+     * <p>A <code>String</code> providing the message for the exception to be thrown in case the submitted file does not
+     * represent the bundled file.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly
+     */
+    public static String ERROR_MSG_NO_BUNDLED_FILE_PARSER;
+
+    /**
+     * <p>A <code>String</code> providing the message for the exception to be thrown in case the requested type of
+     * alternate representation of the submission is not recognized.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly
+     */
+    public static String ERROR_MSG_INVALID_PRESENTATION_TYPE;
+
+    /**
+     * <p>A <code>String</code> providing the message for the exception to be thrown in case the requested alternate
+     * representation of the submission does not exist.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly
+     */
+    public static String ERROR_MSG_PRESENTATION_NOT_FOUND;
+
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to users in case the submission validation fails
+     * in case there is no native submission provided.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly
+     */
+    public static String ERROR_MSG_NO_NATIVE_SUBMISSION;
+
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to users in case the submission validation fails
+     * in case there is no preview image provided.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly
+     */
+    public static String ERROR_MSG_NO_PREVIEW_IMAGE;
+
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to users in case the submission validation fails
+     * in case there is no preview file provided.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly
+     */
+    public static String ERROR_MSG_NO_PREVIEW_FILE;
 
     static {
         initialize();

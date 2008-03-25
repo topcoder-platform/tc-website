@@ -38,11 +38,6 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-
-<div class="linkBox">
-    <studio:forumLink forumID="${contest.forumId}"/>
-</div>
-
 <div class="breadcrumb">
     <c:choose>
         <c:when test="${currentTime>contest.endTime}">
@@ -55,149 +50,200 @@
     ${contest.name}
 </div>
 
+<div style="float:right;">
+    <a href="FORUM LINK"><img src="/i/v2/interface/btnContestForum.png" alt="Visit Contest Forum" /></a>
+</div>
+
 <h1>Contest Details</h1>
 
-<div align="center">
-<div style="width:510px;" align="left">
+<!-- RIGHT BOX -->
 
-<c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
-    <div align="center">
-        <table style="margin-top: 20px; margin-bottom: 20px; width: 320px;" cellpadding="0" cellspacing="0">
-            <tbody>
-                <tr>
-                    <td width="100%">
-                        <div class="bigRed" style="border-top: 1px solid #999999; border-bottom: 1px solid #999999;">
-                            <c:choose>
-                                <c:when test="${fn:length(contest.prizes)==1}">
-                                    <c:forEach items="${contest.prizes}" var="prize">
-                                        <div style="float: right; text-align: right;">
-                                            <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
-                                            <br />
-                                            <tc-webtag:format object="${contest.endTime}" format="MM.dd.yyyy" timeZone="${sessionInfo.timezone}"/>
-                                        </div>
-                                        <strong>
-                                            Winner:<br />
-                                            Due date:
-                                        </strong>
-                                    </c:forEach>
-                                </c:when>
-                                <c:otherwise>
-                                    <c:forEach items="${contest.prizes}" var="prize">
-                                        <c:choose>
-                                            <c:when test="${clientPrize==prize.type.id}">
-                                                <div style="float: right; clear: right; text-align: right;">
-                                                    <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
-                                                    <br />
-                                                </div>
-                                                <strong>${prize.type.description}:</strong><br />
-                                            </c:when>
-                                            <c:otherwise>
-                                                <div style="float: right; clear: right; text-align: right;">
-                                                    <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
-                                                    <br />
-                                                </div>
-                                                <strong>Prize ${prize.place}:</strong><br />
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </c:forEach>
-                                    <div style="float: right; clear: right; text-align: right;">
-                                        <tc-webtag:format object="${contest.endTime}" format="MM.dd.yyyy" timeZone="${sessionInfo.timezone}"/>
-                                    </div>
-                                    <strong>Due date:</strong>
-                                </c:otherwise>
-                            </c:choose>
-                        </div>
-                    </td>
-                    <c:choose>
-                    <c:when test="${registered}">
-                    <td style="padding: 10px 5px 10px 20px;" align="right">
-                        <img src="/i/v2/interface/btnRegisterNA.png" alt="Register" />
-                    </td>
-                    <td style="padding: 10px 0px 10px 5px;" align="right">
-                        <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/v2/interface/btnSubmit.png" alt="Submit" /></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="padding-top: 10px;" align="center">
-                        You are registered for this project.<br />
-                    </td>
-                    </c:when>
-                    <c:otherwise>
-                    <td style="padding: 10px 5px 10px 20px;" align="right">
-                        <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/v2/interface/btnRegister.png" alt="Register" /></a>
-                    </td>
-                    <td style="padding: 10px 0px 10px 5px;" align="right">
-                        <img src="/i/v2/interface/btnSubmitNA.png" alt="Submit" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="padding-top: 10px;" align="center">
-                        Register to get info necessary to submit your design.<br />
-                    </td>
-                    </c:otherwise>
-                    </c:choose>
-                </tr>
-            </tbody>
-        </table>
+<div class="conDetRightBox">
+    <div class="section">Dates:</div>
+    <div class="padder">
+<table cellpadding="0" cellspacing="0" class="conDetDates">
+<tbody>
+    <tr>
+        <td class="field">
+            Start Date:
+        </td>
+        <td class="value">
+            <tc-webtag:format object="${contest.startTime}" format="EEEE, MMMM d, yyyy '<br />at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="field">
+            End Date:
+        </td>
+        <td class="value">
+            <tc-webtag:format object="${contest.endTime}" format="EEEE, MMMM d, yyyy '<br />at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="field">
+            Winner(s) Announced:
+        </td>
+        <td class="value">
+        </td>
+    </tr>
+</tbody>
+</table>
     </div>
-</c:if>
-
-<div class="header">Project Overview</div>
-${contest.overview.value}
-<br /><br />
-
+    <div class="section">Downloads:</div>
+    <div class="padder">
+        <%-- CASE 1: DOWNLOADS, USER REGISTERED --%>
 <c:if test="${registered || currentTime>contest.endTime}">
     <c:if test="${fn:length(contest.documents)>0}">
-        <strong>Documentation</strong><br />
-        <%--
-            To view this project's documentation, you must be a registered TopCoder Studio member. If you are <strong>
-            already a registered TopCoder member</strong> you still need to add TopCoder Studio to your registration by
-            <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">updating your profile</a>.
-            <br /><br />
-        --%>
         <c:forEach items="${contest.documents}" var="document">
-            ${document.type.description}:
-            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
-                    ${document.originalFileName}</a> <br/>
+        <p>
+            <strong>${document.type.description}:</strong>
+            <br /><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">${document.originalFileName}</a>
+        </p>
         </c:forEach>
-        <br /><br />
     </c:if>
 </c:if>
+        <%-- CASE 2: DOWNLOADS, BUT USER NOT REGISTERED 
+        <p align="center" class="bigRed">
+            You must register for the contest<br />to download any attached files.
+        </p>
+        --%>
+        <%-- CASE 3: NO DOWNLOADS
+        <p>
+            None
+        </p>
+        --%>
+        
+    </div>
+    <div class="section">Submission File Format(s):</div>
+    <div class="padder">
+        <p>Your submission must be a .zip file.</p>
+        <p>Preview Image: .jpg file</p>
+        <p>This image is a graphical representation of your submission.  It's up to you to properly portray the substance of your submission in the image.</p>
+    </div>
+    <div class="section">Submission Limit:</div>
+    <div class="padder">
+        <p align="center"><strong>1</strong> submission</p>
+    </div>
+</div>
 
-
-<div class="header">Payment</div>
-${contest.prizeDescription.value}
-<br /><br />
-
+<table cellspacing="0" cellpadding="0" class="conDetIntro">
+<tbody>
+    <tr>
+        <td class="field">Contest Name:</td>
+        <td class="value">${contest.name}</td>
+    </tr>
+    <tr>
+        <td class="field">Contest Type:</td>
+        <td class="value">Logo</td>
+    </tr>
+    <tr>
+        <td class="field">Design Medium:</td>
+        <td class="value">Print/Web</td>
+    </tr>
 <c:choose>
     <c:when test="${fn:length(contest.prizes)==1}">
         <c:forEach items="${contest.prizes}" var="prize">
-            <strong>Winning Designer:
-                <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
-            </strong>
+            <tr>
+                <td class="field">Winning Designer:</td>
+                <td class="value"><fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/></td>
+            </tr>
         </c:forEach>
-        <br /><br />
     </c:when>
     <c:otherwise>
         <c:forEach items="${contest.prizes}" var="prize">
             <c:choose>
                 <c:when test="${clientPrize==prize.type.id}">
-                    <strong>${prize.type.description}:
-                        <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
-                    </strong>
-                    <br />
+                    <tr>
+                        <td class="field">${prize.type.description}:</td>
+                        <td class="value"><fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/></td>
+                    </tr>
                 </c:when>
                 <c:otherwise>
-                    <strong>Prize ${prize.place}:
-                        <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
-                    </strong><br />
+                    <tr>
+                        <td class="field">Prize ${prize.place}:</td>
+                        <td class="value"><fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/></td>
+                    </tr>
                 </c:otherwise>
             </c:choose>
         </c:forEach>
-        <br /><br />
     </c:otherwise>
 </c:choose>
+</tbody>
+</table>
 
+<c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
+    <c:choose>
+    <c:when test="${registered}">
+    <div align="center">
+        <table cellpadding="10" cellspacing="0">
+        <tbody>
+            <tr>
+                <td>
+                    <img src="/i/v2/interface/btnRegisterNA.png" alt="Register" />
+                </td>
+                <td>
+                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/v2/interface/btnSubmit.png" alt="Submit" /></a>
+                </td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    <p align="center">
+        You are registered for this project.
+    </p>
+    </c:when>
+    <c:otherwise>
+    <div align="center">
+        <table cellpadding="10" cellspacing="0">
+        <tbody>
+            <tr>
+                <td>
+                    <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/v2/interface/btnRegister.png" alt="Register" /></a>
+                </td>
+                <td>
+                    <img src="/i/v2/interface/btnSubmitNA.png" alt="Submit" />
+                </td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    <p align="center">
+        You must register before you can submit.
+    </p>
+    </c:otherwise>
+    </c:choose>
+</c:if>
+
+<div class="header">Contest Summary</div>
+    ${contest.overview.value}
+<br /><br />
+
+<div class="header">Full Description & Project Guide</div>
+    TEXT
+<br /><br />
+
+<div class="header">Requirements & Restrictions</div>
+    <ul>
+    <li>
+    <strong>Requirement title:</strong>
+    Description.
+    </li>
+    </ul>
+
+<div class="header">How to Submit</div>
+<ul>
+<li>You must upload your submission as a single file (see the file requirements) and it should be finalized, not a work in progress.</li>
+<li>If your submission wins, your original files must meet the Final Deliverables requirements listed above before payment can be released.</li>
+<li>You may submit as many times as you'd like during the submission phase, but only the number of files listed above in the Required Elements that you rank the highest will be considered.  On the submission page, you will see a table of all the designs you have submitted, ranked by YOUR preference.  You can change the order of submissions on that table at any time during the submission phase. If you make revisions to your design, please delete submissions you are replacing.</li>
+</ul>
+
+<div class="header">Winner Selection</div>
+    TEXT
+<br /><br />
+
+<div class="header">Prize Payment</div>
+    ${contest.prizeDescription.value}
+<br /><br />
 
 <div class="header">Eligibility</div>
 
@@ -224,49 +270,6 @@ ${contest.prizeDescription.value}
     </c:otherwise>
     </c:choose>
 </ul>
-
-
-<br /><br />
-
-<div class="header">Timeline</div>
-All submissions are required to be submitted by the End Date.
-<br /><br />
-
-
-<div align="center">
-    <table cellpadding="4" cellspacing="0" width="250">
-        <tbody>
-            <tr>
-                <td valign="top" nowrap="nowrap"><strong>Start Date:</strong></td>
-                <td>
-                    <tc-webtag:format object="${contest.startTime}" format="EEEE, MMMM d, yyyy 'at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top" nowrap="nowrap"><strong>End Date:</strong></td>
-                <td>
-                    <tc-webtag:format object="${contest.endTime}" format="EEEE, MMMM d, yyyy 'at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<br /><br />
-<!-- 
-<c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
-    <div class="header">Upload Your Submission</div>
-    If you are ready to submit your design for this contest, click the button below.
-    <br /><br />
-
-    <div align="center">
-        <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="btn_submit">
-            &nbsp;</a>
-    </div>
-</c:if>
- -->
-</div>
-</div>
 
                         <br clear="all"/>
                     </div>                

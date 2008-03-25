@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.GregorianCalendar" %>
+<%@ page import="java.sql.Timestamp" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -90,7 +91,7 @@
 <%
     GregorianCalendar gc = new GregorianCalendar(2007, Calendar.JULY, 23);
 %>
-<c:set value="<%=gc.getTime()%>" var="bigStart"/>
+<c:set value="<%=new Timestamp(gc.getTime().getTime())%>" var="bigStart"/>
 
         <div align="center">
             <div align="left" style="width:500px; margin-top: 20px;">

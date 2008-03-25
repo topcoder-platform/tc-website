@@ -13,7 +13,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * @author dok
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jun 27, 2006
  */
@@ -32,6 +32,35 @@ public class Contest extends Base {
     private Set<ContestResult> results = new TreeSet<ContestResult>();
     private Event event;
     private Project project;
+
+    /**
+     * <p>A <code>ContestChannel</code> representing the contest channel which this contest originated from.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.3)
+     */
+    private ContestChannel channel = null;
+
+    /**
+     * <p>A <code>ContestType</code> representing the type of this studio contest.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly (Req# 5.3)
+     */
+    private ContestType type = null;
+
+    /**
+     * <p>An <code>Integer</code> providing the ID of a project this contest is associated with. Such a project is
+     * created by the means of <code>TopCoder Direct</code> application.</p> 
+     *
+     * @see ContestChannel#TOPCODER_DIRECT
+     * @since TopCoder Studio Modifications Assembly (Req# 5.3)
+     */
+    private Integer directProjectId = null;
+
+    /**
+     * <p>A <code>Long</code> providing the ID of a user who have created this contest.</p>
+     * @since TopCoder Studio Modifications Assembly (Req# 5.4)
+     */
+    private Long createUserId = null;
 
     public Long getId() {
         return id;
@@ -213,5 +242,89 @@ public class Contest extends Base {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    /**
+     * <p>Gets the contest channel which this contest originated from.</p>
+     *
+     * @return a <code>ContestChannel</code> representing the contest channel which this contest originated from.
+     * @since TopCoder Studio Modifications Assembly (Req# 5.3)
+     */
+    public ContestChannel getChannel() {
+        return this.channel;
+    }
+
+    /**
+     * <p>Sets the contest channel which this contest originated from.</p>
+     *
+     * @param channel a <code>ContestChannel</code> representing the contest channel which this contest originated from.
+     * @since TopCoder Studio Modifications Assembly (Req# 5.3)
+     */
+    public void setChannel(ContestChannel channel) {
+        this.channel = channel;
+    }
+
+    /**
+     * <p>Gets the type of this studio contest.</p>
+     *
+     * @return a <code>ContestType</code> representing the type of this contest. 
+     * @since TopCoder Studio Modifications Assembly (Req# 5.3)
+     */
+    public ContestType getType() {
+        return this.type;
+    }
+
+    /**
+     * <p>Sets the type of this studio contest.</p>
+     *
+     * @param type a <code>ContestType</code> representing the type of this contest. 
+     * @since TopCoder Studio Modifications Assembly (Req# 5.3)
+     */
+    public void setType(ContestType type) {
+        this.type = type;
+    }
+
+    /**
+     * <p>Gets the ID of a <code>TopCoder Direct</code> project which this contest is associated with. The method should
+     * be used for those contests which originated from <code>TopCoder Direct</code> application.</p>
+     *
+     * @return an <code>Integer</code> providing the ID of <code>TopCoder Direct</code> project.
+     * @see ContestChannel#TOPCODER_DIRECT 
+     * @since TopCoder Studio Modifications Assembly (Req# 5.3)
+     */
+    public Integer getDirectProjectId() {
+        return this.directProjectId;
+    }
+
+    /**
+     * <p>Sets the ID of a <code>TopCoder Direct</code> project which this contest is associated with. The method should
+     * be used for those contests which originated from <code>TopCoder Direct</code> application.</p>
+     *
+     * @param directProjectId an <code>Integer</code> providing the ID of <code>TopCoder Direct</code> project.
+     * @see ContestChannel#TOPCODER_DIRECT
+     * @since TopCoder Studio Modifications Assembly (Req# 5.3)
+     */
+    public void setDirectProjectId(Integer directProjectId) {
+        this.directProjectId = directProjectId;
+    }
+
+    /**
+     * <p>Gets the ID of a user who have created this contest.</p>
+     *
+     * @return a <code>Long</code> providing the ID of a user who have created this contest.
+     * @since TopCoder Studio Modifications Assembly (Req# 5.4)
+     */
+    public Long getCreateUserId() {
+        return this.createUserId;
+    }
+
+    /**
+     * <p>Sets the ID of a user who have created this contest.</p>
+     *
+     * @param createUserId a <code>Long</code> providing the ID of a user who have created this contest.
+     * @since TopCoder Studio Modifications Assembly (Req# 5.4)
+     */
+    public void setCreateUserId(Long createUserId) {
+        this.createUserId = createUserId;
     }
 }

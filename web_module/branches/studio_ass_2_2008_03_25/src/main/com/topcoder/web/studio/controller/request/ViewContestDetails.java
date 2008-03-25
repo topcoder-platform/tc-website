@@ -17,11 +17,12 @@ import java.util.Date;
 import java.util.Iterator;
 
 /**
- * @author dok
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 18, 2006
  */
 public class ViewContestDetails extends ShortHibernateProcessor {
+
     protected void dbProcessing() throws Exception {
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
         if ("".equals(StringUtils.checkNull(contestId))) {
@@ -35,7 +36,10 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             }
             Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);
 
-            if (isAdmin()) {
+            // Since TopCoder Studio Modifications Assembly - the contest creator may also view the contest
+            // details (for preview) (Req# 5.5)
+            long userId = getUser().getId();
+            if (isAdmin() || (userId == contest.getCreateUserId())) {
                 getRequest().setAttribute("contest", contest);
             } else {
                 if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
@@ -51,7 +55,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             }
             boolean registered = false;
             if (userIdentified()) {
-                User u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
+                User u = DAOUtil.getFactory().getUserDAO().find(userId);
                 if (StudioDAOUtil.getFactory().getContestRegistrationDAO().find(contest, u) != null) {
                     registered = true;
                 }

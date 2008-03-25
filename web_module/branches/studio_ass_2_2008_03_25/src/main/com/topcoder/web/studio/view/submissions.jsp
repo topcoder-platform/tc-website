@@ -3,6 +3,7 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
 <%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
+<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -197,21 +198,7 @@
                     </c:choose>
                 </td>
                 <td class="valueC">
-
-                    <c:choose>
-                        <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
-                            <div align="center" style="overflow: hidden; width: 300px;">
-                                <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
-                            </div>
-                        </c:when>
-                        <c:otherwise>
-                            <div align="center">
-                                <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                    <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()" />
-                                </a>
-                            </div>
-                        </c:otherwise>
-                    </c:choose>
+                    <studio_tags:submissionLink row="${resultRow}"/>
                 </td>
             </c:when>
             <c:otherwise>

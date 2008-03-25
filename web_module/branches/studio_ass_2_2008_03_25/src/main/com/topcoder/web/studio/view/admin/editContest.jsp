@@ -3,7 +3,6 @@
 <%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -21,6 +20,34 @@
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/jquery.textarearesizer.compressed-1.0.4.js"></script>
+
+    <script type="text/javascript">
+            /* jQuery textarea resizer plugin usage */
+            $(document).ready(function() {
+                    $('textarea.resizable:not(.processed)').TextAreaResizer();
+            });
+    </script>
+    <style type="text/css">
+            div.grippie {
+                    background:#EEEEEE url(/i/layout/grippie.png) no-repeat scroll center 2px;
+                    border-color:#DDDDDD;
+                    border-style:solid;
+                    border-width:0pt 1px 1px;
+                    cursor:s-resize;
+                    height:9px;
+                    overflow:hidden;
+            }
+            .resizable-textarea textarea {
+                    display:block;
+                    margin-bottom:0pt;
+                    width:95%;
+                    height: 20%;
+            }
+    </style>
+
+
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
@@ -64,11 +91,13 @@
 <h1>Edit Contest Details</h1>
 
 
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
+<form action="${sessionInfo.servletPath}" method="POST" name="editForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditContest"/>
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
 <div class="header">Contest Details</div>
+
+<p>Created by HANDLE</p>
 
 <table cellpadding="0" cellspacing="0" class="input">
 <tbody>
@@ -84,6 +113,69 @@
     </td>
     <td class="value" width="100%">
         <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+        <span class="bigRed">ERROR<br/></span>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Client Name:
+    </td>
+    <td class="value" width="100%">
+        <input name="TEMP" type="text">
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+        <span class="bigRed">ERROR<br/></span>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Contest Type:
+    </td>
+    <td class="value" width="100%">
+        <select name="">
+            <option value=""></option>
+            <option value="">Apparel</option>
+            <option value="">Application Screens</option>
+            <option value="">Icon</option>
+            <option value="">Logo</option>
+            <option value="">FLASH</option>
+            <option value="">Other</option>
+            <option value="">Presentation</option>
+            <option value="">Print - Branding/ Collateral</option>
+            <option value="">Print - Advertisement</option>
+            <option value="">Print - Marketing</option>
+            <option value="">Prototype</option>
+            <option value="">Sound</option>
+            <option value="">Web Elements</option>
+            <option value="">Web Screens</option>
+        </select>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+        <span class="bigRed">ERROR<br/></span>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Medium: (Check all that apply)
+    </td>
+    <td class="value" width="100%">
+        <div><INPUT name="" type="checkbox" value="" /> Apparel</div>
+        <div><INPUT name="" type="checkbox" value="" /> Brochure</div>
+        <div><INPUT name="" type="checkbox" value="" /> Computer Screen</div>
+        <div><INPUT name="" type="checkbox" value="" /> Email Newsletter</div>
+        <div><INPUT name="" type="checkbox" value="" /> Poster</div>
+        <div><INPUT name="" type="checkbox" value="" /> Print</div>
+        <div><INPUT name="" type="checkbox" value="" /> Sign/Banner</div>
+        <div><INPUT name="" type="checkbox" value="" /> Stationery</div>
+        <div><INPUT name="" type="checkbox" value="" /> Web</div>
     </td>
 </tr>
 <tr>
@@ -110,7 +202,7 @@
 </tr>
 <tr>
     <td class="name" nowrap="nowrap">
-        Contest Start<br/>(Eastern Time):
+        Contest Start (Eastern Time):
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
@@ -125,7 +217,7 @@
 </tr>
 <tr>
     <td class="name" nowrap="nowrap">
-        Contest End<br/>(Eastern Time):
+        Contest End (Eastern Time):
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
@@ -189,20 +281,29 @@
 
 <tr>
     <td colspan="2">
+        <p>
+            <span class="bigRed">ERROR<br/></span>
+            <strong>Notes on Submission File(s):</strong> <br/><br/>
+            <textarea class="resizable" cols="80" rows="2" name=""></textarea>
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2">
         <tc-webtag:errorIterator id="err" name="${fileType}"><span class="bigRed">${err}
             <br/></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
     <td class="name">
-        Allowed Submission File Types:
+        Final File(s) Format:
     </td>
     <td class="value">
         <tc-webtag:objectSelect name='${fileType}' size="4" useTopValue="false" multiple="true" list="${fileTypes}"
                                 valueField="id" textField="description"/>
     </td>
 </tr>
-
 
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MIN_HEIGHT%>" var="minHeight"/>
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MAX_HEIGHT%>" var="maxHeight"/>
@@ -265,6 +366,35 @@
     </td>
 </tr>
 
+<tr>
+    <td colspan="2">
+        <p>
+            <span class="bigRed">ERROR<br/></span>
+            <strong>Other Notes on Size:</strong> <br/><br/>
+            <textarea class="resizable" cols="80" rows="2" name=""></textarea>
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2">
+        <p>
+            <span class="bigRed">ERROR<br/></span>
+            <strong>Notes on Fonts:</strong> <br/><br/>
+            <textarea class="resizable" cols="80" rows="2" name=""></textarea>
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2">
+        <p>
+            <span class="bigRed">ERROR<br/></span>
+            <strong>Notes on Color Palettes:</strong> <br/><br/>
+            <textarea class="resizable" cols="80" rows="2" name=""></textarea>
+        </p>
+    </td>
+</tr>
 
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.VIEWABLE_SUBMISSIONS%>" var="viewSubmissions"/>
 
@@ -312,7 +442,7 @@
 </tr>
 <tr>
     <td class="name">
-        Max # of submissions (leave empty if there should be no max):
+        Max # of submissions<br />(leave empty if there should be no max):
     </td>
     <td class="value">
         <tc-webtag:textInput name="${maxSubmissions}" size="4"/>
@@ -356,7 +486,7 @@
     <strong>Contest Overview:</strong> You may include HTML, the content entered here is exactly what will be inserted
     into the contest
     details page.<br/><br/>
-    <tc-webtag:textArea name="${overviewText}" rows="8" cols="80"/>
+    <tc-webtag:textArea name="${overviewText}" rows="2" cols="80" styleClass="resizable"/>
 </p>
 
 
@@ -379,7 +509,7 @@ var overviewText = getValue("document.editForm", "${overviewText}");
     into the contest
     details page.
     <br/><br/>
-    <tc-webtag:textArea name="${prizeDesc}" rows="8" cols="80"/>
+    <tc-webtag:textArea name="${prizeDesc}" rows="3" cols="80" styleClass="resizable"/>
 </p>
 
 <script language="javascript" type="text/javascript">
@@ -417,7 +547,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
     <div class="header">Documentation</div>
 
-    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removeDocForm">
+    <form action="${sessionInfo.servletPath}" method="POST" name="removeDocForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveDocument"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
         <tc-webtag:hiddenInput name="<%=Constants.DOCUMENT_ID%>"/>
@@ -438,7 +568,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
     <c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
     <c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
-    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addDocumentForm"
+    <form action="${sessionInfo.servletPath}" method="POST" name="addDocumentForm"
           enctype="multipart/form-data">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
@@ -463,7 +593,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 <c:set value="<%=PrizeType.CONTEST%>" var="contestPrize"/>
 <div class="header">Prizes</div>
 
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removePrizeForm">
+<form action="${sessionInfo.servletPath}" method="POST" name="removePrizeForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemovePrize"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.PRIZE_ID%>"/>
@@ -487,7 +617,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 <c:set value="<%=Constants.PRIZE_PLACE%>" var="prizePlace"/>
 <c:set value="<%=Constants.PRIZE_VALUE%>" var="prizeValue"/>
 <c:set value="<%=Constants.PRIZE_TYPE_ID%>" var="prizeType"/>
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addPrizeForm">
+<form action="${sessionInfo.servletPath}" method="POST" name="addPrizeForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddPrize"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
@@ -539,7 +669,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 <div class="header">After Contest</div>
 
 
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="sendToReviewForm">
+<form action="${sessionInfo.servletPath}" method="POST" name="sendToReviewForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSendToReview"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
     <button name="submit" value="submit" type="submit">
@@ -549,7 +679,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 </form>
 
 <c:if test="${resultsReady}">
-    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="loadromReviewForm">
+    <form action="${sessionInfo.servletPath}" method="POST" name="loadromReviewForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminLoadFromReview"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
         <button name="submit" value="submit" type="submit">

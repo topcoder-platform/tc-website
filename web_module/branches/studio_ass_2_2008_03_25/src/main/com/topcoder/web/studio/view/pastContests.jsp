@@ -1,8 +1,10 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
 
@@ -98,6 +100,8 @@
                     <div>&nbsp;</div>
                 </td>
                 <td class="value">
+                    <%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
+                    <studio_tags:contestIcon row="${resultRow}"/>
                     <strong><a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
                         <rsc:item name="name" row="<%=resultRow%>"/>
                     </a></strong>
