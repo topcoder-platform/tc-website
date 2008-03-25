@@ -99,6 +99,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- ZDNet - TopCoder: breaking the development cost rules begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://blogs.zdnet.com/enterprisealley/?p=124' refer='pr_index' />"><img src="/i/pressroom/zdNet_logo.png" alt="ZDNet logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://blogs.zdnet.com/enterprisealley/?p=124' refer='pr_index' />">TopCoder: breaking the development cost rules</a></h3>
+                        <p>The company takes the idea of community, applies a heavy dose of competition for skills and then applies that formula to the business of development.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://blogs.zdnet.com/enterprisealley/?p=124' refer='pr_index' />">[March 25]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- ZDNet - TopCoder: breaking the development cost rules end --%>
+                
                 <%-- Redmond Developer News - Open Counsel begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
