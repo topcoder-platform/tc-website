@@ -198,6 +198,9 @@
                 <include name="tcwebcommon.jar"/>
                 <include name="shared.jar"/>
             </lib>
+            <lib dir="${external.jars.dir}">
+                <include name="object_formatter-1.0.jar"/>
+            </lib>
 <!-- not necessary if we're deploying security app in the same jboss instance
             <lib dir="${ejb_jars}">
                 <include name="security.jar"/>
