@@ -189,6 +189,10 @@
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
             </lib>
+            <lib dir="${bin}">
+                <include name="tcwebcommon.jar"/>
+                <include name="shared.jar"/>
+            </lib>
 
             <fileset dir="${java}/com/topcoder/web/codinginterface/longcontest/view">
                 <include name="**/*.jsp"/>
