@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">03.26.08 9:30 AM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about">TCO08 Finalists Documents Due at 5:00 PM EST</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.19.08 3:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisignChat20080311">VeriSign SRM 393 Chat Transcript Available</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.17.08 10:30 AM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=bracketInd">TCHS08 Champion is ahyangyi</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.14.08 10:00 AM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=onsiteSchedule">TCHS08 Finals are set for Saturday, March 15 at 10:00 AM EDT</a></td></tr>
