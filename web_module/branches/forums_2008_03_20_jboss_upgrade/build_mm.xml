@@ -218,6 +218,9 @@
     <target name="expand">
         <!-- copy the libs -->
         <copy todir="${jboss_lib}" file="${external.jars.dir}/ifxjdbc-3.00.JC3.jar"/>
+        <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jgroups.jar"/>
+        <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jboss-cache-jdk50.jar"/>
+        
 
         <!-- these jars are needed by the ejb's.  really we should build a web app that contains these libs -->
         <copy todir="${jboss_lib}" file="${shared.jar}"/>
