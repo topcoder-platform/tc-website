@@ -217,6 +217,7 @@
         <ant antfile="build_tc.xml" target="package-EJB-CoderBean"/>
         <ant antfile="build_tc.xml" target="package-EJB-UserBean"/>
         <ant antfile="build_tc.xml" target="package-EJB-EmailBean"/>
+        <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
 
 
         <antcall target="expand"/>
