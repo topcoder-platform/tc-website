@@ -137,6 +137,7 @@
                 target="1.5"
                 >
             <include name="com/topcoder/web/codinginterface/**"/>
+            <include name="com/topcoder/web/ejb/roundregistration/**"/>
         </javac>
     </target>
 
