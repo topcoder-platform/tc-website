@@ -121,6 +121,7 @@
         <mkdir dir="${testclasses}"/>
         <mkdir dir="${bin}"/>
         <mkdir dir="${war.dir}"/>
+        <mkdir dir="${ejb_jars}"/>
     </target>
 
 
