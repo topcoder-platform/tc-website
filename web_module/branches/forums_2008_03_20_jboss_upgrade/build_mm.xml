@@ -193,6 +193,9 @@
                 <include name="tcwebcommon.jar"/>
                 <include name="shared.jar"/>
             </lib>
+            <lib dir="${ejb_jars}">
+                <include name="security.jar"/>
+            </lib>
 
             <fileset dir="${java}/com/topcoder/web/codinginterface/longcontest/view">
                 <include name="**/*.jsp"/>
