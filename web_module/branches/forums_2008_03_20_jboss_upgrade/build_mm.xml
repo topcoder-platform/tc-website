@@ -219,10 +219,11 @@
         <!-- copy the libs -->
         <copy todir="${jboss_lib}" file="${external.jars.dir}/ifxjdbc-3.00.JC3.jar"/>
 
-        <!-- these jars are needed by the ejb's.  really we should build a web app that contains the libs -->
+        <!-- these jars are needed by the ejb's.  really we should build a web app that contains these libs -->
         <copy todir="${jboss_lib}" file="${shared.jar}"/>
         <copy todir="${jboss_lib}" file="${common.jar}"/>
         <copy todir="${jboss_lib}" file="${external.jars.dir}/id_generator-3.0.0.jar"/>
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/base_exception-2.0.0.jar"/>
 
         <!-- copy the config -->
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
