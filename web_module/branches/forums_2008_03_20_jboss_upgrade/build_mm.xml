@@ -194,9 +194,7 @@
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
-<!--
                 <include name="tc.jar"/>
--->
                 <include name="TestServices.jar"/>
                 <include name="asyncservices.jar"/>
             </lib>
