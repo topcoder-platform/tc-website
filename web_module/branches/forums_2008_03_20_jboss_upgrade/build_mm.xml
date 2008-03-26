@@ -155,8 +155,12 @@
         </jar>
     </target>
 
+    <target name="build-security">
+        <ant antfile="build_tc.xml" target="build-security"/>
+    </target>
 
-    <target name="war" depends="compile">
+
+    <target name="war" depends="compile,build-security">
         <jar jarfile="${long.jar}">
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/tc/model/*.class"/>
