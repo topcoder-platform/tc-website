@@ -197,9 +197,11 @@
                 <include name="tcwebcommon.jar"/>
                 <include name="shared.jar"/>
             </lib>
+<!-- not necessary if we're deploying security app in the same jboss instance
             <lib dir="${ejb_jars}">
                 <include name="security.jar"/>
             </lib>
+-->
 
             <fileset dir="${java}/com/topcoder/web/codinginterface/longcontest/view">
                 <include name="**/*.jsp"/>
