@@ -211,17 +211,30 @@
         <ant antfile="build_tc.xml" target="package-EJB-UserBean"/>
         <ant antfile="build_tc.xml" target="package-EJB-EmailBean"/>
 
+
         <antcall target="expand"/>
     </target>
 
     <target name="expand">
+        <!-- copy the libs -->
+        <copy todir="${jboss_lib}" file="${external.jars.dir}/ifxjdbc-3.00.JC3.jar"/>
+
+        <!-- copy the config -->
+        <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
+        <copy todir="${jboss_conf}/com/topcoder/security/" file="${resources}/com/topcoder/security/Util.properties"/>
+        <copy todir="${jboss_conf}/com/topcoder/util/config/"
+              file="${resources}/com/topcoder/util/config/ConfigManager.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/LongContest.properties"/>
+
         <copy todir="${jboss_deploy}">
             <fileset dir="${ejb_jars}">
                 <include name="RoundRegistration.jar"/>
                 <include name="User.jar"/>
                 <include name="Coder.jar"/>
                 <include name="Email.jar"/>
-
             </fileset>
         </copy>
         <unwar src="${war.dir}/longcontest.war" dest="${jboss_deploy}/longcontest.war/"
