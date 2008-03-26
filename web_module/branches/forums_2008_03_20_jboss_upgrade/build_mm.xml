@@ -194,7 +194,13 @@
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
+<!--
+                <include name="tc.jar"/>
+-->
+                <include name="TestServices.jar"/>
+                <include name="asyncservices.jar"/>
             </lib>
+
             <lib dir="${bin}">
                 <include name="tcwebcommon.jar"/>
                 <include name="shared.jar"/>
@@ -202,6 +208,10 @@
             <lib dir="${external.jars.dir}">
                 <include name="object_formatter-1.0.jar"/>
             </lib>
+
+
+
+
 <!-- not necessary if we're deploying security app in the same jboss instance
             <lib dir="${ejb_jars}">
                 <include name="security.jar"/>
