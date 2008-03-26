@@ -218,6 +218,8 @@
     <target name="expand">
         <!-- copy the libs -->
         <copy todir="${jboss_lib}" file="${external.jars.dir}/ifxjdbc-3.00.JC3.jar"/>
+        <copy todir="${jboss_lib}" file="${shared.jar}"/>
+        <copy todir="${jboss_lib}" file="${common.jar}"/>
 
         <!-- copy the config -->
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
