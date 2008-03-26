@@ -180,7 +180,7 @@ public class SubmissionValidatorTestCase extends TCHibernateTestCase {
             ValidationResult validationResult = this.testedInstance.validate(new ObjectInput(uploadedFile));
             Assert.assertFalse("Invalid submission is accepted", validationResult.isValid());
             Assert.assertEquals("Wrong validation message",
-                                "No preview image provided int the submission", validationResult.getMessage());
+                                "No preview image provided in the submission", validationResult.getMessage());
         }
     }
 
@@ -233,7 +233,7 @@ public class SubmissionValidatorTestCase extends TCHibernateTestCase {
                 ValidationResult validationResult = this.testedInstance.validate(new ObjectInput(uploadedFile));
                 Assert.assertFalse("Invalid submission is accepted", validationResult.isValid());
                 Assert.assertEquals("Wrong validation message",
-                                    "No source submission provided in the submission", validationResult.getMessage());
+                                    "No source provided in the submission", validationResult.getMessage());
             }
         }
     }
@@ -261,7 +261,7 @@ public class SubmissionValidatorTestCase extends TCHibernateTestCase {
                 ValidationResult validationResult = this.testedInstance.validate(new ObjectInput(uploadedFile));
                 Assert.assertFalse("Invalid submission is accepted", validationResult.isValid());
                 Assert.assertEquals("Wrong validation message",
-                                    "No source submission provided in the submission", validationResult.getMessage());
+                                    "No source provided in the submission", validationResult.getMessage());
             }
         }
     }
