@@ -156,9 +156,9 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN 
+                <%-- DIGITAL RUN --%>
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digital_run_20080128.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-                --%>
+                
                 
                 <%-- DIGITAL RUN ASSEMBLY CUP 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></A>
@@ -184,13 +184,13 @@
                 <img src="/i/home/mmtco4_verisign.png" alt="TCO07 Marathon Match 4 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
                 --%>
 
-                <%-- SRM SPONSOR --%>
+                <%-- SRM SPONSOR 
                 <map name="mm">
                 <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=11129" />
                 <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa" />
                 </map>
                 <img src="/i/home/srm395_nsa.png" alt="SRM 395 brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
-                
+                --%>
                 
                 <%-- UML Tool 
                 <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></A>
