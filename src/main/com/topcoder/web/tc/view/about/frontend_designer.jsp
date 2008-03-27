@@ -59,13 +59,23 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%"><br/>
 
-                       <h3>TopCoder Software Front-End Designer/Developer</h3>
+                       <h3>TopCoder Information Architect</h3>
                        <b>Job Description:</b>
                        <br><br>
-
+<%--
 The Front-End Designer/Developer will work closely with TopCoder Project Managers and Information Architects to create interactive front-end prototypes from wireframes and storyboards.
-<br><br>
+--%>
+We are seeking a creative candidate who has a strong design background
+and experience developing web sites/web applications using standards.
+The ideal designer will be capable of producing a web project through
+all stages of development using information architecture, design, hand-
+coding HTML and CSS and performing any one of these functions as a
+part of a larger team. Knowledge of industry trends and the desire to
+produce engaging interactive experiences is essential.
 
+
+<br><br>
+<%--
 <b>Responsibilities Include:</b>
 <ul>
 <li>Designing highly-useable, professional looking user interfaces</li>
@@ -73,15 +83,15 @@ The Front-End Designer/Developer will work closely with TopCoder Project Manager
 <li>Design and create skeleton forms for developers</li>
 <li>Keeping up with current GUI standards, trends and technologies</li>
 </ul>
-
+--%>
 <b>Technical Skills:</b>
 <ul>
-<li>Experience programming in Microsoft Visual Studio .Net (2003, 2005), C#</li>
-<li>Experience creating Java Swing front-ends</li>
-<li>Experience creating and working with Windows Forms</li>
-<li>Ability to work on multiple projects at once</li>
-<li>Storyboards will be provided but some creative skill must be demonstrated</li>
-<li>Javascript, AJAX, HTML, CSS, Flash programming Skills are a plus</li>
+<li>Experience creating standards compliant (X)HTML/CSS</li>
+<li>Solid understanding of web standards, usability, and accessibility</li>
+<li>Understanding - cross browser issues</li>
+<li>Experience - application design/development</li>
+<li>Exposure to back end development</li>
+<li>Familiarity with JavaScript, AJAX, Subversion, etc. a big plus</li>
 </ul>
 
 <b>Additional Responsibilities:</b>
@@ -102,7 +112,9 @@ The Front-End Designer/Developer will work closely with TopCoder Project Manager
 
 <b>Typical Tasks Include, but are not limited to:</b>
 <ul>
+<%--
 <li>Converting graphical storyboards to .NET templates</li>
+--%>
 <li>Creating splash screens from designer comps</li>
 <li>Ability to setup or use existing components to execute common GUI tasks such as:
    <ul>
@@ -121,7 +133,9 @@ The Front-End Designer/Developer will work closely with TopCoder Project Manager
 </li>
 <li>Creating installation screens</li>
 <li>Setting up "faux" database tables to use in prototype demos</li>
+<%--
 <li>Exporting executable .NET files for client demos</li>
+--%>
 <li>Creating Windows Forms to correspond with IA wireframes</li>
 <li>Researching new GUI technologies and making recommendations for custom GUI components</li>
 </ul>
