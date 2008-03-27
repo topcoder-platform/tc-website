@@ -143,7 +143,7 @@ produce engaging interactive experiences is essential.
 <b>* Please include samples of your interface designs with your resume.</b>
 
                         <p>
-                        <A href="mailto:jobs@topcoder.com?subject=Front-End Designer Position">Apply for this job.</A><br>
+                        <A href="mailto:jobs@topcoder.com?subject=Information Architect Position">Apply for this job.</A><br>
                         <b>Please include your TopCoder handle and an attached resume, if possible.</b>
                         </p>
                         <p><br /></p>
