@@ -72,7 +72,7 @@
                             <li><a href="/tc?module=Static&amp;d1=about&amp;d2=deployment_engineer">Deployment Engineer</a></li>
                             <li><a href="/tc?module=Static&amp;d1=about&amp;d2=project_manager">TopCoder Software Project Manager</a></li>
                             <li><a href="/tc?module=Static&amp;d1=about&amp;d2=software_application_architect">TopCoder Software Application Architect</a></li>
-                            <li><a href="/tc?module=Static&amp;d1=about&amp;d2=frontend_designer">TopCoder Software Front-End Designer/Developer</a></li>
+                            <li><a href="/tc?module=Static&amp;d1=about&amp;d2=frontend_designer">TopCoder Information Architect</a></li>
                             <li><a href="/tc?module=Static&amp;d1=about&amp;d2=tcs_salesdirector">TopCoder Salesperson</a></li>
                         </ul>
                     </td>
