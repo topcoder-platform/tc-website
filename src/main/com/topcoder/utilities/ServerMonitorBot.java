@@ -55,7 +55,7 @@ public class ServerMonitorBot {
     private final static PollInfo[] sites = {
             new PollInfo(true, "http://www.topcoder.com", "tc", 30)
             , new PollInfo(true, "http://software.topcoder.com", "software", 30)
-            , new PollInfo(true, "http://forums.topcoder.com", "forums", 60)
+            , new PollInfo(true, "http://forums.topcoder.com", "fdorums", 60)
             , new PollInfo(true, "http://studio.topcoder.com", "studio", 30)
             , new PollInfo(true, "http://www.topcoder.com/wiki", "wiki", 30)
             , new PollInfo(true, "http://www.topcoder.com/time", "time tracker", 30)
@@ -345,7 +345,7 @@ public class ServerMonitorBot {
 
 
     private final static String[] badFiles = {
-            "dashboard.action", "Dashboard.jspa", "index.html", "login.jsp"};
+            "dashboard.action", "Dashboard.jspa", "index.html", "login.jsp", "openaim"};
 
     private void wack() {
         File[] files = new File(".").listFiles();
