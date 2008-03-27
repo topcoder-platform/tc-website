@@ -205,7 +205,10 @@
 
             <lib dir="${bin}">
                 <include name="tcwebcommon.jar"/>
+<!-- having it both here and in the jboss lib is causing problem.  when we do this an an ear, we should get down to just one
+copy in the classpath
                 <include name="shared.jar"/>
+-->
             </lib>
             <lib dir="${external.jars.dir}">
                 <include name="object_formatter-1.0.jar"/>
