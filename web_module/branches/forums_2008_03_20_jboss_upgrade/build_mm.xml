@@ -161,7 +161,7 @@
     </target>
 
 
-    <target name="war" depends="compile,build-security">
+    <target name="war" depends="compile">
         <jar jarfile="${long.jar}">
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/tc/model/*.class"/>
@@ -227,14 +227,14 @@
         </war>
     </target>
 
-    <target name="deploy" depends="war">
+    <target name="build" depends="war,build-security">
         <antcall target="package-EJB-RoundRegistrationBean"/>
         <ant antfile="build_tc.xml" target="package-EJB-CoderBean"/>
         <ant antfile="build_tc.xml" target="package-EJB-UserBean"/>
         <ant antfile="build_tc.xml" target="package-EJB-EmailBean"/>
-        <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
+    </target>
 
-
+    <target name="deploy" depends="build">
         <antcall target="expand"/>
     </target>
 
@@ -273,6 +273,7 @@
                 <include name="Email.jar"/>
             </fileset>
         </copy>
+        <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
         <unwar src="${war.dir}/longcontest.war" dest="${jboss_deploy}/longcontest.war/"
                overwrite="yes"/>
         <delete dir="${jboss_deploy}/longcontest.war/META-INF"/>

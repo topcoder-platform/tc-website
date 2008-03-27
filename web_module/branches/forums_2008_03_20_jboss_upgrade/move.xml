@@ -478,7 +478,7 @@
             <arg line="update -dP"/>
         </exec>
 
-        <ant antfile="build_mm.xml" target="deploy"/>
+        <ant antfile="build_mm.xml" target="build"/>
 
         <jar destfile="mm.jar" update="true">
             <fileset dir=".">
