@@ -3,7 +3,6 @@ package com.topcoder.web.tc.controller.request.data;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.datafeed.AllColumns;
 import com.topcoder.web.common.datafeed.Column;
 import com.topcoder.web.common.datafeed.CommandRunner;
@@ -12,7 +11,7 @@ import com.topcoder.web.common.datafeed.RSCDataFeed;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.model.DataResource;
+import com.topcoder.web.common.security.DataResource;
 
 /**
  * @author dok

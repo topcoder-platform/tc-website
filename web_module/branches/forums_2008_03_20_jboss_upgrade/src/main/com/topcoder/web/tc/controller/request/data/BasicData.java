@@ -13,7 +13,7 @@ import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.model.DataResource;
+import com.topcoder.web.common.security.DataResource;
 import com.topcoder.web.tc.Constants;
 
 import java.util.ArrayList;

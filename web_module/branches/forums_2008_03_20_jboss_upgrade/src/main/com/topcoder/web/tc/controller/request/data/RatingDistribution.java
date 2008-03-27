@@ -1,7 +1,7 @@
 package com.topcoder.web.tc.controller.request.data;
 
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.model.DataResource;
+import com.topcoder.web.common.security.DataResource;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.dataAccess.Request;
