@@ -57,7 +57,9 @@
                 <include name="resources/xsl/**"/>
                 <include name="resources/taglib/**"/>
                 <include name="resources/tc/**"/>
+<!--
                 <include name="resources/longcontest/**"/>
+-->
                 <include name="resources/stat/**"/>
                 <include name="resources/corp/**"/>
                 <include name="resources/email/**"/>
@@ -66,7 +68,9 @@
                 <include name="resources/PrivateLabel*.properties"/>
                 <include name="resources/PactsInternalServlet.properties"/>
                 <include name="resources/Registration.properties"/>
+<!--
                 <include name="resources/LongContest.properties"/>
+-->
                 <include name="resources/CorpConstants.properties"/>
                 <include name="resources/DataAccess.properties"/>
                 <include name="resources/EP.properties"/>
@@ -456,7 +460,43 @@
 
 
 
+    <target name="package-mm" >
 
+        <delete dir="build"/>
+        <delete file="mm.jar"/>
+
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
+        <cvs command="update -Pd" package="build_mm.xml"/>
+
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="cvs">
+            <arg line="update -dP"/>
+        </exec>
+
+        <ant antfile="build_mm.xml" target="deploy"/>
+
+        <jar destfile="mm.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/**"/>
+                <include name="build/wars/**"/>
+                <include name="build/ears/security.ear"/>
+                <include name="resources/longcontest/**"/>
+                <include name="resources/LongContest.properties"/>
+                <include name="resources/DataAccess.properties"/>
+                <include name="resources/problem.xsd"/>
+                <include name="move.xml"/>
+                <include name="build_mm.xml"/>
+                <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/tcwebcommon.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
 
 
 </project>
