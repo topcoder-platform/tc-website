@@ -61,6 +61,9 @@ public class ServerMonitorBot {
             , new PollInfo(true, "http://www.topcoder.com/time", "time tracker", 30)
             , new PollInfo(true, "http://www.topcoder.com/openaim", "open aim", 30)
             , new PollInfo(true, "http://www.topcoder.com/bugs", "bug tracker", 30)
+            , new PollInfo(true, "http://www.topcoder.com/longcontest", "marathon matches", 30)
+            , new PollInfo(true, "http://www.topcoder.com/education", "educational platform", 30)
+            , new PollInfo(true, "http://software.topcoder.com/pipeline", "pipeline tool", 30)
     };
 
     public void run() {
