@@ -188,6 +188,10 @@
             <webinf dir="${java}/com/topcoder/web/codinginterface/longcontest/view/">
                 <include name="tags/*.tag"/>
             </webinf>
+            <webinf dir="${resources}/longcontest">
+                <include name="jboss-web.xml"/>
+            </webinf>
+
             <lib dir="${struts.dir}">
                 <include name="*.jar"/>
             </lib>
