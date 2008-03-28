@@ -75,9 +75,9 @@
 
 <div align="left">
     <div style="float:right;">
-       <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
+       <A href="/wiki/display/tc/How+to+Get+Paid+for+Competing"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
     </div>
-    <span class="bodySubtitle">Assignment Documents > </span><br>
+    <span class="bodySubtitle">Assignment Documents > </span><br />
     <c:if test="${full_list}" >
         View all | <a href="/PactsMemberServlet?module=AssignmentDocumentHistory&full_list=false" class="bcLink">View pending</a>
     </c:if>
@@ -118,7 +118,7 @@
         </div>
     </c:if>
     
-    <br>
+    <br />
     
     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
     <tbody>
@@ -151,7 +151,7 @@
                     <c:when test="${ad.status.id == AFFIRMED_STATUS_ID}">
                         <td class="valueC">
                             <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
-                                Affirmed on<br><fmt:formatDate value="${ad.affirmedDate}" pattern="MM/dd/yyyy"/>
+                                Affirmed on<br /><fmt:formatDate value="${ad.affirmedDate}" pattern="MM/dd/yyyy"/>
                             </a>                
                         </td>
                         <td class="valueC">&nbsp;</td>
@@ -255,7 +255,7 @@
     </c:otherwise>
 </c:choose>
 
-<br>
+<br />
 
      
 

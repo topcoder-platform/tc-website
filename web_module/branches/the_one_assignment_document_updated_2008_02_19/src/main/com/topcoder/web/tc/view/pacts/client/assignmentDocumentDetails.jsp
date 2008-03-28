@@ -65,7 +65,7 @@
                         <input type="submit" value="Affirm"/>
                     </form>
 
-                    <p>If the personal information in this document is incorrect,<br>please <A href="/reg/?nrg=false">update your profile</A> before affirming.</p>
+                    <p>If the personal information in this document is incorrect,<br />please <A href="/reg/?nrg=false">update your profile</A> before affirming.</p>
                     <c:choose>
                         <c:when test="${has_hard_copy}">
                             <p>
