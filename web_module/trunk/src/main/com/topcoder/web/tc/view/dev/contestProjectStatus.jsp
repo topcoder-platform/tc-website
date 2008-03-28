@@ -100,7 +100,7 @@
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <c:choose>
-        <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == ARCHITECTURE_TYPE_ID}">
+        <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == ASSEMBLY_TYPE_ID}">
             <td class="title" colspan="8">Contest Status</td>
         </c:when>
         <c:otherwise>
@@ -109,7 +109,7 @@
         </c:choose>
     </tr>
     <tr>
-        <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ARCHITECTURE_TYPE_ID}">
+        <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID}">
             <td class="headerC">
                 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestProjectStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
             </td>
@@ -141,7 +141,7 @@
     <% boolean even = false; %>
     <rsc:iterator list="<%=contests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
-            <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ARCHITECTURE_TYPE_ID}">
+            <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID}">
             <td class="valueC">
                 <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
                 <img src="/i/development/smAOL.gif"/>
