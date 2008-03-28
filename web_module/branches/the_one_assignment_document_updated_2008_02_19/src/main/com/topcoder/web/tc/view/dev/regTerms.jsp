@@ -154,7 +154,7 @@
                     <% }%>
                     <c:if test="${not empty has_global_ad and not has_global_ad}">
                         <span class="errorText">
-                         You have not yet signed the Assignment Document that is required in order to submit for this contest.  Please go <a href="/tc?module=Static&d1=help&d2=assignmentDocFaq">here</a> to read more about Assignment Documents and what you need to do.  You will not be able to submit for this contest without first sending in the signed Assignment Document.
+                         You have not yet signed the Assignment Document that will be required in order to be paid for this contest.  Please go <a href="/tc?module=Static&d1=help&d2=assignmentDocFaq">here</a> to read more about Assignment Documents and what you need to do.
                          </span><br><br>
                     </c:if>
                     <span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
