@@ -23,6 +23,8 @@
 
 <body>
 
+<c:set value="<%=ContestProjectStatus.DESIGN_TYPE_ID%>" var="DESIGN_TYPE_ID"/>
+<c:set value="<%=ContestProjectStatus.DEVELOPMENT_TYPE_ID%>" var="DEVELOPMENT_TYPE_ID"/>
 <c:set value="<%=ContestProjectStatus.ARCHITECTURE_TYPE_ID%>" var="ARCHITECTURE_TYPE_ID"/>
 <c:set value="<%=ContestProjectStatus.ASSEMBLY_TYPE_ID%>" var="ASSEMBLY_TYPE_ID"/>
 
@@ -36,6 +38,16 @@
 <!-- Left Column Begins-->
 <td width="180">
       <c:choose>
+        <c:when test="${pt == DESIGN_TYPE_ID}">
+           <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="des_contest_status"/>
+           </jsp:include>
+        </c:when>
+        <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
+           <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="dev_contest_status"/>
+           </jsp:include>
+        </c:when>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="architecture_contest_status"/>
@@ -48,6 +60,7 @@
         </c:when>
       </c:choose>
 </td>
+
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
@@ -58,6 +71,18 @@
 <td width="100%" align="center" class="bodyText">
 
       <c:choose>
+        <c:when test="${pt == DESIGN_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="comp_design"/>
+                <jsp:param name="title" value="Contest Status"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="comp_development"/>
+                <jsp:param name="title" value="Contest Status"/>
+            </jsp:include>
+        </c:when>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="architecture"/>
@@ -84,39 +109,39 @@
         </c:choose>
     </tr>
     <tr>
-        <c:if test="${pt == ARCHITECTURE_TYPE_ID || pt == ARCHITECTURE_TYPE_ID}">
+        <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ARCHITECTURE_TYPE_ID}">
             <td class="headerC">
-                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
+                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestProjectStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
             </td>
         </c:if>
         <td class="header" colspan="2">
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("component_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Contest</a>
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestProjectStatus<tc-webtag:sort column="<%=contests.getColumnIndex("component_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Contest</a>
         </td>
         <td class="headerC" nowrap="nowrap">
             Registrants<br>Rated/Unrated
             </td>
         <td class="headerC" nowrap="nowrap">
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("reg_end_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission<br>Due Date</a>
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestProjectStatus<tc-webtag:sort column="<%=contests.getColumnIndex("reg_end_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission<br>Due Date</a>
             </td>
         <td class="headerC" nowrap="nowrap">
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("final_review_end_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Final Review<br>Due Date</a>
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestProjectStatus<tc-webtag:sort column="<%=contests.getColumnIndex("final_review_end_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Final Review<br>Due Date</a>
             </td>
         <td class="headerC">
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("current_phase")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Current Phase</a>
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestProjectStatus<tc-webtag:sort column="<%=contests.getColumnIndex("current_phase")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Current Phase</a>
         </td>
         <td class="header">
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("winner_sort")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Winner</a>
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestProjectStatus<tc-webtag:sort column="<%=contests.getColumnIndex("winner_sort")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Winner</a>
 
             </td>
         <td class="header">
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("second_sort")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Second Place</a>
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestProjectStatus<tc-webtag:sort column="<%=contests.getColumnIndex("second_sort")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Second Place</a>
         </td>
     </tr>
 
     <% boolean even = false; %>
     <rsc:iterator list="<%=contests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
-            <c:if test="${pt == ARCHITECTURE_TYPE_ID || pt == ARCHITECTURE_TYPE_ID}">
+            <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ARCHITECTURE_TYPE_ID}">
             <td class="valueC">
                 <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
                 <img src="/i/development/smAOL.gif"/>
