@@ -3,11 +3,11 @@
 --
 
 -- User #1
-INSERT INTO comp1_common_oltp:user (user_id, first_name, last_name, handle, status, timezone_id) VALUES (1, 'dok', 'dok', 'dok_test', 'A', 143);
-INSERT INTO comp1_common_oltp:security_user VALUES (1, 'dok_test', '4EjPjy6o+/C+dqNPnxIy9A==', null);
-INSERT INTO comp1_informixoltp:coder (coder_id, member_since, coder_type_id) VALUES (1, current, 2);
-INSERT INTO comp1_common_oltp:user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES (1, 1, 14, 1);
-INSERT INTO comp1_common_oltp:user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES (2, 1, 2000118, 1);
+INSERT INTO common_oltp:user (user_id, first_name, last_name, handle, status, timezone_id) VALUES (1, 'dok', 'dok', 'dok_test', 'A', 143);
+INSERT INTO common_oltp:security_user VALUES (1, 'dok_test', '4EjPjy6o+/C+dqNPnxIy9A==', null);
+INSERT INTO informixoltp:coder (coder_id, member_since, coder_type_id) VALUES (1, current, 2);
+INSERT INTO common_oltp:user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES (1, 1, 14, 1);
+INSERT INTO common_oltp:user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES (2, 1, 2000118, 1);
 INSERT INTO email (user_id, email_id, email_type_id, address, primary_ind, status_id) VALUES (1, 1,1, 'fake@fake.com', 1, 1);
 
 -- Contest #1 - TopCoder Direct channel
